@@ -23,11 +23,11 @@ namespace AccountServer
 			this.txtTicketPort.Value = Settings.Default.TicketsPort;
 			if (!File.Exists(".\\server"))
 			{
-				this.日志文本框.AppendText("未找到服务器配置文件, 请注意配置\r\n");
+				this.日志文本框.AppendText("No server configuration file found, please note the configuration\r\n");
 			}
 			if (!Directory.Exists(MainForm.DataDirectory))
 			{
-				this.日志文本框.AppendText("未找到账号配置文件夹, 请注意导入\r\n");
+				this.日志文本框.AppendText("Account configuration folder not found, please note import\r\n");
 			}
 		}
 
@@ -41,7 +41,7 @@ namespace AccountServer
 			}
 			MainForm.BeginInvoke(new MethodInvoker(delegate()
 			{
-				MainForm.Singleton.lblRegisteredAccounts.Text = string.Format("已注册账号: {0}", MainForm.AccountData.Count);
+				MainForm.Singleton.lblRegisteredAccounts.Text = string.Format("Registered accounts: {0}", MainForm.AccountData.Count);
 			}));
 		}
 
@@ -57,7 +57,7 @@ namespace AccountServer
 			}
 			MainForm.BeginInvoke(new MethodInvoker(delegate()
 			{
-				MainForm.Singleton.lblNewAccounts.Text = string.Format("新注册账号: {0}", MainForm.TotalNewAccounts);
+				MainForm.Singleton.lblNewAccounts.Text = string.Format("New accounts: {0}", MainForm.TotalNewAccounts);
 			}));
 		}
 
@@ -71,7 +71,7 @@ namespace AccountServer
 			}
 			MainForm.BeginInvoke(new MethodInvoker(delegate()
 			{
-				MainForm.Singleton.lblTicketsCount.Text = string.Format("生成门票数: {0}", MainForm.TotalTickets);
+				MainForm.Singleton.lblTicketsCount.Text = string.Format("Tickets generated {0}", MainForm.TotalTickets);
 			}));
 		}
 
@@ -85,7 +85,7 @@ namespace AccountServer
 			}
 			MainForm.BeginInvoke(new MethodInvoker(delegate()
 			{
-				MainForm.Singleton.lblBytesReceived.Text = string.Format("已接收字节: {0}", MainForm.TotalBytesReceived);
+				MainForm.Singleton.lblBytesReceived.Text = string.Format("Bytes received {0}", MainForm.TotalBytesReceived);
 			}));
 		}
 
@@ -99,7 +99,7 @@ namespace AccountServer
 			}
 			MainForm.BeginInvoke(new MethodInvoker(delegate()
 			{
-				MainForm.Singleton.lblBytesSend.Text = string.Format("已发送字节: {0}", MainForm.TotalBytesSended);
+				MainForm.Singleton.lblBytesSend.Text = string.Format("Bytes sent {0}", MainForm.TotalBytesSended);
 			}));
 		}
 
@@ -294,7 +294,7 @@ namespace AccountServer
 					MainForm.AccountData[AccountData.账号名字] = AccountData;
 				}
 			}
-			MainForm.AddLog(string.Format("AccountData has been loaded, the current number of accounts: {0}", MainForm.AccountData.Count));
+			MainForm.AddLog(string.Format("Accounts has been loaded, the current number of accounts: {0}", MainForm.AccountData.Count));
 			this.lblRegisteredAccounts.Text = string.Format("Registered account: {0}", MainForm.AccountData.Count);
 		}
 
