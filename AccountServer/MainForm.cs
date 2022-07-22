@@ -85,7 +85,7 @@ namespace AccountServer
 			}
 			MainForm.BeginInvoke(new MethodInvoker(delegate()
 			{
-				MainForm.Singleton.lblBytesReceived.Text = string.Format("Bytes received {0}", MainForm.TotalBytesReceived);
+				MainForm.Singleton.lblBytesReceived.Text = string.Format("Bytes received: {0}", MainForm.TotalBytesReceived);
 			}));
 		}
 
@@ -99,7 +99,7 @@ namespace AccountServer
 			}
 			MainForm.BeginInvoke(new MethodInvoker(delegate()
 			{
-				MainForm.Singleton.lblBytesSend.Text = string.Format("Bytes sent {0}", MainForm.TotalBytesSended);
+				MainForm.Singleton.lblBytesSend.Text = string.Format("Bytes sent: {0}", MainForm.TotalBytesSended);
 			}));
 		}
 
