@@ -75,13 +75,13 @@ namespace GameServer
 			FieldInfo[] array2;
 			if (!GMCommand.命令字典.TryGetValue(array[0], out type) || !GMCommand.字段列表.TryGetValue(array[0], out array2))
 			{
-				MainForm.添加命令日志("<= @命令解析错误, '" + array[0] + "' 不是支持的GMCommand");
+				MainForm.添加命令日志("<= @" + array[0] + " is not a valid GM command, use @ViewCommand");
 				命令 = null;
 				return false;
 			}
 			if (array.Length <= GMCommand.字段列表[array[0]].Length)
 			{
-				MainForm.添加命令日志("<= @参数长度错误, 请参照格式: " + GMCommand.命令格式[array[0]]);
+				MainForm.添加命令日志("<= Parameter length error, please see format: " + GMCommand.命令格式[array[0]]);
 				命令 = null;
 				return false;
 			}
@@ -96,11 +96,11 @@ namespace GameServer
 				{
 					MainForm.添加命令日志(string.Concat(new string[]
 					{
-						"<= @参数转换错误. 不能将字符串 '",
+						"<= Parameter conversion error. The string cannot be converted to '",
 						array[i + 1],
-						"' 转换为参数 '",
+						"' Convert to parameters '",
 						array2[i].Name,
-						"' 所需要的Data型"
+						"' Data type required"
 					}));
 					命令 = null;
 					return false;
