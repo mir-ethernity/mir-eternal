@@ -24,7 +24,7 @@ namespace GameServer
         public static void LoadSystemData()
         {
             MainForm MainForm = MainForm.Singleton;
-            MainForm.AddSystemLog("正在加载SystemData...");
+            MainForm.AddSystemLog("Loading system data...");
             MainForm.MapsDataTable = new DataTable("地图数据表");
             MainForm.MapsDataRow = new Dictionary<游戏地图, DataRow>();
             MainForm.MapsDataTable.Columns.Add("地图编号", typeof(string));
@@ -77,14 +77,14 @@ namespace GameServer
                 }));
             }
             SystemDataService.LoadData();
-            MainForm.AddSystemLog("SystemData加载完成");
+            MainForm.AddSystemLog("System data has been loaded succesful");
         }
 
         // Token: 0x06000089 RID: 137 RVA: 0x000122A8 File Offset: 0x000104A8
         public static void LoadUserData()
         {
             MainForm MainForm = MainForm.Singleton;
-            MainForm.AddSystemLog("正在加载客户数据...");
+            MainForm.AddSystemLog("Loading client data...");
             MainForm.CharacterDataTable = new DataTable("CharacterDataTable");
             MainForm.SkillData表 = new DataTable("SkillData表");
             MainForm.EquipmentData表 = new DataTable("EquipmentData表");
@@ -197,7 +197,7 @@ namespace GameServer
                 }));
             }
             GameDataGateway.加载数据();
-            MainForm.AddSystemLog("客户数据加载完成");
+            MainForm.AddSystemLog("Client data has been loaded successful");
         }
 
         // Token: 0x0600008A RID: 138 RVA: 0x00002B15 File Offset: 0x00000D15
@@ -318,7 +318,7 @@ namespace GameServer
             }
             MainForm.BeginInvoke(new MethodInvoker(delegate ()
             {
-                MainForm.Singleton.连接总数统计.Text = string.Format("连接总数: {0}", 内容);
+                MainForm.Singleton.连接总数统计.Text = string.Format("Total Connections: {0}", 内容);
             }));
         }
 
@@ -332,7 +332,7 @@ namespace GameServer
             }
             MainForm.BeginInvoke(new MethodInvoker(delegate ()
             {
-                MainForm.Singleton.已经登录统计.Text = string.Format("已经登录: {0}", 内容);
+                MainForm.Singleton.已经登录统计.Text = string.Format("Users logged in: {0}", 内容);
             }));
         }
 
@@ -346,7 +346,7 @@ namespace GameServer
             }
             MainForm.BeginInvoke(new MethodInvoker(delegate ()
             {
-                MainForm.Singleton.已经上线统计.Text = string.Format("已经上线: {0}", 内容);
+                MainForm.Singleton.已经上线统计.Text = string.Format("Users online: {0}", 内容);
             }));
         }
 
@@ -360,7 +360,7 @@ namespace GameServer
             }
             MainForm.BeginInvoke(new MethodInvoker(delegate ()
             {
-                MainForm.Singleton.帧数统计.Text = string.Format("后台帧数: {0}", 内容);
+                MainForm.Singleton.帧数统计.Text = string.Format("Backstage Frames: {0}", 内容);
             }));
         }
 
@@ -374,7 +374,7 @@ namespace GameServer
             }
             MainForm.BeginInvoke(new MethodInvoker(delegate ()
             {
-                MainForm.Singleton.接收统计.Text = string.Format("已经接收: {0}", 内容);
+                MainForm.Singleton.接收统计.Text = string.Format("Received: {0}", 内容);
             }));
         }
 
@@ -388,7 +388,7 @@ namespace GameServer
             }
             MainForm.BeginInvoke(new MethodInvoker(delegate ()
             {
-                MainForm.Singleton.发送统计.Text = string.Format("已经发送: {0}", 内容);
+                MainForm.Singleton.发送统计.Text = string.Format("Sent: {0}", 内容);
             }));
         }
 
@@ -402,7 +402,7 @@ namespace GameServer
             }
             MainForm.BeginInvoke(new MethodInvoker(delegate ()
             {
-                MainForm.Singleton.对象统计.Text = string.Format("对象统计: {0} / {1} / {2}", 激活对象, 次要对象, 对象总数);
+                MainForm.Singleton.对象统计.Text = string.Format("Object Statistics {0} / {1} / {2}", 激活对象, 次要对象, 对象总数);
             }));
         }
 
@@ -901,10 +901,10 @@ namespace GameServer
             this.保存按钮.BackColor = Color.LightSteelBlue;
             Task.Run(delegate ()
             {
-                MainForm.AddSystemLog("正在保存客户数据...");
+                MainForm.AddSystemLog("Saving customer data...");
                 GameDataGateway.保存数据();
                 GameDataGateway.导出数据();
-                MainForm.AddSystemLog("客户数据已经保存");
+                MainForm.AddSystemLog("Saving customer data...");
                 base.BeginInvoke(new MethodInvoker(delegate ()
                 {
                     this.启动按钮.Enabled = true;
@@ -962,7 +962,7 @@ namespace GameServer
         // Token: 0x060000AA RID: 170 RVA: 0x00002BD6 File Offset: 0x00000DD6
         private void 停止服务器_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("确定停止服务器?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            if (MessageBox.Show("Sure to stop the server?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 MainProcess.停止服务();
                 this.停止按钮.Enabled = false;
@@ -972,7 +972,7 @@ namespace GameServer
         // Token: 0x060000AB RID: 171 RVA: 0x00013C24 File Offset: 0x00011E24
         private void 关闭主界面_Click(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("确定关闭服务器?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            if (MessageBox.Show("Sure to shut down the server?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 for (; ; )
                 {
@@ -984,7 +984,7 @@ namespace GameServer
                     MainProcess.停止服务();
                     Thread.Sleep(1);
                 }
-                if (GameDataGateway.已经修改 && MessageBox.Show("客户数据已经修改但尚未保存, 需要保存数据吗?", "保存数据", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                if (GameDataGateway.已经修改 && MessageBox.Show("Do I need to save data that has been modified but not yet saved?", "Save Data", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
                     GameDataGateway.保存数据();
                     GameDataGateway.导出数据();
@@ -1046,7 +1046,7 @@ namespace GameServer
                     Directory.CreateDirectory(".\\Log\\Sys");
                 }
                 File.WriteAllText(string.Format(".\\Log\\Sys\\{0:yyyy-MM-dd--HH-mm-ss}.txt", DateTime.Now), this.系统日志.Text.Replace("\n", "\r\n"));
-                MainForm.AddSystemLog("系统日志已成功保存");
+                MainForm.AddSystemLog("The system log has been successfully saved");
                 return;
             }
         }
@@ -1061,7 +1061,7 @@ namespace GameServer
                     Directory.CreateDirectory(".\\Log\\Chat");
                 }
                 File.WriteAllText(string.Format(".\\Log\\Chat\\{0:yyyy-MM-dd--HH-mm-ss}.txt", DateTime.Now), this.系统日志.Text);
-                MainForm.AddSystemLog("系统日志已成功保存");
+                MainForm.AddSystemLog("The system log has been successfully saved");
                 return;
             }
         }
@@ -1205,7 +1205,7 @@ namespace GameServer
                 GMCommand GMCommand;
                 if (this.GMCommand文本.Text[0] != '@')
                 {
-                    MainForm.添加命令日志("<= 命令解析错误, GMCommand必须以 '@' 开头. 输入 '@ViewCommand' 获取所有受支持的命令格式");
+                    MainForm.添加命令日志("<= Command error, GM commands must start with '@' at the start. '@ViewCommand' 获取所有受支持的命令格式");
                 }
                 else if (this.GMCommand文本.Text.Trim(new char[]
                 {
@@ -1213,7 +1213,7 @@ namespace GameServer
                     ' '
                 }).Length == 0)
                 {
-                    MainForm.添加命令日志("<= 命令解析错误, GMCommand不能为空. 输入 '@ViewCommand' 获取所有受支持的命令格式");
+                    MainForm.添加命令日志("<= Command error, GM commands can not be empty. Type '@ViewCommand' to see all available");
                 }
                 else if (GMCommand.解析命令(this.GMCommand文本.Text, out GMCommand))
                 {
@@ -1240,7 +1240,7 @@ namespace GameServer
                         }
                         else
                         {
-                            MainForm.添加命令日志("<= 命令执行失败, 当前命令只能在服务器运行时执行, 请先启动服务器");
+                            MainForm.添加命令日志("<= Command execution failed, the current command can only be executed when the server is running, please start the server first");
                         }
                     }
                     else if (GMCommand.ExecutionWay == ExecutionWay.只能空闲执行)
@@ -1251,7 +1251,7 @@ namespace GameServer
                         }
                         else
                         {
-                            MainForm.添加命令日志("<= 命令执行失败, 当前命令只能在服务器未运行时执行, 请先关闭服务器");
+                            MainForm.添加命令日志("<= Command execution failed, the current command can only be executed when the server is not running, please shut down the server first");
                         }
                     }
                     e.Handled = true;
@@ -1265,26 +1265,26 @@ namespace GameServer
         {
             if (MainProcess.已经启动)
             {
-                MessageBox.Show("合并数据只能在服务器未运行时执行");
+                MessageBox.Show("Merging data can only be performed when the server is not running");
                 return;
             }
             Dictionary<Type, DataTableBase> Data型表 = GameDataGateway.Data型表;
             if (Data型表 == null || Data型表.Count == 0)
             {
-                MessageBox.Show("需要先加载当前客户数据后才能与指定客户数据合并");
+                MessageBox.Show("The current customer data needs to be loaded before it can be merged with the specified customer data");
                 return;
             }
             if (!Directory.Exists(this.S_合并数据目录.Text))
             {
-                MessageBox.Show("请选择有效的 Data.db 文件目录");
+                MessageBox.Show("Please select a valid Data.db file directory");
                 return;
             }
             if (!File.Exists(this.S_合并数据目录.Text + "\\Data.db"))
             {
-                MessageBox.Show("选择的目录中没有找到 Data.db 文件");
+                MessageBox.Show("The Data.db file was not found in the selected directory");
                 return;
             }
-            if (MessageBox.Show("即将执行数据合并操作\r\n\r\n此操作不可逆, 请做好数据备份\r\n\r\n确定要执行吗?", "危险操作", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            if (MessageBox.Show("This operation is irreversible, please make a backup of your data \r\n\r\n sure you want to do it?", "Dangerous operations", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
                 GameDataGateway.合并数据(this.S_合并数据目录.Text + "\\Data.db");
             }
@@ -1472,7 +1472,7 @@ namespace GameServer
             {
                 Task.Run(delegate ()
                 {
-                    MessageBox.Show("服务器未启动, 请先开启服务器");
+                    MessageBox.Show("The server is not started, please start the server first");
                 });
                 return;
             }
@@ -1486,7 +1486,7 @@ namespace GameServer
             {
                 Task.Run(delegate ()
                 {
-                    MessageBox.Show("系统公告未能开启, 公告间隔必须为大于0的整数");
+                    MessageBox.Show("System announcement cannot be opened, the announcement interval must be an integer greater than 0");
                 });
                 return;
             }
@@ -1495,7 +1495,7 @@ namespace GameServer
             {
                 Task.Run(delegate ()
                 {
-                    MessageBox.Show("系统公告未能开启, 公告次数必须为大于0的整数");
+                    MessageBox.Show("System announcement is not enabled, the number of announcements must be an integer greater than 0");
                 });
                 return;
             }
@@ -1511,7 +1511,7 @@ namespace GameServer
             }
             Task.Run(delegate ()
             {
-                MessageBox.Show("系统公告未能开启, 公告内容不能为空");
+                MessageBox.Show("System announcement cannot be opened, announcement content cannot be empty");
             });
         }
 
