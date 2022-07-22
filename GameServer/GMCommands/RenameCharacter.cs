@@ -28,27 +28,27 @@ namespace GameServer
 				{
 					if (CharacterData.网络连接 != null || CharacterData.所属账号.V.网络连接 != null)
 					{
-						MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 账号必须下线");
+						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, account must be taken offline");
 						return;
 					}
 					if (Encoding.UTF8.GetBytes(this.NewCharacterName).Length > 24)
 					{
-						MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 角色名字太长");
+						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, character name too long");
 						return;
 					}
 					if (GameDataGateway.CharacterDataTable.Keyword.ContainsKey(this.NewCharacterName))
 					{
-						MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 名字已被注册");
+						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, name already registered");
 						return;
 					}
 					GameDataGateway.CharacterDataTable.Keyword.Remove(CharacterData.角色名字.V);
 					CharacterData.角色名字.V = this.NewCharacterName;
 					GameDataGateway.CharacterDataTable.Keyword.Add(CharacterData.角色名字.V, CharacterData);
-					MainForm.添加命令日志(string.Format("<= @{0} 命令已经执行, 角色当前名字: {1}", base.GetType().Name, CharacterData));
+					MainForm.添加命令日志(string.Format("<= @{0} command has been executed, with the current name of the character: {1}", base.GetType().Name, CharacterData));
 					return;
 				}
 			}
-			MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 角色不存在");
+			MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, role does not exist");
 		}
 
 		// Token: 0x06000053 RID: 83 RVA: 0x00002858 File Offset: 0x00000A58
