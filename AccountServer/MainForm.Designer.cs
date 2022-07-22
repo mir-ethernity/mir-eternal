@@ -70,7 +70,7 @@
             this.日志选项卡.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.日志选项卡.Size = new System.Drawing.Size(712, 505);
             this.日志选项卡.TabIndex = 0;
-            this.日志选项卡.Text = "日志";
+            this.日志选项卡.Text = "Logs";
             // 
             // 日志文本框
             // 
@@ -235,7 +235,7 @@
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
             this.退出ToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
-            this.退出ToolStripMenuItem.Text = "退出";
+            this.退出ToolStripMenuItem.Text = "Exit";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.EndProcess_Click);
             // 
             // btnServerConfig
