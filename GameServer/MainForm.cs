@@ -1159,7 +1159,7 @@ namespace GameServer
                         CustomClass.门票接收端口 = (Settings.Default.门票接收端口 = (ushort)numericUpDown.Value);
                         break;
                     case "S_异常屏蔽时间":
-                        CustomClass.门票接收端口 = (Settings.Default.门票接收端口 = (ushort)numericUpDown.Value);
+                        CustomClass.异常屏蔽时间 = (Settings.Default.异常屏蔽时间 = (ushort)numericUpDown.Value);
                         break;
                     case "S_减收益等级差":
                         CustomClass.减收益等级差 = (ushort)(Settings.Default.减收益等级差 = (byte)numericUpDown.Value);
