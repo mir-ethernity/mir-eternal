@@ -3855,7 +3855,15 @@ namespace GameServer.Maps
 										SkillData SkillData2;
 										BuffData BuffData2;
 										BuffData BuffData3;
-										if ((游戏技能.验证已学技能 == 0 || (this.主体技能表.TryGetValue(游戏技能.验证已学技能, out SkillData2) && (游戏技能.验证技能铭文 == 0 || 游戏技能.验证技能铭文 == SkillData2.铭文编号))) && (游戏技能.验证角色Buff == 0 || (this.Buff列表.TryGetValue(游戏技能.验证角色Buff, out BuffData2) && (int)BuffData2.当前层数.V >= 游戏技能.角色Buff层数)) && (游戏技能.验证目标Buff == 0 || (MapObject != null && MapObject.Buff列表.TryGetValue(游戏技能.验证目标Buff, out BuffData3) && (int)BuffData3.当前层数.V >= 游戏技能.目标Buff层数)) && (游戏技能.验证目标类型 == 指定目标类型.无 || (MapObject != null && MapObject.特定类型(this, 游戏技能.验证目标类型))))
+										if ((游戏技能.验证已学技能 == 0 
+											|| (
+											this.主体技能表.TryGetValue(游戏技能.验证已学技能, out SkillData2) 
+											&& (
+												游戏技能.验证技能铭文 == 0 
+												|| 游戏技能.验证技能铭文 == SkillData2.铭文编号
+											   )
+											)
+										 ) && (游戏技能.验证角色Buff == 0 || (this.Buff列表.TryGetValue(游戏技能.验证角色Buff, out BuffData2) && (int)BuffData2.当前层数.V >= 游戏技能.角色Buff层数)) && (游戏技能.验证目标Buff == 0 || (MapObject != null && MapObject.Buff列表.TryGetValue(游戏技能.验证目标Buff, out BuffData3) && (int)BuffData3.当前层数.V >= 游戏技能.目标Buff层数)) && (游戏技能.验证目标类型 == 指定目标类型.无 || (MapObject != null && MapObject.特定类型(this, 游戏技能.验证目标类型))))
 										{
 											SkillData SkillData3;
 											if (this.主体技能表.TryGetValue(游戏技能.绑定等级编号, out SkillData3))

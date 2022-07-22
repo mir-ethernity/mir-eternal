@@ -697,7 +697,7 @@ namespace GameServer.Data
 					num2 = num4;
 					binaryWriter5.Write(num2.GetValueOrDefault());
 					binaryWriter.Write((byte)ComputingClass.时间转换(this.离线日期.V));
-					binaryWriter.Write(this.冻结日期.V.Equals(default(DateTime)) ? 0 : (byte)(ComputingClass.时间转换(this.冻结日期.V)));
+					binaryWriter.Write(this.冻结日期.V.Equals(default(DateTime)) ? (byte)0 : (byte)(ComputingClass.时间转换(this.冻结日期.V)));
 					result = memoryStream.ToArray();
 				}
 			}
