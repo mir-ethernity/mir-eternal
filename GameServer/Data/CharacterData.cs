@@ -291,7 +291,7 @@ namespace GameServer.Data
 			this.物理地址.V = 网络.物理地址;
 			this.网络地址.V = 网络.网络地址;
 			MainForm.更新CharacterData(this, "离线日期", null);
-			MainForm.AddSystemLog(string.Format("玩家[{0}][{1}级]进入了游戏", this.角色名字, this.当前等级));
+			MainForm.AddSystemLog(string.Format("Player [{0}][{1} level] has entered the game", this.角色名字, this.当前等级));
 		}
 
 		// Token: 0x060005EA RID: 1514 RVA: 0x0002C67C File Offset: 0x0002A87C
