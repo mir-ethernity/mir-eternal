@@ -786,9 +786,9 @@ namespace GameServer.Maps
 						PK值惩罚 = 50
 					});
 				}
-				string text = (this.所属行会 != null) ? string.Format("[{0}]行会的", this.所属行会) : "";
-				string text2 = (PlayerObject.所属行会 != null) ? string.Format("[{0}]行会的", PlayerObject.所属行会) : "";
-				NetworkServiceGateway.发送公告(string.Format("{0}[{1}]在{2}被{3}[{4}]击杀", new object[]
+				string text = (this.所属行会 != null) ? string.Format("[{0}] of the Guild", this.所属行会) : "";
+				string text2 = (PlayerObject.所属行会 != null) ? string.Format("[{0}] of the Guild", PlayerObject.所属行会) : "";
+				NetworkServiceGateway.发送公告(string.Format("{0}[{1}] was killed by {3}[{4}] in {2}", new object[]
 				{
 					text,
 					this,
@@ -7333,7 +7333,7 @@ namespace GameServer.Maps
 								this.金币数量 -= 1000000;
 								this.消耗背包物品(1, 当前物品);
 								SystemData.数据.申请行会.Add(MainProcess.当前时间.Date.AddDays(1.0).AddHours(20.0), this.所属行会);
-								NetworkServiceGateway.发送公告(string.Format("[{0}]行会已经报名参加次日的沙巴克争夺战", this.所属行会), true);
+								NetworkServiceGateway.发送公告(string.Format("The guild [{0}] has signed up for the next day's Shabak Battle", this.所属行会), true);
 								return;
 							}
 							客户网络 网络连接157 = this.网络连接;
@@ -7672,17 +7672,17 @@ namespace GameServer.Maps
 		{
 			if (扩展大小 == 0)
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 玩家扩展背包.  错误: 扩展参数错误."));
+				this.网络连接.尝试断开连接(new Exception("Wrong action: Player expanded backpack.  Error: Wrong expansion parameter."));
 				return;
 			}
 			if (背包类型 == 1 && this.背包大小 + 扩展大小 > 64)
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 玩家扩展背包.  错误: 背包超出限制."));
+				this.网络连接.尝试断开连接(new Exception("Wrong action: Player expanded backpack.  Error: Backpack exceeds limit."));
 				return;
 			}
 			if (背包类型 == 2 && this.仓库大小 + 扩展大小 > 72)
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 玩家扩展背包.  错误: 仓库超出限制."));
+				this.网络连接.尝试断开连接(new Exception("Wrong action: Player expanded backpack.  Error: Warehouse exceeded limit."));
 				return;
 			}
 			if (背包类型 != 1)
@@ -7758,7 +7758,7 @@ namespace GameServer.Maps
 		// Token: 0x06000931 RID: 2353 RVA: 0x000076E1 File Offset: 0x000058E1
 		public void 商店特修单件(byte 背包类型, byte 装备位置)
 		{
-			this.网络连接.尝试断开连接(new Exception("错误操作: 特修单件装备.  错误: 功能已经屏蔽."));
+			this.网络连接.尝试断开连接(new Exception("MISTAKE: Special repair of a single piece of equipment.  Error: Function blocked."));
 		}
 
 		// Token: 0x06000932 RID: 2354 RVA: 0x0004E370 File Offset: 0x0004C570
@@ -7770,17 +7770,17 @@ namespace GameServer.Maps
 			}
 			if (this.对话守卫 == null)
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 商店修理单件.  错误: 没有选中Npc."));
+				this.网络连接.尝试断开连接(new Exception("Bug: Shop repair single piece.  Error: Npc not selected."));
 				return;
 			}
 			if (this.打开商店 == 0)
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 商店修理单件.  错误: 没有打开商店."));
+				this.网络连接.尝试断开连接(new Exception("Wrong action: Shop repairing single piece.  Error: Shop not opened."));
 				return;
 			}
 			if (this.当前地图 != this.对话守卫.当前地图 || base.网格距离(this.对话守卫) > 12)
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 商店修理单件.  错误: 人物距离太远."));
+				this.网络连接.尝试断开连接(new Exception("Bug: Shop repair single piece.  Bug: Character is too far away."));
 				return;
 			}
 			if (背包类型 != 1)
@@ -7939,17 +7939,17 @@ namespace GameServer.Maps
 			}
 			if (this.对话守卫 == null)
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 商店修理单件.  错误: 没有选中Npc."));
+				this.网络连接.尝试断开连接(new Exception("Wrong action: Shop repair single piece.  Error: Npc not selected."));
 				return;
 			}
 			if (this.打开商店 == 0)
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 商店修理单件.  错误: 没有打开商店."));
+				this.网络连接.尝试断开连接(new Exception("Wrong action: Shop repairing single piece.  Error: Shop not opened."));
 				return;
 			}
 			if (this.当前地图 != this.对话守卫.当前地图 || base.网格距离(this.对话守卫) > 12)
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 商店修理单件.  错误: 人物距离太远."));
+				this.网络连接.尝试断开连接(new Exception("Bug: Shop repair single piece.  Bug: Character is too far away."));
 				return;
 			}
 			if (this.金币数量 < this.角色装备.Values.Sum(delegate(EquipmentData O)
@@ -8015,7 +8015,7 @@ namespace GameServer.Maps
 			}
 			if (物品编号 != 0)
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 商店修理单件.  错误: 禁止使用物品."));
+				this.网络连接.尝试断开连接(new Exception("MISTAKE: Shop repair of a single item.  Error: Prohibited item."));
 				return;
 			}
 			if (背包类型 != 1)
@@ -8398,7 +8398,7 @@ namespace GameServer.Maps
 										});
 									}
 								}
-								MainProcess.添加系统日志(string.Format("[{0}][{1}级] 购买了 [{2}] * {3}, 消耗元宝[{4}]", new object[]
+								MainProcess.添加系统日志(string.Format("[{0}][{1} level] Purchased [{2}] * {3}, consumed $[{4}]", new object[]
 								{
 									this.对象名字,
 									this.当前等级,
@@ -8501,7 +8501,7 @@ namespace GameServer.Maps
 									变量内容 = ComputingClass.时间转换(MainProcess.当前时间)
 								});
 							}
-							MainProcess.添加系统日志(string.Format("[{0}][{1}级] 购买了 [每周补给礼包], 消耗元宝[600]", this.对象名字, this.当前等级));
+							MainProcess.添加系统日志(string.Format("Level [{0}][{1}] purchased [Weekly Refill Pack], consumed [600] GameCoins", this.对象名字, this.当前等级));
 							return;
 						}
 					}
@@ -8581,7 +8581,7 @@ namespace GameServer.Maps
 											变量内容 = ComputingClass.时间转换(MainProcess.当前时间)
 										});
 									}
-									MainProcess.添加系统日志(string.Format("[{0}][{1}级] 购买了 [每周战备礼包], 消耗元宝[3000]", this.对象名字, this.当前等级));
+									MainProcess.添加系统日志(string.Format("[{0}][Level {1}] Purchased [Weekly Battle Pack], consumed [3000] GameCoins", this.对象名字, this.当前等级));
 									return;
 								}
 								客户网络 网络连接10 = this.网络连接;
@@ -8654,7 +8654,7 @@ namespace GameServer.Maps
 								变量内容 = ComputingClass.时间转换(MainProcess.当前时间)
 							});
 						}
-						MainProcess.添加系统日志(string.Format("[{0}][{1}级] 购买了 [每周战备礼包], 消耗元宝[3000]", this.对象名字, this.当前等级));
+						MainProcess.添加系统日志(string.Format("Level [{0}][{1}] purchased [Weekly Battle Pack], consumed Yuan Bao [3000]", this.对象名字, this.当前等级));
 						return;
 					}
 					客户网络 网络连接14 = this.网络连接;
@@ -8747,17 +8747,17 @@ namespace GameServer.Maps
 				}
 				if (特权类型 == 3)
 				{
-					MainProcess.添加系统日志("[" + this.对象名字 + "] 购买了 [玛法名俊], 消耗元宝[12800]");
+					MainProcess.添加系统日志("[" + this.对象名字 + "] Purchased [Marfa Name Jun], consumed [12,800] GameCoins");
 					return;
 				}
 				if (特权类型 == 4)
 				{
-					MainProcess.添加系统日志("[" + this.对象名字 + "] 购买了 [玛法豪杰], 消耗元宝[28800]");
+					MainProcess.添加系统日志("[" + this.对象名字 + "] Purchased [Marauders], consumed [28,800] GameCoins");
 					return;
 				}
 				if (特权类型 == 5)
 				{
-					MainProcess.添加系统日志("[" + this.对象名字 + "] 购买了 [玛法战将], 消耗元宝[28800]");
+					MainProcess.添加系统日志("[" + this.对象名字 + "] Purchased [Marfa Warlord], consumed [28,800] GameCoins");
 				}
 				return;
 			}
@@ -8808,7 +8808,7 @@ namespace GameServer.Maps
 		{
 			if (礼包位置 >= 28)
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 领取特权礼包  错误: 礼包位置错误"));
+				this.网络连接.尝试断开连接(new Exception("Wrong action: Receive privilege pack Error: Wrong pack location"));
 				return;
 			}
 			if (特权类型 == 1)
@@ -10577,7 +10577,7 @@ namespace GameServer.Maps
 			{
 				if (背包类型 != 1)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: 玩家使用物品.  错误: 背包类型错误."));
+					this.网络连接.尝试断开连接(new Exception("Wrong action: Player using an item.  Error: Wrong type of backpack."));
 					return;
 				}
 				ItemData ItemData;
@@ -10598,17 +10598,17 @@ namespace GameServer.Maps
 				{
 					if ((int)this.当前等级 < ItemData.需要等级)
 					{
-						this.网络连接.尝试断开连接(new Exception("错误操作: 玩家使用物品.  错误: 等级无法使用."));
+						this.网络连接.尝试断开连接(new Exception("Error: Player uses an item.  Error: Level cannot be used."));
 						return;
 					}
 					if (ItemData.需要职业 != GameObjectProfession.通用 && this.角色职业 != ItemData.需要职业)
 					{
-						this.网络连接.尝试断开连接(new Exception("错误操作: 玩家使用物品.  错误: 性别无法使用."));
+						this.网络连接.尝试断开连接(new Exception("Bug: Player using an item.  Error: Gender is not available."));
 						return;
 					}
 					if (ItemData.需要职业 != GameObjectProfession.通用 && this.角色职业 != ItemData.需要职业)
 					{
-						this.网络连接.尝试断开连接(new Exception("错误操作: 玩家使用物品.  错误: 职业无法使用."));
+						this.网络连接.尝试断开连接(new Exception("Error: Player uses an item.  Error: Occupation cannot be used."));
 						return;
 					}
 					DateTime t;
@@ -11855,7 +11855,7 @@ namespace GameServer.Maps
 														this.更新对象属性();
 														if (EquipmentData.幸运等级.V >= 5)
 														{
-															NetworkServiceGateway.发送公告(string.Format("[{0}] 成功将 [{1}] 升到幸运 {2} 级.", this.对象名字, EquipmentData.物品名字, EquipmentData.幸运等级.V), false);
+															NetworkServiceGateway.发送公告(string.Format("[{0}] successfully upgraded [{1}] to Luck {2}.", this.对象名字, EquipmentData.物品名字, EquipmentData.幸运等级.V), false);
 															return;
 														}
 														return;
@@ -15532,7 +15532,7 @@ namespace GameServer.Maps
 			}
 			if (this.打开界面 != "SoulEmbed")
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 玩家镶嵌灵石.  错误: 没有打开界面"));
+				this.网络连接.尝试断开连接(new Exception("Error: Player inlaid a spirit stone.  Error: Interface not opened"));
 				return;
 			}
 			if (装备类型 == 1)
@@ -15548,22 +15548,22 @@ namespace GameServer.Maps
 							ItemData ItemData2;
 							if (!this.角色背包.TryGetValue(灵石位置, out ItemData2))
 							{
-								this.网络连接.尝试断开连接(new Exception("错误操作: 玩家镶嵌灵石.  错误: 没有找到灵石"));
+								this.网络连接.尝试断开连接(new Exception("Error: The player set the spirit stone.  Error: No stone found"));
 								return;
 							}
 							if (EquipmentData.孔洞颜色.Count <= (int)装备孔位)
 							{
-								this.网络连接.尝试断开连接(new Exception("错误操作: 玩家镶嵌灵石.  错误: 装备孔位错误"));
+								this.网络连接.尝试断开连接(new Exception("Error: Player inlaid a spirit stone.  Error: Wrong hole in equipment"));
 								return;
 							}
 							if (EquipmentData.镶嵌灵石.ContainsKey(装备孔位))
 							{
-								this.网络连接.尝试断开连接(new Exception("错误操作: 玩家镶嵌灵石.  错误: 已有镶嵌灵石"));
+								this.网络连接.尝试断开连接(new Exception("Error: The player has set the stone.  Error: There are already stones inlaid"));
 								return;
 							}
 							if ((EquipmentData.孔洞颜色[(int)装备孔位] == EquipHoleColor.绿色 && ItemData2.物品名字.IndexOf("精绿灵石") == -1) || (EquipmentData.孔洞颜色[(int)装备孔位] == EquipHoleColor.黄色 && ItemData2.物品名字.IndexOf("守阳灵石") == -1) || (EquipmentData.孔洞颜色[(int)装备孔位] == EquipHoleColor.蓝色 && ItemData2.物品名字.IndexOf("蔚蓝灵石") == -1) || (EquipmentData.孔洞颜色[(int)装备孔位] == EquipHoleColor.紫色 && ItemData2.物品名字.IndexOf("纯紫灵石") == -1) || (EquipmentData.孔洞颜色[(int)装备孔位] == EquipHoleColor.灰色 && ItemData2.物品名字.IndexOf("深灰灵石") == -1) || (EquipmentData.孔洞颜色[(int)装备孔位] == EquipHoleColor.橙色 && ItemData2.物品名字.IndexOf("橙黄灵石") == -1) || (EquipmentData.孔洞颜色[(int)装备孔位] == EquipHoleColor.红色 && ItemData2.物品名字.IndexOf("驭朱灵石") == -1 && ItemData2.物品名字.IndexOf("命朱灵石") == -1))
 							{
-								this.网络连接.尝试断开连接(new Exception("错误操作: 玩家镶嵌灵石.  错误: 指定灵石错误"));
+								this.网络连接.尝试断开连接(new Exception("Wrong action: Player inlaid a spirit stone.  Error: Error specifying a stone"));
 								return;
 							}
 							this.消耗背包物品(1, ItemData2);
@@ -15588,11 +15588,11 @@ namespace GameServer.Maps
 							return;
 						}
 					}
-					this.网络连接.尝试断开连接(new Exception("错误操作: 玩家镶嵌灵石.  错误: 没有找到装备"));
+					this.网络连接.尝试断开连接(new Exception("MISTAKE: Player inlaid spirit stones.  Error: Equipment not found"));
 					return;
 				}
 			}
-			this.网络连接.尝试断开连接(new Exception("错误操作: 玩家镶嵌灵石.  错误: 不是角色背包"));
+			this.网络连接.尝试断开连接(new Exception("Error: The player set the spirit stone.  Error: Not in character backpack"));
 		}
 
 		// Token: 0x0600094E RID: 2382 RVA: 0x00057AA8 File Offset: 0x00055CA8
@@ -15605,12 +15605,12 @@ namespace GameServer.Maps
 			}
 			if (this.打开界面 != "SoulEmbed")
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 玩家镶嵌灵石.  错误: 没有打开界面"));
+				this.网络连接.尝试断开连接(new Exception("Error: Player inlaid a spirit stone.  Error: Interface not opened"));
 				return;
 			}
 			if (装备类型 != 1)
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 玩家镶嵌灵石.  错误: 不是角色背包"));
+				this.网络连接.尝试断开连接(new Exception("Error: Player inlaid a spirit stone.  Error: Not in character backpack"));
 				return;
 			}
 			if (this.背包剩余 > 0)
@@ -15624,7 +15624,7 @@ namespace GameServer.Maps
 						游戏物品 游戏物品;
 						if (!EquipmentData.镶嵌灵石.TryGetValue(装备孔位, out 游戏物品))
 						{
-							this.网络连接.尝试断开连接(new Exception("错误操作: 玩家镶嵌灵石.  错误: 没有镶嵌灵石"));
+							this.网络连接.尝试断开连接(new Exception("Error: The player has set a spirit stone.  Error: No stones are inlaid"));
 							return;
 						}
 						if (游戏物品.物品名字.IndexOf("1级") > 0)
@@ -15731,7 +15731,7 @@ namespace GameServer.Maps
 						return;
 					}
 				}
-				this.网络连接.尝试断开连接(new Exception("错误操作: 玩家镶嵌灵石.  错误: 没有找到装备"));
+				this.网络连接.尝试断开连接(new Exception("MISTAKE: Player inlaid spirit stones.  Error: Equipment not found"));
 				return;
 			}
 			客户网络 网络连接5 = this.网络连接;
@@ -15765,7 +15765,7 @@ namespace GameServer.Maps
 			}
 			if (this.打开界面 != "WeaponRune")
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: OrdinaryInscriptionRefinementPacket.  错误: 没有打开界面"));
+				this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: No interface opened"));
 				return;
 			}
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
@@ -15802,12 +15802,12 @@ namespace GameServer.Maps
 			{
 				if (EquipmentData.物品类型 != ItemUsageType.武器)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: OrdinaryInscriptionRefinementPacket.  错误: 物品类型错误."));
+					this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong item type."));
 					return;
 				}
 				if (物品编号 <= 0)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: OrdinaryInscriptionRefinementPacket.  错误: 材料编号错误."));
+					this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong material number."));
 					return;
 				}
 				ItemData ItemData2;
@@ -15828,7 +15828,7 @@ namespace GameServer.Maps
 				{
 					if (ItemData2.物品类型 != ItemUsageType.普通铭文)
 					{
-						this.网络连接.尝试断开连接(new Exception("错误操作: OrdinaryInscriptionRefinementPacket.  错误: 材料类型错误."));
+						this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong material type."));
 						return;
 					}
 					this.金币数量 -= 10000;
@@ -15863,9 +15863,9 @@ namespace GameServer.Maps
 						{
 							NetworkServiceGateway.发送公告(string.Concat(new string[]
 							{
-								"恭喜[",
+								"Congratulations to [",
 								this.对象名字,
-								"]在铭文洗炼中获得稀有铭文[",
+								"] For Obtain rare inscriptions in the inscription refining [",
 								EquipmentData.第一铭文.技能名字.Split(new char[]
 								{
 									'-'
@@ -15891,9 +15891,9 @@ namespace GameServer.Maps
 						{
 							NetworkServiceGateway.发送公告(string.Concat(new string[]
 							{
-								"恭喜[",
+								"Congratulations to [",
 								this.对象名字,
-								"]在铭文洗炼中获得稀有铭文[",
+								"] For Obtain rare inscriptions in the inscription wash [",
 								EquipmentData.第二铭文.技能名字.Split(new char[]
 								{
 									'-'
@@ -15926,9 +15926,9 @@ namespace GameServer.Maps
 						{
 							NetworkServiceGateway.发送公告(string.Concat(new string[]
 							{
-								"恭喜[",
+								"Congratulations to [",
 								this.对象名字,
-								"]在铭文洗炼中获得稀有铭文[",
+								"]For Obtain rare inscriptions in the Inscription Wash[",
 								EquipmentData.第一铭文.技能名字.Split(new char[]
 								{
 									'-'
@@ -15981,7 +15981,7 @@ namespace GameServer.Maps
 			}
 			if (this.打开界面 != "WeaponRune")
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: OrdinaryInscriptionRefinementPacket.  错误: 没有打开界面"));
+				this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: No interface opened"));
 				return;
 			}
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
@@ -16018,17 +16018,17 @@ namespace GameServer.Maps
 			{
 				if (EquipmentData.物品类型 != ItemUsageType.武器)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: OrdinaryInscriptionRefinementPacket.  错误: 物品类型错误."));
+					this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong item type."));
 					return;
 				}
 				if (EquipmentData.第二铭文 == null)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: OrdinaryInscriptionRefinementPacket.  错误: 第二铭文为空."));
+					this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Second inscription is empty."));
 					return;
 				}
 				if (物品编号 <= 0)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: OrdinaryInscriptionRefinementPacket.  错误: 材料编号错误."));
+					this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong material number."));
 					return;
 				}
 				ItemData ItemData2;
@@ -16049,7 +16049,7 @@ namespace GameServer.Maps
 				{
 					if (ItemData2.物品类型 != ItemUsageType.普通铭文)
 					{
-						this.网络连接.尝试断开连接(new Exception("错误操作: OrdinaryInscriptionRefinementPacket.  错误: 材料类型错误."));
+						this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong material type."));
 						return;
 					}
 					this.金币数量 -= 100000;
@@ -16109,9 +16109,9 @@ namespace GameServer.Maps
 					{
 						NetworkServiceGateway.发送公告(string.Concat(new string[]
 						{
-							"恭喜[",
+							"Congratulations to [",
 							this.对象名字,
-							"]在铭文洗炼中获得稀有铭文[",
+							"] For Obtain rare inscriptions in the Inscription Wash[",
 							this.洗练铭文.技能名字.Split(new char[]
 							{
 								'-'
@@ -16145,7 +16145,7 @@ namespace GameServer.Maps
 			}
 			if (this.打开界面 != "WeaponRune")
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: OrdinaryInscriptionRefinementPacket.  错误: 没有打开界面"));
+				this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: No interface opened"));
 				return;
 			}
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
@@ -16182,17 +16182,17 @@ namespace GameServer.Maps
 			{
 				if (EquipmentData.物品类型 != ItemUsageType.武器)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: OrdinaryInscriptionRefinementPacket.  错误: 物品类型错误."));
+					this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong item type."));
 					return;
 				}
 				if (EquipmentData.第二铭文 == null)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: OrdinaryInscriptionRefinementPacket.  错误: 第二铭文为空."));
+					this.网络连接.尝试断开连接(new Exception("Wrong action: OrdinaryInscriptionRefinementPacket. Wrong: Second inscription is empty."));
 					return;
 				}
 				if (物品编号 <= 0)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: OrdinaryInscriptionRefinementPacket.  错误: 材料编号错误."));
+					this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong material number."));
 					return;
 				}
 				List<ItemData> list;
@@ -16213,7 +16213,7 @@ namespace GameServer.Maps
 				{
 					if (list.FirstOrDefault((ItemData O) => O.物品类型 != ItemUsageType.普通铭文) != null)
 					{
-						this.网络连接.尝试断开连接(new Exception("错误操作: OrdinaryInscriptionRefinementPacket.  错误: 材料类型错误."));
+						this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong material type."));
 						return;
 					}
 					this.金币数量 -= 1000000;
@@ -16257,9 +16257,9 @@ namespace GameServer.Maps
 					{
 						NetworkServiceGateway.发送公告(string.Concat(new string[]
 						{
-							"恭喜[",
+							"Congratulations to [",
 							this.对象名字,
-							"]在铭文洗炼中获得稀有铭文[",
+							"] For Obtain rare inscriptions in the Inscription Wash[",
 							this.洗练铭文.技能名字.Split(new char[]
 							{
 								'-'
@@ -16292,7 +16292,7 @@ namespace GameServer.Maps
 			}
 			if (this.打开界面 != "WeaponRune")
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: OrdinaryInscriptionRefinementPacket.  错误: 没有打开界面"));
+				this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: No interface opened"));
 				return;
 			}
 			if (EquipmentData == null)
@@ -16312,17 +16312,17 @@ namespace GameServer.Maps
 			{
 				if (this.洗练铭文 == null)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: 确定替换铭文.  错误: 没有没有洗练记录."));
+					this.网络连接.尝试断开连接(new Exception("Wrong action: Confirmation of replacement inscription.  Error: There is no no record of the inscription.."));
 					return;
 				}
 				if (EquipmentData.物品类型 != ItemUsageType.武器)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: OrdinaryInscriptionRefinementPacket.  错误: 物品类型错误."));
+					this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong item type."));
 					return;
 				}
 				if (EquipmentData.第二铭文 == null)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: OrdinaryInscriptionRefinementPacket.  错误: 第二铭文为空."));
+					this.网络连接.尝试断开连接(new Exception("Wrong action: OrdinaryInscriptionRefinementPacket. Wrong: Second inscription is empty."));
 					return;
 				}
 				if (装备类型 == 0)
@@ -16375,7 +16375,7 @@ namespace GameServer.Maps
 			}
 			if (this.打开界面 != "WeaponRune")
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: OrdinaryInscriptionRefinementPacket.  错误: 没有打开界面"));
+				this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: No interface opened"));
 				return;
 			}
 			if (EquipmentData == null)
@@ -16395,17 +16395,17 @@ namespace GameServer.Maps
 			{
 				if (this.洗练铭文 == null)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: 确定替换铭文.  错误: 没有没有洗练记录."));
+					this.网络连接.尝试断开连接(new Exception("Mistake: Confirmation of replacement inscription.  Error: There is no record of the inscription."));
 					return;
 				}
 				if (EquipmentData.物品类型 != ItemUsageType.武器)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: OrdinaryInscriptionRefinementPacket.  错误: 物品类型错误."));
+					this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong item type."));
 					return;
 				}
 				if (EquipmentData.第二铭文 == null)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: OrdinaryInscriptionRefinementPacket.  错误: 第二铭文为空."));
+					this.网络连接.尝试断开连接(new Exception("Wrong action: OrdinaryInscriptionRefinementPacket. Wrong: Second inscription is empty."));
 					return;
 				}
 				if (装备类型 == 0)
@@ -16462,7 +16462,7 @@ namespace GameServer.Maps
 			}
 			if (this.打开界面 != "WeaponRune")
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: UnlockDoubleInscriptionSlotPacket.  错误: 没有打开界面"));
+				this.网络连接.尝试断开连接(new Exception("Error: UnlockDoubleInscriptionSlotPacket. Error: No interface opened"));
 				return;
 			}
 			if (装备类型 == 1)
@@ -16475,7 +16475,7 @@ namespace GameServer.Maps
 					{
 						if (EquipmentData.物品类型 != ItemUsageType.武器)
 						{
-							this.网络连接.尝试断开连接(new Exception("错误操作: UnlockDoubleInscriptionSlotPacket.  错误: 物品类型错误."));
+							this.网络连接.尝试断开连接(new Exception("Error Action: UnlockDoubleInscriptionSlotPacket. Error: Wrong item type."));
 							return;
 						}
 						if (操作参数 == 1)
@@ -16536,7 +16536,7 @@ namespace GameServer.Maps
 						return;
 					}
 				}
-				this.网络连接.尝试断开连接(new Exception("错误操作: UnlockDoubleInscriptionSlotPacket.  错误: 不是装备类型."));
+				this.网络连接.尝试断开连接(new Exception("Error Operation: UnlockDoubleInscriptionSlotPacket. Error: Not an equipment type."));
 				return;
 			}
 			客户网络 网络连接5 = this.网络连接;
@@ -16559,7 +16559,7 @@ namespace GameServer.Maps
 			}
 			if (this.打开界面 != "WeaponRune")
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: ToggleDoubleInscriptionBitPacket.  错误: 没有打开界面"));
+				this.网络连接.尝试断开连接(new Exception("Wrong action: ToggleDoubleInscriptionBitPacket. Error: No interface opened"));
 				return;
 			}
 			if (装备类型 == 1)
@@ -16572,7 +16572,7 @@ namespace GameServer.Maps
 					{
 						if (EquipmentData.物品类型 != ItemUsageType.武器)
 						{
-							this.网络连接.尝试断开连接(new Exception("错误操作: ToggleDoubleInscriptionBitPacket.  错误: 物品类型错误."));
+							this.网络连接.尝试断开连接(new Exception("Error Action: ToggleDoubleInscriptionBitPacket. Error: Wrong item type."));
 							return;
 						}
 						if (!EquipmentData.双铭文栏.V)
@@ -16592,7 +16592,7 @@ namespace GameServer.Maps
 						{
 							if (操作参数 == EquipmentData.当前铭栏.V)
 							{
-								this.网络连接.尝试断开连接(new Exception("错误操作: ToggleDoubleInscriptionBitPacket.  错误: 切换铭位错误."));
+								this.网络连接.尝试断开连接(new Exception("Error Action: ToggleDoubleInscriptionBitPacket. Error: Toggle inscription error."));
 								return;
 							}
 							EquipmentData.当前铭栏.V = 操作参数;
@@ -16620,7 +16620,7 @@ namespace GameServer.Maps
 						}
 					}
 				}
-				this.网络连接.尝试断开连接(new Exception("错误操作: ToggleDoubleInscriptionBitPacket.  错误: 不是装备类型."));
+				this.网络连接.尝试断开连接(new Exception("Error Action: ToggleDoubleInscriptionBitPacket. Error: Not an equipment type."));
 				return;
 			}
 			客户网络 网络连接4 = this.网络连接;
@@ -16645,7 +16645,7 @@ namespace GameServer.Maps
 			}
 			if (this.打开界面 != "WeaponRune")
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 传承武器铭文.  错误: 没有打开界面"));
+				this.网络连接.尝试断开连接(new Exception("Bug: Inherited weapon inscription.  Error: Interface not opened"));
 				return;
 			}
 			if (来源类型 == 1)
@@ -16759,12 +16759,12 @@ namespace GameServer.Maps
 										return;
 									}
 								}
-								this.网络连接.尝试断开连接(new Exception("错误操作: 传承武器铭文.  错误: 物品类型错误."));
+								this.网络连接.尝试断开连接(new Exception("Mishap: Inherited weapon inscription.  Error: Wrong item type."));
 								return;
 							}
 						}
 					}
-					this.网络连接.尝试断开连接(new Exception("错误操作: 传承武器铭文.  错误: 不是装备类型."));
+					this.网络连接.尝试断开连接(new Exception("Mistake: Inherited weapon inscription.  Error: Not an equipment type."));
 					return;
 				}
 			}
@@ -17162,7 +17162,7 @@ namespace GameServer.Maps
 						}
 						if (this.CharacterData.升级装备.V.升级次数.V >= 5)
 						{
-							NetworkServiceGateway.发送公告(string.Format("[{0}] 成功将 [{1}] 升级到 {2} 级.", this.对象名字, this.CharacterData.升级装备.V.物品名字, this.CharacterData.升级装备.V.升级次数.V), false);
+							NetworkServiceGateway.发送公告(string.Format("[{0}] successfully upgraded [{1}] to level {2}.", this.对象名字, this.CharacterData.升级装备.V.物品名字, this.CharacterData.升级装备.V.升级次数.V), false);
 						}
 						this.CharacterData.升级装备.V = null;
 						return this.CharacterData.升级成功.V;
@@ -17249,7 +17249,7 @@ namespace GameServer.Maps
 				{
 					if (b != 6)
 					{
-						this.网络连接.尝试断开连接(new Exception(string.Format("传音或广播时提供错误的频道参数, 断开连接. 频道: {0:X8}  参数:{1}", num, b)));
+						this.网络连接.尝试断开连接(new Exception(string.Format("Incorrect channel parameters are provided when transmitting or broadcasting, disconnect. Channel: {0:X8} Parameter: {1}", num, b)));
 						return;
 					}
 					ItemData 当前物品;
@@ -17300,7 +17300,7 @@ namespace GameServer.Maps
 				}), array);
 				return;
 			}
-			this.网络连接.尝试断开连接(new Exception(string.Format("玩家发送广播时, 提供错误的频道参数. 频道: {0:X8}", num)));
+			this.网络连接.尝试断开连接(new Exception(string.Format("When a player sends a broadcast, the wrong channel parameter is provided. Channel: {0:X8}", num)));
 		}
 
 		// Token: 0x0600095C RID: 2396 RVA: 0x00059FD8 File Offset: 0x000581D8
@@ -17461,7 +17461,7 @@ namespace GameServer.Maps
 					{
 						字节描述 = 字节描述2
 					});
-					MainProcess.添加聊天日志(string.Format("[私聊][{0}]=>[{1}]: ", this.对象名字, CharacterData.角色名字), array);
+					MainProcess.添加聊天日志(string.Format("[Whisper][{0}]=>[{1}]: ", this.对象名字, CharacterData.角色名字), array);
 					return;
 				}
 			}
@@ -17504,7 +17504,7 @@ namespace GameServer.Maps
 						{
 							字节数据 = 字节数据
 						});
-						MainProcess.添加聊天日志(string.Format("[好友][{0}]=>[{1}]: ", this.对象名字, CharacterData), array);
+						MainProcess.添加聊天日志(string.Format("[Friend][{0}]=>[{1}]: ", this.对象名字, CharacterData), array);
 						return;
 					}
 					客户网络 网络连接 = this.网络连接;
@@ -19398,7 +19398,7 @@ namespace GameServer.Maps
 				byte[] array3 = 数据.Skip(97).ToArray<byte>();
 				if (array[0] == 0 || array2[0] == 0 || array3[0] == 0)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: 申请发送邮件.  错误: 邮件文本错误."));
+					this.网络连接.尝试断开连接(new Exception("Wrong action: Request to send an email.  Error: Incorrect message text."));
 					return;
 				}
 				string key = Encoding.UTF8.GetString(array).Split(new char[1], StringSplitOptions.RemoveEmptyEntries)[0];
@@ -19893,7 +19893,7 @@ namespace GameServer.Maps
 		{
 			if (this.打开界面 != "Guild")
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 申请创建行会. 错误: 没有打开界面."));
+				this.网络连接.尝试断开连接(new Exception("Wrong action: Request to create a guild. Error: Interface not opened."));
 				return;
 			}
 			ItemData 当前物品;
@@ -19953,14 +19953,14 @@ namespace GameServer.Maps
 			{
 				if (数据.Length <= 25 || 数据.Length >= 128)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: 申请创建行会. 错误: 数据长度错误."));
+					this.网络连接.尝试断开连接(new Exception("Wrong action: Request to create a guild. Error: Wrong data length."));
 					return;
 				}
 				string[] array = Encoding.UTF8.GetString(数据.Take(25).ToArray<byte>()).Split(new char[1], StringSplitOptions.RemoveEmptyEntries);
 				string[] array2 = Encoding.UTF8.GetString(数据.Skip(25).ToArray<byte>()).Split(new char[1], StringSplitOptions.RemoveEmptyEntries);
 				if (array.Length == 0 || array2.Length == 0 || Encoding.UTF8.GetBytes(array[0]).Length >= 25 || Encoding.UTF8.GetBytes(array2[0]).Length >= 101)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: 申请创建行会. 错误: 字符长度错误."));
+					this.网络连接.尝试断开连接(new Exception("Wrong action: Request to create a guild. Error: Wrong character length."));
 					return;
 				}
 				if (!GameDataGateway.GuildData表.Keyword.ContainsKey(array[0]))
@@ -19989,7 +19989,7 @@ namespace GameServer.Maps
 						对象编号 = this.地图编号,
 						行会编号 = this.所属行会.行会编号
 					});
-					NetworkServiceGateway.发送公告(string.Format("[{0}]创建了行会[{1}]", this.对象名字, this.所属行会), false);
+					NetworkServiceGateway.发送公告(string.Format("[{0}] created the guild [{1}]", this.对象名字, this.所属行会), false);
 					return;
 				}
 				客户网络 网络连接7 = this.网络连接;
@@ -20038,7 +20038,7 @@ namespace GameServer.Maps
 			{
 				if (数据.Length == 0 || 数据.Length >= 255)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: 更改行会公告. 错误: 数据长度错误"));
+					this.网络连接.尝试断开连接(new Exception("Error: Change of guild notice. Error: Incorrect data length"));
 					return;
 				}
 				if (数据[0] == 0)
@@ -20084,7 +20084,7 @@ namespace GameServer.Maps
 			{
 				if (数据.Length == 0 || 数据.Length >= 101)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: 更改行会公告. 错误: 数据长度错误"));
+					this.网络连接.尝试断开连接(new Exception("Error: Change of guild notice. Error: Incorrect data length"));
 					return;
 				}
 				if (数据[0] == 0)
@@ -20254,7 +20254,7 @@ namespace GameServer.Maps
 										对象编号 = CharacterData.角色编号
 									});
 								}
-								CharacterData.发送邮件(new MailData(null, "入会申请被拒绝", "行会[" + this.所属行会.行会名字.V + "]拒绝了你的入会申请.", null));
+								CharacterData.发送邮件(new MailData(null, "Membership application rejected", "Guild [" + this.所属行会.行会名字.V + "] has rejected your membership application.", null));
 								return;
 							}
 							if (CharacterData.当前行会 != null)
@@ -20638,13 +20638,13 @@ namespace GameServer.Maps
 							if (this.所属行会.行会成员[this.CharacterData] < GuildJobs.长老 && this.所属行会.行会成员[this.CharacterData] < this.所属行会.行会成员[CharacterData])
 							{
 								this.所属行会.逐出成员(this.CharacterData, CharacterData);
-								CharacterData.发送邮件(new MailData(null, "你被逐出行会", string.Concat(new string[]
+								CharacterData.发送邮件(new MailData(null, "You are kicked from the Guild", string.Concat(new string[]
 								{
-									"你被[",
+									"You have been [",
 									this.所属行会.行会名字.V,
-									"]的官员[",
+									"]of officers[",
 									this.对象名字,
-									"]逐出了行会."
+									"]Expelled from the Guild."
 								}), null));
 								return;
 							}
@@ -21078,7 +21078,7 @@ namespace GameServer.Maps
 						{
 							if (外交时间 < 1 || 外交时间 > 3)
 							{
-								this.网络连接.尝试断开连接(new Exception("错误操作: 申请行会外交.  错误: 时间参数错误"));
+								this.网络连接.尝试断开连接(new Exception("Wrong action: Application for Guild Diplomacy.  Error: Wrong time parameter"));
 								return;
 							}
 							if (外交类型 == 1)
@@ -21120,10 +21120,10 @@ namespace GameServer.Maps
 								if (外交类型 == 2)
 								{
 									this.所属行会.行会敌对(GuildData, 外交时间);
-									NetworkServiceGateway.发送公告(string.Format("[{0}]和[{1}]成为敌对行会.", this.所属行会, GuildData), false);
+									NetworkServiceGateway.发送公告(string.Format("[{0}] and [{1}] become enemy guilds.", this.所属行会, GuildData), false);
 									return;
 								}
-								this.网络连接.尝试断开连接(new Exception("错误操作: 申请行会外交.  错误: 类型参数错误"));
+								this.网络连接.尝试断开连接(new Exception("Wrong action: Application for Guild Diplomacy.  Error: Wrong type parameter"));
 								return;
 							}
 						}
@@ -21223,10 +21223,10 @@ namespace GameServer.Maps
 							if (敌对时间 >= 1 && 敌对时间 <= 3)
 							{
 								this.所属行会.行会敌对(GuildData, 敌对时间);
-								NetworkServiceGateway.发送公告(string.Format("[{0}]和[{1}]成为敌对行会.", this.所属行会, GuildData), false);
+								NetworkServiceGateway.发送公告(string.Format("[{0}] and [{1}] have become rival guilds.", this.所属行会, GuildData), false);
 								return;
 							}
-							this.网络连接.尝试断开连接(new Exception("错误操作: 申请行会敌对.  错误: 时间参数错误"));
+							this.网络连接.尝试断开连接(new Exception("Wrong action: Application for guild hostility.  Error: Wrong time parameter"));
 							return;
 						}
 					}
@@ -21376,18 +21376,18 @@ namespace GameServer.Maps
 										行会编号 = GuildData.行会编号
 									});
 								}
-								GuildData.发送邮件(GuildJobs.副长, "结盟申请被拒绝", "行会[" + this.所属行会.行会名字.V + "]拒绝了你所在行会的结盟申请.");
+								GuildData.发送邮件(GuildJobs.副长, "Alliance request rejected", "Guild[" + this.所属行会.行会名字.V + "]has denied your guild's request for an alliance.");
 								this.所属行会.结盟申请.Remove(GuildData);
 								return;
 							}
 							if (处理类型 == 2)
 							{
 								this.所属行会.行会结盟(GuildData);
-								NetworkServiceGateway.发送公告(string.Format("[{0}]和[{1}]成为结盟行会.", this.所属行会, GuildData), false);
+								NetworkServiceGateway.发送公告(string.Format("[{0}] and [{1}] become allied guilds.", this.所属行会, GuildData), false);
 								this.所属行会.结盟申请.Remove(GuildData);
 								return;
 							}
-							this.网络连接.尝试断开连接(new Exception("错误操作: 处理结盟申请.  错误: 处理类型错误."));
+							this.网络连接.尝试断开连接(new Exception("Wrong action: Processing of an alliance request.  Error: Wrong type of processing."));
 							return;
 						}
 					}
@@ -21458,7 +21458,7 @@ namespace GameServer.Maps
 						if (this.所属行会.结盟行会.ContainsKey(GuildData))
 						{
 							this.所属行会.解除结盟(this.CharacterData, GuildData);
-							NetworkServiceGateway.发送公告(string.Format("[{0}]解除了和[{1}]的行会结盟.", this.所属行会, GuildData), false);
+							NetworkServiceGateway.发送公告(string.Format("[{0}] has dissolved the guild alliance with [{1}].", this.所属行会, GuildData), false);
 							return;
 						}
 						客户网络 网络连接4 = this.网络连接;
@@ -21673,7 +21673,7 @@ namespace GameServer.Maps
 							if (MapGatewayProcess.沙城节点 < 2 || ((this.所属行会 != SystemData.数据.占领行会.V || !MapGatewayProcess.攻城行会.Contains(GuildData)) && (GuildData != SystemData.数据.占领行会.V || !MapGatewayProcess.攻城行会.Contains(this.所属行会))))
 							{
 								this.所属行会.解除敌对(GuildData);
-								NetworkServiceGateway.发送公告(string.Format("[{0}]解除了和[{1}]的行会敌对.", this.所属行会, GuildData), false);
+								NetworkServiceGateway.发送公告(string.Format("[{0}] has released the guild from hostilities with [{1}].", this.所属行会, GuildData), false);
 								this.所属行会.解除申请.Remove(GuildData);
 								return;
 							}
@@ -21880,7 +21880,7 @@ namespace GameServer.Maps
 				{
 					if (this.当前等级 < 30)
 					{
-						this.网络连接.尝试断开连接(new Exception("错误操作: 同意拜师申请, 错误: 自身等级不够."));
+						this.网络连接.尝试断开连接(new Exception("Mistake: Agreeing to the application, Error: Insufficient level."));
 						return;
 					}
 					if (CharacterData.角色等级 >= 30)
@@ -21913,12 +21913,12 @@ namespace GameServer.Maps
 					{
 						if (this.所属师门 == null)
 						{
-							this.网络连接.尝试断开连接(new Exception("错误操作: 同意拜师申请, 错误: 尚未创建师门."));
+							this.网络连接.尝试断开连接(new Exception("Wrong action: Agree to the application, Error: No master has been created."));
 							return;
 						}
 						if (this.所属师门.师父编号 != this.地图编号)
 						{
-							this.网络连接.尝试断开连接(new Exception("错误操作: 同意拜师申请, 错误: 自身尚未出师."));
+							this.网络连接.尝试断开连接(new Exception("Wrong action: Agree to apply for a teacher, Error: Not yet a teacher myself."));
 							return;
 						}
 						if (!this.所属师门.申请列表.ContainsKey(CharacterData.角色编号))
@@ -22023,12 +22023,12 @@ namespace GameServer.Maps
 				{
 					if (this.所属师门 == null)
 					{
-						this.网络连接.尝试断开连接(new Exception("错误操作: RefusedApplyApprenticeshipPacket, 错误: 尚未创建师门."));
+						this.网络连接.尝试断开连接(new Exception("Wrong action: RefusedApplyApprenticeshipPacket, Error: Division not yet created."));
 						return;
 					}
 					if (this.所属师门.师父编号 != this.地图编号)
 					{
-						this.网络连接.尝试断开连接(new Exception("错误操作: RefusedApplyApprenticeshipPacket, 错误: 自身尚未出师."));
+						this.网络连接.尝试断开连接(new Exception("Wrong operation: RefusedApplyApprenticeshipPacket, Error: Self not yet mastered."));
 						return;
 					}
 					if (!this.所属师门.申请列表.ContainsKey(CharacterData.角色编号))
@@ -22093,7 +22093,7 @@ namespace GameServer.Maps
 				{
 					if (this.当前等级 < 30)
 					{
-						this.网络连接.尝试断开连接(new Exception("错误操作: 玩家申请收徒, 错误: 自身等级不够."));
+						this.网络连接.尝试断开连接(new Exception("Error: Player applied for an apprentice, Error: Insufficient level."));
 						return;
 					}
 					if (CharacterData.角色等级 >= 30)
@@ -22126,7 +22126,7 @@ namespace GameServer.Maps
 					{
 						if (this.所属师门 != null && this.所属师门.师父编号 != this.地图编号)
 						{
-							this.网络连接.尝试断开连接(new Exception("错误操作: 玩家申请收徒, 错误: 自身尚未出师."));
+							this.网络连接.尝试断开连接(new Exception("Error: The player has applied for an apprenticeship, Error: He is not yet a master."));
 							return;
 						}
 						if (this.所属师门 != null && this.所属师门.徒弟数量 >= 3)
@@ -22232,17 +22232,17 @@ namespace GameServer.Maps
 					{
 						if (CharacterData.角色等级 < 30)
 						{
-							this.网络连接.尝试断开连接(new Exception("错误操作: 同意收徒申请, 错误: 对方等级不够."));
+							this.网络连接.尝试断开连接(new Exception("Incorrect action: Agree to apprentice application, Error: The other party is not of sufficient level."));
 							return;
 						}
 						if (CharacterData.当前师门 == null)
 						{
-							this.网络连接.尝试断开连接(new Exception("错误操作: 同意收徒申请, 错误: 对方没有师门."));
+							this.网络连接.尝试断开连接(new Exception("Wrong action: Agree to apprentice application, Error: The other party does not have a master."));
 							return;
 						}
 						if (CharacterData.当前师门.师父编号 != CharacterData.角色编号)
 						{
-							this.网络连接.尝试断开连接(new Exception("错误操作: 同意收徒申请, 错误: 对方尚未出师."));
+							this.网络连接.尝试断开连接(new Exception("Wrong action: Agree to apprentice application, Error: The other party is not yet a student."));
 							return;
 						}
 						客户网络 客户网络;
@@ -22352,12 +22352,12 @@ namespace GameServer.Maps
 				{
 					if (CharacterData.所属师门 == null)
 					{
-						this.网络连接.尝试断开连接(new Exception("错误操作: RejectionApprenticeshipAppPacket, 错误: 尚未创建师门."));
+						this.网络连接.尝试断开连接(new Exception("Wrong action: RejectionApprenticeshipAppPacket, Error: Division not yet created."));
 						return;
 					}
 					if (CharacterData.当前师门.师父编号 != CharacterData.角色编号)
 					{
-						this.网络连接.尝试断开连接(new Exception("错误操作: RefusedApplyApprenticeshipPacket, 错误: 自身尚未出师."));
+						this.网络连接.尝试断开连接(new Exception("Wrong operation: RefusedApplyApprenticeshipPacket, Error: Self not yet mastered."));
 						return;
 					}
 					if (!CharacterData.当前师门.邀请列表.ContainsKey(this.地图编号))
@@ -22416,12 +22416,12 @@ namespace GameServer.Maps
 		{
 			if (this.所属师门 == null)
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: AppForExpulsionPacket, 错误: 自身没有师门."));
+				this.网络连接.尝试断开连接(new Exception("Wrong operation: AppForExpulsionPacket, Error: Self does not have a division."));
 				return;
 			}
 			if (this.所属师门.师父编号 != this.地图编号)
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: AppForExpulsionPacket, 错误: 自己不是师父."));
+				this.网络连接.尝试断开连接(new Exception("Wrong action: AppForExpulsionPacket, Error: Not a Master."));
 				return;
 			}
 			GameData GameData;
@@ -22465,7 +22465,7 @@ namespace GameServer.Maps
 							师门参数 = ((byte)((CharacterData.角色等级 < 30) ? 0 : 2))
 						});
 					}
-					CharacterData.发送邮件(new MailData(null, "你被逐出了师门", "你被[" + this.对象名字 + "]逐出了师门.", null));
+					CharacterData.发送邮件(new MailData(null, "You have been kicked from the school", "You have been[" + this.对象名字 + "]Expelled from the division.", null));
 					return;
 				}
 			}
@@ -22485,12 +22485,12 @@ namespace GameServer.Maps
 		{
 			if (this.所属师门 == null)
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 离开师门申请, 错误: 自身没有师门."));
+				this.网络连接.尝试断开连接(new Exception("Wrong action: Request to leave a division, Error: No division."));
 				return;
 			}
 			if (!this.所属师门.师门成员.Contains(this.CharacterData))
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 离开师门申请, 错误: 自身不是徒弟."));
+				this.网络连接.尝试断开连接(new Exception("Incorrect action: Request to leave the division, Error: Self is not a disciple."));
 				return;
 			}
 			客户网络 网络连接 = this.网络连接;
@@ -22510,7 +22510,7 @@ namespace GameServer.Maps
 			{
 				对象编号 = this.地图编号
 			});
-			this.所属师门.师父数据.发送邮件(new MailData(null, "徒弟叛离师门", "你的徒弟[" + this.对象名字 + "]已经叛离了师门.", null));
+			this.所属师门.师父数据.发送邮件(new MailData(null, "The disciple's rebellion against his master", "Your apprentice[" + this.对象名字 + "]Has defected from the school.", null));
 			int num = this.所属师门.徒弟提供金币(this.CharacterData);
 			int num2 = this.所属师门.徒弟提供声望(this.CharacterData);
 			int num3 = this.所属师门.徒弟提供金币(this.CharacterData);
@@ -22545,17 +22545,17 @@ namespace GameServer.Maps
 		{
 			if (this.所属师门 == null)
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 提交出师申请, 错误: 自身没有师门."));
+				this.网络连接.尝试断开连接(new Exception("Wrong action: Submit a request to leave the division, Error: No division."));
 				return;
 			}
 			if (this.当前等级 < 30)
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 提交出师申请, 错误: 自身等级不足."));
+				this.网络连接.尝试断开连接(new Exception("Wrong action: Submit a request to become a teacher, Error: Insufficient level."));
 				return;
 			}
 			if (!this.所属师门.师门成员.Contains(this.CharacterData))
 			{
-				this.网络连接.尝试断开连接(new Exception("错误操作: 提交出师申请, 错误: 自己不是徒弟."));
+				this.网络连接.尝试断开连接(new Exception("Wrong action: Submit a request to become a disciple, Error: You are not a disciple."));
 				return;
 			}
 			int num = this.所属师门.徒弟提供金币(this.CharacterData);
@@ -22647,7 +22647,7 @@ namespace GameServer.Maps
 						{
 							PlayerDeals2.结束交易();
 						}
-						this.网络连接.尝试断开连接(new Exception("错误操作: 玩家申请交易. 错误: 不能交易自己"));
+						this.网络连接.尝试断开连接(new Exception("Error: Player requested a trade. Error: Cannot trade myself"));
 						return;
 					}
 					PlayerObject PlayerObject;
@@ -22803,7 +22803,7 @@ namespace GameServer.Maps
 							{
 								PlayerDeals2.结束交易();
 							}
-							this.网络连接.尝试断开连接(new Exception("错误操作: 玩家申请交易. 错误: 不能交易自己"));
+							this.网络连接.尝试断开连接(new Exception("Error: Player requested a trade. Error: Cannot trade myself"));
 							return;
 						}
 						PlayerObject PlayerObject;
@@ -23004,7 +23004,7 @@ namespace GameServer.Maps
 					{
 						PlayerDeals4.结束交易();
 					}
-					this.网络连接.尝试断开连接(new Exception("错误操作: 玩家放入金币. 错误: 金币数量错误"));
+					this.网络连接.尝试断开连接(new Exception("Wrong action: Player put in gold coins. Error: Wrong number of coins"));
 					return;
 				}
 				if (this.当前交易.金币重复(this))
@@ -23014,7 +23014,7 @@ namespace GameServer.Maps
 					{
 						PlayerDeals5.结束交易();
 					}
-					this.网络连接.尝试断开连接(new Exception("错误操作: 玩家放入金币. 错误: 重复放入金币"));
+					this.网络连接.尝试断开连接(new Exception("Error: Player inserted gold coins. Error: Repeated coin placement"));
 					return;
 				}
 				this.当前交易.放入金币(this, 金币数量);
@@ -23088,7 +23088,7 @@ namespace GameServer.Maps
 					{
 						PlayerDeals4.结束交易();
 					}
-					this.网络连接.尝试断开连接(new Exception("错误操作: 玩家放入物品. 错误: 放入位置错误"));
+					this.网络连接.尝试断开连接(new Exception("Wrong action: Player placed an item. Error: Incorrectly placed"));
 					return;
 				}
 				if (this.当前交易.物品重复(this, 放入位置))
@@ -23098,7 +23098,7 @@ namespace GameServer.Maps
 					{
 						PlayerDeals5.结束交易();
 					}
-					this.网络连接.尝试断开连接(new Exception("错误操作: 玩家放入物品. 错误: 放入位置重复"));
+					this.网络连接.尝试断开连接(new Exception("Error: Player placed an item. Error: Duplicate placements"));
 					return;
 				}
 				if (放入物品 != 1)
@@ -23108,7 +23108,7 @@ namespace GameServer.Maps
 					{
 						PlayerDeals6.结束交易();
 					}
-					this.网络连接.尝试断开连接(new Exception("错误操作: 玩家放入物品. 错误: 禁止取回物品"));
+					this.网络连接.尝试断开连接(new Exception("Error: Player put in an item. Error: Forbidden to retrieve items"));
 					return;
 				}
 				if (背包类型 != 1)
@@ -23118,7 +23118,7 @@ namespace GameServer.Maps
 					{
 						PlayerDeals7.结束交易();
 					}
-					this.网络连接.尝试断开连接(new Exception("错误操作: 玩家放入物品. 错误: 背包类型错误"));
+					this.网络连接.尝试断开连接(new Exception("Error: Player put in an item. Error: Wrong type of backpack"));
 					return;
 				}
 				ItemData ItemData;
@@ -23129,7 +23129,7 @@ namespace GameServer.Maps
 					{
 						PlayerDeals8.结束交易();
 					}
-					this.网络连接.尝试断开连接(new Exception("错误操作: 玩家放入物品. 错误: ItemData错误"));
+					this.网络连接.尝试断开连接(new Exception("Wrong action: Player put in an item. Error: ItemData error"));
 					return;
 				}
 				if (ItemData.是否绑定)
@@ -23139,7 +23139,7 @@ namespace GameServer.Maps
 					{
 						PlayerDeals9.结束交易();
 					}
-					this.网络连接.尝试断开连接(new Exception("错误操作: 玩家放入物品. 错误: 放入绑定物品"));
+					this.网络连接.尝试断开连接(new Exception("Wrong action: Player puts in an item. Error: Binding item added"));
 					return;
 				}
 				if (this.当前交易.物品重复(this, ItemData))
@@ -23149,7 +23149,7 @@ namespace GameServer.Maps
 					{
 						PlayerDeals10.结束交易();
 					}
-					this.网络连接.尝试断开连接(new Exception("错误操作: 玩家放入物品. 错误: 重复放入物品"));
+					this.网络连接.尝试断开连接(new Exception("MISTAKE: Player puts in an item. Error: Repeated item placement"));
 					return;
 				}
 				this.当前交易.放入物品(this, ItemData, 放入位置);
@@ -23577,43 +23577,43 @@ namespace GameServer.Maps
 			{
 				if (放入位置 >= 10)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: PutItemsInBoothPacket, 错误: 放入位置错误"));
+					this.网络连接.尝试断开连接(new Exception("Error operation: PutItemsInBoothPacket, Error: Put in wrong position"));
 					return;
 				}
 				if (this.当前摊位.摊位物品.ContainsKey(放入位置))
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: PutItemsInBoothPacket, 错误: 重复放入位置"));
+					this.网络连接.尝试断开连接(new Exception("Error operation: PutItemsInBoothPacket, Error: Repeat placement"));
 					return;
 				}
 				if (背包类型 != 1)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: PutItemsInBoothPacket, 错误: 背包类型错误"));
+					this.网络连接.尝试断开连接(new Exception("Wrong action: PutItemsInBoothPacket, Error: Wrong backpack type"));
 					return;
 				}
 				if (物品价格 < 100)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: PutItemsInBoothPacket, 错误: 物品价格错误"));
+					this.网络连接.尝试断开连接(new Exception("Error action: PutItemsInBoothPacket, Error: Item price error"));
 					return;
 				}
 				ItemData ItemData;
 				if (!this.角色背包.TryGetValue(物品位置, out ItemData))
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: PutItemsInBoothPacket, 错误: 选中物品为空"));
+					this.网络连接.尝试断开连接(new Exception("Error Action: PutItemsInBoothPacket, Error: Selected item is empty"));
 					return;
 				}
 				if (this.当前摊位.摊位物品.Values.FirstOrDefault((ItemData O) => O.物品位置.V == 物品位置) != null)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: PutItemsInBoothPacket, 错误: 重复放入物品"));
+					this.网络连接.尝试断开连接(new Exception("Action error: PutItemsInBoothPacket, Error: Repeated item placement"));
 					return;
 				}
 				if (ItemData.是否绑定)
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: PutItemsInBoothPacket, 错误: 放入绑定物品"));
+					this.网络连接.尝试断开连接(new Exception("Error Action: PutItemsInBoothPacket, Error: Putting in bound items"));
 					return;
 				}
 				if ((int)物品数量 > (ItemData.能否堆叠 ? ItemData.当前持久.V : 1))
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: PutItemsInBoothPacket, 错误: 物品数量错误"));
+					this.网络连接.尝试断开连接(new Exception("Error Action: PutItemsInBoothPacket, Error: Wrong number of items"));
 					return;
 				}
 				this.当前摊位.摊位物品.Add(放入位置, ItemData);
@@ -23657,7 +23657,7 @@ namespace GameServer.Maps
 				ItemData key;
 				if (!this.当前摊位.摊位物品.TryGetValue(取回位置, out key))
 				{
-					this.网络连接.尝试断开连接(new Exception("错误操作: 取回摊位物品, 错误: 选中物品为空"));
+					this.网络连接.尝试断开连接(new Exception("Wrong action: Retrieve stall item, Error: Selected item is empty"));
 					return;
 				}
 				this.当前摊位.物品单价.Remove(key);
@@ -23895,7 +23895,7 @@ namespace GameServer.Maps
 										售出收益 = (int)((float)num * 0.95f)
 									});
 								}
-								MainProcess.添加系统日志(string.Format("[{0}][{1}级] 购买了 [{2}][{3}级] 的摊位物品[{4}] * {5}, 花费金币[{6}]", new object[]
+								MainProcess.添加系统日志(string.Format("[{0}][Level {1}] purchased [{4}] * {5} of [{2}][{3}] stall items, costing [{6}] coins", new object[]
 								{
 									this.对象名字,
 									this.当前等级,
