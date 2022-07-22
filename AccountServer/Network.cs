@@ -37,7 +37,7 @@ namespace AccountServer
 								packet.ReceivedData = Network.LocalServer.Receive(ref packet.ClientAddress);
 								if (packet.ReceivedData.Length > 1024)
 								{
-									MainForm.AddLog(string.Format("收到过长的封包  地址:{0}, 长度:{1}", packet.ClientAddress, packet.ReceivedData.Length));
+									MainForm.AddLog(string.Format("Excessively long packet received Address: {0}, Length: {1}", packet.ClientAddress, packet.ReceivedData.Length));
 								}
 								else
 								{
