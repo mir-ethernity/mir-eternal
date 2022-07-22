@@ -22,12 +22,12 @@ namespace GameServer
 		{
 			if (this.经验倍率 <= 0m)
 			{
-				MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 经验倍率太低");
+				MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, experience multiplier too low");
 				return;
 			}
 			if (this.经验倍率 > 1000000m)
 			{
-				MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 经验倍率太高");
+				MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, experience multiplier too high");
 				return;
 			}
 			Settings.Default.怪物经验倍率 = (CustomClass.怪物经验倍率 = this.经验倍率);
@@ -36,7 +36,7 @@ namespace GameServer
 			{
 				MainForm.Singleton.S_怪物经验倍率.Value = this.经验倍率;
 			}));
-			MainForm.添加命令日志(string.Format("<= @{0} 命令已经执行, 当前经验倍率:{1}", base.GetType().Name, CustomClass.怪物经验倍率));
+			MainForm.添加命令日志(string.Format("<= @{0} The command has been executed, current experience multiplier: {1}", base.GetType().Name, CustomClass.怪物经验倍率));
 		}
 
 		// Token: 0x06000043 RID: 67 RVA: 0x00002858 File Offset: 0x00000A58
