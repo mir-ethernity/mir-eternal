@@ -193,7 +193,7 @@ namespace GameServer.Maps
 						KeyValuePair<DateTime, GuildData> keyValuePair2 = enumerator3.Current;
 						if (keyValuePair2.Key.Date == MainProcess.当前时间.Date)
 						{
-							NetworkServiceGateway.发送公告("沙巴克攻城战将在十分钟后开始, 请做好准备", true);
+							NetworkServiceGateway.发送公告("The Shabak Siege will start in 10 minutes, please be ready!", true);
 							MapGatewayProcess.沙城节点 += 1;
 							break;
 						}
@@ -307,7 +307,7 @@ namespace GameServer.Maps
 							}
 						}
 					}
-					NetworkServiceGateway.发送公告("沙巴克攻城战开始", true);
+					NetworkServiceGateway.发送公告("The shabak siege starts", true);
 					MapGatewayProcess.沙城节点 += 1;
 					return;
 				}
@@ -316,7 +316,7 @@ namespace GameServer.Maps
 			{
 				if (MapGatewayProcess.沙城城门.对象死亡 && MapGatewayProcess.沙城城门.出生地图 != null)
 				{
-					NetworkServiceGateway.发送公告("沙巴克城门已经被攻破", true);
+					NetworkServiceGateway.发送公告("Shabak City Gate has been breached", true);
 					MapGatewayProcess.沙城城门.出生地图 = null;
 				}
 				if (MapGatewayProcess.八卦坛激活行会 == null)
@@ -456,7 +456,7 @@ namespace GameServer.Maps
 						{
 							MapGatewayProcess.八卦坛激活行会 = GuildData2;
 							MapGatewayProcess.八卦坛激活法阵 = new GuardInstance(地图守卫.DataSheet[6123], MapGatewayProcess.沙城地图, GameDirection.左方, MapGatewayProcess.八卦坛坐标中);
-							NetworkServiceGateway.发送公告(string.Format("沙巴克八卦坛传送点已经被行会[{0}]成功激活", GuildData2), true);
+							NetworkServiceGateway.发送公告(string.Format("The Shabak Gossip Altar teleportation point has been successfully activated by guild [{0}]", GuildData2), true);
 						}
 					}
 					else
@@ -509,7 +509,7 @@ namespace GameServer.Maps
 					{
 						keyValuePair4.Key.攻沙日期.V = MainProcess.当前时间;
 					}
-					NetworkServiceGateway.发送公告(string.Format("沙巴克攻城战已经结束, [{0}]成为新的沙巴克行会", GuildData3), true);
+					NetworkServiceGateway.发送公告(string.Format("The Battle of Shabak has ended, and [{0}] has become the new Shabak Guild", GuildData3), true);
 					MapGatewayProcess.八卦坛激活计时 = MainProcess.当前时间.AddMinutes(5.0);
 					MapGatewayProcess.沙城节点 += 1;
 					return;
@@ -518,11 +518,11 @@ namespace GameServer.Maps
 				{
 					if (SystemData.数据.占领行会.V == null)
 					{
-						NetworkServiceGateway.发送公告("沙巴克攻城战已经结束, 沙巴克仍然为无主之地", true);
+						NetworkServiceGateway.发送公告("The Battle of Shabak has ended, and Shabak remains without owners", true);
 					}
 					else
 					{
-						NetworkServiceGateway.发送公告(string.Format("沙巴克攻城战已经结束, 沙巴克仍然被[{0}]行会占领", SystemData.数据.占领行会.V.行会名字), true);
+						NetworkServiceGateway.发送公告(string.Format("The Shabak siege has ended, Shabak is still occupied by [{0}] guild", SystemData.数据.占领行会.V.行会名字), true);
 					}
 					if (SystemData.数据.占领行会.V == null)
 					{
@@ -655,7 +655,7 @@ namespace GameServer.Maps
 			{
 				if (MainProcess.当前时间.Hour + 1 == (int)CustomClass.武斗场时间一 || MainProcess.当前时间.Hour + 1 == (int)CustomClass.武斗场时间二)
 				{
-					NetworkServiceGateway.发送公告("经验武斗场将在五分钟后开启, 想要参加的勇士请做好准备", true);
+					NetworkServiceGateway.发送公告("The Experience Arena will open in five minutes, so get ready if you want to participate!", true);
 				}
 				MapGatewayProcess.通知时间 = MainProcess.当前时间;
 			}
