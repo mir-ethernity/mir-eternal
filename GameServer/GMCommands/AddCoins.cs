@@ -36,11 +36,11 @@ namespace GameServer
 							货币数量 = CharacterData.金币数量
 						});
 					}
-					MainForm.添加命令日志(string.Format("<= @{0} 命令已经执行, 当前金币数量: {1}", base.GetType().Name, CharacterData.金币数量));
+					MainForm.添加命令日志(string.Format("<= @{0} command has been executed, current coin count: {1}", base.GetType().Name, CharacterData.金币数量));
 					return;
 				}
 			}
-			MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 角色不存在");
+			MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, role does not exist");
 		}
 
 		// Token: 0x0600005C RID: 92 RVA: 0x00002858 File Offset: 0x00000A58
