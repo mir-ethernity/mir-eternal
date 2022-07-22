@@ -26,7 +26,7 @@ namespace GameServer
 			{
 				MainForm.Singleton.S_NoobSupportCommand等级.Value = this.扶持等级;
 			}));
-			MainForm.添加命令日志(string.Format("<= @{0} 命令已经执行, 当前扶持等级:{1}", base.GetType().Name, CustomClass.NoobSupportCommand等级));
+			MainForm.添加命令日志(string.Format("<= @{0} command has been executed, current support level: {1}", base.GetType().Name, CustomClass.NoobSupportCommand等级));
 		}
 
 		// Token: 0x0600004C RID: 76 RVA: 0x00002858 File Offset: 0x00000A58
