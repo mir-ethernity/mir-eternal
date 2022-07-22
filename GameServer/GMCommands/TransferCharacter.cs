@@ -4,7 +4,7 @@ using GameServer.Data;
 namespace GameServer
 {
 	// Token: 0x0200001B RID: 27
-	public sealed class RoleTransferCommand : GMCommand
+	public sealed class TransferCharacter : GMCommand
 	{
 		// Token: 0x17000013 RID: 19
 		// (get) Token: 0x06000054 RID: 84 RVA: 0x00002865 File Offset: 0x00000A65
@@ -20,7 +20,7 @@ namespace GameServer
 		public override void 执行命令()
 		{
 			GameData GameData;
-			if (GameDataGateway.CharacterDataTable.Keyword.TryGetValue(this.角色名字, out GameData))
+			if (GameDataGateway.CharacterDataTable.Keyword.TryGetValue(this.Character, out GameData))
 			{
 				CharacterData CharacterData = GameData as CharacterData;
 				if (CharacterData != null)
@@ -41,7 +41,7 @@ namespace GameServer
 						return;
 					}
 					GameData GameData2;
-					if (GameDataGateway.AccountData表.Keyword.TryGetValue(this.新账号名, out GameData2))
+					if (GameDataGateway.AccountData表.Keyword.TryGetValue(this.NewAccount, out GameData2))
 					{
 						AccountData AccountData = GameData2 as AccountData;
 						if (AccountData != null)
@@ -76,7 +76,7 @@ namespace GameServer
 		}
 
 		// Token: 0x06000056 RID: 86 RVA: 0x00002858 File Offset: 0x00000A58
-		public RoleTransferCommand()
+		public TransferCharacter()
 		{
 			
 			
@@ -84,10 +84,10 @@ namespace GameServer
 
 		// Token: 0x04000028 RID: 40
 		[FieldAttribute(0, 排序 = 0)]
-		public string 角色名字;
+		public string Character;
 
 		// Token: 0x04000029 RID: 41
 		[FieldAttribute(0, 排序 = 1)]
-		public string 新账号名;
+		public string NewAccount;
 	}
 }

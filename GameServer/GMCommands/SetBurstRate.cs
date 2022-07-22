@@ -5,7 +5,7 @@ using GameServer.Properties;
 namespace GameServer
 {
 	// Token: 0x02000015 RID: 21
-	public sealed class SetBurstRateCommand : GMCommand
+	public sealed class SetBurstRate : GMCommand
 	{
 		// Token: 0x1700000D RID: 13
 		// (get) Token: 0x0600003D RID: 61 RVA: 0x00002940 File Offset: 0x00000B40
@@ -40,7 +40,7 @@ namespace GameServer
 		}
 
 		// Token: 0x0600003F RID: 63 RVA: 0x00002858 File Offset: 0x00000A58
-		public SetBurstRateCommand()
+		public SetBurstRate()
 		{
 			
 			

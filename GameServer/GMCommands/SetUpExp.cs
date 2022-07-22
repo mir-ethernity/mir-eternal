@@ -5,7 +5,7 @@ using GameServer.Properties;
 namespace GameServer
 {
 	// Token: 0x02000016 RID: 22
-	public sealed class SetUpExpCommand : GMCommand
+	public sealed class SetUpExp : GMCommand
 	{
 		// Token: 0x1700000E RID: 14
 		// (get) Token: 0x06000041 RID: 65 RVA: 0x00002940 File Offset: 0x00000B40
@@ -40,7 +40,7 @@ namespace GameServer
 		}
 
 		// Token: 0x06000043 RID: 67 RVA: 0x00002858 File Offset: 0x00000A58
-		public SetUpExpCommand()
+		public SetUpExp()
 		{
 			
 			

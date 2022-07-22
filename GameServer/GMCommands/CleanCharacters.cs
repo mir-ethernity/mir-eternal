@@ -6,7 +6,7 @@ using GameServer.Data;
 namespace GameServer
 {
 	// Token: 0x0200000C RID: 12
-	public sealed class CleanRolesCommand : GMCommand
+	public sealed class CleanCharacters : GMCommand
 	{
 		// Token: 0x17000005 RID: 5
 		// (get) Token: 0x06000020 RID: 32 RVA: 0x00002868 File Offset: 0x00000A68
@@ -32,7 +32,7 @@ namespace GameServer
 				}));
 				Task.Run(delegate()
 				{
-					GameDataGateway.CleanRolesCommand(this.限制等级, this.限制天数);
+					GameDataGateway.CleanCharacters(this.限制等级, this.限制天数);
 					MainForm.Singleton.BeginInvoke(new MethodInvoker(delegate()
 					{
 						Control 下方控件页 = MainForm.Singleton.下方控件页;
@@ -44,7 +44,7 @@ namespace GameServer
 		}
 
 		// Token: 0x06000022 RID: 34 RVA: 0x00002858 File Offset: 0x00000A58
-		public CleanRolesCommand()
+		public CleanCharacters()
 		{
 			
 			

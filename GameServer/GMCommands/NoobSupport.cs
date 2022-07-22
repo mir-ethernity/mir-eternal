@@ -5,7 +5,7 @@ using GameServer.Properties;
 namespace GameServer
 {
 	// Token: 0x02000018 RID: 24
-	public sealed class NoobSupportCommand : GMCommand
+	public sealed class NoobSupport : GMCommand
 	{
 		// Token: 0x17000010 RID: 16
 		// (get) Token: 0x0600004A RID: 74 RVA: 0x00002940 File Offset: 0x00000B40
@@ -30,7 +30,7 @@ namespace GameServer
 		}
 
 		// Token: 0x0600004C RID: 76 RVA: 0x00002858 File Offset: 0x00000A58
-		public NoobSupportCommand()
+		public NoobSupport()
 		{
 			
 			

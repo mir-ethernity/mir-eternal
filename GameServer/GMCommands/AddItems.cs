@@ -6,7 +6,7 @@ using GameServer.Networking;
 namespace GameServer
 {
 	// Token: 0x0200001E RID: 30
-	public sealed class AddItemsCommand : GMCommand
+	public sealed class AddItems : GMCommand
 	{
 		// Token: 0x17000016 RID: 22
 		// (get) Token: 0x0600005D RID: 93 RVA: 0x00002865 File Offset: 0x00000A65
@@ -86,7 +86,7 @@ namespace GameServer
 		}
 
 		// Token: 0x0600005F RID: 95 RVA: 0x00002858 File Offset: 0x00000A58
-		public AddItemsCommand()
+		public AddItems()
 		{
 			
 			

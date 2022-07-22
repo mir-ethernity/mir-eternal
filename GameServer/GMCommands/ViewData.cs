@@ -5,7 +5,7 @@ using GameServer.Data;
 namespace GameServer
 {
 	// Token: 0x02000009 RID: 9
-	public sealed class ViewDataCommand : GMCommand
+	public sealed class ViewData : GMCommand
 	{
 		// Token: 0x17000003 RID: 3
 		// (get) Token: 0x06000015 RID: 21 RVA: 0x00002865 File Offset: 0x00000A65
@@ -28,7 +28,7 @@ namespace GameServer
 		}
 
 		// Token: 0x06000017 RID: 23 RVA: 0x00002858 File Offset: 0x00000A58
-		public ViewDataCommand()
+		public ViewData()
 		{
 			
 			

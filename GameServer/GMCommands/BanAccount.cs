@@ -5,7 +5,7 @@ using GameServer.Networking;
 namespace GameServer
 {
 	// Token: 0x02000010 RID: 16
-	public sealed class BanAccountCommand : GMCommand
+	public sealed class BanAccount : GMCommand
 	{
 		// Token: 0x17000008 RID: 8
 		// (get) Token: 0x0600002E RID: 46 RVA: 0x00002865 File Offset: 0x00000A65
@@ -40,7 +40,7 @@ namespace GameServer
 		}
 
 		// Token: 0x06000030 RID: 48 RVA: 0x00002858 File Offset: 0x00000A58
-		public BanAccountCommand()
+		public BanAccount()
 		{
 			
 			

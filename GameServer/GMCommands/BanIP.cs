@@ -5,7 +5,7 @@ using GameServer.Data;
 namespace GameServer
 {
 	// Token: 0x0200000E RID: 14
-	public sealed class BanIPCommand : GMCommand
+	public sealed class BanIP : GMCommand
 	{
 		// Token: 0x17000006 RID: 6
 		// (get) Token: 0x06000028 RID: 40 RVA: 0x00002865 File Offset: 0x00000A65
@@ -31,7 +31,7 @@ namespace GameServer
 		}
 
 		// Token: 0x0600002A RID: 42 RVA: 0x00002858 File Offset: 0x00000A58
-		public BanIPCommand()
+		public BanIP()
 		{
 			
 			

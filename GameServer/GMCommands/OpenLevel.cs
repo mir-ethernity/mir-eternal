@@ -5,7 +5,7 @@ using GameServer.Properties;
 namespace GameServer
 {
 	// Token: 0x02000017 RID: 23
-	public sealed class OpenLevelCommand : GMCommand
+	public sealed class OpenLevel : GMCommand
 	{
 		// Token: 0x1700000F RID: 15
 		// (get) Token: 0x06000046 RID: 70 RVA: 0x00002940 File Offset: 0x00000B40
@@ -35,7 +35,7 @@ namespace GameServer
 		}
 
 		// Token: 0x06000048 RID: 72 RVA: 0x00002858 File Offset: 0x00000A58
-		public OpenLevelCommand()
+		public OpenLevel()
 		{
 			
 			

@@ -4,7 +4,7 @@ using GameServer.Data;
 namespace GameServer
 {
 	// Token: 0x02000019 RID: 25
-	public sealed class GetBackRoleCommand : GMCommand
+	public sealed class RestoreCharacter : GMCommand
 	{
 		// Token: 0x17000011 RID: 17
 		// (get) Token: 0x0600004E RID: 78 RVA: 0x00002865 File Offset: 0x00000A65
@@ -20,7 +20,7 @@ namespace GameServer
 		public override void 执行命令()
 		{
 			GameData GameData;
-			if (GameDataGateway.CharacterDataTable.Keyword.TryGetValue(this.角色名字, out GameData))
+			if (GameDataGateway.CharacterDataTable.Keyword.TryGetValue(this.CharacterName, out GameData))
 			{
 				CharacterData CharacterData = GameData as CharacterData;
 				if (CharacterData != null)
@@ -55,7 +55,7 @@ namespace GameServer
 		}
 
 		// Token: 0x06000050 RID: 80 RVA: 0x00002858 File Offset: 0x00000A58
-		public GetBackRoleCommand()
+		public RestoreCharacter()
 		{
 			
 			
@@ -63,6 +63,6 @@ namespace GameServer
 
 		// Token: 0x04000025 RID: 37
 		[FieldAttribute(0, 排序 = 0)]
-		public string 角色名字;
+		public string CharacterName;
 	}
 }

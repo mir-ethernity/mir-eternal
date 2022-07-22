@@ -59,7 +59,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GMCommand.cs" />
+    <Compile Include="GMCommands\GMCommand.cs" />
     <Compile Include="PrivateImplementationDetails.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,17 +96,17 @@
     <Compile Include="PacketInfoAttribute.cs" />
     <Compile Include="WrappingFieldAttribute.cs" />
     <Compile Include="PacketSource.cs" />
-    <Compile Include="BanNICCommand.cs" />
-    <Compile Include="BanIPCommand.cs" />
-    <Compile Include="BanCharacterCommand.cs" />
-    <Compile Include="BanAccountCommand.cs" />
-    <Compile Include="OpenLevelCommand.cs" />
+    <Compile Include="GMCommands\BanNIC.cs" />
+    <Compile Include="GMCommands\BanIP.cs" />
+    <Compile Include="GMCommands\BanCharacter.cs" />
+    <Compile Include="GMCommands\BanAccount.cs" />
+    <Compile Include="GMCommands\OpenLevel.cs" />
     <Compile Include="MonsterRaceType.cs" />
     <Compile Include="MonsterLevelType.cs" />
-    <Compile Include="DeductIngotsCommand.cs" />
-    <Compile Include="DeductCoinsCommand.cs" />
+    <Compile Include="GMCommands\DeductIngots.cs" />
+    <Compile Include="GMCommands\DeductCoins.cs" />
     <Compile Include="ExecutionWay.cs" />
-    <Compile Include="GetBackRoleCommand.cs" />
+    <Compile Include="GMCommands\RestoreCharacter.cs" />
     <Compile Include="RankType.cs" />
     <Compile Include="AttackMode.cs" />
     <Compile Include="FastDataReturnAttribute.cs" />
@@ -138,9 +138,9 @@
     <Compile Include="Data\MailData.cs" />
     <Compile Include="Data\TeamData.cs" />
     <Compile Include="SortDataCommand.cs" />
-    <Compile Include="NoobSupportCommand.cs" />
+    <Compile Include="GMCommands\NoobSupport.cs" />
     <Compile Include="ViewCommand.cs" />
-    <Compile Include="ViewDataCommand.cs" />
+    <Compile Include="GMCommands\ViewData.cs" />
     <Compile Include="Templates\PendingRename13.cs" />
     <Compile Include="Templates\PendingRename14.cs" />
     <Compile Include="Templates\PendingRename15.cs" />
@@ -209,10 +209,10 @@
     <Compile Include="Templates\PendingRename7.cs" />
     <Compile Include="Templates\PendingRename6.cs" />
     <Compile Include="Templates\PendingRename9.cs" />
-    <Compile Include="AddIngotsCommand.cs" />
-    <Compile Include="AddItemsCommand.cs" />
-    <Compile Include="AddCoinsCommand.cs" />
-    <Compile Include="CleanRolesCommand.cs" />
+    <Compile Include="GMCommands\AddIngots.cs" />
+    <Compile Include="GMCommands\AddItems.cs" />
+    <Compile Include="GMCommands\AddCoins.cs" />
+    <Compile Include="GMCommands\CleanCharacters.cs" />
     <Compile Include="GameObjectSize.cs" />
     <Compile Include="GameObjectProperties.cs" />
     <Compile Include="GameObjectGender.cs" />
@@ -402,7 +402,7 @@
     <Compile Include="Networking\ObjectOutOfViewPacket.cs" />
     <Compile Include="Networking\ObjectRemovalStatusPacket.cs" />
     <Compile Include="Networking\ObjectPassiveDisplacementPacket.cs" />
-    <Compile Include="Networking\ObjectRoleStopPacket.cs" />
+    <Compile Include="Networking\ObjectCharacterStopPacket.cs" />
     <Compile Include="Networking\ObjectCharacterDiesPacket.cs" />
     <Compile Include="Networking\ObjectCharacterWalkPacket.cs" />
     <Compile Include="Networking\ObjectCharacterRunPacket.cs" />
@@ -426,7 +426,7 @@
     <Compile Include="Networking\BattleStanceSwitchPacket.cs" />
     <Compile Include="Networking\PendingRename200.cs" />
     <Compile Include="Networking\PendingRename199.cs" />
-    <Compile Include="Networking\GetBackRoleAnswersPacket.cs" />
+    <Compile Include="Networking\GetBackCharacterAnswersPacket.cs" />
     <Compile Include="Networking\PendingRename3.cs" />
     <Compile Include="Networking\PendingRename2.cs" />
     <Compile Include="Networking\RefusalApprenticePacket.cs" />
@@ -513,7 +513,7 @@
     <Compile Include="Networking\PendingRename53.cs" />
     <Compile Include="Networking\PendingRename54.cs" />
     <Compile Include="Networking\PendingRename1.cs" />
-    <Compile Include="Networking\DeleteRolePacket.cs" />
+    <Compile Include="Networking\DeleteCharacterPacket.cs" />
     <Compile Include="Networking\PendingRename229.cs" />
     <Compile Include="Networking\AddWarehouseAnnouncementPacket.cs" />
     <Compile Include="Networking\AddGuildMemoPacket.cs" />
@@ -644,7 +644,7 @@
     <Compile Include="Networking\CharacterDropsItemsPacket.cs" />
     <Compile Include="Networking\CharacterUseItemsPacket.cs" />
     <Compile Include="Networking\CharacterBreakdownItemsPacket.cs" />
-    <Compile Include="Networking\RoleCreatedSuccessfullyPacket.cs" />
+    <Compile Include="Networking\CharacterCreatedSuccessfullyPacket.cs" />
     <Compile Include="Networking\CharacterSellItemsPacket.cs" />
     <Compile Include="Networking\CharacterSynthesisItemPacket.cs" />
     <Compile Include="Networking\CharacterRepurchageItemsPacket.cs" />
@@ -653,7 +653,7 @@
     <Compile Include="Networking\CharacterSplitItemsPacket.cs" />
     <Compile Include="Networking\CharacterDragSkillsPacket.cs" />
     <Compile Include="Networking\CharacterPickupItemsPacket.cs" />
-    <Compile Include="Networking\RoleRenamingAnswerPacket.cs" />
+    <Compile Include="Networking\CharacterRenamingAnswerPacket.cs" />
     <Compile Include="Networking\CharacterOrganizerBackpackPacket.cs" />
     <Compile Include="Networking\CharacterRemoveSkillPacket.cs" />
     <Compile Include="Networking\CharacterLevelUpPacket.cs" />
@@ -661,7 +661,7 @@
     <Compile Include="Networking\CharacterEquipmentSkillsPacket.cs" />
     <Compile Include="Networking\CharacterAssemblyInscriptionPacket.cs" />
     <Compile Include="Networking\CharacterPurchageItemsPacket.cs" />
-    <Compile Include="Networking\RoleTransferItemPacket.cs" />
+    <Compile Include="Networking\CharacterTransferItemPacket.cs" />
     <Compile Include="Networking\CharacterSelectionTargetPacket.cs" />
     <Compile Include="Networking\CharacterReleaseSkillsPacket.cs" />
     <Compile Include="Networking\AnnouncementDissolutionGuildPacket.cs" />
@@ -693,7 +693,7 @@
     <Compile Include="Networking\PendingRename216.cs" />
     <Compile Include="Networking\TransferGuildWarehousePacket.cs" />
     <Compile Include="Networking\TransferPresidentPositionPacket.cs" />
-    <Compile Include="Networking\BackRoleListPacket.cs" />
+    <Compile Include="Networking\BackCharacterListPacket.cs" />
     <Compile Include="Networking\EnterCombatStancePacket.cs" />
     <Compile Include="Networking\EnterGameAnswerPacket.cs" />
     <Compile Include="Networking\EnterMartialArtsBatllefieldPacket.cs" />
@@ -725,14 +725,14 @@
     <Compile Include="CustomClass.cs" />
     <Compile Include="EquipHoleColor.cs" />
     <Compile Include="EquipmentWearingParts.cs" />
-    <Compile Include="RoleRenamingCommand.cs" />
-    <Compile Include="RoleTransferCommand.cs" />
-    <Compile Include="UnblockIPCommand.cs" />
-    <Compile Include="UnblockCharacterCommand.cs" />
-    <Compile Include="UnblockAccountCommand.cs" />
+    <Compile Include="GMCommands\RenameCharacter.cs" />
+    <Compile Include="GMCommands\TransferCharacter.cs" />
+    <Compile Include="GMCommands\UnblockIP.cs" />
+    <Compile Include="GMCommands\UnblockCharacter.cs" />
+    <Compile Include="GMCommands\UnblockAccount.cs" />
     <Compile Include="ComputingClass.cs" />
-    <Compile Include="SetBurstRateCommand.cs" />
-    <Compile Include="SetUpExpCommand.cs" />
+    <Compile Include="GMCommands\SetBurstRate.cs" />
+    <Compile Include="GMCommands\SetUpExp.cs" />
     <Compile Include="RouteStatus.cs" />
     <Compile Include="SoftwareVerfication.cs" />
     <Compile Include="SkillType.cs" />

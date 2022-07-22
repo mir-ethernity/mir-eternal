@@ -4,7 +4,7 @@ using GameServer.Data;
 namespace GameServer
 {
 	// Token: 0x02000013 RID: 19
-	public sealed class UnblockAccountCommand : GMCommand
+	public sealed class UnblockAccount : GMCommand
 	{
 		// Token: 0x1700000B RID: 11
 		// (get) Token: 0x06000037 RID: 55 RVA: 0x00002865 File Offset: 0x00000A65
@@ -34,7 +34,7 @@ namespace GameServer
 		}
 
 		// Token: 0x06000039 RID: 57 RVA: 0x00002858 File Offset: 0x00000A58
-		public UnblockAccountCommand()
+		public UnblockAccount()
 		{
 			
 			
