@@ -32,11 +32,11 @@ namespace GameServer
 					{
 						网络连接.尝试断开连接(new Exception("账号被封禁, 强制下线"));
 					}
-					MainForm.添加命令日志(string.Format("<= @{0} 命令已经执行, 封禁到期时间: {1}", base.GetType().Name, AccountData.封禁日期));
+					MainForm.添加命令日志(string.Format("<= @{0} command executed, blocking expiry time: {1}", base.GetType().Name, AccountData.封禁日期));
 					return;
 				}
 			}
-			MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 账号不存在");
+			MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, account does not exist");
 		}
 
 		// Token: 0x06000030 RID: 48 RVA: 0x00002858 File Offset: 0x00000A58
