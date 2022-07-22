@@ -229,7 +229,7 @@
             this.主选项卡.Controls.Add(this.tabBans);
             this.主选项卡.Controls.Add(this.tabAnnouncements);
             this.主选项卡.Controls.Add(this.tabConfig);
-            this.主选项卡.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.主选项卡.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.主选项卡.ItemSize = new System.Drawing.Size(170, 30);
             this.主选项卡.Location = new System.Drawing.Point(4, 4);
             this.主选项卡.Margin = new System.Windows.Forms.Padding(4);
@@ -294,7 +294,7 @@
             this.日志选项卡.Controls.Add(this.系统日志页面);
             this.日志选项卡.Controls.Add(this.聊天日志页面);
             this.日志选项卡.Controls.Add(this.命令日志页面);
-            this.日志选项卡.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.日志选项卡.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.日志选项卡.ItemSize = new System.Drawing.Size(294, 20);
             this.日志选项卡.Location = new System.Drawing.Point(3, 3);
             this.日志选项卡.Margin = new System.Windows.Forms.Padding(4);
@@ -319,7 +319,7 @@
             // 系统日志
             // 
             this.系统日志.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.系统日志.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.系统日志.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.系统日志.Location = new System.Drawing.Point(0, 0);
             this.系统日志.Margin = new System.Windows.Forms.Padding(4);
             this.系统日志.Name = "系统日志";
@@ -343,7 +343,7 @@
             // 聊天日志
             // 
             this.聊天日志.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.聊天日志.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.聊天日志.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.聊天日志.Location = new System.Drawing.Point(0, 0);
             this.聊天日志.Margin = new System.Windows.Forms.Padding(4);
             this.聊天日志.Name = "聊天日志";
@@ -366,7 +366,7 @@
             // 命令日志
             // 
             this.命令日志.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.命令日志.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.命令日志.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.命令日志.Location = new System.Drawing.Point(0, 0);
             this.命令日志.Margin = new System.Windows.Forms.Padding(4);
             this.命令日志.Name = "命令日志";
@@ -499,7 +499,7 @@
             this.tabCharacters.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabCharacters.Controls.Add(this.角色详情选项卡);
             this.tabCharacters.Controls.Add(this.dgvCharacters);
-            this.tabCharacters.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tabCharacters.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabCharacters.Location = new System.Drawing.Point(4, 34);
             this.tabCharacters.Margin = new System.Windows.Forms.Padding(4);
             this.tabCharacters.Name = "tabCharacters";
@@ -514,7 +514,7 @@
             this.角色详情选项卡.Controls.Add(this.CharacterData_装备);
             this.角色详情选项卡.Controls.Add(this.CharacterData_背包);
             this.角色详情选项卡.Controls.Add(this.CharacterData_仓库);
-            this.角色详情选项卡.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.角色详情选项卡.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.角色详情选项卡.ItemSize = new System.Drawing.Size(85, 20);
             this.角色详情选项卡.Location = new System.Drawing.Point(1121, 4);
             this.角色详情选项卡.Margin = new System.Windows.Forms.Padding(4);
@@ -549,7 +549,7 @@
             this.技能浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -559,7 +559,7 @@
             this.技能浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -603,7 +603,7 @@
             this.装备浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -613,7 +613,7 @@
             this.装备浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -656,7 +656,7 @@
             this.背包浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -666,7 +666,7 @@
             this.背包浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -709,7 +709,7 @@
             this.仓库浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -719,7 +719,7 @@
             this.仓库浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
             dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -750,7 +750,7 @@
             this.dgvCharacters.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -761,7 +761,7 @@
             this.dgvCharacters.ContextMenuStrip = this.角色右键菜单;
             dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
             dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -824,7 +824,7 @@
             this.tabMaps.BackColor = System.Drawing.Color.Gainsboro;
             this.tabMaps.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabMaps.Controls.Add(this.dgvMaps);
-            this.tabMaps.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tabMaps.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabMaps.Location = new System.Drawing.Point(4, 34);
             this.tabMaps.Margin = new System.Windows.Forms.Padding(4);
             this.tabMaps.Name = "tabMaps";
@@ -846,7 +846,7 @@
             this.dgvMaps.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -856,7 +856,7 @@
             this.dgvMaps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
             dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -881,7 +881,7 @@
             this.tabMonsters.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabMonsters.Controls.Add(this.掉落浏览表);
             this.tabMonsters.Controls.Add(this.怪物浏览表);
-            this.tabMonsters.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tabMonsters.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabMonsters.Location = new System.Drawing.Point(4, 34);
             this.tabMonsters.Margin = new System.Windows.Forms.Padding(4);
             this.tabMonsters.Name = "tabMonsters";
@@ -902,7 +902,7 @@
             this.掉落浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -912,7 +912,7 @@
             this.掉落浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
             dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -944,7 +944,7 @@
             this.怪物浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -954,7 +954,7 @@
             this.怪物浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
             dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -977,7 +977,7 @@
             // 
             this.tabBans.BackColor = System.Drawing.Color.Gainsboro;
             this.tabBans.Controls.Add(this.封禁浏览表);
-            this.tabBans.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tabBans.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabBans.Location = new System.Drawing.Point(4, 34);
             this.tabBans.Margin = new System.Windows.Forms.Padding(4);
             this.tabBans.Name = "tabBans";
@@ -998,7 +998,7 @@
             this.封禁浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -1008,7 +1008,7 @@
             this.封禁浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
             dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -1035,7 +1035,7 @@
             this.tabAnnouncements.Controls.Add(this.删除公告按钮);
             this.tabAnnouncements.Controls.Add(this.添加公告按钮);
             this.tabAnnouncements.Controls.Add(this.公告浏览表);
-            this.tabAnnouncements.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tabAnnouncements.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabAnnouncements.Location = new System.Drawing.Point(4, 34);
             this.tabAnnouncements.Margin = new System.Windows.Forms.Padding(4);
             this.tabAnnouncements.Name = "tabAnnouncements";
@@ -1046,7 +1046,7 @@
             // 开始公告按钮
             // 
             this.开始公告按钮.Enabled = false;
-            this.开始公告按钮.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.开始公告按钮.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.开始公告按钮.Location = new System.Drawing.Point(7, 529);
             this.开始公告按钮.Margin = new System.Windows.Forms.Padding(4);
             this.开始公告按钮.Name = "开始公告按钮";
@@ -1059,7 +1059,7 @@
             // 停止公告按钮
             // 
             this.停止公告按钮.Enabled = false;
-            this.停止公告按钮.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.停止公告按钮.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.停止公告按钮.Location = new System.Drawing.Point(399, 529);
             this.停止公告按钮.Margin = new System.Windows.Forms.Padding(4);
             this.停止公告按钮.Name = "停止公告按钮";
@@ -1071,7 +1071,7 @@
             // 
             // 删除公告按钮
             // 
-            this.删除公告按钮.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.删除公告按钮.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.删除公告按钮.Location = new System.Drawing.Point(1183, 529);
             this.删除公告按钮.Margin = new System.Windows.Forms.Padding(4);
             this.删除公告按钮.Name = "删除公告按钮";
@@ -1083,7 +1083,7 @@
             // 
             // 添加公告按钮
             // 
-            this.添加公告按钮.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.添加公告按钮.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.添加公告按钮.Location = new System.Drawing.Point(791, 529);
             this.添加公告按钮.Margin = new System.Windows.Forms.Padding(4);
             this.添加公告按钮.Name = "添加公告按钮";
@@ -1102,7 +1102,7 @@
             this.公告浏览表.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -1119,7 +1119,7 @@
             this.公告内容});
             dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle29.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.ActiveBorder;
             dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -1132,7 +1132,7 @@
             this.公告浏览表.Name = "公告浏览表";
             dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
             dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -1211,7 +1211,7 @@
             this.tabConfig.Controls.Add(this.S_GameData分组);
             this.tabConfig.Controls.Add(this.S_游戏设置分组);
             this.tabConfig.Controls.Add(this.S_网络设置分组);
-            this.tabConfig.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tabConfig.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabConfig.Location = new System.Drawing.Point(4, 34);
             this.tabConfig.Margin = new System.Windows.Forms.Padding(4);
             this.tabConfig.Name = "tabConfig";
@@ -1262,7 +1262,7 @@
             this.S_GameData分组.Controls.Add(this.S_GameData目录);
             this.S_GameData分组.Controls.Add(this.S_备份目录标签);
             this.S_GameData分组.Controls.Add(this.S_数据目录标签);
-            this.S_GameData分组.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_GameData分组.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_GameData分组.Location = new System.Drawing.Point(847, 16);
             this.S_GameData分组.Margin = new System.Windows.Forms.Padding(4);
             this.S_GameData分组.Name = "S_GameData分组";
@@ -1275,7 +1275,7 @@
             // S_注意事项标签8
             // 
             this.S_注意事项标签8.AutoSize = true;
-            this.S_注意事项标签8.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_注意事项标签8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_注意事项标签8.ForeColor = System.Drawing.Color.Blue;
             this.S_注意事项标签8.Location = new System.Drawing.Point(53, 495);
             this.S_注意事项标签8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1287,7 +1287,7 @@
             // S_注意事项标签7
             // 
             this.S_注意事项标签7.AutoSize = true;
-            this.S_注意事项标签7.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_注意事项标签7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_注意事项标签7.ForeColor = System.Drawing.Color.Blue;
             this.S_注意事项标签7.Location = new System.Drawing.Point(53, 468);
             this.S_注意事项标签7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1299,7 +1299,7 @@
             // S_注意事项标签6
             // 
             this.S_注意事项标签6.AutoSize = true;
-            this.S_注意事项标签6.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_注意事项标签6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_注意事项标签6.ForeColor = System.Drawing.Color.Blue;
             this.S_注意事项标签6.Location = new System.Drawing.Point(53, 441);
             this.S_注意事项标签6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1311,7 +1311,7 @@
             // S_注意事项标签5
             // 
             this.S_注意事项标签5.AutoSize = true;
-            this.S_注意事项标签5.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_注意事项标签5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_注意事项标签5.ForeColor = System.Drawing.Color.Blue;
             this.S_注意事项标签5.Location = new System.Drawing.Point(53, 415);
             this.S_注意事项标签5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1323,7 +1323,7 @@
             // S_注意事项标签4
             // 
             this.S_注意事项标签4.AutoSize = true;
-            this.S_注意事项标签4.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_注意事项标签4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_注意事项标签4.ForeColor = System.Drawing.Color.Blue;
             this.S_注意事项标签4.Location = new System.Drawing.Point(53, 388);
             this.S_注意事项标签4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1335,7 +1335,7 @@
             // S_注意事项标签3
             // 
             this.S_注意事项标签3.AutoSize = true;
-            this.S_注意事项标签3.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_注意事项标签3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_注意事项标签3.ForeColor = System.Drawing.Color.Blue;
             this.S_注意事项标签3.Location = new System.Drawing.Point(53, 361);
             this.S_注意事项标签3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1347,7 +1347,7 @@
             // S_注意事项标签2
             // 
             this.S_注意事项标签2.AutoSize = true;
-            this.S_注意事项标签2.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_注意事项标签2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_注意事项标签2.ForeColor = System.Drawing.Color.Blue;
             this.S_注意事项标签2.Location = new System.Drawing.Point(53, 335);
             this.S_注意事项标签2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1359,7 +1359,7 @@
             // S_注意事项标签1
             // 
             this.S_注意事项标签1.AutoSize = true;
-            this.S_注意事项标签1.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_注意事项标签1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_注意事项标签1.ForeColor = System.Drawing.Color.Blue;
             this.S_注意事项标签1.Location = new System.Drawing.Point(23, 308);
             this.S_注意事项标签1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -1436,7 +1436,7 @@
             // 
             // S_合并数据目录
             // 
-            this.S_合并数据目录.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_合并数据目录.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_合并数据目录.Location = new System.Drawing.Point(152, 224);
             this.S_合并数据目录.Margin = new System.Windows.Forms.Padding(4);
             this.S_合并数据目录.Name = "S_合并数据目录";
@@ -1455,7 +1455,7 @@
             // 
             // S_数据备份目录
             // 
-            this.S_数据备份目录.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_数据备份目录.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_数据备份目录.Location = new System.Drawing.Point(152, 75);
             this.S_数据备份目录.Margin = new System.Windows.Forms.Padding(4);
             this.S_数据备份目录.Name = "S_数据备份目录";
@@ -1466,7 +1466,7 @@
             // 
             // S_GameData目录
             // 
-            this.S_GameData目录.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_GameData目录.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_GameData目录.Location = new System.Drawing.Point(152, 36);
             this.S_GameData目录.Margin = new System.Windows.Forms.Padding(4);
             this.S_GameData目录.Name = "S_GameData目录";
@@ -1518,7 +1518,7 @@
             this.S_游戏设置分组.Controls.Add(this.S_怪物额外爆率);
             this.S_游戏设置分组.Controls.Add(this.S_OpenLevelCommand标签);
             this.S_游戏设置分组.Controls.Add(this.S_游戏OpenLevelCommand);
-            this.S_游戏设置分组.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_游戏设置分组.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_游戏设置分组.Location = new System.Drawing.Point(432, 16);
             this.S_游戏设置分组.Margin = new System.Windows.Forms.Padding(4);
             this.S_游戏设置分组.Name = "S_游戏设置分组";
@@ -1540,7 +1540,7 @@
             // 
             // S_NoobSupportCommand等级
             // 
-            this.S_NoobSupportCommand等级.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_NoobSupportCommand等级.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_NoobSupportCommand等级.Location = new System.Drawing.Point(167, 76);
             this.S_NoobSupportCommand等级.Margin = new System.Windows.Forms.Padding(4);
             this.S_NoobSupportCommand等级.Maximum = new decimal(new int[] {
@@ -1565,7 +1565,7 @@
             // 
             // S_物品归属时间
             // 
-            this.S_物品归属时间.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_物品归属时间.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_物品归属时间.Location = new System.Drawing.Point(167, 385);
             this.S_物品归属时间.Margin = new System.Windows.Forms.Padding(4);
             this.S_物品归属时间.Maximum = new decimal(new int[] {
@@ -1591,7 +1591,7 @@
             // 
             // S_物品清理时间
             // 
-            this.S_物品清理时间.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_物品清理时间.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_物品清理时间.Location = new System.Drawing.Point(167, 347);
             this.S_物品清理时间.Margin = new System.Windows.Forms.Padding(4);
             this.S_物品清理时间.Maximum = new decimal(new int[] {
@@ -1617,7 +1617,7 @@
             // 
             // S_怪物诱惑时长
             // 
-            this.S_怪物诱惑时长.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_怪物诱惑时长.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_怪物诱惑时长.Location = new System.Drawing.Point(167, 308);
             this.S_怪物诱惑时长.Margin = new System.Windows.Forms.Padding(4);
             this.S_怪物诱惑时长.Maximum = new decimal(new int[] {
@@ -1644,7 +1644,7 @@
             // S_收益减少比率
             // 
             this.S_收益减少比率.DecimalPlaces = 2;
-            this.S_收益减少比率.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_收益减少比率.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_收益减少比率.Location = new System.Drawing.Point(167, 269);
             this.S_收益减少比率.Margin = new System.Windows.Forms.Padding(4);
             this.S_收益减少比率.Maximum = new decimal(new int[] {
@@ -1675,7 +1675,7 @@
             // 
             // S_减收益等级差
             // 
-            this.S_减收益等级差.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_减收益等级差.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_减收益等级差.Location = new System.Drawing.Point(167, 231);
             this.S_减收益等级差.Margin = new System.Windows.Forms.Padding(4);
             this.S_减收益等级差.Maximum = new decimal(new int[] {
@@ -1702,7 +1702,7 @@
             // S_怪物经验倍率
             // 
             this.S_怪物经验倍率.DecimalPlaces = 2;
-            this.S_怪物经验倍率.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_怪物经验倍率.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_怪物经验倍率.Increment = new decimal(new int[] {
             5,
             0,
@@ -1734,7 +1734,7 @@
             // S_装备特修折扣
             // 
             this.S_装备特修折扣.DecimalPlaces = 2;
-            this.S_装备特修折扣.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_装备特修折扣.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_装备特修折扣.Increment = new decimal(new int[] {
             1,
             0,
@@ -1766,7 +1766,7 @@
             // S_怪物额外爆率
             // 
             this.S_怪物额外爆率.DecimalPlaces = 2;
-            this.S_怪物额外爆率.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_怪物额外爆率.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_怪物额外爆率.Increment = new decimal(new int[] {
             5,
             0,
@@ -1797,7 +1797,7 @@
             // 
             // S_游戏OpenLevelCommand
             // 
-            this.S_游戏OpenLevelCommand.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_游戏OpenLevelCommand.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_游戏OpenLevelCommand.Location = new System.Drawing.Point(167, 37);
             this.S_游戏OpenLevelCommand.Margin = new System.Windows.Forms.Padding(4);
             this.S_游戏OpenLevelCommand.Maximum = new decimal(new int[] {
@@ -1823,7 +1823,7 @@
             this.S_网络设置分组.Controls.Add(this.S_门票接收端口);
             this.S_网络设置分组.Controls.Add(this.S_监听端口标签);
             this.S_网络设置分组.Controls.Add(this.S_客户连接端口);
-            this.S_网络设置分组.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_网络设置分组.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_网络设置分组.Location = new System.Drawing.Point(20, 16);
             this.S_网络设置分组.Margin = new System.Windows.Forms.Padding(4);
             this.S_网络设置分组.Name = "S_网络设置分组";
@@ -1845,7 +1845,7 @@
             // 
             // S_掉线判定时间
             // 
-            this.S_掉线判定时间.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_掉线判定时间.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_掉线判定时间.Location = new System.Drawing.Point(165, 192);
             this.S_掉线判定时间.Margin = new System.Windows.Forms.Padding(4);
             this.S_掉线判定时间.Maximum = new decimal(new int[] {
@@ -1871,7 +1871,7 @@
             // 
             // S_封包限定数量
             // 
-            this.S_封包限定数量.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_封包限定数量.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_封包限定数量.Location = new System.Drawing.Point(165, 115);
             this.S_封包限定数量.Margin = new System.Windows.Forms.Padding(4);
             this.S_封包限定数量.Maximum = new decimal(new int[] {
@@ -1897,7 +1897,7 @@
             // 
             // S_异常屏蔽时间
             // 
-            this.S_异常屏蔽时间.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_异常屏蔽时间.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_异常屏蔽时间.Location = new System.Drawing.Point(165, 153);
             this.S_异常屏蔽时间.Margin = new System.Windows.Forms.Padding(4);
             this.S_异常屏蔽时间.Maximum = new decimal(new int[] {
@@ -1923,7 +1923,7 @@
             // 
             // S_门票接收端口
             // 
-            this.S_门票接收端口.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_门票接收端口.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_门票接收端口.Location = new System.Drawing.Point(165, 76);
             this.S_门票接收端口.Margin = new System.Windows.Forms.Padding(4);
             this.S_门票接收端口.Maximum = new decimal(new int[] {
@@ -1949,7 +1949,7 @@
             // 
             // S_客户连接端口
             // 
-            this.S_客户连接端口.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.S_客户连接端口.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.S_客户连接端口.Location = new System.Drawing.Point(165, 37);
             this.S_客户连接端口.Margin = new System.Windows.Forms.Padding(4);
             this.S_客户连接端口.Maximum = new decimal(new int[] {
@@ -1985,7 +1985,7 @@
             // 
             this.保存按钮.BackColor = System.Drawing.Color.LightSteelBlue;
             this.保存按钮.Enabled = false;
-            this.保存按钮.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.保存按钮.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.保存按钮.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.保存按钮.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.保存按钮.Location = new System.Drawing.Point(1049, 9);
@@ -2011,7 +2011,7 @@
             // GMCommand标签
             // 
             this.GMCommand标签.AutoSize = true;
-            this.GMCommand标签.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.GMCommand标签.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.GMCommand标签.Location = new System.Drawing.Point(24, 28);
             this.GMCommand标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GMCommand标签.Name = "GMCommand标签";
@@ -2024,7 +2024,7 @@
             // 
             this.启动按钮.BackColor = System.Drawing.Color.LightSteelBlue;
             this.启动按钮.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.启动按钮.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.启动按钮.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.启动按钮.ForeColor = System.Drawing.Color.Green;
             this.启动按钮.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.启动按钮.Location = new System.Drawing.Point(1232, 9);
@@ -2041,7 +2041,7 @@
             // 
             this.停止按钮.BackColor = System.Drawing.Color.LightSteelBlue;
             this.停止按钮.Enabled = false;
-            this.停止按钮.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.停止按钮.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.停止按钮.ForeColor = System.Drawing.Color.Brown;
             this.停止按钮.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.停止按钮.Location = new System.Drawing.Point(1415, 9);
@@ -2049,7 +2049,7 @@
             this.停止按钮.Name = "停止按钮";
             this.停止按钮.Size = new System.Drawing.Size(175, 51);
             this.停止按钮.TabIndex = 11;
-            this.停止按钮.Text = "停止服务";
+            this.停止按钮.Text = "Stop";
             this.停止按钮.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.停止按钮.UseVisualStyleBackColor = false;
             this.停止按钮.Click += new System.EventHandler(this.停止服务器_Click);
