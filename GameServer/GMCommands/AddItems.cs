@@ -30,17 +30,17 @@ namespace GameServer
 					游戏物品 游戏物品;
 					if (!游戏物品.检索表.TryGetValue(this.物品名字, out 游戏物品))
 					{
-						MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 物品不存在");
+						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, item does not exist");
 						return;
 					}
 					if (CharacterData.角色背包.Count >= (int)CharacterData.背包大小.V)
 					{
-						MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 角色背包已满");
+						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, character's bag is full");
 						return;
 					}
 					if (游戏物品.物品持久 == 0)
 					{
-						MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 不能AddItemsCommand");
+						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, cannot AddItemsCommand");
 						return;
 					}
 					byte b = byte.MaxValue;
@@ -75,14 +75,14 @@ namespace GameServer
 									物品描述 = CharacterData.角色背包[b].字节描述()
 								});
 							}
-							MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令已经执行, 物品已经添加到角色背包");
+							MainForm.添加命令日志("<= @" + base.GetType().Name + " The command has been executed and the item has been added to the character's bag");
 							return;
 						}
 					}
 					//goto IL_F4;
 				}
 			}
-			MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 角色不存在");
+			MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, role does not exist");
 		}
 
 		// Token: 0x0600005F RID: 95 RVA: 0x00002858 File Offset: 0x00000A58
