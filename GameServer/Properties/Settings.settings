@@ -51,7 +51,7 @@
       <Value Profile="(Default)">.\Backup</Value>
     </Setting>
     <Setting Name="系统公告内容" Type="System.String" Scope="User">
-      <Value Profile="(Default)">1	1	欢迎来到传奇永恒的世界，传奇永恒有你更精彩！</Value>
+      <Value Profile="(Default)">1	1	Welcome to Mir3D Eternal, Translated by ElAmO, DjDarkBoyZ, CraZyEriK</Value>
     </Setting>
     <Setting Name="NoobSupportCommand等级" Type="System.Byte" Scope="User">
       <Value Profile="(Default)">0</Value>
