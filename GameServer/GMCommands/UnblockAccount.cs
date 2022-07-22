@@ -26,11 +26,11 @@ namespace GameServer
 				if (AccountData != null)
 				{
 					AccountData.封禁日期.V = default(DateTime);
-					MainForm.添加命令日志(string.Format("<= @{0} 命令已经执行, 封禁到期时间: {1}", base.GetType().Name, AccountData.封禁日期));
+					MainForm.添加命令日志(string.Format("<= @{0} The order has been executed, and the blocking time has expired: {1}", base.GetType().Name, AccountData.封禁日期));
 					return;
 				}
 			}
-			MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 账号不存在");
+			MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, account does not exist");
 		}
 
 		// Token: 0x06000039 RID: 57 RVA: 0x00002858 File Offset: 0x00000A58
