@@ -22,16 +22,16 @@ namespace GameServer
 			if (SystemData.数据.网络封禁.ContainsKey(this.对应地址))
 			{
 				SystemData.数据.解封网络(this.对应地址);
-				MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令已经执行, 地址已经解除封禁");
+				MainForm.添加命令日志("<= @" + base.GetType().Name + " The command has been executed, the address has been unblocked");
 				return;
 			}
 			if (SystemData.数据.网卡封禁.ContainsKey(this.对应地址))
 			{
 				SystemData.数据.解封网卡(this.对应地址);
-				MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令已经执行, 地址已经解除封禁");
+				MainForm.添加命令日志("<= @" + base.GetType().Name + " The command has been executed, the address has been unblocked");
 				return;
 			}
-			MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 对应地址未处于封禁状态");
+			MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, the corresponding address is not blocked");
 		}
 
 		// Token: 0x06000036 RID: 54 RVA: 0x00002858 File Offset: 0x00000A58
