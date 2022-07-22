@@ -193,7 +193,7 @@ namespace GameServer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("..\\..\\Database")]
+        [global::System.Configuration.DefaultSettingValueAttribute(".\\Database")]
         public string GameData目录 {
             get {
                 return ((string)(this["GameData目录"]));

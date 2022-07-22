@@ -45,7 +45,7 @@
       <Value Profile="(Default)">3</Value>
     </Setting>
     <Setting Name="GameData目录" Type="System.String" Scope="User">
-      <Value Profile="(Default)">..\..\Database</Value>
+      <Value Profile="(Default)">.\Database</Value>
     </Setting>
     <Setting Name="数据备份目录" Type="System.String" Scope="User">
       <Value Profile="(Default)">.\Backup</Value>
