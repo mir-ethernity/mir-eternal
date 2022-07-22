@@ -21,9 +21,9 @@ namespace GameServer
 		// Token: 0x06000021 RID: 33 RVA: 0x00007FD8 File Offset: 0x000061D8
 		public override void 执行命令()
 		{
-			if (MessageBox.Show(string.Format("即将永久删除所有等级小于[{0}]级且[{1}]天内未登录的CharacterData\r\n\r\n此操作不可逆, 请做好数据备份\r\n\r\n确定要执行吗?", this.限制等级, this.限制天数), "危险操作", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+			if (MessageBox.Show(string.Format("We are about to permanently delete all CharacterData that are less than [{0}] level and have not logged in for [{1}] days \r\n\r\nThis operation is irreversible, please make a backup of your data \r\n\r\n sure you want to do this?", this.限制等级, this.限制天数), "Dangerous operations", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
 			{
-				MainForm.添加命令日志("<= @" + base.GetType().Name + " 开始执行命令, 过程中请勿关闭窗口");
+				MainForm.添加命令日志("<= @" + base.GetType().Name + " Start the command, do not close the window during the execution");
 				MainForm.Singleton.BeginInvoke(new MethodInvoker(delegate()
 				{
 					Control 下方控件页 = MainForm.Singleton.下方控件页;
