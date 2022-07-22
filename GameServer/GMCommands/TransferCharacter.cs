@@ -27,17 +27,17 @@ namespace GameServer
 				{
 					if (!CharacterData.所属账号.V.角色列表.Contains(CharacterData))
 					{
-						MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 角色处于删除状态");
+						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, character is already deleted");
 						return;
 					}
 					if (CharacterData.封禁日期.V > DateTime.Now)
 					{
-						MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 角色处于封禁状态");
+						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, character is on ban list");
 						return;
 					}
 					if (CharacterData.所属账号.V.封禁日期.V > DateTime.Now)
 					{
-						MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 原账号处于封禁状态");
+						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, the original account is on ban list");
 						return;
 					}
 					GameData GameData2;
@@ -48,12 +48,12 @@ namespace GameServer
 						{
 							if (AccountData.封禁日期.V > DateTime.Now)
 							{
-								MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 转移账号处于封禁状态");
+								MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, transfer account in blocked status");
 								return;
 							}
 							if (AccountData.角色列表.Count >= 4)
 							{
-								MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 转移的账号角色数量已达上限");
+								MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, the maximum number of characters transferred has been reached");
 								return;
 							}
 							if (CharacterData.所属账号.V.网络连接 == null && AccountData.网络连接 == null)
@@ -61,18 +61,18 @@ namespace GameServer
 								CharacterData.所属账号.V.角色列表.Remove(CharacterData);
 								CharacterData.所属账号.V = AccountData;
 								AccountData.角色列表.Add(CharacterData);
-								MainForm.添加命令日志(string.Format("<= @{0} 命令已经执行, 角色当前账号:{1}", base.GetType().Name, CharacterData.所属账号));
+								MainForm.添加命令日志(string.Format("<= @{0} The command has been executed, the character's current account:{1}", base.GetType().Name, CharacterData.所属账号));
 								return;
 							}
-							MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 双方账号必须下线");
+							MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution fails, both accounts must be offline");
 							return;
 						}
 					}
-					MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 转移账号不存在或从未登录");
+					MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, transfer account does not exist or never logged in");
 					return;
 				}
 			}
-			MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 角色不存在");
+			MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, character does not exist");
 		}
 
 		// Token: 0x06000056 RID: 86 RVA: 0x00002858 File Offset: 0x00000A58
