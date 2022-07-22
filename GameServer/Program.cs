@@ -21,7 +21,7 @@ namespace GameServer
 				Application.Run(new MainForm());
 				return;
 			}
-			MessageBox.Show("服务器已经在运行中");
+			MessageBox.Show("The server is already up and running");
 			Environment.Exit(0);
 		}
 
