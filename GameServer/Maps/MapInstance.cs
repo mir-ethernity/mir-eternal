@@ -151,7 +151,7 @@ namespace GameServer.Maps
 				{
 					if (MainProcess.当前时间 > this.节点计时)
 					{
-						this.地图公告(string.Format("怪物将在{0}秒后刷新, 请做好准备", (int)(30 - this.副本节点 * 5)));
+						this.地图公告(string.Format("The monster will be refreshed in {0} seconds, please be ready", (int)(30 - this.副本节点 * 5)));
 						this.副本节点 += 1;
 						this.节点计时 = MainProcess.当前时间.AddSeconds(5.0);
 						return;
@@ -174,7 +174,7 @@ namespace GameServer.Maps
 						刷新信息 刷新信息 = 怪物刷新.刷新列表[num2];
 						if (this.刷怪记录 == 0)
 						{
-							this.地图公告(string.Format("第{0}波怪物已经出现, 请注意防守", num + 1));
+							this.地图公告(string.Format("The {0}th wave of monsters has appeared, please take care of your defences", num + 1));
 						}
 						游戏怪物 对应模板;
 						if (游戏怪物.DataSheet.TryGetValue(刷新信息.怪物名字, out 对应模板))
@@ -211,7 +211,7 @@ namespace GameServer.Maps
 					}
 					if (this.存活怪物总数 == 0U)
 					{
-						this.地图公告("所有怪物都已被击退, 大厅将在30秒后关闭");
+						this.地图公告("All monsters have been repulsed, the hall will close in 30 seconds");
 						this.副本节点 = 110;
 						this.节点计时 = MainProcess.当前时间.AddSeconds(30.0);
 						return;
@@ -221,7 +221,7 @@ namespace GameServer.Maps
 				{
 					if (MainProcess.当前时间 > this.节点计时)
 					{
-						this.地图公告("守卫已经死亡, 大厅即将关闭");
+						this.地图公告("The guards are dead, the hall will soon be closed");
 						this.副本节点 += 2;
 						this.节点计时 = MainProcess.当前时间.AddSeconds(2.0);
 						return;
