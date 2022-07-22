@@ -274,7 +274,7 @@
             this.清空命令日志.Name = "清空命令日志";
             this.清空命令日志.Size = new System.Drawing.Size(344, 53);
             this.清空命令日志.TabIndex = 18;
-            this.清空命令日志.Text = "清空命令日志";
+            this.清空命令日志.Text = "Clear commands log";
             this.清空命令日志.UseVisualStyleBackColor = false;
             this.清空命令日志.Click += new System.EventHandler(this.清空命令日志_Click);
             // 
@@ -287,7 +287,7 @@
             this.对象统计.Name = "对象统计";
             this.对象统计.Size = new System.Drawing.Size(94, 18);
             this.对象统计.TabIndex = 17;
-            this.对象统计.Text = "对象统计:";
+            this.对象统计.Text = "Objects statistics";
             // 
             // 日志选项卡
             // 
@@ -314,7 +314,7 @@
             this.系统日志页面.Padding = new System.Windows.Forms.Padding(4);
             this.系统日志页面.Size = new System.Drawing.Size(1173, 556);
             this.系统日志页面.TabIndex = 0;
-            this.系统日志页面.Text = "系统日志";
+            this.系统日志页面.Text = "System logs";
             // 
             // 系统日志
             // 
@@ -338,7 +338,7 @@
             this.聊天日志页面.Padding = new System.Windows.Forms.Padding(4);
             this.聊天日志页面.Size = new System.Drawing.Size(1173, 556);
             this.聊天日志页面.TabIndex = 1;
-            this.聊天日志页面.Text = "聊天日志";
+            this.聊天日志页面.Text = "Chat Logs";
             // 
             // 聊天日志
             // 
@@ -361,7 +361,7 @@
             this.命令日志页面.Name = "命令日志页面";
             this.命令日志页面.Size = new System.Drawing.Size(1173, 556);
             this.命令日志页面.TabIndex = 2;
-            this.命令日志页面.Text = "命令日志";
+            this.命令日志页面.Text = "Commands logs";
             // 
             // 命令日志
             // 
@@ -384,7 +384,7 @@
             this.清空聊天日志.Name = "清空聊天日志";
             this.清空聊天日志.Size = new System.Drawing.Size(344, 53);
             this.清空聊天日志.TabIndex = 15;
-            this.清空聊天日志.Text = "清空聊天日志";
+            this.清空聊天日志.Text = "Empty chat logs";
             this.清空聊天日志.UseVisualStyleBackColor = false;
             this.清空聊天日志.Click += new System.EventHandler(this.清空聊天日志_Click);
             // 
@@ -397,7 +397,7 @@
             this.保存聊天日志.Name = "保存聊天日志";
             this.保存聊天日志.Size = new System.Drawing.Size(344, 53);
             this.保存聊天日志.TabIndex = 14;
-            this.保存聊天日志.Text = "保存聊天日志";
+            this.保存聊天日志.Text = "Save chat logs";
             this.保存聊天日志.UseVisualStyleBackColor = false;
             this.保存聊天日志.Click += new System.EventHandler(this.保存聊天日志_Click);
             // 
@@ -410,7 +410,7 @@
             this.已经登录统计.Name = "已经登录统计";
             this.已经登录统计.Size = new System.Drawing.Size(94, 18);
             this.已经登录统计.TabIndex = 13;
-            this.已经登录统计.Text = "已经登录:";
+            this.已经登录统计.Text = "Already logged:";
             // 
             // 已经上线统计
             // 
@@ -421,7 +421,7 @@
             this.已经上线统计.Name = "已经上线统计";
             this.已经上线统计.Size = new System.Drawing.Size(94, 18);
             this.已经上线统计.TabIndex = 12;
-            this.已经上线统计.Text = "已经上线:";
+            this.已经上线统计.Text = "Now online:";
             // 
             // 连接总数统计
             // 
@@ -432,7 +432,7 @@
             this.连接总数统计.Name = "连接总数统计";
             this.连接总数统计.Size = new System.Drawing.Size(94, 18);
             this.连接总数统计.TabIndex = 11;
-            this.连接总数统计.Text = "连接总数:";
+            this.连接总数统计.Text = "Total connections:";
             // 
             // 发送统计
             // 
@@ -443,7 +443,7 @@
             this.发送统计.Name = "发送统计";
             this.发送统计.Size = new System.Drawing.Size(94, 18);
             this.发送统计.TabIndex = 10;
-            this.发送统计.Text = "已经发送:";
+            this.发送统计.Text = "Data sent:";
             // 
             // 接收统计
             // 
@@ -454,7 +454,7 @@
             this.接收统计.Name = "接收统计";
             this.接收统计.Size = new System.Drawing.Size(94, 18);
             this.接收统计.TabIndex = 9;
-            this.接收统计.Text = "已经接收:";
+            this.接收统计.Text = "Accepted:";
             // 
             // 清空系统日志
             // 
@@ -465,7 +465,7 @@
             this.清空系统日志.Name = "清空系统日志";
             this.清空系统日志.Size = new System.Drawing.Size(344, 53);
             this.清空系统日志.TabIndex = 8;
-            this.清空系统日志.Text = "清空系统日志";
+            this.清空系统日志.Text = "Empty the system logs";
             this.清空系统日志.UseVisualStyleBackColor = false;
             this.清空系统日志.Click += new System.EventHandler(this.清空系统日志_Click);
             // 
@@ -478,7 +478,7 @@
             this.保存系统日志.Name = "保存系统日志";
             this.保存系统日志.Size = new System.Drawing.Size(344, 53);
             this.保存系统日志.TabIndex = 7;
-            this.保存系统日志.Text = "保存系统日志";
+            this.保存系统日志.Text = "Save system logs";
             this.保存系统日志.UseVisualStyleBackColor = false;
             this.保存系统日志.Click += new System.EventHandler(this.保存系统日志_Click);
             // 
@@ -491,7 +491,7 @@
             this.帧数统计.Name = "帧数统计";
             this.帧数统计.Size = new System.Drawing.Size(94, 18);
             this.帧数统计.TabIndex = 1;
-            this.帧数统计.Text = "后台帧数:";
+            this.帧数统计.Text = "Framerates:";
             // 
             // tabCharacters
             // 
@@ -534,7 +534,7 @@
             this.CharacterData_技能.Padding = new System.Windows.Forms.Padding(4);
             this.CharacterData_技能.Size = new System.Drawing.Size(452, 551);
             this.CharacterData_技能.TabIndex = 0;
-            this.CharacterData_技能.Text = "技能";
+            this.CharacterData_技能.Text = "Skills";
             // 
             // 技能浏览表
             // 
@@ -588,7 +588,7 @@
             this.CharacterData_装备.Padding = new System.Windows.Forms.Padding(4);
             this.CharacterData_装备.Size = new System.Drawing.Size(452, 551);
             this.CharacterData_装备.TabIndex = 1;
-            this.CharacterData_装备.Text = "装备";
+            this.CharacterData_装备.Text = "Equipment";
             // 
             // 装备浏览表
             // 
@@ -641,7 +641,7 @@
             this.CharacterData_背包.Name = "CharacterData_背包";
             this.CharacterData_背包.Size = new System.Drawing.Size(452, 551);
             this.CharacterData_背包.TabIndex = 2;
-            this.CharacterData_背包.Text = "背包";
+            this.CharacterData_背包.Text = "Bag";
             // 
             // 背包浏览表
             // 
@@ -694,7 +694,7 @@
             this.CharacterData_仓库.Name = "CharacterData_仓库";
             this.CharacterData_仓库.Size = new System.Drawing.Size(452, 551);
             this.CharacterData_仓库.TabIndex = 3;
-            this.CharacterData_仓库.Text = "仓库";
+            this.CharacterData_仓库.Text = "Store";
             // 
             // 仓库浏览表
             // 
@@ -795,28 +795,28 @@
             // 
             this.右键菜单_复制角色名字.Name = "右键菜单_复制角色名字";
             this.右键菜单_复制角色名字.Size = new System.Drawing.Size(169, 24);
-            this.右键菜单_复制角色名字.Text = "复制角色名字";
+            this.右键菜单_复制角色名字.Text = "Copy char name";
             this.右键菜单_复制角色名字.Click += new System.EventHandler(this.角色右键菜单_Click);
             // 
             // 右键菜单_复制账号名字
             // 
             this.右键菜单_复制账号名字.Name = "右键菜单_复制账号名字";
             this.右键菜单_复制账号名字.Size = new System.Drawing.Size(169, 24);
-            this.右键菜单_复制账号名字.Text = "复制账号名字";
+            this.右键菜单_复制账号名字.Text = "Copy account name";
             this.右键菜单_复制账号名字.Click += new System.EventHandler(this.角色右键菜单_Click);
             // 
             // 右键菜单_复制网络地址
             // 
             this.右键菜单_复制网络地址.Name = "右键菜单_复制网络地址";
             this.右键菜单_复制网络地址.Size = new System.Drawing.Size(169, 24);
-            this.右键菜单_复制网络地址.Text = "复制网络地址";
+            this.右键菜单_复制网络地址.Text = "Copy IP";
             this.右键菜单_复制网络地址.Click += new System.EventHandler(this.角色右键菜单_Click);
             // 
             // 右键菜单_复制物理地址
             // 
             this.右键菜单_复制物理地址.Name = "右键菜单_复制物理地址";
             this.右键菜单_复制物理地址.Size = new System.Drawing.Size(169, 24);
-            this.右键菜单_复制物理地址.Text = "复制物理地址";
+            this.右键菜单_复制物理地址.Text = "Copy MAC Addr";
             this.右键菜单_复制物理地址.Click += new System.EventHandler(this.角色右键菜单_Click);
             // 
             // tabMaps
@@ -1052,7 +1052,7 @@
             this.开始公告按钮.Name = "开始公告按钮";
             this.开始公告按钮.Size = new System.Drawing.Size(392, 40);
             this.开始公告按钮.TabIndex = 7;
-            this.开始公告按钮.Text = "开始选中公告";
+            this.开始公告按钮.Text = "Start selected announces";
             this.开始公告按钮.UseVisualStyleBackColor = true;
             this.开始公告按钮.Click += new System.EventHandler(this.开始公告按钮_Click);
             // 
@@ -1065,7 +1065,7 @@
             this.停止公告按钮.Name = "停止公告按钮";
             this.停止公告按钮.Size = new System.Drawing.Size(392, 40);
             this.停止公告按钮.TabIndex = 6;
-            this.停止公告按钮.Text = "停止选中公告";
+            this.停止公告按钮.Text = "Stop announcements";
             this.停止公告按钮.UseVisualStyleBackColor = true;
             this.停止公告按钮.Click += new System.EventHandler(this.停止公告按钮_Click);
             // 
@@ -1077,7 +1077,7 @@
             this.删除公告按钮.Name = "删除公告按钮";
             this.删除公告按钮.Size = new System.Drawing.Size(392, 40);
             this.删除公告按钮.TabIndex = 5;
-            this.删除公告按钮.Text = "删除选中公告";
+            this.删除公告按钮.Text = "Delete selected announcement";
             this.删除公告按钮.UseVisualStyleBackColor = true;
             this.删除公告按钮.Click += new System.EventHandler(this.删除公告按钮_Click);
             // 
@@ -1089,7 +1089,7 @@
             this.添加公告按钮.Name = "添加公告按钮";
             this.添加公告按钮.Size = new System.Drawing.Size(392, 40);
             this.添加公告按钮.TabIndex = 4;
-            this.添加公告按钮.Text = "添加新公告行";
+            this.添加公告按钮.Text = "Add new announcement";
             this.添加公告按钮.UseVisualStyleBackColor = true;
             this.添加公告按钮.Click += new System.EventHandler(this.添加公告按钮_Click);
             // 
@@ -1229,7 +1229,7 @@
             this.S_软件授权分组.Size = new System.Drawing.Size(788, 73);
             this.S_软件授权分组.TabIndex = 11;
             this.S_软件授权分组.TabStop = false;
-            this.S_软件授权分组.Text = "注册码";
+            this.S_软件授权分组.Text = "Registration code";
             // 
             // S_软件注册代码
             // 
@@ -1375,7 +1375,7 @@
             this.S_重载客户数据.Name = "S_重载客户数据";
             this.S_重载客户数据.Size = new System.Drawing.Size(592, 31);
             this.S_重载客户数据.TabIndex = 13;
-            this.S_重载客户数据.Text = "重载客户数据";
+            this.S_重载客户数据.Text = "Reload users database";
             this.S_重载客户数据.UseVisualStyleBackColor = true;
             this.S_重载客户数据.Click += new System.EventHandler(this.重载客户数据_Click);
             // 
@@ -1386,7 +1386,7 @@
             this.S_重载SystemData.Name = "S_重载SystemData";
             this.S_重载SystemData.Size = new System.Drawing.Size(592, 31);
             this.S_重载SystemData.TabIndex = 12;
-            this.S_重载SystemData.Text = "重载SystemData";
+            this.S_重载SystemData.Text = "Reload system data";
             this.S_重载SystemData.UseVisualStyleBackColor = true;
             this.S_重载SystemData.Click += new System.EventHandler(this.重载SystemData_Click);
             // 
@@ -1430,7 +1430,7 @@
             this.S_合并客户数据.Name = "S_合并客户数据";
             this.S_合并客户数据.Size = new System.Drawing.Size(592, 31);
             this.S_合并客户数据.TabIndex = 8;
-            this.S_合并客户数据.Text = "合并客户数据";
+            this.S_合并客户数据.Text = "Save users data";
             this.S_合并客户数据.UseVisualStyleBackColor = true;
             this.S_合并客户数据.Click += new System.EventHandler(this.合并客户数据_Click);
             // 
@@ -1451,7 +1451,7 @@
             this.S_合并目录标签.Name = "S_合并目录标签";
             this.S_合并目录标签.Size = new System.Drawing.Size(97, 15);
             this.S_合并目录标签.TabIndex = 6;
-            this.S_合并目录标签.Text = "合并数据目录";
+            this.S_合并目录标签.Text = "Data directory";
             // 
             // S_数据备份目录
             // 
@@ -1483,7 +1483,7 @@
             this.S_备份目录标签.Name = "S_备份目录标签";
             this.S_备份目录标签.Size = new System.Drawing.Size(97, 15);
             this.S_备份目录标签.TabIndex = 3;
-            this.S_备份目录标签.Text = "数据备份目录";
+            this.S_备份目录标签.Text = "Backup folder";
             // 
             // S_数据目录标签
             // 
@@ -1493,7 +1493,7 @@
             this.S_数据目录标签.Name = "S_数据目录标签";
             this.S_数据目录标签.Size = new System.Drawing.Size(101, 15);
             this.S_数据目录标签.TabIndex = 1;
-            this.S_数据目录标签.Text = "GameData目录";
+            this.S_数据目录标签.Text = "Gamedata Folder";
             // 
             // S_游戏设置分组
             // 
@@ -1526,7 +1526,7 @@
             this.S_游戏设置分组.Size = new System.Drawing.Size(376, 448);
             this.S_游戏设置分组.TabIndex = 8;
             this.S_游戏设置分组.TabStop = false;
-            this.S_游戏设置分组.Text = "游戏设置";
+            this.S_游戏设置分组.Text = "Game Settings";
             // 
             // S_NoobSupportCommand标签
             // 
@@ -1561,7 +1561,7 @@
             this.S_物品归属标签.Name = "S_物品归属标签";
             this.S_物品归属标签.Size = new System.Drawing.Size(97, 15);
             this.S_物品归属标签.TabIndex = 19;
-            this.S_物品归属标签.Text = "物品归属时间";
+            this.S_物品归属标签.Text = "Item attr time";
             // 
             // S_物品归属时间
             // 
@@ -1587,7 +1587,7 @@
             this.S_物品清理标签.Name = "S_物品清理标签";
             this.S_物品清理标签.Size = new System.Drawing.Size(97, 15);
             this.S_物品清理标签.TabIndex = 17;
-            this.S_物品清理标签.Text = "物品清理时间";
+            this.S_物品清理标签.Text = "Item clear time";
             // 
             // S_物品清理时间
             // 
@@ -1613,7 +1613,7 @@
             this.S_诱惑时长标签.Name = "S_诱惑时长标签";
             this.S_诱惑时长标签.Size = new System.Drawing.Size(97, 15);
             this.S_诱惑时长标签.TabIndex = 15;
-            this.S_诱惑时长标签.Text = "怪物诱惑时长";
+            this.S_诱惑时长标签.Text = "Monster tempt duration";
             // 
             // S_怪物诱惑时长
             // 
@@ -1639,7 +1639,7 @@
             this.S_收益衰减标签.Name = "S_收益衰减标签";
             this.S_收益衰减标签.Size = new System.Drawing.Size(97, 15);
             this.S_收益衰减标签.TabIndex = 13;
-            this.S_收益衰减标签.Text = "收益减少比率";
+            this.S_收益衰减标签.Text = "Money Rate";
             // 
             // S_收益减少比率
             // 
@@ -1671,7 +1671,7 @@
             this.S_收益等级标签.Name = "S_收益等级标签";
             this.S_收益等级标签.Size = new System.Drawing.Size(97, 15);
             this.S_收益等级标签.TabIndex = 11;
-            this.S_收益等级标签.Text = "减收益等级差";
+            this.S_收益等级标签.Text = "Drop Rate";
             // 
             // S_减收益等级差
             // 
@@ -1697,7 +1697,7 @@
             this.S_经验倍率标签.Name = "S_经验倍率标签";
             this.S_经验倍率标签.Size = new System.Drawing.Size(97, 15);
             this.S_经验倍率标签.TabIndex = 9;
-            this.S_经验倍率标签.Text = "怪物经验倍率";
+            this.S_经验倍率标签.Text = "Exp Rate";
             // 
             // S_怪物经验倍率
             // 
@@ -1729,7 +1729,7 @@
             this.S_特修折扣标签.Name = "S_特修折扣标签";
             this.S_特修折扣标签.Size = new System.Drawing.Size(97, 15);
             this.S_特修折扣标签.TabIndex = 7;
-            this.S_特修折扣标签.Text = "装备特修折扣";
+            this.S_特修折扣标签.Text = "Equip discount";
             // 
             // S_装备特修折扣
             // 
@@ -1761,7 +1761,7 @@
             this.S_怪物爆率标签.Name = "S_怪物爆率标签";
             this.S_怪物爆率标签.Size = new System.Drawing.Size(97, 15);
             this.S_怪物爆率标签.TabIndex = 5;
-            this.S_怪物爆率标签.Text = "怪物额外爆率";
+            this.S_怪物爆率标签.Text = "Monster explosive rate";
             // 
             // S_怪物额外爆率
             // 
@@ -1831,7 +1831,7 @@
             this.S_网络设置分组.Size = new System.Drawing.Size(376, 448);
             this.S_网络设置分组.TabIndex = 0;
             this.S_网络设置分组.TabStop = false;
-            this.S_网络设置分组.Text = "网络设置";
+            this.S_网络设置分组.Text = "Network Settings";
             // 
             // S_掉线判定标签
             // 
@@ -1841,7 +1841,7 @@
             this.S_掉线判定标签.Name = "S_掉线判定标签";
             this.S_掉线判定标签.Size = new System.Drawing.Size(97, 15);
             this.S_掉线判定标签.TabIndex = 9;
-            this.S_掉线判定标签.Text = "掉线判定时间";
+            this.S_掉线判定标签.Text = "Drop time";
             // 
             // S_掉线判定时间
             // 
@@ -1867,7 +1867,7 @@
             this.S_限定封包标签.Name = "S_限定封包标签";
             this.S_限定封包标签.Size = new System.Drawing.Size(97, 15);
             this.S_限定封包标签.TabIndex = 7;
-            this.S_限定封包标签.Text = "封包限定数量";
+            this.S_限定封包标签.Text = "Packet limit";
             // 
             // S_封包限定数量
             // 
@@ -1893,7 +1893,7 @@
             this.S_屏蔽时间标签.Name = "S_屏蔽时间标签";
             this.S_屏蔽时间标签.Size = new System.Drawing.Size(97, 15);
             this.S_屏蔽时间标签.TabIndex = 5;
-            this.S_屏蔽时间标签.Text = "异常屏蔽时间";
+            this.S_屏蔽时间标签.Text = "Block time";
             // 
             // S_异常屏蔽时间
             // 
@@ -1945,7 +1945,7 @@
             this.S_监听端口标签.Name = "S_监听端口标签";
             this.S_监听端口标签.Size = new System.Drawing.Size(97, 15);
             this.S_监听端口标签.TabIndex = 1;
-            this.S_监听端口标签.Text = "客户连接端口";
+            this.S_监听端口标签.Text = "Server Port";
             // 
             // S_客户连接端口
             // 
@@ -1993,7 +1993,7 @@
             this.保存按钮.Name = "保存按钮";
             this.保存按钮.Size = new System.Drawing.Size(175, 51);
             this.保存按钮.TabIndex = 17;
-            this.保存按钮.Text = "保存数据";
+            this.保存按钮.Text = "Save Data";
             this.保存按钮.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.保存按钮.UseVisualStyleBackColor = false;
             this.保存按钮.Click += new System.EventHandler(this.保存数据库_Click);
