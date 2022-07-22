@@ -1,0 +1,63 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GameServer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="客户连接端口" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">8701</Value>
+    </Setting>
+    <Setting Name="门票接收端口" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">6678</Value>
+    </Setting>
+    <Setting Name="封包限定数量" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="异常屏蔽时间" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="掉线判定时间" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="游戏OpenLevelCommand" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">40</Value>
+    </Setting>
+    <Setting Name="装备特修折扣" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="怪物额外爆率" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="怪物经验倍率" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="减收益等级差" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="收益减少比率" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0.1</Value>
+    </Setting>
+    <Setting Name="怪物诱惑时长" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">120</Value>
+    </Setting>
+    <Setting Name="物品清理时间" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="物品归属时间" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="GameData目录" Type="System.String" Scope="User">
+      <Value Profile="(Default)">..\..\Database</Value>
+    </Setting>
+    <Setting Name="数据备份目录" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\Backup</Value>
+    </Setting>
+    <Setting Name="系统公告内容" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1	1	欢迎来到传奇永恒的世界，传奇永恒有你更精彩！</Value>
+    </Setting>
+    <Setting Name="NoobSupportCommand等级" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="软件注册代码" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

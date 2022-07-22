@@ -1,0 +1,401 @@
+﻿namespace AccountServer
+{
+	// Token: 0x02000002 RID: 2
+	public partial class MainForm : global::System.Windows.Forms.Form
+	{
+		// Token: 0x06000014 RID: 20 RVA: 0x000026AB File Offset: 0x000008AB
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && this.components != null)
+			{
+				this.components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
+
+		// Token: 0x06000015 RID: 21 RVA: 0x000026CC File Offset: 0x000008CC
+		private void InitializeComponent()
+		{
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.主选项卡 = new System.Windows.Forms.TabControl();
+            this.日志选项卡 = new System.Windows.Forms.TabPage();
+            this.日志文本框 = new System.Windows.Forms.RichTextBox();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.btnStop = new System.Windows.Forms.Button();
+            this.lblRegisteredAccounts = new System.Windows.Forms.Label();
+            this.lblNewAccounts = new System.Windows.Forms.Label();
+            this.lblTicketsCount = new System.Windows.Forms.Label();
+            this.lblBytesSend = new System.Windows.Forms.Label();
+            this.lblBytesReceived = new System.Windows.Forms.Label();
+            this.txtServerPort = new System.Windows.Forms.NumericUpDown();
+            this.lblServerPort = new System.Windows.Forms.Label();
+            this.lblTicketsPort = new System.Windows.Forms.Label();
+            this.txtTicketPort = new System.Windows.Forms.NumericUpDown();
+            this.MinimizeTray = new System.Windows.Forms.NotifyIcon(this.components);
+            this.托盘右键菜单 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.打开ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnServerConfig = new System.Windows.Forms.Button();
+            this.btnOpenAccount = new System.Windows.Forms.Button();
+            this.btnLoadConfig = new System.Windows.Forms.Button();
+            this.btnLoadAccount = new System.Windows.Forms.Button();
+            this.主选项卡.SuspendLayout();
+            this.日志选项卡.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtServerPort)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTicketPort)).BeginInit();
+            this.托盘右键菜单.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // 主选项卡
+            // 
+            this.主选项卡.Controls.Add(this.日志选项卡);
+            this.主选项卡.ItemSize = new System.Drawing.Size(535, 22);
+            this.主选项卡.Location = new System.Drawing.Point(0, 40);
+            this.主选项卡.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.主选项卡.Name = "主选项卡";
+            this.主选项卡.SelectedIndex = 0;
+            this.主选项卡.Size = new System.Drawing.Size(720, 535);
+            this.主选项卡.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.主选项卡.TabIndex = 0;
+            // 
+            // 日志选项卡
+            // 
+            this.日志选项卡.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.日志选项卡.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.日志选项卡.Controls.Add(this.日志文本框);
+            this.日志选项卡.Location = new System.Drawing.Point(4, 26);
+            this.日志选项卡.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.日志选项卡.Name = "日志选项卡";
+            this.日志选项卡.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.日志选项卡.Size = new System.Drawing.Size(712, 505);
+            this.日志选项卡.TabIndex = 0;
+            this.日志选项卡.Text = "日志";
+            // 
+            // 日志文本框
+            // 
+            this.日志文本框.BackColor = System.Drawing.Color.Gainsboro;
+            this.日志文本框.Location = new System.Drawing.Point(0, 0);
+            this.日志文本框.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.日志文本框.Name = "日志文本框";
+            this.日志文本框.ReadOnly = true;
+            this.日志文本框.Size = new System.Drawing.Size(705, 487);
+            this.日志文本框.TabIndex = 0;
+            this.日志文本框.Text = "";
+            // 
+            // btnStart
+            // 
+            this.btnStart.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnStart.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnStart.Location = new System.Drawing.Point(723, 381);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(173, 97);
+            this.btnStart.TabIndex = 1;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.Start_Click);
+            // 
+            // btnStop
+            // 
+            this.btnStop.BackColor = System.Drawing.Color.Crimson;
+            this.btnStop.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnStop.Location = new System.Drawing.Point(721, 477);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(173, 97);
+            this.btnStop.TabIndex = 2;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = false;
+            this.btnStop.Click += new System.EventHandler(this.Stop_Click);
+            // 
+            // lblRegisteredAccounts
+            // 
+            this.lblRegisteredAccounts.AutoSize = true;
+            this.lblRegisteredAccounts.Location = new System.Drawing.Point(728, 53);
+            this.lblRegisteredAccounts.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRegisteredAccounts.Name = "lblRegisteredAccounts";
+            this.lblRegisteredAccounts.Size = new System.Drawing.Size(145, 16);
+            this.lblRegisteredAccounts.TabIndex = 3;
+            this.lblRegisteredAccounts.Text = "Registered Accounts: 0";
+            // 
+            // lblNewAccounts
+            // 
+            this.lblNewAccounts.AutoSize = true;
+            this.lblNewAccounts.Location = new System.Drawing.Point(728, 84);
+            this.lblNewAccounts.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNewAccounts.Name = "lblNewAccounts";
+            this.lblNewAccounts.Size = new System.Drawing.Size(105, 16);
+            this.lblNewAccounts.TabIndex = 4;
+            this.lblNewAccounts.Text = "New Accounts: 0";
+            // 
+            // lblTicketsCount
+            // 
+            this.lblTicketsCount.AutoSize = true;
+            this.lblTicketsCount.Location = new System.Drawing.Point(728, 115);
+            this.lblTicketsCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTicketsCount.Name = "lblTicketsCount";
+            this.lblTicketsCount.Size = new System.Drawing.Size(101, 16);
+            this.lblTicketsCount.TabIndex = 5;
+            this.lblTicketsCount.Text = "Tickets Count: 0";
+            // 
+            // lblBytesSend
+            // 
+            this.lblBytesSend.AutoSize = true;
+            this.lblBytesSend.Location = new System.Drawing.Point(728, 145);
+            this.lblBytesSend.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBytesSend.Name = "lblBytesSend";
+            this.lblBytesSend.Size = new System.Drawing.Size(89, 16);
+            this.lblBytesSend.TabIndex = 6;
+            this.lblBytesSend.Text = "Bytes Send: 0";
+            // 
+            // lblBytesReceived
+            // 
+            this.lblBytesReceived.AutoSize = true;
+            this.lblBytesReceived.Location = new System.Drawing.Point(728, 176);
+            this.lblBytesReceived.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBytesReceived.Name = "lblBytesReceived";
+            this.lblBytesReceived.Size = new System.Drawing.Size(116, 16);
+            this.lblBytesReceived.TabIndex = 7;
+            this.lblBytesReceived.Text = "Bytes Received: 0";
+            // 
+            // txtServerPort
+            // 
+            this.txtServerPort.Location = new System.Drawing.Point(120, 5);
+            this.txtServerPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtServerPort.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+            this.txtServerPort.Name = "txtServerPort";
+            this.txtServerPort.Size = new System.Drawing.Size(116, 22);
+            this.txtServerPort.TabIndex = 8;
+            this.txtServerPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblServerPort
+            // 
+            this.lblServerPort.AutoSize = true;
+            this.lblServerPort.Location = new System.Drawing.Point(9, 12);
+            this.lblServerPort.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblServerPort.Name = "lblServerPort";
+            this.lblServerPort.Size = new System.Drawing.Size(74, 16);
+            this.lblServerPort.TabIndex = 9;
+            this.lblServerPort.Text = "Server Port";
+            // 
+            // lblTicketsPort
+            // 
+            this.lblTicketsPort.AutoSize = true;
+            this.lblTicketsPort.Location = new System.Drawing.Point(263, 12);
+            this.lblTicketsPort.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTicketsPort.Name = "lblTicketsPort";
+            this.lblTicketsPort.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblTicketsPort.Size = new System.Drawing.Size(78, 16);
+            this.lblTicketsPort.TabIndex = 11;
+            this.lblTicketsPort.Text = "Tickets Port";
+            // 
+            // txtTicketPort
+            // 
+            this.txtTicketPort.Location = new System.Drawing.Point(373, 5);
+            this.txtTicketPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTicketPort.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+            this.txtTicketPort.Name = "txtTicketPort";
+            this.txtTicketPort.Size = new System.Drawing.Size(116, 22);
+            this.txtTicketPort.TabIndex = 10;
+            this.txtTicketPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // 最小化到托盘
+            // 
+            this.MinimizeTray.ContextMenuStrip = this.托盘右键菜单;
+            this.MinimizeTray.Icon = ((System.Drawing.Icon)(resources.GetObject("最小化到托盘.Icon")));
+            this.MinimizeTray.Text = "AccountServer";
+            this.MinimizeTray.MouseClick += new System.Windows.Forms.MouseEventHandler(this.RestoreWindow_Click);
+            // 
+            // 托盘右键菜单
+            // 
+            this.托盘右键菜单.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.托盘右键菜单.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.打开ToolStripMenuItem,
+            this.退出ToolStripMenuItem});
+            this.托盘右键菜单.Name = "托盘右键菜单";
+            this.托盘右键菜单.Size = new System.Drawing.Size(109, 52);
+            // 
+            // 打开ToolStripMenuItem
+            // 
+            this.打开ToolStripMenuItem.Name = "打开ToolStripMenuItem";
+            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.打开ToolStripMenuItem.Text = "打开";
+            this.打开ToolStripMenuItem.Click += new System.EventHandler(this.RestoreWindow2_Click);
+            // 
+            // 退出ToolStripMenuItem
+            // 
+            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.退出ToolStripMenuItem.Text = "退出";
+            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.EndProcess_Click);
+            // 
+            // btnServerConfig
+            // 
+            this.btnServerConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnServerConfig.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnServerConfig.Location = new System.Drawing.Point(721, 211);
+            this.btnServerConfig.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnServerConfig.Name = "btnServerConfig";
+            this.btnServerConfig.Size = new System.Drawing.Size(173, 40);
+            this.btnServerConfig.TabIndex = 12;
+            this.btnServerConfig.Text = "Server Config";
+            this.btnServerConfig.UseVisualStyleBackColor = false;
+            this.btnServerConfig.Click += new System.EventHandler(this.OpenConfig_Click);
+            // 
+            // btnOpenAccount
+            // 
+            this.btnOpenAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnOpenAccount.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnOpenAccount.Location = new System.Drawing.Point(721, 296);
+            this.btnOpenAccount.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnOpenAccount.Name = "btnOpenAccount";
+            this.btnOpenAccount.Size = new System.Drawing.Size(173, 40);
+            this.btnOpenAccount.TabIndex = 13;
+            this.btnOpenAccount.Text = "Open Account";
+            this.btnOpenAccount.UseVisualStyleBackColor = false;
+            this.btnOpenAccount.Click += new System.EventHandler(this.ViewAccount_Click);
+            // 
+            // btnLoadConfig
+            // 
+            this.btnLoadConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnLoadConfig.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnLoadConfig.Location = new System.Drawing.Point(721, 253);
+            this.btnLoadConfig.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnLoadConfig.Name = "btnLoadConfig";
+            this.btnLoadConfig.Size = new System.Drawing.Size(173, 40);
+            this.btnLoadConfig.TabIndex = 14;
+            this.btnLoadConfig.Text = "Load Config";
+            this.btnLoadConfig.UseVisualStyleBackColor = false;
+            this.btnLoadConfig.Click += new System.EventHandler(this.LoadConfig_Click);
+            // 
+            // btnLoadAccount
+            // 
+            this.btnLoadAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnLoadAccount.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnLoadAccount.Location = new System.Drawing.Point(723, 339);
+            this.btnLoadAccount.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnLoadAccount.Name = "btnLoadAccount";
+            this.btnLoadAccount.Size = new System.Drawing.Size(173, 40);
+            this.btnLoadAccount.TabIndex = 15;
+            this.btnLoadAccount.Text = "Load Account";
+            this.btnLoadAccount.UseVisualStyleBackColor = false;
+            this.btnLoadAccount.Click += new System.EventHandler(this.LoadAccount_Click);
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(911, 580);
+            this.Controls.Add(this.btnLoadAccount);
+            this.Controls.Add(this.btnLoadConfig);
+            this.Controls.Add(this.btnOpenAccount);
+            this.Controls.Add(this.btnServerConfig);
+            this.Controls.Add(this.lblTicketsPort);
+            this.Controls.Add(this.txtTicketPort);
+            this.Controls.Add(this.lblServerPort);
+            this.Controls.Add(this.txtServerPort);
+            this.Controls.Add(this.lblBytesReceived);
+            this.Controls.Add(this.lblBytesSend);
+            this.Controls.Add(this.lblTicketsCount);
+            this.Controls.Add(this.lblNewAccounts);
+            this.Controls.Add(this.lblRegisteredAccounts);
+            this.Controls.Add(this.btnStop);
+            this.Controls.Add(this.btnStart);
+            this.Controls.Add(this.主选项卡);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.MaximizeBox = false;
+            this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Account Server - LomCN";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CloseWindow_Click);
+            this.主选项卡.ResumeLayout(false);
+            this.日志选项卡.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtServerPort)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTicketPort)).EndInit();
+            this.托盘右键菜单.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+		}
+
+		// Token: 0x0400000A RID: 10
+		private global::System.ComponentModel.IContainer components;
+
+		// Token: 0x0400000B RID: 11
+		private global::System.Windows.Forms.TabControl 主选项卡;
+
+		// Token: 0x0400000C RID: 12
+		private global::System.Windows.Forms.Button btnStart;
+
+		// Token: 0x0400000D RID: 13
+		private global::System.Windows.Forms.Button btnStop;
+
+		// Token: 0x0400000E RID: 14
+		private global::System.Windows.Forms.TabPage 日志选项卡;
+
+		// Token: 0x0400000F RID: 15
+		public global::System.Windows.Forms.RichTextBox 日志文本框;
+
+		// Token: 0x04000010 RID: 16
+		private global::System.Windows.Forms.Label lblRegisteredAccounts;
+
+		// Token: 0x04000011 RID: 17
+		private global::System.Windows.Forms.Label lblNewAccounts;
+
+		// Token: 0x04000012 RID: 18
+		private global::System.Windows.Forms.Label lblTicketsCount;
+
+		// Token: 0x04000013 RID: 19
+		private global::System.Windows.Forms.Label lblBytesSend;
+
+		// Token: 0x04000014 RID: 20
+		private global::System.Windows.Forms.Label lblBytesReceived;
+
+		// Token: 0x04000015 RID: 21
+		private global::System.Windows.Forms.Label lblServerPort;
+
+		// Token: 0x04000016 RID: 22
+		private global::System.Windows.Forms.Label lblTicketsPort;
+
+		// Token: 0x04000017 RID: 23
+		public global::System.Windows.Forms.NumericUpDown txtServerPort;
+
+		// Token: 0x04000018 RID: 24
+		public global::System.Windows.Forms.NumericUpDown txtTicketPort;
+
+		// Token: 0x04000019 RID: 25
+		private global::System.Windows.Forms.NotifyIcon MinimizeTray;
+
+		// Token: 0x0400001A RID: 26
+		private global::System.Windows.Forms.ContextMenuStrip 托盘右键菜单;
+
+		// Token: 0x0400001B RID: 27
+		private global::System.Windows.Forms.ToolStripMenuItem 打开ToolStripMenuItem;
+
+		// Token: 0x0400001C RID: 28
+		private global::System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
+
+		// Token: 0x0400001D RID: 29
+		private global::System.Windows.Forms.Button btnServerConfig;
+
+		// Token: 0x0400001E RID: 30
+		private global::System.Windows.Forms.Button btnOpenAccount;
+
+		// Token: 0x0400001F RID: 31
+		private global::System.Windows.Forms.Button btnLoadConfig;
+
+		// Token: 0x04000020 RID: 32
+		private global::System.Windows.Forms.Button btnLoadAccount;
+	}
+}
