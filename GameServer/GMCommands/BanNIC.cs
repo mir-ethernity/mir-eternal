@@ -23,10 +23,10 @@ namespace GameServer
 			if (Regex.IsMatch(this.物理地址, "^([0-9a-fA-F]{2}(?:[:-]?[0-9a-fA-F]{2}){5})$"))
 			{
 				SystemData.数据.BanNICCommand(this.物理地址, DateTime.Now.AddDays((double)this.封禁天数));
-				MainForm.添加命令日志(string.Format("<= @{0} 命令已经执行, 封禁到期时间: {1}", base.GetType().Name, DateTime.Now.AddDays((double)this.封禁天数)));
+				MainForm.添加命令日志(string.Format("<= @{0} command executed, blocking expiry time: {1}", base.GetType().Name, DateTime.Now.AddDays((double)this.封禁天数)));
 				return;
 			}
-			MainForm.添加命令日志("<= @" + base.GetType().Name + " 命令执行失败, 地址格式错误");
+			MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, address format error");
 		}
 
 		// Token: 0x0600002D RID: 45 RVA: 0x00002858 File Offset: 0x00000A58
