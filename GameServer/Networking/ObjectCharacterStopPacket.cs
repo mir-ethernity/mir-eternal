@@ -5,10 +5,10 @@ namespace GameServer.Networking
 {
 	// Token: 0x0200013B RID: 315
 	[PacketInfoAttribute(来源 = PacketSource.服务器, 编号 = 48, 长度 = 13, 注释 = "角色停止")]
-	public sealed class ObjectRoleStopPacket : GamePacket
+	public sealed class ObjectCharacterStopPacket : GamePacket
 	{
 		// Token: 0x06000224 RID: 548 RVA: 0x0000344A File Offset: 0x0000164A
-		public ObjectRoleStopPacket()
+		public ObjectCharacterStopPacket()
 		{
 			
 			

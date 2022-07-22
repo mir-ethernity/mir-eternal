@@ -336,9 +336,9 @@ namespace GameServer.Data
 		}
 
 		// Token: 0x0600066E RID: 1646 RVA: 0x0002FE2C File Offset: 0x0002E02C
-		public static void CleanRolesCommand(int 限制等级, int 限制天数)
+		public static void CleanCharacters(int 限制等级, int 限制天数)
 		{
-			MainForm.添加命令日志("开始CleanRolesCommand数据...");
+			MainForm.添加命令日志("开始CleanCharacters数据...");
 			DateTime t = DateTime.Now.AddDays((double)(-(double)限制天数));
 			int num = 0;
 			foreach (GameData GameData in GameDataGateway.CharacterDataTable.DataSheet.Values.ToList<GameData>())

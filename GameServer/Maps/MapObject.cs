@@ -2741,7 +2741,7 @@ namespace GameServer.Maps
                                 case GameObjectType.怪物:
                                     break;
                                 case GameObjectType.宠物:
-                                    PlayerObject.网络连接.发送封包(new ObjectRoleStopPacket
+                                    PlayerObject.网络连接.发送封包(new ObjectCharacterStopPacket
                                     {
                                         对象编号 = 对象.地图编号,
                                         对象坐标 = 对象.当前坐标,
@@ -2778,7 +2778,7 @@ namespace GameServer.Maps
                                     }
                                     break;
                             }
-                            PlayerObject.网络连接.发送封包(new ObjectRoleStopPacket
+                            PlayerObject.网络连接.发送封包(new ObjectCharacterStopPacket
                             {
                                 对象编号 = 对象.地图编号,
                                 对象坐标 = 对象.当前坐标,
@@ -2910,7 +2910,7 @@ namespace GameServer.Maps
                                 case GameObjectType.怪物:
                                     break;
                                 case GameObjectType.宠物:
-                                    PlayerObject3.网络连接.发送封包(new ObjectRoleStopPacket
+                                    PlayerObject3.网络连接.发送封包(new ObjectCharacterStopPacket
                                     {
                                         对象编号 = 对象.地图编号,
                                         对象坐标 = 对象.当前坐标,
@@ -2947,7 +2947,7 @@ namespace GameServer.Maps
                                     }
                                     break;
                             }
-                            PlayerObject3.网络连接.发送封包(new ObjectRoleStopPacket
+                            PlayerObject3.网络连接.发送封包(new ObjectCharacterStopPacket
                             {
                                 对象编号 = 对象.地图编号,
                                 对象坐标 = 对象.当前坐标,

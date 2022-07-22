@@ -2354,7 +2354,7 @@ namespace GameServer.Maps
 			客户网络 网络连接3 = this.网络连接;
 			if (网络连接3 != null)
 			{
-				网络连接3.发送封包(new ObjectRoleStopPacket
+				网络连接3.发送封包(new ObjectCharacterStopPacket
 				{
 					对象编号 = this.地图编号,
 					对象坐标 = this.当前坐标,
@@ -3246,7 +3246,7 @@ namespace GameServer.Maps
 			客户网络 网络连接 = this.网络连接;
 			if (网络连接 != null)
 			{
-				网络连接.发送封包(new ObjectRoleStopPacket
+				网络连接.发送封包(new ObjectCharacterStopPacket
 				{
 					对象编号 = this.地图编号,
 					对象坐标 = this.当前坐标,
@@ -3519,7 +3519,7 @@ namespace GameServer.Maps
 				{
 					return;
 				}
-				网络连接.发送封包(new ObjectRoleStopPacket
+				网络连接.发送封包(new ObjectCharacterStopPacket
 				{
 					对象编号 = this.地图编号,
 					对象坐标 = this.当前坐标,
@@ -3534,7 +3534,7 @@ namespace GameServer.Maps
 				{
 					return;
 				}
-				网络连接2.发送封包(new ObjectRoleStopPacket
+				网络连接2.发送封包(new ObjectCharacterStopPacket
 				{
 					对象编号 = this.地图编号,
 					对象坐标 = this.当前坐标,
@@ -3558,7 +3558,7 @@ namespace GameServer.Maps
 							转向耗时 = 100
 						});
 					}
-					base.发送封包(new ObjectRoleStopPacket
+					base.发送封包(new ObjectCharacterStopPacket
 					{
 						对象编号 = this.地图编号,
 						对象坐标 = this.当前坐标,
@@ -3603,7 +3603,7 @@ namespace GameServer.Maps
 				{
 					return;
 				}
-				网络连接.发送封包(new ObjectRoleStopPacket
+				网络连接.发送封包(new ObjectCharacterStopPacket
 				{
 					对象编号 = this.地图编号,
 					对象坐标 = this.当前坐标,
@@ -3628,7 +3628,7 @@ namespace GameServer.Maps
 							转向耗时 = 100
 						});
 					}
-					base.发送封包(new ObjectRoleStopPacket
+					base.发送封包(new ObjectCharacterStopPacket
 					{
 						对象编号 = this.地图编号,
 						对象坐标 = this.当前坐标,
@@ -3669,7 +3669,7 @@ namespace GameServer.Maps
 					this.玩家角色走动(终点坐标);
 					return;
 				}
-				base.发送封包(new ObjectRoleStopPacket
+				base.发送封包(new ObjectCharacterStopPacket
 				{
 					对象编号 = this.地图编号,
 					对象坐标 = this.当前坐标,

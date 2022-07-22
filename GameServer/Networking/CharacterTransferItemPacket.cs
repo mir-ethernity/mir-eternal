@@ -4,10 +4,10 @@ namespace GameServer.Networking
 {
 	// Token: 0x02000077 RID: 119
 	[PacketInfoAttribute(来源 = PacketSource.客户端, 编号 = 44, 长度 = 6, 注释 = "物品转移/交换/合并/更换装备")]
-	public sealed class RoleTransferItemPacket : GamePacket
+	public sealed class CharacterTransferItemPacket : GamePacket
 	{
 		// Token: 0x0600015E RID: 350 RVA: 0x0000344A File Offset: 0x0000164A
-		public RoleTransferItemPacket()
+		public CharacterTransferItemPacket()
 		{
 			
 			

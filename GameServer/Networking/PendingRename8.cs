@@ -625,7 +625,7 @@ namespace GameServer.Networking
 		}
 
 		// Token: 0x0600037D RID: 893 RVA: 0x0001DD2C File Offset: 0x0001BF2C
-		public void 处理封包(RoleTransferItemPacket P)
+		public void 处理封包(CharacterTransferItemPacket P)
 		{
 			if (this.当前阶段 != GameStage.正在游戏)
 			{
@@ -2433,14 +2433,14 @@ namespace GameServer.Networking
 		}
 
 		// Token: 0x0600041D RID: 1053 RVA: 0x000041DA File Offset: 0x000023DA
-		public void 处理封包(客户GetBackRoleCommand P)
+		public void 处理封包(客户GetBackCharacterPacket P)
 		{
 			if (this.当前阶段 != GameStage.选择角色)
 			{
 				this.尝试断开连接(new Exception(string.Format("阶段异常,断开连接.  处理封包: {0},  当前阶段:{1}", P.GetType(), this.当前阶段)));
 				return;
 			}
-			this.绑定账号.GetBackRoleCommand(this, P);
+			this.绑定账号.GetBackCharacter(this, P);
 		}
 
 		// Token: 0x040007B2 RID: 1970

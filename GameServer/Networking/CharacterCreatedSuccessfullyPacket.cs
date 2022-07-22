@@ -3,11 +3,11 @@
 namespace GameServer.Networking
 {
 	// Token: 0x02000244 RID: 580
-	[PacketInfoAttribute(来源 = PacketSource.服务器, 编号 = 1005, 长度 = 96, 注释 = "RoleCreatedSuccessfullyPacket")]
-	public sealed class RoleCreatedSuccessfullyPacket : GamePacket
+	[PacketInfoAttribute(来源 = PacketSource.服务器, 编号 = 1005, 长度 = 96, 注释 = "CharacterCreatedSuccessfullyPacket")]
+	public sealed class CharacterCreatedSuccessfullyPacket : GamePacket
 	{
 		// Token: 0x0600032F RID: 815 RVA: 0x0000344A File Offset: 0x0000164A
-		public RoleCreatedSuccessfullyPacket()
+		public CharacterCreatedSuccessfullyPacket()
 		{
 			
 			

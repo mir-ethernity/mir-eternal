@@ -862,7 +862,7 @@ namespace GameServer.Data
 				协议数据 = this.登录协议描述()
 			});
 			当前网络.发送封包(new 同步服务状态());
-			当前网络.发送封包(new BackRoleListPacket
+			当前网络.发送封包(new BackCharacterListPacket
 			{
 				列表描述 = this.角色列表描述()
 			});
@@ -953,7 +953,7 @@ namespace GameServer.Data
 			ObjectFaceType ObjectFaceType;
 			if (Enum.TryParse<ObjectFaceType>(((int)P.职业 * 65536 + (int)P.性别 * 256 + (int)P.脸型).ToString(), out ObjectFaceType) && Enum.IsDefined(typeof(ObjectFaceType), ObjectFaceType))
 			{
-				当前网络.发送封包(new RoleCreatedSuccessfullyPacket
+				当前网络.发送封包(new CharacterCreatedSuccessfullyPacket
 				{
 					角色描述 = new CharacterData(this, P.名字, GameObjectProfession, GameObjectGender, ObjectHairType, ObjectHairColorType, ObjectFaceType).角色描述()
 				});
@@ -1039,7 +1039,7 @@ namespace GameServer.Data
 					this.删除日期.V = (CharacterData.删除日期.V = MainProcess.当前时间);
 					this.冻结列表.Remove(CharacterData);
 					this.删除列表.Add(CharacterData);
-					当前网络.发送封包(new DeleteRolePacket
+					当前网络.发送封包(new DeleteCharacterPacket
 					{
 						角色编号 = CharacterData.角色编号
 					});
@@ -1053,7 +1053,7 @@ namespace GameServer.Data
 		}
 
 		// Token: 0x06000625 RID: 1573 RVA: 0x0002DD3C File Offset: 0x0002BF3C
-		public void GetBackRoleCommand(客户网络 当前网络, 客户GetBackRoleCommand P)
+		public void GetBackCharacter(客户网络 当前网络, 客户GetBackCharacterPacket P)
 		{
 			GameData GameData;
 			if (GameDataGateway.CharacterDataTable.DataSheet.TryGetValue(P.角色编号, out GameData))
@@ -1063,13 +1063,13 @@ namespace GameServer.Data
 				{
 					if (this.角色列表.Count >= 4)
 					{
-						当前网络.尝试断开连接(new Exception("GetBackRoleCommand时角色列表已满, 断开连接."));
+						当前网络.尝试断开连接(new Exception("GetBackCharacter时角色列表已满, 断开连接."));
 						return;
 					}
 					CharacterData.冻结日期.V = default(DateTime);
 					this.冻结列表.Remove(CharacterData);
 					this.角色列表.Add(CharacterData);
-					当前网络.发送封包(new GetBackRoleAnswersPacket
+					当前网络.发送封包(new GetBackCharacterAnswersPacket
 					{
 						角色编号 = CharacterData.角色编号
 					});
@@ -1137,7 +1137,7 @@ namespace GameServer.Data
 				对象编号 = 当前网络.绑定角色.地图编号
 			});
 			当前网络.绑定角色.玩家角色下线();
-			当前网络.发送封包(new BackRoleListPacket
+			当前网络.发送封包(new BackCharacterListPacket
 			{
 				列表描述 = this.角色列表描述()
 			});
