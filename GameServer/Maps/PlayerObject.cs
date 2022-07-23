@@ -8398,7 +8398,7 @@ namespace GameServer.Maps
 										});
 									}
 								}
-								MainProcess.AddSystemLog(string.Format("[{0}][{1} level] Purchased [{2}] * {3}, consumed $[{4}]", new object[]
+								MainProcess.AddSystemLog(string.Format("Character: [{0}] [Level {1}] Purchased [{2}] * {3}, consumed $[{4}]", new object[]
 								{
 									this.对象名字,
 									this.当前等级,
@@ -8654,7 +8654,7 @@ namespace GameServer.Maps
 								变量内容 = ComputingClass.时间转换(MainProcess.CurrentTime)
 							});
 						}
-						MainProcess.AddSystemLog(string.Format("Level [{0}][{1}] purchased [Weekly Battle Pack], consumed Yuan Bao [3000]", this.对象名字, this.当前等级));
+						MainProcess.AddSystemLog(string.Format("Level [{0}][{1}] purchased [Weekly Battle Pack], consumed [3000] Game Coins", this.对象名字, this.当前等级));
 						return;
 					}
 					客户网络 网络连接14 = this.网络连接;
@@ -17220,7 +17220,7 @@ namespace GameServer.Maps
 				{
 					字节描述 = 字节描述
 				});
-				MainProcess.AddChatLog("[附近][" + this.对象名字 + "]: ", array);
+				MainProcess.AddChatLog("[General][" + this.对象名字 + "]: ", array);
 				return;
 			}
 			if (num == 2415919107U)
@@ -17346,7 +17346,7 @@ namespace GameServer.Maps
 								{
 									字节描述 = memoryStream.ToArray()
 								});
-								MainProcess.AddChatLog("[队伍][" + this.对象名字 + "]: ", array);
+								MainProcess.AddChatLog("[Team][" + this.对象名字 + "]: ", array);
 								return;
 							}
 						}
@@ -17395,7 +17395,7 @@ namespace GameServer.Maps
 							{
 								字节描述 = memoryStream2.ToArray()
 							});
-							MainProcess.AddChatLog("[行会][" + this.对象名字 + "]: ", array);
+							MainProcess.AddChatLog("[Guild][" + this.对象名字 + "]: ", array);
 						}
 					}
 				}
