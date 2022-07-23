@@ -15,7 +15,7 @@ namespace GameServer.Templates
 			string text = CustomClass.GameData目录 + "\\System\\Items\\Treasures\\";
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in 序列化类.反序列化(text, typeof(珍宝商品)))
+				foreach (object obj in Serializer.Deserialize(text, typeof(珍宝商品)))
 				{
 					珍宝商品.DataSheet.Add(((珍宝商品)obj).物品编号, (珍宝商品)obj);
 				}

@@ -15,7 +15,7 @@ namespace GameServer.Templates
 			string text = CustomClass.GameData目录 + "\\System\\GameMap\\MonsterRefresh\\";
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in 序列化类.反序列化(text, typeof(怪物刷新)))
+				foreach (object obj in Serializer.Deserialize(text, typeof(怪物刷新)))
 				{
 					怪物刷新.DataSheet.Add((怪物刷新)obj);
 				}
@@ -33,13 +33,13 @@ namespace GameServer.Templates
 		public static HashSet<怪物刷新> DataSheet;
 
 		
-		public byte 所处地图;
+		public byte FromMapId;
 
 		
-		public string 所处地名;
+		public string FromMapName;
 
 		
-		public Point 所处坐标;
+		public Point FromCoords;
 
 		
 		public string 区域名字;

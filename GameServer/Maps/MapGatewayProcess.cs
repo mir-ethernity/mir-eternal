@@ -734,7 +734,7 @@ namespace GameServer.Maps
 			{
 				foreach (MapInstance MapInstance2 in MapGatewayProcess.MapInstance表.Values)
 				{
-					if (MapInstance2.地图编号 == (int)地图区域.所处地图)
+					if (MapInstance2.地图编号 == (int)地图区域.FromMapId)
 					{
 						if (地图区域.区域类型 == 地图区域类型.复活区域)
 						{
@@ -753,13 +753,13 @@ namespace GameServer.Maps
 					}
 				}
 			}
-			foreach (传送法阵 传送法阵 in 传送法阵.DataSheet)
+			foreach (TeleportGates 传送法阵 in TeleportGates.DataSheet)
 			{
 				foreach (MapInstance MapInstance3 in MapGatewayProcess.MapInstance表.Values)
 				{
-					if (MapInstance3.地图编号 == (int)传送法阵.所处地图)
+					if (MapInstance3.地图编号 == (int)传送法阵.FromMapId)
 					{
-						MapInstance3.法阵列表.Add(传送法阵.法阵编号, 传送法阵);
+						MapInstance3.法阵列表.Add(传送法阵.TeleportGateNumber, 传送法阵);
 					}
 				}
 			}
@@ -767,7 +767,7 @@ namespace GameServer.Maps
 			{
 				foreach (MapInstance MapInstance4 in MapGatewayProcess.MapInstance表.Values)
 				{
-					if (MapInstance4.地图编号 == (int)守卫刷新.所处地图)
+					if (MapInstance4.地图编号 == (int)守卫刷新.FromMapId)
 					{
 						MapInstance4.守卫区域.Add(守卫刷新);
 					}
@@ -777,7 +777,7 @@ namespace GameServer.Maps
 			{
 				foreach (MapInstance MapInstance5 in MapGatewayProcess.MapInstance表.Values)
 				{
-					if (MapInstance5.地图编号 == (int)怪物刷新.所处地图)
+					if (MapInstance5.地图编号 == (int)怪物刷新.FromMapId)
 					{
 						MapInstance5.怪物区域.Add(怪物刷新);
 					}
@@ -815,7 +815,7 @@ namespace GameServer.Maps
 							地图守卫 对应模板;
 							if (地图守卫.DataSheet.TryGetValue(守卫刷新2.守卫编号, out 对应模板))
 							{
-								new GuardInstance(对应模板, MapInstance6, 守卫刷新2.所处方向, 守卫刷新2.所处坐标);
+								new GuardInstance(对应模板, MapInstance6, 守卫刷新2.所处方向, 守卫刷新2.FromCoords);
 							}
 						}
 						goto IL_5DE;

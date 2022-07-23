@@ -10,13 +10,13 @@ using Newtonsoft.Json;
 namespace GameServer.Templates
 {
 	
-	public static class 序列化类
+	public static class Serializer
 	{
 		
-		static 序列化类()
+		static Serializer()
 		{
 			
-			序列化类.全局设置 = new JsonSerializerSettings
+			Serializer.全局设置 = new JsonSerializerSettings
 			{
 				DefaultValueHandling = DefaultValueHandling.Ignore,
 				NullValueHandling = NullValueHandling.Ignore,
@@ -25,18 +25,18 @@ namespace GameServer.Templates
 			};
 			Dictionary<string, string> dictionary = new Dictionary<string, string>();
 			dictionary["Assembly-CSharp"] = "GameServer";
-			序列化类.定向字典 = dictionary;
+			Serializer.定向字典 = dictionary;
 			foreach (Type type in Assembly.GetExecutingAssembly().GetTypes())
 			{
 				if (type.IsSubclassOf(typeof(技能任务)))
 				{
-					序列化类.定向字典[type.Name] = type.FullName;
+					Serializer.定向字典[type.Name] = type.FullName;
 				}
 			}
 		}
 
 		
-		public static object[] 反序列化(string 文件夹, Type 类型)
+		public static object[] Deserialize(string 文件夹, Type 类型)
 		{
 			ConcurrentQueue<object> concurrentQueue = new ConcurrentQueue<object>();
 			if (Directory.Exists(文件夹))
@@ -45,11 +45,11 @@ namespace GameServer.Templates
 				for (int i = 0; i < files.Length; i++)
 				{
 					string text = File.ReadAllText(files[i].FullName);
-					foreach (KeyValuePair<string, string> keyValuePair in 序列化类.定向字典)
+					foreach (KeyValuePair<string, string> keyValuePair in Serializer.定向字典)
 					{
 						text = text.Replace(keyValuePair.Key, keyValuePair.Value);
 					}
-					object obj = JsonConvert.DeserializeObject(text, 类型, 序列化类.全局设置);
+					object obj = JsonConvert.DeserializeObject(text, 类型, Serializer.全局设置);
 					if (obj != null)
 					{
 						concurrentQueue.Enqueue(obj);

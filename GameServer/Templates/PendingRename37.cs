@@ -16,7 +16,7 @@ namespace GameServer.Templates
 			string text = CustomClass.GameData目录 + "\\System\\GameMap\\MapArea\\";
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in 序列化类.反序列化(text, typeof(地图区域)))
+				foreach (object obj in Serializer.Deserialize(text, typeof(地图区域)))
 				{
 					地图区域.DataSheet.Add((地图区域)obj);
 				}
@@ -58,13 +58,13 @@ namespace GameServer.Templates
 		public static List<地图区域> DataSheet;
 
 		
-		public byte 所处地图;
+		public byte FromMapId;
 
 		
-		public string 所处地名;
+		public string FromMapName;
 
 		
-		public Point 所处坐标;
+		public Point FromCoords;
 
 		
 		public string 区域名字;

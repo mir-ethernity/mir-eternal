@@ -2312,7 +2312,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public void 玩家切换地图(MapInstance 跳转地图, 地图区域类型 指定区域, Point 坐标 = default(Point))
+		public void 玩家切换地图(MapInstance ToMapId, 地图区域类型 指定区域, Point 坐标 = default(Point))
 		{
 			base.清空邻居时处理();
 			base.解绑网格();
@@ -2321,11 +2321,11 @@ namespace GameServer.Maps
 			{
 				网络连接.发送封包(new 玩家离开场景());
 			}
-			this.当前坐标 = ((指定区域 == 地图区域类型.未知区域) ? 坐标 : 跳转地图.随机坐标(指定区域));
-			if (this.当前地图.地图编号 != 跳转地图.地图编号)
+			this.当前坐标 = ((指定区域 == 地图区域类型.未知区域) ? 坐标 : ToMapId.随机坐标(指定区域));
+			if (this.当前地图.地图编号 != ToMapId.地图编号)
 			{
 				bool 副本地图 = this.当前地图.副本地图;
-				this.当前地图 = 跳转地图;
+				this.当前地图 = ToMapId;
 				客户网络 网络连接2 = this.网络连接;
 				if (网络连接2 != null)
 				{
@@ -3424,15 +3424,15 @@ namespace GameServer.Maps
 		}
 
 		
-		public void 玩家进入法阵(int 法阵编号)
+		public void 玩家进入法阵(int TeleportGateNumber)
 		{
 			if (this.绑定地图)
 			{
 				if (!this.对象死亡 && this.摆摊状态 <= 0 && this.交易状态 < 3)
 				{
-					传送法阵 传送法阵;
+					TeleportGates 传送法阵;
 					游戏地图 游戏地图;
-					if (!this.当前地图.法阵列表.TryGetValue((byte)法阵编号, out 传送法阵))
+					if (!this.当前地图.法阵列表.TryGetValue((byte)TeleportGateNumber, out 传送法阵))
 					{
 						客户网络 网络连接 = this.网络连接;
 						if (网络连接 == null)
@@ -3445,7 +3445,7 @@ namespace GameServer.Maps
 						});
 						return;
 					}
-					else if (base.网格距离(传送法阵.所处坐标) >= 8)
+					else if (base.网格距离(传送法阵.FromCoords) >= 8)
 					{
 						客户网络 网络连接2 = this.网络连接;
 						if (网络连接2 == null)
@@ -3458,7 +3458,7 @@ namespace GameServer.Maps
 						});
 						return;
 					}
-					else if (!游戏地图.DataSheet.TryGetValue(传送法阵.跳转地图, out 游戏地图))
+					else if (!游戏地图.DataSheet.TryGetValue(传送法阵.ToMapId, out 游戏地图))
 					{
 						客户网络 网络连接3 = this.网络连接;
 						if (网络连接3 == null)
@@ -3486,7 +3486,7 @@ namespace GameServer.Maps
 					}
 					else
 					{
-						this.玩家切换地图((this.当前地图.地图编号 == (int)游戏地图.地图编号) ? this.当前地图 : MapGatewayProcess.分配地图((int)游戏地图.地图编号), 地图区域类型.未知区域, 传送法阵.跳转坐标);
+						this.玩家切换地图((this.当前地图.地图编号 == (int)游戏地图.地图编号) ? this.当前地图 : MapGatewayProcess.分配地图((int)游戏地图.地图编号), 地图区域类型.未知区域, 传送法阵.ToCoords);
 					}
 				}
 				else
@@ -6643,7 +6643,7 @@ namespace GameServer.Maps
 									MapInstance2.传送区域 = MapInstance.传送区域;
 									MapInstance2.节点计时 = MainProcess.CurrentTime.AddSeconds(20.0);
 									MapInstance2.怪物波数 = (from O in MapInstance.怪物区域
-									orderby O.所处坐标.X
+									orderby O.FromCoords.X
 									select O).ToList<怪物刷新>();
 									MapInstance2.MapObject = new HashSet<MapObject>[MapInstance.地图大小.X, MapInstance.地图大小.Y];
 									MapInstance MapInstance3 = MapInstance2;

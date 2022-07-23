@@ -14,7 +14,7 @@ namespace GameServer.Templates
 			string text = CustomClass.GameData目录 + "\\System\\Skills\\Skills\\";
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in 序列化类.反序列化(text, typeof(游戏技能)))
+				foreach (object obj in Serializer.Deserialize(text, typeof(游戏技能)))
 				{
 					游戏技能.DataSheet.Add(((游戏技能)obj).技能名字, (游戏技能)obj);
 				}

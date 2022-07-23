@@ -38,7 +38,7 @@ namespace GameServer.Templates
 			string text = CustomClass.GameData目录 + "\\System\\Items\\EquipmentStats\\";
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in 序列化类.反序列化(text, typeof(装备属性)))
+				foreach (object obj in Serializer.Deserialize(text, typeof(装备属性)))
 				{
 					装备属性.DataSheet.Add((byte)((装备属性)obj).装备部位, (装备属性)obj);
 				}

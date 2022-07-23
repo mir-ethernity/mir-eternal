@@ -49,7 +49,7 @@ namespace GameServer.Templates
 			string text = CustomClass.GameData目录 + "\\System\\Npc\\Dialogs\\";
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in 序列化类.反序列化(text, typeof(对话数据)))
+				foreach (object obj in Serializer.Deserialize(text, typeof(对话数据)))
 				{
 					对话数据.DataSheet.Add(((对话数据)obj).对话编号, ((对话数据)obj).对话内容);
 				}

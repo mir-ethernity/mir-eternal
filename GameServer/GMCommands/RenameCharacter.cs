@@ -54,8 +54,6 @@ namespace GameServer
 		
 		public RenameCharacter()
 		{
-			
-			
 		}
 
 		

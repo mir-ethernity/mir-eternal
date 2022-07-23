@@ -16,7 +16,7 @@ namespace GameServer.Templates
 			string text = CustomClass.GameData目录 + "\\System\\Items\\GameStore\\";
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in 序列化类.反序列化(text, typeof(游戏商店)))
+				foreach (object obj in Serializer.Deserialize(text, typeof(游戏商店)))
 				{
 					游戏商店.DataSheet.Add(((游戏商店)obj).商店编号, (游戏商店)obj);
 				}
@@ -51,7 +51,7 @@ namespace GameServer.Templates
 							游戏商店.商店物品数量++;
 						}
 					}
-					游戏商店.商店文件数据 = 序列化类.压缩字节(memoryStream.ToArray());
+					游戏商店.商店文件数据 = Serializer.压缩字节(memoryStream.ToArray());
 					游戏商店.商店文件效验 = 0;
 					foreach (byte b in 游戏商店.商店文件数据)
 					{

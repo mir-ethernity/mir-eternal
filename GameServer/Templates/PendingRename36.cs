@@ -14,7 +14,7 @@ namespace GameServer.Templates
 			string text = CustomClass.GameData目录 + "\\System\\Npc\\Guards\\";
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in 序列化类.反序列化(text, typeof(地图守卫)))
+				foreach (object obj in Serializer.Deserialize(text, typeof(地图守卫)))
 				{
 					地图守卫.DataSheet.Add(((地图守卫)obj).守卫编号, (地图守卫)obj);
 				}

@@ -14,7 +14,7 @@ namespace GameServer.Templates
 			string text = CustomClass.GameData目录 + "\\System\\GameMap\\Maps";
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in 序列化类.反序列化(text, typeof(游戏地图)))
+				foreach (object obj in Serializer.Deserialize(text, typeof(游戏地图)))
 				{
 					游戏地图.DataSheet.Add(((游戏地图)obj).地图编号, (游戏地图)obj);
 				}

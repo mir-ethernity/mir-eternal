@@ -37,7 +37,7 @@ namespace GameServer.Templates
 			string text = CustomClass.GameData目录 + "\\System\\Items\\CommonItems\\";
 			if (Directory.Exists(text))
 			{
-				object[] array = 序列化类.反序列化(text, typeof(游戏物品));
+				object[] array = Serializer.Deserialize(text, typeof(游戏物品));
 				for (int i = 0; i < array.Length; i++)
 				{
 					游戏物品 游戏物品 = array[i] as 游戏物品;
@@ -48,7 +48,7 @@ namespace GameServer.Templates
 			text = CustomClass.GameData目录 + "\\System\\Items\\EquipmentItems\\";
 			if (Directory.Exists(text))
 			{
-				object[] array = 序列化类.反序列化(text, typeof(游戏装备));
+				object[] array = Serializer.Deserialize(text, typeof(游戏装备));
 				for (int i = 0; i < array.Length; i++)
 				{
 					游戏装备 游戏装备 = array[i] as 游戏装备;

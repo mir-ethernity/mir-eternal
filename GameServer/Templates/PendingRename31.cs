@@ -20,7 +20,7 @@ namespace GameServer.Templates
 				typeof(游戏地图),
 				typeof(地形数据),
 				typeof(地图区域),
-				typeof(传送法阵),
+				typeof(TeleportGates),
 				typeof(怪物刷新),
 				typeof(守卫刷新),
 				typeof(游戏物品),

@@ -131,7 +131,7 @@ namespace GameServer.Maps
 			this.宠物列表 = new HashSet<PetObject>();
 			this.物品列表 = new HashSet<ItemObject>();
 			this.对象列表 = new HashSet<MapObject>();
-			this.法阵列表 = new Dictionary<byte, 传送法阵>();
+			this.法阵列表 = new Dictionary<byte, TeleportGates>();
 			
 			this.地图模板 = 地图模板;
 			this.路线编号 = 路线编号;
@@ -582,6 +582,6 @@ namespace GameServer.Maps
 		public HashSet<MapObject> 对象列表;
 
 		
-		public Dictionary<byte, 传送法阵> 法阵列表;
+		public Dictionary<byte, TeleportGates> 法阵列表;
 	}
 }

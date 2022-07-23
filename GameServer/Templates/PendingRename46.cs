@@ -14,7 +14,7 @@ namespace GameServer.Templates
 			string text = CustomClass.GameData目录 + "\\System\\Npc\\Monsters\\";
 			if (Directory.Exists(text))
 			{
-				object[] array = 序列化类.反序列化(text, typeof(游戏怪物));
+				object[] array = Serializer.Deserialize(text, typeof(游戏怪物));
 				for (int i = 0; i < array.Length; i++)
 				{
 					游戏怪物 游戏怪物 = array[i] as 游戏怪物;

@@ -14,7 +14,7 @@ namespace GameServer.Templates
 			string text = CustomClass.GameData目录 + "\\System\\Skills\\Trap\\";
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in 序列化类.反序列化(text, typeof(技能陷阱)))
+				foreach (object obj in Serializer.Deserialize(text, typeof(技能陷阱)))
 				{
 					技能陷阱.DataSheet.Add(((技能陷阱)obj).陷阱名字, (技能陷阱)obj);
 				}

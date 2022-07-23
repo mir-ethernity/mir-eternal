@@ -14,7 +14,7 @@ namespace GameServer.Templates
 			string text = CustomClass.GameData目录 + "\\System\\Skills\\Buffs\\";
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in 序列化类.反序列化(text, typeof(游戏Buff)))
+				foreach (object obj in Serializer.Deserialize(text, typeof(游戏Buff)))
 				{
 					游戏Buff.DataSheet.Add(((游戏Buff)obj).Buff编号, (游戏Buff)obj);
 				}

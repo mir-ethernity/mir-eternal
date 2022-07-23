@@ -14,7 +14,7 @@ namespace GameServer.Templates
 			string text = CustomClass.GameData目录 + "\\System\\Items\\GameTitle\\";
 			if (Directory.Exists(text))
 			{
-				object[] array = 序列化类.反序列化(text, typeof(游戏称号));
+				object[] array = Serializer.Deserialize(text, typeof(游戏称号));
 				for (int i = 0; i < array.Length; i++)
 				{
 					游戏称号 游戏称号 = array[i] as 游戏称号;

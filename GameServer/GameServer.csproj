@@ -162,7 +162,7 @@
     <Compile Include="Templates\PendingRename26.cs" />
     <Compile Include="Templates\PendingRename27.cs" />
     <Compile Include="Templates\PendingRename28.cs" />
-    <Compile Include="Templates\PendingRename33.cs" />
+    <Compile Include="Templates\TeleportGates.cs" />
     <Compile Include="Templates\PendingRename12.cs" />
     <Compile Include="Templates\PendingRename5.cs" />
     <Compile Include="Templates\PendingRename8.cs" />
