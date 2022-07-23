@@ -130,11 +130,11 @@ namespace GameServer.Data
 
 		
 		// (get) Token: 0x06000449 RID: 1097 RVA: 0x0000446D File Offset: 0x0000266D
-		public int 战力加成
+		public int CombatBonus
 		{
 			get
 			{
-				return this.铭文模板.技能战力加成[(int)this.技能等级.V];
+				return this.铭文模板.技能CombatBonus[(int)this.技能等级.V];
 			}
 		}
 

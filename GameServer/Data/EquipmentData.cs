@@ -29,7 +29,7 @@ namespace GameServer.Data
 				{
 					int num = (int)((long)(this.装备模板.BasicPowerCombat * (int)(this.幸运等级.V + 20)) * 1717986919L >> 32 >> 3);
 					int num2 = (int)(this.神圣伤害.V * 3 + this.升级攻击.V * 5 + this.升级魔法.V * 5 + this.升级道术.V * 5 + this.升级刺术.V * 5 + this.升级弓术.V * 5);
-					int num3 = this.随机属性.Sum((RandomStats x) => x.战力加成);
+					int num3 = this.随机属性.Sum((RandomStats x) => x.CombatBonus);
 					return num + num2 + num3;
 				}
 				int num4 = 0;
@@ -1932,7 +1932,7 @@ namespace GameServer.Data
 					IL_1A0A:
 					num5 += 30;
 				}
-				int num7 = this.随机属性.Sum((RandomStats x) => x.战力加成);
+				int num7 = this.随机属性.Sum((RandomStats x) => x.CombatBonus);
 				return this.装备模板.BasicPowerCombat + num4 + num7 + num5;
 			}
 		}
@@ -2154,7 +2154,7 @@ namespace GameServer.Data
 
 		
 		// (get) Token: 0x06000594 RID: 1428 RVA: 0x00028BAC File Offset: 0x00026DAC
-		public string 属性描述
+		public string StatDescription
 		{
 			get
 			{
@@ -2162,7 +2162,7 @@ namespace GameServer.Data
 				Dictionary<GameObjectStats, int> dictionary = new Dictionary<GameObjectStats, int>();
 				foreach (RandomStats 随机属性 in this.随机属性)
 				{
-					dictionary[随机属性.对应属性] = 随机属性.属性数值;
+					dictionary[随机属性.Stat] = 随机属性.Value;
 				}
 				if (dictionary.ContainsKey(GameObjectStats.MinAttack) || dictionary.ContainsKey(GameObjectStats.MaxAttack))
 				{
@@ -2528,7 +2528,7 @@ namespace GameServer.Data
 				}
 				foreach (RandomStats 随机属性 in this.随机属性.ToList<RandomStats>())
 				{
-					dictionary[随机属性.对应属性] = (dictionary.ContainsKey(随机属性.对应属性) ? (dictionary[随机属性.对应属性] + 随机属性.属性数值) : 随机属性.属性数值);
+					dictionary[随机属性.Stat] = (dictionary.ContainsKey(随机属性.Stat) ? (dictionary[随机属性.Stat] + 随机属性.Value) : 随机属性.Value);
 				}
 				foreach (GameItems 游戏物品 in this.镶嵌灵石.Values)
 				{

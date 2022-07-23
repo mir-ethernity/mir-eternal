@@ -154,7 +154,7 @@ namespace GameServer.Templates
 		public ushort[] 需要技能经验;
 
 		
-		public int[] 技能战力加成;
+		public int[] 技能CombatBonus;
 
 		
 		public 铭文属性[] 铭文属性加成;

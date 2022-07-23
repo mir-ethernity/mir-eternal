@@ -8,11 +8,11 @@ namespace GameServer.Templates
 	{
 		public static Dictionary<int, RandomStats> DataSheet;
 
-		public GameObjectStats 对应属性;
-		public int 属性数值;
+		public GameObjectStats Stat;
+		public int Value;
 		public int StatId;
-		public int 战力加成;
-		public string 属性描述;
+		public int CombatBonus;
+		public string StatDescription;
 
 		public static void LoadData()
 		{

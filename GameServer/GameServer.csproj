@@ -209,7 +209,7 @@
     <Compile Include="Templates\PendingRename30.cs" />
     <Compile Include="Templates\PendingRename7.cs" />
     <Compile Include="Templates\PendingRename6.cs" />
-    <Compile Include="Templates\PendingRename9.cs" />
+    <Compile Include="Templates\RandomStats.cs" />
     <Compile Include="GMCommands\AddIngots.cs" />
     <Compile Include="GMCommands\AddItems.cs" />
     <Compile Include="GMCommands\AddCoins.cs" />

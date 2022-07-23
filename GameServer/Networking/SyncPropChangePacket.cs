@@ -19,6 +19,6 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(下标 = 3, 长度 = 4)]
-		public int 属性数值;
+		public int Value;
 	}
 }

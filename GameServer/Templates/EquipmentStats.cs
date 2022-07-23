@@ -27,8 +27,8 @@ namespace GameServer.Templates
                 for (int i = 0; i < num2; i++)
                 {
                     RandomStats 随机属性 = array[MainProcess.RandomNumber.Next(array.Length)];
-                    if (!dictionary.ContainsKey(随机属性.对应属性))
-                        dictionary[随机属性.对应属性] = 随机属性;
+                    if (!dictionary.ContainsKey(随机属性.Stat))
+                        dictionary[随机属性.Stat] = 随机属性;
                 }
                 return dictionary.Values.ToList();
             }

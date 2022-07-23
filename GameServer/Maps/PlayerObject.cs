@@ -88,14 +88,14 @@ namespace GameServer.Maps
 			this.属性加成[this] = 角色成长.获取数据(this.角色职业, this.当前等级);
 			Dictionary<object, int> dictionary = new Dictionary<object, int>();
 			dictionary[this] = (int)(this.当前等级 * 10);
-			this.战力加成 = dictionary;
+			this.CombatBonus = dictionary;
 			this.称号时间 = DateTime.MaxValue;
 			this.拾取时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 			this.特权时间 = ((this.本期特权 > 0) ? this.本期日期.AddDays(30.0) : DateTime.MaxValue);
 			foreach (EquipmentData EquipmentData in this.角色装备.Values)
 			{
-				this.战力加成[EquipmentData] = EquipmentData.装备战力;
+				this.CombatBonus[EquipmentData] = EquipmentData.装备战力;
 				if (EquipmentData.当前持久.V > 0)
 				{
 					this.属性加成[EquipmentData] = EquipmentData.装备属性;
@@ -113,7 +113,7 @@ namespace GameServer.Maps
 			}
 			foreach (SkillData SkillData3 in this.主体技能表.Values)
 			{
-				this.战力加成[SkillData3] = SkillData3.战力加成;
+				this.CombatBonus[SkillData3] = SkillData3.CombatBonus;
 				this.属性加成[SkillData3] = SkillData3.属性加成;
 				foreach (ushort key in SkillData3.被动技能.ToList<ushort>())
 				{
@@ -144,7 +144,7 @@ namespace GameServer.Maps
 			游戏称号 游戏称号;
 			if (this.当前称号 > 0 && 游戏称号.DataSheet.TryGetValue(this.当前称号, out 游戏称号))
 			{
-				this.战力加成[this.当前称号] = 游戏称号.称号战力;
+				this.CombatBonus[this.当前称号] = 游戏称号.称号战力;
 				this.属性加成[this.当前称号] = 游戏称号.称号属性;
 			}
 			if (this.当前体力 == 0)
@@ -269,7 +269,7 @@ namespace GameServer.Maps
 			{
 				网络连接.发送封包(new 同步角色属性
 				{
-					属性描述 = this.玩家属性描述()
+					StatDescription = this.玩家StatDescription()
 				});
 			}
 			if (网络连接 != null)
@@ -1201,7 +1201,7 @@ namespace GameServer.Maps
 						网络连接.发送封包(new SyncPropChangePacket
 						{
 							StatId = (byte)属性,
-							属性数值 = value
+							Value = value
 						});
 					}
 				}
@@ -2211,7 +2211,7 @@ namespace GameServer.Maps
 		public void 更新玩家战力()
 		{
 			int num = 0;
-			foreach (int num2 in this.战力加成.Values.ToList<int>())
+			foreach (int num2 in this.CombatBonus.Values.ToList<int>())
 			{
 				num += num2;
 			}
@@ -2255,7 +2255,7 @@ namespace GameServer.Maps
 					当前等级 = this.当前等级
 				});
 			}
-			this.战力加成[this] = (int)(this.当前等级 * 10);
+			this.CombatBonus[this] = (int)(this.当前等级 * 10);
 			this.更新玩家战力();
 			this.属性加成[this] = 角色成长.获取数据(this.角色职业, this.当前等级);
 			this.更新对象属性();
@@ -2456,7 +2456,7 @@ namespace GameServer.Maps
 					技能编号 = SkillData.技能编号.V,
 					技能等级 = SkillData.技能等级.V
 				});
-				this.战力加成[SkillData] = SkillData.战力加成;
+				this.CombatBonus[SkillData] = SkillData.CombatBonus;
 				this.更新玩家战力();
 				this.属性加成[SkillData] = SkillData.属性加成;
 				this.更新对象属性();
@@ -2563,7 +2563,7 @@ namespace GameServer.Maps
 			{
 				base.添加Buff时处理(编号, this);
 			}
-			this.战力加成[this.主体技能表[技能编号]] = this.主体技能表[技能编号].战力加成;
+			this.CombatBonus[this.主体技能表[技能编号]] = this.主体技能表[技能编号].CombatBonus;
 			this.更新玩家战力();
 			this.属性加成[this.主体技能表[技能编号]] = this.主体技能表[技能编号].属性加成;
 			this.更新对象属性();
@@ -2633,7 +2633,7 @@ namespace GameServer.Maps
 						});
 					}
 				}
-				this.战力加成[SkillData] = SkillData.战力加成;
+				this.CombatBonus[SkillData] = SkillData.CombatBonus;
 				this.更新玩家战力();
 				this.属性加成[SkillData] = SkillData.属性加成;
 				this.更新对象属性();
@@ -2683,7 +2683,7 @@ namespace GameServer.Maps
 				{
 					this.玩家装卸铭文(原有装备.第二铭文.技能编号, 0);
 				}
-				this.战力加成.Remove(原有装备);
+				this.CombatBonus.Remove(原有装备);
 				this.属性加成.Remove(原有装备);
 			}
 			if (现有装备 != null)
@@ -2696,7 +2696,7 @@ namespace GameServer.Maps
 				{
 					this.玩家装卸铭文(现有装备.第二铭文.技能编号, 现有装备.第二铭文.铭文编号);
 				}
-				this.战力加成[现有装备] = 现有装备.装备战力;
+				this.CombatBonus[现有装备] = 现有装备.装备战力;
 				if (现有装备.当前持久.V > 0)
 				{
 					this.属性加成.Add(现有装备, 现有装备.装备属性);
@@ -3017,7 +3017,7 @@ namespace GameServer.Maps
 				if (this.当前称号 == 称号编号)
 				{
 					this.当前称号 = 0;
-					this.战力加成.Remove(称号编号);
+					this.CombatBonus.Remove(称号编号);
 					this.更新玩家战力();
 					this.属性加成.Remove(称号编号);
 					this.更新对象属性();
@@ -4527,7 +4527,7 @@ namespace GameServer.Maps
 											网络连接17.发送封包(new 同步交互结果
 											{
 												对象编号 = this.对话守卫.MapId,
-												交互文本 = 对话数据.合并数据(this.对话页面, "<#P1:" + EquipmentData2.属性描述 + ">")
+												交互文本 = 对话数据.合并数据(this.对话页面, "<#P1:" + EquipmentData2.StatDescription + ">")
 											});
 											return;
 										}
@@ -9676,11 +9676,11 @@ namespace GameServer.Maps
 				{
 					if (this.当前称号 != 0)
 					{
-						this.战力加成.Remove(this.当前称号);
+						this.CombatBonus.Remove(this.当前称号);
 						this.属性加成.Remove(this.当前称号);
 					}
 					this.当前称号 = 称号编号;
-					this.战力加成[称号编号] = 游戏称号.称号战力;
+					this.CombatBonus[称号编号] = 游戏称号.称号战力;
 					this.更新玩家战力();
 					this.属性加成[称号编号] = 游戏称号.称号属性;
 					this.更新对象属性();
@@ -9721,7 +9721,7 @@ namespace GameServer.Maps
 			{
 				return;
 			}
-			if (this.战力加成.Remove(this.当前称号))
+			if (this.CombatBonus.Remove(this.当前称号))
 			{
 				this.更新玩家战力();
 			}
@@ -23945,7 +23945,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public byte[] 玩家属性描述()
+		public byte[] 玩家StatDescription()
 		{
 			byte[] result;
 			using (MemoryStream memoryStream = new MemoryStream())
@@ -24387,7 +24387,7 @@ namespace GameServer.Maps
 		public List<PetObject> 宠物列表;
 
 		
-		public Dictionary<object, int> 战力加成;
+		public Dictionary<object, int> CombatBonus;
 
 		
 		public readonly Dictionary<ushort, SkillData> 被动技能;
