@@ -19,6 +19,6 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(下标 = 6, 长度 = 4)]
-		public int 冷却时间;
+		public int Cooldown;
 	}
 }

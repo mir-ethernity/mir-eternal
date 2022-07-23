@@ -15,6 +15,6 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(下标 = 2, 长度 = 4)]
-		public int 物品编号;
+		public int Id;
 	}
 }

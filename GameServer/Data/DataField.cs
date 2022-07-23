@@ -720,7 +720,7 @@ namespace GameServer.Data
 			dictionary2[typeFromHandle50] = delegate(BinaryWriter b, object o)
 			{
 				GameItems v = ((DataMonitor<GameItems>)o).V;
-				b.Write((v != null) ? v.物品编号 : 0);
+				b.Write((v != null) ? v.Id : 0);
 			};
 			typeFromHandle49 = typeof(DataMonitor<PetMode>);
 			dictionary2[typeFromHandle49] = delegate(BinaryWriter b, object o)
@@ -1016,7 +1016,7 @@ namespace GameServer.Data
 				foreach (KeyValuePair<byte, GameItems> keyValuePair in MonitorDictionary)
 				{
 					b.Write(keyValuePair.Key);
-					b.Write(keyValuePair.Value.物品编号);
+					b.Write(keyValuePair.Value.Id);
 				}
 			};
 			typeFromHandle13 = typeof(MonitorDictionary<byte, 铭文技能>);

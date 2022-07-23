@@ -262,11 +262,11 @@ namespace GameServer.Data
 
 		
 		// (get) Token: 0x06000437 RID: 1079 RVA: 0x00004357 File Offset: 0x00002557
-		public ushort 冷却时间
+		public ushort Cooldown
 		{
 			get
 			{
-				return this.Buff模板.技能冷却时间;
+				return this.Buff模板.技能Cooldown;
 			}
 		}
 

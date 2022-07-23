@@ -586,7 +586,7 @@ namespace GameServer.Templates
 								{
 									this.技能来源.移除Buff时处理(this.技能模板.技能标记编号);
 								}
-								if (b_01_技能释放通知.自身冷却时间 != 0 || b_01_技能释放通知.Buff增加冷却)
+								if (b_01_技能释放通知.自身Cooldown != 0 || b_01_技能释放通知.Buff增加冷却)
 								{
 									if (this.检查计数)
 									{
@@ -607,9 +607,9 @@ namespace GameServer.Templates
 											goto IL_11B7;
 										}
 									}
-									if (b_01_技能释放通知.自身冷却时间 > 0 || b_01_技能释放通知.Buff增加冷却)
+									if (b_01_技能释放通知.自身Cooldown > 0 || b_01_技能释放通知.Buff增加冷却)
 									{
-										int num8 = b_01_技能释放通知.自身冷却时间;
+										int num8 = b_01_技能释放通知.自身Cooldown;
 										if (b_01_技能释放通知.Buff增加冷却 && this.技能来源.Buff列表.ContainsKey(b_01_技能释放通知.增加冷却Buff))
 										{
 											num8 += b_01_技能释放通知.冷却增加时间;
@@ -622,16 +622,16 @@ namespace GameServer.Templates
 											this.技能来源.发送封包(new AddedSkillCooldownPacket
 											{
 												冷却编号 = ((int)this.技能编号 | 16777216),
-												冷却时间 = num8
+												Cooldown = num8
 											});
 										}
 									}
 								}
 								IL_11B7:
 								PlayerObject PlayerObject7 = this.技能来源 as PlayerObject;
-								if (PlayerObject7 != null && b_01_技能释放通知.分组冷却时间 != 0 && this.分组编号 != 0)
+								if (PlayerObject7 != null && b_01_技能释放通知.分组Cooldown != 0 && this.分组编号 != 0)
 								{
-									DateTime dateTime2 = this.释放时间.AddMilliseconds((double)b_01_技能释放通知.分组冷却时间);
+									DateTime dateTime2 = this.释放时间.AddMilliseconds((double)b_01_技能释放通知.分组Cooldown);
 									DateTime t2 = PlayerObject7.冷却记录.ContainsKey((int)(this.分组编号 | 0)) ? PlayerObject7.冷却记录[(int)(this.分组编号 | 0)] : default(DateTime);
 									if (dateTime2 > t2)
 									{
@@ -640,7 +640,7 @@ namespace GameServer.Templates
 									this.技能来源.发送封包(new AddedSkillCooldownPacket
 									{
 										冷却编号 = (int)(this.分组编号 | 0),
-										冷却时间 = b_01_技能释放通知.分组冷却时间
+										Cooldown = b_01_技能释放通知.分组Cooldown
 									});
 								}
 								if (b_01_技能释放通知.角色忙绿时间 != 0)
@@ -1045,7 +1045,7 @@ namespace GameServer.Templates
 																	this.技能来源.发送封包(new AddedSkillCooldownPacket
 																	{
 																		冷却编号 = ((int)c_02_计算目标伤害.冷却减少技能 | 16777216),
-																		冷却时间 = Math.Max(0, (int)(dateTime3 - MainProcess.CurrentTime).TotalMilliseconds)
+																		Cooldown = Math.Max(0, (int)(dateTime3 - MainProcess.CurrentTime).TotalMilliseconds)
 																	});
 																}
 																if (c_02_计算目标伤害.冷却减少分组 != 0)
@@ -1059,7 +1059,7 @@ namespace GameServer.Templates
 																		this.技能来源.发送封包(new AddedSkillCooldownPacket
 																		{
 																			冷却编号 = (int)(c_02_计算目标伤害.冷却减少分组 | 0),
-																			冷却时间 = Math.Max(0, (int)(dateTime4 - MainProcess.CurrentTime).TotalMilliseconds)
+																			Cooldown = Math.Max(0, (int)(dateTime4 - MainProcess.CurrentTime).TotalMilliseconds)
 																		});
 																	}
 																}
@@ -1085,7 +1085,7 @@ namespace GameServer.Templates
 																	this.技能来源.发送封包(new AddedSkillCooldownPacket
 																	{
 																		冷却编号 = ((int)c_02_计算目标伤害.冷却减少技能 | 16777216),
-																		冷却时间 = Math.Max(0, (int)(dateTime5 - MainProcess.CurrentTime).TotalMilliseconds)
+																		Cooldown = Math.Max(0, (int)(dateTime5 - MainProcess.CurrentTime).TotalMilliseconds)
 																	});
 																}
 																if (c_02_计算目标伤害.冷却减少分组 != 0)
@@ -1099,7 +1099,7 @@ namespace GameServer.Templates
 																		this.技能来源.发送封包(new AddedSkillCooldownPacket
 																		{
 																			冷却编号 = (int)(c_02_计算目标伤害.冷却减少分组 | 0),
-																			冷却时间 = Math.Max(0, (int)(dateTime6 - MainProcess.CurrentTime).TotalMilliseconds)
+																			Cooldown = Math.Max(0, (int)(dateTime6 - MainProcess.CurrentTime).TotalMilliseconds)
 																		});
 																	}
 																}

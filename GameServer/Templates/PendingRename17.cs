@@ -22,7 +22,7 @@ namespace GameServer.Templates
 		public bool 调整角色朝向;
 
 		
-		public int 自身冷却时间;
+		public int 自身Cooldown;
 
 		
 		public bool Buff增加冷却;
@@ -34,7 +34,7 @@ namespace GameServer.Templates
 		public int 冷却增加时间;
 
 		
-		public int 分组冷却时间;
+		public int 分组Cooldown;
 
 		
 		public int 角色忙绿时间;

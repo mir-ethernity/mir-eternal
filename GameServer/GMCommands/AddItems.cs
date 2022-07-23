@@ -28,7 +28,7 @@ namespace GameServer
 				if (CharacterData != null)
 				{
 					GameItems 游戏物品;
-					if (!GameItems.DateSheetByName.TryGetValue(this.物品名字, out 游戏物品))
+					if (!GameItems.DateSheetByName.TryGetValue(this.Name, out 游戏物品))
 					{
 						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, item does not exist");
 						return;
@@ -38,7 +38,7 @@ namespace GameServer
 						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, character's bag is full");
 						return;
 					}
-					if (游戏物品.物品持久 == 0)
+					if (游戏物品.ItemLast == 0)
 					{
 						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, cannot AddItemsCommand");
 						return;
@@ -55,17 +55,17 @@ namespace GameServer
 							{
 								CharacterData.角色背包[b] = new EquipmentData(游戏装备, CharacterData, 1, b, true);
 							}
-							else if (游戏物品.持久类型 == PersistentItemType.容器)
+							else if (游戏物品.PersistType == PersistentItemType.容器)
 							{
 								CharacterData.角色背包[b] = new ItemData(游戏物品, CharacterData, 1, b, 0);
 							}
-							else if (游戏物品.持久类型 == PersistentItemType.堆叠)
+							else if (游戏物品.PersistType == PersistentItemType.堆叠)
 							{
 								CharacterData.角色背包[b] = new ItemData(游戏物品, CharacterData, 1, b, 1);
 							}
 							else
 							{
-								CharacterData.角色背包[b] = new ItemData(游戏物品, CharacterData, 1, b, 游戏物品.物品持久);
+								CharacterData.角色背包[b] = new ItemData(游戏物品, CharacterData, 1, b, 游戏物品.ItemLast);
 							}
 							客户网络 网络连接 = CharacterData.网络连接;
 							if (网络连接 != null)
@@ -98,6 +98,6 @@ namespace GameServer
 
 		
 		[FieldAttribute(0, 排序 = 1)]
-		public string 物品名字;
+		public string Name;
 	}
 }

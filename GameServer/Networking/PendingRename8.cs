@@ -769,7 +769,7 @@ namespace GameServer.Networking
 				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
-			this.绑定角色.随身修理单件(P.物品容器, P.物品位置, P.物品编号);
+			this.绑定角色.随身修理单件(P.物品容器, P.物品位置, P.Id);
 		}
 
 		
@@ -862,7 +862,7 @@ namespace GameServer.Networking
 				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
-			this.绑定角色.OrdinaryInscriptionRefinementPacket(P.装备类型, P.装备位置, P.物品编号);
+			this.绑定角色.OrdinaryInscriptionRefinementPacket(P.装备类型, P.装备位置, P.Id);
 		}
 
 		
@@ -873,7 +873,7 @@ namespace GameServer.Networking
 				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
-			this.绑定角色.高级铭文洗练(P.装备类型, P.装备位置, P.物品编号);
+			this.绑定角色.高级铭文洗练(P.装备类型, P.装备位置, P.Id);
 		}
 
 		
@@ -884,7 +884,7 @@ namespace GameServer.Networking
 				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
-			this.绑定角色.ReplaceInscriptionRefinementPacket(P.装备类型, P.装备位置, P.物品编号);
+			this.绑定角色.ReplaceInscriptionRefinementPacket(P.装备类型, P.装备位置, P.Id);
 		}
 
 		
@@ -2281,7 +2281,7 @@ namespace GameServer.Networking
 				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
-			this.绑定角色.购买珍宝商品(P.物品编号, P.购买数量);
+			this.绑定角色.购买珍宝商品(P.Id, P.购买数量);
 		}
 
 		

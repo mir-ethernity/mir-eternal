@@ -24,7 +24,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.物品模板.商店类型;
+				return this.物品模板.StoreType;
 			}
 		}
 
@@ -34,91 +34,91 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.物品模板.物品分类;
+				return this.物品模板.UsageType;
 			}
 		}
 
 		
 		// (get) Token: 0x0600056C RID: 1388 RVA: 0x000051A7 File Offset: 0x000033A7
-		public PersistentItemType 持久类型
+		public PersistentItemType PersistType
 		{
 			get
 			{
-				return this.物品模板.持久类型;
+				return this.物品模板.PersistType;
 			}
 		}
 
 		
 		// (get) Token: 0x0600056D RID: 1389 RVA: 0x000051B4 File Offset: 0x000033B4
-		public GameObjectProfession 需要职业
+		public GameObjectProfession NeedRace
 		{
 			get
 			{
-				return this.物品模板.需要职业;
+				return this.物品模板.NeedRace;
 			}
 		}
 
 		
 		// (get) Token: 0x0600056E RID: 1390 RVA: 0x000051C1 File Offset: 0x000033C1
-		public GameObjectGender 需要性别
+		public GameObjectGender NeedGender
 		{
 			get
 			{
-				return this.物品模板.需要性别;
+				return this.物品模板.NeedGender;
 			}
 		}
 
 		
 		// (get) Token: 0x0600056F RID: 1391 RVA: 0x000051CE File Offset: 0x000033CE
-		public string 物品名字
+		public string Name
 		{
 			get
 			{
-				return this.物品模板.物品名字;
+				return this.物品模板.Name;
 			}
 		}
 
 		
 		// (get) Token: 0x06000570 RID: 1392 RVA: 0x000051DB File Offset: 0x000033DB
-		public int 需要等级
+		public int NeedLevel
 		{
 			get
 			{
-				return this.物品模板.需要等级;
+				return this.物品模板.NeedLevel;
 			}
 		}
 
 		
 		// (get) Token: 0x06000571 RID: 1393 RVA: 0x000051E8 File Offset: 0x000033E8
-		public int 物品编号
+		public int Id
 		{
 			get
 			{
-				return this.对应模板.V.物品编号;
+				return this.对应模板.V.Id;
 			}
 		}
 
 		
 		// (get) Token: 0x06000572 RID: 1394 RVA: 0x000051FA File Offset: 0x000033FA
-		public int 物品重量
+		public int Weight
 		{
 			get
 			{
-				if (this.持久类型 != PersistentItemType.堆叠)
+				if (this.PersistType != PersistentItemType.堆叠)
 				{
-					return this.物品模板.物品重量;
+					return this.物品模板.Weight;
 				}
-				return this.当前持久.V * this.物品模板.物品重量;
+				return this.当前持久.V * this.物品模板.Weight;
 			}
 		}
 
 		
 		// (get) Token: 0x06000573 RID: 1395 RVA: 0x00025024 File Offset: 0x00023224
-		public int 出售价格
+		public int SalePrice
 		{
 			get
 			{
-				switch (this.对应模板.V.持久类型)
+				switch (this.对应模板.V.PersistType)
 				{
 				case PersistentItemType.无:
 					return 1;
@@ -127,8 +127,8 @@ namespace GameServer.Data
 					EquipmentData EquipmentData = this as EquipmentData;
 					EquipmentItem 游戏装备 = this.对应模板.V as EquipmentItem;
 					int v = EquipmentData.当前持久.V;
-					int value = 游戏装备.物品持久 * 1000;
-					int 出售价格 = 游戏装备.出售价格;
+					int value = 游戏装备.ItemLast * 1000;
+					int SalePrice = 游戏装备.SalePrice;
 					int v2 = EquipmentData.幸运等级.V;
 					int num = (int)Math.Max(0, v2);
 					int num2 = (int)(EquipmentData.升级攻击.V * 100 + EquipmentData.升级魔法.V * 100 + EquipmentData.升级道术.V * 100 + EquipmentData.升级刺术.V * 100 + EquipmentData.升级弓术.V * 100);
@@ -151,8 +151,8 @@ namespace GameServer.Data
 					int num5 = 0;
 					foreach (GameItems 游戏物品 in EquipmentData.镶嵌灵石.Values)
 					{
-						string 物品名字 = 游戏物品.物品名字;
-						uint num6 = PrivateImplementationDetails.ComputeStringHash(物品名字);
+						string Name = 游戏物品.Name;
+						uint num6 = PrivateImplementationDetails.ComputeStringHash(Name);
 						if (num6 <= 1965594569U)
 						{
 							if (num6 <= 943749297U)
@@ -171,7 +171,7 @@ namespace GameServer.Data
 													{
 														continue;
 													}
-													if (!(物品名字 == "精绿灵石2级"))
+													if (!(Name == "精绿灵石2级"))
 													{
 														continue;
 													}
@@ -179,7 +179,7 @@ namespace GameServer.Data
 												}
 												else
 												{
-													if (!(物品名字 == "精绿灵石5级"))
+													if (!(Name == "精绿灵石5级"))
 													{
 														continue;
 													}
@@ -194,7 +194,7 @@ namespace GameServer.Data
 													{
 														continue;
 													}
-													if (!(物品名字 == "驭朱灵石4级"))
+													if (!(Name == "驭朱灵石4级"))
 													{
 														continue;
 													}
@@ -202,7 +202,7 @@ namespace GameServer.Data
 												}
 												else
 												{
-													if (!(物品名字 == "透蓝灵石1级"))
+													if (!(Name == "透蓝灵石1级"))
 													{
 														continue;
 													}
@@ -211,7 +211,7 @@ namespace GameServer.Data
 											}
 											else
 											{
-												if (!(物品名字 == "精绿灵石9级"))
+												if (!(Name == "精绿灵石9级"))
 												{
 													continue;
 												}
@@ -226,7 +226,7 @@ namespace GameServer.Data
 												{
 													continue;
 												}
-												if (!(物品名字 == "驭朱灵石3级"))
+												if (!(Name == "驭朱灵石3级"))
 												{
 													continue;
 												}
@@ -234,7 +234,7 @@ namespace GameServer.Data
 											}
 											else
 											{
-												if (!(物品名字 == "驭朱灵石1级"))
+												if (!(Name == "驭朱灵石1级"))
 												{
 													continue;
 												}
@@ -249,7 +249,7 @@ namespace GameServer.Data
 												{
 													continue;
 												}
-												if (!(物品名字 == "蔚蓝灵石10级"))
+												if (!(Name == "蔚蓝灵石10级"))
 												{
 													continue;
 												}
@@ -257,14 +257,14 @@ namespace GameServer.Data
 											}
 											else
 											{
-												if (!(物品名字 == "狂热幻彩灵石10级"))
+												if (!(Name == "狂热幻彩灵石10级"))
 												{
 													continue;
 												}
 												goto IL_18D5;
 											}
 										}
-										else if (!(物品名字 == "驭朱灵石8级"))
+										else if (!(Name == "驭朱灵石8级"))
 										{
 											continue;
 										}
@@ -279,14 +279,14 @@ namespace GameServer.Data
 												{
 													continue;
 												}
-												if (!(物品名字 == "精绿灵石8级"))
+												if (!(Name == "精绿灵石8级"))
 												{
 													continue;
 												}
 											}
 											else
 											{
-												if (!(物品名字 == "抵御幻彩灵石7级"))
+												if (!(Name == "抵御幻彩灵石7级"))
 												{
 													continue;
 												}
@@ -301,20 +301,20 @@ namespace GameServer.Data
 												{
 													continue;
 												}
-												if (!(物品名字 == "精绿灵石10级"))
+												if (!(Name == "精绿灵石10级"))
 												{
 													continue;
 												}
 												goto IL_18D5;
 											}
-											else if (!(物品名字 == "韧紫灵石8级"))
+											else if (!(Name == "韧紫灵石8级"))
 											{
 												continue;
 											}
 										}
 										else
 										{
-											if (!(物品名字 == "韧紫灵石3级"))
+											if (!(Name == "韧紫灵石3级"))
 											{
 												continue;
 											}
@@ -329,7 +329,7 @@ namespace GameServer.Data
 											{
 												continue;
 											}
-											if (!(物品名字 == "驭朱灵石9级"))
+											if (!(Name == "驭朱灵石9级"))
 											{
 												continue;
 											}
@@ -337,7 +337,7 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "命朱灵石7级"))
+											if (!(Name == "命朱灵石7级"))
 											{
 												continue;
 											}
@@ -352,7 +352,7 @@ namespace GameServer.Data
 											{
 												continue;
 											}
-											if (!(物品名字 == "精绿灵石3级"))
+											if (!(Name == "精绿灵石3级"))
 											{
 												continue;
 											}
@@ -360,14 +360,14 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "透蓝灵石10级"))
+											if (!(Name == "透蓝灵石10级"))
 											{
 												continue;
 											}
 											goto IL_18D5;
 										}
 									}
-									else if (!(物品名字 == "抵御幻彩灵石8级"))
+									else if (!(Name == "抵御幻彩灵石8级"))
 									{
 										continue;
 									}
@@ -384,7 +384,7 @@ namespace GameServer.Data
 												{
 													continue;
 												}
-												if (!(物品名字 == "新阳灵石5级"))
+												if (!(Name == "新阳灵石5级"))
 												{
 													continue;
 												}
@@ -392,7 +392,7 @@ namespace GameServer.Data
 											}
 											else
 											{
-												if (!(物品名字 == "韧紫灵石1级"))
+												if (!(Name == "韧紫灵石1级"))
 												{
 													continue;
 												}
@@ -407,7 +407,7 @@ namespace GameServer.Data
 												{
 													continue;
 												}
-												if (!(物品名字 == "橙黄灵石10级"))
+												if (!(Name == "橙黄灵石10级"))
 												{
 													continue;
 												}
@@ -415,7 +415,7 @@ namespace GameServer.Data
 											}
 											else
 											{
-												if (!(物品名字 == "透蓝灵石6级"))
+												if (!(Name == "透蓝灵石6级"))
 												{
 													continue;
 												}
@@ -424,7 +424,7 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "新阳灵石3级"))
+											if (!(Name == "新阳灵石3级"))
 											{
 												continue;
 											}
@@ -439,7 +439,7 @@ namespace GameServer.Data
 											{
 												continue;
 											}
-											if (!(物品名字 == "蔚蓝灵石2级"))
+											if (!(Name == "蔚蓝灵石2级"))
 											{
 												continue;
 											}
@@ -447,7 +447,7 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "蔚蓝灵石9级"))
+											if (!(Name == "蔚蓝灵石9级"))
 											{
 												continue;
 											}
@@ -462,7 +462,7 @@ namespace GameServer.Data
 											{
 												continue;
 											}
-											if (!(物品名字 == "命朱灵石5级"))
+											if (!(Name == "命朱灵石5级"))
 											{
 												continue;
 											}
@@ -470,7 +470,7 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "抵御幻彩灵石10级"))
+											if (!(Name == "抵御幻彩灵石10级"))
 											{
 												continue;
 											}
@@ -479,7 +479,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "蔚蓝灵石5级"))
+										if (!(Name == "蔚蓝灵石5级"))
 										{
 											continue;
 										}
@@ -496,7 +496,7 @@ namespace GameServer.Data
 											{
 												continue;
 											}
-											if (!(物品名字 == "守阳灵石1级"))
+											if (!(Name == "守阳灵石1级"))
 											{
 												continue;
 											}
@@ -504,7 +504,7 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "驭朱灵石2级"))
+											if (!(Name == "驭朱灵石2级"))
 											{
 												continue;
 											}
@@ -519,7 +519,7 @@ namespace GameServer.Data
 											{
 												continue;
 											}
-											if (!(物品名字 == "橙黄灵石9级"))
+											if (!(Name == "橙黄灵石9级"))
 											{
 												continue;
 											}
@@ -527,7 +527,7 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "抵御幻彩灵石6级"))
+											if (!(Name == "抵御幻彩灵石6级"))
 											{
 												continue;
 											}
@@ -536,7 +536,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "抵御幻彩灵石9级"))
+										if (!(Name == "抵御幻彩灵石9级"))
 										{
 											continue;
 										}
@@ -551,7 +551,7 @@ namespace GameServer.Data
 										{
 											continue;
 										}
-										if (!(物品名字 == "橙黄灵石5级"))
+										if (!(Name == "橙黄灵石5级"))
 										{
 											continue;
 										}
@@ -559,7 +559,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "橙黄灵石2级"))
+										if (!(Name == "橙黄灵石2级"))
 										{
 											continue;
 										}
@@ -574,7 +574,7 @@ namespace GameServer.Data
 										{
 											continue;
 										}
-										if (!(物品名字 == "深灰灵石4级"))
+										if (!(Name == "深灰灵石4级"))
 										{
 											continue;
 										}
@@ -582,7 +582,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "进击幻彩灵石10级"))
+										if (!(Name == "进击幻彩灵石10级"))
 										{
 											continue;
 										}
@@ -591,7 +591,7 @@ namespace GameServer.Data
 								}
 								else
 								{
-									if (!(物品名字 == "赤褐灵石7级"))
+									if (!(Name == "赤褐灵石7级"))
 									{
 										continue;
 									}
@@ -612,14 +612,14 @@ namespace GameServer.Data
 												{
 													continue;
 												}
-												if (!(物品名字 == "进击幻彩灵石8级"))
+												if (!(Name == "进击幻彩灵石8级"))
 												{
 													continue;
 												}
 											}
 											else
 											{
-												if (!(物品名字 == "命朱灵石6级"))
+												if (!(Name == "命朱灵石6级"))
 												{
 													continue;
 												}
@@ -634,7 +634,7 @@ namespace GameServer.Data
 												{
 													continue;
 												}
-												if (!(物品名字 == "守阳灵石3级"))
+												if (!(Name == "守阳灵石3级"))
 												{
 													continue;
 												}
@@ -642,7 +642,7 @@ namespace GameServer.Data
 											}
 											else
 											{
-												if (!(物品名字 == "命朱灵石10级"))
+												if (!(Name == "命朱灵石10级"))
 												{
 													continue;
 												}
@@ -651,7 +651,7 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "进击幻彩灵石5级"))
+											if (!(Name == "进击幻彩灵石5级"))
 											{
 												continue;
 											}
@@ -666,7 +666,7 @@ namespace GameServer.Data
 											{
 												continue;
 											}
-											if (!(物品名字 == "盈绿灵石3级"))
+											if (!(Name == "盈绿灵石3级"))
 											{
 												continue;
 											}
@@ -674,7 +674,7 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "赤褐灵石1级"))
+											if (!(Name == "赤褐灵石1级"))
 											{
 												continue;
 											}
@@ -689,7 +689,7 @@ namespace GameServer.Data
 											{
 												continue;
 											}
-											if (!(物品名字 == "新阳灵石4级"))
+											if (!(Name == "新阳灵石4级"))
 											{
 												continue;
 											}
@@ -697,7 +697,7 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "盈绿灵石4级"))
+											if (!(Name == "盈绿灵石4级"))
 											{
 												continue;
 											}
@@ -706,7 +706,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "盈绿灵石6级"))
+										if (!(Name == "盈绿灵石6级"))
 										{
 											continue;
 										}
@@ -723,7 +723,7 @@ namespace GameServer.Data
 											{
 												continue;
 											}
-											if (!(物品名字 == "深灰灵石6级"))
+											if (!(Name == "深灰灵石6级"))
 											{
 												continue;
 											}
@@ -731,7 +731,7 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "纯紫灵石1级"))
+											if (!(Name == "纯紫灵石1级"))
 											{
 												continue;
 											}
@@ -746,7 +746,7 @@ namespace GameServer.Data
 											{
 												continue;
 											}
-											if (!(物品名字 == "蔚蓝灵石4级"))
+											if (!(Name == "蔚蓝灵石4级"))
 											{
 												continue;
 											}
@@ -754,7 +754,7 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "蔚蓝灵石6级"))
+											if (!(Name == "蔚蓝灵石6级"))
 											{
 												continue;
 											}
@@ -763,7 +763,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "蔚蓝灵石3级"))
+										if (!(Name == "蔚蓝灵石3级"))
 										{
 											continue;
 										}
@@ -778,7 +778,7 @@ namespace GameServer.Data
 										{
 											continue;
 										}
-										if (!(物品名字 == "命朱灵石3级"))
+										if (!(Name == "命朱灵石3级"))
 										{
 											continue;
 										}
@@ -786,7 +786,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "命朱灵石4级"))
+										if (!(Name == "命朱灵石4级"))
 										{
 											continue;
 										}
@@ -801,7 +801,7 @@ namespace GameServer.Data
 										{
 											continue;
 										}
-										if (!(物品名字 == "守阳灵石2级"))
+										if (!(Name == "守阳灵石2级"))
 										{
 											continue;
 										}
@@ -809,7 +809,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "守阳灵石10级"))
+										if (!(Name == "守阳灵石10级"))
 										{
 											continue;
 										}
@@ -818,7 +818,7 @@ namespace GameServer.Data
 								}
 								else
 								{
-									if (!(物品名字 == "进击幻彩灵石6级"))
+									if (!(Name == "进击幻彩灵石6级"))
 									{
 										continue;
 									}
@@ -837,7 +837,7 @@ namespace GameServer.Data
 											{
 												continue;
 											}
-											if (!(物品名字 == "橙黄灵石6级"))
+											if (!(Name == "橙黄灵石6级"))
 											{
 												continue;
 											}
@@ -845,7 +845,7 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "橙黄灵石3级"))
+											if (!(Name == "橙黄灵石3级"))
 											{
 												continue;
 											}
@@ -860,7 +860,7 @@ namespace GameServer.Data
 											{
 												continue;
 											}
-											if (!(物品名字 == "深灰灵石5级"))
+											if (!(Name == "深灰灵石5级"))
 											{
 												continue;
 											}
@@ -868,7 +868,7 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "纯紫灵石2级"))
+											if (!(Name == "纯紫灵石2级"))
 											{
 												continue;
 											}
@@ -877,7 +877,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "橙黄灵石4级"))
+										if (!(Name == "橙黄灵石4级"))
 										{
 											continue;
 										}
@@ -892,7 +892,7 @@ namespace GameServer.Data
 										{
 											continue;
 										}
-										if (!(物品名字 == "进击幻彩灵石3级"))
+										if (!(Name == "进击幻彩灵石3级"))
 										{
 											continue;
 										}
@@ -900,7 +900,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "进击幻彩灵石4级"))
+										if (!(Name == "进击幻彩灵石4级"))
 										{
 											continue;
 										}
@@ -915,14 +915,14 @@ namespace GameServer.Data
 										{
 											continue;
 										}
-										if (!(物品名字 == "盈绿灵石8级"))
+										if (!(Name == "盈绿灵石8级"))
 										{
 											continue;
 										}
 									}
 									else
 									{
-										if (!(物品名字 == "盈绿灵石5级"))
+										if (!(Name == "盈绿灵石5级"))
 										{
 											continue;
 										}
@@ -931,7 +931,7 @@ namespace GameServer.Data
 								}
 								else
 								{
-									if (!(物品名字 == "赤褐灵石6级"))
+									if (!(Name == "赤褐灵石6级"))
 									{
 										continue;
 									}
@@ -948,7 +948,7 @@ namespace GameServer.Data
 										{
 											continue;
 										}
-										if (!(物品名字 == "狂热幻彩灵石7级"))
+										if (!(Name == "狂热幻彩灵石7级"))
 										{
 											continue;
 										}
@@ -956,7 +956,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "狂热幻彩灵石1级"))
+										if (!(Name == "狂热幻彩灵石1级"))
 										{
 											continue;
 										}
@@ -971,7 +971,7 @@ namespace GameServer.Data
 										{
 											continue;
 										}
-										if (!(物品名字 == "精绿灵石1级"))
+										if (!(Name == "精绿灵石1级"))
 										{
 											continue;
 										}
@@ -979,7 +979,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "精绿灵石7级"))
+										if (!(Name == "精绿灵石7级"))
 										{
 											continue;
 										}
@@ -988,7 +988,7 @@ namespace GameServer.Data
 								}
 								else
 								{
-									if (!(物品名字 == "纯紫灵石7级"))
+									if (!(Name == "纯紫灵石7级"))
 									{
 										continue;
 									}
@@ -1003,7 +1003,7 @@ namespace GameServer.Data
 									{
 										continue;
 									}
-									if (!(物品名字 == "透蓝灵石2级"))
+									if (!(Name == "透蓝灵石2级"))
 									{
 										continue;
 									}
@@ -1011,7 +1011,7 @@ namespace GameServer.Data
 								}
 								else
 								{
-									if (!(物品名字 == "透蓝灵石9级"))
+									if (!(Name == "透蓝灵石9级"))
 									{
 										continue;
 									}
@@ -1026,20 +1026,20 @@ namespace GameServer.Data
 									{
 										continue;
 									}
-									if (!(物品名字 == "赤褐灵石10级"))
+									if (!(Name == "赤褐灵石10级"))
 									{
 										continue;
 									}
 									goto IL_18D5;
 								}
-								else if (!(物品名字 == "狂热幻彩灵石8级"))
+								else if (!(Name == "狂热幻彩灵石8级"))
 								{
 									continue;
 								}
 							}
 							else
 							{
-								if (!(物品名字 == "透蓝灵石5级"))
+								if (!(Name == "透蓝灵石5级"))
 								{
 									continue;
 								}
@@ -1062,7 +1062,7 @@ namespace GameServer.Data
 												{
 													continue;
 												}
-												if (!(物品名字 == "驭朱灵石6级"))
+												if (!(Name == "驭朱灵石6级"))
 												{
 													continue;
 												}
@@ -1070,7 +1070,7 @@ namespace GameServer.Data
 											}
 											else
 											{
-												if (!(物品名字 == "纯紫灵石9级"))
+												if (!(Name == "纯紫灵石9级"))
 												{
 													continue;
 												}
@@ -1085,7 +1085,7 @@ namespace GameServer.Data
 												{
 													continue;
 												}
-												if (!(物品名字 == "韧紫灵石5级"))
+												if (!(Name == "韧紫灵石5级"))
 												{
 													continue;
 												}
@@ -1093,7 +1093,7 @@ namespace GameServer.Data
 											}
 											else
 											{
-												if (!(物品名字 == "抵御幻彩灵石3级"))
+												if (!(Name == "抵御幻彩灵石3级"))
 												{
 													continue;
 												}
@@ -1102,7 +1102,7 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "抵御幻彩灵石4级"))
+											if (!(Name == "抵御幻彩灵石4级"))
 											{
 												continue;
 											}
@@ -1117,7 +1117,7 @@ namespace GameServer.Data
 											{
 												continue;
 											}
-											if (!(物品名字 == "精绿灵石6级"))
+											if (!(Name == "精绿灵石6级"))
 											{
 												continue;
 											}
@@ -1125,7 +1125,7 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "韧紫灵石7级"))
+											if (!(Name == "韧紫灵石7级"))
 											{
 												continue;
 											}
@@ -1140,14 +1140,14 @@ namespace GameServer.Data
 											{
 												continue;
 											}
-											if (!(物品名字 == "透蓝灵石8级"))
+											if (!(Name == "透蓝灵石8级"))
 											{
 												continue;
 											}
 										}
 										else
 										{
-											if (!(物品名字 == "新阳灵石1级"))
+											if (!(Name == "新阳灵石1级"))
 											{
 												continue;
 											}
@@ -1156,7 +1156,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "新阳灵石6级"))
+										if (!(Name == "新阳灵石6级"))
 										{
 											continue;
 										}
@@ -1173,7 +1173,7 @@ namespace GameServer.Data
 											{
 												continue;
 											}
-											if (!(物品名字 == "透蓝灵石4级"))
+											if (!(Name == "透蓝灵石4级"))
 											{
 												continue;
 											}
@@ -1181,7 +1181,7 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "透蓝灵石3级"))
+											if (!(Name == "透蓝灵石3级"))
 											{
 												continue;
 											}
@@ -1196,7 +1196,7 @@ namespace GameServer.Data
 											{
 												continue;
 											}
-											if (!(物品名字 == "守阳灵石4级"))
+											if (!(Name == "守阳灵石4级"))
 											{
 												continue;
 											}
@@ -1204,7 +1204,7 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "驭朱灵石7级"))
+											if (!(Name == "驭朱灵石7级"))
 											{
 												continue;
 											}
@@ -1213,7 +1213,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "命朱灵石9级"))
+										if (!(Name == "命朱灵石9级"))
 										{
 											continue;
 										}
@@ -1228,13 +1228,13 @@ namespace GameServer.Data
 										{
 											continue;
 										}
-										if (!(物品名字 == "抵御幻彩灵石5级"))
+										if (!(Name == "抵御幻彩灵石5级"))
 										{
 											continue;
 										}
 										goto IL_174F;
 									}
-									else if (!(物品名字 == "守阳灵石8级"))
+									else if (!(Name == "守阳灵石8级"))
 									{
 										continue;
 									}
@@ -1247,7 +1247,7 @@ namespace GameServer.Data
 										{
 											continue;
 										}
-										if (!(物品名字 == "精绿灵石4级"))
+										if (!(Name == "精绿灵石4级"))
 										{
 											continue;
 										}
@@ -1255,7 +1255,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "盈绿灵石10级"))
+										if (!(Name == "盈绿灵石10级"))
 										{
 											continue;
 										}
@@ -1264,7 +1264,7 @@ namespace GameServer.Data
 								}
 								else
 								{
-									if (!(物品名字 == "抵御幻彩灵石2级"))
+									if (!(Name == "抵御幻彩灵石2级"))
 									{
 										continue;
 									}
@@ -1283,14 +1283,14 @@ namespace GameServer.Data
 											{
 												continue;
 											}
-											if (!(物品名字 == "新阳灵石8级"))
+											if (!(Name == "新阳灵石8级"))
 											{
 												continue;
 											}
 										}
 										else
 										{
-											if (!(物品名字 == "韧紫灵石6级"))
+											if (!(Name == "韧紫灵石6级"))
 											{
 												continue;
 											}
@@ -1305,7 +1305,7 @@ namespace GameServer.Data
 											{
 												continue;
 											}
-											if (!(物品名字 == "命朱灵石2级"))
+											if (!(Name == "命朱灵石2级"))
 											{
 												continue;
 											}
@@ -1313,7 +1313,7 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "深灰灵石2级"))
+											if (!(Name == "深灰灵石2级"))
 											{
 												continue;
 											}
@@ -1322,7 +1322,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "深灰灵石7级"))
+										if (!(Name == "深灰灵石7级"))
 										{
 											continue;
 										}
@@ -1337,7 +1337,7 @@ namespace GameServer.Data
 										{
 											continue;
 										}
-										if (!(物品名字 == "守阳灵石6级"))
+										if (!(Name == "守阳灵石6级"))
 										{
 											continue;
 										}
@@ -1345,7 +1345,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "驭朱灵石5级"))
+										if (!(Name == "驭朱灵石5级"))
 										{
 											continue;
 										}
@@ -1360,7 +1360,7 @@ namespace GameServer.Data
 										{
 											continue;
 										}
-										if (!(物品名字 == "赤褐灵石5级"))
+										if (!(Name == "赤褐灵石5级"))
 										{
 											continue;
 										}
@@ -1368,7 +1368,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "赤褐灵石2级"))
+										if (!(Name == "赤褐灵石2级"))
 										{
 											continue;
 										}
@@ -1377,7 +1377,7 @@ namespace GameServer.Data
 								}
 								else
 								{
-									if (!(物品名字 == "赤褐灵石9级"))
+									if (!(Name == "赤褐灵石9级"))
 									{
 										continue;
 									}
@@ -1394,7 +1394,7 @@ namespace GameServer.Data
 										{
 											continue;
 										}
-										if (!(物品名字 == "盈绿灵石7级"))
+										if (!(Name == "盈绿灵石7级"))
 										{
 											continue;
 										}
@@ -1402,7 +1402,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "盈绿灵石1级"))
+										if (!(Name == "盈绿灵石1级"))
 										{
 											continue;
 										}
@@ -1417,7 +1417,7 @@ namespace GameServer.Data
 										{
 											continue;
 										}
-										if (!(物品名字 == "深灰灵石9级"))
+										if (!(Name == "深灰灵石9级"))
 										{
 											continue;
 										}
@@ -1425,7 +1425,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "新阳灵石2级"))
+										if (!(Name == "新阳灵石2级"))
 										{
 											continue;
 										}
@@ -1434,7 +1434,7 @@ namespace GameServer.Data
 								}
 								else
 								{
-									if (!(物品名字 == "新阳灵石7级"))
+									if (!(Name == "新阳灵石7级"))
 									{
 										continue;
 									}
@@ -1449,7 +1449,7 @@ namespace GameServer.Data
 									{
 										continue;
 									}
-									if (!(物品名字 == "蔚蓝灵石1级"))
+									if (!(Name == "蔚蓝灵石1级"))
 									{
 										continue;
 									}
@@ -1457,7 +1457,7 @@ namespace GameServer.Data
 								}
 								else
 								{
-									if (!(物品名字 == "深灰灵石10级"))
+									if (!(Name == "深灰灵石10级"))
 									{
 										continue;
 									}
@@ -1472,7 +1472,7 @@ namespace GameServer.Data
 									{
 										continue;
 									}
-									if (!(物品名字 == "守阳灵石5级"))
+									if (!(Name == "守阳灵石5级"))
 									{
 										continue;
 									}
@@ -1480,7 +1480,7 @@ namespace GameServer.Data
 								}
 								else
 								{
-									if (!(物品名字 == "进击幻彩灵石2级"))
+									if (!(Name == "进击幻彩灵石2级"))
 									{
 										continue;
 									}
@@ -1489,7 +1489,7 @@ namespace GameServer.Data
 							}
 							else
 							{
-								if (!(物品名字 == "蔚蓝灵石7级"))
+								if (!(Name == "蔚蓝灵石7级"))
 								{
 									continue;
 								}
@@ -1510,7 +1510,7 @@ namespace GameServer.Data
 											{
 												continue;
 											}
-											if (!(物品名字 == "橙黄灵石1级"))
+											if (!(Name == "橙黄灵石1级"))
 											{
 												continue;
 											}
@@ -1518,7 +1518,7 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "守阳灵石9级"))
+											if (!(Name == "守阳灵石9级"))
 											{
 												continue;
 											}
@@ -1533,7 +1533,7 @@ namespace GameServer.Data
 											{
 												continue;
 											}
-											if (!(物品名字 == "新阳灵石9级"))
+											if (!(Name == "新阳灵石9级"))
 											{
 												continue;
 											}
@@ -1541,7 +1541,7 @@ namespace GameServer.Data
 										}
 										else
 										{
-											if (!(物品名字 == "盈绿灵石9级"))
+											if (!(Name == "盈绿灵石9级"))
 											{
 												continue;
 											}
@@ -1550,7 +1550,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "橙黄灵石7级"))
+										if (!(Name == "橙黄灵石7级"))
 										{
 											continue;
 										}
@@ -1565,7 +1565,7 @@ namespace GameServer.Data
 										{
 											continue;
 										}
-										if (!(物品名字 == "深灰灵石1级"))
+										if (!(Name == "深灰灵石1级"))
 										{
 											continue;
 										}
@@ -1573,7 +1573,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "纯紫灵石6级"))
+										if (!(Name == "纯紫灵石6级"))
 										{
 											continue;
 										}
@@ -1588,21 +1588,21 @@ namespace GameServer.Data
 										{
 											continue;
 										}
-										if (!(物品名字 == "命朱灵石8级"))
+										if (!(Name == "命朱灵石8级"))
 										{
 											continue;
 										}
 									}
 									else
 									{
-										if (!(物品名字 == "命朱灵石1级"))
+										if (!(Name == "命朱灵石1级"))
 										{
 											continue;
 										}
 										goto IL_18BB;
 									}
 								}
-								else if (!(物品名字 == "蔚蓝灵石8级"))
+								else if (!(Name == "蔚蓝灵石8级"))
 								{
 									continue;
 								}
@@ -1617,7 +1617,7 @@ namespace GameServer.Data
 										{
 											continue;
 										}
-										if (!(物品名字 == "守阳灵石7级"))
+										if (!(Name == "守阳灵石7级"))
 										{
 											continue;
 										}
@@ -1625,7 +1625,7 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "进击幻彩灵石9级"))
+										if (!(Name == "进击幻彩灵石9级"))
 										{
 											continue;
 										}
@@ -1640,18 +1640,18 @@ namespace GameServer.Data
 										{
 											continue;
 										}
-										if (!(物品名字 == "赤褐灵石3级"))
+										if (!(Name == "赤褐灵石3级"))
 										{
 											continue;
 										}
 										goto IL_18EF;
 									}
-									else if (!(物品名字 == "赤褐灵石8级"))
+									else if (!(Name == "赤褐灵石8级"))
 									{
 										continue;
 									}
 								}
-								else if (!(物品名字 == "橙黄灵石8级"))
+								else if (!(Name == "橙黄灵石8级"))
 								{
 									continue;
 								}
@@ -1664,7 +1664,7 @@ namespace GameServer.Data
 									{
 										continue;
 									}
-									if (!(物品名字 == "狂热幻彩灵石9级"))
+									if (!(Name == "狂热幻彩灵石9级"))
 									{
 										continue;
 									}
@@ -1672,7 +1672,7 @@ namespace GameServer.Data
 								}
 								else
 								{
-									if (!(物品名字 == "赤褐灵石4级"))
+									if (!(Name == "赤褐灵石4级"))
 									{
 										continue;
 									}
@@ -1687,7 +1687,7 @@ namespace GameServer.Data
 									{
 										continue;
 									}
-									if (!(物品名字 == "韧紫灵石10级"))
+									if (!(Name == "韧紫灵石10级"))
 									{
 										continue;
 									}
@@ -1695,7 +1695,7 @@ namespace GameServer.Data
 								}
 								else
 								{
-									if (!(物品名字 == "狂热幻彩灵石5级"))
+									if (!(Name == "狂热幻彩灵石5级"))
 									{
 										continue;
 									}
@@ -1704,7 +1704,7 @@ namespace GameServer.Data
 							}
 							else
 							{
-								if (!(物品名字 == "狂热幻彩灵石2级"))
+								if (!(Name == "狂热幻彩灵石2级"))
 								{
 									continue;
 								}
@@ -1723,13 +1723,13 @@ namespace GameServer.Data
 										{
 											continue;
 										}
-										if (!(物品名字 == "纯紫灵石4级"))
+										if (!(Name == "纯紫灵石4级"))
 										{
 											continue;
 										}
 										goto IL_1867;
 									}
-									else if (!(物品名字 == "纯紫灵石8级"))
+									else if (!(Name == "纯紫灵石8级"))
 									{
 										continue;
 									}
@@ -1742,7 +1742,7 @@ namespace GameServer.Data
 										{
 											continue;
 										}
-										if (!(物品名字 == "纯紫灵石10级"))
+										if (!(Name == "纯紫灵石10级"))
 										{
 											continue;
 										}
@@ -1750,14 +1750,14 @@ namespace GameServer.Data
 									}
 									else
 									{
-										if (!(物品名字 == "深灰灵石3级"))
+										if (!(Name == "深灰灵石3级"))
 										{
 											continue;
 										}
 										goto IL_18EF;
 									}
 								}
-								else if (!(物品名字 == "深灰灵石8级"))
+								else if (!(Name == "深灰灵石8级"))
 								{
 									continue;
 								}
@@ -1770,7 +1770,7 @@ namespace GameServer.Data
 									{
 										continue;
 									}
-									if (!(物品名字 == "盈绿灵石2级"))
+									if (!(Name == "盈绿灵石2级"))
 									{
 										continue;
 									}
@@ -1778,7 +1778,7 @@ namespace GameServer.Data
 								}
 								else
 								{
-									if (!(物品名字 == "进击幻彩灵石1级"))
+									if (!(Name == "进击幻彩灵石1级"))
 									{
 										continue;
 									}
@@ -1793,7 +1793,7 @@ namespace GameServer.Data
 									{
 										continue;
 									}
-									if (!(物品名字 == "进击幻彩灵石7级"))
+									if (!(Name == "进击幻彩灵石7级"))
 									{
 										continue;
 									}
@@ -1801,7 +1801,7 @@ namespace GameServer.Data
 								}
 								else
 								{
-									if (!(物品名字 == "新阳灵石10级"))
+									if (!(Name == "新阳灵石10级"))
 									{
 										continue;
 									}
@@ -1810,7 +1810,7 @@ namespace GameServer.Data
 							}
 							else
 							{
-								if (物品名字 == "纯紫灵石5级")
+								if (Name == "纯紫灵石5级")
 								{
 									goto IL_174F;
 								}
@@ -1827,7 +1827,7 @@ namespace GameServer.Data
 									{
 										continue;
 									}
-									if (!(物品名字 == "韧紫灵石4级"))
+									if (!(Name == "韧紫灵石4级"))
 									{
 										continue;
 									}
@@ -1835,7 +1835,7 @@ namespace GameServer.Data
 								}
 								else
 								{
-									if (物品名字 == "韧紫灵石2级")
+									if (Name == "韧紫灵石2级")
 									{
 										goto IL_17B1;
 									}
@@ -1850,7 +1850,7 @@ namespace GameServer.Data
 									{
 										continue;
 									}
-									if (!(物品名字 == "狂热幻彩灵石3级"))
+									if (!(Name == "狂热幻彩灵石3级"))
 									{
 										continue;
 									}
@@ -1858,7 +1858,7 @@ namespace GameServer.Data
 								}
 								else
 								{
-									if (物品名字 == "透蓝灵石7级")
+									if (Name == "透蓝灵石7级")
 									{
 										goto IL_1807;
 									}
@@ -1867,7 +1867,7 @@ namespace GameServer.Data
 							}
 							else
 							{
-								if (物品名字 == "韧紫灵石9级")
+								if (Name == "韧紫灵石9级")
 								{
 									goto IL_1827;
 								}
@@ -1882,7 +1882,7 @@ namespace GameServer.Data
 								{
 									continue;
 								}
-								if (物品名字 == "狂热幻彩灵石4级")
+								if (Name == "狂热幻彩灵石4级")
 								{
 									goto IL_1867;
 								}
@@ -1890,7 +1890,7 @@ namespace GameServer.Data
 							}
 							else
 							{
-								if (物品名字 == "狂热幻彩灵石6级")
+								if (Name == "狂热幻彩灵石6级")
 								{
 									goto IL_1884;
 								}
@@ -1905,7 +1905,7 @@ namespace GameServer.Data
 								{
 									continue;
 								}
-								if (物品名字 == "抵御幻彩灵石1级")
+								if (Name == "抵御幻彩灵石1级")
 								{
 									goto IL_18BB;
 								}
@@ -1913,7 +1913,7 @@ namespace GameServer.Data
 							}
 							else
 							{
-								if (物品名字 == "驭朱灵石10级")
+								if (Name == "驭朱灵石10级")
 								{
 									goto IL_18D5;
 								}
@@ -1922,7 +1922,7 @@ namespace GameServer.Data
 						}
 						else
 						{
-							if (物品名字 == "纯紫灵石3级")
+							if (Name == "纯紫灵石3级")
 							{
 								goto IL_18EF;
 							}
@@ -1957,7 +1957,7 @@ namespace GameServer.Data
 						IL_18EF:
 						num5 += 3000;
 					}
-					int value2 = 出售价格 + num + num2 + num3 + num4 + num5;
+					int value2 = SalePrice + num + num2 + num3 + num4 + num5;
 					decimal d = v / value * 0.9m * value2;
 					decimal d2 = value2 * 0.1m;
 					return (int)(d + d2);
@@ -1965,21 +1965,21 @@ namespace GameServer.Data
 				case PersistentItemType.消耗:
 				{
 					int v2 = this.当前持久.V;
-					int 物品持久 = this.对应模板.V.物品持久;
-					int 出售价格2 = this.对应模板.V.出售价格;
-					return (int)(v2 / 物品持久 * 出售价格2);
+					int ItemLast = this.对应模板.V.ItemLast;
+					int SalePrice2 = this.对应模板.V.SalePrice;
+					return (int)(v2 / ItemLast * SalePrice2);
 				}
 				case PersistentItemType.堆叠:
 				{
 					int v3 = this.当前持久.V;
-					return this.对应模板.V.出售价格 * v3;
+					return this.对应模板.V.SalePrice * v3;
 				}
 				case PersistentItemType.回复:
 					return 1;
 				case PersistentItemType.容器:
-					return this.对应模板.V.出售价格;
+					return this.对应模板.V.SalePrice;
 				case PersistentItemType.纯度:
-					return this.对应模板.V.出售价格;
+					return this.对应模板.V.SalePrice;
 				default:
 					return 0;
 				}
@@ -1992,7 +1992,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.对应模板.V.物品持久;
+				return this.对应模板.V.ItemLast;
 			}
 		}
 
@@ -2002,11 +2002,11 @@ namespace GameServer.Data
 		{
 			get
 			{
-				if (this.持久类型 != PersistentItemType.装备)
+				if (this.PersistType != PersistentItemType.装备)
 				{
-					return this.对应模板.V.物品持久;
+					return this.对应模板.V.ItemLast;
 				}
-				return this.对应模板.V.物品持久 * 1000;
+				return this.对应模板.V.ItemLast * 1000;
 			}
 		}
 
@@ -2027,31 +2027,31 @@ namespace GameServer.Data
 
 		
 		// (get) Token: 0x06000578 RID: 1400 RVA: 0x00005287 File Offset: 0x00003487
-		public bool 是否绑定
+		public bool IsBound
 		{
 			get
 			{
-				return this.物品模板.是否绑定;
+				return this.物品模板.IsBound;
 			}
 		}
 
 		
 		// (get) Token: 0x06000579 RID: 1401 RVA: 0x00005294 File Offset: 0x00003494
-		public bool 资源物品
+		public bool Resource
 		{
 			get
 			{
-				return this.对应模板.V.资源物品;
+				return this.对应模板.V.Resource;
 			}
 		}
 
 		
 		// (get) Token: 0x0600057A RID: 1402 RVA: 0x000052A6 File Offset: 0x000034A6
-		public bool 能否出售
+		public bool CanSold
 		{
 			get
 			{
-				return this.物品模板.能否出售;
+				return this.物品模板.CanSold;
 			}
 		}
 
@@ -2061,17 +2061,17 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.对应模板.V.持久类型 == PersistentItemType.堆叠;
+				return this.对应模板.V.PersistType == PersistentItemType.堆叠;
 			}
 		}
 
 		
 		// (get) Token: 0x0600057C RID: 1404 RVA: 0x000052C8 File Offset: 0x000034C8
-		public bool 能否掉落
+		public bool CanDrop
 		{
 			get
 			{
-				return this.物品模板.能否掉落;
+				return this.物品模板.CanDrop;
 			}
 		}
 
@@ -2081,7 +2081,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.物品模板.附加技能;
+				return this.物品模板.AdditionalSkill;
 			}
 		}
 
@@ -2091,27 +2091,27 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.物品模板.物品分组;
+				return this.物品模板.Group;
 			}
 		}
 
 		
 		// (get) Token: 0x0600057F RID: 1407 RVA: 0x000052EF File Offset: 0x000034EF
-		public int 分组冷却
+		public int GroupCooling
 		{
 			get
 			{
-				return this.物品模板.分组冷却;
+				return this.物品模板.GroupCooling;
 			}
 		}
 
 		
 		// (get) Token: 0x06000580 RID: 1408 RVA: 0x000052FC File Offset: 0x000034FC
-		public int 冷却时间
+		public int Cooldown
 		{
 			get
 			{
-				return this.物品模板.冷却时间;
+				return this.物品模板.Cooldown;
 			}
 		}
 
@@ -2132,7 +2132,7 @@ namespace GameServer.Data
 			this.物品容器.V = 容器;
 			this.物品位置.V = 位置;
 			this.生成时间.V = MainProcess.CurrentTime;
-			this.最大持久.V = this.物品模板.物品持久;
+			this.最大持久.V = this.物品模板.ItemLast;
 			this.当前持久.V = Math.Min(持久, this.最大持久.V);
 			GameDataGateway.ItemData表.AddData(this, true);
 		}
@@ -2140,7 +2140,7 @@ namespace GameServer.Data
 		
 		public override string ToString()
 		{
-			return this.物品名字;
+			return this.Name;
 		}
 
 		
@@ -2156,12 +2156,12 @@ namespace GameServer.Data
 					CharacterData v = this.生成来源.V;
 					binaryWriter2.Write((v != null) ? v.数据索引.V : 0);
 					binaryWriter.Write(ComputingClass.时间转换(this.生成时间.V));
-					binaryWriter.Write(this.对应模板.V.物品编号);
+					binaryWriter.Write(this.对应模板.V.Id);
 					binaryWriter.Write(this.物品容器.V);
 					binaryWriter.Write(this.物品位置.V);
 					binaryWriter.Write(this.当前持久.V);
 					binaryWriter.Write(this.最大持久.V);
-					binaryWriter.Write(this.是否绑定 ? 10 : 0);
+					binaryWriter.Write(this.IsBound ? 10 : 0);
 					binaryWriter.Write(0);
 					binaryWriter.Write(0);
 					result = memoryStream.ToArray();
@@ -2183,12 +2183,12 @@ namespace GameServer.Data
 					CharacterData v = this.生成来源.V;
 					binaryWriter2.Write((v != null) ? v.数据索引.V : 0);
 					binaryWriter.Write(ComputingClass.时间转换(this.生成时间.V));
-					binaryWriter.Write(this.对应模板.V.物品编号);
+					binaryWriter.Write(this.对应模板.V.Id);
 					binaryWriter.Write(this.物品容器.V);
 					binaryWriter.Write(this.物品位置.V);
 					binaryWriter.Write(数量);
 					binaryWriter.Write(this.最大持久.V);
-					binaryWriter.Write(this.是否绑定 ? 10 : 0);
+					binaryWriter.Write(this.IsBound ? 10 : 0);
 					binaryWriter.Write(0);
 					binaryWriter.Write(0);
 					result = memoryStream.ToArray();

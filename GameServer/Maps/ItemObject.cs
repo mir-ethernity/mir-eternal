@@ -95,11 +95,11 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000834 RID: 2100 RVA: 0x00006B60 File Offset: 0x00004D60
-		public PersistentItemType 持久类型
+		public PersistentItemType PersistType
 		{
 			get
 			{
-				return this.物品模板.持久类型;
+				return this.物品模板.PersistType;
 			}
 		}
 
@@ -109,13 +109,13 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.物品模板.物品持久;
+				return this.物品模板.ItemLast;
 			}
 		}
 
 		
 		// (get) Token: 0x06000836 RID: 2102 RVA: 0x00006B7A File Offset: 0x00004D7A
-		public int 物品编号
+		public int Id
 		{
 			get
 			{
@@ -124,21 +124,21 @@ namespace GameServer.Maps
 				{
 					return 0;
 				}
-				return 游戏物品.物品编号;
+				return 游戏物品.Id;
 			}
 		}
 
 		
 		// (get) Token: 0x06000837 RID: 2103 RVA: 0x00006B8D File Offset: 0x00004D8D
-		public int 物品重量
+		public int Weight
 		{
 			get
 			{
-				if (this.物品模板.持久类型 != PersistentItemType.堆叠)
+				if (this.物品模板.PersistType != PersistentItemType.堆叠)
 				{
-					return this.物品模板.物品重量;
+					return this.物品模板.Weight;
 				}
-				return this.物品模板.物品重量 * this.堆叠数量;
+				return this.物品模板.Weight * this.堆叠数量;
 			}
 		}
 
@@ -148,7 +148,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.物品模板.持久类型 == PersistentItemType.堆叠;
+				return this.物品模板.PersistType == PersistentItemType.堆叠;
 			}
 		}
 
@@ -163,7 +163,7 @@ namespace GameServer.Maps
 			this.当前地图 = 掉落地图;
 			this.ItemData = ItemData;
 			this.堆叠数量 = 堆叠数量;
-			this.物品绑定 = (物品模板.是否绑定 || 物品绑定);
+			this.物品绑定 = (物品模板.IsBound || 物品绑定);
 			Point 当前坐标 = 掉落坐标;
 			int num = int.MaxValue;
 			for (int i = 0; i <= 120; i++)
@@ -209,7 +209,7 @@ namespace GameServer.Maps
 						this.当前坐标 = 当前坐标;
 						this.消失时间 = MainProcess.CurrentTime.AddMinutes((double)CustomClass.物品清理时间);
 						this.归属时间 = MainProcess.CurrentTime.AddMinutes((double)CustomClass.物品归属时间);
-						this.MapId = ++MapGatewayProcess.物品编号;
+						this.MapId = ++MapGatewayProcess.Id;
 						base.绑定网格();
 						base.更新邻居时处理();
 						MapGatewayProcess.添加MapObject(this);

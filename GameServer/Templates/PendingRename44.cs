@@ -105,7 +105,7 @@ namespace GameServer.Templates
 		public bool 移除添加冷却;
 
 		
-		public ushort 技能冷却时间;
+		public ushort 技能Cooldown;
 
 		
 		public byte Buff初始层数;

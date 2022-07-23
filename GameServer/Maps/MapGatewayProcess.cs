@@ -975,7 +975,7 @@ namespace GameServer.Maps
 			
 			MapGatewayProcess.对象编号 = 268435456;
 			MapGatewayProcess.陷阱编号 = 1073741824;
-			MapGatewayProcess.物品编号 = 1342177280;
+			MapGatewayProcess.Id = 1342177280;
 			MapGatewayProcess.沙城城门坐标 = new Point(1020, 506);
 			MapGatewayProcess.皇宫下门坐标 = new Point(1079, 557);
 			MapGatewayProcess.皇宫下门出口 = new Point(1078, 556);
@@ -1057,7 +1057,7 @@ namespace GameServer.Maps
 		public static int 陷阱编号;
 
 		
-		public static int 物品编号;
+		public static int Id;
 
 		
 		private static DateTime 沙城处理计时;

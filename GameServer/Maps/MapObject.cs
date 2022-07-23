@@ -1554,12 +1554,12 @@ namespace GameServer.Maps
                         this.删除Buff时处理(编号2);
                     }
                 }
-                if (BuffData.添加冷却 && BuffData.绑定技能 != 0 && BuffData.冷却时间 != 0)
+                if (BuffData.添加冷却 && BuffData.绑定技能 != 0 && BuffData.Cooldown != 0)
                 {
                     PlayerObject PlayerObject = this as PlayerObject;
                     if (PlayerObject != null && PlayerObject.主体技能表.ContainsKey(BuffData.绑定技能))
                     {
-                        DateTime dateTime = MainProcess.CurrentTime.AddMilliseconds((double)BuffData.冷却时间);
+                        DateTime dateTime = MainProcess.CurrentTime.AddMilliseconds((double)BuffData.Cooldown);
                         DateTime t = this.冷却记录.ContainsKey((int)BuffData.绑定技能 | 16777216) ? this.冷却记录[(int)BuffData.绑定技能 | 16777216] : default(DateTime);
                         if (dateTime > t)
                         {
@@ -1567,7 +1567,7 @@ namespace GameServer.Maps
                             this.发送封包(new AddedSkillCooldownPacket
                             {
                                 冷却编号 = ((int)BuffData.绑定技能 | 16777216),
-                                冷却时间 = (int)BuffData.冷却时间
+                                Cooldown = (int)BuffData.Cooldown
                             });
                         }
                     }
@@ -2269,7 +2269,7 @@ namespace GameServer.Maps
                         }
                     }
                     EquipmentData EquipmentData;
-                    if (MainProcess.CurrentTime > PlayerObject4.战具计时 && !PlayerObject4.对象死亡 && PlayerObject4.当前体力 < PlayerObject4[GameObjectProperties.最大体力] && PlayerObject4.角色装备.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0 && (EquipmentData.物品编号 == 99999106 || EquipmentData.物品编号 == 99999107))
+                    if (MainProcess.CurrentTime > PlayerObject4.战具计时 && !PlayerObject4.对象死亡 && PlayerObject4.当前体力 < PlayerObject4[GameObjectProperties.最大体力] && PlayerObject4.角色装备.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0 && (EquipmentData.Id == 99999106 || EquipmentData.Id == 99999107))
                     {
                         PlayerObject4.当前体力 += ((this is MonsterObject) ? 20 : 10);
                         PlayerObject4.战具损失持久(1);
@@ -2826,7 +2826,7 @@ namespace GameServer.Maps
                                 MapId = 对象.MapId,
                                 掉落坐标 = 对象.当前坐标,
                                 掉落高度 = 对象.当前高度,
-                                物品编号 = (对象 as ItemObject).物品编号,
+                                Id = (对象 as ItemObject).Id,
                                 物品数量 = (对象 as ItemObject).堆叠数量
                             });
                         }
@@ -2995,7 +2995,7 @@ namespace GameServer.Maps
                                 MapId = 对象.MapId,
                                 掉落坐标 = 对象.当前坐标,
                                 掉落高度 = 对象.当前高度,
-                                物品编号 = (对象 as ItemObject).物品编号,
+                                Id = (对象 as ItemObject).Id,
                                 物品数量 = (对象 as ItemObject).堆叠数量
                             });
                         }

@@ -17,7 +17,7 @@ namespace GameServer.Templates
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(珍宝商品)))
 				{
-					珍宝商品.DataSheet.Add(((珍宝商品)obj).物品编号, (珍宝商品)obj);
+					珍宝商品.DataSheet.Add(((珍宝商品)obj).Id, (珍宝商品)obj);
 				}
 			}
 			using (MemoryStream memoryStream = new MemoryStream())
@@ -25,10 +25,10 @@ namespace GameServer.Templates
 				using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
 				{
 					foreach (珍宝商品 珍宝商品 in (from X in 珍宝商品.DataSheet.Values.ToList<珍宝商品>()
-					orderby X.物品编号
+					orderby X.Id
 					select X).ToList<珍宝商品>())
 					{
-						binaryWriter.Write(珍宝商品.物品编号);
+						binaryWriter.Write(珍宝商品.Id);
 						binaryWriter.Write(珍宝商品.单位数量);
 						binaryWriter.Write(珍宝商品.商品分类);
 						binaryWriter.Write(珍宝商品.商品标签);
@@ -68,7 +68,7 @@ namespace GameServer.Templates
 		public static Dictionary<int, 珍宝商品> DataSheet;
 
 		
-		public int 物品编号;
+		public int Id;
 
 		
 		public int 单位数量;

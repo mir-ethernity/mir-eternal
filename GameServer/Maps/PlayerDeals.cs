@@ -75,11 +75,11 @@ namespace GameServer.Maps
 			}
 			foreach (ItemData ItemData in this.接收方物品.Values)
 			{
-				if (ItemData.物品编号 == 80207)
+				if (ItemData.Id == 80207)
 				{
 					this.交易接收方.CharacterData.转出金币.V += 1000000L;
 				}
-				else if (ItemData.物品编号 == 80209)
+				else if (ItemData.Id == 80209)
 				{
 					this.交易接收方.CharacterData.转出金币.V += 5000000L;
 				}
@@ -96,11 +96,11 @@ namespace GameServer.Maps
 			}
 			foreach (ItemData ItemData2 in this.申请方物品.Values)
 			{
-				if (ItemData2.物品编号 == 80207)
+				if (ItemData2.Id == 80207)
 				{
 					this.交易申请方.CharacterData.转出金币.V += 1000000L;
 				}
-				else if (ItemData2.物品编号 == 80209)
+				else if (ItemData2.Id == 80209)
 				{
 					this.交易申请方.CharacterData.转出金币.V += 5000000L;
 				}

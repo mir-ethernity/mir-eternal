@@ -757,7 +757,7 @@ namespace GameServer.Maps
 					foreach (怪物掉落 怪物掉落 in this.怪物掉落)
 					{
 						GameItems 游戏物品;
-						if (GameItems.DateSheetByName.TryGetValue(怪物掉落.物品名字, out 游戏物品) && !ComputingClass.计算概率(num10) && (PlayerObject.本期特权 != 0 || this.怪物级别 == MonsterLevelType.头目首领 || 游戏物品.物品分类 == ItemUsageType.可用药剂 || !ComputingClass.计算概率(0.5f)) && (PlayerObject.本期特权 != 3 || this.怪物级别 == MonsterLevelType.头目首领 || 游戏物品.物品分类 == ItemUsageType.可用药剂 || !ComputingClass.计算概率(0.25f)))
+						if (GameItems.DateSheetByName.TryGetValue(怪物掉落.Name, out 游戏物品) && !ComputingClass.计算概率(num10) && (PlayerObject.本期特权 != 0 || this.怪物级别 == MonsterLevelType.头目首领 || 游戏物品.UsageType == ItemUsageType.可用药剂 || !ComputingClass.计算概率(0.5f)) && (PlayerObject.本期特权 != 3 || this.怪物级别 == MonsterLevelType.头目首领 || 游戏物品.UsageType == ItemUsageType.可用药剂 || !ComputingClass.计算概率(0.25f)))
 						{
 							int num13 = Math.Max(1, 怪物掉落.掉落概率 - (int)Math.Round(怪物掉落.掉落概率 * CustomClass.怪物额外爆率));
 							if (MainProcess.RandomNumber.Next(num13) == num13 / 2)
@@ -765,10 +765,10 @@ namespace GameServer.Maps
 								int num14 = MainProcess.RandomNumber.Next(怪物掉落.最小数量, 怪物掉落.最大数量 + 1);
 								if (num14 != 0)
 								{
-									if (游戏物品.物品持久 == 0)
+									if (游戏物品.ItemLast == 0)
 									{
 										new ItemObject(游戏物品, null, this.当前地图, this.当前坐标, 物品归属, num14, false);
-										if (游戏物品.物品编号 == 1)
+										if (游戏物品.Id == 1)
 										{
 											this.当前地图.金币掉落总数 += (long)num14;
 											num11 = num14;
@@ -785,7 +785,7 @@ namespace GameServer.Maps
 										num12++;
 										this.对象模板.掉落统计[游戏物品] = (this.对象模板.掉落统计.ContainsKey(游戏物品) ? this.对象模板.掉落统计[游戏物品] : 0L) + (long)num14;
 									}
-									if (游戏物品.贵重物品)
+									if (游戏物品.ValuableObjects)
 									{
 										NetworkServiceGateway.发送公告(string.Concat(new string[]
 										{
@@ -794,7 +794,7 @@ namespace GameServer.Maps
 											"] 被 [",
 											PlayerObject.对象名字,
 											"] 击杀, 掉落了[",
-											游戏物品.物品名字,
+											游戏物品.Name,
 											"]"
 										}), false);
 									}

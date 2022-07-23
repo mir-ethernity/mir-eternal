@@ -66,7 +66,7 @@ namespace GameServer
             }
             MainForm.掉落DataSheet = new DataTable("掉落数据表");
             MainForm.怪物掉落表 = new Dictionary<游戏怪物, List<KeyValuePair<GameItems, long>>>();
-            MainForm.掉落DataSheet.Columns.Add("物品名字", typeof(string));
+            MainForm.掉落DataSheet.Columns.Add("Name", typeof(string));
             MainForm.掉落DataSheet.Columns.Add("掉落数量", typeof(string));
             MainForm MainForm3 = MainForm.Singleton;
             if (MainForm3 != null)
@@ -577,7 +577,7 @@ namespace GameServer
                     foreach (KeyValuePair<GameItems, long> keyValuePair5 in list5)
                     {
                         DataRow dataRow5 = MainForm.掉落DataSheet.NewRow();
-                        dataRow5["物品名字"] = keyValuePair5.Key.物品名字;
+                        dataRow5["Name"] = keyValuePair5.Key.Name;
                         dataRow5["掉落数量"] = keyValuePair5.Value;
                         MainForm.掉落DataSheet.Rows.Add(dataRow5);
                     }
@@ -945,7 +945,7 @@ namespace GameServer
             MainForm.Singleton.怪物浏览表.DataSource = MainForm.怪物DataSheet;
             MainForm.掉落DataSheet = new DataTable("掉落数据表");
             MainForm.怪物掉落表 = new Dictionary<游戏怪物, List<KeyValuePair<GameItems, long>>>();
-            MainForm.掉落DataSheet.Columns.Add("物品名字", typeof(string));
+            MainForm.掉落DataSheet.Columns.Add("Name", typeof(string));
             MainForm.掉落DataSheet.Columns.Add("掉落数量", typeof(string));
             MainForm.Singleton.掉落浏览表.DataSource = MainForm.掉落DataSheet;
             this.主选项卡.SelectedIndex = 0;

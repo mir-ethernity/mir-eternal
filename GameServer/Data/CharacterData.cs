@@ -664,7 +664,7 @@ namespace GameServer.Data
 					else
 					{
 						GameItems v = EquipmentData2.对应模板.V;
-						num = ((v != null) ? new int?(v.物品编号) : null);
+						num = ((v != null) ? new int?(v.Id) : null);
 					}
 					int? num2 = num;
 					binaryWriter3.Write(num2.GetValueOrDefault());
@@ -678,7 +678,7 @@ namespace GameServer.Data
 					else
 					{
 						GameItems v2 = EquipmentData3.对应模板.V;
-						num3 = ((v2 != null) ? new int?(v2.物品编号) : null);
+						num3 = ((v2 != null) ? new int?(v2.Id) : null);
 					}
 					num2 = num3;
 					binaryWriter4.Write(num2.GetValueOrDefault());
@@ -692,7 +692,7 @@ namespace GameServer.Data
 					else
 					{
 						GameItems v3 = EquipmentData4.对应模板.V;
-						num4 = ((v3 != null) ? new int?(v3.物品编号) : null);
+						num4 = ((v3 != null) ? new int?(v3.Id) : null);
 					}
 					num2 = num4;
 					binaryWriter5.Write(num2.GetValueOrDefault());

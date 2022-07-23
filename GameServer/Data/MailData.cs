@@ -131,7 +131,7 @@ namespace GameServer.Data
 					binaryWriter.Write(this.系统邮件.V);
 					BinaryWriter binaryWriter2 = binaryWriter;
 					ItemData v = this.邮件附件.V;
-					binaryWriter2.Write((v != null) ? v.物品编号 : -1);
+					binaryWriter2.Write((v != null) ? v.Id : -1);
 					binaryWriter.Write(this.物品数量);
 					byte[] array = new byte[32];
 					if (!this.系统邮件.V)
