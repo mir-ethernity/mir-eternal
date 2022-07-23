@@ -27,13 +27,13 @@ namespace GameServer.Maps
 				游戏怪物 对应模板2;
 				if (MapGatewayProcess.MapInstance表.TryGetValue(2433, out MapGatewayProcess.沙城地图) && 游戏Buff.DataSheet.TryGetValue(22300, out 游戏Buff) && 游戏怪物.DataSheet.TryGetValue("沙巴克城门", out 对应模板) && 游戏怪物.DataSheet.TryGetValue("沙巴克宫门", out 对应模板2))
 				{
-					if ((MapGatewayProcess.皇宫随机区域 = MapGatewayProcess.沙城地图.地图区域.FirstOrDefault((地图区域 O) => O.RegionName == "沙巴克-皇宫随机区域")) != null)
+					if ((MapGatewayProcess.皇宫随机区域 = MapGatewayProcess.沙城地图.地图区域.FirstOrDefault((MapAreas O) => O.RegionName == "沙巴克-皇宫随机区域")) != null)
 					{
-						if ((MapGatewayProcess.外城复活区域 = MapGatewayProcess.沙城地图.地图区域.FirstOrDefault((地图区域 O) => O.RegionName == "沙巴克-外城复活区域")) != null)
+						if ((MapGatewayProcess.外城复活区域 = MapGatewayProcess.沙城地图.地图区域.FirstOrDefault((MapAreas O) => O.RegionName == "沙巴克-外城复活区域")) != null)
 						{
-							if ((MapGatewayProcess.内城复活区域 = MapGatewayProcess.沙城地图.地图区域.FirstOrDefault((地图区域 O) => O.RegionName == "沙巴克-内城复活区域")) != null)
+							if ((MapGatewayProcess.内城复活区域 = MapGatewayProcess.沙城地图.地图区域.FirstOrDefault((MapAreas O) => O.RegionName == "沙巴克-内城复活区域")) != null)
 							{
-								if ((MapGatewayProcess.守方传送区域 = MapGatewayProcess.沙城地图.地图区域.FirstOrDefault((地图区域 O) => O.RegionName == "沙巴克-守方传送区域")) != null)
+								if ((MapGatewayProcess.守方传送区域 = MapGatewayProcess.沙城地图.地图区域.FirstOrDefault((MapAreas O) => O.RegionName == "沙巴克-守方传送区域")) != null)
 								{
 									MapGatewayProcess.沙城城门 = new MonsterObject(对应模板, MapGatewayProcess.沙城地图, int.MaxValue, new Point[]
 									{
@@ -88,7 +88,7 @@ namespace GameServer.Maps
 					PlayerObject PlayerObject = MapObject as PlayerObject;
 					if (PlayerObject != null && MainProcess.CurrentTime > PlayerObject.忙碌时间)
 					{
-						PlayerObject.玩家切换地图(MapGatewayProcess.沙城地图, 地图区域类型.未知区域, MapGatewayProcess.皇宫下门入口);
+						PlayerObject.玩家切换地图(MapGatewayProcess.沙城地图, AreaType.未知区域, MapGatewayProcess.皇宫下门入口);
 					}
 				}
 			}
@@ -99,7 +99,7 @@ namespace GameServer.Maps
 					PlayerObject PlayerObject2 = MapObject2 as PlayerObject;
 					if (PlayerObject2 != null && MainProcess.CurrentTime > PlayerObject2.忙碌时间)
 					{
-						PlayerObject2.玩家切换地图(MapGatewayProcess.沙城地图, 地图区域类型.未知区域, MapGatewayProcess.皇宫上门入口);
+						PlayerObject2.玩家切换地图(MapGatewayProcess.沙城地图, AreaType.未知区域, MapGatewayProcess.皇宫上门入口);
 					}
 				}
 			}
@@ -110,7 +110,7 @@ namespace GameServer.Maps
 					PlayerObject PlayerObject3 = MapObject3 as PlayerObject;
 					if (PlayerObject3 != null && MainProcess.CurrentTime > PlayerObject3.忙碌时间)
 					{
-						PlayerObject3.玩家切换地图(MapGatewayProcess.沙城地图, 地图区域类型.未知区域, MapGatewayProcess.皇宫左门入口);
+						PlayerObject3.玩家切换地图(MapGatewayProcess.沙城地图, AreaType.未知区域, MapGatewayProcess.皇宫左门入口);
 					}
 				}
 			}
@@ -121,7 +121,7 @@ namespace GameServer.Maps
 					PlayerObject PlayerObject4 = MapObject4 as PlayerObject;
 					if (PlayerObject4 != null && MainProcess.CurrentTime > PlayerObject4.忙碌时间)
 					{
-						PlayerObject4.玩家切换地图(MapGatewayProcess.沙城地图, 地图区域类型.未知区域, MapGatewayProcess.皇宫正门出口);
+						PlayerObject4.玩家切换地图(MapGatewayProcess.沙城地图, AreaType.未知区域, MapGatewayProcess.皇宫正门出口);
 					}
 				}
 			}
@@ -132,7 +132,7 @@ namespace GameServer.Maps
 					PlayerObject PlayerObject5 = MapObject5 as PlayerObject;
 					if (PlayerObject5 != null && MainProcess.CurrentTime > PlayerObject5.忙碌时间)
 					{
-						PlayerObject5.玩家切换地图(MapGatewayProcess.沙城地图, 地图区域类型.未知区域, MapGatewayProcess.皇宫正门出口);
+						PlayerObject5.玩家切换地图(MapGatewayProcess.沙城地图, AreaType.未知区域, MapGatewayProcess.皇宫正门出口);
 					}
 				}
 			}
@@ -143,7 +143,7 @@ namespace GameServer.Maps
 					PlayerObject PlayerObject6 = MapObject6 as PlayerObject;
 					if (PlayerObject6 != null && MainProcess.CurrentTime > PlayerObject6.忙碌时间 && PlayerObject6.所属行会 != null && PlayerObject6.所属行会 == SystemData.数据.占领行会.V)
 					{
-						PlayerObject6.玩家切换地图(MapGatewayProcess.沙城地图, 地图区域类型.未知区域, MapGatewayProcess.皇宫正门入口);
+						PlayerObject6.玩家切换地图(MapGatewayProcess.沙城地图, AreaType.未知区域, MapGatewayProcess.皇宫正门入口);
 					}
 				}
 			}
@@ -154,7 +154,7 @@ namespace GameServer.Maps
 					PlayerObject PlayerObject7 = MapObject7 as PlayerObject;
 					if (PlayerObject7 != null && MainProcess.CurrentTime > PlayerObject7.忙碌时间 && PlayerObject7.所属行会 != null && PlayerObject7.所属行会 == SystemData.数据.占领行会.V)
 					{
-						PlayerObject7.玩家切换地图(MapGatewayProcess.沙城地图, 地图区域类型.未知区域, MapGatewayProcess.皇宫正门入口);
+						PlayerObject7.玩家切换地图(MapGatewayProcess.沙城地图, AreaType.未知区域, MapGatewayProcess.皇宫正门入口);
 					}
 				}
 			}
@@ -165,7 +165,7 @@ namespace GameServer.Maps
 					PlayerObject PlayerObject8 = MapObject8 as PlayerObject;
 					if (PlayerObject8 != null && MainProcess.CurrentTime > PlayerObject8.忙碌时间 && PlayerObject8.所属行会 != null && PlayerObject8.所属行会 == SystemData.数据.占领行会.V)
 					{
-						PlayerObject8.玩家切换地图(MapGatewayProcess.沙城地图, 地图区域类型.未知区域, MapGatewayProcess.皇宫正门入口);
+						PlayerObject8.玩家切换地图(MapGatewayProcess.沙城地图, AreaType.未知区域, MapGatewayProcess.皇宫正门入口);
 					}
 				}
 			}
@@ -226,7 +226,7 @@ namespace GameServer.Maps
 					{
 						if (PlayerObject9.所属行会 == null || PlayerObject9.所属行会 != SystemData.数据.占领行会.V)
 						{
-							PlayerObject9.玩家切换地图(MapGatewayProcess.沙城地图, 地图区域类型.未知区域, MapGatewayProcess.外城复活区域.随机坐标);
+							PlayerObject9.玩家切换地图(MapGatewayProcess.沙城地图, AreaType.未知区域, MapGatewayProcess.外城复活区域.RandomCoords);
 						}
 					}
 					MapInstance MapInstance;
@@ -236,7 +236,7 @@ namespace GameServer.Maps
 						{
 							if (PlayerObject10.所属行会 == null || PlayerObject10.所属行会 != SystemData.数据.占领行会.V)
 							{
-								PlayerObject10.玩家切换地图(PlayerObject10.复活地图, 地图区域类型.复活区域, default(Point));
+								PlayerObject10.玩家切换地图(PlayerObject10.复活地图, AreaType.复活区域, default(Point));
 							}
 						}
 					}
@@ -466,7 +466,7 @@ namespace GameServer.Maps
 				}
 				bool flag2 = true;
 				GuildData GuildData3 = null;
-				foreach (Point 坐标 in MapGatewayProcess.皇宫随机区域.范围坐标)
+				foreach (Point 坐标 in MapGatewayProcess.皇宫随机区域.RangeCoords)
 				{
 					foreach (MapObject MapObject13 in MapGatewayProcess.沙城地图[坐标])
 					{
@@ -730,21 +730,21 @@ namespace GameServer.Maps
 					}
 				}
 			}
-			foreach (地图区域 地图区域 in 地图区域.DataSheet)
+			foreach (MapAreas 地图区域 in MapAreas.DataSheet)
 			{
 				foreach (MapInstance MapInstance2 in MapGatewayProcess.MapInstance表.Values)
 				{
 					if (MapInstance2.地图编号 == (int)地图区域.FromMapId)
 					{
-						if (地图区域.区域类型 == 地图区域类型.复活区域)
+						if (地图区域.AreaType == AreaType.复活区域)
 						{
 							MapInstance2.复活区域 = 地图区域;
 						}
-						if (地图区域.区域类型 == 地图区域类型.红名区域)
+						if (地图区域.AreaType == AreaType.红名区域)
 						{
 							MapInstance2.红名区域 = 地图区域;
 						}
-						if (地图区域.区域类型 == 地图区域类型.传送区域)
+						if (地图区域.AreaType == AreaType.传送区域)
 						{
 							MapInstance2.传送区域 = 地图区域;
 						}
@@ -791,7 +791,7 @@ namespace GameServer.Maps
 					{
 						if (怪物刷新2.刷新列表 != null)
 						{
-							Point[] 出生范围 = 怪物刷新2.范围坐标.ToArray<Point>();
+							Point[] 出生范围 = 怪物刷新2.RangeCoords.ToArray<Point>();
 							foreach (刷新信息 刷新信息 in 怪物刷新2.刷新列表)
 							{
 								游戏怪物 游戏怪物;
@@ -1165,16 +1165,16 @@ namespace GameServer.Maps
 		public static DateTime 八卦坛激活计时;
 
 		
-		public static 地图区域 皇宫随机区域;
+		public static MapAreas 皇宫随机区域;
 
 		
-		public static 地图区域 外城复活区域;
+		public static MapAreas 外城复活区域;
 
 		
-		public static 地图区域 内城复活区域;
+		public static MapAreas 内城复活区域;
 
 		
-		public static 地图区域 守方传送区域;
+		public static MapAreas 守方传送区域;
 
 		
 		public static byte 沙城节点;

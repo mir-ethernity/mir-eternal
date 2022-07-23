@@ -150,7 +150,7 @@ namespace GameServer.Maps
 			if (this.当前体力 == 0)
 			{
 				this.当前地图 = MapGatewayProcess.分配地图(this.重生地图);
-				this.当前坐标 = (this.红名玩家 ? this.当前地图.红名区域.随机坐标 : this.当前地图.复活区域.随机坐标);
+				this.当前坐标 = (this.红名玩家 ? this.当前地图.红名区域.RandomCoords : this.当前地图.复活区域.RandomCoords);
 				this.当前体力 = (int)((float)this[GameObjectProperties.最大体力] * 0.3f);
 				this.当前魔力 = (int)((float)this[GameObjectProperties.最大魔力] * 0.3f);
 			}
@@ -161,23 +161,23 @@ namespace GameServer.Maps
 					this.当前地图 = MapGatewayProcess.沙城地图;
 					if (this.所属行会 != null && this.所属行会 == SystemData.数据.占领行会.V)
 					{
-						this.当前坐标 = MapGatewayProcess.守方传送区域.随机坐标;
+						this.当前坐标 = MapGatewayProcess.守方传送区域.RandomCoords;
 					}
 					else
 					{
-						this.当前坐标 = MapGatewayProcess.外城复活区域.随机坐标;
+						this.当前坐标 = MapGatewayProcess.外城复活区域.RandomCoords;
 					}
 				}
 				else if (游戏地图.DataSheet[(byte)CharacterData.当前地图.V].传送地图 == 0)
 				{
 					this.当前地图 = MapGatewayProcess.分配地图(this.重生地图);
-					this.当前坐标 = this.当前地图.复活区域.随机坐标;
+					this.当前坐标 = this.当前地图.复活区域.RandomCoords;
 				}
 				else
 				{
 					this.当前地图 = MapGatewayProcess.分配地图((int)游戏地图.DataSheet[(byte)CharacterData.当前地图.V].传送地图);
-					地图区域 传送区域 = this.当前地图.传送区域;
-					this.当前坐标 = ((传送区域 != null) ? 传送区域.随机坐标 : this.当前地图.地图区域.First<地图区域>().随机坐标);
+					MapAreas 传送区域 = this.当前地图.传送区域;
+					this.当前坐标 = ((传送区域 != null) ? 传送区域.RandomCoords : this.当前地图.地图区域.First<MapAreas>().RandomCoords);
 				}
 			}
 			else
@@ -459,7 +459,7 @@ namespace GameServer.Maps
 						this.玩家请求复活();
 						return;
 					}
-					this.玩家切换地图(this.复活地图, 地图区域类型.复活区域, default(Point));
+					this.玩家切换地图(this.复活地图, AreaType.复活区域, default(Point));
 					return;
 				}
 				else
@@ -987,8 +987,8 @@ namespace GameServer.Maps
 					}
 					else
 					{
-						地图区域 复活区域 = 当前地图.复活区域;
-						flag = ((复活区域 != null) ? new bool?(复活区域.范围坐标.Contains(this.当前坐标)) : null);
+						MapAreas 复活区域 = 当前地图.复活区域;
+						flag = ((复活区域 != null) ? new bool?(复活区域.RangeCoords.Contains(this.当前坐标)) : null);
 					}
 					bool? flag2 = flag;
 					if (flag2.GetValueOrDefault())
@@ -2312,7 +2312,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public void 玩家切换地图(MapInstance ToMapId, 地图区域类型 指定区域, Point 坐标 = default(Point))
+		public void 玩家切换地图(MapInstance ToMapId, AreaType 指定区域, Point 坐标 = default(Point))
 		{
 			base.清空邻居时处理();
 			base.解绑网格();
@@ -2321,7 +2321,7 @@ namespace GameServer.Maps
 			{
 				网络连接.发送封包(new 玩家离开场景());
 			}
-			this.当前坐标 = ((指定区域 == 地图区域类型.未知区域) ? 坐标 : ToMapId.随机坐标(指定区域));
+			this.当前坐标 = ((指定区域 == AreaType.未知区域) ? 坐标 : ToMapId.随机坐标(指定区域));
 			if (this.当前地图.地图编号 != ToMapId.地图编号)
 			{
 				bool 副本地图 = this.当前地图.副本地图;
@@ -2807,7 +2807,7 @@ namespace GameServer.Maps
 		{
 			if (ComputingClass.计算概率(参数.每级成功概率[(int)技能.技能等级]) && !(this.当前地图.随机传送(this.当前坐标) == default(Point)))
 			{
-				this.玩家切换地图(this.复活地图, 地图区域类型.随机区域, default(Point));
+				this.玩家切换地图(this.复活地图, AreaType.随机区域, default(Point));
 			}
 			else
 			{
@@ -3380,7 +3380,7 @@ namespace GameServer.Maps
 				this.玩家请求复活();
 				return;
 			}
-			this.玩家切换地图(MapGatewayProcess.分配地图(this.重生地图), 地图区域类型.复活区域, default(Point));
+			this.玩家切换地图(MapGatewayProcess.分配地图(this.重生地图), AreaType.复活区域, default(Point));
 		}
 
 		
@@ -3405,20 +3405,20 @@ namespace GameServer.Maps
 				{
 					if (this.所属行会 != null && this.所属行会 == SystemData.数据.占领行会.V)
 					{
-						this.玩家切换地图(this.当前地图, 地图区域类型.未知区域, MapGatewayProcess.守方传送区域.随机坐标);
+						this.玩家切换地图(this.当前地图, AreaType.未知区域, MapGatewayProcess.守方传送区域.RandomCoords);
 						return;
 					}
 					if (this.所属行会 != null && this.所属行会 == MapGatewayProcess.八卦坛激活行会)
 					{
-						this.玩家切换地图(this.当前地图, 地图区域类型.未知区域, MapGatewayProcess.内城复活区域.随机坐标);
+						this.玩家切换地图(this.当前地图, AreaType.未知区域, MapGatewayProcess.内城复活区域.RandomCoords);
 						return;
 					}
-					this.玩家切换地图(this.当前地图, 地图区域类型.未知区域, MapGatewayProcess.外城复活区域.随机坐标);
+					this.玩家切换地图(this.当前地图, AreaType.未知区域, MapGatewayProcess.外城复活区域.RandomCoords);
 					return;
 				}
 				else
 				{
-					this.玩家切换地图(this.复活地图, this.红名玩家 ? 地图区域类型.红名区域 : 地图区域类型.复活区域, default(Point));
+					this.玩家切换地图(this.复活地图, this.红名玩家 ? AreaType.红名区域 : AreaType.复活区域, default(Point));
 				}
 			}
 		}
@@ -3486,7 +3486,7 @@ namespace GameServer.Maps
 					}
 					else
 					{
-						this.玩家切换地图((this.当前地图.地图编号 == (int)游戏地图.地图编号) ? this.当前地图 : MapGatewayProcess.分配地图((int)游戏地图.地图编号), 地图区域类型.未知区域, 传送法阵.ToCoords);
+						this.玩家切换地图((this.当前地图.地图编号 == (int)游戏地图.地图编号) ? this.当前地图 : MapGatewayProcess.分配地图((int)游戏地图.地图编号), AreaType.未知区域, 传送法阵.ToCoords);
 					}
 				}
 				else
@@ -4193,7 +4193,7 @@ namespace GameServer.Maps
 									}
 									if (选项编号 == 1)
 									{
-										this.玩家切换地图(MapGatewayProcess.分配地图(this.重生地图), 地图区域类型.复活区域, default(Point));
+										this.玩家切换地图(MapGatewayProcess.分配地图(this.重生地图), AreaType.复活区域, default(Point));
 										return;
 									}
 								}
@@ -4248,7 +4248,7 @@ namespace GameServer.Maps
 										{
 											this.金币数量 -= 50000;
 											this.CharacterData.武斗日期.V = MainProcess.CurrentTime;
-											this.玩家切换地图((this.当前地图.地图编号 == 183) ? this.当前地图 : MapGatewayProcess.分配地图(183), 地图区域类型.传送区域, default(Point));
+											this.玩家切换地图((this.当前地图.地图编号 == 183) ? this.当前地图 : MapGatewayProcess.分配地图(183), AreaType.传送区域, default(Point));
 											return;
 										}
 										this.对话页面 = 479503000;
@@ -4297,7 +4297,7 @@ namespace GameServer.Maps
 										if (this.金币数量 >= num3)
 										{
 											this.金币数量 -= num3;
-											this.玩家切换地图((this.当前地图.地图编号 == num4) ? this.当前地图 : MapGatewayProcess.分配地图(num4), 地图区域类型.传送区域, default(Point));
+											this.玩家切换地图((this.当前地图.地图编号 == num4) ? this.当前地图 : MapGatewayProcess.分配地图(num4), AreaType.传送区域, default(Point));
 											return;
 										}
 										this.对话页面 = 711900002;
@@ -4342,7 +4342,7 @@ namespace GameServer.Maps
 										if (this.金币数量 >= num6)
 										{
 											this.金币数量 -= num6;
-											this.玩家切换地图((this.当前地图.地图编号 == num7) ? this.当前地图 : MapGatewayProcess.分配地图(num7), 地图区域类型.复活区域, default(Point));
+											this.玩家切换地图((this.当前地图.地图编号 == num7) ? this.当前地图 : MapGatewayProcess.分配地图(num7), AreaType.复活区域, default(Point));
 											return;
 										}
 										this.对话页面 = 711900002;
@@ -4437,7 +4437,7 @@ namespace GameServer.Maps
 							}
 							else if (MapGatewayProcess.沙城节点 >= 2 && this.所属行会 != null && this.所属行会 == MapGatewayProcess.八卦坛激活行会)
 							{
-								this.玩家切换地图(MapGatewayProcess.沙城地图, 地图区域类型.未知区域, MapGatewayProcess.皇宫随机区域.随机坐标);
+								this.玩家切换地图(MapGatewayProcess.沙城地图, AreaType.未知区域, MapGatewayProcess.皇宫随机区域.RandomCoords);
 								return;
 							}
 						}
@@ -6661,7 +6661,7 @@ namespace GameServer.Maps
 												PlayerDeals.结束交易();
 											}
 											PlayerObject.金币数量 -= DeductCoinsCommand;
-											PlayerObject.玩家切换地图(MapInstance3, 地图区域类型.传送区域, default(Point));
+											PlayerObject.玩家切换地图(MapInstance3, AreaType.传送区域, default(Point));
 										}
 										return;
 									}
@@ -6678,7 +6678,7 @@ namespace GameServer.Maps
 								}
 								if (选项编号 == 1)
 								{
-									this.玩家切换地图((this.当前地图.地图编号 == 147) ? this.当前地图 : MapGatewayProcess.分配地图(147), 地图区域类型.复活区域, default(Point));
+									this.玩家切换地图((this.当前地图.地图编号 == 147) ? this.当前地图 : MapGatewayProcess.分配地图(147), AreaType.复活区域, default(Point));
 									return;
 								}
 							}
@@ -6709,7 +6709,7 @@ namespace GameServer.Maps
 										if (this.金币数量 >= num32)
 										{
 											this.金币数量 -= num32;
-											this.玩家切换地图((this.当前地图.地图编号 == num33) ? this.当前地图 : MapGatewayProcess.分配地图(num33), 地图区域类型.传送区域, default(Point));
+											this.玩家切换地图((this.当前地图.地图编号 == num33) ? this.当前地图 : MapGatewayProcess.分配地图(num33), AreaType.传送区域, default(Point));
 											return;
 										}
 										this.对话页面 = 711900002;
@@ -6850,13 +6850,13 @@ namespace GameServer.Maps
 							}
 							if (选项编号 == 1)
 							{
-								this.玩家切换地图((this.当前地图.地图编号 == 87) ? this.当前地图 : MapGatewayProcess.分配地图(87), 地图区域类型.传送区域, default(Point));
+								this.玩家切换地图((this.当前地图.地图编号 == 87) ? this.当前地图 : MapGatewayProcess.分配地图(87), AreaType.传送区域, default(Point));
 								return;
 							}
 						}
 						else if (选项编号 == 1)
 						{
-							this.玩家切换地图((this.当前地图.地图编号 == 88) ? this.当前地图 : MapGatewayProcess.分配地图(88), 地图区域类型.传送区域, default(Point));
+							this.玩家切换地图((this.当前地图.地图编号 == 88) ? this.当前地图 : MapGatewayProcess.分配地图(88), AreaType.传送区域, default(Point));
 							return;
 						}
 					}
@@ -7420,7 +7420,7 @@ namespace GameServer.Maps
 							if (this.金币数量 >= num37)
 							{
 								this.金币数量 -= num37;
-								this.玩家切换地图((this.当前地图.地图编号 == num38) ? this.当前地图 : MapGatewayProcess.分配地图(num38), 地图区域类型.传送区域, default(Point));
+								this.玩家切换地图((this.当前地图.地图编号 == num38) ? this.当前地图 : MapGatewayProcess.分配地图(num38), AreaType.传送区域, default(Point));
 								return;
 							}
 							this.对话页面 = 711900002;
@@ -7484,7 +7484,7 @@ namespace GameServer.Maps
 							if (this.金币数量 >= num40)
 							{
 								this.金币数量 -= num40;
-								this.玩家切换地图((this.当前地图.地图编号 == num41) ? this.当前地图 : MapGatewayProcess.分配地图(num41), 地图区域类型.传送区域, default(Point));
+								this.玩家切换地图((this.当前地图.地图编号 == num41) ? this.当前地图 : MapGatewayProcess.分配地图(num41), AreaType.传送区域, default(Point));
 								return;
 							}
 							this.对话页面 = 711900002;
@@ -7588,15 +7588,15 @@ namespace GameServer.Maps
 						this.金币数量 -= num43;
 						if (num44 != 152)
 						{
-							this.玩家切换地图((this.当前地图.地图编号 == num44) ? this.当前地图 : MapGatewayProcess.分配地图(num44), 地图区域类型.复活区域, default(Point));
+							this.玩家切换地图((this.当前地图.地图编号 == num44) ? this.当前地图 : MapGatewayProcess.分配地图(num44), AreaType.复活区域, default(Point));
 							return;
 						}
 						if (this.所属行会 != null && this.所属行会 == SystemData.数据.占领行会.V)
 						{
-							this.玩家切换地图((this.当前地图.地图编号 == num44) ? this.当前地图 : MapGatewayProcess.分配地图(num44), 地图区域类型.传送区域, default(Point));
+							this.玩家切换地图((this.当前地图.地图编号 == num44) ? this.当前地图 : MapGatewayProcess.分配地图(num44), AreaType.传送区域, default(Point));
 							return;
 						}
-						this.玩家切换地图((this.当前地图.地图编号 == num44) ? this.当前地图 : MapGatewayProcess.分配地图(num44), 地图区域类型.复活区域, default(Point));
+						this.玩家切换地图((this.当前地图.地图编号 == num44) ? this.当前地图 : MapGatewayProcess.分配地图(num44), AreaType.复活区域, default(Point));
 						return;
 					}
 				}
@@ -11712,7 +11712,7 @@ namespace GameServer.Maps
 														return;
 													}
 													this.消耗背包物品(1, ItemData);
-													this.玩家切换地图((this.当前地图.地图编号 == 147) ? this.当前地图 : MapGatewayProcess.分配地图(147), 地图区域类型.复活区域, default(Point));
+													this.玩家切换地图((this.当前地图.地图编号 == 147) ? this.当前地图 : MapGatewayProcess.分配地图(147), AreaType.复活区域, default(Point));
 													return;
 												}
 												else
@@ -12240,7 +12240,7 @@ namespace GameServer.Maps
 											return;
 										}
 										this.消耗背包物品(1, ItemData);
-										this.玩家切换地图((this.当前地图.地图编号 == 143) ? this.当前地图 : MapGatewayProcess.分配地图(143), 地图区域类型.复活区域, default(Point));
+										this.玩家切换地图((this.当前地图.地图编号 == 143) ? this.当前地图 : MapGatewayProcess.分配地图(143), AreaType.复活区域, default(Point));
 										return;
 									}
 								}
@@ -12886,7 +12886,7 @@ namespace GameServer.Maps
 													if (point != default(Point))
 													{
 														this.消耗背包物品(1, ItemData);
-														this.玩家切换地图(this.当前地图, 地图区域类型.未知区域, point);
+														this.玩家切换地图(this.当前地图, AreaType.未知区域, point);
 														return;
 													}
 													客户网络 网络连接66 = this.网络连接;
@@ -13650,7 +13650,7 @@ namespace GameServer.Maps
 												return;
 											}
 											this.消耗背包物品(1, ItemData);
-											this.玩家切换地图((this.当前地图.地图编号 == 147) ? this.当前地图 : MapGatewayProcess.分配地图(147), 地图区域类型.复活区域, default(Point));
+											this.玩家切换地图((this.当前地图.地图编号 == 147) ? this.当前地图 : MapGatewayProcess.分配地图(147), AreaType.复活区域, default(Point));
 											return;
 										}
 									}
@@ -14068,7 +14068,7 @@ namespace GameServer.Maps
 												return;
 											}
 											this.消耗背包物品(1, ItemData);
-											this.玩家切换地图((this.当前地图.地图编号 == 143) ? this.当前地图 : MapGatewayProcess.分配地图(143), 地图区域类型.复活区域, default(Point));
+											this.玩家切换地图((this.当前地图.地图编号 == 143) ? this.当前地图 : MapGatewayProcess.分配地图(143), AreaType.复活区域, default(Point));
 											return;
 										}
 									}
@@ -14952,7 +14952,7 @@ namespace GameServer.Maps
 							if (point2 != default(Point))
 							{
 								this.消耗背包物品(1, ItemData);
-								this.玩家切换地图(this.当前地图, 地图区域类型.未知区域, point2);
+								this.玩家切换地图(this.当前地图, AreaType.未知区域, point2);
 								return;
 							}
 							客户网络 网络连接118 = this.网络连接;

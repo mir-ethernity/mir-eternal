@@ -363,7 +363,7 @@ namespace GameServer.Maps
 				{
 					base.清空邻居时处理();
 					base.解绑网格();
-					this.当前坐标 = this.当前地图.传送区域.随机坐标;
+					this.当前坐标 = this.当前地图.传送区域.RandomCoords;
 					base.绑定网格();
 					base.更新邻居时处理();
 					this.转移计时 = MainProcess.CurrentTime.AddMinutes(2.5);

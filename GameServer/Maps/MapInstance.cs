@@ -124,7 +124,7 @@ namespace GameServer.Maps
 		public MapInstance(游戏地图 地图模板, int 路线编号 = 1)
 		{
 			
-			this.地图区域 = new HashSet<地图区域>();
+			this.地图区域 = new HashSet<MapAreas>();
 			this.怪物区域 = new HashSet<怪物刷新>();
 			this.守卫区域 = new HashSet<Guards>();
 			this.玩家列表 = new HashSet<PlayerObject>();
@@ -237,7 +237,7 @@ namespace GameServer.Maps
 						}
 						else
 						{
-							PlayerObject.玩家切换地图(MapGatewayProcess.分配地图(PlayerObject.重生地图), 地图区域类型.复活区域, default(Point));
+							PlayerObject.玩家切换地图(MapGatewayProcess.分配地图(PlayerObject.重生地图), AreaType.复活区域, default(Point));
 						}
 					}
 					foreach (PetObject PetObject in this.宠物列表.ToList<PetObject>())
@@ -364,40 +364,40 @@ namespace GameServer.Maps
 		}
 
 		
-		public Point 随机坐标(地图区域类型 区域)
+		public Point 随机坐标(AreaType 区域)
 		{
-			if (区域 == 地图区域类型.复活区域)
+			if (区域 == AreaType.复活区域)
 			{
-				return this.复活区域.随机坐标;
+				return this.复活区域.RandomCoords;
 			}
-			if (区域 == 地图区域类型.红名区域)
+			if (区域 == AreaType.红名区域)
 			{
-				return this.红名区域.随机坐标;
+				return this.红名区域.RandomCoords;
 			}
-			if (区域 == 地图区域类型.传送区域)
+			if (区域 == AreaType.传送区域)
 			{
-				return this.传送区域.随机坐标;
+				return this.传送区域.RandomCoords;
 			}
-			if (区域 != 地图区域类型.随机区域)
+			if (区域 != AreaType.随机区域)
 			{
 				return default(Point);
 			}
-			地图区域 地图区域 = this.地图区域.FirstOrDefault((地图区域 O) => O.区域类型 == 地图区域类型.随机区域);
+			MapAreas 地图区域 = this.地图区域.FirstOrDefault((MapAreas O) => O.AreaType == AreaType.随机区域);
 			if (地图区域 == null)
 			{
 				return default(Point);
 			}
-			return 地图区域.随机坐标;
+			return 地图区域.RandomCoords;
 		}
 
 		
 		public Point 随机传送(Point 坐标)
 		{
-			foreach (地图区域 地图区域 in this.地图区域)
+			foreach (MapAreas 地图区域 in this.地图区域)
 			{
-				if (地图区域.范围坐标.Contains(坐标) && 地图区域.区域类型 == 地图区域类型.随机区域)
+				if (地图区域.RangeCoords.Contains(坐标) && 地图区域.AreaType == AreaType.随机区域)
 				{
-					return 地图区域.随机坐标;
+					return 地图区域.RandomCoords;
 				}
 			}
 			return default(Point);
@@ -552,16 +552,16 @@ namespace GameServer.Maps
 		public 地形数据 地形数据;
 
 		
-		public 地图区域 复活区域;
+		public MapAreas 复活区域;
 
 		
-		public 地图区域 红名区域;
+		public MapAreas 红名区域;
 
 		
-		public 地图区域 传送区域;
+		public MapAreas 传送区域;
 
 		
-		public HashSet<地图区域> 地图区域;
+		public HashSet<MapAreas> 地图区域;
 
 		
 		public HashSet<怪物刷新> 怪物区域;

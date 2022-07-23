@@ -346,7 +346,7 @@ namespace GameServer.Data
 			this.当前朝向.V = ComputingClass.随机方向();
 			this.当前地图.V = 142;
 			this.重生地图.V = 142;
-			this.当前坐标.V = MapGatewayProcess.分配地图(142).复活区域.随机坐标;
+			this.当前坐标.V = MapGatewayProcess.分配地图(142).复活区域.RandomCoords;
 			for (int i = 0; i <= 19; i++)
 			{
 				this.角色货币[(GameCurrency)i] = 0;

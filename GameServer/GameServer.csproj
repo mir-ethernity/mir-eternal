@@ -166,8 +166,8 @@
     <Compile Include="Templates\PendingRename12.cs" />
     <Compile Include="Templates\PendingRename5.cs" />
     <Compile Include="Templates\PendingRename8.cs" />
-    <Compile Include="Templates\PendingRename37.cs" />
-    <Compile Include="Templates\PendingRename65.cs" />
+    <Compile Include="Templates\MapAreas.cs" />
+    <Compile Include="Enums\AreaType.cs" />
     <Compile Include="Templates\PendingRename36.cs" />
     <Compile Include="Templates\PendingRename38.cs" />
     <Compile Include="Templates\PendingRename4.cs" />

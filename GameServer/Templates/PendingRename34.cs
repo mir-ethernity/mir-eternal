@@ -45,12 +45,12 @@ namespace GameServer.Templates
 		public string RegionName;
 
 		
-		public int 区域半径;
+		public int AreaRadius;
 
 		
 		public 刷新信息[] 刷新列表;
 
 		
-		public HashSet<Point> 范围坐标;
+		public HashSet<Point> RangeCoords;
 	}
 }
