@@ -8,18 +8,18 @@ using GameServer.Networking;
 
 namespace GameServer.Data
 {
-	// Token: 0x02000271 RID: 625
+	
 	[FastDataReturnAttribute(检索字段 = "账号名字")]
 	public sealed class AccountData : GameData
 	{
-		// Token: 0x0600061A RID: 1562 RVA: 0x0000429F File Offset: 0x0000249F
+		
 		public AccountData()
 		{
 			
 			
 		}
 
-		// Token: 0x0600061B RID: 1563 RVA: 0x00005A14 File Offset: 0x00003C14
+		
 		public AccountData(string 账号)
 		{
 			
@@ -28,7 +28,7 @@ namespace GameServer.Data
 			GameDataGateway.AccountData表.AddData(this, true);
 		}
 
-		// Token: 0x0600061C RID: 1564 RVA: 0x00005A39 File Offset: 0x00003C39
+		
 		public override string ToString()
 		{
 			DataMonitor<string> DataMonitor = this.账号名字;
@@ -39,7 +39,7 @@ namespace GameServer.Data
 			return DataMonitor.V;
 		}
 
-		// Token: 0x0600061D RID: 1565 RVA: 0x0002D620 File Offset: 0x0002B820
+		
 		public byte[] 角色列表描述()
 		{
 			byte[] result;
@@ -72,7 +72,7 @@ namespace GameServer.Data
 			return result;
 		}
 
-		// Token: 0x0600061E RID: 1566 RVA: 0x0002D758 File Offset: 0x0002B958
+		
 		public byte[] 登录协议描述()
 		{
 			byte[] result;
@@ -846,7 +846,7 @@ namespace GameServer.Data
 			return result;
 		}
 
-		// Token: 0x0600061F RID: 1567 RVA: 0x00005A4C File Offset: 0x00003C4C
+		
 		public void 账号下线()
 		{
 			this.网络连接.绑定账号 = null;
@@ -854,7 +854,7 @@ namespace GameServer.Data
 			NetworkServiceGateway.ActiveConnections -= 1U;
 		}
 
-		// Token: 0x06000620 RID: 1568 RVA: 0x0002D804 File Offset: 0x0002BA04
+		
 		public void 账号登录(客户网络 当前网络, string 物理地址)
 		{
 			当前网络.发送封包(new AccountLoginSuccessPacket
@@ -873,13 +873,13 @@ namespace GameServer.Data
 			NetworkServiceGateway.ActiveConnections += 1U;
 		}
 
-		// Token: 0x06000621 RID: 1569 RVA: 0x00005A6D File Offset: 0x00003C6D
+		
 		public void 返回登录(客户网络 当前网络)
 		{
 			当前网络.尝试断开连接(new Exception("客户端返回登录."));
 		}
 
-		// Token: 0x06000622 RID: 1570 RVA: 0x0002D878 File Offset: 0x0002BA78
+		
 		public void 创建角色(客户网络 当前网络, 客户创建角色 P)
 		{
 			if (GameDataGateway.CharacterDataTable.DataSheet.Count >= 1000000)
@@ -965,7 +965,7 @@ namespace GameServer.Data
 			});
 		}
 
-		// Token: 0x06000623 RID: 1571 RVA: 0x0002DAF4 File Offset: 0x0002BCF4
+		
 		public void 删除角色(客户网络 当前网络, 客户删除角色 P)
 		{
 			GameData GameData;
@@ -1011,7 +1011,7 @@ namespace GameServer.Data
 			});
 		}
 
-		// Token: 0x06000624 RID: 1572 RVA: 0x0002DC30 File Offset: 0x0002BE30
+		
 		public void 永久删除(客户网络 当前网络, 彻底删除角色 P)
 		{
 			GameData GameData;
@@ -1052,7 +1052,7 @@ namespace GameServer.Data
 			});
 		}
 
-		// Token: 0x06000625 RID: 1573 RVA: 0x0002DD3C File Offset: 0x0002BF3C
+		
 		public void GetBackCharacter(客户网络 当前网络, 客户GetBackCharacterPacket P)
 		{
 			GameData GameData;
@@ -1082,7 +1082,7 @@ namespace GameServer.Data
 			});
 		}
 
-		// Token: 0x06000626 RID: 1574 RVA: 0x0002DDF8 File Offset: 0x0002BFF8
+		
 		public void 进入游戏(客户网络 当前网络, 客户进入游戏 P)
 		{
 			GameData GameData;
@@ -1124,7 +1124,7 @@ namespace GameServer.Data
 			});
 		}
 
-		// Token: 0x06000627 RID: 1575 RVA: 0x0002DF0C File Offset: 0x0002C10C
+		
 		public void 更换角色(客户网络 当前网络)
 		{
 			当前网络.发送封包(new 更换角色计时
@@ -1143,25 +1143,25 @@ namespace GameServer.Data
 			});
 		}
 
-		// Token: 0x040008D7 RID: 2263
+		
 		public 客户网络 网络连接;
 
-		// Token: 0x040008D8 RID: 2264
+		
 		public readonly DataMonitor<string> 账号名字;
 
-		// Token: 0x040008D9 RID: 2265
+		
 		public readonly DataMonitor<DateTime> 封禁日期;
 
-		// Token: 0x040008DA RID: 2266
+		
 		public readonly DataMonitor<DateTime> 删除日期;
 
-		// Token: 0x040008DB RID: 2267
+		
 		public readonly HashMonitor<CharacterData> 角色列表;
 
-		// Token: 0x040008DC RID: 2268
+		
 		public readonly HashMonitor<CharacterData> 冻结列表;
 
-		// Token: 0x040008DD RID: 2269
+		
 		public readonly HashMonitor<CharacterData> 删除列表;
 	}
 }

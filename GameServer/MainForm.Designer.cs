@@ -1,9 +1,9 @@
 ﻿namespace GameServer
 {
-	// Token: 0x02000024 RID: 36
+	
 	public partial class MainForm : global::System.Windows.Forms.Form
 	{
-		// Token: 0x060000C0 RID: 192 RVA: 0x00002CBE File Offset: 0x00000EBE
+		
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing && this.components != null)
@@ -13,7 +13,7 @@
 			base.Dispose(disposing);
 		}
 
-		// Token: 0x060000C1 RID: 193 RVA: 0x00015028 File Offset: 0x00013228
+		
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
@@ -2137,370 +2137,370 @@
 
 		}
 
-		// Token: 0x04000061 RID: 97
+		
 		private global::System.ComponentModel.IContainer components;
 
-		// Token: 0x04000062 RID: 98
+		
 		private global::System.Windows.Forms.RichTextBox 系统日志;
 
-		// Token: 0x04000063 RID: 99
+		
 		private global::System.Windows.Forms.Label 帧数统计;
 
-		// Token: 0x04000064 RID: 100
+		
 		private global::System.Windows.Forms.Button 保存系统日志;
 
-		// Token: 0x04000065 RID: 101
+		
 		private global::System.Windows.Forms.Button 清空系统日志;
 
-		// Token: 0x04000066 RID: 102
+		
 		private global::System.Windows.Forms.Label 发送统计;
 
-		// Token: 0x04000067 RID: 103
+		
 		private global::System.Windows.Forms.Label 接收统计;
 
-		// Token: 0x04000068 RID: 104
+		
 		private global::System.Windows.Forms.Label 已经上线统计;
 
-		// Token: 0x04000069 RID: 105
+		
 		private global::System.Windows.Forms.Label 连接总数统计;
 
-		// Token: 0x0400006A RID: 106
+		
 		private global::System.Windows.Forms.Label 已经登录统计;
 
-		// Token: 0x0400006B RID: 107
+		
 		private global::System.Windows.Forms.Button 保存聊天日志;
 
-		// Token: 0x0400006C RID: 108
+		
 		private global::System.Windows.Forms.Button 清空聊天日志;
 
-		// Token: 0x0400006D RID: 109
+		
 		private global::System.Windows.Forms.TabControl 角色详情选项卡;
 
-		// Token: 0x0400006E RID: 110
+		
 		private global::System.Windows.Forms.TabPage CharacterData_技能;
 
-		// Token: 0x0400006F RID: 111
+		
 		private global::System.Windows.Forms.TabPage CharacterData_装备;
 
-		// Token: 0x04000070 RID: 112
+		
 		private global::System.Windows.Forms.TabPage CharacterData_背包;
 
-		// Token: 0x04000071 RID: 113
+		
 		private global::System.Windows.Forms.TabPage CharacterData_仓库;
 
-		// Token: 0x04000072 RID: 114
+		
 		public global::System.Windows.Forms.TabControl 主选项卡;
 
-		// Token: 0x04000073 RID: 115
+		
 		public global::System.Windows.Forms.DataGridView dgvCharacters;
 
-		// Token: 0x04000074 RID: 116
+		
 		public global::System.Windows.Forms.DataGridView 技能浏览表;
 
-		// Token: 0x04000075 RID: 117
+		
 		private global::System.Windows.Forms.DataGridView 装备浏览表;
 
-		// Token: 0x04000076 RID: 118
+		
 		public global::System.Windows.Forms.DataGridView 背包浏览表;
 
-		// Token: 0x04000077 RID: 119
+		
 		public global::System.Windows.Forms.DataGridView 仓库浏览表;
 
-		// Token: 0x04000078 RID: 120
+		
 		private global::System.Windows.Forms.Timer 界面定时更新;
 
-		// Token: 0x04000079 RID: 121
+		
 		private global::System.Windows.Forms.TabPage 系统日志页面;
 
-		// Token: 0x0400007A RID: 122
+		
 		private global::System.Windows.Forms.TabPage 聊天日志页面;
 
-		// Token: 0x0400007B RID: 123
+		
 		private global::System.Windows.Forms.RichTextBox 聊天日志;
 
-		// Token: 0x0400007C RID: 124
+		
 		public global::System.Windows.Forms.DataGridView dgvMaps;
 
-		// Token: 0x0400007D RID: 125
+		
 		public global::System.Windows.Forms.DataGridView 怪物浏览表;
 
-		// Token: 0x0400007E RID: 126
+		
 		private global::System.Windows.Forms.DataGridView 掉落浏览表;
 
-		// Token: 0x0400007F RID: 127
+		
 		private global::System.Windows.Forms.GroupBox S_网络设置分组;
 
-		// Token: 0x04000080 RID: 128
+		
 		private global::System.Windows.Forms.Label S_监听端口标签;
 
-		// Token: 0x04000081 RID: 129
+		
 		private global::System.Windows.Forms.NumericUpDown S_客户连接端口;
 
-		// Token: 0x04000082 RID: 130
+		
 		private global::System.Windows.Forms.Label S_接收端口标签;
 
-		// Token: 0x04000083 RID: 131
+		
 		private global::System.Windows.Forms.NumericUpDown S_门票接收端口;
 
-		// Token: 0x04000084 RID: 132
+		
 		private global::System.Windows.Forms.Label S_屏蔽时间标签;
 
-		// Token: 0x04000085 RID: 133
+		
 		private global::System.Windows.Forms.NumericUpDown S_异常屏蔽时间;
 
-		// Token: 0x04000086 RID: 134
+		
 		private global::System.Windows.Forms.GroupBox S_游戏设置分组;
 
-		// Token: 0x04000087 RID: 135
+		
 		private global::System.Windows.Forms.Label S_特修折扣标签;
 
-		// Token: 0x04000088 RID: 136
+		
 		private global::System.Windows.Forms.NumericUpDown S_装备特修折扣;
 
-		// Token: 0x04000089 RID: 137
+		
 		private global::System.Windows.Forms.Label S_怪物爆率标签;
 
-		// Token: 0x0400008A RID: 138
+		
 		private global::System.Windows.Forms.Label S_OpenLevelCommand标签;
 
-		// Token: 0x0400008B RID: 139
+		
 		private global::System.Windows.Forms.Label S_限定封包标签;
 
-		// Token: 0x0400008C RID: 140
+		
 		private global::System.Windows.Forms.NumericUpDown S_封包限定数量;
 
-		// Token: 0x0400008D RID: 141
+		
 		private global::System.Windows.Forms.Label S_掉线判定标签;
 
-		// Token: 0x0400008E RID: 142
+		
 		private global::System.Windows.Forms.NumericUpDown S_掉线判定时间;
 
-		// Token: 0x0400008F RID: 143
+		
 		private global::System.Windows.Forms.Label S_经验倍率标签;
 
-		// Token: 0x04000090 RID: 144
+		
 		private global::System.Windows.Forms.Label S_收益等级标签;
 
-		// Token: 0x04000091 RID: 145
+		
 		private global::System.Windows.Forms.NumericUpDown S_减收益等级差;
 
-		// Token: 0x04000092 RID: 146
+		
 		private global::System.Windows.Forms.Label S_收益衰减标签;
 
-		// Token: 0x04000093 RID: 147
+		
 		private global::System.Windows.Forms.NumericUpDown S_收益减少比率;
 
-		// Token: 0x04000094 RID: 148
+		
 		private global::System.Windows.Forms.Label S_诱惑时长标签;
 
-		// Token: 0x04000095 RID: 149
+		
 		private global::System.Windows.Forms.NumericUpDown S_怪物诱惑时长;
 
-		// Token: 0x04000096 RID: 150
+		
 		private global::System.Windows.Forms.Label S_物品归属标签;
 
-		// Token: 0x04000097 RID: 151
+		
 		private global::System.Windows.Forms.NumericUpDown S_物品归属时间;
 
-		// Token: 0x04000098 RID: 152
+		
 		private global::System.Windows.Forms.Label S_物品清理标签;
 
-		// Token: 0x04000099 RID: 153
+		
 		private global::System.Windows.Forms.NumericUpDown S_物品清理时间;
 
-		// Token: 0x0400009A RID: 154
+		
 		private global::System.Windows.Forms.GroupBox S_GameData分组;
 
-		// Token: 0x0400009B RID: 155
+		
 		private global::System.Windows.Forms.TextBox S_数据备份目录;
 
-		// Token: 0x0400009C RID: 156
+		
 		private global::System.Windows.Forms.TextBox S_GameData目录;
 
-		// Token: 0x0400009D RID: 157
+		
 		private global::System.Windows.Forms.Label S_备份目录标签;
 
-		// Token: 0x0400009E RID: 158
+		
 		private global::System.Windows.Forms.Label S_数据目录标签;
 
-		// Token: 0x0400009F RID: 159
+		
 		private global::System.Windows.Forms.Button S_合并客户数据;
 
-		// Token: 0x040000A0 RID: 160
+		
 		private global::System.Windows.Forms.TextBox S_合并数据目录;
 
-		// Token: 0x040000A1 RID: 161
+		
 		private global::System.Windows.Forms.Label S_合并目录标签;
 
-		// Token: 0x040000A2 RID: 162
+		
 		private global::System.Windows.Forms.Button S_浏览数据目录;
 
-		// Token: 0x040000A3 RID: 163
+		
 		private global::System.Windows.Forms.Button S_浏览合并目录;
 
-		// Token: 0x040000A4 RID: 164
+		
 		private global::System.Windows.Forms.Button S_浏览备份目录;
 
-		// Token: 0x040000A5 RID: 165
+		
 		private global::System.Windows.Forms.Button S_重载SystemData;
 
-		// Token: 0x040000A6 RID: 166
+		
 		private global::System.Windows.Forms.TextBox GMCommand文本;
 
-		// Token: 0x040000A7 RID: 167
+		
 		private global::System.Windows.Forms.Label GMCommand标签;
 
-		// Token: 0x040000A8 RID: 168
+		
 		public global::System.Windows.Forms.Button 启动按钮;
 
-		// Token: 0x040000A9 RID: 169
+		
 		public global::System.Windows.Forms.Button 停止按钮;
 
-		// Token: 0x040000AA RID: 170
+		
 		private global::System.Windows.Forms.Button S_重载客户数据;
 
-		// Token: 0x040000AB RID: 171
+		
 		public global::System.Windows.Forms.Button 保存按钮;
 
-		// Token: 0x040000AC RID: 172
+		
 		private global::System.Windows.Forms.Label 对象统计;
 
-		// Token: 0x040000AD RID: 173
+		
 		private global::System.Windows.Forms.Label S_注意事项标签2;
 
-		// Token: 0x040000AE RID: 174
+		
 		private global::System.Windows.Forms.Label S_注意事项标签1;
 
-		// Token: 0x040000AF RID: 175
+		
 		private global::System.Windows.Forms.Label S_注意事项标签5;
 
-		// Token: 0x040000B0 RID: 176
+		
 		private global::System.Windows.Forms.Label S_注意事项标签4;
 
-		// Token: 0x040000B1 RID: 177
+		
 		private global::System.Windows.Forms.Label S_注意事项标签3;
 
-		// Token: 0x040000B2 RID: 178
+		
 		private global::System.Windows.Forms.Label S_注意事项标签6;
 
-		// Token: 0x040000B3 RID: 179
+		
 		private global::System.Windows.Forms.Label S_注意事项标签8;
 
-		// Token: 0x040000B4 RID: 180
+		
 		private global::System.Windows.Forms.Label S_注意事项标签7;
 
-		// Token: 0x040000B5 RID: 181
+		
 		private global::System.Windows.Forms.TabPage 命令日志页面;
 
-		// Token: 0x040000B6 RID: 182
+		
 		private global::System.Windows.Forms.RichTextBox 命令日志;
 
-		// Token: 0x040000B7 RID: 183
+		
 		private global::System.Windows.Forms.Button 清空命令日志;
 
-		// Token: 0x040000B8 RID: 184
+		
 		private global::System.Windows.Forms.Timer 保存数据提醒;
 
-		// Token: 0x040000B9 RID: 185
+		
 		public global::System.Windows.Forms.TabPage tabConfig;
 
-		// Token: 0x040000BA RID: 186
+		
 		public global::System.Windows.Forms.Panel 下方控件页;
 
-		// Token: 0x040000BB RID: 187
+		
 		private global::System.Windows.Forms.ContextMenuStrip 角色右键菜单;
 
-		// Token: 0x040000BC RID: 188
+		
 		private global::System.Windows.Forms.ToolStripMenuItem 右键菜单_复制角色名字;
 
-		// Token: 0x040000BD RID: 189
+		
 		private global::System.Windows.Forms.ToolStripMenuItem 右键菜单_复制账号名字;
 
-		// Token: 0x040000BE RID: 190
+		
 		private global::System.Windows.Forms.ToolStripMenuItem 右键菜单_复制网络地址;
 
-		// Token: 0x040000BF RID: 191
+		
 		private global::System.Windows.Forms.ToolStripMenuItem 右键菜单_复制物理地址;
 
-		// Token: 0x040000C0 RID: 192
+		
 		public global::System.Windows.Forms.TabPage tabBans;
 
-		// Token: 0x040000C1 RID: 193
+		
 		private global::System.Windows.Forms.TabPage tabAnnouncements;
 
-		// Token: 0x040000C2 RID: 194
+		
 		public global::System.Windows.Forms.TabPage tabMain;
 
-		// Token: 0x040000C3 RID: 195
+		
 		public global::System.Windows.Forms.TabPage tabMaps;
 
-		// Token: 0x040000C4 RID: 196
+		
 		public global::System.Windows.Forms.TabPage tabMonsters;
 
-		// Token: 0x040000C5 RID: 197
+		
 		public global::System.Windows.Forms.TabPage tabCharacters;
 
-		// Token: 0x040000C6 RID: 198
+		
 		private global::System.Windows.Forms.DataGridView 封禁浏览表;
 
-		// Token: 0x040000C7 RID: 199
+		
 		public global::System.Windows.Forms.NumericUpDown S_怪物额外爆率;
 
-		// Token: 0x040000C8 RID: 200
+		
 		public global::System.Windows.Forms.NumericUpDown S_怪物经验倍率;
 
-		// Token: 0x040000C9 RID: 201
+		
 		public global::System.Windows.Forms.NumericUpDown S_游戏OpenLevelCommand;
 
-		// Token: 0x040000CA RID: 202
+		
 		private global::System.Windows.Forms.Button 删除公告按钮;
 
-		// Token: 0x040000CB RID: 203
+		
 		private global::System.Windows.Forms.Button 添加公告按钮;
 
-		// Token: 0x040000CC RID: 204
+		
 		public global::System.Windows.Forms.Timer 定时发送公告;
 
-		// Token: 0x040000CD RID: 205
+		
 		public global::System.Windows.Forms.DataGridView 公告浏览表;
 
-		// Token: 0x040000CE RID: 206
+		
 		public global::System.Windows.Forms.Button 开始公告按钮;
 
-		// Token: 0x040000CF RID: 207
+		
 		public global::System.Windows.Forms.Button 停止公告按钮;
 
-		// Token: 0x040000D0 RID: 208
+		
 		private global::System.Windows.Forms.DataGridViewTextBoxColumn 公告状态;
 
-		// Token: 0x040000D1 RID: 209
+		
 		private global::System.Windows.Forms.DataGridViewTextBoxColumn 公告间隔;
 
-		// Token: 0x040000D2 RID: 210
+		
 		private global::System.Windows.Forms.DataGridViewTextBoxColumn 公告次数;
 
-		// Token: 0x040000D3 RID: 211
+		
 		private global::System.Windows.Forms.DataGridViewTextBoxColumn 剩余次数;
 
-		// Token: 0x040000D4 RID: 212
+		
 		private global::System.Windows.Forms.DataGridViewTextBoxColumn 公告计时;
 
-		// Token: 0x040000D5 RID: 213
+		
 		private global::System.Windows.Forms.DataGridViewTextBoxColumn 公告内容;
 
-		// Token: 0x040000D6 RID: 214
+		
 		private global::System.Windows.Forms.Label S_NoobSupportCommand标签;
 
-		// Token: 0x040000D7 RID: 215
+		
 		public global::System.Windows.Forms.NumericUpDown S_NoobSupportCommand等级;
 
-		// Token: 0x040000D8 RID: 216
+		
 		public global::System.Windows.Forms.TabControl 日志选项卡;
 
-		// Token: 0x040000D9 RID: 217
+		
 		private global::System.Windows.Forms.GroupBox S_软件授权分组;
 
-		// Token: 0x040000DA RID: 218
+		
 		private global::System.Windows.Forms.TextBox S_软件注册代码;
 	}
 }

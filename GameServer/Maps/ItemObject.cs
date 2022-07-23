@@ -6,10 +6,10 @@ using GameServer.Templates;
 
 namespace GameServer.Maps
 {
-	// Token: 0x020002DE RID: 734
+	
 	public sealed class ItemObject : MapObject
 	{
-		// Token: 0x1700013E RID: 318
+		
 		// (get) Token: 0x0600082C RID: 2092 RVA: 0x00006167 File Offset: 0x00004367
 		// (set) Token: 0x0600082D RID: 2093 RVA: 0x0000616F File Offset: 0x0000436F
 		public override MapInstance 当前地图
@@ -33,7 +33,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700013F RID: 319
+		
 		// (get) Token: 0x0600082E RID: 2094 RVA: 0x00006B58 File Offset: 0x00004D58
 		public override int 处理间隔
 		{
@@ -43,7 +43,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000140 RID: 320
+		
 		// (get) Token: 0x0600082F RID: 2095 RVA: 0x00002855 File Offset: 0x00000A55
 		public override bool 对象死亡
 		{
@@ -53,7 +53,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000141 RID: 321
+		
 		// (get) Token: 0x06000830 RID: 2096 RVA: 0x00002855 File Offset: 0x00000A55
 		public override bool 阻塞网格
 		{
@@ -63,7 +63,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000142 RID: 322
+		
 		// (get) Token: 0x06000831 RID: 2097 RVA: 0x00002855 File Offset: 0x00000A55
 		public override bool 能被命中
 		{
@@ -73,7 +73,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000143 RID: 323
+		
 		// (get) Token: 0x06000832 RID: 2098 RVA: 0x00006B5C File Offset: 0x00004D5C
 		public override GameObjectType 对象类型
 		{
@@ -83,7 +83,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000144 RID: 324
+		
 		// (get) Token: 0x06000833 RID: 2099 RVA: 0x00002855 File Offset: 0x00000A55
 		public override 技能范围类型 对象体型
 		{
@@ -93,7 +93,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000145 RID: 325
+		
 		// (get) Token: 0x06000834 RID: 2100 RVA: 0x00006B60 File Offset: 0x00004D60
 		public PersistentItemType 持久类型
 		{
@@ -103,7 +103,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000146 RID: 326
+		
 		// (get) Token: 0x06000835 RID: 2101 RVA: 0x00006B6D File Offset: 0x00004D6D
 		public int 默认持久
 		{
@@ -113,7 +113,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000147 RID: 327
+		
 		// (get) Token: 0x06000836 RID: 2102 RVA: 0x00006B7A File Offset: 0x00004D7A
 		public int 物品编号
 		{
@@ -128,7 +128,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000148 RID: 328
+		
 		// (get) Token: 0x06000837 RID: 2103 RVA: 0x00006B8D File Offset: 0x00004D8D
 		public int 物品重量
 		{
@@ -142,7 +142,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000149 RID: 329
+		
 		// (get) Token: 0x06000838 RID: 2104 RVA: 0x00006BBB File Offset: 0x00004DBB
 		public bool 允许堆叠
 		{
@@ -152,7 +152,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000839 RID: 2105 RVA: 0x0004169C File Offset: 0x0003F89C
+		
 		public ItemObject(游戏物品 物品模板, ItemData ItemData, MapInstance 掉落地图, Point 掉落坐标, HashSet<CharacterData> 物品归属, int 堆叠数量 = 0, bool 物品绑定 = false)
 		{
 			
@@ -227,7 +227,7 @@ namespace GameServer.Maps
 			//goto IL_111;
 		}
 
-		// Token: 0x0600083A RID: 2106 RVA: 0x00006BCB File Offset: 0x00004DCB
+		
 		public override void 处理对象数据()
 		{
 			if (MainProcess.CurrentTime > this.消失时间)
@@ -236,7 +236,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600083B RID: 2107 RVA: 0x00006BE5 File Offset: 0x00004DE5
+		
 		public void 物品消失处理()
 		{
 			ItemData ItemData = this.ItemData;
@@ -247,31 +247,31 @@ namespace GameServer.Maps
 			base.删除对象();
 		}
 
-		// Token: 0x0600083C RID: 2108 RVA: 0x00006B50 File Offset: 0x00004D50
+		
 		public void 物品转移处理()
 		{
 			base.删除对象();
 		}
 
-		// Token: 0x04000CF7 RID: 3319
+		
 		public ItemData ItemData;
 
-		// Token: 0x04000CF8 RID: 3320
+		
 		public 游戏物品 物品模板;
 
-		// Token: 0x04000CF9 RID: 3321
+		
 		public int 堆叠数量;
 
-		// Token: 0x04000CFA RID: 3322
+		
 		public bool 物品绑定;
 
-		// Token: 0x04000CFB RID: 3323
+		
 		public DateTime 消失时间;
 
-		// Token: 0x04000CFC RID: 3324
+		
 		public DateTime 归属时间;
 
-		// Token: 0x04000CFD RID: 3325
+		
 		public HashSet<CharacterData> 物品归属;
 	}
 }

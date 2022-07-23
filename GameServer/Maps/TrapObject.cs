@@ -8,10 +8,10 @@ using GameServer.Networking;
 
 namespace GameServer.Maps
 {
-	// Token: 0x020002DD RID: 733
+	
 	public sealed class TrapObject : MapObject
 	{
-		// Token: 0x17000131 RID: 305
+		
 		// (get) Token: 0x06000817 RID: 2071 RVA: 0x00006ADF File Offset: 0x00004CDF
 		public ushort 陷阱分组编号
 		{
@@ -21,7 +21,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000132 RID: 306
+		
 		// (get) Token: 0x06000818 RID: 2072 RVA: 0x00006AEC File Offset: 0x00004CEC
 		public ushort 主动触发间隔
 		{
@@ -31,7 +31,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000133 RID: 307
+		
 		// (get) Token: 0x06000819 RID: 2073 RVA: 0x00006AF9 File Offset: 0x00004CF9
 		public ushort 主动触发延迟
 		{
@@ -41,7 +41,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000134 RID: 308
+		
 		// (get) Token: 0x0600081A RID: 2074 RVA: 0x00041084 File Offset: 0x0003F284
 		public ushort 陷阱剩余时间
 		{
@@ -51,7 +51,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000135 RID: 309
+		
 		// (get) Token: 0x0600081B RID: 2075 RVA: 0x00006167 File Offset: 0x00004367
 		// (set) Token: 0x0600081C RID: 2076 RVA: 0x0000616F File Offset: 0x0000436F
 		public override MapInstance 当前地图
@@ -75,7 +75,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000136 RID: 310
+		
 		// (get) Token: 0x0600081D RID: 2077 RVA: 0x00006134 File Offset: 0x00004334
 		public override int 处理间隔
 		{
@@ -85,7 +85,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000137 RID: 311
+		
 		// (get) Token: 0x0600081E RID: 2078 RVA: 0x00006B06 File Offset: 0x00004D06
 		// (set) Token: 0x0600081F RID: 2079 RVA: 0x00006B13 File Offset: 0x00004D13
 		public override byte 当前等级
@@ -100,7 +100,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000138 RID: 312
+		
 		// (get) Token: 0x06000820 RID: 2080 RVA: 0x00002855 File Offset: 0x00000A55
 		// (set) Token: 0x06000821 RID: 2081 RVA: 0x00006B21 File Offset: 0x00004D21
 		public override bool 阻塞网格
@@ -115,7 +115,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000139 RID: 313
+		
 		// (get) Token: 0x06000822 RID: 2082 RVA: 0x00002855 File Offset: 0x00000A55
 		public override bool 能被命中
 		{
@@ -125,7 +125,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700013A RID: 314
+		
 		// (get) Token: 0x06000823 RID: 2083 RVA: 0x00006B2A File Offset: 0x00004D2A
 		public override string 对象名字
 		{
@@ -135,7 +135,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700013B RID: 315
+		
 		// (get) Token: 0x06000824 RID: 2084 RVA: 0x00006B37 File Offset: 0x00004D37
 		public override GameObjectType 对象类型
 		{
@@ -145,7 +145,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700013C RID: 316
+		
 		// (get) Token: 0x06000825 RID: 2085 RVA: 0x00006B3B File Offset: 0x00004D3B
 		public override 技能范围类型 对象体型
 		{
@@ -155,7 +155,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700013D RID: 317
+		
 		// (get) Token: 0x06000826 RID: 2086 RVA: 0x00006B48 File Offset: 0x00004D48
 		public override Dictionary<GameObjectProperties, int> 当前属性
 		{
@@ -165,7 +165,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000827 RID: 2087 RVA: 0x000410BC File Offset: 0x0003F2BC
+		
 		public TrapObject(MapObject 来源, 技能陷阱 模板, MapInstance 地图, Point 坐标)
 		{
 			
@@ -213,7 +213,7 @@ namespace GameServer.Maps
 			MapGatewayProcess.添加激活对象(this);
 		}
 
-		// Token: 0x06000828 RID: 2088 RVA: 0x00041370 File Offset: 0x0003F570
+		
 		public override void 处理对象数据()
 		{
 			if (MainProcess.CurrentTime < base.预约时间)
@@ -264,7 +264,7 @@ namespace GameServer.Maps
 			base.处理对象数据();
 		}
 
-		// Token: 0x06000829 RID: 2089 RVA: 0x00041578 File Offset: 0x0003F778
+		
 		public void 被动触发陷阱(MapObject 对象)
 		{
 			if (MainProcess.CurrentTime > this.消失时间)
@@ -277,7 +277,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600082A RID: 2090 RVA: 0x00041638 File Offset: 0x0003F838
+		
 		public void 主动触发陷阱()
 		{
 			if (MainProcess.CurrentTime > this.消失时间)
@@ -288,43 +288,43 @@ namespace GameServer.Maps
 			this.触发时间 += TimeSpan.FromMilliseconds((double)this.主动触发间隔);
 		}
 
-		// Token: 0x0600082B RID: 2091 RVA: 0x00006B50 File Offset: 0x00004D50
+		
 		public void 陷阱消失处理()
 		{
 			base.删除对象();
 		}
 
-		// Token: 0x04000CEC RID: 3308
+		
 		public byte 陷阱等级;
 
-		// Token: 0x04000CED RID: 3309
+		
 		public ushort 陷阱编号;
 
-		// Token: 0x04000CEE RID: 3310
+		
 		public DateTime 放置时间;
 
-		// Token: 0x04000CEF RID: 3311
+		
 		public DateTime 消失时间;
 
-		// Token: 0x04000CF0 RID: 3312
+		
 		public DateTime 触发时间;
 
-		// Token: 0x04000CF1 RID: 3313
+		
 		public MapObject 陷阱来源;
 
-		// Token: 0x04000CF2 RID: 3314
+		
 		public 技能陷阱 陷阱模板;
 
-		// Token: 0x04000CF3 RID: 3315
+		
 		public HashSet<MapObject> 被动触发列表;
 
-		// Token: 0x04000CF4 RID: 3316
+		
 		public byte 陷阱移动次数;
 
-		// Token: 0x04000CF5 RID: 3317
+		
 		public 游戏技能 被动触发技能;
 
-		// Token: 0x04000CF6 RID: 3318
+		
 		public 游戏技能 主动触发技能;
 	}
 }

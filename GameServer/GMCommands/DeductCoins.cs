@@ -4,10 +4,10 @@ using GameServer.Networking;
 
 namespace GameServer
 {
-	// Token: 0x02000020 RID: 32
+	
 	public sealed class DeductCoins : GMCommand
 	{
-		// Token: 0x17000018 RID: 24
+		
 		// (get) Token: 0x06000063 RID: 99 RVA: 0x00002865 File Offset: 0x00000A65
 		public override ExecutionWay ExecutionWay
 		{
@@ -17,7 +17,7 @@ namespace GameServer
 			}
 		}
 
-		// Token: 0x06000064 RID: 100 RVA: 0x00009090 File Offset: 0x00007290
+		
 		public override void Execute()
 		{
 			GameData GameData;
@@ -43,18 +43,18 @@ namespace GameServer
 			MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, role does not exist");
 		}
 
-		// Token: 0x06000065 RID: 101 RVA: 0x00002858 File Offset: 0x00000A58
+		
 		public DeductCoins()
 		{
 			
 			
 		}
 
-		// Token: 0x04000032 RID: 50
+		
 		[FieldAttribute(0, 排序 = 0)]
 		public string 角色名字;
 
-		// Token: 0x04000033 RID: 51
+		
 		[FieldAttribute(0, 排序 = 1)]
 		public int 金币数量;
 	}

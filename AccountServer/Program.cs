@@ -4,10 +4,10 @@ using System.Windows.Forms;
 
 namespace AccountServer
 {
-	// Token: 0x02000003 RID: 3
+	
 	internal static class Program
 	{
-		// Token: 0x06000017 RID: 23 RVA: 0x00003634 File Offset: 0x00001834
+		
 		[STAThread]
 		private static void Main()
 		{
@@ -24,7 +24,7 @@ namespace AccountServer
 			Environment.Exit(0);
 		}
 
-		// Token: 0x04000021 RID: 33
+		
 		private static Mutex myMutex;
 	}
 }

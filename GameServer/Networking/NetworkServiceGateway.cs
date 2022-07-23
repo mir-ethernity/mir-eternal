@@ -10,10 +10,10 @@ using GameServer.Data;
 
 namespace GameServer.Networking
 {
-	// Token: 0x02000250 RID: 592
+	
 	public static class NetworkServiceGateway
 	{
-		// Token: 0x0600041E RID: 1054 RVA: 0x0002002C File Offset: 0x0001E22C
+		
 		public static void Start()
 		{
 			NetworkServiceGateway.网络服务停止 = false;
@@ -28,7 +28,7 @@ namespace GameServer.Networking
 			NetworkServiceGateway.门票接收器 = new UdpClient(new IPEndPoint(IPAddress.Any, (int)CustomClass.门票接收端口));
 		}
 
-		// Token: 0x0600041F RID: 1055 RVA: 0x00004219 File Offset: 0x00002419
+		
 		public static void Stop()
 		{
 			NetworkServiceGateway.网络服务停止 = true;
@@ -46,7 +46,7 @@ namespace GameServer.Networking
 			NetworkServiceGateway.门票接收器 = null;
 		}
 
-		// Token: 0x06000420 RID: 1056 RVA: 0x000200C0 File Offset: 0x0001E2C0
+		
 		public static void Process()
 		{
 			try
@@ -127,7 +127,7 @@ namespace GameServer.Networking
 			goto IL_123;
 		}
 
-		// Token: 0x06000421 RID: 1057 RVA: 0x000202C8 File Offset: 0x0001E4C8
+		
 		public static void 异步连接(IAsyncResult 异步参数)
 		{
 			try
@@ -178,7 +178,7 @@ namespace GameServer.Networking
 			}
 		}
 
-		// Token: 0x06000422 RID: 1058 RVA: 0x000203D8 File Offset: 0x0001E5D8
+		
 		public static void 断网回调(object sender, Exception e)
 		{
 			客户网络 客户网络 = sender as 客户网络;
@@ -195,13 +195,13 @@ namespace GameServer.Networking
 			MainProcess.AddSystemLog(text);
 		}
 
-		// Token: 0x06000423 RID: 1059 RVA: 0x0000424D File Offset: 0x0000244D
+		
 		public static void 屏蔽网络(string 地址)
 		{
 			SystemData.数据.BanIPCommand(地址, MainProcess.CurrentTime.AddMinutes((double)CustomClass.异常屏蔽时间));
 		}
 
-		// Token: 0x06000424 RID: 1060 RVA: 0x00020458 File Offset: 0x0001E658
+		
 		public static void 发送公告(string 内容, bool 滚动播报 = false)
 		{
 			using (MemoryStream memoryStream = new())
@@ -220,7 +220,7 @@ namespace GameServer.Networking
 			MainForm.AddSystemLog(内容);
 		}
 
-		// Token: 0x06000425 RID: 1061 RVA: 0x0000426A File Offset: 0x0000246A
+		
 		public static void 发送封包(GamePacket 封包)
 		{
 			if (封包 != null)
@@ -234,7 +234,7 @@ namespace GameServer.Networking
 			}
 		}
 
-		// Token: 0x06000426 RID: 1062 RVA: 0x0000427F File Offset: 0x0000247F
+		
 		public static void 添加网络(客户网络 网络)
 		{
 			if (网络 != null)
@@ -243,7 +243,7 @@ namespace GameServer.Networking
 			}
 		}
 
-		// Token: 0x06000427 RID: 1063 RVA: 0x0000428F File Offset: 0x0000248F
+		
 		public static void 移除网络(客户网络 网络)
 		{
 			if (网络 != null)
@@ -252,46 +252,46 @@ namespace GameServer.Networking
 			}
 		}
 
-		// Token: 0x040007C4 RID: 1988
+		
 		private static IPEndPoint 门票发送端;
 
-		// Token: 0x040007C5 RID: 1989
+		
 		private static UdpClient 门票接收器;
 
-		// Token: 0x040007C6 RID: 1990
+		
 		private static TcpListener 网络监听器;
 
-		// Token: 0x040007C7 RID: 1991
+		
 		public static bool 网络服务停止;
 
-		// Token: 0x040007C8 RID: 1992
+		
 		public static bool 未登录连接数;
 
-		// Token: 0x040007C9 RID: 1993
+		
 		public static uint ActiveConnections;
 
-		// Token: 0x040007CA RID: 1994
+		
 		public static uint ConnectionsOnline;
 
-		// Token: 0x040007CB RID: 1995
+		
 		public static long SendedBytes;
 
-		// Token: 0x040007CC RID: 1996
+		
 		public static long ReceivedBytes;
 
-		// Token: 0x040007CD RID: 1997
+		
 		public static HashSet<客户网络> Connections;
 
-		// Token: 0x040007CE RID: 1998
+		
 		public static ConcurrentQueue<客户网络> 等待移除表;
 
-		// Token: 0x040007CF RID: 1999
+		
 		public static ConcurrentQueue<客户网络> 等待添加表;
 
-		// Token: 0x040007D0 RID: 2000
+		
 		public static ConcurrentQueue<GamePacket> 全服公告表;
 
-		// Token: 0x040007D1 RID: 2001
+		
 		public static Dictionary<string, TicketInformation> 门票DataSheet;
 	}
 }

@@ -4,17 +4,17 @@ using System.Text;
 
 namespace GameServer.Data
 {
-	// Token: 0x02000274 RID: 628
+	
 	public sealed class MailData : GameData
 	{
-		// Token: 0x0600063A RID: 1594 RVA: 0x0000429F File Offset: 0x0000249F
+		
 		public MailData()
 		{
 			
 			
 		}
 
-		// Token: 0x0600063B RID: 1595 RVA: 0x0002E23C File Offset: 0x0002C43C
+		
 		public MailData(CharacterData 作者, string 标题, string 正文, ItemData 附件)
 		{
 			
@@ -29,7 +29,7 @@ namespace GameServer.Data
 			GameDataGateway.MailData表.AddData(this, true);
 		}
 
-		// Token: 0x170000B0 RID: 176
+		
 		// (get) Token: 0x0600063C RID: 1596 RVA: 0x000054C0 File Offset: 0x000036C0
 		public int 邮件编号
 		{
@@ -39,7 +39,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x170000B1 RID: 177
+		
 		// (get) Token: 0x0600063D RID: 1597 RVA: 0x00005B5E File Offset: 0x00003D5E
 		public int 邮件时间
 		{
@@ -49,7 +49,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x170000B2 RID: 178
+		
 		// (get) Token: 0x0600063E RID: 1598 RVA: 0x00005B70 File Offset: 0x00003D70
 		public int 物品数量
 		{
@@ -67,7 +67,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x0600063F RID: 1599 RVA: 0x00005BAA File Offset: 0x00003DAA
+		
 		public override string ToString()
 		{
 			DataMonitor<string> DataMonitor = this.邮件标题;
@@ -78,7 +78,7 @@ namespace GameServer.Data
 			return DataMonitor.V;
 		}
 
-		// Token: 0x06000640 RID: 1600 RVA: 0x00005BBD File Offset: 0x00003DBD
+		
 		public override void 删除数据()
 		{
 			ItemData v = this.邮件附件.V;
@@ -89,7 +89,7 @@ namespace GameServer.Data
 			base.删除数据();
 		}
 
-		// Token: 0x06000641 RID: 1601 RVA: 0x0002E2BC File Offset: 0x0002C4BC
+		
 		public byte[] 邮件检索描述()
 		{
 			byte[] result;
@@ -118,7 +118,7 @@ namespace GameServer.Data
 			return result;
 		}
 
-		// Token: 0x06000642 RID: 1602 RVA: 0x0002E3E8 File Offset: 0x0002C5E8
+		
 		public byte[] 邮件内容描述()
 		{
 			byte[] result;
@@ -153,28 +153,28 @@ namespace GameServer.Data
 			return result;
 		}
 
-		// Token: 0x040008E6 RID: 2278
+		
 		public readonly DataMonitor<bool> 系统邮件;
 
-		// Token: 0x040008E7 RID: 2279
+		
 		public readonly DataMonitor<bool> 未读邮件;
 
-		// Token: 0x040008E8 RID: 2280
+		
 		public readonly DataMonitor<string> 邮件标题;
 
-		// Token: 0x040008E9 RID: 2281
+		
 		public readonly DataMonitor<string> 邮件正文;
 
-		// Token: 0x040008EA RID: 2282
+		
 		public readonly DataMonitor<DateTime> 创建日期;
 
-		// Token: 0x040008EB RID: 2283
+		
 		public readonly DataMonitor<ItemData> 邮件附件;
 
-		// Token: 0x040008EC RID: 2284
+		
 		public readonly DataMonitor<CharacterData> 邮件作者;
 
-		// Token: 0x040008ED RID: 2285
+		
 		public readonly DataMonitor<CharacterData> 收件地址;
 	}
 }

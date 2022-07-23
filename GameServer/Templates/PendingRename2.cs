@@ -8,10 +8,10 @@ using GameServer.Networking;
 
 namespace GameServer.Templates
 {
-	// Token: 0x0200029F RID: 671
+	
 	public class 技能实例
 	{
-		// Token: 0x170000BF RID: 191
+		
 		// (get) Token: 0x060006B0 RID: 1712 RVA: 0x00005F0E File Offset: 0x0000410E
 		public int 来源编号
 		{
@@ -21,7 +21,7 @@ namespace GameServer.Templates
 			}
 		}
 
-		// Token: 0x170000C0 RID: 192
+		
 		// (get) Token: 0x060006B1 RID: 1713 RVA: 0x00005F1B File Offset: 0x0000411B
 		public byte 分组编号
 		{
@@ -31,7 +31,7 @@ namespace GameServer.Templates
 			}
 		}
 
-		// Token: 0x170000C1 RID: 193
+		
 		// (get) Token: 0x060006B2 RID: 1714 RVA: 0x00005F28 File Offset: 0x00004128
 		public byte 铭文编号
 		{
@@ -41,7 +41,7 @@ namespace GameServer.Templates
 			}
 		}
 
-		// Token: 0x170000C2 RID: 194
+		
 		// (get) Token: 0x060006B3 RID: 1715 RVA: 0x00005F35 File Offset: 0x00004135
 		public ushort 技能编号
 		{
@@ -51,7 +51,7 @@ namespace GameServer.Templates
 			}
 		}
 
-		// Token: 0x170000C3 RID: 195
+		
 		// (get) Token: 0x060006B4 RID: 1716 RVA: 0x00031360 File Offset: 0x0002F560
 		public byte 技能等级
 		{
@@ -81,7 +81,7 @@ namespace GameServer.Templates
 			}
 		}
 
-		// Token: 0x170000C4 RID: 196
+		
 		// (get) Token: 0x060006B5 RID: 1717 RVA: 0x00005F42 File Offset: 0x00004142
 		public bool 检查计数
 		{
@@ -91,7 +91,7 @@ namespace GameServer.Templates
 			}
 		}
 
-		// Token: 0x060006B6 RID: 1718 RVA: 0x000313F8 File Offset: 0x0002F5F8
+		
 		public 技能实例(MapObject 技能来源, 游戏技能 技能模板, SkillData SkillData, byte 动作编号, MapInstance 释放地图, Point 释放位置, MapObject 技能目标, Point 技能锚点, 技能实例 父类技能, Dictionary<int, 命中详情> 命中列表 = null, bool 目标借位 = false)
 		{
 			
@@ -116,7 +116,7 @@ namespace GameServer.Templates
 			}
 		}
 
-		// Token: 0x060006B7 RID: 1719 RVA: 0x000314D8 File Offset: 0x0002F6D8
+		
 		public void 处理任务()
 		{
 			if ((this.预约时间 - this.处理计时).TotalMilliseconds > 5.0 && MainProcess.CurrentTime < this.预约时间)
@@ -1444,7 +1444,7 @@ namespace GameServer.Templates
 			this.处理任务();
 		}
 
-		// Token: 0x060006B8 RID: 1720 RVA: 0x00034B78 File Offset: 0x00032D78
+		
 		public void 技能中断()
 		{
 			this.节点列表.Clear();
@@ -1459,61 +1459,61 @@ namespace GameServer.Templates
 			});
 		}
 
-		// Token: 0x04000A71 RID: 2673
+		
 		public 游戏技能 技能模板;
 
-		// Token: 0x04000A72 RID: 2674
+		
 		public SkillData SkillData;
 
-		// Token: 0x04000A73 RID: 2675
+		
 		public MapObject 技能来源;
 
-		// Token: 0x04000A74 RID: 2676
+		
 		public byte 动作编号;
 
-		// Token: 0x04000A75 RID: 2677
+		
 		public byte 分段编号;
 
-		// Token: 0x04000A76 RID: 2678
+		
 		public MapInstance 释放地图;
 
-		// Token: 0x04000A77 RID: 2679
+		
 		public MapObject 技能目标;
 
-		// Token: 0x04000A78 RID: 2680
+		
 		public Point 技能锚点;
 
-		// Token: 0x04000A79 RID: 2681
+		
 		public Point 释放位置;
 
-		// Token: 0x04000A7A RID: 2682
+		
 		public DateTime 释放时间;
 
-		// Token: 0x04000A7B RID: 2683
+		
 		public 技能实例 父类技能;
 
-		// Token: 0x04000A7C RID: 2684
+		
 		public bool 目标借位;
 
-		// Token: 0x04000A7D RID: 2685
+		
 		public Dictionary<int, 命中详情> 命中列表;
 
-		// Token: 0x04000A7E RID: 2686
+		
 		public int 飞行耗时;
 
-		// Token: 0x04000A7F RID: 2687
+		
 		public int 攻速缩减;
 
-		// Token: 0x04000A80 RID: 2688
+		
 		public bool 经验增加;
 
-		// Token: 0x04000A81 RID: 2689
+		
 		public DateTime 处理计时;
 
-		// Token: 0x04000A82 RID: 2690
+		
 		public DateTime 预约时间;
 
-		// Token: 0x04000A83 RID: 2691
+		
 		public SortedDictionary<int, 技能任务> 节点列表;
 	}
 }

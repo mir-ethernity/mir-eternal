@@ -2,10 +2,10 @@
 
 namespace AccountServer
 {
-	// Token: 0x02000006 RID: 6
+	
 	public sealed class AccountData
 	{
-		// Token: 0x06000020 RID: 32 RVA: 0x000038E8 File Offset: 0x00001AE8
+		
 		public static string GenerateTickets()
 		{
 			string text = "ULS21-";
@@ -16,7 +16,7 @@ namespace AccountServer
 			return text;
 		}
 
-		// Token: 0x06000021 RID: 33 RVA: 0x00003930 File Offset: 0x00001B30
+		
 		public AccountData(string 账号, string 密码, string 问题, string 答案)
 		{
 			this.账号名字 = 账号;
@@ -26,10 +26,10 @@ namespace AccountServer
 			this.创建日期 = DateTime.Now;
 		}
 
-		// Token: 0x04000025 RID: 37
+		
 		private static Random 随机数 = new Random();
 
-		// Token: 0x04000026 RID: 38
+		
 		private static char[] RandomChars = new char[]
 		{
 			'0',
@@ -96,19 +96,19 @@ namespace AccountServer
 			'z'
 		};
 
-		// Token: 0x04000027 RID: 39
+		
 		public string 账号名字;
 
-		// Token: 0x04000028 RID: 40
+		
 		public string Password;
 
-		// Token: 0x04000029 RID: 41
+		
 		public string Question;
 
-		// Token: 0x0400002A RID: 42
+		
 		public string Answer;
 
-		// Token: 0x0400002B RID: 43
+		
 		public DateTime 创建日期;
 	}
 }

@@ -8,45 +8,45 @@ using GameServer.Networking;
 
 namespace GameServer.Maps
 {
-	// Token: 0x020002DF RID: 735
+	
 	public sealed class MonsterObject : MapObject
 	{
-		// Token: 0x1700014A RID: 330
+		
 		// (get) Token: 0x0600083D RID: 2109 RVA: 0x00006BFE File Offset: 0x00004DFE
 		// (set) Token: 0x0600083E RID: 2110 RVA: 0x00006C06 File Offset: 0x00004E06
 		public bool 禁止复活 { get; set; }
 
-		// Token: 0x1700014B RID: 331
+		
 		// (get) Token: 0x0600083F RID: 2111 RVA: 0x00006C0F File Offset: 0x00004E0F
 		// (set) Token: 0x06000840 RID: 2112 RVA: 0x00006C17 File Offset: 0x00004E17
 		public bool 尸体消失 { get; set; }
 
-		// Token: 0x1700014C RID: 332
+		
 		// (get) Token: 0x06000841 RID: 2113 RVA: 0x00006C20 File Offset: 0x00004E20
 		// (set) Token: 0x06000842 RID: 2114 RVA: 0x00006C28 File Offset: 0x00004E28
 		public DateTime 攻击时间 { get; set; }
 
-		// Token: 0x1700014D RID: 333
+		
 		// (get) Token: 0x06000843 RID: 2115 RVA: 0x00006C31 File Offset: 0x00004E31
 		// (set) Token: 0x06000844 RID: 2116 RVA: 0x00006C39 File Offset: 0x00004E39
 		public DateTime 漫游时间 { get; set; }
 
-		// Token: 0x1700014E RID: 334
+		
 		// (get) Token: 0x06000845 RID: 2117 RVA: 0x00006C42 File Offset: 0x00004E42
 		// (set) Token: 0x06000846 RID: 2118 RVA: 0x00006C4A File Offset: 0x00004E4A
 		public DateTime 复活时间 { get; set; }
 
-		// Token: 0x1700014F RID: 335
+		
 		// (get) Token: 0x06000847 RID: 2119 RVA: 0x00006C53 File Offset: 0x00004E53
 		// (set) Token: 0x06000848 RID: 2120 RVA: 0x00006C5B File Offset: 0x00004E5B
 		public DateTime 消失时间 { get; set; }
 
-		// Token: 0x17000150 RID: 336
+		
 		// (get) Token: 0x06000849 RID: 2121 RVA: 0x00006C64 File Offset: 0x00004E64
 		// (set) Token: 0x0600084A RID: 2122 RVA: 0x00006C6C File Offset: 0x00004E6C
 		public DateTime 存活时间 { get; set; }
 
-		// Token: 0x17000151 RID: 337
+		
 		// (get) Token: 0x0600084B RID: 2123 RVA: 0x00006134 File Offset: 0x00004334
 		public override int 处理间隔
 		{
@@ -56,7 +56,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000152 RID: 338
+		
 		// (get) Token: 0x0600084C RID: 2124 RVA: 0x00006138 File Offset: 0x00004338
 		// (set) Token: 0x0600084D RID: 2125 RVA: 0x00036440 File Offset: 0x00034640
 		public override DateTime 忙碌时间
@@ -75,7 +75,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000153 RID: 339
+		
 		// (get) Token: 0x0600084E RID: 2126 RVA: 0x00006140 File Offset: 0x00004340
 		// (set) Token: 0x0600084F RID: 2127 RVA: 0x00006148 File Offset: 0x00004348
 		public override DateTime 硬直时间
@@ -93,7 +93,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000154 RID: 340
+		
 		// (get) Token: 0x06000850 RID: 2128 RVA: 0x0000615F File Offset: 0x0000435F
 		// (set) Token: 0x06000851 RID: 2129 RVA: 0x0003646C File Offset: 0x0003466C
 		public override int 当前体力
@@ -118,7 +118,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000155 RID: 341
+		
 		// (get) Token: 0x06000852 RID: 2130 RVA: 0x00006167 File Offset: 0x00004367
 		// (set) Token: 0x06000853 RID: 2131 RVA: 0x0000616F File Offset: 0x0000436F
 		public override MapInstance 当前地图
@@ -142,7 +142,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000156 RID: 342
+		
 		// (get) Token: 0x06000854 RID: 2132 RVA: 0x0000619F File Offset: 0x0000439F
 		// (set) Token: 0x06000855 RID: 2133 RVA: 0x000061A7 File Offset: 0x000043A7
 		public override GameDirection 当前方向
@@ -166,7 +166,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000157 RID: 343
+		
 		// (get) Token: 0x06000856 RID: 2134 RVA: 0x00006C75 File Offset: 0x00004E75
 		public override byte 当前等级
 		{
@@ -176,7 +176,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000158 RID: 344
+		
 		// (get) Token: 0x06000857 RID: 2135 RVA: 0x00006C82 File Offset: 0x00004E82
 		public override string 对象名字
 		{
@@ -186,7 +186,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000159 RID: 345
+		
 		// (get) Token: 0x06000858 RID: 2136 RVA: 0x00006A23 File Offset: 0x00004C23
 		public override GameObjectType 对象类型
 		{
@@ -196,7 +196,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700015A RID: 346
+		
 		// (get) Token: 0x06000859 RID: 2137 RVA: 0x00006C8F File Offset: 0x00004E8F
 		public override 技能范围类型 对象体型
 		{
@@ -206,7 +206,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700015B RID: 347
+		
 		public override int this[GameObjectProperties 属性]
 		{
 			get
@@ -219,7 +219,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700015C RID: 348
+		
 		// (get) Token: 0x0600085C RID: 2140 RVA: 0x00006C9C File Offset: 0x00004E9C
 		public MonsterRaceType 怪物种族
 		{
@@ -229,7 +229,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700015D RID: 349
+		
 		// (get) Token: 0x0600085D RID: 2141 RVA: 0x00006CA9 File Offset: 0x00004EA9
 		public MonsterLevelType 怪物级别
 		{
@@ -239,7 +239,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700015E RID: 350
+		
 		// (get) Token: 0x0600085E RID: 2142 RVA: 0x00006CB6 File Offset: 0x00004EB6
 		public List<怪物掉落> 怪物掉落
 		{
@@ -249,7 +249,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700015F RID: 351
+		
 		// (get) Token: 0x0600085F RID: 2143 RVA: 0x00006CC3 File Offset: 0x00004EC3
 		public ushort 模板编号
 		{
@@ -259,7 +259,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000160 RID: 352
+		
 		// (get) Token: 0x06000860 RID: 2144 RVA: 0x00006CD0 File Offset: 0x00004ED0
 		public int 怪物经验
 		{
@@ -269,7 +269,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000161 RID: 353
+		
 		// (get) Token: 0x06000861 RID: 2145 RVA: 0x00006CDD File Offset: 0x00004EDD
 		public int 仇恨范围
 		{
@@ -283,7 +283,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000162 RID: 354
+		
 		// (get) Token: 0x06000862 RID: 2146 RVA: 0x00006CFC File Offset: 0x00004EFC
 		public int 移动间隔
 		{
@@ -293,7 +293,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000163 RID: 355
+		
 		// (get) Token: 0x06000863 RID: 2147 RVA: 0x00006A2D File Offset: 0x00004C2D
 		public int 切换间隔
 		{
@@ -303,7 +303,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000164 RID: 356
+		
 		// (get) Token: 0x06000864 RID: 2148 RVA: 0x00006D09 File Offset: 0x00004F09
 		public int 漫游间隔
 		{
@@ -313,7 +313,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000165 RID: 357
+		
 		// (get) Token: 0x06000865 RID: 2149 RVA: 0x00006D16 File Offset: 0x00004F16
 		public int 仇恨时长
 		{
@@ -323,7 +323,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000166 RID: 358
+		
 		// (get) Token: 0x06000866 RID: 2150 RVA: 0x00006D23 File Offset: 0x00004F23
 		public int 尸体保留
 		{
@@ -333,7 +333,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000167 RID: 359
+		
 		// (get) Token: 0x06000867 RID: 2151 RVA: 0x00006D30 File Offset: 0x00004F30
 		public bool 怪物禁止移动
 		{
@@ -343,7 +343,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000168 RID: 360
+		
 		// (get) Token: 0x06000868 RID: 2152 RVA: 0x00006D3D File Offset: 0x00004F3D
 		public bool 可被技能推动
 		{
@@ -353,7 +353,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000169 RID: 361
+		
 		// (get) Token: 0x06000869 RID: 2153 RVA: 0x00006D4A File Offset: 0x00004F4A
 		public bool 可见隐身目标
 		{
@@ -363,7 +363,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700016A RID: 362
+		
 		// (get) Token: 0x0600086A RID: 2154 RVA: 0x00006D57 File Offset: 0x00004F57
 		public bool 可被技能控制
 		{
@@ -373,7 +373,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700016B RID: 363
+		
 		// (get) Token: 0x0600086B RID: 2155 RVA: 0x00006D64 File Offset: 0x00004F64
 		public bool 可被技能诱惑
 		{
@@ -383,7 +383,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700016C RID: 364
+		
 		// (get) Token: 0x0600086C RID: 2156 RVA: 0x00006D71 File Offset: 0x00004F71
 		public float 基础诱惑概率
 		{
@@ -393,7 +393,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700016D RID: 365
+		
 		// (get) Token: 0x0600086D RID: 2157 RVA: 0x00006D7E File Offset: 0x00004F7E
 		public bool 主动攻击目标
 		{
@@ -403,7 +403,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600086E RID: 2158 RVA: 0x00041830 File Offset: 0x0003FA30
+		
 		public MonsterObject(PetObject 对应宠物)
 		{
 			
@@ -468,7 +468,7 @@ namespace GameServer.Maps
 			MapGatewayProcess.添加MapObject(this);
 		}
 
-		// Token: 0x0600086F RID: 2159 RVA: 0x00041AFC File Offset: 0x0003FCFC
+		
 		public MonsterObject(游戏怪物 对应模板, MapInstance 出生地图, int 复活间隔, Point[] 出生范围, bool 禁止复活, bool 立即刷新)
 		{
 			
@@ -535,7 +535,7 @@ namespace GameServer.Maps
 			MapGatewayProcess.添加次要对象(this);
 		}
 
-		// Token: 0x06000870 RID: 2160 RVA: 0x00041D6C File Offset: 0x0003FF6C
+		
 		public override void 处理对象数据()
 		{
 			if (MainProcess.CurrentTime < base.预约时间)
@@ -638,7 +638,7 @@ namespace GameServer.Maps
 			base.处理对象数据();
 		}
 
-		// Token: 0x06000871 RID: 2161 RVA: 0x00042164 File Offset: 0x00040364
+		
 		public override void 自身死亡处理(MapObject 对象, bool 技能击杀)
 		{
 			foreach (技能实例 技能实例 in this.技能任务)
@@ -855,7 +855,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000872 RID: 2162 RVA: 0x00042A5C File Offset: 0x00040C5C
+		
 		public void 怪物随机漫游()
 		{
 			if (!this.怪物禁止移动 && !(MainProcess.CurrentTime < this.漫游时间))
@@ -885,7 +885,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000873 RID: 2163 RVA: 0x00042B64 File Offset: 0x00040D64
+		
 		public void 怪物智能攻击()
 		{
 			base.脱战时间 = MainProcess.CurrentTime.AddSeconds(10.0);
@@ -982,7 +982,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000874 RID: 2164 RVA: 0x00042F5C File Offset: 0x0004115C
+		
 		public void 怪物复活处理(bool 计算复活)
 		{
 			if (this.当前地图.副本地图 || !this.禁止复活)
@@ -1038,7 +1038,7 @@ namespace GameServer.Maps
 			//goto IL_F1;
 		}
 
-		// Token: 0x06000875 RID: 2165 RVA: 0x00043158 File Offset: 0x00041358
+		
 		public void 怪物诱惑处理()
 		{
 			this.Buff列表.Clear();
@@ -1059,7 +1059,7 @@ namespace GameServer.Maps
 			MapGatewayProcess.移除激活对象(this);
 		}
 
-		// Token: 0x06000876 RID: 2166 RVA: 0x000431D4 File Offset: 0x000413D4
+		
 		public void 怪物沉睡处理()
 		{
 			if (this.激活对象)
@@ -1076,7 +1076,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000877 RID: 2167 RVA: 0x0004322C File Offset: 0x0004142C
+		
 		public void 怪物激活处理()
 		{
 			if (!this.激活对象)
@@ -1092,7 +1092,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000878 RID: 2168 RVA: 0x0004330C File Offset: 0x0004150C
+		
 		public bool 更新HateObject()
 		{
 			if (this.HateObject.仇恨列表.Count == 0)
@@ -1130,7 +1130,7 @@ namespace GameServer.Maps
 			return this.HateObject.当前目标 != null || this.更新HateObject();
 		}
 
-		// Token: 0x06000879 RID: 2169 RVA: 0x000434EC File Offset: 0x000416EC
+		
 		public bool 更新最近仇恨()
 		{
 			if (this.HateObject.仇恨列表.Count == 0)
@@ -1168,14 +1168,14 @@ namespace GameServer.Maps
 			return this.HateObject.当前目标 != null || this.更新HateObject();
 		}
 
-		// Token: 0x0600087A RID: 2170 RVA: 0x00006D8B File Offset: 0x00004F8B
+		
 		public void 清空怪物仇恨()
 		{
 			this.HateObject.当前目标 = null;
 			this.HateObject.仇恨列表.Clear();
 		}
 
-		// Token: 0x0600087B RID: 2171 RVA: 0x000436CC File Offset: 0x000418CC
+		
 		public bool 更新怪物归属(out PlayerObject 归属玩家)
 		{
 			foreach (KeyValuePair<MapObject, HateObject.仇恨详情> keyValuePair in this.HateObject.仇恨列表.ToList<KeyValuePair<MapObject, HateObject.仇恨详情>>())
@@ -1213,43 +1213,43 @@ namespace GameServer.Maps
 			return 归属玩家 != null;
 		}
 
-		// Token: 0x04000CFE RID: 3326
+		
 		public byte 宠物等级;
 
-		// Token: 0x04000CFF RID: 3327
+		
 		public 游戏怪物 对象模板;
 
-		// Token: 0x04000D00 RID: 3328
+		
 		public int 复活间隔;
 
-		// Token: 0x04000D01 RID: 3329
+		
 		public HateObject HateObject;
 
-		// Token: 0x04000D02 RID: 3330
+		
 		public Point[] 出生范围;
 
-		// Token: 0x04000D03 RID: 3331
+		
 		public MapInstance 出生地图;
 
-		// Token: 0x04000D04 RID: 3332
+		
 		public 游戏技能 普通攻击技能;
 
-		// Token: 0x04000D05 RID: 3333
+		
 		public 游戏技能 概率触发技能;
 
-		// Token: 0x04000D06 RID: 3334
+		
 		public 游戏技能 进入战斗技能;
 
-		// Token: 0x04000D07 RID: 3335
+		
 		public 游戏技能 退出战斗技能;
 
-		// Token: 0x04000D08 RID: 3336
+		
 		public 游戏技能 死亡释放技能;
 
-		// Token: 0x04000D09 RID: 3337
+		
 		public 游戏技能 移动释放技能;
 
-		// Token: 0x04000D0A RID: 3338
+		
 		public 游戏技能 出生释放技能;
 	}
 }

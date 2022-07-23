@@ -6,10 +6,10 @@ using System.Windows.Forms;
 
 namespace GameServer.Templates
 {
-	// Token: 0x020002C8 RID: 712
+	
 	public static class SystemDataService
 	{
-		// Token: 0x060006ED RID: 1773 RVA: 0x00035AD4 File Offset: 0x00033CD4
+		
 		public static void LoadData()
 		{
 			List<Type> 模板列表 = new List<Type>

@@ -5,10 +5,10 @@ using System.Reflection;
 
 namespace GameServer
 {
-	// Token: 0x02000005 RID: 5
+	
 	public abstract class GMCommand
 	{
-		// Token: 0x06000002 RID: 2 RVA: 0x00007A64 File Offset: 0x00005C64
+		
 		static GMCommand()
 		{
 			
@@ -61,7 +61,7 @@ namespace GameServer
 			GMCommand.字段写入方法表 = dictionary2;
 		}
 
-		// Token: 0x06000003 RID: 3 RVA: 0x00007CF4 File Offset: 0x00005EF4
+		
 		public static bool 解析命令(string 文本, out GMCommand 命令)
 		{
 			string[] array = 文本.Trim(new char[]
@@ -110,30 +110,30 @@ namespace GameServer
 			return true;
 		}
 
-		// Token: 0x06000004 RID: 4
+		
 		public abstract void Execute();
 
-		// Token: 0x17000001 RID: 1
+		
 		// (get) Token: 0x06000005 RID: 5
 		public abstract ExecutionWay ExecutionWay { get; }
 
-		// Token: 0x06000006 RID: 6 RVA: 0x000027D8 File Offset: 0x000009D8
+		
 		protected GMCommand()
 		{
 			
 			
 		}
 
-		// Token: 0x04000007 RID: 7
+		
 		private static readonly Dictionary<string, Type> 命令字典;
 
-		// Token: 0x04000008 RID: 8
+		
 		private static readonly Dictionary<string, FieldInfo[]> 字段列表;
 
-		// Token: 0x04000009 RID: 9
+		
 		private static readonly Dictionary<Type, Func<string, object>> 字段写入方法表;
 
-		// Token: 0x0400000A RID: 10
+		
 		public static readonly Dictionary<string, string> 命令格式;
 	}
 }

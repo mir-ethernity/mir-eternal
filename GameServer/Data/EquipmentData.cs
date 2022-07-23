@@ -6,10 +6,10 @@ using GameServer.Templates;
 
 namespace GameServer.Data
 {
-	// Token: 0x02000268 RID: 616
+	
 	public class EquipmentData : ItemData
 	{
-		// Token: 0x17000082 RID: 130
+		
 		// (get) Token: 0x06000587 RID: 1415 RVA: 0x0000531F File Offset: 0x0000351F
 		public 游戏装备 装备模板
 		{
@@ -19,7 +19,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000083 RID: 131
+		
 		// (get) Token: 0x06000588 RID: 1416 RVA: 0x00026D44 File Offset: 0x00024F44
 		public int 装备战力
 		{
@@ -1937,7 +1937,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000084 RID: 132
+		
 		// (get) Token: 0x06000589 RID: 1417 RVA: 0x000287D8 File Offset: 0x000269D8
 		public int 修理费用
 		{
@@ -1950,7 +1950,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000085 RID: 133
+		
 		// (get) Token: 0x0600058A RID: 1418 RVA: 0x00028858 File Offset: 0x00026A58
 		public int 特修费用
 		{
@@ -1963,7 +1963,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000086 RID: 134
+		
 		// (get) Token: 0x0600058B RID: 1419 RVA: 0x0000532C File Offset: 0x0000352C
 		public int 需要攻击
 		{
@@ -1973,7 +1973,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000087 RID: 135
+		
 		// (get) Token: 0x0600058C RID: 1420 RVA: 0x0000533E File Offset: 0x0000353E
 		public int 需要魔法
 		{
@@ -1983,7 +1983,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000088 RID: 136
+		
 		// (get) Token: 0x0600058D RID: 1421 RVA: 0x00005350 File Offset: 0x00003550
 		public int 需要道术
 		{
@@ -1993,7 +1993,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000089 RID: 137
+		
 		// (get) Token: 0x0600058E RID: 1422 RVA: 0x00005362 File Offset: 0x00003562
 		public int 需要刺术
 		{
@@ -2003,7 +2003,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700008A RID: 138
+		
 		// (get) Token: 0x0600058F RID: 1423 RVA: 0x00005374 File Offset: 0x00003574
 		public int 需要弓术
 		{
@@ -2013,7 +2013,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700008B RID: 139
+		
 		// (get) Token: 0x06000590 RID: 1424 RVA: 0x000051CE File Offset: 0x000033CE
 		public string 装备名字
 		{
@@ -2023,7 +2023,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700008C RID: 140
+		
 		// (get) Token: 0x06000591 RID: 1425 RVA: 0x00005386 File Offset: 0x00003586
 		public bool 禁止卸下
 		{
@@ -2033,7 +2033,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700008D RID: 141
+		
 		// (get) Token: 0x06000592 RID: 1426 RVA: 0x0000539D File Offset: 0x0000359D
 		public bool 能否修理
 		{
@@ -2043,7 +2043,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700008E RID: 142
+		
 		// (get) Token: 0x06000593 RID: 1427 RVA: 0x000288FC File Offset: 0x00026AFC
 		public int 传承材料
 		{
@@ -2152,7 +2152,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700008F RID: 143
+		
 		// (get) Token: 0x06000594 RID: 1428 RVA: 0x00028BAC File Offset: 0x00026DAC
 		public string 属性描述
 		{
@@ -2245,7 +2245,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000090 RID: 144
+		
 		// (get) Token: 0x06000595 RID: 1429 RVA: 0x000053A8 File Offset: 0x000035A8
 		// (set) Token: 0x06000596 RID: 1430 RVA: 0x000053D0 File Offset: 0x000035D0
 		public 铭文技能 第一铭文
@@ -2269,7 +2269,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000091 RID: 145
+		
 		// (get) Token: 0x06000597 RID: 1431 RVA: 0x000053FA File Offset: 0x000035FA
 		// (set) Token: 0x06000598 RID: 1432 RVA: 0x00005422 File Offset: 0x00003622
 		public 铭文技能 第二铭文
@@ -2293,7 +2293,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000092 RID: 146
+		
 		// (get) Token: 0x06000599 RID: 1433 RVA: 0x00028F9C File Offset: 0x0002719C
 		// (set) Token: 0x0600059A RID: 1434 RVA: 0x00029034 File Offset: 0x00027234
 		public 铭文技能 最优铭文
@@ -2342,7 +2342,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000093 RID: 147
+		
 		// (get) Token: 0x0600059B RID: 1435 RVA: 0x000290D0 File Offset: 0x000272D0
 		// (set) Token: 0x0600059C RID: 1436 RVA: 0x00029168 File Offset: 0x00027368
 		public 铭文技能 最差铭文
@@ -2391,7 +2391,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000094 RID: 148
+		
 		// (get) Token: 0x0600059D RID: 1437 RVA: 0x0000544C File Offset: 0x0000364C
 		// (set) Token: 0x0600059E RID: 1438 RVA: 0x00005472 File Offset: 0x00003672
 		public int 双铭文点
@@ -2415,7 +2415,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000095 RID: 149
+		
 		// (get) Token: 0x0600059F RID: 1439 RVA: 0x00029204 File Offset: 0x00027404
 		public Dictionary<GameObjectProperties, int> 装备属性
 		{
@@ -2702,14 +2702,14 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x060005A0 RID: 1440 RVA: 0x0000549A File Offset: 0x0000369A
+		
 		public EquipmentData()
 		{
 			
 			
 		}
 
-		// Token: 0x060005A1 RID: 1441 RVA: 0x00029D8C File Offset: 0x00027F8C
+		
 		public EquipmentData(游戏装备 模板, CharacterData 来源, byte 容器, byte 位置, bool 随机生成 = false)
 		{
 			
@@ -2741,7 +2741,7 @@ namespace GameServer.Data
 			GameDataGateway.EquipmentData表.AddData(this, true);
 		}
 
-		// Token: 0x17000096 RID: 150
+		
 		// (get) Token: 0x060005A2 RID: 1442 RVA: 0x00029E88 File Offset: 0x00028088
 		public int 重铸所需灵气
 		{
@@ -2771,7 +2771,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x060005A3 RID: 1443 RVA: 0x00029EEC File Offset: 0x000280EC
+		
 		public override byte[] 字节描述()
 		{
 			byte[] result;
@@ -3011,67 +3011,67 @@ namespace GameServer.Data
 			return result;
 		}
 
-		// Token: 0x04000830 RID: 2096
+		
 		public readonly DataMonitor<byte> 升级次数;
 
-		// Token: 0x04000831 RID: 2097
+		
 		public readonly DataMonitor<byte> 升级攻击;
 
-		// Token: 0x04000832 RID: 2098
+		
 		public readonly DataMonitor<byte> 升级魔法;
 
-		// Token: 0x04000833 RID: 2099
+		
 		public readonly DataMonitor<byte> 升级道术;
 
-		// Token: 0x04000834 RID: 2100
+		
 		public readonly DataMonitor<byte> 升级刺术;
 
-		// Token: 0x04000835 RID: 2101
+		
 		public readonly DataMonitor<byte> 升级弓术;
 
-		// Token: 0x04000836 RID: 2102
+		
 		public readonly DataMonitor<bool> 灵魂绑定;
 
-		// Token: 0x04000837 RID: 2103
+		
 		public readonly DataMonitor<byte> 祈祷次数;
 
-		// Token: 0x04000838 RID: 2104
+		
 		public readonly DataMonitor<sbyte> 幸运等级;
 
-		// Token: 0x04000839 RID: 2105
+		
 		public readonly DataMonitor<bool> 装备神佑;
 
-		// Token: 0x0400083A RID: 2106
+		
 		public readonly DataMonitor<byte> 神圣伤害;
 
-		// Token: 0x0400083B RID: 2107
+		
 		public readonly DataMonitor<ushort> 圣石数量;
 
-		// Token: 0x0400083C RID: 2108
+		
 		public readonly DataMonitor<bool> 双铭文栏;
 
-		// Token: 0x0400083D RID: 2109
+		
 		public readonly DataMonitor<byte> 当前铭栏;
 
-		// Token: 0x0400083E RID: 2110
+		
 		public readonly DataMonitor<int> 洗练数一;
 
-		// Token: 0x0400083F RID: 2111
+		
 		public readonly DataMonitor<int> 洗练数二;
 
-		// Token: 0x04000840 RID: 2112
+		
 		public readonly DataMonitor<byte> 物品状态;
 
-		// Token: 0x04000841 RID: 2113
+		
 		public readonly ListMonitor<随机属性> 随机属性;
 
-		// Token: 0x04000842 RID: 2114
+		
 		public readonly ListMonitor<EquipHoleColor> 孔洞颜色;
 
-		// Token: 0x04000843 RID: 2115
+		
 		public readonly MonitorDictionary<byte, 铭文技能> 铭文技能;
 
-		// Token: 0x04000844 RID: 2116
+		
 		public readonly MonitorDictionary<byte, 游戏物品> 镶嵌灵石;
 	}
 }

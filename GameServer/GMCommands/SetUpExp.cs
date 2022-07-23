@@ -4,10 +4,10 @@ using GameServer.Properties;
 
 namespace GameServer
 {
-	// Token: 0x02000016 RID: 22
+	
 	public sealed class SetUpExp : GMCommand
 	{
-		// Token: 0x1700000E RID: 14
+		
 		// (get) Token: 0x06000041 RID: 65 RVA: 0x00002940 File Offset: 0x00000B40
 		public override ExecutionWay ExecutionWay
 		{
@@ -17,7 +17,7 @@ namespace GameServer
 			}
 		}
 
-		// Token: 0x06000042 RID: 66 RVA: 0x00008584 File Offset: 0x00006784
+		
 		public override void Execute()
 		{
 			if (this.经验倍率 <= 0m)
@@ -39,14 +39,14 @@ namespace GameServer
 			MainForm.添加命令日志(string.Format("<= @{0} The command has been executed, current experience multiplier: {1}", base.GetType().Name, CustomClass.怪物经验倍率));
 		}
 
-		// Token: 0x06000043 RID: 67 RVA: 0x00002858 File Offset: 0x00000A58
+		
 		public SetUpExp()
 		{
 			
 			
 		}
 
-		// Token: 0x04000022 RID: 34
+		
 		[FieldAttribute(0, 排序 = 0)]
 		public decimal 经验倍率;
 	}

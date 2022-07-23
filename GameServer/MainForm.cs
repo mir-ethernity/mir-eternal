@@ -17,10 +17,10 @@ using GameServer.Networking;
 
 namespace GameServer
 {
-    // Token: 0x02000024 RID: 36
+    
     public partial class MainForm : Form
     {
-        // Token: 0x06000088 RID: 136 RVA: 0x00011F20 File Offset: 0x00010120
+        
         public static void LoadSystemData()
         {
             MainForm MainForm = MainForm.Singleton;
@@ -80,7 +80,7 @@ namespace GameServer
             MainForm.AddSystemLog("System data has been loaded succesful");
         }
 
-        // Token: 0x06000089 RID: 137 RVA: 0x000122A8 File Offset: 0x000104A8
+        
         public static void LoadUserData()
         {
             MainForm MainForm = MainForm.Singleton;
@@ -200,7 +200,7 @@ namespace GameServer
             MainForm.AddSystemLog("Client data has been loaded successful");
         }
 
-        // Token: 0x0600008A RID: 138 RVA: 0x00002B15 File Offset: 0x00000D15
+        
         public static void ServerStartedCallback()
         {
             MainForm MainForm = MainForm.Singleton;
@@ -223,7 +223,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x0600008B RID: 139 RVA: 0x00002B46 File Offset: 0x00000D46
+        
         public static void Stop()
         {
             MainForm MainForm = MainForm.Singleton;
@@ -256,7 +256,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x0600008C RID: 140 RVA: 0x00012A0C File Offset: 0x00010C0C
+        
         public static void AddSystemLog(string 内容)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -274,7 +274,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x0600008D RID: 141 RVA: 0x00012A44 File Offset: 0x00010C44
+        
         public static void AddChatLog(string preffix, byte[] text)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -292,7 +292,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x0600008E RID: 142 RVA: 0x00012A84 File Offset: 0x00010C84
+        
         public static void 添加命令日志(string 内容)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -308,7 +308,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x0600008F RID: 143 RVA: 0x00012ABC File Offset: 0x00010CBC
+        
         public static void UpdateTotalConnections(uint 内容)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -322,7 +322,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x06000090 RID: 144 RVA: 0x00012AF4 File Offset: 0x00010CF4
+        
         public static void UpdateAlreadyLogged(uint 内容)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -336,7 +336,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x06000091 RID: 145 RVA: 0x00012B2C File Offset: 0x00010D2C
+        
         public static void UpdateConnectionsOnline(uint 内容)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -350,7 +350,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x06000092 RID: 146 RVA: 0x00012B64 File Offset: 0x00010D64
+        
         public static void UpdateLoopCount(uint 内容)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -364,7 +364,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x06000093 RID: 147 RVA: 0x00012B9C File Offset: 0x00010D9C
+        
         public static void UpdateReceivedBytes(long 内容)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -378,7 +378,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x06000094 RID: 148 RVA: 0x00012BD4 File Offset: 0x00010DD4
+        
         public static void UpdateSendedBytes(long 内容)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -392,7 +392,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x06000095 RID: 149 RVA: 0x00012C0C File Offset: 0x00010E0C
+        
         public static void UpdateObjectStatistics(int 激活对象, int 次要对象, int 对象总数)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -406,7 +406,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x06000096 RID: 150 RVA: 0x00002B77 File Offset: 0x00000D77
+        
         public static void 添加数据显示(CharacterData 数据)
         {
             if (!MainForm.CharacterData行.ContainsKey(数据))
@@ -416,7 +416,7 @@ namespace GameServer
             }
         }
 
-        // Token: 0x06000097 RID: 151 RVA: 0x00002BB5 File Offset: 0x00000DB5
+        
         public static void 修改数据显示(CharacterData 数据, string 表头文本, string 表格内容)
         {
             if (MainForm.CharacterData行.ContainsKey(数据))
@@ -425,7 +425,7 @@ namespace GameServer
             }
         }
 
-        // Token: 0x06000098 RID: 152 RVA: 0x00012C50 File Offset: 0x00010E50
+        
         public static void AddCharacterData(CharacterData 角色)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -478,7 +478,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x06000099 RID: 153 RVA: 0x00012C88 File Offset: 0x00010E88
+        
         public static void RemoveCharacter(CharacterData character)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -501,7 +501,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x0600009A RID: 154 RVA: 0x00012CC0 File Offset: 0x00010EC0
+        
         public static void 界面更新处理(object sender, EventArgs e)
         {
             MainForm.SkillData表.Rows.Clear();
@@ -585,7 +585,7 @@ namespace GameServer
             }
         }
 
-        // Token: 0x0600009B RID: 155 RVA: 0x00013148 File Offset: 0x00011348
+        
         public static void 更新CharacterData(CharacterData 角色, string 表头, object 内容)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -603,7 +603,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x0600009C RID: 156 RVA: 0x0001318C File Offset: 0x0001138C
+        
         public static void UpdateCharactersSkills(CharacterData 角色, List<KeyValuePair<ushort, SkillData>> 技能)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -617,7 +617,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x0600009D RID: 157 RVA: 0x000131CC File Offset: 0x000113CC
+        
         public static void UpdateCharactersEquipment(CharacterData 角色, List<KeyValuePair<byte, EquipmentData>> 装备)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -631,7 +631,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x0600009E RID: 158 RVA: 0x0001320C File Offset: 0x0001140C
+        
         public static void UpdateCharactersBackpack(CharacterData 角色, List<KeyValuePair<byte, ItemData>> 物品)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -645,7 +645,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x0600009F RID: 159 RVA: 0x0001324C File Offset: 0x0001144C
+        
         public static void 更新角色仓库(CharacterData 角色, List<KeyValuePair<byte, ItemData>> 物品)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -659,7 +659,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x060000A0 RID: 160 RVA: 0x0001328C File Offset: 0x0001148C
+        
         public static void 添加地图数据(MapInstance 地图)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -687,7 +687,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x060000A1 RID: 161 RVA: 0x000132C4 File Offset: 0x000114C4
+        
         public static void 更新地图数据(MapInstance 地图, string 表头, object 内容)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -716,7 +716,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x060000A2 RID: 162 RVA: 0x00013308 File Offset: 0x00011508
+        
         public static void 添加怪物数据(游戏怪物 怪物)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -744,7 +744,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x060000A3 RID: 163 RVA: 0x00013340 File Offset: 0x00011540
+        
         public static void 更新掉落统计(游戏怪物 怪物, List<KeyValuePair<游戏物品, long>> 物品)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -758,7 +758,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x060000A4 RID: 164 RVA: 0x00013380 File Offset: 0x00011580
+        
         public static void 添加封禁数据(string 地址, object 时间, bool 网络地址 = true)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -780,7 +780,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x060000A5 RID: 165 RVA: 0x000133C4 File Offset: 0x000115C4
+        
         public static void 更新封禁数据(string 地址, object 时间, bool 网络地址 = true)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -803,7 +803,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x060000A6 RID: 166 RVA: 0x00013408 File Offset: 0x00011608
+        
         public static void 移除封禁数据(string 地址)
         {
             MainForm MainForm = MainForm.Singleton;
@@ -822,7 +822,7 @@ namespace GameServer
             }));
         }
 
-        // Token: 0x060000A7 RID: 167 RVA: 0x00013440 File Offset: 0x00011640
+        
         public MainForm()
         {
 
@@ -890,7 +890,7 @@ namespace GameServer
             });
         }
 
-        // Token: 0x060000A8 RID: 168 RVA: 0x0001384C File Offset: 0x00011A4C
+        
         private void 保存数据库_Click(object sender, EventArgs e)
         {
             Control control = this.保存按钮;
@@ -912,7 +912,7 @@ namespace GameServer
             });
         }
 
-        // Token: 0x060000A9 RID: 169 RVA: 0x000138A0 File Offset: 0x00011AA0
+        
         private void 启动服务器_Click(object sender, EventArgs e)
         {
             MainProcess.Start();
@@ -959,7 +959,7 @@ namespace GameServer
             control.Enabled = false;
         }
 
-        // Token: 0x060000AA RID: 170 RVA: 0x00002BD6 File Offset: 0x00000DD6
+        
         private void 停止服务器_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Sure to stop the server?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
@@ -969,7 +969,7 @@ namespace GameServer
             }
         }
 
-        // Token: 0x060000AB RID: 171 RVA: 0x00013C24 File Offset: 0x00011E24
+        
         private void 关闭主界面_Click(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Sure to shut down the server?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
@@ -997,7 +997,7 @@ namespace GameServer
             }
         }
 
-        // Token: 0x060000AC RID: 172 RVA: 0x00013C9C File Offset: 0x00011E9C
+        
         private void 保存数据提醒_Tick(object sender, EventArgs e)
         {
             if (this.保存按钮.Enabled && GameDataGateway.已经修改)
@@ -1011,7 +1011,7 @@ namespace GameServer
             }
         }
 
-        // Token: 0x060000AD RID: 173 RVA: 0x00002C03 File Offset: 0x00000E03
+        
         private void 清空系统日志_Click(object sender, EventArgs e)
         {
             this.系统日志.Clear();
@@ -1020,7 +1020,7 @@ namespace GameServer
             control.Enabled = false;
         }
 
-        // Token: 0x060000AE RID: 174 RVA: 0x00002C28 File Offset: 0x00000E28
+        
         private void 清空聊天日志_Click(object sender, EventArgs e)
         {
             this.聊天日志.Clear();
@@ -1029,14 +1029,14 @@ namespace GameServer
             control.Enabled = false;
         }
 
-        // Token: 0x060000AF RID: 175 RVA: 0x00002C4D File Offset: 0x00000E4D
+        
         private void 清空命令日志_Click(object sender, EventArgs e)
         {
             this.命令日志.Clear();
             this.清空命令日志.Enabled = false;
         }
 
-        // Token: 0x060000B0 RID: 176 RVA: 0x00013CF8 File Offset: 0x00011EF8
+        
         private void 保存系统日志_Click(object sender, EventArgs e)
         {
             if (this.系统日志.Text != null && !(this.系统日志.Text == ""))
@@ -1051,7 +1051,7 @@ namespace GameServer
             }
         }
 
-        // Token: 0x060000B1 RID: 177 RVA: 0x00013D80 File Offset: 0x00011F80
+        
         private void 保存聊天日志_Click(object sender, EventArgs e)
         {
             if (this.聊天日志.Text != null && !(this.聊天日志.Text == ""))
@@ -1066,7 +1066,7 @@ namespace GameServer
             }
         }
 
-        // Token: 0x060000B2 RID: 178 RVA: 0x00002C66 File Offset: 0x00000E66
+        
         private void 重载SystemData_Click(object sender, EventArgs e)
         {
             Control control = this.下方控件页;
@@ -1084,7 +1084,7 @@ namespace GameServer
             });
         }
 
-        // Token: 0x060000B3 RID: 179 RVA: 0x00002C92 File Offset: 0x00000E92
+        
         private void 重载客户数据_Click(object sender, EventArgs e)
         {
             Control control = this.下方控件页;
@@ -1102,7 +1102,7 @@ namespace GameServer
             });
         }
 
-        // Token: 0x060000B4 RID: 180 RVA: 0x00013DF8 File Offset: 0x00011FF8
+        
         private void 选择数据目录_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog
@@ -1130,7 +1130,7 @@ namespace GameServer
             }
         }
 
-        // Token: 0x060000B5 RID: 181 RVA: 0x00013EB0 File Offset: 0x000120B0
+        
         private void 更改设置数值_Value(object sender, EventArgs e)
         {
             NumericUpDown numericUpDown = sender as NumericUpDown;
@@ -1194,7 +1194,7 @@ namespace GameServer
             }
         }
 
-        // Token: 0x060000B6 RID: 182 RVA: 0x000142BC File Offset: 0x000124BC
+        
         private void 执行GMCommand行_Press(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(13) && this.GMCommand文本.Text.Length > 0)
@@ -1260,7 +1260,7 @@ namespace GameServer
             }
         }
 
-        // Token: 0x060000B7 RID: 183 RVA: 0x0001443C File Offset: 0x0001263C
+        
         private void 合并客户数据_Click(object sender, EventArgs e)
         {
             if (MainProcess.Running)
@@ -1290,7 +1290,7 @@ namespace GameServer
             }
         }
 
-        // Token: 0x060000B8 RID: 184 RVA: 0x000144F0 File Offset: 0x000126F0
+        
         private void 角色右键菜单_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem toolStripMenuItem = sender as ToolStripMenuItem;
@@ -1316,7 +1316,7 @@ namespace GameServer
             }
         }
 
-        // Token: 0x060000B9 RID: 185 RVA: 0x00014604 File Offset: 0x00012804
+        
         private void 添加公告按钮_Click(object sender, EventArgs e)
         {
             int index = this.公告浏览表.Rows.Add();
@@ -1389,7 +1389,7 @@ namespace GameServer
             Settings.Default.Save();
         }
 
-        // Token: 0x060000BA RID: 186 RVA: 0x000147C4 File Offset: 0x000129C4
+        
         private void 删除公告按钮_Click(object sender, EventArgs e)
         {
             if (this.公告浏览表.Rows.Count != 0 && this.公告浏览表.SelectedRows.Count != 0)
@@ -1465,7 +1465,7 @@ namespace GameServer
             }
         }
 
-        // Token: 0x060000BB RID: 187 RVA: 0x00014978 File Offset: 0x00012B78
+        
         private void 开始公告按钮_Click(object sender, EventArgs e)
         {
             if (!MainProcess.Running || !this.停止按钮.Enabled)
@@ -1515,7 +1515,7 @@ namespace GameServer
             });
         }
 
-        // Token: 0x060000BC RID: 188 RVA: 0x00014B94 File Offset: 0x00012D94
+        
         private void 停止公告按钮_Click(object sender, EventArgs e)
         {
             if (this.公告浏览表.Rows.Count != 0 && this.公告浏览表.SelectedRows.Count != 0)
@@ -1532,7 +1532,7 @@ namespace GameServer
             }
         }
 
-        // Token: 0x060000BD RID: 189 RVA: 0x00014C70 File Offset: 0x00012E70
+        
         private void 定时发送公告_Tick(object sender, EventArgs e)
         {
             if (MainProcess.Running && MainForm.公告DataSheet.Count != 0)
@@ -1564,7 +1564,7 @@ namespace GameServer
             }
         }
 
-        // Token: 0x060000BE RID: 190 RVA: 0x00014E4C File Offset: 0x0001304C
+        
         private void 公告浏览表_SelectionChanged(object sender, EventArgs e)
         {
             if (this.公告浏览表.Rows.Count == 0 || this.公告浏览表.SelectedRows.Count == 0)
@@ -1585,7 +1585,7 @@ namespace GameServer
             this.停止公告按钮.Enabled = false;
         }
 
-        // Token: 0x060000BF RID: 191 RVA: 0x00014EFC File Offset: 0x000130FC
+        
         private void 公告浏览表_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             string text = null;
@@ -1654,70 +1654,70 @@ namespace GameServer
             Settings.Default.Save();
         }
 
-        // Token: 0x0400004B RID: 75
+        
         public static MainForm Singleton;
 
-        // Token: 0x0400004C RID: 76
+        
         private static DataTable CharacterDataTable;
 
-        // Token: 0x0400004D RID: 77
+        
         private static DataTable SkillData表;
 
-        // Token: 0x0400004E RID: 78
+        
         private static DataTable EquipmentData表;
 
-        // Token: 0x0400004F RID: 79
+        
         private static DataTable 背包DataSheet;
 
-        // Token: 0x04000050 RID: 80
+        
         private static DataTable 仓库DataSheet;
 
-        // Token: 0x04000051 RID: 81
+        
         private static DataTable MapsDataTable;
 
-        // Token: 0x04000052 RID: 82
+        
         private static DataTable 怪物DataSheet;
 
-        // Token: 0x04000053 RID: 83
+        
         private static DataTable 掉落DataSheet;
 
-        // Token: 0x04000054 RID: 84
+        
         private static DataTable 封禁DataSheet;
 
-        // Token: 0x04000055 RID: 85
+        
         private static Dictionary<CharacterData, DataRow> CharacterData行;
 
-        // Token: 0x04000056 RID: 86
+        
         private static Dictionary<DataRow, CharacterData> 数据行角色;
 
-        // Token: 0x04000057 RID: 87
+        
         private static Dictionary<游戏地图, DataRow> MapsDataRow;
 
-        // Token: 0x04000058 RID: 88
+        
         private static Dictionary<游戏怪物, DataRow> 怪物数据行;
 
-        // Token: 0x04000059 RID: 89
+        
         private static Dictionary<DataRow, 游戏怪物> 数据行怪物;
 
-        // Token: 0x0400005A RID: 90
+        
         private static Dictionary<string, DataRow> 封禁数据行;
 
-        // Token: 0x0400005B RID: 91
+        
         private static Dictionary<DataGridViewRow, DateTime> 公告DataSheet;
 
-        // Token: 0x0400005C RID: 92
+        
         private static Dictionary<CharacterData, List<KeyValuePair<ushort, SkillData>>> 角色技能表;
 
-        // Token: 0x0400005D RID: 93
+        
         private static Dictionary<CharacterData, List<KeyValuePair<byte, EquipmentData>>> 角色装备表;
 
-        // Token: 0x0400005E RID: 94
+        
         private static Dictionary<CharacterData, List<KeyValuePair<byte, ItemData>>> 角色背包表;
 
-        // Token: 0x0400005F RID: 95
+        
         private static Dictionary<CharacterData, List<KeyValuePair<byte, ItemData>>> 角色仓库表;
 
-        // Token: 0x04000060 RID: 96
+        
         private static Dictionary<游戏怪物, List<KeyValuePair<游戏物品, long>>> 怪物掉落表;
     }
 }

@@ -4,10 +4,10 @@ using GameServer.Networking;
 
 namespace GameServer
 {
-	// Token: 0x0200001C RID: 28
+	
 	public sealed class AddIngots : GMCommand
 	{
-		// Token: 0x17000014 RID: 20
+		
 		// (get) Token: 0x06000057 RID: 87 RVA: 0x00002865 File Offset: 0x00000A65
 		public override ExecutionWay ExecutionWay
 		{
@@ -17,7 +17,7 @@ namespace GameServer
 			}
 		}
 
-		// Token: 0x06000058 RID: 88 RVA: 0x00008C88 File Offset: 0x00006E88
+		
 		public override void Execute()
 		{
 			GameData GameData;
@@ -42,18 +42,18 @@ namespace GameServer
 			MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, role does not exist");
 		}
 
-		// Token: 0x06000059 RID: 89 RVA: 0x00002858 File Offset: 0x00000A58
+		
 		public AddIngots()
 		{
 			
 			
 		}
 
-		// Token: 0x0400002A RID: 42
+		
 		[FieldAttribute(0, 排序 = 0)]
 		public string 角色名字;
 
-		// Token: 0x0400002B RID: 43
+		
 		[FieldAttribute(0, 排序 = 1)]
 		public int 元宝数量;
 	}

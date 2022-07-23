@@ -10,10 +10,10 @@ using GameServer.Networking;
 
 namespace GameServer.Maps
 {
-	// Token: 0x020002E1 RID: 737
+	
 	public sealed class PlayerObject : MapObject
 	{
-		// Token: 0x1700016E RID: 366
+		
 		// (get) Token: 0x06000880 RID: 2176 RVA: 0x00006DDA File Offset: 0x00004FDA
 		public 客户网络 网络连接
 		{
@@ -23,7 +23,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700016F RID: 367
+		
 		// (get) Token: 0x06000881 RID: 2177 RVA: 0x00006DE7 File Offset: 0x00004FE7
 		public byte 交易状态
 		{
@@ -41,7 +41,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000170 RID: 368
+		
 		// (get) Token: 0x06000882 RID: 2178 RVA: 0x00006E18 File Offset: 0x00005018
 		// (set) Token: 0x06000883 RID: 2179 RVA: 0x00006E2F File Offset: 0x0000502F
 		public byte 摆摊状态
@@ -63,7 +63,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000171 RID: 369
+		
 		// (get) Token: 0x06000884 RID: 2180 RVA: 0x00006E45 File Offset: 0x00005045
 		public string 摊位名字
 		{
@@ -77,7 +77,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000885 RID: 2181 RVA: 0x000437F0 File Offset: 0x000419F0
+		
 		public PlayerObject(CharacterData CharacterData, 客户网络 网络连接)
 		{
 			
@@ -447,7 +447,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000886 RID: 2182 RVA: 0x00044440 File Offset: 0x00042640
+		
 		public override void 处理对象数据()
 		{
 			if (this.绑定地图)
@@ -694,7 +694,7 @@ namespace GameServer.Maps
 			base.处理对象数据();
 		}
 
-		// Token: 0x06000887 RID: 2183 RVA: 0x00044E40 File Offset: 0x00043040
+		
 		public override void 自身死亡处理(MapObject 对象, bool 技能击杀)
 		{
 			base.自身死亡处理(对象, 技能击杀);
@@ -877,7 +877,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000172 RID: 370
+		
 		// (get) Token: 0x06000888 RID: 2184 RVA: 0x00006E60 File Offset: 0x00005060
 		public override string 对象名字
 		{
@@ -887,7 +887,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000173 RID: 371
+		
 		// (get) Token: 0x06000889 RID: 2185 RVA: 0x00006E72 File Offset: 0x00005072
 		public override int 地图编号
 		{
@@ -897,7 +897,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000174 RID: 372
+		
 		// (get) Token: 0x0600088A RID: 2186 RVA: 0x00006E84 File Offset: 0x00005084
 		// (set) Token: 0x0600088B RID: 2187 RVA: 0x000453F4 File Offset: 0x000435F4
 		public override int 当前体力
@@ -922,7 +922,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000175 RID: 373
+		
 		// (get) Token: 0x0600088C RID: 2188 RVA: 0x00006E96 File Offset: 0x00005096
 		// (set) Token: 0x0600088D RID: 2189 RVA: 0x00045464 File Offset: 0x00043664
 		public override int 当前魔力
@@ -950,7 +950,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000176 RID: 374
+		
 		// (get) Token: 0x0600088E RID: 2190 RVA: 0x00006EA8 File Offset: 0x000050A8
 		// (set) Token: 0x0600088F RID: 2191 RVA: 0x00006EB5 File Offset: 0x000050B5
 		public override byte 当前等级
@@ -965,7 +965,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000177 RID: 375
+		
 		// (get) Token: 0x06000890 RID: 2192 RVA: 0x00006EC3 File Offset: 0x000050C3
 		// (set) Token: 0x06000891 RID: 2193 RVA: 0x000454C8 File Offset: 0x000436C8
 		public override Point 当前坐标
@@ -999,7 +999,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000178 RID: 376
+		
 		// (get) Token: 0x06000892 RID: 2194 RVA: 0x00006167 File Offset: 0x00004367
 		// (set) Token: 0x06000893 RID: 2195 RVA: 0x00045558 File Offset: 0x00043758
 		public override MapInstance 当前地图
@@ -1042,7 +1042,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000179 RID: 377
+		
 		// (get) Token: 0x06000894 RID: 2196 RVA: 0x00006ED5 File Offset: 0x000050D5
 		// (set) Token: 0x06000895 RID: 2197 RVA: 0x00045614 File Offset: 0x00043814
 		public override GameDirection 当前方向
@@ -1065,7 +1065,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700017A RID: 378
+		
 		// (get) Token: 0x06000896 RID: 2198 RVA: 0x00002865 File Offset: 0x00000A65
 		public override GameObjectType 对象类型
 		{
@@ -1075,7 +1075,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700017B RID: 379
+		
 		// (get) Token: 0x06000897 RID: 2199 RVA: 0x00002855 File Offset: 0x00000A55
 		public override 技能范围类型 对象体型
 		{
@@ -1085,7 +1085,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700017C RID: 380
+		
 		// (get) Token: 0x06000898 RID: 2200 RVA: 0x00006EE7 File Offset: 0x000050E7
 		public override int 奔跑耗时
 		{
@@ -1095,7 +1095,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700017D RID: 381
+		
 		// (get) Token: 0x06000899 RID: 2201 RVA: 0x00006EF2 File Offset: 0x000050F2
 		public override int 行走耗时
 		{
@@ -1105,7 +1105,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700017E RID: 382
+		
 		// (get) Token: 0x0600089A RID: 2202 RVA: 0x00006138 File Offset: 0x00004338
 		// (set) Token: 0x0600089B RID: 2203 RVA: 0x00036440 File Offset: 0x00034640
 		public override DateTime 忙碌时间
@@ -1124,7 +1124,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700017F RID: 383
+		
 		// (get) Token: 0x0600089C RID: 2204 RVA: 0x00006140 File Offset: 0x00004340
 		// (set) Token: 0x0600089D RID: 2205 RVA: 0x00006EFD File Offset: 0x000050FD
 		public override DateTime 硬直时间
@@ -1143,7 +1143,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000180 RID: 384
+		
 		// (get) Token: 0x0600089E RID: 2206 RVA: 0x00006F2A File Offset: 0x0000512A
 		// (set) Token: 0x0600089F RID: 2207 RVA: 0x00006F32 File Offset: 0x00005132
 		public override DateTime 行走时间
@@ -1161,7 +1161,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000181 RID: 385
+		
 		// (get) Token: 0x060008A0 RID: 2208 RVA: 0x00006F49 File Offset: 0x00005149
 		// (set) Token: 0x060008A1 RID: 2209 RVA: 0x00006F51 File Offset: 0x00005151
 		public override DateTime 奔跑时间
@@ -1179,7 +1179,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000182 RID: 386
+		
 		public override int this[GameObjectProperties 属性]
 		{
 			get
@@ -1208,7 +1208,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000183 RID: 387
+		
 		// (get) Token: 0x060008A4 RID: 2212 RVA: 0x00006FA6 File Offset: 0x000051A6
 		public override MonitorDictionary<ushort, BuffData> Buff列表
 		{
@@ -1218,7 +1218,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000184 RID: 388
+		
 		// (get) Token: 0x060008A5 RID: 2213 RVA: 0x00006FB3 File Offset: 0x000051B3
 		public override MonitorDictionary<int, DateTime> 冷却记录
 		{
@@ -1228,7 +1228,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000185 RID: 389
+		
 		// (get) Token: 0x060008A6 RID: 2214 RVA: 0x00006FC0 File Offset: 0x000051C0
 		public MonitorDictionary<ushort, SkillData> 主体技能表
 		{
@@ -1238,7 +1238,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000186 RID: 390
+		
 		// (get) Token: 0x060008A7 RID: 2215 RVA: 0x00006FCD File Offset: 0x000051CD
 		public int 最大负重
 		{
@@ -1248,7 +1248,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000187 RID: 391
+		
 		// (get) Token: 0x060008A8 RID: 2216 RVA: 0x00006FD7 File Offset: 0x000051D7
 		public int 最大穿戴
 		{
@@ -1258,7 +1258,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000188 RID: 392
+		
 		// (get) Token: 0x060008A9 RID: 2217 RVA: 0x00006FE1 File Offset: 0x000051E1
 		public int 最大腕力
 		{
@@ -1268,7 +1268,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000189 RID: 393
+		
 		// (get) Token: 0x060008AA RID: 2218 RVA: 0x00045664 File Offset: 0x00043864
 		public int 背包重量
 		{
@@ -1283,7 +1283,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700018A RID: 394
+		
 		// (get) Token: 0x060008AB RID: 2219 RVA: 0x000456D0 File Offset: 0x000438D0
 		public int 装备重量
 		{
@@ -1298,7 +1298,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700018B RID: 395
+		
 		// (get) Token: 0x060008AC RID: 2220 RVA: 0x00006FEB File Offset: 0x000051EB
 		// (set) Token: 0x060008AD RID: 2221 RVA: 0x00006FF8 File Offset: 0x000051F8
 		public int 当前战力
@@ -1313,7 +1313,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700018C RID: 396
+		
 		// (get) Token: 0x060008AE RID: 2222 RVA: 0x00007006 File Offset: 0x00005206
 		// (set) Token: 0x060008AF RID: 2223 RVA: 0x00007013 File Offset: 0x00005213
 		public int 当前经验
@@ -1328,7 +1328,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700018D RID: 397
+		
 		// (get) Token: 0x060008B0 RID: 2224 RVA: 0x00007021 File Offset: 0x00005221
 		// (set) Token: 0x060008B1 RID: 2225 RVA: 0x00045744 File Offset: 0x00043944
 		public int 双倍经验
@@ -1357,7 +1357,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700018E RID: 398
+		
 		// (get) Token: 0x060008B2 RID: 2226 RVA: 0x00007033 File Offset: 0x00005233
 		public int 所需经验
 		{
@@ -1367,7 +1367,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700018F RID: 399
+		
 		// (get) Token: 0x060008B3 RID: 2227 RVA: 0x00007045 File Offset: 0x00005245
 		// (set) Token: 0x060008B4 RID: 2228 RVA: 0x00007052 File Offset: 0x00005252
 		public int 金币数量
@@ -1395,7 +1395,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000190 RID: 400
+		
 		// (get) Token: 0x060008B5 RID: 2229 RVA: 0x00007091 File Offset: 0x00005291
 		// (set) Token: 0x060008B6 RID: 2230 RVA: 0x0000709E File Offset: 0x0000529E
 		public int 元宝数量
@@ -1422,7 +1422,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000191 RID: 401
+		
 		// (get) Token: 0x060008B7 RID: 2231 RVA: 0x000070D6 File Offset: 0x000052D6
 		// (set) Token: 0x060008B8 RID: 2232 RVA: 0x000070E3 File Offset: 0x000052E3
 		public int 师门声望
@@ -1450,7 +1450,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000192 RID: 402
+		
 		// (get) Token: 0x060008B9 RID: 2233 RVA: 0x00007122 File Offset: 0x00005322
 		// (set) Token: 0x060008BA RID: 2234 RVA: 0x000457A8 File Offset: 0x000439A8
 		public int PK值惩罚
@@ -1481,7 +1481,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000193 RID: 403
+		
 		// (get) Token: 0x060008BB RID: 2235 RVA: 0x0000712F File Offset: 0x0000532F
 		// (set) Token: 0x060008BC RID: 2236 RVA: 0x0000714F File Offset: 0x0000534F
 		public int 重生地图
@@ -1503,7 +1503,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000194 RID: 404
+		
 		// (get) Token: 0x060008BD RID: 2237 RVA: 0x00007175 File Offset: 0x00005375
 		public bool 红名玩家
 		{
@@ -1513,7 +1513,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000195 RID: 405
+		
 		// (get) Token: 0x060008BE RID: 2238 RVA: 0x00007187 File Offset: 0x00005387
 		public bool 灰名玩家
 		{
@@ -1523,7 +1523,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000196 RID: 406
+		
 		// (get) Token: 0x060008BF RID: 2239 RVA: 0x00007199 File Offset: 0x00005399
 		public bool 绑定地图
 		{
@@ -1534,7 +1534,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000197 RID: 407
+		
 		// (get) Token: 0x060008C0 RID: 2240 RVA: 0x000071B8 File Offset: 0x000053B8
 		// (set) Token: 0x060008C1 RID: 2241 RVA: 0x000071CA File Offset: 0x000053CA
 		public byte 背包大小
@@ -1549,7 +1549,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000198 RID: 408
+		
 		// (get) Token: 0x060008C2 RID: 2242 RVA: 0x000071DD File Offset: 0x000053DD
 		public byte 背包剩余
 		{
@@ -1559,7 +1559,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x17000199 RID: 409
+		
 		// (get) Token: 0x060008C3 RID: 2243 RVA: 0x000071F2 File Offset: 0x000053F2
 		// (set) Token: 0x060008C4 RID: 2244 RVA: 0x00007204 File Offset: 0x00005404
 		public byte 仓库大小
@@ -1574,12 +1574,12 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700019A RID: 410
+		
 		// (get) Token: 0x060008C5 RID: 2245 RVA: 0x00007217 File Offset: 0x00005417
 		// (set) Token: 0x060008C6 RID: 2246 RVA: 0x0000721F File Offset: 0x0000541F
 		public byte 宠物上限 { get; set; }
 
-		// Token: 0x1700019B RID: 411
+		
 		// (get) Token: 0x060008C7 RID: 2247 RVA: 0x00007228 File Offset: 0x00005428
 		public byte 宠物数量
 		{
@@ -1589,7 +1589,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700019C RID: 412
+		
 		// (get) Token: 0x060008C8 RID: 2248 RVA: 0x00007236 File Offset: 0x00005436
 		public byte 师门参数
 		{
@@ -1614,7 +1614,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700019D RID: 413
+		
 		// (get) Token: 0x060008C9 RID: 2249 RVA: 0x00007264 File Offset: 0x00005464
 		// (set) Token: 0x060008CA RID: 2250 RVA: 0x00007276 File Offset: 0x00005476
 		public byte 当前称号
@@ -1632,7 +1632,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700019E RID: 414
+		
 		// (get) Token: 0x060008CB RID: 2251 RVA: 0x0000729C File Offset: 0x0000549C
 		// (set) Token: 0x060008CC RID: 2252 RVA: 0x000072AE File Offset: 0x000054AE
 		public byte 本期特权
@@ -1650,7 +1650,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x1700019F RID: 415
+		
 		// (get) Token: 0x060008CD RID: 2253 RVA: 0x000072D4 File Offset: 0x000054D4
 		// (set) Token: 0x060008CE RID: 2254 RVA: 0x000072E6 File Offset: 0x000054E6
 		public byte 上期特权
@@ -1668,7 +1668,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001A0 RID: 416
+		
 		// (get) Token: 0x060008CF RID: 2255 RVA: 0x0000730C File Offset: 0x0000550C
 		// (set) Token: 0x060008D0 RID: 2256 RVA: 0x0000731E File Offset: 0x0000551E
 		public byte 预定特权
@@ -1686,7 +1686,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001A1 RID: 417
+		
 		// (get) Token: 0x060008D1 RID: 2257 RVA: 0x00007344 File Offset: 0x00005544
 		// (set) Token: 0x060008D2 RID: 2258 RVA: 0x00007356 File Offset: 0x00005556
 		public uint 本期记录
@@ -1704,7 +1704,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001A2 RID: 418
+		
 		// (get) Token: 0x060008D3 RID: 2259 RVA: 0x0000737C File Offset: 0x0000557C
 		// (set) Token: 0x060008D4 RID: 2260 RVA: 0x0000738E File Offset: 0x0000558E
 		public uint 上期记录
@@ -1722,7 +1722,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001A3 RID: 419
+		
 		// (get) Token: 0x060008D5 RID: 2261 RVA: 0x000073B4 File Offset: 0x000055B4
 		// (set) Token: 0x060008D6 RID: 2262 RVA: 0x000073C6 File Offset: 0x000055C6
 		public DateTime 本期日期
@@ -1740,7 +1740,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001A4 RID: 420
+		
 		// (get) Token: 0x060008D7 RID: 2263 RVA: 0x000073F1 File Offset: 0x000055F1
 		// (set) Token: 0x060008D8 RID: 2264 RVA: 0x00007403 File Offset: 0x00005603
 		public DateTime 上期日期
@@ -1758,7 +1758,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001A5 RID: 421
+		
 		// (get) Token: 0x060008D9 RID: 2265 RVA: 0x0000742E File Offset: 0x0000562E
 		// (set) Token: 0x060008DA RID: 2266 RVA: 0x00045844 File Offset: 0x00043A44
 		public TimeSpan 灰名时间
@@ -1792,7 +1792,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001A6 RID: 422
+		
 		// (get) Token: 0x060008DB RID: 2267 RVA: 0x00007440 File Offset: 0x00005640
 		// (set) Token: 0x060008DC RID: 2268 RVA: 0x0004590C File Offset: 0x00043B0C
 		public TimeSpan 减PK时间
@@ -1816,7 +1816,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001A7 RID: 423
+		
 		// (get) Token: 0x060008DD RID: 2269 RVA: 0x00007452 File Offset: 0x00005652
 		public AccountData 所属账号
 		{
@@ -1826,7 +1826,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001A8 RID: 424
+		
 		// (get) Token: 0x060008DE RID: 2270 RVA: 0x00007464 File Offset: 0x00005664
 		// (set) Token: 0x060008DF RID: 2271 RVA: 0x00007476 File Offset: 0x00005676
 		public GuildData 所属行会
@@ -1844,7 +1844,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001A9 RID: 425
+		
 		// (get) Token: 0x060008E0 RID: 2272 RVA: 0x0000749C File Offset: 0x0000569C
 		// (set) Token: 0x060008E1 RID: 2273 RVA: 0x000074AE File Offset: 0x000056AE
 		public TeamData 所属队伍
@@ -1862,7 +1862,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001AA RID: 426
+		
 		// (get) Token: 0x060008E2 RID: 2274 RVA: 0x000074D4 File Offset: 0x000056D4
 		// (set) Token: 0x060008E3 RID: 2275 RVA: 0x000074E6 File Offset: 0x000056E6
 		public TeacherData 所属师门
@@ -1880,7 +1880,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001AB RID: 427
+		
 		// (get) Token: 0x060008E4 RID: 2276 RVA: 0x0000750C File Offset: 0x0000570C
 		// (set) Token: 0x060008E5 RID: 2277 RVA: 0x00045998 File Offset: 0x00043B98
 		public AttackMode AttackMode
@@ -1908,7 +1908,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001AC RID: 428
+		
 		// (get) Token: 0x060008E6 RID: 2278 RVA: 0x0000751E File Offset: 0x0000571E
 		// (set) Token: 0x060008E7 RID: 2279 RVA: 0x000459F4 File Offset: 0x00043BF4
 		public PetMode PetMode
@@ -1941,7 +1941,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001AD RID: 429
+		
 		// (get) Token: 0x060008E8 RID: 2280 RVA: 0x00045A4C File Offset: 0x00043C4C
 		public MapInstance 复活地图
 		{
@@ -1966,7 +1966,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001AE RID: 430
+		
 		// (get) Token: 0x060008E9 RID: 2281 RVA: 0x00007555 File Offset: 0x00005755
 		// (set) Token: 0x060008EA RID: 2282 RVA: 0x00007567 File Offset: 0x00005767
 		public ObjectHairType 角色发型
@@ -1981,7 +1981,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001AF RID: 431
+		
 		// (get) Token: 0x060008EB RID: 2283 RVA: 0x0000757A File Offset: 0x0000577A
 		// (set) Token: 0x060008EC RID: 2284 RVA: 0x0000758C File Offset: 0x0000578C
 		public ObjectHairColorType 角色发色
@@ -1996,7 +1996,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001B0 RID: 432
+		
 		// (get) Token: 0x060008ED RID: 2285 RVA: 0x0000759F File Offset: 0x0000579F
 		// (set) Token: 0x060008EE RID: 2286 RVA: 0x000075B1 File Offset: 0x000057B1
 		public ObjectFaceType 角色脸型
@@ -2011,7 +2011,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001B1 RID: 433
+		
 		// (get) Token: 0x060008EF RID: 2287 RVA: 0x000075C4 File Offset: 0x000057C4
 		public GameObjectGender 角色性别
 		{
@@ -2021,7 +2021,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001B2 RID: 434
+		
 		// (get) Token: 0x060008F0 RID: 2288 RVA: 0x000075D6 File Offset: 0x000057D6
 		public GameObjectProfession 角色职业
 		{
@@ -2031,7 +2031,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001B3 RID: 435
+		
 		// (get) Token: 0x060008F1 RID: 2289 RVA: 0x00045AAC File Offset: 0x00043CAC
 		public ObjectNameColor 对象颜色
 		{
@@ -2057,7 +2057,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001B4 RID: 436
+		
 		// (get) Token: 0x060008F2 RID: 2290 RVA: 0x000075E8 File Offset: 0x000057E8
 		public HashMonitor<PetData> PetData
 		{
@@ -2067,7 +2067,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001B5 RID: 437
+		
 		// (get) Token: 0x060008F3 RID: 2291 RVA: 0x000075F5 File Offset: 0x000057F5
 		public HashMonitor<MailData> 未读邮件
 		{
@@ -2077,7 +2077,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001B6 RID: 438
+		
 		// (get) Token: 0x060008F4 RID: 2292 RVA: 0x00007602 File Offset: 0x00005802
 		public HashMonitor<MailData> 全部邮件
 		{
@@ -2087,7 +2087,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001B7 RID: 439
+		
 		// (get) Token: 0x060008F5 RID: 2293 RVA: 0x0000760F File Offset: 0x0000580F
 		public HashMonitor<CharacterData> 好友列表
 		{
@@ -2097,7 +2097,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001B8 RID: 440
+		
 		// (get) Token: 0x060008F6 RID: 2294 RVA: 0x0000761C File Offset: 0x0000581C
 		public HashMonitor<CharacterData> 粉丝列表
 		{
@@ -2107,7 +2107,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001B9 RID: 441
+		
 		// (get) Token: 0x060008F7 RID: 2295 RVA: 0x00007629 File Offset: 0x00005829
 		public HashMonitor<CharacterData> 偶像列表
 		{
@@ -2117,7 +2117,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001BA RID: 442
+		
 		// (get) Token: 0x060008F8 RID: 2296 RVA: 0x00007636 File Offset: 0x00005836
 		public HashMonitor<CharacterData> 仇人列表
 		{
@@ -2127,7 +2127,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001BB RID: 443
+		
 		// (get) Token: 0x060008F9 RID: 2297 RVA: 0x00007643 File Offset: 0x00005843
 		public HashMonitor<CharacterData> 仇恨列表
 		{
@@ -2137,7 +2137,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001BC RID: 444
+		
 		// (get) Token: 0x060008FA RID: 2298 RVA: 0x00007650 File Offset: 0x00005850
 		public HashMonitor<CharacterData> 黑名单表
 		{
@@ -2147,7 +2147,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001BD RID: 445
+		
 		// (get) Token: 0x060008FB RID: 2299 RVA: 0x0000765D File Offset: 0x0000585D
 		public MonitorDictionary<byte, int> 剩余特权
 		{
@@ -2157,7 +2157,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001BE RID: 446
+		
 		// (get) Token: 0x060008FC RID: 2300 RVA: 0x0000766A File Offset: 0x0000586A
 		public MonitorDictionary<byte, SkillData> 快捷栏位
 		{
@@ -2167,7 +2167,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001BF RID: 447
+		
 		// (get) Token: 0x060008FD RID: 2301 RVA: 0x00007677 File Offset: 0x00005877
 		public MonitorDictionary<byte, ItemData> 角色背包
 		{
@@ -2177,7 +2177,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001C0 RID: 448
+		
 		// (get) Token: 0x060008FE RID: 2302 RVA: 0x00007684 File Offset: 0x00005884
 		public MonitorDictionary<byte, ItemData> 角色仓库
 		{
@@ -2187,7 +2187,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001C1 RID: 449
+		
 		// (get) Token: 0x060008FF RID: 2303 RVA: 0x00007691 File Offset: 0x00005891
 		public MonitorDictionary<byte, EquipmentData> 角色装备
 		{
@@ -2197,7 +2197,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x170001C2 RID: 450
+		
 		// (get) Token: 0x06000900 RID: 2304 RVA: 0x0000769E File Offset: 0x0000589E
 		public MonitorDictionary<byte, DateTime> 称号列表
 		{
@@ -2207,7 +2207,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000901 RID: 2305 RVA: 0x00045B14 File Offset: 0x00043D14
+		
 		public void 更新玩家战力()
 		{
 			int num = 0;
@@ -2218,7 +2218,7 @@ namespace GameServer.Maps
 			this.当前战力 = num;
 		}
 
-		// Token: 0x06000902 RID: 2306 RVA: 0x00045B78 File Offset: 0x00043D78
+		
 		public void 宠物死亡处理(PetObject 宠物)
 		{
 			this.PetData.Remove(宠物.PetData);
@@ -2237,7 +2237,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000903 RID: 2307 RVA: 0x00045BCC File Offset: 0x00043DCC
+		
 		public void 玩家升级处理()
 		{
 			base.发送封包(new CharacterLevelUpPacket
@@ -2311,7 +2311,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000904 RID: 2308 RVA: 0x00045EA4 File Offset: 0x000440A4
+		
 		public void 玩家切换地图(MapInstance 跳转地图, 地图区域类型 指定区域, Point 坐标 = default(Point))
 		{
 			base.清空邻居时处理();
@@ -2377,7 +2377,7 @@ namespace GameServer.Maps
 			base.更新邻居时处理();
 		}
 
-		// Token: 0x06000905 RID: 2309 RVA: 0x00046054 File Offset: 0x00044254
+		
 		public void 玩家增加经验(MonsterObject 怪物, int 经验增加)
 		{
 			if (经验增加 > 0 && (this.当前等级 < CustomClass.游戏OpenLevelCommand || this.当前经验 < this.所需经验))
@@ -2426,7 +2426,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000906 RID: 2310 RVA: 0x000461B4 File Offset: 0x000443B4
+		
 		public void 技能增加经验(ushort 技能编号)
 		{
 			SkillData SkillData;
@@ -2474,7 +2474,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000907 RID: 2311 RVA: 0x00046314 File Offset: 0x00044514
+		
 		public bool 玩家学习技能(ushort 技能编号)
 		{
 			if (this.主体技能表.ContainsKey(技能编号))
@@ -2570,7 +2570,7 @@ namespace GameServer.Maps
 			return true;
 		}
 
-		// Token: 0x06000908 RID: 2312 RVA: 0x000466A4 File Offset: 0x000448A4
+		
 		public void 玩家装卸铭文(ushort 技能编号, byte 铭文编号)
 		{
 			SkillData SkillData;
@@ -2640,7 +2640,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000909 RID: 2313 RVA: 0x00046958 File Offset: 0x00044B58
+		
 		public void 玩家穿卸装备(EquipmentWearingParts 装备部位, EquipmentData 原有装备, EquipmentData 现有装备)
 		{
 			if (装备部位 == EquipmentWearingParts.武器 || 装备部位 == EquipmentWearingParts.衣服 || 装备部位 == EquipmentWearingParts.披风)
@@ -2709,7 +2709,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600090A RID: 2314 RVA: 0x00046B80 File Offset: 0x00044D80
+		
 		public void 玩家诱惑目标(技能实例 技能, C_04_计算目标诱惑 参数, MapObject 诱惑目标)
 		{
 			if (诱惑目标 == null || 诱惑目标.对象死亡 || this.当前等级 + 2 < 诱惑目标.当前等级)
@@ -2802,7 +2802,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600090B RID: 2315 RVA: 0x00046F48 File Offset: 0x00045148
+		
 		public void 玩家瞬间移动(技能实例 技能, C_07_计算目标瞬移 参数)
 		{
 			if (ComputingClass.计算概率(参数.每级成功概率[(int)技能.技能等级]) && !(this.当前地图.随机传送(this.当前坐标) == default(Point)))
@@ -2820,7 +2820,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600090C RID: 2316 RVA: 0x00046FD0 File Offset: 0x000451D0
+		
 		public void 扣除护盾时间(int 技能伤害)
 		{
 			foreach (BuffData BuffData in this.Buff列表.Values.ToList<BuffData>())
@@ -2847,7 +2847,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600090D RID: 2317 RVA: 0x00047120 File Offset: 0x00045320
+		
 		public void 武器损失持久()
 		{
 			EquipmentData EquipmentData;
@@ -2883,7 +2883,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600090E RID: 2318 RVA: 0x00047214 File Offset: 0x00045414
+		
 		public void 武器幸运损失()
 		{
 			EquipmentData EquipmentData;
@@ -2898,7 +2898,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600090F RID: 2319 RVA: 0x0004727C File Offset: 0x0004547C
+		
 		public void 战具损失持久(int 损失持久)
 		{
 			EquipmentData EquipmentData;
@@ -2934,7 +2934,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000910 RID: 2320 RVA: 0x00047360 File Offset: 0x00045560
+		
 		public void 装备损失持久(int 损失持久)
 		{
 			损失持久 = Math.Min(10, 损失持久);
@@ -2960,7 +2960,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000911 RID: 2321 RVA: 0x000474B4 File Offset: 0x000456B4
+		
 		public void 玩家特权到期()
 		{
 			if (this.本期特权 == 3)
@@ -2984,7 +2984,7 @@ namespace GameServer.Maps
 			this.特权时间 = DateTime.MaxValue;
 		}
 
-		// Token: 0x06000912 RID: 2322 RVA: 0x00047548 File Offset: 0x00045748
+		
 		public void 玩家激活特权(byte 特权类型)
 		{
 			if (特权类型 == 3)
@@ -3009,7 +3009,7 @@ namespace GameServer.Maps
 			this.特权时间 = this.本期日期.AddDays(30.0);
 		}
 
-		// Token: 0x06000913 RID: 2323 RVA: 0x000475B8 File Offset: 0x000457B8
+		
 		public void 玩家称号到期(byte 称号编号)
 		{
 			if (this.称号列表.Remove(称号编号))
@@ -3038,7 +3038,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000914 RID: 2324 RVA: 0x00047648 File Offset: 0x00045848
+		
 		public void 玩家获得称号(byte 称号编号)
 		{
 			游戏称号 游戏称号;
@@ -3058,7 +3058,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000915 RID: 2325 RVA: 0x000476C4 File Offset: 0x000458C4
+		
 		public void 玩家获得仇恨(MapObject 对象)
 		{
 			foreach (PetObject PetObject in this.宠物列表.ToList<PetObject>())
@@ -3070,7 +3070,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000916 RID: 2326 RVA: 0x00047748 File Offset: 0x00045948
+		
 		public bool 查找背包物品(int 物品编号, out ItemData 物品)
 		{
 			for (byte b = 0; b < this.背包大小; b += 1)
@@ -3084,7 +3084,7 @@ namespace GameServer.Maps
 			return false;
 		}
 
-		// Token: 0x06000917 RID: 2327 RVA: 0x00047788 File Offset: 0x00045988
+		
 		public bool 查找背包物品(int 所需总数, int 物品编号, out List<ItemData> 物品列表)
 		{
 			物品列表 = new List<ItemData>();
@@ -3103,7 +3103,7 @@ namespace GameServer.Maps
 			return false;
 		}
 
-		// Token: 0x06000918 RID: 2328 RVA: 0x000477E8 File Offset: 0x000459E8
+		
 		public bool 查找背包物品(int 所需总数, HashSet<int> 物品编号, out List<ItemData> 物品列表)
 		{
 			物品列表 = new List<ItemData>();
@@ -3122,7 +3122,7 @@ namespace GameServer.Maps
 			return false;
 		}
 
-		// Token: 0x06000919 RID: 2329 RVA: 0x0004784C File Offset: 0x00045A4C
+		
 		public void 消耗背包物品(int 消耗总数, ItemData 当前物品)
 		{
 			if ((当前物品.当前持久.V -= 消耗总数) <= 0)
@@ -3151,7 +3151,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x0600091A RID: 2330 RVA: 0x000478EC File Offset: 0x00045AEC
+		
 		public void 消耗背包物品(int 消耗总数, List<ItemData> 物品列表)
 		{
             IOrderedEnumerable<ItemData> ItemDatas = from O in 物品列表
@@ -3168,7 +3168,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600091B RID: 2331 RVA: 0x00047980 File Offset: 0x00045B80
+		
 		public void 玩家角色下线()
 		{
 			PlayerDeals PlayerDeals = this.当前交易;
@@ -3240,7 +3240,7 @@ namespace GameServer.Maps
 			this.当前地图.玩家列表.Remove(this);
 		}
 
-		// Token: 0x0600091C RID: 2332 RVA: 0x00047BCC File Offset: 0x00045DCC
+		
 		public void 玩家进入场景()
 		{
 			客户网络 网络连接 = this.网络连接;
@@ -3372,7 +3372,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600091D RID: 2333 RVA: 0x00047F30 File Offset: 0x00046130
+		
 		public void 玩家退出副本()
 		{
 			if (this.对象死亡)
@@ -3383,7 +3383,7 @@ namespace GameServer.Maps
 			this.玩家切换地图(MapGatewayProcess.分配地图(this.重生地图), 地图区域类型.复活区域, default(Point));
 		}
 
-		// Token: 0x0600091E RID: 2334 RVA: 0x00047F68 File Offset: 0x00046168
+		
 		public void 玩家请求复活()
 		{
 			if (this.对象死亡)
@@ -3423,7 +3423,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600091F RID: 2335 RVA: 0x00048098 File Offset: 0x00046298
+		
 		public void 玩家进入法阵(int 法阵编号)
 		{
 			if (this.绑定地图)
@@ -3505,7 +3505,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000920 RID: 2336 RVA: 0x000481F4 File Offset: 0x000463F4
+		
 		public void 玩家角色走动(Point 终点坐标)
 		{
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
@@ -3589,7 +3589,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000921 RID: 2337 RVA: 0x00048404 File Offset: 0x00046604
+		
 		public void 玩家角色跑动(Point 终点坐标)
 		{
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
@@ -3679,7 +3679,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000922 RID: 2338 RVA: 0x000076AB File Offset: 0x000058AB
+		
 		public void 玩家角色转动(GameDirection 转动方向)
 		{
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
@@ -3693,12 +3693,12 @@ namespace GameServer.Maps
 			this.当前方向 = 转动方向;
 		}
 
-		// Token: 0x06000923 RID: 2339 RVA: 0x0000381A File Offset: 0x00001A1A
+		
 		public void 玩家切换姿态()
 		{
 		}
 
-		// Token: 0x06000924 RID: 2340 RVA: 0x00048640 File Offset: 0x00046840
+		
 		public void 玩家开关技能(ushort 技能编号)
 		{
 			if (this.对象死亡)
@@ -3743,7 +3743,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000925 RID: 2341 RVA: 0x000487B0 File Offset: 0x000469B0
+		
 		public void 玩家释放技能(ushort 技能编号, byte 动作编号, int 目标编号, Point 技能锚点)
 		{
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
@@ -4001,13 +4001,13 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000926 RID: 2342 RVA: 0x000076D8 File Offset: 0x000058D8
+		
 		public void 更改AttackMode(AttackMode 模式)
 		{
 			this.AttackMode = 模式;
 		}
 
-		// Token: 0x06000927 RID: 2343 RVA: 0x00048F24 File Offset: 0x00047124
+		
 		public void 更改PetMode(PetMode 模式)
 		{
 			if (this.宠物数量 == 0)
@@ -4029,7 +4029,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000928 RID: 2344 RVA: 0x00048FBC File Offset: 0x000471BC
+		
 		public void 玩家拖动技能(byte 技能栏位, ushort 技能编号)
 		{
 			if (技能栏位 <= 7 || 技能栏位 >= 32)
@@ -4078,7 +4078,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000929 RID: 2345 RVA: 0x000490D8 File Offset: 0x000472D8
+		
 		public void 玩家选中对象(int 对象编号)
 		{
 			MapObject MapObject;
@@ -4110,7 +4110,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600092A RID: 2346 RVA: 0x00049188 File Offset: 0x00047388
+		
 		public void 开始Npcc对话(int 对象编号)
 		{
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
@@ -4151,7 +4151,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600092B RID: 2347 RVA: 0x000492DC File Offset: 0x000474DC
+		
 		public void 继续Npcc对话(int 选项编号)
 		{
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
@@ -7613,7 +7613,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x0600092C RID: 2348 RVA: 0x0004E064 File Offset: 0x0004C264
+		
 		public void 玩家更改设置(byte[] 设置)
 		{
 			using (MemoryStream memoryStream = new MemoryStream(设置))
@@ -7631,7 +7631,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600092D RID: 2349 RVA: 0x0004E0E8 File Offset: 0x0004C2E8
+		
 		public void 查询地图路线()
 		{
 			using (MemoryStream memoryStream = new MemoryStream())
@@ -7657,17 +7657,17 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600092E RID: 2350 RVA: 0x0000381A File Offset: 0x00001A1A
+		
 		public void ToggleMapRoutePacket()
 		{
 		}
 
-		// Token: 0x0600092F RID: 2351 RVA: 0x0000381A File Offset: 0x00001A1A
+		
 		public void 玩家同步位置()
 		{
 		}
 
-		// Token: 0x06000930 RID: 2352 RVA: 0x0004E1C0 File Offset: 0x0004C3C0
+		
 		public void 玩家扩展背包(byte 背包类型, byte 扩展大小)
 		{
 			if (扩展大小 == 0)
@@ -7755,13 +7755,13 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000931 RID: 2353 RVA: 0x000076E1 File Offset: 0x000058E1
+		
 		public void 商店特修单件(byte 背包类型, byte 装备位置)
 		{
 			this.网络连接.尝试断开连接(new Exception("MISTAKE: Special repair of a single piece of equipment.  Error: Function blocked."));
 		}
 
-		// Token: 0x06000932 RID: 2354 RVA: 0x0004E370 File Offset: 0x0004C570
+		
 		public void 商店修理单件(byte 背包类型, byte 装备位置)
 		{
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
@@ -7930,7 +7930,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000933 RID: 2355 RVA: 0x0004E6A0 File Offset: 0x0004C8A0
+		
 		public void 商店修理全部()
 		{
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
@@ -8006,7 +8006,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000934 RID: 2356 RVA: 0x0004E8BC File Offset: 0x0004CABC
+		
 		public void 随身修理单件(byte 背包类型, byte 装备位置, int 物品编号)
 		{
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
@@ -8163,7 +8163,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000935 RID: 2357 RVA: 0x0004EB24 File Offset: 0x0004CD24
+		
 		public void 随身修理全部()
 		{
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
@@ -8223,7 +8223,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000936 RID: 2358 RVA: 0x0004EC80 File Offset: 0x0004CE80
+		
 		public void RequestStoreDataPacket(int 数据版本)
 		{
 			if (数据版本 != 0)
@@ -8257,7 +8257,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000937 RID: 2359 RVA: 0x0004ED04 File Offset: 0x0004CF04
+		
 		public void 查询珍宝商店(int 数据版本)
 		{
 			if (数据版本 != 0)
@@ -8291,12 +8291,12 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000938 RID: 2360 RVA: 0x0000381A File Offset: 0x00001A1A
+		
 		public void 查询出售信息()
 		{
 		}
 
-		// Token: 0x06000939 RID: 2361 RVA: 0x0004ED88 File Offset: 0x0004CF88
+		
 		public void 购买珍宝商品(int 物品编号, int 购入数量)
 		{
 			珍宝商品 珍宝商品;
@@ -8425,7 +8425,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600093A RID: 2362 RVA: 0x0004F018 File Offset: 0x0004D218
+		
 		public void 购买每周特惠(int 礼包编号)
 		{
 			if (礼包编号 == 1)
@@ -8683,7 +8683,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600093B RID: 2363 RVA: 0x0004F63C File Offset: 0x0004D83C
+		
 		public void 购买玛法特权(byte 特权类型, byte 购买数量)
 		{
 			int num;
@@ -8763,7 +8763,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600093C RID: 2364 RVA: 0x0004F788 File Offset: 0x0004D988
+		
 		public void BookMarfaPrivilegesPacket(byte 特权类型)
 		{
 			if (this.剩余特权[特权类型] <= 0)
@@ -8803,7 +8803,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x0600093D RID: 2365 RVA: 0x0004F834 File Offset: 0x0004DA34
+		
 		public void 领取特权礼包(byte 特权类型, byte 礼包位置)
 		{
 			if (礼包位置 >= 28)
@@ -9640,7 +9640,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600093E RID: 2366 RVA: 0x000506C4 File Offset: 0x0004E8C4
+		
 		public void 玩家使用称号(byte 称号编号)
 		{
 			游戏称号 游戏称号;
@@ -9714,7 +9714,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600093F RID: 2367 RVA: 0x00050820 File Offset: 0x0004EA20
+		
 		public void 玩家卸下称号()
 		{
 			if (this.当前称号 == 0)
@@ -9736,7 +9736,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000940 RID: 2368 RVA: 0x00050890 File Offset: 0x0004EA90
+		
 		public void 玩家整理背包(byte 背包类型)
 		{
 			if (!this.对象死亡 && this.摆摊状态 <= 0 && this.交易状态 < 3)
@@ -9840,7 +9840,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000941 RID: 2369 RVA: 0x00050CB4 File Offset: 0x0004EEB4
+		
 		public void 玩家拾取物品(ItemObject 物品)
 		{
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
@@ -9970,7 +9970,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000942 RID: 2370 RVA: 0x00050FA8 File Offset: 0x0004F1A8
+		
 		public void 玩家丢弃物品(byte 背包类型, byte 物品位置, ushort 丢弃数量)
 		{
 			if (!this.对象死亡 && this.摆摊状态 <= 0 && this.交易状态 < 3 && this.当前等级 > 7)
@@ -10005,7 +10005,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000943 RID: 2371 RVA: 0x00051090 File Offset: 0x0004F290
+		
 		public void 玩家拆分物品(byte 当前背包, byte 物品位置, ushort 拆分数量, byte 目标背包, byte 目标位置)
 		{
 			if (!this.对象死亡 && this.摆摊状态 <= 0 && this.交易状态 < 3)
@@ -10038,7 +10038,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000944 RID: 2372 RVA: 0x000511AC File Offset: 0x0004F3AC
+		
 		public void 玩家分解物品(byte 背包类型, byte 物品位置, byte 分解数量)
 		{
 			if (!this.对象死亡 && this.摆摊状态 <= 0 && this.交易状态 < 3)
@@ -10105,7 +10105,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000945 RID: 2373 RVA: 0x0005135C File Offset: 0x0004F55C
+		
 		public void 玩家转移物品(byte 当前背包, byte 当前位置, byte 目标背包, byte 目标位置)
 		{
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
@@ -10570,7 +10570,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000946 RID: 2374 RVA: 0x00051C0C File Offset: 0x0004FE0C
+		
 		public void 玩家使用物品(byte 背包类型, byte 物品位置)
 		{
 			if (!this.对象死亡 && this.摆摊状态 <= 0 && this.交易状态 < 3)
@@ -14994,7 +14994,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000947 RID: 2375 RVA: 0x00056D4C File Offset: 0x00054F4C
+		
 		public void 玩家喝修复油(byte 背包类型, byte 物品位置)
 		{
 			if (!this.对象死亡 && this.摆摊状态 <= 0 && this.交易状态 < 3)
@@ -15122,7 +15122,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000948 RID: 2376 RVA: 0x000076F8 File Offset: 0x000058F8
+		
 		public void 玩家合成物品()
 		{
 			if (!this.对象死亡 && this.摆摊状态 <= 0)
@@ -15131,7 +15131,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000949 RID: 2377 RVA: 0x00056F2C File Offset: 0x0005512C
+		
 		public void 玩家出售物品(byte 背包类型, byte 物品位置, ushort 出售数量)
 		{
 			if (!this.对象死亡 && this.摆摊状态 <= 0 && this.交易状态 < 3)
@@ -15170,7 +15170,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600094A RID: 2378 RVA: 0x00057040 File Offset: 0x00055240
+		
 		public void 玩家购买物品(int 商店编号, int 物品位置, ushort 购入数量)
 		{
 			if (!this.对象死亡 && this.摆摊状态 <= 0 && this.交易状态 < 3)
@@ -15384,7 +15384,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600094B RID: 2379 RVA: 0x0005745C File Offset: 0x0005565C
+		
 		public void 玩家回购物品(byte 物品位置)
 		{
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
@@ -15490,7 +15490,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600094C RID: 2380 RVA: 0x000576B0 File Offset: 0x000558B0
+		
 		public void 请求回购清单()
 		{
 			if (!this.对象死亡 && this.摆摊状态 <= 0 && this.交易状态 < 3)
@@ -15523,7 +15523,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600094D RID: 2381 RVA: 0x00057808 File Offset: 0x00055A08
+		
 		public void 玩家镶嵌灵石(byte 装备类型, byte 装备位置, byte 装备孔位, byte 灵石类型, byte 灵石位置)
 		{
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
@@ -15595,7 +15595,7 @@ namespace GameServer.Maps
 			this.网络连接.尝试断开连接(new Exception("Error: The player set the spirit stone.  Error: Not in character backpack"));
 		}
 
-		// Token: 0x0600094E RID: 2382 RVA: 0x00057AA8 File Offset: 0x00055CA8
+		
 		public void 玩家拆除灵石(byte 装备类型, byte 装备位置, byte 装备孔位)
 		{
 			int num = 0;
@@ -15745,7 +15745,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x0600094F RID: 2383 RVA: 0x00057D48 File Offset: 0x00055F48
+		
 		public void OrdinaryInscriptionRefinementPacket(byte 装备类型, byte 装备位置, int 物品编号)
 		{
 			EquipmentData EquipmentData = null;
@@ -15961,7 +15961,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000950 RID: 2384 RVA: 0x00058254 File Offset: 0x00056454
+		
 		public void 高级铭文洗练(byte 装备类型, byte 装备位置, int 物品编号)
 		{
 			EquipmentData EquipmentData = null;
@@ -16124,7 +16124,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000951 RID: 2385 RVA: 0x00058548 File Offset: 0x00056748
+		
 		public void ReplaceInscriptionRefinementPacket(byte 装备类型, byte 装备位置, int 物品编号)
 		{
 			EquipmentData EquipmentData = null;
@@ -16272,7 +16272,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000952 RID: 2386 RVA: 0x00058818 File Offset: 0x00056A18
+		
 		public void 高级洗练确认(byte 装备类型, byte 装备位置)
 		{
 			EquipmentData EquipmentData = null;
@@ -16355,7 +16355,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000953 RID: 2387 RVA: 0x00058984 File Offset: 0x00056B84
+		
 		public void 替换洗练确认(byte 装备类型, byte 装备位置)
 		{
 			EquipmentData EquipmentData = null;
@@ -16438,7 +16438,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000954 RID: 2388 RVA: 0x00007712 File Offset: 0x00005912
+		
 		public void 放弃替换铭文()
 		{
 			this.洗练铭文 = null;
@@ -16453,7 +16453,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000955 RID: 2389 RVA: 0x00058AF0 File Offset: 0x00056CF0
+		
 		public void UnlockDoubleInscriptionSlotPacket(byte 装备类型, byte 装备位置, byte 操作参数)
 		{
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
@@ -16550,7 +16550,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000956 RID: 2390 RVA: 0x00058CBC File Offset: 0x00056EBC
+		
 		public void ToggleDoubleInscriptionBitPacket(byte 装备类型, byte 装备位置, byte 操作参数)
 		{
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
@@ -16634,7 +16634,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000957 RID: 2391 RVA: 0x00058E68 File Offset: 0x00057068
+		
 		public void 传承武器铭文(byte 来源类型, byte 来源位置, byte 目标类型, byte 目标位置)
 		{
 			int num = 1000000;
@@ -16779,7 +16779,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000958 RID: 2392 RVA: 0x00059124 File Offset: 0x00057324
+		
 		public void 升级武器普通(byte[] 首饰组, byte[] 材料组)
 		{
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
@@ -17125,7 +17125,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000959 RID: 2393 RVA: 0x00059AEC File Offset: 0x00057CEC
+		
 		public bool 玩家取回装备(int DeductCoinsCommand)
 		{
 			if (this.CharacterData.升级装备.V == null)
@@ -17173,7 +17173,7 @@ namespace GameServer.Maps
 			return this.CharacterData.升级成功.V;
 		}
 
-		// Token: 0x0600095A RID: 2394 RVA: 0x00059CA4 File Offset: 0x00057EA4
+		
 		public void 放弃升级武器()
 		{
 			EquipmentData v = this.CharacterData.升级装备.V;
@@ -17193,7 +17193,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x0600095B RID: 2395 RVA: 0x00059CFC File Offset: 0x00057EFC
+		
 		public void 玩家发送广播(byte[] 数据)
 		{
 			uint num = BitConverter.ToUInt32(数据, 0);
@@ -17303,7 +17303,7 @@ namespace GameServer.Maps
 			this.网络连接.尝试断开连接(new Exception(string.Format("When a player sends a broadcast, the wrong channel parameter is provided. Channel: {0:X8}", num)));
 		}
 
-		// Token: 0x0600095C RID: 2396 RVA: 0x00059FD8 File Offset: 0x000581D8
+		
 		public void 玩家发送消息(byte[] 数据)
 		{
 			int num = BitConverter.ToInt32(数据, 0);
@@ -17476,7 +17476,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x0600095D RID: 2397 RVA: 0x0005A458 File Offset: 0x00058658
+		
 		public void 玩家好友聊天(byte[] 数据)
 		{
 			int key = BitConverter.ToInt32(数据, 0);
@@ -17530,7 +17530,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x0600095E RID: 2398 RVA: 0x0005A59C File Offset: 0x0005879C
+		
 		public void 玩家添加关注(int 对象编号, string 对象名字)
 		{
 			if (this.偶像列表.Count >= 100)
@@ -17708,7 +17708,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600095F RID: 2399 RVA: 0x0005A9DC File Offset: 0x00058BDC
+		
 		public void 玩家取消关注(int 对象编号)
 		{
 			GameData GameData;
@@ -17767,7 +17767,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000960 RID: 2400 RVA: 0x0005AB0C File Offset: 0x00058D0C
+		
 		public void 玩家添加仇人(int 对象编号)
 		{
 			GameData GameData;
@@ -17837,7 +17837,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000961 RID: 2401 RVA: 0x0005AC6C File Offset: 0x00058E6C
+		
 		public void 玩家删除仇人(int 对象编号)
 		{
 			GameData GameData;
@@ -17882,7 +17882,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000962 RID: 2402 RVA: 0x0005AD2C File Offset: 0x00058F2C
+		
 		public void 玩家屏蔽目标(int 对象编号)
 		{
 			GameData GameData;
@@ -17957,7 +17957,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000963 RID: 2403 RVA: 0x0005AE68 File Offset: 0x00059068
+		
 		public void 玩家解除屏蔽(int 对象编号)
 		{
 			GameData GameData;
@@ -18001,7 +18001,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000964 RID: 2404 RVA: 0x0005AF14 File Offset: 0x00059114
+		
 		public void 请求对象外观(int 对象编号, int 状态编号)
 		{
 			MapObject MapObject;
@@ -18211,7 +18211,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000965 RID: 2405 RVA: 0x0005B358 File Offset: 0x00059558
+		
 		public void 请求角色资料(int 角色编号)
 		{
 			GameData GameData;
@@ -18258,7 +18258,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000966 RID: 2406 RVA: 0x0005B444 File Offset: 0x00059644
+		
 		public void 查询玩家战力(int 对象编号)
 		{
 			MapObject MapObject;
@@ -18291,7 +18291,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000967 RID: 2407 RVA: 0x0005B4B8 File Offset: 0x000596B8
+		
 		public void 查看对象装备(int 对象编号)
 		{
 			MapObject MapObject;
@@ -18333,7 +18333,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000968 RID: 2408 RVA: 0x0005B560 File Offset: 0x00059760
+		
 		public void 查询排名榜单(int 榜单类型, int 起始位置)
 		{
 			if (起始位置 < 0 || 起始位置 > 29)
@@ -18495,12 +18495,12 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000969 RID: 2409 RVA: 0x0000381A File Offset: 0x00001A1A
+		
 		public void 查询附近队伍()
 		{
 		}
 
-		// Token: 0x0600096A RID: 2410 RVA: 0x0005B8E4 File Offset: 0x00059AE4
+		
 		public void 查询队伍信息(int 对象编号)
 		{
 			if (对象编号 == this.地图编号)
@@ -18563,7 +18563,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600096B RID: 2411 RVA: 0x0005B9C0 File Offset: 0x00059BC0
+		
 		public void 申请创建队伍(int 对象编号, byte 分配方式)
 		{
 			if (this.所属队伍 != null)
@@ -18672,7 +18672,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600096C RID: 2412 RVA: 0x0005BB8C File Offset: 0x00059D8C
+		
 		public void SendTeamRequestPacket(int 对象编号)
 		{
 			if (对象编号 == this.地图编号)
@@ -18848,7 +18848,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600096D RID: 2413 RVA: 0x0005BE5C File Offset: 0x0005A05C
+		
 		public void 回应组队请求(int 对象编号, byte 组队方式, byte 回应方式)
 		{
 			if (this.地图编号 != 对象编号)
@@ -19127,7 +19127,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x0600096E RID: 2414 RVA: 0x0005C320 File Offset: 0x0005A520
+		
 		public void 申请队员离队(int 对象编号)
 		{
 			if (this.所属队伍 == null)
@@ -19251,7 +19251,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600096F RID: 2415 RVA: 0x0005C5C8 File Offset: 0x0005A7C8
+		
 		public void 申请移交队长(int 对象编号)
 		{
 			if (this.所属队伍 == null)
@@ -19342,7 +19342,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000970 RID: 2416 RVA: 0x00007737 File Offset: 0x00005937
+		
 		public void QueryMailboxContentPacket()
 		{
 			客户网络 网络连接 = this.网络连接;
@@ -19356,7 +19356,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000971 RID: 2417 RVA: 0x0005C740 File Offset: 0x0005A940
+		
 		public void 申请发送邮件(byte[] 数据)
 		{
 			if (数据.Length < 94 || 数据.Length > 839)
@@ -19450,7 +19450,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000972 RID: 2418 RVA: 0x0005C950 File Offset: 0x0005AB50
+		
 		public void 查看邮件内容(int 邮件编号)
 		{
 			GameData GameData;
@@ -19500,7 +19500,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000973 RID: 2419 RVA: 0x0005CA08 File Offset: 0x0005AC08
+		
 		public void 删除指定邮件(int 邮件编号)
 		{
 			GameData GameData;
@@ -19552,7 +19552,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000974 RID: 2420 RVA: 0x0005CAE4 File Offset: 0x0005ACE4
+		
 		public void 提取邮件附件(int 邮件编号)
 		{
 			GameData GameData;
@@ -19657,7 +19657,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000975 RID: 2421 RVA: 0x0005CC7C File Offset: 0x0005AE7C
+		
 		public void 查询行会信息(int 行会编号)
 		{
 			GameData GameData;
@@ -19694,17 +19694,17 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000976 RID: 2422 RVA: 0x0000381A File Offset: 0x00001A1A
+		
 		public void 更多行会信息()
 		{
 		}
 
-		// Token: 0x06000977 RID: 2423 RVA: 0x0000381A File Offset: 0x00001A1A
+		
 		public void 更多GuildEvents()
 		{
 		}
 
-		// Token: 0x06000978 RID: 2424 RVA: 0x0005CD54 File Offset: 0x0005AF54
+		
 		public void 查看行会列表(int 行会编号, byte 查看方式)
 		{
 			int val = 0;
@@ -19768,7 +19768,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000979 RID: 2425 RVA: 0x0005CF1C File Offset: 0x0005B11C
+		
 		public void FindCorrespondingGuildPacket(int 行会编号, string 行会名字)
 		{
 			GameData GameData;
@@ -19800,7 +19800,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x0600097A RID: 2426 RVA: 0x0005CFA0 File Offset: 0x0005B1A0
+		
 		public void 申请解散行会()
 		{
 			if (this.所属行会 == null)
@@ -19888,7 +19888,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600097B RID: 2427 RVA: 0x0005D0EC File Offset: 0x0005B2EC
+		
 		public void 申请创建行会(byte[] 数据)
 		{
 			if (this.打开界面 != "Guild")
@@ -20005,7 +20005,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600097C RID: 2428 RVA: 0x0005D390 File Offset: 0x0005B590
+		
 		public void 更改行会公告(byte[] 数据)
 		{
 			if (this.所属行会 == null)
@@ -20051,7 +20051,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600097D RID: 2429 RVA: 0x0005D460 File Offset: 0x0005B660
+		
 		public void 更改行会宣言(byte[] 数据)
 		{
 			if (this.所属行会 == null)
@@ -20097,7 +20097,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600097E RID: 2430 RVA: 0x0005D538 File Offset: 0x0005B738
+		
 		public void 处理入会邀请(int 对象编号, byte 处理类型)
 		{
 			GameData GameData;
@@ -20192,7 +20192,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x0600097F RID: 2431 RVA: 0x0005D6A0 File Offset: 0x0005B8A0
+		
 		public void 处理入会申请(int 对象编号, byte 处理类型)
 		{
 			if (this.所属行会 == null)
@@ -20300,7 +20300,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000980 RID: 2432 RVA: 0x0005D83C File Offset: 0x0005BA3C
+		
 		public void 申请加入行会(int 行会编号, string 行会名字)
 		{
 			GameData GameData;
@@ -20389,7 +20389,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000981 RID: 2433 RVA: 0x0005D9A4 File Offset: 0x0005BBA4
+		
 		public void InviteToJoinGuildPacket(string 对象名字)
 		{
 			if (this.所属行会 != null)
@@ -20524,7 +20524,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000982 RID: 2434 RVA: 0x0005DC08 File Offset: 0x0005BE08
+		
 		public void 查看申请列表()
 		{
 			if (this.所属行会 == null)
@@ -20555,7 +20555,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000983 RID: 2435 RVA: 0x0005DC64 File Offset: 0x0005BE64
+		
 		public void 申请离开行会()
 		{
 			if (this.所属行会 == null)
@@ -20591,12 +20591,12 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000984 RID: 2436 RVA: 0x0000381A File Offset: 0x00001A1A
+		
 		public void DistributeGuildBenefitsPacket()
 		{
 		}
 
-		// Token: 0x06000985 RID: 2437 RVA: 0x0005DCE8 File Offset: 0x0005BEE8
+		
 		public void ExpelMembersPacket(int 对象编号)
 		{
 			if (this.所属行会 == null)
@@ -20674,7 +20674,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000986 RID: 2438 RVA: 0x0005DE6C File Offset: 0x0005C06C
+		
 		public void TransferPresidentPositionPacket(int 对象编号)
 		{
 			if (this.所属行会 == null)
@@ -20744,12 +20744,12 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000987 RID: 2439 RVA: 0x0000381A File Offset: 0x00001A1A
+		
 		public void DonateGuildFundsPacket(int 金币数量)
 		{
 		}
 
-		// Token: 0x06000988 RID: 2440 RVA: 0x0005DF68 File Offset: 0x0005C168
+		
 		public void 设置行会禁言(int 对象编号, byte 禁言状态)
 		{
 			if (this.所属行会 == null)
@@ -20819,7 +20819,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000989 RID: 2441 RVA: 0x0005E094 File Offset: 0x0005C294
+		
 		public void 变更会员职位(int 对象编号, byte 对象职位)
 		{
 			if (this.所属行会 == null)
@@ -20998,7 +20998,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600098A RID: 2442 RVA: 0x0005E3F8 File Offset: 0x0005C5F8
+		
 		public void 申请行会外交(byte 外交类型, byte 外交时间, string 行会名字)
 		{
 			if (this.所属行会 == null)
@@ -21142,7 +21142,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600098B RID: 2443 RVA: 0x0005E630 File Offset: 0x0005C830
+		
 		public void 申请行会敌对(byte 敌对时间, string 行会名字)
 		{
 			if (this.所属行会 == null)
@@ -21244,7 +21244,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600098C RID: 2444 RVA: 0x0005E7C8 File Offset: 0x0005C9C8
+		
 		public void 查看结盟申请()
 		{
 			if (this.所属行会 == null)
@@ -21275,7 +21275,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600098D RID: 2445 RVA: 0x0005E824 File Offset: 0x0005CA24
+		
 		public void 处理结盟申请(byte 处理类型, int 行会编号)
 		{
 			if (this.所属行会 == null)
@@ -21405,7 +21405,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600098E RID: 2446 RVA: 0x0005EA58 File Offset: 0x0005CC58
+		
 		public void 申请解除结盟(int 行会编号)
 		{
 			if (this.所属行会 == null)
@@ -21486,7 +21486,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600098F RID: 2447 RVA: 0x0005EB94 File Offset: 0x0005CD94
+		
 		public void 申请解除敌对(int 行会编号)
 		{
 			if (this.所属行会 == null)
@@ -21582,7 +21582,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000990 RID: 2448 RVA: 0x0005ECF0 File Offset: 0x0005CEF0
+		
 		public void 处理解除申请(int 行会编号, byte 应答类型)
 		{
 			if (this.所属行会 == null)
@@ -21703,7 +21703,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000991 RID: 2449 RVA: 0x0000775A File Offset: 0x0000595A
+		
 		public void 查询师门成员()
 		{
 			if (this.所属师门 != null)
@@ -21720,7 +21720,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000992 RID: 2450 RVA: 0x0000778A File Offset: 0x0000598A
+		
 		public void 查询师门奖励()
 		{
 			if (this.所属师门 != null)
@@ -21737,17 +21737,17 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000993 RID: 2451 RVA: 0x0000381A File Offset: 0x00001A1A
+		
 		public void 查询拜师名册()
 		{
 		}
 
-		// Token: 0x06000994 RID: 2452 RVA: 0x0000381A File Offset: 0x00001A1A
+		
 		public void 查询收徒名册()
 		{
 		}
 
-		// Token: 0x06000995 RID: 2453 RVA: 0x0005EF20 File Offset: 0x0005D120
+		
 		public void 玩家申请拜师(int 对象编号)
 		{
 			GameData GameData;
@@ -21869,7 +21869,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000996 RID: 2454 RVA: 0x0005F0F8 File Offset: 0x0005D2F8
+		
 		public void 同意拜师申请(int 对象编号)
 		{
 			GameData GameData;
@@ -22012,7 +22012,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000997 RID: 2455 RVA: 0x0005F354 File Offset: 0x0005D554
+		
 		public void RefusedApplyApprenticeshipPacket(int 对象编号)
 		{
 			GameData GameData;
@@ -22082,7 +22082,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000998 RID: 2456 RVA: 0x0005F484 File Offset: 0x0005D684
+		
 		public void 玩家申请收徒(int 对象编号)
 		{
 			GameData GameData;
@@ -22193,7 +22193,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x06000999 RID: 2457 RVA: 0x0005F668 File Offset: 0x0005D868
+		
 		public void 同意收徒申请(int 对象编号)
 		{
 			GameData GameData;
@@ -22341,7 +22341,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x0600099A RID: 2458 RVA: 0x0005F8C8 File Offset: 0x0005DAC8
+		
 		public void RejectionApprenticeshipAppPacket(int 对象编号)
 		{
 			GameData GameData;
@@ -22411,7 +22411,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x0600099B RID: 2459 RVA: 0x0005F9F8 File Offset: 0x0005DBF8
+		
 		public void AppForExpulsionPacket(int 对象编号)
 		{
 			if (this.所属师门 == null)
@@ -22480,7 +22480,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x0600099C RID: 2460 RVA: 0x0005FBA8 File Offset: 0x0005DDA8
+		
 		public void 离开师门申请()
 		{
 			if (this.所属师门 == null)
@@ -22540,7 +22540,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x0600099D RID: 2461 RVA: 0x0005FD8C File Offset: 0x0005DF8C
+		
 		public void 提交出师申请()
 		{
 			if (this.所属师门 == null)
@@ -22610,12 +22610,12 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x0600099E RID: 2462 RVA: 0x0000381A File Offset: 0x00001A1A
+		
 		public void 更改收徒推送(bool 收徒推送)
 		{
 		}
 
-		// Token: 0x0600099F RID: 2463 RVA: 0x0005FF98 File Offset: 0x0005E198
+		
 		public void 玩家申请交易(int 对象编号)
 		{
 			if (!this.对象死亡 && this.摆摊状态 <= 0 && this.交易状态 < 3)
@@ -22769,7 +22769,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x060009A0 RID: 2464 RVA: 0x000601D0 File Offset: 0x0005E3D0
+		
 		public void 玩家同意交易(int 对象编号)
 		{
 			if (!this.对象死亡 && this.摆摊状态 == 0)
@@ -22927,7 +22927,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x060009A1 RID: 2465 RVA: 0x000077C0 File Offset: 0x000059C0
+		
 		public void 玩家结束交易()
 		{
 			PlayerDeals PlayerDeals = this.当前交易;
@@ -22938,7 +22938,7 @@ namespace GameServer.Maps
 			PlayerDeals.结束交易();
 		}
 
-		// Token: 0x060009A2 RID: 2466 RVA: 0x00060410 File Offset: 0x0005E610
+		
 		public void 玩家放入金币(int 金币数量)
 		{
 			if (this.交易状态 != 3)
@@ -23022,7 +23022,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x060009A3 RID: 2467 RVA: 0x00060574 File Offset: 0x0005E774
+		
 		public void 玩家放入物品(byte 放入位置, byte 放入物品, byte 背包类型, byte 物品位置)
 		{
 			if (this.交易状态 != 3)
@@ -23157,7 +23157,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x060009A4 RID: 2468 RVA: 0x000607B4 File Offset: 0x0005E9B4
+		
 		public void 玩家锁定交易()
 		{
 			if (this.交易状态 != 3)
@@ -23221,7 +23221,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x060009A5 RID: 2469 RVA: 0x0006089C File Offset: 0x0005EA9C
+		
 		public void 玩家解锁交易()
 		{
 			if (this.交易状态 < 4)
@@ -23285,7 +23285,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x060009A6 RID: 2470 RVA: 0x00060984 File Offset: 0x0005EB84
+		
 		public void 玩家确认交易()
 		{
 			if (this.交易状态 != 4)
@@ -23370,7 +23370,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x060009A7 RID: 2471 RVA: 0x00060ADC File Offset: 0x0005ECDC
+		
 		public void 玩家准备摆摊()
 		{
 			if (this.对象死亡 || this.交易状态 >= 3)
@@ -23450,7 +23450,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x060009A8 RID: 2472 RVA: 0x00060C24 File Offset: 0x0005EE24
+		
 		public void 玩家重整摊位()
 		{
 			if (this.摆摊状态 == 2)
@@ -23474,7 +23474,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x060009A9 RID: 2473 RVA: 0x00060C8C File Offset: 0x0005EE8C
+		
 		public void 玩家开始摆摊()
 		{
 			if (this.摆摊状态 != 1)
@@ -23533,7 +23533,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x060009AA RID: 2474 RVA: 0x00060D78 File Offset: 0x0005EF78
+		
 		public void 玩家收起摊位()
 		{
 			if (this.摆摊状态 != 0)
@@ -23557,7 +23557,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x060009AB RID: 2475 RVA: 0x00060DD8 File Offset: 0x0005EFD8
+		
 		public void PutItemsInBoothPacket(byte 放入位置, byte 背包类型, byte 物品位置, ushort 物品数量, int 物品价格)
 		{
 			if (this.摆摊状态 != 1)
@@ -23636,7 +23636,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x060009AC RID: 2476 RVA: 0x00060FC0 File Offset: 0x0005F1C0
+		
 		public void 取回摊位物品(byte 取回位置)
 		{
 			if (this.摆摊状态 != 1)
@@ -23676,7 +23676,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x060009AD RID: 2477 RVA: 0x00061074 File Offset: 0x0005F274
+		
 		public void 更改摊位名字(string 摊位名字)
 		{
 			if (this.摆摊状态 == 1)
@@ -23700,12 +23700,12 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x060009AE RID: 2478 RVA: 0x0000381A File Offset: 0x00001A1A
+		
 		public void 升级摊位外观(byte 外观编号)
 		{
 		}
 
-		// Token: 0x060009AF RID: 2479 RVA: 0x000610D8 File Offset: 0x0005F2D8
+		
 		public void 玩家打开摊位(int 对象编号)
 		{
 			PlayerObject PlayerObject;
@@ -23751,7 +23751,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x060009B0 RID: 2480 RVA: 0x00061174 File Offset: 0x0005F374
+		
 		public void 购买摊位物品(int 对象编号, byte 物品位置, ushort 购买数量)
 		{
 			PlayerObject PlayerObject;
@@ -23944,7 +23944,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x060009B1 RID: 2481 RVA: 0x0006159C File Offset: 0x0005F79C
+		
 		public byte[] 玩家属性描述()
 		{
 			byte[] result;
@@ -23973,7 +23973,7 @@ namespace GameServer.Maps
 			return result;
 		}
 
-		// Token: 0x060009B2 RID: 2482 RVA: 0x0006165C File Offset: 0x0005F85C
+		
 		public byte[] 全部技能描述()
 		{
 			byte[] result;
@@ -23994,7 +23994,7 @@ namespace GameServer.Maps
 			return result;
 		}
 
-		// Token: 0x060009B3 RID: 2483 RVA: 0x0006172C File Offset: 0x0005F92C
+		
 		public byte[] 全部冷却描述()
 		{
 			byte[] result;
@@ -24016,7 +24016,7 @@ namespace GameServer.Maps
 			return result;
 		}
 
-		// Token: 0x060009B4 RID: 2484 RVA: 0x000617FC File Offset: 0x0005F9FC
+		
 		public byte[] 全部Buff描述()
 		{
 			byte[] result;
@@ -24038,7 +24038,7 @@ namespace GameServer.Maps
 			return result;
 		}
 
-		// Token: 0x060009B5 RID: 2485 RVA: 0x000618F8 File Offset: 0x0005FAF8
+		
 		public byte[] 快捷栏位描述()
 		{
 			byte[] result;
@@ -24060,7 +24060,7 @@ namespace GameServer.Maps
 			return result;
 		}
 
-		// Token: 0x060009B6 RID: 2486 RVA: 0x000619B8 File Offset: 0x0005FBB8
+		
 		public byte[] 全部货币描述()
 		{
 			byte[] result;
@@ -24079,7 +24079,7 @@ namespace GameServer.Maps
 			return result;
 		}
 
-		// Token: 0x060009B7 RID: 2487 RVA: 0x00061A3C File Offset: 0x0005FC3C
+		
 		public byte[] 全部称号描述()
 		{
 			byte[] result;
@@ -24100,7 +24100,7 @@ namespace GameServer.Maps
 			return result;
 		}
 
-		// Token: 0x060009B8 RID: 2488 RVA: 0x00061B2C File Offset: 0x0005FD2C
+		
 		public byte[] 全部物品描述()
 		{
 			byte[] result;
@@ -24135,7 +24135,7 @@ namespace GameServer.Maps
 			return result;
 		}
 
-		// Token: 0x060009B9 RID: 2489 RVA: 0x00061C8C File Offset: 0x0005FE8C
+		
 		public byte[] 全部邮件描述()
 		{
 			byte[] result;
@@ -24154,7 +24154,7 @@ namespace GameServer.Maps
 			return result;
 		}
 
-		// Token: 0x060009BA RID: 2490 RVA: 0x00061D38 File Offset: 0x0005FF38
+		
 		public byte[] 背包物品描述()
 		{
 			byte[] result;
@@ -24175,7 +24175,7 @@ namespace GameServer.Maps
 			return result;
 		}
 
-		// Token: 0x060009BB RID: 2491 RVA: 0x00061DE4 File Offset: 0x0005FFE4
+		
 		public byte[] 仓库物品描述()
 		{
 			byte[] result;
@@ -24196,7 +24196,7 @@ namespace GameServer.Maps
 			return result;
 		}
 
-		// Token: 0x060009BC RID: 2492 RVA: 0x00061E90 File Offset: 0x00060090
+		
 		public byte[] 装备物品描述()
 		{
 			byte[] result;
@@ -24217,7 +24217,7 @@ namespace GameServer.Maps
 			return result;
 		}
 
-		// Token: 0x060009BD RID: 2493 RVA: 0x00061F3C File Offset: 0x0006013C
+		
 		public byte[] 玛法特权描述()
 		{
 			byte[] result;
@@ -24245,7 +24245,7 @@ namespace GameServer.Maps
 			return result;
 		}
 
-		// Token: 0x060009BE RID: 2494 RVA: 0x0006205C File Offset: 0x0006025C
+		
 		public byte[] 社交列表描述()
 		{
 			byte[] result;
@@ -24289,7 +24289,7 @@ namespace GameServer.Maps
 			return result;
 		}
 
-		// Token: 0x060009BF RID: 2495 RVA: 0x000622B0 File Offset: 0x000604B0
+		
 		public byte[] 社交屏蔽描述()
 		{
 			byte[] result;
@@ -24308,88 +24308,88 @@ namespace GameServer.Maps
 			return result;
 		}
 
-		// Token: 0x04000D14 RID: 3348
+		
 		public CharacterData CharacterData;
 
-		// Token: 0x04000D15 RID: 3349
+		
 		public 铭文技能 洗练铭文;
 
-		// Token: 0x04000D16 RID: 3350
+		
 		public PlayerDeals 当前交易;
 
-		// Token: 0x04000D17 RID: 3351
+		
 		public PlayerBoth 当前摊位;
 
-		// Token: 0x04000D18 RID: 3352
+		
 		public byte 雕色部位;
 
-		// Token: 0x04000D19 RID: 3353
+		
 		public byte 重铸部位;
 
-		// Token: 0x04000D1A RID: 3354
+		
 		public int 对话页面;
 
-		// Token: 0x04000D1B RID: 3355
+		
 		public GuardInstance 对话守卫;
 
-		// Token: 0x04000D1C RID: 3356
+		
 		public DateTime 对话超时;
 
-		// Token: 0x04000D1D RID: 3357
+		
 		public int 打开商店;
 
-		// Token: 0x04000D1E RID: 3358
+		
 		public string 打开界面;
 
-		// Token: 0x04000D1F RID: 3359
+		
 		public int 回血次数;
 
-		// Token: 0x04000D20 RID: 3360
+		
 		public int 回魔次数;
 
-		// Token: 0x04000D21 RID: 3361
+		
 		public int 回血基数;
 
-		// Token: 0x04000D22 RID: 3362
+		
 		public int 回魔基数;
 
-		// Token: 0x04000D23 RID: 3363
+		
 		public DateTime 邮件时间;
 
-		// Token: 0x04000D24 RID: 3364
+		
 		public DateTime 药品回血;
 
-		// Token: 0x04000D25 RID: 3365
+		
 		public DateTime 药品回魔;
 
-		// Token: 0x04000D26 RID: 3366
+		
 		public DateTime 称号时间;
 
-		// Token: 0x04000D27 RID: 3367
+		
 		public DateTime 特权时间;
 
-		// Token: 0x04000D28 RID: 3368
+		
 		public DateTime 拾取时间;
 
-		// Token: 0x04000D29 RID: 3369
+		
 		public DateTime 队伍时间;
 
-		// Token: 0x04000D2A RID: 3370
+		
 		public DateTime 战具计时;
 
-		// Token: 0x04000D2B RID: 3371
+		
 		public DateTime 经验计时;
 
-		// Token: 0x04000D2C RID: 3372
+		
 		public List<ItemData> 回购清单;
 
-		// Token: 0x04000D2D RID: 3373
+		
 		public List<PetObject> 宠物列表;
 
-		// Token: 0x04000D2E RID: 3374
+		
 		public Dictionary<object, int> 战力加成;
 
-		// Token: 0x04000D2F RID: 3375
+		
 		public readonly Dictionary<ushort, SkillData> 被动技能;
 	}
 }

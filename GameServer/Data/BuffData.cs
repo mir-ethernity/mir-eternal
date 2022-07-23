@@ -5,17 +5,17 @@ using GameServer.Templates;
 
 namespace GameServer.Data
 {
-	// Token: 0x02000251 RID: 593
+	
 	public sealed class BuffData : GameData
 	{
-		// Token: 0x06000428 RID: 1064 RVA: 0x0000429F File Offset: 0x0000249F
+		
 		public BuffData()
 		{
 			
 			
 		}
 
-		// Token: 0x06000429 RID: 1065 RVA: 0x0002050C File Offset: 0x0001E70C
+		
 		public BuffData(MapObject 来源, MapObject 目标, ushort 编号)
 		{
 			
@@ -123,7 +123,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x0600042A RID: 1066 RVA: 0x000042AC File Offset: 0x000024AC
+		
 		public override string ToString()
 		{
 			游戏Buff buff模板 = this.Buff模板;
@@ -134,7 +134,7 @@ namespace GameServer.Data
 			return buff模板.Buff名字;
 		}
 
-		// Token: 0x17000035 RID: 53
+		
 		// (get) Token: 0x0600042B RID: 1067 RVA: 0x000042BF File Offset: 0x000024BF
 		public Buff效果类型 Buff效果
 		{
@@ -144,7 +144,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000036 RID: 54
+		
 		// (get) Token: 0x0600042C RID: 1068 RVA: 0x000042CC File Offset: 0x000024CC
 		public 技能伤害类型 伤害类型
 		{
@@ -154,7 +154,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000037 RID: 55
+		
 		// (get) Token: 0x0600042D RID: 1069 RVA: 0x00020AE0 File Offset: 0x0001ECE0
 		public 游戏Buff Buff模板
 		{
@@ -169,7 +169,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000038 RID: 56
+		
 		// (get) Token: 0x0600042E RID: 1070 RVA: 0x000042D9 File Offset: 0x000024D9
 		public bool 增益Buff
 		{
@@ -179,7 +179,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000039 RID: 57
+		
 		// (get) Token: 0x0600042F RID: 1071 RVA: 0x000042E9 File Offset: 0x000024E9
 		public bool Buff同步
 		{
@@ -189,7 +189,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700003A RID: 58
+		
 		// (get) Token: 0x06000430 RID: 1072 RVA: 0x000042F6 File Offset: 0x000024F6
 		public bool 到期消失
 		{
@@ -200,7 +200,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700003B RID: 59
+		
 		// (get) Token: 0x06000431 RID: 1073 RVA: 0x00004309 File Offset: 0x00002509
 		public bool 下线消失
 		{
@@ -210,7 +210,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700003C RID: 60
+		
 		// (get) Token: 0x06000432 RID: 1074 RVA: 0x00004316 File Offset: 0x00002516
 		public bool 死亡消失
 		{
@@ -220,7 +220,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700003D RID: 61
+		
 		// (get) Token: 0x06000433 RID: 1075 RVA: 0x00004323 File Offset: 0x00002523
 		public bool 换图消失
 		{
@@ -230,7 +230,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700003E RID: 62
+		
 		// (get) Token: 0x06000434 RID: 1076 RVA: 0x00004330 File Offset: 0x00002530
 		public bool 绑定武器
 		{
@@ -240,7 +240,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700003F RID: 63
+		
 		// (get) Token: 0x06000435 RID: 1077 RVA: 0x0000433D File Offset: 0x0000253D
 		public bool 添加冷却
 		{
@@ -250,7 +250,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000040 RID: 64
+		
 		// (get) Token: 0x06000436 RID: 1078 RVA: 0x0000434A File Offset: 0x0000254A
 		public ushort 绑定技能
 		{
@@ -260,7 +260,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000041 RID: 65
+		
 		// (get) Token: 0x06000437 RID: 1079 RVA: 0x00004357 File Offset: 0x00002557
 		public ushort 冷却时间
 		{
@@ -270,7 +270,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000042 RID: 66
+		
 		// (get) Token: 0x06000438 RID: 1080 RVA: 0x00004364 File Offset: 0x00002564
 		public int 处理延迟
 		{
@@ -280,7 +280,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000043 RID: 67
+		
 		// (get) Token: 0x06000439 RID: 1081 RVA: 0x00004371 File Offset: 0x00002571
 		public int 处理间隔
 		{
@@ -290,7 +290,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000044 RID: 68
+		
 		// (get) Token: 0x0600043A RID: 1082 RVA: 0x0000437E File Offset: 0x0000257E
 		public byte 最大层数
 		{
@@ -300,7 +300,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000045 RID: 69
+		
 		// (get) Token: 0x0600043B RID: 1083 RVA: 0x0000438B File Offset: 0x0000258B
 		public ushort Buff分组
 		{
@@ -314,7 +314,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000046 RID: 70
+		
 		// (get) Token: 0x0600043C RID: 1084 RVA: 0x000043B1 File Offset: 0x000025B1
 		public ushort[] 依存列表
 		{
@@ -324,7 +324,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000047 RID: 71
+		
 		// (get) Token: 0x0600043D RID: 1085 RVA: 0x000043BE File Offset: 0x000025BE
 		public Dictionary<GameObjectProperties, int> 属性加成
 		{
@@ -338,28 +338,28 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x040007D2 RID: 2002
+		
 		public MapObject Buff来源;
 
-		// Token: 0x040007D3 RID: 2003
+		
 		public readonly DataMonitor<ushort> Buff编号;
 
-		// Token: 0x040007D4 RID: 2004
+		
 		public readonly DataMonitor<TimeSpan> 持续时间;
 
-		// Token: 0x040007D5 RID: 2005
+		
 		public readonly DataMonitor<TimeSpan> 剩余时间;
 
-		// Token: 0x040007D6 RID: 2006
+		
 		public readonly DataMonitor<TimeSpan> 处理计时;
 
-		// Token: 0x040007D7 RID: 2007
+		
 		public readonly DataMonitor<byte> 当前层数;
 
-		// Token: 0x040007D8 RID: 2008
+		
 		public readonly DataMonitor<byte> Buff等级;
 
-		// Token: 0x040007D9 RID: 2009
+		
 		public readonly DataMonitor<int> 伤害基数;
 	}
 }

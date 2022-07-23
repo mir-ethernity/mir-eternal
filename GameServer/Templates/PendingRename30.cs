@@ -6,10 +6,10 @@ using System.Text.RegularExpressions;
 
 namespace GameServer.Templates
 {
-	// Token: 0x020002CD RID: 717
+	
 	public sealed class 角色成长
 	{
-		// Token: 0x060006F6 RID: 1782 RVA: 0x00035FB4 File Offset: 0x000341B4
+		
 		static 角色成长()
 		{
 			
@@ -132,26 +132,26 @@ namespace GameServer.Templates
 			}
 		}
 
-		// Token: 0x060006F7 RID: 1783 RVA: 0x000060BB File Offset: 0x000042BB
+		
 		public static Dictionary<GameObjectProperties, int> 获取数据(GameObjectProfession 职业, byte 等级)
 		{
 			return 角色成长.DataSheet[(int)((byte)职业) * 256 + (int)等级];
 		}
 
-		// Token: 0x060006F8 RID: 1784 RVA: 0x000027D8 File Offset: 0x000009D8
+		
 		public 角色成长()
 		{
 			
 			
 		}
 
-		// Token: 0x04000C39 RID: 3129
+		
 		public static Dictionary<int, Dictionary<GameObjectProperties, int>> DataSheet;
 
-		// Token: 0x04000C3A RID: 3130
+		
 		public static readonly Dictionary<byte, int> 升级所需经验;
 
-		// Token: 0x04000C3B RID: 3131
+		
 		public static readonly ushort[] 宠物升级经验;
 	}
 }
