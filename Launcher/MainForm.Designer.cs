@@ -91,7 +91,7 @@ namespace Launcher
             this.MainTab.TabSelectedHighColorSize = 0;
             this.MainTab.TabStop = false;
             this.MainTab.TabUnSelectedForeColor = Color.FromArgb((int)byte.MaxValue, 87, 34);
-            this.MainTab.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)134);
+            this.MainTab.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             this.AccountLoginTab.BackColor = Color.FromArgb((int)byte.MaxValue, 244, 240);
             this.AccountLoginTab.Controls.Add((global::System.Windows.Forms.Control)this.Login_userIcon);
             this.AccountLoginTab.Controls.Add((global::System.Windows.Forms.Control)this.LoginAccountLabel);
@@ -136,7 +136,7 @@ namespace Launcher
             this.LoginAccountLabel.TabIndex = 13;
             this.LoginAccountLabel.TabStop = false;
             this.LoginAccountLabel.Text = "Login";
-            this.LoginAccountLabel.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)134);
+            this.LoginAccountLabel.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             this.LoginAccountLabel.Click += new EventHandler(this.LoginAccountLabel_Click);
             this.ForgotPasswordLabel.ActiveLinkColor = Color.FromArgb(220, 155, 40);
             this.ForgotPasswordLabel.Font = new Font("Arial", 9f);
@@ -197,7 +197,7 @@ namespace Launcher
             this.RegisterAccountLabel.TabStop = false;
             this.RegisterAccountLabel.Text = "Register";
             this.RegisterAccountLabel.TipsColor = Color.FromArgb(128, (int)byte.MaxValue, 128);
-            this.RegisterAccountLabel.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)134);
+            this.RegisterAccountLabel.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             this.RegisterAccountLabel.Click += new EventHandler(this.Login_Registertab_Click);
             this.login_error_label.Font = new Font("Arial", 9f);
             this.login_error_label.ForeColor = Color.Red;
@@ -268,7 +268,7 @@ namespace Launcher
             this.Register_Back_To_LoginBtn.TabStop = false;
             this.Register_Back_To_LoginBtn.Text = "Back to Login";
             this.Register_Back_To_LoginBtn.TipsColor = Color.FromArgb(128, (int)byte.MaxValue, 128);
-            this.Register_Back_To_LoginBtn.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)134);
+            this.Register_Back_To_LoginBtn.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             this.Register_Back_To_LoginBtn.Click += new EventHandler(this.RegisterBackToLogin_Click);
             this.RegistrationErrorLabel.Font = new Font("Arial", 9f);
             this.RegistrationErrorLabel.ForeColor = Color.Red;
@@ -302,7 +302,7 @@ namespace Launcher
             this.Register_AccountBtn.TabStop = false;
             this.Register_AccountBtn.Text = "Register new account";
             this.Register_AccountBtn.TipsColor = Color.FromArgb(128, (int)byte.MaxValue, 128);
-            this.Register_AccountBtn.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)134);
+            this.Register_AccountBtn.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             this.Register_AccountBtn.Click += new EventHandler(this.RegisterAccount_Click);
             this.Register_SecretAnswerTextBox.ButtonFillColor = Color.FromArgb(230, 80, 80);
             this.Register_SecretAnswerTextBox.ButtonFillHoverColor = Color.FromArgb(235, 115, 115);
@@ -434,7 +434,7 @@ namespace Launcher
             this.Modify_Back_To_LoginBtn.TabStop = false;
             this.Modify_Back_To_LoginBtn.Text = "Back to Login";
             this.Modify_Back_To_LoginBtn.TipsColor = Color.FromArgb(128, (int)byte.MaxValue, 128);
-            this.Modify_Back_To_LoginBtn.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)134);
+            this.Modify_Back_To_LoginBtn.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             this.Modify_Back_To_LoginBtn.Click += new EventHandler(this.Modify_BackToLogin_Click);
             this.Modify_ErrorLabel.Font = new Font("Arial", 9f);
             this.Modify_ErrorLabel.ForeColor = Color.Red;
@@ -468,7 +468,7 @@ namespace Launcher
             this.Modify_PasswordBtn.TabStop = false;
             this.Modify_PasswordBtn.Text = "Change password";
             this.Modify_PasswordBtn.TipsColor = Color.FromArgb(128, (int)byte.MaxValue, 128);
-            this.Modify_PasswordBtn.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)134);
+            this.Modify_PasswordBtn.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             this.Modify_PasswordBtn.Click += new EventHandler(this.Modify_ChangePassword_Click);
             this.Modify_AnswerTextBox.ButtonFillColor = Color.FromArgb(230, 80, 80);
             this.Modify_AnswerTextBox.ButtonFillHoverColor = Color.FromArgb(235, 115, 115);
@@ -599,7 +599,7 @@ namespace Launcher
             this.activate_account.Symbol = 57607;
             this.activate_account.TabIndex = 9;
             this.activate_account.Text = "mistyes";
-            this.activate_account.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)134);
+            this.activate_account.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             this.selected_tab.Font = new Font("Arial", 9f);
             this.selected_tab.Location = new Point(7, 220);
             this.selected_tab.Name = "Start tab";
@@ -673,7 +673,7 @@ namespace Launcher
             this.Launcher_enterGameBtn.TabIndex = 1;
             this.Launcher_enterGameBtn.TabStop = false;
             this.Launcher_enterGameBtn.Text = "Enter Game";
-            this.Launcher_enterGameBtn.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)134);
+            this.Launcher_enterGameBtn.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             this.Launcher_enterGameBtn.Click += new EventHandler(this.Launch_EnterGame_Click);
             this.InterfaceUpdateTimer.Interval = 30000;
             this.InterfaceUpdateTimer.Tick += new EventHandler(this.UIUnlock);
