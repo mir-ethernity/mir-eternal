@@ -230,7 +230,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.对象模板.守卫编号;
+				return this.对象模板.GuardNumber;
 			}
 		}
 

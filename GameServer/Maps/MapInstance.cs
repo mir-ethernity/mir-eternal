@@ -126,7 +126,7 @@ namespace GameServer.Maps
 			
 			this.地图区域 = new HashSet<地图区域>();
 			this.怪物区域 = new HashSet<怪物刷新>();
-			this.守卫区域 = new HashSet<守卫刷新>();
+			this.守卫区域 = new HashSet<Guards>();
 			this.玩家列表 = new HashSet<PlayerObject>();
 			this.宠物列表 = new HashSet<PetObject>();
 			this.物品列表 = new HashSet<ItemObject>();
@@ -567,7 +567,7 @@ namespace GameServer.Maps
 		public HashSet<怪物刷新> 怪物区域;
 
 		
-		public HashSet<守卫刷新> 守卫区域;
+		public HashSet<Guards> 守卫区域;
 
 		
 		public HashSet<PlayerObject> 玩家列表;

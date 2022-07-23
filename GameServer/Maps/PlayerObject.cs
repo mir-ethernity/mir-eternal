@@ -18171,7 +18171,7 @@ namespace GameServer.Maps
 								同步Npcc数据2.对象编号 = GuardInstance.地图编号;
 								同步Npcc数据2.对象等级 = GuardInstance.当前等级;
 								地图守卫 对象模板2 = GuardInstance.对象模板;
-								同步Npcc数据2.对象模板 = ((ushort)((对象模板2 != null) ? 对象模板2.守卫编号 : 0));
+								同步Npcc数据2.对象模板 = ((ushort)((对象模板2 != null) ? 对象模板2.GuardNumber : 0));
 								同步Npcc数据2.体力上限 = GuardInstance[GameObjectProperties.最大体力];
 								网络连接5.发送封包(同步Npcc数据2);
 							}

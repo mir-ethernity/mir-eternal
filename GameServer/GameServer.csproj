@@ -171,7 +171,7 @@
     <Compile Include="Templates\PendingRename36.cs" />
     <Compile Include="Templates\PendingRename38.cs" />
     <Compile Include="Templates\PendingRename4.cs" />
-    <Compile Include="Templates\PendingRename11.cs" />
+    <Compile Include="Templates\Guards.cs" />
     <Compile Include="Templates\PendingRename39.cs" />
     <Compile Include="Templates\PendingRename10.cs" />
     <Compile Include="Templates\PendingRename50.cs" />

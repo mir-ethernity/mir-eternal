@@ -27,13 +27,13 @@ namespace GameServer.Maps
 				游戏怪物 对应模板2;
 				if (MapGatewayProcess.MapInstance表.TryGetValue(2433, out MapGatewayProcess.沙城地图) && 游戏Buff.DataSheet.TryGetValue(22300, out 游戏Buff) && 游戏怪物.DataSheet.TryGetValue("沙巴克城门", out 对应模板) && 游戏怪物.DataSheet.TryGetValue("沙巴克宫门", out 对应模板2))
 				{
-					if ((MapGatewayProcess.皇宫随机区域 = MapGatewayProcess.沙城地图.地图区域.FirstOrDefault((地图区域 O) => O.区域名字 == "沙巴克-皇宫随机区域")) != null)
+					if ((MapGatewayProcess.皇宫随机区域 = MapGatewayProcess.沙城地图.地图区域.FirstOrDefault((地图区域 O) => O.RegionName == "沙巴克-皇宫随机区域")) != null)
 					{
-						if ((MapGatewayProcess.外城复活区域 = MapGatewayProcess.沙城地图.地图区域.FirstOrDefault((地图区域 O) => O.区域名字 == "沙巴克-外城复活区域")) != null)
+						if ((MapGatewayProcess.外城复活区域 = MapGatewayProcess.沙城地图.地图区域.FirstOrDefault((地图区域 O) => O.RegionName == "沙巴克-外城复活区域")) != null)
 						{
-							if ((MapGatewayProcess.内城复活区域 = MapGatewayProcess.沙城地图.地图区域.FirstOrDefault((地图区域 O) => O.区域名字 == "沙巴克-内城复活区域")) != null)
+							if ((MapGatewayProcess.内城复活区域 = MapGatewayProcess.沙城地图.地图区域.FirstOrDefault((地图区域 O) => O.RegionName == "沙巴克-内城复活区域")) != null)
 							{
-								if ((MapGatewayProcess.守方传送区域 = MapGatewayProcess.沙城地图.地图区域.FirstOrDefault((地图区域 O) => O.区域名字 == "沙巴克-守方传送区域")) != null)
+								if ((MapGatewayProcess.守方传送区域 = MapGatewayProcess.沙城地图.地图区域.FirstOrDefault((地图区域 O) => O.RegionName == "沙巴克-守方传送区域")) != null)
 								{
 									MapGatewayProcess.沙城城门 = new MonsterObject(对应模板, MapGatewayProcess.沙城地图, int.MaxValue, new Point[]
 									{
@@ -763,7 +763,7 @@ namespace GameServer.Maps
 					}
 				}
 			}
-			foreach (守卫刷新 守卫刷新 in 守卫刷新.DataSheet)
+			foreach (Guards 守卫刷新 in Guards.DataSheet)
 			{
 				foreach (MapInstance MapInstance4 in MapGatewayProcess.MapInstance表.Values)
 				{
@@ -807,15 +807,15 @@ namespace GameServer.Maps
 							}
 						}
 					}
-					using (HashSet<守卫刷新>.Enumerator enumerator6 = MapInstance6.守卫区域.GetEnumerator())
+					using (HashSet<Guards>.Enumerator enumerator6 = MapInstance6.守卫区域.GetEnumerator())
 					{
 						while (enumerator6.MoveNext())
 						{
-							守卫刷新 守卫刷新2 = enumerator6.Current;
+							Guards 守卫刷新2 = enumerator6.Current;
 							地图守卫 对应模板;
-							if (地图守卫.DataSheet.TryGetValue(守卫刷新2.守卫编号, out 对应模板))
+							if (地图守卫.DataSheet.TryGetValue(守卫刷新2.GuardNumber, out 对应模板))
 							{
-								new GuardInstance(对应模板, MapInstance6, 守卫刷新2.所处方向, 守卫刷新2.FromCoords);
+								new GuardInstance(对应模板, MapInstance6, 守卫刷新2.Direction, 守卫刷新2.FromCoords);
 							}
 						}
 						goto IL_5DE;

@@ -42,7 +42,7 @@ namespace GameServer.Templates
 		public Point FromCoords;
 
 		
-		public string 区域名字;
+		public string RegionName;
 
 		
 		public int 区域半径;

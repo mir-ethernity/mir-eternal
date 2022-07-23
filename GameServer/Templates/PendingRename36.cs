@@ -16,7 +16,7 @@ namespace GameServer.Templates
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(地图守卫)))
 				{
-					地图守卫.DataSheet.Add(((地图守卫)obj).守卫编号, (地图守卫)obj);
+					地图守卫.DataSheet.Add(((地图守卫)obj).GuardNumber, (地图守卫)obj);
 				}
 			}
 		}
@@ -35,7 +35,7 @@ namespace GameServer.Templates
 		public string 守卫名字;
 
 		
-		public ushort 守卫编号;
+		public ushort GuardNumber;
 
 		
 		public byte 守卫等级;
