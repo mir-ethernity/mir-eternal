@@ -116,7 +116,7 @@ namespace GameServer.Data
 							}
 						}
 					}
-					MainForm.AddSystemLog(string.Format("{0} Lodaded, Total: {1}", this.DataType.Name, num));
+					MainForm.AddSystemLog(string.Format("{0} Loaded, Total: {1}", this.DataType.Name, num));
 				}
 			}
 		}

@@ -50,11 +50,11 @@ namespace GameServer
 		private static void 服务循环()
 		{
 			MainProcess.外部命令 = new ConcurrentQueue<GMCommand>();
-			MainForm.AddSystemLog("正在生成地图元素...");
+			MainForm.AddSystemLog("Map elements are being generated...");
 			MapGatewayProcess.开启地图();
-			MainForm.AddSystemLog("正在启动网络服务...");
+			MainForm.AddSystemLog("Network services are being started...");
 			NetworkServiceGateway.启动服务();
-			MainForm.AddSystemLog("服务器已成功开启");
+			MainForm.AddSystemLog("The server has been successfully opened");
 			MainProcess.已经启动 = true;
 			MainForm.服务启动回调();
 			for (;;)
@@ -94,13 +94,13 @@ namespace GameServer
 				}
 				catch (Exception ex)
 				{
-					MainForm.AddSystemLog("发生致命错误, 服务器即将停止");
+					MainForm.AddSystemLog("A fatal error has occurred and the server is about to stop");
 					if (!Directory.Exists(".\\Log\\Error"))
 					{
 						Directory.CreateDirectory(".\\Log\\Error");
 					}
-					File.WriteAllText(string.Format(".\\Log\\Error\\{0:yyyy-MM-dd--HH-mm-ss}.txt", DateTime.Now), "错误信息:\r\n" + ex.Message + "\r\n堆栈信息:\r\n" + ex.StackTrace);
-					MainForm.AddSystemLog("错误信息已保存到日志, 请注意查看");
+					File.WriteAllText(string.Format(".\\Log\\Error\\{0:yyyy-MM-dd--HH-mm-ss}.txt", DateTime.Now), "Error message:\r\n" + ex.Message + "\r\nStack information:\r\n" + ex.StackTrace);
+					MainForm.AddSystemLog("Error has been saved to the log, please note");
 					foreach (客户网络 客户网络 in NetworkServiceGateway.网络连接表)
 					{
 						try
@@ -133,13 +133,13 @@ namespace GameServer
 				}
 				goto IL_47;
 			}
-			MainForm.AddSystemLog("正在清理ItemData...");
+			MainForm.AddSystemLog("ItemData is being cleaned up...");
 			MapGatewayProcess.清理物品();
-			MainForm.AddSystemLog("正在保存客户数据...");
+			MainForm.AddSystemLog("Customer data is being saved...");
 			GameDataGateway.导出数据();
 			MainForm.服务停止回调();
 			MainProcess.主线程 = null;
-			MainForm.AddSystemLog("服务器已成功关闭");
+			MainForm.AddSystemLog("The server has been successfully shut down");
 		}
 
 		// Token: 0x06000115 RID: 277 RVA: 0x0001C51C File Offset: 0x0001A71C

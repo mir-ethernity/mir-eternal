@@ -44,7 +44,7 @@ namespace GameServer.Data
 				DataLinkTable.哈希邮件表.Enqueue(new DataLinkTable.哈希关联参数<MailData>(数据, 字段, set3, 数据索引));
 				return;
 			}
-			MessageBox.Show("添加哈希关联任务失败");
+			MessageBox.Show("Failed to add hash association task");
 		}
 
 		// Token: 0x06000657 RID: 1623 RVA: 0x0002EB00 File Offset: 0x0002CD00
@@ -58,7 +58,7 @@ namespace GameServer.Data
 		{
 			int num = 0;
 			Dictionary<Type, Dictionary<string, int>> dictionary = new Dictionary<Type, Dictionary<string, int>>();
-			MainForm.AddSystemLog("开始处理数据关联任务...");
+			MainForm.AddSystemLog("Start processing data association tasks......");
 			while (!DataLinkTable.数据任务表.IsEmpty)
 			{
 				DataLinkTable.数据关联参数 数据关联参数;
@@ -228,13 +228,13 @@ namespace GameServer.Data
 					}
 				}
 			}
-			MainForm.AddSystemLog(string.Format("数据关联任务处理完成, 任务总数:{0}", num));
+			MainForm.AddSystemLog(string.Format("Data linkage tasks completed, total number of tasks: {0}", num));
 			dictionary.Sum((KeyValuePair<Type, Dictionary<string, int>> x) => x.Value.Sum((KeyValuePair<string, int> o) => o.Value));
 			foreach (KeyValuePair<Type, Dictionary<string, int>> keyValuePair in dictionary)
 			{
 				foreach (KeyValuePair<string, int> keyValuePair2 in keyValuePair.Value)
 				{
-					MainForm.AddSystemLog(string.Format("Data型:[{0}], 内部字段:[{1}], 共[{2}]条数据关联失败", keyValuePair.Key.Name, keyValuePair2.Key, keyValuePair2.Value));
+					MainForm.AddSystemLog(string.Format("Data type:[{0}], Internal field: [{1}], Total [{2}] data association failed", keyValuePair.Key.Name, keyValuePair2.Key, keyValuePair2.Value));
 				}
 			}
 		}

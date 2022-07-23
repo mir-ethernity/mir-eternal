@@ -185,13 +185,13 @@ namespace GameServer.Networking
 			string text = "IP: " + 客户网络.网络地址;
 			if (客户网络.绑定账号 != null)
 			{
-				text = text + " 账号: " + 客户网络.绑定账号.账号名字.V;
+				text = text + " Account: " + 客户网络.绑定账号.账号名字.V;
 			}
 			if (客户网络.绑定角色 != null)
 			{
-				text = text + " 角色: " + 客户网络.绑定角色.对象名字;
+				text = text + " Character: " + 客户网络.绑定角色.对象名字;
 			}
-			text = text + " 信息: " + e.Message;
+			text = text + " Info: " + e.Message;
 			MainProcess.添加系统日志(text);
 		}
 

@@ -41,7 +41,7 @@ namespace GameServer.Networking
 				{
 					if (MainProcess.当前时间 > this.断开时间)
 					{
-						this.尝试断开连接(new Exception("网络长时间无回应, 断开连接."));
+						this.尝试断开连接(new Exception("No response for a long time, disconnect."));
 					}
 					else
 					{
@@ -175,14 +175,14 @@ namespace GameServer.Networking
 				{
 					this.接收列表 = new ConcurrentQueue<GamePacket>();
 					NetworkServiceGateway.屏蔽网络(this.网络地址);
-					this.尝试断开连接(new Exception("封包过多, 断开连接并限制登录."));
+					this.尝试断开连接(new Exception("Too many packets, disconnect and restrict login."));
 					return;
 				}
                 if (this.接收列表.TryDequeue(out GamePacket GamePacket))
                 {
                     if (!GamePacket.封包处理方法表.TryGetValue(GamePacket.封包类型, out MethodInfo methodInfo))
                     {
-                        this.尝试断开连接(new Exception("没有找到封包处理方法, 断开连接. 封包类型: " + GamePacket.封包类型.FullName));
+                        this.尝试断开连接(new Exception("No packet handling found, disconnect. Packet type: " + GamePacket.封包类型.FullName));
                         return;
                     }
                     methodInfo.Invoke(this, new object[]
@@ -229,7 +229,7 @@ namespace GameServer.Networking
 			}
 			catch (Exception ex)
 			{
-				this.尝试断开连接(new Exception("异步接收错误 : " + ex.Message));
+				this.尝试断开连接(new Exception("Asynchronous Receiving Error: " + ex.Message));
 			}
 		}
 
@@ -265,13 +265,13 @@ namespace GameServer.Networking
 					}
 					else
 					{
-						this.尝试断开连接(new Exception("客户端断开连接."));
+						this.尝试断开连接(new Exception("Client disconnected."));
 					}
 				}
 			}
 			catch (Exception ex)
 			{
-				this.尝试断开连接(new Exception("封包构建错误, 错误提示: " + ex.Message));
+				this.尝试断开连接(new Exception("Packet construction error, message: " + ex.Message));
 			}
 		}
 
@@ -287,7 +287,7 @@ namespace GameServer.Networking
 			{
 				this.正在发送 = false;
 				this.发送列表 = new ConcurrentQueue<GamePacket>();
-				this.尝试断开连接(new Exception("异步发送错误 : " + ex.Message));
+				this.尝试断开连接(new Exception("Asynchronous sending error: " + ex.Message));
 			}
 		}
 
@@ -302,7 +302,7 @@ namespace GameServer.Networking
 				if (num == 0)
 				{
 					this.发送列表 = new ConcurrentQueue<GamePacket>();
-					this.尝试断开连接(new Exception("发送回调错误!"));
+					this.尝试断开连接(new Exception("Error sending callback!"));
 				}
 				this.正在发送 = false;
 			}
@@ -310,7 +310,7 @@ namespace GameServer.Networking
 			{
 				this.正在发送 = false;
 				this.发送列表 = new ConcurrentQueue<GamePacket>();
-				this.尝试断开连接(new Exception("发送回调错误 : " + ex.Message));
+				this.尝试断开连接(new Exception("Sending callback errors: " + ex.Message));
 			}
 		}
 
