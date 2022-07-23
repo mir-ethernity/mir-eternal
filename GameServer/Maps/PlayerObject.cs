@@ -6644,7 +6644,7 @@ namespace GameServer.Maps
 									MapInstance2.节点计时 = MainProcess.CurrentTime.AddSeconds(20.0);
 									MapInstance2.怪物波数 = (from O in MapInstance.怪物区域
 									orderby O.FromCoords.X
-									select O).ToList<怪物刷新>();
+									select O).ToList<MonsterSpawns>();
 									MapInstance2.MapObject = new HashSet<MapObject>[MapInstance.地图大小.X, MapInstance.地图大小.Y];
 									MapInstance MapInstance3 = MapInstance2;
 									MapGatewayProcess.副本实例表.Add(MapInstance3);

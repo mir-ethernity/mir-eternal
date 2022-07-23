@@ -50,7 +50,7 @@ namespace GameServer.Templates
 		public int 尸体保留;
 
 		
-		public int 复活间隔;
+		public int RevivalInterval;
 
 		
 		public bool 主动攻击;

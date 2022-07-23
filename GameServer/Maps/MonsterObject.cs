@@ -182,7 +182,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.对象模板.怪物名字;
+				return this.对象模板.MonsterName;
 			}
 		}
 
@@ -469,14 +469,14 @@ namespace GameServer.Maps
 		}
 
 		
-		public MonsterObject(游戏怪物 对应模板, MapInstance 出生地图, int 复活间隔, Point[] 出生范围, bool 禁止复活, bool 立即刷新)
+		public MonsterObject(游戏怪物 对应模板, MapInstance 出生地图, int RevivalInterval, Point[] 出生范围, bool 禁止复活, bool 立即刷新)
 		{
 			
 			
 			this.对象模板 = 对应模板;
 			this.出生地图 = 出生地图;
 			this.当前地图 = 出生地图;
-			this.复活间隔 = 复活间隔;
+			this.RevivalInterval = RevivalInterval;
 			this.出生范围 = 出生范围;
 			this.禁止复活 = 禁止复活;
 			this.MapId = ++MapGatewayProcess.对象编号;
@@ -527,7 +527,7 @@ namespace GameServer.Maps
 				this.怪物复活处理(false);
 				return;
 			}
-			this.复活时间 = MainProcess.CurrentTime.AddMilliseconds((double)复活间隔);
+			this.复活时间 = MainProcess.CurrentTime.AddMilliseconds((double)RevivalInterval);
 			this.阻塞网格 = false;
 			this.尸体消失 = true;
 			this.对象死亡 = true;
@@ -661,7 +661,7 @@ namespace GameServer.Maps
 			}
 			this.尸体消失 = false;
 			this.消失时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.尸体保留);
-			this.复活时间 = MainProcess.CurrentTime.AddMilliseconds((double)Math.Max(this.复活间隔, this.尸体保留 + 5000));
+			this.复活时间 = MainProcess.CurrentTime.AddMilliseconds((double)Math.Max(this.RevivalInterval, this.尸体保留 + 5000));
 			PetObject PetObject = 对象 as PetObject;
 			if (PetObject != null)
 			{
@@ -1052,7 +1052,7 @@ namespace GameServer.Maps
 			}
 			base.清空邻居时处理();
 			base.解绑网格();
-			this.复活时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.复活间隔);
+			this.复活时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.RevivalInterval);
 			this.次要对象 = true;
 			MapGatewayProcess.添加次要对象(this);
 			this.激活对象 = false;
@@ -1220,7 +1220,7 @@ namespace GameServer.Maps
 		public 游戏怪物 对象模板;
 
 		
-		public int 复活间隔;
+		public int RevivalInterval;
 
 		
 		public HateObject HateObject;

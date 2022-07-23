@@ -773,7 +773,7 @@ namespace GameServer.Maps
 					}
 				}
 			}
-			foreach (怪物刷新 怪物刷新 in 怪物刷新.DataSheet)
+			foreach (MonsterSpawns 怪物刷新 in MonsterSpawns.DataSheet)
 			{
 				foreach (MapInstance MapInstance5 in MapGatewayProcess.MapInstance表.Values)
 				{
@@ -787,21 +787,21 @@ namespace GameServer.Maps
 			{
 				if (!MapInstance6.CopyMap)
 				{
-					foreach (怪物刷新 怪物刷新2 in MapInstance6.怪物区域)
+					foreach (MonsterSpawns 怪物刷新2 in MapInstance6.怪物区域)
 					{
-						if (怪物刷新2.刷新列表 != null)
+						if (怪物刷新2.Spawns != null)
 						{
 							Point[] 出生范围 = 怪物刷新2.RangeCoords.ToArray<Point>();
-							foreach (刷新信息 刷新信息 in 怪物刷新2.刷新列表)
+							foreach (MonsterSpawnInfo 刷新信息 in 怪物刷新2.Spawns)
 							{
 								游戏怪物 游戏怪物;
-								if (游戏怪物.DataSheet.TryGetValue(刷新信息.怪物名字, out 游戏怪物))
+								if (游戏怪物.DataSheet.TryGetValue(刷新信息.MonsterName, out 游戏怪物))
 								{
 									MainForm.添加怪物数据(游戏怪物);
-									int 复活间隔 = 刷新信息.复活间隔 * 60 * 1000;
-									for (int l = 0; l < 刷新信息.刷新数量; l++)
+									int RevivalInterval = 刷新信息.RevivalInterval * 60 * 1000;
+									for (int l = 0; l < 刷新信息.SpawnCount; l++)
 									{
-										new MonsterObject(游戏怪物, MapInstance6, 复活间隔, 出生范围, false, true);
+										new MonsterObject(游戏怪物, MapInstance6, RevivalInterval, 出生范围, false, true);
 									}
 								}
 							}
@@ -827,7 +827,7 @@ namespace GameServer.Maps
 				MainForm.添加地图数据(MapInstance6);
 				continue;
 				IL_5AC:
-				MapInstance6.固定怪物总数 = (uint)MapInstance6.怪物区域.Sum((怪物刷新 O) => O.刷新列表.Sum((刷新信息 X) => X.刷新数量));
+				MapInstance6.固定怪物总数 = (uint)MapInstance6.怪物区域.Sum((MonsterSpawns O) => O.Spawns.Sum((MonsterSpawnInfo X) => X.SpawnCount));
 				goto IL_5DE;
 			}
 		}

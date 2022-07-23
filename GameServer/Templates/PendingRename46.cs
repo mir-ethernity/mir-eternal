@@ -20,7 +20,7 @@ namespace GameServer.Templates
 					游戏怪物 游戏怪物 = array[i] as 游戏怪物;
 					if (游戏怪物 != null)
 					{
-						游戏怪物.DataSheet.Add(游戏怪物.怪物名字, 游戏怪物);
+						游戏怪物.DataSheet.Add(游戏怪物.MonsterName, 游戏怪物);
 					}
 				}
 			}
@@ -99,7 +99,7 @@ namespace GameServer.Templates
 		public static Dictionary<string, 游戏怪物> DataSheet;
 
 		
-		public string 怪物名字;
+		public string MonsterName;
 
 		
 		public ushort 怪物编号;

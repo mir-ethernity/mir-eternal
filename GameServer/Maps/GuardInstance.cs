@@ -236,11 +236,11 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x0600071A RID: 1818 RVA: 0x00006232 File Offset: 0x00004432
-		public int 复活间隔
+		public int RevivalInterval
 		{
 			get
 			{
-				return this.对象模板.复活间隔;
+				return this.对象模板.RevivalInterval;
 			}
 		}
 

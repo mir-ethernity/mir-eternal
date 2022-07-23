@@ -10,7 +10,7 @@ namespace GameServer.Templates
 		{
 			return string.Format("{0} - {1} - {2} - {3}/{4}", new object[]
 			{
-				this.怪物名字,
+				this.MonsterName,
 				this.物品名字,
 				this.掉落概率,
 				this.最小数量,
@@ -29,7 +29,7 @@ namespace GameServer.Templates
 		public string 物品名字;
 
 		
-		public string 怪物名字;
+		public string MonsterName;
 
 		
 		public int 掉落概率;

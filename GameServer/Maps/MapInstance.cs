@@ -125,7 +125,7 @@ namespace GameServer.Maps
 		{
 			
 			this.地图区域 = new HashSet<MapAreas>();
-			this.怪物区域 = new HashSet<怪物刷新>();
+			this.怪物区域 = new HashSet<MonsterSpawns>();
 			this.守卫区域 = new HashSet<Guards>();
 			this.玩家列表 = new HashSet<PlayerObject>();
 			this.宠物列表 = new HashSet<PetObject>();
@@ -168,28 +168,28 @@ namespace GameServer.Maps
 					if (MainProcess.CurrentTime > this.节点计时)
 					{
 						int num = (int)(this.副本节点 - 6);
-						怪物刷新 怪物刷新 = this.怪物波数[num];
+						MonsterSpawns 怪物刷新 = this.怪物波数[num];
 						int num2 = this.刷怪记录 >> 16;
 						int num3 = this.刷怪记录 & 65535;
-						刷新信息 刷新信息 = 怪物刷新.刷新列表[num2];
+						MonsterSpawnInfo 刷新信息 = 怪物刷新.Spawns[num2];
 						if (this.刷怪记录 == 0)
 						{
 							this.地图公告(string.Format("The {0}th wave of monsters has appeared, please take care of your defences", num + 1));
 						}
 						游戏怪物 对应模板;
-						if (游戏怪物.DataSheet.TryGetValue(刷新信息.怪物名字, out 对应模板))
+						if (游戏怪物.DataSheet.TryGetValue(刷新信息.MonsterName, out 对应模板))
 						{
 							new MonsterObject(对应模板, this, int.MaxValue, new Point[]
 							{
 								new Point(995, 283)
 							}, true, true).存活时间 = MainProcess.CurrentTime.AddMinutes(30.0);
 						}
-						if (++num3 >= 刷新信息.刷新数量)
+						if (++num3 >= 刷新信息.SpawnCount)
 						{
 							num2++;
 							num3 = 0;
 						}
-						if (num2 >= 怪物刷新.刷新列表.Length)
+						if (num2 >= 怪物刷新.Spawns.Length)
 						{
 							this.副本节点 += 1;
 							this.刷怪记录 = 0;
@@ -543,7 +543,7 @@ namespace GameServer.Maps
 		public int 刷怪记录;
 
 		
-		public List<怪物刷新> 怪物波数;
+		public List<MonsterSpawns> 怪物波数;
 
 		
 		public HashSet<MapObject>[,] MapObject;
@@ -564,7 +564,7 @@ namespace GameServer.Maps
 		public HashSet<MapAreas> 地图区域;
 
 		
-		public HashSet<怪物刷新> 怪物区域;
+		public HashSet<MonsterSpawns> 怪物区域;
 
 		
 		public HashSet<Guards> 守卫区域;

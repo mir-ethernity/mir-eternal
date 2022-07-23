@@ -262,7 +262,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.对象模板.怪物名字;
+				return this.对象模板.MonsterName;
 			}
 		}
 
@@ -518,7 +518,7 @@ namespace GameServer.Maps
 			
 			this.宠物主人 = 宠物主人;
 			this.对象模板 = 召唤宠物;
-			this.PetData = new PetData(召唤宠物.怪物名字, 初始等级, 等级上限, 绑定武器, DateTime.MaxValue);
+			this.PetData = new PetData(召唤宠物.MonsterName, 初始等级, 等级上限, 绑定武器, DateTime.MaxValue);
 			this.当前坐标 = 宠物主人.当前坐标;
 			this.当前地图 = 宠物主人.当前地图;
 			this.当前方向 = ComputingClass.随机方向();

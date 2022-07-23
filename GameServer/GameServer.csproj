@@ -163,7 +163,7 @@
     <Compile Include="Templates\PendingRename27.cs" />
     <Compile Include="Templates\PendingRename28.cs" />
     <Compile Include="Templates\TeleportGates.cs" />
-    <Compile Include="Templates\PendingRename12.cs" />
+    <Compile Include="Templates\MonsterSpawnInfo.cs" />
     <Compile Include="Templates\PendingRename5.cs" />
     <Compile Include="Templates\PendingRename8.cs" />
     <Compile Include="Templates\MapAreas.cs" />
@@ -175,7 +175,7 @@
     <Compile Include="Templates\PendingRename39.cs" />
     <Compile Include="Templates\PendingRename10.cs" />
     <Compile Include="Templates\PendingRename50.cs" />
-    <Compile Include="Templates\PendingRename34.cs" />
+    <Compile Include="Templates\MonsterSpawns.cs" />
     <Compile Include="Templates\PendingRename35.cs" />
     <Compile Include="Templates\PendingRename32.cs" />
     <Compile Include="Templates\PendingRename1.cs" />

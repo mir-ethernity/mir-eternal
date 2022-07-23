@@ -48,7 +48,7 @@ namespace GameServer
             MainForm.怪物数据行 = new Dictionary<游戏怪物, DataRow>();
             MainForm.数据行怪物 = new Dictionary<DataRow, 游戏怪物>();
             MainForm.怪物DataSheet.Columns.Add("模板编号", typeof(string));
-            MainForm.怪物DataSheet.Columns.Add("怪物名字", typeof(string));
+            MainForm.怪物DataSheet.Columns.Add("MonsterName", typeof(string));
             MainForm.怪物DataSheet.Columns.Add("怪物等级", typeof(string));
             MainForm.怪物DataSheet.Columns.Add("怪物经验", typeof(string));
             MainForm.怪物DataSheet.Columns.Add("怪物级别", typeof(string));
@@ -730,7 +730,7 @@ namespace GameServer
                 {
                     DataRow dataRow = MainForm.怪物DataSheet.NewRow();
                     dataRow["模板编号"] = 怪物.怪物编号;
-                    dataRow["怪物名字"] = 怪物.怪物名字;
+                    dataRow["MonsterName"] = 怪物.MonsterName;
                     dataRow["怪物等级"] = 怪物.怪物等级;
                     dataRow["怪物级别"] = 怪物.怪物级别;
                     dataRow["怪物经验"] = 怪物.怪物提供经验;
@@ -934,7 +934,7 @@ namespace GameServer
             MainForm.怪物数据行 = new Dictionary<游戏怪物, DataRow>();
             MainForm.数据行怪物 = new Dictionary<DataRow, 游戏怪物>();
             MainForm.怪物DataSheet.Columns.Add("模板编号", typeof(string));
-            MainForm.怪物DataSheet.Columns.Add("怪物名字", typeof(string));
+            MainForm.怪物DataSheet.Columns.Add("MonsterName", typeof(string));
             MainForm.怪物DataSheet.Columns.Add("怪物等级", typeof(string));
             MainForm.怪物DataSheet.Columns.Add("怪物经验", typeof(string));
             MainForm.怪物DataSheet.Columns.Add("怪物级别", typeof(string));
