@@ -8398,7 +8398,7 @@ namespace GameServer.Maps
 										});
 									}
 								}
-								MainProcess.AddSystemLog(string.Format("[{0}][{1} level] Purchased [{2}] * {3}, consumed $[{4}]", new object[]
+								MainProcess.AddSystemLog(string.Format("Character: [{0}] [Level {1}] Purchased [{2}] * {3}, consumed $[{4}]", new object[]
 								{
 									this.对象名字,
 									this.当前等级,
