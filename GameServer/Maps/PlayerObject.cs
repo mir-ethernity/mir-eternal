@@ -151,8 +151,8 @@ namespace GameServer.Maps
 			{
 				this.当前地图 = MapGatewayProcess.分配地图(this.重生地图);
 				this.当前坐标 = (this.红名玩家 ? this.当前地图.红名区域.RandomCoords : this.当前地图.复活区域.RandomCoords);
-				this.当前体力 = (int)((float)this[GameObjectProperties.最大体力] * 0.3f);
-				this.当前魔力 = (int)((float)this[GameObjectProperties.最大魔力] * 0.3f);
+				this.当前体力 = (int)((float)this[GameObjectProperties.MaxPhysicalStrength] * 0.3f);
+				this.当前魔力 = (int)((float)this[GameObjectProperties.MaxMagic2] * 0.3f);
 			}
 			else if (GameMap.DataSheet[(byte)CharacterData.当前地图.V].NoReconnect)
 			{
@@ -572,8 +572,8 @@ namespace GameServer.Maps
 								队伍编号 = this.所属队伍.队伍编号,
 								对象编号 = this.MapId,
 								对象等级 = (int)this.当前等级,
-								最大体力 = this[GameObjectProperties.最大体力],
-								最大魔力 = this[GameObjectProperties.最大魔力],
+								MaxPhysicalStrength = this[GameObjectProperties.MaxPhysicalStrength],
+								MaxMagic2 = this[GameObjectProperties.MaxMagic2],
 								当前体力 = this.当前体力,
 								当前魔力 = this.当前魔力,
 								当前地图 = this.当前地图.MapId,
@@ -623,7 +623,7 @@ namespace GameServer.Maps
 										{
 											if (EquipmentData.Id == 99999110 || EquipmentData.Id == 99999111)
 											{
-												int num2 = Math.Min(10, Math.Min(EquipmentData.当前持久.V, this[GameObjectProperties.最大体力] - this.当前体力));
+												int num2 = Math.Min(10, Math.Min(EquipmentData.当前持久.V, this[GameObjectProperties.MaxPhysicalStrength] - this.当前体力));
 												if (num2 > 0)
 												{
 													this.当前体力 += num2;
@@ -636,7 +636,7 @@ namespace GameServer.Maps
 											goto IL_794;
 										}
 									}
-									int num3 = Math.Min(15, Math.Min(EquipmentData.当前持久.V, this[GameObjectProperties.最大魔力] - this.当前魔力));
+									int num3 = Math.Min(15, Math.Min(EquipmentData.当前持久.V, this[GameObjectProperties.MaxMagic2] - this.当前魔力));
 									if (num3 > 0)
 									{
 										this.当前魔力 += num3;
@@ -646,7 +646,7 @@ namespace GameServer.Maps
 									goto IL_794;
 								}
 							}
-							int num4 = Math.Min(10, Math.Min(EquipmentData.当前持久.V, this[GameObjectProperties.最大体力] - this.当前体力));
+							int num4 = Math.Min(10, Math.Min(EquipmentData.当前持久.V, this[GameObjectProperties.MaxPhysicalStrength] - this.当前体力));
 							if (num4 > 0)
 							{
 								this.当前体力 += num4;
@@ -908,7 +908,7 @@ namespace GameServer.Maps
 			}
 			set
 			{
-				value = Math.Min(this[GameObjectProperties.最大体力], Math.Max(0, value));
+				value = Math.Min(this[GameObjectProperties.MaxPhysicalStrength], Math.Max(0, value));
 				if (this.当前体力 != value)
 				{
 					this.CharacterData.当前血量.V = value;
@@ -916,7 +916,7 @@ namespace GameServer.Maps
 					{
 						对象编号 = this.MapId,
 						当前体力 = this.当前体力,
-						体力上限 = this[GameObjectProperties.最大体力]
+						体力上限 = this[GameObjectProperties.MaxPhysicalStrength]
 					});
 				}
 			}
@@ -933,7 +933,7 @@ namespace GameServer.Maps
 			}
 			set
 			{
-				value = Math.Min(this[GameObjectProperties.最大魔力], Math.Max(0, value));
+				value = Math.Min(this[GameObjectProperties.MaxMagic2], Math.Max(0, value));
 				if (this.当前魔力 != value)
 				{
 					this.CharacterData.当前蓝量.V = Math.Max(0, value);
@@ -1370,17 +1370,17 @@ namespace GameServer.Maps
 		
 		// (get) Token: 0x060008B3 RID: 2227 RVA: 0x00007045 File Offset: 0x00005245
 		// (set) Token: 0x060008B4 RID: 2228 RVA: 0x00007052 File Offset: 0x00005252
-		public int 金币数量
+		public int NumberGoldCoins
 		{
 			get
 			{
-				return this.CharacterData.金币数量;
+				return this.CharacterData.NumberGoldCoins;
 			}
 			set
 			{
-				if (this.CharacterData.金币数量 != value)
+				if (this.CharacterData.NumberGoldCoins != value)
 				{
-					this.CharacterData.金币数量 = value;
+					this.CharacterData.NumberGoldCoins = value;
 					客户网络 网络连接 = this.网络连接;
 					if (网络连接 == null)
 					{
@@ -2261,8 +2261,8 @@ namespace GameServer.Maps
 			this.更新对象属性();
 			if (!this.对象死亡)
 			{
-				this.当前体力 = this[GameObjectProperties.最大体力];
-				this.当前魔力 = this[GameObjectProperties.最大魔力];
+				this.当前体力 = this[GameObjectProperties.MaxPhysicalStrength];
+				this.当前魔力 = this[GameObjectProperties.MaxMagic2];
 			}
 			TeacherData 所属师门 = this.所属师门;
 			if (所属师门 != null)
@@ -2857,7 +2857,7 @@ namespace GameServer.Maps
 				{
 					return;
 				}
-				if (this.本期特权 == 5 && EquipmentData.能否修理)
+				if (this.本期特权 == 5 && EquipmentData.CanRepair)
 				{
 					return;
 				}
@@ -2940,7 +2940,7 @@ namespace GameServer.Maps
 			损失持久 = Math.Min(10, 损失持久);
 			foreach (EquipmentData EquipmentData in this.角色装备.Values)
 			{
-				if (EquipmentData.当前持久.V > 0 && (this.本期特权 != 5 || !EquipmentData.能否修理) && (this.本期特权 != 4 || !ComputingClass.计算概率(0.5f)) && EquipmentData.PersistType == PersistentItemType.装备 && ComputingClass.计算概率((EquipmentData.物品类型 == ItemUsageType.衣服) ? 1f : 0.1f))
+				if (EquipmentData.当前持久.V > 0 && (this.本期特权 != 5 || !EquipmentData.CanRepair) && (this.本期特权 != 4 || !ComputingClass.计算概率(0.5f)) && EquipmentData.PersistType == PersistentItemType.装备 && ComputingClass.计算概率((EquipmentData.物品类型 == ItemUsageType.衣服) ? 1f : 0.1f))
 				{
 					if ((EquipmentData.当前持久.V = Math.Max(0, EquipmentData.当前持久.V - 损失持久)) <= 0 && this.属性加成.Remove(EquipmentData))
 					{
@@ -3276,7 +3276,7 @@ namespace GameServer.Maps
 					现身高度 = this.当前高度,
 					现身方向 = (ushort)this.当前方向,
 					现身姿态 = ((byte)(this.对象死亡 ? 13 : 1)),
-					体力比例 = (byte)(this.当前体力 * 100 / this[GameObjectProperties.最大体力])
+					体力比例 = (byte)(this.当前体力 * 100 / this[GameObjectProperties.MaxPhysicalStrength])
 				});
 			}
 			客户网络 网络连接4 = this.网络连接;
@@ -3286,7 +3286,7 @@ namespace GameServer.Maps
 				{
 					对象编号 = this.MapId,
 					当前体力 = this.当前体力,
-					体力上限 = this[GameObjectProperties.最大体力]
+					体力上限 = this[GameObjectProperties.MaxPhysicalStrength]
 				});
 			}
 			客户网络 网络连接5 = this.网络连接;
@@ -3397,8 +3397,8 @@ namespace GameServer.Maps
 						复活方式 = 3
 					});
 				}
-				this.当前体力 = (int)((float)this[GameObjectProperties.最大体力] * 0.3f);
-				this.当前魔力 = (int)((float)this[GameObjectProperties.最大魔力] * 0.3f);
+				this.当前体力 = (int)((float)this[GameObjectProperties.MaxPhysicalStrength] * 0.3f);
+				this.当前魔力 = (int)((float)this[GameObjectProperties.MaxMagic2] * 0.3f);
 				this.对象死亡 = false;
 				this.阻塞网格 = true;
 				if (this.当前地图 == MapGatewayProcess.沙城地图 && MapGatewayProcess.沙城节点 >= 2)
@@ -4103,8 +4103,8 @@ namespace GameServer.Maps
 					对象编号 = MapObject.MapId,
 					当前体力 = MapObject.当前体力,
 					当前魔力 = MapObject.当前魔力,
-					最大体力 = MapObject[GameObjectProperties.最大体力],
-					最大魔力 = MapObject[GameObjectProperties.最大魔力],
+					MaxPhysicalStrength = MapObject[GameObjectProperties.MaxPhysicalStrength],
+					MaxMagic2 = MapObject[GameObjectProperties.MaxMagic2],
 					Buff描述 = MapObject.对象Buff详述()
 				});
 			}
@@ -4244,9 +4244,9 @@ namespace GameServer.Maps
 												});
 											}
 										}
-										if (this.金币数量 >= 50000)
+										if (this.NumberGoldCoins >= 50000)
 										{
-											this.金币数量 -= 50000;
+											this.NumberGoldCoins -= 50000;
 											this.CharacterData.武斗日期.V = MainProcess.CurrentTime;
 											this.玩家切换地图((this.当前地图.MapId == 183) ? this.当前地图 : MapGatewayProcess.分配地图(183), AreaType.传送区域, default(Point));
 											return;
@@ -4294,9 +4294,9 @@ namespace GameServer.Maps
 									}
 									else
 									{
-										if (this.金币数量 >= num3)
+										if (this.NumberGoldCoins >= num3)
 										{
-											this.金币数量 -= num3;
+											this.NumberGoldCoins -= num3;
 											this.玩家切换地图((this.当前地图.MapId == num4) ? this.当前地图 : MapGatewayProcess.分配地图(num4), AreaType.传送区域, default(Point));
 											return;
 										}
@@ -4339,9 +4339,9 @@ namespace GameServer.Maps
 									}
 									else
 									{
-										if (this.金币数量 >= num6)
+										if (this.NumberGoldCoins >= num6)
 										{
-											this.金币数量 -= num6;
+											this.NumberGoldCoins -= num6;
 											this.玩家切换地图((this.当前地图.MapId == num7) ? this.当前地图 : MapGatewayProcess.分配地图(num7), AreaType.复活区域, default(Point));
 											return;
 										}
@@ -4473,7 +4473,7 @@ namespace GameServer.Maps
 										int num9 = 1;
 										int 重铸所需灵气 = EquipmentData2.重铸所需灵气;
 										List<ItemData> 物品列表;
-										if (this.金币数量 < 500000)
+										if (this.NumberGoldCoins < 500000)
 										{
 											this.对话页面 = 612605000;
 											客户网络 网络连接14 = this.网络连接;
@@ -4505,7 +4505,7 @@ namespace GameServer.Maps
 										}
 										else
 										{
-											this.金币数量 -= num8;
+											this.NumberGoldCoins -= num8;
 											this.消耗背包物品(num9, 物品列表);
 											EquipmentData2.随机属性.SetValue(装备属性.生成属性(EquipmentData2.物品类型, true));
 											客户网络 网络连接16 = this.网络连接;
@@ -5173,7 +5173,7 @@ namespace GameServer.Maps
 										int num10 = 5;
 										int num11 = 100000;
 										List<ItemData> 物品列表2;
-										if (this.金币数量 < 100000)
+										if (this.NumberGoldCoins < 100000)
 										{
 											this.对话页面 = 619202200;
 											客户网络 网络连接51 = this.网络连接;
@@ -5205,7 +5205,7 @@ namespace GameServer.Maps
 										}
 										else
 										{
-											this.金币数量 -= num11;
+											this.NumberGoldCoins -= num11;
 											this.消耗背包物品(num10, 物品列表2);
 											EquipmentData17.孔洞颜色[MainProcess.RandomNumber.Next(EquipmentData17.孔洞颜色.Count)] = (EquipHoleColor)MainProcess.RandomNumber.Next(1, 8);
 											客户网络 网络连接53 = this.网络连接;
@@ -5694,7 +5694,7 @@ namespace GameServer.Maps
 								int num13 = 5;
 								int num14 = 100000;
 								List<ItemData> 物品列表4;
-								if (this.金币数量 < 100000)
+								if (this.NumberGoldCoins < 100000)
 								{
 									this.对话页面 = 619202200;
 									客户网络 网络连接76 = this.网络连接;
@@ -5726,7 +5726,7 @@ namespace GameServer.Maps
 								}
 								else
 								{
-									this.金币数量 -= num14;
+									this.NumberGoldCoins -= num14;
 									this.消耗背包物品(num13, 物品列表4);
 									EquipmentData20.孔洞颜色[MainProcess.RandomNumber.Next(EquipmentData20.孔洞颜色.Count)] = (EquipHoleColor)MainProcess.RandomNumber.Next(1, 8);
 									客户网络 网络连接78 = this.网络连接;
@@ -6568,7 +6568,7 @@ namespace GameServer.Maps
 									});
 									return;
 								}
-								else if (this.所属队伍.队伍成员.FirstOrDefault((CharacterData O) => O.金币数量 < DeductCoinsCommand) != null)
+								else if (this.所属队伍.队伍成员.FirstOrDefault((CharacterData O) => O.NumberGoldCoins < DeductCoinsCommand) != null)
 								{
 									this.对话页面 = 624204000;
 									客户网络 网络连接118 = this.网络连接;
@@ -6660,7 +6660,7 @@ namespace GameServer.Maps
 											{
 												PlayerDeals.结束交易();
 											}
-											PlayerObject.金币数量 -= DeductCoinsCommand;
+											PlayerObject.NumberGoldCoins -= DeductCoinsCommand;
 											PlayerObject.玩家切换地图(MapInstance3, AreaType.传送区域, default(Point));
 										}
 										return;
@@ -6706,9 +6706,9 @@ namespace GameServer.Maps
 									}
 									else
 									{
-										if (this.金币数量 >= num32)
+										if (this.NumberGoldCoins >= num32)
 										{
-											this.金币数量 -= num32;
+											this.NumberGoldCoins -= num32;
 											this.玩家切换地图((this.当前地图.MapId == num33) ? this.当前地图 : MapGatewayProcess.分配地图(num33), AreaType.传送区域, default(Point));
 											return;
 										}
@@ -6924,7 +6924,7 @@ namespace GameServer.Maps
 								else
 								{
 									int num34 = (int)((this.CharacterData.升级装备.V.升级次数.V + 1) * 100) * 10000;
-									if (this.金币数量 < num34)
+									if (this.NumberGoldCoins < num34)
 									{
 										this.对话页面 = 670510000;
 										客户网络 网络连接133 = this.网络连接;
@@ -6972,7 +6972,7 @@ namespace GameServer.Maps
 													}
 													else
 													{
-														this.金币数量 -= num34;
+														this.NumberGoldCoins -= num34;
 														this.消耗背包物品(num35, 物品列表14);
 														this.角色背包[b12] = this.CharacterData.升级装备.V;
 														this.CharacterData.升级装备.V = null;
@@ -7159,7 +7159,7 @@ namespace GameServer.Maps
 							});
 							return;
 						}
-						else if (this.金币数量 < 100000)
+						else if (this.NumberGoldCoins < 100000)
 						{
 							this.对话页面 = 670506000;
 							客户网络 网络连接147 = this.网络连接;
@@ -7312,7 +7312,7 @@ namespace GameServer.Maps
 							});
 							return;
 						}
-						else if (this.金币数量 < 1000000)
+						else if (this.NumberGoldCoins < 1000000)
 						{
 							客户网络 网络连接156 = this.网络连接;
 							if (网络连接156 == null)
@@ -7330,7 +7330,7 @@ namespace GameServer.Maps
 							ItemData 当前物品;
 							if (this.查找背包物品(90196, out 当前物品))
 							{
-								this.金币数量 -= 1000000;
+								this.NumberGoldCoins -= 1000000;
 								this.消耗背包物品(1, 当前物品);
 								SystemData.数据.申请行会.Add(MainProcess.CurrentTime.Date.AddDays(1.0).AddHours(20.0), this.所属行会);
 								NetworkServiceGateway.发送公告(string.Format("The guild [{0}] has signed up for the next day's Shabak Battle", this.所属行会), true);
@@ -7417,9 +7417,9 @@ namespace GameServer.Maps
 						}
 						else
 						{
-							if (this.金币数量 >= num37)
+							if (this.NumberGoldCoins >= num37)
 							{
-								this.金币数量 -= num37;
+								this.NumberGoldCoins -= num37;
 								this.玩家切换地图((this.当前地图.MapId == num38) ? this.当前地图 : MapGatewayProcess.分配地图(num38), AreaType.传送区域, default(Point));
 								return;
 							}
@@ -7481,9 +7481,9 @@ namespace GameServer.Maps
 						}
 						else
 						{
-							if (this.金币数量 >= num40)
+							if (this.NumberGoldCoins >= num40)
 							{
-								this.金币数量 -= num40;
+								this.NumberGoldCoins -= num40;
 								this.玩家切换地图((this.当前地图.MapId == num41) ? this.当前地图 : MapGatewayProcess.分配地图(num41), AreaType.传送区域, default(Point));
 								return;
 							}
@@ -7568,7 +7568,7 @@ namespace GameServer.Maps
 						});
 						return;
 					}
-					else if (this.金币数量 < num43)
+					else if (this.NumberGoldCoins < num43)
 					{
 						this.对话页面 = 711900002;
 						客户网络 网络连接163 = this.网络连接;
@@ -7585,7 +7585,7 @@ namespace GameServer.Maps
 					}
 					else
 					{
-						this.金币数量 -= num43;
+						this.NumberGoldCoins -= num43;
 						if (num44 != 152)
 						{
 							this.玩家切换地图((this.当前地图.MapId == num44) ? this.当前地图 : MapGatewayProcess.分配地图(num44), AreaType.复活区域, default(Point));
@@ -7691,7 +7691,7 @@ namespace GameServer.Maps
 				{
 					int num = ComputingClass.扩展仓库((int)(this.仓库大小 - 16), 0, 1, 0);
 					int num2 = ComputingClass.扩展仓库((int)(this.仓库大小 + 扩展大小 - 16), 0, 1, 0) - num;
-					if (this.金币数量 < num2)
+					if (this.NumberGoldCoins < num2)
 					{
 						客户网络 网络连接 = this.网络连接;
 						if (网络连接 == null)
@@ -7706,7 +7706,7 @@ namespace GameServer.Maps
 					}
 					else
 					{
-						this.金币数量 -= num2;
+						this.NumberGoldCoins -= num2;
 						this.仓库大小 += 扩展大小;
 						客户网络 网络连接2 = this.网络连接;
 						if (网络连接2 == null)
@@ -7724,7 +7724,7 @@ namespace GameServer.Maps
 			}
 			int num3 = ComputingClass.扩展背包((int)(this.背包大小 - 32), 0, 1, 0);
 			int num4 = ComputingClass.扩展背包((int)(this.背包大小 + 扩展大小 - 32), 0, 1, 0) - num3;
-			if (this.金币数量 < num4)
+			if (this.NumberGoldCoins < num4)
 			{
 				客户网络 网络连接3 = this.网络连接;
 				if (网络连接3 == null)
@@ -7739,7 +7739,7 @@ namespace GameServer.Maps
 			}
 			else
 			{
-				this.金币数量 -= num4;
+				this.NumberGoldCoins -= num4;
 				this.背包大小 += 扩展大小;
 				客户网络 网络连接4 = this.网络连接;
 				if (网络连接4 == null)
@@ -7801,7 +7801,7 @@ namespace GameServer.Maps
 						});
 						return;
 					}
-					else if (!EquipmentData.能否修理)
+					else if (!EquipmentData.CanRepair)
 					{
 						客户网络 网络连接2 = this.网络连接;
 						if (网络连接2 == null)
@@ -7814,7 +7814,7 @@ namespace GameServer.Maps
 						});
 						return;
 					}
-					else if (this.金币数量 < EquipmentData.修理费用)
+					else if (this.NumberGoldCoins < EquipmentData.修理费用)
 					{
 						客户网络 网络连接3 = this.网络连接;
 						if (网络连接3 == null)
@@ -7829,7 +7829,7 @@ namespace GameServer.Maps
 					}
 					else
 					{
-						this.金币数量 -= EquipmentData.修理费用;
+						this.NumberGoldCoins -= EquipmentData.修理费用;
 						EquipmentData.最大持久.V = Math.Max(1000, EquipmentData.最大持久.V - (int)((float)(EquipmentData.最大持久.V - EquipmentData.当前持久.V) * 0.035f));
 						if (EquipmentData.当前持久.V <= 0)
 						{
@@ -7885,7 +7885,7 @@ namespace GameServer.Maps
 					});
 					return;
 				}
-				else if (!EquipmentData2.能否修理)
+				else if (!EquipmentData2.CanRepair)
 				{
 					客户网络 网络连接8 = this.网络连接;
 					if (网络连接8 == null)
@@ -7898,7 +7898,7 @@ namespace GameServer.Maps
 					});
 					return;
 				}
-				else if (this.金币数量 < EquipmentData2.修理费用)
+				else if (this.NumberGoldCoins < EquipmentData2.修理费用)
 				{
 					客户网络 网络连接9 = this.网络连接;
 					if (网络连接9 == null)
@@ -7913,7 +7913,7 @@ namespace GameServer.Maps
 				}
 				else
 				{
-					this.金币数量 -= EquipmentData2.修理费用;
+					this.NumberGoldCoins -= EquipmentData2.修理费用;
 					EquipmentData2.最大持久.V = Math.Max(1000, EquipmentData2.最大持久.V - 334);
 					EquipmentData2.当前持久.V = EquipmentData2.最大持久.V;
 					客户网络 网络连接10 = this.网络连接;
@@ -7952,9 +7952,9 @@ namespace GameServer.Maps
 				this.网络连接.尝试断开连接(new Exception("Bug: Shop repair single piece.  Bug: Character is too far away."));
 				return;
 			}
-			if (this.金币数量 < this.角色装备.Values.Sum(delegate(EquipmentData O)
+			if (this.NumberGoldCoins < this.角色装备.Values.Sum(delegate(EquipmentData O)
 			{
-				if (!O.能否修理)
+				if (!O.CanRepair)
 				{
 					return 0;
 				}
@@ -7976,9 +7976,9 @@ namespace GameServer.Maps
 			{
 				foreach (EquipmentData EquipmentData in this.角色装备.Values)
 				{
-					if (EquipmentData.能否修理)
+					if (EquipmentData.CanRepair)
 					{
-						this.金币数量 -= EquipmentData.修理费用;
+						this.NumberGoldCoins -= EquipmentData.修理费用;
 						EquipmentData.最大持久.V = Math.Max(1000, EquipmentData.最大持久.V - (int)((float)(EquipmentData.最大持久.V - EquipmentData.当前持久.V) * 0.035f));
 						if (EquipmentData.当前持久.V <= 0)
 						{
@@ -8036,7 +8036,7 @@ namespace GameServer.Maps
 						});
 						return;
 					}
-					else if (!EquipmentData.能否修理)
+					else if (!EquipmentData.CanRepair)
 					{
 						客户网络 网络连接2 = this.网络连接;
 						if (网络连接2 == null)
@@ -8049,7 +8049,7 @@ namespace GameServer.Maps
 						});
 						return;
 					}
-					else if (this.金币数量 < EquipmentData.特修费用)
+					else if (this.NumberGoldCoins < EquipmentData.特修费用)
 					{
 						客户网络 网络连接3 = this.网络连接;
 						if (网络连接3 == null)
@@ -8064,7 +8064,7 @@ namespace GameServer.Maps
 					}
 					else
 					{
-						this.金币数量 -= EquipmentData.特修费用;
+						this.NumberGoldCoins -= EquipmentData.特修费用;
 						EquipmentData.当前持久.V = EquipmentData.最大持久.V;
 						客户网络 网络连接4 = this.网络连接;
 						if (网络连接4 == null)
@@ -8109,7 +8109,7 @@ namespace GameServer.Maps
 					});
 					return;
 				}
-				else if (!EquipmentData2.能否修理)
+				else if (!EquipmentData2.CanRepair)
 				{
 					客户网络 网络连接7 = this.网络连接;
 					if (网络连接7 == null)
@@ -8122,7 +8122,7 @@ namespace GameServer.Maps
 					});
 					return;
 				}
-				else if (this.金币数量 < EquipmentData2.特修费用)
+				else if (this.NumberGoldCoins < EquipmentData2.特修费用)
 				{
 					客户网络 网络连接8 = this.网络连接;
 					if (网络连接8 == null)
@@ -8137,7 +8137,7 @@ namespace GameServer.Maps
 				}
 				else
 				{
-					this.金币数量 -= EquipmentData2.特修费用;
+					this.NumberGoldCoins -= EquipmentData2.特修费用;
 					if (EquipmentData2.当前持久.V <= 0)
 					{
 						this.属性加成[EquipmentData2] = EquipmentData2.装备属性;
@@ -8170,9 +8170,9 @@ namespace GameServer.Maps
 			{
 				return;
 			}
-			if (this.金币数量 < this.角色装备.Values.Sum(delegate(EquipmentData O)
+			if (this.NumberGoldCoins < this.角色装备.Values.Sum(delegate(EquipmentData O)
 			{
-				if (!O.能否修理)
+				if (!O.CanRepair)
 				{
 					return 0;
 				}
@@ -8194,9 +8194,9 @@ namespace GameServer.Maps
 			{
 				foreach (EquipmentData EquipmentData in this.角色装备.Values)
 				{
-					if (EquipmentData.能否修理)
+					if (EquipmentData.CanRepair)
 					{
-						this.金币数量 -= EquipmentData.特修费用;
+						this.NumberGoldCoins -= EquipmentData.特修费用;
 						if (EquipmentData.当前持久.V <= 0)
 						{
 							this.属性加成[EquipmentData] = EquipmentData.装备属性;
@@ -8477,7 +8477,7 @@ namespace GameServer.Maps
 						if (!this.角色背包.ContainsKey(b))
 						{
 							this.元宝数量 -= 600;
-							this.金币数量 += 165000;
+							this.NumberGoldCoins += 165000;
 							this.双倍经验 += 500000;
 							this.CharacterData.消耗元宝.V += 600L;
 							this.角色背包[b] = new ItemData(模板, this.CharacterData, 1, b, 1);
@@ -8557,7 +8557,7 @@ namespace GameServer.Maps
 								if (b2 != 255)
 								{
 									this.元宝数量 -= 3000;
-									this.金币数量 += 875000;
+									this.NumberGoldCoins += 875000;
 									this.双倍经验 += 2750000;
 									this.CharacterData.消耗元宝.V += 3000L;
 									this.角色背包[b2] = new ItemData(模板2, this.CharacterData, 1, b2, 1);
@@ -8621,7 +8621,7 @@ namespace GameServer.Maps
 					if (b5 != 255)
 					{
 						this.元宝数量 -= 3000;
-						this.金币数量 += 875000;
+						this.NumberGoldCoins += 875000;
 						this.双倍经验 += 2750000;
 						this.CharacterData.消耗元宝.V += 3000L;
 						this.角色背包[b4] = new ItemData(模板2, this.CharacterData, 1, b4, 1);
@@ -8866,7 +8866,7 @@ namespace GameServer.Maps
 								字节数组 = this.玛法特权描述()
 							});
 						}
-						this.金币数量 += ((this.本期特权 == 3) ? 50000 : 100000);
+						this.NumberGoldCoins += ((this.本期特权 == 3) ? 50000 : 100000);
 						return;
 					}
 					if (num == 1)
@@ -9267,7 +9267,7 @@ namespace GameServer.Maps
 								字节数组 = this.玛法特权描述()
 							});
 						}
-						this.金币数量 += ((this.上期特权 == 3) ? 50000 : 100000);
+						this.NumberGoldCoins += ((this.上期特权 == 3) ? 50000 : 100000);
 						return;
 					}
 					if (num2 == 1)
@@ -9908,10 +9908,10 @@ namespace GameServer.Maps
 					{
 						网络连接5.发送封包(new 玩家拾取金币
 						{
-							金币数量 = 物品.堆叠数量
+							NumberGoldCoins = 物品.堆叠数量
 						});
 					}
-					this.金币数量 += 物品.堆叠数量;
+					this.NumberGoldCoins += 物品.堆叠数量;
 					物品.物品转移处理();
 					return;
 				}
@@ -10061,7 +10061,7 @@ namespace GameServer.Maps
 						}
 						int SalePrice = EquipmentData.SalePrice;
 						int num = (int)Math.Max(0f, (float)SalePrice * (1f - (float)this.CharacterData.分解经验.V / 1500000f));
-						this.金币数量 += Math.Max(1, SalePrice / 2);
+						this.NumberGoldCoins += Math.Max(1, SalePrice / 2);
 						this.双倍经验 += num;
 						this.CharacterData.分解经验.V += num;
 						this.角色背包.Remove(EquipmentData.当前位置);
@@ -10184,11 +10184,11 @@ namespace GameServer.Maps
 			{
 				return;
 			}
-			if (ItemData != null && 当前背包 == 0 && (ItemData as EquipmentData).禁止卸下)
+			if (ItemData != null && 当前背包 == 0 && (ItemData as EquipmentData).DisableDismount)
 			{
 				return;
 			}
-			if (ItemData4 != null && 目标背包 == 0 && (ItemData4 as EquipmentData).禁止卸下)
+			if (ItemData4 != null && 目标背包 == 0 && (ItemData4 as EquipmentData).DisableDismount)
 			{
 				return;
 			}
@@ -10211,23 +10211,23 @@ namespace GameServer.Maps
 				{
 					return;
 				}
-				if (EquipmentData3.需要攻击 > this[GameObjectProperties.最大攻击])
+				if (EquipmentData3.NeedAttack > this[GameObjectProperties.MaxAttack])
 				{
 					return;
 				}
-				if (EquipmentData3.需要魔法 > this[GameObjectProperties.最大魔法])
+				if (EquipmentData3.NeedMagic > this[GameObjectProperties.MaxMagic])
 				{
 					return;
 				}
-				if (EquipmentData3.需要道术 > this[GameObjectProperties.最大道术])
+				if (EquipmentData3.NeedTaoism > this[GameObjectProperties.GreatestTaoism])
 				{
 					return;
 				}
-				if (EquipmentData3.需要刺术 > this[GameObjectProperties.最大刺术])
+				if (EquipmentData3.NeedAcupuncture > this[GameObjectProperties.MaxNeedle])
 				{
 					return;
 				}
-				if (EquipmentData3.需要弓术 > this[GameObjectProperties.最大弓术])
+				if (EquipmentData3.NeedArchery > this[GameObjectProperties.MaxBow])
 				{
 					return;
 				}
@@ -10328,23 +10328,23 @@ namespace GameServer.Maps
 				{
 					return;
 				}
-				if (EquipmentData4.需要攻击 > this[GameObjectProperties.最大攻击])
+				if (EquipmentData4.NeedAttack > this[GameObjectProperties.MaxAttack])
 				{
 					return;
 				}
-				if (EquipmentData4.需要魔法 > this[GameObjectProperties.最大魔法])
+				if (EquipmentData4.NeedMagic > this[GameObjectProperties.MaxMagic])
 				{
 					return;
 				}
-				if (EquipmentData4.需要道术 > this[GameObjectProperties.最大道术])
+				if (EquipmentData4.NeedTaoism > this[GameObjectProperties.GreatestTaoism])
 				{
 					return;
 				}
-				if (EquipmentData4.需要刺术 > this[GameObjectProperties.最大刺术])
+				if (EquipmentData4.NeedAcupuncture > this[GameObjectProperties.MaxNeedle])
 				{
 					return;
 				}
-				if (EquipmentData4.需要弓术 > this[GameObjectProperties.最大弓术])
+				if (EquipmentData4.NeedArchery > this[GameObjectProperties.MaxBow])
 				{
 					return;
 				}
@@ -13531,7 +13531,7 @@ namespace GameServer.Maps
 														if (num5 < 80)
 														{
 															this.消耗背包物品(1, ItemData);
-															this.金币数量 += 100000;
+															this.NumberGoldCoins += 100000;
 															return;
 														}
 														if (num5 < 90)
@@ -15028,7 +15028,7 @@ namespace GameServer.Maps
 					});
 					return;
 				}
-				else if (!EquipmentData.能否修理)
+				else if (!EquipmentData.CanRepair)
 				{
 					客户网络 网络连接2 = this.网络连接;
 					if (网络连接2 == null)
@@ -15154,7 +15154,7 @@ namespace GameServer.Maps
 					}
 					this.角色背包.Remove(物品位置);
 					游戏商店.出售物品(ItemData);
-					this.金币数量 += ItemData.SalePrice;
+					this.NumberGoldCoins += ItemData.SalePrice;
 					客户网络 网络连接 = this.网络连接;
 					if (网络连接 == null)
 					{
@@ -15234,7 +15234,7 @@ namespace GameServer.Maps
 									}
 									if (GameCurrency == GameCurrency.金币)
 									{
-										if (this.金币数量 < num4)
+										if (this.NumberGoldCoins < num4)
 										{
 											客户网络 网络连接2 = this.网络连接;
 											if (网络连接2 == null)
@@ -15249,7 +15249,7 @@ namespace GameServer.Maps
 										}
 										else
 										{
-											this.金币数量 -= num4;
+											this.NumberGoldCoins -= num4;
 										}
 									}
 									else if (GameCurrency == GameCurrency.元宝)
@@ -15421,7 +15421,7 @@ namespace GameServer.Maps
 							});
 							return;
 						}
-						else if (this.金币数量 < ItemData.SalePrice)
+						else if (this.NumberGoldCoins < ItemData.SalePrice)
 						{
 							客户网络 网络连接2 = this.网络连接;
 							if (网络连接2 == null)
@@ -15436,7 +15436,7 @@ namespace GameServer.Maps
 						}
 						else if (游戏商店.回购物品(ItemData))
 						{
-							this.金币数量 -= ItemData.SalePrice;
+							this.NumberGoldCoins -= ItemData.SalePrice;
 							ItemData ItemData3;
 							if (this.角色背包.TryGetValue((byte)num, out ItemData3))
 							{
@@ -15629,50 +15629,50 @@ namespace GameServer.Maps
 						}
 						if (游戏物品.Name.IndexOf("1级") > 0)
 						{
-							int 金币数量 = this.金币数量;
+							int NumberGoldCoins = this.NumberGoldCoins;
 							int num2 = 100000;
 							num = 100000;
-							if (金币数量 < num2)
+							if (NumberGoldCoins < num2)
 							{
 								goto IL_199;
 							}
 						}
 						if (游戏物品.Name.IndexOf("2级") > 0)
 						{
-							int 金币数量2 = this.金币数量;
+							int NumberGoldCoins2 = this.NumberGoldCoins;
 							int num3 = 500000;
 							num = 500000;
-							if (金币数量2 < num3)
+							if (NumberGoldCoins2 < num3)
 							{
 								goto IL_199;
 							}
 						}
 						if (游戏物品.Name.IndexOf("3级") > 0)
 						{
-							int 金币数量3 = this.金币数量;
+							int NumberGoldCoins3 = this.NumberGoldCoins;
 							int num4 = 2500000;
 							num = 2500000;
-							if (金币数量3 < num4)
+							if (NumberGoldCoins3 < num4)
 							{
 								goto IL_199;
 							}
 						}
 						if (游戏物品.Name.IndexOf("4级") > 0)
 						{
-							int 金币数量4 = this.金币数量;
+							int NumberGoldCoins4 = this.NumberGoldCoins;
 							int num5 = 10000000;
 							num = 10000000;
-							if (金币数量4 < num5)
+							if (NumberGoldCoins4 < num5)
 							{
 								goto IL_199;
 							}
 						}
 						if (游戏物品.Name.IndexOf("5级") > 0)
 						{
-							int 金币数量5 = this.金币数量;
+							int NumberGoldCoins5 = this.NumberGoldCoins;
 							int num6 = 25000000;
 							num = 25000000;
-							if (金币数量5 < num6)
+							if (NumberGoldCoins5 < num6)
 							{
 								goto IL_199;
 							}
@@ -15686,7 +15686,7 @@ namespace GameServer.Maps
 							}
 							else
 							{
-								this.金币数量 -= num;
+								this.NumberGoldCoins -= num;
 								EquipmentData.镶嵌灵石.Remove(装备孔位);
 								客户网络 网络连接 = this.网络连接;
 								if (网络连接 != null)
@@ -15772,7 +15772,7 @@ namespace GameServer.Maps
 			{
 				return;
 			}
-			if (this.金币数量 < 10000)
+			if (this.NumberGoldCoins < 10000)
 			{
 				客户网络 网络连接 = this.网络连接;
 				if (网络连接 == null)
@@ -15831,7 +15831,7 @@ namespace GameServer.Maps
 						this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong material type."));
 						return;
 					}
-					this.金币数量 -= 10000;
+					this.NumberGoldCoins -= 10000;
 					this.消耗背包物品(1, ItemData2);
 					byte 洗练职业 = 0;
 					switch (Id)
@@ -15988,7 +15988,7 @@ namespace GameServer.Maps
 			{
 				return;
 			}
-			if (this.金币数量 < 100000)
+			if (this.NumberGoldCoins < 100000)
 			{
 				客户网络 网络连接 = this.网络连接;
 				if (网络连接 == null)
@@ -16052,7 +16052,7 @@ namespace GameServer.Maps
 						this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong material type."));
 						return;
 					}
-					this.金币数量 -= 100000;
+					this.NumberGoldCoins -= 100000;
 					this.消耗背包物品(1, ItemData2);
 					byte 洗练职业 = 0;
 					switch (Id)
@@ -16152,7 +16152,7 @@ namespace GameServer.Maps
 			{
 				return;
 			}
-			if (this.金币数量 < 1000000)
+			if (this.NumberGoldCoins < 1000000)
 			{
 				客户网络 网络连接 = this.网络连接;
 				if (网络连接 == null)
@@ -16216,7 +16216,7 @@ namespace GameServer.Maps
 						this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong material type."));
 						return;
 					}
-					this.金币数量 -= 1000000;
+					this.NumberGoldCoins -= 1000000;
 					this.消耗背包物品(num, list);
 					byte 洗练职业 = 0;
 					switch (Id)
@@ -16494,7 +16494,7 @@ namespace GameServer.Maps
 								});
 								return;
 							}
-							else if (this.金币数量 < num)
+							else if (this.NumberGoldCoins < num)
 							{
 								客户网络 网络连接2 = this.网络连接;
 								if (网络连接2 == null)
@@ -16509,7 +16509,7 @@ namespace GameServer.Maps
 							}
 							else
 							{
-								this.金币数量 -= num;
+								this.NumberGoldCoins -= num;
 								EquipmentData.双铭文栏.V = true;
 								客户网络 网络连接3 = this.网络连接;
 								if (网络连接3 != null)
@@ -16673,7 +16673,7 @@ namespace GameServer.Maps
 												if (EquipmentData.第二铭文 != null && EquipmentData2.第二铭文 != null)
 												{
 													List<ItemData> 物品列表;
-													if (this.金币数量 < num)
+													if (this.NumberGoldCoins < num)
 													{
 														客户网络 网络连接 = this.网络连接;
 														if (网络连接 == null)
@@ -16701,7 +16701,7 @@ namespace GameServer.Maps
 													}
 													else
 													{
-														this.金币数量 -= num;
+														this.NumberGoldCoins -= num;
 														this.消耗背包物品(num2, 物品列表);
 														EquipmentData2.第一铭文 = EquipmentData.第一铭文;
 														EquipmentData2.第二铭文 = EquipmentData.第二铭文;
@@ -16800,7 +16800,7 @@ namespace GameServer.Maps
 				});
 				return;
 			}
-			else if (this.金币数量 < 10000)
+			else if (this.NumberGoldCoins < 10000)
 			{
 				客户网络 网络连接2 = this.网络连接;
 				if (网络连接2 == null)
@@ -16954,7 +16954,7 @@ namespace GameServer.Maps
 							}
 						}
 					}
-					this.金币数量 -= 10000;
+					this.NumberGoldCoins -= 10000;
 					foreach (byte b3 in 首饰组)
 					{
 						if (b3 != 255)
@@ -17016,23 +17016,23 @@ namespace GameServer.Maps
 					{
 						Dictionary<GameObjectProperties, int> 装备属性 = EquipmentData3.装备属性;
 						int value;
-						if ((value = (装备属性.ContainsKey(GameObjectProperties.最小攻击) ? 装备属性[GameObjectProperties.最小攻击] : 0) + (装备属性.ContainsKey(GameObjectProperties.最大攻击) ? 装备属性[GameObjectProperties.最大攻击] : 0)) > 0)
+						if ((value = (装备属性.ContainsKey(GameObjectProperties.MinAttack) ? 装备属性[GameObjectProperties.MinAttack] : 0) + (装备属性.ContainsKey(GameObjectProperties.MaxAttack) ? 装备属性[GameObjectProperties.MaxAttack] : 0)) > 0)
 						{
 							dictionary4[0][EquipmentData3] = value;
 						}
-						if ((value = (装备属性.ContainsKey(GameObjectProperties.最小魔法) ? 装备属性[GameObjectProperties.最小魔法] : 0) + (装备属性.ContainsKey(GameObjectProperties.最大魔法) ? 装备属性[GameObjectProperties.最大魔法] : 0)) > 0)
+						if ((value = (装备属性.ContainsKey(GameObjectProperties.MinMagic) ? 装备属性[GameObjectProperties.MinMagic] : 0) + (装备属性.ContainsKey(GameObjectProperties.MaxMagic) ? 装备属性[GameObjectProperties.MaxMagic] : 0)) > 0)
 						{
 							dictionary4[1][EquipmentData3] = value;
 						}
-						if ((value = (装备属性.ContainsKey(GameObjectProperties.最小道术) ? 装备属性[GameObjectProperties.最小道术] : 0) + (装备属性.ContainsKey(GameObjectProperties.最大道术) ? 装备属性[GameObjectProperties.最大道术] : 0)) > 0)
+						if ((value = (装备属性.ContainsKey(GameObjectProperties.Minimalist) ? 装备属性[GameObjectProperties.Minimalist] : 0) + (装备属性.ContainsKey(GameObjectProperties.GreatestTaoism) ? 装备属性[GameObjectProperties.GreatestTaoism] : 0)) > 0)
 						{
 							dictionary4[2][EquipmentData3] = value;
 						}
-						if ((value = (装备属性.ContainsKey(GameObjectProperties.最小刺术) ? 装备属性[GameObjectProperties.最小刺术] : 0) + (装备属性.ContainsKey(GameObjectProperties.最大刺术) ? 装备属性[GameObjectProperties.最大刺术] : 0)) > 0)
+						if ((value = (装备属性.ContainsKey(GameObjectProperties.MinNeedle) ? 装备属性[GameObjectProperties.MinNeedle] : 0) + (装备属性.ContainsKey(GameObjectProperties.MaxNeedle) ? 装备属性[GameObjectProperties.MaxNeedle] : 0)) > 0)
 						{
 							dictionary4[3][EquipmentData3] = value;
 						}
-						if ((value = (装备属性.ContainsKey(GameObjectProperties.最小弓术) ? 装备属性[GameObjectProperties.最小弓术] : 0) + (装备属性.ContainsKey(GameObjectProperties.最大弓术) ? 装备属性[GameObjectProperties.最大弓术] : 0)) > 0)
+						if ((value = (装备属性.ContainsKey(GameObjectProperties.MinBow) ? 装备属性[GameObjectProperties.MinBow] : 0) + (装备属性.ContainsKey(GameObjectProperties.MaxBow) ? 装备属性[GameObjectProperties.MaxBow] : 0)) > 0)
 						{
 							dictionary4[4][EquipmentData3] = value;
 						}
@@ -17138,7 +17138,7 @@ namespace GameServer.Maps
 				{
 					if (!this.角色背包.ContainsKey(b))
 					{
-						this.金币数量 -= DeductCoinsCommand;
+						this.NumberGoldCoins -= DeductCoinsCommand;
 						this.角色背包[b] = this.CharacterData.升级装备.V;
 						this.角色背包[b].物品位置.V = b;
 						this.角色背包[b].物品容器.V = 1;
@@ -17227,7 +17227,7 @@ namespace GameServer.Maps
 			{
 				if (b == 1)
 				{
-					if (this.金币数量 < 1000)
+					if (this.NumberGoldCoins < 1000)
 					{
 						客户网络 网络连接 = this.网络连接;
 						if (网络连接 == null)
@@ -17242,7 +17242,7 @@ namespace GameServer.Maps
 					}
 					else
 					{
-						this.金币数量 -= 1000;
+						this.NumberGoldCoins -= 1000;
 					}
 				}
 				else
@@ -18101,8 +18101,8 @@ namespace GameServer.Maps
 						身上披风 = num2.GetValueOrDefault();
 					}
 					SyncPlayerAppearancePacket.身上披风 = 身上披风;
-					SyncPlayerAppearancePacket.当前体力 = PlayerObject[GameObjectProperties.最大体力];
-					SyncPlayerAppearancePacket.当前魔力 = PlayerObject[GameObjectProperties.最大魔力];
+					SyncPlayerAppearancePacket.当前体力 = PlayerObject[GameObjectProperties.MaxPhysicalStrength];
+					SyncPlayerAppearancePacket.当前魔力 = PlayerObject[GameObjectProperties.MaxMagic2];
 					SyncPlayerAppearancePacket.对象名字 = PlayerObject.对象名字;
 					GuildData 所属行会 = PlayerObject.所属行会;
 					SyncPlayerAppearancePacket.行会编号 = ((所属行会 != null) ? 所属行会.数据索引.V : 0);
@@ -18131,7 +18131,7 @@ namespace GameServer.Maps
 								模板编号 = MonsterObject.模板编号,
 								当前等级 = MonsterObject.宠物等级,
 								对象质量 = (byte)MonsterObject.怪物级别,
-								最大体力 = MonsterObject[GameObjectProperties.最大体力]
+								MaxPhysicalStrength = MonsterObject[GameObjectProperties.MaxPhysicalStrength]
 							});
 							return;
 						}
@@ -18148,7 +18148,7 @@ namespace GameServer.Maps
 							同步Npcc数据.对象质量 = (byte)MonsterObject.怪物级别;
 							游戏怪物 对象模板 = MonsterObject.对象模板;
 							同步Npcc数据.对象模板 = ((ushort)((对象模板 != null) ? 对象模板.怪物编号 : 0));
-							同步Npcc数据.体力上限 = MonsterObject[GameObjectProperties.最大体力];
+							同步Npcc数据.体力上限 = MonsterObject[GameObjectProperties.MaxPhysicalStrength];
 							网络连接4.发送封包(同步Npcc数据);
 							return;
 						}
@@ -18172,7 +18172,7 @@ namespace GameServer.Maps
 								同步Npcc数据2.对象等级 = GuardInstance.当前等级;
 								地图守卫 对象模板2 = GuardInstance.对象模板;
 								同步Npcc数据2.对象模板 = ((ushort)((对象模板2 != null) ? 对象模板2.GuardNumber : 0));
-								同步Npcc数据2.体力上限 = GuardInstance[GameObjectProperties.最大体力];
+								同步Npcc数据2.体力上限 = GuardInstance[GameObjectProperties.MaxPhysicalStrength];
 								网络连接5.发送封包(同步Npcc数据2);
 							}
 							return;
@@ -18189,7 +18189,7 @@ namespace GameServer.Maps
 						SyncExtendedDataPacket.当前等级 = PetObject.宠物等级;
 						SyncExtendedDataPacket.对象等级 = PetObject.当前等级;
 						SyncExtendedDataPacket.对象质量 = (byte)PetObject.宠物级别;
-						SyncExtendedDataPacket.最大体力 = PetObject[GameObjectProperties.最大体力];
+						SyncExtendedDataPacket.MaxPhysicalStrength = PetObject[GameObjectProperties.MaxPhysicalStrength];
 						PlayerObject 宠物主人 = PetObject.宠物主人;
 						SyncExtendedDataPacket.主人编号 = ((宠物主人 != null) ? 宠物主人.MapId : 0);
 						PlayerObject 宠物主人2 = PetObject.宠物主人;
@@ -19377,7 +19377,7 @@ namespace GameServer.Maps
 				});
 				return;
 			}
-			else if (this.金币数量 < 1000)
+			else if (this.NumberGoldCoins < 1000)
 			{
 				客户网络 网络连接2 = this.网络连接;
 				if (网络连接2 == null)
@@ -19425,7 +19425,7 @@ namespace GameServer.Maps
 						}
 						else
 						{
-							this.金币数量 -= 1000;
+							this.NumberGoldCoins -= 1000;
 							CharacterData.发送邮件(new MailData(this.CharacterData, 标题, 正文, null));
 							客户网络 网络连接4 = this.网络连接;
 							if (网络连接4 == null)
@@ -19923,7 +19923,7 @@ namespace GameServer.Maps
 				});
 				return;
 			}
-			else if (this.金币数量 < 200000)
+			else if (this.NumberGoldCoins < 200000)
 			{
 				客户网络 网络连接3 = this.网络连接;
 				if (网络连接3 == null)
@@ -19965,7 +19965,7 @@ namespace GameServer.Maps
 				}
 				if (!GameDataGateway.GuildData表.Keyword.ContainsKey(array[0]))
 				{
-					this.金币数量 -= 200000;
+					this.NumberGoldCoins -= 200000;
 					this.消耗背包物品(1, 当前物品);
 					this.所属行会 = new GuildData(this, array[0], array2[0]);
 					客户网络 网络连接5 = this.网络连接;
@@ -20745,7 +20745,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public void DonateGuildFundsPacket(int 金币数量)
+		public void DonateGuildFundsPacket(int NumberGoldCoins)
 		{
 		}
 
@@ -22447,13 +22447,13 @@ namespace GameServer.Maps
 					PlayerObject PlayerObject;
 					if (MapGatewayProcess.玩家对象表.TryGetValue(CharacterData.角色编号, out PlayerObject))
 					{
-						PlayerObject.金币数量 += num;
+						PlayerObject.NumberGoldCoins += num;
 						PlayerObject.玩家增加经验(null, num2);
 					}
 					else
 					{
 						CharacterData.获得经验(num2);
-						CharacterData.金币数量 += num;
+						CharacterData.NumberGoldCoins += num;
 					}
 					this.所属师门.移除徒弟(CharacterData);
 					CharacterData.当前师门 = null;
@@ -22517,14 +22517,14 @@ namespace GameServer.Maps
 			PlayerObject PlayerObject;
 			if (MapGatewayProcess.玩家对象表.TryGetValue(this.所属师门.师父数据.角色编号, out PlayerObject))
 			{
-				PlayerObject.金币数量 += num;
+				PlayerObject.NumberGoldCoins += num;
 				PlayerObject.师门声望 += num2;
 				PlayerObject.玩家增加经验(null, num3);
 			}
 			else
 			{
 				this.所属师门.师父数据.获得经验(num3);
-				this.所属师门.师父数据.金币数量 += num;
+				this.所属师门.师父数据.NumberGoldCoins += num;
 				this.所属师门.师父数据.师门声望 += num2;
 			}
 			this.所属师门.移除徒弟(this.CharacterData);
@@ -22564,17 +22564,17 @@ namespace GameServer.Maps
 			PlayerObject PlayerObject;
 			if (MapGatewayProcess.玩家对象表.TryGetValue(this.所属师门.师父数据.角色编号, out PlayerObject))
 			{
-				PlayerObject.金币数量 += num;
+				PlayerObject.NumberGoldCoins += num;
 				PlayerObject.师门声望 += num2;
 				PlayerObject.玩家增加经验(null, num3);
 			}
 			else
 			{
 				this.所属师门.师父数据.获得经验(num3);
-				this.所属师门.师父数据.金币数量 += num;
+				this.所属师门.师父数据.NumberGoldCoins += num;
 				this.所属师门.师父数据.师门声望 += num2;
 			}
-			this.金币数量 += this.所属师门.徒弟出师金币(this.CharacterData);
+			this.NumberGoldCoins += this.所属师门.徒弟出师金币(this.CharacterData);
 			this.玩家增加经验(null, this.所属师门.徒弟出师经验(this.CharacterData));
 			客户网络 网络连接 = this.所属师门.师父数据.网络连接;
 			if (网络连接 != null)
@@ -22939,7 +22939,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public void 玩家放入金币(int 金币数量)
+		public void 玩家放入金币(int NumberGoldCoins)
 		{
 			if (this.交易状态 != 3)
 			{
@@ -22997,7 +22997,7 @@ namespace GameServer.Maps
 			}
 			else
 			{
-				if (金币数量 <= 0 || this.金币数量 < 金币数量 + (int)Math.Ceiling((double)((float)金币数量 * 0.04f)))
+				if (NumberGoldCoins <= 0 || this.NumberGoldCoins < NumberGoldCoins + (int)Math.Ceiling((double)((float)NumberGoldCoins * 0.04f)))
 				{
 					PlayerDeals PlayerDeals4 = this.当前交易;
 					if (PlayerDeals4 != null)
@@ -23017,7 +23017,7 @@ namespace GameServer.Maps
 					this.网络连接.尝试断开连接(new Exception("Error: Player inserted gold coins. Error: Repeated coin placement"));
 					return;
 				}
-				this.当前交易.放入金币(this, 金币数量);
+				this.当前交易.放入金币(this, NumberGoldCoins);
 				return;
 			}
 		}
@@ -23510,7 +23510,7 @@ namespace GameServer.Maps
 			}
 			else
 			{
-				if (this.当前摊位.物品总价() + (long)this.金币数量 <= 2147483647L)
+				if (this.当前摊位.物品总价() + (long)this.NumberGoldCoins <= 2147483647L)
 				{
 					this.当前摊位.摊位状态 = 2;
 					base.发送封包(new 摆摊状态改变
@@ -23810,7 +23810,7 @@ namespace GameServer.Maps
 			}
 			else
 			{
-				if (this.金币数量 >= PlayerObject.当前摊位.物品单价[ItemData] * (int)购买数量)
+				if (this.NumberGoldCoins >= PlayerObject.当前摊位.物品单价[ItemData] * (int)购买数量)
 				{
 					byte b = byte.MaxValue;
 					byte b2 = 0;
@@ -23827,9 +23827,9 @@ namespace GameServer.Maps
 							if (b != 255)
 							{
 								int num = PlayerObject.当前摊位.物品单价[ItemData] * (int)购买数量;
-								this.金币数量 -= num;
+								this.NumberGoldCoins -= num;
 								this.CharacterData.转出金币.V += (long)num;
-								PlayerObject.金币数量 += (int)((float)num * 0.95f);
+								PlayerObject.NumberGoldCoins += (int)((float)num * 0.95f);
 								Dictionary<ItemData, int> 物品数量 = PlayerObject.当前摊位.物品数量;
 								ItemData key = ItemData;
 								if ((物品数量[key] -= (int)购买数量) <= 0)

@@ -94,22 +94,22 @@ namespace GameServer.Data
 				switch (this.伤害类型)
 				{
 				case 技能伤害类型.攻击:
-					num4 = ComputingClass.计算攻击(来源[GameObjectProperties.最小攻击], 来源[GameObjectProperties.最大攻击], 来源[GameObjectProperties.幸运等级]);
+					num4 = ComputingClass.计算攻击(来源[GameObjectProperties.MinAttack], 来源[GameObjectProperties.MaxAttack], 来源[GameObjectProperties.幸运等级]);
 					break;
 				case 技能伤害类型.魔法:
-					num4 = ComputingClass.计算攻击(来源[GameObjectProperties.最小魔法], 来源[GameObjectProperties.最大魔法], 来源[GameObjectProperties.幸运等级]);
+					num4 = ComputingClass.计算攻击(来源[GameObjectProperties.MinMagic], 来源[GameObjectProperties.MaxMagic], 来源[GameObjectProperties.幸运等级]);
 					break;
 				case 技能伤害类型.道术:
-					num4 = ComputingClass.计算攻击(来源[GameObjectProperties.最小道术], 来源[GameObjectProperties.最大道术], 来源[GameObjectProperties.幸运等级]);
+					num4 = ComputingClass.计算攻击(来源[GameObjectProperties.Minimalist], 来源[GameObjectProperties.GreatestTaoism], 来源[GameObjectProperties.幸运等级]);
 					break;
 				case 技能伤害类型.刺术:
-					num4 = ComputingClass.计算攻击(来源[GameObjectProperties.最小刺术], 来源[GameObjectProperties.最大刺术], 来源[GameObjectProperties.幸运等级]);
+					num4 = ComputingClass.计算攻击(来源[GameObjectProperties.MinNeedle], 来源[GameObjectProperties.MaxNeedle], 来源[GameObjectProperties.幸运等级]);
 					break;
 				case 技能伤害类型.弓术:
-					num4 = ComputingClass.计算攻击(来源[GameObjectProperties.最小弓术], 来源[GameObjectProperties.最大弓术], 来源[GameObjectProperties.幸运等级]);
+					num4 = ComputingClass.计算攻击(来源[GameObjectProperties.MinBow], 来源[GameObjectProperties.MaxBow], 来源[GameObjectProperties.幸运等级]);
 					break;
 				case 技能伤害类型.毒性:
-					num4 = 来源[GameObjectProperties.最大道术];
+					num4 = 来源[GameObjectProperties.GreatestTaoism];
 					break;
 				case 技能伤害类型.神圣:
 					num4 = ComputingClass.计算攻击(来源[GameObjectProperties.最小圣伤], 来源[GameObjectProperties.最大圣伤], 0);

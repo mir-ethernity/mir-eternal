@@ -31,7 +31,7 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(下标 = 12, 长度 = 4)]
-		public int 最大体力;
+		public int MaxPhysicalStrength;
 
 		
 		[WrappingFieldAttribute(下标 = 16, 长度 = 1)]

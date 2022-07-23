@@ -27,13 +27,13 @@ namespace GameServer.Data
 			{
 				if (this.装备模板.UsageType == ItemUsageType.武器)
 				{
-					int num = (int)((long)(this.装备模板.基础战力 * (int)(this.幸运等级.V + 20)) * 1717986919L >> 32 >> 3);
+					int num = (int)((long)(this.装备模板.BasicPowerCombat * (int)(this.幸运等级.V + 20)) * 1717986919L >> 32 >> 3);
 					int num2 = (int)(this.神圣伤害.V * 3 + this.升级攻击.V * 5 + this.升级魔法.V * 5 + this.升级道术.V * 5 + this.升级刺术.V * 5 + this.升级弓术.V * 5);
 					int num3 = this.随机属性.Sum((随机属性 x) => x.战力加成);
 					return num + num2 + num3;
 				}
 				int num4 = 0;
-				switch (this.装备模板.装备套装)
+				switch (this.装备模板.EquipSet)
 				{
 				case GameEquipmentSet.祖玛装备:
 				{
@@ -1933,7 +1933,7 @@ namespace GameServer.Data
 					num5 += 30;
 				}
 				int num7 = this.随机属性.Sum((随机属性 x) => x.战力加成);
-				return this.装备模板.基础战力 + num4 + num7 + num5;
+				return this.装备模板.BasicPowerCombat + num4 + num7 + num5;
 			}
 		}
 
@@ -1944,7 +1944,7 @@ namespace GameServer.Data
 			get
 			{
 				int value = this.最大持久.V - this.当前持久.V;
-				decimal d = ((EquipmentItem)this.对应模板.V).修理花费;
+				decimal d = ((EquipmentItem)this.对应模板.V).RepairCost;
 				decimal d2 = ((EquipmentItem)this.对应模板.V).ItemLast * 1000m;
 				return (int)(d / d2 * value);
 			}
@@ -1957,7 +1957,7 @@ namespace GameServer.Data
 			get
 			{
 				decimal d = this.最大持久.V - this.当前持久.V;
-				decimal d2 = ((EquipmentItem)this.对应模板.V).特修花费;
+				decimal d2 = ((EquipmentItem)this.对应模板.V).SpecialRepairCost;
 				decimal d3 = ((EquipmentItem)this.对应模板.V).ItemLast * 1000m;
 				return (int)(d2 / d3 * d * CustomClass.装备特修折扣 * 1.15m);
 			}
@@ -1965,51 +1965,51 @@ namespace GameServer.Data
 
 		
 		// (get) Token: 0x0600058B RID: 1419 RVA: 0x0000532C File Offset: 0x0000352C
-		public int 需要攻击
+		public int NeedAttack
 		{
 			get
 			{
-				return ((EquipmentItem)base.物品模板).需要攻击;
+				return ((EquipmentItem)base.物品模板).NeedAttack;
 			}
 		}
 
 		
 		// (get) Token: 0x0600058C RID: 1420 RVA: 0x0000533E File Offset: 0x0000353E
-		public int 需要魔法
+		public int NeedMagic
 		{
 			get
 			{
-				return ((EquipmentItem)base.物品模板).需要魔法;
+				return ((EquipmentItem)base.物品模板).NeedMagic;
 			}
 		}
 
 		
 		// (get) Token: 0x0600058D RID: 1421 RVA: 0x00005350 File Offset: 0x00003550
-		public int 需要道术
+		public int NeedTaoism
 		{
 			get
 			{
-				return ((EquipmentItem)base.物品模板).需要道术;
+				return ((EquipmentItem)base.物品模板).NeedTaoism;
 			}
 		}
 
 		
 		// (get) Token: 0x0600058E RID: 1422 RVA: 0x00005362 File Offset: 0x00003562
-		public int 需要刺术
+		public int NeedAcupuncture
 		{
 			get
 			{
-				return ((EquipmentItem)base.物品模板).需要刺术;
+				return ((EquipmentItem)base.物品模板).NeedAcupuncture;
 			}
 		}
 
 		
 		// (get) Token: 0x0600058F RID: 1423 RVA: 0x00005374 File Offset: 0x00003574
-		public int 需要弓术
+		public int NeedArchery
 		{
 			get
 			{
-				return ((EquipmentItem)base.物品模板).需要弓术;
+				return ((EquipmentItem)base.物品模板).NeedArchery;
 			}
 		}
 
@@ -2025,17 +2025,17 @@ namespace GameServer.Data
 
 		
 		// (get) Token: 0x06000591 RID: 1425 RVA: 0x00005386 File Offset: 0x00003586
-		public bool 禁止卸下
+		public bool DisableDismount
 		{
 			get
 			{
-				return ((EquipmentItem)this.对应模板.V).禁止卸下;
+				return ((EquipmentItem)this.对应模板.V).DisableDismount;
 			}
 		}
 
 		
 		// (get) Token: 0x06000592 RID: 1426 RVA: 0x0000539D File Offset: 0x0000359D
-		public bool 能否修理
+		public bool CanRepair
 		{
 			get
 			{
@@ -2164,72 +2164,72 @@ namespace GameServer.Data
 				{
 					dictionary[随机属性.对应属性] = 随机属性.属性数值;
 				}
-				if (dictionary.ContainsKey(GameObjectProperties.最小攻击) || dictionary.ContainsKey(GameObjectProperties.最大攻击))
+				if (dictionary.ContainsKey(GameObjectProperties.MinAttack) || dictionary.ContainsKey(GameObjectProperties.MaxAttack))
 				{
 					int num;
 					int num2;
-					text += string.Format("\n攻击{0}-{1}", dictionary.TryGetValue(GameObjectProperties.最小攻击, out num) ? num : 0, dictionary.TryGetValue(GameObjectProperties.最大攻击, out num2) ? num2 : 0);
+					text += string.Format("\n攻击{0}-{1}", dictionary.TryGetValue(GameObjectProperties.MinAttack, out num) ? num : 0, dictionary.TryGetValue(GameObjectProperties.MaxAttack, out num2) ? num2 : 0);
 				}
-				if (dictionary.ContainsKey(GameObjectProperties.最小魔法) || dictionary.ContainsKey(GameObjectProperties.最大魔法))
+				if (dictionary.ContainsKey(GameObjectProperties.MinMagic) || dictionary.ContainsKey(GameObjectProperties.MaxMagic))
 				{
 					int num3;
 					int num4;
-					text += string.Format("\n魔法{0}-{1}", dictionary.TryGetValue(GameObjectProperties.最小魔法, out num3) ? num3 : 0, dictionary.TryGetValue(GameObjectProperties.最大魔法, out num4) ? num4 : 0);
+					text += string.Format("\n魔法{0}-{1}", dictionary.TryGetValue(GameObjectProperties.MinMagic, out num3) ? num3 : 0, dictionary.TryGetValue(GameObjectProperties.MaxMagic, out num4) ? num4 : 0);
 				}
-				if (dictionary.ContainsKey(GameObjectProperties.最小道术) || dictionary.ContainsKey(GameObjectProperties.最大道术))
+				if (dictionary.ContainsKey(GameObjectProperties.Minimalist) || dictionary.ContainsKey(GameObjectProperties.GreatestTaoism))
 				{
 					int num5;
 					int num6;
-					text += string.Format("\n道术{0}-{1}", dictionary.TryGetValue(GameObjectProperties.最小道术, out num5) ? num5 : 0, dictionary.TryGetValue(GameObjectProperties.最大道术, out num6) ? num6 : 0);
+					text += string.Format("\n道术{0}-{1}", dictionary.TryGetValue(GameObjectProperties.Minimalist, out num5) ? num5 : 0, dictionary.TryGetValue(GameObjectProperties.GreatestTaoism, out num6) ? num6 : 0);
 				}
-				if (dictionary.ContainsKey(GameObjectProperties.最小刺术) || dictionary.ContainsKey(GameObjectProperties.最大刺术))
+				if (dictionary.ContainsKey(GameObjectProperties.MinNeedle) || dictionary.ContainsKey(GameObjectProperties.MaxNeedle))
 				{
 					int num7;
 					int num8;
-					text += string.Format("\n刺术{0}-{1}", dictionary.TryGetValue(GameObjectProperties.最小刺术, out num7) ? num7 : 0, dictionary.TryGetValue(GameObjectProperties.最大刺术, out num8) ? num8 : 0);
+					text += string.Format("\n刺术{0}-{1}", dictionary.TryGetValue(GameObjectProperties.MinNeedle, out num7) ? num7 : 0, dictionary.TryGetValue(GameObjectProperties.MaxNeedle, out num8) ? num8 : 0);
 				}
-				if (dictionary.ContainsKey(GameObjectProperties.最小弓术) || dictionary.ContainsKey(GameObjectProperties.最大弓术))
+				if (dictionary.ContainsKey(GameObjectProperties.MinBow) || dictionary.ContainsKey(GameObjectProperties.MaxBow))
 				{
 					int num9;
 					int num10;
-					text += string.Format("\n弓术{0}-{1}", dictionary.TryGetValue(GameObjectProperties.最小弓术, out num9) ? num9 : 0, dictionary.TryGetValue(GameObjectProperties.最大弓术, out num10) ? num10 : 0);
+					text += string.Format("\n弓术{0}-{1}", dictionary.TryGetValue(GameObjectProperties.MinBow, out num9) ? num9 : 0, dictionary.TryGetValue(GameObjectProperties.MaxBow, out num10) ? num10 : 0);
 				}
-				if (dictionary.ContainsKey(GameObjectProperties.最小防御) || dictionary.ContainsKey(GameObjectProperties.最大防御))
+				if (dictionary.ContainsKey(GameObjectProperties.MinDef) || dictionary.ContainsKey(GameObjectProperties.MaxDef))
 				{
 					int num11;
 					int num12;
-					text += string.Format("\n防御{0}-{1}", dictionary.TryGetValue(GameObjectProperties.最小防御, out num11) ? num11 : 0, dictionary.TryGetValue(GameObjectProperties.最大防御, out num12) ? num12 : 0);
+					text += string.Format("\n防御{0}-{1}", dictionary.TryGetValue(GameObjectProperties.MinDef, out num11) ? num11 : 0, dictionary.TryGetValue(GameObjectProperties.MaxDef, out num12) ? num12 : 0);
 				}
-				if (dictionary.ContainsKey(GameObjectProperties.最小魔防) || dictionary.ContainsKey(GameObjectProperties.最大魔防))
+				if (dictionary.ContainsKey(GameObjectProperties.MinMagicDef) || dictionary.ContainsKey(GameObjectProperties.MaxMagicDef))
 				{
 					int num13;
 					int num14;
-					text += string.Format("\n魔防{0}-{1}", dictionary.TryGetValue(GameObjectProperties.最小魔防, out num13) ? num13 : 0, dictionary.TryGetValue(GameObjectProperties.最大魔防, out num14) ? num14 : 0);
+					text += string.Format("\n魔防{0}-{1}", dictionary.TryGetValue(GameObjectProperties.MinMagicDef, out num13) ? num13 : 0, dictionary.TryGetValue(GameObjectProperties.MaxMagicDef, out num14) ? num14 : 0);
 				}
-				if (dictionary.ContainsKey(GameObjectProperties.物理准确))
+				if (dictionary.ContainsKey(GameObjectProperties.PhysicallyAccurate))
 				{
 					int num15;
-					text += string.Format("\n准确度{0}", dictionary.TryGetValue(GameObjectProperties.物理准确, out num15) ? num15 : 0);
+					text += string.Format("\n准确度{0}", dictionary.TryGetValue(GameObjectProperties.PhysicallyAccurate, out num15) ? num15 : 0);
 				}
-				if (dictionary.ContainsKey(GameObjectProperties.物理敏捷))
+				if (dictionary.ContainsKey(GameObjectProperties.PhysicalAgility))
 				{
 					int num16;
-					text += string.Format("\n敏捷度{0}", dictionary.TryGetValue(GameObjectProperties.物理敏捷, out num16) ? num16 : 0);
+					text += string.Format("\n敏捷度{0}", dictionary.TryGetValue(GameObjectProperties.PhysicalAgility, out num16) ? num16 : 0);
 				}
-				if (dictionary.ContainsKey(GameObjectProperties.最大体力))
+				if (dictionary.ContainsKey(GameObjectProperties.MaxPhysicalStrength))
 				{
 					int num17;
-					text += string.Format("\n体力值{0}", dictionary.TryGetValue(GameObjectProperties.最大体力, out num17) ? num17 : 0);
+					text += string.Format("\n体力值{0}", dictionary.TryGetValue(GameObjectProperties.MaxPhysicalStrength, out num17) ? num17 : 0);
 				}
-				if (dictionary.ContainsKey(GameObjectProperties.最大魔力))
+				if (dictionary.ContainsKey(GameObjectProperties.MaxMagic2))
 				{
 					int num18;
-					text += string.Format("\n法力值{0}", dictionary.TryGetValue(GameObjectProperties.最大魔力, out num18) ? num18 : 0);
+					text += string.Format("\n法力值{0}", dictionary.TryGetValue(GameObjectProperties.MaxMagic2, out num18) ? num18 : 0);
 				}
-				if (dictionary.ContainsKey(GameObjectProperties.魔法闪避))
+				if (dictionary.ContainsKey(GameObjectProperties.MagicDodge))
 				{
 					int num19;
-					text += string.Format("\n魔法闪避{0}%", (dictionary.TryGetValue(GameObjectProperties.魔法闪避, out num19) ? num19 : 0) / 100);
+					text += string.Format("\nMagicDodge{0}%", (dictionary.TryGetValue(GameObjectProperties.MagicDodge, out num19) ? num19 : 0) / 100);
 				}
 				if (dictionary.ContainsKey(GameObjectProperties.中毒躲避))
 				{
@@ -2422,85 +2422,85 @@ namespace GameServer.Data
 			get
 			{
 				Dictionary<GameObjectProperties, int> dictionary = new Dictionary<GameObjectProperties, int>();
-				if (this.装备模板.最小攻击 != 0)
+				if (this.装备模板.MinAttack != 0)
 				{
-					dictionary[GameObjectProperties.最小攻击] = this.装备模板.最小攻击;
+					dictionary[GameObjectProperties.MinAttack] = this.装备模板.MinAttack;
 				}
-				if (this.装备模板.最大攻击 != 0)
+				if (this.装备模板.MaxAttack != 0)
 				{
-					dictionary[GameObjectProperties.最大攻击] = this.装备模板.最大攻击;
+					dictionary[GameObjectProperties.MaxAttack] = this.装备模板.MaxAttack;
 				}
-				if (this.装备模板.最小魔法 != 0)
+				if (this.装备模板.MinMagic != 0)
 				{
-					dictionary[GameObjectProperties.最小魔法] = this.装备模板.最小魔法;
+					dictionary[GameObjectProperties.MinMagic] = this.装备模板.MinMagic;
 				}
-				if (this.装备模板.最大魔法 != 0)
+				if (this.装备模板.MaxMagic != 0)
 				{
-					dictionary[GameObjectProperties.最大魔法] = this.装备模板.最大魔法;
+					dictionary[GameObjectProperties.MaxMagic] = this.装备模板.MaxMagic;
 				}
-				if (this.装备模板.最小道术 != 0)
+				if (this.装备模板.Minimalist != 0)
 				{
-					dictionary[GameObjectProperties.最小道术] = this.装备模板.最小道术;
+					dictionary[GameObjectProperties.Minimalist] = this.装备模板.Minimalist;
 				}
-				if (this.装备模板.最大道术 != 0)
+				if (this.装备模板.GreatestTaoism != 0)
 				{
-					dictionary[GameObjectProperties.最大道术] = this.装备模板.最大道术;
+					dictionary[GameObjectProperties.GreatestTaoism] = this.装备模板.GreatestTaoism;
 				}
-				if (this.装备模板.最小刺术 != 0)
+				if (this.装备模板.MinNeedle != 0)
 				{
-					dictionary[GameObjectProperties.最小刺术] = this.装备模板.最小刺术;
+					dictionary[GameObjectProperties.MinNeedle] = this.装备模板.MinNeedle;
 				}
-				if (this.装备模板.最大刺术 != 0)
+				if (this.装备模板.MaxNeedle != 0)
 				{
-					dictionary[GameObjectProperties.最大刺术] = this.装备模板.最大刺术;
+					dictionary[GameObjectProperties.MaxNeedle] = this.装备模板.MaxNeedle;
 				}
-				if (this.装备模板.最小弓术 != 0)
+				if (this.装备模板.MinBow != 0)
 				{
-					dictionary[GameObjectProperties.最小弓术] = this.装备模板.最小弓术;
+					dictionary[GameObjectProperties.MinBow] = this.装备模板.MinBow;
 				}
-				if (this.装备模板.最大弓术 != 0)
+				if (this.装备模板.MaxBow != 0)
 				{
-					dictionary[GameObjectProperties.最大弓术] = this.装备模板.最大弓术;
+					dictionary[GameObjectProperties.MaxBow] = this.装备模板.MaxBow;
 				}
-				if (this.装备模板.最小防御 != 0)
+				if (this.装备模板.MinDef != 0)
 				{
-					dictionary[GameObjectProperties.最小防御] = this.装备模板.最小防御;
+					dictionary[GameObjectProperties.MinDef] = this.装备模板.MinDef;
 				}
-				if (this.装备模板.最大防御 != 0)
+				if (this.装备模板.MaxDef != 0)
 				{
-					dictionary[GameObjectProperties.最大防御] = this.装备模板.最大防御;
+					dictionary[GameObjectProperties.MaxDef] = this.装备模板.MaxDef;
 				}
-				if (this.装备模板.最小魔防 != 0)
+				if (this.装备模板.MinMagicDef != 0)
 				{
-					dictionary[GameObjectProperties.最小魔防] = this.装备模板.最小魔防;
+					dictionary[GameObjectProperties.MinMagicDef] = this.装备模板.MinMagicDef;
 				}
-				if (this.装备模板.最大魔防 != 0)
+				if (this.装备模板.MaxMagicDef != 0)
 				{
-					dictionary[GameObjectProperties.最大魔防] = this.装备模板.最大魔防;
+					dictionary[GameObjectProperties.MaxMagicDef] = this.装备模板.MaxMagicDef;
 				}
-				if (this.装备模板.最大体力 != 0)
+				if (this.装备模板.MaxPhysicalStrength != 0)
 				{
-					dictionary[GameObjectProperties.最大体力] = this.装备模板.最大体力;
+					dictionary[GameObjectProperties.MaxPhysicalStrength] = this.装备模板.MaxPhysicalStrength;
 				}
-				if (this.装备模板.最大魔力 != 0)
+				if (this.装备模板.MaxMagic2 != 0)
 				{
-					dictionary[GameObjectProperties.最大魔力] = this.装备模板.最大魔力;
+					dictionary[GameObjectProperties.MaxMagic2] = this.装备模板.MaxMagic2;
 				}
-				if (this.装备模板.攻击速度 != 0)
+				if (this.装备模板.AttackSpeed != 0)
 				{
-					dictionary[GameObjectProperties.攻击速度] = this.装备模板.攻击速度;
+					dictionary[GameObjectProperties.AttackSpeed] = this.装备模板.AttackSpeed;
 				}
-				if (this.装备模板.魔法闪避 != 0)
+				if (this.装备模板.MagicDodge != 0)
 				{
-					dictionary[GameObjectProperties.魔法闪避] = this.装备模板.魔法闪避;
+					dictionary[GameObjectProperties.MagicDodge] = this.装备模板.MagicDodge;
 				}
-				if (this.装备模板.物理准确 != 0)
+				if (this.装备模板.PhysicallyAccurate != 0)
 				{
-					dictionary[GameObjectProperties.物理准确] = this.装备模板.物理准确;
+					dictionary[GameObjectProperties.PhysicallyAccurate] = this.装备模板.PhysicallyAccurate;
 				}
-				if (this.装备模板.物理敏捷 != 0)
+				if (this.装备模板.PhysicalAgility != 0)
 				{
-					dictionary[GameObjectProperties.物理敏捷] = this.装备模板.物理敏捷;
+					dictionary[GameObjectProperties.PhysicalAgility] = this.装备模板.PhysicalAgility;
 				}
 				if (this.幸运等级.V != 0)
 				{
@@ -2508,23 +2508,23 @@ namespace GameServer.Data
 				}
 				if (this.升级攻击.V != 0)
 				{
-					dictionary[GameObjectProperties.最大攻击] = (dictionary.ContainsKey(GameObjectProperties.最大攻击) ? (dictionary[GameObjectProperties.最大攻击] + (int)this.升级攻击.V) : ((int)this.升级攻击.V));
+					dictionary[GameObjectProperties.MaxAttack] = (dictionary.ContainsKey(GameObjectProperties.MaxAttack) ? (dictionary[GameObjectProperties.MaxAttack] + (int)this.升级攻击.V) : ((int)this.升级攻击.V));
 				}
 				if (this.升级魔法.V != 0)
 				{
-					dictionary[GameObjectProperties.最大魔法] = (dictionary.ContainsKey(GameObjectProperties.最大魔法) ? (dictionary[GameObjectProperties.最大魔法] + (int)this.升级魔法.V) : ((int)this.升级魔法.V));
+					dictionary[GameObjectProperties.MaxMagic] = (dictionary.ContainsKey(GameObjectProperties.MaxMagic) ? (dictionary[GameObjectProperties.MaxMagic] + (int)this.升级魔法.V) : ((int)this.升级魔法.V));
 				}
 				if (this.升级道术.V != 0)
 				{
-					dictionary[GameObjectProperties.最大道术] = (dictionary.ContainsKey(GameObjectProperties.最大道术) ? (dictionary[GameObjectProperties.最大道术] + (int)this.升级道术.V) : ((int)this.升级道术.V));
+					dictionary[GameObjectProperties.GreatestTaoism] = (dictionary.ContainsKey(GameObjectProperties.GreatestTaoism) ? (dictionary[GameObjectProperties.GreatestTaoism] + (int)this.升级道术.V) : ((int)this.升级道术.V));
 				}
 				if (this.升级刺术.V != 0)
 				{
-					dictionary[GameObjectProperties.最大刺术] = (dictionary.ContainsKey(GameObjectProperties.最大刺术) ? (dictionary[GameObjectProperties.最大刺术] + (int)this.升级刺术.V) : ((int)this.升级刺术.V));
+					dictionary[GameObjectProperties.MaxNeedle] = (dictionary.ContainsKey(GameObjectProperties.MaxNeedle) ? (dictionary[GameObjectProperties.MaxNeedle] + (int)this.升级刺术.V) : ((int)this.升级刺术.V));
 				}
 				if (this.升级弓术.V != 0)
 				{
-					dictionary[GameObjectProperties.最大弓术] = (dictionary.ContainsKey(GameObjectProperties.最大弓术) ? (dictionary[GameObjectProperties.最大弓术] + (int)this.升级弓术.V) : ((int)this.升级弓术.V));
+					dictionary[GameObjectProperties.MaxBow] = (dictionary.ContainsKey(GameObjectProperties.MaxBow) ? (dictionary[GameObjectProperties.MaxBow] + (int)this.升级弓术.V) : ((int)this.升级弓术.V));
 				}
 				foreach (随机属性 随机属性 in this.随机属性.ToList<随机属性>())
 				{
@@ -2538,19 +2538,19 @@ namespace GameServer.Data
 						switch (Id)
 						{
 						case 10110:
-							dictionary[GameObjectProperties.最大道术] = (dictionary.ContainsKey(GameObjectProperties.最大道术) ? (dictionary[GameObjectProperties.最大道术] + 1) : 1);
+							dictionary[GameObjectProperties.GreatestTaoism] = (dictionary.ContainsKey(GameObjectProperties.GreatestTaoism) ? (dictionary[GameObjectProperties.GreatestTaoism] + 1) : 1);
 							break;
 						case 10111:
-							dictionary[GameObjectProperties.最大道术] = (dictionary.ContainsKey(GameObjectProperties.最大道术) ? (dictionary[GameObjectProperties.最大道术] + 2) : 2);
+							dictionary[GameObjectProperties.GreatestTaoism] = (dictionary.ContainsKey(GameObjectProperties.GreatestTaoism) ? (dictionary[GameObjectProperties.GreatestTaoism] + 2) : 2);
 							break;
 						case 10112:
-							dictionary[GameObjectProperties.最大道术] = (dictionary.ContainsKey(GameObjectProperties.最大道术) ? (dictionary[GameObjectProperties.最大道术] + 3) : 3);
+							dictionary[GameObjectProperties.GreatestTaoism] = (dictionary.ContainsKey(GameObjectProperties.GreatestTaoism) ? (dictionary[GameObjectProperties.GreatestTaoism] + 3) : 3);
 							break;
 						case 10113:
-							dictionary[GameObjectProperties.最大道术] = (dictionary.ContainsKey(GameObjectProperties.最大道术) ? (dictionary[GameObjectProperties.最大道术] + 4) : 4);
+							dictionary[GameObjectProperties.GreatestTaoism] = (dictionary.ContainsKey(GameObjectProperties.GreatestTaoism) ? (dictionary[GameObjectProperties.GreatestTaoism] + 4) : 4);
 							break;
 						case 10114:
-							dictionary[GameObjectProperties.最大道术] = (dictionary.ContainsKey(GameObjectProperties.最大道术) ? (dictionary[GameObjectProperties.最大道术] + 5) : 5);
+							dictionary[GameObjectProperties.GreatestTaoism] = (dictionary.ContainsKey(GameObjectProperties.GreatestTaoism) ? (dictionary[GameObjectProperties.GreatestTaoism] + 5) : 5);
 							break;
 						case 10115:
 						case 10116:
@@ -2559,55 +2559,55 @@ namespace GameServer.Data
 						case 10119:
 							break;
 						case 10120:
-							dictionary[GameObjectProperties.最大体力] = (dictionary.ContainsKey(GameObjectProperties.最大体力) ? (dictionary[GameObjectProperties.最大体力] + 5) : 5);
+							dictionary[GameObjectProperties.MaxPhysicalStrength] = (dictionary.ContainsKey(GameObjectProperties.MaxPhysicalStrength) ? (dictionary[GameObjectProperties.MaxPhysicalStrength] + 5) : 5);
 							break;
 						case 10121:
-							dictionary[GameObjectProperties.最大体力] = (dictionary.ContainsKey(GameObjectProperties.最大体力) ? (dictionary[GameObjectProperties.最大体力] + 10) : 10);
+							dictionary[GameObjectProperties.MaxPhysicalStrength] = (dictionary.ContainsKey(GameObjectProperties.MaxPhysicalStrength) ? (dictionary[GameObjectProperties.MaxPhysicalStrength] + 10) : 10);
 							break;
 						case 10122:
-							dictionary[GameObjectProperties.最大体力] = (dictionary.ContainsKey(GameObjectProperties.最大体力) ? (dictionary[GameObjectProperties.最大体力] + 15) : 15);
+							dictionary[GameObjectProperties.MaxPhysicalStrength] = (dictionary.ContainsKey(GameObjectProperties.MaxPhysicalStrength) ? (dictionary[GameObjectProperties.MaxPhysicalStrength] + 15) : 15);
 							break;
 						case 10123:
-							dictionary[GameObjectProperties.最大体力] = (dictionary.ContainsKey(GameObjectProperties.最大体力) ? (dictionary[GameObjectProperties.最大体力] + 20) : 20);
+							dictionary[GameObjectProperties.MaxPhysicalStrength] = (dictionary.ContainsKey(GameObjectProperties.MaxPhysicalStrength) ? (dictionary[GameObjectProperties.MaxPhysicalStrength] + 20) : 20);
 							break;
 						case 10124:
-							dictionary[GameObjectProperties.最大体力] = (dictionary.ContainsKey(GameObjectProperties.最大体力) ? (dictionary[GameObjectProperties.最大体力] + 25) : 25);
+							dictionary[GameObjectProperties.MaxPhysicalStrength] = (dictionary.ContainsKey(GameObjectProperties.MaxPhysicalStrength) ? (dictionary[GameObjectProperties.MaxPhysicalStrength] + 25) : 25);
 							break;
 						default:
 							switch (Id)
 							{
 							case 10220:
-								dictionary[GameObjectProperties.最大防御] = (dictionary.ContainsKey(GameObjectProperties.最大防御) ? (dictionary[GameObjectProperties.最大防御] + 1) : 1);
+								dictionary[GameObjectProperties.MaxDef] = (dictionary.ContainsKey(GameObjectProperties.MaxDef) ? (dictionary[GameObjectProperties.MaxDef] + 1) : 1);
 								break;
 							case 10221:
-								dictionary[GameObjectProperties.最大防御] = (dictionary.ContainsKey(GameObjectProperties.最大防御) ? (dictionary[GameObjectProperties.最大防御] + 2) : 2);
+								dictionary[GameObjectProperties.MaxDef] = (dictionary.ContainsKey(GameObjectProperties.MaxDef) ? (dictionary[GameObjectProperties.MaxDef] + 2) : 2);
 								break;
 							case 10222:
-								dictionary[GameObjectProperties.最大防御] = (dictionary.ContainsKey(GameObjectProperties.最大防御) ? (dictionary[GameObjectProperties.最大防御] + 3) : 3);
+								dictionary[GameObjectProperties.MaxDef] = (dictionary.ContainsKey(GameObjectProperties.MaxDef) ? (dictionary[GameObjectProperties.MaxDef] + 3) : 3);
 								break;
 							case 10223:
-								dictionary[GameObjectProperties.最大防御] = (dictionary.ContainsKey(GameObjectProperties.最大防御) ? (dictionary[GameObjectProperties.最大防御] + 4) : 4);
+								dictionary[GameObjectProperties.MaxDef] = (dictionary.ContainsKey(GameObjectProperties.MaxDef) ? (dictionary[GameObjectProperties.MaxDef] + 4) : 4);
 								break;
 							case 10224:
-								dictionary[GameObjectProperties.最大防御] = (dictionary.ContainsKey(GameObjectProperties.最大防御) ? (dictionary[GameObjectProperties.最大防御] + 5) : 5);
+								dictionary[GameObjectProperties.MaxDef] = (dictionary.ContainsKey(GameObjectProperties.MaxDef) ? (dictionary[GameObjectProperties.MaxDef] + 5) : 5);
 								break;
 							default:
 								switch (Id)
 								{
 								case 10320:
-									dictionary[GameObjectProperties.最大魔法] = (dictionary.ContainsKey(GameObjectProperties.最大魔法) ? (dictionary[GameObjectProperties.最大魔法] + 1) : 1);
+									dictionary[GameObjectProperties.MaxMagic] = (dictionary.ContainsKey(GameObjectProperties.MaxMagic) ? (dictionary[GameObjectProperties.MaxMagic] + 1) : 1);
 									break;
 								case 10321:
-									dictionary[GameObjectProperties.最大魔法] = (dictionary.ContainsKey(GameObjectProperties.最大魔法) ? (dictionary[GameObjectProperties.最大魔法] + 2) : 2);
+									dictionary[GameObjectProperties.MaxMagic] = (dictionary.ContainsKey(GameObjectProperties.MaxMagic) ? (dictionary[GameObjectProperties.MaxMagic] + 2) : 2);
 									break;
 								case 10322:
-									dictionary[GameObjectProperties.最大魔法] = (dictionary.ContainsKey(GameObjectProperties.最大魔法) ? (dictionary[GameObjectProperties.最大魔法] + 3) : 3);
+									dictionary[GameObjectProperties.MaxMagic] = (dictionary.ContainsKey(GameObjectProperties.MaxMagic) ? (dictionary[GameObjectProperties.MaxMagic] + 3) : 3);
 									break;
 								case 10323:
-									dictionary[GameObjectProperties.最大魔法] = (dictionary.ContainsKey(GameObjectProperties.最大魔法) ? (dictionary[GameObjectProperties.最大魔法] + 4) : 4);
+									dictionary[GameObjectProperties.MaxMagic] = (dictionary.ContainsKey(GameObjectProperties.MaxMagic) ? (dictionary[GameObjectProperties.MaxMagic] + 4) : 4);
 									break;
 								case 10324:
-									dictionary[GameObjectProperties.最大魔法] = (dictionary.ContainsKey(GameObjectProperties.最大魔法) ? (dictionary[GameObjectProperties.最大魔法] + 5) : 5);
+									dictionary[GameObjectProperties.MaxMagic] = (dictionary.ContainsKey(GameObjectProperties.MaxMagic) ? (dictionary[GameObjectProperties.MaxMagic] + 5) : 5);
 									break;
 								}
 								break;
@@ -2620,37 +2620,37 @@ namespace GameServer.Data
 						switch (Id)
 						{
 						case 10420:
-							dictionary[GameObjectProperties.最大攻击] = (dictionary.ContainsKey(GameObjectProperties.最大攻击) ? (dictionary[GameObjectProperties.最大攻击] + 1) : 1);
+							dictionary[GameObjectProperties.MaxAttack] = (dictionary.ContainsKey(GameObjectProperties.MaxAttack) ? (dictionary[GameObjectProperties.MaxAttack] + 1) : 1);
 							break;
 						case 10421:
-							dictionary[GameObjectProperties.最大攻击] = (dictionary.ContainsKey(GameObjectProperties.最大攻击) ? (dictionary[GameObjectProperties.最大攻击] + 2) : 2);
+							dictionary[GameObjectProperties.MaxAttack] = (dictionary.ContainsKey(GameObjectProperties.MaxAttack) ? (dictionary[GameObjectProperties.MaxAttack] + 2) : 2);
 							break;
 						case 10422:
-							dictionary[GameObjectProperties.最大攻击] = (dictionary.ContainsKey(GameObjectProperties.最大攻击) ? (dictionary[GameObjectProperties.最大攻击] + 3) : 3);
+							dictionary[GameObjectProperties.MaxAttack] = (dictionary.ContainsKey(GameObjectProperties.MaxAttack) ? (dictionary[GameObjectProperties.MaxAttack] + 3) : 3);
 							break;
 						case 10423:
-							dictionary[GameObjectProperties.最大攻击] = (dictionary.ContainsKey(GameObjectProperties.最大攻击) ? (dictionary[GameObjectProperties.最大攻击] + 4) : 4);
+							dictionary[GameObjectProperties.MaxAttack] = (dictionary.ContainsKey(GameObjectProperties.MaxAttack) ? (dictionary[GameObjectProperties.MaxAttack] + 4) : 4);
 							break;
 						case 10424:
-							dictionary[GameObjectProperties.最大攻击] = (dictionary.ContainsKey(GameObjectProperties.最大攻击) ? (dictionary[GameObjectProperties.最大攻击] + 5) : 5);
+							dictionary[GameObjectProperties.MaxAttack] = (dictionary.ContainsKey(GameObjectProperties.MaxAttack) ? (dictionary[GameObjectProperties.MaxAttack] + 5) : 5);
 							break;
 						default:
 							switch (Id)
 							{
 							case 10520:
-								dictionary[GameObjectProperties.最大魔防] = (dictionary.ContainsKey(GameObjectProperties.最大魔防) ? (dictionary[GameObjectProperties.最大魔防] + 1) : 1);
+								dictionary[GameObjectProperties.MaxMagicDef] = (dictionary.ContainsKey(GameObjectProperties.MaxMagicDef) ? (dictionary[GameObjectProperties.MaxMagicDef] + 1) : 1);
 								break;
 							case 10521:
-								dictionary[GameObjectProperties.最大魔防] = (dictionary.ContainsKey(GameObjectProperties.最大魔防) ? (dictionary[GameObjectProperties.最大魔防] + 2) : 2);
+								dictionary[GameObjectProperties.MaxMagicDef] = (dictionary.ContainsKey(GameObjectProperties.MaxMagicDef) ? (dictionary[GameObjectProperties.MaxMagicDef] + 2) : 2);
 								break;
 							case 10522:
-								dictionary[GameObjectProperties.最大魔防] = (dictionary.ContainsKey(GameObjectProperties.最大魔防) ? (dictionary[GameObjectProperties.最大魔防] + 3) : 3);
+								dictionary[GameObjectProperties.MaxMagicDef] = (dictionary.ContainsKey(GameObjectProperties.MaxMagicDef) ? (dictionary[GameObjectProperties.MaxMagicDef] + 3) : 3);
 								break;
 							case 10523:
-								dictionary[GameObjectProperties.最大魔防] = (dictionary.ContainsKey(GameObjectProperties.最大魔防) ? (dictionary[GameObjectProperties.最大魔防] + 4) : 4);
+								dictionary[GameObjectProperties.MaxMagicDef] = (dictionary.ContainsKey(GameObjectProperties.MaxMagicDef) ? (dictionary[GameObjectProperties.MaxMagicDef] + 4) : 4);
 								break;
 							case 10524:
-								dictionary[GameObjectProperties.最大魔防] = (dictionary.ContainsKey(GameObjectProperties.最大魔防) ? (dictionary[GameObjectProperties.最大魔防] + 5) : 5);
+								dictionary[GameObjectProperties.MaxMagicDef] = (dictionary.ContainsKey(GameObjectProperties.MaxMagicDef) ? (dictionary[GameObjectProperties.MaxMagicDef] + 5) : 5);
 								break;
 							}
 							break;
@@ -2661,37 +2661,37 @@ namespace GameServer.Data
 						switch (Id)
 						{
 						case 10620:
-							dictionary[GameObjectProperties.最大刺术] = (dictionary.ContainsKey(GameObjectProperties.最大刺术) ? (dictionary[GameObjectProperties.最大刺术] + 1) : 1);
+							dictionary[GameObjectProperties.MaxNeedle] = (dictionary.ContainsKey(GameObjectProperties.MaxNeedle) ? (dictionary[GameObjectProperties.MaxNeedle] + 1) : 1);
 							break;
 						case 10621:
-							dictionary[GameObjectProperties.最大刺术] = (dictionary.ContainsKey(GameObjectProperties.最大刺术) ? (dictionary[GameObjectProperties.最大刺术] + 2) : 2);
+							dictionary[GameObjectProperties.MaxNeedle] = (dictionary.ContainsKey(GameObjectProperties.MaxNeedle) ? (dictionary[GameObjectProperties.MaxNeedle] + 2) : 2);
 							break;
 						case 10622:
-							dictionary[GameObjectProperties.最大刺术] = (dictionary.ContainsKey(GameObjectProperties.最大刺术) ? (dictionary[GameObjectProperties.最大刺术] + 3) : 3);
+							dictionary[GameObjectProperties.MaxNeedle] = (dictionary.ContainsKey(GameObjectProperties.MaxNeedle) ? (dictionary[GameObjectProperties.MaxNeedle] + 3) : 3);
 							break;
 						case 10623:
-							dictionary[GameObjectProperties.最大刺术] = (dictionary.ContainsKey(GameObjectProperties.最大刺术) ? (dictionary[GameObjectProperties.最大刺术] + 4) : 4);
+							dictionary[GameObjectProperties.MaxNeedle] = (dictionary.ContainsKey(GameObjectProperties.MaxNeedle) ? (dictionary[GameObjectProperties.MaxNeedle] + 4) : 4);
 							break;
 						case 10624:
-							dictionary[GameObjectProperties.最大刺术] = (dictionary.ContainsKey(GameObjectProperties.最大刺术) ? (dictionary[GameObjectProperties.最大刺术] + 5) : 5);
+							dictionary[GameObjectProperties.MaxNeedle] = (dictionary.ContainsKey(GameObjectProperties.MaxNeedle) ? (dictionary[GameObjectProperties.MaxNeedle] + 5) : 5);
 							break;
 						default:
 							switch (Id)
 							{
 							case 10720:
-								dictionary[GameObjectProperties.最大弓术] = (dictionary.ContainsKey(GameObjectProperties.最大弓术) ? (dictionary[GameObjectProperties.最大弓术] + 1) : 1);
+								dictionary[GameObjectProperties.MaxBow] = (dictionary.ContainsKey(GameObjectProperties.MaxBow) ? (dictionary[GameObjectProperties.MaxBow] + 1) : 1);
 								break;
 							case 10721:
-								dictionary[GameObjectProperties.最大弓术] = (dictionary.ContainsKey(GameObjectProperties.最大弓术) ? (dictionary[GameObjectProperties.最大弓术] + 2) : 2);
+								dictionary[GameObjectProperties.MaxBow] = (dictionary.ContainsKey(GameObjectProperties.MaxBow) ? (dictionary[GameObjectProperties.MaxBow] + 2) : 2);
 								break;
 							case 10722:
-								dictionary[GameObjectProperties.最大弓术] = (dictionary.ContainsKey(GameObjectProperties.最大弓术) ? (dictionary[GameObjectProperties.最大弓术] + 3) : 3);
+								dictionary[GameObjectProperties.MaxBow] = (dictionary.ContainsKey(GameObjectProperties.MaxBow) ? (dictionary[GameObjectProperties.MaxBow] + 3) : 3);
 								break;
 							case 10723:
-								dictionary[GameObjectProperties.最大弓术] = (dictionary.ContainsKey(GameObjectProperties.最大弓术) ? (dictionary[GameObjectProperties.最大弓术] + 4) : 4);
+								dictionary[GameObjectProperties.MaxBow] = (dictionary.ContainsKey(GameObjectProperties.MaxBow) ? (dictionary[GameObjectProperties.MaxBow] + 4) : 4);
 								break;
 							case 10724:
-								dictionary[GameObjectProperties.最大弓术] = (dictionary.ContainsKey(GameObjectProperties.最大弓术) ? (dictionary[GameObjectProperties.最大弓术] + 5) : 5);
+								dictionary[GameObjectProperties.MaxBow] = (dictionary.ContainsKey(GameObjectProperties.MaxBow) ? (dictionary[GameObjectProperties.MaxBow] + 5) : 5);
 								break;
 							}
 							break;

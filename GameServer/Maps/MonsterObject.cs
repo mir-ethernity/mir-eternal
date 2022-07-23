@@ -104,7 +104,7 @@ namespace GameServer.Maps
 			}
 			set
 			{
-				value = ComputingClass.数值限制(0, value, this[GameObjectProperties.最大体力]);
+				value = ComputingClass.数值限制(0, value, this[GameObjectProperties.MaxPhysicalStrength]);
 				if (base.当前体力 != value)
 				{
 					base.当前体力 = value;
@@ -112,7 +112,7 @@ namespace GameServer.Maps
 					{
 						对象编号 = this.MapId,
 						当前体力 = this.当前体力,
-						体力上限 = this[GameObjectProperties.最大体力]
+						体力上限 = this[GameObjectProperties.MaxPhysicalStrength]
 					});
 				}
 			}
@@ -422,7 +422,7 @@ namespace GameServer.Maps
 			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.漫游间隔);
 			this.属性加成[this] = 对应宠物.基础属性;
 			this.更新对象属性();
-			this.当前体力 = Math.Min(对应宠物.当前体力, this[GameObjectProperties.最大体力]);
+			this.当前体力 = Math.Min(对应宠物.当前体力, this[GameObjectProperties.MaxPhysicalStrength]);
 			string text = this.对象模板.普通攻击技能;
 			if (text != null && text.Length > 0)
 			{
@@ -972,7 +972,7 @@ namespace GameServer.Maps
 					byte 动作编号 = base.动作编号;
 					base.动作编号 = (byte)(动作编号 + 1);
 					new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, this.HateObject.当前目标, this.HateObject.当前目标.当前坐标, null, null, false);
-					this.攻击时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.数值限制(0, 10 - this[GameObjectProperties.攻击速度], 10) * 500));
+					this.攻击时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.数值限制(0, 10 - this[GameObjectProperties.AttackSpeed], 10) * 500));
 					return;
 				}
 				if (!this.怪物禁止移动 && this.能否转动())
@@ -998,7 +998,7 @@ namespace GameServer.Maps
 			this.更新对象属性();
 			this.当前地图 = this.出生地图;
 			this.当前方向 = ComputingClass.随机方向();
-			this.当前体力 = this[GameObjectProperties.最大体力];
+			this.当前体力 = this[GameObjectProperties.MaxPhysicalStrength];
 			this.当前坐标 = this.出生范围[MainProcess.RandomNumber.Next(0, this.出生范围.Length)];
 			Point 当前坐标 = this.当前坐标;
 			for (int i = 0; i < 100; i++)
@@ -1085,7 +1085,7 @@ namespace GameServer.Maps
 				this.激活对象 = true;
 				MapGatewayProcess.添加激活对象(this);
 				int num = (int)Math.Max(0.0, (MainProcess.CurrentTime - base.恢复时间).TotalSeconds / 5.0);
-				base.当前体力 = Math.Min(this[GameObjectProperties.最大体力], this.当前体力 + num * this[GameObjectProperties.体力恢复]);
+				base.当前体力 = Math.Min(this[GameObjectProperties.MaxPhysicalStrength], this.当前体力 + num * this[GameObjectProperties.体力恢复]);
 				base.恢复时间 = base.恢复时间.AddSeconds(5.0);
 				this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 				this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(MainProcess.RandomNumber.Next(5000) + this.漫游间隔));

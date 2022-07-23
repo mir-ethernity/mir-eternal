@@ -133,7 +133,7 @@ namespace GameServer.Data
 		
 		// (get) Token: 0x060005DA RID: 1498 RVA: 0x0002C4FC File Offset: 0x0002A6FC
 		// (set) Token: 0x060005DB RID: 1499 RVA: 0x000056CA File Offset: 0x000038CA
-		public int 金币数量
+		public int NumberGoldCoins
 		{
 			get
 			{
@@ -147,7 +147,7 @@ namespace GameServer.Data
 			set
 			{
 				this.角色货币[GameCurrency.金币] = value;
-				MainForm.更新CharacterData(this, "金币数量", value);
+				MainForm.更新CharacterData(this, "NumberGoldCoins", value);
 			}
 		}
 
@@ -341,8 +341,8 @@ namespace GameServer.Data
 			this.角色发色.V = 发色;
 			this.角色脸型.V = 脸型;
 			this.创建日期.V = MainProcess.CurrentTime;
-			this.当前血量.V = 角色成长.获取数据(职业, 1)[GameObjectProperties.最大体力];
-			this.当前蓝量.V = 角色成长.获取数据(职业, 1)[GameObjectProperties.最大魔力];
+			this.当前血量.V = 角色成长.获取数据(职业, 1)[GameObjectProperties.MaxPhysicalStrength];
+			this.当前蓝量.V = 角色成长.获取数据(职业, 1)[GameObjectProperties.MaxMagic2];
 			this.当前朝向.V = ComputingClass.随机方向();
 			this.当前地图.V = 142;
 			this.重生地图.V = 142;

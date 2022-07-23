@@ -65,12 +65,12 @@ namespace GameServer.Maps
 		{
 			if (this.接收方金币 > 0)
 			{
-				this.交易接收方.金币数量 -= (int)Math.Ceiling((double)((float)this.接收方金币 * 1.04f));
+				this.交易接收方.NumberGoldCoins -= (int)Math.Ceiling((double)((float)this.接收方金币 * 1.04f));
 				this.交易接收方.CharacterData.转出金币.V += (long)this.接收方金币;
 			}
 			if (this.申请方金币 > 0)
 			{
-				this.交易申请方.金币数量 -= (int)Math.Ceiling((double)((float)this.申请方金币 * 1.04f));
+				this.交易申请方.NumberGoldCoins -= (int)Math.Ceiling((double)((float)this.申请方金币 * 1.04f));
 				this.交易申请方.CharacterData.转出金币.V += (long)this.申请方金币;
 			}
 			foreach (ItemData ItemData in this.接收方物品.Values)
@@ -171,11 +171,11 @@ namespace GameServer.Maps
 			}
 			if (this.申请方金币 > 0)
 			{
-				this.交易接收方.金币数量 += this.申请方金币;
+				this.交易接收方.NumberGoldCoins += this.申请方金币;
 			}
 			if (this.接收方金币 > 0)
 			{
-				this.交易申请方.金币数量 += this.接收方金币;
+				this.交易申请方.NumberGoldCoins += this.接收方金币;
 			}
 			this.更改状态(6, null);
 			this.结束交易();
@@ -236,7 +236,7 @@ namespace GameServer.Maps
 				this.发送封包(new PutInTradingCoins
 				{
 					对象编号 = 玩家.MapId,
-					金币数量 = 数量
+					NumberGoldCoins = 数量
 				});
 				return;
 			}
@@ -246,7 +246,7 @@ namespace GameServer.Maps
 				this.发送封包(new PutInTradingCoins
 				{
 					对象编号 = 玩家.MapId,
-					金币数量 = 数量
+					NumberGoldCoins = 数量
 				});
 				return;
 			}

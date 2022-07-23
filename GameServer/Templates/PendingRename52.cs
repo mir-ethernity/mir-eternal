@@ -10,7 +10,7 @@ namespace GameServer.Templates
 		
 		可被物理闪避,
 		
-		可被魔法闪避,
+		可被MagicDodge,
 		
 		可被中毒闪避,
 		

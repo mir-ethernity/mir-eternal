@@ -108,7 +108,7 @@ namespace GameServer
             MainForm.CharacterDataTable.Columns.Add("所属行会", typeof(string));
             MainForm.CharacterDataTable.Columns.Add("元宝数量", typeof(string));
             MainForm.CharacterDataTable.Columns.Add("消耗元宝", typeof(string));
-            MainForm.CharacterDataTable.Columns.Add("金币数量", typeof(string));
+            MainForm.CharacterDataTable.Columns.Add("NumberGoldCoins", typeof(string));
             MainForm.CharacterDataTable.Columns.Add("转出金币", typeof(string));
             MainForm.CharacterDataTable.Columns.Add("背包大小", typeof(string));
             MainForm.CharacterDataTable.Columns.Add("仓库大小", typeof(string));
@@ -453,7 +453,7 @@ namespace GameServer
                     dataRow["所属行会"] = 角色.所属行会;
                     dataRow["元宝数量"] = 角色.元宝数量;
                     dataRow["消耗元宝"] = 角色.消耗元宝;
-                    dataRow["金币数量"] = 角色.金币数量;
+                    dataRow["NumberGoldCoins"] = 角色.NumberGoldCoins;
                     dataRow["转出金币"] = 角色.转出金币;
                     dataRow["背包大小"] = 角色.背包大小;
                     dataRow["仓库大小"] = 角色.仓库大小;

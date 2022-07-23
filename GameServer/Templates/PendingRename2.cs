@@ -704,7 +704,7 @@ namespace GameServer.Templates
 									{
 										if (b_03_前摇结束通知.计算攻速缩减)
 										{
-											this.攻速缩减 = ComputingClass.数值限制(ComputingClass.计算攻速(-5), this.攻速缩减 + ComputingClass.计算攻速(this.技能来源[GameObjectProperties.攻击速度]), ComputingClass.计算攻速(5));
+											this.攻速缩减 = ComputingClass.数值限制(ComputingClass.计算攻速(-5), this.攻速缩减 + ComputingClass.计算攻速(this.技能来源[GameObjectProperties.AttackSpeed]), ComputingClass.计算攻速(5));
 											if (this.攻速缩减 != 0)
 											{
 												foreach (KeyValuePair<int, 技能任务> keyValuePair10 in this.节点列表)

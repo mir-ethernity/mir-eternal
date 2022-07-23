@@ -8,47 +8,47 @@ namespace GameServer
 		
 		未知属性,
 		
-		最小防御 = 2,
+		MinDef = 2,
 		
-		最大防御,
+		MaxDef,
 		
-		最小魔防,
+		MinMagicDef,
 		
-		最大魔防,
+		MaxMagicDef,
 		
-		最小攻击,
+		MinAttack,
 		
-		最大攻击,
+		MaxAttack,
 		
-		最小魔法,
+		MinMagic,
 		
-		最大魔法,
+		MaxMagic,
 		
-		最小道术,
+		Minimalist,
 		
-		最大道术,
+		GreatestTaoism,
 		
-		最小刺术,
+		MinNeedle,
 		
-		最大刺术,
+		MaxNeedle,
 		
-		最小弓术,
+		MinBow,
 		
-		最大弓术,
+		MaxBow,
 		
-		最大体力,
+		MaxPhysicalStrength,
 		
-		最大魔力,
+		MaxMagic2,
 		
 		行走速度,
 		
 		奔跑速度,
 		
-		物理准确,
+		PhysicallyAccurate,
 		
-		物理敏捷,
+		PhysicalAgility,
 		
-		魔法闪避,
+		MagicDodge,
 		
 		暴击概率,
 		
@@ -60,7 +60,7 @@ namespace GameServer
 		
 		幸运等级,
 		
-		攻击速度 = 36,
+		AttackSpeed = 36,
 		
 		体力恢复,
 		

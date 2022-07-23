@@ -1096,7 +1096,7 @@ namespace GameServer.Networking
 				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
-			this.绑定角色.玩家放入金币(P.金币数量);
+			this.绑定角色.玩家放入金币(P.NumberGoldCoins);
 		}
 
 		
@@ -1712,7 +1712,7 @@ namespace GameServer.Networking
 				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
-			this.绑定角色.DonateGuildFundsPacket(P.金币数量);
+			this.绑定角色.DonateGuildFundsPacket(P.NumberGoldCoins);
 		}
 
 		

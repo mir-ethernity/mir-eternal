@@ -184,7 +184,7 @@ namespace GameServer.Maps
 			}
 			set
 			{
-				value = ComputingClass.数值限制(0, value, this[GameObjectProperties.最大体力]);
+				value = ComputingClass.数值限制(0, value, this[GameObjectProperties.MaxPhysicalStrength]);
 				if (this.PetData.当前体力.V != value)
 				{
 					this.PetData.当前体力.V = value;
@@ -192,7 +192,7 @@ namespace GameServer.Maps
 					{
 						对象编号 = this.MapId,
 						当前体力 = this.当前体力,
-						体力上限 = this[GameObjectProperties.最大体力]
+						体力上限 = this[GameObjectProperties.MaxPhysicalStrength]
 					});
 				}
 			}
@@ -533,7 +533,7 @@ namespace GameServer.Maps
 				}
 			}
 			this.更新对象属性();
-			this.当前体力 = this[GameObjectProperties.最大体力];
+			this.当前体力 = this[GameObjectProperties.MaxPhysicalStrength];
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 			this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(MainProcess.RandomNumber.Next(5000) + this.漫游间隔));
@@ -593,7 +593,7 @@ namespace GameServer.Maps
 			this.当前方向 = 诱惑怪物.当前方向;
 			this.属性加成[this] = this.基础属性;
 			this.更新对象属性();
-			this.当前体力 = Math.Min(诱惑怪物.当前体力, this[GameObjectProperties.最大体力]);
+			this.当前体力 = Math.Min(诱惑怪物.当前体力, this[GameObjectProperties.MaxPhysicalStrength]);
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 			this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.忙碌时间 = MainProcess.CurrentTime.AddSeconds(1.0);
@@ -657,7 +657,7 @@ namespace GameServer.Maps
 			this.当前方向 = 诱惑宠物.当前方向;
 			this.属性加成[this] = this.基础属性;
 			this.更新对象属性();
-			this.当前体力 = Math.Min(诱惑宠物.当前体力, this[GameObjectProperties.最大体力]);
+			this.当前体力 = Math.Min(诱惑宠物.当前体力, this[GameObjectProperties.MaxPhysicalStrength]);
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 			this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.忙碌时间 = MainProcess.CurrentTime.AddSeconds(1.0);
@@ -973,7 +973,7 @@ namespace GameServer.Maps
 					byte 动作编号 = base.动作编号;
 					base.动作编号 = (byte)(动作编号 + 1);
 					new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, this.HateObject.当前目标, this.HateObject.当前目标.当前坐标, null, null, false);
-					this.攻击时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.数值限制(0, 10 - this[GameObjectProperties.攻击速度], 10) * 500));
+					this.攻击时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.数值限制(0, 10 - this[GameObjectProperties.AttackSpeed], 10) * 500));
 					return;
 				}
 				if (this.能否转动())
@@ -996,7 +996,7 @@ namespace GameServer.Maps
 				this.宠物经验 = 0;
 				this.属性加成[this] = this.基础属性;
 				this.更新对象属性();
-				this.当前体力 = this[GameObjectProperties.最大体力];
+				this.当前体力 = this[GameObjectProperties.MaxPhysicalStrength];
 				base.发送封包(new ObjectTransformTypePacket
 				{
 					改变类型 = 2,

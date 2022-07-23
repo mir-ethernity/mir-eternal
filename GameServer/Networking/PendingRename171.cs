@@ -27,11 +27,11 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(下标 = 14, 长度 = 4)]
-		public int 最大体力;
+		public int MaxPhysicalStrength;
 
 		
 		[WrappingFieldAttribute(下标 = 18, 长度 = 4)]
-		public int 最大魔力;
+		public int MaxMagic2;
 
 		
 		[WrappingFieldAttribute(下标 = 22, 长度 = 4)]
