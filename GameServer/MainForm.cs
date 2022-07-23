@@ -65,7 +65,7 @@ namespace GameServer
                 }));
             }
             MainForm.掉落DataSheet = new DataTable("掉落数据表");
-            MainForm.怪物掉落表 = new Dictionary<游戏怪物, List<KeyValuePair<游戏物品, long>>>();
+            MainForm.怪物掉落表 = new Dictionary<游戏怪物, List<KeyValuePair<GameItems, long>>>();
             MainForm.掉落DataSheet.Columns.Add("物品名字", typeof(string));
             MainForm.掉落DataSheet.Columns.Add("掉落数量", typeof(string));
             MainForm MainForm3 = MainForm.Singleton;
@@ -571,10 +571,10 @@ namespace GameServer
             {
                 DataRow row2 = (MainForm.Singleton.怪物浏览表.Rows[MainForm.Singleton.怪物浏览表.SelectedRows[0].Index].DataBoundItem as DataRowView).Row;
                 游戏怪物 key2;
-                List<KeyValuePair<游戏物品, long>> list5;
+                List<KeyValuePair<GameItems, long>> list5;
                 if (MainForm.数据行怪物.TryGetValue(row2, out key2) && MainForm.怪物掉落表.TryGetValue(key2, out list5))
                 {
-                    foreach (KeyValuePair<游戏物品, long> keyValuePair5 in list5)
+                    foreach (KeyValuePair<GameItems, long> keyValuePair5 in list5)
                     {
                         DataRow dataRow5 = MainForm.掉落DataSheet.NewRow();
                         dataRow5["物品名字"] = keyValuePair5.Key.物品名字;
@@ -745,7 +745,7 @@ namespace GameServer
         }
 
         
-        public static void 更新掉落统计(游戏怪物 怪物, List<KeyValuePair<游戏物品, long>> 物品)
+        public static void 更新掉落统计(游戏怪物 怪物, List<KeyValuePair<GameItems, long>> 物品)
         {
             MainForm MainForm = MainForm.Singleton;
             if (MainForm == null)
@@ -944,7 +944,7 @@ namespace GameServer
             MainForm.怪物DataSheet.Columns.Add("仇恨时长", typeof(string));
             MainForm.Singleton.怪物浏览表.DataSource = MainForm.怪物DataSheet;
             MainForm.掉落DataSheet = new DataTable("掉落数据表");
-            MainForm.怪物掉落表 = new Dictionary<游戏怪物, List<KeyValuePair<游戏物品, long>>>();
+            MainForm.怪物掉落表 = new Dictionary<游戏怪物, List<KeyValuePair<GameItems, long>>>();
             MainForm.掉落DataSheet.Columns.Add("物品名字", typeof(string));
             MainForm.掉落DataSheet.Columns.Add("掉落数量", typeof(string));
             MainForm.Singleton.掉落浏览表.DataSource = MainForm.掉落DataSheet;
@@ -1718,6 +1718,6 @@ namespace GameServer
         private static Dictionary<CharacterData, List<KeyValuePair<byte, ItemData>>> 角色仓库表;
 
         
-        private static Dictionary<游戏怪物, List<KeyValuePair<游戏物品, long>>> 怪物掉落表;
+        private static Dictionary<游戏怪物, List<KeyValuePair<GameItems, long>>> 怪物掉落表;
     }
 }

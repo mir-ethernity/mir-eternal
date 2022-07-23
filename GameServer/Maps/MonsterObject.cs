@@ -673,8 +673,8 @@ namespace GameServer.Maps
 				if (this.当前地图.MapId == 80)
 				{
 					int num = 0;
-					游戏物品 物品模板;
-					if (游戏物品.检索表.TryGetValue("强效金创药", out 物品模板))
+					GameItems 物品模板;
+					if (GameItems.DateSheetByName.TryGetValue("强效金创药", out 物品模板))
 					{
 						int num2 = (this.怪物级别 == MonsterLevelType.普通怪物) ? 15 : 1;
 						int num3 = Math.Max(1, num2 - (int)Math.Round(num2 * CustomClass.怪物额外爆率));
@@ -684,8 +684,8 @@ namespace GameServer.Maps
 							new ItemObject(物品模板, null, this.当前地图, this.当前坐标, new HashSet<CharacterData>(), 1, false);
 						}
 					}
-					游戏物品 物品模板2;
-					if (游戏物品.检索表.TryGetValue("强效魔法药", out 物品模板2))
+					GameItems 物品模板2;
+					if (GameItems.DateSheetByName.TryGetValue("强效魔法药", out 物品模板2))
 					{
 						int num4 = (this.怪物级别 == MonsterLevelType.普通怪物) ? 20 : 1;
 						int num5 = Math.Max(1, num4 - (int)Math.Round(num4 * CustomClass.怪物额外爆率));
@@ -695,8 +695,8 @@ namespace GameServer.Maps
 							new ItemObject(物品模板2, null, this.当前地图, this.当前坐标, new HashSet<CharacterData>(), 1, false);
 						}
 					}
-					游戏物品 物品模板3;
-					if (游戏物品.检索表.TryGetValue("疗伤药", out 物品模板3))
+					GameItems 物品模板3;
+					if (GameItems.DateSheetByName.TryGetValue("疗伤药", out 物品模板3))
 					{
 						int num6 = (this.怪物级别 == MonsterLevelType.普通怪物) ? 100 : 1;
 						int num7 = Math.Max(1, num6 - (int)Math.Round(num6 * CustomClass.怪物额外爆率));
@@ -706,8 +706,8 @@ namespace GameServer.Maps
 							new ItemObject(物品模板3, null, this.当前地图, this.当前坐标, new HashSet<CharacterData>(), 1, false);
 						}
 					}
-					游戏物品 物品模板4;
-					if (游戏物品.检索表.TryGetValue("祝福油", out 物品模板4))
+					GameItems 物品模板4;
+					if (GameItems.DateSheetByName.TryGetValue("祝福油", out 物品模板4))
 					{
 						int num8 = (this.怪物级别 == MonsterLevelType.普通怪物) ? 1000 : ((this.怪物级别 == MonsterLevelType.精英干将) ? 50 : 10);
 						int num9 = Math.Max(1, num8 - (int)Math.Round(num8 * CustomClass.怪物额外爆率));
@@ -756,8 +756,8 @@ namespace GameServer.Maps
 				{
 					foreach (怪物掉落 怪物掉落 in this.怪物掉落)
 					{
-						游戏物品 游戏物品;
-						if (游戏物品.检索表.TryGetValue(怪物掉落.物品名字, out 游戏物品) && !ComputingClass.计算概率(num10) && (PlayerObject.本期特权 != 0 || this.怪物级别 == MonsterLevelType.头目首领 || 游戏物品.物品分类 == ItemUsageType.可用药剂 || !ComputingClass.计算概率(0.5f)) && (PlayerObject.本期特权 != 3 || this.怪物级别 == MonsterLevelType.头目首领 || 游戏物品.物品分类 == ItemUsageType.可用药剂 || !ComputingClass.计算概率(0.25f)))
+						GameItems 游戏物品;
+						if (GameItems.DateSheetByName.TryGetValue(怪物掉落.物品名字, out 游戏物品) && !ComputingClass.计算概率(num10) && (PlayerObject.本期特权 != 0 || this.怪物级别 == MonsterLevelType.头目首领 || 游戏物品.物品分类 == ItemUsageType.可用药剂 || !ComputingClass.计算概率(0.5f)) && (PlayerObject.本期特权 != 3 || this.怪物级别 == MonsterLevelType.头目首领 || 游戏物品.物品分类 == ItemUsageType.可用药剂 || !ComputingClass.计算概率(0.25f)))
 						{
 							int num13 = Math.Max(1, 怪物掉落.掉落概率 - (int)Math.Round(怪物掉落.掉落概率 * CustomClass.怪物额外爆率));
 							if (MainProcess.RandomNumber.Next(num13) == num13 / 2)
@@ -813,7 +813,7 @@ namespace GameServer.Maps
 				}
 				if (num11 > 0 || num12 > 0)
 				{
-					MainForm.更新掉落统计(this.对象模板, this.对象模板.掉落统计.ToList<KeyValuePair<游戏物品, long>>());
+					MainForm.更新掉落统计(this.对象模板, this.对象模板.掉落统计.ToList<KeyValuePair<GameItems, long>>());
 				}
 				if (PlayerObject.所属队伍 == null)
 				{

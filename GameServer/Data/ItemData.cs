@@ -10,7 +10,7 @@ namespace GameServer.Data
 	{
 		
 		// (get) Token: 0x06000569 RID: 1385 RVA: 0x00005180 File Offset: 0x00003380
-		public 游戏物品 物品模板
+		public GameItems 物品模板
 		{
 			get
 			{
@@ -125,7 +125,7 @@ namespace GameServer.Data
 				case PersistentItemType.装备:
 				{
 					EquipmentData EquipmentData = this as EquipmentData;
-					游戏装备 游戏装备 = this.对应模板.V as 游戏装备;
+					EquipmentItem 游戏装备 = this.对应模板.V as EquipmentItem;
 					int v = EquipmentData.当前持久.V;
 					int value = 游戏装备.物品持久 * 1000;
 					int 出售价格 = 游戏装备.出售价格;
@@ -149,7 +149,7 @@ namespace GameServer.Data
 						num4 += 随机属性.战力加成 * 100;
 					}
 					int num5 = 0;
-					foreach (游戏物品 游戏物品 in EquipmentData.镶嵌灵石.Values)
+					foreach (GameItems 游戏物品 in EquipmentData.镶嵌灵石.Values)
 					{
 						string 物品名字 = 游戏物品.物品名字;
 						uint num6 = PrivateImplementationDetails.ComputeStringHash(物品名字);
@@ -2123,7 +2123,7 @@ namespace GameServer.Data
 		}
 
 		
-		public ItemData(游戏物品 模板, CharacterData 来源, byte 容器, byte 位置, int 持久)
+		public ItemData(GameItems 模板, CharacterData 来源, byte 容器, byte 位置, int 持久)
 		{
 			
 			
@@ -2208,7 +2208,7 @@ namespace GameServer.Data
 		public static byte 数据版本;
 
 		
-		public readonly DataMonitor<游戏物品> 对应模板;
+		public readonly DataMonitor<GameItems> 对应模板;
 
 		
 		public readonly DataMonitor<DateTime> 生成时间;

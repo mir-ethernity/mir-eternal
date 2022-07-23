@@ -11,11 +11,11 @@ namespace GameServer.Data
 	{
 		
 		// (get) Token: 0x06000587 RID: 1415 RVA: 0x0000531F File Offset: 0x0000351F
-		public 游戏装备 装备模板
+		public EquipmentItem 装备模板
 		{
 			get
 			{
-				return base.物品模板 as 游戏装备;
+				return base.物品模板 as EquipmentItem;
 			}
 		}
 
@@ -124,7 +124,7 @@ namespace GameServer.Data
 				}
 				}
 				int num5 = this.孔洞颜色.Count * 10;
-				foreach (游戏物品 游戏物品 in this.镶嵌灵石.Values)
+				foreach (GameItems 游戏物品 in this.镶嵌灵石.Values)
 				{
 					string 物品名字 = 游戏物品.物品名字;
 					uint num6 = PrivateImplementationDetails.ComputeStringHash(物品名字);
@@ -1944,8 +1944,8 @@ namespace GameServer.Data
 			get
 			{
 				int value = this.最大持久.V - this.当前持久.V;
-				decimal d = ((游戏装备)this.对应模板.V).修理花费;
-				decimal d2 = ((游戏装备)this.对应模板.V).物品持久 * 1000m;
+				decimal d = ((EquipmentItem)this.对应模板.V).修理花费;
+				decimal d2 = ((EquipmentItem)this.对应模板.V).物品持久 * 1000m;
 				return (int)(d / d2 * value);
 			}
 		}
@@ -1957,8 +1957,8 @@ namespace GameServer.Data
 			get
 			{
 				decimal d = this.最大持久.V - this.当前持久.V;
-				decimal d2 = ((游戏装备)this.对应模板.V).特修花费;
-				decimal d3 = ((游戏装备)this.对应模板.V).物品持久 * 1000m;
+				decimal d2 = ((EquipmentItem)this.对应模板.V).特修花费;
+				decimal d3 = ((EquipmentItem)this.对应模板.V).物品持久 * 1000m;
 				return (int)(d2 / d3 * d * CustomClass.装备特修折扣 * 1.15m);
 			}
 		}
@@ -1969,7 +1969,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return ((游戏装备)base.物品模板).需要攻击;
+				return ((EquipmentItem)base.物品模板).需要攻击;
 			}
 		}
 
@@ -1979,7 +1979,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return ((游戏装备)base.物品模板).需要魔法;
+				return ((EquipmentItem)base.物品模板).需要魔法;
 			}
 		}
 
@@ -1989,7 +1989,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return ((游戏装备)base.物品模板).需要道术;
+				return ((EquipmentItem)base.物品模板).需要道术;
 			}
 		}
 
@@ -1999,7 +1999,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return ((游戏装备)base.物品模板).需要刺术;
+				return ((EquipmentItem)base.物品模板).需要刺术;
 			}
 		}
 
@@ -2009,7 +2009,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return ((游戏装备)base.物品模板).需要弓术;
+				return ((EquipmentItem)base.物品模板).需要弓术;
 			}
 		}
 
@@ -2029,7 +2029,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return ((游戏装备)this.对应模板.V).禁止卸下;
+				return ((EquipmentItem)this.对应模板.V).禁止卸下;
 			}
 		}
 
@@ -2530,7 +2530,7 @@ namespace GameServer.Data
 				{
 					dictionary[随机属性.对应属性] = (dictionary.ContainsKey(随机属性.对应属性) ? (dictionary[随机属性.对应属性] + 随机属性.属性数值) : 随机属性.属性数值);
 				}
-				foreach (游戏物品 游戏物品 in this.镶嵌灵石.Values)
+				foreach (GameItems 游戏物品 in this.镶嵌灵石.Values)
 				{
 					int 物品编号 = 游戏物品.物品编号;
 					if (物品编号 <= 10324)
@@ -2710,7 +2710,7 @@ namespace GameServer.Data
 		}
 
 		
-		public EquipmentData(游戏装备 模板, CharacterData 来源, byte 容器, byte 位置, bool 随机生成 = false)
+		public EquipmentData(EquipmentItem 模板, CharacterData 来源, byte 容器, byte 位置, bool 随机生成 = false)
 		{
 			
 			
@@ -3072,6 +3072,6 @@ namespace GameServer.Data
 		public readonly MonitorDictionary<byte, 铭文技能> 铭文技能;
 
 		
-		public readonly MonitorDictionary<byte, 游戏物品> 镶嵌灵石;
+		public readonly MonitorDictionary<byte, GameItems> 镶嵌灵石;
 	}
 }

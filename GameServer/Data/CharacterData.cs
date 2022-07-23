@@ -352,26 +352,26 @@ namespace GameServer.Data
 				this.角色货币[(GameCurrency)i] = 0;
 			}
 			this.玩家设置.SetValue(new uint[128].ToList<uint>());
-			游戏物品 游戏物品;
-			游戏物品 模板;
-			if (游戏物品.检索表.TryGetValue("金创药(小)包", out 模板))
+			GameItems 游戏物品;
+			GameItems 模板;
+			if (GameItems.DateSheetByName.TryGetValue("金创药(小)包", out 模板))
 			{
 				this.角色背包[0] = new ItemData(模板, this, 1, 0, 1);
 				this.角色背包[1] = new ItemData(模板, this, 1, 1, 1);
 			}
 			
-			if (游戏物品.检索表.TryGetValue((职业 == GameObjectProfession.刺客) ? "柴刀" : "木剑", out 游戏物品))
+			if (GameItems.DateSheetByName.TryGetValue((职业 == GameObjectProfession.刺客) ? "柴刀" : "木剑", out 游戏物品))
 			{
-				游戏装备 游戏装备 = 游戏物品 as 游戏装备;
+				EquipmentItem 游戏装备 = 游戏物品 as EquipmentItem;
 				if (游戏装备 != null)
 				{
 					this.角色装备[0] = new EquipmentData(游戏装备, this, 0, 0, false);
 				}
 			}
-			游戏物品 游戏物品2;
-			if (游戏物品.检索表.TryGetValue((性别 == GameObjectGender.男性) ? "布衣(男)" : "布衣(女)", out 游戏物品2))
+			GameItems 游戏物品2;
+			if (GameItems.DateSheetByName.TryGetValue((性别 == GameObjectGender.男性) ? "布衣(男)" : "布衣(女)", out 游戏物品2))
 			{
-				游戏装备 游戏装备2 = 游戏物品2 as 游戏装备;
+				EquipmentItem 游戏装备2 = 游戏物品2 as EquipmentItem;
 				if (游戏装备2 != null)
 				{
 					this.角色装备[1] = new EquipmentData(游戏装备2, this, 0, 1, false);
@@ -663,7 +663,7 @@ namespace GameServer.Data
 					}
 					else
 					{
-						游戏物品 v = EquipmentData2.对应模板.V;
+						GameItems v = EquipmentData2.对应模板.V;
 						num = ((v != null) ? new int?(v.物品编号) : null);
 					}
 					int? num2 = num;
@@ -677,7 +677,7 @@ namespace GameServer.Data
 					}
 					else
 					{
-						游戏物品 v2 = EquipmentData3.对应模板.V;
+						GameItems v2 = EquipmentData3.对应模板.V;
 						num3 = ((v2 != null) ? new int?(v2.物品编号) : null);
 					}
 					num2 = num3;
@@ -691,7 +691,7 @@ namespace GameServer.Data
 					}
 					else
 					{
-						游戏物品 v3 = EquipmentData4.对应模板.V;
+						GameItems v3 = EquipmentData4.对应模板.V;
 						num4 = ((v3 != null) ? new int?(v3.物品编号) : null);
 					}
 					num2 = num4;

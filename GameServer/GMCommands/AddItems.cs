@@ -27,8 +27,8 @@ namespace GameServer
 				CharacterData CharacterData = GameData as CharacterData;
 				if (CharacterData != null)
 				{
-					游戏物品 游戏物品;
-					if (!游戏物品.检索表.TryGetValue(this.物品名字, out 游戏物品))
+					GameItems 游戏物品;
+					if (!GameItems.DateSheetByName.TryGetValue(this.物品名字, out 游戏物品))
 					{
 						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, item does not exist");
 						return;
@@ -50,7 +50,7 @@ namespace GameServer
 						{
 							b = b2;
 							IL_F4:
-							游戏装备 游戏装备 = 游戏物品 as 游戏装备;
+							EquipmentItem 游戏装备 = 游戏物品 as EquipmentItem;
 							if (游戏装备 != null)
 							{
 								CharacterData.角色背包[b] = new EquipmentData(游戏装备, CharacterData, 1, b, true);

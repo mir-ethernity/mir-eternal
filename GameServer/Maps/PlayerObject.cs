@@ -4484,7 +4484,7 @@ namespace GameServer.Maps
 											网络连接14.发送封包(new 同步交互结果
 											{
 												对象编号 = this.对话守卫.MapId,
-												交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:[{0}] 个 [{1}]><#P1:{2}>", num9, 游戏物品.DataSheet[重铸所需灵气].物品名字, num8 / 10000))
+												交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:[{0}] 个 [{1}]><#P1:{2}>", num9, GameItems.DataSheet[重铸所需灵气].物品名字, num8 / 10000))
 											});
 											return;
 										}
@@ -4499,7 +4499,7 @@ namespace GameServer.Maps
 											网络连接15.发送封包(new 同步交互结果
 											{
 												对象编号 = this.对话守卫.MapId,
-												交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:[{0}] 个 [{1}]><#P1:{2}>", num9, 游戏物品.DataSheet[重铸所需灵气].物品名字, num8 / 10000))
+												交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:[{0}] 个 [{1}]><#P1:{2}>", num9, GameItems.DataSheet[重铸所需灵气].物品名字, num8 / 10000))
 											});
 											return;
 										}
@@ -5823,7 +5823,7 @@ namespace GameServer.Maps
 										else
 										{
 											this.消耗背包物品(num15, 物品列表5);
-											this.角色背包[b] = new ItemData(游戏物品.DataSheet[num16 + 1], this.CharacterData, 1, b, 1);
+											this.角色背包[b] = new ItemData(GameItems.DataSheet[num16 + 1], this.CharacterData, 1, b, 1);
 											客户网络 网络连接82 = this.网络连接;
 											if (网络连接82 != null)
 											{
@@ -5905,7 +5905,7 @@ namespace GameServer.Maps
 										else
 										{
 											this.消耗背包物品(num17, 物品列表6);
-											this.角色背包[b2] = new ItemData(游戏物品.DataSheet[num18 + 1], this.CharacterData, 1, b2, 1);
+											this.角色背包[b2] = new ItemData(GameItems.DataSheet[num18 + 1], this.CharacterData, 1, b2, 1);
 											客户网络 网络连接86 = this.网络连接;
 											if (网络连接86 != null)
 											{
@@ -5988,7 +5988,7 @@ namespace GameServer.Maps
 									else
 									{
 										this.消耗背包物品(num19, 物品列表7);
-										this.角色背包[b3] = new ItemData(游戏物品.DataSheet[num20 + 1], this.CharacterData, 1, b3, 1);
+										this.角色背包[b3] = new ItemData(GameItems.DataSheet[num20 + 1], this.CharacterData, 1, b3, 1);
 										客户网络 网络连接90 = this.网络连接;
 										if (网络连接90 != null)
 										{
@@ -6081,7 +6081,7 @@ namespace GameServer.Maps
 											else
 											{
 												this.消耗背包物品(num21, 物品列表8);
-												this.角色背包[b4] = new ItemData(游戏物品.DataSheet[num22 + 1], this.CharacterData, 1, b4, 1);
+												this.角色背包[b4] = new ItemData(GameItems.DataSheet[num22 + 1], this.CharacterData, 1, b4, 1);
 												客户网络 网络连接94 = this.网络连接;
 												if (网络连接94 != null)
 												{
@@ -6163,7 +6163,7 @@ namespace GameServer.Maps
 											else
 											{
 												this.消耗背包物品(num23, 物品列表9);
-												this.角色背包[b5] = new ItemData(游戏物品.DataSheet[num24 + 1], this.CharacterData, 1, b5, 1);
+												this.角色背包[b5] = new ItemData(GameItems.DataSheet[num24 + 1], this.CharacterData, 1, b5, 1);
 												客户网络 网络连接98 = this.网络连接;
 												if (网络连接98 != null)
 												{
@@ -6252,7 +6252,7 @@ namespace GameServer.Maps
 											else
 											{
 												this.消耗背包物品(num25, 物品列表10);
-												this.角色背包[b6] = new ItemData(游戏物品.DataSheet[num26 + 1], this.CharacterData, 1, b6, 1);
+												this.角色背包[b6] = new ItemData(GameItems.DataSheet[num26 + 1], this.CharacterData, 1, b6, 1);
 												客户网络 网络连接102 = this.网络连接;
 												if (网络连接102 != null)
 												{
@@ -6334,7 +6334,7 @@ namespace GameServer.Maps
 											else
 											{
 												this.消耗背包物品(num27, 物品列表11);
-												this.角色背包[b7] = new ItemData(游戏物品.DataSheet[num28 + 1], this.CharacterData, 1, b7, 1);
+												this.角色背包[b7] = new ItemData(GameItems.DataSheet[num28 + 1], this.CharacterData, 1, b7, 1);
 												客户网络 网络连接106 = this.网络连接;
 												if (网络连接106 != null)
 												{
@@ -6417,7 +6417,7 @@ namespace GameServer.Maps
 										else
 										{
 											this.消耗背包物品(num29, 物品列表12);
-											this.角色背包[b8] = new ItemData(游戏物品.DataSheet[num30 + 1], this.CharacterData, 1, b8, 1);
+											this.角色背包[b8] = new ItemData(GameItems.DataSheet[num30 + 1], this.CharacterData, 1, b8, 1);
 											客户网络 网络连接110 = this.网络连接;
 											if (网络连接110 != null)
 											{
@@ -6761,7 +6761,7 @@ namespace GameServer.Maps
 											else
 											{
 												byte b10 = b9;
-												游戏物品 模板;
+												GameItems 模板;
 												if (b10 == 255)
 												{
 													客户网络 网络连接125 = this.网络连接;
@@ -6775,7 +6775,7 @@ namespace GameServer.Maps
 													});
 													return;
 												}
-												else if (!游戏物品.检索表.TryGetValue("沙城每日宝箱", out 模板))
+												else if (!GameItems.DateSheetByName.TryGetValue("沙城每日宝箱", out 模板))
 												{
 													客户网络 网络连接126 = this.网络连接;
 													if (网络连接126 == null)
@@ -8300,8 +8300,8 @@ namespace GameServer.Maps
 		public void 购买珍宝商品(int 物品编号, int 购入数量)
 		{
 			珍宝商品 珍宝商品;
-			游戏物品 游戏物品;
-			if (珍宝商品.DataSheet.TryGetValue(物品编号, out 珍宝商品) && 游戏物品.DataSheet.TryGetValue(物品编号, out 游戏物品))
+			GameItems 游戏物品;
+			if (珍宝商品.DataSheet.TryGetValue(物品编号, out 珍宝商品) && GameItems.DataSheet.TryGetValue(物品编号, out 游戏物品))
 			{
 				int num;
 				if (购入数量 != 1)
@@ -8366,7 +8366,7 @@ namespace GameServer.Maps
 								}
 								else
 								{
-									游戏装备 游戏装备 = 游戏物品 as 游戏装备;
+									EquipmentItem 游戏装备 = 游戏物品 as EquipmentItem;
 									if (游戏装备 != null)
 									{
 										this.角色背包[(byte)num4] = new EquipmentData(游戏装备, this.CharacterData, 1, (byte)num4, false);
@@ -8430,7 +8430,7 @@ namespace GameServer.Maps
 		{
 			if (礼包编号 == 1)
 			{
-				游戏物品 模板;
+				GameItems 模板;
 				if (this.元宝数量 < 600)
 				{
 					客户网络 网络连接 = this.网络连接;
@@ -8470,7 +8470,7 @@ namespace GameServer.Maps
 					});
 					return;
 				}
-				else if (游戏物品.检索表.TryGetValue("战具礼盒", out 模板))
+				else if (GameItems.DateSheetByName.TryGetValue("战具礼盒", out 模板))
 				{
 					for (byte b = 0; b < this.背包大小; b += 1)
 					{
@@ -8510,8 +8510,8 @@ namespace GameServer.Maps
 			}
 			else if (礼包编号 == 2)
 			{
-				游戏物品 模板2;
-				游戏物品 模板3;
+				GameItems 模板2;
+				GameItems 模板3;
 				if (this.元宝数量 < 3000)
 				{
 					客户网络 网络连接6 = this.网络连接;
@@ -8538,7 +8538,7 @@ namespace GameServer.Maps
 					});
 					return;
 				}
-				else if (游戏物品.检索表.TryGetValue("强化战具礼盒", out 模板2) && 游戏物品.检索表.TryGetValue("命运之证", out 模板3))
+				else if (GameItems.DateSheetByName.TryGetValue("强化战具礼盒", out 模板2) && GameItems.DateSheetByName.TryGetValue("命运之证", out 模板3))
 				{
 					if (!(this.CharacterData.战备日期.V == default(DateTime)))
 					{
@@ -8898,8 +8898,8 @@ namespace GameServer.Maps
 								}
 								else
 								{
-									游戏物品 模板;
-									if (!游戏物品.检索表.TryGetValue((this.本期特权 == 3) ? "名俊铭文石礼包" : "豪杰铭文石礼包", out 模板))
+									GameItems 模板;
+									if (!GameItems.DateSheetByName.TryGetValue((this.本期特权 == 3) ? "名俊铭文石礼包" : "豪杰铭文石礼包", out 模板))
 									{
 										return;
 									}
@@ -8957,8 +8957,8 @@ namespace GameServer.Maps
 								}
 								else
 								{
-									游戏物品 模板2;
-									if (!游戏物品.检索表.TryGetValue("随机传送石", out 模板2))
+									GameItems 模板2;
+									if (!GameItems.DateSheetByName.TryGetValue("随机传送石", out 模板2))
 									{
 										return;
 									}
@@ -9016,8 +9016,8 @@ namespace GameServer.Maps
 								}
 								else
 								{
-									游戏物品 模板3;
-									if (!游戏物品.检索表.TryGetValue((this.本期特权 == 3) ? "名俊灵石宝盒" : "豪杰灵石宝盒", out 模板3))
+									GameItems 模板3;
+									if (!GameItems.DateSheetByName.TryGetValue((this.本期特权 == 3) ? "名俊灵石宝盒" : "豪杰灵石宝盒", out 模板3))
 									{
 										return;
 									}
@@ -9075,8 +9075,8 @@ namespace GameServer.Maps
 								}
 								else
 								{
-									游戏物品 模板4;
-									if (!游戏物品.检索表.TryGetValue("雕色石", out 模板4))
+									GameItems 模板4;
+									if (!GameItems.DateSheetByName.TryGetValue("雕色石", out 模板4))
 									{
 										return;
 									}
@@ -9134,8 +9134,8 @@ namespace GameServer.Maps
 								}
 								else
 								{
-									游戏物品 模板5;
-									if (!游戏物品.检索表.TryGetValue("修复油", out 模板5))
+									GameItems 模板5;
+									if (!GameItems.DateSheetByName.TryGetValue("修复油", out 模板5))
 									{
 										return;
 									}
@@ -9193,8 +9193,8 @@ namespace GameServer.Maps
 								}
 								else
 								{
-									游戏物品 模板6;
-									if (!游戏物品.检索表.TryGetValue("祝福油", out 模板6))
+									GameItems 模板6;
+									if (!GameItems.DateSheetByName.TryGetValue("祝福油", out 模板6))
 									{
 										return;
 									}
@@ -9299,8 +9299,8 @@ namespace GameServer.Maps
 								}
 								else
 								{
-									游戏物品 模板7;
-									if (!游戏物品.检索表.TryGetValue((this.上期特权 == 3) ? "名俊铭文石礼包" : "豪杰铭文石礼包", out 模板7))
+									GameItems 模板7;
+									if (!GameItems.DateSheetByName.TryGetValue((this.上期特权 == 3) ? "名俊铭文石礼包" : "豪杰铭文石礼包", out 模板7))
 									{
 										return;
 									}
@@ -9358,8 +9358,8 @@ namespace GameServer.Maps
 								}
 								else
 								{
-									游戏物品 模板8;
-									if (!游戏物品.检索表.TryGetValue("随机传送石", out 模板8))
+									GameItems 模板8;
+									if (!GameItems.DateSheetByName.TryGetValue("随机传送石", out 模板8))
 									{
 										return;
 									}
@@ -9417,8 +9417,8 @@ namespace GameServer.Maps
 								}
 								else
 								{
-									游戏物品 模板9;
-									if (!游戏物品.检索表.TryGetValue((this.上期特权 == 3) ? "名俊灵石宝盒" : "豪杰灵石宝盒", out 模板9))
+									GameItems 模板9;
+									if (!GameItems.DateSheetByName.TryGetValue((this.上期特权 == 3) ? "名俊灵石宝盒" : "豪杰灵石宝盒", out 模板9))
 									{
 										return;
 									}
@@ -9476,8 +9476,8 @@ namespace GameServer.Maps
 								}
 								else
 								{
-									游戏物品 模板10;
-									if (!游戏物品.检索表.TryGetValue("雕色石", out 模板10))
+									GameItems 模板10;
+									if (!GameItems.DateSheetByName.TryGetValue("雕色石", out 模板10))
 									{
 										return;
 									}
@@ -9535,8 +9535,8 @@ namespace GameServer.Maps
 								}
 								else
 								{
-									游戏物品 模板11;
-									if (!游戏物品.检索表.TryGetValue("修复油", out 模板11))
+									GameItems 模板11;
+									if (!GameItems.DateSheetByName.TryGetValue("修复油", out 模板11))
 									{
 										return;
 									}
@@ -9594,8 +9594,8 @@ namespace GameServer.Maps
 								}
 								else
 								{
-									游戏物品 模板12;
-									if (!游戏物品.检索表.TryGetValue("祝福油", out 模板12))
+									GameItems 模板12;
+									if (!GameItems.DateSheetByName.TryGetValue("祝福油", out 模板12))
 									{
 										return;
 									}
@@ -9927,7 +9927,7 @@ namespace GameServer.Maps
 						}
 						else
 						{
-							游戏装备 游戏装备 = 物品.物品模板 as 游戏装备;
+							EquipmentItem 游戏装备 = 物品.物品模板 as EquipmentItem;
 							if (游戏装备 != null)
 							{
 								this.角色背包[b] = new EquipmentData(游戏装备, this.CharacterData, 1, b, true);
@@ -10681,39 +10681,39 @@ namespace GameServer.Maps
 																}
 																else
 																{
-																	游戏物品 游戏物品 = null;
+																	GameItems 游戏物品 = null;
 																	int num2 = MainProcess.RandomNumber.Next(8);
 																	if (num2 == 0)
 																	{
-																		游戏物品.检索表.TryGetValue("驭朱灵石1级", out 游戏物品);
+																		GameItems.DateSheetByName.TryGetValue("驭朱灵石1级", out 游戏物品);
 																	}
 																	else if (num2 == 1)
 																	{
-																		游戏物品.检索表.TryGetValue("命朱灵石1级", out 游戏物品);
+																		GameItems.DateSheetByName.TryGetValue("命朱灵石1级", out 游戏物品);
 																	}
 																	else if (num2 == 2)
 																	{
-																		游戏物品.检索表.TryGetValue("守阳灵石1级", out 游戏物品);
+																		GameItems.DateSheetByName.TryGetValue("守阳灵石1级", out 游戏物品);
 																	}
 																	else if (num2 == 3)
 																	{
-																		游戏物品.检索表.TryGetValue("蔚蓝灵石1级", out 游戏物品);
+																		GameItems.DateSheetByName.TryGetValue("蔚蓝灵石1级", out 游戏物品);
 																	}
 																	else if (num2 == 4)
 																	{
-																		游戏物品.检索表.TryGetValue("精绿灵石1级", out 游戏物品);
+																		GameItems.DateSheetByName.TryGetValue("精绿灵石1级", out 游戏物品);
 																	}
 																	else if (num2 == 5)
 																	{
-																		游戏物品.检索表.TryGetValue("纯紫灵石1级", out 游戏物品);
+																		GameItems.DateSheetByName.TryGetValue("纯紫灵石1级", out 游戏物品);
 																	}
 																	else if (num2 == 6)
 																	{
-																		游戏物品.检索表.TryGetValue("深灰灵石1级", out 游戏物品);
+																		GameItems.DateSheetByName.TryGetValue("深灰灵石1级", out 游戏物品);
 																	}
 																	else if (num2 == 7)
 																	{
-																		游戏物品.检索表.TryGetValue("橙黄灵石1级", out 游戏物品);
+																		GameItems.DateSheetByName.TryGetValue("橙黄灵石1级", out 游戏物品);
 																	}
 																	if (游戏物品 == null)
 																	{
@@ -10876,36 +10876,36 @@ namespace GameServer.Maps
 														}
 														else
 														{
-															游戏物品 游戏物品2 = null;
+															GameItems 游戏物品2 = null;
 															if (this.角色职业 == GameObjectProfession.战士)
 															{
-																游戏物品.检索表.TryGetValue("气血石", out 游戏物品2);
+																GameItems.DateSheetByName.TryGetValue("气血石", out 游戏物品2);
 															}
 															else if (this.角色职业 == GameObjectProfession.法师)
 															{
-																游戏物品.检索表.TryGetValue("魔法石", out 游戏物品2);
+																GameItems.DateSheetByName.TryGetValue("魔法石", out 游戏物品2);
 															}
 															else if (this.角色职业 == GameObjectProfession.道士)
 															{
-																游戏物品.检索表.TryGetValue("万灵符", out 游戏物品2);
+																GameItems.DateSheetByName.TryGetValue("万灵符", out 游戏物品2);
 															}
 															else if (this.角色职业 == GameObjectProfession.刺客)
 															{
-																游戏物品.检索表.TryGetValue("吸血令", out 游戏物品2);
+																GameItems.DateSheetByName.TryGetValue("吸血令", out 游戏物品2);
 															}
 															else if (this.角色职业 == GameObjectProfession.弓手)
 															{
-																游戏物品.检索表.TryGetValue("守护箭袋", out 游戏物品2);
+																GameItems.DateSheetByName.TryGetValue("守护箭袋", out 游戏物品2);
 															}
 															else if (this.角色职业 == GameObjectProfession.龙枪)
 															{
-																游戏物品.检索表.TryGetValue("血精石", out 游戏物品2);
+																GameItems.DateSheetByName.TryGetValue("血精石", out 游戏物品2);
 															}
 															if (游戏物品2 == null)
 															{
 																return;
 															}
-															游戏装备 游戏装备 = 游戏物品2 as 游戏装备;
+															EquipmentItem 游戏装备 = 游戏物品2 as EquipmentItem;
 															if (游戏装备 == null)
 															{
 																return;
@@ -11001,8 +11001,8 @@ namespace GameServer.Maps
 												}
 												else
 												{
-													游戏物品 模板;
-													if (游戏物品.检索表.TryGetValue("疗伤药", out 模板))
+													GameItems 模板;
+													if (GameItems.DateSheetByName.TryGetValue("疗伤药", out 模板))
 													{
 														if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 														{
@@ -11209,8 +11209,8 @@ namespace GameServer.Maps
 											}
 											else
 											{
-												游戏物品 模板2;
-												if (游戏物品.检索表.TryGetValue("魔龙城回城卷", out 模板2))
+												GameItems 模板2;
+												if (GameItems.DateSheetByName.TryGetValue("魔龙城回城卷", out 模板2))
 												{
 													if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 													{
@@ -11463,8 +11463,8 @@ namespace GameServer.Maps
 												}
 												else
 												{
-													游戏物品 模板3;
-													if (游戏物品.检索表.TryGetValue("魔法药(小量)", out 模板3))
+													GameItems 模板3;
+													if (GameItems.DateSheetByName.TryGetValue("魔法药(小量)", out 模板3))
 													{
 														if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 														{
@@ -11547,8 +11547,8 @@ namespace GameServer.Maps
 											}
 											else
 											{
-												游戏物品 模板4;
-												if (游戏物品.检索表.TryGetValue("盟重回城卷", out 模板4))
+												GameItems 模板4;
+												if (GameItems.DateSheetByName.TryGetValue("盟重回城卷", out 模板4))
 												{
 													if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 													{
@@ -12075,8 +12075,8 @@ namespace GameServer.Maps
 											}
 											else
 											{
-												游戏物品 模板5;
-												if (游戏物品.检索表.TryGetValue("万年雪霜", out 模板5))
+												GameItems 模板5;
+												if (GameItems.DateSheetByName.TryGetValue("万年雪霜", out 模板5))
 												{
 													if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 													{
@@ -12174,8 +12174,8 @@ namespace GameServer.Maps
 											}
 											else
 											{
-												游戏物品 模板6;
-												if (游戏物品.检索表.TryGetValue("太阳水", out 模板6))
+												GameItems 模板6;
+												if (GameItems.DateSheetByName.TryGetValue("太阳水", out 模板6))
 												{
 													if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 													{
@@ -12489,8 +12489,8 @@ namespace GameServer.Maps
 										}
 										else
 										{
-											游戏物品 模板7;
-											if (游戏物品.检索表.TryGetValue("金创药(小量)", out 模板7))
+											GameItems 模板7;
+											if (GameItems.DateSheetByName.TryGetValue("金创药(小量)", out 模板7))
 											{
 												if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 												{
@@ -12717,36 +12717,36 @@ namespace GameServer.Maps
 												}
 												else
 												{
-													游戏物品 游戏物品3 = null;
+													GameItems 游戏物品3 = null;
 													if (this.角色职业 == GameObjectProfession.战士)
 													{
-														游戏物品.检索表.TryGetValue("灵疗石", out 游戏物品3);
+														GameItems.DateSheetByName.TryGetValue("灵疗石", out 游戏物品3);
 													}
 													else if (this.角色职业 == GameObjectProfession.法师)
 													{
-														游戏物品.检索表.TryGetValue("幻魔石", out 游戏物品3);
+														GameItems.DateSheetByName.TryGetValue("幻魔石", out 游戏物品3);
 													}
 													else if (this.角色职业 == GameObjectProfession.道士)
 													{
-														游戏物品.检索表.TryGetValue("圣灵符", out 游戏物品3);
+														GameItems.DateSheetByName.TryGetValue("圣灵符", out 游戏物品3);
 													}
 													else if (this.角色职业 == GameObjectProfession.刺客)
 													{
-														游戏物品.检索表.TryGetValue("狂血令", out 游戏物品3);
+														GameItems.DateSheetByName.TryGetValue("狂血令", out 游戏物品3);
 													}
 													else if (this.角色职业 == GameObjectProfession.弓手)
 													{
-														游戏物品.检索表.TryGetValue("射手箭袋", out 游戏物品3);
+														GameItems.DateSheetByName.TryGetValue("射手箭袋", out 游戏物品3);
 													}
 													else if (this.角色职业 == GameObjectProfession.龙枪)
 													{
-														游戏物品.检索表.TryGetValue("龙晶石", out 游戏物品3);
+														GameItems.DateSheetByName.TryGetValue("龙晶石", out 游戏物品3);
 													}
 													if (游戏物品3 == null)
 													{
 														return;
 													}
-													游戏装备 游戏装备2 = 游戏物品3 as 游戏装备;
+													EquipmentItem 游戏装备2 = 游戏物品3 as EquipmentItem;
 													if (游戏装备2 == null)
 													{
 														return;
@@ -12790,8 +12790,8 @@ namespace GameServer.Maps
 									}
 									else
 									{
-										游戏物品 模板8;
-										if (游戏物品.检索表.TryGetValue("随机传送卷", out 模板8))
+										GameItems 模板8;
+										if (GameItems.DateSheetByName.TryGetValue("随机传送卷", out 模板8))
 										{
 											if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 											{
@@ -13080,8 +13080,8 @@ namespace GameServer.Maps
 											}
 											else
 											{
-												游戏物品 模板9;
-												if (游戏物品.检索表.TryGetValue("沙巴克回城卷", out 模板9))
+												GameItems 模板9;
+												if (GameItems.DateSheetByName.TryGetValue("沙巴克回城卷", out 模板9))
 												{
 													if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 													{
@@ -13179,8 +13179,8 @@ namespace GameServer.Maps
 											}
 											else
 											{
-												游戏物品 模板10;
-												if (游戏物品.检索表.TryGetValue("强效金创药", out 模板10))
+												GameItems 模板10;
+												if (GameItems.DateSheetByName.TryGetValue("强效金创药", out 模板10))
 												{
 													if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 													{
@@ -13536,8 +13536,8 @@ namespace GameServer.Maps
 														}
 														if (num5 < 90)
 														{
-															游戏物品 模板11;
-															if (!游戏物品.检索表.TryGetValue("元宝袋(小)", out 模板11))
+															GameItems 模板11;
+															if (!GameItems.DateSheetByName.TryGetValue("元宝袋(小)", out 模板11))
 															{
 																return;
 															}
@@ -13556,30 +13556,30 @@ namespace GameServer.Maps
 														}
 														else if (num5 < 95)
 														{
-															游戏物品 游戏物品4 = null;
+															GameItems 游戏物品4 = null;
 															if (this.角色职业 == GameObjectProfession.战士)
 															{
-																游戏物品.检索表.TryGetValue("战士铭文石", out 游戏物品4);
+																GameItems.DateSheetByName.TryGetValue("战士铭文石", out 游戏物品4);
 															}
 															else if (this.角色职业 == GameObjectProfession.法师)
 															{
-																游戏物品.检索表.TryGetValue("法师铭文石", out 游戏物品4);
+																GameItems.DateSheetByName.TryGetValue("法师铭文石", out 游戏物品4);
 															}
 															else if (this.角色职业 == GameObjectProfession.道士)
 															{
-																游戏物品.检索表.TryGetValue("道士铭文石", out 游戏物品4);
+																GameItems.DateSheetByName.TryGetValue("道士铭文石", out 游戏物品4);
 															}
 															else if (this.角色职业 == GameObjectProfession.刺客)
 															{
-																游戏物品.检索表.TryGetValue("刺客铭文石", out 游戏物品4);
+																GameItems.DateSheetByName.TryGetValue("刺客铭文石", out 游戏物品4);
 															}
 															else if (this.角色职业 == GameObjectProfession.弓手)
 															{
-																游戏物品.检索表.TryGetValue("弓手铭文石", out 游戏物品4);
+																GameItems.DateSheetByName.TryGetValue("弓手铭文石", out 游戏物品4);
 															}
 															else if (this.角色职业 == GameObjectProfession.龙枪)
 															{
-																游戏物品.检索表.TryGetValue("龙枪铭文石", out 游戏物品4);
+																GameItems.DateSheetByName.TryGetValue("龙枪铭文石", out 游戏物品4);
 															}
 															if (游戏物品4 == null)
 															{
@@ -13600,8 +13600,8 @@ namespace GameServer.Maps
 														}
 														else if (num5 < 98)
 														{
-															游戏物品 模板12;
-															if (!游戏物品.检索表.TryGetValue("祝福油", out 模板12))
+															GameItems 模板12;
+															if (!GameItems.DateSheetByName.TryGetValue("祝福油", out 模板12))
 															{
 																return;
 															}
@@ -13620,8 +13620,8 @@ namespace GameServer.Maps
 														}
 														else
 														{
-															游戏物品 模板13;
-															if (!游戏物品.检索表.TryGetValue("沙城奖杯", out 模板13))
+															GameItems 模板13;
+															if (!GameItems.DateSheetByName.TryGetValue("沙城奖杯", out 模板13))
 															{
 																return;
 															}
@@ -13725,8 +13725,8 @@ namespace GameServer.Maps
 										}
 										else
 										{
-											游戏物品 模板14;
-											if (游戏物品.检索表.TryGetValue("强效魔法药", out 模板14))
+											GameItems 模板14;
+											if (GameItems.DateSheetByName.TryGetValue("强效魔法药", out 模板14))
 											{
 												if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 												{
@@ -13836,30 +13836,30 @@ namespace GameServer.Maps
 												}
 												else
 												{
-													游戏物品 游戏物品5 = null;
+													GameItems 游戏物品5 = null;
 													if (this.角色职业 == GameObjectProfession.战士)
 													{
-														游戏物品.检索表.TryGetValue("战士铭文石", out 游戏物品5);
+														GameItems.DateSheetByName.TryGetValue("战士铭文石", out 游戏物品5);
 													}
 													else if (this.角色职业 == GameObjectProfession.法师)
 													{
-														游戏物品.检索表.TryGetValue("法师铭文石", out 游戏物品5);
+														GameItems.DateSheetByName.TryGetValue("法师铭文石", out 游戏物品5);
 													}
 													else if (this.角色职业 == GameObjectProfession.道士)
 													{
-														游戏物品.检索表.TryGetValue("道士铭文石", out 游戏物品5);
+														GameItems.DateSheetByName.TryGetValue("道士铭文石", out 游戏物品5);
 													}
 													else if (this.角色职业 == GameObjectProfession.刺客)
 													{
-														游戏物品.检索表.TryGetValue("刺客铭文石", out 游戏物品5);
+														GameItems.DateSheetByName.TryGetValue("刺客铭文石", out 游戏物品5);
 													}
 													else if (this.角色职业 == GameObjectProfession.弓手)
 													{
-														游戏物品.检索表.TryGetValue("弓手铭文石", out 游戏物品5);
+														GameItems.DateSheetByName.TryGetValue("弓手铭文石", out 游戏物品5);
 													}
 													else if (this.角色职业 == GameObjectProfession.龙枪)
 													{
-														游戏物品.检索表.TryGetValue("龙枪铭文石", out 游戏物品5);
+														GameItems.DateSheetByName.TryGetValue("龙枪铭文石", out 游戏物品5);
 													}
 													if (游戏物品5 == null)
 													{
@@ -14006,39 +14006,39 @@ namespace GameServer.Maps
 													}
 													else
 													{
-														游戏物品 游戏物品6 = null;
+														GameItems 游戏物品6 = null;
 														int num6 = MainProcess.RandomNumber.Next(8);
 														if (num6 == 0)
 														{
-															游戏物品.检索表.TryGetValue("驭朱灵石1级", out 游戏物品6);
+															GameItems.DateSheetByName.TryGetValue("驭朱灵石1级", out 游戏物品6);
 														}
 														else if (num6 == 1)
 														{
-															游戏物品.检索表.TryGetValue("命朱灵石1级", out 游戏物品6);
+															GameItems.DateSheetByName.TryGetValue("命朱灵石1级", out 游戏物品6);
 														}
 														else if (num6 == 2)
 														{
-															游戏物品.检索表.TryGetValue("守阳灵石1级", out 游戏物品6);
+															GameItems.DateSheetByName.TryGetValue("守阳灵石1级", out 游戏物品6);
 														}
 														else if (num6 == 3)
 														{
-															游戏物品.检索表.TryGetValue("蔚蓝灵石1级", out 游戏物品6);
+															GameItems.DateSheetByName.TryGetValue("蔚蓝灵石1级", out 游戏物品6);
 														}
 														else if (num6 == 4)
 														{
-															游戏物品.检索表.TryGetValue("精绿灵石1级", out 游戏物品6);
+															GameItems.DateSheetByName.TryGetValue("精绿灵石1级", out 游戏物品6);
 														}
 														else if (num6 == 5)
 														{
-															游戏物品.检索表.TryGetValue("纯紫灵石1级", out 游戏物品6);
+															GameItems.DateSheetByName.TryGetValue("纯紫灵石1级", out 游戏物品6);
 														}
 														else if (num6 == 6)
 														{
-															游戏物品.检索表.TryGetValue("深灰灵石1级", out 游戏物品6);
+															GameItems.DateSheetByName.TryGetValue("深灰灵石1级", out 游戏物品6);
 														}
 														else if (num6 == 7)
 														{
-															游戏物品.检索表.TryGetValue("橙黄灵石1级", out 游戏物品6);
+															GameItems.DateSheetByName.TryGetValue("橙黄灵石1级", out 游戏物品6);
 														}
 														if (游戏物品6 == null)
 														{
@@ -14097,8 +14097,8 @@ namespace GameServer.Maps
 										}
 										else
 										{
-											游戏物品 模板15;
-											if (游戏物品.检索表.TryGetValue("镇魔古城回城卷", out 模板15))
+											GameItems 模板15;
+											if (GameItems.DateSheetByName.TryGetValue("镇魔古城回城卷", out 模板15))
 											{
 												if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 												{
@@ -14229,8 +14229,8 @@ namespace GameServer.Maps
 										}
 										else
 										{
-											游戏物品 模板16;
-											if (游戏物品.检索表.TryGetValue("强效太阳水", out 模板16))
+											GameItems 模板16;
+											if (GameItems.DateSheetByName.TryGetValue("强效太阳水", out 模板16))
 											{
 												if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 												{
@@ -14308,8 +14308,8 @@ namespace GameServer.Maps
 										}
 										else
 										{
-											游戏物品 模板17;
-											if (游戏物品.检索表.TryGetValue("比奇回城卷", out 模板17))
+											GameItems 模板17;
+											if (GameItems.DateSheetByName.TryGetValue("比奇回城卷", out 模板17))
 											{
 												if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 												{
@@ -14394,8 +14394,8 @@ namespace GameServer.Maps
 										}
 										else
 										{
-											游戏物品 模板18;
-											if (游戏物品.检索表.TryGetValue("金创药(中量)", out 模板18))
+											GameItems 模板18;
+											if (GameItems.DateSheetByName.TryGetValue("金创药(中量)", out 模板18))
 											{
 												if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 												{
@@ -14767,8 +14767,8 @@ namespace GameServer.Maps
 									}
 									else
 									{
-										游戏物品 模板19;
-										if (游戏物品.检索表.TryGetValue("魔法药(中量)", out 模板19))
+										GameItems 模板19;
+										if (GameItems.DateSheetByName.TryGetValue("魔法药(中量)", out 模板19))
 										{
 											if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 											{
@@ -14878,30 +14878,30 @@ namespace GameServer.Maps
 											}
 											else
 											{
-												游戏物品 游戏物品7 = null;
+												GameItems 游戏物品7 = null;
 												if (this.角色职业 == GameObjectProfession.战士)
 												{
-													游戏物品.检索表.TryGetValue("战士铭文石", out 游戏物品7);
+													GameItems.DateSheetByName.TryGetValue("战士铭文石", out 游戏物品7);
 												}
 												else if (this.角色职业 == GameObjectProfession.法师)
 												{
-													游戏物品.检索表.TryGetValue("法师铭文石", out 游戏物品7);
+													GameItems.DateSheetByName.TryGetValue("法师铭文石", out 游戏物品7);
 												}
 												else if (this.角色职业 == GameObjectProfession.道士)
 												{
-													游戏物品.检索表.TryGetValue("道士铭文石", out 游戏物品7);
+													GameItems.DateSheetByName.TryGetValue("道士铭文石", out 游戏物品7);
 												}
 												else if (this.角色职业 == GameObjectProfession.刺客)
 												{
-													游戏物品.检索表.TryGetValue("刺客铭文石", out 游戏物品7);
+													GameItems.DateSheetByName.TryGetValue("刺客铭文石", out 游戏物品7);
 												}
 												else if (this.角色职业 == GameObjectProfession.弓手)
 												{
-													游戏物品.检索表.TryGetValue("弓手铭文石", out 游戏物品7);
+													GameItems.DateSheetByName.TryGetValue("弓手铭文石", out 游戏物品7);
 												}
 												else if (this.角色职业 == GameObjectProfession.龙枪)
 												{
-													游戏物品.检索表.TryGetValue("龙枪铭文石", out 游戏物品7);
+													GameItems.DateSheetByName.TryGetValue("龙枪铭文石", out 游戏物品7);
 												}
 												if (游戏物品7 == null)
 												{
@@ -15176,8 +15176,8 @@ namespace GameServer.Maps
 			if (!this.对象死亡 && this.摆摊状态 <= 0 && this.交易状态 < 3)
 			{
 				游戏商店 游戏商店;
-				游戏物品 游戏物品;
-				if (this.对话守卫 != null && this.当前地图 == this.对话守卫.当前地图 && base.网格距离(this.对话守卫) <= 12 && this.打开商店 != 0 && 购入数量 > 0 && this.打开商店 == 商店编号 && 游戏商店.DataSheet.TryGetValue(this.打开商店, out 游戏商店) && 游戏商店.商品列表.Count > 物品位置 && 游戏物品.DataSheet.TryGetValue(游戏商店.商品列表[物品位置].商品编号, out 游戏物品))
+				GameItems 游戏物品;
+				if (this.对话守卫 != null && this.当前地图 == this.对话守卫.当前地图 && base.网格距离(this.对话守卫) <= 12 && this.打开商店 != 0 && 购入数量 > 0 && this.打开商店 == 商店编号 && 游戏商店.DataSheet.TryGetValue(this.打开商店, out 游戏商店) && 游戏商店.商品列表.Count > 物品位置 && GameItems.DataSheet.TryGetValue(游戏商店.商品列表[物品位置].商品编号, out 游戏物品))
 				{
 					int num;
 					if (购入数量 != 1)
@@ -15341,7 +15341,7 @@ namespace GameServer.Maps
 								}
 								else
 								{
-									游戏装备 游戏装备 = 游戏物品 as 游戏装备;
+									EquipmentItem 游戏装备 = 游戏物品 as EquipmentItem;
 									if (游戏装备 != null)
 									{
 										this.角色背包[(byte)num3] = new EquipmentData(游戏装备, this.CharacterData, 1, (byte)num3, false);
@@ -15621,7 +15621,7 @@ namespace GameServer.Maps
 					EquipmentData EquipmentData = ItemData as EquipmentData;
 					if (EquipmentData != null)
 					{
-						游戏物品 游戏物品;
+						GameItems 游戏物品;
 						if (!EquipmentData.镶嵌灵石.TryGetValue(装备孔位, out 游戏物品))
 						{
 							this.网络连接.尝试断开连接(new Exception("Error: The player has set a spirit stone.  Error: No stones are inlaid"));
@@ -18056,14 +18056,14 @@ namespace GameServer.Maps
 						}
 						else
 						{
-							DataMonitor<游戏物品> 对应模板 = EquipmentData2.对应模板;
+							DataMonitor<GameItems> 对应模板 = EquipmentData2.对应模板;
 							if (对应模板 == null)
 							{
 								num = null;
 							}
 							else
 							{
-								游戏物品 v = 对应模板.V;
+								GameItems v = 对应模板.V;
 								num = ((v != null) ? new int?(v.物品编号) : null);
 							}
 						}
@@ -18086,14 +18086,14 @@ namespace GameServer.Maps
 						}
 						else
 						{
-							DataMonitor<游戏物品> 对应模板2 = EquipmentData3.对应模板;
+							DataMonitor<GameItems> 对应模板2 = EquipmentData3.对应模板;
 							if (对应模板2 == null)
 							{
 								num3 = null;
 							}
 							else
 							{
-								游戏物品 v2 = 对应模板2.V;
+								GameItems v2 = 对应模板2.V;
 								num3 = ((v2 != null) ? new int?(v2.物品编号) : null);
 							}
 						}

@@ -91,7 +91,7 @@ namespace GameServer.Templates
 		public 游戏怪物()
 		{
 			
-			this.掉落统计 = new Dictionary<游戏物品, long>();
+			this.掉落统计 = new Dictionary<GameItems, long>();
 			
 		}
 
@@ -195,7 +195,7 @@ namespace GameServer.Templates
 		public List<怪物掉落> 怪物掉落物品;
 
 		
-		public Dictionary<游戏物品, long> 掉落统计;
+		public Dictionary<GameItems, long> 掉落统计;
 
 		
 		private Dictionary<GameObjectProperties, int> _基础属性;

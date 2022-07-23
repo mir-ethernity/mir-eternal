@@ -23,7 +23,7 @@ namespace GameServer.Templates
 				typeof(TeleportGates),
 				typeof(MonsterSpawns),
 				typeof(Guards),
-				typeof(游戏物品),
+				typeof(GameItems),
 				typeof(随机属性),
 				typeof(装备属性),
 				typeof(游戏商店),

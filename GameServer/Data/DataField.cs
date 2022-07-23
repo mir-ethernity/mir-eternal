@@ -108,12 +108,12 @@ namespace GameServer.Data
 				DataMonitor.QuietlySetValue(铭文技能.DataSheet.TryGetValue(r.ReadUInt16(), out 铭文技能) ? 铭文技能 : null);
 				return DataMonitor;
 			};
-			Type typeFromHandle14 = typeof(DataMonitor<游戏物品>);
+			Type typeFromHandle14 = typeof(DataMonitor<GameItems>);
 			dictionary[typeFromHandle14] = delegate(BinaryReader r, GameData o, DataField f)
 			{
-				DataMonitor<游戏物品> DataMonitor = new DataMonitor<游戏物品>(o);
-				游戏物品 游戏物品;
-				DataMonitor.QuietlySetValue(游戏物品.DataSheet.TryGetValue(r.ReadInt32(), out 游戏物品) ? 游戏物品 : null);
+				DataMonitor<GameItems> DataMonitor = new DataMonitor<GameItems>(o);
+				GameItems 游戏物品;
+				DataMonitor.QuietlySetValue(GameItems.DataSheet.TryGetValue(r.ReadInt32(), out 游戏物品) ? 游戏物品 : null);
 				return DataMonitor;
 			};
 			Type typeFromHandle15 = typeof(DataMonitor<PetMode>);
@@ -455,17 +455,17 @@ namespace GameServer.Data
 				}
 				return MonitorDictionary;
 			};
-			Type typeFromHandle50 = typeof(MonitorDictionary<byte, 游戏物品>);
+			Type typeFromHandle50 = typeof(MonitorDictionary<byte, GameItems>);
 			dictionary[typeFromHandle50] = delegate(BinaryReader r, GameData o, DataField f)
 			{
-				MonitorDictionary<byte, 游戏物品> MonitorDictionary = new MonitorDictionary<byte, 游戏物品>(o);
+				MonitorDictionary<byte, GameItems> MonitorDictionary = new MonitorDictionary<byte, GameItems>(o);
 				int num = r.ReadInt32();
 				for (int i = 0; i < num; i++)
 				{
 					byte key = r.ReadByte();
 					int key2 = r.ReadInt32();
-					游戏物品 value;
-					if (游戏物品.DataSheet.TryGetValue(key2, out value))
+					GameItems value;
+					if (GameItems.DataSheet.TryGetValue(key2, out value))
 					{
 						MonitorDictionary.QuietlyAdd(key, value);
 					}
@@ -716,10 +716,10 @@ namespace GameServer.Data
 				铭文技能 v = ((DataMonitor<铭文技能>)o).V;
 				b.Write((v != null) ? v.铭文索引 : 0);
 			};
-			typeFromHandle50 = typeof(DataMonitor<游戏物品>);
+			typeFromHandle50 = typeof(DataMonitor<GameItems>);
 			dictionary2[typeFromHandle50] = delegate(BinaryWriter b, object o)
 			{
-				游戏物品 v = ((DataMonitor<游戏物品>)o).V;
+				GameItems v = ((DataMonitor<GameItems>)o).V;
 				b.Write((v != null) ? v.物品编号 : 0);
 			};
 			typeFromHandle49 = typeof(DataMonitor<PetMode>);
@@ -1008,12 +1008,12 @@ namespace GameServer.Data
 					b.Write(keyValuePair.Value.ToBinary());
 				}
 			};
-			typeFromHandle14 = typeof(MonitorDictionary<byte, 游戏物品>);
+			typeFromHandle14 = typeof(MonitorDictionary<byte, GameItems>);
 			dictionary2[typeFromHandle14] = delegate(BinaryWriter b, object o)
 			{
-				MonitorDictionary<byte, 游戏物品> MonitorDictionary = (MonitorDictionary<byte, 游戏物品>)o;
+				MonitorDictionary<byte, GameItems> MonitorDictionary = (MonitorDictionary<byte, GameItems>)o;
 				b.Write((MonitorDictionary != null) ? MonitorDictionary.Count : 0);
-				foreach (KeyValuePair<byte, 游戏物品> keyValuePair in MonitorDictionary)
+				foreach (KeyValuePair<byte, GameItems> keyValuePair in MonitorDictionary)
 				{
 					b.Write(keyValuePair.Key);
 					b.Write(keyValuePair.Value.物品编号);

@@ -119,7 +119,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				游戏物品 游戏物品 = this.物品模板;
+				GameItems 游戏物品 = this.物品模板;
 				if (游戏物品 == null)
 				{
 					return 0;
@@ -153,7 +153,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public ItemObject(游戏物品 物品模板, ItemData ItemData, MapInstance 掉落地图, Point 掉落坐标, HashSet<CharacterData> 物品归属, int 堆叠数量 = 0, bool 物品绑定 = false)
+		public ItemObject(GameItems 物品模板, ItemData ItemData, MapInstance 掉落地图, Point 掉落坐标, HashSet<CharacterData> 物品归属, int 堆叠数量 = 0, bool 物品绑定 = false)
 		{
 			
 			
@@ -257,7 +257,7 @@ namespace GameServer.Maps
 		public ItemData ItemData;
 
 		
-		public 游戏物品 物品模板;
+		public GameItems 物品模板;
 
 		
 		public int 堆叠数量;
