@@ -8654,7 +8654,7 @@ namespace GameServer.Maps
 								变量内容 = ComputingClass.时间转换(MainProcess.CurrentTime)
 							});
 						}
-						MainProcess.AddSystemLog(string.Format("Level [{0}][{1}] purchased [Weekly Battle Pack], consumed Yuan Bao [3000]", this.对象名字, this.当前等级));
+						MainProcess.AddSystemLog(string.Format("Level [{0}][{1}] purchased [Weekly Battle Pack], consumed [3000] Game Coins", this.对象名字, this.当前等级));
 						return;
 					}
 					客户网络 网络连接14 = this.网络连接;
