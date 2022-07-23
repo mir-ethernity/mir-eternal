@@ -23,7 +23,7 @@ namespace GameServer.Templates
 
 		
 		// (get) Token: 0x06000681 RID: 1665 RVA: 0x00030B98 File Offset: 0x0002ED98
-		public Dictionary<GameObjectProperties, int>[] 基础属性增减
+		public Dictionary<GameObjectStats, int>[] 基础属性增减
 		{
 			get
 			{
@@ -31,12 +31,12 @@ namespace GameServer.Templates
 				{
 					return this._基础属性增减;
 				}
-				this._基础属性增减 = new Dictionary<GameObjectProperties, int>[]
+				this._基础属性增减 = new Dictionary<GameObjectStats, int>[]
 				{
-					new Dictionary<GameObjectProperties, int>(),
-					new Dictionary<GameObjectProperties, int>(),
-					new Dictionary<GameObjectProperties, int>(),
-					new Dictionary<GameObjectProperties, int>()
+					new Dictionary<GameObjectStats, int>(),
+					new Dictionary<GameObjectStats, int>(),
+					new Dictionary<GameObjectStats, int>(),
+					new Dictionary<GameObjectStats, int>()
 				};
 				if (this.属性增减 != null)
 				{
@@ -153,7 +153,7 @@ namespace GameServer.Templates
 		public bool 角色属性延时;
 
 		
-		public GameObjectProperties 绑定角色属性;
+		public GameObjectStats 绑定角色属性;
 
 		
 		public float 属性延时系数;
@@ -174,7 +174,7 @@ namespace GameServer.Templates
 		public 铭文属性[] 属性增减;
 
 		
-		private Dictionary<GameObjectProperties, int>[] _基础属性增减;
+		private Dictionary<GameObjectStats, int>[] _基础属性增减;
 
 		
 		public 技能伤害类型 Buff伤害类型;

@@ -142,7 +142,7 @@ namespace GameServer.Templates
 					{
 						if (a_00_触发子类技能.计算幸运概率)
 						{
-							flag = ComputingClass.计算概率(ComputingClass.计算幸运(this.技能来源[GameObjectProperties.幸运等级]));
+							flag = ComputingClass.计算概率(ComputingClass.计算幸运(this.技能来源[GameObjectStats.幸运等级]));
 						}
 						else
 						{
@@ -704,7 +704,7 @@ namespace GameServer.Templates
 									{
 										if (b_03_前摇结束通知.计算攻速缩减)
 										{
-											this.攻速缩减 = ComputingClass.数值限制(ComputingClass.计算攻速(-5), this.攻速缩减 + ComputingClass.计算攻速(this.技能来源[GameObjectProperties.AttackSpeed]), ComputingClass.计算攻速(5));
+											this.攻速缩减 = ComputingClass.数值限制(ComputingClass.计算攻速(-5), this.攻速缩减 + ComputingClass.计算攻速(this.技能来源[GameObjectStats.AttackSpeed]), ComputingClass.计算攻速(5));
 											if (this.攻速缩减 != 0)
 											{
 												foreach (KeyValuePair<int, 技能任务> keyValuePair10 in this.节点列表)
@@ -926,7 +926,7 @@ namespace GameServer.Templates
 													}
 													if (c_01_计算命中目标.触发被动技能 && this.命中列表.Count != 0 && ComputingClass.计算概率(c_01_计算命中目标.触发被动概率))
 													{
-														this.技能来源[GameObjectProperties.技能标志] = 1;
+														this.技能来源[GameObjectStats.技能标志] = 1;
 													}
 													if (c_01_计算命中目标.增加技能经验 && this.命中列表.Count != 0)
 													{

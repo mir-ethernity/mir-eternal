@@ -914,8 +914,8 @@ namespace GameServer.Data
 				});
 				return;
 			}
-			GameObjectProfession GameObjectProfession;
-			if (!Enum.TryParse<GameObjectProfession>(P.职业.ToString(), out GameObjectProfession) || !Enum.IsDefined(typeof(GameObjectProfession), GameObjectProfession))
+			GameObjectRace GameObjectProfession;
+			if (!Enum.TryParse<GameObjectRace>(P.职业.ToString(), out GameObjectProfession) || !Enum.IsDefined(typeof(GameObjectRace), GameObjectProfession))
 			{
 				当前网络.发送封包(new LoginErrorMessagePacket
 				{

@@ -8,9 +8,9 @@ namespace GameServer.Templates
 	{
 		public static Dictionary<int, RandomStats> DataSheet;
 
-		public GameObjectProperties 对应属性;
+		public GameObjectStats 对应属性;
 		public int 属性数值;
-		public int 属性编号;
+		public int StatId;
 		public int 战力加成;
 		public string 属性描述;
 
@@ -23,7 +23,7 @@ namespace GameServer.Templates
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(RandomStats)))
 				{
-					DataSheet.Add(((RandomStats)obj).属性编号, (RandomStats)obj);
+					DataSheet.Add(((RandomStats)obj).StatId, (RandomStats)obj);
 				}
 			}
 		}

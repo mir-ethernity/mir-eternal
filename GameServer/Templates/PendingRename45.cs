@@ -46,6 +46,6 @@ namespace GameServer.Templates
 		public int 有效时间;
 
 		
-		public Dictionary<GameObjectProperties, int> 称号属性;
+		public Dictionary<GameObjectStats, int> 称号属性;
 	}
 }

@@ -157,7 +157,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000826 RID: 2086 RVA: 0x00006B48 File Offset: 0x00004D48
-		public override Dictionary<GameObjectProperties, int> 当前属性
+		public override Dictionary<GameObjectStats, int> 当前属性
 		{
 			get
 			{

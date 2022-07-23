@@ -39,22 +39,22 @@ namespace GameServer.Data
 			SystemData.更新榜单(this.个人战力排名, 6, 角色, SystemData.战力计算器);
 			switch (角色.角色职业.V)
 			{
-			case GameObjectProfession.战士:
+			case GameObjectRace.战士:
 				SystemData.更新榜单(this.战士战力排名, 7, 角色, SystemData.战力计算器);
 				return;
-			case GameObjectProfession.法师:
+			case GameObjectRace.法师:
 				SystemData.更新榜单(this.法师战力排名, 8, 角色, SystemData.战力计算器);
 				return;
-			case GameObjectProfession.刺客:
+			case GameObjectRace.刺客:
 				SystemData.更新榜单(this.刺客战力排名, 10, 角色, SystemData.战力计算器);
 				return;
-			case GameObjectProfession.弓手:
+			case GameObjectRace.弓手:
 				SystemData.更新榜单(this.弓手战力排名, 11, 角色, SystemData.战力计算器);
 				return;
-			case GameObjectProfession.道士:
+			case GameObjectRace.道士:
 				SystemData.更新榜单(this.道士战力排名, 9, 角色, SystemData.战力计算器);
 				return;
-			case GameObjectProfession.龙枪:
+			case GameObjectRace.龙枪:
 				SystemData.更新榜单(this.龙枪战力排名, 37, 角色, SystemData.战力计算器);
 				return;
 			default:
@@ -68,22 +68,22 @@ namespace GameServer.Data
 			SystemData.更新榜单(this.个人等级排名, 0, 角色, SystemData.等级计算器);
 			switch (角色.角色职业.V)
 			{
-			case GameObjectProfession.战士:
+			case GameObjectRace.战士:
 				SystemData.更新榜单(this.战士等级排名, 1, 角色, SystemData.等级计算器);
 				return;
-			case GameObjectProfession.法师:
+			case GameObjectRace.法师:
 				SystemData.更新榜单(this.法师等级排名, 2, 角色, SystemData.等级计算器);
 				return;
-			case GameObjectProfession.刺客:
+			case GameObjectRace.刺客:
 				SystemData.更新榜单(this.刺客等级排名, 4, 角色, SystemData.等级计算器);
 				return;
-			case GameObjectProfession.弓手:
+			case GameObjectRace.弓手:
 				SystemData.更新榜单(this.弓手等级排名, 5, 角色, SystemData.等级计算器);
 				return;
-			case GameObjectProfession.道士:
+			case GameObjectRace.道士:
 				SystemData.更新榜单(this.道士等级排名, 3, 角色, SystemData.等级计算器);
 				return;
-			case GameObjectProfession.龙枪:
+			case GameObjectRace.龙枪:
 				SystemData.更新榜单(this.龙枪等级排名, 36, 角色, SystemData.等级计算器);
 				return;
 			default:

@@ -12,7 +12,6 @@ namespace GameServer.Templates
 	
 	public static class Serializer
 	{
-		
 		static Serializer()
 		{
 			
@@ -34,7 +33,6 @@ namespace GameServer.Templates
 				}
 			}
 		}
-
 		
 		public static object[] Deserialize(string 文件夹, Type 类型)
 		{
@@ -58,7 +56,6 @@ namespace GameServer.Templates
 			}
 			return concurrentQueue.ToArray();
 		}
-
 		
 		public static byte[] 压缩字节(byte[] data)
 		{
@@ -68,8 +65,6 @@ namespace GameServer.Templates
 			deflaterOutputStream.Close();
 			return memoryStream.ToArray();
 		}
-
-		
 		public static byte[] 解压字节(byte[] data)
 		{
 			Stream baseInputStream = new MemoryStream(data);
@@ -77,7 +72,6 @@ namespace GameServer.Templates
 			new InflaterInputStream(baseInputStream).CopyTo(memoryStream);
 			return memoryStream.ToArray();
 		}
-
 		
 		public static void 备份文件夹(string 源目录, string 文件名)
 		{
@@ -87,11 +81,8 @@ namespace GameServer.Templates
 			}
 			new FastZip().CreateZip(文件名, 源目录, false, "");
 		}
-
 		
 		private static readonly JsonSerializerSettings 全局设置;
-
-		
 		private static readonly Dictionary<string, string> 定向字典;
 	}
 }

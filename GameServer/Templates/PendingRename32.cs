@@ -6,7 +6,7 @@ namespace GameServer.Templates
 	public struct 成长属性
 	{
 		
-		public GameObjectProperties 属性;
+		public GameObjectStats 属性;
 
 		
 		public int 零级;

@@ -38,7 +38,7 @@ namespace GameServer.Templates
 		public string 技能名字;
 
 		
-		public GameObjectProfession 技能职业;
+		public GameObjectRace 技能职业;
 
 		
 		public 技能对应类型 技能类型;
@@ -68,7 +68,7 @@ namespace GameServer.Templates
 		public float 计算触发概率;
 
 		
-		public GameObjectProperties 属性提升概率;
+		public GameObjectStats 属性提升概率;
 
 		
 		public float 属性提升系数;

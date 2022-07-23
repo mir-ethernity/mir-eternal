@@ -3,7 +3,7 @@
 namespace GameServer
 {
 	
-	public enum GameObjectProperties
+	public enum GameObjectStats
 	{
 		
 		未知属性,

@@ -165,11 +165,11 @@ namespace GameServer.Data
 				DataMonitor.QuietlySetValue((GameObjectGender)r.ReadInt32());
 				return DataMonitor;
 			};
-			Type typeFromHandle22 = typeof(DataMonitor<GameObjectProfession>);
+			Type typeFromHandle22 = typeof(DataMonitor<GameObjectRace>);
 			dictionary[typeFromHandle22] = delegate(BinaryReader r, GameData o, DataField f)
 			{
-				DataMonitor<GameObjectProfession> DataMonitor = new DataMonitor<GameObjectProfession>(o);
-				DataMonitor.QuietlySetValue((GameObjectProfession)r.ReadInt32());
+				DataMonitor<GameObjectRace> DataMonitor = new DataMonitor<GameObjectRace>(o);
+				DataMonitor.QuietlySetValue((GameObjectRace)r.ReadInt32());
 				return DataMonitor;
 			};
 			Type typeFromHandle23 = typeof(DataMonitor<TeacherData>);
@@ -708,7 +708,7 @@ namespace GameServer.Data
 			dictionary2[typeFromHandle52] = delegate(BinaryWriter b, object o)
 			{
 				RandomStats v = ((DataMonitor<RandomStats>)o).V;
-				b.Write((v != null) ? v.属性编号 : 0);
+				b.Write((v != null) ? v.StatId : 0);
 			};
 			typeFromHandle51 = typeof(DataMonitor<铭文技能>);
 			dictionary2[typeFromHandle51] = delegate(BinaryWriter b, object o)
@@ -757,10 +757,10 @@ namespace GameServer.Data
 			{
 				b.Write((int)((DataMonitor<GameObjectGender>)o).V);
 			};
-			typeFromHandle42 = typeof(DataMonitor<GameObjectProfession>);
+			typeFromHandle42 = typeof(DataMonitor<GameObjectRace>);
 			dictionary2[typeFromHandle42] = delegate(BinaryWriter b, object o)
 			{
-				b.Write((int)((DataMonitor<GameObjectProfession>)o).V);
+				b.Write((int)((DataMonitor<GameObjectRace>)o).V);
 			};
 			typeFromHandle41 = typeof(DataMonitor<TeacherData>);
 			dictionary2[typeFromHandle41] = delegate(BinaryWriter b, object o)
@@ -910,7 +910,7 @@ namespace GameServer.Data
 				b.Write((ListMonitor != null) ? ListMonitor.Count : 0);
 				foreach (RandomStats 随机属性 in ListMonitor)
 				{
-					b.Write(随机属性.属性编号);
+					b.Write(随机属性.StatId);
 				}
 			};
 			typeFromHandle23 = typeof(ListMonitor<EquipHoleColor>);

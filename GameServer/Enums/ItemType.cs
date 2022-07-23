@@ -5,7 +5,6 @@ namespace GameServer
 	
 	public enum ItemType
 	{
-		
 		无,
 		衣服,
 		披风,

@@ -160,7 +160,7 @@ namespace GameServer.Data
 
 		
 		// (get) Token: 0x0600044C RID: 1100 RVA: 0x00020C20 File Offset: 0x0001EE20
-		public Dictionary<GameObjectProperties, int> 属性加成
+		public Dictionary<GameObjectStats, int> 属性加成
 		{
 			get
 			{

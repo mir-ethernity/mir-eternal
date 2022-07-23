@@ -19,7 +19,7 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(下标 = 7, 长度 = 1)]
-		public byte 装备部位;
+		public byte ItemType;
 
 		
 		[WrappingFieldAttribute(下标 = 8, 长度 = 4)]

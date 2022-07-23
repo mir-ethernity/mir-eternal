@@ -326,7 +326,7 @@ namespace GameServer.Data
 		}
 
 		
-		public CharacterData(AccountData 账号, string 名字, GameObjectProfession 职业, GameObjectGender 性别, ObjectHairType 发型, ObjectHairColorType 发色, ObjectFaceType 脸型)
+		public CharacterData(AccountData 账号, string 名字, GameObjectRace 职业, GameObjectGender 性别, ObjectHairType 发型, ObjectHairColorType 发色, ObjectFaceType 脸型)
 		{
 			
 			
@@ -341,8 +341,8 @@ namespace GameServer.Data
 			this.角色发色.V = 发色;
 			this.角色脸型.V = 脸型;
 			this.创建日期.V = MainProcess.CurrentTime;
-			this.当前血量.V = 角色成长.获取数据(职业, 1)[GameObjectProperties.MaxPhysicalStrength];
-			this.当前蓝量.V = 角色成长.获取数据(职业, 1)[GameObjectProperties.MaxMagic2];
+			this.当前血量.V = 角色成长.获取数据(职业, 1)[GameObjectStats.MaxPhysicalStrength];
+			this.当前蓝量.V = 角色成长.获取数据(职业, 1)[GameObjectStats.MaxMagic2];
 			this.当前朝向.V = ComputingClass.随机方向();
 			this.当前地图.V = 142;
 			this.重生地图.V = 142;
@@ -360,7 +360,7 @@ namespace GameServer.Data
 				this.角色背包[1] = new ItemData(模板, this, 1, 1, 1);
 			}
 			
-			if (GameItems.DateSheetByName.TryGetValue((职业 == GameObjectProfession.刺客) ? "柴刀" : "木剑", out 游戏物品))
+			if (GameItems.DateSheetByName.TryGetValue((职业 == GameObjectRace.刺客) ? "柴刀" : "木剑", out 游戏物品))
 			{
 				EquipmentItem 游戏装备 = 游戏物品 as EquipmentItem;
 				if (游戏装备 != null)
@@ -378,7 +378,7 @@ namespace GameServer.Data
 				}
 			}
 			铭文技能 铭文技能;
-			if (铭文技能.DataSheet.TryGetValue((ushort)((职业 == GameObjectProfession.战士) ? 10300 : ((职业 == GameObjectProfession.法师) ? 25300 : ((职业 == GameObjectProfession.道士) ? 30000 : ((职业 == GameObjectProfession.刺客) ? 15300 : ((职业 == GameObjectProfession.弓手) ? 20400 : 12000))))), out 铭文技能))
+			if (铭文技能.DataSheet.TryGetValue((ushort)((职业 == GameObjectRace.战士) ? 10300 : ((职业 == GameObjectRace.法师) ? 25300 : ((职业 == GameObjectRace.道士) ? 30000 : ((职业 == GameObjectRace.刺客) ? 15300 : ((职业 == GameObjectRace.弓手) ? 20400 : 12000))))), out 铭文技能))
 			{
 				SkillData SkillData = new SkillData(铭文技能.技能编号);
 				this.SkillData.Add(SkillData.技能编号.V, SkillData);
@@ -445,7 +445,7 @@ namespace GameServer.Data
 			{
 				MainForm.更新CharacterData(this, "物理地址", O);
 			};
-			this.角色职业.更改事件 += delegate(GameObjectProfession O)
+			this.角色职业.更改事件 += delegate(GameObjectRace O)
 			{
 				MainForm.更新CharacterData(this, "角色职业", O);
 			};
@@ -808,7 +808,7 @@ namespace GameServer.Data
 		public readonly DataMonitor<int> 分解经验;
 
 		
-		public readonly DataMonitor<GameObjectProfession> 角色职业;
+		public readonly DataMonitor<GameObjectRace> 角色职业;
 
 		
 		public readonly DataMonitor<GameObjectGender> 角色性别;

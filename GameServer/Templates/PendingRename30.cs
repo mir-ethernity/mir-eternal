@@ -86,7 +86,7 @@ namespace GameServer.Templates
 				40,
 				45
 			};
-			角色成长.DataSheet = new Dictionary<int, Dictionary<GameObjectProperties, int>>();
+			角色成长.DataSheet = new Dictionary<int, Dictionary<GameObjectStats, int>>();
 			string path = CustomClass.GameDataPath + "\\System\\GrowthAttribute.txt";
 			string[] array = Regex.Split(File.ReadAllText(path).Trim(new char[]
 			{
@@ -109,8 +109,8 @@ namespace GameServer.Templates
 				});
 				if (array2.Length > 1)
 				{
-					Dictionary<GameObjectProperties, int> dictionary3 = new Dictionary<GameObjectProperties, int>();
-					int num = (int)((GameObjectProfession)Enum.Parse(typeof(GameObjectProfession), array2[0]));
+					Dictionary<GameObjectStats, int> dictionary3 = new Dictionary<GameObjectStats, int>();
+					int num = (int)((GameObjectRace)Enum.Parse(typeof(GameObjectRace), array2[0]));
 					int num2 = Convert.ToInt32(array2[1]);
 					int key = num * 256 + num2;
 					for (int j = 2; j < array[0].Split(new char[]
@@ -118,11 +118,11 @@ namespace GameServer.Templates
 						'\t'
 					}).Length; j++)
 					{
-						GameObjectProperties GameObjectProperties;
-						if (Enum.TryParse<GameObjectProperties>(array[0].Split(new char[]
+						GameObjectStats GameObjectProperties;
+						if (Enum.TryParse<GameObjectStats>(array[0].Split(new char[]
 						{
 							'\t'
-						})[j], out GameObjectProperties) && Enum.IsDefined(typeof(GameObjectProperties), GameObjectProperties))
+						})[j], out GameObjectProperties) && Enum.IsDefined(typeof(GameObjectStats), GameObjectProperties))
 						{
 							dictionary3[GameObjectProperties] = Convert.ToInt32(array2[dictionary2[GameObjectProperties.ToString()]]);
 						}
@@ -133,7 +133,7 @@ namespace GameServer.Templates
 		}
 
 		
-		public static Dictionary<GameObjectProperties, int> 获取数据(GameObjectProfession 职业, byte 等级)
+		public static Dictionary<GameObjectStats, int> 获取数据(GameObjectRace 职业, byte 等级)
 		{
 			return 角色成长.DataSheet[(int)((byte)职业) * 256 + (int)等级];
 		}
@@ -146,7 +146,7 @@ namespace GameServer.Templates
 		}
 
 		
-		public static Dictionary<int, Dictionary<GameObjectProperties, int>> DataSheet;
+		public static Dictionary<int, Dictionary<GameObjectStats, int>> DataSheet;
 
 		
 		public static readonly Dictionary<byte, int> 升级所需经验;

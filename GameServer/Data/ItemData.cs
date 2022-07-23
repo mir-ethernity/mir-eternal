@@ -50,7 +50,7 @@ namespace GameServer.Data
 
 		
 		// (get) Token: 0x0600056D RID: 1389 RVA: 0x000051B4 File Offset: 0x000033B4
-		public GameObjectProfession NeedRace
+		public GameObjectRace NeedRace
 		{
 			get
 			{

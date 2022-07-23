@@ -175,7 +175,7 @@
     <Compile Include="Templates\Guards.cs" />
     <Compile Include="Templates\PendingRename39.cs" />
     <Compile Include="Templates\PendingRename10.cs" />
-    <Compile Include="Templates\PendingRename50.cs" />
+    <Compile Include="Templates\Serializer.cs" />
     <Compile Include="Templates\MonsterSpawns.cs" />
     <Compile Include="Templates\PendingRename35.cs" />
     <Compile Include="Templates\PendingRename32.cs" />
@@ -204,7 +204,7 @@
     <Compile Include="Templates\PendingRename45.cs" />
     <Compile Include="Templates\EquipmentItem.cs" />
     <Compile Include="Templates\PendingRename29.cs" />
-    <Compile Include="Templates\PendingRename31.cs" />
+    <Compile Include="Templates\SystemDataService.cs" />
     <Compile Include="Templates\EquipmentStats.cs" />
     <Compile Include="Templates\PendingRename30.cs" />
     <Compile Include="Templates\PendingRename7.cs" />
@@ -215,10 +215,10 @@
     <Compile Include="GMCommands\AddCoins.cs" />
     <Compile Include="GMCommands\CleanCharacters.cs" />
     <Compile Include="Enums\GameObjectSize.cs" />
-    <Compile Include="Enums\GameObjectProperties.cs" />
+    <Compile Include="Enums\GameObjectStats.cs" />
     <Compile Include="Enums\GameObjectGender.cs" />
     <Compile Include="Enums\GameObjectType.cs" />
-    <Compile Include="Enums\GameObjectProfession.cs" />
+    <Compile Include="Enums\GameObjectRace.cs" />
     <Compile Include="Enums\GameDirection.cs" />
     <Compile Include="Enums\GameEquipmentSet.cs" />
     <Compile Include="Enums\GameCurrency.cs" />

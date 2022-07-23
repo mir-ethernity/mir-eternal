@@ -72,7 +72,7 @@ namespace GameServer.Templates
 
 		
 		// (get) Token: 0x060006CB RID: 1739 RVA: 0x00034FF8 File Offset: 0x000331F8
-		public Dictionary<GameObjectProperties, int>[] 属性加成
+		public Dictionary<GameObjectStats, int>[] 属性加成
 		{
 			get
 			{
@@ -80,12 +80,12 @@ namespace GameServer.Templates
 				{
 					return this._属性加成;
 				}
-				this._属性加成 = new Dictionary<GameObjectProperties, int>[]
+				this._属性加成 = new Dictionary<GameObjectStats, int>[]
 				{
-					new Dictionary<GameObjectProperties, int>(),
-					new Dictionary<GameObjectProperties, int>(),
-					new Dictionary<GameObjectProperties, int>(),
-					new Dictionary<GameObjectProperties, int>()
+					new Dictionary<GameObjectStats, int>(),
+					new Dictionary<GameObjectStats, int>(),
+					new Dictionary<GameObjectStats, int>(),
+					new Dictionary<GameObjectStats, int>()
 				};
 				if (this.铭文属性加成 != null)
 				{
@@ -118,7 +118,7 @@ namespace GameServer.Templates
 		public string 技能名字;
 
 		
-		public GameObjectProfession 技能职业;
+		public GameObjectRace 技能职业;
 
 		
 		public ushort 技能编号;
@@ -172,6 +172,6 @@ namespace GameServer.Templates
 		public List<string> 开关技能列表;
 
 		
-		private Dictionary<GameObjectProperties, int>[] _属性加成;
+		private Dictionary<GameObjectStats, int>[] _属性加成;
 	}
 }

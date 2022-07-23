@@ -81,7 +81,7 @@ namespace GameServer.Maps
         {
             get
             {
-                return (ushort)this[GameObjectProperties.行走速度];
+                return (ushort)this[GameObjectStats.行走速度];
             }
         }
 
@@ -91,7 +91,7 @@ namespace GameServer.Maps
         {
             get
             {
-                return (ushort)this[GameObjectProperties.奔跑速度];
+                return (ushort)this[GameObjectStats.奔跑速度];
             }
         }
 
@@ -206,7 +206,7 @@ namespace GameServer.Maps
         public virtual DateTime 奔跑时间 { get; set; }
 
         
-        public virtual int this[GameObjectProperties 属性]
+        public virtual int this[GameObjectStats 属性]
         {
             get
             {
@@ -219,12 +219,12 @@ namespace GameServer.Maps
             set
             {
                 this.当前属性[属性] = value;
-                if (属性 == GameObjectProperties.MaxPhysicalStrength)
+                if (属性 == GameObjectStats.MaxPhysicalStrength)
                 {
                     this.当前体力 = Math.Min(this.当前体力, value);
                     return;
                 }
-                if (属性 == GameObjectProperties.MaxMagic2)
+                if (属性 == GameObjectStats.MaxMagic2)
                 {
                     this.当前魔力 = Math.Min(this.当前魔力, value);
                 }
@@ -233,7 +233,7 @@ namespace GameServer.Maps
 
         
         // (get) Token: 0x0600079A RID: 1946 RVA: 0x00006724 File Offset: 0x00004924
-        public virtual Dictionary<GameObjectProperties, int> 当前属性 { get; }
+        public virtual Dictionary<GameObjectStats, int> 当前属性 { get; }
 
         
         // (get) Token: 0x0600079B RID: 1947 RVA: 0x0000672C File Offset: 0x0000492C
@@ -250,23 +250,23 @@ namespace GameServer.Maps
             int num2 = 0;
             int num3 = 0;
             int num4 = 0;
-            foreach (object obj in Enum.GetValues(typeof(GameObjectProperties)))
+            foreach (object obj in Enum.GetValues(typeof(GameObjectStats)))
             {
                 int num5 = 0;
-                GameObjectProperties GameObjectProperties = (GameObjectProperties)obj;
-                foreach (KeyValuePair<object, Dictionary<GameObjectProperties, int>> keyValuePair in this.属性加成)
+                GameObjectStats GameObjectProperties = (GameObjectStats)obj;
+                foreach (KeyValuePair<object, Dictionary<GameObjectStats, int>> keyValuePair in this.属性加成)
                 {
                     int num6;
                     if (keyValuePair.Value != null && keyValuePair.Value.TryGetValue(GameObjectProperties, out num6) && num6 != 0)
                     {
                         if (keyValuePair.Key is BuffData)
                         {
-                            if (GameObjectProperties == GameObjectProperties.行走速度)
+                            if (GameObjectProperties == GameObjectStats.行走速度)
                             {
                                 num2 = Math.Max(num2, num6);
                                 num = Math.Min(num, num6);
                             }
-                            else if (GameObjectProperties == GameObjectProperties.奔跑速度)
+                            else if (GameObjectProperties == GameObjectStats.奔跑速度)
                             {
                                 num4 = Math.Max(num4, num6);
                                 num3 = Math.Min(num3, num6);
@@ -282,15 +282,15 @@ namespace GameServer.Maps
                         }
                     }
                 }
-                if (GameObjectProperties == GameObjectProperties.行走速度)
+                if (GameObjectProperties == GameObjectStats.行走速度)
                 {
                     this[GameObjectProperties] = Math.Max(1, num5 + num + num2);
                 }
-                else if (GameObjectProperties == GameObjectProperties.奔跑速度)
+                else if (GameObjectProperties == GameObjectStats.奔跑速度)
                 {
                     this[GameObjectProperties] = Math.Max(1, num5 + num3 + num4);
                 }
-                else if (GameObjectProperties == GameObjectProperties.幸运等级)
+                else if (GameObjectProperties == GameObjectStats.幸运等级)
                 {
                     this[GameObjectProperties] = num5;
                 }
@@ -306,7 +306,7 @@ namespace GameServer.Maps
                 {
                     if (PetObject.对象模板.继承属性 != null)
                     {
-                        Dictionary<GameObjectProperties, int> dictionary = new Dictionary<GameObjectProperties, int>();
+                        Dictionary<GameObjectStats, int> dictionary = new Dictionary<GameObjectStats, int>();
                         foreach (属性继承 属性继承 in PetObject.对象模板.继承属性)
                         {
                             dictionary[属性继承.转换属性] = (int)((float)this[属性继承.继承属性] * 属性继承.继承比例);
@@ -352,10 +352,10 @@ namespace GameServer.Maps
             this.重要邻居 = new HashSet<MapObject>();
             this.潜行邻居 = new HashSet<MapObject>();
             this.邻居列表 = new HashSet<MapObject>();
-            this.当前属性 = new Dictionary<GameObjectProperties, int>();
+            this.当前属性 = new Dictionary<GameObjectStats, int>();
             this.冷却记录 = new MonitorDictionary<int, DateTime>(null);
             this.Buff列表 = new MonitorDictionary<ushort, BuffData>(null);
-            this.属性加成 = new Dictionary<object, Dictionary<GameObjectProperties, int>>();
+            this.属性加成 = new Dictionary<object, Dictionary<GameObjectStats, int>>();
             this.预约时间 = MainProcess.CurrentTime.AddMilliseconds((double)MainProcess.RandomNumber.Next(this.处理间隔));
         }
 
@@ -808,7 +808,7 @@ namespace GameServer.Maps
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.低血怪物) == 指定目标类型.低血怪物 && (float)this.当前体力 / (float)this[GameObjectProperties.MaxPhysicalStrength] < 0.4f)
+                if ((类型 & 指定目标类型.低血怪物) == 指定目标类型.低血怪物 && (float)this.当前体力 / (float)this[GameObjectStats.MaxPhysicalStrength] < 0.4f)
                 {
                     return true;
                 }
@@ -1144,7 +1144,7 @@ namespace GameServer.Maps
                         {
                             return true;
                         }
-                        if ((类型 & 指定目标类型.带盾法师) == 指定目标类型.带盾法师 && PlayerObject.角色职业 == GameObjectProfession.法师 && PlayerObject.Buff列表.ContainsKey(25350))
+                        if ((类型 & 指定目标类型.带盾法师) == 指定目标类型.带盾法师 && PlayerObject.角色职业 == GameObjectRace.法师 && PlayerObject.Buff列表.ContainsKey(25350))
                         {
                             return true;
                         }
@@ -1745,30 +1745,30 @@ namespace GameServer.Maps
                     num = 1;
                     break;
                 case 技能闪避类型.可被物理闪避:
-                    num3 = this[GameObjectProperties.PhysicalAgility];
-                    num = MapObject[GameObjectProperties.PhysicallyAccurate];
+                    num3 = this[GameObjectStats.PhysicalAgility];
+                    num = MapObject[GameObjectStats.PhysicallyAccurate];
                     if (this is MonsterObject)
                     {
-                        num2 += (float)MapObject[GameObjectProperties.怪物命中] / 10000f;
+                        num2 += (float)MapObject[GameObjectStats.怪物命中] / 10000f;
                     }
                     if (MapObject is MonsterObject)
                     {
-                        num4 += (float)this[GameObjectProperties.怪物闪避] / 10000f;
+                        num4 += (float)this[GameObjectStats.怪物闪避] / 10000f;
                     }
                     break;
                 case 技能闪避类型.可被MagicDodge:
-                    num4 = (float)this[GameObjectProperties.MagicDodge] / 10000f;
+                    num4 = (float)this[GameObjectStats.MagicDodge] / 10000f;
                     if (this is MonsterObject)
                     {
-                        num2 += (float)MapObject[GameObjectProperties.怪物命中] / 10000f;
+                        num2 += (float)MapObject[GameObjectStats.怪物命中] / 10000f;
                     }
                     if (MapObject is MonsterObject)
                     {
-                        num4 += (float)this[GameObjectProperties.怪物闪避] / 10000f;
+                        num4 += (float)this[GameObjectStats.怪物闪避] / 10000f;
                     }
                     break;
                 case 技能闪避类型.可被中毒闪避:
-                    num4 = (float)this[GameObjectProperties.中毒躲避] / 10000f;
+                    num4 = (float)this[GameObjectStats.中毒躲避] / 10000f;
                     break;
                 case 技能闪避类型.非怪物可闪避:
                     if (this is MonsterObject)
@@ -1777,8 +1777,8 @@ namespace GameServer.Maps
                     }
                     else
                     {
-                        num3 = this[GameObjectProperties.PhysicalAgility];
-                        num = MapObject[GameObjectProperties.PhysicallyAccurate];
+                        num3 = this[GameObjectStats.PhysicalAgility];
+                        num = MapObject[GameObjectStats.PhysicallyAccurate];
                     }
                     break;
             }
@@ -1834,7 +1834,7 @@ namespace GameServer.Maps
                         float num4 = (num.GetValueOrDefault() > num2 & num != null) ? 参数.技能伤害系数[(int)技能.技能等级] : 0f;
                         if (this is MonsterObject)
                         {
-                            num3 += MapObject[GameObjectProperties.怪物伤害];
+                            num3 += MapObject[GameObjectStats.怪物伤害];
                         }
                         int num5 = 0;
                         float num6 = 0f;
@@ -1855,35 +1855,35 @@ namespace GameServer.Maps
                         switch (参数.技能伤害类型)
                         {
                             case 技能伤害类型.攻击:
-                                num10 = ComputingClass.计算防御(this[GameObjectProperties.MinDef], this[GameObjectProperties.MaxDef]);
-                                num9 = ComputingClass.计算攻击(MapObject[GameObjectProperties.MinAttack], MapObject[GameObjectProperties.MaxAttack], MapObject[GameObjectProperties.幸运等级]);
+                                num10 = ComputingClass.计算防御(this[GameObjectStats.MinDef], this[GameObjectStats.MaxDef]);
+                                num9 = ComputingClass.计算攻击(MapObject[GameObjectStats.MinAttack], MapObject[GameObjectStats.MaxAttack], MapObject[GameObjectStats.幸运等级]);
                                 break;
                             case 技能伤害类型.魔法:
-                                num10 = ComputingClass.计算防御(this[GameObjectProperties.MinMagicDef], this[GameObjectProperties.MaxMagicDef]);
-                                num9 = ComputingClass.计算攻击(MapObject[GameObjectProperties.MinMagic], MapObject[GameObjectProperties.MaxMagic], MapObject[GameObjectProperties.幸运等级]);
+                                num10 = ComputingClass.计算防御(this[GameObjectStats.MinMagicDef], this[GameObjectStats.MaxMagicDef]);
+                                num9 = ComputingClass.计算攻击(MapObject[GameObjectStats.MinMagic], MapObject[GameObjectStats.MaxMagic], MapObject[GameObjectStats.幸运等级]);
                                 break;
                             case 技能伤害类型.道术:
-                                num10 = ComputingClass.计算防御(this[GameObjectProperties.MinMagicDef], this[GameObjectProperties.MaxMagicDef]);
-                                num9 = ComputingClass.计算攻击(MapObject[GameObjectProperties.Minimalist], MapObject[GameObjectProperties.GreatestTaoism], MapObject[GameObjectProperties.幸运等级]);
+                                num10 = ComputingClass.计算防御(this[GameObjectStats.MinMagicDef], this[GameObjectStats.MaxMagicDef]);
+                                num9 = ComputingClass.计算攻击(MapObject[GameObjectStats.Minimalist], MapObject[GameObjectStats.GreatestTaoism], MapObject[GameObjectStats.幸运等级]);
                                 break;
                             case 技能伤害类型.刺术:
-                                num10 = ComputingClass.计算防御(this[GameObjectProperties.MinDef], this[GameObjectProperties.MaxDef]);
-                                num9 = ComputingClass.计算攻击(MapObject[GameObjectProperties.MinNeedle], MapObject[GameObjectProperties.MaxNeedle], MapObject[GameObjectProperties.幸运等级]);
+                                num10 = ComputingClass.计算防御(this[GameObjectStats.MinDef], this[GameObjectStats.MaxDef]);
+                                num9 = ComputingClass.计算攻击(MapObject[GameObjectStats.MinNeedle], MapObject[GameObjectStats.MaxNeedle], MapObject[GameObjectStats.幸运等级]);
                                 break;
                             case 技能伤害类型.弓术:
-                                num10 = ComputingClass.计算防御(this[GameObjectProperties.MinDef], this[GameObjectProperties.MaxDef]);
-                                num9 = ComputingClass.计算攻击(MapObject[GameObjectProperties.MinBow], MapObject[GameObjectProperties.MaxBow], MapObject[GameObjectProperties.幸运等级]);
+                                num10 = ComputingClass.计算防御(this[GameObjectStats.MinDef], this[GameObjectStats.MaxDef]);
+                                num9 = ComputingClass.计算攻击(MapObject[GameObjectStats.MinBow], MapObject[GameObjectStats.MaxBow], MapObject[GameObjectStats.幸运等级]);
                                 break;
                             case 技能伤害类型.毒性:
-                                num9 = MapObject[GameObjectProperties.GreatestTaoism];
+                                num9 = MapObject[GameObjectStats.GreatestTaoism];
                                 break;
                             case 技能伤害类型.神圣:
-                                num9 = ComputingClass.计算攻击(MapObject[GameObjectProperties.最小圣伤], MapObject[GameObjectProperties.最大圣伤], 0);
+                                num9 = ComputingClass.计算攻击(MapObject[GameObjectStats.最小圣伤], MapObject[GameObjectStats.最大圣伤], 0);
                                 break;
                         }
                         if (this is MonsterObject)
                         {
-                            num10 = Math.Max(0, num10 - (int)((float)(num10 * MapObject[GameObjectProperties.怪物破防]) / 10000f));
+                            num10 = Math.Max(0, num10 - (int)((float)(num10 * MapObject[GameObjectStats.怪物破防]) / 10000f));
                         }
                         int num11 = 0;
                         float num12 = 0f;
@@ -2269,7 +2269,7 @@ namespace GameServer.Maps
                         }
                     }
                     EquipmentData EquipmentData;
-                    if (MainProcess.CurrentTime > PlayerObject4.战具计时 && !PlayerObject4.对象死亡 && PlayerObject4.当前体力 < PlayerObject4[GameObjectProperties.MaxPhysicalStrength] && PlayerObject4.角色装备.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0 && (EquipmentData.Id == 99999106 || EquipmentData.Id == 99999107))
+                    if (MainProcess.CurrentTime > PlayerObject4.战具计时 && !PlayerObject4.对象死亡 && PlayerObject4.当前体力 < PlayerObject4[GameObjectStats.MaxPhysicalStrength] && PlayerObject4.角色装备.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0 && (EquipmentData.Id == 99999106 || EquipmentData.Id == 99999107))
                     {
                         PlayerObject4.当前体力 += ((this is MonsterObject) ? 20 : 10);
                         PlayerObject4.战具损失持久(1);
@@ -2294,11 +2294,11 @@ namespace GameServer.Maps
                 case 技能伤害类型.攻击:
                 case 技能伤害类型.刺术:
                 case 技能伤害类型.弓术:
-                    num = ComputingClass.计算防御(this[GameObjectProperties.MinDef], this[GameObjectProperties.MaxDef]);
+                    num = ComputingClass.计算防御(this[GameObjectStats.MinDef], this[GameObjectStats.MaxDef]);
                     break;
                 case 技能伤害类型.魔法:
                 case 技能伤害类型.道术:
-                    num = ComputingClass.计算防御(this[GameObjectProperties.MinMagicDef], this[GameObjectProperties.MaxMagicDef]);
+                    num = ComputingClass.计算防御(this[GameObjectStats.MinMagicDef], this[GameObjectStats.MaxMagicDef]);
                     break;
             }
             int num2 = Math.Max(0, 数据.伤害基数.V * (int)数据.当前层数.V - num);
@@ -2377,11 +2377,11 @@ namespace GameServer.Maps
                     float num9 = num8;
                     if (num4 > 0f)
                     {
-                        num2 += (int)(num4 * (float)ComputingClass.计算攻击(MapObject[GameObjectProperties.Minimalist], MapObject[GameObjectProperties.GreatestTaoism], MapObject[GameObjectProperties.幸运等级]));
+                        num2 += (int)(num4 * (float)ComputingClass.计算攻击(MapObject[GameObjectStats.Minimalist], MapObject[GameObjectStats.GreatestTaoism], MapObject[GameObjectStats.幸运等级]));
                     }
                     if (num5 > 0f)
                     {
-                        num3 += (int)(num5 * (float)ComputingClass.计算攻击(MapObject[GameObjectProperties.Minimalist], MapObject[GameObjectProperties.GreatestTaoism], MapObject[GameObjectProperties.幸运等级]));
+                        num3 += (int)(num5 * (float)ComputingClass.计算攻击(MapObject[GameObjectStats.Minimalist], MapObject[GameObjectStats.GreatestTaoism], MapObject[GameObjectStats.幸运等级]));
                     }
                     if (num7 > 0)
                     {
@@ -2389,7 +2389,7 @@ namespace GameServer.Maps
                     }
                     if (num9 > 0f)
                     {
-                        this.当前体力 += (int)((float)this[GameObjectProperties.MaxPhysicalStrength] * num9);
+                        this.当前体力 += (int)((float)this[GameObjectStats.MaxPhysicalStrength] * num9);
                     }
                     if (num2 > this.治疗次数 && num3 > 0)
                     {
@@ -2755,13 +2755,13 @@ namespace GameServer.Maps
                                         现身高度 = 对象.当前高度,
                                         现身方向 = (ushort)对象.当前方向,
                                         现身姿态 = ((byte)(对象.对象死亡 ? 13 : 1)),
-                                        体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectProperties.MaxPhysicalStrength])
+                                        体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectStats.MaxPhysicalStrength])
                                     });
                                     PlayerObject.网络连接.发送封包(new 同步对象体力
                                     {
                                         对象编号 = 对象.MapId,
                                         当前体力 = 对象.当前体力,
-                                        体力上限 = 对象[GameObjectProperties.MaxPhysicalStrength]
+                                        体力上限 = 对象[GameObjectStats.MaxPhysicalStrength]
                                     });
                                     PlayerObject.网络连接.发送封包(new ObjectTransformTypePacket
                                     {
@@ -2792,7 +2792,7 @@ namespace GameServer.Maps
                             ObjectComesIntoViewPacket.现身高度 = 对象.当前高度;
                             ObjectComesIntoViewPacket.现身方向 = (ushort)对象.当前方向;
                             ObjectComesIntoViewPacket.现身姿态 = ((byte)(对象.对象死亡 ? 13 : 1));
-                            ObjectComesIntoViewPacket.体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectProperties.MaxPhysicalStrength]);
+                            ObjectComesIntoViewPacket.体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectStats.MaxPhysicalStrength]);
                             PlayerObject PlayerObject2 = 对象 as PlayerObject;
                             ObjectComesIntoViewPacket.补充参数 = ((byte)((PlayerObject2 == null || !PlayerObject2.灰名玩家) ? 0 : 2));
                             网络连接.发送封包(ObjectComesIntoViewPacket);
@@ -2800,7 +2800,7 @@ namespace GameServer.Maps
                             {
                                 对象编号 = 对象.MapId,
                                 当前体力 = 对象.当前体力,
-                                体力上限 = 对象[GameObjectProperties.MaxPhysicalStrength]
+                                体力上限 = 对象[GameObjectStats.MaxPhysicalStrength]
                             });
                         }
                         else if (对象类型 != GameObjectType.物品)
@@ -2924,13 +2924,13 @@ namespace GameServer.Maps
                                         现身高度 = 对象.当前高度,
                                         现身方向 = (ushort)对象.当前方向,
                                         现身姿态 = ((byte)(对象.对象死亡 ? 13 : 1)),
-                                        体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectProperties.MaxPhysicalStrength])
+                                        体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectStats.MaxPhysicalStrength])
                                     });
                                     PlayerObject3.网络连接.发送封包(new 同步对象体力
                                     {
                                         对象编号 = 对象.MapId,
                                         当前体力 = 对象.当前体力,
-                                        体力上限 = 对象[GameObjectProperties.MaxPhysicalStrength]
+                                        体力上限 = 对象[GameObjectStats.MaxPhysicalStrength]
                                     });
                                     PlayerObject3.网络连接.发送封包(new ObjectTransformTypePacket
                                     {
@@ -2961,7 +2961,7 @@ namespace GameServer.Maps
                             ObjectComesIntoViewPacket2.现身高度 = 对象.当前高度;
                             ObjectComesIntoViewPacket2.现身方向 = (ushort)对象.当前方向;
                             ObjectComesIntoViewPacket2.现身姿态 = ((byte)(对象.对象死亡 ? 13 : 1));
-                            ObjectComesIntoViewPacket2.体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectProperties.MaxPhysicalStrength]);
+                            ObjectComesIntoViewPacket2.体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectStats.MaxPhysicalStrength]);
                             PlayerObject PlayerObject4 = 对象 as PlayerObject;
                             ObjectComesIntoViewPacket2.补充参数 = ((byte)((PlayerObject4 == null || !PlayerObject4.灰名玩家) ? 0 : 2));
                             网络连接2.发送封包(ObjectComesIntoViewPacket2);
@@ -2969,7 +2969,7 @@ namespace GameServer.Maps
                             {
                                 对象编号 = 对象.MapId,
                                 当前体力 = 对象.当前体力,
-                                体力上限 = 对象[GameObjectProperties.MaxPhysicalStrength]
+                                体力上限 = 对象[GameObjectStats.MaxPhysicalStrength]
                             });
                         }
                         else if (对象类型 != GameObjectType.物品)
@@ -3317,6 +3317,6 @@ namespace GameServer.Maps
         public HashSet<TrapObject> 陷阱列表;
 
         
-        public Dictionary<object, Dictionary<GameObjectProperties, int>> 属性加成;
+        public Dictionary<object, Dictionary<GameObjectStats, int>> 属性加成;
     }
 }

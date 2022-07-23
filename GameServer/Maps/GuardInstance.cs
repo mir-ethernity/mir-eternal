@@ -89,7 +89,7 @@ namespace GameServer.Maps
 			}
 			set
 			{
-				value = ComputingClass.数值限制(0, value, this[GameObjectProperties.MaxPhysicalStrength]);
+				value = ComputingClass.数值限制(0, value, this[GameObjectStats.MaxPhysicalStrength]);
 				if (base.当前体力 != value)
 				{
 					base.当前体力 = value;
@@ -97,7 +97,7 @@ namespace GameServer.Maps
 					{
 						对象编号 = this.MapId,
 						当前体力 = this.当前体力,
-						体力上限 = this[GameObjectProperties.MaxPhysicalStrength]
+						体力上限 = this[GameObjectStats.MaxPhysicalStrength]
 					});
 				}
 			}
@@ -202,7 +202,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public override int this[GameObjectProperties 属性]
+		public override int this[GameObjectStats 属性]
 		{
 			get
 			{
@@ -295,9 +295,9 @@ namespace GameServer.Maps
 			this.出生方向 = 出生方向;
 			this.出生坐标 = 出生坐标;
 			this.MapId = ++MapGatewayProcess.对象编号;
-			Dictionary<object, Dictionary<GameObjectProperties, int>> 属性加成 = this.属性加成;
-			Dictionary<GameObjectProperties, int> dictionary = new Dictionary<GameObjectProperties, int>();
-			dictionary[GameObjectProperties.MaxPhysicalStrength] = 9999;
+			Dictionary<object, Dictionary<GameObjectStats, int>> 属性加成 = this.属性加成;
+			Dictionary<GameObjectStats, int> dictionary = new Dictionary<GameObjectStats, int>();
+			dictionary[GameObjectStats.MaxPhysicalStrength] = 9999;
 			属性加成[this] = dictionary;
 			string text = this.对象模板.普攻技能;
 			if (text != null && text.Length > 0)
@@ -407,7 +407,7 @@ namespace GameServer.Maps
 				this.激活对象 = true;
 				MapGatewayProcess.添加激活对象(this);
 				int num = (int)Math.Max(0.0, (MainProcess.CurrentTime - base.恢复时间).TotalSeconds / 5.0);
-				base.当前体力 = Math.Min(this[GameObjectProperties.MaxPhysicalStrength], this.当前体力 + num * this[GameObjectProperties.体力恢复]);
+				base.当前体力 = Math.Min(this[GameObjectStats.MaxPhysicalStrength], this.当前体力 + num * this[GameObjectStats.体力恢复]);
 				base.恢复时间 = base.恢复时间.AddSeconds(5.0);
 			}
 		}
@@ -445,7 +445,7 @@ namespace GameServer.Maps
 			this.当前地图 = this.出生地图;
 			this.当前方向 = this.出生方向;
 			this.当前坐标 = this.出生坐标;
-			this.当前体力 = this[GameObjectProperties.MaxPhysicalStrength];
+			this.当前体力 = this[GameObjectStats.MaxPhysicalStrength];
 			base.恢复时间 = MainProcess.CurrentTime.AddMilliseconds((double)MainProcess.RandomNumber.Next(5000));
 			this.HateObject = new HateObject();
 			base.绑定网格();

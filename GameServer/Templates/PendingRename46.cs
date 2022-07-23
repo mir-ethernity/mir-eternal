@@ -28,7 +28,7 @@ namespace GameServer.Templates
 
 		
 		// (get) Token: 0x060006D2 RID: 1746 RVA: 0x0003520C File Offset: 0x0003340C
-		public Dictionary<GameObjectProperties, int> 基础属性
+		public Dictionary<GameObjectStats, int> 基础属性
 		{
 			get
 			{
@@ -36,7 +36,7 @@ namespace GameServer.Templates
 				{
 					return this._基础属性;
 				}
-				this._基础属性 = new Dictionary<GameObjectProperties, int>();
+				this._基础属性 = new Dictionary<GameObjectStats, int>();
 				if (this.怪物基础 != null)
 				{
 					foreach (基础属性 基础属性 in this.怪物基础)
@@ -50,7 +50,7 @@ namespace GameServer.Templates
 
 		
 		// (get) Token: 0x060006D3 RID: 1747 RVA: 0x00035278 File Offset: 0x00033478
-		public Dictionary<GameObjectProperties, int>[] 成长属性
+		public Dictionary<GameObjectStats, int>[] 成长属性
 		{
 			get
 			{
@@ -58,16 +58,16 @@ namespace GameServer.Templates
 				{
 					return this._成长属性;
 				}
-				this._成长属性 = new Dictionary<GameObjectProperties, int>[]
+				this._成长属性 = new Dictionary<GameObjectStats, int>[]
 				{
-					new Dictionary<GameObjectProperties, int>(),
-					new Dictionary<GameObjectProperties, int>(),
-					new Dictionary<GameObjectProperties, int>(),
-					new Dictionary<GameObjectProperties, int>(),
-					new Dictionary<GameObjectProperties, int>(),
-					new Dictionary<GameObjectProperties, int>(),
-					new Dictionary<GameObjectProperties, int>(),
-					new Dictionary<GameObjectProperties, int>()
+					new Dictionary<GameObjectStats, int>(),
+					new Dictionary<GameObjectStats, int>(),
+					new Dictionary<GameObjectStats, int>(),
+					new Dictionary<GameObjectStats, int>(),
+					new Dictionary<GameObjectStats, int>(),
+					new Dictionary<GameObjectStats, int>(),
+					new Dictionary<GameObjectStats, int>(),
+					new Dictionary<GameObjectStats, int>()
 				};
 				if (this.怪物成长 != null)
 				{
@@ -198,9 +198,9 @@ namespace GameServer.Templates
 		public Dictionary<GameItems, long> 掉落统计;
 
 		
-		private Dictionary<GameObjectProperties, int> _基础属性;
+		private Dictionary<GameObjectStats, int> _基础属性;
 
 		
-		private Dictionary<GameObjectProperties, int>[] _成长属性;
+		private Dictionary<GameObjectStats, int>[] _成长属性;
 	}
 }

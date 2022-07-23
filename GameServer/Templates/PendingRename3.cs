@@ -65,7 +65,7 @@ namespace GameServer.Templates
 		public bool 角色属性延时;
 
 		
-		public GameObjectProperties 绑定角色属性;
+		public GameObjectStats 绑定角色属性;
 
 		
 		public float 属性延时系数;

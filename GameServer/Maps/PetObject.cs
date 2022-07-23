@@ -184,7 +184,7 @@ namespace GameServer.Maps
 			}
 			set
 			{
-				value = ComputingClass.数值限制(0, value, this[GameObjectProperties.MaxPhysicalStrength]);
+				value = ComputingClass.数值限制(0, value, this[GameObjectStats.MaxPhysicalStrength]);
 				if (this.PetData.当前体力.V != value)
 				{
 					this.PetData.当前体力.V = value;
@@ -192,7 +192,7 @@ namespace GameServer.Maps
 					{
 						对象编号 = this.MapId,
 						当前体力 = this.当前体力,
-						体力上限 = this[GameObjectProperties.MaxPhysicalStrength]
+						体力上限 = this[GameObjectStats.MaxPhysicalStrength]
 					});
 				}
 			}
@@ -287,7 +287,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public override int this[GameObjectProperties 属性]
+		public override int this[GameObjectStats 属性]
 		{
 			get
 			{
@@ -428,11 +428,11 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000809 RID: 2057 RVA: 0x0003F75C File Offset: 0x0003D95C
-		public Dictionary<GameObjectProperties, int> 基础属性
+		public Dictionary<GameObjectStats, int> 基础属性
 		{
 			get
 			{
-				Dictionary<GameObjectProperties, int>[] 成长属性 = this.对象模板.成长属性;
+				Dictionary<GameObjectStats, int>[] 成长属性 = this.对象模板.成长属性;
 				int? num = (成长属性 != null) ? new int?(成长属性.Length) : null;
 				int 宠物等级 = (int)this.宠物等级;
 				if (!(num.GetValueOrDefault() > 宠物等级 & num != null))
@@ -455,7 +455,7 @@ namespace GameServer.Maps
 			this.当前地图 = 宠物主人.当前地图;
 			this.当前方向 = ComputingClass.随机方向();
 			this.属性加成[this] = this.基础属性;
-			this.属性加成[宠物主人.CharacterData] = new Dictionary<GameObjectProperties, int>();
+			this.属性加成[宠物主人.CharacterData] = new Dictionary<GameObjectStats, int>();
 			if (this.对象模板.继承属性 != null)
 			{
 				foreach (属性继承 属性继承 in this.对象模板.继承属性)
@@ -524,7 +524,7 @@ namespace GameServer.Maps
 			this.当前方向 = ComputingClass.随机方向();
 			this.MapId = ++MapGatewayProcess.对象编号;
 			this.属性加成[this] = this.基础属性;
-			this.属性加成[宠物主人.CharacterData] = new Dictionary<GameObjectProperties, int>();
+			this.属性加成[宠物主人.CharacterData] = new Dictionary<GameObjectStats, int>();
 			if (this.对象模板.继承属性 != null)
 			{
 				foreach (属性继承 属性继承 in this.对象模板.继承属性)
@@ -533,7 +533,7 @@ namespace GameServer.Maps
 				}
 			}
 			this.更新对象属性();
-			this.当前体力 = this[GameObjectProperties.MaxPhysicalStrength];
+			this.当前体力 = this[GameObjectStats.MaxPhysicalStrength];
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 			this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(MainProcess.RandomNumber.Next(5000) + this.漫游间隔));
@@ -593,7 +593,7 @@ namespace GameServer.Maps
 			this.当前方向 = 诱惑怪物.当前方向;
 			this.属性加成[this] = this.基础属性;
 			this.更新对象属性();
-			this.当前体力 = Math.Min(诱惑怪物.当前体力, this[GameObjectProperties.MaxPhysicalStrength]);
+			this.当前体力 = Math.Min(诱惑怪物.当前体力, this[GameObjectStats.MaxPhysicalStrength]);
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 			this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.忙碌时间 = MainProcess.CurrentTime.AddSeconds(1.0);
@@ -657,7 +657,7 @@ namespace GameServer.Maps
 			this.当前方向 = 诱惑宠物.当前方向;
 			this.属性加成[this] = this.基础属性;
 			this.更新对象属性();
-			this.当前体力 = Math.Min(诱惑宠物.当前体力, this[GameObjectProperties.MaxPhysicalStrength]);
+			this.当前体力 = Math.Min(诱惑宠物.当前体力, this[GameObjectStats.MaxPhysicalStrength]);
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 			this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.忙碌时间 = MainProcess.CurrentTime.AddSeconds(1.0);
@@ -740,7 +740,7 @@ namespace GameServer.Maps
 				{
 					if (!this.检查状态(游戏对象状态.中毒状态))
 					{
-						this.当前体力 += this[GameObjectProperties.体力恢复];
+						this.当前体力 += this[GameObjectStats.体力恢复];
 					}
 					base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 				}
@@ -912,7 +912,7 @@ namespace GameServer.Maps
 				return;
 			}
 			游戏技能 游戏技能;
-			if (this.概率触发技能 != null && (!this.冷却记录.ContainsKey((int)this.普通攻击技能.自身技能编号 | 16777216) || MainProcess.CurrentTime > this.冷却记录[(int)this.普通攻击技能.自身技能编号 | 16777216]) && ComputingClass.计算概率(this.概率触发技能.计算幸运概率 ? ComputingClass.计算幸运(this[GameObjectProperties.幸运等级]) : this.概率触发技能.计算触发概率))
+			if (this.概率触发技能 != null && (!this.冷却记录.ContainsKey((int)this.普通攻击技能.自身技能编号 | 16777216) || MainProcess.CurrentTime > this.冷却记录[(int)this.普通攻击技能.自身技能编号 | 16777216]) && ComputingClass.计算概率(this.概率触发技能.计算幸运概率 ? ComputingClass.计算幸运(this[GameObjectStats.幸运等级]) : this.概率触发技能.计算触发概率))
 			{
 				游戏技能 = this.概率触发技能;
 			}
@@ -973,7 +973,7 @@ namespace GameServer.Maps
 					byte 动作编号 = base.动作编号;
 					base.动作编号 = (byte)(动作编号 + 1);
 					new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, this.HateObject.当前目标, this.HateObject.当前目标.当前坐标, null, null, false);
-					this.攻击时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.数值限制(0, 10 - this[GameObjectProperties.AttackSpeed], 10) * 500));
+					this.攻击时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.数值限制(0, 10 - this[GameObjectStats.AttackSpeed], 10) * 500));
 					return;
 				}
 				if (this.能否转动())
@@ -996,7 +996,7 @@ namespace GameServer.Maps
 				this.宠物经验 = 0;
 				this.属性加成[this] = this.基础属性;
 				this.更新对象属性();
-				this.当前体力 = this[GameObjectProperties.MaxPhysicalStrength];
+				this.当前体力 = this[GameObjectStats.MaxPhysicalStrength];
 				base.发送封包(new ObjectTransformTypePacket
 				{
 					改变类型 = 2,

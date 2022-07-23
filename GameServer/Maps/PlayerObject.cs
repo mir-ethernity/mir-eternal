@@ -151,8 +151,8 @@ namespace GameServer.Maps
 			{
 				this.当前地图 = MapGatewayProcess.分配地图(this.重生地图);
 				this.当前坐标 = (this.红名玩家 ? this.当前地图.红名区域.RandomCoords : this.当前地图.复活区域.RandomCoords);
-				this.当前体力 = (int)((float)this[GameObjectProperties.MaxPhysicalStrength] * 0.3f);
-				this.当前魔力 = (int)((float)this[GameObjectProperties.MaxMagic2] * 0.3f);
+				this.当前体力 = (int)((float)this[GameObjectStats.MaxPhysicalStrength] * 0.3f);
+				this.当前魔力 = (int)((float)this[GameObjectStats.MaxMagic2] * 0.3f);
 			}
 			else if (GameMap.DataSheet[(byte)CharacterData.当前地图.V].NoReconnect)
 			{
@@ -572,8 +572,8 @@ namespace GameServer.Maps
 								队伍编号 = this.所属队伍.队伍编号,
 								对象编号 = this.MapId,
 								对象等级 = (int)this.当前等级,
-								MaxPhysicalStrength = this[GameObjectProperties.MaxPhysicalStrength],
-								MaxMagic2 = this[GameObjectProperties.MaxMagic2],
+								MaxPhysicalStrength = this[GameObjectStats.MaxPhysicalStrength],
+								MaxMagic2 = this[GameObjectStats.MaxMagic2],
 								当前体力 = this.当前体力,
 								当前魔力 = this.当前魔力,
 								当前地图 = this.当前地图.MapId,
@@ -605,8 +605,8 @@ namespace GameServer.Maps
 						{
 							if (!this.检查状态(游戏对象状态.中毒状态))
 							{
-								this.当前体力 += this[GameObjectProperties.体力恢复];
-								this.当前魔力 += this[GameObjectProperties.魔力恢复];
+								this.当前体力 += this[GameObjectStats.体力恢复];
+								this.当前魔力 += this[GameObjectStats.魔力恢复];
 							}
 							base.恢复时间 = base.恢复时间.AddSeconds(30.0);
 						}
@@ -623,7 +623,7 @@ namespace GameServer.Maps
 										{
 											if (EquipmentData.Id == 99999110 || EquipmentData.Id == 99999111)
 											{
-												int num2 = Math.Min(10, Math.Min(EquipmentData.当前持久.V, this[GameObjectProperties.MaxPhysicalStrength] - this.当前体力));
+												int num2 = Math.Min(10, Math.Min(EquipmentData.当前持久.V, this[GameObjectStats.MaxPhysicalStrength] - this.当前体力));
 												if (num2 > 0)
 												{
 													this.当前体力 += num2;
@@ -636,7 +636,7 @@ namespace GameServer.Maps
 											goto IL_794;
 										}
 									}
-									int num3 = Math.Min(15, Math.Min(EquipmentData.当前持久.V, this[GameObjectProperties.MaxMagic2] - this.当前魔力));
+									int num3 = Math.Min(15, Math.Min(EquipmentData.当前持久.V, this[GameObjectStats.MaxMagic2] - this.当前魔力));
 									if (num3 > 0)
 									{
 										this.当前魔力 += num3;
@@ -646,7 +646,7 @@ namespace GameServer.Maps
 									goto IL_794;
 								}
 							}
-							int num4 = Math.Min(10, Math.Min(EquipmentData.当前持久.V, this[GameObjectProperties.MaxPhysicalStrength] - this.当前体力));
+							int num4 = Math.Min(10, Math.Min(EquipmentData.当前持久.V, this[GameObjectStats.MaxPhysicalStrength] - this.当前体力));
 							if (num4 > 0)
 							{
 								this.当前体力 += num4;
@@ -666,13 +666,13 @@ namespace GameServer.Maps
 						{
 							this.回血次数--;
 							this.药品回血 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
-							this.当前体力 += (int)Math.Max(0f, (float)this.回血基数 * (1f + (float)this[GameObjectProperties.药品回血] / 10000f));
+							this.当前体力 += (int)Math.Max(0f, (float)this.回血基数 * (1f + (float)this[GameObjectStats.药品回血] / 10000f));
 						}
 						if (this.回魔次数 > 0 && MainProcess.CurrentTime > this.药品回魔)
 						{
 							this.回魔次数--;
 							this.药品回魔 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
-							this.当前魔力 += (int)Math.Max(0f, (float)this.回魔基数 * (1f + (float)this[GameObjectProperties.药品回魔] / 10000f));
+							this.当前魔力 += (int)Math.Max(0f, (float)this.回魔基数 * (1f + (float)this[GameObjectStats.药品回魔] / 10000f));
 						}
 						if (this.当前地图.MapId == 183 && MainProcess.CurrentTime > this.经验计时)
 						{
@@ -908,7 +908,7 @@ namespace GameServer.Maps
 			}
 			set
 			{
-				value = Math.Min(this[GameObjectProperties.MaxPhysicalStrength], Math.Max(0, value));
+				value = Math.Min(this[GameObjectStats.MaxPhysicalStrength], Math.Max(0, value));
 				if (this.当前体力 != value)
 				{
 					this.CharacterData.当前血量.V = value;
@@ -916,7 +916,7 @@ namespace GameServer.Maps
 					{
 						对象编号 = this.MapId,
 						当前体力 = this.当前体力,
-						体力上限 = this[GameObjectProperties.MaxPhysicalStrength]
+						体力上限 = this[GameObjectStats.MaxPhysicalStrength]
 					});
 				}
 			}
@@ -933,7 +933,7 @@ namespace GameServer.Maps
 			}
 			set
 			{
-				value = Math.Min(this[GameObjectProperties.MaxMagic2], Math.Max(0, value));
+				value = Math.Min(this[GameObjectStats.MaxMagic2], Math.Max(0, value));
 				if (this.当前魔力 != value)
 				{
 					this.CharacterData.当前蓝量.V = Math.Max(0, value);
@@ -1180,7 +1180,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public override int this[GameObjectProperties 属性]
+		public override int this[GameObjectStats 属性]
 		{
 			get
 			{
@@ -1200,7 +1200,7 @@ namespace GameServer.Maps
 						}
 						网络连接.发送封包(new SyncPropChangePacket
 						{
-							属性编号 = (byte)属性,
+							StatId = (byte)属性,
 							属性数值 = value
 						});
 					}
@@ -1244,7 +1244,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this[GameObjectProperties.最大负重];
+				return this[GameObjectStats.最大负重];
 			}
 		}
 
@@ -1254,7 +1254,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this[GameObjectProperties.最大穿戴];
+				return this[GameObjectStats.最大穿戴];
 			}
 		}
 
@@ -1264,7 +1264,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this[GameObjectProperties.最大腕力];
+				return this[GameObjectStats.最大腕力];
 			}
 		}
 
@@ -2023,7 +2023,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x060008F0 RID: 2288 RVA: 0x000075D6 File Offset: 0x000057D6
-		public GameObjectProfession 角色职业
+		public GameObjectRace 角色职业
 		{
 			get
 			{
@@ -2261,8 +2261,8 @@ namespace GameServer.Maps
 			this.更新对象属性();
 			if (!this.对象死亡)
 			{
-				this.当前体力 = this[GameObjectProperties.MaxPhysicalStrength];
-				this.当前魔力 = this[GameObjectProperties.MaxMagic2];
+				this.当前体力 = this[GameObjectStats.MaxPhysicalStrength];
+				this.当前魔力 = this[GameObjectStats.MaxMagic2];
 			}
 			TeacherData 所属师门 = this.所属师门;
 			if (所属师门 != null)
@@ -2641,14 +2641,14 @@ namespace GameServer.Maps
 		}
 
 		
-		public void 玩家穿卸装备(EquipmentWearingParts 装备部位, EquipmentData 原有装备, EquipmentData 现有装备)
+		public void 玩家穿卸装备(EquipmentWearingParts itemType, EquipmentData 原有装备, EquipmentData 现有装备)
 		{
-			if (装备部位 == EquipmentWearingParts.武器 || 装备部位 == EquipmentWearingParts.衣服 || 装备部位 == EquipmentWearingParts.披风)
+			if (itemType == EquipmentWearingParts.武器 || itemType == EquipmentWearingParts.衣服 || itemType == EquipmentWearingParts.披风)
 			{
 				base.发送封包(new 同步角色外形
 				{
 					对象编号 = this.MapId,
-					装备部位 = (byte)装备部位,
+					ItemType = (byte)itemType,
 					装备编号 = ((现有装备 != null) ? 现有装备.Id : 0),
 					升级次数 = ((byte)((现有装备 != null) ? 现有装备.升级次数.V : 0))
 				});
@@ -3276,7 +3276,7 @@ namespace GameServer.Maps
 					现身高度 = this.当前高度,
 					现身方向 = (ushort)this.当前方向,
 					现身姿态 = ((byte)(this.对象死亡 ? 13 : 1)),
-					体力比例 = (byte)(this.当前体力 * 100 / this[GameObjectProperties.MaxPhysicalStrength])
+					体力比例 = (byte)(this.当前体力 * 100 / this[GameObjectStats.MaxPhysicalStrength])
 				});
 			}
 			客户网络 网络连接4 = this.网络连接;
@@ -3286,7 +3286,7 @@ namespace GameServer.Maps
 				{
 					对象编号 = this.MapId,
 					当前体力 = this.当前体力,
-					体力上限 = this[GameObjectProperties.MaxPhysicalStrength]
+					体力上限 = this[GameObjectStats.MaxPhysicalStrength]
 				});
 			}
 			客户网络 网络连接5 = this.网络连接;
@@ -3397,8 +3397,8 @@ namespace GameServer.Maps
 						复活方式 = 3
 					});
 				}
-				this.当前体力 = (int)((float)this[GameObjectProperties.MaxPhysicalStrength] * 0.3f);
-				this.当前魔力 = (int)((float)this[GameObjectProperties.MaxMagic2] * 0.3f);
+				this.当前体力 = (int)((float)this[GameObjectStats.MaxPhysicalStrength] * 0.3f);
+				this.当前魔力 = (int)((float)this[GameObjectStats.MaxMagic2] * 0.3f);
 				this.对象死亡 = false;
 				this.阻塞网格 = true;
 				if (this.当前地图 == MapGatewayProcess.沙城地图 && MapGatewayProcess.沙城节点 >= 2)
@@ -3759,7 +3759,7 @@ namespace GameServer.Maps
 			DateTime dateTime;
 			if (!this.冷却记录.TryGetValue((int)技能编号 | 16777216, out dateTime) || !(MainProcess.CurrentTime < dateTime))
 			{
-				if (this.角色职业 == GameObjectProfession.刺客)
+				if (this.角色职业 == GameObjectRace.刺客)
 				{
 					foreach (BuffData BuffData in this.Buff列表.Values.ToList<BuffData>())
 					{
@@ -3797,7 +3797,7 @@ namespace GameServer.Maps
 							IL_24E:
 							if (!游戏技能.检查技能标记 || this.Buff列表.ContainsKey(游戏技能.技能标记编号))
 							{
-								if (游戏技能.检查被动标记 && this[GameObjectProperties.技能标志] != 1)
+								if (游戏技能.检查被动标记 && this[GameObjectStats.技能标志] != 1)
 								{
 									break;
 								}
@@ -3834,7 +3834,7 @@ namespace GameServer.Maps
 										{
 											if (游戏技能.计算幸运概率)
 											{
-												if (!ComputingClass.计算概率(ComputingClass.计算幸运(this[GameObjectProperties.幸运等级])))
+												if (!ComputingClass.计算概率(ComputingClass.计算幸运(this[GameObjectStats.幸运等级])))
 												{
 													continue;
 												}
@@ -3842,7 +3842,7 @@ namespace GameServer.Maps
 											else
 											{
 												float num3 = 0f;
-												if (游戏技能.属性提升概率 != GameObjectProperties.未知属性)
+												if (游戏技能.属性提升概率 != GameObjectStats.未知属性)
 												{
 													num3 = Math.Max(0f, (float)this[游戏技能.属性提升概率] * 游戏技能.属性提升系数);
 												}
@@ -3909,9 +3909,9 @@ namespace GameServer.Maps
 											{
 												this.消耗背包物品(num2, list);
 											}
-											if (游戏技能.检查被动标记 && this[GameObjectProperties.技能标志] == 1)
+											if (游戏技能.检查被动标记 && this[GameObjectStats.技能标志] == 1)
 											{
-												this[GameObjectProperties.技能标志] = 0;
+												this[GameObjectStats.技能标志] = 0;
 											}
 											new 技能实例(this, 游戏技能, SkillData, 动作编号, this.当前地图, this.当前坐标, MapObject, 技能锚点, null, null, false);
 											break;
@@ -4103,8 +4103,8 @@ namespace GameServer.Maps
 					对象编号 = MapObject.MapId,
 					当前体力 = MapObject.当前体力,
 					当前魔力 = MapObject.当前魔力,
-					MaxPhysicalStrength = MapObject[GameObjectProperties.MaxPhysicalStrength],
-					MaxMagic2 = MapObject[GameObjectProperties.MaxMagic2],
+					MaxPhysicalStrength = MapObject[GameObjectStats.MaxPhysicalStrength],
+					MaxMagic2 = MapObject[GameObjectStats.MaxMagic2],
 					Buff描述 = MapObject.对象Buff详述()
 				});
 			}
@@ -10207,27 +10207,27 @@ namespace GameServer.Maps
 				{
 					return;
 				}
-				if (EquipmentData3.NeedRace != GameObjectProfession.通用 && EquipmentData3.NeedRace != this.角色职业)
+				if (EquipmentData3.NeedRace != GameObjectRace.通用 && EquipmentData3.NeedRace != this.角色职业)
 				{
 					return;
 				}
-				if (EquipmentData3.NeedAttack > this[GameObjectProperties.MaxAttack])
+				if (EquipmentData3.NeedAttack > this[GameObjectStats.MaxAttack])
 				{
 					return;
 				}
-				if (EquipmentData3.NeedMagic > this[GameObjectProperties.MaxMagic])
+				if (EquipmentData3.NeedMagic > this[GameObjectStats.MaxMagic])
 				{
 					return;
 				}
-				if (EquipmentData3.NeedTaoism > this[GameObjectProperties.GreatestTaoism])
+				if (EquipmentData3.NeedTaoism > this[GameObjectStats.GreatestTaoism])
 				{
 					return;
 				}
-				if (EquipmentData3.NeedAcupuncture > this[GameObjectProperties.MaxNeedle])
+				if (EquipmentData3.NeedAcupuncture > this[GameObjectStats.MaxNeedle])
 				{
 					return;
 				}
-				if (EquipmentData3.NeedArchery > this[GameObjectProperties.MaxBow])
+				if (EquipmentData3.NeedArchery > this[GameObjectStats.MaxBow])
 				{
 					return;
 				}
@@ -10324,27 +10324,27 @@ namespace GameServer.Maps
 				{
 					return;
 				}
-				if (EquipmentData4.NeedRace != GameObjectProfession.通用 && EquipmentData4.NeedRace != this.角色职业)
+				if (EquipmentData4.NeedRace != GameObjectRace.通用 && EquipmentData4.NeedRace != this.角色职业)
 				{
 					return;
 				}
-				if (EquipmentData4.NeedAttack > this[GameObjectProperties.MaxAttack])
+				if (EquipmentData4.NeedAttack > this[GameObjectStats.MaxAttack])
 				{
 					return;
 				}
-				if (EquipmentData4.NeedMagic > this[GameObjectProperties.MaxMagic])
+				if (EquipmentData4.NeedMagic > this[GameObjectStats.MaxMagic])
 				{
 					return;
 				}
-				if (EquipmentData4.NeedTaoism > this[GameObjectProperties.GreatestTaoism])
+				if (EquipmentData4.NeedTaoism > this[GameObjectStats.GreatestTaoism])
 				{
 					return;
 				}
-				if (EquipmentData4.NeedAcupuncture > this[GameObjectProperties.MaxNeedle])
+				if (EquipmentData4.NeedAcupuncture > this[GameObjectStats.MaxNeedle])
 				{
 					return;
 				}
-				if (EquipmentData4.NeedArchery > this[GameObjectProperties.MaxBow])
+				if (EquipmentData4.NeedArchery > this[GameObjectStats.MaxBow])
 				{
 					return;
 				}
@@ -10601,12 +10601,12 @@ namespace GameServer.Maps
 						this.网络连接.尝试断开连接(new Exception("Error: Player uses an item.  Error: Level cannot be used."));
 						return;
 					}
-					if (ItemData.NeedRace != GameObjectProfession.通用 && this.角色职业 != ItemData.NeedRace)
+					if (ItemData.NeedRace != GameObjectRace.通用 && this.角色职业 != ItemData.NeedRace)
 					{
 						this.网络连接.尝试断开连接(new Exception("Bug: Player using an item.  Error: Gender is not available."));
 						return;
 					}
-					if (ItemData.NeedRace != GameObjectProfession.通用 && this.角色职业 != ItemData.NeedRace)
+					if (ItemData.NeedRace != GameObjectRace.通用 && this.角色职业 != ItemData.NeedRace)
 					{
 						this.网络连接.尝试断开连接(new Exception("Error: Player uses an item.  Error: Occupation cannot be used."));
 						return;
@@ -10877,27 +10877,27 @@ namespace GameServer.Maps
 														else
 														{
 															GameItems 游戏物品2 = null;
-															if (this.角色职业 == GameObjectProfession.战士)
+															if (this.角色职业 == GameObjectRace.战士)
 															{
 																GameItems.DateSheetByName.TryGetValue("气血石", out 游戏物品2);
 															}
-															else if (this.角色职业 == GameObjectProfession.法师)
+															else if (this.角色职业 == GameObjectRace.法师)
 															{
 																GameItems.DateSheetByName.TryGetValue("魔法石", out 游戏物品2);
 															}
-															else if (this.角色职业 == GameObjectProfession.道士)
+															else if (this.角色职业 == GameObjectRace.道士)
 															{
 																GameItems.DateSheetByName.TryGetValue("万灵符", out 游戏物品2);
 															}
-															else if (this.角色职业 == GameObjectProfession.刺客)
+															else if (this.角色职业 == GameObjectRace.刺客)
 															{
 																GameItems.DateSheetByName.TryGetValue("吸血令", out 游戏物品2);
 															}
-															else if (this.角色职业 == GameObjectProfession.弓手)
+															else if (this.角色职业 == GameObjectRace.弓手)
 															{
 																GameItems.DateSheetByName.TryGetValue("守护箭袋", out 游戏物品2);
 															}
-															else if (this.角色职业 == GameObjectProfession.龙枪)
+															else if (this.角色职业 == GameObjectRace.龙枪)
 															{
 																GameItems.DateSheetByName.TryGetValue("血精石", out 游戏物品2);
 															}
@@ -11137,8 +11137,8 @@ namespace GameServer.Maps
 													}
 												}
 												this.消耗背包物品(1, ItemData);
-												this.当前体力 += (int)Math.Max(75f * (1f + (float)this[GameObjectProperties.药品回血] / 10000f), 0f);
-												this.当前魔力 += (int)Math.Max(100f * (1f + (float)this[GameObjectProperties.药品回魔] / 10000f), 0f);
+												this.当前体力 += (int)Math.Max(75f * (1f + (float)this[GameObjectStats.药品回血] / 10000f), 0f);
+												this.当前魔力 += (int)Math.Max(100f * (1f + (float)this[GameObjectStats.药品回魔] / 10000f), 0f);
 												return;
 											}
 											else
@@ -11388,8 +11388,8 @@ namespace GameServer.Maps
 													}
 												}
 												this.消耗背包物品(1, ItemData);
-												this.当前体力 += (int)Math.Max(50f * (1f + (float)this[GameObjectProperties.药品回血] / 10000f), 0f);
-												this.当前魔力 += (int)Math.Max(80f * (1f + (float)this[GameObjectProperties.药品回魔] / 10000f), 0f);
+												this.当前体力 += (int)Math.Max(50f * (1f + (float)this[GameObjectStats.药品回血] / 10000f), 0f);
+												this.当前魔力 += (int)Math.Max(80f * (1f + (float)this[GameObjectStats.药品回魔] / 10000f), 0f);
 												return;
 											}
 										}
@@ -12411,8 +12411,8 @@ namespace GameServer.Maps
 											}
 										}
 										this.消耗背包物品(1, ItemData);
-										this.当前体力 += (int)Math.Max(30f * (1f + (float)this[GameObjectProperties.药品回血] / 10000f), 0f);
-										this.当前魔力 += (int)Math.Max(40f * (1f + (float)this[GameObjectProperties.药品回魔] / 10000f), 0f);
+										this.当前体力 += (int)Math.Max(30f * (1f + (float)this[GameObjectStats.药品回血] / 10000f), 0f);
+										this.当前魔力 += (int)Math.Max(40f * (1f + (float)this[GameObjectStats.药品回魔] / 10000f), 0f);
 										return;
 									}
 								}
@@ -12718,27 +12718,27 @@ namespace GameServer.Maps
 												else
 												{
 													GameItems 游戏物品3 = null;
-													if (this.角色职业 == GameObjectProfession.战士)
+													if (this.角色职业 == GameObjectRace.战士)
 													{
 														GameItems.DateSheetByName.TryGetValue("灵疗石", out 游戏物品3);
 													}
-													else if (this.角色职业 == GameObjectProfession.法师)
+													else if (this.角色职业 == GameObjectRace.法师)
 													{
 														GameItems.DateSheetByName.TryGetValue("幻魔石", out 游戏物品3);
 													}
-													else if (this.角色职业 == GameObjectProfession.道士)
+													else if (this.角色职业 == GameObjectRace.道士)
 													{
 														GameItems.DateSheetByName.TryGetValue("圣灵符", out 游戏物品3);
 													}
-													else if (this.角色职业 == GameObjectProfession.刺客)
+													else if (this.角色职业 == GameObjectRace.刺客)
 													{
 														GameItems.DateSheetByName.TryGetValue("狂血令", out 游戏物品3);
 													}
-													else if (this.角色职业 == GameObjectProfession.弓手)
+													else if (this.角色职业 == GameObjectRace.弓手)
 													{
 														GameItems.DateSheetByName.TryGetValue("射手箭袋", out 游戏物品3);
 													}
-													else if (this.角色职业 == GameObjectProfession.龙枪)
+													else if (this.角色职业 == GameObjectRace.龙枪)
 													{
 														GameItems.DateSheetByName.TryGetValue("龙晶石", out 游戏物品3);
 													}
@@ -13037,8 +13037,8 @@ namespace GameServer.Maps
 													}
 												}
 												this.消耗背包物品(1, ItemData);
-												this.当前体力 += (int)Math.Max(100f * (1f + (float)this[GameObjectProperties.药品回血] / 10000f), 0f);
-												this.当前魔力 += (int)Math.Max(160f * (1f + (float)this[GameObjectProperties.药品回魔] / 10000f), 0f);
+												this.当前体力 += (int)Math.Max(100f * (1f + (float)this[GameObjectStats.药品回血] / 10000f), 0f);
+												this.当前魔力 += (int)Math.Max(160f * (1f + (float)this[GameObjectStats.药品回魔] / 10000f), 0f);
 												return;
 											}
 											else
@@ -13557,27 +13557,27 @@ namespace GameServer.Maps
 														else if (num5 < 95)
 														{
 															GameItems 游戏物品4 = null;
-															if (this.角色职业 == GameObjectProfession.战士)
+															if (this.角色职业 == GameObjectRace.战士)
 															{
 																GameItems.DateSheetByName.TryGetValue("战士铭文石", out 游戏物品4);
 															}
-															else if (this.角色职业 == GameObjectProfession.法师)
+															else if (this.角色职业 == GameObjectRace.法师)
 															{
 																GameItems.DateSheetByName.TryGetValue("法师铭文石", out 游戏物品4);
 															}
-															else if (this.角色职业 == GameObjectProfession.道士)
+															else if (this.角色职业 == GameObjectRace.道士)
 															{
 																GameItems.DateSheetByName.TryGetValue("道士铭文石", out 游戏物品4);
 															}
-															else if (this.角色职业 == GameObjectProfession.刺客)
+															else if (this.角色职业 == GameObjectRace.刺客)
 															{
 																GameItems.DateSheetByName.TryGetValue("刺客铭文石", out 游戏物品4);
 															}
-															else if (this.角色职业 == GameObjectProfession.弓手)
+															else if (this.角色职业 == GameObjectRace.弓手)
 															{
 																GameItems.DateSheetByName.TryGetValue("弓手铭文石", out 游戏物品4);
 															}
-															else if (this.角色职业 == GameObjectProfession.龙枪)
+															else if (this.角色职业 == GameObjectRace.龙枪)
 															{
 																GameItems.DateSheetByName.TryGetValue("龙枪铭文石", out 游戏物品4);
 															}
@@ -13837,27 +13837,27 @@ namespace GameServer.Maps
 												else
 												{
 													GameItems 游戏物品5 = null;
-													if (this.角色职业 == GameObjectProfession.战士)
+													if (this.角色职业 == GameObjectRace.战士)
 													{
 														GameItems.DateSheetByName.TryGetValue("战士铭文石", out 游戏物品5);
 													}
-													else if (this.角色职业 == GameObjectProfession.法师)
+													else if (this.角色职业 == GameObjectRace.法师)
 													{
 														GameItems.DateSheetByName.TryGetValue("法师铭文石", out 游戏物品5);
 													}
-													else if (this.角色职业 == GameObjectProfession.道士)
+													else if (this.角色职业 == GameObjectRace.道士)
 													{
 														GameItems.DateSheetByName.TryGetValue("道士铭文石", out 游戏物品5);
 													}
-													else if (this.角色职业 == GameObjectProfession.刺客)
+													else if (this.角色职业 == GameObjectRace.刺客)
 													{
 														GameItems.DateSheetByName.TryGetValue("刺客铭文石", out 游戏物品5);
 													}
-													else if (this.角色职业 == GameObjectProfession.弓手)
+													else if (this.角色职业 == GameObjectRace.弓手)
 													{
 														GameItems.DateSheetByName.TryGetValue("弓手铭文石", out 游戏物品5);
 													}
-													else if (this.角色职业 == GameObjectProfession.龙枪)
+													else if (this.角色职业 == GameObjectRace.龙枪)
 													{
 														GameItems.DateSheetByName.TryGetValue("龙枪铭文石", out 游戏物品5);
 													}
@@ -14879,27 +14879,27 @@ namespace GameServer.Maps
 											else
 											{
 												GameItems 游戏物品7 = null;
-												if (this.角色职业 == GameObjectProfession.战士)
+												if (this.角色职业 == GameObjectRace.战士)
 												{
 													GameItems.DateSheetByName.TryGetValue("战士铭文石", out 游戏物品7);
 												}
-												else if (this.角色职业 == GameObjectProfession.法师)
+												else if (this.角色职业 == GameObjectRace.法师)
 												{
 													GameItems.DateSheetByName.TryGetValue("法师铭文石", out 游戏物品7);
 												}
-												else if (this.角色职业 == GameObjectProfession.道士)
+												else if (this.角色职业 == GameObjectRace.道士)
 												{
 													GameItems.DateSheetByName.TryGetValue("道士铭文石", out 游戏物品7);
 												}
-												else if (this.角色职业 == GameObjectProfession.刺客)
+												else if (this.角色职业 == GameObjectRace.刺客)
 												{
 													GameItems.DateSheetByName.TryGetValue("刺客铭文石", out 游戏物品7);
 												}
-												else if (this.角色职业 == GameObjectProfession.弓手)
+												else if (this.角色职业 == GameObjectRace.弓手)
 												{
 													GameItems.DateSheetByName.TryGetValue("弓手铭文石", out 游戏物品7);
 												}
-												else if (this.角色职业 == GameObjectProfession.龙枪)
+												else if (this.角色职业 == GameObjectRace.龙枪)
 												{
 													GameItems.DateSheetByName.TryGetValue("龙枪铭文石", out 游戏物品7);
 												}
@@ -17014,25 +17014,25 @@ namespace GameServer.Maps
 					Dictionary<byte, Dictionary<EquipmentData, int>> dictionary4 = dictionary3;
 					foreach (EquipmentData EquipmentData3 in dictionary.Values)
 					{
-						Dictionary<GameObjectProperties, int> 装备属性 = EquipmentData3.装备属性;
+						Dictionary<GameObjectStats, int> 装备属性 = EquipmentData3.装备属性;
 						int value;
-						if ((value = (装备属性.ContainsKey(GameObjectProperties.MinAttack) ? 装备属性[GameObjectProperties.MinAttack] : 0) + (装备属性.ContainsKey(GameObjectProperties.MaxAttack) ? 装备属性[GameObjectProperties.MaxAttack] : 0)) > 0)
+						if ((value = (装备属性.ContainsKey(GameObjectStats.MinAttack) ? 装备属性[GameObjectStats.MinAttack] : 0) + (装备属性.ContainsKey(GameObjectStats.MaxAttack) ? 装备属性[GameObjectStats.MaxAttack] : 0)) > 0)
 						{
 							dictionary4[0][EquipmentData3] = value;
 						}
-						if ((value = (装备属性.ContainsKey(GameObjectProperties.MinMagic) ? 装备属性[GameObjectProperties.MinMagic] : 0) + (装备属性.ContainsKey(GameObjectProperties.MaxMagic) ? 装备属性[GameObjectProperties.MaxMagic] : 0)) > 0)
+						if ((value = (装备属性.ContainsKey(GameObjectStats.MinMagic) ? 装备属性[GameObjectStats.MinMagic] : 0) + (装备属性.ContainsKey(GameObjectStats.MaxMagic) ? 装备属性[GameObjectStats.MaxMagic] : 0)) > 0)
 						{
 							dictionary4[1][EquipmentData3] = value;
 						}
-						if ((value = (装备属性.ContainsKey(GameObjectProperties.Minimalist) ? 装备属性[GameObjectProperties.Minimalist] : 0) + (装备属性.ContainsKey(GameObjectProperties.GreatestTaoism) ? 装备属性[GameObjectProperties.GreatestTaoism] : 0)) > 0)
+						if ((value = (装备属性.ContainsKey(GameObjectStats.Minimalist) ? 装备属性[GameObjectStats.Minimalist] : 0) + (装备属性.ContainsKey(GameObjectStats.GreatestTaoism) ? 装备属性[GameObjectStats.GreatestTaoism] : 0)) > 0)
 						{
 							dictionary4[2][EquipmentData3] = value;
 						}
-						if ((value = (装备属性.ContainsKey(GameObjectProperties.MinNeedle) ? 装备属性[GameObjectProperties.MinNeedle] : 0) + (装备属性.ContainsKey(GameObjectProperties.MaxNeedle) ? 装备属性[GameObjectProperties.MaxNeedle] : 0)) > 0)
+						if ((value = (装备属性.ContainsKey(GameObjectStats.MinNeedle) ? 装备属性[GameObjectStats.MinNeedle] : 0) + (装备属性.ContainsKey(GameObjectStats.MaxNeedle) ? 装备属性[GameObjectStats.MaxNeedle] : 0)) > 0)
 						{
 							dictionary4[3][EquipmentData3] = value;
 						}
-						if ((value = (装备属性.ContainsKey(GameObjectProperties.MinBow) ? 装备属性[GameObjectProperties.MinBow] : 0) + (装备属性.ContainsKey(GameObjectProperties.MaxBow) ? 装备属性[GameObjectProperties.MaxBow] : 0)) > 0)
+						if ((value = (装备属性.ContainsKey(GameObjectStats.MinBow) ? 装备属性[GameObjectStats.MinBow] : 0) + (装备属性.ContainsKey(GameObjectStats.MaxBow) ? 装备属性[GameObjectStats.MaxBow] : 0)) > 0)
 						{
 							dictionary4[4][EquipmentData3] = value;
 						}
@@ -18101,8 +18101,8 @@ namespace GameServer.Maps
 						身上披风 = num2.GetValueOrDefault();
 					}
 					SyncPlayerAppearancePacket.身上披风 = 身上披风;
-					SyncPlayerAppearancePacket.当前体力 = PlayerObject[GameObjectProperties.MaxPhysicalStrength];
-					SyncPlayerAppearancePacket.当前魔力 = PlayerObject[GameObjectProperties.MaxMagic2];
+					SyncPlayerAppearancePacket.当前体力 = PlayerObject[GameObjectStats.MaxPhysicalStrength];
+					SyncPlayerAppearancePacket.当前魔力 = PlayerObject[GameObjectStats.MaxMagic2];
 					SyncPlayerAppearancePacket.对象名字 = PlayerObject.对象名字;
 					GuildData 所属行会 = PlayerObject.所属行会;
 					SyncPlayerAppearancePacket.行会编号 = ((所属行会 != null) ? 所属行会.数据索引.V : 0);
@@ -18131,7 +18131,7 @@ namespace GameServer.Maps
 								模板编号 = MonsterObject.模板编号,
 								当前等级 = MonsterObject.宠物等级,
 								对象质量 = (byte)MonsterObject.怪物级别,
-								MaxPhysicalStrength = MonsterObject[GameObjectProperties.MaxPhysicalStrength]
+								MaxPhysicalStrength = MonsterObject[GameObjectStats.MaxPhysicalStrength]
 							});
 							return;
 						}
@@ -18148,7 +18148,7 @@ namespace GameServer.Maps
 							同步Npcc数据.对象质量 = (byte)MonsterObject.怪物级别;
 							游戏怪物 对象模板 = MonsterObject.对象模板;
 							同步Npcc数据.对象模板 = ((ushort)((对象模板 != null) ? 对象模板.怪物编号 : 0));
-							同步Npcc数据.体力上限 = MonsterObject[GameObjectProperties.MaxPhysicalStrength];
+							同步Npcc数据.体力上限 = MonsterObject[GameObjectStats.MaxPhysicalStrength];
 							网络连接4.发送封包(同步Npcc数据);
 							return;
 						}
@@ -18172,7 +18172,7 @@ namespace GameServer.Maps
 								同步Npcc数据2.对象等级 = GuardInstance.当前等级;
 								地图守卫 对象模板2 = GuardInstance.对象模板;
 								同步Npcc数据2.对象模板 = ((ushort)((对象模板2 != null) ? 对象模板2.GuardNumber : 0));
-								同步Npcc数据2.体力上限 = GuardInstance[GameObjectProperties.MaxPhysicalStrength];
+								同步Npcc数据2.体力上限 = GuardInstance[GameObjectStats.MaxPhysicalStrength];
 								网络连接5.发送封包(同步Npcc数据2);
 							}
 							return;
@@ -18189,7 +18189,7 @@ namespace GameServer.Maps
 						SyncExtendedDataPacket.当前等级 = PetObject.宠物等级;
 						SyncExtendedDataPacket.对象等级 = PetObject.当前等级;
 						SyncExtendedDataPacket.对象质量 = (byte)PetObject.宠物级别;
-						SyncExtendedDataPacket.MaxPhysicalStrength = PetObject[GameObjectProperties.MaxPhysicalStrength];
+						SyncExtendedDataPacket.MaxPhysicalStrength = PetObject[GameObjectStats.MaxPhysicalStrength];
 						PlayerObject 宠物主人 = PetObject.宠物主人;
 						SyncExtendedDataPacket.主人编号 = ((宠物主人 != null) ? 宠物主人.MapId : 0);
 						PlayerObject 宠物主人2 = PetObject.宠物主人;
@@ -23954,8 +23954,8 @@ namespace GameServer.Maps
 				{
 					for (byte b = 0; b <= 100; b += 1)
 					{
-						GameObjectProperties GameObjectProperties;
-						if (Enum.TryParse<GameObjectProperties>(b.ToString(), out GameObjectProperties) && Enum.IsDefined(typeof(GameObjectProperties), GameObjectProperties))
+						GameObjectStats GameObjectProperties;
+						if (Enum.TryParse<GameObjectStats>(b.ToString(), out GameObjectProperties) && Enum.IsDefined(typeof(GameObjectStats), GameObjectProperties))
 						{
 							binaryWriter.Write(b);
 							binaryWriter.Write(this[GameObjectProperties]);
