@@ -18,7 +18,7 @@ namespace GameServer.Templates
 				typeof(地图守卫),
 				typeof(对话数据),
 				typeof(GameMap),
-				typeof(地形数据),
+				typeof(Terrains),
 				typeof(MapAreas),
 				typeof(TeleportGates),
 				typeof(MonsterSpawns),

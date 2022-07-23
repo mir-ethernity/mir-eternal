@@ -169,7 +169,7 @@
     <Compile Include="Templates\MapAreas.cs" />
     <Compile Include="Enums\AreaType.cs" />
     <Compile Include="Templates\PendingRename36.cs" />
-    <Compile Include="Templates\PendingRename38.cs" />
+    <Compile Include="Templates\Terrains.cs" />
     <Compile Include="Templates\PendingRename4.cs" />
     <Compile Include="Templates\Guards.cs" />
     <Compile Include="Templates\PendingRename39.cs" />

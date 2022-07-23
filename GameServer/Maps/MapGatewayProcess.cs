@@ -712,7 +712,7 @@ namespace GameServer.Maps
 			{
 				MapGatewayProcess.MapInstance表.Add((int)(游戏地图.MapId * 16 + 1), new MapInstance(游戏地图, 16777217));
 			}
-			foreach (地形数据 地形数据 in 地形数据.DataSheet.Values)
+			foreach (Terrains 地形数据 in Terrains.DataSheet.Values)
 			{
 				foreach (MapInstance MapInstance in MapGatewayProcess.MapInstance表.Values)
 				{

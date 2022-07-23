@@ -96,7 +96,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.地形数据.地图起点;
+				return this.地形数据.StartPoint;
 			}
 		}
 
@@ -106,7 +106,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.地形数据.地图终点;
+				return this.地形数据.EndPoint;
 			}
 		}
 
@@ -116,7 +116,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.地形数据.地图大小;
+				return this.地形数据.MapSize;
 			}
 		}
 
@@ -549,7 +549,7 @@ namespace GameServer.Maps
 		public HashSet<MapObject>[,] MapObject;
 
 		
-		public 地形数据 地形数据;
+		public Terrains 地形数据;
 
 		
 		public MapAreas 复活区域;
