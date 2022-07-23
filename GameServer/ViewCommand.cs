@@ -19,7 +19,7 @@ namespace GameServer
 		// Token: 0x06000013 RID: 19 RVA: 0x00007E40 File Offset: 0x00006040
 		public override void 执行命令()
 		{
-			MainForm.添加命令日志("以下为所有支持的GMCommand:");
+			MainForm.添加命令日志("All available GM Commands are listed below:");
 			foreach (KeyValuePair<string, string> keyValuePair in GMCommand.命令格式)
 			{
 				MainForm.添加命令日志(keyValuePair.Value);

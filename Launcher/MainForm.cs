@@ -200,7 +200,7 @@ namespace Launcher
           if (!(s == "2") || strArray1.Length != 4)
             break;
           this.UIUnlock((object) null, (EventArgs) null);
-          int num5 = (int) MessageBox.Show("Account registration succeful");
+          int num5 = (int) MessageBox.Show("Account registration successful");
           break;
       }
     }
@@ -234,7 +234,7 @@ namespace Launcher
       }
       else if (this.AccountPasswordTextBox.Text.Length <= 0)
       {
-        this.login_error_label.Text = "password can not be blank";
+        this.login_error_label.Text = "Password can not be blank";
         this.login_error_label.Visible = true;
       }
       else if (this.AccountTextBox.Text.IndexOf(' ') >= 0)
@@ -451,7 +451,7 @@ namespace Launcher
         this.MainTab.SelectedIndex = 0;
       else if (this.start_selected_zone.Text == null || this.start_selected_zone.Text == "")
       {
-        int num1 = (int) MessageBox.Show("please choose the server");
+        int num1 = (int) MessageBox.Show("Please choose the server");
       }
       else if (!MainForm.IPList.ContainsKey(this.start_selected_zone.Text))
       {

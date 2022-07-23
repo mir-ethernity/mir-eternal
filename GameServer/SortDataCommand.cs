@@ -21,9 +21,9 @@ namespace GameServer
 		// Token: 0x06000019 RID: 25 RVA: 0x00007F48 File Offset: 0x00006148
 		public override void 执行命令()
 		{
-			if (MessageBox.Show("SortDataCommand需要重新排序所有客户数据以便节省ID资源\r\n\r\n此操作不可逆, 请做好数据备份\r\n\r\n确定要执行吗?", "危险操作", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+			if (MessageBox.Show("SortDataCommand needs to re-sort all customer data to save ID resources \r\n\r\nThis operation is irreversible, please make a data backup \r\n\r\n sure you want to do it?", "Dangerous operations", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
 			{
-				MainForm.添加命令日志("<= @" + base.GetType().Name + " 开始执行命令, 过程中请勿关闭窗口");
+				MainForm.添加命令日志("<= @" + base.GetType().Name + " Start the command, do not close the window during the execution");
 				MainForm.Singleton.BeginInvoke(new MethodInvoker(delegate()
 				{
 					Control 下方控件页 = MainForm.Singleton.下方控件页;
