@@ -162,6 +162,7 @@
     <Compile Include="Templates\PendingRename26.cs" />
     <Compile Include="Templates\PendingRename27.cs" />
     <Compile Include="Templates\PendingRename28.cs" />
+    <Compile Include="Templates\StatsDetail.cs" />
     <Compile Include="Templates\TeleportGates.cs" />
     <Compile Include="Templates\MonsterSpawnInfo.cs" />
     <Compile Include="Templates\PendingRename5.cs" />
@@ -204,7 +205,7 @@
     <Compile Include="Templates\EquipmentItem.cs" />
     <Compile Include="Templates\PendingRename29.cs" />
     <Compile Include="Templates\PendingRename31.cs" />
-    <Compile Include="Templates\PendingRename49.cs" />
+    <Compile Include="Templates\EquipmentStats.cs" />
     <Compile Include="Templates\PendingRename30.cs" />
     <Compile Include="Templates\PendingRename7.cs" />
     <Compile Include="Templates\PendingRename6.cs" />
@@ -222,7 +223,7 @@
     <Compile Include="Enums\GameEquipmentSet.cs" />
     <Compile Include="Enums\GameCurrency.cs" />
     <Compile Include="Enums\GameStage.cs" />
-    <Compile Include="Enums\ItemUsageType.cs" />
+    <Compile Include="Enums\ItemType.cs" />
     <Compile Include="Enums\ItemsForSale.cs" />
     <Compile Include="Enums\PersistentItemType.cs" />
     <Compile Include="Enums\SortItems.cs" />

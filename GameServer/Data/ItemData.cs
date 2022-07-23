@@ -30,11 +30,11 @@ namespace GameServer.Data
 
 		
 		// (get) Token: 0x0600056B RID: 1387 RVA: 0x0000519A File Offset: 0x0000339A
-		public ItemUsageType 物品类型
+		public ItemType 物品类型
 		{
 			get
 			{
-				return this.物品模板.UsageType;
+				return this.物品模板.Type;
 			}
 		}
 
@@ -144,7 +144,7 @@ namespace GameServer.Data
 						}
 					}
 					int num4 = 0;
-					foreach (随机属性 随机属性 in EquipmentData.随机属性)
+					foreach (RandomStats 随机属性 in EquipmentData.随机属性)
 					{
 						num4 += 随机属性.战力加成 * 100;
 					}

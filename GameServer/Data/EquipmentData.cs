@@ -25,11 +25,11 @@ namespace GameServer.Data
 		{
 			get
 			{
-				if (this.装备模板.UsageType == ItemUsageType.武器)
+				if (this.装备模板.Type == ItemType.武器)
 				{
 					int num = (int)((long)(this.装备模板.BasicPowerCombat * (int)(this.幸运等级.V + 20)) * 1717986919L >> 32 >> 3);
 					int num2 = (int)(this.神圣伤害.V * 3 + this.升级攻击.V * 5 + this.升级魔法.V * 5 + this.升级道术.V * 5 + this.升级刺术.V * 5 + this.升级弓术.V * 5);
-					int num3 = this.随机属性.Sum((随机属性 x) => x.战力加成);
+					int num3 = this.随机属性.Sum((RandomStats x) => x.战力加成);
 					return num + num2 + num3;
 				}
 				int num4 = 0;
@@ -37,10 +37,10 @@ namespace GameServer.Data
 				{
 				case GameEquipmentSet.祖玛装备:
 				{
-					ItemUsageType UsageType = this.装备模板.UsageType;
-					if (UsageType != ItemUsageType.衣服)
+					ItemType Type = this.装备模板.Type;
+					if (Type != ItemType.衣服)
 					{
-						if (UsageType - ItemUsageType.腰带 <= 1 || UsageType == ItemUsageType.头盔)
+						if (Type - ItemType.腰带 <= 1 || Type == ItemType.头盔)
 						{
 							num4 = (int)(2 * this.升级次数.V);
 						}
@@ -53,10 +53,10 @@ namespace GameServer.Data
 				}
 				case GameEquipmentSet.赤月装备:
 				{
-					ItemUsageType UsageType = this.装备模板.UsageType;
-					if (UsageType != ItemUsageType.衣服)
+					ItemType Type = this.装备模板.Type;
+					if (Type != ItemType.衣服)
 					{
-						if (UsageType - ItemUsageType.腰带 <= 1 || UsageType == ItemUsageType.头盔)
+						if (Type - ItemType.腰带 <= 1 || Type == ItemType.头盔)
 						{
 							num4 = (int)(4 * this.升级次数.V);
 						}
@@ -69,10 +69,10 @@ namespace GameServer.Data
 				}
 				case GameEquipmentSet.魔龙装备:
 				{
-					ItemUsageType UsageType = this.装备模板.UsageType;
-					if (UsageType != ItemUsageType.衣服)
+					ItemType Type = this.装备模板.Type;
+					if (Type != ItemType.衣服)
 					{
-						if (UsageType - ItemUsageType.腰带 <= 1 || UsageType == ItemUsageType.头盔)
+						if (Type - ItemType.腰带 <= 1 || Type == ItemType.头盔)
 						{
 							num4 = (int)(5 * this.升级次数.V);
 						}
@@ -85,10 +85,10 @@ namespace GameServer.Data
 				}
 				case GameEquipmentSet.苍月装备:
 				{
-					ItemUsageType UsageType = this.装备模板.UsageType;
-					if (UsageType != ItemUsageType.衣服)
+					ItemType Type = this.装备模板.Type;
+					if (Type != ItemType.衣服)
 					{
-						if (UsageType - ItemUsageType.腰带 <= 1 || UsageType == ItemUsageType.头盔)
+						if (Type - ItemType.腰带 <= 1 || Type == ItemType.头盔)
 						{
 							num4 = (int)(7 * this.升级次数.V);
 						}
@@ -100,7 +100,7 @@ namespace GameServer.Data
 					break;
 				}
 				case GameEquipmentSet.星王装备:
-					if (this.装备模板.UsageType == ItemUsageType.衣服)
+					if (this.装备模板.Type == ItemType.衣服)
 					{
 						num4 = (int)(13 * this.升级次数.V);
 					}
@@ -108,10 +108,10 @@ namespace GameServer.Data
 				case GameEquipmentSet.神秘装备:
 				case GameEquipmentSet.城主装备:
 				{
-					ItemUsageType UsageType = this.装备模板.UsageType;
-					if (UsageType != ItemUsageType.衣服)
+					ItemType Type = this.装备模板.Type;
+					if (Type != ItemType.衣服)
 					{
-						if (UsageType - ItemUsageType.腰带 <= 1 || UsageType == ItemUsageType.头盔)
+						if (Type - ItemType.腰带 <= 1 || Type == ItemType.头盔)
 						{
 							num4 = (int)(9 * this.升级次数.V);
 						}
@@ -1932,7 +1932,7 @@ namespace GameServer.Data
 					IL_1A0A:
 					num5 += 30;
 				}
-				int num7 = this.随机属性.Sum((随机属性 x) => x.战力加成);
+				int num7 = this.随机属性.Sum((RandomStats x) => x.战力加成);
 				return this.装备模板.BasicPowerCombat + num4 + num7 + num5;
 			}
 		}
@@ -2160,7 +2160,7 @@ namespace GameServer.Data
 			{
 				string text = "";
 				Dictionary<GameObjectProperties, int> dictionary = new Dictionary<GameObjectProperties, int>();
-				foreach (随机属性 随机属性 in this.随机属性)
+				foreach (RandomStats 随机属性 in this.随机属性)
 				{
 					dictionary[随机属性.对应属性] = 随机属性.属性数值;
 				}
@@ -2526,7 +2526,7 @@ namespace GameServer.Data
 				{
 					dictionary[GameObjectProperties.MaxBow] = (dictionary.ContainsKey(GameObjectProperties.MaxBow) ? (dictionary[GameObjectProperties.MaxBow] + (int)this.升级弓术.V) : ((int)this.升级弓术.V));
 				}
-				foreach (随机属性 随机属性 in this.随机属性.ToList<随机属性>())
+				foreach (RandomStats 随机属性 in this.随机属性.ToList<RandomStats>())
 				{
 					dictionary[随机属性.对应属性] = (dictionary.ContainsKey(随机属性.对应属性) ? (dictionary[随机属性.对应属性] + 随机属性.属性数值) : 随机属性.属性数值);
 				}
@@ -2736,7 +2736,7 @@ namespace GameServer.Data
 			当前持久.V = v;
 			if (随机生成 && 模板.PersistType == PersistentItemType.装备)
 			{
-				this.随机属性.SetValue(GameServer.Templates.装备属性.生成属性(base.物品类型, false));
+				this.随机属性.SetValue(GameServer.Templates.EquipmentStats.GenerateStats(base.物品类型, false));
 			}
 			GameDataGateway.EquipmentData表.AddData(this, true);
 		}
@@ -2749,21 +2749,21 @@ namespace GameServer.Data
 			{
 				switch (base.物品类型)
 				{
-				case ItemUsageType.衣服:
-				case ItemUsageType.披风:
-				case ItemUsageType.腰带:
-				case ItemUsageType.鞋子:
-				case ItemUsageType.护肩:
-				case ItemUsageType.护腕:
-				case ItemUsageType.头盔:
+				case ItemType.衣服:
+				case ItemType.披风:
+				case ItemType.腰带:
+				case ItemType.鞋子:
+				case ItemType.护肩:
+				case ItemType.护腕:
+				case ItemType.头盔:
 					return 112003;
-				case ItemUsageType.项链:
-				case ItemUsageType.戒指:
-				case ItemUsageType.手镯:
-				case ItemUsageType.勋章:
-				case ItemUsageType.玉佩:
+				case ItemType.项链:
+				case ItemType.戒指:
+				case ItemType.手镯:
+				case ItemType.勋章:
+				case ItemType.玉佩:
 					return 112002;
-				case ItemUsageType.武器:
+				case ItemType.武器:
 					return 112001;
 				default:
 					return 0;
@@ -3063,7 +3063,7 @@ namespace GameServer.Data
 		public readonly DataMonitor<byte> 物品状态;
 
 		
-		public readonly ListMonitor<随机属性> 随机属性;
+		public readonly ListMonitor<RandomStats> 随机属性;
 
 		
 		public readonly ListMonitor<EquipHoleColor> 孔洞颜色;

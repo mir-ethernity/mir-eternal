@@ -757,7 +757,7 @@ namespace GameServer.Maps
 					foreach (怪物掉落 怪物掉落 in this.怪物掉落)
 					{
 						GameItems 游戏物品;
-						if (GameItems.DateSheetByName.TryGetValue(怪物掉落.Name, out 游戏物品) && !ComputingClass.计算概率(num10) && (PlayerObject.本期特权 != 0 || this.怪物级别 == MonsterLevelType.头目首领 || 游戏物品.UsageType == ItemUsageType.可用药剂 || !ComputingClass.计算概率(0.5f)) && (PlayerObject.本期特权 != 3 || this.怪物级别 == MonsterLevelType.头目首领 || 游戏物品.UsageType == ItemUsageType.可用药剂 || !ComputingClass.计算概率(0.25f)))
+						if (GameItems.DateSheetByName.TryGetValue(怪物掉落.Name, out 游戏物品) && !ComputingClass.计算概率(num10) && (PlayerObject.本期特权 != 0 || this.怪物级别 == MonsterLevelType.头目首领 || 游戏物品.Type == ItemType.可用药剂 || !ComputingClass.计算概率(0.5f)) && (PlayerObject.本期特权 != 3 || this.怪物级别 == MonsterLevelType.头目首领 || 游戏物品.Type == ItemType.可用药剂 || !ComputingClass.计算概率(0.25f)))
 						{
 							int num13 = Math.Max(1, 怪物掉落.掉落概率 - (int)Math.Round(怪物掉落.掉落概率 * CustomClass.怪物额外爆率));
 							if (MainProcess.RandomNumber.Next(num13) == num13 / 2)

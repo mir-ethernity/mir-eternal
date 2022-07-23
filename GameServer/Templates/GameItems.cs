@@ -27,7 +27,7 @@ namespace GameServer.Templates
 		public bool CanSold;
 		public bool ValuableObjects;
 		public bool Resource;
-		public ItemUsageType UsageType;
+		public ItemType Type;
 		public GameObjectProfession NeedRace;
 		public GameObjectGender NeedGender;
 		public PersistentItemType PersistType;

@@ -1292,7 +1292,7 @@ namespace GameServer.Maps
 				int num = 0;
 				foreach (EquipmentData EquipmentData in this.角色装备.Values.ToList<EquipmentData>())
 				{
-					num += ((EquipmentData == null || EquipmentData.物品类型 == ItemUsageType.武器) ? 0 : EquipmentData.Weight);
+					num += ((EquipmentData == null || EquipmentData.物品类型 == ItemType.武器) ? 0 : EquipmentData.Weight);
 				}
 				return num;
 			}
@@ -2655,7 +2655,7 @@ namespace GameServer.Maps
 			}
 			if (原有装备 != null)
 			{
-				if (原有装备.物品类型 == ItemUsageType.武器)
+				if (原有装备.物品类型 == ItemType.武器)
 				{
 					foreach (BuffData BuffData in this.Buff列表.Values.ToList<BuffData>())
 					{
@@ -2665,7 +2665,7 @@ namespace GameServer.Maps
 						}
 					}
 				}
-				if (原有装备.物品类型 == ItemUsageType.武器)
+				if (原有装备.物品类型 == ItemType.武器)
 				{
 					foreach (PetObject PetObject in this.宠物列表.ToList<PetObject>())
 					{
@@ -2940,7 +2940,7 @@ namespace GameServer.Maps
 			损失持久 = Math.Min(10, 损失持久);
 			foreach (EquipmentData EquipmentData in this.角色装备.Values)
 			{
-				if (EquipmentData.当前持久.V > 0 && (this.本期特权 != 5 || !EquipmentData.CanRepair) && (this.本期特权 != 4 || !ComputingClass.计算概率(0.5f)) && EquipmentData.PersistType == PersistentItemType.装备 && ComputingClass.计算概率((EquipmentData.物品类型 == ItemUsageType.衣服) ? 1f : 0.1f))
+				if (EquipmentData.当前持久.V > 0 && (this.本期特权 != 5 || !EquipmentData.CanRepair) && (this.本期特权 != 4 || !ComputingClass.计算概率(0.5f)) && EquipmentData.PersistType == PersistentItemType.装备 && ComputingClass.计算概率((EquipmentData.物品类型 == ItemType.衣服) ? 1f : 0.1f))
 				{
 					if ((EquipmentData.当前持久.V = Math.Max(0, EquipmentData.当前持久.V - 损失持久)) <= 0 && this.属性加成.Remove(EquipmentData))
 					{
@@ -3901,7 +3901,7 @@ namespace GameServer.Maps
 											{
 												this.当前魔力 -= num;
 											}
-											if (list != null && list.Count == 1 && list[0].物品类型 == ItemUsageType.战具)
+											if (list != null && list.Count == 1 && list[0].物品类型 == ItemType.战具)
 											{
 												this.战具损失持久(num2);
 											}
@@ -4507,7 +4507,7 @@ namespace GameServer.Maps
 										{
 											this.NumberGoldCoins -= num8;
 											this.消耗背包物品(num9, 物品列表);
-											EquipmentData2.随机属性.SetValue(装备属性.生成属性(EquipmentData2.物品类型, true));
+											EquipmentData2.随机属性.SetValue(EquipmentStats.GenerateStats(EquipmentData2.物品类型, true));
 											客户网络 网络连接16 = this.网络连接;
 											if (网络连接16 != null)
 											{
@@ -10244,67 +10244,67 @@ namespace GameServer.Maps
 						return;
 					}
 				}
-				if (目标位置 == 0 && EquipmentData3.物品类型 != ItemUsageType.武器)
+				if (目标位置 == 0 && EquipmentData3.物品类型 != ItemType.武器)
 				{
 					return;
 				}
-				if (目标位置 == 1 && EquipmentData3.物品类型 != ItemUsageType.衣服)
+				if (目标位置 == 1 && EquipmentData3.物品类型 != ItemType.衣服)
 				{
 					return;
 				}
-				if (目标位置 == 2 && EquipmentData3.物品类型 != ItemUsageType.披风)
+				if (目标位置 == 2 && EquipmentData3.物品类型 != ItemType.披风)
 				{
 					return;
 				}
-				if (目标位置 == 3 && EquipmentData3.物品类型 != ItemUsageType.头盔)
+				if (目标位置 == 3 && EquipmentData3.物品类型 != ItemType.头盔)
 				{
 					return;
 				}
-				if (目标位置 == 4 && EquipmentData3.物品类型 != ItemUsageType.护肩)
+				if (目标位置 == 4 && EquipmentData3.物品类型 != ItemType.护肩)
 				{
 					return;
 				}
-				if (目标位置 == 5 && EquipmentData3.物品类型 != ItemUsageType.护腕)
+				if (目标位置 == 5 && EquipmentData3.物品类型 != ItemType.护腕)
 				{
 					return;
 				}
-				if (目标位置 == 6 && EquipmentData3.物品类型 != ItemUsageType.腰带)
+				if (目标位置 == 6 && EquipmentData3.物品类型 != ItemType.腰带)
 				{
 					return;
 				}
-				if (目标位置 == 7 && EquipmentData3.物品类型 != ItemUsageType.鞋子)
+				if (目标位置 == 7 && EquipmentData3.物品类型 != ItemType.鞋子)
 				{
 					return;
 				}
-				if (目标位置 == 8 && EquipmentData3.物品类型 != ItemUsageType.项链)
+				if (目标位置 == 8 && EquipmentData3.物品类型 != ItemType.项链)
 				{
 					return;
 				}
-				if (目标位置 == 13 && EquipmentData3.物品类型 != ItemUsageType.勋章)
+				if (目标位置 == 13 && EquipmentData3.物品类型 != ItemType.勋章)
 				{
 					return;
 				}
-				if (目标位置 == 14 && EquipmentData3.物品类型 != ItemUsageType.玉佩)
+				if (目标位置 == 14 && EquipmentData3.物品类型 != ItemType.玉佩)
 				{
 					return;
 				}
-				if (目标位置 == 15 && EquipmentData3.物品类型 != ItemUsageType.战具)
+				if (目标位置 == 15 && EquipmentData3.物品类型 != ItemType.战具)
 				{
 					return;
 				}
-				if (目标位置 == 9 && EquipmentData3.物品类型 != ItemUsageType.戒指)
+				if (目标位置 == 9 && EquipmentData3.物品类型 != ItemType.戒指)
 				{
 					return;
 				}
-				if (目标位置 == 10 && EquipmentData3.物品类型 != ItemUsageType.戒指)
+				if (目标位置 == 10 && EquipmentData3.物品类型 != ItemType.戒指)
 				{
 					return;
 				}
-				if (目标位置 == 11 && EquipmentData3.物品类型 != ItemUsageType.手镯)
+				if (目标位置 == 11 && EquipmentData3.物品类型 != ItemType.手镯)
 				{
 					return;
 				}
-				if (目标位置 == 12 && EquipmentData3.物品类型 != ItemUsageType.手镯)
+				if (目标位置 == 12 && EquipmentData3.物品类型 != ItemType.手镯)
 				{
 					return;
 				}
@@ -10361,67 +10361,67 @@ namespace GameServer.Maps
 						return;
 					}
 				}
-				if (当前位置 == 0 && EquipmentData4.物品类型 != ItemUsageType.武器)
+				if (当前位置 == 0 && EquipmentData4.物品类型 != ItemType.武器)
 				{
 					return;
 				}
-				if (当前位置 == 1 && EquipmentData4.物品类型 != ItemUsageType.衣服)
+				if (当前位置 == 1 && EquipmentData4.物品类型 != ItemType.衣服)
 				{
 					return;
 				}
-				if (当前位置 == 2 && EquipmentData4.物品类型 != ItemUsageType.披风)
+				if (当前位置 == 2 && EquipmentData4.物品类型 != ItemType.披风)
 				{
 					return;
 				}
-				if (当前位置 == 3 && EquipmentData4.物品类型 != ItemUsageType.头盔)
+				if (当前位置 == 3 && EquipmentData4.物品类型 != ItemType.头盔)
 				{
 					return;
 				}
-				if (当前位置 == 4 && EquipmentData4.物品类型 != ItemUsageType.护肩)
+				if (当前位置 == 4 && EquipmentData4.物品类型 != ItemType.护肩)
 				{
 					return;
 				}
-				if (当前位置 == 5 && EquipmentData4.物品类型 != ItemUsageType.护腕)
+				if (当前位置 == 5 && EquipmentData4.物品类型 != ItemType.护腕)
 				{
 					return;
 				}
-				if (当前位置 == 6 && EquipmentData4.物品类型 != ItemUsageType.腰带)
+				if (当前位置 == 6 && EquipmentData4.物品类型 != ItemType.腰带)
 				{
 					return;
 				}
-				if (当前位置 == 7 && EquipmentData4.物品类型 != ItemUsageType.鞋子)
+				if (当前位置 == 7 && EquipmentData4.物品类型 != ItemType.鞋子)
 				{
 					return;
 				}
-				if (当前位置 == 8 && EquipmentData4.物品类型 != ItemUsageType.项链)
+				if (当前位置 == 8 && EquipmentData4.物品类型 != ItemType.项链)
 				{
 					return;
 				}
-				if (当前位置 == 13 && EquipmentData4.物品类型 != ItemUsageType.勋章)
+				if (当前位置 == 13 && EquipmentData4.物品类型 != ItemType.勋章)
 				{
 					return;
 				}
-				if (当前位置 == 14 && EquipmentData4.物品类型 != ItemUsageType.玉佩)
+				if (当前位置 == 14 && EquipmentData4.物品类型 != ItemType.玉佩)
 				{
 					return;
 				}
-				if (当前位置 == 15 && EquipmentData4.物品类型 != ItemUsageType.战具)
+				if (当前位置 == 15 && EquipmentData4.物品类型 != ItemType.战具)
 				{
 					return;
 				}
-				if (当前位置 == 9 && EquipmentData4.物品类型 != ItemUsageType.戒指)
+				if (当前位置 == 9 && EquipmentData4.物品类型 != ItemType.戒指)
 				{
 					return;
 				}
-				if (当前位置 == 10 && EquipmentData4.物品类型 != ItemUsageType.戒指)
+				if (当前位置 == 10 && EquipmentData4.物品类型 != ItemType.戒指)
 				{
 					return;
 				}
-				if (当前位置 == 11 && EquipmentData4.物品类型 != ItemUsageType.手镯)
+				if (当前位置 == 11 && EquipmentData4.物品类型 != ItemType.手镯)
 				{
 					return;
 				}
-				if (当前位置 == 12 && EquipmentData4.物品类型 != ItemUsageType.手镯)
+				if (当前位置 == 12 && EquipmentData4.物品类型 != ItemType.手镯)
 				{
 					return;
 				}
@@ -15800,7 +15800,7 @@ namespace GameServer.Maps
 			}
 			else
 			{
-				if (EquipmentData.物品类型 != ItemUsageType.武器)
+				if (EquipmentData.物品类型 != ItemType.武器)
 				{
 					this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong item type."));
 					return;
@@ -15826,7 +15826,7 @@ namespace GameServer.Maps
 				}
 				else
 				{
-					if (ItemData2.物品类型 != ItemUsageType.普通铭文)
+					if (ItemData2.物品类型 != ItemType.普通铭文)
 					{
 						this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong material type."));
 						return;
@@ -16016,7 +16016,7 @@ namespace GameServer.Maps
 			}
 			else
 			{
-				if (EquipmentData.物品类型 != ItemUsageType.武器)
+				if (EquipmentData.物品类型 != ItemType.武器)
 				{
 					this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong item type."));
 					return;
@@ -16047,7 +16047,7 @@ namespace GameServer.Maps
 				}
 				else
 				{
-					if (ItemData2.物品类型 != ItemUsageType.普通铭文)
+					if (ItemData2.物品类型 != ItemType.普通铭文)
 					{
 						this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong material type."));
 						return;
@@ -16180,7 +16180,7 @@ namespace GameServer.Maps
 			}
 			else
 			{
-				if (EquipmentData.物品类型 != ItemUsageType.武器)
+				if (EquipmentData.物品类型 != ItemType.武器)
 				{
 					this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong item type."));
 					return;
@@ -16211,7 +16211,7 @@ namespace GameServer.Maps
 				}
 				else
 				{
-					if (list.FirstOrDefault((ItemData O) => O.物品类型 != ItemUsageType.普通铭文) != null)
+					if (list.FirstOrDefault((ItemData O) => O.物品类型 != ItemType.普通铭文) != null)
 					{
 						this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong material type."));
 						return;
@@ -16315,7 +16315,7 @@ namespace GameServer.Maps
 					this.网络连接.尝试断开连接(new Exception("Wrong action: Confirmation of replacement inscription.  Error: There is no no record of the inscription.."));
 					return;
 				}
-				if (EquipmentData.物品类型 != ItemUsageType.武器)
+				if (EquipmentData.物品类型 != ItemType.武器)
 				{
 					this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong item type."));
 					return;
@@ -16398,7 +16398,7 @@ namespace GameServer.Maps
 					this.网络连接.尝试断开连接(new Exception("Mistake: Confirmation of replacement inscription.  Error: There is no record of the inscription."));
 					return;
 				}
-				if (EquipmentData.物品类型 != ItemUsageType.武器)
+				if (EquipmentData.物品类型 != ItemType.武器)
 				{
 					this.网络连接.尝试断开连接(new Exception("Error Operation: OrdinaryInscriptionRefinementPacket. Error: Wrong item type."));
 					return;
@@ -16473,7 +16473,7 @@ namespace GameServer.Maps
 					EquipmentData EquipmentData = ItemData as EquipmentData;
 					if (EquipmentData != null)
 					{
-						if (EquipmentData.物品类型 != ItemUsageType.武器)
+						if (EquipmentData.物品类型 != ItemType.武器)
 						{
 							this.网络连接.尝试断开连接(new Exception("Error Action: UnlockDoubleInscriptionSlotPacket. Error: Wrong item type."));
 							return;
@@ -16570,7 +16570,7 @@ namespace GameServer.Maps
 					EquipmentData EquipmentData = ItemData as EquipmentData;
 					if (EquipmentData != null)
 					{
-						if (EquipmentData.物品类型 != ItemUsageType.武器)
+						if (EquipmentData.物品类型 != ItemType.武器)
 						{
 							this.网络连接.尝试断开连接(new Exception("Error Action: ToggleDoubleInscriptionBitPacket. Error: Wrong item type."));
 							return;
@@ -16662,9 +16662,9 @@ namespace GameServer.Maps
 							EquipmentData EquipmentData2 = ItemData2 as EquipmentData;
 							if (EquipmentData2 != null)
 							{
-								if (EquipmentData.物品类型 == ItemUsageType.武器)
+								if (EquipmentData.物品类型 == ItemType.武器)
 								{
-									if (EquipmentData2.物品类型 == ItemUsageType.武器)
+									if (EquipmentData2.物品类型 == ItemType.武器)
 									{
 										if (EquipmentData.传承材料 != 0 && EquipmentData2.传承材料 != 0)
 										{
@@ -16854,7 +16854,7 @@ namespace GameServer.Maps
 								EquipmentData EquipmentData2 = ItemData as EquipmentData;
 								if (EquipmentData2 != null)
 								{
-									if (EquipmentData2.物品类型 == ItemUsageType.项链 || EquipmentData2.物品类型 == ItemUsageType.手镯 || EquipmentData2.物品类型 == ItemUsageType.戒指)
+									if (EquipmentData2.物品类型 == ItemType.项链 || EquipmentData2.物品类型 == ItemType.手镯 || EquipmentData2.物品类型 == ItemType.戒指)
 									{
 										if (!dictionary.ContainsKey(b))
 										{
@@ -16908,7 +16908,7 @@ namespace GameServer.Maps
 							ItemData ItemData2;
 							if (this.角色背包.TryGetValue(b2, out ItemData2))
 							{
-								if (ItemData2.物品类型 != ItemUsageType.武器锻造)
+								if (ItemData2.物品类型 != ItemType.武器锻造)
 								{
 									客户网络 网络连接8 = this.网络连接;
 									if (网络连接8 == null)

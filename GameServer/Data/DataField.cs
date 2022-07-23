@@ -92,12 +92,12 @@ namespace GameServer.Data
 				DataMonitor.QuietlySetValue(DateTime.FromBinary(r.ReadInt64()));
 				return DataMonitor;
 			};
-			Type typeFromHandle12 = typeof(DataMonitor<随机属性>);
+			Type typeFromHandle12 = typeof(DataMonitor<RandomStats>);
 			dictionary[typeFromHandle12] = delegate(BinaryReader r, GameData o, DataField f)
 			{
-				DataMonitor<随机属性> DataMonitor = new DataMonitor<随机属性>(o);
-				随机属性 随机属性;
-				DataMonitor.QuietlySetValue(随机属性.DataSheet.TryGetValue(r.ReadInt32(), out 随机属性) ? 随机属性 : null);
+				DataMonitor<RandomStats> DataMonitor = new DataMonitor<RandomStats>(o);
+				RandomStats 随机属性;
+				DataMonitor.QuietlySetValue(RandomStats.DataSheet.TryGetValue(r.ReadInt32(), out 随机属性) ? 随机属性 : null);
 				return DataMonitor;
 			};
 			Type typeFromHandle13 = typeof(DataMonitor<铭文技能>);
@@ -331,15 +331,15 @@ namespace GameServer.Data
 				}
 				return ListMonitor;
 			};
-			Type typeFromHandle40 = typeof(ListMonitor<随机属性>);
+			Type typeFromHandle40 = typeof(ListMonitor<RandomStats>);
 			dictionary[typeFromHandle40] = delegate(BinaryReader r, GameData o, DataField f)
 			{
-				ListMonitor<随机属性> ListMonitor = new ListMonitor<随机属性>(o);
+				ListMonitor<RandomStats> ListMonitor = new ListMonitor<RandomStats>(o);
 				int num = r.ReadInt32();
 				for (int i = 0; i < num; i++)
 				{
-					随机属性 tv;
-					if (随机属性.DataSheet.TryGetValue(r.ReadInt32(), out tv))
+					RandomStats tv;
+					if (RandomStats.DataSheet.TryGetValue(r.ReadInt32(), out tv))
 					{
 						ListMonitor.QuietlyAdd(tv);
 					}
@@ -704,10 +704,10 @@ namespace GameServer.Data
 			{
 				b.Write(((DataMonitor<DateTime>)o).V.ToBinary());
 			};
-			typeFromHandle52 = typeof(DataMonitor<随机属性>);
+			typeFromHandle52 = typeof(DataMonitor<RandomStats>);
 			dictionary2[typeFromHandle52] = delegate(BinaryWriter b, object o)
 			{
-				随机属性 v = ((DataMonitor<随机属性>)o).V;
+				RandomStats v = ((DataMonitor<RandomStats>)o).V;
 				b.Write((v != null) ? v.属性编号 : 0);
 			};
 			typeFromHandle51 = typeof(DataMonitor<铭文技能>);
@@ -903,12 +903,12 @@ namespace GameServer.Data
 					b.Write(GuildEvents.事记时间);
 				}
 			};
-			typeFromHandle24 = typeof(ListMonitor<随机属性>);
+			typeFromHandle24 = typeof(ListMonitor<RandomStats>);
 			dictionary2[typeFromHandle24] = delegate(BinaryWriter b, object o)
 			{
-				ListMonitor<随机属性> ListMonitor = (ListMonitor<随机属性>)o;
+				ListMonitor<RandomStats> ListMonitor = (ListMonitor<RandomStats>)o;
 				b.Write((ListMonitor != null) ? ListMonitor.Count : 0);
-				foreach (随机属性 随机属性 in ListMonitor)
+				foreach (RandomStats 随机属性 in ListMonitor)
 				{
 					b.Write(随机属性.属性编号);
 				}
