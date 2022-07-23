@@ -850,7 +850,7 @@ namespace GameServer
             }
             this.dgvCharacters.ColumnHeadersDefaultCellStyle.Font = (this.dgvMaps.ColumnHeadersDefaultCellStyle.Font = (this.怪物浏览表.ColumnHeadersDefaultCellStyle.Font = (this.掉落浏览表.ColumnHeadersDefaultCellStyle.Font = (this.封禁浏览表.ColumnHeadersDefaultCellStyle.Font = (this.dgvCharacters.DefaultCellStyle.Font = (this.dgvMaps.DefaultCellStyle.Font = (this.怪物浏览表.DefaultCellStyle.Font = (this.封禁浏览表.DefaultCellStyle.Font = (this.掉落浏览表.DefaultCellStyle.Font = new Font("宋体", 9f))))))))));
             this.S_软件注册代码.Text = (CustomClass.软件注册代码 = Settings.Default.软件注册代码);
-            this.S_GameData目录.Text = (CustomClass.GameData目录 = Settings.Default.GameData目录);
+            this.S_GameData目录.Text = (CustomClass.GameDataPath = Settings.Default.GameData目录);
             this.S_数据备份目录.Text = (CustomClass.数据备份目录 = Settings.Default.数据备份目录);
             this.S_客户连接端口.Value = (CustomClass.客户连接端口 = Settings.Default.客户连接端口);
             this.S_门票接收端口.Value = (CustomClass.门票接收端口 = Settings.Default.门票接收端口);
@@ -1113,7 +1113,7 @@ namespace GameServer
             {
                 if (sender == this.S_浏览数据目录)
                 {
-                    CustomClass.GameData目录 = (Settings.Default.GameData目录 = (this.S_GameData目录.Text = folderBrowserDialog.SelectedPath));
+                    CustomClass.GameDataPath = (Settings.Default.GameData目录 = (this.S_GameData目录.Text = folderBrowserDialog.SelectedPath));
                     Settings.Default.Save();
                     return;
                 }

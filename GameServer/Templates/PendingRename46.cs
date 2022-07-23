@@ -11,7 +11,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			游戏怪物.DataSheet = new Dictionary<string, 游戏怪物>();
-			string text = CustomClass.GameData目录 + "\\System\\Npc\\Monsters\\";
+			string text = CustomClass.GameDataPath + "\\System\\Npc\\Monsters\\";
 			if (Directory.Exists(text))
 			{
 				object[] array = Serializer.Deserialize(text, typeof(游戏怪物));

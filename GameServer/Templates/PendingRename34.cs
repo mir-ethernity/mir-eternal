@@ -12,7 +12,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			怪物刷新.DataSheet = new HashSet<怪物刷新>();
-			string text = CustomClass.GameData目录 + "\\System\\GameMap\\MonsterRefresh\\";
+			string text = CustomClass.GameDataPath + "\\System\\GameMap\\MonsterRefresh\\";
 			if (Directory.Exists(text))
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(怪物刷新)))

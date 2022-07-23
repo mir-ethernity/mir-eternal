@@ -17,7 +17,7 @@ namespace GameServer
 		public static string 软件注册代码;
 
 		
-		public static string GameData目录;
+		public static string GameDataPath;
 
 		
 		public static string 数据备份目录;

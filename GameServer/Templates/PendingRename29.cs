@@ -12,7 +12,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			珍宝商品.DataSheet = new Dictionary<int, 珍宝商品>();
-			string text = CustomClass.GameData目录 + "\\System\\Items\\Treasures\\";
+			string text = CustomClass.GameDataPath + "\\System\\Items\\Treasures\\";
 			if (Directory.Exists(text))
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(珍宝商品)))

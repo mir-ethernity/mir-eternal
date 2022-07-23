@@ -56,7 +56,7 @@ namespace GameServer.Templates
 		{
 			地形数据.DataSheet = new Dictionary<byte, 地形数据>();
 			地形数据.数据列表 = new ConcurrentQueue<地形数据>();
-			string path = CustomClass.GameData目录 + "\\System\\GameMap\\Terrains\\";
+			string path = CustomClass.GameDataPath + "\\System\\GameMap\\Terrains\\";
 			if (Directory.Exists(path))
 			{
 				Parallel.ForEach<FileInfo>(new DirectoryInfo(path).GetFiles("*.terrain"), delegate(FileInfo x)

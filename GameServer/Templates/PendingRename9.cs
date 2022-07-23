@@ -11,7 +11,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			随机属性.DataSheet = new Dictionary<int, 随机属性>();
-			string text = CustomClass.GameData目录 + "\\System\\Items\\RandomStats\\";
+			string text = CustomClass.GameDataPath + "\\System\\Items\\RandomStats\\";
 			if (Directory.Exists(text))
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(随机属性)))

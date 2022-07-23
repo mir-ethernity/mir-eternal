@@ -11,7 +11,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			地图守卫.DataSheet = new Dictionary<ushort, 地图守卫>();
-			string text = CustomClass.GameData目录 + "\\System\\Npc\\Guards\\";
+			string text = CustomClass.GameDataPath + "\\System\\Npc\\Guards\\";
 			if (Directory.Exists(text))
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(地图守卫)))

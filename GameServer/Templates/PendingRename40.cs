@@ -11,7 +11,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			游戏技能.DataSheet = new Dictionary<string, 游戏技能>();
-			string text = CustomClass.GameData目录 + "\\System\\Skills\\Skills\\";
+			string text = CustomClass.GameDataPath + "\\System\\Skills\\Skills\\";
 			if (Directory.Exists(text))
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(游戏技能)))

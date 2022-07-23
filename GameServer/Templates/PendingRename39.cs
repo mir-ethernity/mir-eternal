@@ -46,7 +46,7 @@ namespace GameServer.Templates
 		{
 			对话数据.DataSheet = new Dictionary<int, string>();
 			对话数据.字节表 = new Dictionary<int, byte[]>();
-			string text = CustomClass.GameData目录 + "\\System\\Npc\\Dialogs\\";
+			string text = CustomClass.GameDataPath + "\\System\\Npc\\Dialogs\\";
 			if (Directory.Exists(text))
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(对话数据)))

@@ -11,7 +11,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			技能陷阱.DataSheet = new Dictionary<string, 技能陷阱>();
-			string text = CustomClass.GameData目录 + "\\System\\Skills\\Trap\\";
+			string text = CustomClass.GameDataPath + "\\System\\Skills\\Trap\\";
 			if (Directory.Exists(text))
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(技能陷阱)))

@@ -13,7 +13,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			地图区域.DataSheet = new List<地图区域>();
-			string text = CustomClass.GameData目录 + "\\System\\GameMap\\MapArea\\";
+			string text = CustomClass.GameDataPath + "\\System\\GameMap\\MapArea\\";
 			if (Directory.Exists(text))
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(地图区域)))

@@ -22,7 +22,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			铭文技能.DataSheet = new Dictionary<ushort, 铭文技能>();
-			string text = CustomClass.GameData目录 + "\\System\\Skills\\Inscriptions\\";
+			string text = CustomClass.GameDataPath + "\\System\\Skills\\Inscriptions\\";
 			if (Directory.Exists(text))
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(铭文技能)))

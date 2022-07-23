@@ -40,7 +40,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return CustomClass.GameData目录 + "\\User";
+				return CustomClass.GameDataPath + "\\User";
 			}
 		}
 
@@ -60,7 +60,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return CustomClass.GameData目录 + "\\User\\Data.db";
+				return CustomClass.GameDataPath + "\\User\\Data.db";
 			}
 		}
 
@@ -70,7 +70,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return CustomClass.GameData目录 + "\\User\\Temp.db";
+				return CustomClass.GameDataPath + "\\User\\Temp.db";
 			}
 		}
 

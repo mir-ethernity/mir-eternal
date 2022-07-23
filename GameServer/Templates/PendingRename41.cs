@@ -13,7 +13,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			游戏商店.DataSheet = new Dictionary<int, 游戏商店>();
-			string text = CustomClass.GameData目录 + "\\System\\Items\\GameStore\\";
+			string text = CustomClass.GameDataPath + "\\System\\Items\\GameStore\\";
 			if (Directory.Exists(text))
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(游戏商店)))

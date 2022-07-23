@@ -11,7 +11,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			游戏地图.DataSheet = new Dictionary<byte, 游戏地图>();
-			string text = CustomClass.GameData目录 + "\\System\\GameMap\\Maps";
+			string text = CustomClass.GameDataPath + "\\System\\GameMap\\Maps";
 			if (Directory.Exists(text))
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(游戏地图)))

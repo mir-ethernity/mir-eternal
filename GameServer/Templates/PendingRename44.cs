@@ -11,7 +11,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			游戏Buff.DataSheet = new Dictionary<ushort, 游戏Buff>();
-			string text = CustomClass.GameData目录 + "\\System\\Skills\\Buffs\\";
+			string text = CustomClass.GameDataPath + "\\System\\Skills\\Buffs\\";
 			if (Directory.Exists(text))
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(游戏Buff)))

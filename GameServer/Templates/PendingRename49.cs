@@ -35,7 +35,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			装备属性.DataSheet = new Dictionary<byte, 装备属性>();
-			string text = CustomClass.GameData目录 + "\\System\\Items\\EquipmentStats\\";
+			string text = CustomClass.GameDataPath + "\\System\\Items\\EquipmentStats\\";
 			if (Directory.Exists(text))
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(装备属性)))

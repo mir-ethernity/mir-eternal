@@ -11,7 +11,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			游戏称号.DataSheet = new Dictionary<byte, 游戏称号>();
-			string text = CustomClass.GameData目录 + "\\System\\Items\\GameTitle\\";
+			string text = CustomClass.GameDataPath + "\\System\\Items\\GameTitle\\";
 			if (Directory.Exists(text))
 			{
 				object[] array = Serializer.Deserialize(text, typeof(游戏称号));

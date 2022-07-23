@@ -34,7 +34,7 @@ namespace GameServer.Templates
 		{
 			游戏物品.DataSheet = new Dictionary<int, 游戏物品>();
 			游戏物品.检索表 = new Dictionary<string, 游戏物品>();
-			string text = CustomClass.GameData目录 + "\\System\\Items\\CommonItems\\";
+			string text = CustomClass.GameDataPath + "\\System\\Items\\CommonItems\\";
 			if (Directory.Exists(text))
 			{
 				object[] array = Serializer.Deserialize(text, typeof(游戏物品));
@@ -45,7 +45,7 @@ namespace GameServer.Templates
 					游戏物品.检索表.Add(游戏物品.物品名字, 游戏物品);
 				}
 			}
-			text = CustomClass.GameData目录 + "\\System\\Items\\EquipmentItems\\";
+			text = CustomClass.GameDataPath + "\\System\\Items\\EquipmentItems\\";
 			if (Directory.Exists(text))
 			{
 				object[] array = Serializer.Deserialize(text, typeof(游戏装备));

@@ -12,7 +12,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			守卫刷新.DataSheet = new HashSet<守卫刷新>();
-			string text = CustomClass.GameData目录 + "\\System\\GameMap\\GuardRefresh\\";
+			string text = CustomClass.GameDataPath + "\\System\\GameMap\\GuardRefresh\\";
 			if (Directory.Exists(text))
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(守卫刷新)))
