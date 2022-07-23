@@ -17220,7 +17220,7 @@ namespace GameServer.Maps
 				{
 					字节描述 = 字节描述
 				});
-				MainProcess.AddChatLog("[附近][" + this.对象名字 + "]: ", array);
+				MainProcess.AddChatLog("[General][" + this.对象名字 + "]: ", array);
 				return;
 			}
 			if (num == 2415919107U)
@@ -17346,7 +17346,7 @@ namespace GameServer.Maps
 								{
 									字节描述 = memoryStream.ToArray()
 								});
-								MainProcess.AddChatLog("[队伍][" + this.对象名字 + "]: ", array);
+								MainProcess.AddChatLog("[Team][" + this.对象名字 + "]: ", array);
 								return;
 							}
 						}
@@ -17395,7 +17395,7 @@ namespace GameServer.Maps
 							{
 								字节描述 = memoryStream2.ToArray()
 							});
-							MainProcess.AddChatLog("[行会][" + this.对象名字 + "]: ", array);
+							MainProcess.AddChatLog("[Guild][" + this.对象名字 + "]: ", array);
 						}
 					}
 				}
