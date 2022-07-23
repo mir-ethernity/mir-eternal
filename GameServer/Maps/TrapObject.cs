@@ -205,7 +205,7 @@ namespace GameServer.Maps
 			}
 			this.主动触发技能 = ((this.陷阱模板.主动触发技能 == null || !游戏技能.DataSheet.ContainsKey(this.陷阱模板.主动触发技能)) ? null : 游戏技能.DataSheet[this.陷阱模板.主动触发技能]);
 			this.被动触发技能 = ((this.陷阱模板.被动触发技能 == null || !游戏技能.DataSheet.ContainsKey(this.陷阱模板.被动触发技能)) ? null : 游戏技能.DataSheet[this.陷阱模板.被动触发技能]);
-			this.地图编号 = ++MapGatewayProcess.陷阱编号;
+			this.MapId = ++MapGatewayProcess.陷阱编号;
 			base.绑定网格();
 			base.更新邻居时处理();
 			MapGatewayProcess.添加MapObject(this);
@@ -241,7 +241,7 @@ namespace GameServer.Maps
 						base.自身移动时处理(ComputingClass.前方坐标(this.当前坐标, this.当前方向, 1));
 						base.发送封包(new TrapMoveLocationPacket
 						{
-							陷阱编号 = this.地图编号,
+							陷阱编号 = this.MapId,
 							移动坐标 = this.当前坐标,
 							移动高度 = this.当前高度,
 							移动速度 = this.陷阱模板.陷阱移动速度

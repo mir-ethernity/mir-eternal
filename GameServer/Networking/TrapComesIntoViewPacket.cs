@@ -16,7 +16,7 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(下标 = 4, 长度 = 4)]
-		public int 地图编号;
+		public int MapId;
 
 		
 		[WrappingFieldAttribute(下标 = 8, 长度 = 4)]

@@ -511,8 +511,8 @@ namespace GameServer.Data
 			};
 			this.当前地图.更改事件 += delegate(int O)
 			{
-				游戏地图 游戏地图;
-				MainForm.更新CharacterData(this, "当前地图", 游戏地图.DataSheet.TryGetValue((byte)O, out 游戏地图) ? 游戏地图 : O);
+				GameMap 游戏地图;
+				MainForm.更新CharacterData(this, "当前地图", GameMap.DataSheet.TryGetValue((byte)O, out 游戏地图) ? 游戏地图 : O);
 			};
 			this.当前坐标.更改事件 += delegate(Point O)
 			{

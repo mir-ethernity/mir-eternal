@@ -26,10 +26,10 @@ namespace GameServer
             MainForm MainForm = MainForm.Singleton;
             MainForm.AddSystemLog("Loading system data...");
             MainForm.MapsDataTable = new DataTable("地图数据表");
-            MainForm.MapsDataRow = new Dictionary<游戏地图, DataRow>();
-            MainForm.MapsDataTable.Columns.Add("地图编号", typeof(string));
-            MainForm.MapsDataTable.Columns.Add("地图名字", typeof(string));
-            MainForm.MapsDataTable.Columns.Add("限制等级", typeof(string));
+            MainForm.MapsDataRow = new Dictionary<GameMap, DataRow>();
+            MainForm.MapsDataTable.Columns.Add("MapId", typeof(string));
+            MainForm.MapsDataTable.Columns.Add("MapName", typeof(string));
+            MainForm.MapsDataTable.Columns.Add("MinLevel", typeof(string));
             MainForm.MapsDataTable.Columns.Add("玩家数量", typeof(string));
             MainForm.MapsDataTable.Columns.Add("固定怪物总数", typeof(uint));
             MainForm.MapsDataTable.Columns.Add("存活怪物总数", typeof(uint));
@@ -467,8 +467,8 @@ namespace GameServer
                     dataRow["当前经验"] = 角色.当前经验;
                     dataRow["双倍经验"] = 角色.双倍经验;
                     dataRow["当前战力"] = 角色.当前战力;
-                    游戏地图 游戏地图;
-                    dataRow["当前地图"] = (游戏地图.DataSheet.TryGetValue((byte)角色.当前地图.V, out 游戏地图) ? 游戏地图.地图名字 : 角色.当前地图);
+                    GameMap 游戏地图;
+                    dataRow["当前地图"] = (GameMap.DataSheet.TryGetValue((byte)角色.当前地图.V, out 游戏地图) ? 游戏地图.MapName : 角色.当前地图);
                     dataRow["当前PK值"] = 角色.当前PK值;
                     dataRow["当前坐标"] = string.Format("{0}, {1}", 角色.当前坐标.V.X, 角色.当前坐标.V.Y);
                     MainForm.CharacterData行[角色] = dataRow;
@@ -672,9 +672,9 @@ namespace GameServer
                 if (!MainForm.MapsDataRow.ContainsKey(地图.地图模板))
                 {
                     DataRow dataRow = MainForm.MapsDataTable.NewRow();
-                    dataRow["地图编号"] = 地图.地图编号;
-                    dataRow["地图名字"] = 地图.地图模板;
-                    dataRow["限制等级"] = 地图.限制等级;
+                    dataRow["MapId"] = 地图.MapId;
+                    dataRow["MapName"] = 地图.地图模板;
+                    dataRow["MinLevel"] = 地图.MinLevel;
                     dataRow["玩家数量"] = 地图.玩家列表.Count;
                     dataRow["固定怪物总数"] = 地图.固定怪物总数;
                     dataRow["存活怪物总数"] = 地图.存活怪物总数;
@@ -919,10 +919,10 @@ namespace GameServer
             CustomClass.软件注册代码 = (Settings.Default.软件注册代码 = this.S_软件注册代码.Text);
             Settings.Default.Save();
             MainForm.MapsDataTable = new DataTable("地图数据表");
-            MainForm.MapsDataRow = new Dictionary<游戏地图, DataRow>();
-            MainForm.MapsDataTable.Columns.Add("地图编号", typeof(string));
-            MainForm.MapsDataTable.Columns.Add("地图名字", typeof(string));
-            MainForm.MapsDataTable.Columns.Add("限制等级", typeof(string));
+            MainForm.MapsDataRow = new Dictionary<GameMap, DataRow>();
+            MainForm.MapsDataTable.Columns.Add("MapId", typeof(string));
+            MainForm.MapsDataTable.Columns.Add("MapName", typeof(string));
+            MainForm.MapsDataTable.Columns.Add("MinLevel", typeof(string));
             MainForm.MapsDataTable.Columns.Add("玩家数量", typeof(string));
             MainForm.MapsDataTable.Columns.Add("固定怪物总数", typeof(string));
             MainForm.MapsDataTable.Columns.Add("存活怪物总数", typeof(string));
@@ -1691,7 +1691,7 @@ namespace GameServer
         private static Dictionary<DataRow, CharacterData> 数据行角色;
 
         
-        private static Dictionary<游戏地图, DataRow> MapsDataRow;
+        private static Dictionary<GameMap, DataRow> MapsDataRow;
 
         
         private static Dictionary<游戏怪物, DataRow> 怪物数据行;

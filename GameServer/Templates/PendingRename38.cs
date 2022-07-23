@@ -15,14 +15,14 @@ namespace GameServer.Templates
 		{
 			地形数据 地形数据 = new 地形数据
 			{
-				地图名字 = 当前文件.Name.Split(new char[]
+				MapName = 当前文件.Name.Split(new char[]
 				{
 					'.'
 				})[0].Split(new char[]
 				{
 					'-'
 				})[1],
-				地图编号 = Convert.ToByte(当前文件.Name.Split(new char[]
+				MapId = Convert.ToByte(当前文件.Name.Split(new char[]
 				{
 					'.'
 				})[0].Split(new char[]
@@ -65,7 +65,7 @@ namespace GameServer.Templates
 				});
 				foreach (地形数据 地形数据 in 地形数据.数据列表)
 				{
-					地形数据.DataSheet.Add(地形数据.地图编号, 地形数据);
+					地形数据.DataSheet.Add(地形数据.MapId, 地形数据);
 				}
 			}
 		}
@@ -93,10 +93,10 @@ namespace GameServer.Templates
 		public static Dictionary<byte, 地形数据> DataSheet;
 
 		
-		public byte 地图编号;
+		public byte MapId;
 
 		
-		public string 地图名字;
+		public string MapName;
 
 		
 		public Point 地图起点;

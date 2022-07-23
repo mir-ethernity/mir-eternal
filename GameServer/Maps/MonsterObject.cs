@@ -110,7 +110,7 @@ namespace GameServer.Maps
 					base.当前体力 = value;
 					base.发送封包(new 同步对象体力
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						当前体力 = this.当前体力,
 						体力上限 = this[GameObjectProperties.最大体力]
 					});
@@ -159,7 +159,7 @@ namespace GameServer.Maps
 					base.发送封包(new ObjectRotationDirectionPacket
 					{
 						转向耗时 = 100,
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						对象朝向 = (ushort)value
 					});
 				}
@@ -275,7 +275,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				if (this.当前地图.地图编号 != 80)
+				if (this.当前地图.MapId != 80)
 				{
 					return (int)this.对象模板.怪物仇恨范围;
 				}
@@ -408,7 +408,7 @@ namespace GameServer.Maps
 		{
 			
 			
-			this.地图编号 = ++MapGatewayProcess.对象编号;
+			this.MapId = ++MapGatewayProcess.对象编号;
 			this.对象模板 = 对应宠物.对象模板;
 			this.当前地图 = 对应宠物.当前地图;
 			this.当前坐标 = 对应宠物.当前坐标;
@@ -479,7 +479,7 @@ namespace GameServer.Maps
 			this.复活间隔 = 复活间隔;
 			this.出生范围 = 出生范围;
 			this.禁止复活 = 禁止复活;
-			this.地图编号 = ++MapGatewayProcess.对象编号;
+			this.MapId = ++MapGatewayProcess.对象编号;
 			this.属性加成[this] = 对应模板.基础属性;
 			string text = this.对象模板.普通攻击技能;
 			if (text != null && text.Length > 0)
@@ -654,7 +654,7 @@ namespace GameServer.Maps
 				base.动作编号 = (byte)(动作编号 + 1);
 				new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false).处理任务();
 			}
-			if (this.当前地图.副本地图 || !this.禁止复活)
+			if (this.当前地图.CopyMap || !this.禁止复活)
 			{
 				this.当前地图.存活怪物总数 -= 1U;
 				MainForm.更新地图数据(this.当前地图, "存活怪物总数", -1);
@@ -670,7 +670,7 @@ namespace GameServer.Maps
 			PlayerObject PlayerObject;
 			if (this.更新怪物归属(out PlayerObject))
 			{
-				if (this.当前地图.地图编号 == 80)
+				if (this.当前地图.MapId == 80)
 				{
 					int num = 0;
 					游戏物品 物品模板;
@@ -873,7 +873,7 @@ namespace GameServer.Maps
 						{
 							base.发送封包(new ObjectCharacterWalkPacket
 							{
-								对象编号 = this.地图编号,
+								对象编号 = this.MapId,
 								移动坐标 = this.当前坐标,
 								移动速度 = base.行走速度
 							});
@@ -921,7 +921,7 @@ namespace GameServer.Maps
 							this.当前方向 = ComputingClass.计算方向(this.当前坐标, point);
 							base.发送封包(new ObjectCharacterWalkPacket
 							{
-								对象编号 = this.地图编号,
+								对象编号 = this.MapId,
 								移动坐标 = point,
 								移动速度 = base.行走速度
 							});
@@ -951,7 +951,7 @@ namespace GameServer.Maps
 							{
 								base.发送封包(new ObjectCharacterWalkPacket
 								{
-									对象编号 = this.地图编号,
+									对象编号 = this.MapId,
 									移动坐标 = point2,
 									移动速度 = base.行走速度
 								});
@@ -985,7 +985,7 @@ namespace GameServer.Maps
 		
 		public void 怪物复活处理(bool 计算复活)
 		{
-			if (this.当前地图.副本地图 || !this.禁止复活)
+			if (this.当前地图.CopyMap || !this.禁止复活)
 			{
 				this.当前地图.存活怪物总数 += 1U;
 				MainForm.更新地图数据(this.当前地图, "存活怪物总数", 1);

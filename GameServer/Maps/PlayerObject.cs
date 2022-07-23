@@ -154,7 +154,7 @@ namespace GameServer.Maps
 				this.当前体力 = (int)((float)this[GameObjectProperties.最大体力] * 0.3f);
 				this.当前魔力 = (int)((float)this[GameObjectProperties.最大魔力] * 0.3f);
 			}
-			else if (游戏地图.DataSheet[(byte)CharacterData.当前地图.V].下线传送)
+			else if (GameMap.DataSheet[(byte)CharacterData.当前地图.V].NoReconnect)
 			{
 				if (CharacterData.当前地图.V == 152)
 				{
@@ -168,14 +168,14 @@ namespace GameServer.Maps
 						this.当前坐标 = MapGatewayProcess.外城复活区域.RandomCoords;
 					}
 				}
-				else if (游戏地图.DataSheet[(byte)CharacterData.当前地图.V].传送地图 == 0)
+				else if (GameMap.DataSheet[(byte)CharacterData.当前地图.V].NoReconnectMapId == 0)
 				{
 					this.当前地图 = MapGatewayProcess.分配地图(this.重生地图);
 					this.当前坐标 = this.当前地图.复活区域.RandomCoords;
 				}
 				else
 				{
-					this.当前地图 = MapGatewayProcess.分配地图((int)游戏地图.DataSheet[(byte)CharacterData.当前地图.V].传送地图);
+					this.当前地图 = MapGatewayProcess.分配地图((int)GameMap.DataSheet[(byte)CharacterData.当前地图.V].NoReconnectMapId);
 					MapAreas 传送区域 = this.当前地图.传送区域;
 					this.当前坐标 = ((传送区域 != null) ? 传送区域.RandomCoords : this.当前地图.地图区域.First<MapAreas>().RandomCoords);
 				}
@@ -197,7 +197,7 @@ namespace GameServer.Maps
 			{
 				网络连接.发送封包(new 同步CharacterData
 				{
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					对象坐标 = this.当前坐标,
 					对象高度 = this.当前高度,
 					当前经验 = this.当前经验,
@@ -205,7 +205,7 @@ namespace GameServer.Maps
 					所需经验 = this.所需经验,
 					PK值惩罚 = this.PK值惩罚,
 					对象朝向 = (ushort)this.当前方向,
-					当前地图 = this.当前地图.地图编号,
+					当前地图 = this.当前地图.MapId,
 					当前线路 = this.当前地图.路线编号,
 					对象职业 = (byte)this.角色职业,
 					对象性别 = (byte)this.角色性别,
@@ -221,7 +221,7 @@ namespace GameServer.Maps
 				网络连接.发送封包(new SyncSupplementaryVariablesPacket
 				{
 					变量类型 = 1,
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					变量索引 = 112,
 					变量内容 = ComputingClass.时间转换(CharacterData.补给日期.V)
 				});
@@ -231,7 +231,7 @@ namespace GameServer.Maps
 				网络连接.发送封包(new SyncSupplementaryVariablesPacket
 				{
 					变量类型 = 1,
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					变量索引 = 975,
 					变量内容 = ComputingClass.时间转换(CharacterData.战备日期.V)
 				});
@@ -305,7 +305,7 @@ namespace GameServer.Maps
 			{
 				网络连接.发送封包(new EndSyncDataPacket
 				{
-					角色编号 = this.地图编号
+					角色编号 = this.MapId
 				});
 			}
 			if (网络连接 != null)
@@ -326,7 +326,7 @@ namespace GameServer.Maps
 			{
 				网络连接.发送封包(new 玩家名字变灰
 				{
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					是否灰名 = this.灰名玩家
 				});
 			}
@@ -337,7 +337,7 @@ namespace GameServer.Maps
 				{
 					网络连接2.发送封包(new 好友上线下线
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						对象名字 = this.对象名字,
 						对象职业 = (byte)this.角色职业,
 						对象性别 = (byte)this.角色性别,
@@ -352,7 +352,7 @@ namespace GameServer.Maps
 				{
 					网络连接3.发送封包(new 好友上线下线
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						对象名字 = this.对象名字,
 						对象职业 = (byte)this.角色职业,
 						对象性别 = (byte)this.角色性别,
@@ -399,8 +399,8 @@ namespace GameServer.Maps
 				}
 				this.所属行会.发送封包(new SyncMemberInfoPacket
 				{
-					对象编号 = this.地图编号,
-					对象信息 = this.当前地图.地图编号,
+					对象编号 = this.MapId,
+					对象信息 = this.当前地图.MapId,
 					当前等级 = this.当前等级
 				});
 				if (this.所属行会.行会成员[this.CharacterData] <= GuildJobs.理事 && this.所属行会.申请列表.Count > 0 && 网络连接 != null)
@@ -443,7 +443,7 @@ namespace GameServer.Maps
 			}
 			所属队伍.发送封包(new 同步队员状态
 			{
-				对象编号 = this.地图编号
+				对象编号 = this.MapId
 			});
 		}
 
@@ -452,7 +452,7 @@ namespace GameServer.Maps
 		{
 			if (this.绑定地图)
 			{
-				if (this.当前地图.地图编号 == 183 && MainProcess.CurrentTime.Hour != (int)CustomClass.武斗场时间一 && MainProcess.CurrentTime.Hour != (int)CustomClass.武斗场时间二)
+				if (this.当前地图.MapId == 183 && MainProcess.CurrentTime.Hour != (int)CustomClass.武斗场时间一 && MainProcess.CurrentTime.Hour != (int)CustomClass.武斗场时间二)
 				{
 					if (this.对象死亡)
 					{
@@ -570,13 +570,13 @@ namespace GameServer.Maps
 							所属队伍.发送封包(new 同步队员信息
 							{
 								队伍编号 = this.所属队伍.队伍编号,
-								对象编号 = this.地图编号,
+								对象编号 = this.MapId,
 								对象等级 = (int)this.当前等级,
 								最大体力 = this[GameObjectProperties.最大体力],
 								最大魔力 = this[GameObjectProperties.最大魔力],
 								当前体力 = this.当前体力,
 								当前魔力 = this.当前魔力,
-								当前地图 = this.当前地图.地图编号,
+								当前地图 = this.当前地图.MapId,
 								当前线路 = this.当前地图.路线编号,
 								横向坐标 = this.当前坐标.X,
 								纵向坐标 = this.当前坐标.Y,
@@ -674,7 +674,7 @@ namespace GameServer.Maps
 							this.药品回魔 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
 							this.当前魔力 += (int)Math.Max(0f, (float)this.回魔基数 * (1f + (float)this[GameObjectProperties.药品回魔] / 10000f));
 						}
-						if (this.当前地图.地图编号 == 183 && MainProcess.CurrentTime > this.经验计时)
+						if (this.当前地图.MapId == 183 && MainProcess.CurrentTime > this.经验计时)
 						{
 							this.经验计时 = MainProcess.CurrentTime.AddSeconds(5.0);
 							this.玩家增加经验(null, (this.当前地图[this.当前坐标].FirstOrDefault(delegate(MapObject O)
@@ -722,7 +722,7 @@ namespace GameServer.Maps
 			{
 				网络连接.发送封包(new 离开战斗姿态
 				{
-					对象编号 = this.地图编号
+					对象编号 = this.MapId
 				});
 			}
 			客户网络 网络连接2 = this.网络连接;
@@ -756,7 +756,7 @@ namespace GameServer.Maps
 					}
 				}
 			}
-			if (PlayerObject != null && !this.当前地图.自由区内(this.当前坐标) && !this.灰名玩家 && !this.红名玩家 && (MapGatewayProcess.沙城节点 < 2 || (this.当前地图.地图编号 != 152 && this.当前地图.地图编号 != 178)))
+			if (PlayerObject != null && !this.当前地图.自由区内(this.当前坐标) && !this.灰名玩家 && !this.红名玩家 && (MapGatewayProcess.沙城节点 < 2 || (this.当前地图.MapId != 152 && this.当前地图.MapId != 178)))
 			{
 				PlayerObject.PK值惩罚 += 50;
 				if (技能击杀)
@@ -772,7 +772,7 @@ namespace GameServer.Maps
 					网络连接3.发送封包(new 同步气泡提示
 					{
 						泡泡类型 = 1,
-						泡泡参数 = PlayerObject.地图编号
+						泡泡参数 = PlayerObject.MapId
 					});
 				}
 				客户网络 网络连接4 = this.网络连接;
@@ -781,8 +781,8 @@ namespace GameServer.Maps
 					网络连接4.发送封包(new 同步对战结果
 					{
 						击杀方式 = 1,
-						胜方编号 = PlayerObject.地图编号,
-						败方编号 = this.地图编号,
+						胜方编号 = PlayerObject.MapId,
+						败方编号 = this.MapId,
 						PK值惩罚 = 50
 					});
 				}
@@ -889,7 +889,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000889 RID: 2185 RVA: 0x00006E72 File Offset: 0x00005072
-		public override int 地图编号
+		public override int MapId
 		{
 			get
 			{
@@ -914,7 +914,7 @@ namespace GameServer.Maps
 					this.CharacterData.当前血量.V = value;
 					base.发送封包(new 同步对象体力
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						当前体力 = this.当前体力,
 						体力上限 = this[GameObjectProperties.最大体力]
 					});
@@ -993,7 +993,7 @@ namespace GameServer.Maps
 					bool? flag2 = flag;
 					if (flag2.GetValueOrDefault())
 					{
-						this.重生地图 = this.当前地图.地图编号;
+						this.重生地图 = this.当前地图.MapId;
 					}
 				}
 			}
@@ -1024,9 +1024,9 @@ namespace GameServer.Maps
 						当前地图2.添加对象(this);
 					}
 				}
-				if (this.CharacterData.当前地图.V != (int)value.地图模板.地图编号)
+				if (this.CharacterData.当前地图.V != (int)value.地图模板.MapId)
 				{
-					this.CharacterData.当前地图.V = (int)value.地图模板.地图编号;
+					this.CharacterData.当前地图.V = (int)value.地图模板.MapId;
 					GuildData 所属行会 = this.所属行会;
 					if (所属行会 == null)
 					{
@@ -1034,7 +1034,7 @@ namespace GameServer.Maps
 					}
 					所属行会.发送封包(new SyncMemberInfoPacket
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						对象信息 = this.CharacterData.当前地图.V,
 						当前等级 = this.当前等级
 					});
@@ -1058,7 +1058,7 @@ namespace GameServer.Maps
 					this.CharacterData.当前朝向.V = value;
 					base.发送封包(new ObjectRotationDirectionPacket
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						对象朝向 = (ushort)value
 					});
 				}
@@ -1474,7 +1474,7 @@ namespace GameServer.Maps
 					}
 					base.发送封包(new 同步对象惩罚
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						PK值惩罚 = (this.CharacterData.角色PK值 = value)
 					});
 				}
@@ -1597,7 +1597,7 @@ namespace GameServer.Maps
 			{
 				if (this.所属师门 != null)
 				{
-					if (this.所属师门.师父编号 == this.地图编号)
+					if (this.所属师门.师父编号 == this.MapId)
 					{
 						return 2;
 					}
@@ -1773,7 +1773,7 @@ namespace GameServer.Maps
 				{
 					base.发送封包(new 玩家名字变灰
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						是否灰名 = true
 					});
 				}
@@ -1781,7 +1781,7 @@ namespace GameServer.Maps
 				{
 					base.发送封包(new 玩家名字变灰
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						是否灰名 = false
 					});
 				}
@@ -1901,7 +1901,7 @@ namespace GameServer.Maps
 					}
 					网络连接.发送封包(new 同步对战模式
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						AttackMode = (byte)value
 					});
 				}
@@ -1949,7 +1949,7 @@ namespace GameServer.Maps
 			{
 				if (this.红名玩家)
 				{
-					if (this.当前地图.地图编号 == 147)
+					if (this.当前地图.MapId == 147)
 					{
 						return this.当前地图;
 					}
@@ -1957,7 +1957,7 @@ namespace GameServer.Maps
 				}
 				else
 				{
-					if (this.当前地图.地图编号 == this.重生地图)
+					if (this.当前地图.MapId == this.重生地图)
 					{
 						return this.当前地图;
 					}
@@ -2242,7 +2242,7 @@ namespace GameServer.Maps
 		{
 			base.发送封包(new CharacterLevelUpPacket
 			{
-				对象编号 = this.地图编号,
+				对象编号 = this.MapId,
 				对象等级 = this.当前等级
 			});
 			GuildData 所属行会 = this.所属行会;
@@ -2250,8 +2250,8 @@ namespace GameServer.Maps
 			{
 				所属行会.发送封包(new SyncMemberInfoPacket
 				{
-					对象编号 = this.地图编号,
-					对象信息 = this.当前地图.地图编号,
+					对象编号 = this.MapId,
+					对象信息 = this.当前地图.MapId,
 					当前等级 = this.当前等级
 				});
 			}
@@ -2269,7 +2269,7 @@ namespace GameServer.Maps
 			{
 				所属师门.发送封包(new SyncApprenticeshipLevelPacket
 				{
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					对象等级 = this.当前等级
 				});
 			}
@@ -2305,7 +2305,7 @@ namespace GameServer.Maps
 					});
 				}
 			}
-			if (this.当前等级 >= 36 && this.所属师门 != null && this.所属师门.师父编号 != this.地图编号)
+			if (this.当前等级 >= 36 && this.所属师门 != null && this.所属师门.师父编号 != this.MapId)
 			{
 				this.提交出师申请();
 			}
@@ -2322,22 +2322,22 @@ namespace GameServer.Maps
 				网络连接.发送封包(new 玩家离开场景());
 			}
 			this.当前坐标 = ((指定区域 == AreaType.未知区域) ? 坐标 : ToMapId.随机坐标(指定区域));
-			if (this.当前地图.地图编号 != ToMapId.地图编号)
+			if (this.当前地图.MapId != ToMapId.MapId)
 			{
-				bool 副本地图 = this.当前地图.副本地图;
+				bool CopyMap = this.当前地图.CopyMap;
 				this.当前地图 = ToMapId;
 				客户网络 网络连接2 = this.网络连接;
 				if (网络连接2 != null)
 				{
 					网络连接2.发送封包(new 玩家切换地图
 					{
-						地图编号 = this.当前地图.地图编号,
+						MapId = this.当前地图.MapId,
 						路线编号 = this.当前地图.路线编号,
 						对象坐标 = this.当前坐标,
 						对象高度 = this.当前高度
 					});
 				}
-				if (!副本地图)
+				if (!CopyMap)
 				{
 					return;
 				}
@@ -2356,7 +2356,7 @@ namespace GameServer.Maps
 			{
 				网络连接3.发送封包(new ObjectCharacterStopPacket
 				{
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					对象坐标 = this.当前坐标,
 					对象高度 = this.当前高度
 				});
@@ -2366,7 +2366,7 @@ namespace GameServer.Maps
 			{
 				网络连接4.发送封包(new 玩家进入场景
 				{
-					地图编号 = this.当前地图.地图编号,
+					MapId = this.当前地图.MapId,
 					当前坐标 = this.当前坐标,
 					当前高度 = this.当前高度,
 					路线编号 = this.当前地图.路线编号,
@@ -2487,7 +2487,7 @@ namespace GameServer.Maps
 			{
 				网络连接.发送封包(new CharacterLearningSkillPacket
 				{
-					角色编号 = this.地图编号,
+					角色编号 = this.MapId,
 					技能编号 = 技能编号
 				});
 			}
@@ -2647,7 +2647,7 @@ namespace GameServer.Maps
 			{
 				base.发送封包(new 同步角色外形
 				{
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					装备部位 = (byte)装备部位,
 					装备编号 = ((现有装备 != null) ? 现有装备.物品编号 : 0),
 					升级次数 = ((byte)((现有装备 != null) ? 现有装备.升级次数.V : 0))
@@ -2659,7 +2659,7 @@ namespace GameServer.Maps
 				{
 					foreach (BuffData BuffData in this.Buff列表.Values.ToList<BuffData>())
 					{
-						if (BuffData.绑定武器 && (BuffData.Buff来源 == null || BuffData.Buff来源.地图编号 == this.地图编号))
+						if (BuffData.绑定武器 && (BuffData.Buff来源 == null || BuffData.Buff来源.MapId == this.MapId))
 						{
 							base.删除Buff时处理(BuffData.Buff编号.V);
 						}
@@ -2777,7 +2777,7 @@ namespace GameServer.Maps
 						{
 							网络连接.发送封包(new SyncPetLevelPacket
 							{
-								宠物编号 = PetObject.地图编号,
+								宠物编号 = PetObject.MapId,
 								宠物等级 = PetObject.宠物等级
 							});
 						}
@@ -2835,7 +2835,7 @@ namespace GameServer.Maps
 					{
 						base.发送封包(new ObjectStateChangePacket
 						{
-							对象编号 = this.地图编号,
+							对象编号 = this.MapId,
 							Buff编号 = BuffData.Buff编号.V,
 							Buff索引 = (int)BuffData.Buff编号.V,
 							当前层数 = BuffData.当前层数.V,
@@ -3023,7 +3023,7 @@ namespace GameServer.Maps
 					this.更新对象属性();
 					base.发送封包(new 同步装配称号
 					{
-						对象编号 = this.地图编号
+						对象编号 = this.MapId
 					});
 				}
 				客户网络 网络连接 = this.网络连接;
@@ -3181,7 +3181,7 @@ namespace GameServer.Maps
 			{
 				所属队伍.发送封包(new 同步队员状态
 				{
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					状态编号 = 1
 				});
 			}
@@ -3190,7 +3190,7 @@ namespace GameServer.Maps
 			{
 				所属行会.发送封包(new SyncMemberInfoPacket
 				{
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					对象信息 = ComputingClass.时间转换(MainProcess.CurrentTime)
 				});
 			}
@@ -3201,7 +3201,7 @@ namespace GameServer.Maps
 				{
 					网络连接.发送封包(new 好友上线下线
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						对象名字 = this.对象名字,
 						对象职业 = (byte)this.角色职业,
 						对象性别 = (byte)this.角色性别,
@@ -3216,7 +3216,7 @@ namespace GameServer.Maps
 				{
 					网络连接2.发送封包(new 好友上线下线
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						对象名字 = this.对象名字,
 						对象职业 = (byte)this.角色职业,
 						对象性别 = (byte)this.角色性别,
@@ -3248,7 +3248,7 @@ namespace GameServer.Maps
 			{
 				网络连接.发送封包(new ObjectCharacterStopPacket
 				{
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					对象坐标 = this.当前坐标,
 					对象高度 = this.当前高度
 				});
@@ -3258,7 +3258,7 @@ namespace GameServer.Maps
 			{
 				网络连接2.发送封包(new 玩家进入场景
 				{
-					地图编号 = this.地图编号,
+					MapId = this.MapId,
 					当前坐标 = this.当前坐标,
 					当前高度 = this.当前高度,
 					路线编号 = this.当前地图.路线编号,
@@ -3271,7 +3271,7 @@ namespace GameServer.Maps
 				网络连接3.发送封包(new ObjectComesIntoViewPacket
 				{
 					出现方式 = 1,
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					现身坐标 = this.当前坐标,
 					现身高度 = this.当前高度,
 					现身方向 = (ushort)this.当前方向,
@@ -3284,7 +3284,7 @@ namespace GameServer.Maps
 			{
 				网络连接4.发送封包(new 同步对象体力
 				{
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					当前体力 = this.当前体力,
 					体力上限 = this[GameObjectProperties.最大体力]
 				});
@@ -3326,7 +3326,7 @@ namespace GameServer.Maps
 			{
 				网络连接9.发送封包(new SwitchBattleStancePacket
 				{
-					角色编号 = this.地图编号
+					角色编号 = this.MapId
 				});
 			}
 			base.绑定网格();
@@ -3349,7 +3349,7 @@ namespace GameServer.Maps
 						{
 							网络连接10.发送封包(new SyncPetLevelPacket
 							{
-								宠物编号 = PetObject.地图编号,
+								宠物编号 = PetObject.MapId,
 								宠物等级 = PetObject.宠物等级
 							});
 						}
@@ -3393,7 +3393,7 @@ namespace GameServer.Maps
 				{
 					网络连接.发送封包(new 玩家角色复活
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						复活方式 = 3
 					});
 				}
@@ -3431,7 +3431,7 @@ namespace GameServer.Maps
 				if (!this.对象死亡 && this.摆摊状态 <= 0 && this.交易状态 < 3)
 				{
 					TeleportGates 传送法阵;
-					游戏地图 游戏地图;
+					GameMap 游戏地图;
 					if (!this.当前地图.法阵列表.TryGetValue((byte)TeleportGateNumber, out 传送法阵))
 					{
 						客户网络 网络连接 = this.网络连接;
@@ -3458,7 +3458,7 @@ namespace GameServer.Maps
 						});
 						return;
 					}
-					else if (!游戏地图.DataSheet.TryGetValue(传送法阵.ToMapId, out 游戏地图))
+					else if (!GameMap.DataSheet.TryGetValue(传送法阵.ToMapId, out 游戏地图))
 					{
 						客户网络 网络连接3 = this.网络连接;
 						if (网络连接3 == null)
@@ -3471,7 +3471,7 @@ namespace GameServer.Maps
 						});
 						return;
 					}
-					else if (this.当前等级 < 游戏地图.限制等级)
+					else if (this.当前等级 < 游戏地图.MinLevel)
 					{
 						客户网络 网络连接4 = this.网络连接;
 						if (网络连接4 == null)
@@ -3486,7 +3486,7 @@ namespace GameServer.Maps
 					}
 					else
 					{
-						this.玩家切换地图((this.当前地图.地图编号 == (int)游戏地图.地图编号) ? this.当前地图 : MapGatewayProcess.分配地图((int)游戏地图.地图编号), AreaType.未知区域, 传送法阵.ToCoords);
+						this.玩家切换地图((this.当前地图.MapId == (int)游戏地图.MapId) ? this.当前地图 : MapGatewayProcess.分配地图((int)游戏地图.MapId), AreaType.未知区域, 传送法阵.ToCoords);
 					}
 				}
 				else
@@ -3521,7 +3521,7 @@ namespace GameServer.Maps
 				}
 				网络连接.发送封包(new ObjectCharacterStopPacket
 				{
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					对象坐标 = this.当前坐标,
 					对象高度 = this.当前高度
 				});
@@ -3536,7 +3536,7 @@ namespace GameServer.Maps
 				}
 				网络连接2.发送封包(new ObjectCharacterStopPacket
 				{
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					对象坐标 = this.当前坐标,
 					对象高度 = this.当前高度
 				});
@@ -3553,14 +3553,14 @@ namespace GameServer.Maps
 						this.CharacterData.当前朝向.V = GameDirection;
 						base.发送封包(new ObjectRotationDirectionPacket
 						{
-							对象编号 = this.地图编号,
+							对象编号 = this.MapId,
 							对象朝向 = (ushort)GameDirection,
 							转向耗时 = 100
 						});
 					}
 					base.发送封包(new ObjectCharacterStopPacket
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						对象坐标 = this.当前坐标,
 						对象高度 = this.当前高度
 					});
@@ -3573,14 +3573,14 @@ namespace GameServer.Maps
 					this.CharacterData.当前朝向.V = GameDirection;
 					base.发送封包(new ObjectRotationDirectionPacket
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						对象朝向 = (ushort)GameDirection,
 						转向耗时 = 100
 					});
 				}
 				base.发送封包(new ObjectCharacterWalkPacket
 				{
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					移动坐标 = point,
 					移动速度 = base.行走速度
 				});
@@ -3605,7 +3605,7 @@ namespace GameServer.Maps
 				}
 				网络连接.发送封包(new ObjectCharacterStopPacket
 				{
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					对象坐标 = this.当前坐标,
 					对象高度 = this.当前高度
 				});
@@ -3623,14 +3623,14 @@ namespace GameServer.Maps
 						this.CharacterData.当前朝向.V = GameDirection;
 						base.发送封包(new ObjectRotationDirectionPacket
 						{
-							对象编号 = this.地图编号,
+							对象编号 = this.MapId,
 							对象朝向 = (ushort)GameDirection,
 							转向耗时 = 100
 						});
 					}
 					base.发送封包(new ObjectCharacterStopPacket
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						对象坐标 = this.当前坐标,
 						对象高度 = this.当前高度
 					});
@@ -3648,14 +3648,14 @@ namespace GameServer.Maps
 					this.CharacterData.当前朝向.V = GameDirection;
 					base.发送封包(new ObjectRotationDirectionPacket
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						对象朝向 = (ushort)GameDirection,
 						转向耗时 = 100
 					});
 				}
 				base.发送封包(new ObjectCharacterRunPacket
 				{
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					移动坐标 = point2,
 					移动耗时 = base.奔跑速度
 				});
@@ -3671,7 +3671,7 @@ namespace GameServer.Maps
 				}
 				base.发送封包(new ObjectCharacterStopPacket
 				{
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					对象坐标 = this.当前坐标,
 					对象高度 = this.当前高度
 				});
@@ -4089,8 +4089,8 @@ namespace GameServer.Maps
 				{
 					网络连接.发送封包(new 玩家选中目标
 					{
-						角色编号 = this.地图编号,
-						目标编号 = MapObject.地图编号
+						角色编号 = this.MapId,
+						目标编号 = MapObject.MapId
 					});
 				}
 				客户网络 网络连接2 = this.网络连接;
@@ -4100,7 +4100,7 @@ namespace GameServer.Maps
 				}
 				网络连接2.发送封包(new SelectTargetDetailsPacket
 				{
-					对象编号 = MapObject.地图编号,
+					对象编号 = MapObject.MapId,
 					当前体力 = MapObject.当前体力,
 					当前魔力 = MapObject.当前魔力,
 					最大体力 = MapObject[GameObjectProperties.最大体力],
@@ -4145,7 +4145,7 @@ namespace GameServer.Maps
 				}
 				网络连接.发送封包(new 同步交互结果
 				{
-					对象编号 = this.对话守卫.地图编号,
+					对象编号 = this.对话守卫.MapId,
 					交互文本 = 对话数据.字节数据(this.对话页面)
 				});
 			}
@@ -4209,7 +4209,7 @@ namespace GameServer.Maps
 										}
 										网络连接.发送封包(new 同步交互结果
 										{
-											对象编号 = this.对话守卫.地图编号,
+											对象编号 = this.对话守卫.MapId,
 											交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:{1}>", CustomClass.武斗场时间一, CustomClass.武斗场时间二))
 										});
 										return;
@@ -4224,7 +4224,7 @@ namespace GameServer.Maps
 										}
 										网络连接2.发送封包(new 同步交互结果
 										{
-											对象编号 = this.对话守卫.地图编号,
+											对象编号 = this.对话守卫.MapId,
 											交互文本 = 对话数据.字节数据(this.对话页面)
 										});
 										return;
@@ -4240,7 +4240,7 @@ namespace GameServer.Maps
 												网络连接3.发送封包(new 同步交互结果
 												{
 													交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", 25)),
-													对象编号 = this.对话守卫.地图编号
+													对象编号 = this.对话守卫.MapId
 												});
 											}
 										}
@@ -4248,7 +4248,7 @@ namespace GameServer.Maps
 										{
 											this.金币数量 -= 50000;
 											this.CharacterData.武斗日期.V = MainProcess.CurrentTime;
-											this.玩家切换地图((this.当前地图.地图编号 == 183) ? this.当前地图 : MapGatewayProcess.分配地图(183), AreaType.传送区域, default(Point));
+											this.玩家切换地图((this.当前地图.MapId == 183) ? this.当前地图 : MapGatewayProcess.分配地图(183), AreaType.传送区域, default(Point));
 											return;
 										}
 										this.对话页面 = 479503000;
@@ -4259,7 +4259,7 @@ namespace GameServer.Maps
 										}
 										网络连接4.发送封包(new 同步交互结果
 										{
-											对象编号 = this.对话守卫.地图编号,
+											对象编号 = this.对话守卫.MapId,
 											交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}>", 50000))
 										});
 										return;
@@ -4288,7 +4288,7 @@ namespace GameServer.Maps
 										网络连接5.发送封包(new 同步交互结果
 										{
 											交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num2)),
-											对象编号 = this.对话守卫.地图编号
+											对象编号 = this.对话守卫.MapId
 										});
 										return;
 									}
@@ -4297,7 +4297,7 @@ namespace GameServer.Maps
 										if (this.金币数量 >= num3)
 										{
 											this.金币数量 -= num3;
-											this.玩家切换地图((this.当前地图.地图编号 == num4) ? this.当前地图 : MapGatewayProcess.分配地图(num4), AreaType.传送区域, default(Point));
+											this.玩家切换地图((this.当前地图.MapId == num4) ? this.当前地图 : MapGatewayProcess.分配地图(num4), AreaType.传送区域, default(Point));
 											return;
 										}
 										this.对话页面 = 711900002;
@@ -4309,7 +4309,7 @@ namespace GameServer.Maps
 										网络连接6.发送封包(new 同步交互结果
 										{
 											交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num3)),
-											对象编号 = this.对话守卫.地图编号
+											对象编号 = this.对话守卫.MapId
 										});
 										return;
 									}
@@ -4333,7 +4333,7 @@ namespace GameServer.Maps
 										网络连接7.发送封包(new 同步交互结果
 										{
 											交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num5)),
-											对象编号 = this.对话守卫.地图编号
+											对象编号 = this.对话守卫.MapId
 										});
 										return;
 									}
@@ -4342,7 +4342,7 @@ namespace GameServer.Maps
 										if (this.金币数量 >= num6)
 										{
 											this.金币数量 -= num6;
-											this.玩家切换地图((this.当前地图.地图编号 == num7) ? this.当前地图 : MapGatewayProcess.分配地图(num7), AreaType.复活区域, default(Point));
+											this.玩家切换地图((this.当前地图.MapId == num7) ? this.当前地图 : MapGatewayProcess.分配地图(num7), AreaType.复活区域, default(Point));
 											return;
 										}
 										this.对话页面 = 711900002;
@@ -4354,7 +4354,7 @@ namespace GameServer.Maps
 										网络连接8.发送封包(new 同步交互结果
 										{
 											交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num6)),
-											对象编号 = this.对话守卫.地图编号
+											对象编号 = this.对话守卫.MapId
 										});
 										return;
 									}
@@ -4382,7 +4382,7 @@ namespace GameServer.Maps
 										}
 										网络连接9.发送封包(new 同步交互结果
 										{
-											对象编号 = this.对话守卫.地图编号,
+											对象编号 = this.对话守卫.MapId,
 											交互文本 = 对话数据.字节数据(this.对话页面)
 										});
 										return;
@@ -4398,7 +4398,7 @@ namespace GameServer.Maps
 										}
 										网络连接10.发送封包(new 同步交互结果
 										{
-											对象编号 = this.对话守卫.地图编号,
+											对象编号 = this.对话守卫.MapId,
 											交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}>", (EquipmentWearingParts)this.重铸部位))
 										});
 										return;
@@ -4414,7 +4414,7 @@ namespace GameServer.Maps
 									}
 									网络连接11.发送封包(new 同步交互结果
 									{
-										对象编号 = this.对话守卫.地图编号,
+										对象编号 = this.对话守卫.MapId,
 										交互文本 = 对话数据.字节数据(this.对话页面)
 									});
 									return;
@@ -4429,7 +4429,7 @@ namespace GameServer.Maps
 									}
 									网络连接12.发送封包(new 同步交互结果
 									{
-										对象编号 = this.对话守卫.地图编号,
+										对象编号 = this.对话守卫.MapId,
 										交互文本 = 对话数据.字节数据(this.对话页面)
 									});
 									return;
@@ -4462,7 +4462,7 @@ namespace GameServer.Maps
 										}
 										网络连接13.发送封包(new 同步交互结果
 										{
-											对象编号 = this.对话守卫.地图编号,
+											对象编号 = this.对话守卫.MapId,
 											交互文本 = 对话数据.字节数据(this.对话页面)
 										});
 										return;
@@ -4483,7 +4483,7 @@ namespace GameServer.Maps
 											}
 											网络连接14.发送封包(new 同步交互结果
 											{
-												对象编号 = this.对话守卫.地图编号,
+												对象编号 = this.对话守卫.MapId,
 												交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:[{0}] 个 [{1}]><#P1:{2}>", num9, 游戏物品.DataSheet[重铸所需灵气].物品名字, num8 / 10000))
 											});
 											return;
@@ -4498,7 +4498,7 @@ namespace GameServer.Maps
 											}
 											网络连接15.发送封包(new 同步交互结果
 											{
-												对象编号 = this.对话守卫.地图编号,
+												对象编号 = this.对话守卫.MapId,
 												交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:[{0}] 个 [{1}]><#P1:{2}>", num9, 游戏物品.DataSheet[重铸所需灵气].物品名字, num8 / 10000))
 											});
 											return;
@@ -4526,7 +4526,7 @@ namespace GameServer.Maps
 											}
 											网络连接17.发送封包(new 同步交互结果
 											{
-												对象编号 = this.对话守卫.地图编号,
+												对象编号 = this.对话守卫.MapId,
 												交互文本 = 对话数据.合并数据(this.对话页面, "<#P1:" + EquipmentData2.属性描述 + ">")
 											});
 											return;
@@ -4547,7 +4547,7 @@ namespace GameServer.Maps
 									}
 									网络连接18.发送封包(new 同步交互结果
 									{
-										对象编号 = this.对话守卫.地图编号,
+										对象编号 = this.对话守卫.MapId,
 										交互文本 = 对话数据.字节数据(this.对话页面)
 									});
 									return;
@@ -4563,7 +4563,7 @@ namespace GameServer.Maps
 									}
 									网络连接19.发送封包(new 同步交互结果
 									{
-										对象编号 = this.对话守卫.地图编号,
+										对象编号 = this.对话守卫.MapId,
 										交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}>", (EquipmentWearingParts)this.重铸部位))
 									});
 									return;
@@ -4582,7 +4582,7 @@ namespace GameServer.Maps
 									}
 									网络连接20.发送封包(new 同步交互结果
 									{
-										对象编号 = this.对话守卫.地图编号,
+										对象编号 = this.对话守卫.MapId,
 										交互文本 = 对话数据.字节数据(this.对话页面)
 									});
 									return;
@@ -4598,7 +4598,7 @@ namespace GameServer.Maps
 									}
 									网络连接21.发送封包(new 同步交互结果
 									{
-										对象编号 = this.对话守卫.地图编号,
+										对象编号 = this.对话守卫.MapId,
 										交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}>", (EquipmentWearingParts)this.重铸部位))
 									});
 									return;
@@ -4617,7 +4617,7 @@ namespace GameServer.Maps
 									}
 									网络连接22.发送封包(new 同步交互结果
 									{
-										对象编号 = this.对话守卫.地图编号,
+										对象编号 = this.对话守卫.MapId,
 										交互文本 = 对话数据.字节数据(this.对话页面)
 									});
 									return;
@@ -4633,7 +4633,7 @@ namespace GameServer.Maps
 									}
 									网络连接23.发送封包(new 同步交互结果
 									{
-										对象编号 = this.对话守卫.地图编号,
+										对象编号 = this.对话守卫.MapId,
 										交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}>", (EquipmentWearingParts)this.重铸部位))
 									});
 									return;
@@ -4652,7 +4652,7 @@ namespace GameServer.Maps
 									}
 									网络连接24.发送封包(new 同步交互结果
 									{
-										对象编号 = this.对话守卫.地图编号,
+										对象编号 = this.对话守卫.MapId,
 										交互文本 = 对话数据.字节数据(this.对话页面)
 									});
 									return;
@@ -4668,7 +4668,7 @@ namespace GameServer.Maps
 									}
 									网络连接25.发送封包(new 同步交互结果
 									{
-										对象编号 = this.对话守卫.地图编号,
+										对象编号 = this.对话守卫.MapId,
 										交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}>", (EquipmentWearingParts)this.重铸部位))
 									});
 									return;
@@ -4687,7 +4687,7 @@ namespace GameServer.Maps
 									}
 									网络连接26.发送封包(new 同步交互结果
 									{
-										对象编号 = this.对话守卫.地图编号,
+										对象编号 = this.对话守卫.MapId,
 										交互文本 = 对话数据.字节数据(this.对话页面)
 									});
 									return;
@@ -4703,7 +4703,7 @@ namespace GameServer.Maps
 									}
 									网络连接27.发送封包(new 同步交互结果
 									{
-										对象编号 = this.对话守卫.地图编号,
+										对象编号 = this.对话守卫.MapId,
 										交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}>", (EquipmentWearingParts)this.重铸部位))
 									});
 									return;
@@ -4722,7 +4722,7 @@ namespace GameServer.Maps
 									}
 									网络连接28.发送封包(new 同步交互结果
 									{
-										对象编号 = this.对话守卫.地图编号,
+										对象编号 = this.对话守卫.MapId,
 										交互文本 = 对话数据.字节数据(this.对话页面)
 									});
 									return;
@@ -4738,7 +4738,7 @@ namespace GameServer.Maps
 									}
 									网络连接29.发送封包(new 同步交互结果
 									{
-										对象编号 = this.对话守卫.地图编号,
+										对象编号 = this.对话守卫.MapId,
 										交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}>", (EquipmentWearingParts)this.重铸部位))
 									});
 									return;
@@ -4757,7 +4757,7 @@ namespace GameServer.Maps
 									}
 									网络连接30.发送封包(new 同步交互结果
 									{
-										对象编号 = this.对话守卫.地图编号,
+										对象编号 = this.对话守卫.MapId,
 										交互文本 = 对话数据.字节数据(this.对话页面)
 									});
 									return;
@@ -4773,7 +4773,7 @@ namespace GameServer.Maps
 									}
 									网络连接31.发送封包(new 同步交互结果
 									{
-										对象编号 = this.对话守卫.地图编号,
+										对象编号 = this.对话守卫.MapId,
 										交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}>", (EquipmentWearingParts)this.重铸部位))
 									});
 									return;
@@ -4793,7 +4793,7 @@ namespace GameServer.Maps
 								}
 								网络连接32.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -4809,7 +4809,7 @@ namespace GameServer.Maps
 								}
 								网络连接33.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}>", (EquipmentWearingParts)this.重铸部位))
 								});
 								return;
@@ -4828,7 +4828,7 @@ namespace GameServer.Maps
 								}
 								网络连接34.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -4844,7 +4844,7 @@ namespace GameServer.Maps
 								}
 								网络连接35.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}>", (EquipmentWearingParts)this.重铸部位))
 								});
 								return;
@@ -4863,7 +4863,7 @@ namespace GameServer.Maps
 								}
 								网络连接36.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -4879,7 +4879,7 @@ namespace GameServer.Maps
 								}
 								网络连接37.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}>", (EquipmentWearingParts)this.重铸部位))
 								});
 								return;
@@ -4898,7 +4898,7 @@ namespace GameServer.Maps
 								}
 								网络连接38.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -4914,7 +4914,7 @@ namespace GameServer.Maps
 								}
 								网络连接39.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}>", (EquipmentWearingParts)this.重铸部位))
 								});
 								return;
@@ -4933,7 +4933,7 @@ namespace GameServer.Maps
 								}
 								网络连接40.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -4949,7 +4949,7 @@ namespace GameServer.Maps
 								}
 								网络连接41.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}>", (EquipmentWearingParts)this.重铸部位))
 								});
 								return;
@@ -4968,7 +4968,7 @@ namespace GameServer.Maps
 								}
 								网络连接42.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -4984,7 +4984,7 @@ namespace GameServer.Maps
 								}
 								网络连接43.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}>", (EquipmentWearingParts)this.重铸部位))
 								});
 								return;
@@ -5003,7 +5003,7 @@ namespace GameServer.Maps
 								}
 								网络连接44.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -5019,7 +5019,7 @@ namespace GameServer.Maps
 								}
 								网络连接45.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}>", (EquipmentWearingParts)this.重铸部位))
 								});
 								return;
@@ -5055,7 +5055,7 @@ namespace GameServer.Maps
 								}
 								网络连接46.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -5070,7 +5070,7 @@ namespace GameServer.Maps
 								}
 								网络连接47.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}>", (EquipmentWearingParts)this.重铸部位))
 								});
 								return;
@@ -5133,7 +5133,7 @@ namespace GameServer.Maps
 										}
 										网络连接48.发送封包(new 同步交互结果
 										{
-											对象编号 = this.对话守卫.地图编号,
+											对象编号 = this.对话守卫.MapId,
 											交互文本 = 对话数据.字节数据(this.对话页面)
 										});
 										return;
@@ -5148,7 +5148,7 @@ namespace GameServer.Maps
 										}
 										网络连接49.发送封包(new 同步交互结果
 										{
-											对象编号 = this.对话守卫.地图编号,
+											对象编号 = this.对话守卫.MapId,
 											交互文本 = 对话数据.字节数据(this.对话页面)
 										});
 										return;
@@ -5163,7 +5163,7 @@ namespace GameServer.Maps
 										}
 										网络连接50.发送封包(new 同步交互结果
 										{
-											对象编号 = this.对话守卫.地图编号,
+											对象编号 = this.对话守卫.MapId,
 											交互文本 = 对话数据.字节数据(this.对话页面)
 										});
 										return;
@@ -5184,7 +5184,7 @@ namespace GameServer.Maps
 											网络连接51.发送封包(new 同步交互结果
 											{
 												交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0><#P1:{1}>", num10, num11 / 10000)),
-												对象编号 = this.对话守卫.地图编号
+												对象编号 = this.对话守卫.MapId
 											});
 											return;
 										}
@@ -5199,7 +5199,7 @@ namespace GameServer.Maps
 											网络连接52.发送封包(new 同步交互结果
 											{
 												交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0><#P1:{1}>", num10, num11 / 10000)),
-												对象编号 = this.对话守卫.地图编号
+												对象编号 = this.对话守卫.MapId
 											});
 											return;
 										}
@@ -5227,7 +5227,7 @@ namespace GameServer.Maps
 												网络连接54.发送封包(new 同步交互结果
 												{
 													交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", EquipmentData17.孔洞颜色[0])),
-													对象编号 = this.对话守卫.地图编号
+													对象编号 = this.对话守卫.MapId
 												});
 												return;
 											}
@@ -5242,7 +5242,7 @@ namespace GameServer.Maps
 												网络连接55.发送封包(new 同步交互结果
 												{
 													交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:{1}>", EquipmentData17.孔洞颜色[0], EquipmentData17.孔洞颜色[1])),
-													对象编号 = this.对话守卫.地图编号
+													对象编号 = this.对话守卫.MapId
 												});
 												return;
 											}
@@ -5299,7 +5299,7 @@ namespace GameServer.Maps
 									}
 									网络连接56.发送封包(new 同步交互结果
 									{
-										对象编号 = this.对话守卫.地图编号,
+										对象编号 = this.对话守卫.MapId,
 										交互文本 = 对话数据.字节数据(this.对话页面)
 									});
 									return;
@@ -5314,7 +5314,7 @@ namespace GameServer.Maps
 									}
 									网络连接57.发送封包(new 同步交互结果
 									{
-										对象编号 = this.对话守卫.地图编号,
+										对象编号 = this.对话守卫.MapId,
 										交互文本 = 对话数据.字节数据(this.对话页面)
 									});
 									return;
@@ -5329,7 +5329,7 @@ namespace GameServer.Maps
 									}
 									网络连接58.发送封包(new 同步交互结果
 									{
-										对象编号 = this.对话守卫.地图编号,
+										对象编号 = this.对话守卫.MapId,
 										交互文本 = 对话数据.字节数据(this.对话页面)
 									});
 									return;
@@ -5348,7 +5348,7 @@ namespace GameServer.Maps
 										网络连接59.发送封包(new 同步交互结果
 										{
 											交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", EquipmentData18.孔洞颜色[0])),
-											对象编号 = this.对话守卫.地图编号
+											对象编号 = this.对话守卫.MapId
 										});
 										return;
 									}
@@ -5363,7 +5363,7 @@ namespace GameServer.Maps
 										网络连接60.发送封包(new 同步交互结果
 										{
 											交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:{1}>", EquipmentData18.孔洞颜色[0], EquipmentData18.孔洞颜色[1])),
-											对象编号 = this.对话守卫.地图编号
+											对象编号 = this.对话守卫.MapId
 										});
 										return;
 									}
@@ -5419,7 +5419,7 @@ namespace GameServer.Maps
 								}
 								网络连接61.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -5434,7 +5434,7 @@ namespace GameServer.Maps
 								}
 								网络连接62.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -5454,7 +5454,7 @@ namespace GameServer.Maps
 									网络连接63.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num12)),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -5494,7 +5494,7 @@ namespace GameServer.Maps
 								}
 								网络连接65.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -5509,7 +5509,7 @@ namespace GameServer.Maps
 								}
 								网络连接66.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -5524,7 +5524,7 @@ namespace GameServer.Maps
 								}
 								网络连接67.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -5539,7 +5539,7 @@ namespace GameServer.Maps
 								}
 								网络连接68.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -5554,7 +5554,7 @@ namespace GameServer.Maps
 								}
 								网络连接69.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -5569,7 +5569,7 @@ namespace GameServer.Maps
 								}
 								网络连接70.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -5584,7 +5584,7 @@ namespace GameServer.Maps
 								}
 								网络连接71.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -5599,7 +5599,7 @@ namespace GameServer.Maps
 								}
 								网络连接72.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -5654,7 +5654,7 @@ namespace GameServer.Maps
 								}
 								网络连接73.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -5669,7 +5669,7 @@ namespace GameServer.Maps
 								}
 								网络连接74.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -5684,7 +5684,7 @@ namespace GameServer.Maps
 								}
 								网络连接75.发送封包(new 同步交互结果
 								{
-									对象编号 = this.对话守卫.地图编号,
+									对象编号 = this.对话守卫.MapId,
 									交互文本 = 对话数据.字节数据(this.对话页面)
 								});
 								return;
@@ -5705,7 +5705,7 @@ namespace GameServer.Maps
 									网络连接76.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:{1}>", num13, num14 / 10000)),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -5720,7 +5720,7 @@ namespace GameServer.Maps
 									网络连接77.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:{1}>", num13, num14 / 10000)),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -5748,7 +5748,7 @@ namespace GameServer.Maps
 										网络连接79.发送封包(new 同步交互结果
 										{
 											交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", EquipmentData20.孔洞颜色[0])),
-											对象编号 = this.对话守卫.地图编号
+											对象编号 = this.对话守卫.MapId
 										});
 										return;
 									}
@@ -5763,7 +5763,7 @@ namespace GameServer.Maps
 										网络连接80.发送封包(new 同步交互结果
 										{
 											交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:{1}>", EquipmentData20.孔洞颜色[0], EquipmentData20.孔洞颜色[1])),
-											对象编号 = this.对话守卫.地图编号
+											对象编号 = this.对话守卫.MapId
 										});
 										return;
 									}
@@ -5804,7 +5804,7 @@ namespace GameServer.Maps
 								网络连接81.发送封包(new 同步交互结果
 								{
 									交互文本 = 对话数据.字节数据(this.对话页面),
-									对象编号 = this.对话守卫.地图编号
+									对象编号 = this.对话守卫.MapId
 								});
 								return;
 							}
@@ -5854,7 +5854,7 @@ namespace GameServer.Maps
 								网络连接84.发送封包(new 同步交互结果
 								{
 									交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num15)),
-									对象编号 = this.对话守卫.地图编号
+									对象编号 = this.对话守卫.MapId
 								});
 								return;
 							}
@@ -5886,7 +5886,7 @@ namespace GameServer.Maps
 								网络连接85.发送封包(new 同步交互结果
 								{
 									交互文本 = 对话数据.字节数据(this.对话页面),
-									对象编号 = this.对话守卫.地图编号
+									对象编号 = this.对话守卫.MapId
 								});
 								return;
 							}
@@ -5936,7 +5936,7 @@ namespace GameServer.Maps
 								网络连接88.发送封包(new 同步交互结果
 								{
 									交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num17)),
-									对象编号 = this.对话守卫.地图编号
+									对象编号 = this.对话守卫.MapId
 								});
 								return;
 							}
@@ -5969,7 +5969,7 @@ namespace GameServer.Maps
 							网络连接89.发送封包(new 同步交互结果
 							{
 								交互文本 = 对话数据.字节数据(this.对话页面),
-								对象编号 = this.对话守卫.地图编号
+								对象编号 = this.对话守卫.MapId
 							});
 							return;
 						}
@@ -6019,7 +6019,7 @@ namespace GameServer.Maps
 							网络连接92.发送封包(new 同步交互结果
 							{
 								交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num19)),
-								对象编号 = this.对话守卫.地图编号
+								对象编号 = this.对话守卫.MapId
 							});
 							return;
 						}
@@ -6062,7 +6062,7 @@ namespace GameServer.Maps
 									网络连接93.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.字节数据(this.对话页面),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -6112,7 +6112,7 @@ namespace GameServer.Maps
 									网络连接96.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num21)),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -6144,7 +6144,7 @@ namespace GameServer.Maps
 									网络连接97.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.字节数据(this.对话页面),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -6194,7 +6194,7 @@ namespace GameServer.Maps
 									网络连接100.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num23)),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -6233,7 +6233,7 @@ namespace GameServer.Maps
 									网络连接101.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.字节数据(this.对话页面),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -6283,7 +6283,7 @@ namespace GameServer.Maps
 									网络连接104.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num25)),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -6315,7 +6315,7 @@ namespace GameServer.Maps
 									网络连接105.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.字节数据(this.对话页面),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -6365,7 +6365,7 @@ namespace GameServer.Maps
 									网络连接108.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num27)),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -6398,7 +6398,7 @@ namespace GameServer.Maps
 								网络连接109.发送封包(new 同步交互结果
 								{
 									交互文本 = 对话数据.字节数据(this.对话页面),
-									对象编号 = this.对话守卫.地图编号
+									对象编号 = this.对话守卫.MapId
 								});
 								return;
 							}
@@ -6448,7 +6448,7 @@ namespace GameServer.Maps
 								网络连接112.发送封包(new 同步交互结果
 								{
 									交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num29)),
-									对象编号 = this.对话守卫.地图编号
+									对象编号 = this.对话守卫.MapId
 								});
 								return;
 							}
@@ -6492,7 +6492,7 @@ namespace GameServer.Maps
 								网络连接113.发送封包(new 同步交互结果
 								{
 									交互文本 = 对话数据.字节数据(this.对话页面),
-									对象编号 = this.对话守卫.地图编号
+									对象编号 = this.对话守卫.MapId
 								});
 								return;
 							}
@@ -6515,7 +6515,7 @@ namespace GameServer.Maps
 									网络连接114.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.字节数据(this.对话页面),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -6530,7 +6530,7 @@ namespace GameServer.Maps
 									网络连接115.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.字节数据(this.对话页面),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -6545,7 +6545,7 @@ namespace GameServer.Maps
 									网络连接116.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.字节数据(this.对话页面),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -6564,7 +6564,7 @@ namespace GameServer.Maps
 									网络连接117.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.字节数据(this.对话页面),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -6579,7 +6579,7 @@ namespace GameServer.Maps
 									网络连接118.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", DeductCoinsCommand / 10000)),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -6594,7 +6594,7 @@ namespace GameServer.Maps
 									网络连接119.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.字节数据(this.对话页面),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -6609,7 +6609,7 @@ namespace GameServer.Maps
 									网络连接120.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", 需要等级)),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -6624,7 +6624,7 @@ namespace GameServer.Maps
 									网络连接121.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.字节数据(this.对话页面),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -6635,7 +6635,7 @@ namespace GameServer.Maps
 									{
 										return;
 									}
-									MapInstance MapInstance2 = new MapInstance(游戏地图.DataSheet[80], 1);
+									MapInstance MapInstance2 = new MapInstance(GameMap.DataSheet[80], 1);
 									MapInstance2.地形数据 = MapInstance.地形数据;
 									MapInstance2.地图区域 = MapInstance.地图区域;
 									MapInstance2.怪物区域 = MapInstance.怪物区域;
@@ -6678,7 +6678,7 @@ namespace GameServer.Maps
 								}
 								if (选项编号 == 1)
 								{
-									this.玩家切换地图((this.当前地图.地图编号 == 147) ? this.当前地图 : MapGatewayProcess.分配地图(147), AreaType.复活区域, default(Point));
+									this.玩家切换地图((this.当前地图.MapId == 147) ? this.当前地图 : MapGatewayProcess.分配地图(147), AreaType.复活区域, default(Point));
 									return;
 								}
 							}
@@ -6700,7 +6700,7 @@ namespace GameServer.Maps
 										网络连接122.发送封包(new 同步交互结果
 										{
 											交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num31)),
-											对象编号 = this.对话守卫.地图编号
+											对象编号 = this.对话守卫.MapId
 										});
 										return;
 									}
@@ -6709,7 +6709,7 @@ namespace GameServer.Maps
 										if (this.金币数量 >= num32)
 										{
 											this.金币数量 -= num32;
-											this.玩家切换地图((this.当前地图.地图编号 == num33) ? this.当前地图 : MapGatewayProcess.分配地图(num33), AreaType.传送区域, default(Point));
+											this.玩家切换地图((this.当前地图.MapId == num33) ? this.当前地图 : MapGatewayProcess.分配地图(num33), AreaType.传送区域, default(Point));
 											return;
 										}
 										this.对话页面 = 711900002;
@@ -6721,7 +6721,7 @@ namespace GameServer.Maps
 										网络连接123.发送封包(new 同步交互结果
 										{
 											交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num32)),
-											对象编号 = this.对话守卫.地图编号
+											对象编号 = this.对话守卫.MapId
 										});
 										return;
 									}
@@ -6743,7 +6743,7 @@ namespace GameServer.Maps
 									网络连接124.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.字节数据(this.对话页面),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -6815,7 +6815,7 @@ namespace GameServer.Maps
 									网络连接128.发送封包(new 同步交互结果
 									{
 										交互文本 = 对话数据.字节数据(this.对话页面),
-										对象编号 = this.对话守卫.地图编号
+										对象编号 = this.对话守卫.MapId
 									});
 									return;
 								}
@@ -6831,7 +6831,7 @@ namespace GameServer.Maps
 								网络连接129.发送封包(new 同步交互结果
 								{
 									交互文本 = 对话数据.字节数据(this.对话页面),
-									对象编号 = this.对话守卫.地图编号
+									对象编号 = this.对话守卫.MapId
 								});
 								return;
 							}
@@ -6850,13 +6850,13 @@ namespace GameServer.Maps
 							}
 							if (选项编号 == 1)
 							{
-								this.玩家切换地图((this.当前地图.地图编号 == 87) ? this.当前地图 : MapGatewayProcess.分配地图(87), AreaType.传送区域, default(Point));
+								this.玩家切换地图((this.当前地图.MapId == 87) ? this.当前地图 : MapGatewayProcess.分配地图(87), AreaType.传送区域, default(Point));
 								return;
 							}
 						}
 						else if (选项编号 == 1)
 						{
-							this.玩家切换地图((this.当前地图.地图编号 == 88) ? this.当前地图 : MapGatewayProcess.分配地图(88), AreaType.传送区域, default(Point));
+							this.玩家切换地图((this.当前地图.MapId == 88) ? this.当前地图 : MapGatewayProcess.分配地图(88), AreaType.传送区域, default(Point));
 							return;
 						}
 					}
@@ -6879,7 +6879,7 @@ namespace GameServer.Maps
 								网络连接130.发送封包(new 同步交互结果
 								{
 									交互文本 = 对话数据.字节数据(this.对话页面),
-									对象编号 = this.对话守卫.地图编号
+									对象编号 = this.对话守卫.MapId
 								});
 								return;
 							}
@@ -6916,7 +6916,7 @@ namespace GameServer.Maps
 									}
 									网络连接132.发送封包(new 同步交互结果
 									{
-										对象编号 = this.对话守卫.地图编号,
+										对象编号 = this.对话守卫.MapId,
 										交互文本 = 对话数据.字节数据(this.对话页面)
 									});
 									return;
@@ -6934,7 +6934,7 @@ namespace GameServer.Maps
 										}
 										网络连接133.发送封包(new 同步交互结果
 										{
-											对象编号 = this.对话守卫.地图编号,
+											对象编号 = this.对话守卫.MapId,
 											交互文本 = 对话数据.字节数据(this.对话页面)
 										});
 										return;
@@ -6965,7 +6965,7 @@ namespace GameServer.Maps
 														}
 														网络连接134.发送封包(new 同步交互结果
 														{
-															对象编号 = this.对话守卫.地图编号,
+															对象编号 = this.对话守卫.MapId,
 															交互文本 = 对话数据.字节数据(this.对话页面)
 														});
 														return;
@@ -7016,7 +7016,7 @@ namespace GameServer.Maps
 										}
 										网络连接138.发送封包(new 同步交互结果
 										{
-											对象编号 = this.对话守卫.地图编号,
+											对象编号 = this.对话守卫.MapId,
 											交互文本 = 对话数据.字节数据(this.对话页面)
 										});
 										return;
@@ -7042,7 +7042,7 @@ namespace GameServer.Maps
 							}
 							网络连接139.发送封包(new 同步交互结果
 							{
-								对象编号 = this.对话守卫.地图编号,
+								对象编号 = this.对话守卫.MapId,
 								交互文本 = 对话数据.字节数据(this.对话页面)
 							});
 							return;
@@ -7058,7 +7058,7 @@ namespace GameServer.Maps
 							}
 							网络连接140.发送封包(new 同步交互结果
 							{
-								对象编号 = this.对话守卫.地图编号,
+								对象编号 = this.对话守卫.MapId,
 								交互文本 = 对话数据.字节数据(this.对话页面)
 							});
 							return;
@@ -7076,7 +7076,7 @@ namespace GameServer.Maps
 							}
 							网络连接141.发送封包(new 同步交互结果
 							{
-								对象编号 = this.对话守卫.地图编号,
+								对象编号 = this.对话守卫.MapId,
 								交互文本 = 对话数据.字节数据(this.对话页面)
 							});
 							return;
@@ -7091,7 +7091,7 @@ namespace GameServer.Maps
 							}
 							网络连接142.发送封包(new 同步交互结果
 							{
-								对象编号 = this.对话守卫.地图编号,
+								对象编号 = this.对话守卫.MapId,
 								交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", (int)(this.CharacterData.取回时间.V - MainProcess.CurrentTime).TotalMinutes + 1))
 							});
 							return;
@@ -7106,7 +7106,7 @@ namespace GameServer.Maps
 							}
 							网络连接143.发送封包(new 同步交互结果
 							{
-								对象编号 = this.对话守卫.地图编号,
+								对象编号 = this.对话守卫.MapId,
 								交互文本 = 对话数据.字节数据(this.对话页面)
 							});
 							return;
@@ -7121,7 +7121,7 @@ namespace GameServer.Maps
 							}
 							网络连接144.发送封包(new 同步交互结果
 							{
-								对象编号 = this.对话守卫.地图编号,
+								对象编号 = this.对话守卫.MapId,
 								交互文本 = 对话数据.字节数据(this.对话页面)
 							});
 							return;
@@ -7136,7 +7136,7 @@ namespace GameServer.Maps
 							}
 							网络连接145.发送封包(new 同步交互结果
 							{
-								对象编号 = this.对话守卫.地图编号,
+								对象编号 = this.对话守卫.MapId,
 								交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:{1}>", (int)(this.CharacterData.升级装备.V.升级次数.V * 10 + 10), (int)(this.CharacterData.升级装备.V.升级次数.V * 100 + 100)))
 							});
 							return;
@@ -7154,7 +7154,7 @@ namespace GameServer.Maps
 							}
 							网络连接146.发送封包(new 同步交互结果
 							{
-								对象编号 = this.对话守卫.地图编号,
+								对象编号 = this.对话守卫.MapId,
 								交互文本 = 对话数据.字节数据(this.对话页面)
 							});
 							return;
@@ -7169,7 +7169,7 @@ namespace GameServer.Maps
 							}
 							网络连接147.发送封包(new 同步交互结果
 							{
-								对象编号 = this.对话守卫.地图编号,
+								对象编号 = this.对话守卫.MapId,
 								交互文本 = 对话数据.字节数据(this.对话页面)
 							});
 							return;
@@ -7184,7 +7184,7 @@ namespace GameServer.Maps
 							}
 							网络连接148.发送封包(new 同步交互结果
 							{
-								对象编号 = this.对话守卫.地图编号,
+								对象编号 = this.对话守卫.MapId,
 								交互文本 = 对话数据.字节数据(this.对话页面)
 							});
 							return;
@@ -7199,7 +7199,7 @@ namespace GameServer.Maps
 							}
 							网络连接149.发送封包(new 同步交互结果
 							{
-								对象编号 = this.对话守卫.地图编号,
+								对象编号 = this.对话守卫.MapId,
 								交互文本 = 对话数据.字节数据(this.对话页面)
 							});
 							return;
@@ -7215,7 +7215,7 @@ namespace GameServer.Maps
 							}
 							网络连接150.发送封包(new 同步交互结果
 							{
-								对象编号 = this.对话守卫.地图编号,
+								对象编号 = this.对话守卫.MapId,
 								交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:{1}>", (int)(this.CharacterData.升级装备.V.升级次数.V * 10 + 10), (int)(this.CharacterData.升级装备.V.升级次数.V * 100 + 100)))
 							});
 							return;
@@ -7253,7 +7253,7 @@ namespace GameServer.Maps
 						}
 						网络连接151.发送封包(new 同步交互结果
 						{
-							对象编号 = this.对话守卫.地图编号,
+							对象编号 = this.对话守卫.MapId,
 							交互文本 = 对话数据.字节数据(this.对话页面)
 						});
 						return;
@@ -7411,7 +7411,7 @@ namespace GameServer.Maps
 							网络连接158.发送封包(new 同步交互结果
 							{
 								交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num36)),
-								对象编号 = this.对话守卫.地图编号
+								对象编号 = this.对话守卫.MapId
 							});
 							return;
 						}
@@ -7420,7 +7420,7 @@ namespace GameServer.Maps
 							if (this.金币数量 >= num37)
 							{
 								this.金币数量 -= num37;
-								this.玩家切换地图((this.当前地图.地图编号 == num38) ? this.当前地图 : MapGatewayProcess.分配地图(num38), AreaType.传送区域, default(Point));
+								this.玩家切换地图((this.当前地图.MapId == num38) ? this.当前地图 : MapGatewayProcess.分配地图(num38), AreaType.传送区域, default(Point));
 								return;
 							}
 							this.对话页面 = 711900002;
@@ -7432,7 +7432,7 @@ namespace GameServer.Maps
 							网络连接159.发送封包(new 同步交互结果
 							{
 								交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num37)),
-								对象编号 = this.对话守卫.地图编号
+								对象编号 = this.对话守卫.MapId
 							});
 							return;
 						}
@@ -7475,7 +7475,7 @@ namespace GameServer.Maps
 							网络连接160.发送封包(new 同步交互结果
 							{
 								交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num39)),
-								对象编号 = this.对话守卫.地图编号
+								对象编号 = this.对话守卫.MapId
 							});
 							return;
 						}
@@ -7484,7 +7484,7 @@ namespace GameServer.Maps
 							if (this.金币数量 >= num40)
 							{
 								this.金币数量 -= num40;
-								this.玩家切换地图((this.当前地图.地图编号 == num41) ? this.当前地图 : MapGatewayProcess.分配地图(num41), AreaType.传送区域, default(Point));
+								this.玩家切换地图((this.当前地图.MapId == num41) ? this.当前地图 : MapGatewayProcess.分配地图(num41), AreaType.传送区域, default(Point));
 								return;
 							}
 							this.对话页面 = 711900002;
@@ -7496,7 +7496,7 @@ namespace GameServer.Maps
 							网络连接161.发送封包(new 同步交互结果
 							{
 								交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num40)),
-								对象编号 = this.对话守卫.地图编号
+								对象编号 = this.对话守卫.MapId
 							});
 							return;
 						}
@@ -7564,7 +7564,7 @@ namespace GameServer.Maps
 						网络连接162.发送封包(new 同步交互结果
 						{
 							交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num42)),
-							对象编号 = this.对话守卫.地图编号
+							对象编号 = this.对话守卫.MapId
 						});
 						return;
 					}
@@ -7579,7 +7579,7 @@ namespace GameServer.Maps
 						网络连接163.发送封包(new 同步交互结果
 						{
 							交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num43)),
-							对象编号 = this.对话守卫.地图编号
+							对象编号 = this.对话守卫.MapId
 						});
 						return;
 					}
@@ -7588,15 +7588,15 @@ namespace GameServer.Maps
 						this.金币数量 -= num43;
 						if (num44 != 152)
 						{
-							this.玩家切换地图((this.当前地图.地图编号 == num44) ? this.当前地图 : MapGatewayProcess.分配地图(num44), AreaType.复活区域, default(Point));
+							this.玩家切换地图((this.当前地图.MapId == num44) ? this.当前地图 : MapGatewayProcess.分配地图(num44), AreaType.复活区域, default(Point));
 							return;
 						}
 						if (this.所属行会 != null && this.所属行会 == SystemData.数据.占领行会.V)
 						{
-							this.玩家切换地图((this.当前地图.地图编号 == num44) ? this.当前地图 : MapGatewayProcess.分配地图(num44), AreaType.传送区域, default(Point));
+							this.玩家切换地图((this.当前地图.MapId == num44) ? this.当前地图 : MapGatewayProcess.分配地图(num44), AreaType.传送区域, default(Point));
 							return;
 						}
-						this.玩家切换地图((this.当前地图.地图编号 == num44) ? this.当前地图 : MapGatewayProcess.分配地图(num44), AreaType.复活区域, default(Point));
+						this.玩家切换地图((this.当前地图.MapId == num44) ? this.当前地图 : MapGatewayProcess.分配地图(num44), AreaType.复活区域, default(Point));
 						return;
 					}
 				}
@@ -7638,12 +7638,12 @@ namespace GameServer.Maps
 			{
 				using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
 				{
-					binaryWriter.Write((ushort)this.当前地图.分线数量);
-					binaryWriter.Write(this.当前地图.地图编号);
-					for (int i = 1; i <= (int)this.当前地图.分线数量; i++)
+					binaryWriter.Write((ushort)this.当前地图.LimitInstances);
+					binaryWriter.Write(this.当前地图.MapId);
+					for (int i = 1; i <= (int)this.当前地图.LimitInstances; i++)
 					{
 						binaryWriter.Write(16777216 + i);
-						binaryWriter.Write(MapGatewayProcess.MapInstance表[this.当前地图.地图编号 * 16 + i].地图状态);
+						binaryWriter.Write(MapGatewayProcess.MapInstance表[this.当前地图.MapId * 16 + i].地图状态);
 					}
 					客户网络 网络连接 = this.网络连接;
 					if (网络连接 != null)
@@ -8496,7 +8496,7 @@ namespace GameServer.Maps
 								网络连接5.发送封包(new SyncSupplementaryVariablesPacket
 								{
 									变量类型 = 1,
-									对象编号 = this.地图编号,
+									对象编号 = this.MapId,
 									变量索引 = 112,
 									变量内容 = ComputingClass.时间转换(MainProcess.CurrentTime)
 								});
@@ -8576,7 +8576,7 @@ namespace GameServer.Maps
 										网络连接9.发送封包(new SyncSupplementaryVariablesPacket
 										{
 											变量类型 = 1,
-											对象编号 = this.地图编号,
+											对象编号 = this.MapId,
 											变量索引 = 975,
 											变量内容 = ComputingClass.时间转换(MainProcess.CurrentTime)
 										});
@@ -8649,7 +8649,7 @@ namespace GameServer.Maps
 							网络连接13.发送封包(new SyncSupplementaryVariablesPacket
 							{
 								变量类型 = 1,
-								对象编号 = this.地图编号,
+								对象编号 = this.MapId,
 								变量索引 = 975,
 								变量内容 = ComputingClass.时间转换(MainProcess.CurrentTime)
 							});
@@ -9695,7 +9695,7 @@ namespace GameServer.Maps
 					}
 					base.发送封包(new 同步装配称号
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						称号编号 = 称号编号
 					});
 					return;
@@ -9707,7 +9707,7 @@ namespace GameServer.Maps
 				}
 				网络连接4.发送封包(new 同步装配称号
 				{
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					称号编号 = 称号编号
 				});
 				return;
@@ -9732,7 +9732,7 @@ namespace GameServer.Maps
 			this.当前称号 = 0;
 			base.发送封包(new 同步装配称号
 			{
-				对象编号 = this.地图编号
+				对象编号 = this.MapId
 			});
 		}
 
@@ -9951,7 +9951,7 @@ namespace GameServer.Maps
 							网络连接6.发送封包(new 玩家拾取物品
 							{
 								物品描述 = this.角色背包[b].字节描述(),
-								角色编号 = this.地图编号
+								角色编号 = this.MapId
 							});
 						}
 						客户网络 网络连接7 = this.网络连接;
@@ -11712,7 +11712,7 @@ namespace GameServer.Maps
 														return;
 													}
 													this.消耗背包物品(1, ItemData);
-													this.玩家切换地图((this.当前地图.地图编号 == 147) ? this.当前地图 : MapGatewayProcess.分配地图(147), AreaType.复活区域, default(Point));
+													this.玩家切换地图((this.当前地图.MapId == 147) ? this.当前地图 : MapGatewayProcess.分配地图(147), AreaType.复活区域, default(Point));
 													return;
 												}
 												else
@@ -12240,7 +12240,7 @@ namespace GameServer.Maps
 											return;
 										}
 										this.消耗背包物品(1, ItemData);
-										this.玩家切换地图((this.当前地图.地图编号 == 143) ? this.当前地图 : MapGatewayProcess.分配地图(143), AreaType.复活区域, default(Point));
+										this.玩家切换地图((this.当前地图.MapId == 143) ? this.当前地图 : MapGatewayProcess.分配地图(143), AreaType.复活区域, default(Point));
 										return;
 									}
 								}
@@ -13650,7 +13650,7 @@ namespace GameServer.Maps
 												return;
 											}
 											this.消耗背包物品(1, ItemData);
-											this.玩家切换地图((this.当前地图.地图编号 == 147) ? this.当前地图 : MapGatewayProcess.分配地图(147), AreaType.复活区域, default(Point));
+											this.玩家切换地图((this.当前地图.MapId == 147) ? this.当前地图 : MapGatewayProcess.分配地图(147), AreaType.复活区域, default(Point));
 											return;
 										}
 									}
@@ -14068,7 +14068,7 @@ namespace GameServer.Maps
 												return;
 											}
 											this.消耗背包物品(1, ItemData);
-											this.玩家切换地图((this.当前地图.地图编号 == 143) ? this.当前地图 : MapGatewayProcess.分配地图(143), AreaType.复活区域, default(Point));
+											this.玩家切换地图((this.当前地图.MapId == 143) ? this.当前地图 : MapGatewayProcess.分配地图(143), AreaType.复活区域, default(Point));
 											return;
 										}
 									}
@@ -17207,7 +17207,7 @@ namespace GameServer.Maps
 					using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
 					{
 						binaryWriter.Write(2415919105U);
-						binaryWriter.Write(this.地图编号);
+						binaryWriter.Write(this.MapId);
 						binaryWriter.Write(1);
 						binaryWriter.Write((int)this.当前等级);
 						binaryWriter.Write(array);
@@ -17276,7 +17276,7 @@ namespace GameServer.Maps
 				{
 					using (BinaryWriter binaryWriter2 = new BinaryWriter(memoryStream2))
 					{
-						binaryWriter2.Write(this.地图编号);
+						binaryWriter2.Write(this.MapId);
 						binaryWriter2.Write(2415919107U);
 						binaryWriter2.Write((int)b);
 						binaryWriter2.Write((int)this.当前等级);
@@ -17336,7 +17336,7 @@ namespace GameServer.Maps
 						{
 							using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
 							{
-								binaryWriter.Write(this.地图编号);
+								binaryWriter.Write(this.MapId);
 								binaryWriter.Write(1879048192);
 								binaryWriter.Write(1);
 								binaryWriter.Write((int)this.当前等级);
@@ -17384,7 +17384,7 @@ namespace GameServer.Maps
 					{
 						using (BinaryWriter binaryWriter2 = new BinaryWriter(memoryStream2))
 						{
-							binaryWriter2.Write(this.地图编号);
+							binaryWriter2.Write(this.MapId);
 							binaryWriter2.Write(1610612736);
 							binaryWriter2.Write(1);
 							binaryWriter2.Write((int)this.当前等级);
@@ -17407,7 +17407,7 @@ namespace GameServer.Maps
 				CharacterData CharacterData = GameData as CharacterData;
 				if (CharacterData != null)
 				{
-					if (this.地图编号 == CharacterData.角色编号)
+					if (this.MapId == CharacterData.角色编号)
 					{
 						return;
 					}
@@ -17425,7 +17425,7 @@ namespace GameServer.Maps
 						using (BinaryWriter binaryWriter3 = new BinaryWriter(memoryStream3))
 						{
 							binaryWriter3.Write(CharacterData.角色编号);
-							binaryWriter3.Write(this.地图编号);
+							binaryWriter3.Write(this.MapId);
 							binaryWriter3.Write(1);
 							binaryWriter3.Write((int)this.当前等级);
 							binaryWriter3.Write(array);
@@ -17447,7 +17447,7 @@ namespace GameServer.Maps
 					{
 						using (BinaryWriter binaryWriter4 = new BinaryWriter(memoryStream4))
 						{
-							binaryWriter4.Write(this.地图编号);
+							binaryWriter4.Write(this.MapId);
 							binaryWriter4.Write(CharacterData.角色编号);
 							binaryWriter4.Write(1);
 							binaryWriter4.Write((int)this.当前等级);
@@ -17494,7 +17494,7 @@ namespace GameServer.Maps
 						{
 							using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
 							{
-								binaryWriter.Write(this.地图编号);
+								binaryWriter.Write(this.MapId);
 								binaryWriter.Write((int)this.当前等级);
 								binaryWriter.Write(array);
 								字节数据 = memoryStream.ToArray();
@@ -17615,7 +17615,7 @@ namespace GameServer.Maps
 								}
 								网络连接5.发送封包(new OtherPersonPaysAttentionToHimselfPacket
 								{
-									对象编号 = this.地图编号,
+									对象编号 = this.MapId,
 									对象名字 = this.对象名字
 								});
 								return;
@@ -17693,7 +17693,7 @@ namespace GameServer.Maps
 							}
 							网络连接9.发送封包(new OtherPersonPaysAttentionToHimselfPacket
 							{
-								对象编号 = this.地图编号,
+								对象编号 = this.MapId,
 								对象名字 = this.对象名字
 							});
 							return;
@@ -17754,7 +17754,7 @@ namespace GameServer.Maps
 						}
 						网络连接3.发送封包(new OtherPartyUnfollowsPacket
 						{
-							对象编号 = this.地图编号,
+							对象编号 = this.MapId,
 							对象名字 = this.对象名字
 						});
 						return;
@@ -17917,7 +17917,7 @@ namespace GameServer.Maps
 						});
 						return;
 					}
-					else if (对象编号 == this.地图编号)
+					else if (对象编号 == this.MapId)
 					{
 						客户网络 网络连接3 = this.网络连接;
 						if (网络连接3 == null)
@@ -18029,7 +18029,7 @@ namespace GameServer.Maps
 						return;
 					}
 					SyncPlayerAppearancePacket SyncPlayerAppearancePacket = new SyncPlayerAppearancePacket();
-					SyncPlayerAppearancePacket.对象编号 = PlayerObject.地图编号;
+					SyncPlayerAppearancePacket.对象编号 = PlayerObject.MapId;
 					SyncPlayerAppearancePacket.对象PK值 = PlayerObject.PK值惩罚;
 					SyncPlayerAppearancePacket.对象职业 = (byte)PlayerObject.角色职业;
 					SyncPlayerAppearancePacket.对象性别 = (byte)PlayerObject.角色性别;
@@ -18127,7 +18127,7 @@ namespace GameServer.Maps
 								主人编号 = 0,
 								主人名字 = "",
 								对象等级 = MonsterObject.当前等级,
-								对象编号 = MonsterObject.地图编号,
+								对象编号 = MonsterObject.MapId,
 								模板编号 = MonsterObject.模板编号,
 								当前等级 = MonsterObject.宠物等级,
 								对象质量 = (byte)MonsterObject.怪物级别,
@@ -18143,7 +18143,7 @@ namespace GameServer.Maps
 								return;
 							}
 							同步Npcc数据 同步Npcc数据 = new 同步Npcc数据();
-							同步Npcc数据.对象编号 = MonsterObject.地图编号;
+							同步Npcc数据.对象编号 = MonsterObject.MapId;
 							同步Npcc数据.对象等级 = MonsterObject.当前等级;
 							同步Npcc数据.对象质量 = (byte)MonsterObject.怪物级别;
 							游戏怪物 对象模板 = MonsterObject.对象模板;
@@ -18168,7 +18168,7 @@ namespace GameServer.Maps
 								}
 								同步Npcc数据 同步Npcc数据2 = new 同步Npcc数据();
 								同步Npcc数据2.对象质量 = 3;
-								同步Npcc数据2.对象编号 = GuardInstance.地图编号;
+								同步Npcc数据2.对象编号 = GuardInstance.MapId;
 								同步Npcc数据2.对象等级 = GuardInstance.当前等级;
 								地图守卫 对象模板2 = GuardInstance.对象模板;
 								同步Npcc数据2.对象模板 = ((ushort)((对象模板2 != null) ? 对象模板2.GuardNumber : 0));
@@ -18184,14 +18184,14 @@ namespace GameServer.Maps
 						}
 						SyncExtendedDataPacket SyncExtendedDataPacket = new SyncExtendedDataPacket();
 						SyncExtendedDataPacket.对象类型 = 2;
-						SyncExtendedDataPacket.对象编号 = PetObject.地图编号;
+						SyncExtendedDataPacket.对象编号 = PetObject.MapId;
 						SyncExtendedDataPacket.模板编号 = PetObject.模板编号;
 						SyncExtendedDataPacket.当前等级 = PetObject.宠物等级;
 						SyncExtendedDataPacket.对象等级 = PetObject.当前等级;
 						SyncExtendedDataPacket.对象质量 = (byte)PetObject.宠物级别;
 						SyncExtendedDataPacket.最大体力 = PetObject[GameObjectProperties.最大体力];
 						PlayerObject 宠物主人 = PetObject.宠物主人;
-						SyncExtendedDataPacket.主人编号 = ((宠物主人 != null) ? 宠物主人.地图编号 : 0);
+						SyncExtendedDataPacket.主人编号 = ((宠物主人 != null) ? 宠物主人.MapId : 0);
 						PlayerObject 宠物主人2 = PetObject.宠物主人;
 						string 主人名字;
 						if (宠物主人2 != null)
@@ -18274,7 +18274,7 @@ namespace GameServer.Maps
 					}
 					网络连接.发送封包(new SyncPlayerPowerPacket
 					{
-						角色编号 = PlayerObject.地图编号,
+						角色编号 = PlayerObject.MapId,
 						角色战力 = PlayerObject.当前战力
 					});
 					return;
@@ -18305,7 +18305,7 @@ namespace GameServer.Maps
 					{
 						网络连接.发送封包(new 同步角色装备
 						{
-							对象编号 = PlayerObject.地图编号,
+							对象编号 = PlayerObject.MapId,
 							装备数量 = (byte)PlayerObject.角色装备.Count,
 							字节描述 = PlayerObject.装备物品描述()
 						});
@@ -18503,7 +18503,7 @@ namespace GameServer.Maps
 		
 		public void 查询队伍信息(int 对象编号)
 		{
-			if (对象编号 == this.地图编号)
+			if (对象编号 == this.MapId)
 			{
 				客户网络 网络连接 = this.网络连接;
 				if (网络连接 == null)
@@ -18579,7 +18579,7 @@ namespace GameServer.Maps
 				});
 				return;
 			}
-			else if (this.地图编号 == 对象编号)
+			else if (this.MapId == 对象编号)
 			{
 				this.所属队伍 = new TeamData(this.CharacterData, 1);
 				客户网络 网络连接2 = this.网络连接;
@@ -18640,7 +18640,7 @@ namespace GameServer.Maps
 								客户网络.发送封包(new SendTeamRequestBPacket
 								{
 									组队方式 = 0,
-									对象编号 = this.地图编号,
+									对象编号 = this.MapId,
 									对象职业 = (byte)this.角色职业,
 									对象名字 = this.对象名字
 								});
@@ -18675,7 +18675,7 @@ namespace GameServer.Maps
 		
 		public void SendTeamRequestPacket(int 对象编号)
 		{
-			if (对象编号 == this.地图编号)
+			if (对象编号 == this.MapId)
 			{
 				客户网络 网络连接 = this.网络连接;
 				if (网络连接 == null)
@@ -18731,7 +18731,7 @@ namespace GameServer.Maps
 								客户网络.发送封包(new SendTeamRequestBPacket
 								{
 									组队方式 = 1,
-									对象编号 = this.地图编号,
+									对象编号 = this.MapId,
 									对象职业 = (byte)this.角色职业,
 									对象名字 = this.对象名字
 								});
@@ -18760,7 +18760,7 @@ namespace GameServer.Maps
 								return;
 							}
 						}
-						else if (this.地图编号 != this.所属队伍.队长编号)
+						else if (this.MapId != this.所属队伍.队长编号)
 						{
 							客户网络 网络连接6 = this.网络连接;
 							if (网络连接6 == null)
@@ -18816,7 +18816,7 @@ namespace GameServer.Maps
 								客户网络2.发送封包(new SendTeamRequestBPacket
 								{
 									组队方式 = 0,
-									对象编号 = this.地图编号,
+									对象编号 = this.MapId,
 									对象职业 = (byte)this.角色职业,
 									对象名字 = this.对象名字
 								});
@@ -18851,7 +18851,7 @@ namespace GameServer.Maps
 		
 		public void 回应组队请求(int 对象编号, byte 组队方式, byte 回应方式)
 		{
-			if (this.地图编号 != 对象编号)
+			if (this.MapId != 对象编号)
 			{
 				GameData GameData;
 				if (GameDataGateway.CharacterDataTable.DataSheet.TryGetValue(对象编号, out GameData))
@@ -18933,7 +18933,7 @@ namespace GameServer.Maps
 									CharacterData.当前队伍.发送封包(new AddMembersToTeamPacket
 									{
 										队伍编号 = CharacterData.当前队伍.队伍编号,
-										对象编号 = this.地图编号,
+										对象编号 = this.MapId,
 										对象名字 = this.对象名字,
 										对象性别 = (byte)this.角色性别,
 										对象职业 = (byte)this.角色职业,
@@ -19004,7 +19004,7 @@ namespace GameServer.Maps
 								});
 								return;
 							}
-							else if (this.地图编号 != this.所属队伍.队长编号)
+							else if (this.MapId != this.所属队伍.队长编号)
 							{
 								客户网络 网络连接10 = this.网络连接;
 								if (网络连接10 == null)
@@ -19156,7 +19156,7 @@ namespace GameServer.Maps
 							this.所属队伍.队伍成员.Remove(this.CharacterData);
 							this.所属队伍.发送封包(new TeamMembersLeavePacket
 							{
-								对象编号 = this.地图编号,
+								对象编号 = this.MapId,
 								队伍编号 = this.所属队伍.数据索引.V
 							});
 							客户网络 网络连接2 = this.网络连接;
@@ -19986,7 +19986,7 @@ namespace GameServer.Maps
 					}
 					base.发送封包(new 同步对象行会
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						行会编号 = this.所属行会.行会编号
 					});
 					NetworkServiceGateway.发送公告(string.Format("[{0}] created the guild [{1}]", this.对象名字, this.所属行会), false);
@@ -20494,7 +20494,7 @@ namespace GameServer.Maps
 							this.所属行会.邀请列表[CharacterData] = MainProcess.CurrentTime.AddHours(1.0);
 							客户网络.发送封包(new InviteJoinPacket
 							{
-								对象编号 = this.地图编号,
+								对象编号 = this.MapId,
 								对象名字 = this.对象名字,
 								行会名字 = this.所属行会.行会名字.V
 							});
@@ -20612,7 +20612,7 @@ namespace GameServer.Maps
 				});
 				return;
 			}
-			else if (this.地图编号 == 对象编号)
+			else if (this.MapId == 对象编号)
 			{
 				客户网络 网络连接2 = this.网络连接;
 				if (网络连接2 == null)
@@ -20703,7 +20703,7 @@ namespace GameServer.Maps
 				});
 				return;
 			}
-			else if (this.地图编号 == 对象编号)
+			else if (this.MapId == 对象编号)
 			{
 				客户网络 网络连接3 = this.网络连接;
 				if (网络连接3 == null)
@@ -20765,7 +20765,7 @@ namespace GameServer.Maps
 				});
 				return;
 			}
-			else if (this.地图编号 == 对象编号)
+			else if (this.MapId == 对象编号)
 			{
 				客户网络 网络连接2 = this.网络连接;
 				if (网络连接2 == null)
@@ -20835,7 +20835,7 @@ namespace GameServer.Maps
 				});
 				return;
 			}
-			else if (this.地图编号 == 对象编号)
+			else if (this.MapId == 对象编号)
 			{
 				客户网络 网络连接2 = this.网络连接;
 				if (网络连接2 == null)
@@ -21830,7 +21830,7 @@ namespace GameServer.Maps
 							{
 								CharacterData.当前师门 = new TeacherData(CharacterData);
 							}
-							CharacterData.当前师门.申请列表[this.地图编号] = MainProcess.CurrentTime;
+							CharacterData.当前师门.申请列表[this.MapId] = MainProcess.CurrentTime;
 							客户网络 网络连接6 = this.网络连接;
 							if (网络连接6 != null)
 							{
@@ -21841,7 +21841,7 @@ namespace GameServer.Maps
 							}
 							客户网络.发送封包(new 申请拜师提示
 							{
-								对象编号 = this.地图编号
+								对象编号 = this.MapId
 							});
 							return;
 						}
@@ -21916,7 +21916,7 @@ namespace GameServer.Maps
 							this.网络连接.尝试断开连接(new Exception("Wrong action: Agree to the application, Error: No master has been created."));
 							return;
 						}
-						if (this.所属师门.师父编号 != this.地图编号)
+						if (this.所属师门.师父编号 != this.MapId)
 						{
 							this.网络连接.尝试断开连接(new Exception("Wrong action: Agree to apply for a teacher, Error: Not yet a teacher myself."));
 							return;
@@ -22026,7 +22026,7 @@ namespace GameServer.Maps
 						this.网络连接.尝试断开连接(new Exception("Wrong action: RefusedApplyApprenticeshipPacket, Error: Division not yet created."));
 						return;
 					}
-					if (this.所属师门.师父编号 != this.地图编号)
+					if (this.所属师门.师父编号 != this.MapId)
 					{
 						this.网络连接.尝试断开连接(new Exception("Wrong operation: RefusedApplyApprenticeshipPacket, Error: Self not yet mastered."));
 						return;
@@ -22065,7 +22065,7 @@ namespace GameServer.Maps
 						}
 						网络连接3.发送封包(new RefusalApprenticePacket
 						{
-							对象编号 = this.地图编号
+							对象编号 = this.MapId
 						});
 						return;
 					}
@@ -22124,7 +22124,7 @@ namespace GameServer.Maps
 					}
 					else
 					{
-						if (this.所属师门 != null && this.所属师门.师父编号 != this.地图编号)
+						if (this.所属师门 != null && this.所属师门.师父编号 != this.MapId)
 						{
 							this.网络连接.尝试断开连接(new Exception("Error: The player has applied for an apprenticeship, Error: He is not yet a master."));
 							return;
@@ -22162,7 +22162,7 @@ namespace GameServer.Maps
 								}
 								客户网络.发送封包(new 申请收徒提示
 								{
-									对象编号 = this.地图编号,
+									对象编号 = this.MapId,
 									对象等级 = this.当前等级,
 									对象声望 = this.师门声望
 								});
@@ -22246,7 +22246,7 @@ namespace GameServer.Maps
 							return;
 						}
 						客户网络 客户网络;
-						if (!CharacterData.当前师门.邀请列表.ContainsKey(this.地图编号))
+						if (!CharacterData.当前师门.邀请列表.ContainsKey(this.MapId))
 						{
 							客户网络 网络连接3 = this.网络连接;
 							if (网络连接3 == null)
@@ -22288,11 +22288,11 @@ namespace GameServer.Maps
 							}
 							客户网络.发送封包(new 收徒成功提示
 							{
-								对象编号 = this.地图编号
+								对象编号 = this.MapId
 							});
 							CharacterData.当前师门.发送封包(new 收徒成功提示
 							{
-								对象编号 = this.地图编号
+								对象编号 = this.MapId
 							});
 							CharacterData.当前师门.添加徒弟(this.CharacterData);
 							客户网络 网络连接6 = this.网络连接;
@@ -22360,7 +22360,7 @@ namespace GameServer.Maps
 						this.网络连接.尝试断开连接(new Exception("Wrong operation: RefusedApplyApprenticeshipPacket, Error: Self not yet mastered."));
 						return;
 					}
-					if (!CharacterData.当前师门.邀请列表.ContainsKey(this.地图编号))
+					if (!CharacterData.当前师门.邀请列表.ContainsKey(this.MapId))
 					{
 						客户网络 网络连接 = this.网络连接;
 						if (网络连接 == null)
@@ -22383,7 +22383,7 @@ namespace GameServer.Maps
 								对象编号 = CharacterData.角色编号
 							});
 						}
-						if (!CharacterData.当前师门.邀请列表.Remove(this.地图编号))
+						if (!CharacterData.当前师门.邀请列表.Remove(this.MapId))
 						{
 							return;
 						}
@@ -22394,7 +22394,7 @@ namespace GameServer.Maps
 						}
 						网络连接3.发送封包(new RejectionTipsPacket
 						{
-							对象编号 = this.地图编号
+							对象编号 = this.MapId
 						});
 						return;
 					}
@@ -22419,7 +22419,7 @@ namespace GameServer.Maps
 				this.网络连接.尝试断开连接(new Exception("Wrong operation: AppForExpulsionPacket, Error: Self does not have a division."));
 				return;
 			}
-			if (this.所属师门.师父编号 != this.地图编号)
+			if (this.所属师门.师父编号 != this.MapId)
 			{
 				this.网络连接.尝试断开连接(new Exception("Wrong action: AppForExpulsionPacket, Error: Not a Master."));
 				return;
@@ -22503,12 +22503,12 @@ namespace GameServer.Maps
 			{
 				网络连接2.发送封包(new 离开师门提示
 				{
-					对象编号 = this.地图编号
+					对象编号 = this.MapId
 				});
 			}
 			this.所属师门.发送封包(new 离开师门提示
 			{
-				对象编号 = this.地图编号
+				对象编号 = this.MapId
 			});
 			this.所属师门.师父数据.发送邮件(new MailData(null, "The disciple's rebellion against his master", "Your apprentice[" + this.对象名字 + "]Has defected from the school.", null));
 			int num = this.所属师门.徒弟提供金币(this.CharacterData);
@@ -22581,7 +22581,7 @@ namespace GameServer.Maps
 			{
 				网络连接.发送封包(new ApprenticeSuccessfullyPacket
 				{
-					对象编号 = this.地图编号
+					对象编号 = this.MapId
 				});
 			}
 			this.所属师门.移除徒弟(this.CharacterData);
@@ -22591,7 +22591,7 @@ namespace GameServer.Maps
 			{
 				网络连接2.发送封包(new ApprenticeSuccessfullyPacket
 				{
-					对象编号 = this.地图编号
+					对象编号 = this.MapId
 				});
 			}
 			客户网络 网络连接3 = this.网络连接;
@@ -22640,7 +22640,7 @@ namespace GameServer.Maps
 				}
 				else
 				{
-					if (对象编号 == this.地图编号)
+					if (对象编号 == this.MapId)
 					{
 						PlayerDeals PlayerDeals2 = this.当前交易;
 						if (PlayerDeals2 != null)
@@ -22796,7 +22796,7 @@ namespace GameServer.Maps
 					}
 					else
 					{
-						if (对象编号 == this.地图编号)
+						if (对象编号 == this.MapId)
 						{
 							PlayerDeals PlayerDeals2 = this.当前交易;
 							if (PlayerDeals2 != null)
@@ -23360,7 +23360,7 @@ namespace GameServer.Maps
 					this.当前交易.发送封包(new GameErrorMessagePacket
 					{
 						错误代码 = 5639,
-						第一参数 = PlayerObject.地图编号
+						第一参数 = PlayerObject.MapId
 					});
 					return;
 				}
@@ -23432,7 +23432,7 @@ namespace GameServer.Maps
 					this.当前摊位 = new PlayerBoth();
 					base.发送封包(new 摆摊状态改变
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						摊位状态 = 1
 					});
 					return;
@@ -23458,7 +23458,7 @@ namespace GameServer.Maps
 				this.当前摊位.摊位状态 = 1;
 				base.发送封包(new 摆摊状态改变
 				{
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					摊位状态 = this.摆摊状态
 				});
 				return;
@@ -23515,7 +23515,7 @@ namespace GameServer.Maps
 					this.当前摊位.摊位状态 = 2;
 					base.发送封包(new 摆摊状态改变
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						摊位状态 = this.摆摊状态
 					});
 					return;
@@ -23541,7 +23541,7 @@ namespace GameServer.Maps
 				this.当前摊位 = null;
 				base.发送封包(new 摆摊状态改变
 				{
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					摊位状态 = this.摆摊状态
 				});
 				return;
@@ -23684,7 +23684,7 @@ namespace GameServer.Maps
 				this.当前摊位.摊位名字 = 摊位名字;
 				base.发送封包(new 变更摊位名字
 				{
-					对象编号 = this.地图编号,
+					对象编号 = this.MapId,
 					摊位名字 = 摊位名字
 				});
 				return;
@@ -23744,7 +23744,7 @@ namespace GameServer.Maps
 				}
 				网络连接3.发送封包(new SyncBoothDataPacket
 				{
-					对象编号 = PlayerObject.地图编号,
+					对象编号 = PlayerObject.MapId,
 					字节数据 = PlayerObject.当前摊位.摊位描述()
 				});
 				return;
@@ -23880,7 +23880,7 @@ namespace GameServer.Maps
 								{
 									网络连接8.发送封包(new 购入摊位物品
 									{
-										对象编号 = PlayerObject.地图编号,
+										对象编号 = PlayerObject.MapId,
 										物品位置 = 物品位置,
 										剩余数量 = PlayerObject.当前摊位.物品数量[ItemData]
 									});

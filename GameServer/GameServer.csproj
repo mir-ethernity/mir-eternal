@@ -194,7 +194,7 @@
     <Compile Include="Templates\PendingRename44.cs" />
     <Compile Include="Templates\PendingRename42.cs" />
     <Compile Include="Templates\PendingRename41.cs" />
-    <Compile Include="Templates\PendingRename47.cs" />
+    <Compile Include="Templates\GameMap.cs" />
     <Compile Include="Templates\PendingRename66.cs" />
     <Compile Include="Templates\PendingRename67.cs" />
     <Compile Include="Templates\PendingRename46.cs" />

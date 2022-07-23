@@ -37,7 +37,7 @@ namespace GameServer.Templates
 					binaryWriter.Write((byte)命中列表.Count);
 					foreach (KeyValuePair<int, 命中详情> keyValuePair in 命中列表.ToList<KeyValuePair<int, 命中详情>>())
 					{
-						binaryWriter.Write(keyValuePair.Value.技能目标.地图编号);
+						binaryWriter.Write(keyValuePair.Value.技能目标.MapId);
 						binaryWriter.Write((ushort)keyValuePair.Value.技能反馈);
 						binaryWriter.Write((ushort)命中延迟);
 					}

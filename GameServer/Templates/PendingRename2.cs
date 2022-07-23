@@ -17,7 +17,7 @@ namespace GameServer.Templates
 		{
 			get
 			{
-				return this.技能来源.地图编号;
+				return this.技能来源.MapId;
 			}
 		}
 
@@ -572,7 +572,7 @@ namespace GameServer.Templates
 									{
 										this.技能来源.发送封包(new ObjectRotationDirectionPacket
 										{
-											对象编号 = this.技能来源.地图编号,
+											对象编号 = this.技能来源.MapId,
 											对象朝向 = (ushort)GameDirection,
 											转向耗时 = ((ushort)((this.技能来源 is PlayerObject) ? 0 : 1))
 										});
@@ -651,14 +651,14 @@ namespace GameServer.Templates
 								{
 									MapObject MapObject3 = this.技能来源;
 									开始释放技能 开始释放技能 = new 开始释放技能();
-									开始释放技能.对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.地图编号 : this.技能目标.地图编号);
+									开始释放技能.对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId);
 									开始释放技能.技能编号 = this.技能编号;
 									开始释放技能.技能等级 = this.技能等级;
 									开始释放技能.技能铭文 = this.铭文编号;
 									开始释放技能.锚点坐标 = this.技能锚点;
 									开始释放技能.动作编号 = this.动作编号;
 									MapObject MapObject4 = this.技能目标;
-									开始释放技能.目标编号 = ((MapObject4 != null) ? MapObject4.地图编号 : 0);
+									开始释放技能.目标编号 = ((MapObject4 != null) ? MapObject4.MapId : 0);
 									开始释放技能.锚点高度 = this.释放地图.地形高度(this.技能锚点);
 									MapObject3.发送封包(开始释放技能);
 								}
@@ -672,7 +672,7 @@ namespace GameServer.Templates
 									{
 										this.技能来源.发送封包(new 触发技能扩展
 										{
-											对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.地图编号 : this.技能目标.地图编号),
+											对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId),
 											技能编号 = this.技能编号,
 											技能等级 = this.技能等级,
 											技能铭文 = this.铭文编号,
@@ -684,7 +684,7 @@ namespace GameServer.Templates
 									{
 										this.技能来源.发送封包(new 触发技能正常
 										{
-											对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.地图编号 : this.技能目标.地图编号),
+											对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId),
 											技能编号 = this.技能编号,
 											技能等级 = this.技能等级,
 											技能铭文 = this.铭文编号,
@@ -739,7 +739,7 @@ namespace GameServer.Templates
 										{
 											this.技能来源.发送封包(new 触发技能正常
 											{
-												对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.地图编号 : this.技能目标.地图编号),
+												对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId),
 												技能编号 = this.技能编号,
 												技能等级 = this.技能等级,
 												技能铭文 = this.铭文编号,
@@ -881,7 +881,7 @@ namespace GameServer.Templates
 														{
 															this.技能来源.发送封包(new 技能释放中断
 															{
-																对象编号 = this.技能来源.地图编号,
+																对象编号 = this.技能来源.MapId,
 																技能编号 = this.技能编号,
 																技能等级 = this.技能等级,
 																技能铭文 = this.铭文编号,
@@ -896,12 +896,12 @@ namespace GameServer.Templates
 													{
 														MapObject MapObject11 = this.技能来源;
 														开始释放技能 开始释放技能2 = new 开始释放技能();
-														开始释放技能2.对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.地图编号 : this.技能目标.地图编号);
+														开始释放技能2.对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId);
 														开始释放技能2.技能编号 = this.技能编号;
 														开始释放技能2.技能等级 = this.技能等级;
 														开始释放技能2.技能铭文 = this.铭文编号;
 														MapObject MapObject12 = this.技能目标;
-														开始释放技能2.目标编号 = ((MapObject12 != null) ? MapObject12.地图编号 : 0);
+														开始释放技能2.目标编号 = ((MapObject12 != null) ? MapObject12.MapId : 0);
 														开始释放技能2.锚点坐标 = this.技能锚点;
 														开始释放技能2.锚点高度 = this.释放地图.地形高度(this.技能锚点);
 														开始释放技能2.动作编号 = this.动作编号;
@@ -940,7 +940,7 @@ namespace GameServer.Templates
 													{
 														this.技能来源.发送封包(new 触发技能正常
 														{
-															对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.地图编号 : this.技能目标.地图编号),
+															对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId),
 															技能编号 = this.技能编号,
 															技能等级 = this.技能等级,
 															技能铭文 = this.铭文编号,
@@ -952,7 +952,7 @@ namespace GameServer.Templates
 													{
 														this.技能来源.发送封包(new 触发技能扩展
 														{
-															对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.地图编号 : this.技能目标.地图编号),
+															对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId),
 															技能编号 = this.技能编号,
 															技能等级 = this.技能等级,
 															技能铭文 = this.铭文编号,
@@ -987,12 +987,12 @@ namespace GameServer.Templates
 																}
 																this.技能来源.发送封包(new 触发命中特效
 																{
-																	对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.地图编号 : this.技能目标.地图编号),
+																	对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId),
 																	技能编号 = this.技能编号,
 																	技能等级 = this.技能等级,
 																	技能铭文 = this.铭文编号,
 																	动作编号 = this.动作编号,
-																	目标编号 = keyValuePair12.Value.技能目标.地图编号,
+																	目标编号 = keyValuePair12.Value.技能目标.MapId,
 																	技能反馈 = (ushort)keyValuePair12.Value.技能反馈,
 																	技能伤害 = -keyValuePair12.Value.技能伤害,
 																	招架伤害 = keyValuePair12.Value.招架伤害
@@ -1019,7 +1019,7 @@ namespace GameServer.Templates
 																		this.技能来源.发送封包(new 体力变动飘字
 																		{
 																			血量变化 = num11,
-																			对象编号 = this.技能来源.地图编号
+																			对象编号 = this.技能来源.MapId
 																		});
 																	}
 																}
@@ -1152,7 +1152,7 @@ namespace GameServer.Templates
 															{
 																this.技能来源.发送封包(new 技能释放中断
 																{
-																	对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.地图编号 : this.技能目标.地图编号),
+																	对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId),
 																	技能编号 = this.技能编号,
 																	技能等级 = this.技能等级,
 																	技能铭文 = this.铭文编号,
@@ -1194,7 +1194,7 @@ namespace GameServer.Templates
 																		MapObject13.发送封包(new ObjectPassiveDisplacementPacket
 																		{
 																			位移坐标 = point2,
-																			对象编号 = MapObject13.地图编号,
+																			对象编号 = MapObject13.MapId,
 																			位移朝向 = (ushort)MapObject13.当前方向,
 																			位移速度 = c_03_计算对象位移.目标位移耗时
 																		});
@@ -1215,7 +1215,7 @@ namespace GameServer.Templates
 																	this.技能来源.发送封包(new ObjectPassiveDisplacementPacket
 																	{
 																		位移坐标 = point,
-																		对象编号 = this.技能来源.地图编号,
+																		对象编号 = this.技能来源.MapId,
 																		位移朝向 = (ushort)this.技能来源.当前方向,
 																		位移速度 = (ushort)num18
 																	});
@@ -1230,7 +1230,7 @@ namespace GameServer.Templates
 																	{
 																		this.技能来源.发送封包(new 触发技能正常
 																		{
-																			对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.地图编号 : this.技能目标.地图编号),
+																			对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId),
 																			技能编号 = this.技能编号,
 																			技能等级 = this.技能等级,
 																			技能铭文 = this.铭文编号,
@@ -1306,7 +1306,7 @@ namespace GameServer.Templates
 																					{
 																						位移坐标 = point3,
 																						位移速度 = num22,
-																						对象编号 = keyValuePair18.Value.技能目标.地图编号,
+																						对象编号 = keyValuePair18.Value.技能目标.MapId,
 																						位移朝向 = (ushort)keyValuePair18.Value.技能目标.当前方向
 																					});
 																					keyValuePair18.Value.技能目标.自身移动时处理(point3);
@@ -1382,7 +1382,7 @@ namespace GameServer.Templates
 																		PetObject PetObject = new PetObject(PlayerObject11, 召唤宠物, this.技能等级, 等级上限, c_06_计算宠物召唤.宠物绑定武器);
 																		PlayerObject11.网络连接.发送封包(new SyncPetLevelPacket
 																		{
-																			宠物编号 = PetObject.地图编号,
+																			宠物编号 = PetObject.MapId,
 																			宠物等级 = PetObject.宠物等级
 																		});
 																		PlayerObject11.网络连接.发送封包(new GameErrorMessagePacket
@@ -1450,7 +1450,7 @@ namespace GameServer.Templates
 			this.节点列表.Clear();
 			this.技能来源.发送封包(new 技能释放中断
 			{
-				对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.地图编号 : this.技能目标.地图编号),
+				对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId),
 				技能编号 = this.技能编号,
 				技能等级 = this.技能等级,
 				技能铭文 = this.铭文编号,

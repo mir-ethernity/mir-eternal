@@ -95,7 +95,7 @@ namespace GameServer.Maps
 					base.当前体力 = value;
 					base.发送封包(new 同步对象体力
 					{
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						当前体力 = this.当前体力,
 						体力上限 = this[GameObjectProperties.最大体力]
 					});
@@ -144,7 +144,7 @@ namespace GameServer.Maps
 					base.发送封包(new ObjectRotationDirectionPacket
 					{
 						转向耗时 = 100,
-						对象编号 = this.地图编号,
+						对象编号 = this.MapId,
 						对象朝向 = (ushort)value
 					});
 				}
@@ -294,7 +294,7 @@ namespace GameServer.Maps
 			this.当前地图 = 出生地图;
 			this.出生方向 = 出生方向;
 			this.出生坐标 = 出生坐标;
-			this.地图编号 = ++MapGatewayProcess.对象编号;
+			this.MapId = ++MapGatewayProcess.对象编号;
 			Dictionary<object, Dictionary<GameObjectProperties, int>> 属性加成 = this.属性加成;
 			Dictionary<GameObjectProperties, int> dictionary = new Dictionary<GameObjectProperties, int>();
 			dictionary[GameObjectProperties.最大体力] = 9999;
@@ -359,7 +359,7 @@ namespace GameServer.Maps
 						this.当前方向 = this.出生方向;
 					}
 				}
-				if (this.模板编号 == 6121 && this.当前地图.地图编号 == 183 && MainProcess.CurrentTime > this.转移计时)
+				if (this.模板编号 == 6121 && this.当前地图.MapId == 183 && MainProcess.CurrentTime > this.转移计时)
 				{
 					base.清空邻居时处理();
 					base.解绑网格();
@@ -377,7 +377,7 @@ namespace GameServer.Maps
 		{
 			base.自身死亡处理(对象, 技能击杀);
 			this.消失时间 = MainProcess.CurrentTime.AddMilliseconds(10000.0);
-			this.复活时间 = MainProcess.CurrentTime.AddMilliseconds((double)((this.当前地图.地图编号 == 80) ? int.MaxValue : 60000));
+			this.复活时间 = MainProcess.CurrentTime.AddMilliseconds((double)((this.当前地图.MapId == 80) ? int.MaxValue : 60000));
 			this.Buff列表.Clear();
 			this.次要对象 = true;
 			MapGatewayProcess.添加次要对象(this);

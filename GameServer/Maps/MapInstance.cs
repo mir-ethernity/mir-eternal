@@ -32,27 +32,27 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000740 RID: 1856 RVA: 0x000063A7 File Offset: 0x000045A7
-		public int 地图编号
+		public int MapId
 		{
 			get
 			{
-				return (int)this.地图模板.地图编号;
+				return (int)this.地图模板.MapId;
 			}
 		}
 
 		
 		// (get) Token: 0x06000741 RID: 1857 RVA: 0x000063B4 File Offset: 0x000045B4
-		public byte 限制等级
+		public byte MinLevel
 		{
 			get
 			{
-				return this.地图模板.限制等级;
+				return this.地图模板.MinLevel;
 			}
 		}
 
 		
 		// (get) Token: 0x06000742 RID: 1858 RVA: 0x00002865 File Offset: 0x00000A65
-		public byte 分线数量
+		public byte LimitInstances
 		{
 			get
 			{
@@ -62,31 +62,31 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000743 RID: 1859 RVA: 0x000063C1 File Offset: 0x000045C1
-		public bool 下线传送
+		public bool NoReconnect
 		{
 			get
 			{
-				return this.地图模板.下线传送;
+				return this.地图模板.NoReconnect;
 			}
 		}
 
 		
 		// (get) Token: 0x06000744 RID: 1860 RVA: 0x000063CE File Offset: 0x000045CE
-		public byte 传送地图
+		public byte NoReconnectMapId
 		{
 			get
 			{
-				return this.地图模板.传送地图;
+				return this.地图模板.NoReconnectMapId;
 			}
 		}
 
 		
 		// (get) Token: 0x06000745 RID: 1861 RVA: 0x000063DB File Offset: 0x000045DB
-		public bool 副本地图
+		public bool CopyMap
 		{
 			get
 			{
-				return this.地图模板.副本地图;
+				return this.地图模板.CopyMap;
 			}
 		}
 
@@ -121,7 +121,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public MapInstance(游戏地图 地图模板, int 路线编号 = 1)
+		public MapInstance(GameMap 地图模板, int 路线编号 = 1)
 		{
 			
 			this.地图区域 = new HashSet<MapAreas>();
@@ -140,7 +140,7 @@ namespace GameServer.Maps
 		
 		public void 处理数据()
 		{
-			if (this.地图编号 == 80)
+			if (this.MapId == 80)
 			{
 				if (this.玩家列表.Count == 0)
 				{
@@ -503,14 +503,14 @@ namespace GameServer.Maps
 		
 		public bool 掉落装备(Point 坐标, bool 红名)
 		{
-			return (MapGatewayProcess.沙城节点 < 2 || (this.地图编号 != 152 && this.地图编号 != 178)) && !this.坐标越界(坐标) && ((this.地形数据[坐标] & 4194304U) == 4194304U || ((this.地形数据[坐标] & 8388608U) == 8388608U && 红名));
+			return (MapGatewayProcess.沙城节点 < 2 || (this.MapId != 152 && this.MapId != 178)) && !this.坐标越界(坐标) && ((this.地形数据[坐标] & 4194304U) == 4194304U || ((this.地形数据[坐标] & 8388608U) == 8388608U && 红名));
 		}
 
 		
 		public readonly int 路线编号;
 
 		
-		public readonly 游戏地图 地图模板;
+		public readonly GameMap 地图模板;
 
 		
 		public uint 固定怪物总数;

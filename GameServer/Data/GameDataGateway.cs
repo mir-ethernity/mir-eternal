@@ -336,7 +336,7 @@ namespace GameServer.Data
 		}
 
 		
-		public static void CleanCharacters(int 限制等级, int 限制天数)
+		public static void CleanCharacters(int MinLevel, int 限制天数)
 		{
 			MainForm.添加命令日志("开始CleanCharacters数据...");
 			DateTime t = DateTime.Now.AddDays((double)(-(double)限制天数));
@@ -344,7 +344,7 @@ namespace GameServer.Data
 			foreach (GameData GameData in GameDataGateway.CharacterDataTable.DataSheet.Values.ToList<GameData>())
 			{
 				CharacterData CharacterData = GameData as CharacterData;
-				if (CharacterData != null && (int)CharacterData.当前等级.V < 限制等级 && !(CharacterData.离线日期.V > t))
+				if (CharacterData != null && (int)CharacterData.当前等级.V < MinLevel && !(CharacterData.离线日期.V > t))
 				{
 					if (CharacterData.当前排名.Count > 0)
 					{

@@ -105,13 +105,13 @@ namespace GameServer.Data
 			this.添加事记(new GuildEvents
 			{
 				MemorandumType = MemorandumType.创建公会,
-				第一参数 = 创建玩家.地图编号,
+				第一参数 = 创建玩家.MapId,
 				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
 			});
 			this.添加事记(new GuildEvents
 			{
 				MemorandumType = MemorandumType.加入公会,
-				第一参数 = 创建玩家.地图编号,
+				第一参数 = 创建玩家.MapId,
 				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
 			});
 			this.行会等级.V = 1;

@@ -1134,7 +1134,7 @@ namespace GameServer.Data
 			当前网络.发送封包(new 更换角色应答());
 			当前网络.发送封包(new ObjectOutOfViewPacket
 			{
-				对象编号 = 当前网络.绑定角色.地图编号
+				对象编号 = 当前网络.绑定角色.MapId
 			});
 			当前网络.绑定角色.玩家角色下线();
 			当前网络.发送封包(new BackCharacterListPacket

@@ -118,7 +118,7 @@ namespace GameServer.Maps
         
         // (get) Token: 0x0600077A RID: 1914 RVA: 0x000065BC File Offset: 0x000047BC
         // (set) Token: 0x0600077B RID: 1915 RVA: 0x000065C4 File Offset: 0x000047C4
-        public virtual int 地图编号 { get; set; }
+        public virtual int MapId { get; set; }
 
         
         // (get) Token: 0x0600077C RID: 1916 RVA: 0x000065CD File Offset: 0x000047CD
@@ -330,7 +330,7 @@ namespace GameServer.Maps
         {
             this.发送封包(new ObjectCharacterDiesPacket
             {
-                对象编号 = this.地图编号
+                对象编号 = this.MapId
             });
             this.技能任务.Clear();
             this.对象死亡 = true;
@@ -632,7 +632,7 @@ namespace GameServer.Maps
                         {
                             if (PlayerObject.AttackMode == AttackMode.全体)
                             {
-                                if (this.当前地图.地图编号 != 80)
+                                if (this.当前地图.MapId != 80)
                                 {
                                     return 游戏对象关系.敌对;
                                 }
@@ -1447,7 +1447,7 @@ namespace GameServer.Maps
                                             {
                                                 this.发送封包(new ObjectStateChangePacket
                                                 {
-                                                    对象编号 = this.地图编号,
+                                                    对象编号 = this.MapId,
                                                     Buff编号 = BuffData4.Buff编号.V,
                                                     Buff索引 = (int)BuffData4.Buff编号.V,
                                                     当前层数 = BuffData4.当前层数.V,
@@ -1473,7 +1473,7 @@ namespace GameServer.Maps
                                         {
                                             this.发送封包(new ObjectStateChangePacket
                                             {
-                                                对象编号 = this.地图编号,
+                                                对象编号 = this.MapId,
                                                 Buff编号 = BuffData5.Buff编号.V,
                                                 Buff索引 = (int)BuffData5.Buff编号.V,
                                                 当前层数 = BuffData5.当前层数.V,
@@ -1495,8 +1495,8 @@ namespace GameServer.Maps
                             {
                                 this.发送封包(new ObjectAddStatePacket
                                 {
-                                    对象编号 = this.地图编号,
-                                    Buff来源 = 来源.地图编号,
+                                    对象编号 = this.MapId,
+                                    Buff来源 = 来源.MapId,
                                     Buff编号 = BuffData2.Buff编号.V,
                                     Buff索引 = (int)BuffData2.Buff编号.V,
                                     Buff层数 = BuffData2.当前层数.V,
@@ -1543,7 +1543,7 @@ namespace GameServer.Maps
             if (this.Buff列表.TryGetValue(编号, out BuffData))
             {
                 MapObject MapObject;
-                if (BuffData.Buff模板.后接Buff编号 != 0 && BuffData.Buff来源 != null && MapGatewayProcess.Objects.TryGetValue(BuffData.Buff来源.地图编号, out MapObject) && MapObject == BuffData.Buff来源)
+                if (BuffData.Buff模板.后接Buff编号 != 0 && BuffData.Buff来源 != null && MapGatewayProcess.Objects.TryGetValue(BuffData.Buff来源.MapId, out MapObject) && MapObject == BuffData.Buff来源)
                 {
                     this.添加Buff时处理(BuffData.Buff模板.后接Buff编号, BuffData.Buff来源);
                 }
@@ -1578,7 +1578,7 @@ namespace GameServer.Maps
                 {
                     this.发送封包(new ObjectRemovalStatusPacket
                     {
-                        对象编号 = this.地图编号,
+                        对象编号 = this.MapId,
                         Buff索引 = (int)编号
                     });
                 }
@@ -1626,7 +1626,7 @@ namespace GameServer.Maps
                 {
                     this.发送封包(new ObjectRemovalStatusPacket
                     {
-                        对象编号 = this.地图编号,
+                        对象编号 = this.MapId,
                         Buff索引 = (int)编号
                     });
                 }
@@ -1682,7 +1682,7 @@ namespace GameServer.Maps
         {
             TrapObject TrapObject = 技能.技能来源 as TrapObject;
             MapObject MapObject = (TrapObject != null) ? TrapObject.陷阱来源 : 技能.技能来源;
-            if (技能.命中列表.ContainsKey(this.地图编号) || !this.能被命中)
+            if (技能.命中列表.ContainsKey(this.MapId) || !this.能被命中)
             {
                 return;
             }
@@ -1786,7 +1786,7 @@ namespace GameServer.Maps
             {
                 技能反馈 = (ComputingClass.计算命中((float)num, (float)num3, num2, num4) ? 参数.技能命中反馈 : 技能命中反馈.闪避)
             };
-            技能.命中列表.Add(this.地图编号, value);
+            技能.命中列表.Add(this.MapId, value);
         }
 
         
@@ -1956,7 +1956,7 @@ namespace GameServer.Maps
                                     num11 += ((BuffData.Buff模板.效果判定方式 == Buff判定方式.主动攻击增伤) ? num14 : (-num14));
                                     num12 += ((BuffData.Buff模板.效果判定方式 == Buff判定方式.主动攻击增伤) ? num16 : (-num16));
                                     MapObject MapObject2;
-                                    if (BuffData.Buff模板.生效后接编号 != 0 && BuffData.Buff来源 != null && MapGatewayProcess.Objects.TryGetValue(BuffData.Buff来源.地图编号, out MapObject2) && MapObject2 == BuffData.Buff来源)
+                                    if (BuffData.Buff模板.生效后接编号 != 0 && BuffData.Buff来源 != null && MapGatewayProcess.Objects.TryGetValue(BuffData.Buff来源.MapId, out MapObject2) && MapObject2 == BuffData.Buff来源)
                                     {
                                         if (BuffData.Buff模板.后接技能来源)
                                         {
@@ -2119,7 +2119,7 @@ namespace GameServer.Maps
                                     num11 += ((BuffData2.Buff模板.效果判定方式 == Buff判定方式.被动受伤增伤) ? num17 : (-num17));
                                     num12 += ((BuffData2.Buff模板.效果判定方式 == Buff判定方式.被动受伤增伤) ? num19 : (-num19));
                                     MapObject MapObject3;
-                                    if (BuffData2.Buff模板.生效后接编号 != 0 && BuffData2.Buff来源 != null && MapGatewayProcess.Objects.TryGetValue(BuffData2.Buff来源.地图编号, out MapObject3) && MapObject3 == BuffData2.Buff来源)
+                                    if (BuffData2.Buff模板.生效后接编号 != 0 && BuffData2.Buff来源 != null && MapGatewayProcess.Objects.TryGetValue(BuffData2.Buff来源.MapId, out MapObject3) && MapObject3 == BuffData2.Buff来源)
                                     {
                                         if (BuffData2.Buff模板.后接技能来源)
                                         {
@@ -2306,8 +2306,8 @@ namespace GameServer.Maps
             触发状态效果 触发状态效果 = new 触发状态效果();
             触发状态效果.Buff编号 = 数据.Buff编号.V;
             MapObject buff来源 = 数据.Buff来源;
-            触发状态效果.Buff来源 = ((buff来源 != null) ? buff来源.地图编号 : 0);
-            触发状态效果.Buff目标 = this.地图编号;
+            触发状态效果.Buff来源 = ((buff来源 != null) ? buff来源.MapId : 0);
+            触发状态效果.Buff目标 = this.MapId;
             触发状态效果.血量变化 = -num2;
             this.发送封包(触发状态效果);
             if (this.当前体力 == 0)
@@ -2418,8 +2418,8 @@ namespace GameServer.Maps
             触发状态效果 触发状态效果 = new 触发状态效果();
             触发状态效果.Buff编号 = 数据.Buff编号.V;
             MapObject buff来源 = 数据.Buff来源;
-            触发状态效果.Buff来源 = ((buff来源 != null) ? buff来源.地图编号 : 0);
-            触发状态效果.Buff目标 = this.地图编号;
+            触发状态效果.Buff来源 = ((buff来源 != null) ? buff来源.MapId : 0);
+            触发状态效果.Buff目标 = this.MapId;
             触发状态效果.血量变化 = (int)b;
             this.发送封包(触发状态效果);
         }
@@ -2743,14 +2743,14 @@ namespace GameServer.Maps
                                 case GameObjectType.宠物:
                                     PlayerObject.网络连接.发送封包(new ObjectCharacterStopPacket
                                     {
-                                        对象编号 = 对象.地图编号,
+                                        对象编号 = 对象.MapId,
                                         对象坐标 = 对象.当前坐标,
                                         对象高度 = 对象.当前高度
                                     });
                                     PlayerObject.网络连接.发送封包(new ObjectComesIntoViewPacket
                                     {
                                         出现方式 = 1,
-                                        对象编号 = 对象.地图编号,
+                                        对象编号 = 对象.MapId,
                                         现身坐标 = 对象.当前坐标,
                                         现身高度 = 对象.当前高度,
                                         现身方向 = (ushort)对象.当前方向,
@@ -2759,14 +2759,14 @@ namespace GameServer.Maps
                                     });
                                     PlayerObject.网络连接.发送封包(new 同步对象体力
                                     {
-                                        对象编号 = 对象.地图编号,
+                                        对象编号 = 对象.MapId,
                                         当前体力 = 对象.当前体力,
                                         体力上限 = 对象[GameObjectProperties.最大体力]
                                     });
                                     PlayerObject.网络连接.发送封包(new ObjectTransformTypePacket
                                     {
                                         改变类型 = 2,
-                                        对象编号 = 对象.地图编号
+                                        对象编号 = 对象.MapId
                                     });
                                     goto IL_356;
                                 case (GameObjectType)3:
@@ -2780,14 +2780,14 @@ namespace GameServer.Maps
                             }
                             PlayerObject.网络连接.发送封包(new ObjectCharacterStopPacket
                             {
-                                对象编号 = 对象.地图编号,
+                                对象编号 = 对象.MapId,
                                 对象坐标 = 对象.当前坐标,
                                 对象高度 = 对象.当前高度
                             });
                             客户网络 网络连接 = PlayerObject.网络连接;
                             ObjectComesIntoViewPacket ObjectComesIntoViewPacket = new ObjectComesIntoViewPacket();
                             ObjectComesIntoViewPacket.出现方式 = 1;
-                            ObjectComesIntoViewPacket.对象编号 = 对象.地图编号;
+                            ObjectComesIntoViewPacket.对象编号 = 对象.MapId;
                             ObjectComesIntoViewPacket.现身坐标 = 对象.当前坐标;
                             ObjectComesIntoViewPacket.现身高度 = 对象.当前高度;
                             ObjectComesIntoViewPacket.现身方向 = (ushort)对象.当前方向;
@@ -2798,7 +2798,7 @@ namespace GameServer.Maps
                             网络连接.发送封包(ObjectComesIntoViewPacket);
                             PlayerObject.网络连接.发送封包(new 同步对象体力
                             {
-                                对象编号 = 对象.地图编号,
+                                对象编号 = 对象.MapId,
                                 当前体力 = 对象.当前体力,
                                 体力上限 = 对象[GameObjectProperties.最大体力]
                             });
@@ -2809,10 +2809,10 @@ namespace GameServer.Maps
                             {
                                 PlayerObject.网络连接.发送封包(new TrapComesIntoViewPacket
                                 {
-                                    地图编号 = 对象.地图编号,
+                                    MapId = 对象.MapId,
                                     陷阱坐标 = 对象.当前坐标,
                                     陷阱高度 = 对象.当前高度,
-                                    来源编号 = (对象 as TrapObject).陷阱来源.地图编号,
+                                    来源编号 = (对象 as TrapObject).陷阱来源.MapId,
                                     陷阱编号 = (对象 as TrapObject).陷阱编号,
                                     持续时间 = (对象 as TrapObject).陷阱剩余时间
                                 });
@@ -2822,8 +2822,8 @@ namespace GameServer.Maps
                         {
                             PlayerObject.网络连接.发送封包(new ObjectDropItemsPacket
                             {
-                                对象编号 = 对象.地图编号,
-                                地图编号 = 对象.地图编号,
+                                对象编号 = 对象.MapId,
+                                MapId = 对象.MapId,
                                 掉落坐标 = 对象.当前坐标,
                                 掉落高度 = 对象.当前高度,
                                 物品编号 = (对象 as ItemObject).物品编号,
@@ -2912,14 +2912,14 @@ namespace GameServer.Maps
                                 case GameObjectType.宠物:
                                     PlayerObject3.网络连接.发送封包(new ObjectCharacterStopPacket
                                     {
-                                        对象编号 = 对象.地图编号,
+                                        对象编号 = 对象.MapId,
                                         对象坐标 = 对象.当前坐标,
                                         对象高度 = 对象.当前高度
                                     });
                                     PlayerObject3.网络连接.发送封包(new ObjectComesIntoViewPacket
                                     {
                                         出现方式 = 1,
-                                        对象编号 = 对象.地图编号,
+                                        对象编号 = 对象.MapId,
                                         现身坐标 = 对象.当前坐标,
                                         现身高度 = 对象.当前高度,
                                         现身方向 = (ushort)对象.当前方向,
@@ -2928,14 +2928,14 @@ namespace GameServer.Maps
                                     });
                                     PlayerObject3.网络连接.发送封包(new 同步对象体力
                                     {
-                                        对象编号 = 对象.地图编号,
+                                        对象编号 = 对象.MapId,
                                         当前体力 = 对象.当前体力,
                                         体力上限 = 对象[GameObjectProperties.最大体力]
                                     });
                                     PlayerObject3.网络连接.发送封包(new ObjectTransformTypePacket
                                     {
                                         改变类型 = 2,
-                                        对象编号 = 对象.地图编号
+                                        对象编号 = 对象.MapId
                                     });
                                     goto IL_866;
                                 case (GameObjectType)3:
@@ -2949,14 +2949,14 @@ namespace GameServer.Maps
                             }
                             PlayerObject3.网络连接.发送封包(new ObjectCharacterStopPacket
                             {
-                                对象编号 = 对象.地图编号,
+                                对象编号 = 对象.MapId,
                                 对象坐标 = 对象.当前坐标,
                                 对象高度 = 对象.当前高度
                             });
                             客户网络 网络连接2 = PlayerObject3.网络连接;
                             ObjectComesIntoViewPacket ObjectComesIntoViewPacket2 = new ObjectComesIntoViewPacket();
                             ObjectComesIntoViewPacket2.出现方式 = 1;
-                            ObjectComesIntoViewPacket2.对象编号 = 对象.地图编号;
+                            ObjectComesIntoViewPacket2.对象编号 = 对象.MapId;
                             ObjectComesIntoViewPacket2.现身坐标 = 对象.当前坐标;
                             ObjectComesIntoViewPacket2.现身高度 = 对象.当前高度;
                             ObjectComesIntoViewPacket2.现身方向 = (ushort)对象.当前方向;
@@ -2967,7 +2967,7 @@ namespace GameServer.Maps
                             网络连接2.发送封包(ObjectComesIntoViewPacket2);
                             PlayerObject3.网络连接.发送封包(new 同步对象体力
                             {
-                                对象编号 = 对象.地图编号,
+                                对象编号 = 对象.MapId,
                                 当前体力 = 对象.当前体力,
                                 体力上限 = 对象[GameObjectProperties.最大体力]
                             });
@@ -2978,10 +2978,10 @@ namespace GameServer.Maps
                             {
                                 PlayerObject3.网络连接.发送封包(new TrapComesIntoViewPacket
                                 {
-                                    地图编号 = 对象.地图编号,
+                                    MapId = 对象.MapId,
                                     陷阱坐标 = 对象.当前坐标,
                                     陷阱高度 = 对象.当前高度,
-                                    来源编号 = (对象 as TrapObject).陷阱来源.地图编号,
+                                    来源编号 = (对象 as TrapObject).陷阱来源.MapId,
                                     陷阱编号 = (对象 as TrapObject).陷阱编号,
                                     持续时间 = (对象 as TrapObject).陷阱剩余时间
                                 });
@@ -2991,8 +2991,8 @@ namespace GameServer.Maps
                         {
                             PlayerObject3.网络连接.发送封包(new ObjectDropItemsPacket
                             {
-                                对象编号 = 对象.地图编号,
-                                地图编号 = 对象.地图编号,
+                                对象编号 = 对象.MapId,
+                                MapId = 对象.MapId,
                                 掉落坐标 = 对象.当前坐标,
                                 掉落高度 = 对象.当前高度,
                                 物品编号 = (对象 as ItemObject).物品编号,
@@ -3097,7 +3097,7 @@ namespace GameServer.Maps
                     {
                         PlayerObject.网络连接.发送封包(new ObjectOutOfViewPacket
                         {
-                            对象编号 = 对象.地图编号
+                            对象编号 = 对象.MapId
                         });
                         return;
                     }
@@ -3201,7 +3201,7 @@ namespace GameServer.Maps
                 this.潜行邻居.Add(对象);
                 PlayerObject.网络连接.发送封包(new ObjectOutOfViewPacket
                 {
-                    对象编号 = 对象.地图编号
+                    对象编号 = 对象.MapId
                 });
             }
         }
@@ -3278,7 +3278,7 @@ namespace GameServer.Maps
             {
                 using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
                 {
-                    binaryWriter.Write(this.地图编号);
+                    binaryWriter.Write(this.MapId);
                     int num = 0;
                     foreach (KeyValuePair<ushort, BuffData> keyValuePair in this.Buff列表)
                     {

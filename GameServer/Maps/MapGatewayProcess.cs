@@ -640,15 +640,15 @@ namespace GameServer.Maps
 				MapObject MapObject;
 				if (MapGatewayProcess.移除激活表.TryDequeue(out MapObject) && !MapObject.激活对象)
 				{
-					MapGatewayProcess.ActiveObjects.Remove(MapObject.地图编号);
+					MapGatewayProcess.ActiveObjects.Remove(MapObject.MapId);
 				}
 			}
 			while (!MapGatewayProcess.添加激活表.IsEmpty)
 			{
 				MapObject MapObject2;
-				if (MapGatewayProcess.添加激活表.TryDequeue(out MapObject2) && MapObject2.激活对象 && !MapGatewayProcess.ActiveObjects.ContainsKey(MapObject2.地图编号))
+				if (MapGatewayProcess.添加激活表.TryDequeue(out MapObject2) && MapObject2.激活对象 && !MapGatewayProcess.ActiveObjects.ContainsKey(MapObject2.MapId))
 				{
-					MapGatewayProcess.ActiveObjects.Add(MapObject2.地图编号, MapObject2);
+					MapGatewayProcess.ActiveObjects.Add(MapObject2.MapId, MapObject2);
 				}
 			}
 			if (MainProcess.CurrentTime.Minute == 55 && MainProcess.CurrentTime.Hour != MapGatewayProcess.通知时间.Hour)
@@ -708,15 +708,15 @@ namespace GameServer.Maps
 			MapGatewayProcess.守卫对象表 = new Dictionary<int, GuardInstance>();
 			MapGatewayProcess.物品对象表 = new Dictionary<int, ItemObject>();
 			MapGatewayProcess.陷阱对象表 = new Dictionary<int, TrapObject>();
-			foreach (游戏地图 游戏地图 in 游戏地图.DataSheet.Values)
+			foreach (GameMap 游戏地图 in GameMap.DataSheet.Values)
 			{
-				MapGatewayProcess.MapInstance表.Add((int)(游戏地图.地图编号 * 16 + 1), new MapInstance(游戏地图, 16777217));
+				MapGatewayProcess.MapInstance表.Add((int)(游戏地图.MapId * 16 + 1), new MapInstance(游戏地图, 16777217));
 			}
 			foreach (地形数据 地形数据 in 地形数据.DataSheet.Values)
 			{
 				foreach (MapInstance MapInstance in MapGatewayProcess.MapInstance表.Values)
 				{
-					if (MapInstance.地图编号 == (int)地形数据.地图编号)
+					if (MapInstance.MapId == (int)地形数据.MapId)
 					{
 						MapInstance.地形数据 = 地形数据;
 						MapInstance.MapObject = new HashSet<MapObject>[MapInstance.地图大小.X, MapInstance.地图大小.Y];
@@ -734,7 +734,7 @@ namespace GameServer.Maps
 			{
 				foreach (MapInstance MapInstance2 in MapGatewayProcess.MapInstance表.Values)
 				{
-					if (MapInstance2.地图编号 == (int)地图区域.FromMapId)
+					if (MapInstance2.MapId == (int)地图区域.FromMapId)
 					{
 						if (地图区域.AreaType == AreaType.复活区域)
 						{
@@ -757,7 +757,7 @@ namespace GameServer.Maps
 			{
 				foreach (MapInstance MapInstance3 in MapGatewayProcess.MapInstance表.Values)
 				{
-					if (MapInstance3.地图编号 == (int)传送法阵.FromMapId)
+					if (MapInstance3.MapId == (int)传送法阵.FromMapId)
 					{
 						MapInstance3.法阵列表.Add(传送法阵.TeleportGateNumber, 传送法阵);
 					}
@@ -767,7 +767,7 @@ namespace GameServer.Maps
 			{
 				foreach (MapInstance MapInstance4 in MapGatewayProcess.MapInstance表.Values)
 				{
-					if (MapInstance4.地图编号 == (int)守卫刷新.FromMapId)
+					if (MapInstance4.MapId == (int)守卫刷新.FromMapId)
 					{
 						MapInstance4.守卫区域.Add(守卫刷新);
 					}
@@ -777,7 +777,7 @@ namespace GameServer.Maps
 			{
 				foreach (MapInstance MapInstance5 in MapGatewayProcess.MapInstance表.Values)
 				{
-					if (MapInstance5.地图编号 == (int)怪物刷新.FromMapId)
+					if (MapInstance5.MapId == (int)怪物刷新.FromMapId)
 					{
 						MapInstance5.怪物区域.Add(怪物刷新);
 					}
@@ -785,7 +785,7 @@ namespace GameServer.Maps
 			}
 			foreach (MapInstance MapInstance6 in MapGatewayProcess.MapInstance表.Values)
 			{
-				if (!MapInstance6.副本地图)
+				if (!MapInstance6.CopyMap)
 				{
 					foreach (怪物刷新 怪物刷新2 in MapInstance6.怪物区域)
 					{
@@ -855,29 +855,29 @@ namespace GameServer.Maps
 		
 		public static void 添加MapObject(MapObject 当前对象)
 		{
-			MapGatewayProcess.Objects.Add(当前对象.地图编号, 当前对象);
+			MapGatewayProcess.Objects.Add(当前对象.MapId, 当前对象);
 			GameObjectType 对象类型 = 当前对象.对象类型;
 			if (对象类型 <= GameObjectType.Npcc)
 			{
 				switch (对象类型)
 				{
 				case GameObjectType.玩家:
-					MapGatewayProcess.玩家对象表.Add(当前对象.地图编号, (PlayerObject)当前对象);
+					MapGatewayProcess.玩家对象表.Add(当前对象.MapId, (PlayerObject)当前对象);
 					return;
 				case GameObjectType.宠物:
-					MapGatewayProcess.宠物对象表.Add(当前对象.地图编号, (PetObject)当前对象);
+					MapGatewayProcess.宠物对象表.Add(当前对象.MapId, (PetObject)当前对象);
 					return;
 				case (GameObjectType)3:
 					break;
 				case GameObjectType.怪物:
-					MapGatewayProcess.怪物对象表.Add(当前对象.地图编号, (MonsterObject)当前对象);
+					MapGatewayProcess.怪物对象表.Add(当前对象.MapId, (MonsterObject)当前对象);
 					return;
 				default:
 					if (对象类型 != GameObjectType.Npcc)
 					{
 						return;
 					}
-					MapGatewayProcess.守卫对象表.Add(当前对象.地图编号, (GuardInstance)当前对象);
+					MapGatewayProcess.守卫对象表.Add(当前对象.MapId, (GuardInstance)当前对象);
 					return;
 				}
 			}
@@ -885,43 +885,43 @@ namespace GameServer.Maps
 			{
 				if (对象类型 == GameObjectType.物品)
 				{
-					MapGatewayProcess.物品对象表.Add(当前对象.地图编号, (ItemObject)当前对象);
+					MapGatewayProcess.物品对象表.Add(当前对象.MapId, (ItemObject)当前对象);
 					return;
 				}
 				if (对象类型 != GameObjectType.陷阱)
 				{
 					return;
 				}
-				MapGatewayProcess.陷阱对象表.Add(当前对象.地图编号, (TrapObject)当前对象);
+				MapGatewayProcess.陷阱对象表.Add(当前对象.MapId, (TrapObject)当前对象);
 			}
 		}
 
 		
 		public static void 移除MapObject(MapObject 当前对象)
 		{
-			MapGatewayProcess.Objects.Remove(当前对象.地图编号);
+			MapGatewayProcess.Objects.Remove(当前对象.MapId);
 			GameObjectType 对象类型 = 当前对象.对象类型;
 			if (对象类型 <= GameObjectType.Npcc)
 			{
 				switch (对象类型)
 				{
 				case GameObjectType.玩家:
-					MapGatewayProcess.玩家对象表.Remove(当前对象.地图编号);
+					MapGatewayProcess.玩家对象表.Remove(当前对象.MapId);
 					return;
 				case GameObjectType.宠物:
-					MapGatewayProcess.宠物对象表.Remove(当前对象.地图编号);
+					MapGatewayProcess.宠物对象表.Remove(当前对象.MapId);
 					return;
 				case (GameObjectType)3:
 					break;
 				case GameObjectType.怪物:
-					MapGatewayProcess.怪物对象表.Remove(当前对象.地图编号);
+					MapGatewayProcess.怪物对象表.Remove(当前对象.MapId);
 					return;
 				default:
 					if (对象类型 != GameObjectType.Npcc)
 					{
 						return;
 					}
-					MapGatewayProcess.守卫对象表.Remove(当前对象.地图编号);
+					MapGatewayProcess.守卫对象表.Remove(当前对象.MapId);
 					return;
 				}
 			}
@@ -929,14 +929,14 @@ namespace GameServer.Maps
 			{
 				if (对象类型 == GameObjectType.物品)
 				{
-					MapGatewayProcess.物品对象表.Remove(当前对象.地图编号);
+					MapGatewayProcess.物品对象表.Remove(当前对象.MapId);
 					return;
 				}
 				if (对象类型 != GameObjectType.陷阱)
 				{
 					return;
 				}
-				MapGatewayProcess.陷阱对象表.Remove(当前对象.地图编号);
+				MapGatewayProcess.陷阱对象表.Remove(当前对象.MapId);
 			}
 		}
 
@@ -959,10 +959,10 @@ namespace GameServer.Maps
 		}
 
 		
-		public static MapInstance 分配地图(int 地图编号)
+		public static MapInstance 分配地图(int MapId)
 		{
 			MapInstance result;
-			if (MapGatewayProcess.MapInstance表.TryGetValue(地图编号 * 16 + 1, out result))
+			if (MapGatewayProcess.MapInstance表.TryGetValue(MapId * 16 + 1, out result))
 			{
 				return result;
 			}
