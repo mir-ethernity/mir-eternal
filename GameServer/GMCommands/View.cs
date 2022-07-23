@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace GameServer
 {
 	// Token: 0x02000008 RID: 8
-	public sealed class ViewCommand : GMCommand
+	public sealed class View : GMCommand
 	{
 		// Token: 0x17000002 RID: 2
 		// (get) Token: 0x06000012 RID: 18 RVA: 0x00002855 File Offset: 0x00000A55
@@ -27,7 +27,7 @@ namespace GameServer
 		}
 
 		// Token: 0x06000014 RID: 20 RVA: 0x00002858 File Offset: 0x00000A58
-		public ViewCommand()
+		public View()
 		{
 			
 			
