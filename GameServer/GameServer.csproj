@@ -734,7 +734,6 @@
     <Compile Include="GMCommands\SetBurstRate.cs" />
     <Compile Include="GMCommands\SetUpExp.cs" />
     <Compile Include="RouteStatus.cs" />
-    <Compile Include="SoftwareVerfication.cs" />
     <Compile Include="SkillType.cs" />
   </ItemGroup>
   <ItemGroup>

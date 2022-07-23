@@ -15,7 +15,6 @@ namespace GameServer
 		// Token: 0x06000110 RID: 272 RVA: 0x00003085 File Offset: 0x00001285
 		public static void 启动服务()
 		{
-			MainProcess.添加系统日志(SoftwareVerfication.数据解密("b+u7SLdAk+I9c0wP3dBxTQDTnU38+aARy/uW6755km6F9r077eeS5OUkwD9mkmg1tKHIU77BqlDdKXoWussoo3HNjLVts/UhgDibipQ4SrF+9yurp6hHJLx91DVvcMsRJGqXuZhjmc7r1H1AmqKMoTprurO6ZhRcAoh0OKDAhluO8eyhiehEOAM+8LaTX32Ykpqh3o2X0MQ2wk+UfnYAV1q05Mx5L9xZwd8DSty4FeJBKGfzrt6jr/MPv3NePjz2EjCBQMN+lLqRQGlpgDCliICAmIlSTlKsdhtzr/48KczbTGkJ/DYSmbbktBEFDP4/CM8vD7Xof94h9V2FWn6OSA=="));
 			if (!MainProcess.已经启动)
 			{
                 Thread thread = new(new ThreadStart(服务循环))
