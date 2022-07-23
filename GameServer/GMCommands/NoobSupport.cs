@@ -4,10 +4,10 @@ using GameServer.Properties;
 
 namespace GameServer
 {
-	// Token: 0x02000018 RID: 24
+	
 	public sealed class NoobSupport : GMCommand
 	{
-		// Token: 0x17000010 RID: 16
+		
 		// (get) Token: 0x0600004A RID: 74 RVA: 0x00002940 File Offset: 0x00000B40
 		public override ExecutionWay ExecutionWay
 		{
@@ -17,7 +17,7 @@ namespace GameServer
 			}
 		}
 
-		// Token: 0x0600004B RID: 75 RVA: 0x000086F0 File Offset: 0x000068F0
+		
 		public override void Execute()
 		{
 			Settings.Default.NoobSupportCommand等级 = (CustomClass.NoobSupportCommand等级 = this.扶持等级);
@@ -29,14 +29,14 @@ namespace GameServer
 			MainForm.添加命令日志(string.Format("<= @{0} command has been executed, current support level: {1}", base.GetType().Name, CustomClass.NoobSupportCommand等级));
 		}
 
-		// Token: 0x0600004C RID: 76 RVA: 0x00002858 File Offset: 0x00000A58
+		
 		public NoobSupport()
 		{
 			
 			
 		}
 
-		// Token: 0x04000024 RID: 36
+		
 		[FieldAttribute(0, 排序 = 0)]
 		public byte 扶持等级;
 	}

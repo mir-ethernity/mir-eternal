@@ -3,10 +3,10 @@ using GameServer.Data;
 
 namespace GameServer
 {
-	// Token: 0x0200001B RID: 27
+	
 	public sealed class TransferCharacter : GMCommand
 	{
-		// Token: 0x17000013 RID: 19
+		
 		// (get) Token: 0x06000054 RID: 84 RVA: 0x00002865 File Offset: 0x00000A65
 		public override ExecutionWay ExecutionWay
 		{
@@ -16,7 +16,7 @@ namespace GameServer
 			}
 		}
 
-		// Token: 0x06000055 RID: 85 RVA: 0x00008A48 File Offset: 0x00006C48
+		
 		public override void Execute()
 		{
 			GameData GameData;
@@ -75,18 +75,18 @@ namespace GameServer
 			MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, character does not exist");
 		}
 
-		// Token: 0x06000056 RID: 86 RVA: 0x00002858 File Offset: 0x00000A58
+		
 		public TransferCharacter()
 		{
 			
 			
 		}
 
-		// Token: 0x04000028 RID: 40
+		
 		[FieldAttribute(0, 排序 = 0)]
 		public string Character;
 
-		// Token: 0x04000029 RID: 41
+		
 		[FieldAttribute(0, 排序 = 1)]
 		public string NewAccount;
 	}

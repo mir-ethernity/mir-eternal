@@ -2,11 +2,11 @@
 
 namespace GameServer.Networking
 {
-	// Token: 0x020001B6 RID: 438
+	
 	[PacketInfoAttribute(来源 = PacketSource.服务器, 编号 = 296, 长度 = 0, 注释 = "同步节点数据")]
 	public sealed class 同步节点数据 : GamePacket
 	{
-		// Token: 0x0600029F RID: 671 RVA: 0x00003524 File Offset: 0x00001724
+		
 		public 同步节点数据()
 		{
 			
@@ -256,7 +256,7 @@ namespace GameServer.Networking
 			
 		}
 
-		// Token: 0x040006E7 RID: 1767
+		
 		[WrappingFieldAttribute(下标 = 4, 长度 = 240)]
 		public byte[] 数据;
 	}

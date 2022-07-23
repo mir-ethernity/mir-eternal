@@ -5,10 +5,10 @@ using GameServer.Networking;
 
 namespace GameServer
 {
-	// Token: 0x0200001E RID: 30
+	
 	public sealed class AddItems : GMCommand
 	{
-		// Token: 0x17000016 RID: 22
+		
 		// (get) Token: 0x0600005D RID: 93 RVA: 0x00002865 File Offset: 0x00000A65
 		public override ExecutionWay ExecutionWay
 		{
@@ -18,7 +18,7 @@ namespace GameServer
 			}
 		}
 
-		// Token: 0x0600005E RID: 94 RVA: 0x00008DE8 File Offset: 0x00006FE8
+		
 		public override void Execute()
 		{
 			GameData GameData;
@@ -85,18 +85,18 @@ namespace GameServer
 			MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, role does not exist");
 		}
 
-		// Token: 0x0600005F RID: 95 RVA: 0x00002858 File Offset: 0x00000A58
+		
 		public AddItems()
 		{
 			
 			
 		}
 
-		// Token: 0x0400002E RID: 46
+		
 		[FieldAttribute(0, 排序 = 0)]
 		public string 角色名字;
 
-		// Token: 0x0400002F RID: 47
+		
 		[FieldAttribute(0, 排序 = 1)]
 		public string 物品名字;
 	}

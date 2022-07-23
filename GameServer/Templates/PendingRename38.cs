@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace GameServer.Templates
 {
-	// Token: 0x02000289 RID: 649
+	
 	public sealed class 地形数据
 	{
-		// Token: 0x0600068D RID: 1677 RVA: 0x00030DAC File Offset: 0x0002EFAC
+		
 		private static void 载入文件(FileSystemInfo 当前文件)
 		{
 			地形数据 地形数据 = new 地形数据
@@ -51,7 +51,7 @@ namespace GameServer.Templates
 			地形数据.数据列表.Enqueue(地形数据);
 		}
 
-		// Token: 0x0600068E RID: 1678 RVA: 0x00030F64 File Offset: 0x0002F164
+		
 		public static void LoadData()
 		{
 			地形数据.DataSheet = new Dictionary<byte, 地形数据>();
@@ -70,7 +70,7 @@ namespace GameServer.Templates
 			}
 		}
 
-		// Token: 0x170000BE RID: 190
+		
 		public uint this[Point 坐标]
 		{
 			get
@@ -79,38 +79,38 @@ namespace GameServer.Templates
 			}
 		}
 
-		// Token: 0x06000690 RID: 1680 RVA: 0x000027D8 File Offset: 0x000009D8
+		
 		public 地形数据()
 		{
 			
 			
 		}
 
-		// Token: 0x0400099E RID: 2462
+		
 		private static ConcurrentQueue<地形数据> 数据列表;
 
-		// Token: 0x0400099F RID: 2463
+		
 		public static Dictionary<byte, 地形数据> DataSheet;
 
-		// Token: 0x040009A0 RID: 2464
+		
 		public byte 地图编号;
 
-		// Token: 0x040009A1 RID: 2465
+		
 		public string 地图名字;
 
-		// Token: 0x040009A2 RID: 2466
+		
 		public Point 地图起点;
 
-		// Token: 0x040009A3 RID: 2467
+		
 		public Point 地图终点;
 
-		// Token: 0x040009A4 RID: 2468
+		
 		public Point 地图大小;
 
-		// Token: 0x040009A5 RID: 2469
+		
 		public Point 地图高度;
 
-		// Token: 0x040009A6 RID: 2470
+		
 		public uint[,] 点阵数据;
 	}
 }

@@ -9,73 +9,73 @@ using GameServer.Networking;
 
 namespace GameServer.Maps
 {
-    // Token: 0x020002D5 RID: 725
+    
     public abstract class MapObject
     {
-        // Token: 0x06000760 RID: 1888 RVA: 0x000064E7 File Offset: 0x000046E7
+        
         public override string ToString()
         {
             return this.对象名字;
         }
 
-        // Token: 0x170000EB RID: 235
+        
         // (get) Token: 0x06000761 RID: 1889 RVA: 0x000064EF File Offset: 0x000046EF
         // (set) Token: 0x06000762 RID: 1890 RVA: 0x000064F7 File Offset: 0x000046F7
         public DateTime 恢复时间 { get; set; }
 
-        // Token: 0x170000EC RID: 236
+        
         // (get) Token: 0x06000763 RID: 1891 RVA: 0x00006500 File Offset: 0x00004700
         // (set) Token: 0x06000764 RID: 1892 RVA: 0x00006508 File Offset: 0x00004708
         public DateTime 治疗时间 { get; set; }
 
-        // Token: 0x170000ED RID: 237
+        
         // (get) Token: 0x06000765 RID: 1893 RVA: 0x00006511 File Offset: 0x00004711
         // (set) Token: 0x06000766 RID: 1894 RVA: 0x00006519 File Offset: 0x00004719
         public DateTime 脱战时间 { get; set; }
 
-        // Token: 0x170000EE RID: 238
+        
         // (get) Token: 0x06000767 RID: 1895 RVA: 0x00006522 File Offset: 0x00004722
         // (set) Token: 0x06000768 RID: 1896 RVA: 0x0000652A File Offset: 0x0000472A
         public DateTime 处理计时 { get; set; }
 
-        // Token: 0x170000EF RID: 239
+        
         // (get) Token: 0x06000769 RID: 1897 RVA: 0x00006533 File Offset: 0x00004733
         // (set) Token: 0x0600076A RID: 1898 RVA: 0x0000653B File Offset: 0x0000473B
         public DateTime 预约时间 { get; set; }
 
-        // Token: 0x170000F0 RID: 240
+        
         // (get) Token: 0x0600076B RID: 1899 RVA: 0x00006544 File Offset: 0x00004744
         public virtual int 处理间隔 { get; }
 
-        // Token: 0x170000F1 RID: 241
+        
         // (get) Token: 0x0600076C RID: 1900 RVA: 0x0000654C File Offset: 0x0000474C
         // (set) Token: 0x0600076D RID: 1901 RVA: 0x00006554 File Offset: 0x00004754
         public int 治疗次数 { get; set; }
 
-        // Token: 0x170000F2 RID: 242
+        
         // (get) Token: 0x0600076E RID: 1902 RVA: 0x0000655D File Offset: 0x0000475D
         // (set) Token: 0x0600076F RID: 1903 RVA: 0x00006565 File Offset: 0x00004765
         public int 治疗基数 { get; set; }
 
-        // Token: 0x170000F3 RID: 243
+        
         // (get) Token: 0x06000770 RID: 1904 RVA: 0x0000656E File Offset: 0x0000476E
         // (set) Token: 0x06000771 RID: 1905 RVA: 0x00006576 File Offset: 0x00004776
         public byte 动作编号 { get; set; }
 
-        // Token: 0x170000F4 RID: 244
+        
         // (get) Token: 0x06000772 RID: 1906 RVA: 0x0000657F File Offset: 0x0000477F
         // (set) Token: 0x06000773 RID: 1907 RVA: 0x00006587 File Offset: 0x00004787
         public bool 战斗姿态 { get; set; }
 
-        // Token: 0x170000F5 RID: 245
+        
         // (get) Token: 0x06000774 RID: 1908
         public abstract GameObjectType 对象类型 { get; }
 
-        // Token: 0x170000F6 RID: 246
+        
         // (get) Token: 0x06000775 RID: 1909
         public abstract 技能范围类型 对象体型 { get; }
 
-        // Token: 0x170000F7 RID: 247
+        
         // (get) Token: 0x06000776 RID: 1910 RVA: 0x00006590 File Offset: 0x00004790
         public ushort 行走速度
         {
@@ -85,7 +85,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x170000F8 RID: 248
+        
         // (get) Token: 0x06000777 RID: 1911 RVA: 0x0000659B File Offset: 0x0000479B
         public ushort 奔跑速度
         {
@@ -95,7 +95,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x170000F9 RID: 249
+        
         // (get) Token: 0x06000778 RID: 1912 RVA: 0x000065A6 File Offset: 0x000047A6
         public virtual int 行走耗时
         {
@@ -105,7 +105,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x170000FA RID: 250
+        
         // (get) Token: 0x06000779 RID: 1913 RVA: 0x000065B1 File Offset: 0x000047B1
         public virtual int 奔跑耗时
         {
@@ -115,37 +115,37 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x170000FB RID: 251
+        
         // (get) Token: 0x0600077A RID: 1914 RVA: 0x000065BC File Offset: 0x000047BC
         // (set) Token: 0x0600077B RID: 1915 RVA: 0x000065C4 File Offset: 0x000047C4
         public virtual int 地图编号 { get; set; }
 
-        // Token: 0x170000FC RID: 252
+        
         // (get) Token: 0x0600077C RID: 1916 RVA: 0x000065CD File Offset: 0x000047CD
         // (set) Token: 0x0600077D RID: 1917 RVA: 0x000065D5 File Offset: 0x000047D5
         public virtual int 当前体力 { get; set; }
 
-        // Token: 0x170000FD RID: 253
+        
         // (get) Token: 0x0600077E RID: 1918 RVA: 0x000065DE File Offset: 0x000047DE
         // (set) Token: 0x0600077F RID: 1919 RVA: 0x000065E6 File Offset: 0x000047E6
         public virtual int 当前魔力 { get; set; }
 
-        // Token: 0x170000FE RID: 254
+        
         // (get) Token: 0x06000780 RID: 1920 RVA: 0x000065EF File Offset: 0x000047EF
         // (set) Token: 0x06000781 RID: 1921 RVA: 0x000065F7 File Offset: 0x000047F7
         public virtual byte 当前等级 { get; set; }
 
-        // Token: 0x170000FF RID: 255
+        
         // (get) Token: 0x06000782 RID: 1922 RVA: 0x00006600 File Offset: 0x00004800
         // (set) Token: 0x06000783 RID: 1923 RVA: 0x00006608 File Offset: 0x00004808
         public virtual bool 对象死亡 { get; set; }
 
-        // Token: 0x17000100 RID: 256
+        
         // (get) Token: 0x06000784 RID: 1924 RVA: 0x00006611 File Offset: 0x00004811
         // (set) Token: 0x06000785 RID: 1925 RVA: 0x00006619 File Offset: 0x00004819
         public virtual bool 阻塞网格 { get; set; }
 
-        // Token: 0x17000101 RID: 257
+        
         // (get) Token: 0x06000786 RID: 1926 RVA: 0x00006622 File Offset: 0x00004822
         public virtual bool 能被命中
         {
@@ -155,27 +155,27 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x17000102 RID: 258
+        
         // (get) Token: 0x06000787 RID: 1927 RVA: 0x0000662D File Offset: 0x0000482D
         // (set) Token: 0x06000788 RID: 1928 RVA: 0x00006635 File Offset: 0x00004835
         public virtual string 对象名字 { get; set; }
 
-        // Token: 0x17000103 RID: 259
+        
         // (get) Token: 0x06000789 RID: 1929 RVA: 0x0000663E File Offset: 0x0000483E
         // (set) Token: 0x0600078A RID: 1930 RVA: 0x00006646 File Offset: 0x00004846
         public virtual GameDirection 当前方向 { get; set; }
 
-        // Token: 0x17000104 RID: 260
+        
         // (get) Token: 0x0600078B RID: 1931 RVA: 0x0000664F File Offset: 0x0000484F
         // (set) Token: 0x0600078C RID: 1932 RVA: 0x00006657 File Offset: 0x00004857
         public virtual MapInstance 当前地图 { get; set; }
 
-        // Token: 0x17000105 RID: 261
+        
         // (get) Token: 0x0600078D RID: 1933 RVA: 0x00006660 File Offset: 0x00004860
         // (set) Token: 0x0600078E RID: 1934 RVA: 0x00006668 File Offset: 0x00004868
         public virtual Point 当前坐标 { get; set; }
 
-        // Token: 0x17000106 RID: 262
+        
         // (get) Token: 0x0600078F RID: 1935 RVA: 0x00006671 File Offset: 0x00004871
         public virtual ushort 当前高度
         {
@@ -185,27 +185,27 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x17000107 RID: 263
+        
         // (get) Token: 0x06000790 RID: 1936 RVA: 0x00006684 File Offset: 0x00004884
         // (set) Token: 0x06000791 RID: 1937 RVA: 0x0000668C File Offset: 0x0000488C
         public virtual DateTime 忙碌时间 { get; set; }
 
-        // Token: 0x17000108 RID: 264
+        
         // (get) Token: 0x06000792 RID: 1938 RVA: 0x00006695 File Offset: 0x00004895
         // (set) Token: 0x06000793 RID: 1939 RVA: 0x0000669D File Offset: 0x0000489D
         public virtual DateTime 硬直时间 { get; set; }
 
-        // Token: 0x17000109 RID: 265
+        
         // (get) Token: 0x06000794 RID: 1940 RVA: 0x000066A6 File Offset: 0x000048A6
         // (set) Token: 0x06000795 RID: 1941 RVA: 0x000066AE File Offset: 0x000048AE
         public virtual DateTime 行走时间 { get; set; }
 
-        // Token: 0x1700010A RID: 266
+        
         // (get) Token: 0x06000796 RID: 1942 RVA: 0x000066B7 File Offset: 0x000048B7
         // (set) Token: 0x06000797 RID: 1943 RVA: 0x000066BF File Offset: 0x000048BF
         public virtual DateTime 奔跑时间 { get; set; }
 
-        // Token: 0x1700010B RID: 267
+        
         public virtual int this[GameObjectProperties 属性]
         {
             get
@@ -231,19 +231,19 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x1700010C RID: 268
+        
         // (get) Token: 0x0600079A RID: 1946 RVA: 0x00006724 File Offset: 0x00004924
         public virtual Dictionary<GameObjectProperties, int> 当前属性 { get; }
 
-        // Token: 0x1700010D RID: 269
+        
         // (get) Token: 0x0600079B RID: 1947 RVA: 0x0000672C File Offset: 0x0000492C
         public virtual MonitorDictionary<int, DateTime> 冷却记录 { get; }
 
-        // Token: 0x1700010E RID: 270
+        
         // (get) Token: 0x0600079C RID: 1948 RVA: 0x00006734 File Offset: 0x00004934
         public virtual MonitorDictionary<ushort, BuffData> Buff列表 { get; }
 
-        // Token: 0x0600079D RID: 1949 RVA: 0x00039C38 File Offset: 0x00037E38
+        
         public virtual void 更新对象属性()
         {
             int num = 0;
@@ -318,14 +318,14 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x0600079E RID: 1950 RVA: 0x0000673C File Offset: 0x0000493C
+        
         public virtual void 处理对象数据()
         {
             this.处理计时 = MainProcess.CurrentTime;
             this.预约时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.处理间隔);
         }
 
-        // Token: 0x0600079F RID: 1951 RVA: 0x00039EB4 File Offset: 0x000380B4
+        
         public virtual void 自身死亡处理(MapObject 对象, bool 技能击杀)
         {
             this.发送封包(new ObjectCharacterDiesPacket
@@ -341,7 +341,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007A0 RID: 1952 RVA: 0x00039F3C File Offset: 0x0003813C
+        
         public MapObject()
         {
 
@@ -359,7 +359,7 @@ namespace GameServer.Maps
             this.预约时间 = MainProcess.CurrentTime.AddMilliseconds((double)MainProcess.RandomNumber.Next(this.处理间隔));
         }
 
-        // Token: 0x060007A1 RID: 1953 RVA: 0x00039FE8 File Offset: 0x000381E8
+        
         public void 解绑网格()
         {
             foreach (Point 坐标 in ComputingClass.技能范围(this.当前坐标, this.当前方向, this.对象体型))
@@ -368,7 +368,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007A2 RID: 1954 RVA: 0x0003A038 File Offset: 0x00038238
+        
         public void 绑定网格()
         {
             foreach (Point 坐标 in ComputingClass.技能范围(this.当前坐标, this.当前方向, this.对象体型))
@@ -377,7 +377,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007A3 RID: 1955 RVA: 0x00006760 File Offset: 0x00004960
+        
         public void 删除对象()
         {
             this.清空邻居时处理();
@@ -388,19 +388,19 @@ namespace GameServer.Maps
             MapGatewayProcess.移除激活对象(this);
         }
 
-        // Token: 0x060007A4 RID: 1956 RVA: 0x00006788 File Offset: 0x00004988
+        
         public int 网格距离(Point 坐标)
         {
             return ComputingClass.网格距离(this.当前坐标, 坐标);
         }
 
-        // Token: 0x060007A5 RID: 1957 RVA: 0x00006796 File Offset: 0x00004996
+        
         public int 网格距离(MapObject 对象)
         {
             return ComputingClass.网格距离(this.当前坐标, 对象.当前坐标);
         }
 
-        // Token: 0x060007A6 RID: 1958 RVA: 0x0003A088 File Offset: 0x00038288
+        
         public void 发送封包(GamePacket 封包)
         {
             string name = 封包.封包类型.Name;
@@ -462,13 +462,13 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007A7 RID: 1959 RVA: 0x0003A4B0 File Offset: 0x000386B0
+        
         public bool 在视线内(MapObject 对象)
         {
             return Math.Abs(this.当前坐标.X - 对象.当前坐标.X) <= 20 && Math.Abs(this.当前坐标.Y - 对象.当前坐标.Y) <= 20;
         }
 
-        // Token: 0x060007A8 RID: 1960 RVA: 0x0003A50C File Offset: 0x0003870C
+        
         public bool 主动攻击(MapObject 对象)
         {
             if (对象.对象死亡)
@@ -524,7 +524,7 @@ namespace GameServer.Maps
             return false;
         }
 
-        // Token: 0x060007A9 RID: 1961 RVA: 0x0003A5CC File Offset: 0x000387CC
+        
         public bool 邻居类型(MapObject 对象)
         {
             GameObjectType 对象类型 = this.对象类型;
@@ -598,7 +598,7 @@ namespace GameServer.Maps
             return false;
         }
 
-        // Token: 0x060007AA RID: 1962 RVA: 0x0003A67C File Offset: 0x0003887C
+        
         public 游戏对象关系 对象关系(MapObject 对象)
         {
             TrapObject TrapObject = 对象 as TrapObject;
@@ -784,7 +784,7 @@ namespace GameServer.Maps
             return 游戏对象关系.友方;
         }
 
-        // Token: 0x060007AB RID: 1963 RVA: 0x0003A970 File Offset: 0x00038B70
+        
         public bool 特定类型(MapObject 来源, 指定目标类型 类型)
         {
             TrapObject TrapObject = 来源 as TrapObject;
@@ -1242,25 +1242,25 @@ namespace GameServer.Maps
             return false;
         }
 
-        // Token: 0x060007AC RID: 1964 RVA: 0x0003B138 File Offset: 0x00039338
+        
         public virtual bool 能否走动()
         {
             return !this.对象死亡 && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.行走时间) && !this.检查状态(游戏对象状态.忙绿状态 | 游戏对象状态.定身状态 | 游戏对象状态.麻痹状态 | 游戏对象状态.失神状态);
         }
 
-        // Token: 0x060007AD RID: 1965 RVA: 0x0003B188 File Offset: 0x00039388
+        
         public virtual bool 能否跑动()
         {
             return !this.对象死亡 && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.奔跑时间) && !this.检查状态(游戏对象状态.忙绿状态 | 游戏对象状态.残废状态 | 游戏对象状态.定身状态 | 游戏对象状态.麻痹状态 | 游戏对象状态.失神状态);
         }
 
-        // Token: 0x060007AE RID: 1966 RVA: 0x0003B1D8 File Offset: 0x000393D8
+        
         public virtual bool 能否转动()
         {
             return !this.对象死亡 && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.行走时间) && !this.检查状态(游戏对象状态.忙绿状态 | 游戏对象状态.麻痹状态 | 游戏对象状态.失神状态);
         }
 
-        // Token: 0x060007AF RID: 1967 RVA: 0x0003B228 File Offset: 0x00039428
+        
         public virtual bool 能被推动(MapObject 来源)
         {
             if (this == 来源)
@@ -1279,7 +1279,7 @@ namespace GameServer.Maps
             return (MonsterObject == null || MonsterObject.可被技能推动) && 来源.对象关系(this) == 游戏对象关系.敌对;
         }
 
-        // Token: 0x060007B0 RID: 1968 RVA: 0x0003B278 File Offset: 0x00039478
+        
         public virtual bool 能否位移(MapObject 来源, Point 锚点, int 距离, int 数量, bool 穿墙, out Point 终点, out MapObject[] 目标)
         {
             终点 = this.当前坐标;
@@ -1352,7 +1352,7 @@ namespace GameServer.Maps
             return false;
         }
 
-        // Token: 0x060007B1 RID: 1969 RVA: 0x0003B420 File Offset: 0x00039620
+        
         public virtual bool 检查状态(游戏对象状态 待检状态)
         {
             foreach (BuffData BuffData in this.Buff列表.Values)
@@ -1365,7 +1365,7 @@ namespace GameServer.Maps
             return false;
         }
 
-        // Token: 0x060007B2 RID: 1970 RVA: 0x0003B48C File Offset: 0x0003968C
+        
         public void 添加Buff时处理(ushort 编号, MapObject 来源)
         {
             if (!(this is ItemObject) && !(this is TrapObject))
@@ -1536,7 +1536,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007B3 RID: 1971 RVA: 0x0003BAE0 File Offset: 0x00039CE0
+        
         public void 移除Buff时处理(ushort 编号)
         {
             BuffData BuffData;
@@ -1607,7 +1607,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007B4 RID: 1972 RVA: 0x0003BD78 File Offset: 0x00039F78
+        
         public void 删除Buff时处理(ushort 编号)
         {
             BuffData BuffData;
@@ -1655,7 +1655,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007B5 RID: 1973 RVA: 0x0003BEDC File Offset: 0x0003A0DC
+        
         public void 轮询Buff时处理(BuffData 数据)
         {
             if (数据.到期消失 && (数据.剩余时间.V -= MainProcess.CurrentTime - this.处理计时) < TimeSpan.Zero)
@@ -1677,7 +1677,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007B6 RID: 1974 RVA: 0x0003BFB4 File Offset: 0x0003A1B4
+        
         public void 被技能命中处理(技能实例 技能, C_01_计算命中目标 参数)
         {
             TrapObject TrapObject = 技能.技能来源 as TrapObject;
@@ -1789,7 +1789,7 @@ namespace GameServer.Maps
             技能.命中列表.Add(this.地图编号, value);
         }
 
-        // Token: 0x060007B7 RID: 1975 RVA: 0x0003C2C0 File Offset: 0x0003A4C0
+        
         public void 被动受伤时处理(技能实例 技能, C_02_计算目标伤害 参数, 命中详情 详情, float 伤害系数)
         {
             TrapObject TrapObject = 技能.技能来源 as TrapObject;
@@ -2285,7 +2285,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007B8 RID: 1976 RVA: 0x0003D4A8 File Offset: 0x0003B6A8
+        
         public void 被动受伤时处理(BuffData 数据)
         {
             int num = 0;
@@ -2316,7 +2316,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007B9 RID: 1977 RVA: 0x0003D598 File Offset: 0x0003B798
+        
         public void 被动回复时处理(技能实例 技能, C_05_计算目标回复 参数)
         {
             if (!this.对象死亡)
@@ -2402,7 +2402,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007BA RID: 1978 RVA: 0x0003D8B8 File Offset: 0x0003BAB8
+        
         public void 被动回复时处理(BuffData 数据)
         {
             if (数据.Buff模板.体力回复基数 == null)
@@ -2424,7 +2424,7 @@ namespace GameServer.Maps
             this.发送封包(触发状态效果);
         }
 
-        // Token: 0x060007BB RID: 1979 RVA: 0x0003D95C File Offset: 0x0003BB5C
+        
         public void 自身移动时处理(Point 坐标)
         {
             PlayerObject PlayerObject = this as PlayerObject;
@@ -2539,7 +2539,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007BC RID: 1980 RVA: 0x0003DD18 File Offset: 0x0003BF18
+        
         public void 清空邻居时处理()
         {
             foreach (MapObject MapObject in this.邻居列表.ToList<MapObject>())
@@ -2551,7 +2551,7 @@ namespace GameServer.Maps
             this.潜行邻居.Clear();
         }
 
-        // Token: 0x060007BD RID: 1981 RVA: 0x0003DD90 File Offset: 0x0003BF90
+        
         public void 更新邻居时处理()
         {
             foreach (MapObject MapObject in this.邻居列表.ToList<MapObject>())
@@ -2595,7 +2595,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007BE RID: 1982 RVA: 0x0003DF2C File Offset: 0x0003C12C
+        
         public void 对象移动时处理(MapObject 对象)
         {
             if (!(this is ItemObject))
@@ -2722,7 +2722,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007BF RID: 1983 RVA: 0x0003E308 File Offset: 0x0003C508
+        
         public void 对象出现时处理(MapObject 对象)
         {
             if (this.潜行邻居.Remove(对象))
@@ -3083,7 +3083,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007C0 RID: 1984 RVA: 0x0003EDC8 File Offset: 0x0003CFC8
+        
         public void 对象消失时处理(MapObject 对象)
         {
             if (this.邻居列表.Remove(对象))
@@ -3136,7 +3136,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007C1 RID: 1985 RVA: 0x0003EEB0 File Offset: 0x0003D0B0
+        
         public void 对象死亡时处理(MapObject 对象)
         {
             MonsterObject MonsterObject = this as MonsterObject;
@@ -3159,7 +3159,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007C2 RID: 1986 RVA: 0x0003EF08 File Offset: 0x0003D108
+        
         public void 对象隐身时处理(MapObject 对象)
         {
             PetObject PetObject = this as PetObject;
@@ -3174,7 +3174,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007C3 RID: 1987 RVA: 0x0003EF74 File Offset: 0x0003D174
+        
         public void 对象潜行时处理(MapObject 对象)
         {
             PetObject PetObject = this as PetObject;
@@ -3206,7 +3206,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007C4 RID: 1988 RVA: 0x0003F040 File Offset: 0x0003D240
+        
         public void 对象显隐时处理(MapObject 对象)
         {
             PetObject PetObject = this as PetObject;
@@ -3238,7 +3238,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007C5 RID: 1989 RVA: 0x000067A9 File Offset: 0x000049A9
+        
         public void 对象显行时处理(MapObject 对象)
         {
             if (this.潜行邻居.Contains(对象))
@@ -3247,7 +3247,7 @@ namespace GameServer.Maps
             }
         }
 
-        // Token: 0x060007C6 RID: 1990 RVA: 0x0003F170 File Offset: 0x0003D370
+        
         public byte[] 对象Buff详述()
         {
             byte[] result;
@@ -3270,7 +3270,7 @@ namespace GameServer.Maps
             return result;
         }
 
-        // Token: 0x060007C7 RID: 1991 RVA: 0x0003F2A0 File Offset: 0x0003D4A0
+        
         public byte[] 对象Buff简述()
         {
             byte[] result;
@@ -3295,28 +3295,28 @@ namespace GameServer.Maps
             return result;
         }
 
-        // Token: 0x04000CAC RID: 3244
+        
         public bool 次要对象;
 
-        // Token: 0x04000CAD RID: 3245
+        
         public bool 激活对象;
 
-        // Token: 0x04000CAE RID: 3246
+        
         public HashSet<MapObject> 重要邻居;
 
-        // Token: 0x04000CAF RID: 3247
+        
         public HashSet<MapObject> 潜行邻居;
 
-        // Token: 0x04000CB0 RID: 3248
+        
         public HashSet<MapObject> 邻居列表;
 
-        // Token: 0x04000CB1 RID: 3249
+        
         public HashSet<技能实例> 技能任务;
 
-        // Token: 0x04000CB2 RID: 3250
+        
         public HashSet<TrapObject> 陷阱列表;
 
-        // Token: 0x04000CCE RID: 3278
+        
         public Dictionary<object, Dictionary<GameObjectProperties, int>> 属性加成;
     }
 }

@@ -1,9 +1,9 @@
 ﻿namespace AccountServer
 {
-	// Token: 0x02000002 RID: 2
+	
 	public partial class MainForm : global::System.Windows.Forms.Form
 	{
-		// Token: 0x06000014 RID: 20 RVA: 0x000026AB File Offset: 0x000008AB
+		
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing && this.components != null)
@@ -13,7 +13,7 @@
 			base.Dispose(disposing);
 		}
 
-		// Token: 0x06000015 RID: 21 RVA: 0x000026CC File Offset: 0x000008CC
+		
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
@@ -329,73 +329,73 @@
 
 		}
 
-		// Token: 0x0400000A RID: 10
+		
 		private global::System.ComponentModel.IContainer components;
 
-		// Token: 0x0400000B RID: 11
+		
 		private global::System.Windows.Forms.TabControl 主选项卡;
 
-		// Token: 0x0400000C RID: 12
+		
 		private global::System.Windows.Forms.Button btnStart;
 
-		// Token: 0x0400000D RID: 13
+		
 		private global::System.Windows.Forms.Button btnStop;
 
-		// Token: 0x0400000E RID: 14
+		
 		private global::System.Windows.Forms.TabPage 日志选项卡;
 
-		// Token: 0x0400000F RID: 15
+		
 		public global::System.Windows.Forms.RichTextBox 日志文本框;
 
-		// Token: 0x04000010 RID: 16
+		
 		private global::System.Windows.Forms.Label lblRegisteredAccounts;
 
-		// Token: 0x04000011 RID: 17
+		
 		private global::System.Windows.Forms.Label lblNewAccounts;
 
-		// Token: 0x04000012 RID: 18
+		
 		private global::System.Windows.Forms.Label lblTicketsCount;
 
-		// Token: 0x04000013 RID: 19
+		
 		private global::System.Windows.Forms.Label lblBytesSend;
 
-		// Token: 0x04000014 RID: 20
+		
 		private global::System.Windows.Forms.Label lblBytesReceived;
 
-		// Token: 0x04000015 RID: 21
+		
 		private global::System.Windows.Forms.Label lblServerPort;
 
-		// Token: 0x04000016 RID: 22
+		
 		private global::System.Windows.Forms.Label lblTicketsPort;
 
-		// Token: 0x04000017 RID: 23
+		
 		public global::System.Windows.Forms.NumericUpDown txtServerPort;
 
-		// Token: 0x04000018 RID: 24
+		
 		public global::System.Windows.Forms.NumericUpDown txtTicketPort;
 
-		// Token: 0x04000019 RID: 25
+		
 		private global::System.Windows.Forms.NotifyIcon MinimizeTray;
 
-		// Token: 0x0400001A RID: 26
+		
 		private global::System.Windows.Forms.ContextMenuStrip 托盘右键菜单;
 
-		// Token: 0x0400001B RID: 27
+		
 		private global::System.Windows.Forms.ToolStripMenuItem 打开ToolStripMenuItem;
 
-		// Token: 0x0400001C RID: 28
+		
 		private global::System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
 
-		// Token: 0x0400001D RID: 29
+		
 		private global::System.Windows.Forms.Button btnServerConfig;
 
-		// Token: 0x0400001E RID: 30
+		
 		private global::System.Windows.Forms.Button btnOpenAccount;
 
-		// Token: 0x0400001F RID: 31
+		
 		private global::System.Windows.Forms.Button btnLoadConfig;
 
-		// Token: 0x04000020 RID: 32
+		
 		private global::System.Windows.Forms.Button btnLoadAccount;
 	}
 }

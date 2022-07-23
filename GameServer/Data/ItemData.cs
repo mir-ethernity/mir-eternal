@@ -5,10 +5,10 @@ using GameServer.Templates;
 
 namespace GameServer.Data
 {
-	// Token: 0x02000267 RID: 615
+	
 	public class ItemData : GameData
 	{
-		// Token: 0x1700006B RID: 107
+		
 		// (get) Token: 0x06000569 RID: 1385 RVA: 0x00005180 File Offset: 0x00003380
 		public 游戏物品 物品模板
 		{
@@ -18,7 +18,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700006C RID: 108
+		
 		// (get) Token: 0x0600056A RID: 1386 RVA: 0x0000518D File Offset: 0x0000338D
 		public ItemsForSale 出售类型
 		{
@@ -28,7 +28,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700006D RID: 109
+		
 		// (get) Token: 0x0600056B RID: 1387 RVA: 0x0000519A File Offset: 0x0000339A
 		public ItemUsageType 物品类型
 		{
@@ -38,7 +38,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700006E RID: 110
+		
 		// (get) Token: 0x0600056C RID: 1388 RVA: 0x000051A7 File Offset: 0x000033A7
 		public PersistentItemType 持久类型
 		{
@@ -48,7 +48,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700006F RID: 111
+		
 		// (get) Token: 0x0600056D RID: 1389 RVA: 0x000051B4 File Offset: 0x000033B4
 		public GameObjectProfession 需要职业
 		{
@@ -58,7 +58,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000070 RID: 112
+		
 		// (get) Token: 0x0600056E RID: 1390 RVA: 0x000051C1 File Offset: 0x000033C1
 		public GameObjectGender 需要性别
 		{
@@ -68,7 +68,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000071 RID: 113
+		
 		// (get) Token: 0x0600056F RID: 1391 RVA: 0x000051CE File Offset: 0x000033CE
 		public string 物品名字
 		{
@@ -78,7 +78,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000072 RID: 114
+		
 		// (get) Token: 0x06000570 RID: 1392 RVA: 0x000051DB File Offset: 0x000033DB
 		public int 需要等级
 		{
@@ -88,7 +88,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000073 RID: 115
+		
 		// (get) Token: 0x06000571 RID: 1393 RVA: 0x000051E8 File Offset: 0x000033E8
 		public int 物品编号
 		{
@@ -98,7 +98,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000074 RID: 116
+		
 		// (get) Token: 0x06000572 RID: 1394 RVA: 0x000051FA File Offset: 0x000033FA
 		public int 物品重量
 		{
@@ -112,7 +112,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000075 RID: 117
+		
 		// (get) Token: 0x06000573 RID: 1395 RVA: 0x00025024 File Offset: 0x00023224
 		public int 出售价格
 		{
@@ -1986,7 +1986,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000076 RID: 118
+		
 		// (get) Token: 0x06000574 RID: 1396 RVA: 0x00005228 File Offset: 0x00003428
 		public int 堆叠上限
 		{
@@ -1996,7 +1996,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000077 RID: 119
+		
 		// (get) Token: 0x06000575 RID: 1397 RVA: 0x0000523A File Offset: 0x0000343A
 		public int 默认持久
 		{
@@ -2010,7 +2010,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000078 RID: 120
+		
 		// (get) Token: 0x06000576 RID: 1398 RVA: 0x0000526C File Offset: 0x0000346C
 		// (set) Token: 0x06000577 RID: 1399 RVA: 0x00005279 File Offset: 0x00003479
 		public byte 当前位置
@@ -2025,7 +2025,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000079 RID: 121
+		
 		// (get) Token: 0x06000578 RID: 1400 RVA: 0x00005287 File Offset: 0x00003487
 		public bool 是否绑定
 		{
@@ -2035,7 +2035,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700007A RID: 122
+		
 		// (get) Token: 0x06000579 RID: 1401 RVA: 0x00005294 File Offset: 0x00003494
 		public bool 资源物品
 		{
@@ -2045,7 +2045,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700007B RID: 123
+		
 		// (get) Token: 0x0600057A RID: 1402 RVA: 0x000052A6 File Offset: 0x000034A6
 		public bool 能否出售
 		{
@@ -2055,7 +2055,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700007C RID: 124
+		
 		// (get) Token: 0x0600057B RID: 1403 RVA: 0x000052B3 File Offset: 0x000034B3
 		public bool 能否堆叠
 		{
@@ -2065,7 +2065,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700007D RID: 125
+		
 		// (get) Token: 0x0600057C RID: 1404 RVA: 0x000052C8 File Offset: 0x000034C8
 		public bool 能否掉落
 		{
@@ -2075,7 +2075,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700007E RID: 126
+		
 		// (get) Token: 0x0600057D RID: 1405 RVA: 0x000052D5 File Offset: 0x000034D5
 		public ushort 技能编号
 		{
@@ -2085,7 +2085,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x1700007F RID: 127
+		
 		// (get) Token: 0x0600057E RID: 1406 RVA: 0x000052E2 File Offset: 0x000034E2
 		public byte 分组编号
 		{
@@ -2095,7 +2095,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000080 RID: 128
+		
 		// (get) Token: 0x0600057F RID: 1407 RVA: 0x000052EF File Offset: 0x000034EF
 		public int 分组冷却
 		{
@@ -2105,7 +2105,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x17000081 RID: 129
+		
 		// (get) Token: 0x06000580 RID: 1408 RVA: 0x000052FC File Offset: 0x000034FC
 		public int 冷却时间
 		{
@@ -2115,14 +2115,14 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x06000581 RID: 1409 RVA: 0x0000429F File Offset: 0x0000249F
+		
 		public ItemData()
 		{
 			
 			
 		}
 
-		// Token: 0x06000582 RID: 1410 RVA: 0x00026A8C File Offset: 0x00024C8C
+		
 		public ItemData(游戏物品 模板, CharacterData 来源, byte 容器, byte 位置, int 持久)
 		{
 			
@@ -2137,13 +2137,13 @@ namespace GameServer.Data
 			GameDataGateway.ItemData表.AddData(this, true);
 		}
 
-		// Token: 0x06000583 RID: 1411 RVA: 0x00005309 File Offset: 0x00003509
+		
 		public override string ToString()
 		{
 			return this.物品名字;
 		}
 
-		// Token: 0x06000584 RID: 1412 RVA: 0x00026B24 File Offset: 0x00024D24
+		
 		public virtual byte[] 字节描述()
 		{
 			byte[] result;
@@ -2170,7 +2170,7 @@ namespace GameServer.Data
 			return result;
 		}
 
-		// Token: 0x06000585 RID: 1413 RVA: 0x00026C38 File Offset: 0x00024E38
+		
 		public virtual byte[] 字节描述(int 数量)
 		{
 			byte[] result;
@@ -2197,38 +2197,38 @@ namespace GameServer.Data
 			return result;
 		}
 
-		// Token: 0x06000586 RID: 1414 RVA: 0x00005311 File Offset: 0x00003511
+		
 		static ItemData()
 		{
 			
 			ItemData.数据版本 = 14;
 		}
 
-		// Token: 0x04000827 RID: 2087
+		
 		public static byte 数据版本;
 
-		// Token: 0x04000828 RID: 2088
+		
 		public readonly DataMonitor<游戏物品> 对应模板;
 
-		// Token: 0x04000829 RID: 2089
+		
 		public readonly DataMonitor<DateTime> 生成时间;
 
-		// Token: 0x0400082A RID: 2090
+		
 		public readonly DataMonitor<CharacterData> 生成来源;
 
-		// Token: 0x0400082B RID: 2091
+		
 		public readonly DataMonitor<int> 当前持久;
 
-		// Token: 0x0400082C RID: 2092
+		
 		public readonly DataMonitor<int> 最大持久;
 
-		// Token: 0x0400082D RID: 2093
+		
 		public readonly DataMonitor<byte> 物品容器;
 
-		// Token: 0x0400082E RID: 2094
+		
 		public readonly DataMonitor<byte> 物品位置;
 
-		// Token: 0x0400082F RID: 2095
+		
 		public int 回购编号;
 	}
 }

@@ -9,10 +9,10 @@ using GameServer.Networking;
 
 namespace GameServer.Maps
 {
-	// Token: 0x020002D1 RID: 721
+	
 	public static class MapGatewayProcess
 	{
-		// Token: 0x06000728 RID: 1832 RVA: 0x00036B38 File Offset: 0x00034D38
+		
 		private static void 沙城处理()
 		{
 			if (MainProcess.CurrentTime < MapGatewayProcess.沙城处理计时)
@@ -607,7 +607,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x06000729 RID: 1833 RVA: 0x00038344 File Offset: 0x00036544
+		
 		public static void Process()
 		{
 			foreach (KeyValuePair<int, MapObject> keyValuePair in MapGatewayProcess.ActiveObjects)
@@ -690,7 +690,7 @@ namespace GameServer.Maps
 			goto IL_20B;
 		}
 
-		// Token: 0x0600072A RID: 1834 RVA: 0x000385A4 File Offset: 0x000367A4
+		
 		public static void Start()
 		{
 			MapGatewayProcess.SecondaryObjects = new List<MapObject>();
@@ -832,7 +832,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600072B RID: 1835 RVA: 0x00038D08 File Offset: 0x00036F08
+		
 		public static void CleanUp()
 		{
 			foreach (ItemObject ItemObject in MapGatewayProcess.物品对象表.Values)
@@ -852,7 +852,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600072C RID: 1836 RVA: 0x00038DEC File Offset: 0x00036FEC
+		
 		public static void 添加MapObject(MapObject 当前对象)
 		{
 			MapGatewayProcess.Objects.Add(当前对象.地图编号, 当前对象);
@@ -896,7 +896,7 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600072D RID: 1837 RVA: 0x00038EC8 File Offset: 0x000370C8
+		
 		public static void 移除MapObject(MapObject 当前对象)
 		{
 			MapGatewayProcess.Objects.Remove(当前对象.地图编号);
@@ -940,25 +940,25 @@ namespace GameServer.Maps
 			}
 		}
 
-		// Token: 0x0600072E RID: 1838 RVA: 0x000062B3 File Offset: 0x000044B3
+		
 		public static void 添加激活对象(MapObject 当前对象)
 		{
 			MapGatewayProcess.添加激活表.Enqueue(当前对象);
 		}
 
-		// Token: 0x0600072F RID: 1839 RVA: 0x000062C0 File Offset: 0x000044C0
+		
 		public static void 移除激活对象(MapObject 当前对象)
 		{
 			MapGatewayProcess.移除激活表.Enqueue(当前对象);
 		}
 
-		// Token: 0x06000730 RID: 1840 RVA: 0x000062CD File Offset: 0x000044CD
+		
 		public static void 添加次要对象(MapObject 当前对象)
 		{
 			MapGatewayProcess.对象备份表.Add(当前对象);
 		}
 
-		// Token: 0x06000731 RID: 1841 RVA: 0x00038F84 File Offset: 0x00037184
+		
 		public static MapInstance 分配地图(int 地图编号)
 		{
 			MapInstance result;
@@ -969,7 +969,7 @@ namespace GameServer.Maps
 			return null;
 		}
 
-		// Token: 0x06000732 RID: 1842 RVA: 0x00038FA8 File Offset: 0x000371A8
+		
 		static MapGatewayProcess()
 		{
 			
@@ -1002,187 +1002,187 @@ namespace GameServer.Maps
 			MapGatewayProcess.攻城行会 = new HashSet<GuildData>();
 		}
 
-		// Token: 0x04000C48 RID: 3144
+		
 		public static int 对象表计数;
 
-		// Token: 0x04000C49 RID: 3145
+		
 		public static List<MapObject> SecondaryObjects;
 
-		// Token: 0x04000C4A RID: 3146
+		
 		public static List<MapObject> 对象备份表;
 
-		// Token: 0x04000C4B RID: 3147
+		
 		public static Dictionary<int, MapObject> ActiveObjects;
 
-		// Token: 0x04000C4C RID: 3148
+		
 		public static Dictionary<int, MapObject> Objects;
 
-		// Token: 0x04000C4D RID: 3149
+		
 		public static Dictionary<int, PlayerObject> 玩家对象表;
 
-		// Token: 0x04000C4E RID: 3150
+		
 		public static Dictionary<int, PetObject> 宠物对象表;
 
-		// Token: 0x04000C4F RID: 3151
+		
 		public static Dictionary<int, MonsterObject> 怪物对象表;
 
-		// Token: 0x04000C50 RID: 3152
+		
 		public static Dictionary<int, GuardInstance> 守卫对象表;
 
-		// Token: 0x04000C51 RID: 3153
+		
 		public static Dictionary<int, ItemObject> 物品对象表;
 
-		// Token: 0x04000C52 RID: 3154
+		
 		public static Dictionary<int, TrapObject> 陷阱对象表;
 
-		// Token: 0x04000C53 RID: 3155
+		
 		public static Dictionary<int, MapInstance> MapInstance表;
 
-		// Token: 0x04000C54 RID: 3156
+		
 		public static HashSet<MapInstance> 副本实例表;
 
-		// Token: 0x04000C55 RID: 3157
+		
 		private static ConcurrentQueue<MapInstance> 副本移除表;
 
-		// Token: 0x04000C56 RID: 3158
+		
 		private static ConcurrentQueue<MapObject> 添加激活表;
 
-		// Token: 0x04000C57 RID: 3159
+		
 		private static ConcurrentQueue<MapObject> 移除激活表;
 
-		// Token: 0x04000C58 RID: 3160
+		
 		public static int 对象编号;
 
-		// Token: 0x04000C59 RID: 3161
+		
 		public static int 陷阱编号;
 
-		// Token: 0x04000C5A RID: 3162
+		
 		public static int 物品编号;
 
-		// Token: 0x04000C5B RID: 3163
+		
 		private static DateTime 沙城处理计时;
 
-		// Token: 0x04000C5C RID: 3164
+		
 		public static Point 沙城城门坐标;
 
-		// Token: 0x04000C5D RID: 3165
+		
 		public static Point 皇宫下门坐标;
 
-		// Token: 0x04000C5E RID: 3166
+		
 		public static Point 皇宫下门出口;
 
-		// Token: 0x04000C5F RID: 3167
+		
 		public static Point 皇宫下门入口;
 
-		// Token: 0x04000C60 RID: 3168
+		
 		public static Point 皇宫左门坐标;
 
-		// Token: 0x04000C61 RID: 3169
+		
 		public static Point 皇宫左门出口;
 
-		// Token: 0x04000C62 RID: 3170
+		
 		public static Point 皇宫左门入口;
 
-		// Token: 0x04000C63 RID: 3171
+		
 		public static Point 皇宫上门坐标;
 
-		// Token: 0x04000C64 RID: 3172
+		
 		public static Point 皇宫上门出口;
 
-		// Token: 0x04000C65 RID: 3173
+		
 		public static Point 皇宫上门入口;
 
-		// Token: 0x04000C66 RID: 3174
+		
 		public static Point 皇宫出口点一;
 
-		// Token: 0x04000C67 RID: 3175
+		
 		public static Point 皇宫出口点二;
 
-		// Token: 0x04000C68 RID: 3176
+		
 		public static Point 皇宫正门入口;
 
-		// Token: 0x04000C69 RID: 3177
+		
 		public static Point 皇宫正门出口;
 
-		// Token: 0x04000C6A RID: 3178
+		
 		public static Point 皇宫入口点左;
 
-		// Token: 0x04000C6B RID: 3179
+		
 		public static Point 皇宫入口点中;
 
-		// Token: 0x04000C6C RID: 3180
+		
 		public static Point 皇宫入口点右;
 
-		// Token: 0x04000C6D RID: 3181
+		
 		public static Point 八卦坛坐标上;
 
-		// Token: 0x04000C6E RID: 3182
+		
 		public static Point 八卦坛坐标下;
 
-		// Token: 0x04000C6F RID: 3183
+		
 		public static Point 八卦坛坐标左;
 
-		// Token: 0x04000C70 RID: 3184
+		
 		public static Point 八卦坛坐标右;
 
-		// Token: 0x04000C71 RID: 3185
+		
 		public static Point 八卦坛坐标中;
 
-		// Token: 0x04000C72 RID: 3186
+		
 		public static MapInstance 沙城地图;
 
-		// Token: 0x04000C73 RID: 3187
+		
 		public static MonsterObject 沙城城门;
 
-		// Token: 0x04000C74 RID: 3188
+		
 		public static MonsterObject 下方宫门;
 
-		// Token: 0x04000C75 RID: 3189
+		
 		public static MonsterObject 上方宫门;
 
-		// Token: 0x04000C76 RID: 3190
+		
 		public static MonsterObject 左方宫门;
 
-		// Token: 0x04000C77 RID: 3191
+		
 		public static GuardInstance 上方法阵;
 
-		// Token: 0x04000C78 RID: 3192
+		
 		public static GuardInstance 下方法阵;
 
-		// Token: 0x04000C79 RID: 3193
+		
 		public static GuardInstance 左方法阵;
 
-		// Token: 0x04000C7A RID: 3194
+		
 		public static GuardInstance 右方法阵;
 
-		// Token: 0x04000C7B RID: 3195
+		
 		public static GuardInstance 八卦坛激活法阵;
 
-		// Token: 0x04000C7C RID: 3196
+		
 		public static GuildData 八卦坛激活行会;
 
-		// Token: 0x04000C7D RID: 3197
+		
 		public static DateTime 八卦坛激活计时;
 
-		// Token: 0x04000C7E RID: 3198
+		
 		public static 地图区域 皇宫随机区域;
 
-		// Token: 0x04000C7F RID: 3199
+		
 		public static 地图区域 外城复活区域;
 
-		// Token: 0x04000C80 RID: 3200
+		
 		public static 地图区域 内城复活区域;
 
-		// Token: 0x04000C81 RID: 3201
+		
 		public static 地图区域 守方传送区域;
 
-		// Token: 0x04000C82 RID: 3202
+		
 		public static byte 沙城节点;
 
-		// Token: 0x04000C83 RID: 3203
+		
 		public static DateTime 通知时间;
 
-		// Token: 0x04000C84 RID: 3204
+		
 		public static HashSet<GuildData> 攻城行会;
 	}
 }

@@ -5,10 +5,10 @@ using GameServer.Data;
 
 namespace GameServer.Maps
 {
-	// Token: 0x020002EB RID: 747
+	
 	public sealed class PlayerBoth
 	{
-		// Token: 0x060009FE RID: 2558 RVA: 0x00007A0E File Offset: 0x00005C0E
+		
 		public PlayerBoth()
 		{
 			
@@ -19,7 +19,7 @@ namespace GameServer.Maps
 			this.摊位物品 = new Dictionary<byte, ItemData>();
 		}
 
-		// Token: 0x060009FF RID: 2559 RVA: 0x00062D80 File Offset: 0x00060F80
+		
 		public long 物品总价()
 		{
 			long num = 0L;
@@ -30,7 +30,7 @@ namespace GameServer.Maps
 			return num;
 		}
 
-		// Token: 0x06000A00 RID: 2560 RVA: 0x00062DFC File Offset: 0x00060FFC
+		
 		public byte[] 摊位描述()
 		{
 			byte[] result;
@@ -53,19 +53,19 @@ namespace GameServer.Maps
 			return result;
 		}
 
-		// Token: 0x04000D5C RID: 3420
+		
 		public byte 摊位状态;
 
-		// Token: 0x04000D5D RID: 3421
+		
 		public string 摊位名字;
 
-		// Token: 0x04000D5E RID: 3422
+		
 		public Dictionary<ItemData, int> 物品数量;
 
-		// Token: 0x04000D5F RID: 3423
+		
 		public Dictionary<ItemData, int> 物品单价;
 
-		// Token: 0x04000D60 RID: 3424
+		
 		public Dictionary<byte, ItemData> 摊位物品;
 	}
 }

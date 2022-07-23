@@ -9,10 +9,10 @@ using System.Windows.Forms;
 
 namespace GameServer.Data
 {
-	// Token: 0x0200027D RID: 637
+	
 	public static class GameDataGateway
 	{
-		// Token: 0x170000B5 RID: 181
+		
 		// (get) Token: 0x06000662 RID: 1634 RVA: 0x00005CDF File Offset: 0x00003EDF
 		// (set) Token: 0x06000663 RID: 1635 RVA: 0x0002F3C8 File Offset: 0x0002D5C8
 		public static bool 已经修改
@@ -34,7 +34,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x170000B6 RID: 182
+		
 		// (get) Token: 0x06000664 RID: 1636 RVA: 0x00005CE6 File Offset: 0x00003EE6
 		public static string UserFolder
 		{
@@ -44,7 +44,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x170000B7 RID: 183
+		
 		// (get) Token: 0x06000665 RID: 1637 RVA: 0x00005CF7 File Offset: 0x00003EF7
 		public static string 备份目录
 		{
@@ -54,7 +54,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x170000B8 RID: 184
+		
 		// (get) Token: 0x06000666 RID: 1638 RVA: 0x00005CFE File Offset: 0x00003EFE
 		public static string UserPath
 		{
@@ -64,7 +64,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x170000B9 RID: 185
+		
 		// (get) Token: 0x06000667 RID: 1639 RVA: 0x00005D0F File Offset: 0x00003F0F
 		public static string UserTempPath
 		{
@@ -74,7 +74,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x170000BA RID: 186
+		
 		// (get) Token: 0x06000668 RID: 1640 RVA: 0x00005D20 File Offset: 0x00003F20
 		public static string UserBackupPath
 		{
@@ -84,7 +84,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x06000669 RID: 1641 RVA: 0x0002F428 File Offset: 0x0002D628
+		
 		public static void 加载数据()
 		{
 			GameDataGateway.Data型表 = new Dictionary<Type, DataTableBase>();
@@ -166,7 +166,7 @@ namespace GameServer.Data
 			SystemData.数据.OnLoadCompleted();
 		}
 
-		// Token: 0x0600066A RID: 1642 RVA: 0x00005D3B File Offset: 0x00003F3B
+		
 		public static void SaveData()
 		{
 			Parallel.ForEach<DataTableBase>(GameDataGateway.Data型表.Values, delegate(DataTableBase x)
@@ -175,7 +175,7 @@ namespace GameServer.Data
 			});
 		}
 
-		// Token: 0x0600066B RID: 1643 RVA: 0x00005D6C File Offset: 0x00003F6C
+		
 		public static void 强制保存()
 		{
 			Parallel.ForEach<DataTableBase>(GameDataGateway.Data型表.Values, delegate(DataTableBase x)
@@ -184,7 +184,7 @@ namespace GameServer.Data
 			});
 		}
 
-		// Token: 0x0600066C RID: 1644 RVA: 0x0002F84C File Offset: 0x0002DA4C
+		
 		public static void CleanUp()
 		{
 			if (!Directory.Exists(GameDataGateway.UserFolder))
@@ -223,7 +223,7 @@ namespace GameServer.Data
 			GameDataGateway.已经修改 = false;
 		}
 
-		// Token: 0x0600066D RID: 1645 RVA: 0x0002F9B0 File Offset: 0x0002DBB0
+		
 		public static void SortDataCommand(bool 保存数据)
 		{
 			int num = 0;
@@ -335,7 +335,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x0600066E RID: 1646 RVA: 0x0002FE2C File Offset: 0x0002E02C
+		
 		public static void CleanCharacters(int 限制等级, int 限制天数)
 		{
 			MainForm.添加命令日志("开始CleanCharacters数据...");
@@ -382,7 +382,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x0600066F RID: 1647 RVA: 0x0003006C File Offset: 0x0002E26C
+		
 		public static void 合并数据(string 数据文件)
 		{
 			MainForm 主界面 = MainForm.Singleton;
@@ -596,46 +596,46 @@ namespace GameServer.Data
 			}));
 		}
 
-		// Token: 0x04000915 RID: 2325
+		
 		private static bool 数据修改;
 
-		// Token: 0x04000916 RID: 2326
+		
 		private static byte[] 表头描述;
 
-		// Token: 0x04000917 RID: 2327
+		
 		public static DataTableCrud<AccountData> AccountData表;
 
-		// Token: 0x04000918 RID: 2328
+		
 		public static DataTableCrud<CharacterData> CharacterDataTable;
 
-		// Token: 0x04000919 RID: 2329
+		
 		public static DataTableCrud<PetData> PetData表;
 
-		// Token: 0x0400091A RID: 2330
+		
 		public static DataTableCrud<ItemData> ItemData表;
 
-		// Token: 0x0400091B RID: 2331
+		
 		public static DataTableCrud<EquipmentData> EquipmentData表;
 
-		// Token: 0x0400091C RID: 2332
+		
 		public static DataTableCrud<SkillData> SkillData表;
 
-		// Token: 0x0400091D RID: 2333
+		
 		public static DataTableCrud<BuffData> BuffData表;
 
-		// Token: 0x0400091E RID: 2334
+		
 		public static DataTableCrud<TeamData> TeamData表;
 
-		// Token: 0x0400091F RID: 2335
+		
 		public static DataTableCrud<GuildData> GuildData表;
 
-		// Token: 0x04000920 RID: 2336
+		
 		public static DataTableCrud<TeacherData> TeacherData表;
 
-		// Token: 0x04000921 RID: 2337
+		
 		public static DataTableCrud<MailData> MailData表;
 
-		// Token: 0x04000922 RID: 2338
+		
 		public static Dictionary<Type, DataTableBase> Data型表;
 	}
 }

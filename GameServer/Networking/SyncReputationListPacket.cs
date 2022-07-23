@@ -2,11 +2,11 @@
 
 namespace GameServer.Networking
 {
-	// Token: 0x0200012E RID: 302
+	
 	[PacketInfoAttribute(来源 = PacketSource.服务器, 编号 = 22, 长度 = 338, 注释 = "SyncReputationListPacket(不同步会导致怪物不能主动攻击)")]
 	public sealed class SyncReputationListPacket : GamePacket
 	{
-		// Token: 0x06000217 RID: 535 RVA: 0x00003480 File Offset: 0x00001680
+		
 		public SyncReputationListPacket()
 		{
 			
@@ -352,7 +352,7 @@ namespace GameServer.Networking
 			
 		}
 
-		// Token: 0x04000597 RID: 1431
+		
 		[WrappingFieldAttribute(下标 = 2, 长度 = 336)]
 		public byte[] 字节数据;
 	}

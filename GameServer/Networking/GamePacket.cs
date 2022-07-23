@@ -8,10 +8,10 @@ using System.Text;
 
 namespace GameServer.Networking
 {
-	// Token: 0x0200024C RID: 588
+	
 	public abstract class GamePacket
 	{
-		// Token: 0x06000337 RID: 823 RVA: 0x0001C560 File Offset: 0x0001A760
+		
 		static GamePacket()
 		{
 			
@@ -212,12 +212,12 @@ namespace GameServer.Networking
 			File.WriteAllText("./ClientPackRule.txt", text2);
 		}
 
-		// Token: 0x17000034 RID: 52
+		
 		// (get) Token: 0x06000338 RID: 824 RVA: 0x0000357A File Offset: 0x0000177A
 		// (set) Token: 0x06000339 RID: 825 RVA: 0x00003582 File Offset: 0x00001782
 		public virtual bool 是否加密 { get; set; }
 
-		// Token: 0x0600033A RID: 826 RVA: 0x0001CAE4 File Offset: 0x0001ACE4
+		
 		public GamePacket()
 		{
 			
@@ -234,7 +234,7 @@ namespace GameServer.Networking
 			this.封包长度 = GamePacket.客户端封包长度表[this.封包编号];
 		}
 
-		// Token: 0x0600033B RID: 827 RVA: 0x0001CB7C File Offset: 0x0001AD7C
+		
 		public byte[] 取字节()
 		{
 			byte[] result;
@@ -276,7 +276,7 @@ namespace GameServer.Networking
 			return result;
 		}
 
-		// Token: 0x0600033C RID: 828 RVA: 0x0001CC88 File Offset: 0x0001AE88
+		
 		private void 填封包(byte[] 原始数据)
 		{
 			using (MemoryStream memoryStream = new MemoryStream(原始数据))
@@ -300,7 +300,7 @@ namespace GameServer.Networking
 			}
 		}
 
-		// Token: 0x0600033D RID: 829 RVA: 0x0001CD2C File Offset: 0x0001AF2C
+		
 		public static GamePacket 取封包(客户网络 网络连接, byte[] 原始数据, out byte[] 剩余数据)
 		{
 			剩余数据 = 原始数据;
@@ -342,7 +342,7 @@ namespace GameServer.Networking
 			return GamePacket;
 		}
 
-		// Token: 0x0600033E RID: 830 RVA: 0x0001CE04 File Offset: 0x0001B004
+		
 		private static byte[] 加解密(byte[] 原始数据)
 		{
 			for (int i = 4; i < 原始数据.Length; i++)
@@ -352,43 +352,43 @@ namespace GameServer.Networking
 			return (byte[])原始数据;
 		}
 
-		// Token: 0x040007A3 RID: 1955
+		
 		public static byte 加密字节;
 
-		// Token: 0x040007A4 RID: 1956
+		
 		public static Dictionary<Type, MethodInfo> 封包处理方法表;
 
-		// Token: 0x040007A5 RID: 1957
+		
 		public static Dictionary<ushort, Type> 服务器封包类型表;
 
-		// Token: 0x040007A6 RID: 1958
+		
 		public static Dictionary<ushort, Type> 客户端封包类型表;
 
-		// Token: 0x040007A7 RID: 1959
+		
 		public static Dictionary<Type, ushort> 服务器封包编号表;
 
-		// Token: 0x040007A8 RID: 1960
+		
 		public static Dictionary<Type, ushort> 客户端封包编号表;
 
-		// Token: 0x040007A9 RID: 1961
+		
 		public static Dictionary<ushort, ushort> 服务器封包长度表;
 
-		// Token: 0x040007AA RID: 1962
+		
 		public static Dictionary<ushort, ushort> 客户端封包长度表;
 
-		// Token: 0x040007AB RID: 1963
+		
 		public static Dictionary<Type, Func<BinaryReader, WrappingFieldAttribute, object>> 封包字段读取表;
 
-		// Token: 0x040007AC RID: 1964
+		
 		public static Dictionary<Type, Action<BinaryWriter, WrappingFieldAttribute, object>> 封包字段写入表;
 
-		// Token: 0x040007AE RID: 1966
+		
 		public readonly Type 封包类型;
 
-		// Token: 0x040007AF RID: 1967
+		
 		private readonly ushort 封包编号;
 
-		// Token: 0x040007B0 RID: 1968
+		
 		private readonly ushort 封包长度;
 	}
 }

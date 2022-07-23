@@ -5,10 +5,10 @@ using System.Linq;
 
 namespace GameServer.Templates
 {
-	// Token: 0x020002CB RID: 715
+	
 	public sealed class 装备属性
 	{
-		// Token: 0x060006F2 RID: 1778 RVA: 0x00035DB4 File Offset: 0x00033FB4
+		
 		public static List<随机属性> 生成属性(ItemUsageType 部位, bool 重铸装备 = false)
 		{
 			装备属性 装备属性;
@@ -31,7 +31,7 @@ namespace GameServer.Templates
 			return new List<随机属性>();
 		}
 
-		// Token: 0x060006F3 RID: 1779 RVA: 0x00035E80 File Offset: 0x00034080
+		
 		public static void LoadData()
 		{
 			装备属性.DataSheet = new Dictionary<byte, 装备属性>();
@@ -62,48 +62,48 @@ namespace GameServer.Templates
 			}
 		}
 
-		// Token: 0x060006F4 RID: 1780 RVA: 0x000027D8 File Offset: 0x000009D8
+		
 		public 装备属性()
 		{
 			
 			
 		}
 
-		// Token: 0x04000C30 RID: 3120
+		
 		public static Dictionary<byte, 装备属性> DataSheet;
 
-		// Token: 0x04000C31 RID: 3121
+		
 		public static Dictionary<byte, 随机属性[]> 概率表;
 
-		// Token: 0x04000C32 RID: 3122
+		
 		public ItemUsageType 装备部位;
 
-		// Token: 0x04000C33 RID: 3123
+		
 		public float 极品概率;
 
-		// Token: 0x04000C34 RID: 3124
+		
 		public int 单条概率;
 
-		// Token: 0x04000C35 RID: 3125
+		
 		public int 两条概率;
 
-		// Token: 0x04000C36 RID: 3126
+		
 		public 装备属性.属性详情[] 属性列表;
 
-		// Token: 0x020002CC RID: 716
+		
 		public class 属性详情
 		{
-			// Token: 0x060006F5 RID: 1781 RVA: 0x000027D8 File Offset: 0x000009D8
+			
 			public 属性详情()
 			{
 				
 				
 			}
 
-			// Token: 0x04000C37 RID: 3127
+			
 			public int 属性编号;
 
-			// Token: 0x04000C38 RID: 3128
+			
 			public int 属性概率;
 		}
 	}

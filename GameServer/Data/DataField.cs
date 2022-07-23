@@ -7,10 +7,10 @@ using GameServer.Templates;
 
 namespace GameServer.Data
 {
-	// Token: 0x0200025B RID: 603
+	
 	public sealed class DataField
 	{
-		// Token: 0x0600047C RID: 1148 RVA: 0x00021A9C File Offset: 0x0001FC9C
+		
 		static DataField()
 		{
 			
@@ -1166,25 +1166,25 @@ namespace GameServer.Data
 			DataField.字段写入方法表 = dictionary2;
 		}
 
-		// Token: 0x17000058 RID: 88
+		
 		// (get) Token: 0x0600047D RID: 1149 RVA: 0x00004692 File Offset: 0x00002892
 		public string 字段名字 { get; }
 
-		// Token: 0x17000059 RID: 89
+		
 		// (get) Token: 0x0600047E RID: 1150 RVA: 0x0000469A File Offset: 0x0000289A
 		public Type 字段类型 { get; }
 
-		// Token: 0x1700005A RID: 90
+		
 		// (get) Token: 0x0600047F RID: 1151 RVA: 0x000046A2 File Offset: 0x000028A2
 		public FieldInfo 字段详情 { get; }
 
-		// Token: 0x06000480 RID: 1152 RVA: 0x000046AA File Offset: 0x000028AA
+		
 		public override string ToString()
 		{
 			return this.字段名字;
 		}
 
-		// Token: 0x06000481 RID: 1153 RVA: 0x00022C6C File Offset: 0x00020E6C
+		
 		public DataField(BinaryReader 读取流, Type Data型)
 		{
 			
@@ -1194,7 +1194,7 @@ namespace GameServer.Data
 			this.字段详情 = ((Data型 != null) ? Data型.GetField(this.字段名字) : null);
 		}
 
-		// Token: 0x06000482 RID: 1154 RVA: 0x000046B2 File Offset: 0x000028B2
+		
 		public DataField(FieldInfo 当前字段)
 		{
 			
@@ -1204,35 +1204,35 @@ namespace GameServer.Data
 			this.字段类型 = 当前字段.FieldType;
 		}
 
-		// Token: 0x06000483 RID: 1155 RVA: 0x000046DE File Offset: 0x000028DE
+		
 		public bool 检查字段版本(DataField 对比字段)
 		{
 			return string.Compare(this.字段名字, 对比字段.字段名字, StringComparison.Ordinal) == 0 && this.字段类型 == 对比字段.字段类型;
 		}
 
-		// Token: 0x06000484 RID: 1156 RVA: 0x00004707 File Offset: 0x00002907
+		
 		public void SaveFieldAttribute(BinaryWriter 写入流)
 		{
 			写入流.Write(this.字段名字);
 			写入流.Write(this.字段类型.FullName);
 		}
 
-		// Token: 0x06000485 RID: 1157 RVA: 0x00004726 File Offset: 0x00002926
+		
 		public void 保存字段内容(BinaryWriter 写入流, object 数据)
 		{
 			DataField.字段写入方法表[this.字段类型](写入流, 数据);
 		}
 
-		// Token: 0x06000486 RID: 1158 RVA: 0x0000473F File Offset: 0x0000293F
+		
 		public object 读取字段内容(BinaryReader 读取流, object 数据, DataField 字段)
 		{
 			return DataField.字段读取方法表[this.字段类型](读取流, (GameData)数据, 字段);
 		}
 
-		// Token: 0x0400080C RID: 2060
+		
 		internal static readonly Dictionary<Type, Func<BinaryReader, GameData, DataField, object>> 字段读取方法表;
 
-		// Token: 0x0400080D RID: 2061
+		
 		internal static readonly Dictionary<Type, Action<BinaryWriter, object>> 字段写入方法表;
 	}
 }

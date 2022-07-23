@@ -11,10 +11,10 @@ using AccountServer.Properties;
 
 namespace AccountServer
 {
-	// Token: 0x02000002 RID: 2
+	
 	public partial class MainForm : Form
 	{
-		// Token: 0x06000001 RID: 1 RVA: 0x00002048 File Offset: 0x00000248
+		
 		public MainForm()
 		{
 			this.InitializeComponent();
@@ -31,7 +31,7 @@ namespace AccountServer
 			}
 		}
 
-		// Token: 0x06000002 RID: 2 RVA: 0x000020D3 File Offset: 0x000002D3
+		
 		public static void UpdateTotalNewAccounts()
 		{
 			MainForm MainForm = MainForm.Singleton;
@@ -45,7 +45,7 @@ namespace AccountServer
 			}));
 		}
 
-		// Token: 0x06000003 RID: 3 RVA: 0x00002104 File Offset: 0x00000304
+		
 		public static void 更新新注册账号数()
 		{
 			MainForm MainForm = MainForm.Singleton;
@@ -61,7 +61,7 @@ namespace AccountServer
 			}));
 		}
 
-		// Token: 0x06000004 RID: 4 RVA: 0x0000213A File Offset: 0x0000033A
+		
 		public static void UpdateTotalTickets()
 		{
 			MainForm MainForm = MainForm.Singleton;
@@ -75,7 +75,7 @@ namespace AccountServer
 			}));
 		}
 
-		// Token: 0x06000005 RID: 5 RVA: 0x0000216B File Offset: 0x0000036B
+		
 		public static void UpdateTotalBytesReceived()
 		{
 			MainForm MainForm = MainForm.Singleton;
@@ -89,7 +89,7 @@ namespace AccountServer
 			}));
 		}
 
-		// Token: 0x06000006 RID: 6 RVA: 0x0000219C File Offset: 0x0000039C
+		
 		public static void UpdateTotalBytesSended()
 		{
 			MainForm MainForm = MainForm.Singleton;
@@ -103,7 +103,7 @@ namespace AccountServer
 			}));
 		}
 
-		// Token: 0x06000007 RID: 7 RVA: 0x000021D0 File Offset: 0x000003D0
+		
 		public static void AddLog(string 内容)
 		{
 			MainForm MainForm = MainForm.Singleton;
@@ -118,7 +118,7 @@ namespace AccountServer
 			}));
 		}
 
-		// Token: 0x06000008 RID: 8 RVA: 0x00002208 File Offset: 0x00000408
+		
 		public static void AddAccount(AccountData 账号)
 		{
 			if (!MainForm.AccountData.ContainsKey(账号.账号名字))
@@ -128,13 +128,13 @@ namespace AccountServer
 			}
 		}
 
-		// Token: 0x06000009 RID: 9 RVA: 0x00002240 File Offset: 0x00000440
+		
 		public static void SaveAccount(AccountData 账号)
 		{
 			File.WriteAllText(MainForm.DataDirectory + "\\" + 账号.账号名字 + ".txt", Serializer.Serialize(账号));
 		}
 
-		// Token: 0x0600000A RID: 10 RVA: 0x00002268 File Offset: 0x00000468
+		
 		private void Start_Click(object sender, EventArgs e)
 		{
 			if (MainForm.ServerData == null || MainForm.ServerData.Count == 0)
@@ -163,7 +163,7 @@ namespace AccountServer
 			}
 		}
 
-		// Token: 0x0600000B RID: 11 RVA: 0x0000235C File Offset: 0x0000055C
+		
 		private void Stop_Click(object sender, EventArgs e)
 		{
 			Network.Stop();
@@ -172,7 +172,7 @@ namespace AccountServer
 			this.btnStart.Enabled = (this.txtServerPort.Enabled = (this.txtTicketPort.Enabled = true));
 		}
 
-		// Token: 0x0600000C RID: 12 RVA: 0x000023BC File Offset: 0x000005BC
+		
 		private void CloseWindow_Click(object sender, FormClosingEventArgs e)
 		{
 			if (MessageBox.Show("Are you sure you want to shut down the server?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
@@ -190,7 +190,7 @@ namespace AccountServer
 			this.MinimizeTray.ShowBalloonTip(1000, "", "The server has moved to the background.", ToolTipIcon.Info);
 		}
 
-		// Token: 0x0600000D RID: 13 RVA: 0x0000242D File Offset: 0x0000062D
+		
 		private void RestoreWindow_Click(object sender, MouseEventArgs e)
 		{
 			if (e.Button == MouseButtons.Left)
@@ -200,14 +200,14 @@ namespace AccountServer
 			}
 		}
 
-		// Token: 0x0600000E RID: 14 RVA: 0x0000244F File Offset: 0x0000064F
+		
 		private void RestoreWindow2_Click(object sender, EventArgs e)
 		{
 			base.Visible = true;
 			this.MinimizeTray.Visible = false;
 		}
 
-		// Token: 0x0600000F RID: 15 RVA: 0x00002464 File Offset: 0x00000664
+		
 		private void EndProcess_Click(object sender, EventArgs e)
 		{
 			if (MessageBox.Show("Are you sure you want to shut down the server?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
@@ -218,7 +218,7 @@ namespace AccountServer
 			}
 		}
 
-		// Token: 0x06000010 RID: 16 RVA: 0x00002497 File Offset: 0x00000697
+		
 		private void OpenConfig_Click(object sender, EventArgs e)
 		{
 			if (!File.Exists(".\\server"))
@@ -229,7 +229,7 @@ namespace AccountServer
 			Process.Start("notepad.exe", ".\\server");
 		}
 
-		// Token: 0x06000011 RID: 17 RVA: 0x000024D0 File Offset: 0x000006D0
+		
 		private void LoadConfig_Click(object sender, EventArgs e)
 		{
 			if (File.Exists(".\\server"))
@@ -263,7 +263,7 @@ namespace AccountServer
 			}
 		}
 
-		// Token: 0x06000012 RID: 18 RVA: 0x000025B9 File Offset: 0x000007B9
+		
 		private void ViewAccount_Click(object sender, EventArgs e)
 		{
 			if (!Directory.Exists(MainForm.DataDirectory))
@@ -275,7 +275,7 @@ namespace AccountServer
 			Process.Start("explorer.exe", MainForm.DataDirectory);
 		}
 
-		// Token: 0x06000013 RID: 19 RVA: 0x000025F0 File Offset: 0x000007F0
+		
 		private void LoadAccount_Click(object sender, EventArgs e)
 		{
 			MainForm.AccountData = new Dictionary<string, AccountData>();
@@ -298,31 +298,31 @@ namespace AccountServer
 			this.lblRegisteredAccounts.Text = string.Format("Registered account: {0}", MainForm.AccountData.Count);
 		}
 
-		// Token: 0x04000001 RID: 1
+		
 		public static uint TotalNewAccounts;
 
-		// Token: 0x04000002 RID: 2
+		
 		public static uint TotalTickets;
 
-		// Token: 0x04000003 RID: 3
+		
 		public static long TotalBytesReceived;
 
-		// Token: 0x04000004 RID: 4
+		
 		public static long TotalBytesSended;
 
-		// Token: 0x04000005 RID: 5
+		
 		public static MainForm Singleton;
 
-		// Token: 0x04000006 RID: 6
+		
 		public static string GameServerArea = "";
 
-		// Token: 0x04000007 RID: 7
+		
 		public static string DataDirectory = ".\\Accounts";
 
-		// Token: 0x04000008 RID: 8
+		
 		public static Dictionary<string, AccountData> AccountData;
 
-		// Token: 0x04000009 RID: 9
+		
 		public static Dictionary<string, IPEndPoint> ServerData;
     }
 }

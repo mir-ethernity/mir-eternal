@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace AccountServer
 {
-	// Token: 0x02000004 RID: 4
+	
 	public sealed class Network
 	{
-		// Token: 0x06000018 RID: 24 RVA: 0x00003680 File Offset: 0x00001880
+		
 		public static bool Start()
 		{
 			bool result;
@@ -251,7 +251,7 @@ namespace AccountServer
 			return result;
 		}
 
-		// Token: 0x06000019 RID: 25 RVA: 0x00003744 File Offset: 0x00001944
+		
 		public static void Stop()
 		{
 			UdpClient udpClient = Network.LocalServer;
@@ -262,7 +262,7 @@ namespace AccountServer
 			Network.LocalServer = null;
 		}
 
-		// Token: 0x0600001A RID: 26 RVA: 0x0000375C File Offset: 0x0000195C
+		
 		public static void SendData(IPEndPoint address, byte[] data)
 		{
 			MainForm.TotalBytesSended += (long)data.Length;
@@ -281,7 +281,7 @@ namespace AccountServer
 			}
 		}
 
-		// Token: 0x0600001B RID: 27 RVA: 0x000037C0 File Offset: 0x000019C0
+		
 		public static void SendTicket(IPEndPoint address, string packet, string account)
 		{
 			MainForm.TotalTickets += 1U;
@@ -299,19 +299,19 @@ namespace AccountServer
 			}
 		}
 
-		// Token: 0x04000022 RID: 34
+		
 		public static UdpClient LocalServer;
 
-		// Token: 0x04000023 RID: 35
+		
 		public static ConcurrentQueue<Network.PacketData> IncomingQueue;
 
-		// Token: 0x0200000C RID: 12
+		
 		public struct PacketData
 		{
-			// Token: 0x04000038 RID: 56
+			
 			public IPEndPoint ClientAddress;
 
-			// Token: 0x04000039 RID: 57
+			
 			public byte[] ReceivedData;
 		}
 	}

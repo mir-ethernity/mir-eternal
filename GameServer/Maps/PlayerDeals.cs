@@ -6,10 +6,10 @@ using GameServer.Networking;
 
 namespace GameServer.Maps
 {
-	// Token: 0x020002E9 RID: 745
+	
 	public sealed class PlayerDeals
 	{
-		// Token: 0x060009ED RID: 2541 RVA: 0x00062480 File Offset: 0x00060680
+		
 		public PlayerDeals(PlayerObject 申请方, PlayerObject 接收方)
 		{
 			
@@ -34,7 +34,7 @@ namespace GameServer.Maps
 			});
 		}
 
-		// Token: 0x060009EE RID: 2542 RVA: 0x0006253C File Offset: 0x0006073C
+		
 		public void 结束交易()
 		{
 			客户网络 网络连接 = this.交易申请方.网络连接;
@@ -60,7 +60,7 @@ namespace GameServer.Maps
 			this.交易申请方.当前交易 = (this.交易接收方.当前交易 = null);
 		}
 
-		// Token: 0x060009EF RID: 2543 RVA: 0x000625EC File Offset: 0x000607EC
+		
 		public void 交换物品()
 		{
 			if (this.接收方金币 > 0)
@@ -181,7 +181,7 @@ namespace GameServer.Maps
 			this.结束交易();
 		}
 
-		// Token: 0x060009F0 RID: 2544 RVA: 0x00062A84 File Offset: 0x00060C84
+		
 		public void 更改状态(byte 状态, PlayerObject 玩家 = null)
 		{
 			if (玩家 == null)
@@ -227,7 +227,7 @@ namespace GameServer.Maps
 			this.结束交易();
 		}
 
-		// Token: 0x060009F1 RID: 2545 RVA: 0x00062BA0 File Offset: 0x00060DA0
+		
 		public void 放入金币(PlayerObject 玩家, int 数量)
 		{
 			if (玩家 == this.交易申请方)
@@ -253,7 +253,7 @@ namespace GameServer.Maps
 			this.结束交易();
 		}
 
-		// Token: 0x060009F2 RID: 2546 RVA: 0x00062C14 File Offset: 0x00060E14
+		
 		public void 放入物品(PlayerObject 玩家, ItemData 物品, byte 位置)
 		{
 			if (玩家 == this.交易申请方)
@@ -283,7 +283,7 @@ namespace GameServer.Maps
 			this.结束交易();
 		}
 
-		// Token: 0x060009F3 RID: 2547 RVA: 0x00062CB8 File Offset: 0x00060EB8
+		
 		public bool 背包已满(out PlayerObject 玩家)
 		{
 			玩家 = null;
@@ -300,7 +300,7 @@ namespace GameServer.Maps
 			return false;
 		}
 
-		// Token: 0x060009F4 RID: 2548 RVA: 0x0000791E File Offset: 0x00005B1E
+		
 		public bool 金币重复(PlayerObject 玩家)
 		{
 			if (玩家 == this.交易申请方)
@@ -310,7 +310,7 @@ namespace GameServer.Maps
 			return 玩家 != this.交易接收方 || this.接收方金币 != 0;
 		}
 
-		// Token: 0x060009F5 RID: 2549 RVA: 0x00062D10 File Offset: 0x00060F10
+		
 		public bool 物品重复(PlayerObject 玩家, ItemData 物品)
 		{
 			if (玩家 == this.交易申请方)
@@ -320,7 +320,7 @@ namespace GameServer.Maps
 			return 玩家 != this.交易接收方 || this.接收方物品.Values.FirstOrDefault((ItemData O) => O == 物品) != null;
 		}
 
-		// Token: 0x060009F6 RID: 2550 RVA: 0x00007947 File Offset: 0x00005B47
+		
 		public bool 物品重复(PlayerObject 玩家, byte 位置)
 		{
 			if (玩家 == this.交易申请方)
@@ -330,7 +330,7 @@ namespace GameServer.Maps
 			return 玩家 != this.交易接收方 || this.接收方物品.ContainsKey(位置);
 		}
 
-		// Token: 0x060009F7 RID: 2551 RVA: 0x00007976 File Offset: 0x00005B76
+		
 		public byte 对方状态(PlayerObject 玩家)
 		{
 			if (玩家 == this.交易接收方)
@@ -344,7 +344,7 @@ namespace GameServer.Maps
 			return 0;
 		}
 
-		// Token: 0x060009F8 RID: 2552 RVA: 0x00007999 File Offset: 0x00005B99
+		
 		public void 发送封包(GamePacket 封包)
 		{
 			客户网络 网络连接 = this.交易接收方.网络连接;
@@ -360,7 +360,7 @@ namespace GameServer.Maps
 			网络连接2.发送封包(封包);
 		}
 
-		// Token: 0x060009F9 RID: 2553 RVA: 0x000079C8 File Offset: 0x00005BC8
+		
 		public PlayerObject 对方玩家(PlayerObject 玩家)
 		{
 			if (玩家 == this.交易接收方)
@@ -370,7 +370,7 @@ namespace GameServer.Maps
 			return this.交易接收方;
 		}
 
-		// Token: 0x060009FA RID: 2554 RVA: 0x000079E0 File Offset: 0x00005BE0
+		
 		public Dictionary<byte, ItemData> 对方物品(PlayerObject 玩家)
 		{
 			if (玩家 == this.交易接收方)
@@ -384,28 +384,28 @@ namespace GameServer.Maps
 			return null;
 		}
 
-		// Token: 0x04000D53 RID: 3411
+		
 		public PlayerObject 交易申请方;
 
-		// Token: 0x04000D54 RID: 3412
+		
 		public PlayerObject 交易接收方;
 
-		// Token: 0x04000D55 RID: 3413
+		
 		public byte 申请方状态;
 
-		// Token: 0x04000D56 RID: 3414
+		
 		public byte 接收方状态;
 
-		// Token: 0x04000D57 RID: 3415
+		
 		public int 申请方金币;
 
-		// Token: 0x04000D58 RID: 3416
+		
 		public int 接收方金币;
 
-		// Token: 0x04000D59 RID: 3417
+		
 		public Dictionary<byte, ItemData> 申请方物品;
 
-		// Token: 0x04000D5A RID: 3418
+		
 		public Dictionary<byte, ItemData> 接收方物品;
 	}
 }

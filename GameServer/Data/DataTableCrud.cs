@@ -6,10 +6,10 @@ using System.Windows.Forms;
 
 namespace GameServer.Data
 {
-	// Token: 0x02000276 RID: 630
+	
 	public sealed class DataTableCrud<T> : DataTableBase where T : GameData, new()
 	{
-		// Token: 0x0600064D RID: 1613 RVA: 0x0002E5BC File Offset: 0x0002C7BC
+		
 		public DataTableCrud()
 		{
 			
@@ -32,7 +32,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x0600064E RID: 1614 RVA: 0x0002E674 File Offset: 0x0002C874
+		
 		public override void AddData(GameData 数据, bool 分配索引 = false)
 		{
 			if (分配索引)
@@ -55,7 +55,7 @@ namespace GameServer.Data
 			GameDataGateway.已经修改 = true;
 		}
 
-		// Token: 0x0600064F RID: 1615 RVA: 0x0002E70C File Offset: 0x0002C90C
+		
 		public override void 删除数据(GameData 数据)
 		{
 			this.DataSheet.Remove(数据.数据索引.V);
@@ -66,7 +66,7 @@ namespace GameServer.Data
 			GameDataGateway.已经修改 = true;
 		}
 
-		// Token: 0x06000650 RID: 1616 RVA: 0x0002E768 File Offset: 0x0002C968
+		
 		public override void 保存数据()
 		{
 			foreach (KeyValuePair<int, GameData> keyValuePair in this.DataSheet)
@@ -79,7 +79,7 @@ namespace GameServer.Data
 			this.IsSameVersion = true;
 		}
 
-		// Token: 0x06000651 RID: 1617 RVA: 0x0002E7E0 File Offset: 0x0002C9E0
+		
 		public override void 强制保存()
 		{
 			foreach (KeyValuePair<int, GameData> keyValuePair in this.DataSheet)
@@ -89,7 +89,7 @@ namespace GameServer.Data
 			this.IsSameVersion = true;
 		}
 
-		// Token: 0x06000652 RID: 1618 RVA: 0x0002E840 File Offset: 0x0002CA40
+		
 		public override void LoadData(byte[] buffer, DataMapping histoMapping)
 		{
 			this.IsSameVersion = histoMapping.CheckMappingVersion(this.CurrentMappingVersion);
@@ -121,7 +121,7 @@ namespace GameServer.Data
 			}
 		}
 
-		// Token: 0x06000653 RID: 1619 RVA: 0x0002E9A4 File Offset: 0x0002CBA4
+		
 		public override byte[] SaveData()
 		{
 			byte[] result;
