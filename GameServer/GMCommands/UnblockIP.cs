@@ -17,7 +17,7 @@ namespace GameServer
 		}
 
 		// Token: 0x06000035 RID: 53 RVA: 0x000082F4 File Offset: 0x000064F4
-		public override void 执行命令()
+		public override void Execute()
 		{
 			if (SystemData.数据.网络封禁.ContainsKey(this.对应地址))
 			{

@@ -19,7 +19,7 @@ namespace GameServer
 		}
 
 		// Token: 0x06000019 RID: 25 RVA: 0x00007F48 File Offset: 0x00006148
-		public override void 执行命令()
+		public override void Execute()
 		{
 			if (MessageBox.Show("SortDataCommand needs to re-sort all customer data to save ID resources \r\n\r\nThis operation is irreversible, please make a data backup \r\n\r\n sure you want to do it?", "Dangerous operations", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
 			{

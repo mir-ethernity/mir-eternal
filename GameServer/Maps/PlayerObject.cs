@@ -90,8 +90,8 @@ namespace GameServer.Maps
 			dictionary[this] = (int)(this.当前等级 * 10);
 			this.战力加成 = dictionary;
 			this.称号时间 = DateTime.MaxValue;
-			this.拾取时间 = MainProcess.当前时间.AddSeconds(1.0);
-			base.恢复时间 = MainProcess.当前时间.AddSeconds(5.0);
+			this.拾取时间 = MainProcess.CurrentTime.AddSeconds(1.0);
+			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 			this.特权时间 = ((this.本期特权 > 0) ? this.本期日期.AddDays(30.0) : DateTime.MaxValue);
 			foreach (EquipmentData EquipmentData in this.角色装备.Values)
 			{
@@ -129,7 +129,7 @@ namespace GameServer.Maps
 			}
 			foreach (KeyValuePair<byte, DateTime> keyValuePair in this.称号列表.ToList<KeyValuePair<byte, DateTime>>())
 			{
-				if (MainProcess.当前时间 >= keyValuePair.Value)
+				if (MainProcess.CurrentTime >= keyValuePair.Value)
 				{
 					if (this.称号列表.Remove(keyValuePair.Key) && this.当前称号 == keyValuePair.Key)
 					{
@@ -191,7 +191,7 @@ namespace GameServer.Maps
 			MapGatewayProcess.添加MapObject(this);
 			this.激活对象 = true;
 			MapGatewayProcess.添加激活对象(this);
-			CharacterData.登录日期.V = MainProcess.当前时间;
+			CharacterData.登录日期.V = MainProcess.CurrentTime;
 			CharacterData.角色上线(网络连接);
 			if (网络连接 != null)
 			{
@@ -211,7 +211,7 @@ namespace GameServer.Maps
 					对象性别 = (byte)this.角色性别,
 					对象等级 = this.当前等级,
 					AttackMode = (byte)this.AttackMode,
-					当前时间 = ComputingClass.时间转换(MainProcess.当前时间),
+					当前时间 = ComputingClass.时间转换(MainProcess.CurrentTime),
 					OpenLevelCommand = (ushort)CustomClass.游戏OpenLevelCommand,
 					特修折扣 = (ushort)(CustomClass.装备特修折扣 * 10000m)
 				});
@@ -452,7 +452,7 @@ namespace GameServer.Maps
 		{
 			if (this.绑定地图)
 			{
-				if (this.当前地图.地图编号 == 183 && MainProcess.当前时间.Hour != (int)CustomClass.武斗场时间一 && MainProcess.当前时间.Hour != (int)CustomClass.武斗场时间二)
+				if (this.当前地图.地图编号 == 183 && MainProcess.CurrentTime.Hour != (int)CustomClass.武斗场时间一 && MainProcess.CurrentTime.Hour != (int)CustomClass.武斗场时间二)
 				{
 					if (this.对象死亡)
 					{
@@ -470,9 +470,9 @@ namespace GameServer.Maps
 						{
 							if (SkillData.计数时间 == default(DateTime))
 							{
-								SkillData.计数时间 = MainProcess.当前时间.AddMilliseconds((double)SkillData.计数周期);
+								SkillData.计数时间 = MainProcess.CurrentTime.AddMilliseconds((double)SkillData.计数周期);
 							}
-							else if (MainProcess.当前时间 > SkillData.计数时间)
+							else if (MainProcess.CurrentTime > SkillData.计数时间)
 							{
 								DataMonitor<byte> 剩余次数 = SkillData.剩余次数;
 								if ((剩余次数.V += 1) >= SkillData.技能计数)
@@ -481,7 +481,7 @@ namespace GameServer.Maps
 								}
 								else
 								{
-									SkillData.计数时间 = MainProcess.当前时间.AddMilliseconds((double)SkillData.计数周期);
+									SkillData.计数时间 = MainProcess.CurrentTime.AddMilliseconds((double)SkillData.计数周期);
 								}
 								客户网络 网络连接 = this.网络连接;
 								if (网络连接 != null)
@@ -504,12 +504,12 @@ namespace GameServer.Maps
 					{
 						base.轮询Buff时处理(keyValuePair.Value);
 					}
-					if (MainProcess.当前时间 >= this.称号时间)
+					if (MainProcess.CurrentTime >= this.称号时间)
 					{
 						DateTime t = DateTime.MaxValue;
 						foreach (KeyValuePair<byte, DateTime> keyValuePair2 in this.称号列表.ToList<KeyValuePair<byte, DateTime>>())
 						{
-							if (MainProcess.当前时间 >= keyValuePair2.Value)
+							if (MainProcess.CurrentTime >= keyValuePair2.Value)
 							{
 								this.玩家称号到期(keyValuePair2.Key);
 							}
@@ -520,7 +520,7 @@ namespace GameServer.Maps
 						}
 						this.称号时间 = t;
 					}
-					if (MainProcess.当前时间 >= this.特权时间)
+					if (MainProcess.CurrentTime >= this.特权时间)
 					{
 						this.玩家特权到期();
 						int num;
@@ -556,13 +556,13 @@ namespace GameServer.Maps
 					}
 					if (this.灰名玩家)
 					{
-						this.灰名时间 -= MainProcess.当前时间 - base.处理计时;
+						this.灰名时间 -= MainProcess.CurrentTime - base.处理计时;
 					}
 					if (this.PK值惩罚 > 0)
 					{
-						this.减PK时间 -= MainProcess.当前时间 - base.处理计时;
+						this.减PK时间 -= MainProcess.CurrentTime - base.处理计时;
 					}
-					if (this.所属队伍 != null && MainProcess.当前时间 > this.队伍时间)
+					if (this.所属队伍 != null && MainProcess.CurrentTime > this.队伍时间)
 					{
 						TeamData 所属队伍 = this.所属队伍;
 						if (所属队伍 != null)
@@ -584,11 +584,11 @@ namespace GameServer.Maps
 								AttackMode = (byte)this.AttackMode
 							});
 						}
-						this.队伍时间 = MainProcess.当前时间.AddSeconds(5.0);
+						this.队伍时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 					}
 					if (!this.对象死亡)
 					{
-						if (MainProcess.当前时间 > this.拾取时间)
+						if (MainProcess.CurrentTime > this.拾取时间)
 						{
 							this.拾取时间 = this.拾取时间.AddMilliseconds(1000.0);
 							foreach (MapObject MapObject in this.当前地图[this.当前坐标].ToList<MapObject>())
@@ -601,7 +601,7 @@ namespace GameServer.Maps
 								}
 							}
 						}
-						if (MainProcess.当前时间 > base.恢复时间)
+						if (MainProcess.CurrentTime > base.恢复时间)
 						{
 							if (!this.检查状态(游戏对象状态.中毒状态))
 							{
@@ -611,7 +611,7 @@ namespace GameServer.Maps
 							base.恢复时间 = base.恢复时间.AddSeconds(30.0);
 						}
 						EquipmentData EquipmentData;
-						if (MainProcess.当前时间 > this.战具计时 && this.角色装备.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0)
+						if (MainProcess.CurrentTime > this.战具计时 && this.角色装备.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0)
 						{
 							if (EquipmentData.物品编号 != 99999100)
 							{
@@ -630,7 +630,7 @@ namespace GameServer.Maps
 													this.当前魔力 += num2;
 													this.战具损失持久(num2);
 												}
-												this.战具计时 = MainProcess.当前时间.AddMilliseconds(1000.0);
+												this.战具计时 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
 												goto IL_794;
 											}
 											goto IL_794;
@@ -642,7 +642,7 @@ namespace GameServer.Maps
 										this.当前魔力 += num3;
 										this.战具损失持久(num3);
 									}
-									this.战具计时 = MainProcess.当前时间.AddMilliseconds(1000.0);
+									this.战具计时 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
 									goto IL_794;
 								}
 							}
@@ -652,31 +652,31 @@ namespace GameServer.Maps
 								this.当前体力 += num4;
 								this.战具损失持久(num4);
 							}
-							this.战具计时 = MainProcess.当前时间.AddMilliseconds(1000.0);
+							this.战具计时 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
 						}
 						IL_794:
-						if (base.治疗次数 > 0 && MainProcess.当前时间 > base.治疗时间)
+						if (base.治疗次数 > 0 && MainProcess.CurrentTime > base.治疗时间)
 						{
 							int 治疗次数 = base.治疗次数;
 							base.治疗次数 = 治疗次数 - 1;
 							this.当前体力 += base.治疗基数;
-							base.治疗时间 = MainProcess.当前时间.AddMilliseconds(500.0);
+							base.治疗时间 = MainProcess.CurrentTime.AddMilliseconds(500.0);
 						}
-						if (this.回血次数 > 0 && MainProcess.当前时间 > this.药品回血)
+						if (this.回血次数 > 0 && MainProcess.CurrentTime > this.药品回血)
 						{
 							this.回血次数--;
-							this.药品回血 = MainProcess.当前时间.AddMilliseconds(1000.0);
+							this.药品回血 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
 							this.当前体力 += (int)Math.Max(0f, (float)this.回血基数 * (1f + (float)this[GameObjectProperties.药品回血] / 10000f));
 						}
-						if (this.回魔次数 > 0 && MainProcess.当前时间 > this.药品回魔)
+						if (this.回魔次数 > 0 && MainProcess.CurrentTime > this.药品回魔)
 						{
 							this.回魔次数--;
-							this.药品回魔 = MainProcess.当前时间.AddMilliseconds(1000.0);
+							this.药品回魔 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
 							this.当前魔力 += (int)Math.Max(0f, (float)this.回魔基数 * (1f + (float)this[GameObjectProperties.药品回魔] / 10000f));
 						}
-						if (this.当前地图.地图编号 == 183 && MainProcess.当前时间 > this.经验计时)
+						if (this.当前地图.地图编号 == 183 && MainProcess.CurrentTime > this.经验计时)
 						{
-							this.经验计时 = MainProcess.当前时间.AddSeconds(5.0);
+							this.经验计时 = MainProcess.CurrentTime.AddSeconds(5.0);
 							this.玩家增加经验(null, (this.当前地图[this.当前坐标].FirstOrDefault(delegate(MapObject O)
 							{
 								GuardInstance GuardInstance = O as GuardInstance;
@@ -2434,7 +2434,7 @@ namespace GameServer.Maps
 			{
 				return;
 			}
-			int num = MainProcess.随机数.Next(4);
+			int num = MainProcess.RandomNumber.Next(4);
 			if (num <= 0)
 			{
 				return;
@@ -2620,8 +2620,8 @@ namespace GameServer.Maps
 				if (SkillData.技能计数 != 0)
 				{
 					SkillData.剩余次数.V = 0;
-					SkillData.计数时间 = MainProcess.当前时间.AddMilliseconds((double)SkillData.计数周期);
-					this.冷却记录[(int)技能编号 | 16777216] = MainProcess.当前时间.AddMilliseconds((double)SkillData.计数周期);
+					SkillData.计数时间 = MainProcess.CurrentTime.AddMilliseconds((double)SkillData.计数周期);
+					this.冷却记录[(int)技能编号 | 16777216] = MainProcess.CurrentTime.AddMilliseconds((double)SkillData.计数周期);
 					客户网络 网络连接2 = this.网络连接;
 					if (网络连接2 != null)
 					{
@@ -2865,7 +2865,7 @@ namespace GameServer.Maps
 				{
 					return;
 				}
-				if ((EquipmentData.当前持久.V = Math.Max(0, EquipmentData.当前持久.V - MainProcess.随机数.Next(1, 6))) <= 0 && this.属性加成.Remove(EquipmentData))
+				if ((EquipmentData.当前持久.V = Math.Max(0, EquipmentData.当前持久.V - MainProcess.RandomNumber.Next(1, 6))) <= 0 && this.属性加成.Remove(EquipmentData))
 				{
 					this.更新对象属性();
 				}
@@ -3005,7 +3005,7 @@ namespace GameServer.Maps
 			}
 			this.本期特权 = 特权类型;
 			this.本期记录 = uint.MaxValue;
-			this.本期日期 = MainProcess.当前时间;
+			this.本期日期 = MainProcess.CurrentTime;
 			this.特权时间 = this.本期日期.AddDays(30.0);
 		}
 
@@ -3044,7 +3044,7 @@ namespace GameServer.Maps
 			游戏称号 游戏称号;
 			if (游戏称号.DataSheet.TryGetValue(称号编号, out 游戏称号))
 			{
-				this.称号列表[称号编号] = MainProcess.当前时间.AddMinutes((double)游戏称号.有效时间);
+				this.称号列表[称号编号] = MainProcess.CurrentTime.AddMinutes((double)游戏称号.有效时间);
 				客户网络 网络连接 = this.网络连接;
 				if (网络连接 == null)
 				{
@@ -3053,7 +3053,7 @@ namespace GameServer.Maps
 				网络连接.发送封包(new 玩家获得称号
 				{
 					称号编号 = 称号编号,
-					剩余时间 = (int)(this.称号列表[称号编号] - MainProcess.当前时间).TotalMinutes
+					剩余时间 = (int)(this.称号列表[称号编号] - MainProcess.CurrentTime).TotalMinutes
 				});
 			}
 		}
@@ -3191,7 +3191,7 @@ namespace GameServer.Maps
 				所属行会.发送封包(new SyncMemberInfoPacket
 				{
 					对象编号 = this.地图编号,
-					对象信息 = ComputingClass.时间转换(MainProcess.当前时间)
+					对象信息 = ComputingClass.时间转换(MainProcess.CurrentTime)
 				});
 			}
 			foreach (CharacterData CharacterData in this.粉丝列表)
@@ -3340,7 +3340,7 @@ namespace GameServer.Maps
 			{
 				foreach (PetData PetData in this.PetData.ToList<PetData>())
 				{
-					if (!(MainProcess.当前时间 >= PetData.叛变时间.V) && 游戏怪物.DataSheet.ContainsKey(PetData.宠物名字.V))
+					if (!(MainProcess.CurrentTime >= PetData.叛变时间.V) && 游戏怪物.DataSheet.ContainsKey(PetData.宠物名字.V))
 					{
 						PetObject PetObject = new PetObject(this, PetData);
 						this.宠物列表.Add(PetObject);
@@ -3566,8 +3566,8 @@ namespace GameServer.Maps
 					});
 					return;
 				}
-				this.行走时间 = MainProcess.当前时间.AddMilliseconds((double)this.行走耗时);
-				this.忙碌时间 = MainProcess.当前时间.AddMilliseconds((double)this.行走耗时);
+				this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.行走耗时);
+				this.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.行走耗时);
 				if (this.当前方向 != (GameDirection = ComputingClass.计算方向(this.当前坐标, point)))
 				{
 					this.CharacterData.当前朝向.V = GameDirection;
@@ -3641,8 +3641,8 @@ namespace GameServer.Maps
 					this.玩家角色走动(终点坐标);
 					return;
 				}
-				this.奔跑时间 = MainProcess.当前时间.AddMilliseconds((double)this.奔跑耗时);
-				this.忙碌时间 = MainProcess.当前时间.AddMilliseconds((double)this.奔跑耗时);
+				this.奔跑时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.奔跑耗时);
+				this.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.奔跑耗时);
 				if (this.当前方向 != (GameDirection = ComputingClass.计算方向(this.当前坐标, point2)))
 				{
 					this.CharacterData.当前朝向.V = GameDirection;
@@ -3757,7 +3757,7 @@ namespace GameServer.Maps
 				return;
 			}
 			DateTime dateTime;
-			if (!this.冷却记录.TryGetValue((int)技能编号 | 16777216, out dateTime) || !(MainProcess.当前时间 < dateTime))
+			if (!this.冷却记录.TryGetValue((int)技能编号 | 16777216, out dateTime) || !(MainProcess.CurrentTime < dateTime))
 			{
 				if (this.角色职业 == GameObjectProfession.刺客)
 				{
@@ -3770,7 +3770,7 @@ namespace GameServer.Maps
 					}
 				}
 				MapObject MapObject;
-				MapGatewayProcess.MapObject表.TryGetValue(目标编号, out MapObject);
+				MapGatewayProcess.Objects.TryGetValue(目标编号, out MapObject);
 				foreach (string key in SkillData.铭文模板.主体技能列表.ToList<string>())
 				{
 					int num = 0;
@@ -3780,7 +3780,7 @@ namespace GameServer.Maps
 					if (游戏技能.DataSheet.TryGetValue(key, out 游戏技能) && 游戏技能.自身技能编号 == 技能编号)
 					{
 						DateTime dateTime2;
-						if (游戏技能.技能分组编号 == 0 || !this.冷却记录.TryGetValue((int)(游戏技能.技能分组编号 | 0), out dateTime2) || !(MainProcess.当前时间 < dateTime2))
+						if (游戏技能.技能分组编号 == 0 || !this.冷却记录.TryGetValue((int)(游戏技能.技能分组编号 | 0), out dateTime2) || !(MainProcess.CurrentTime < dateTime2))
 						{
 							if (游戏技能.检查职业武器)
 							{
@@ -3805,9 +3805,9 @@ namespace GameServer.Maps
 								{
 									break;
 								}
-								if (!游戏技能.检查忙绿状态 || !(MainProcess.当前时间 < this.忙碌时间))
+								if (!游戏技能.检查忙绿状态 || !(MainProcess.CurrentTime < this.忙碌时间))
 								{
-									if (游戏技能.检查硬直状态 && MainProcess.当前时间 < this.硬直时间)
+									if (游戏技能.检查硬直状态 && MainProcess.CurrentTime < this.硬直时间)
 									{
 										客户网络 网络连接 = this.网络连接;
 										if (网络连接 != null)
@@ -3815,7 +3815,7 @@ namespace GameServer.Maps
 											网络连接.发送封包(new AddedSkillCooldownPacket
 											{
 												冷却编号 = ((int)技能编号 | 16777216),
-												冷却时间 = (int)(this.硬直时间 - MainProcess.当前时间).TotalMilliseconds
+												冷却时间 = (int)(this.硬直时间 - MainProcess.CurrentTime).TotalMilliseconds
 											});
 										}
 										客户网络 网络连接2 = this.网络连接;
@@ -3926,7 +3926,7 @@ namespace GameServer.Maps
 										网络连接3.发送封包(new AddedSkillCooldownPacket
 										{
 											冷却编号 = ((int)技能编号 | 16777216),
-											冷却时间 = (int)(this.忙碌时间 - MainProcess.当前时间).TotalMilliseconds
+											冷却时间 = (int)(this.忙碌时间 - MainProcess.CurrentTime).TotalMilliseconds
 										});
 									}
 									客户网络 网络连接4 = this.网络连接;
@@ -3951,7 +3951,7 @@ namespace GameServer.Maps
 								网络连接5.发送封包(new AddedSkillCooldownPacket
 								{
 									冷却编号 = ((int)技能编号 | 16777216),
-									冷却时间 = (int)(dateTime2 - MainProcess.当前时间).TotalMilliseconds
+									冷却时间 = (int)(dateTime2 - MainProcess.CurrentTime).TotalMilliseconds
 								});
 							}
 							客户网络 网络连接6 = this.网络连接;
@@ -3976,7 +3976,7 @@ namespace GameServer.Maps
 				网络连接7.发送封包(new AddedSkillCooldownPacket
 				{
 					冷却编号 = ((int)技能编号 | 16777216),
-					冷却时间 = (int)(dateTime - MainProcess.当前时间).TotalMilliseconds
+					冷却时间 = (int)(dateTime - MainProcess.CurrentTime).TotalMilliseconds
 				});
 			}
 			客户网络 网络连接8 = this.网络连接;
@@ -4082,7 +4082,7 @@ namespace GameServer.Maps
 		public void 玩家选中对象(int 对象编号)
 		{
 			MapObject MapObject;
-			if (MapGatewayProcess.MapObject表.TryGetValue(对象编号, out MapObject))
+			if (MapGatewayProcess.Objects.TryGetValue(对象编号, out MapObject))
 			{
 				客户网络 网络连接 = this.网络连接;
 				if (网络连接 != null)
@@ -4136,7 +4136,7 @@ namespace GameServer.Maps
 			{
 				this.打开商店 = this.对话守卫.商店编号;
 				this.打开界面 = this.对话守卫.界面代码;
-				this.对话超时 = MainProcess.当前时间.AddSeconds(30.0);
+				this.对话超时 = MainProcess.CurrentTime.AddSeconds(30.0);
 				this.对话页面 = (int)this.对话守卫.模板编号 * 100000;
 				客户网络 网络连接 = this.网络连接;
 				if (网络连接 == null)
@@ -4173,9 +4173,9 @@ namespace GameServer.Maps
 				this.网络连接.尝试断开连接(new Exception("错误操作: 开始Npcc对话. 错误: 超长距离对话."));
 				return;
 			}
-			if (!(MainProcess.当前时间 > this.对话超时))
+			if (!(MainProcess.CurrentTime > this.对话超时))
 			{
-				this.对话超时 = MainProcess.当前时间.AddSeconds(30.0);
+				this.对话超时 = MainProcess.CurrentTime.AddSeconds(30.0);
 				int num = this.对话页面;
 				if (num <= 619403000)
 				{
@@ -4199,7 +4199,7 @@ namespace GameServer.Maps
 								}
 								else if (选项编号 == 1)
 								{
-									if (MainProcess.当前时间.Hour != (int)CustomClass.武斗场时间一 && MainProcess.当前时间.Hour != (int)CustomClass.武斗场时间二)
+									if (MainProcess.CurrentTime.Hour != (int)CustomClass.武斗场时间一 && MainProcess.CurrentTime.Hour != (int)CustomClass.武斗场时间二)
 									{
 										this.对话页面 = 479501000;
 										客户网络 网络连接 = this.网络连接;
@@ -4214,7 +4214,7 @@ namespace GameServer.Maps
 										});
 										return;
 									}
-									else if (MainProcess.当前时间.Hour == this.CharacterData.武斗日期.V.Hour)
+									else if (MainProcess.CurrentTime.Hour == this.CharacterData.武斗日期.V.Hour)
 									{
 										this.对话页面 = 479502000;
 										客户网络 网络连接2 = this.网络连接;
@@ -4247,7 +4247,7 @@ namespace GameServer.Maps
 										if (this.金币数量 >= 50000)
 										{
 											this.金币数量 -= 50000;
-											this.CharacterData.武斗日期.V = MainProcess.当前时间;
+											this.CharacterData.武斗日期.V = MainProcess.CurrentTime;
 											this.玩家切换地图((this.当前地图.地图编号 == 183) ? this.当前地图 : MapGatewayProcess.分配地图(183), 地图区域类型.传送区域, default(Point));
 											return;
 										}
@@ -5207,7 +5207,7 @@ namespace GameServer.Maps
 										{
 											this.金币数量 -= num11;
 											this.消耗背包物品(num10, 物品列表2);
-											EquipmentData17.孔洞颜色[MainProcess.随机数.Next(EquipmentData17.孔洞颜色.Count)] = (EquipHoleColor)MainProcess.随机数.Next(1, 8);
+											EquipmentData17.孔洞颜色[MainProcess.RandomNumber.Next(EquipmentData17.孔洞颜色.Count)] = (EquipHoleColor)MainProcess.RandomNumber.Next(1, 8);
 											客户网络 网络连接53 = this.网络连接;
 											if (网络连接53 != null)
 											{
@@ -5728,7 +5728,7 @@ namespace GameServer.Maps
 								{
 									this.金币数量 -= num14;
 									this.消耗背包物品(num13, 物品列表4);
-									EquipmentData20.孔洞颜色[MainProcess.随机数.Next(EquipmentData20.孔洞颜色.Count)] = (EquipHoleColor)MainProcess.随机数.Next(1, 8);
+									EquipmentData20.孔洞颜色[MainProcess.RandomNumber.Next(EquipmentData20.孔洞颜色.Count)] = (EquipHoleColor)MainProcess.RandomNumber.Next(1, 8);
 									客户网络 网络连接78 = this.网络连接;
 									if (网络连接78 != null)
 									{
@@ -6472,9 +6472,9 @@ namespace GameServer.Maps
 								if (this.查找背包物品(1, 91127, out 物品列表13))
 								{
 									this.消耗背包物品(1, 物品列表13);
-									if (this.CharacterData.屠魔兑换.V.Date != MainProcess.当前时间.Date)
+									if (this.CharacterData.屠魔兑换.V.Date != MainProcess.CurrentTime.Date)
 									{
-										this.CharacterData.屠魔兑换.V = MainProcess.当前时间;
+										this.CharacterData.屠魔兑换.V = MainProcess.CurrentTime;
 										this.CharacterData.屠魔次数.V = 0;
 									}
 									this.玩家增加经验(null, (int)Math.Max(100000.0, 1000000.0 * Math.Pow(0.699999988079071, (double)this.CharacterData.屠魔次数.V)));
@@ -6552,7 +6552,7 @@ namespace GameServer.Maps
 								else if (this.所属队伍.队伍成员.FirstOrDefault(delegate(CharacterData O)
 								{
 									MapObject item;
-									return O.网络连接 == null || !MapGatewayProcess.MapObject表.TryGetValue(O.角色编号, out item) || !this.对话守卫.邻居列表.Contains(item);
+									return O.网络连接 == null || !MapGatewayProcess.Objects.TryGetValue(O.角色编号, out item) || !this.对话守卫.邻居列表.Contains(item);
 								}) != null)
 								{
 									this.对话页面 = 624203000;
@@ -6583,7 +6583,7 @@ namespace GameServer.Maps
 									});
 									return;
 								}
-								else if (this.所属队伍.队伍成员.FirstOrDefault((CharacterData O) => O.屠魔大厅.V.Date == MainProcess.当前时间.Date) != null)
+								else if (this.所属队伍.队伍成员.FirstOrDefault((CharacterData O) => O.屠魔大厅.V.Date == MainProcess.CurrentTime.Date) != null)
 								{
 									this.对话页面 = 624205000;
 									客户网络 网络连接119 = this.网络连接;
@@ -6613,7 +6613,7 @@ namespace GameServer.Maps
 									});
 									return;
 								}
-								else if (this.所属队伍.队伍成员.FirstOrDefault((CharacterData O) => MapGatewayProcess.激活对象表[O.角色编号].对象死亡) != null)
+								else if (this.所属队伍.队伍成员.FirstOrDefault((CharacterData O) => MapGatewayProcess.ActiveObjects[O.角色编号].对象死亡) != null)
 								{
 									this.对话页面 = 624208000;
 									客户网络 网络连接121 = this.网络连接;
@@ -6641,7 +6641,7 @@ namespace GameServer.Maps
 									MapInstance2.怪物区域 = MapInstance.怪物区域;
 									MapInstance2.守卫区域 = MapInstance.守卫区域;
 									MapInstance2.传送区域 = MapInstance.传送区域;
-									MapInstance2.节点计时 = MainProcess.当前时间.AddSeconds(20.0);
+									MapInstance2.节点计时 = MainProcess.CurrentTime.AddSeconds(20.0);
 									MapInstance2.怪物波数 = (from O in MapInstance.怪物区域
 									orderby O.所处坐标.X
 									select O).ToList<怪物刷新>();
@@ -6654,7 +6654,7 @@ namespace GameServer.Maps
 										while (enumerator.MoveNext())
 										{
 											CharacterData CharacterData = enumerator.Current;
-											PlayerObject PlayerObject = MapGatewayProcess.激活对象表[CharacterData.角色编号] as PlayerObject;
+											PlayerObject PlayerObject = MapGatewayProcess.ActiveObjects[CharacterData.角色编号] as PlayerObject;
 											PlayerDeals PlayerDeals = PlayerObject.当前交易;
 											if (PlayerDeals != null)
 											{
@@ -6749,7 +6749,7 @@ namespace GameServer.Maps
 								}
 								else
 								{
-									if (!(this.CharacterData.领奖日期.V.Date == MainProcess.当前时间.Date))
+									if (!(this.CharacterData.领奖日期.V.Date == MainProcess.CurrentTime.Date))
 									{
 										byte b9 = 0;
 										while (b9 < this.背包大小)
@@ -6790,7 +6790,7 @@ namespace GameServer.Maps
 												}
 												else
 												{
-													this.CharacterData.领奖日期.V = MainProcess.当前时间;
+													this.CharacterData.领奖日期.V = MainProcess.CurrentTime;
 													this.角色背包[b10] = new ItemData(模板, this.CharacterData, 1, b10, 1);
 													客户网络 网络连接127 = this.网络连接;
 													if (网络连接127 == null)
@@ -7081,7 +7081,7 @@ namespace GameServer.Maps
 							});
 							return;
 						}
-						else if (MainProcess.当前时间 < this.CharacterData.取回时间.V)
+						else if (MainProcess.CurrentTime < this.CharacterData.取回时间.V)
 						{
 							this.对话页面 = 670504000;
 							客户网络 网络连接142 = this.网络连接;
@@ -7092,7 +7092,7 @@ namespace GameServer.Maps
 							网络连接142.发送封包(new 同步交互结果
 							{
 								对象编号 = this.对话守卫.地图编号,
-								交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", (int)(this.CharacterData.取回时间.V - MainProcess.当前时间).TotalMinutes + 1))
+								交互文本 = 对话数据.合并数据(this.对话页面, string.Format("<#P0:{0}><#P1:0>", (int)(this.CharacterData.取回时间.V - MainProcess.CurrentTime).TotalMinutes + 1))
 							});
 							return;
 						}
@@ -7206,7 +7206,7 @@ namespace GameServer.Maps
 						}
 						else
 						{
-							this.CharacterData.取回时间.V = MainProcess.当前时间;
+							this.CharacterData.取回时间.V = MainProcess.CurrentTime;
 							this.对话页面 = 670508000;
 							客户网络 网络连接150 = this.网络连接;
 							if (网络连接150 == null)
@@ -7332,7 +7332,7 @@ namespace GameServer.Maps
 							{
 								this.金币数量 -= 1000000;
 								this.消耗背包物品(1, 当前物品);
-								SystemData.数据.申请行会.Add(MainProcess.当前时间.Date.AddDays(1.0).AddHours(20.0), this.所属行会);
+								SystemData.数据.申请行会.Add(MainProcess.CurrentTime.Date.AddDays(1.0).AddHours(20.0), this.所属行会);
 								NetworkServiceGateway.发送公告(string.Format("The guild [{0}] has signed up for the next day's Shabak Battle", this.所属行会), true);
 								return;
 							}
@@ -8398,7 +8398,7 @@ namespace GameServer.Maps
 										});
 									}
 								}
-								MainProcess.添加系统日志(string.Format("[{0}][{1} level] Purchased [{2}] * {3}, consumed $[{4}]", new object[]
+								MainProcess.AddSystemLog(string.Format("[{0}][{1} level] Purchased [{2}] * {3}, consumed $[{4}]", new object[]
 								{
 									this.对象名字,
 									this.当前等级,
@@ -8444,7 +8444,7 @@ namespace GameServer.Maps
 					});
 					return;
 				}
-				else if (ComputingClass.日期同周(this.CharacterData.补给日期.V, MainProcess.当前时间))
+				else if (ComputingClass.日期同周(this.CharacterData.补给日期.V, MainProcess.CurrentTime))
 				{
 					客户网络 网络连接2 = this.网络连接;
 					if (网络连接2 == null)
@@ -8489,7 +8489,7 @@ namespace GameServer.Maps
 									物品描述 = this.角色背包[b].字节描述()
 								});
 							}
-							this.CharacterData.补给日期.V = MainProcess.当前时间;
+							this.CharacterData.补给日期.V = MainProcess.CurrentTime;
 							客户网络 网络连接5 = this.网络连接;
 							if (网络连接5 != null)
 							{
@@ -8498,10 +8498,10 @@ namespace GameServer.Maps
 									变量类型 = 1,
 									对象编号 = this.地图编号,
 									变量索引 = 112,
-									变量内容 = ComputingClass.时间转换(MainProcess.当前时间)
+									变量内容 = ComputingClass.时间转换(MainProcess.CurrentTime)
 								});
 							}
-							MainProcess.添加系统日志(string.Format("Level [{0}][{1}] purchased [Weekly Refill Pack], consumed [600] GameCoins", this.对象名字, this.当前等级));
+							MainProcess.AddSystemLog(string.Format("Level [{0}][{1}] purchased [Weekly Refill Pack], consumed [600] GameCoins", this.对象名字, this.当前等级));
 							return;
 						}
 					}
@@ -8525,7 +8525,7 @@ namespace GameServer.Maps
 					});
 					return;
 				}
-				else if (ComputingClass.日期同周(this.CharacterData.战备日期.V, MainProcess.当前时间))
+				else if (ComputingClass.日期同周(this.CharacterData.战备日期.V, MainProcess.CurrentTime))
 				{
 					客户网络 网络连接7 = this.网络连接;
 					if (网络连接7 == null)
@@ -8569,7 +8569,7 @@ namespace GameServer.Maps
 											物品描述 = this.角色背包[b2].字节描述()
 										});
 									}
-									this.CharacterData.战备日期.V = MainProcess.当前时间;
+									this.CharacterData.战备日期.V = MainProcess.CurrentTime;
 									客户网络 网络连接9 = this.网络连接;
 									if (网络连接9 != null)
 									{
@@ -8578,10 +8578,10 @@ namespace GameServer.Maps
 											变量类型 = 1,
 											对象编号 = this.地图编号,
 											变量索引 = 975,
-											变量内容 = ComputingClass.时间转换(MainProcess.当前时间)
+											变量内容 = ComputingClass.时间转换(MainProcess.CurrentTime)
 										});
 									}
-									MainProcess.添加系统日志(string.Format("[{0}][Level {1}] Purchased [Weekly Battle Pack], consumed [3000] GameCoins", this.对象名字, this.当前等级));
+									MainProcess.AddSystemLog(string.Format("[{0}][Level {1}] Purchased [Weekly Battle Pack], consumed [3000] GameCoins", this.对象名字, this.当前等级));
 									return;
 								}
 								客户网络 网络连接10 = this.网络连接;
@@ -8642,7 +8642,7 @@ namespace GameServer.Maps
 								物品描述 = this.角色背包[b5].字节描述()
 							});
 						}
-						this.CharacterData.战备日期.V = MainProcess.当前时间;
+						this.CharacterData.战备日期.V = MainProcess.CurrentTime;
 						客户网络 网络连接13 = this.网络连接;
 						if (网络连接13 != null)
 						{
@@ -8651,10 +8651,10 @@ namespace GameServer.Maps
 								变量类型 = 1,
 								对象编号 = this.地图编号,
 								变量索引 = 975,
-								变量内容 = ComputingClass.时间转换(MainProcess.当前时间)
+								变量内容 = ComputingClass.时间转换(MainProcess.CurrentTime)
 							});
 						}
-						MainProcess.添加系统日志(string.Format("Level [{0}][{1}] purchased [Weekly Battle Pack], consumed Yuan Bao [3000]", this.对象名字, this.当前等级));
+						MainProcess.AddSystemLog(string.Format("Level [{0}][{1}] purchased [Weekly Battle Pack], consumed Yuan Bao [3000]", this.对象名字, this.当前等级));
 						return;
 					}
 					客户网络 网络连接14 = this.网络连接;
@@ -8747,17 +8747,17 @@ namespace GameServer.Maps
 				}
 				if (特权类型 == 3)
 				{
-					MainProcess.添加系统日志("[" + this.对象名字 + "] Purchased [Marfa Name Jun], consumed [12,800] GameCoins");
+					MainProcess.AddSystemLog("[" + this.对象名字 + "] Purchased [Marfa Name Jun], consumed [12,800] GameCoins");
 					return;
 				}
 				if (特权类型 == 4)
 				{
-					MainProcess.添加系统日志("[" + this.对象名字 + "] Purchased [Marauders], consumed [28,800] GameCoins");
+					MainProcess.AddSystemLog("[" + this.对象名字 + "] Purchased [Marauders], consumed [28,800] GameCoins");
 					return;
 				}
 				if (特权类型 == 5)
 				{
-					MainProcess.添加系统日志("[" + this.对象名字 + "] Purchased [Marfa Warlord], consumed [28,800] GameCoins");
+					MainProcess.AddSystemLog("[" + this.对象名字 + "] Purchased [Marfa Warlord], consumed [28,800] GameCoins");
 				}
 				return;
 			}
@@ -8826,7 +8826,7 @@ namespace GameServer.Maps
 					});
 					return;
 				}
-				else if ((MainProcess.当前时间.Date.AddDays(1.0) - this.本期日期.Date).TotalDays < (double)礼包位置)
+				else if ((MainProcess.CurrentTime.Date.AddDays(1.0) - this.本期日期.Date).TotalDays < (double)礼包位置)
 				{
 					客户网络 网络连接2 = this.网络连接;
 					if (网络连接2 == null)
@@ -9860,7 +9860,7 @@ namespace GameServer.Maps
 				});
 				return;
 			}
-			else if (物品.物品归属.Count != 0 && !物品.物品归属.Contains(this.CharacterData) && MainProcess.当前时间 < 物品.归属时间)
+			else if (物品.物品归属.Count != 0 && !物品.物品归属.Contains(this.CharacterData) && MainProcess.CurrentTime < 物品.归属时间)
 			{
 				客户网络 网络连接2 = this.网络连接;
 				if (网络连接2 == null)
@@ -10054,9 +10054,9 @@ namespace GameServer.Maps
 					EquipmentData EquipmentData = ItemData as EquipmentData;
 					if (EquipmentData != null && EquipmentData.能否出售)
 					{
-						if (this.CharacterData.分解日期.V.Date != MainProcess.当前时间.Date)
+						if (this.CharacterData.分解日期.V.Date != MainProcess.CurrentTime.Date)
 						{
-							this.CharacterData.分解日期.V = MainProcess.当前时间;
+							this.CharacterData.分解日期.V = MainProcess.CurrentTime;
 							this.CharacterData.分解经验.V = 0;
 						}
 						int 出售价格 = EquipmentData.出售价格;
@@ -10612,7 +10612,7 @@ namespace GameServer.Maps
 						return;
 					}
 					DateTime t;
-					if (this.冷却记录.TryGetValue(ItemData.物品编号 | 33554432, out t) && MainProcess.当前时间 < t)
+					if (this.冷却记录.TryGetValue(ItemData.物品编号 | 33554432, out t) && MainProcess.CurrentTime < t)
 					{
 						客户网络 网络连接2 = this.网络连接;
 						if (网络连接2 == null)
@@ -10628,7 +10628,7 @@ namespace GameServer.Maps
 					else
 					{
 						DateTime t2;
-						if (ItemData.分组编号 <= 0 || !this.冷却记录.TryGetValue((int)(ItemData.分组编号 | 0), out t2) || !(MainProcess.当前时间 < t2))
+						if (ItemData.分组编号 <= 0 || !this.冷却记录.TryGetValue((int)(ItemData.分组编号 | 0), out t2) || !(MainProcess.CurrentTime < t2))
 						{
 							string 物品名字 = ItemData.物品名字;
 							uint num = PrivateImplementationDetails.ComputeStringHash(物品名字);
@@ -10682,7 +10682,7 @@ namespace GameServer.Maps
 																else
 																{
 																	游戏物品 游戏物品 = null;
-																	int num2 = MainProcess.随机数.Next(8);
+																	int num2 = MainProcess.RandomNumber.Next(8);
 																	if (num2 == 0)
 																	{
 																		游戏物品.检索表.TryGetValue("驭朱灵石1级", out 游戏物品);
@@ -10808,7 +10808,7 @@ namespace GameServer.Maps
 													}
 													if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 													{
-														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 														客户网络 网络连接5 = this.网络连接;
 														if (网络连接5 != null)
 														{
@@ -10821,7 +10821,7 @@ namespace GameServer.Maps
 													}
 													if (ItemData.冷却时间 > 0)
 													{
-														this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+														this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 														客户网络 网络连接6 = this.网络连接;
 														if (网络连接6 != null)
 														{
@@ -10833,7 +10833,7 @@ namespace GameServer.Maps
 														}
 													}
 													this.消耗背包物品(1, ItemData);
-													this.药品回血 = MainProcess.当前时间.AddSeconds(1.0);
+													this.药品回血 = MainProcess.CurrentTime.AddSeconds(1.0);
 													this.回血基数 = 10;
 													this.回血次数 = 5;
 													return;
@@ -11006,7 +11006,7 @@ namespace GameServer.Maps
 													{
 														if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 														{
-															this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+															this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 															客户网络 网络连接10 = this.网络连接;
 															if (网络连接10 != null)
 															{
@@ -11019,7 +11019,7 @@ namespace GameServer.Maps
 														}
 														if (ItemData.冷却时间 > 0)
 														{
-															this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+															this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 															客户网络 网络连接11 = this.网络连接;
 															if (网络连接11 != null)
 															{
@@ -11067,7 +11067,7 @@ namespace GameServer.Maps
 												}
 												if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 													客户网络 网络连接13 = this.网络连接;
 													if (网络连接13 != null)
 													{
@@ -11080,7 +11080,7 @@ namespace GameServer.Maps
 												}
 												if (ItemData.冷却时间 > 0)
 												{
-													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 													客户网络 网络连接14 = this.网络连接;
 													if (网络连接14 != null)
 													{
@@ -11092,7 +11092,7 @@ namespace GameServer.Maps
 													}
 												}
 												this.消耗背包物品(1, ItemData);
-												this.药品回血 = MainProcess.当前时间.AddSeconds(1.0);
+												this.药品回血 = MainProcess.CurrentTime.AddSeconds(1.0);
 												this.回血基数 = 15;
 												this.回血次数 = 6;
 												return;
@@ -11112,7 +11112,7 @@ namespace GameServer.Maps
 												}
 												if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 													客户网络 网络连接15 = this.网络连接;
 													if (网络连接15 != null)
 													{
@@ -11125,7 +11125,7 @@ namespace GameServer.Maps
 												}
 												if (ItemData.冷却时间 > 0)
 												{
-													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 													客户网络 网络连接16 = this.网络连接;
 													if (网络连接16 != null)
 													{
@@ -11214,7 +11214,7 @@ namespace GameServer.Maps
 												{
 													if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 													{
-														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 														客户网络 网络连接18 = this.网络连接;
 														if (网络连接18 != null)
 														{
@@ -11227,7 +11227,7 @@ namespace GameServer.Maps
 													}
 													if (ItemData.冷却时间 > 0)
 													{
-														this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+														this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 														客户网络 网络连接19 = this.网络连接;
 														if (网络连接19 != null)
 														{
@@ -11363,7 +11363,7 @@ namespace GameServer.Maps
 												}
 												if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 													客户网络 网络连接21 = this.网络连接;
 													if (网络连接21 != null)
 													{
@@ -11376,7 +11376,7 @@ namespace GameServer.Maps
 												}
 												if (ItemData.冷却时间 > 0)
 												{
-													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 													客户网络 网络连接22 = this.网络连接;
 													if (网络连接22 != null)
 													{
@@ -11468,7 +11468,7 @@ namespace GameServer.Maps
 													{
 														if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 														{
-															this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+															this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 															客户网络 网络连接24 = this.网络连接;
 															if (网络连接24 != null)
 															{
@@ -11481,7 +11481,7 @@ namespace GameServer.Maps
 														}
 														if (ItemData.冷却时间 > 0)
 														{
-															this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+															this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 															客户网络 网络连接25 = this.网络连接;
 															if (网络连接25 != null)
 															{
@@ -11552,7 +11552,7 @@ namespace GameServer.Maps
 												{
 													if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 													{
-														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 														客户网络 网络连接28 = this.网络连接;
 														if (网络连接28 != null)
 														{
@@ -11565,7 +11565,7 @@ namespace GameServer.Maps
 													}
 													if (ItemData.冷却时间 > 0)
 													{
-														this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+														this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 														客户网络 网络连接29 = this.网络连接;
 														if (网络连接29 != null)
 														{
@@ -11830,7 +11830,7 @@ namespace GameServer.Maps
 														num3 = 80;
 														break;
 													}
-													int num4 = MainProcess.随机数.Next(100);
+													int num4 = MainProcess.RandomNumber.Next(100);
 													if (num4 < num3)
 													{
 														DataMonitor<sbyte> 幸运等级 = EquipmentData.幸运等级;
@@ -11907,7 +11907,7 @@ namespace GameServer.Maps
 												}
 												if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 													客户网络 网络连接38 = this.网络连接;
 													if (网络连接38 != null)
 													{
@@ -11920,7 +11920,7 @@ namespace GameServer.Maps
 												}
 												if (ItemData.冷却时间 > 0)
 												{
-													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 													客户网络 网络连接39 = this.网络连接;
 													if (网络连接39 != null)
 													{
@@ -11932,7 +11932,7 @@ namespace GameServer.Maps
 													}
 												}
 												this.消耗背包物品(1, ItemData);
-												this.药品回血 = MainProcess.当前时间.AddSeconds(1.0);
+												this.药品回血 = MainProcess.CurrentTime.AddSeconds(1.0);
 												this.回血基数 = 5;
 												this.回血次数 = 4;
 												return;
@@ -12080,7 +12080,7 @@ namespace GameServer.Maps
 												{
 													if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 													{
-														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 														客户网络 网络连接41 = this.网络连接;
 														if (网络连接41 != null)
 														{
@@ -12093,7 +12093,7 @@ namespace GameServer.Maps
 													}
 													if (ItemData.冷却时间 > 0)
 													{
-														this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+														this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 														客户网络 网络连接42 = this.网络连接;
 														if (网络连接42 != null)
 														{
@@ -12179,7 +12179,7 @@ namespace GameServer.Maps
 												{
 													if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 													{
-														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 														客户网络 网络连接45 = this.网络连接;
 														if (网络连接45 != null)
 														{
@@ -12192,7 +12192,7 @@ namespace GameServer.Maps
 													}
 													if (ItemData.冷却时间 > 0)
 													{
-														this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+														this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 														客户网络 网络连接46 = this.网络连接;
 														if (网络连接46 != null)
 														{
@@ -12386,7 +12386,7 @@ namespace GameServer.Maps
 										}
 										if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 										{
-											this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+											this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 											客户网络 网络连接48 = this.网络连接;
 											if (网络连接48 != null)
 											{
@@ -12399,7 +12399,7 @@ namespace GameServer.Maps
 										}
 										if (ItemData.冷却时间 > 0)
 										{
-											this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+											this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 											客户网络 网络连接49 = this.网络连接;
 											if (网络连接49 != null)
 											{
@@ -12494,7 +12494,7 @@ namespace GameServer.Maps
 											{
 												if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 													客户网络 网络连接51 = this.网络连接;
 													if (网络连接51 != null)
 													{
@@ -12507,7 +12507,7 @@ namespace GameServer.Maps
 												}
 												if (ItemData.冷却时间 > 0)
 												{
-													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 													客户网络 网络连接52 = this.网络连接;
 													if (网络连接52 != null)
 													{
@@ -12638,7 +12638,7 @@ namespace GameServer.Maps
 												DoubleInscriptionPositionSwitchPacket.第二铭文 = ((ushort)((第二铭文 != null) ? 第二铭文.铭文索引 : 0));
 												网络连接57.发送封包(DoubleInscriptionPositionSwitchPacket);
 											}
-											this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+											this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 											客户网络 网络连接58 = this.网络连接;
 											if (网络连接58 != null)
 											{
@@ -12795,7 +12795,7 @@ namespace GameServer.Maps
 										{
 											if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 											{
-												this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+												this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 												客户网络 网络连接63 = this.网络连接;
 												if (网络连接63 != null)
 												{
@@ -12808,7 +12808,7 @@ namespace GameServer.Maps
 											}
 											if (ItemData.冷却时间 > 0)
 											{
-												this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+												this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 												客户网络 网络连接64 = this.网络连接;
 												if (网络连接64 != null)
 												{
@@ -13012,7 +13012,7 @@ namespace GameServer.Maps
 												}
 												if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 													客户网络 网络连接67 = this.网络连接;
 													if (网络连接67 != null)
 													{
@@ -13025,7 +13025,7 @@ namespace GameServer.Maps
 												}
 												if (ItemData.冷却时间 > 0)
 												{
-													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 													客户网络 网络连接68 = this.网络连接;
 													if (网络连接68 != null)
 													{
@@ -13085,7 +13085,7 @@ namespace GameServer.Maps
 												{
 													if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 													{
-														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 														客户网络 网络连接70 = this.网络连接;
 														if (网络连接70 != null)
 														{
@@ -13098,7 +13098,7 @@ namespace GameServer.Maps
 													}
 													if (ItemData.冷却时间 > 0)
 													{
-														this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+														this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 														客户网络 网络连接71 = this.网络连接;
 														if (网络连接71 != null)
 														{
@@ -13184,7 +13184,7 @@ namespace GameServer.Maps
 												{
 													if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 													{
-														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 														客户网络 网络连接74 = this.网络连接;
 														if (网络连接74 != null)
 														{
@@ -13197,7 +13197,7 @@ namespace GameServer.Maps
 													}
 													if (ItemData.冷却时间 > 0)
 													{
-														this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+														this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 														客户网络 网络连接75 = this.网络连接;
 														if (网络连接75 != null)
 														{
@@ -13292,7 +13292,7 @@ namespace GameServer.Maps
 										}
 										if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 										{
-											this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+											this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 											客户网络 网络连接77 = this.网络连接;
 											if (网络连接77 != null)
 											{
@@ -13305,7 +13305,7 @@ namespace GameServer.Maps
 										}
 										if (ItemData.冷却时间 > 0)
 										{
-											this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+											this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 											客户网络 网络连接78 = this.网络连接;
 											if (网络连接78 != null)
 											{
@@ -13317,7 +13317,7 @@ namespace GameServer.Maps
 											}
 										}
 										this.消耗背包物品(1, ItemData);
-										this.药品回魔 = MainProcess.当前时间.AddSeconds(1.0);
+										this.药品回魔 = MainProcess.CurrentTime.AddSeconds(1.0);
 										this.回魔基数 = 10;
 										this.回魔次数 = 3;
 										return;
@@ -13354,7 +13354,7 @@ namespace GameServer.Maps
 												}
 												if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 													客户网络 网络连接79 = this.网络连接;
 													if (网络连接79 != null)
 													{
@@ -13367,7 +13367,7 @@ namespace GameServer.Maps
 												}
 												if (ItemData.冷却时间 > 0)
 												{
-													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 													客户网络 网络连接80 = this.网络连接;
 													if (网络连接80 != null)
 													{
@@ -13379,7 +13379,7 @@ namespace GameServer.Maps
 													}
 												}
 												this.消耗背包物品(1, ItemData);
-												this.药品回魔 = MainProcess.当前时间.AddSeconds(1.0);
+												this.药品回魔 = MainProcess.CurrentTime.AddSeconds(1.0);
 												this.回魔基数 = 25;
 												this.回魔次数 = 6;
 												return;
@@ -13521,7 +13521,7 @@ namespace GameServer.Maps
 													}
 													else
 													{
-														int num5 = MainProcess.随机数.Next(100);
+														int num5 = MainProcess.RandomNumber.Next(100);
 														if (num5 < 60)
 														{
 															this.消耗背包物品(1, ItemData);
@@ -13730,7 +13730,7 @@ namespace GameServer.Maps
 											{
 												if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 													客户网络 网络连接87 = this.网络连接;
 													if (网络连接87 != null)
 													{
@@ -13743,7 +13743,7 @@ namespace GameServer.Maps
 												}
 												if (ItemData.冷却时间 > 0)
 												{
-													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 													客户网络 网络连接88 = this.网络连接;
 													if (网络连接88 != null)
 													{
@@ -14007,7 +14007,7 @@ namespace GameServer.Maps
 													else
 													{
 														游戏物品 游戏物品6 = null;
-														int num6 = MainProcess.随机数.Next(8);
+														int num6 = MainProcess.RandomNumber.Next(8);
 														if (num6 == 0)
 														{
 															游戏物品.检索表.TryGetValue("驭朱灵石1级", out 游戏物品6);
@@ -14102,7 +14102,7 @@ namespace GameServer.Maps
 											{
 												if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 													客户网络 网络连接95 = this.网络连接;
 													if (网络连接95 != null)
 													{
@@ -14115,7 +14115,7 @@ namespace GameServer.Maps
 												}
 												if (ItemData.冷却时间 > 0)
 												{
-													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 													客户网络 网络连接96 = this.网络连接;
 													if (网络连接96 != null)
 													{
@@ -14234,7 +14234,7 @@ namespace GameServer.Maps
 											{
 												if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 													客户网络 网络连接99 = this.网络连接;
 													if (网络连接99 != null)
 													{
@@ -14247,7 +14247,7 @@ namespace GameServer.Maps
 												}
 												if (ItemData.冷却时间 > 0)
 												{
-													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 													客户网络 网络连接100 = this.网络连接;
 													if (网络连接100 != null)
 													{
@@ -14313,7 +14313,7 @@ namespace GameServer.Maps
 											{
 												if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 													客户网络 网络连接103 = this.网络连接;
 													if (网络连接103 != null)
 													{
@@ -14326,7 +14326,7 @@ namespace GameServer.Maps
 												}
 												if (ItemData.冷却时间 > 0)
 												{
-													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 													客户网络 网络连接104 = this.网络连接;
 													if (网络连接104 != null)
 													{
@@ -14399,7 +14399,7 @@ namespace GameServer.Maps
 											{
 												if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 													客户网络 网络连接107 = this.网络连接;
 													if (网络连接107 != null)
 													{
@@ -14412,7 +14412,7 @@ namespace GameServer.Maps
 												}
 												if (ItemData.冷却时间 > 0)
 												{
-													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+													this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 													客户网络 网络连接108 = this.网络连接;
 													if (网络连接108 != null)
 													{
@@ -14531,7 +14531,7 @@ namespace GameServer.Maps
 											}
 											if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 											{
-												this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+												this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 												客户网络 网络连接110 = this.网络连接;
 												if (网络连接110 != null)
 												{
@@ -14544,7 +14544,7 @@ namespace GameServer.Maps
 											}
 											if (ItemData.冷却时间 > 0)
 											{
-												this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+												this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 												客户网络 网络连接111 = this.网络连接;
 												if (网络连接111 != null)
 												{
@@ -14556,7 +14556,7 @@ namespace GameServer.Maps
 												}
 											}
 											this.消耗背包物品(1, ItemData);
-											this.药品回魔 = MainProcess.当前时间.AddSeconds(1.0);
+											this.药品回魔 = MainProcess.CurrentTime.AddSeconds(1.0);
 											this.回魔基数 = 16;
 											this.回魔次数 = 5;
 											return;
@@ -14772,7 +14772,7 @@ namespace GameServer.Maps
 										{
 											if (ItemData.分组编号 > 0 && ItemData.分组冷却 > 0)
 											{
-												this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.当前时间.AddMilliseconds((double)ItemData.分组冷却);
+												this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.分组冷却);
 												客户网络 网络连接113 = this.网络连接;
 												if (网络连接113 != null)
 												{
@@ -14785,7 +14785,7 @@ namespace GameServer.Maps
 											}
 											if (ItemData.冷却时间 > 0)
 											{
-												this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.当前时间.AddMilliseconds((double)ItemData.冷却时间);
+												this.冷却记录[ItemData.物品编号 | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.冷却时间);
 												客户网络 网络连接114 = this.网络连接;
 												if (网络连接114 != null)
 												{
@@ -15874,7 +15874,7 @@ namespace GameServer.Maps
 							}), false);
 						}
 					}
-					else if (EquipmentData.传承材料 != 0 && (EquipmentData.双铭文点 += MainProcess.随机数.Next(1, 6)) >= 1200 && EquipmentData.第二铭文 == null)
+					else if (EquipmentData.传承材料 != 0 && (EquipmentData.双铭文点 += MainProcess.RandomNumber.Next(1, 6)) >= 1200 && EquipmentData.第二铭文 == null)
 					{
 						int 技能编号;
 						int? num2;
@@ -17043,7 +17043,7 @@ namespace GameServer.Maps
 					List<KeyValuePair<byte, Dictionary<EquipmentData, int>>> list = (from O in 排序属性
 					where O.Value.Values.Sum() == 排序属性[0].Value.Values.Sum()
 					select O).ToList<KeyValuePair<byte, Dictionary<EquipmentData, int>>>();
-					byte key = list[MainProcess.随机数.Next(list.Count)].Key;
+					byte key = list[MainProcess.RandomNumber.Next(list.Count)].Key;
 					List<KeyValuePair<EquipmentData, int>> list2 = (from x in dictionary4[key].ToList<KeyValuePair<EquipmentData, int>>()
 					orderby x.Value descending
 					select x).ToList<KeyValuePair<EquipmentData, int>>();
@@ -17053,7 +17053,7 @@ namespace GameServer.Maps
 					int num4 = (int)(90 - EquipmentData.升级次数.V * 10);
 					float 概率 = num * (float)num4 * 0.001f + num3 * 0.01f;
 					this.CharacterData.升级装备.V = EquipmentData;
-					this.CharacterData.取回时间.V = MainProcess.当前时间.AddHours(2.0);
+					this.CharacterData.取回时间.V = MainProcess.CurrentTime.AddHours(2.0);
 					if (this.CharacterData.升级成功.V = ComputingClass.计算概率(概率))
 					{
 						DataMonitor<byte> 升级次数 = EquipmentData.升级次数;
@@ -17220,7 +17220,7 @@ namespace GameServer.Maps
 				{
 					字节描述 = 字节描述
 				});
-				MainProcess.添加聊天日志("[附近][" + this.对象名字 + "]: ", array);
+				MainProcess.AddChatLog("[附近][" + this.对象名字 + "]: ", array);
 				return;
 			}
 			if (num == 2415919107U)
@@ -17290,7 +17290,7 @@ namespace GameServer.Maps
 				{
 					字节描述 = 字节描述2
 				});
-				MainProcess.添加聊天日志(string.Concat(new string[]
+				MainProcess.AddChatLog(string.Concat(new string[]
 				{
 					"[",
 					(b == 1) ? "广播" : "传音",
@@ -17346,7 +17346,7 @@ namespace GameServer.Maps
 								{
 									字节描述 = memoryStream.ToArray()
 								});
-								MainProcess.添加聊天日志("[队伍][" + this.对象名字 + "]: ", array);
+								MainProcess.AddChatLog("[队伍][" + this.对象名字 + "]: ", array);
 								return;
 							}
 						}
@@ -17395,7 +17395,7 @@ namespace GameServer.Maps
 							{
 								字节描述 = memoryStream2.ToArray()
 							});
-							MainProcess.添加聊天日志("[行会][" + this.对象名字 + "]: ", array);
+							MainProcess.AddChatLog("[行会][" + this.对象名字 + "]: ", array);
 						}
 					}
 				}
@@ -17461,7 +17461,7 @@ namespace GameServer.Maps
 					{
 						字节描述 = 字节描述2
 					});
-					MainProcess.添加聊天日志(string.Format("[Whisper][{0}]=>[{1}]: ", this.对象名字, CharacterData.角色名字), array);
+					MainProcess.AddChatLog(string.Format("[Whisper][{0}]=>[{1}]: ", this.对象名字, CharacterData.角色名字), array);
 					return;
 				}
 			}
@@ -17504,7 +17504,7 @@ namespace GameServer.Maps
 						{
 							字节数据 = 字节数据
 						});
-						MainProcess.添加聊天日志(string.Format("[Friend][{0}]=>[{1}]: ", this.对象名字, CharacterData), array);
+						MainProcess.AddChatLog(string.Format("[Friend][{0}]=>[{1}]: ", this.对象名字, CharacterData), array);
 						return;
 					}
 					客户网络 网络连接 = this.网络连接;
@@ -18005,7 +18005,7 @@ namespace GameServer.Maps
 		public void 请求对象外观(int 对象编号, int 状态编号)
 		{
 			MapObject MapObject;
-			if (!MapGatewayProcess.MapObject表.TryGetValue(对象编号, out MapObject))
+			if (!MapGatewayProcess.Objects.TryGetValue(对象编号, out MapObject))
 			{
 				客户网络 网络连接 = this.网络连接;
 				if (网络连接 == null)
@@ -18262,7 +18262,7 @@ namespace GameServer.Maps
 		public void 查询玩家战力(int 对象编号)
 		{
 			MapObject MapObject;
-			if (MapGatewayProcess.MapObject表.TryGetValue(对象编号, out MapObject))
+			if (MapGatewayProcess.Objects.TryGetValue(对象编号, out MapObject))
 			{
 				PlayerObject PlayerObject = MapObject as PlayerObject;
 				if (PlayerObject != null)
@@ -18295,7 +18295,7 @@ namespace GameServer.Maps
 		public void 查看对象装备(int 对象编号)
 		{
 			MapObject MapObject;
-			if (MapGatewayProcess.MapObject表.TryGetValue(对象编号, out MapObject))
+			if (MapGatewayProcess.Objects.TryGetValue(对象编号, out MapObject))
 			{
 				PlayerObject PlayerObject = MapObject as PlayerObject;
 				if (PlayerObject != null)
@@ -18628,7 +18628,7 @@ namespace GameServer.Maps
 										字节描述 = this.所属队伍.队伍描述()
 									});
 								}
-								this.所属队伍.邀请列表[CharacterData] = MainProcess.当前时间.AddMinutes(5.0);
+								this.所属队伍.邀请列表[CharacterData] = MainProcess.CurrentTime.AddMinutes(5.0);
 								客户网络 网络连接5 = this.网络连接;
 								if (网络连接5 != null)
 								{
@@ -18727,7 +18727,7 @@ namespace GameServer.Maps
 							}
 							else if (CharacterData.当前队伍.队长数据.角色在线(out 客户网络))
 							{
-								CharacterData.当前队伍.申请列表[this.CharacterData] = MainProcess.当前时间.AddMinutes(5.0);
+								CharacterData.当前队伍.申请列表[this.CharacterData] = MainProcess.CurrentTime.AddMinutes(5.0);
 								客户网络.发送封包(new SendTeamRequestBPacket
 								{
 									组队方式 = 1,
@@ -18804,7 +18804,7 @@ namespace GameServer.Maps
 							客户网络 客户网络2;
 							if (CharacterData.角色在线(out 客户网络2))
 							{
-								this.所属队伍.邀请列表[CharacterData] = MainProcess.当前时间.AddMinutes(5.0);
+								this.所属队伍.邀请列表[CharacterData] = MainProcess.CurrentTime.AddMinutes(5.0);
 								客户网络 网络连接9 = this.网络连接;
 								if (网络连接9 != null)
 								{
@@ -18915,7 +18915,7 @@ namespace GameServer.Maps
 									});
 									return;
 								}
-								else if (CharacterData.当前队伍.邀请列表[this.CharacterData] < MainProcess.当前时间)
+								else if (CharacterData.当前队伍.邀请列表[this.CharacterData] < MainProcess.CurrentTime)
 								{
 									客户网络 网络连接5 = this.网络连接;
 									if (网络连接5 == null)
@@ -19030,7 +19030,7 @@ namespace GameServer.Maps
 								});
 								return;
 							}
-							else if (this.所属队伍.申请列表[CharacterData] < MainProcess.当前时间)
+							else if (this.所属队伍.申请列表[CharacterData] < MainProcess.CurrentTime)
 							{
 								客户网络 网络连接12 = this.网络连接;
 								if (网络连接12 == null)
@@ -19364,7 +19364,7 @@ namespace GameServer.Maps
 				this.网络连接.尝试断开连接(new Exception("错误操作: 申请发送邮件.  错误: 数据长度错误."));
 				return;
 			}
-			if (MainProcess.当前时间 < this.邮件时间)
+			if (MainProcess.CurrentTime < this.邮件时间)
 			{
 				客户网络 网络连接 = this.网络连接;
 				if (网络连接 == null)
@@ -20363,7 +20363,7 @@ namespace GameServer.Maps
 					}
 					else
 					{
-						GuildData.申请列表[this.CharacterData] = MainProcess.当前时间.AddHours(1.0);
+						GuildData.申请列表[this.CharacterData] = MainProcess.CurrentTime.AddHours(1.0);
 						GuildData.行会提醒(GuildJobs.执事, 1);
 						客户网络 网络连接5 = this.网络连接;
 						if (网络连接5 == null)
@@ -20396,7 +20396,7 @@ namespace GameServer.Maps
 			{
 				foreach (KeyValuePair<CharacterData, DateTime> keyValuePair in this.所属行会.邀请列表.ToList<KeyValuePair<CharacterData, DateTime>>())
 				{
-					if (MainProcess.当前时间 > keyValuePair.Value)
+					if (MainProcess.CurrentTime > keyValuePair.Value)
 					{
 						this.所属行会.邀请列表.Remove(keyValuePair.Key);
 					}
@@ -20491,7 +20491,7 @@ namespace GameServer.Maps
 						}
 						else
 						{
-							this.所属行会.邀请列表[CharacterData] = MainProcess.当前时间.AddHours(1.0);
+							this.所属行会.邀请列表[CharacterData] = MainProcess.CurrentTime.AddHours(1.0);
 							客户网络.发送封包(new InviteJoinPacket
 							{
 								对象编号 = this.地图编号,
@@ -21830,7 +21830,7 @@ namespace GameServer.Maps
 							{
 								CharacterData.当前师门 = new TeacherData(CharacterData);
 							}
-							CharacterData.当前师门.申请列表[this.地图编号] = MainProcess.当前时间;
+							CharacterData.当前师门.申请列表[this.地图编号] = MainProcess.CurrentTime;
 							客户网络 网络连接6 = this.网络连接;
 							if (网络连接6 != null)
 							{
@@ -22151,7 +22151,7 @@ namespace GameServer.Maps
 								{
 									this.所属师门 = new TeacherData(this.CharacterData);
 								}
-								this.所属师门.邀请列表[CharacterData.角色编号] = MainProcess.当前时间;
+								this.所属师门.邀请列表[CharacterData.角色编号] = MainProcess.CurrentTime;
 								客户网络 网络连接4 = this.网络连接;
 								if (网络连接4 != null)
 								{
@@ -23895,7 +23895,7 @@ namespace GameServer.Maps
 										售出收益 = (int)((float)num * 0.95f)
 									});
 								}
-								MainProcess.添加系统日志(string.Format("[{0}][Level {1}] purchased [{4}] * {5} of [{2}][{3}] stall items, costing [{6}] coins", new object[]
+								MainProcess.AddSystemLog(string.Format("[{0}][Level {1}] purchased [{4}] * {5} of [{2}][{3}] stall items, costing [{6}] coins", new object[]
 								{
 									this.对象名字,
 									this.当前等级,
@@ -24004,10 +24004,10 @@ namespace GameServer.Maps
 				{
 					foreach (KeyValuePair<int, DateTime> keyValuePair in this.冷却记录)
 					{
-						if (!(MainProcess.当前时间 >= keyValuePair.Value))
+						if (!(MainProcess.CurrentTime >= keyValuePair.Value))
 						{
 							binaryWriter.Write(keyValuePair.Key);
-							binaryWriter.Write((int)(keyValuePair.Value - MainProcess.当前时间).TotalMilliseconds);
+							binaryWriter.Write((int)(keyValuePair.Value - MainProcess.CurrentTime).TotalMilliseconds);
 						}
 					}
 					result = memoryStream.ToArray();
@@ -24092,7 +24092,7 @@ namespace GameServer.Maps
 					foreach (KeyValuePair<byte, DateTime> keyValuePair in this.称号列表)
 					{
 						binaryWriter.Write(keyValuePair.Key);
-						binaryWriter.Write((keyValuePair.Value == DateTime.MaxValue) ? uint.MaxValue : ((uint)(keyValuePair.Value - MainProcess.当前时间).TotalMinutes));
+						binaryWriter.Write((keyValuePair.Value == DateTime.MaxValue) ? uint.MaxValue : ((uint)(keyValuePair.Value - MainProcess.CurrentTime).TotalMinutes));
 					}
 					result = memoryStream.ToArray();
 				}

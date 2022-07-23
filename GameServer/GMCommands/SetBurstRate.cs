@@ -18,7 +18,7 @@ namespace GameServer
 		}
 
 		// Token: 0x0600003E RID: 62 RVA: 0x000084B8 File Offset: 0x000066B8
-		public override void 执行命令()
+		public override void Execute()
 		{
 			if (this.额外爆率 < 0m)
 			{

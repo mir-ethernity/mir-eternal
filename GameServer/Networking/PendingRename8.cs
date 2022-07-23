@@ -22,8 +22,8 @@ namespace GameServer.Networking
 			
 			this.当前连接 = 客户端;
 			this.当前连接.NoDelay = true;
-			this.接入时间 = MainProcess.当前时间;
-			this.断开时间 = MainProcess.当前时间.AddMinutes((double)CustomClass.掉线判定时间);
+			this.接入时间 = MainProcess.CurrentTime;
+			this.断开时间 = MainProcess.CurrentTime.AddMinutes((double)CustomClass.掉线判定时间);
 			this.断网事件 = (EventHandler<Exception>)Delegate.Combine(this.断网事件, new EventHandler<Exception>(NetworkServiceGateway.断网回调));
 			this.网络地址 = this.当前连接.Client.RemoteEndPoint.ToString().Split(new char[]
 			{
@@ -39,7 +39,7 @@ namespace GameServer.Networking
 			{
 				if (!this.正在断开 && !NetworkServiceGateway.网络服务停止)
 				{
-					if (MainProcess.当前时间 > this.断开时间)
+					if (MainProcess.CurrentTime > this.断开时间)
 					{
 						this.尝试断开连接(new Exception("No response for a long time, disconnect."));
 					}
@@ -113,7 +113,7 @@ namespace GameServer.Networking
 					array[7] = this.物理地址;
 					array[8] = "]\r\n错误提示:";
 					array[9] = ex.Message;
-					MainProcess.添加系统日志(string.Concat(array));
+					MainProcess.AddSystemLog(string.Concat(array));
 				}
 				PlayerObject PlayerObject3 = this.绑定角色;
 				if (PlayerObject3 != null)
@@ -213,7 +213,7 @@ namespace GameServer.Networking
 		// Token: 0x0600035C RID: 860 RVA: 0x00003802 File Offset: 0x00001A02
 		private void 延迟掉线时间()
 		{
-			this.断开时间 = MainProcess.当前时间.AddMinutes((double)CustomClass.掉线判定时间);
+			this.断开时间 = MainProcess.CurrentTime.AddMinutes((double)CustomClass.掉线判定时间);
 		}
 
 		// Token: 0x0600035D RID: 861 RVA: 0x0001D390 File Offset: 0x0001B590
@@ -245,7 +245,7 @@ namespace GameServer.Networking
 					if (num > 0)
 					{
 						this.接收总数 += num;
-						NetworkServiceGateway.已接收字节数 += (long)num;
+						NetworkServiceGateway.ReceivedBytes += (long)num;
 						Array src = 异步参数.AsyncState as byte[];
 						byte[] dst = new byte[this.剩余数据.Length + num];
 						Buffer.BlockCopy(this.剩余数据, 0, dst, 0, this.剩余数据.Length);
@@ -298,7 +298,7 @@ namespace GameServer.Networking
 			{
 				int num = this.当前连接.Client.EndSend(异步参数);
 				this.发送总数 += num;
-				NetworkServiceGateway.已发送字节数 += (long)num;
+				NetworkServiceGateway.SendedBytes += (long)num;
 				if (num == 0)
 				{
 					this.发送列表 = new ConcurrentQueue<GamePacket>();
@@ -2344,7 +2344,7 @@ namespace GameServer.Networking
             {
                 this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
             }
-            else if (SystemData.数据.网卡封禁.TryGetValue(P.物理地址, out DateTime t) && t > MainProcess.当前时间)
+            else if (SystemData.数据.网卡封禁.TryGetValue(P.物理地址, out DateTime t) && t > MainProcess.CurrentTime)
             {
                 this.尝试断开连接(new Exception("网卡封禁, 限制登录"));
             }
@@ -2352,7 +2352,7 @@ namespace GameServer.Networking
             {
                 this.尝试断开连接(new Exception("登录的门票不存在."));
             }
-            else if (MainProcess.当前时间 > TicketInformation.有效时间)
+            else if (MainProcess.CurrentTime > TicketInformation.有效时间)
             {
                 this.尝试断开连接(new Exception("登录门票已经过期."));
             }

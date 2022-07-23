@@ -19,7 +19,7 @@ namespace GameServer
 		}
 
 		// Token: 0x06000021 RID: 33 RVA: 0x00007FD8 File Offset: 0x000061D8
-		public override void 执行命令()
+		public override void Execute()
 		{
 			if (MessageBox.Show(string.Format("We are about to permanently delete all CharacterData that are less than [{0}] level and have not logged in for [{1}] days \r\n\r\nThis operation is irreversible, please make a backup of your data \r\n\r\n sure you want to do this?", this.限制等级, this.限制天数), "Dangerous operations", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
 			{

@@ -207,8 +207,8 @@ namespace GameServer.Maps
 						当前坐标 = point;
 						IL_111:
 						this.当前坐标 = 当前坐标;
-						this.消失时间 = MainProcess.当前时间.AddMinutes((double)CustomClass.物品清理时间);
-						this.归属时间 = MainProcess.当前时间.AddMinutes((double)CustomClass.物品归属时间);
+						this.消失时间 = MainProcess.CurrentTime.AddMinutes((double)CustomClass.物品清理时间);
+						this.归属时间 = MainProcess.CurrentTime.AddMinutes((double)CustomClass.物品归属时间);
 						this.地图编号 = ++MapGatewayProcess.物品编号;
 						base.绑定网格();
 						base.更新邻居时处理();
@@ -230,7 +230,7 @@ namespace GameServer.Maps
 		// Token: 0x0600083A RID: 2106 RVA: 0x00006BCB File Offset: 0x00004DCB
 		public override void 处理对象数据()
 		{
-			if (MainProcess.当前时间 > this.消失时间)
+			if (MainProcess.CurrentTime > this.消失时间)
 			{
 				this.物品消失处理();
 			}

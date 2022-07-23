@@ -47,7 +47,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return (ushort)Math.Ceiling((this.消失时间 - MainProcess.当前时间).TotalMilliseconds / 62.5);
+				return (ushort)Math.Ceiling((this.消失时间 - MainProcess.CurrentTime).TotalMilliseconds / 62.5);
 			}
 		}
 
@@ -174,8 +174,8 @@ namespace GameServer.Maps
 			this.陷阱模板 = 模板;
 			this.当前地图 = 地图;
 			this.当前坐标 = 坐标;
-			this.行走时间 = MainProcess.当前时间;
-			this.放置时间 = MainProcess.当前时间;
+			this.行走时间 = MainProcess.CurrentTime;
+			this.放置时间 = MainProcess.CurrentTime;
 			this.陷阱编号 = 模板.陷阱编号;
 			this.当前方向 = this.陷阱来源.当前方向;
 			this.被动触发列表 = new HashSet<MapObject>();
@@ -216,11 +216,11 @@ namespace GameServer.Maps
 		// Token: 0x06000828 RID: 2088 RVA: 0x00041370 File Offset: 0x0003F570
 		public override void 处理对象数据()
 		{
-			if (MainProcess.当前时间 < base.预约时间)
+			if (MainProcess.CurrentTime < base.预约时间)
 			{
 				return;
 			}
-			if (MainProcess.当前时间 > this.消失时间)
+			if (MainProcess.CurrentTime > this.消失时间)
 			{
 				this.陷阱消失处理();
 			}
@@ -230,11 +230,11 @@ namespace GameServer.Maps
 				{
 					技能实例.处理任务();
 				}
-				if (this.主动触发技能 != null && MainProcess.当前时间 > this.触发时间)
+				if (this.主动触发技能 != null && MainProcess.CurrentTime > this.触发时间)
 				{
 					this.主动触发陷阱();
 				}
-				if (this.陷阱模板.陷阱能否移动 && this.陷阱移动次数 < this.陷阱模板.限制移动次数 && MainProcess.当前时间 > this.行走时间)
+				if (this.陷阱模板.陷阱能否移动 && this.陷阱移动次数 < this.陷阱模板.限制移动次数 && MainProcess.CurrentTime > this.行走时间)
 				{
 					if (this.陷阱模板.当前方向移动)
 					{
@@ -267,7 +267,7 @@ namespace GameServer.Maps
 		// Token: 0x06000829 RID: 2089 RVA: 0x00041578 File Offset: 0x0003F778
 		public void 被动触发陷阱(MapObject 对象)
 		{
-			if (MainProcess.当前时间 > this.消失时间)
+			if (MainProcess.CurrentTime > this.消失时间)
 			{
 				return;
 			}
@@ -280,7 +280,7 @@ namespace GameServer.Maps
 		// Token: 0x0600082A RID: 2090 RVA: 0x00041638 File Offset: 0x0003F838
 		public void 主动触发陷阱()
 		{
-			if (MainProcess.当前时间 > this.消失时间)
+			if (MainProcess.CurrentTime > this.消失时间)
 			{
 				return;
 			}

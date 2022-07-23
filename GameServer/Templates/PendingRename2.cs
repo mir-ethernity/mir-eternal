@@ -105,7 +105,7 @@ namespace GameServer.Templates
 			this.技能目标 = 技能目标;
 			this.技能锚点 = 技能锚点;
 			this.父类技能 = 父类技能;
-			this.释放时间 = MainProcess.当前时间;
+			this.释放时间 = MainProcess.CurrentTime;
 			this.目标借位 = 目标借位;
 			this.命中列表 = (命中列表 ?? new Dictionary<int, 命中详情>());
 			this.节点列表 = new SortedDictionary<int, 技能任务>(技能模板.节点列表);
@@ -119,7 +119,7 @@ namespace GameServer.Templates
 		// Token: 0x060006B7 RID: 1719 RVA: 0x000314D8 File Offset: 0x0002F6D8
 		public void 处理任务()
 		{
-			if ((this.预约时间 - this.处理计时).TotalMilliseconds > 5.0 && MainProcess.当前时间 < this.预约时间)
+			if ((this.预约时间 - this.处理计时).TotalMilliseconds > 5.0 && MainProcess.CurrentTime < this.预约时间)
 			{
 				return;
 			}
@@ -596,13 +596,13 @@ namespace GameServer.Templates
 											DataMonitor<byte> 剩余次数 = this.SkillData.剩余次数;
 											if ((剩余次数.V -= 1) <= 0)
 											{
-												this.技能来源.冷却记录[(int)this.技能编号 | 16777216] = this.释放时间.AddMilliseconds((this.SkillData.计数时间 - MainProcess.当前时间).TotalMilliseconds);
+												this.技能来源.冷却记录[(int)this.技能编号 | 16777216] = this.释放时间.AddMilliseconds((this.SkillData.计数时间 - MainProcess.CurrentTime).TotalMilliseconds);
 											}
 											PlayerObject6.网络连接.发送封包(new SyncSkillCountPacket
 											{
 												技能编号 = this.SkillData.技能编号.V,
 												技能计数 = this.SkillData.剩余次数.V,
-												技能冷却 = (int)(this.SkillData.计数时间 - MainProcess.当前时间).TotalMilliseconds
+												技能冷却 = (int)(this.SkillData.计数时间 - MainProcess.CurrentTime).TotalMilliseconds
 											});
 											goto IL_11B7;
 										}
@@ -1045,7 +1045,7 @@ namespace GameServer.Templates
 																	this.技能来源.发送封包(new AddedSkillCooldownPacket
 																	{
 																		冷却编号 = ((int)c_02_计算目标伤害.冷却减少技能 | 16777216),
-																		冷却时间 = Math.Max(0, (int)(dateTime3 - MainProcess.当前时间).TotalMilliseconds)
+																		冷却时间 = Math.Max(0, (int)(dateTime3 - MainProcess.CurrentTime).TotalMilliseconds)
 																	});
 																}
 																if (c_02_计算目标伤害.冷却减少分组 != 0)
@@ -1059,7 +1059,7 @@ namespace GameServer.Templates
 																		this.技能来源.发送封包(new AddedSkillCooldownPacket
 																		{
 																			冷却编号 = (int)(c_02_计算目标伤害.冷却减少分组 | 0),
-																			冷却时间 = Math.Max(0, (int)(dateTime4 - MainProcess.当前时间).TotalMilliseconds)
+																			冷却时间 = Math.Max(0, (int)(dateTime4 - MainProcess.CurrentTime).TotalMilliseconds)
 																		});
 																	}
 																}
@@ -1085,7 +1085,7 @@ namespace GameServer.Templates
 																	this.技能来源.发送封包(new AddedSkillCooldownPacket
 																	{
 																		冷却编号 = ((int)c_02_计算目标伤害.冷却减少技能 | 16777216),
-																		冷却时间 = Math.Max(0, (int)(dateTime5 - MainProcess.当前时间).TotalMilliseconds)
+																		冷却时间 = Math.Max(0, (int)(dateTime5 - MainProcess.CurrentTime).TotalMilliseconds)
 																	});
 																}
 																if (c_02_计算目标伤害.冷却减少分组 != 0)
@@ -1099,7 +1099,7 @@ namespace GameServer.Templates
 																		this.技能来源.发送封包(new AddedSkillCooldownPacket
 																		{
 																			冷却编号 = (int)(c_02_计算目标伤害.冷却减少分组 | 0),
-																			冷却时间 = Math.Max(0, (int)(dateTime6 - MainProcess.当前时间).TotalMilliseconds)
+																			冷却时间 = Math.Max(0, (int)(dateTime6 - MainProcess.CurrentTime).TotalMilliseconds)
 																		});
 																	}
 																}
@@ -1114,7 +1114,7 @@ namespace GameServer.Templates
 																	MonsterObject MonsterObject = keyValuePair16.Value.技能目标 as MonsterObject;
 																	if (MonsterObject != null && MonsterObject.怪物级别 != MonsterLevelType.头目首领)
 																	{
-																		keyValuePair16.Value.技能目标.硬直时间 = MainProcess.当前时间.AddMilliseconds((double)c_02_计算目标伤害.目标硬直时间);
+																		keyValuePair16.Value.技能目标.硬直时间 = MainProcess.CurrentTime.AddMilliseconds((double)c_02_计算目标伤害.目标硬直时间);
 																	}
 																}
 															}
@@ -1189,8 +1189,8 @@ namespace GameServer.Templates
 																		}
 																		MapObject13.当前方向 = ComputingClass.计算方向(MapObject13.当前坐标, this.技能来源.当前坐标);
 																		Point point2 = ComputingClass.前方坐标(MapObject13.当前坐标, ComputingClass.计算方向(this.技能来源.当前坐标, MapObject13.当前坐标), 1);
-																		MapObject13.忙碌时间 = MainProcess.当前时间.AddMilliseconds((double)(c_03_计算对象位移.目标位移耗时 * 60));
-																		MapObject13.硬直时间 = MainProcess.当前时间.AddMilliseconds((double)(c_03_计算对象位移.目标位移耗时 * 60 + c_03_计算对象位移.目标硬直时间));
+																		MapObject13.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)(c_03_计算对象位移.目标位移耗时 * 60));
+																		MapObject13.硬直时间 = MainProcess.CurrentTime.AddMilliseconds((double)(c_03_计算对象位移.目标位移耗时 * 60 + c_03_计算对象位移.目标硬直时间));
 																		MapObject13.发送封包(new ObjectPassiveDisplacementPacket
 																		{
 																			位移坐标 = point2,
@@ -1211,7 +1211,7 @@ namespace GameServer.Templates
 																	}
 																	this.技能来源.当前方向 = ComputingClass.计算方向(this.技能来源.当前坐标, point);
 																	int num18 = (int)c_03_计算对象位移.自身位移耗时 * this.技能来源.网格距离(point);
-																	this.技能来源.忙碌时间 = MainProcess.当前时间.AddMilliseconds((double)(num18 * 60));
+																	this.技能来源.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)(num18 * 60));
 																	this.技能来源.发送封包(new ObjectPassiveDisplacementPacket
 																	{
 																		位移坐标 = point,
@@ -1250,7 +1250,7 @@ namespace GameServer.Templates
 																	{
 																		this.技能来源.添加Buff时处理(c_03_计算对象位移.失败Buff编号, this.技能来源);
 																	}
-																	this.技能来源.硬直时间 = MainProcess.当前时间.AddMilliseconds((double)c_03_计算对象位移.自身硬直时间);
+																	this.技能来源.硬直时间 = MainProcess.CurrentTime.AddMilliseconds((double)c_03_计算对象位移.自身硬直时间);
 																	this.分段编号 = b2;
 																}
 																if (b2 > 1)
@@ -1300,8 +1300,8 @@ namespace GameServer.Templates
 																					}
 																					keyValuePair18.Value.技能目标.当前方向 = ComputingClass.计算方向(keyValuePair18.Value.技能目标.当前坐标, this.技能来源.当前坐标);
 																					ushort num22 = (ushort)(ComputingClass.网格距离(keyValuePair18.Value.技能目标.当前坐标, point3) * (int)c_03_计算对象位移.目标位移耗时);
-																					keyValuePair18.Value.技能目标.忙碌时间 = MainProcess.当前时间.AddMilliseconds((double)(num22 * 60));
-																					keyValuePair18.Value.技能目标.硬直时间 = MainProcess.当前时间.AddMilliseconds((double)(num22 * 60 + c_03_计算对象位移.目标硬直时间));
+																					keyValuePair18.Value.技能目标.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)(num22 * 60));
+																					keyValuePair18.Value.技能目标.硬直时间 = MainProcess.CurrentTime.AddMilliseconds((double)(num22 * 60 + c_03_计算对象位移.目标硬直时间));
 																					keyValuePair18.Value.技能目标.发送封包(new ObjectPassiveDisplacementPacket
 																					{
 																						位移坐标 = point3,
@@ -1351,7 +1351,7 @@ namespace GameServer.Templates
 																	new MonsterObject(对应模板, this.释放地图, int.MaxValue, new Point[]
 																	{
 																		this.释放位置
-																	}, true, true).存活时间 = MainProcess.当前时间.AddMinutes(1.0);
+																	}, true, true).存活时间 = MainProcess.CurrentTime.AddMinutes(1.0);
 																}
 															}
 															else

@@ -18,7 +18,7 @@ namespace GameServer
 		}
 
 		// Token: 0x06000029 RID: 41 RVA: 0x00008070 File Offset: 0x00006270
-		public override void 执行命令()
+		public override void Execute()
 		{
 			IPAddress ipaddress;
 			if (IPAddress.TryParse(this.网络地址, out ipaddress))

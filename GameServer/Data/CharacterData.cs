@@ -278,8 +278,8 @@ namespace GameServer.Data
 		{
 			this.网络连接.绑定角色 = null;
 			this.网络连接 = null;
-			NetworkServiceGateway.已上线连接数 -= 1U;
-			this.离线日期.V = MainProcess.当前时间;
+			NetworkServiceGateway.ConnectionsOnline -= 1U;
+			this.离线日期.V = MainProcess.CurrentTime;
 			MainForm.更新CharacterData(this, "离线日期", this.离线日期);
 		}
 
@@ -287,7 +287,7 @@ namespace GameServer.Data
 		public void 角色上线(客户网络 网络)
 		{
 			this.网络连接 = 网络;
-			NetworkServiceGateway.已上线连接数 += 1U;
+			NetworkServiceGateway.ConnectionsOnline += 1U;
 			this.物理地址.V = 网络.物理地址;
 			this.网络地址.V = 网络.网络地址;
 			MainForm.更新CharacterData(this, "离线日期", null);
@@ -340,7 +340,7 @@ namespace GameServer.Data
 			this.角色发型.V = 发型;
 			this.角色发色.V = 发色;
 			this.角色脸型.V = 脸型;
-			this.创建日期.V = MainProcess.当前时间;
+			this.创建日期.V = MainProcess.CurrentTime;
 			this.当前血量.V = 角色成长.获取数据(职业, 1)[GameObjectProperties.最大体力];
 			this.当前蓝量.V = 角色成长.获取数据(职业, 1)[GameObjectProperties.最大魔力];
 			this.当前朝向.V = ComputingClass.随机方向();

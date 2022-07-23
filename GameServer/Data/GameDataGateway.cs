@@ -24,7 +24,7 @@ namespace GameServer.Data
 			set
 			{
 				GameDataGateway.数据修改 = value;
-				if (GameDataGateway.数据修改 && !MainProcess.已经启动 && (MainProcess.主线程 == null || !MainProcess.主线程.IsAlive))
+				if (GameDataGateway.数据修改 && !MainProcess.Running && (MainProcess.MainThread == null || !MainProcess.MainThread.IsAlive))
 				{
 					MainForm.Singleton.BeginInvoke(new MethodInvoker(delegate()
 					{
@@ -80,7 +80,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return string.Format("{0}\\User-{1:yyyy-MM-dd-HH-mm-ss-ffff}.db.gz", CustomClass.数据备份目录, MainProcess.当前时间);
+				return string.Format("{0}\\User-{1:yyyy-MM-dd-HH-mm-ss-ffff}.db.gz", CustomClass.数据备份目录, MainProcess.CurrentTime);
 			}
 		}
 
@@ -167,7 +167,7 @@ namespace GameServer.Data
 		}
 
 		// Token: 0x0600066A RID: 1642 RVA: 0x00005D3B File Offset: 0x00003F3B
-		public static void 保存数据()
+		public static void SaveData()
 		{
 			Parallel.ForEach<DataTableBase>(GameDataGateway.Data型表.Values, delegate(DataTableBase x)
 			{
@@ -185,7 +185,7 @@ namespace GameServer.Data
 		}
 
 		// Token: 0x0600066C RID: 1644 RVA: 0x0002F84C File Offset: 0x0002DA4C
-		public static void 导出数据()
+		public static void CleanUp()
 		{
 			if (!Directory.Exists(GameDataGateway.UserFolder))
 			{
@@ -328,7 +328,7 @@ namespace GameServer.Data
 			{
 				MainForm.添加命令日志("正在重新保存整理后的客户数据, 可能花费较长时间, 请稍后...");
 				GameDataGateway.强制保存();
-				GameDataGateway.导出数据();
+				GameDataGateway.CleanUp();
 				MainForm.添加命令日志("数据已经保存到磁盘");
 				MessageBox.Show("客户数据已经整理完毕, 应用程序需要重启");
 				Environment.Exit(0);
@@ -375,8 +375,8 @@ namespace GameServer.Data
 			if (num > 0)
 			{
 				MainForm.添加命令日志("正在重新保存清理后的客户数据, 可能花费较长时间, 请稍后...");
-				GameDataGateway.保存数据();
-				GameDataGateway.导出数据();
+				GameDataGateway.SaveData();
+				GameDataGateway.CleanUp();
 				GameDataGateway.加载数据();
 				MainForm.添加命令日志("数据已经保存到磁盘");
 			}
@@ -589,7 +589,7 @@ namespace GameServer.Data
 				}
 				GameDataGateway.Data型表 = dictionary;
 				GameDataGateway.强制保存();
-				GameDataGateway.导出数据();
+				GameDataGateway.CleanUp();
 				MainForm.添加命令日志("客户数据已经合并完成");
 				MessageBox.Show("客户数据已经合并完毕, 应用程序需要重启");
 				Environment.Exit(0);

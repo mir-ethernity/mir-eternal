@@ -851,7 +851,7 @@ namespace GameServer.Data
 		{
 			this.网络连接.绑定账号 = null;
 			this.网络连接 = null;
-			NetworkServiceGateway.已登录连接数 -= 1U;
+			NetworkServiceGateway.ActiveConnections -= 1U;
 		}
 
 		// Token: 0x06000620 RID: 1568 RVA: 0x0002D804 File Offset: 0x0002BA04
@@ -870,7 +870,7 @@ namespace GameServer.Data
 			当前网络.当前阶段 = GameStage.选择角色;
 			this.网络连接 = 当前网络;
 			this.网络连接.物理地址 = 物理地址;
-			NetworkServiceGateway.已登录连接数 += 1U;
+			NetworkServiceGateway.ActiveConnections += 1U;
 		}
 
 		// Token: 0x06000621 RID: 1569 RVA: 0x00005A6D File Offset: 0x00003C6D
@@ -995,7 +995,7 @@ namespace GameServer.Data
 						当前网络.尝试断开连接(new Exception("删除角色时找回列表已满, 断开连接."));
 						return;
 					}
-					CharacterData.冻结日期.V = MainProcess.当前时间;
+					CharacterData.冻结日期.V = MainProcess.CurrentTime;
 					this.角色列表.Remove(CharacterData);
 					this.冻结列表.Add(CharacterData);
 					当前网络.发送封包(new 删除角色应答
@@ -1028,7 +1028,7 @@ namespace GameServer.Data
 						});
 						return;
 					}
-					if (this.删除日期.V.Date == MainProcess.当前时间.Date)
+					if (this.删除日期.V.Date == MainProcess.CurrentTime.Date)
 					{
 						当前网络.发送封包(new LoginErrorMessagePacket
 						{
@@ -1036,7 +1036,7 @@ namespace GameServer.Data
 						});
 						return;
 					}
-					this.删除日期.V = (CharacterData.删除日期.V = MainProcess.当前时间);
+					this.删除日期.V = (CharacterData.删除日期.V = MainProcess.CurrentTime);
 					this.冻结列表.Remove(CharacterData);
 					this.删除列表.Add(CharacterData);
 					当前网络.发送封包(new DeleteCharacterPacket
@@ -1091,7 +1091,7 @@ namespace GameServer.Data
 				CharacterData CharacterData = GameData as CharacterData;
 				if (CharacterData != null && this.角色列表.Contains(CharacterData))
 				{
-					if (MainProcess.当前时间 < this.封禁日期.V)
+					if (MainProcess.CurrentTime < this.封禁日期.V)
 					{
 						当前网络.发送封包(new LoginErrorMessagePacket
 						{
@@ -1100,7 +1100,7 @@ namespace GameServer.Data
 						});
 						return;
 					}
-					if (MainProcess.当前时间 < CharacterData.封禁日期.V)
+					if (MainProcess.CurrentTime < CharacterData.封禁日期.V)
 					{
 						当前网络.发送封包(new LoginErrorMessagePacket
 						{

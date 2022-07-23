@@ -149,11 +149,11 @@ namespace GameServer.Maps
 				}
 				if (this.副本节点 <= 5)
 				{
-					if (MainProcess.当前时间 > this.节点计时)
+					if (MainProcess.CurrentTime > this.节点计时)
 					{
 						this.地图公告(string.Format("The monster will be refreshed in {0} seconds, please be ready", (int)(30 - this.副本节点 * 5)));
 						this.副本节点 += 1;
-						this.节点计时 = MainProcess.当前时间.AddSeconds(5.0);
+						this.节点计时 = MainProcess.CurrentTime.AddSeconds(5.0);
 						return;
 					}
 				}
@@ -162,10 +162,10 @@ namespace GameServer.Maps
 					if (this.副本守卫.对象死亡)
 					{
 						this.副本节点 = 100;
-						this.节点计时 = MainProcess.当前时间;
+						this.节点计时 = MainProcess.CurrentTime;
 						return;
 					}
-					if (MainProcess.当前时间 > this.节点计时)
+					if (MainProcess.CurrentTime > this.节点计时)
 					{
 						int num = (int)(this.副本节点 - 6);
 						怪物刷新 怪物刷新 = this.怪物波数[num];
@@ -182,7 +182,7 @@ namespace GameServer.Maps
 							new MonsterObject(对应模板, this, int.MaxValue, new Point[]
 							{
 								new Point(995, 283)
-							}, true, true).存活时间 = MainProcess.当前时间.AddMinutes(30.0);
+							}, true, true).存活时间 = MainProcess.CurrentTime.AddMinutes(30.0);
 						}
 						if (++num3 >= 刷新信息.刷新数量)
 						{
@@ -193,11 +193,11 @@ namespace GameServer.Maps
 						{
 							this.副本节点 += 1;
 							this.刷怪记录 = 0;
-							this.节点计时 = MainProcess.当前时间.AddSeconds(60.0);
+							this.节点计时 = MainProcess.CurrentTime.AddSeconds(60.0);
 							return;
 						}
 						this.刷怪记录 = (num2 << 16) + num3;
-						this.节点计时 = MainProcess.当前时间.AddSeconds(2.0);
+						this.节点计时 = MainProcess.CurrentTime.AddSeconds(2.0);
 						return;
 					}
 				}
@@ -206,28 +206,28 @@ namespace GameServer.Maps
 					if (this.副本守卫.对象死亡)
 					{
 						this.副本节点 = 100;
-						this.节点计时 = MainProcess.当前时间;
+						this.节点计时 = MainProcess.CurrentTime;
 						return;
 					}
 					if (this.存活怪物总数 == 0U)
 					{
 						this.地图公告("All monsters have been repulsed, the hall will close in 30 seconds");
 						this.副本节点 = 110;
-						this.节点计时 = MainProcess.当前时间.AddSeconds(30.0);
+						this.节点计时 = MainProcess.CurrentTime.AddSeconds(30.0);
 						return;
 					}
 				}
 				else if (this.副本节点 <= 109)
 				{
-					if (MainProcess.当前时间 > this.节点计时)
+					if (MainProcess.CurrentTime > this.节点计时)
 					{
 						this.地图公告("The guards are dead, the hall will soon be closed");
 						this.副本节点 += 2;
-						this.节点计时 = MainProcess.当前时间.AddSeconds(2.0);
+						this.节点计时 = MainProcess.CurrentTime.AddSeconds(2.0);
 						return;
 					}
 				}
-				else if (this.副本节点 >= 110 && MainProcess.当前时间 > this.节点计时)
+				else if (this.副本节点 >= 110 && MainProcess.CurrentTime > this.节点计时)
 				{
 					foreach (PlayerObject PlayerObject in this.玩家列表.ToList<PlayerObject>())
 					{

@@ -15,12 +15,12 @@ namespace GameServer.Templates
 			随机属性[] array;
 			if (装备属性.DataSheet.TryGetValue((byte)部位, out 装备属性) && 装备属性.概率表.TryGetValue((byte)部位, out array) && array.Length != 0 && (重铸装备 || ComputingClass.计算概率(装备属性.极品概率)))
 			{
-				int num = MainProcess.随机数.Next(100);
+				int num = MainProcess.RandomNumber.Next(100);
 				Dictionary<GameObjectProperties, 随机属性> dictionary = new Dictionary<GameObjectProperties, 随机属性>();
 				int num2 = (num < 装备属性.单条概率) ? 1 : ((num < 装备属性.两条概率) ? 2 : 3);
 				for (int i = 0; i < num2; i++)
 				{
-					随机属性 随机属性 = array[MainProcess.随机数.Next(array.Length)];
+					随机属性 随机属性 = array[MainProcess.RandomNumber.Next(array.Length)];
 					if (!dictionary.ContainsKey(随机属性.对应属性))
 					{
 						dictionary[随机属性.对应属性] = 随机属性;

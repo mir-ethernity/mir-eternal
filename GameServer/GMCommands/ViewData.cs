@@ -18,7 +18,7 @@ namespace GameServer
 		}
 
 		// Token: 0x06000016 RID: 22 RVA: 0x00007EA4 File Offset: 0x000060A4
-		public override void 执行命令()
+		public override void Execute()
 		{
 			MainForm.添加命令日志("<= @" + base.GetType().Name + " The command has been executed and the database details are as follows:");
 			foreach (KeyValuePair<Type, DataTableBase> keyValuePair in GameDataGateway.Data型表)

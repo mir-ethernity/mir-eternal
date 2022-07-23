@@ -18,7 +18,7 @@ namespace GameServer
 		}
 
 		// Token: 0x06000042 RID: 66 RVA: 0x00008584 File Offset: 0x00006784
-		public override void 执行命令()
+		public override void Execute()
 		{
 			if (this.经验倍率 <= 0m)
 			{

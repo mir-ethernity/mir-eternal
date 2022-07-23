@@ -321,8 +321,8 @@ namespace GameServer.Maps
         // Token: 0x0600079E RID: 1950 RVA: 0x0000673C File Offset: 0x0000493C
         public virtual void 处理对象数据()
         {
-            this.处理计时 = MainProcess.当前时间;
-            this.预约时间 = MainProcess.当前时间.AddMilliseconds((double)this.处理间隔);
+            this.处理计时 = MainProcess.CurrentTime;
+            this.预约时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.处理间隔);
         }
 
         // Token: 0x0600079F RID: 1951 RVA: 0x00039EB4 File Offset: 0x000380B4
@@ -346,7 +346,7 @@ namespace GameServer.Maps
         {
 
 
-            this.处理计时 = MainProcess.当前时间;
+            this.处理计时 = MainProcess.CurrentTime;
             this.技能任务 = new HashSet<技能实例>();
             this.陷阱列表 = new HashSet<TrapObject>();
             this.重要邻居 = new HashSet<MapObject>();
@@ -356,7 +356,7 @@ namespace GameServer.Maps
             this.冷却记录 = new MonitorDictionary<int, DateTime>(null);
             this.Buff列表 = new MonitorDictionary<ushort, BuffData>(null);
             this.属性加成 = new Dictionary<object, Dictionary<GameObjectProperties, int>>();
-            this.预约时间 = MainProcess.当前时间.AddMilliseconds((double)MainProcess.随机数.Next(this.处理间隔));
+            this.预约时间 = MainProcess.CurrentTime.AddMilliseconds((double)MainProcess.RandomNumber.Next(this.处理间隔));
         }
 
         // Token: 0x060007A1 RID: 1953 RVA: 0x00039FE8 File Offset: 0x000381E8
@@ -1245,19 +1245,19 @@ namespace GameServer.Maps
         // Token: 0x060007AC RID: 1964 RVA: 0x0003B138 File Offset: 0x00039338
         public virtual bool 能否走动()
         {
-            return !this.对象死亡 && !(MainProcess.当前时间 < this.忙碌时间) && !(MainProcess.当前时间 < this.行走时间) && !this.检查状态(游戏对象状态.忙绿状态 | 游戏对象状态.定身状态 | 游戏对象状态.麻痹状态 | 游戏对象状态.失神状态);
+            return !this.对象死亡 && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.行走时间) && !this.检查状态(游戏对象状态.忙绿状态 | 游戏对象状态.定身状态 | 游戏对象状态.麻痹状态 | 游戏对象状态.失神状态);
         }
 
         // Token: 0x060007AD RID: 1965 RVA: 0x0003B188 File Offset: 0x00039388
         public virtual bool 能否跑动()
         {
-            return !this.对象死亡 && !(MainProcess.当前时间 < this.忙碌时间) && !(MainProcess.当前时间 < this.奔跑时间) && !this.检查状态(游戏对象状态.忙绿状态 | 游戏对象状态.残废状态 | 游戏对象状态.定身状态 | 游戏对象状态.麻痹状态 | 游戏对象状态.失神状态);
+            return !this.对象死亡 && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.奔跑时间) && !this.检查状态(游戏对象状态.忙绿状态 | 游戏对象状态.残废状态 | 游戏对象状态.定身状态 | 游戏对象状态.麻痹状态 | 游戏对象状态.失神状态);
         }
 
         // Token: 0x060007AE RID: 1966 RVA: 0x0003B1D8 File Offset: 0x000393D8
         public virtual bool 能否转动()
         {
-            return !this.对象死亡 && !(MainProcess.当前时间 < this.忙碌时间) && !(MainProcess.当前时间 < this.行走时间) && !this.检查状态(游戏对象状态.忙绿状态 | 游戏对象状态.麻痹状态 | 游戏对象状态.失神状态);
+            return !this.对象死亡 && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.行走时间) && !this.检查状态(游戏对象状态.忙绿状态 | 游戏对象状态.麻痹状态 | 游戏对象状态.失神状态);
         }
 
         // Token: 0x060007AF RID: 1967 RVA: 0x0003B228 File Offset: 0x00039428
@@ -1543,7 +1543,7 @@ namespace GameServer.Maps
             if (this.Buff列表.TryGetValue(编号, out BuffData))
             {
                 MapObject MapObject;
-                if (BuffData.Buff模板.后接Buff编号 != 0 && BuffData.Buff来源 != null && MapGatewayProcess.MapObject表.TryGetValue(BuffData.Buff来源.地图编号, out MapObject) && MapObject == BuffData.Buff来源)
+                if (BuffData.Buff模板.后接Buff编号 != 0 && BuffData.Buff来源 != null && MapGatewayProcess.Objects.TryGetValue(BuffData.Buff来源.地图编号, out MapObject) && MapObject == BuffData.Buff来源)
                 {
                     this.添加Buff时处理(BuffData.Buff模板.后接Buff编号, BuffData.Buff来源);
                 }
@@ -1559,7 +1559,7 @@ namespace GameServer.Maps
                     PlayerObject PlayerObject = this as PlayerObject;
                     if (PlayerObject != null && PlayerObject.主体技能表.ContainsKey(BuffData.绑定技能))
                     {
-                        DateTime dateTime = MainProcess.当前时间.AddMilliseconds((double)BuffData.冷却时间);
+                        DateTime dateTime = MainProcess.CurrentTime.AddMilliseconds((double)BuffData.冷却时间);
                         DateTime t = this.冷却记录.ContainsKey((int)BuffData.绑定技能 | 16777216) ? this.冷却记录[(int)BuffData.绑定技能 | 16777216] : default(DateTime);
                         if (dateTime > t)
                         {
@@ -1658,12 +1658,12 @@ namespace GameServer.Maps
         // Token: 0x060007B5 RID: 1973 RVA: 0x0003BEDC File Offset: 0x0003A0DC
         public void 轮询Buff时处理(BuffData 数据)
         {
-            if (数据.到期消失 && (数据.剩余时间.V -= MainProcess.当前时间 - this.处理计时) < TimeSpan.Zero)
+            if (数据.到期消失 && (数据.剩余时间.V -= MainProcess.CurrentTime - this.处理计时) < TimeSpan.Zero)
             {
                 this.移除Buff时处理(数据.Buff编号.V);
                 return;
             }
-            if ((数据.处理计时.V -= MainProcess.当前时间 - this.处理计时) < TimeSpan.Zero)
+            if ((数据.处理计时.V -= MainProcess.CurrentTime - this.处理计时) < TimeSpan.Zero)
             {
                 数据.处理计时.V += TimeSpan.FromMilliseconds((double)数据.处理间隔);
                 if ((数据.Buff效果 & Buff效果类型.造成伤害) != Buff效果类型.技能标志)
@@ -1956,7 +1956,7 @@ namespace GameServer.Maps
                                     num11 += ((BuffData.Buff模板.效果判定方式 == Buff判定方式.主动攻击增伤) ? num14 : (-num14));
                                     num12 += ((BuffData.Buff模板.效果判定方式 == Buff判定方式.主动攻击增伤) ? num16 : (-num16));
                                     MapObject MapObject2;
-                                    if (BuffData.Buff模板.生效后接编号 != 0 && BuffData.Buff来源 != null && MapGatewayProcess.MapObject表.TryGetValue(BuffData.Buff来源.地图编号, out MapObject2) && MapObject2 == BuffData.Buff来源)
+                                    if (BuffData.Buff模板.生效后接编号 != 0 && BuffData.Buff来源 != null && MapGatewayProcess.Objects.TryGetValue(BuffData.Buff来源.地图编号, out MapObject2) && MapObject2 == BuffData.Buff来源)
                                     {
                                         if (BuffData.Buff模板.后接技能来源)
                                         {
@@ -2119,7 +2119,7 @@ namespace GameServer.Maps
                                     num11 += ((BuffData2.Buff模板.效果判定方式 == Buff判定方式.被动受伤增伤) ? num17 : (-num17));
                                     num12 += ((BuffData2.Buff模板.效果判定方式 == Buff判定方式.被动受伤增伤) ? num19 : (-num19));
                                     MapObject MapObject3;
-                                    if (BuffData2.Buff模板.生效后接编号 != 0 && BuffData2.Buff来源 != null && MapGatewayProcess.MapObject表.TryGetValue(BuffData2.Buff来源.地图编号, out MapObject3) && MapObject3 == BuffData2.Buff来源)
+                                    if (BuffData2.Buff模板.生效后接编号 != 0 && BuffData2.Buff来源 != null && MapGatewayProcess.Objects.TryGetValue(BuffData2.Buff来源.地图编号, out MapObject3) && MapObject3 == BuffData2.Buff来源)
                                     {
                                         if (BuffData2.Buff模板.后接技能来源)
                                         {
@@ -2148,8 +2148,8 @@ namespace GameServer.Maps
                         详情.技能伤害 = 技能伤害;
                     }
                 }
-                this.脱战时间 = MainProcess.当前时间.AddSeconds(10.0);
-                MapObject.脱战时间 = MainProcess.当前时间.AddSeconds(10.0);
+                this.脱战时间 = MainProcess.CurrentTime.AddSeconds(10.0);
+                MapObject.脱战时间 = MainProcess.CurrentTime.AddSeconds(10.0);
                 if ((详情.技能反馈 & 技能命中反馈.闪避) == 技能命中反馈.正常)
                 {
                     foreach (BuffData BuffData3 in this.Buff列表.Values.ToList<BuffData>())
@@ -2163,10 +2163,10 @@ namespace GameServer.Maps
                 MonsterObject MonsterObject2 = this as MonsterObject;
                 if (MonsterObject2 != null)
                 {
-                    MonsterObject2.硬直时间 = MainProcess.当前时间.AddMilliseconds((double)参数.目标硬直时间);
+                    MonsterObject2.硬直时间 = MainProcess.CurrentTime.AddMilliseconds((double)参数.目标硬直时间);
                     if (MapObject is PlayerObject || MapObject is PetObject)
                     {
-                        MonsterObject2.HateObject.添加仇恨(MapObject, MainProcess.当前时间.AddMilliseconds((double)MonsterObject2.仇恨时长), 详情.技能伤害);
+                        MonsterObject2.HateObject.添加仇恨(MapObject, MainProcess.CurrentTime.AddMilliseconds((double)MonsterObject2.仇恨时长), 详情.技能伤害);
                     }
                 }
                 else
@@ -2188,7 +2188,7 @@ namespace GameServer.Maps
                             {
                                 if (PetObject.邻居列表.Contains(MapObject) && !MapObject.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
                                 {
-                                    PetObject.HateObject.添加仇恨(MapObject, MainProcess.当前时间.AddMilliseconds((double)PetObject.仇恨时长), 0);
+                                    PetObject.HateObject.添加仇恨(MapObject, MainProcess.CurrentTime.AddMilliseconds((double)PetObject.仇恨时长), 0);
                                 }
                             }
                         }
@@ -2232,7 +2232,7 @@ namespace GameServer.Maps
                                 {
                                     if (PetObject4.邻居列表.Contains(MapObject) && !MapObject.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
                                     {
-                                        PetObject4.HateObject.添加仇恨(MapObject, MainProcess.当前时间.AddMilliseconds((double)PetObject4.仇恨时长), 0);
+                                        PetObject4.HateObject.添加仇恨(MapObject, MainProcess.CurrentTime.AddMilliseconds((double)PetObject4.仇恨时长), 0);
                                     }
                                 }
                             }
@@ -2264,16 +2264,16 @@ namespace GameServer.Maps
                         {
                             if (PetObject5.邻居列表.Contains(this))
                             {
-                                PetObject5.HateObject.添加仇恨(this, MainProcess.当前时间.AddMilliseconds((double)PetObject5.仇恨时长), 参数.增加宠物仇恨 ? 详情.技能伤害 : 0);
+                                PetObject5.HateObject.添加仇恨(this, MainProcess.CurrentTime.AddMilliseconds((double)PetObject5.仇恨时长), 参数.增加宠物仇恨 ? 详情.技能伤害 : 0);
                             }
                         }
                     }
                     EquipmentData EquipmentData;
-                    if (MainProcess.当前时间 > PlayerObject4.战具计时 && !PlayerObject4.对象死亡 && PlayerObject4.当前体力 < PlayerObject4[GameObjectProperties.最大体力] && PlayerObject4.角色装备.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0 && (EquipmentData.物品编号 == 99999106 || EquipmentData.物品编号 == 99999107))
+                    if (MainProcess.CurrentTime > PlayerObject4.战具计时 && !PlayerObject4.对象死亡 && PlayerObject4.当前体力 < PlayerObject4[GameObjectProperties.最大体力] && PlayerObject4.角色装备.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0 && (EquipmentData.物品编号 == 99999106 || EquipmentData.物品编号 == 99999107))
                     {
                         PlayerObject4.当前体力 += ((this is MonsterObject) ? 20 : 10);
                         PlayerObject4.战具损失持久(1);
-                        PlayerObject4.战具计时 = MainProcess.当前时间.AddMilliseconds(1000.0);
+                        PlayerObject4.战具计时 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
                     }
                 }
                 if ((this.当前体力 = Math.Max(0, this.当前体力 - 详情.技能伤害)) == 0)
@@ -2395,7 +2395,7 @@ namespace GameServer.Maps
                     {
                         this.治疗次数 = (int)((byte)num2);
                         this.治疗基数 = num3;
-                        this.治疗时间 = MainProcess.当前时间.AddMilliseconds(500.0);
+                        this.治疗时间 = MainProcess.CurrentTime.AddMilliseconds(500.0);
                     }
                     return;
                 }
@@ -2608,7 +2608,7 @@ namespace GameServer.Maps
                     {
                         PetObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                     }
-                    else if (this.网格距离(对象) > PetObject.仇恨范围 && PetObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情) && 仇恨详情.仇恨时间 < MainProcess.当前时间)
+                    else if (this.网格距离(对象) > PetObject.仇恨范围 && PetObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情) && 仇恨详情.仇恨时间 < MainProcess.CurrentTime)
                     {
                         PetObject.HateObject.移除仇恨(对象);
                     }
@@ -2623,7 +2623,7 @@ namespace GameServer.Maps
                         {
                             MonsterObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                         }
-                        else if (this.网格距离(对象) > MonsterObject.仇恨范围 && MonsterObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情2) && 仇恨详情2.仇恨时间 < MainProcess.当前时间)
+                        else if (this.网格距离(对象) > MonsterObject.仇恨范围 && MonsterObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情2) && 仇恨详情2.仇恨时间 < MainProcess.CurrentTime)
                         {
                             MonsterObject.HateObject.移除仇恨(对象);
                         }
@@ -2667,7 +2667,7 @@ namespace GameServer.Maps
                         return;
                     }
                     HateObject.仇恨详情 仇恨详情3;
-                    if (PetObject2.网格距离(this) > PetObject2.仇恨范围 && PetObject2.HateObject.仇恨列表.TryGetValue(this, out 仇恨详情3) && 仇恨详情3.仇恨时间 < MainProcess.当前时间)
+                    if (PetObject2.网格距离(this) > PetObject2.仇恨范围 && PetObject2.HateObject.仇恨列表.TryGetValue(this, out 仇恨详情3) && 仇恨详情3.仇恨时间 < MainProcess.CurrentTime)
                     {
                         PetObject2.HateObject.移除仇恨(this);
                         return;
@@ -2684,7 +2684,7 @@ namespace GameServer.Maps
                             return;
                         }
                         HateObject.仇恨详情 仇恨详情4;
-                        if (MonsterObject2.网格距离(this) > MonsterObject2.仇恨范围 && MonsterObject2.HateObject.仇恨列表.TryGetValue(this, out 仇恨详情4) && 仇恨详情4.仇恨时间 < MainProcess.当前时间)
+                        if (MonsterObject2.网格距离(this) > MonsterObject2.仇恨范围 && MonsterObject2.HateObject.仇恨列表.TryGetValue(this, out 仇恨详情4) && 仇恨详情4.仇恨时间 < MainProcess.CurrentTime)
                         {
                             MonsterObject2.HateObject.移除仇恨(this);
                             return;
@@ -2862,7 +2862,7 @@ namespace GameServer.Maps
                                     return;
                                 }
                                 HateObject.仇恨详情 仇恨详情;
-                                if (this.网格距离(对象) > PetObject.仇恨范围 && PetObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情) && 仇恨详情.仇恨时间 < MainProcess.当前时间)
+                                if (this.网格距离(对象) > PetObject.仇恨范围 && PetObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情) && 仇恨详情.仇恨时间 < MainProcess.CurrentTime)
                                 {
                                     PetObject.HateObject.移除仇恨(对象);
                                     return;
@@ -2879,7 +2879,7 @@ namespace GameServer.Maps
                                         return;
                                     }
                                     HateObject.仇恨详情 仇恨详情2;
-                                    if (this.网格距离(对象) > MonsterObject.仇恨范围 && MonsterObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情2) && 仇恨详情2.仇恨时间 < MainProcess.当前时间)
+                                    if (this.网格距离(对象) > MonsterObject.仇恨范围 && MonsterObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情2) && 仇恨详情2.仇恨时间 < MainProcess.CurrentTime)
                                     {
                                         MonsterObject.HateObject.移除仇恨(对象);
                                         return;
@@ -3031,7 +3031,7 @@ namespace GameServer.Maps
                                     return;
                                 }
                                 HateObject.仇恨详情 仇恨详情3;
-                                if (this.网格距离(对象) > PetObject2.仇恨范围 && PetObject2.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情3) && 仇恨详情3.仇恨时间 < MainProcess.当前时间)
+                                if (this.网格距离(对象) > PetObject2.仇恨范围 && PetObject2.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情3) && 仇恨详情3.仇恨时间 < MainProcess.CurrentTime)
                                 {
                                     PetObject2.HateObject.移除仇恨(对象);
                                     return;
@@ -3047,7 +3047,7 @@ namespace GameServer.Maps
                                     {
                                         MonsterObject2.HateObject.添加仇恨(对象, default(DateTime), 0);
                                     }
-                                    else if (this.网格距离(对象) > MonsterObject2.仇恨范围 && MonsterObject2.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情4) && 仇恨详情4.仇恨时间 < MainProcess.当前时间)
+                                    else if (this.网格距离(对象) > MonsterObject2.仇恨范围 && MonsterObject2.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情4) && 仇恨详情4.仇恨时间 < MainProcess.CurrentTime)
                                     {
                                         MonsterObject2.HateObject.移除仇恨(对象);
                                     }
@@ -3217,7 +3217,7 @@ namespace GameServer.Maps
                 {
                     PetObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                 }
-                else if (this.网格距离(对象) > PetObject.仇恨范围 && PetObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情) && 仇恨详情.仇恨时间 < MainProcess.当前时间)
+                else if (this.网格距离(对象) > PetObject.仇恨范围 && PetObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情) && 仇恨详情.仇恨时间 < MainProcess.CurrentTime)
                 {
                     PetObject.HateObject.移除仇恨(对象);
                 }
@@ -3231,7 +3231,7 @@ namespace GameServer.Maps
                     return;
                 }
                 HateObject.仇恨详情 仇恨详情2;
-                if (this.网格距离(对象) > MonsterObject.仇恨范围 && MonsterObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情2) && 仇恨详情2.仇恨时间 < MainProcess.当前时间)
+                if (this.网格距离(对象) > MonsterObject.仇恨范围 && MonsterObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情2) && 仇恨详情2.仇恨时间 < MainProcess.CurrentTime)
                 {
                     MonsterObject.HateObject.移除仇恨(对象);
                 }

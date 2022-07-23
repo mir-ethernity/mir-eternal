@@ -18,7 +18,7 @@ namespace GameServer
 		}
 
 		// Token: 0x0600002C RID: 44 RVA: 0x00008104 File Offset: 0x00006304
-		public override void 执行命令()
+		public override void Execute()
 		{
 			if (Regex.IsMatch(this.物理地址, "^([0-9a-fA-F]{2}(?:[:-]?[0-9a-fA-F]{2}){5})$"))
 			{

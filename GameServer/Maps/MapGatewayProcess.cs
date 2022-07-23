@@ -15,11 +15,11 @@ namespace GameServer.Maps
 		// Token: 0x06000728 RID: 1832 RVA: 0x00036B38 File Offset: 0x00034D38
 		private static void 沙城处理()
 		{
-			if (MainProcess.当前时间 < MapGatewayProcess.沙城处理计时)
+			if (MainProcess.CurrentTime < MapGatewayProcess.沙城处理计时)
 			{
 				return;
 			}
-			MapGatewayProcess.沙城处理计时 = MainProcess.当前时间.AddMilliseconds(50.0);
+			MapGatewayProcess.沙城处理计时 = MainProcess.CurrentTime.AddMilliseconds(50.0);
 			if (MapGatewayProcess.沙城地图 == null)
 			{
 				游戏Buff 游戏Buff;
@@ -86,7 +86,7 @@ namespace GameServer.Maps
 				if (!MapObject.对象死亡)
 				{
 					PlayerObject PlayerObject = MapObject as PlayerObject;
-					if (PlayerObject != null && MainProcess.当前时间 > PlayerObject.忙碌时间)
+					if (PlayerObject != null && MainProcess.CurrentTime > PlayerObject.忙碌时间)
 					{
 						PlayerObject.玩家切换地图(MapGatewayProcess.沙城地图, 地图区域类型.未知区域, MapGatewayProcess.皇宫下门入口);
 					}
@@ -97,7 +97,7 @@ namespace GameServer.Maps
 				if (!MapObject2.对象死亡)
 				{
 					PlayerObject PlayerObject2 = MapObject2 as PlayerObject;
-					if (PlayerObject2 != null && MainProcess.当前时间 > PlayerObject2.忙碌时间)
+					if (PlayerObject2 != null && MainProcess.CurrentTime > PlayerObject2.忙碌时间)
 					{
 						PlayerObject2.玩家切换地图(MapGatewayProcess.沙城地图, 地图区域类型.未知区域, MapGatewayProcess.皇宫上门入口);
 					}
@@ -108,7 +108,7 @@ namespace GameServer.Maps
 				if (!MapObject3.对象死亡)
 				{
 					PlayerObject PlayerObject3 = MapObject3 as PlayerObject;
-					if (PlayerObject3 != null && MainProcess.当前时间 > PlayerObject3.忙碌时间)
+					if (PlayerObject3 != null && MainProcess.CurrentTime > PlayerObject3.忙碌时间)
 					{
 						PlayerObject3.玩家切换地图(MapGatewayProcess.沙城地图, 地图区域类型.未知区域, MapGatewayProcess.皇宫左门入口);
 					}
@@ -119,7 +119,7 @@ namespace GameServer.Maps
 				if (!MapObject4.对象死亡)
 				{
 					PlayerObject PlayerObject4 = MapObject4 as PlayerObject;
-					if (PlayerObject4 != null && MainProcess.当前时间 > PlayerObject4.忙碌时间)
+					if (PlayerObject4 != null && MainProcess.CurrentTime > PlayerObject4.忙碌时间)
 					{
 						PlayerObject4.玩家切换地图(MapGatewayProcess.沙城地图, 地图区域类型.未知区域, MapGatewayProcess.皇宫正门出口);
 					}
@@ -130,7 +130,7 @@ namespace GameServer.Maps
 				if (!MapObject5.对象死亡)
 				{
 					PlayerObject PlayerObject5 = MapObject5 as PlayerObject;
-					if (PlayerObject5 != null && MainProcess.当前时间 > PlayerObject5.忙碌时间)
+					if (PlayerObject5 != null && MainProcess.CurrentTime > PlayerObject5.忙碌时间)
 					{
 						PlayerObject5.玩家切换地图(MapGatewayProcess.沙城地图, 地图区域类型.未知区域, MapGatewayProcess.皇宫正门出口);
 					}
@@ -141,7 +141,7 @@ namespace GameServer.Maps
 				if (!MapObject6.对象死亡)
 				{
 					PlayerObject PlayerObject6 = MapObject6 as PlayerObject;
-					if (PlayerObject6 != null && MainProcess.当前时间 > PlayerObject6.忙碌时间 && PlayerObject6.所属行会 != null && PlayerObject6.所属行会 == SystemData.数据.占领行会.V)
+					if (PlayerObject6 != null && MainProcess.CurrentTime > PlayerObject6.忙碌时间 && PlayerObject6.所属行会 != null && PlayerObject6.所属行会 == SystemData.数据.占领行会.V)
 					{
 						PlayerObject6.玩家切换地图(MapGatewayProcess.沙城地图, 地图区域类型.未知区域, MapGatewayProcess.皇宫正门入口);
 					}
@@ -152,7 +152,7 @@ namespace GameServer.Maps
 				if (!MapObject7.对象死亡)
 				{
 					PlayerObject PlayerObject7 = MapObject7 as PlayerObject;
-					if (PlayerObject7 != null && MainProcess.当前时间 > PlayerObject7.忙碌时间 && PlayerObject7.所属行会 != null && PlayerObject7.所属行会 == SystemData.数据.占领行会.V)
+					if (PlayerObject7 != null && MainProcess.CurrentTime > PlayerObject7.忙碌时间 && PlayerObject7.所属行会 != null && PlayerObject7.所属行会 == SystemData.数据.占领行会.V)
 					{
 						PlayerObject7.玩家切换地图(MapGatewayProcess.沙城地图, 地图区域类型.未知区域, MapGatewayProcess.皇宫正门入口);
 					}
@@ -163,7 +163,7 @@ namespace GameServer.Maps
 				if (!MapObject8.对象死亡)
 				{
 					PlayerObject PlayerObject8 = MapObject8 as PlayerObject;
-					if (PlayerObject8 != null && MainProcess.当前时间 > PlayerObject8.忙碌时间 && PlayerObject8.所属行会 != null && PlayerObject8.所属行会 == SystemData.数据.占领行会.V)
+					if (PlayerObject8 != null && MainProcess.CurrentTime > PlayerObject8.忙碌时间 && PlayerObject8.所属行会 != null && PlayerObject8.所属行会 == SystemData.数据.占领行会.V)
 					{
 						PlayerObject8.玩家切换地图(MapGatewayProcess.沙城地图, 地图区域类型.未知区域, MapGatewayProcess.皇宫正门入口);
 					}
@@ -173,7 +173,7 @@ namespace GameServer.Maps
 			{
 				foreach (KeyValuePair<DateTime, GuildData> keyValuePair in SystemData.数据.申请行会.ToList<KeyValuePair<DateTime, GuildData>>())
 				{
-					if (keyValuePair.Key.Date < MainProcess.当前时间.Date)
+					if (keyValuePair.Key.Date < MainProcess.CurrentTime.Date)
 					{
 						SystemData.数据.申请行会.Remove(keyValuePair.Key);
 					}
@@ -182,7 +182,7 @@ namespace GameServer.Maps
 				{
 					return;
 				}
-				if (MainProcess.当前时间.Hour != 19 || MainProcess.当前时间.Minute != 50)
+				if (MainProcess.CurrentTime.Hour != 19 || MainProcess.CurrentTime.Minute != 50)
 				{
 					return;
 				}
@@ -191,7 +191,7 @@ namespace GameServer.Maps
 					while (enumerator3.MoveNext())
 					{
 						KeyValuePair<DateTime, GuildData> keyValuePair2 = enumerator3.Current;
-						if (keyValuePair2.Key.Date == MainProcess.当前时间.Date)
+						if (keyValuePair2.Key.Date == MainProcess.CurrentTime.Date)
 						{
 							NetworkServiceGateway.发送公告("The Shabak Siege will start in 10 minutes, please be ready!", true);
 							MapGatewayProcess.沙城节点 += 1;
@@ -203,11 +203,11 @@ namespace GameServer.Maps
 			}
 			if (MapGatewayProcess.沙城节点 == 1)
 			{
-				if (MainProcess.当前时间.Hour == 20)
+				if (MainProcess.CurrentTime.Hour == 20)
 				{
 					foreach (KeyValuePair<DateTime, GuildData> keyValuePair3 in SystemData.数据.申请行会.ToList<KeyValuePair<DateTime, GuildData>>())
 					{
-						if (keyValuePair3.Key.Date == MainProcess.当前时间.Date)
+						if (keyValuePair3.Key.Date == MainProcess.CurrentTime.Date)
 						{
 							MapGatewayProcess.攻城行会.Add(keyValuePair3.Value);
 							SystemData.数据.申请行会.Remove(keyValuePair3.Key);
@@ -261,8 +261,8 @@ namespace GameServer.Maps
 							}
 							if (!GuildData.敌对行会.ContainsKey(v))
 							{
-								GuildData.敌对行会.Add(v, MainProcess.当前时间.AddHours(1.0));
-								v.敌对行会.Add(GuildData, MainProcess.当前时间.AddHours(1.0));
+								GuildData.敌对行会.Add(v, MainProcess.CurrentTime.AddHours(1.0));
+								v.敌对行会.Add(GuildData, MainProcess.CurrentTime.AddHours(1.0));
 								GuildData.发送封包(new AddDiplomaticAnnouncementPacket
 								{
 									外交类型 = 2,
@@ -270,7 +270,7 @@ namespace GameServer.Maps
 									行会名字 = v.行会名字.V,
 									行会等级 = v.行会等级.V,
 									行会人数 = (byte)v.行会成员.Count,
-									外交时间 = (int)(GuildData.敌对行会[v] - MainProcess.当前时间).TotalSeconds
+									外交时间 = (int)(GuildData.敌对行会[v] - MainProcess.CurrentTime).TotalSeconds
 								});
 								v.发送封包(new AddDiplomaticAnnouncementPacket
 								{
@@ -279,13 +279,13 @@ namespace GameServer.Maps
 									行会名字 = GuildData.行会名字.V,
 									行会等级 = GuildData.行会等级.V,
 									行会人数 = (byte)GuildData.行会成员.Count,
-									外交时间 = (int)(v.敌对行会[GuildData] - MainProcess.当前时间).TotalSeconds
+									外交时间 = (int)(v.敌对行会[GuildData] - MainProcess.CurrentTime).TotalSeconds
 								});
 							}
-							if (GuildData.敌对行会[v] < MainProcess.当前时间.AddHours(1.0))
+							if (GuildData.敌对行会[v] < MainProcess.CurrentTime.AddHours(1.0))
 							{
-								GuildData.敌对行会[v] = MainProcess.当前时间.AddHours(1.0);
-								v.敌对行会[GuildData] = MainProcess.当前时间.AddHours(1.0);
+								GuildData.敌对行会[v] = MainProcess.CurrentTime.AddHours(1.0);
+								v.敌对行会[GuildData] = MainProcess.CurrentTime.AddHours(1.0);
 								GuildData.发送封包(new AddDiplomaticAnnouncementPacket
 								{
 									外交类型 = 2,
@@ -293,7 +293,7 @@ namespace GameServer.Maps
 									行会名字 = v.行会名字.V,
 									行会等级 = v.行会等级.V,
 									行会人数 = (byte)v.行会成员.Count,
-									外交时间 = (int)(GuildData.敌对行会[v] - MainProcess.当前时间).TotalSeconds
+									外交时间 = (int)(GuildData.敌对行会[v] - MainProcess.CurrentTime).TotalSeconds
 								});
 								v.发送封包(new AddDiplomaticAnnouncementPacket
 								{
@@ -302,7 +302,7 @@ namespace GameServer.Maps
 									行会名字 = GuildData.行会名字.V,
 									行会等级 = GuildData.行会等级.V,
 									行会人数 = (byte)GuildData.行会成员.Count,
-									外交时间 = (int)(v.敌对行会[GuildData] - MainProcess.当前时间).TotalSeconds
+									外交时间 = (int)(v.敌对行会[GuildData] - MainProcess.CurrentTime).TotalSeconds
 								});
 							}
 						}
@@ -450,9 +450,9 @@ namespace GameServer.Maps
 					{
 						if (MapGatewayProcess.八卦坛激活计时 == DateTime.MaxValue)
 						{
-							MapGatewayProcess.八卦坛激活计时 = MainProcess.当前时间.AddSeconds(10.0);
+							MapGatewayProcess.八卦坛激活计时 = MainProcess.CurrentTime.AddSeconds(10.0);
 						}
-						else if (MainProcess.当前时间 > MapGatewayProcess.八卦坛激活计时)
+						else if (MainProcess.CurrentTime > MapGatewayProcess.八卦坛激活计时)
 						{
 							MapGatewayProcess.八卦坛激活行会 = GuildData2;
 							MapGatewayProcess.八卦坛激活法阵 = new GuardInstance(地图守卫.DataSheet[6123], MapGatewayProcess.沙城地图, GameDirection.左方, MapGatewayProcess.八卦坛坐标中);
@@ -504,17 +504,17 @@ namespace GameServer.Maps
 						行会编号 = GuildData3.行会编号
 					});
 					SystemData.数据.占领行会.V = GuildData3;
-					SystemData.数据.占领时间.V = MainProcess.当前时间;
+					SystemData.数据.占领时间.V = MainProcess.CurrentTime;
 					foreach (KeyValuePair<CharacterData, GuildJobs> keyValuePair4 in GuildData3.行会成员)
 					{
-						keyValuePair4.Key.攻沙日期.V = MainProcess.当前时间;
+						keyValuePair4.Key.攻沙日期.V = MainProcess.CurrentTime;
 					}
 					NetworkServiceGateway.发送公告(string.Format("The Battle of Shabak has ended, and [{0}] has become the new Shabak Guild", GuildData3), true);
-					MapGatewayProcess.八卦坛激活计时 = MainProcess.当前时间.AddMinutes(5.0);
+					MapGatewayProcess.八卦坛激活计时 = MainProcess.CurrentTime.AddMinutes(5.0);
 					MapGatewayProcess.沙城节点 += 1;
 					return;
 				}
-				if (MainProcess.当前时间.Hour >= 21)
+				if (MainProcess.CurrentTime.Hour >= 21)
 				{
 					if (SystemData.数据.占领行会.V == null)
 					{
@@ -528,15 +528,15 @@ namespace GameServer.Maps
 					{
 						foreach (KeyValuePair<CharacterData, GuildJobs> keyValuePair5 in SystemData.数据.占领行会.V.行会成员)
 						{
-							keyValuePair5.Key.攻沙日期.V = MainProcess.当前时间;
+							keyValuePair5.Key.攻沙日期.V = MainProcess.CurrentTime;
 						}
 					}
-					MapGatewayProcess.八卦坛激活计时 = MainProcess.当前时间.AddMinutes(5.0);
+					MapGatewayProcess.八卦坛激活计时 = MainProcess.CurrentTime.AddMinutes(5.0);
 					MapGatewayProcess.沙城节点 += 1;
 					return;
 				}
 			}
-			else if (MapGatewayProcess.沙城节点 == 3 && MainProcess.当前时间 > MapGatewayProcess.八卦坛激活计时)
+			else if (MapGatewayProcess.沙城节点 == 3 && MainProcess.CurrentTime > MapGatewayProcess.八卦坛激活计时)
 			{
 				MonsterObject MonsterObject = MapGatewayProcess.沙城城门;
 				if (MonsterObject != null)
@@ -608,9 +608,9 @@ namespace GameServer.Maps
 		}
 
 		// Token: 0x06000729 RID: 1833 RVA: 0x00038344 File Offset: 0x00036544
-		public static void 处理数据()
+		public static void Process()
 		{
-			foreach (KeyValuePair<int, MapObject> keyValuePair in MapGatewayProcess.激活对象表)
+			foreach (KeyValuePair<int, MapObject> keyValuePair in MapGatewayProcess.ActiveObjects)
 			{
 				MapObject value = keyValuePair.Value;
 				if (value != null)
@@ -618,19 +618,19 @@ namespace GameServer.Maps
 					value.处理对象数据();
 				}
 			}
-			if (MapGatewayProcess.对象表计数 >= MapGatewayProcess.次要对象表.Count)
+			if (MapGatewayProcess.对象表计数 >= MapGatewayProcess.SecondaryObjects.Count)
 			{
 				MapGatewayProcess.对象表计数 = 0;
-				MapGatewayProcess.次要对象表 = MapGatewayProcess.对象备份表;
+				MapGatewayProcess.SecondaryObjects = MapGatewayProcess.对象备份表;
 				MapGatewayProcess.对象备份表 = new List<MapObject>();
 			}
 			int num = 0;
-			while (num < 100 && MapGatewayProcess.对象表计数 < MapGatewayProcess.次要对象表.Count)
+			while (num < 100 && MapGatewayProcess.对象表计数 < MapGatewayProcess.SecondaryObjects.Count)
 			{
-				if (MapGatewayProcess.次要对象表[MapGatewayProcess.对象表计数].次要对象)
+				if (MapGatewayProcess.SecondaryObjects[MapGatewayProcess.对象表计数].次要对象)
 				{
-					MapGatewayProcess.次要对象表[MapGatewayProcess.对象表计数].处理对象数据();
-					MapGatewayProcess.对象备份表.Add(MapGatewayProcess.次要对象表[MapGatewayProcess.对象表计数]);
+					MapGatewayProcess.SecondaryObjects[MapGatewayProcess.对象表计数].处理对象数据();
+					MapGatewayProcess.对象备份表.Add(MapGatewayProcess.SecondaryObjects[MapGatewayProcess.对象表计数]);
 				}
 				MapGatewayProcess.对象表计数++;
 				num++;
@@ -640,24 +640,24 @@ namespace GameServer.Maps
 				MapObject MapObject;
 				if (MapGatewayProcess.移除激活表.TryDequeue(out MapObject) && !MapObject.激活对象)
 				{
-					MapGatewayProcess.激活对象表.Remove(MapObject.地图编号);
+					MapGatewayProcess.ActiveObjects.Remove(MapObject.地图编号);
 				}
 			}
 			while (!MapGatewayProcess.添加激活表.IsEmpty)
 			{
 				MapObject MapObject2;
-				if (MapGatewayProcess.添加激活表.TryDequeue(out MapObject2) && MapObject2.激活对象 && !MapGatewayProcess.激活对象表.ContainsKey(MapObject2.地图编号))
+				if (MapGatewayProcess.添加激活表.TryDequeue(out MapObject2) && MapObject2.激活对象 && !MapGatewayProcess.ActiveObjects.ContainsKey(MapObject2.地图编号))
 				{
-					MapGatewayProcess.激活对象表.Add(MapObject2.地图编号, MapObject2);
+					MapGatewayProcess.ActiveObjects.Add(MapObject2.地图编号, MapObject2);
 				}
 			}
-			if (MainProcess.当前时间.Minute == 55 && MainProcess.当前时间.Hour != MapGatewayProcess.通知时间.Hour)
+			if (MainProcess.CurrentTime.Minute == 55 && MainProcess.CurrentTime.Hour != MapGatewayProcess.通知时间.Hour)
 			{
-				if (MainProcess.当前时间.Hour + 1 == (int)CustomClass.武斗场时间一 || MainProcess.当前时间.Hour + 1 == (int)CustomClass.武斗场时间二)
+				if (MainProcess.CurrentTime.Hour + 1 == (int)CustomClass.武斗场时间一 || MainProcess.CurrentTime.Hour + 1 == (int)CustomClass.武斗场时间二)
 				{
 					NetworkServiceGateway.发送公告("The Experience Arena will open in five minutes, so get ready if you want to participate!", true);
 				}
-				MapGatewayProcess.通知时间 = MainProcess.当前时间;
+				MapGatewayProcess.通知时间 = MainProcess.CurrentTime;
 			}
 			using (HashSet<MapInstance>.Enumerator enumerator2 = MapGatewayProcess.副本实例表.GetEnumerator())
 			{
@@ -691,16 +691,16 @@ namespace GameServer.Maps
 		}
 
 		// Token: 0x0600072A RID: 1834 RVA: 0x000385A4 File Offset: 0x000367A4
-		public static void 开启地图()
+		public static void Start()
 		{
-			MapGatewayProcess.次要对象表 = new List<MapObject>();
+			MapGatewayProcess.SecondaryObjects = new List<MapObject>();
 			MapGatewayProcess.对象备份表 = new List<MapObject>();
 			MapGatewayProcess.副本实例表 = new HashSet<MapInstance>();
 			MapGatewayProcess.副本移除表 = new ConcurrentQueue<MapInstance>();
 			MapGatewayProcess.添加激活表 = new ConcurrentQueue<MapObject>();
 			MapGatewayProcess.移除激活表 = new ConcurrentQueue<MapObject>();
-			MapGatewayProcess.激活对象表 = new Dictionary<int, MapObject>();
-			MapGatewayProcess.MapObject表 = new Dictionary<int, MapObject>();
+			MapGatewayProcess.ActiveObjects = new Dictionary<int, MapObject>();
+			MapGatewayProcess.Objects = new Dictionary<int, MapObject>();
 			MapGatewayProcess.MapInstance表 = new Dictionary<int, MapInstance>();
 			MapGatewayProcess.玩家对象表 = new Dictionary<int, PlayerObject>();
 			MapGatewayProcess.怪物对象表 = new Dictionary<int, MonsterObject>();
@@ -833,7 +833,7 @@ namespace GameServer.Maps
 		}
 
 		// Token: 0x0600072B RID: 1835 RVA: 0x00038D08 File Offset: 0x00036F08
-		public static void 清理物品()
+		public static void CleanUp()
 		{
 			foreach (ItemObject ItemObject in MapGatewayProcess.物品对象表.Values)
 			{
@@ -855,7 +855,7 @@ namespace GameServer.Maps
 		// Token: 0x0600072C RID: 1836 RVA: 0x00038DEC File Offset: 0x00036FEC
 		public static void 添加MapObject(MapObject 当前对象)
 		{
-			MapGatewayProcess.MapObject表.Add(当前对象.地图编号, 当前对象);
+			MapGatewayProcess.Objects.Add(当前对象.地图编号, 当前对象);
 			GameObjectType 对象类型 = 当前对象.对象类型;
 			if (对象类型 <= GameObjectType.Npcc)
 			{
@@ -899,7 +899,7 @@ namespace GameServer.Maps
 		// Token: 0x0600072D RID: 1837 RVA: 0x00038EC8 File Offset: 0x000370C8
 		public static void 移除MapObject(MapObject 当前对象)
 		{
-			MapGatewayProcess.MapObject表.Remove(当前对象.地图编号);
+			MapGatewayProcess.Objects.Remove(当前对象.地图编号);
 			GameObjectType 对象类型 = 当前对象.对象类型;
 			if (对象类型 <= GameObjectType.Npcc)
 			{
@@ -1006,16 +1006,16 @@ namespace GameServer.Maps
 		public static int 对象表计数;
 
 		// Token: 0x04000C49 RID: 3145
-		public static List<MapObject> 次要对象表;
+		public static List<MapObject> SecondaryObjects;
 
 		// Token: 0x04000C4A RID: 3146
 		public static List<MapObject> 对象备份表;
 
 		// Token: 0x04000C4B RID: 3147
-		public static Dictionary<int, MapObject> 激活对象表;
+		public static Dictionary<int, MapObject> ActiveObjects;
 
 		// Token: 0x04000C4C RID: 3148
-		public static Dictionary<int, MapObject> MapObject表;
+		public static Dictionary<int, MapObject> Objects;
 
 		// Token: 0x04000C4D RID: 3149
 		public static Dictionary<int, PlayerObject> 玩家对象表;

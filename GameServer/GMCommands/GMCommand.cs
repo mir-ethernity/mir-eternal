@@ -111,7 +111,7 @@ namespace GameServer
 		}
 
 		// Token: 0x06000004 RID: 4
-		public abstract void 执行命令();
+		public abstract void Execute();
 
 		// Token: 0x17000001 RID: 1
 		// (get) Token: 0x06000005 RID: 5

@@ -17,7 +17,7 @@ namespace GameServer
 		}
 
 		// Token: 0x06000055 RID: 85 RVA: 0x00008A48 File Offset: 0x00006C48
-		public override void 执行命令()
+		public override void Execute()
 		{
 			GameData GameData;
 			if (GameDataGateway.CharacterDataTable.Keyword.TryGetValue(this.Character, out GameData))

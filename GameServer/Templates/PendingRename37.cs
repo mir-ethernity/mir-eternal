@@ -29,7 +29,7 @@ namespace GameServer.Templates
 		{
 			get
 			{
-				return this.范围坐标列表[MainProcess.随机数.Next(this.范围坐标列表.Count)];
+				return this.范围坐标列表[MainProcess.RandomNumber.Next(this.范围坐标列表.Count)];
 			}
 		}
 

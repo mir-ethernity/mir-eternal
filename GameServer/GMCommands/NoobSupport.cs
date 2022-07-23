@@ -18,7 +18,7 @@ namespace GameServer
 		}
 
 		// Token: 0x0600004B RID: 75 RVA: 0x000086F0 File Offset: 0x000068F0
-		public override void 执行命令()
+		public override void Execute()
 		{
 			Settings.Default.NoobSupportCommand等级 = (CustomClass.NoobSupportCommand等级 = this.扶持等级);
 			Settings.Default.Save();

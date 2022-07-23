@@ -14,10 +14,10 @@ namespace GameServer.Networking
 	public static class NetworkServiceGateway
 	{
 		// Token: 0x0600041E RID: 1054 RVA: 0x0002002C File Offset: 0x0001E22C
-		public static void 启动服务()
+		public static void Start()
 		{
 			NetworkServiceGateway.网络服务停止 = false;
-			NetworkServiceGateway.网络连接表 = new HashSet<客户网络>();
+			NetworkServiceGateway.Connections = new HashSet<客户网络>();
 			NetworkServiceGateway.等待添加表 = new ConcurrentQueue<客户网络>();
 			NetworkServiceGateway.等待移除表 = new ConcurrentQueue<客户网络>();
 			NetworkServiceGateway.全服公告表 = new ConcurrentQueue<GamePacket>();
@@ -29,7 +29,7 @@ namespace GameServer.Networking
 		}
 
 		// Token: 0x0600041F RID: 1055 RVA: 0x00004219 File Offset: 0x00002419
-		public static void 结束服务()
+		public static void Stop()
 		{
 			NetworkServiceGateway.网络服务停止 = true;
 			TcpListener tcpListener = NetworkServiceGateway.网络监听器;
@@ -47,7 +47,7 @@ namespace GameServer.Networking
 		}
 
 		// Token: 0x06000420 RID: 1056 RVA: 0x000200C0 File Offset: 0x0001E2C0
-		public static void 处理数据()
+		public static void Process()
 		{
 			try
 			{
@@ -68,21 +68,21 @@ namespace GameServer.Networking
 						NetworkServiceGateway.门票DataSheet[array[0]] = new TicketInformation
 						{
 							登录账号 = array[1],
-							有效时间 = MainProcess.当前时间.AddMinutes(5.0)
+							有效时间 = MainProcess.CurrentTime.AddMinutes(5.0)
 						};
 					}
 				}
 			}
 			catch (Exception ex)
 			{
-				MainProcess.添加系统日志("接收登录门票时发生错误. " + ex.Message);
+				MainProcess.AddSystemLog("接收登录门票时发生错误. " + ex.Message);
 			}
-			using (HashSet<客户网络>.Enumerator enumerator = NetworkServiceGateway.网络连接表.GetEnumerator())
+			using (HashSet<客户网络>.Enumerator enumerator = NetworkServiceGateway.Connections.GetEnumerator())
 			{
 				while (enumerator.MoveNext())
 				{
 					客户网络 客户网络 = enumerator.Current;
-					if (!客户网络.正在断开 && 客户网络.绑定账号 == null && MainProcess.当前时间.Subtract(客户网络.接入时间).TotalSeconds > 30.0)
+					if (!客户网络.正在断开 && 客户网络.绑定账号 == null && MainProcess.CurrentTime.Subtract(客户网络.接入时间).TotalSeconds > 30.0)
 					{
 						客户网络.尝试断开连接(new Exception("登录超时, 断开连接!"));
 					}
@@ -97,7 +97,7 @@ namespace GameServer.Networking
 			客户网络 item;
 			if (NetworkServiceGateway.等待移除表.TryDequeue(out item))
 			{
-				NetworkServiceGateway.网络连接表.Remove(item);
+				NetworkServiceGateway.Connections.Remove(item);
 			}
 			IL_13E:
 			if (NetworkServiceGateway.等待移除表.IsEmpty)
@@ -106,14 +106,14 @@ namespace GameServer.Networking
 				{
                     if (NetworkServiceGateway.等待添加表.TryDequeue(out 客户网络 item2))
                     {
-                        NetworkServiceGateway.网络连接表.Add(item2);
+                        NetworkServiceGateway.Connections.Add(item2);
                     }
                 }
 				while (!NetworkServiceGateway.全服公告表.IsEmpty)
 				{
                     if (NetworkServiceGateway.全服公告表.TryDequeue(out GamePacket 封包))
                     {
-                        foreach (客户网络 客户网络2 in NetworkServiceGateway.网络连接表)
+                        foreach (客户网络 客户网络2 in NetworkServiceGateway.Connections)
                         {
                             if (客户网络2.绑定角色 != null)
                             {
@@ -141,11 +141,11 @@ namespace GameServer.Networking
 				{
 					':'
 				})[0];
-				if (SystemData.数据.网络封禁.ContainsKey(text) && !(SystemData.数据.网络封禁[text] < MainProcess.当前时间))
+				if (SystemData.数据.网络封禁.ContainsKey(text) && !(SystemData.数据.网络封禁[text] < MainProcess.CurrentTime))
 				{
 					tcpClient.Client.Close();
 				}
-				else if (NetworkServiceGateway.网络连接表.Count < 10000)
+				else if (NetworkServiceGateway.Connections.Count < 10000)
 				{
 					ConcurrentQueue<客户网络> concurrentQueue = NetworkServiceGateway.等待添加表;
 					if (concurrentQueue != null)
@@ -157,11 +157,11 @@ namespace GameServer.Networking
 			}
 			catch (Exception ex)
 			{
-				MainProcess.添加系统日志("异步连接异常: " + ex.ToString());
+				MainProcess.AddSystemLog("异步连接异常: " + ex.ToString());
 				goto IL_CA;
 			}
 			IL_B6:
-			if (NetworkServiceGateway.网络连接表.Count <= 100)
+			if (NetworkServiceGateway.Connections.Count <= 100)
 			{
 				goto IL_D1;
 			}
@@ -192,13 +192,13 @@ namespace GameServer.Networking
 				text = text + " Character: " + 客户网络.绑定角色.对象名字;
 			}
 			text = text + " Info: " + e.Message;
-			MainProcess.添加系统日志(text);
+			MainProcess.AddSystemLog(text);
 		}
 
 		// Token: 0x06000423 RID: 1059 RVA: 0x0000424D File Offset: 0x0000244D
 		public static void 屏蔽网络(string 地址)
 		{
-			SystemData.数据.BanIPCommand(地址, MainProcess.当前时间.AddMinutes((double)CustomClass.异常屏蔽时间));
+			SystemData.数据.BanIPCommand(地址, MainProcess.CurrentTime.AddMinutes((double)CustomClass.异常屏蔽时间));
 		}
 
 		// Token: 0x06000424 RID: 1060 RVA: 0x00020458 File Offset: 0x0001E658
@@ -268,19 +268,19 @@ namespace GameServer.Networking
 		public static bool 未登录连接数;
 
 		// Token: 0x040007C9 RID: 1993
-		public static uint 已登录连接数;
+		public static uint ActiveConnections;
 
 		// Token: 0x040007CA RID: 1994
-		public static uint 已上线连接数;
+		public static uint ConnectionsOnline;
 
 		// Token: 0x040007CB RID: 1995
-		public static long 已发送字节数;
+		public static long SendedBytes;
 
 		// Token: 0x040007CC RID: 1996
-		public static long 已接收字节数;
+		public static long ReceivedBytes;
 
 		// Token: 0x040007CD RID: 1997
-		public static HashSet<客户网络> 网络连接表;
+		public static HashSet<客户网络> Connections;
 
 		// Token: 0x040007CE RID: 1998
 		public static ConcurrentQueue<客户网络> 等待移除表;

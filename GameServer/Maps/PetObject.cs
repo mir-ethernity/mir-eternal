@@ -464,9 +464,9 @@ namespace GameServer.Maps
 				}
 			}
 			this.更新对象属性();
-			base.恢复时间 = MainProcess.当前时间.AddSeconds(5.0);
-			this.攻击时间 = MainProcess.当前时间.AddSeconds(1.0);
-			this.漫游时间 = MainProcess.当前时间.AddMilliseconds((double)(MainProcess.随机数.Next(5000) + this.漫游间隔));
+			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
+			this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
+			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(MainProcess.RandomNumber.Next(5000) + this.漫游间隔));
 			this.HateObject = new HateObject();
 			string text = this.对象模板.普通攻击技能;
 			if (text != null && text.Length > 0)
@@ -534,9 +534,9 @@ namespace GameServer.Maps
 			}
 			this.更新对象属性();
 			this.当前体力 = this[GameObjectProperties.最大体力];
-			base.恢复时间 = MainProcess.当前时间.AddSeconds(5.0);
-			this.攻击时间 = MainProcess.当前时间.AddSeconds(1.0);
-			this.漫游时间 = MainProcess.当前时间.AddMilliseconds((double)(MainProcess.随机数.Next(5000) + this.漫游间隔));
+			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
+			this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
+			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(MainProcess.RandomNumber.Next(5000) + this.漫游间隔));
 			this.HateObject = new HateObject();
 			string text = this.对象模板.普通攻击技能;
 			if (text != null && text.Length > 0)
@@ -587,17 +587,17 @@ namespace GameServer.Maps
 			
 			this.宠物主人 = 宠物主人;
 			this.对象模板 = 诱惑怪物.对象模板;
-			this.PetData = new PetData(诱惑怪物.对象名字, 初始等级, 7, 绑定武器, MainProcess.当前时间.AddMinutes((double)宠物时长));
+			this.PetData = new PetData(诱惑怪物.对象名字, 初始等级, 7, 绑定武器, MainProcess.CurrentTime.AddMinutes((double)宠物时长));
 			this.当前坐标 = 诱惑怪物.当前坐标;
 			this.当前地图 = 诱惑怪物.当前地图;
 			this.当前方向 = 诱惑怪物.当前方向;
 			this.属性加成[this] = this.基础属性;
 			this.更新对象属性();
 			this.当前体力 = Math.Min(诱惑怪物.当前体力, this[GameObjectProperties.最大体力]);
-			base.恢复时间 = MainProcess.当前时间.AddSeconds(5.0);
-			this.攻击时间 = MainProcess.当前时间.AddSeconds(1.0);
-			this.忙碌时间 = MainProcess.当前时间.AddSeconds(1.0);
-			this.漫游时间 = MainProcess.当前时间.AddMilliseconds((double)this.漫游间隔);
+			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
+			this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
+			this.忙碌时间 = MainProcess.CurrentTime.AddSeconds(1.0);
+			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.漫游间隔);
 			this.HateObject = new HateObject();
 			string text = this.对象模板.普通攻击技能;
 			if (text != null && text.Length > 0)
@@ -651,17 +651,17 @@ namespace GameServer.Maps
 			
 			this.宠物主人 = 宠物主人;
 			this.对象模板 = 诱惑宠物.对象模板;
-			this.PetData = new PetData(诱惑宠物.对象名字, 初始等级, 7, 绑定武器, MainProcess.当前时间.AddMinutes((double)宠物时长));
+			this.PetData = new PetData(诱惑宠物.对象名字, 初始等级, 7, 绑定武器, MainProcess.CurrentTime.AddMinutes((double)宠物时长));
 			this.当前坐标 = 诱惑宠物.当前坐标;
 			this.当前地图 = 诱惑宠物.当前地图;
 			this.当前方向 = 诱惑宠物.当前方向;
 			this.属性加成[this] = this.基础属性;
 			this.更新对象属性();
 			this.当前体力 = Math.Min(诱惑宠物.当前体力, this[GameObjectProperties.最大体力]);
-			base.恢复时间 = MainProcess.当前时间.AddSeconds(5.0);
-			this.攻击时间 = MainProcess.当前时间.AddSeconds(1.0);
-			this.忙碌时间 = MainProcess.当前时间.AddSeconds(1.0);
-			this.漫游时间 = MainProcess.当前时间.AddMilliseconds((double)this.漫游间隔);
+			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
+			this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
+			this.忙碌时间 = MainProcess.CurrentTime.AddSeconds(1.0);
+			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.漫游间隔);
 			this.HateObject = new HateObject();
 			string text = this.对象模板.普通攻击技能;
 			if (text != null && text.Length > 0)
@@ -711,18 +711,18 @@ namespace GameServer.Maps
 		// Token: 0x0600080E RID: 2062 RVA: 0x000403A8 File Offset: 0x0003E5A8
 		public override void 处理对象数据()
 		{
-			if (MainProcess.当前时间 < base.预约时间)
+			if (MainProcess.CurrentTime < base.预约时间)
 			{
 				return;
 			}
 			if (this.对象死亡)
 			{
-				if (!this.尸体消失 && MainProcess.当前时间 >= this.消失时间)
+				if (!this.尸体消失 && MainProcess.CurrentTime >= this.消失时间)
 				{
 					base.删除对象();
 				}
 			}
-			else if (this.叛变时间 != default(DateTime) && MainProcess.当前时间 > this.叛变时间)
+			else if (this.叛变时间 != default(DateTime) && MainProcess.CurrentTime > this.叛变时间)
 			{
 				new MonsterObject(this);
 			}
@@ -736,19 +736,19 @@ namespace GameServer.Maps
 				{
 					技能实例.处理任务();
 				}
-				if (MainProcess.当前时间 > base.恢复时间)
+				if (MainProcess.CurrentTime > base.恢复时间)
 				{
 					if (!this.检查状态(游戏对象状态.中毒状态))
 					{
 						this.当前体力 += this[GameObjectProperties.体力恢复];
 					}
-					base.恢复时间 = MainProcess.当前时间.AddSeconds(5.0);
+					base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 				}
-				if (MainProcess.当前时间 > base.治疗时间 && base.治疗次数 > 0)
+				if (MainProcess.CurrentTime > base.治疗时间 && base.治疗次数 > 0)
 				{
 					int 治疗次数 = base.治疗次数;
 					base.治疗次数 = 治疗次数 - 1;
-					base.治疗时间 = MainProcess.当前时间.AddMilliseconds(500.0);
+					base.治疗时间 = MainProcess.CurrentTime.AddMilliseconds(500.0);
 					this.当前体力 += base.治疗基数;
 				}
 				if (this.进入战斗技能 != null && !base.战斗姿态 && this.HateObject.仇恨列表.Count != 0)
@@ -759,9 +759,9 @@ namespace GameServer.Maps
 					base.动作编号 = (byte)(动作编号 + 1);
 					new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false);
 					base.战斗姿态 = true;
-					base.脱战时间 = MainProcess.当前时间.AddSeconds(10.0);
+					base.脱战时间 = MainProcess.CurrentTime.AddSeconds(10.0);
 				}
-				else if (this.退出战斗技能 != null && base.战斗姿态 && this.HateObject.仇恨列表.Count == 0 && MainProcess.当前时间 > base.脱战时间)
+				else if (this.退出战斗技能 != null && base.战斗姿态 && this.HateObject.仇恨列表.Count == 0 && MainProcess.CurrentTime > base.脱战时间)
 				{
 					游戏技能 技能模板2 = this.退出战斗技能;
 					SkillData SkillData2 = null;
@@ -770,7 +770,7 @@ namespace GameServer.Maps
 					new 技能实例(this, 技能模板2, SkillData2, 动作编号, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false);
 					base.战斗姿态 = false;
 				}
-				else if (this.宠物主人.PetMode == PetMode.攻击 && MainProcess.当前时间 > this.忙碌时间 && MainProcess.当前时间 > this.硬直时间)
+				else if (this.宠物主人.PetMode == PetMode.攻击 && MainProcess.CurrentTime > this.忙碌时间 && MainProcess.CurrentTime > this.硬直时间)
 				{
 					if (this.HateObject.当前目标 == null && !this.邻居列表.Contains(this.宠物主人))
 					{
@@ -801,7 +801,7 @@ namespace GameServer.Maps
 				new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false).处理任务();
 			}
 			base.自身死亡处理(对象, 技能击杀);
-			this.消失时间 = MainProcess.当前时间.AddMilliseconds((double)this.尸体保留);
+			this.消失时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.尸体保留);
 			this.清空宠物仇恨();
 			PlayerObject PlayerObject = this.宠物主人;
 			if (PlayerObject != null)
@@ -862,8 +862,8 @@ namespace GameServer.Maps
 						Point point2 = ComputingClass.前方坐标(this.当前坐标, GameDirection, 1);
 						if (this.当前地图.能否通行(point2))
 						{
-							this.忙碌时间 = MainProcess.当前时间.AddMilliseconds((double)this.行走耗时);
-							this.行走时间 = MainProcess.当前时间.AddMilliseconds((double)(this.行走耗时 + this.移动间隔));
+							this.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.行走耗时);
+							this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.行走耗时 + this.移动间隔));
 							this.当前方向 = ComputingClass.计算方向(this.当前坐标, point2);
 							base.自身移动时处理(point2);
 							base.发送封包(new ObjectCharacterWalkPacket
@@ -874,18 +874,18 @@ namespace GameServer.Maps
 							});
 							return;
 						}
-						GameDirection = ComputingClass.旋转方向(GameDirection, (MainProcess.随机数.Next(2) == 0) ? -1 : 1);
+						GameDirection = ComputingClass.旋转方向(GameDirection, (MainProcess.RandomNumber.Next(2) == 0) ? -1 : 1);
 					}
 					return;
 				}
-				if (MainProcess.当前时间 > this.漫游时间)
+				if (MainProcess.CurrentTime > this.漫游时间)
 				{
-					this.漫游时间 = MainProcess.当前时间.AddMilliseconds((double)(this.漫游间隔 + MainProcess.随机数.Next(5000)));
+					this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.漫游间隔 + MainProcess.RandomNumber.Next(5000)));
 					Point point3 = ComputingClass.前方坐标(this.当前坐标, ComputingClass.随机方向(), 1);
 					if (this.当前地图.能否通行(point3))
 					{
-						this.忙碌时间 = MainProcess.当前时间.AddMilliseconds((double)this.行走耗时);
-						this.行走时间 = MainProcess.当前时间.AddMilliseconds((double)(this.行走耗时 + this.移动间隔));
+						this.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.行走耗时);
+						this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.行走耗时 + this.移动间隔));
 						this.当前方向 = ComputingClass.计算方向(this.当前坐标, point3);
 						base.自身移动时处理(point3);
 						base.发送封包(new ObjectCharacterWalkPacket
@@ -912,13 +912,13 @@ namespace GameServer.Maps
 				return;
 			}
 			游戏技能 游戏技能;
-			if (this.概率触发技能 != null && (!this.冷却记录.ContainsKey((int)this.普通攻击技能.自身技能编号 | 16777216) || MainProcess.当前时间 > this.冷却记录[(int)this.普通攻击技能.自身技能编号 | 16777216]) && ComputingClass.计算概率(this.概率触发技能.计算幸运概率 ? ComputingClass.计算幸运(this[GameObjectProperties.幸运等级]) : this.概率触发技能.计算触发概率))
+			if (this.概率触发技能 != null && (!this.冷却记录.ContainsKey((int)this.普通攻击技能.自身技能编号 | 16777216) || MainProcess.CurrentTime > this.冷却记录[(int)this.普通攻击技能.自身技能编号 | 16777216]) && ComputingClass.计算概率(this.概率触发技能.计算幸运概率 ? ComputingClass.计算幸运(this[GameObjectProperties.幸运等级]) : this.概率触发技能.计算触发概率))
 			{
 				游戏技能 = this.概率触发技能;
 			}
 			else
 			{
-				if (this.普通攻击技能 == null || (this.冷却记录.ContainsKey((int)this.普通攻击技能.自身技能编号 | 16777216) && !(MainProcess.当前时间 > this.冷却记录[(int)this.普通攻击技能.自身技能编号 | 16777216])))
+				if (this.普通攻击技能 == null || (this.冷却记录.ContainsKey((int)this.普通攻击技能.自身技能编号 | 16777216) && !(MainProcess.CurrentTime > this.冷却记录[(int)this.普通攻击技能.自身技能编号 | 16777216])))
 				{
 					return;
 				}
@@ -936,13 +936,13 @@ namespace GameServer.Maps
 						Point point = ComputingClass.前方坐标(this.当前坐标, GameDirection, 1);
 						if (!this.当前地图.能否通行(point))
 						{
-							GameDirection = ComputingClass.旋转方向(GameDirection, (MainProcess.随机数.Next(2) == 0) ? -1 : 1);
+							GameDirection = ComputingClass.旋转方向(GameDirection, (MainProcess.RandomNumber.Next(2) == 0) ? -1 : 1);
 							i++;
 						}
 						else
 						{
-							this.忙碌时间 = MainProcess.当前时间.AddMilliseconds((double)this.行走耗时);
-							this.行走时间 = MainProcess.当前时间.AddMilliseconds((double)(this.行走耗时 + this.移动间隔));
+							this.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.行走耗时);
+							this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.行走耗时 + this.移动间隔));
 							this.当前方向 = ComputingClass.计算方向(this.当前坐标, point);
 							base.自身移动时处理(point);
 							base.发送封包(new ObjectCharacterWalkPacket
@@ -966,14 +966,14 @@ namespace GameServer.Maps
 			}
 			else
 			{
-				if (MainProcess.当前时间 > this.攻击时间)
+				if (MainProcess.CurrentTime > this.攻击时间)
 				{
 					游戏技能 技能模板 = 游戏技能;
 					SkillData SkillData = null;
 					byte 动作编号 = base.动作编号;
 					base.动作编号 = (byte)(动作编号 + 1);
 					new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, this.HateObject.当前目标, this.HateObject.当前目标.当前坐标, null, null, false);
-					this.攻击时间 = MainProcess.当前时间.AddMilliseconds((double)(ComputingClass.数值限制(0, 10 - this[GameObjectProperties.攻击速度], 10) * 500));
+					this.攻击时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.数值限制(0, 10 - this[GameObjectProperties.攻击速度], 10) * 500));
 					return;
 				}
 				if (this.能否转动())
@@ -1081,17 +1081,17 @@ namespace GameServer.Maps
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}
-			else if (base.网格距离(this.HateObject.当前目标) > this.仇恨范围 && MainProcess.当前时间 > this.HateObject.仇恨列表[this.HateObject.当前目标].仇恨时间)
+			else if (base.网格距离(this.HateObject.当前目标) > this.仇恨范围 && MainProcess.CurrentTime > this.HateObject.仇恨列表[this.HateObject.当前目标].仇恨时间)
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}
 			else if (base.网格距离(this.HateObject.当前目标) <= this.仇恨范围)
 			{
-				this.HateObject.仇恨列表[this.HateObject.当前目标].仇恨时间 = MainProcess.当前时间.AddMilliseconds((double)this.仇恨时长);
+				this.HateObject.仇恨列表[this.HateObject.当前目标].仇恨时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.仇恨时长);
 			}
-			if (this.HateObject.切换时间 < MainProcess.当前时间 && this.HateObject.切换仇恨(this))
+			if (this.HateObject.切换时间 < MainProcess.CurrentTime && this.HateObject.切换仇恨(this))
 			{
-				this.HateObject.切换时间 = MainProcess.当前时间.AddMilliseconds((double)this.切换间隔);
+				this.HateObject.切换时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.切换间隔);
 			}
 			return this.HateObject.当前目标 != null || this.更新HateObject();
 		}

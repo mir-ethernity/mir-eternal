@@ -2718,7 +2718,7 @@ namespace GameServer.Data
 			this.生成来源.V = 来源;
 			this.物品容器.V = 容器;
 			this.物品位置.V = 位置;
-			this.生成时间.V = MainProcess.当前时间;
+			this.生成时间.V = MainProcess.CurrentTime;
 			this.物品状态.V = 1;
 			this.最大持久.V = ((模板.持久类型 == PersistentItemType.装备) ? (模板.物品持久 * 1000) : 模板.物品持久);
 			DataMonitor<int> 当前持久 = this.当前持久;
@@ -2727,7 +2727,7 @@ namespace GameServer.Data
 			{
 				if (模板.持久类型 == PersistentItemType.装备)
 				{
-					v = MainProcess.随机数.Next(0, this.最大持久.V);
+					v = MainProcess.RandomNumber.Next(0, this.最大持久.V);
 					goto IL_B8;
 				}
 			}

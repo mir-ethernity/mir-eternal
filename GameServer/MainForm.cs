@@ -201,7 +201,7 @@ namespace GameServer
         }
 
         // Token: 0x0600008A RID: 138 RVA: 0x00002B15 File Offset: 0x00000D15
-        public static void 服务启动回调()
+        public static void ServerStartedCallback()
         {
             MainForm MainForm = MainForm.Singleton;
             if (MainForm == null)
@@ -224,7 +224,7 @@ namespace GameServer
         }
 
         // Token: 0x0600008B RID: 139 RVA: 0x00002B46 File Offset: 0x00000D46
-        public static void 服务停止回调()
+        public static void Stop()
         {
             MainForm MainForm = MainForm.Singleton;
             if (MainForm == null)
@@ -275,7 +275,7 @@ namespace GameServer
         }
 
         // Token: 0x0600008D RID: 141 RVA: 0x00012A44 File Offset: 0x00010C44
-        public static void 添加聊天日志(string 前缀, byte[] 内容)
+        public static void AddChatLog(string preffix, byte[] text)
         {
             MainForm MainForm = MainForm.Singleton;
             if (MainForm == null)
@@ -284,7 +284,7 @@ namespace GameServer
             }
             MainForm.BeginInvoke(new MethodInvoker(delegate ()
             {
-                MainForm.Singleton.聊天日志.AppendText(string.Format("[{0:F}]: {1}", DateTime.Now, 前缀 + Encoding.UTF8.GetString(内容).Trim(new char[1])) + "\r\n");
+                MainForm.Singleton.聊天日志.AppendText(string.Format("[{0:F}]: {1}", DateTime.Now, preffix + Encoding.UTF8.GetString(text).Trim(new char[1])) + "\r\n");
                 MainForm.Singleton.聊天日志.ScrollToCaret();
                 Control control = MainForm.Singleton.清空聊天日志;
                 MainForm.Singleton.保存聊天日志.Enabled = true;
@@ -309,7 +309,7 @@ namespace GameServer
         }
 
         // Token: 0x0600008F RID: 143 RVA: 0x00012ABC File Offset: 0x00010CBC
-        public static void 更新连接总数(uint 内容)
+        public static void UpdateTotalConnections(uint 内容)
         {
             MainForm MainForm = MainForm.Singleton;
             if (MainForm == null)
@@ -323,7 +323,7 @@ namespace GameServer
         }
 
         // Token: 0x06000090 RID: 144 RVA: 0x00012AF4 File Offset: 0x00010CF4
-        public static void 更新已经登录(uint 内容)
+        public static void UpdateAlreadyLogged(uint 内容)
         {
             MainForm MainForm = MainForm.Singleton;
             if (MainForm == null)
@@ -337,7 +337,7 @@ namespace GameServer
         }
 
         // Token: 0x06000091 RID: 145 RVA: 0x00012B2C File Offset: 0x00010D2C
-        public static void 更新已经上线(uint 内容)
+        public static void UpdateConnectionsOnline(uint 内容)
         {
             MainForm MainForm = MainForm.Singleton;
             if (MainForm == null)
@@ -351,7 +351,7 @@ namespace GameServer
         }
 
         // Token: 0x06000092 RID: 146 RVA: 0x00012B64 File Offset: 0x00010D64
-        public static void 更新后台帧数(uint 内容)
+        public static void UpdateLoopCount(uint 内容)
         {
             MainForm MainForm = MainForm.Singleton;
             if (MainForm == null)
@@ -365,7 +365,7 @@ namespace GameServer
         }
 
         // Token: 0x06000093 RID: 147 RVA: 0x00012B9C File Offset: 0x00010D9C
-        public static void 更新接收字节(long 内容)
+        public static void UpdateReceivedBytes(long 内容)
         {
             MainForm MainForm = MainForm.Singleton;
             if (MainForm == null)
@@ -379,7 +379,7 @@ namespace GameServer
         }
 
         // Token: 0x06000094 RID: 148 RVA: 0x00012BD4 File Offset: 0x00010DD4
-        public static void 更新发送字节(long 内容)
+        public static void UpdateSendedBytes(long 内容)
         {
             MainForm MainForm = MainForm.Singleton;
             if (MainForm == null)
@@ -393,7 +393,7 @@ namespace GameServer
         }
 
         // Token: 0x06000095 RID: 149 RVA: 0x00012C0C File Offset: 0x00010E0C
-        public static void 更新对象统计(int 激活对象, int 次要对象, int 对象总数)
+        public static void UpdateObjectStatistics(int 激活对象, int 次要对象, int 对象总数)
         {
             MainForm MainForm = MainForm.Singleton;
             if (MainForm == null)
@@ -902,8 +902,8 @@ namespace GameServer
             Task.Run(delegate ()
             {
                 MainForm.AddSystemLog("Saving customer data...");
-                GameDataGateway.保存数据();
-                GameDataGateway.导出数据();
+                GameDataGateway.SaveData();
+                GameDataGateway.CleanUp();
                 MainForm.AddSystemLog("Saving customer data...");
                 base.BeginInvoke(new MethodInvoker(delegate ()
                 {
@@ -915,7 +915,7 @@ namespace GameServer
         // Token: 0x060000A9 RID: 169 RVA: 0x000138A0 File Offset: 0x00011AA0
         private void 启动服务器_Click(object sender, EventArgs e)
         {
-            MainProcess.启动服务();
+            MainProcess.Start();
             CustomClass.软件注册代码 = (Settings.Default.软件注册代码 = this.S_软件注册代码.Text);
             Settings.Default.Save();
             MainForm.MapsDataTable = new DataTable("地图数据表");
@@ -964,7 +964,7 @@ namespace GameServer
         {
             if (MessageBox.Show("Sure to stop the server?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                MainProcess.停止服务();
+                MainProcess.Stop();
                 this.停止按钮.Enabled = false;
             }
         }
@@ -976,18 +976,18 @@ namespace GameServer
             {
                 for (; ; )
                 {
-                    Thread 主线程 = MainProcess.主线程;
+                    Thread 主线程 = MainProcess.MainThread;
                     if (主线程 == null || !主线程.IsAlive)
                     {
                         break;
                     }
-                    MainProcess.停止服务();
+                    MainProcess.Stop();
                     Thread.Sleep(1);
                 }
                 if (GameDataGateway.已经修改 && MessageBox.Show("Do I need to save data that has been modified but not yet saved?", "Save Data", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
-                    GameDataGateway.保存数据();
-                    GameDataGateway.导出数据();
+                    GameDataGateway.SaveData();
+                    GameDataGateway.CleanUp();
                     return;
                 }
             }
@@ -1219,24 +1219,24 @@ namespace GameServer
                 {
                     if (GMCommand.ExecutionWay == ExecutionWay.前台立即执行)
                     {
-                        GMCommand.执行命令();
+                        GMCommand.Execute();
                     }
                     else if (GMCommand.ExecutionWay == ExecutionWay.优先后台执行)
                     {
-                        if (MainProcess.已经启动)
+                        if (MainProcess.Running)
                         {
-                            MainProcess.外部命令.Enqueue(GMCommand);
+                            MainProcess.CommandsQueue.Enqueue(GMCommand);
                         }
                         else
                         {
-                            GMCommand.执行命令();
+                            GMCommand.Execute();
                         }
                     }
                     else if (GMCommand.ExecutionWay == ExecutionWay.只能后台执行)
                     {
-                        if (MainProcess.已经启动)
+                        if (MainProcess.Running)
                         {
-                            MainProcess.外部命令.Enqueue(GMCommand);
+                            MainProcess.CommandsQueue.Enqueue(GMCommand);
                         }
                         else
                         {
@@ -1245,9 +1245,9 @@ namespace GameServer
                     }
                     else if (GMCommand.ExecutionWay == ExecutionWay.只能空闲执行)
                     {
-                        if (!MainProcess.已经启动 && (MainProcess.主线程 == null || !MainProcess.主线程.IsAlive))
+                        if (!MainProcess.Running && (MainProcess.MainThread == null || !MainProcess.MainThread.IsAlive))
                         {
-                            GMCommand.执行命令();
+                            GMCommand.Execute();
                         }
                         else
                         {
@@ -1263,7 +1263,7 @@ namespace GameServer
         // Token: 0x060000B7 RID: 183 RVA: 0x0001443C File Offset: 0x0001263C
         private void 合并客户数据_Click(object sender, EventArgs e)
         {
-            if (MainProcess.已经启动)
+            if (MainProcess.Running)
             {
                 MessageBox.Show("Merging data can only be performed when the server is not running");
                 return;
@@ -1468,7 +1468,7 @@ namespace GameServer
         // Token: 0x060000BB RID: 187 RVA: 0x00014978 File Offset: 0x00012B78
         private void 开始公告按钮_Click(object sender, EventArgs e)
         {
-            if (!MainProcess.已经启动 || !this.停止按钮.Enabled)
+            if (!MainProcess.Running || !this.停止按钮.Enabled)
             {
                 Task.Run(delegate ()
                 {
@@ -1535,7 +1535,7 @@ namespace GameServer
         // Token: 0x060000BD RID: 189 RVA: 0x00014C70 File Offset: 0x00012E70
         private void 定时发送公告_Tick(object sender, EventArgs e)
         {
-            if (MainProcess.已经启动 && MainForm.公告DataSheet.Count != 0)
+            if (MainProcess.Running && MainForm.公告DataSheet.Count != 0)
             {
                 DateTime now = DateTime.Now;
                 foreach (KeyValuePair<DataGridViewRow, DateTime> keyValuePair in MainForm.公告DataSheet.ToList<KeyValuePair<DataGridViewRow, DateTime>>())

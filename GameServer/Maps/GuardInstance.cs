@@ -311,19 +311,19 @@ namespace GameServer.Maps
 		// Token: 0x06000720 RID: 1824 RVA: 0x00036580 File Offset: 0x00034780
 		public override void 处理对象数据()
 		{
-			if (MainProcess.当前时间 < base.预约时间)
+			if (MainProcess.CurrentTime < base.预约时间)
 			{
 				return;
 			}
 			if (this.对象死亡)
 			{
-				if (!this.尸体消失 && MainProcess.当前时间 >= this.消失时间)
+				if (!this.尸体消失 && MainProcess.CurrentTime >= this.消失时间)
 				{
 					base.清空邻居时处理();
 					base.解绑网格();
 					this.尸体消失 = true;
 				}
-				if (MainProcess.当前时间 >= this.复活时间)
+				if (MainProcess.CurrentTime >= this.复活时间)
 				{
 					base.清空邻居时处理();
 					base.解绑网格();
@@ -340,15 +340,15 @@ namespace GameServer.Maps
 				{
 					技能实例.处理任务();
 				}
-				if (MainProcess.当前时间 > base.恢复时间)
+				if (MainProcess.CurrentTime > base.恢复时间)
 				{
 					if (!this.检查状态(游戏对象状态.中毒状态))
 					{
 						this.当前体力 += 5;
 					}
-					base.恢复时间 = MainProcess.当前时间.AddSeconds(5.0);
+					base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 				}
-				if (this.主动攻击目标 && MainProcess.当前时间 > this.忙碌时间 && MainProcess.当前时间 > this.硬直时间)
+				if (this.主动攻击目标 && MainProcess.CurrentTime > this.忙碌时间 && MainProcess.CurrentTime > this.硬直时间)
 				{
 					if (this.更新HateObject())
 					{
@@ -359,14 +359,14 @@ namespace GameServer.Maps
 						this.当前方向 = this.出生方向;
 					}
 				}
-				if (this.模板编号 == 6121 && this.当前地图.地图编号 == 183 && MainProcess.当前时间 > this.转移计时)
+				if (this.模板编号 == 6121 && this.当前地图.地图编号 == 183 && MainProcess.CurrentTime > this.转移计时)
 				{
 					base.清空邻居时处理();
 					base.解绑网格();
 					this.当前坐标 = this.当前地图.传送区域.随机坐标;
 					base.绑定网格();
 					base.更新邻居时处理();
-					this.转移计时 = MainProcess.当前时间.AddMinutes(2.5);
+					this.转移计时 = MainProcess.CurrentTime.AddMinutes(2.5);
 				}
 			}
 			base.处理对象数据();
@@ -376,8 +376,8 @@ namespace GameServer.Maps
 		public override void 自身死亡处理(MapObject 对象, bool 技能击杀)
 		{
 			base.自身死亡处理(对象, 技能击杀);
-			this.消失时间 = MainProcess.当前时间.AddMilliseconds(10000.0);
-			this.复活时间 = MainProcess.当前时间.AddMilliseconds((double)((this.当前地图.地图编号 == 80) ? int.MaxValue : 60000));
+			this.消失时间 = MainProcess.CurrentTime.AddMilliseconds(10000.0);
+			this.复活时间 = MainProcess.CurrentTime.AddMilliseconds((double)((this.当前地图.地图编号 == 80) ? int.MaxValue : 60000));
 			this.Buff列表.Clear();
 			this.次要对象 = true;
 			MapGatewayProcess.添加次要对象(this);
@@ -406,7 +406,7 @@ namespace GameServer.Maps
 			{
 				this.激活对象 = true;
 				MapGatewayProcess.添加激活对象(this);
-				int num = (int)Math.Max(0.0, (MainProcess.当前时间 - base.恢复时间).TotalSeconds / 5.0);
+				int num = (int)Math.Max(0.0, (MainProcess.CurrentTime - base.恢复时间).TotalSeconds / 5.0);
 				base.当前体力 = Math.Min(this[GameObjectProperties.最大体力], this.当前体力 + num * this[GameObjectProperties.体力恢复]);
 				base.恢复时间 = base.恢复时间.AddSeconds(5.0);
 			}
@@ -446,7 +446,7 @@ namespace GameServer.Maps
 			this.当前方向 = this.出生方向;
 			this.当前坐标 = this.出生坐标;
 			this.当前体力 = this[GameObjectProperties.最大体力];
-			base.恢复时间 = MainProcess.当前时间.AddMilliseconds((double)MainProcess.随机数.Next(5000));
+			base.恢复时间 = MainProcess.CurrentTime.AddMilliseconds((double)MainProcess.RandomNumber.Next(5000));
 			this.HateObject = new HateObject();
 			base.绑定网格();
 			base.更新邻居时处理();

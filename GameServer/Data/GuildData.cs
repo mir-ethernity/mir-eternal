@@ -106,13 +106,13 @@ namespace GameServer.Data
 			{
 				MemorandumType = MemorandumType.创建公会,
 				第一参数 = 创建玩家.地图编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.当前时间)
+				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
 			});
 			this.添加事记(new GuildEvents
 			{
 				MemorandumType = MemorandumType.加入公会,
 				第一参数 = 创建玩家.地图编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.当前时间)
+				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
 			});
 			this.行会等级.V = 1;
 			this.行会资金.V = 1000000;
@@ -120,7 +120,7 @@ namespace GameServer.Data
 			this.木材数量.V = 1000000;
 			this.石材数量.V = 1000000;
 			this.铁矿数量.V = 1000000;
-			this.创建日期.V = MainProcess.当前时间;
+			this.创建日期.V = MainProcess.CurrentTime;
 			GameDataGateway.GuildData表.AddData(this, true);
 			SystemData.数据.更新行会(this);
 		}
@@ -128,11 +128,11 @@ namespace GameServer.Data
 		// Token: 0x060005B2 RID: 1458 RVA: 0x0002A708 File Offset: 0x00028908
 		public void 清理数据()
 		{
-			if (MainProcess.当前时间 > this.清理时间)
+			if (MainProcess.CurrentTime > this.清理时间)
 			{
 				foreach (KeyValuePair<GuildData, DateTime> keyValuePair in this.结盟行会.ToList<KeyValuePair<GuildData, DateTime>>())
 				{
-					if (MainProcess.当前时间 > keyValuePair.Value)
+					if (MainProcess.CurrentTime > keyValuePair.Value)
 					{
 						this.结盟行会.Remove(keyValuePair.Key);
 						keyValuePair.Key.结盟行会.Remove(this);
@@ -151,7 +151,7 @@ namespace GameServer.Data
 				}
 				foreach (KeyValuePair<GuildData, DateTime> keyValuePair2 in this.敌对行会.ToList<KeyValuePair<GuildData, DateTime>>())
 				{
-					if (MainProcess.当前时间 > keyValuePair2.Value)
+					if (MainProcess.CurrentTime > keyValuePair2.Value)
 					{
 						this.敌对行会.Remove(keyValuePair2.Key);
 						keyValuePair2.Key.敌对行会.Remove(this);
@@ -170,33 +170,33 @@ namespace GameServer.Data
 				}
 				foreach (KeyValuePair<CharacterData, DateTime> keyValuePair3 in this.申请列表.ToList<KeyValuePair<CharacterData, DateTime>>())
 				{
-					if (MainProcess.当前时间 > keyValuePair3.Value)
+					if (MainProcess.CurrentTime > keyValuePair3.Value)
 					{
 						this.申请列表.Remove(keyValuePair3.Key);
 					}
 				}
 				foreach (KeyValuePair<CharacterData, DateTime> keyValuePair4 in this.邀请列表.ToList<KeyValuePair<CharacterData, DateTime>>())
 				{
-					if (MainProcess.当前时间 > keyValuePair4.Value)
+					if (MainProcess.CurrentTime > keyValuePair4.Value)
 					{
 						this.邀请列表.Remove(keyValuePair4.Key);
 					}
 				}
 				foreach (KeyValuePair<GuildData, DateTime> keyValuePair5 in this.解除申请.ToList<KeyValuePair<GuildData, DateTime>>())
 				{
-					if (MainProcess.当前时间 > keyValuePair5.Value)
+					if (MainProcess.CurrentTime > keyValuePair5.Value)
 					{
 						this.解除申请.Remove(keyValuePair5.Key);
 					}
 				}
 				foreach (KeyValuePair<GuildData, DiplomaticApp> keyValuePair6 in this.结盟申请.ToList<KeyValuePair<GuildData, DiplomaticApp>>())
 				{
-					if (MainProcess.当前时间 > keyValuePair6.Value.申请时间)
+					if (MainProcess.CurrentTime > keyValuePair6.Value.申请时间)
 					{
 						this.结盟申请.Remove(keyValuePair6.Key);
 					}
 				}
-				this.清理时间 = MainProcess.当前时间.AddSeconds(1.0);
+				this.清理时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			}
 		}
 
@@ -286,7 +286,7 @@ namespace GameServer.Data
 			{
 				MemorandumType = MemorandumType.加入公会,
 				第一参数 = 成员.角色编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.当前时间)
+				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
 			});
 			PlayerObject PlayerObject;
 			if (MapGatewayProcess.玩家对象表.TryGetValue(成员.角色编号, out PlayerObject))
@@ -322,7 +322,7 @@ namespace GameServer.Data
 			{
 				MemorandumType = MemorandumType.离开公会,
 				第一参数 = 成员.角色编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.当前时间)
+				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
 			});
 			PlayerObject PlayerObject;
 			if (MapGatewayProcess.玩家对象表.TryGetValue(成员.角色编号, out PlayerObject))
@@ -359,7 +359,7 @@ namespace GameServer.Data
 					MemorandumType = MemorandumType.逐出公会,
 					第一参数 = 成员.角色编号,
 					第二参数 = 主事.角色编号,
-					事记时间 = ComputingClass.时间转换(MainProcess.当前时间)
+					事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
 				});
 				PlayerObject PlayerObject;
 				if (MapGatewayProcess.玩家对象表.TryGetValue(成员.角色编号, out PlayerObject))
@@ -390,7 +390,7 @@ namespace GameServer.Data
 				第二参数 = 成员.角色编号,
 				第三参数 = (int)((byte)职位),
 				第四参数 = (int)((byte)职位),
-				事记时间 = ComputingClass.时间转换(MainProcess.当前时间)
+				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
 			});
 		}
 
@@ -435,7 +435,7 @@ namespace GameServer.Data
 				MemorandumType = MemorandumType.会长传位,
 				第一参数 = 会长.角色编号,
 				第二参数 = 成员.角色编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.当前时间)
+				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
 			});
 		}
 
@@ -453,7 +453,7 @@ namespace GameServer.Data
 			}
 			if (禁言状态 == 1)
 			{
-				this.行会禁言[成员] = MainProcess.当前时间;
+				this.行会禁言[成员] = MainProcess.CurrentTime;
 				this.发送封包(new GuildBanAnnouncementPacket
 				{
 					对象编号 = 成员.角色编号,
@@ -486,14 +486,14 @@ namespace GameServer.Data
 			行会.结盟申请[this] = new DiplomaticApp
 			{
 				外交时间 = 时间参数,
-				申请时间 = MainProcess.当前时间.AddHours(10.0)
+				申请时间 = MainProcess.CurrentTime.AddHours(10.0)
 			};
 		}
 
 		// Token: 0x060005BE RID: 1470 RVA: 0x0002B198 File Offset: 0x00029398
 		public void 行会敌对(GuildData 行会, byte 时间参数)
 		{
-			this.敌对行会[行会] = (行会.敌对行会[this] = MainProcess.当前时间.AddDays((double)((时间参数 == 1) ? 1 : ((时间参数 == 2) ? 3 : 7))));
+			this.敌对行会[行会] = (行会.敌对行会[this] = MainProcess.CurrentTime.AddDays((double)((时间参数 == 1) ? 1 : ((时间参数 == 2) ? 3 : 7))));
 			this.发送封包(new AddDiplomaticAnnouncementPacket
 			{
 				外交类型 = 2,
@@ -501,7 +501,7 @@ namespace GameServer.Data
 				行会名字 = 行会.行会名字.V,
 				行会等级 = 行会.行会等级.V,
 				行会人数 = (byte)行会.行会成员.Count,
-				外交时间 = (int)(this.敌对行会[行会] - MainProcess.当前时间).TotalSeconds
+				外交时间 = (int)(this.敌对行会[行会] - MainProcess.CurrentTime).TotalSeconds
 			});
 			行会.发送封包(new AddDiplomaticAnnouncementPacket
 			{
@@ -510,28 +510,28 @@ namespace GameServer.Data
 				行会名字 = this.行会名字.V,
 				行会等级 = this.行会等级.V,
 				行会人数 = (byte)this.行会成员.Count,
-				外交时间 = (int)(行会.敌对行会[this] - MainProcess.当前时间).TotalSeconds
+				外交时间 = (int)(行会.敌对行会[this] - MainProcess.CurrentTime).TotalSeconds
 			});
 			this.添加事记(new GuildEvents
 			{
 				MemorandumType = MemorandumType.行会敌对,
 				第一参数 = this.行会编号,
 				第二参数 = 行会.行会编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.当前时间)
+				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
 			});
 			行会.添加事记(new GuildEvents
 			{
 				MemorandumType = MemorandumType.行会敌对,
 				第一参数 = 行会.行会编号,
 				第二参数 = this.行会编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.当前时间)
+				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
 			});
 		}
 
 		// Token: 0x060005BF RID: 1471 RVA: 0x0002B340 File Offset: 0x00029540
 		public void 行会结盟(GuildData 行会)
 		{
-			this.结盟行会[行会] = (行会.结盟行会[this] = MainProcess.当前时间.AddDays((double)((this.结盟申请[行会].外交时间 == 1) ? 1 : ((this.结盟申请[行会].外交时间 == 2) ? 3 : 7))));
+			this.结盟行会[行会] = (行会.结盟行会[this] = MainProcess.CurrentTime.AddDays((double)((this.结盟申请[行会].外交时间 == 1) ? 1 : ((this.结盟申请[行会].外交时间 == 2) ? 3 : 7))));
 			this.发送封包(new AddDiplomaticAnnouncementPacket
 			{
 				外交类型 = 1,
@@ -539,7 +539,7 @@ namespace GameServer.Data
 				行会编号 = 行会.行会编号,
 				行会等级 = 行会.行会等级.V,
 				行会人数 = (byte)行会.行会成员.Count,
-				外交时间 = (int)(this.结盟行会[行会] - MainProcess.当前时间).TotalSeconds
+				外交时间 = (int)(this.结盟行会[行会] - MainProcess.CurrentTime).TotalSeconds
 			});
 			行会.发送封包(new AddDiplomaticAnnouncementPacket
 			{
@@ -548,21 +548,21 @@ namespace GameServer.Data
 				行会编号 = this.行会编号,
 				行会等级 = this.行会等级.V,
 				行会人数 = (byte)this.行会成员.Count,
-				外交时间 = (int)(行会.结盟行会[this] - MainProcess.当前时间).TotalSeconds
+				外交时间 = (int)(行会.结盟行会[this] - MainProcess.CurrentTime).TotalSeconds
 			});
 			this.添加事记(new GuildEvents
 			{
 				MemorandumType = MemorandumType.行会结盟,
 				第一参数 = this.行会编号,
 				第二参数 = 行会.行会编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.当前时间)
+				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
 			});
 			行会.添加事记(new GuildEvents
 			{
 				MemorandumType = MemorandumType.行会结盟,
 				第一参数 = 行会.行会编号,
 				第二参数 = this.行会编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.当前时间)
+				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
 			});
 		}
 
@@ -586,14 +586,14 @@ namespace GameServer.Data
 				MemorandumType = MemorandumType.取消结盟,
 				第一参数 = this.行会编号,
 				第二参数 = 行会.行会编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.当前时间)
+				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
 			});
 			行会.添加事记(new GuildEvents
 			{
 				MemorandumType = MemorandumType.取消结盟,
 				第一参数 = 行会.行会编号,
 				第二参数 = this.行会编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.当前时间)
+				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
 			});
 			客户网络 网络连接 = 主事.网络连接;
 			if (网络连接 == null)
@@ -628,7 +628,7 @@ namespace GameServer.Data
 					}
 				}
 			}
-			敌对行会.解除申请[this] = MainProcess.当前时间.AddHours(10.0);
+			敌对行会.解除申请[this] = MainProcess.CurrentTime.AddHours(10.0);
 		}
 
 		// Token: 0x060005C2 RID: 1474 RVA: 0x0002B6C0 File Offset: 0x000298C0
@@ -656,14 +656,14 @@ namespace GameServer.Data
 				MemorandumType = MemorandumType.取消敌对,
 				第一参数 = this.行会编号,
 				第二参数 = 行会.行会编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.当前时间)
+				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
 			});
 			行会.添加事记(new GuildEvents
 			{
 				MemorandumType = MemorandumType.取消敌对,
 				第一参数 = 行会.行会编号,
 				第二参数 = this.行会编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.当前时间)
+				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
 			});
 		}
 
@@ -853,7 +853,7 @@ namespace GameServer.Data
 						binaryWriter.Write(CharacterData.角色等级);
 						binaryWriter.Write(CharacterData.角色等级);
 						客户网络 客户网络;
-						binaryWriter.Write(CharacterData.角色在线(out 客户网络) ? ComputingClass.时间转换(MainProcess.当前时间) : ComputingClass.时间转换(CharacterData.离线日期.V));
+						binaryWriter.Write(CharacterData.角色在线(out 客户网络) ? ComputingClass.时间转换(MainProcess.CurrentTime) : ComputingClass.时间转换(CharacterData.离线日期.V));
 					}
 					result = memoryStream.ToArray();
 				}

@@ -2131,7 +2131,7 @@ namespace GameServer.Data
 			this.生成来源.V = 来源;
 			this.物品容器.V = 容器;
 			this.物品位置.V = 位置;
-			this.生成时间.V = MainProcess.当前时间;
+			this.生成时间.V = MainProcess.CurrentTime;
 			this.最大持久.V = this.物品模板.物品持久;
 			this.当前持久.V = Math.Min(持久, this.最大持久.V);
 			GameDataGateway.ItemData表.AddData(this, true);

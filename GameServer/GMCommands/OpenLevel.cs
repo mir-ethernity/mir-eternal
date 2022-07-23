@@ -18,7 +18,7 @@ namespace GameServer
 		}
 
 		// Token: 0x06000047 RID: 71 RVA: 0x00008658 File Offset: 0x00006858
-		public override void 执行命令()
+		public override void Execute()
 		{
 			if (this.最高等级 <= CustomClass.游戏OpenLevelCommand)
 			{

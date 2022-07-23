@@ -133,7 +133,7 @@ namespace GameServer
 		// Token: 0x0600006D RID: 109 RVA: 0x000029B8 File Offset: 0x00000BB8
 		public static bool 计算概率(float 概率)
 		{
-			return 概率 >= 1f || (概率 > 0f && 概率 * 100000000f > (float)MainProcess.随机数.Next(100000000));
+			return 概率 >= 1f || (概率 > 0f && 概率 * 100000000f > (float)MainProcess.RandomNumber.Next(100000000));
 		}
 
 		// Token: 0x0600006E RID: 110 RVA: 0x00009344 File Offset: 0x00007544
@@ -220,7 +220,7 @@ namespace GameServer
 		// Token: 0x06000071 RID: 113 RVA: 0x000029E7 File Offset: 0x00000BE7
 		public static GameDirection 随机方向()
 		{
-			return (GameDirection)(MainProcess.随机数.Next(8) * 1024);
+			return (GameDirection)(MainProcess.RandomNumber.Next(8) * 1024);
 		}
 
 		// Token: 0x06000072 RID: 114 RVA: 0x00009560 File Offset: 0x00007760
@@ -327,7 +327,7 @@ namespace GameServer
 			{
 				return result;
 			}
-			return MainProcess.随机数.Next(Math.Min(下限, 上限), Math.Max(下限, 上限) + 1);
+			return MainProcess.RandomNumber.Next(Math.Min(下限, 上限), Math.Max(下限, 上限) + 1);
 		}
 
 		// Token: 0x0600007C RID: 124 RVA: 0x00002A7F File Offset: 0x00000C7F
@@ -335,9 +335,9 @@ namespace GameServer
 		{
 			if (上限 >= 下限)
 			{
-				return MainProcess.随机数.Next(下限, 上限 + 1);
+				return MainProcess.RandomNumber.Next(下限, 上限 + 1);
 			}
-			return MainProcess.随机数.Next(上限, 下限 + 1);
+			return MainProcess.RandomNumber.Next(上限, 下限 + 1);
 		}
 
 		// Token: 0x0600007D RID: 125 RVA: 0x0000984C File Offset: 0x00007A4C

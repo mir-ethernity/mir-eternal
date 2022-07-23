@@ -13,7 +13,7 @@ namespace GameServer.Templates
 			List<铭文技能> list;
 			if (铭文技能.概率表.TryGetValue(洗练职业, out list) && list.Count > 0)
 			{
-				return list[MainProcess.随机数.Next(list.Count)];
+				return list[MainProcess.RandomNumber.Next(list.Count)];
 			}
 			return null;
 		}
@@ -53,7 +53,7 @@ namespace GameServer.Templates
 				for (int k = 0; k < list.Count; k++)
 				{
 					铭文技能 value = list[k];
-					int index = MainProcess.随机数.Next(list.Count);
+					int index = MainProcess.RandomNumber.Next(list.Count);
 					list[k] = list[index];
 					list[index] = value;
 				}
