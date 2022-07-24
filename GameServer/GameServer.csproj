@@ -193,8 +193,8 @@
     <Compile Include="Templates\PendingRename3.cs" />
     <Compile Include="Templates\PendingRename68.cs" />
     <Compile Include="Templates\PendingRename44.cs" />
-    <Compile Include="Templates\PendingRename42.cs" />
-    <Compile Include="Templates\PendingRename41.cs" />
+    <Compile Include="Templates\GameStoreItem.cs" />
+    <Compile Include="Templates\GameStore.cs" />
     <Compile Include="Templates\GameMap.cs" />
     <Compile Include="Templates\PendingRename66.cs" />
     <Compile Include="Templates\PendingRename67.cs" />

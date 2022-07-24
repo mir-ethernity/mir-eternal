@@ -1573,7 +1573,7 @@ namespace GameServer.Maps
                     }
                 }
                 this.Buff列表.Remove(编号);
-                BuffData.删除数据();
+                BuffData.Delete();
                 if (BuffData.Buff同步)
                 {
                     this.发送封包(new ObjectRemovalStatusPacket
@@ -1621,7 +1621,7 @@ namespace GameServer.Maps
                     }
                 }
                 this.Buff列表.Remove(编号);
-                BuffData.删除数据();
+                BuffData.Delete();
                 if (BuffData.Buff同步)
                 {
                     this.发送封包(new ObjectRemovalStatusPacket

@@ -57,7 +57,7 @@ namespace GameServer.Templates
 			return concurrentQueue.ToArray();
 		}
 		
-		public static byte[] 压缩字节(byte[] data)
+		public static byte[] Decompress(byte[] data)
 		{
 			MemoryStream memoryStream = new MemoryStream();
 			DeflaterOutputStream deflaterOutputStream = new DeflaterOutputStream(memoryStream);

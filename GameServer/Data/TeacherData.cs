@@ -70,14 +70,14 @@ namespace GameServer.Data
 		}
 
 		
-		public override void 删除数据()
+		public override void Delete()
 		{
 			this.师父数据.所属师门.V = null;
 			foreach (CharacterData CharacterData in this.师门成员)
 			{
 				CharacterData.所属师门.V = null;
 			}
-			base.删除数据();
+			base.Delete();
 		}
 
 		

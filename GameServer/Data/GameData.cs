@@ -95,7 +95,7 @@ namespace GameServer.Data
 		}
 
 		
-		public virtual void 删除数据()
+		public virtual void Delete()
 		{
 			DataTableBase 数据存表 = this.StorageDataTable;
 			if (数据存表 == null)

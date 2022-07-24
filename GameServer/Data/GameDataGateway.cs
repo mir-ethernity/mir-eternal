@@ -364,7 +364,7 @@ namespace GameServer.Data
 						else
 						{
 							MainForm.添加命令日志(string.Format("开始清理[{0}]({1}/{2})...", CharacterData, CharacterData.当前等级, (int)(DateTime.Now - CharacterData.离线日期.V).TotalDays));
-							CharacterData.删除数据();
+							CharacterData.Delete();
 							num++;
 							MainForm.RemoveCharacter(CharacterData);
 						}

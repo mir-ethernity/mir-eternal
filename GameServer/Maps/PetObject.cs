@@ -836,7 +836,7 @@ namespace GameServer.Maps
 			PetData PetData = this.PetData;
 			if (PetData != null)
 			{
-				PetData.删除数据();
+				PetData.Delete();
 			}
 			this.次要对象 = true;
 			MapGatewayProcess.添加次要对象(this);

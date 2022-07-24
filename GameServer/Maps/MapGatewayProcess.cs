@@ -840,14 +840,14 @@ namespace GameServer.Maps
 				ItemData ItemData = ItemObject.ItemData;
 				if (ItemData != null)
 				{
-					ItemData.删除数据();
+					ItemData.Delete();
 				}
 			}
-			foreach (KeyValuePair<int, 游戏商店> keyValuePair in 游戏商店.DataSheet)
+			foreach (KeyValuePair<int, GameStore> keyValuePair in GameStore.DataSheet)
 			{
-				foreach (ItemData ItemData2 in keyValuePair.Value.回购列表)
+				foreach (ItemData ItemData2 in keyValuePair.Value.AvailableItems)
 				{
-					ItemData2.删除数据();
+					ItemData2.Delete();
 				}
 			}
 		}

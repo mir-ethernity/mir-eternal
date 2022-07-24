@@ -236,7 +236,7 @@ namespace GameServer.Data
 			}
 			this.行会成员.Clear();
 			this.行会禁言.Clear();
-			this.删除数据();
+			this.Delete();
 		}
 
 		

@@ -1388,7 +1388,7 @@ namespace GameServer.Maps
 					}
 					网络连接.发送封包(new 货币数量变动
 					{
-						货币类型 = 1,
+						CurrencyType = 1,
 						货币数量 = value
 					});
 				}
@@ -1443,7 +1443,7 @@ namespace GameServer.Maps
 					}
 					网络连接.发送封包(new 货币数量变动
 					{
-						货币类型 = 6,
+						CurrencyType = 6,
 						货币数量 = value
 					});
 				}
@@ -2917,7 +2917,7 @@ namespace GameServer.Maps
 					}
 					this.玩家穿卸装备(EquipmentWearingParts.战具, EquipmentData, null);
 					this.角色装备.Remove(EquipmentData.物品位置.V);
-					EquipmentData.删除数据();
+					EquipmentData.Delete();
 					return;
 				}
 				客户网络 网络连接2 = this.网络连接;
@@ -3137,7 +3137,7 @@ namespace GameServer.Maps
 					});
 				}
 				this.角色背包.Remove(当前物品.物品位置.V);
-				当前物品.删除数据();
+				当前物品.Delete();
 				return;
 			}
 			客户网络 网络连接2 = this.网络连接;
@@ -3365,7 +3365,7 @@ namespace GameServer.Maps
 					}
 					else
 					{
-						PetData.删除数据();
+						PetData.Delete();
 						this.PetData.Remove(PetData);
 					}
 				}
@@ -4134,7 +4134,7 @@ namespace GameServer.Maps
 			}
 			if (对话数据.DataSheet.ContainsKey((int)this.对话守卫.模板编号 * 100000))
 			{
-				this.打开商店 = this.对话守卫.商店编号;
+				this.打开商店 = this.对话守卫.StoreId;
 				this.打开界面 = this.对话守卫.界面代码;
 				this.对话超时 = MainProcess.CurrentTime.AddSeconds(30.0);
 				this.对话页面 = (int)this.对话守卫.模板编号 * 100000;
@@ -8228,7 +8228,7 @@ namespace GameServer.Maps
 		{
 			if (数据版本 != 0)
 			{
-				if (数据版本 == 游戏商店.商店文件效验)
+				if (数据版本 == GameStore.StoreCount)
 				{
 					客户网络 网络连接 = this.网络连接;
 					if (网络连接 == null)
@@ -8237,7 +8237,7 @@ namespace GameServer.Maps
 					}
 					网络连接.发送封包(new SyncStoreDataPacket
 					{
-						版本编号 = 游戏商店.商店文件效验,
+						版本编号 = GameStore.StoreCount,
 						商品数量 = 0,
 						文件内容 = new byte[0]
 					});
@@ -8251,9 +8251,9 @@ namespace GameServer.Maps
 			}
 			网络连接2.发送封包(new SyncStoreDataPacket
 			{
-				版本编号 = 游戏商店.商店文件效验,
-				商品数量 = 游戏商店.商店物品数量,
-				文件内容 = 游戏商店.商店文件数据
+				版本编号 = GameStore.StoreCount,
+				商品数量 = GameStore.StoreItemsCounts,
+				文件内容 = GameStore.StoreBuffer
 			});
 		}
 
@@ -9758,7 +9758,7 @@ namespace GameServer.Maps
 									list[(int)b5].当前持久.V += (num = Math.Min(list[(int)b5].最大持久.V - list[(int)b5].当前持久.V, list[i].当前持久.V));
 									if ((list[i].当前持久.V -= num) <= 0)
 									{
-										list[i].删除数据();
+										list[i].Delete();
 										list.RemoveAt(i);
 										i--;
 									}
@@ -9805,7 +9805,7 @@ namespace GameServer.Maps
 									list2[(int)b3].当前持久.V += (num2 = Math.Min(list2[(int)b3].最大持久.V - list2[(int)b3].当前持久.V, list2[j].当前持久.V));
 									if ((list2[j].当前持久.V -= num2) <= 0)
 									{
-										list2[j].删除数据();
+										list2[j].Delete();
 										list2.RemoveAt(j);
 										j--;
 									}
@@ -10065,7 +10065,7 @@ namespace GameServer.Maps
 						this.双倍经验 += num;
 						this.CharacterData.分解经验.V += num;
 						this.角色背包.Remove(EquipmentData.当前位置);
-						EquipmentData.删除数据();
+						EquipmentData.Delete();
 						客户网络 网络连接 = this.网络连接;
 						if (网络连接 == null)
 						{
@@ -10441,7 +10441,7 @@ namespace GameServer.Maps
 				}
 				if (ItemData.当前持久.V <= 0)
 				{
-					ItemData.删除数据();
+					ItemData.Delete();
 					if (当前背包 != 1)
 					{
 						if (当前背包 == 2)
@@ -15136,8 +15136,8 @@ namespace GameServer.Maps
 		{
 			if (!this.对象死亡 && this.摆摊状态 <= 0 && this.交易状态 < 3)
 			{
-				游戏商店 游戏商店;
-				if (this.对话守卫 != null && this.当前地图 == this.对话守卫.当前地图 && base.网格距离(this.对话守卫) <= 12 && this.打开商店 != 0 && 出售数量 > 0 && 游戏商店.DataSheet.TryGetValue(this.打开商店, out 游戏商店))
+				GameStore 游戏商店;
+				if (this.对话守卫 != null && this.当前地图 == this.对话守卫.当前地图 && base.网格距离(this.对话守卫) <= 12 && this.打开商店 != 0 && 出售数量 > 0 && GameStore.DataSheet.TryGetValue(this.打开商店, out 游戏商店))
 				{
 					ItemData ItemData = null;
 					if (背包类型 == 1)
@@ -15148,12 +15148,12 @@ namespace GameServer.Maps
 					{
 						return;
 					}
-					if (游戏商店.回收类型 != ItemData.出售类型)
+					if (游戏商店.RecyclingType != ItemData.出售类型)
 					{
 						return;
 					}
 					this.角色背包.Remove(物品位置);
-					游戏商店.出售物品(ItemData);
+					游戏商店.SellItem(ItemData);
 					this.NumberGoldCoins += ItemData.SalePrice;
 					客户网络 网络连接 = this.网络连接;
 					if (网络连接 == null)
@@ -15171,13 +15171,13 @@ namespace GameServer.Maps
 		}
 
 		
-		public void 玩家购买物品(int 商店编号, int 物品位置, ushort 购入数量)
+		public void 玩家购买物品(int StoreId, int 物品位置, ushort 购入数量)
 		{
 			if (!this.对象死亡 && this.摆摊状态 <= 0 && this.交易状态 < 3)
 			{
-				游戏商店 游戏商店;
+				GameStore 游戏商店;
 				GameItems 游戏物品;
-				if (this.对话守卫 != null && this.当前地图 == this.对话守卫.当前地图 && base.网格距离(this.对话守卫) <= 12 && this.打开商店 != 0 && 购入数量 > 0 && this.打开商店 == 商店编号 && 游戏商店.DataSheet.TryGetValue(this.打开商店, out 游戏商店) && 游戏商店.商品列表.Count > 物品位置 && GameItems.DataSheet.TryGetValue(游戏商店.商品列表[物品位置].商品编号, out 游戏物品))
+				if (this.对话守卫 != null && this.当前地图 == this.对话守卫.当前地图 && base.网格距离(this.对话守卫) <= 12 && this.打开商店 != 0 && 购入数量 > 0 && this.打开商店 == StoreId && GameStore.DataSheet.TryGetValue(this.打开商店, out 游戏商店) && 游戏商店.Products.Count > 物品位置 && GameItems.DataSheet.TryGetValue(游戏商店.Products[物品位置].Id, out 游戏物品))
 				{
 					int num;
 					if (购入数量 != 1)
@@ -15191,7 +15191,7 @@ namespace GameServer.Maps
 					num = 1;
 					IL_DD:
 					int num2 = num;
-					游戏商品 游戏商品 = 游戏商店.商品列表[物品位置];
+					GameStoreItem 游戏商品 = 游戏商店.Products[物品位置];
 					int num3 = -1;
 					byte b = 0;
 					while (b < this.背包大小)
@@ -15220,11 +15220,11 @@ namespace GameServer.Maps
 							}
 							else
 							{
-								int num4 = 游戏商品.商品价格 * num2;
-								if (游戏商品.货币类型 <= 19)
+								int num4 = 游戏商品.Price * num2;
+								if (游戏商品.CurrencyType <= 19)
 								{
 									GameCurrency GameCurrency;
-									if (!Enum.TryParse<GameCurrency>(游戏商品.货币类型.ToString(), out GameCurrency) || !Enum.IsDefined(typeof(GameCurrency), GameCurrency))
+									if (!Enum.TryParse<GameCurrency>(游戏商品.CurrencyType.ToString(), out GameCurrency) || !Enum.IsDefined(typeof(GameCurrency), GameCurrency))
 									{
 										return;
 									}
@@ -15310,7 +15310,7 @@ namespace GameServer.Maps
 									{
 										网络连接6.发送封包(new 货币数量变动
 										{
-											货币类型 = (byte)游戏商品.货币类型,
+											CurrencyType = (byte)游戏商品.CurrencyType,
 											货币数量 = this.CharacterData.角色货币[GameCurrency]
 										});
 									}
@@ -15318,7 +15318,7 @@ namespace GameServer.Maps
 								else
 								{
 									List<ItemData> 物品列表;
-									if (!this.查找背包物品(num4, 游戏商品.货币类型, out 物品列表))
+									if (!this.查找背包物品(num4, 游戏商品.CurrencyType, out 物品列表))
 									{
 										return;
 									}
@@ -15391,8 +15391,8 @@ namespace GameServer.Maps
 			{
 				return;
 			}
-			游戏商店 游戏商店;
-			if (this.对话守卫 != null && this.当前地图 == this.对话守卫.当前地图 && base.网格距离(this.对话守卫) <= 12 && this.打开商店 != 0 && 游戏商店.DataSheet.TryGetValue(this.打开商店, out 游戏商店) && this.回购清单.Count > (int)物品位置)
+			GameStore 游戏商店;
+			if (this.对话守卫 != null && this.当前地图 == this.对话守卫.当前地图 && base.网格距离(this.对话守卫) <= 12 && this.打开商店 != 0 && GameStore.DataSheet.TryGetValue(this.打开商店, out 游戏商店) && this.回购清单.Count > (int)物品位置)
 			{
 				ItemData ItemData = this.回购清单[(int)物品位置];
 				int num = -1;
@@ -15434,15 +15434,15 @@ namespace GameServer.Maps
 							});
 							return;
 						}
-						else if (游戏商店.回购物品(ItemData))
+						else if (游戏商店.BuyItem(ItemData))
 						{
 							this.NumberGoldCoins -= ItemData.SalePrice;
 							ItemData ItemData3;
 							if (this.角色背包.TryGetValue((byte)num, out ItemData3))
 							{
 								ItemData3.当前持久.V += ItemData.当前持久.V;
-								游戏商店.回购物品(ItemData);
-								ItemData.删除数据();
+								游戏商店.BuyItem(ItemData);
+								ItemData.Delete();
 								客户网络 网络连接3 = this.网络连接;
 								if (网络连接3 == null)
 								{
@@ -15495,10 +15495,10 @@ namespace GameServer.Maps
 		{
 			if (!this.对象死亡 && this.摆摊状态 <= 0 && this.交易状态 < 3)
 			{
-				游戏商店 游戏商店;
-				if (this.对话守卫 != null && this.当前地图 == this.对话守卫.当前地图 && base.网格距离(this.对话守卫) <= 12 && this.打开商店 != 0 && 游戏商店.DataSheet.TryGetValue(this.打开商店, out 游戏商店))
+				GameStore 游戏商店;
+				if (this.对话守卫 != null && this.当前地图 == this.对话守卫.当前地图 && base.网格距离(this.对话守卫) <= 12 && this.打开商店 != 0 && GameStore.DataSheet.TryGetValue(this.打开商店, out 游戏商店))
 				{
-					this.回购清单 = 游戏商店.回购列表.ToList<ItemData>();
+					this.回购清单 = 游戏商店.AvailableItems.ToList<ItemData>();
 					using (MemoryStream memoryStream = new MemoryStream())
 					{
 						using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
@@ -16959,7 +16959,7 @@ namespace GameServer.Maps
 					{
 						if (b3 != 255)
 						{
-							this.角色背包[b3].删除数据();
+							this.角色背包[b3].Delete();
 							this.角色背包.Remove(b3);
 							客户网络 网络连接11 = this.网络连接;
 							if (网络连接11 != null)
@@ -16976,7 +16976,7 @@ namespace GameServer.Maps
 					{
 						if (b4 != 255)
 						{
-							this.角色背包[b4].删除数据();
+							this.角色背包[b4].Delete();
 							this.角色背包.Remove(b4);
 							客户网络 网络连接12 = this.网络连接;
 							if (网络连接12 != null)
@@ -17179,7 +17179,7 @@ namespace GameServer.Maps
 			EquipmentData v = this.CharacterData.升级装备.V;
 			if (v != null)
 			{
-				v.删除数据();
+				v.Delete();
 			}
 			this.CharacterData.升级装备.V = null;
 			客户网络 网络连接 = this.网络连接;
@@ -19184,7 +19184,7 @@ namespace GameServer.Maps
 								}
 								else
 								{
-									this.所属队伍.删除数据();
+									this.所属队伍.Delete();
 								}
 							}
 							this.CharacterData.当前队伍 = null;
@@ -19524,9 +19524,9 @@ namespace GameServer.Maps
 						ItemData v = MailData.邮件附件.V;
 						if (v != null)
 						{
-							v.删除数据();
+							v.Delete();
 						}
-						MailData.删除数据();
+						MailData.Delete();
 						return;
 					}
 					客户网络 网络连接2 = this.网络连接;

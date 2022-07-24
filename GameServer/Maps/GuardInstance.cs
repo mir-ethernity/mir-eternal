@@ -246,11 +246,11 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x0600071B RID: 1819 RVA: 0x0000623F File Offset: 0x0000443F
-		public int 商店编号
+		public int StoreId
 		{
 			get
 			{
-				return this.对象模板.商店编号;
+				return this.对象模板.StoreId;
 			}
 		}
 

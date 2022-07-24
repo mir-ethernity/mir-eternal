@@ -10,7 +10,7 @@ namespace GameServer.Templates
 		
 		public int Compare(ItemData a, ItemData b)
 		{
-			return b.回购编号.CompareTo(a.回购编号);
+			return b.PurchaseId.CompareTo(a.PurchaseId);
 		}
 
 		

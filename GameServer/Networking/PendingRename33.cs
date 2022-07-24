@@ -15,7 +15,7 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(下标 = 2, 长度 = 1)]
-		public byte 货币类型;
+		public byte CurrencyType;
 
 		
 		[WrappingFieldAttribute(下标 = 6, 长度 = 4)]

@@ -2229,6 +2229,6 @@ namespace GameServer.Data
 		public readonly DataMonitor<byte> 物品位置;
 
 		
-		public int 回购编号;
+		public int PurchaseId;
 	}
 }

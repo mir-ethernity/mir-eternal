@@ -79,14 +79,14 @@ namespace GameServer.Data
 		}
 
 		
-		public override void 删除数据()
+		public override void Delete()
 		{
 			ItemData v = this.邮件附件.V;
 			if (v != null)
 			{
-				v.删除数据();
+				v.Delete();
 			}
-			base.删除数据();
+			base.Delete();
 		}
 
 		

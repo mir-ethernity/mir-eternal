@@ -32,7 +32,7 @@ namespace GameServer
 					{
 						网络连接.发送封包(new 货币数量变动
 						{
-							货币类型 = 1,
+							CurrencyType = 1,
 							货币数量 = CharacterData.NumberGoldCoins
 						});
 					}

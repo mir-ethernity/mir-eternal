@@ -15,7 +15,7 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(下标 = 2, 长度 = 4)]
-		public int 商店编号;
+		public int StoreId;
 
 		
 		[WrappingFieldAttribute(下标 = 6, 长度 = 6)]

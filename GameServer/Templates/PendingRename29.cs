@@ -29,7 +29,7 @@ namespace GameServer.Templates
 					select X).ToList<珍宝商品>())
 					{
 						binaryWriter.Write(珍宝商品.Id);
-						binaryWriter.Write(珍宝商品.单位数量);
+						binaryWriter.Write(珍宝商品.Units);
 						binaryWriter.Write(珍宝商品.商品分类);
 						binaryWriter.Write(珍宝商品.商品标签);
 						binaryWriter.Write(珍宝商品.补充参数);
@@ -71,7 +71,7 @@ namespace GameServer.Templates
 		public int Id;
 
 		
-		public int 单位数量;
+		public int Units;
 
 		
 		public byte 商品分类;

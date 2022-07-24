@@ -62,7 +62,7 @@ namespace GameServer.Templates
 		public string 普攻技能;
 
 		
-		public int 商店编号;
+		public int StoreId;
 
 		
 		public string 界面代码;

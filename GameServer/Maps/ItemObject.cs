@@ -242,7 +242,7 @@ namespace GameServer.Maps
 			ItemData ItemData = this.ItemData;
 			if (ItemData != null)
 			{
-				ItemData.删除数据();
+				ItemData.Delete();
 			}
 			base.删除对象();
 		}

@@ -687,7 +687,7 @@ namespace GameServer.Networking
 				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
-			this.绑定角色.玩家购买物品(P.商店编号, P.物品位置, P.购入数量);
+			this.绑定角色.玩家购买物品(P.StoreId, P.物品位置, P.购入数量);
 		}
 
 		

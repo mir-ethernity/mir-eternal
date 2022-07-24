@@ -115,13 +115,13 @@ namespace GameServer.Data
 		}
 
 		
-		public override void 删除数据()
+		public override void Delete()
 		{
 			foreach (CharacterData CharacterData in this.队伍成员)
 			{
 				CharacterData.当前队伍 = null;
 			}
-			base.删除数据();
+			base.Delete();
 		}
 
 		

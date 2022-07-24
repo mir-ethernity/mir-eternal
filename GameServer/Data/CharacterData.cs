@@ -552,7 +552,7 @@ namespace GameServer.Data
 		}
 
 		
-		public override void 删除数据()
+		public override void Delete()
 		{
 			this.所属账号.V.角色列表.Remove(this);
 			this.所属账号.V.冻结列表.Remove(this);
@@ -560,41 +560,41 @@ namespace GameServer.Data
 			EquipmentData v = this.升级装备.V;
 			if (v != null)
 			{
-				v.删除数据();
+				v.Delete();
 			}
 			foreach (PetData PetData in this.PetData)
 			{
-				PetData.删除数据();
+				PetData.Delete();
 			}
 			foreach (MailData MailData in this.角色邮件)
 			{
-				MailData.删除数据();
+				MailData.Delete();
 			}
 			foreach (KeyValuePair<byte, ItemData> keyValuePair in this.角色背包)
 			{
-				keyValuePair.Value.删除数据();
+				keyValuePair.Value.Delete();
 			}
 			foreach (KeyValuePair<byte, EquipmentData> keyValuePair2 in this.角色装备)
 			{
-				keyValuePair2.Value.删除数据();
+				keyValuePair2.Value.Delete();
 			}
 			foreach (KeyValuePair<byte, ItemData> keyValuePair3 in this.角色仓库)
 			{
-				keyValuePair3.Value.删除数据();
+				keyValuePair3.Value.Delete();
 			}
 			foreach (KeyValuePair<ushort, SkillData> keyValuePair4 in this.SkillData)
 			{
-				keyValuePair4.Value.删除数据();
+				keyValuePair4.Value.Delete();
 			}
 			foreach (KeyValuePair<ushort, BuffData> keyValuePair5 in this.BuffData)
 			{
-				keyValuePair5.Value.删除数据();
+				keyValuePair5.Value.Delete();
 			}
 			if (this.所属队伍.V != null)
 			{
 				if (this == this.所属队伍.V.队长数据)
 				{
-					this.所属队伍.V.删除数据();
+					this.所属队伍.V.Delete();
 				}
 				else
 				{
@@ -605,7 +605,7 @@ namespace GameServer.Data
 			{
 				if (this == this.所属师门.V.师父数据)
 				{
-					this.所属师门.V.删除数据();
+					this.所属师门.V.Delete();
 				}
 				else
 				{
@@ -629,7 +629,7 @@ namespace GameServer.Data
 			{
 				CharacterData3.仇人列表.Remove(this);
 			}
-			base.删除数据();
+			base.Delete();
 		}
 
 		
