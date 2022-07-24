@@ -271,13 +271,13 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000861 RID: 2145 RVA: 0x00006CDD File Offset: 0x00004EDD
-		public int 仇恨范围
+		public int RangeHate
 		{
 			get
 			{
 				if (this.当前地图.MapId != 80)
 				{
-					return (int)this.对象模板.怪物仇恨范围;
+					return (int)this.对象模板.怪物RangeHate;
 				}
 				return 25;
 			}
@@ -325,11 +325,11 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000866 RID: 2150 RVA: 0x00006D23 File Offset: 0x00004F23
-		public int 尸体保留
+		public int CorpsePreservation
 		{
 			get
 			{
-				return (int)this.对象模板.尸体保留时长;
+				return (int)this.对象模板.CorpsePreservation时长;
 			}
 		}
 
@@ -395,11 +395,11 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x0600086D RID: 2157 RVA: 0x00006D7E File Offset: 0x00004F7E
-		public bool 主动攻击目标
+		public bool ActiveAttack目标
 		{
 			get
 			{
-				return this.对象模板.主动攻击目标;
+				return this.对象模板.ActiveAttack目标;
 			}
 		}
 
@@ -660,8 +660,8 @@ namespace GameServer.Maps
 				MainForm.更新地图数据(this.当前地图, "存活怪物总数", -1);
 			}
 			this.尸体消失 = false;
-			this.消失时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.尸体保留);
-			this.复活时间 = MainProcess.CurrentTime.AddMilliseconds((double)Math.Max(this.RevivalInterval, this.尸体保留 + 5000));
+			this.消失时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.CorpsePreservation);
+			this.复活时间 = MainProcess.CurrentTime.AddMilliseconds((double)Math.Max(this.RevivalInterval, this.CorpsePreservation + 5000));
 			PetObject PetObject = 对象 as PetObject;
 			if (PetObject != null)
 			{
@@ -1115,11 +1115,11 @@ namespace GameServer.Maps
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}
-			else if (base.网格距离(this.HateObject.当前目标) > this.仇恨范围 && MainProcess.CurrentTime > this.HateObject.仇恨列表[this.HateObject.当前目标].仇恨时间)
+			else if (base.网格距离(this.HateObject.当前目标) > this.RangeHate && MainProcess.CurrentTime > this.HateObject.仇恨列表[this.HateObject.当前目标].仇恨时间)
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}
-			else if (base.网格距离(this.HateObject.当前目标) <= this.仇恨范围)
+			else if (base.网格距离(this.HateObject.当前目标) <= this.RangeHate)
 			{
 				this.HateObject.仇恨列表[this.HateObject.当前目标].仇恨时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.仇恨时长);
 			}
@@ -1153,11 +1153,11 @@ namespace GameServer.Maps
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}
-			else if (base.网格距离(this.HateObject.当前目标) > this.仇恨范围 && MainProcess.CurrentTime > this.HateObject.仇恨列表[this.HateObject.当前目标].仇恨时间)
+			else if (base.网格距离(this.HateObject.当前目标) > this.RangeHate && MainProcess.CurrentTime > this.HateObject.仇恨列表[this.HateObject.当前目标].仇恨时间)
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}
-			else if (base.网格距离(this.HateObject.当前目标) <= this.仇恨范围)
+			else if (base.网格距离(this.HateObject.当前目标) <= this.RangeHate)
 			{
 				this.HateObject.仇恨列表[this.HateObject.当前目标].仇恨时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.仇恨时长);
 			}

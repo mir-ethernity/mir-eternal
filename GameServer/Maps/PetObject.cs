@@ -301,7 +301,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x060007FD RID: 2045 RVA: 0x00006A23 File Offset: 0x00004C23
-		public int 仇恨范围
+		public int RangeHate
 		{
 			get
 			{
@@ -378,11 +378,11 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000804 RID: 2052 RVA: 0x00006A5B File Offset: 0x00004C5B
-		public int 尸体保留
+		public int CorpsePreservation
 		{
 			get
 			{
-				return (int)this.对象模板.尸体保留时长;
+				return (int)this.对象模板.CorpsePreservation时长;
 			}
 		}
 
@@ -801,7 +801,7 @@ namespace GameServer.Maps
 				new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false).处理任务();
 			}
 			base.自身死亡处理(对象, 技能击杀);
-			this.消失时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.尸体保留);
+			this.消失时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.CorpsePreservation);
 			this.清空宠物仇恨();
 			PlayerObject PlayerObject = this.宠物主人;
 			if (PlayerObject != null)
@@ -1081,11 +1081,11 @@ namespace GameServer.Maps
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}
-			else if (base.网格距离(this.HateObject.当前目标) > this.仇恨范围 && MainProcess.CurrentTime > this.HateObject.仇恨列表[this.HateObject.当前目标].仇恨时间)
+			else if (base.网格距离(this.HateObject.当前目标) > this.RangeHate && MainProcess.CurrentTime > this.HateObject.仇恨列表[this.HateObject.当前目标].仇恨时间)
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}
-			else if (base.网格距离(this.HateObject.当前目标) <= this.仇恨范围)
+			else if (base.网格距离(this.HateObject.当前目标) <= this.RangeHate)
 			{
 				this.HateObject.仇恨列表[this.HateObject.当前目标].仇恨时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.仇恨时长);
 			}

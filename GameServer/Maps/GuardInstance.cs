@@ -157,7 +157,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.对象模板.守卫等级;
+				return this.对象模板.Level;
 			}
 		}
 
@@ -167,7 +167,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.能否受伤 && !this.对象死亡;
+				return this.CanBeInjured && !this.对象死亡;
 			}
 		}
 
@@ -177,7 +177,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.对象模板.守卫名字;
+				return this.对象模板.Name;
 			}
 		}
 
@@ -216,7 +216,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000718 RID: 1816 RVA: 0x00006134 File Offset: 0x00004334
-		public int 仇恨范围
+		public int RangeHate
 		{
 			get
 			{
@@ -256,36 +256,36 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x0600071C RID: 1820 RVA: 0x0000624C File Offset: 0x0000444C
-		public string 界面代码
+		public string InterfaceCode
 		{
 			get
 			{
-				return this.对象模板.界面代码;
+				return this.对象模板.InterfaceCode;
 			}
 		}
 
 		
 		// (get) Token: 0x0600071D RID: 1821 RVA: 0x00006259 File Offset: 0x00004459
-		public bool 能否受伤
+		public bool CanBeInjured
 		{
 			get
 			{
-				return this.对象模板.能否受伤;
+				return this.对象模板.CanBeInjured;
 			}
 		}
 
 		
 		// (get) Token: 0x0600071E RID: 1822 RVA: 0x00006266 File Offset: 0x00004466
-		public bool 主动攻击目标
+		public bool ActiveAttack目标
 		{
 			get
 			{
-				return this.对象模板.主动攻击;
+				return this.对象模板.ActiveAttack;
 			}
 		}
 
 		
-		public GuardInstance(地图守卫 对应模板, MapInstance 出生地图, GameDirection 出生方向, Point 出生坐标)
+		public GuardInstance(Guards 对应模板, MapInstance 出生地图, GameDirection 出生方向, Point 出生坐标)
 		{
 			
 			
@@ -299,10 +299,10 @@ namespace GameServer.Maps
 			Dictionary<GameObjectStats, int> dictionary = new Dictionary<GameObjectStats, int>();
 			dictionary[GameObjectStats.MaxPhysicalStrength] = 9999;
 			属性加成[this] = dictionary;
-			string text = this.对象模板.普攻技能;
+			string text = this.对象模板.BasicAttackSkills;
 			if (text != null && text.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.普攻技能, out this.普攻技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.BasicAttackSkills, out this.BasicAttackSkills);
 			}
 			MapGatewayProcess.添加MapObject(this);
 			this.守卫复活处理();
@@ -348,7 +348,7 @@ namespace GameServer.Maps
 					}
 					base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 				}
-				if (this.主动攻击目标 && MainProcess.CurrentTime > this.忙碌时间 && MainProcess.CurrentTime > this.硬直时间)
+				if (this.ActiveAttack目标 && MainProcess.CurrentTime > this.忙碌时间 && MainProcess.CurrentTime > this.硬直时间)
 				{
 					if (this.更新HateObject())
 					{
@@ -419,16 +419,16 @@ namespace GameServer.Maps
 			{
 				return;
 			}
-			if (this.普攻技能 == null)
+			if (this.BasicAttackSkills == null)
 			{
 				return;
 			}
-			if (base.网格距离(this.HateObject.当前目标) > (int)this.普攻技能.技能最远距离)
+			if (base.网格距离(this.HateObject.当前目标) > (int)this.BasicAttackSkills.技能最远距离)
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 				return;
 			}
-			游戏技能 技能模板 = this.普攻技能;
+			游戏技能 技能模板 = this.BasicAttackSkills;
 			SkillData SkillData = null;
 			byte 动作编号 = base.动作编号;
 			base.动作编号 = (byte)(动作编号 + 1);
@@ -441,7 +441,7 @@ namespace GameServer.Maps
 			this.更新对象属性();
 			this.次要对象 = false;
 			this.对象死亡 = false;
-			this.阻塞网格 = !this.对象模板.虚无状态;
+			this.阻塞网格 = !this.对象模板.Nothingness;
 			this.当前地图 = this.出生地图;
 			this.当前方向 = this.出生方向;
 			this.当前坐标 = this.出生坐标;
@@ -475,7 +475,7 @@ namespace GameServer.Maps
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}
-			else if (base.网格距离(this.HateObject.当前目标) > this.仇恨范围)
+			else if (base.网格距离(this.HateObject.当前目标) > this.RangeHate)
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}
@@ -490,7 +490,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public 地图守卫 对象模板;
+		public Guards 对象模板;
 
 		
 		public HateObject HateObject;
@@ -505,6 +505,6 @@ namespace GameServer.Maps
 		public MapInstance 出生地图;
 
 		
-		public 游戏技能 普攻技能;
+		public 游戏技能 BasicAttackSkills;
 	}
 }

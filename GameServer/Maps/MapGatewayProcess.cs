@@ -455,7 +455,7 @@ namespace GameServer.Maps
 						else if (MainProcess.CurrentTime > MapGatewayProcess.八卦坛激活计时)
 						{
 							MapGatewayProcess.八卦坛激活行会 = GuildData2;
-							MapGatewayProcess.八卦坛激活法阵 = new GuardInstance(地图守卫.DataSheet[6123], MapGatewayProcess.沙城地图, GameDirection.左方, MapGatewayProcess.八卦坛坐标中);
+							MapGatewayProcess.八卦坛激活法阵 = new GuardInstance(Guards.DataSheet[6123], MapGatewayProcess.沙城地图, GameDirection.左方, MapGatewayProcess.八卦坛坐标中);
 							NetworkServiceGateway.发送公告(string.Format("The Shabak Gossip Altar teleportation point has been successfully activated by guild [{0}]", GuildData2), true);
 						}
 					}
@@ -812,8 +812,8 @@ namespace GameServer.Maps
 						while (enumerator6.MoveNext())
 						{
 							MapGuards 守卫刷新2 = enumerator6.Current;
-							地图守卫 对应模板;
-							if (地图守卫.DataSheet.TryGetValue(守卫刷新2.GuardNumber, out 对应模板))
+							Guards 对应模板;
+							if (Guards.DataSheet.TryGetValue(守卫刷新2.GuardNumber, out 对应模板))
 							{
 								new GuardInstance(对应模板, MapInstance6, 守卫刷新2.Direction, 守卫刷新2.FromCoords);
 							}

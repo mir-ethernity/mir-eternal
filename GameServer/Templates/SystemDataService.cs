@@ -15,7 +15,7 @@ namespace GameServer.Templates
 			List<Type> 模板列表 = new List<Type>
 			{
 				typeof(游戏怪物),
-				typeof(地图守卫),
+				typeof(Guards),
 				typeof(NpcDialogs),
 				typeof(GameMap),
 				typeof(Terrains),

@@ -147,13 +147,13 @@ namespace GameServer.Templates
 		public ushort 怪物漫游间隔;
 
 		
-		public ushort 尸体保留时长;
+		public ushort CorpsePreservation时长;
 
 		
-		public bool 主动攻击目标;
+		public bool ActiveAttack目标;
 
 		
-		public byte 怪物仇恨范围;
+		public byte 怪物RangeHate;
 
 		
 		public ushort 怪物仇恨时间;

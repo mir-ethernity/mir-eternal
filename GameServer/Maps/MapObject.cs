@@ -469,7 +469,7 @@ namespace GameServer.Maps
         }
 
         
-        public bool 主动攻击(MapObject 对象)
+        public bool ActiveAttack(MapObject 对象)
         {
             if (对象.对象死亡)
             {
@@ -478,12 +478,12 @@ namespace GameServer.Maps
             MonsterObject MonsterObject = this as MonsterObject;
             if (MonsterObject != null)
             {
-                if (MonsterObject.主动攻击目标)
+                if (MonsterObject.ActiveAttack目标)
                 {
                     if (!(对象 is PlayerObject) && !(对象 is PetObject))
                     {
                         GuardInstance GuardInstance = 对象 as GuardInstance;
-                        if (GuardInstance == null || !GuardInstance.能否受伤)
+                        if (GuardInstance == null || !GuardInstance.CanBeInjured)
                         {
                             return false;
                         }
@@ -496,14 +496,14 @@ namespace GameServer.Maps
                 GuardInstance GuardInstance2 = this as GuardInstance;
                 if (GuardInstance2 != null)
                 {
-                    if (!GuardInstance2.主动攻击目标)
+                    if (!GuardInstance2.ActiveAttack目标)
                     {
                         return false;
                     }
                     MonsterObject MonsterObject2 = 对象 as MonsterObject;
                     if (MonsterObject2 != null)
                     {
-                        return MonsterObject2.主动攻击目标;
+                        return MonsterObject2.ActiveAttack目标;
                     }
                     PlayerObject PlayerObject = 对象 as PlayerObject;
                     if (PlayerObject != null)
@@ -518,7 +518,7 @@ namespace GameServer.Maps
                 else if (this is PetObject)
                 {
                     MonsterObject MonsterObject3 = 对象 as MonsterObject;
-                    return MonsterObject3 != null && MonsterObject3.主动攻击目标;
+                    return MonsterObject3 != null && MonsterObject3.ActiveAttack目标;
                 }
             }
             return false;
@@ -1371,7 +1371,7 @@ namespace GameServer.Maps
             if (!(this is ItemObject) && !(this is TrapObject))
             {
                 GuardInstance GuardInstance = this as GuardInstance;
-                if (GuardInstance == null || GuardInstance.能否受伤)
+                if (GuardInstance == null || GuardInstance.CanBeInjured)
                 {
                     TrapObject TrapObject = 来源 as TrapObject;
                     if (TrapObject != null)
@@ -1890,7 +1890,7 @@ namespace GameServer.Maps
                         int num13 = int.MaxValue;
                         foreach (BuffData BuffData in MapObject.Buff列表.Values.ToList<BuffData>())
                         {
-                            if ((BuffData.Buff效果 & Buff效果类型.伤害增减) != Buff效果类型.技能标志 && (BuffData.Buff模板.效果判定方式 == Buff判定方式.主动攻击增伤 || BuffData.Buff模板.效果判定方式 == Buff判定方式.主动攻击减伤))
+                            if ((BuffData.Buff效果 & Buff效果类型.伤害增减) != Buff效果类型.技能标志 && (BuffData.Buff模板.效果判定方式 == Buff判定方式.ActiveAttack增伤 || BuffData.Buff模板.效果判定方式 == Buff判定方式.ActiveAttack减伤))
                             {
                                 bool flag = false;
                                 switch (参数.技能伤害类型)
@@ -1953,8 +1953,8 @@ namespace GameServer.Maps
                                     num = ((伤害增减系数 != null) ? new int?(伤害增减系数.Length) : null);
                                     num2 = (int)BuffData.Buff等级.V;
                                     float num16 = num15 * ((num.GetValueOrDefault() > num2 & num != null) ? BuffData.Buff模板.伤害增减系数[(int)BuffData.Buff等级.V] : 0f);
-                                    num11 += ((BuffData.Buff模板.效果判定方式 == Buff判定方式.主动攻击增伤) ? num14 : (-num14));
-                                    num12 += ((BuffData.Buff模板.效果判定方式 == Buff判定方式.主动攻击增伤) ? num16 : (-num16));
+                                    num11 += ((BuffData.Buff模板.效果判定方式 == Buff判定方式.ActiveAttack增伤) ? num14 : (-num14));
+                                    num12 += ((BuffData.Buff模板.效果判定方式 == Buff判定方式.ActiveAttack增伤) ? num16 : (-num16));
                                     MapObject MapObject2;
                                     if (BuffData.Buff模板.生效后接编号 != 0 && BuffData.Buff来源 != null && MapGatewayProcess.Objects.TryGetValue(BuffData.Buff来源.MapId, out MapObject2) && MapObject2 == BuffData.Buff来源)
                                     {
@@ -2604,11 +2604,11 @@ namespace GameServer.Maps
                 if (PetObject != null)
                 {
                     HateObject.仇恨详情 仇恨详情;
-                    if (PetObject.主动攻击(对象) && this.网格距离(对象) <= PetObject.仇恨范围 && !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
+                    if (PetObject.ActiveAttack(对象) && this.网格距离(对象) <= PetObject.RangeHate && !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
                     {
                         PetObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                     }
-                    else if (this.网格距离(对象) > PetObject.仇恨范围 && PetObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情) && 仇恨详情.仇恨时间 < MainProcess.CurrentTime)
+                    else if (this.网格距离(对象) > PetObject.RangeHate && PetObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情) && 仇恨详情.仇恨时间 < MainProcess.CurrentTime)
                     {
                         PetObject.HateObject.移除仇恨(对象);
                     }
@@ -2619,11 +2619,11 @@ namespace GameServer.Maps
                     if (MonsterObject != null)
                     {
                         HateObject.仇恨详情 仇恨详情2;
-                        if (this.网格距离(对象) <= MonsterObject.仇恨范围 && MonsterObject.主动攻击(对象) && (MonsterObject.可见隐身目标 || !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
+                        if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.可见隐身目标 || !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
                         {
                             MonsterObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                         }
-                        else if (this.网格距离(对象) > MonsterObject.仇恨范围 && MonsterObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情2) && 仇恨详情2.仇恨时间 < MainProcess.CurrentTime)
+                        else if (this.网格距离(对象) > MonsterObject.RangeHate && MonsterObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情2) && 仇恨详情2.仇恨时间 < MainProcess.CurrentTime)
                         {
                             MonsterObject.HateObject.移除仇恨(对象);
                         }
@@ -2643,11 +2643,11 @@ namespace GameServer.Maps
                             GuardInstance GuardInstance = this as GuardInstance;
                             if (GuardInstance != null)
                             {
-                                if (GuardInstance.主动攻击(对象) && this.网格距离(对象) <= GuardInstance.仇恨范围)
+                                if (GuardInstance.ActiveAttack(对象) && this.网格距离(对象) <= GuardInstance.RangeHate)
                                 {
                                     GuardInstance.HateObject.添加仇恨(对象, default(DateTime), 0);
                                 }
-                                else if (this.网格距离(对象) > GuardInstance.仇恨范围)
+                                else if (this.网格距离(对象) > GuardInstance.RangeHate)
                                 {
                                     GuardInstance.HateObject.移除仇恨(对象);
                                 }
@@ -2661,13 +2661,13 @@ namespace GameServer.Maps
                 PetObject PetObject2 = 对象 as PetObject;
                 if (PetObject2 != null)
                 {
-                    if (PetObject2.网格距离(this) <= PetObject2.仇恨范围 && PetObject2.主动攻击(this) && !this.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
+                    if (PetObject2.网格距离(this) <= PetObject2.RangeHate && PetObject2.ActiveAttack(this) && !this.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
                     {
                         PetObject2.HateObject.添加仇恨(this, default(DateTime), 0);
                         return;
                     }
                     HateObject.仇恨详情 仇恨详情3;
-                    if (PetObject2.网格距离(this) > PetObject2.仇恨范围 && PetObject2.HateObject.仇恨列表.TryGetValue(this, out 仇恨详情3) && 仇恨详情3.仇恨时间 < MainProcess.CurrentTime)
+                    if (PetObject2.网格距离(this) > PetObject2.RangeHate && PetObject2.HateObject.仇恨列表.TryGetValue(this, out 仇恨详情3) && 仇恨详情3.仇恨时间 < MainProcess.CurrentTime)
                     {
                         PetObject2.HateObject.移除仇恨(this);
                         return;
@@ -2678,13 +2678,13 @@ namespace GameServer.Maps
                     MonsterObject MonsterObject2 = 对象 as MonsterObject;
                     if (MonsterObject2 != null)
                     {
-                        if (MonsterObject2.网格距离(this) <= MonsterObject2.仇恨范围 && MonsterObject2.主动攻击(this) && (MonsterObject2.可见隐身目标 || !this.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
+                        if (MonsterObject2.网格距离(this) <= MonsterObject2.RangeHate && MonsterObject2.ActiveAttack(this) && (MonsterObject2.可见隐身目标 || !this.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
                         {
                             MonsterObject2.HateObject.添加仇恨(this, default(DateTime), 0);
                             return;
                         }
                         HateObject.仇恨详情 仇恨详情4;
-                        if (MonsterObject2.网格距离(this) > MonsterObject2.仇恨范围 && MonsterObject2.HateObject.仇恨列表.TryGetValue(this, out 仇恨详情4) && 仇恨详情4.仇恨时间 < MainProcess.CurrentTime)
+                        if (MonsterObject2.网格距离(this) > MonsterObject2.RangeHate && MonsterObject2.HateObject.仇恨列表.TryGetValue(this, out 仇恨详情4) && 仇恨详情4.仇恨时间 < MainProcess.CurrentTime)
                         {
                             MonsterObject2.HateObject.移除仇恨(this);
                             return;
@@ -2706,12 +2706,12 @@ namespace GameServer.Maps
                             GuardInstance GuardInstance2 = 对象 as GuardInstance;
                             if (GuardInstance2 != null)
                             {
-                                if (GuardInstance2.主动攻击(this) && GuardInstance2.网格距离(this) <= GuardInstance2.仇恨范围)
+                                if (GuardInstance2.ActiveAttack(this) && GuardInstance2.网格距离(this) <= GuardInstance2.RangeHate)
                                 {
                                     GuardInstance2.HateObject.添加仇恨(this, default(DateTime), 0);
                                     return;
                                 }
-                                if (GuardInstance2.网格距离(this) > GuardInstance2.仇恨范围)
+                                if (GuardInstance2.网格距离(this) > GuardInstance2.RangeHate)
                                 {
                                     GuardInstance2.HateObject.移除仇恨(this);
                                 }
@@ -2856,13 +2856,13 @@ namespace GameServer.Maps
                             PetObject PetObject = this as PetObject;
                             if (PetObject != null)
                             {
-                                if (this.网格距离(对象) <= PetObject.仇恨范围 && PetObject.主动攻击(对象) && !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
+                                if (this.网格距离(对象) <= PetObject.RangeHate && PetObject.ActiveAttack(对象) && !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
                                 {
                                     PetObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                                     return;
                                 }
                                 HateObject.仇恨详情 仇恨详情;
-                                if (this.网格距离(对象) > PetObject.仇恨范围 && PetObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情) && 仇恨详情.仇恨时间 < MainProcess.CurrentTime)
+                                if (this.网格距离(对象) > PetObject.RangeHate && PetObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情) && 仇恨详情.仇恨时间 < MainProcess.CurrentTime)
                                 {
                                     PetObject.HateObject.移除仇恨(对象);
                                     return;
@@ -2873,13 +2873,13 @@ namespace GameServer.Maps
                                 MonsterObject MonsterObject = this as MonsterObject;
                                 if (MonsterObject != null)
                                 {
-                                    if (this.网格距离(对象) <= MonsterObject.仇恨范围 && MonsterObject.主动攻击(对象) && (MonsterObject.可见隐身目标 || !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
+                                    if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.可见隐身目标 || !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
                                     {
                                         MonsterObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                                         return;
                                     }
                                     HateObject.仇恨详情 仇恨详情2;
-                                    if (this.网格距离(对象) > MonsterObject.仇恨范围 && MonsterObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情2) && 仇恨详情2.仇恨时间 < MainProcess.CurrentTime)
+                                    if (this.网格距离(对象) > MonsterObject.RangeHate && MonsterObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情2) && 仇恨详情2.仇恨时间 < MainProcess.CurrentTime)
                                     {
                                         MonsterObject.HateObject.移除仇恨(对象);
                                         return;
@@ -3025,13 +3025,13 @@ namespace GameServer.Maps
                             PetObject PetObject2 = this as PetObject;
                             if (PetObject2 != null && !this.对象死亡)
                             {
-                                if (this.网格距离(对象) <= PetObject2.仇恨范围 && PetObject2.主动攻击(对象) && !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
+                                if (this.网格距离(对象) <= PetObject2.RangeHate && PetObject2.ActiveAttack(对象) && !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
                                 {
                                     PetObject2.HateObject.添加仇恨(对象, default(DateTime), 0);
                                     return;
                                 }
                                 HateObject.仇恨详情 仇恨详情3;
-                                if (this.网格距离(对象) > PetObject2.仇恨范围 && PetObject2.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情3) && 仇恨详情3.仇恨时间 < MainProcess.CurrentTime)
+                                if (this.网格距离(对象) > PetObject2.RangeHate && PetObject2.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情3) && 仇恨详情3.仇恨时间 < MainProcess.CurrentTime)
                                 {
                                     PetObject2.HateObject.移除仇恨(对象);
                                     return;
@@ -3043,11 +3043,11 @@ namespace GameServer.Maps
                                 if (MonsterObject2 != null && !this.对象死亡)
                                 {
                                     HateObject.仇恨详情 仇恨详情4;
-                                    if (this.网格距离(对象) <= MonsterObject2.仇恨范围 && MonsterObject2.主动攻击(对象) && (MonsterObject2.可见隐身目标 || !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
+                                    if (this.网格距离(对象) <= MonsterObject2.RangeHate && MonsterObject2.ActiveAttack(对象) && (MonsterObject2.可见隐身目标 || !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
                                     {
                                         MonsterObject2.HateObject.添加仇恨(对象, default(DateTime), 0);
                                     }
-                                    else if (this.网格距离(对象) > MonsterObject2.仇恨范围 && MonsterObject2.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情4) && 仇恨详情4.仇恨时间 < MainProcess.CurrentTime)
+                                    else if (this.网格距离(对象) > MonsterObject2.RangeHate && MonsterObject2.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情4) && 仇恨详情4.仇恨时间 < MainProcess.CurrentTime)
                                     {
                                         MonsterObject2.HateObject.移除仇恨(对象);
                                     }
@@ -3062,11 +3062,11 @@ namespace GameServer.Maps
                                     GuardInstance GuardInstance = this as GuardInstance;
                                     if (GuardInstance != null && !this.对象死亡)
                                     {
-                                        if (GuardInstance.主动攻击(对象) && this.网格距离(对象) <= GuardInstance.仇恨范围)
+                                        if (GuardInstance.ActiveAttack(对象) && this.网格距离(对象) <= GuardInstance.RangeHate)
                                         {
                                             GuardInstance.HateObject.添加仇恨(对象, default(DateTime), 0);
                                         }
-                                        else if (this.网格距离(对象) > GuardInstance.仇恨范围)
+                                        else if (this.网格距离(对象) > GuardInstance.RangeHate)
                                         {
                                             GuardInstance.HateObject.移除仇恨(对象);
                                         }
@@ -3213,11 +3213,11 @@ namespace GameServer.Maps
             if (PetObject != null)
             {
                 HateObject.仇恨详情 仇恨详情;
-                if (this.网格距离(对象) <= PetObject.仇恨范围 && PetObject.主动攻击(对象) && !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
+                if (this.网格距离(对象) <= PetObject.RangeHate && PetObject.ActiveAttack(对象) && !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
                 {
                     PetObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                 }
-                else if (this.网格距离(对象) > PetObject.仇恨范围 && PetObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情) && 仇恨详情.仇恨时间 < MainProcess.CurrentTime)
+                else if (this.网格距离(对象) > PetObject.RangeHate && PetObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情) && 仇恨详情.仇恨时间 < MainProcess.CurrentTime)
                 {
                     PetObject.HateObject.移除仇恨(对象);
                 }
@@ -3225,13 +3225,13 @@ namespace GameServer.Maps
             MonsterObject MonsterObject = this as MonsterObject;
             if (MonsterObject != null)
             {
-                if (this.网格距离(对象) <= MonsterObject.仇恨范围 && MonsterObject.主动攻击(对象) && (MonsterObject.可见隐身目标 || !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
+                if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.可见隐身目标 || !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
                 {
                     MonsterObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                     return;
                 }
                 HateObject.仇恨详情 仇恨详情2;
-                if (this.网格距离(对象) > MonsterObject.仇恨范围 && MonsterObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情2) && 仇恨详情2.仇恨时间 < MainProcess.CurrentTime)
+                if (this.网格距离(对象) > MonsterObject.RangeHate && MonsterObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情2) && 仇恨详情2.仇恨时间 < MainProcess.CurrentTime)
                 {
                     MonsterObject.HateObject.移除仇恨(对象);
                 }

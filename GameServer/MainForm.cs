@@ -54,7 +54,7 @@ namespace GameServer
             MainForm.怪物DataSheet.Columns.Add("怪物级别", typeof(string));
             MainForm.怪物DataSheet.Columns.Add("移动间隔", typeof(string));
             MainForm.怪物DataSheet.Columns.Add("漫游间隔", typeof(string));
-            MainForm.怪物DataSheet.Columns.Add("仇恨范围", typeof(string));
+            MainForm.怪物DataSheet.Columns.Add("RangeHate", typeof(string));
             MainForm.怪物DataSheet.Columns.Add("仇恨时长", typeof(string));
             MainForm MainForm2 = MainForm.Singleton;
             if (MainForm2 != null)
@@ -735,7 +735,7 @@ namespace GameServer
                     dataRow["怪物级别"] = 怪物.怪物级别;
                     dataRow["怪物经验"] = 怪物.怪物提供经验;
                     dataRow["移动间隔"] = 怪物.怪物移动间隔;
-                    dataRow["仇恨范围"] = 怪物.怪物仇恨范围;
+                    dataRow["RangeHate"] = 怪物.怪物RangeHate;
                     dataRow["仇恨时长"] = 怪物.怪物仇恨时间;
                     MainForm.怪物数据行[怪物] = dataRow;
                     MainForm.数据行怪物[dataRow] = 怪物;
@@ -940,7 +940,7 @@ namespace GameServer
             MainForm.怪物DataSheet.Columns.Add("怪物级别", typeof(string));
             MainForm.怪物DataSheet.Columns.Add("移动间隔", typeof(string));
             MainForm.怪物DataSheet.Columns.Add("漫游间隔", typeof(string));
-            MainForm.怪物DataSheet.Columns.Add("仇恨范围", typeof(string));
+            MainForm.怪物DataSheet.Columns.Add("RangeHate", typeof(string));
             MainForm.怪物DataSheet.Columns.Add("仇恨时长", typeof(string));
             MainForm.Singleton.怪物浏览表.DataSource = MainForm.怪物DataSheet;
             MainForm.掉落DataSheet = new DataTable("掉落数据表");

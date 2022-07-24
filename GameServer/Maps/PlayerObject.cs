@@ -4135,7 +4135,7 @@ namespace GameServer.Maps
 			if (NpcDialogs.DataSheet.ContainsKey((int)this.对话守卫.模板编号 * 100000))
 			{
 				this.打开商店 = this.对话守卫.StoreId;
-				this.打开界面 = this.对话守卫.界面代码;
+				this.打开界面 = this.对话守卫.InterfaceCode;
 				this.对话超时 = MainProcess.CurrentTime.AddSeconds(30.0);
 				this.对话页面 = (int)this.对话守卫.模板编号 * 100000;
 				客户网络 网络连接 = this.网络连接;
@@ -6648,7 +6648,7 @@ namespace GameServer.Maps
 									MapInstance2.MapObject = new HashSet<MapObject>[MapInstance.地图大小.X, MapInstance.地图大小.Y];
 									MapInstance MapInstance3 = MapInstance2;
 									MapGatewayProcess.副本实例表.Add(MapInstance3);
-									MapInstance3.副本守卫 = new GuardInstance(地图守卫.DataSheet[6724], MapInstance3, GameDirection.左下, new Point(1005, 273));
+									MapInstance3.副本守卫 = new GuardInstance(Guards.DataSheet[6724], MapInstance3, GameDirection.左下, new Point(1005, 273));
 									using (IEnumerator<CharacterData> enumerator = this.所属队伍.队伍成员.GetEnumerator())
 									{
 										while (enumerator.MoveNext())
@@ -18170,7 +18170,7 @@ namespace GameServer.Maps
 								同步Npcc数据2.对象质量 = 3;
 								同步Npcc数据2.对象编号 = GuardInstance.MapId;
 								同步Npcc数据2.对象等级 = GuardInstance.当前等级;
-								地图守卫 对象模板2 = GuardInstance.对象模板;
+								Guards 对象模板2 = GuardInstance.对象模板;
 								同步Npcc数据2.对象模板 = ((ushort)((对象模板2 != null) ? 对象模板2.GuardNumber : 0));
 								同步Npcc数据2.体力上限 = GuardInstance[GameObjectStats.MaxPhysicalStrength];
 								网络连接5.发送封包(同步Npcc数据2);
