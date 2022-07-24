@@ -133,6 +133,7 @@ namespace GameServer.Data
 					binaryWriter.Write(this.DataSheet.Count);
 					foreach (KeyValuePair<int, GameData> keyValuePair in this.DataSheet)
 					{
+						if (keyValuePair.Value.RawData == null || keyValuePair.Value.RawData.Length == 0) continue;
 						binaryWriter.Write(keyValuePair.Value.RawData.Length);
 						binaryWriter.Write(keyValuePair.Value.RawData);
 					}
