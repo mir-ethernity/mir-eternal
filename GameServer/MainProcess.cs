@@ -78,6 +78,7 @@ namespace GameServer
 
                 try
                 {
+                    CurrentTime = DateTime.Now;
                     ProcessServerStats();
                     ProcessGMCommands();
                     NetworkServiceGateway.Process();
