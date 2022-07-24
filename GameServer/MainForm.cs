@@ -1107,7 +1107,7 @@ namespace GameServer
         {
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog
             {
-                Description = "请选择文件夹"
+                Description = "Please select folder"
             };
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
