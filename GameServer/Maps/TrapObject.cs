@@ -185,7 +185,7 @@ namespace GameServer.Maps
 			if (PlayerObject != null)
 			{
 				SkillData SkillData;
-				if (this.陷阱模板.绑定等级 != 0 && PlayerObject.主体技能表.TryGetValue(this.陷阱模板.绑定等级, out SkillData))
+				if (this.陷阱模板.绑定等级 != 0 && PlayerObject.MainSkills表.TryGetValue(this.陷阱模板.绑定等级, out SkillData))
 				{
 					this.陷阱等级 = SkillData.技能等级.V;
 				}
@@ -198,13 +198,13 @@ namespace GameServer.Maps
 					this.消失时间 += TimeSpan.FromMilliseconds((double)((float)PlayerObject[this.陷阱模板.BoundPlayerStat] * this.陷阱模板.StatDelayFactor));
 				}
 				SkillData SkillData2;
-				if (this.陷阱模板.ExtendedDuration && this.陷阱模板.HasSpecificInscriptionDelay && PlayerObject.主体技能表.TryGetValue((ushort)(this.陷阱模板.SpecificInscriptionSkills / 10), out SkillData2) && (int)SkillData2.Id == this.陷阱模板.SpecificInscriptionSkills % 10)
+				if (this.陷阱模板.ExtendedDuration && this.陷阱模板.HasSpecificInscriptionDelay && PlayerObject.MainSkills表.TryGetValue((ushort)(this.陷阱模板.SpecificInscriptionSkills / 10), out SkillData2) && (int)SkillData2.Id == this.陷阱模板.SpecificInscriptionSkills % 10)
 				{
 					this.消失时间 += TimeSpan.FromMilliseconds((double)this.陷阱模板.InscriptionExtendedTime);
 				}
 			}
-			this.主动触发技能 = ((this.陷阱模板.主动触发技能 == null || !游戏技能.DataSheet.ContainsKey(this.陷阱模板.主动触发技能)) ? null : 游戏技能.DataSheet[this.陷阱模板.主动触发技能]);
-			this.被动触发技能 = ((this.陷阱模板.被动触发技能 == null || !游戏技能.DataSheet.ContainsKey(this.陷阱模板.被动触发技能)) ? null : 游戏技能.DataSheet[this.陷阱模板.被动触发技能]);
+			this.主动触发技能 = ((this.陷阱模板.主动触发技能 == null || !GameSkills.DataSheet.ContainsKey(this.陷阱模板.主动触发技能)) ? null : GameSkills.DataSheet[this.陷阱模板.主动触发技能]);
+			this.被动触发技能 = ((this.陷阱模板.被动触发技能 == null || !GameSkills.DataSheet.ContainsKey(this.陷阱模板.被动触发技能)) ? null : GameSkills.DataSheet[this.陷阱模板.被动触发技能]);
 			this.MapId = ++MapGatewayProcess.陷阱编号;
 			base.绑定网格();
 			base.更新邻居时处理();
@@ -322,9 +322,9 @@ namespace GameServer.Maps
 		public byte 陷阱移动次数;
 
 		
-		public 游戏技能 被动触发技能;
+		public GameSkills 被动触发技能;
 
 		
-		public 游戏技能 主动触发技能;
+		public GameSkills 主动触发技能;
 	}
 }

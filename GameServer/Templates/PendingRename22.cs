@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace GameServer.Templates
 {
 	
-	public sealed class C_01_计算命中目标 : 技能任务
+	public sealed class C_01_计算命中目标 : SkillTask
 	{
 		
 		public C_01_计算命中目标()
@@ -65,10 +65,10 @@ namespace GameServer.Templates
 		public 游戏对象关系 限定目标关系;
 
 		
-		public 指定目标类型 限定特定类型;
+		public SpecifyTargetType 限定特定类型;
 
 		
-		public 指定目标类型 攻速提升类型;
+		public SpecifyTargetType 攻速提升类型;
 
 		
 		public int 攻速提升幅度;

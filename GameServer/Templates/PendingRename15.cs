@@ -3,7 +3,7 @@
 namespace GameServer.Templates
 {
 	
-	public sealed class A_02_TriggerTrapSkills : 技能任务
+	public sealed class A_02_TriggerTrapSkills : SkillTask
 	{
 		
 		public A_02_TriggerTrapSkills()

@@ -3,7 +3,7 @@
 namespace GameServer.Templates
 {
 	
-	public sealed class A_01_触发对象Buff : 技能任务
+	public sealed class A_01_触发对象Buff : SkillTask
 	{
 		
 		public A_01_触发对象Buff()
@@ -37,7 +37,7 @@ namespace GameServer.Templates
 		public bool 验证自身Buff;
 
 		
-		public ushort 自身Id;
+		public ushort Id;
 
 		
 		public bool 触发成功移除;
@@ -55,7 +55,7 @@ namespace GameServer.Templates
 		public ushort BuffGroupId;
 
 		
-		public bool 验证目标Buff;
+		public bool VerifyTargetBuff;
 
 		
 		public ushort 目标Id;
@@ -64,10 +64,10 @@ namespace GameServer.Templates
 		public byte 所需Buff层数;
 
 		
-		public bool 验证目标类型;
+		public bool VerifyTargetType;
 
 		
-		public 指定目标类型 所需目标类型;
+		public SpecifyTargetType 所需目标类型;
 
 		
 		public bool 增加技能经验;

@@ -3,10 +3,10 @@
 namespace GameServer.Templates
 {
 	
-	public sealed class A_00_触发子类技能 : 技能任务
+	public sealed class A_00_触发SubSkills : SkillTask
 	{
 		
-		public A_00_触发子类技能()
+		public A_00_触发SubSkills()
 		{
 			
 			
@@ -22,10 +22,10 @@ namespace GameServer.Templates
 		public string 反手SkillName;
 
 		
-		public bool 计算触发概率;
+		public bool CalculateTriggerProbability;
 
 		
-		public bool 计算幸运概率;
+		public bool CalculateLuckyProbability;
 
 		
 		public float 技能触发概率;
@@ -40,7 +40,7 @@ namespace GameServer.Templates
 		public bool 验证自身Buff;
 
 		
-		public ushort 自身Id;
+		public ushort Id;
 
 		
 		public bool 触发成功移除;

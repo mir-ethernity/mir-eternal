@@ -302,7 +302,7 @@ namespace GameServer.Maps
 			string text = this.对象模板.BasicAttackSkills;
 			if (text != null && text.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.BasicAttackSkills, out this.BasicAttackSkills);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.BasicAttackSkills, out this.BasicAttackSkills);
 			}
 			MapGatewayProcess.添加MapObject(this);
 			this.守卫复活处理();
@@ -423,12 +423,12 @@ namespace GameServer.Maps
 			{
 				return;
 			}
-			if (base.网格距离(this.HateObject.当前目标) > (int)this.BasicAttackSkills.技能最远距离)
+			if (base.网格距离(this.HateObject.当前目标) > (int)this.BasicAttackSkills.MaxDistance)
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 				return;
 			}
-			游戏技能 技能模板 = this.BasicAttackSkills;
+			GameSkills 技能模板 = this.BasicAttackSkills;
 			SkillData SkillData = null;
 			byte 动作编号 = base.动作编号;
 			base.动作编号 = (byte)(动作编号 + 1);
@@ -505,6 +505,6 @@ namespace GameServer.Maps
 		public MapInstance 出生地图;
 
 		
-		public 游戏技能 BasicAttackSkills;
+		public GameSkills BasicAttackSkills;
 	}
 }

@@ -3,7 +3,7 @@
 namespace GameServer.Templates
 {
 	
-	public sealed class C_06_计算宠物召唤 : 技能任务
+	public sealed class C_06_计算宠物召唤 : SkillTask
 	{
 		
 		public C_06_计算宠物召唤()

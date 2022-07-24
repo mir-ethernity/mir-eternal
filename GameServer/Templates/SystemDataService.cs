@@ -30,7 +30,7 @@ namespace GameServer.Templates
 				typeof(Treasures),
 				typeof(GameTitle),
 				typeof(InscriptionSkill),
-				typeof(游戏技能),
+				typeof(GameSkills),
 				typeof(技能陷阱),
 				typeof(GameBuffs)
 			};

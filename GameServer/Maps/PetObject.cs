@@ -471,37 +471,37 @@ namespace GameServer.Maps
 			string text = this.对象模板.NormalAttackSkills;
 			if (text != null && text.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.NormalAttackSkills, out this.NormalAttackSkills);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.NormalAttackSkills, out this.NormalAttackSkills);
 			}
 			string text2 = this.对象模板.ProbabilityTriggerSkills;
 			if (text2 != null && text2.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.ProbabilityTriggerSkills, out this.ProbabilityTriggerSkills);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.ProbabilityTriggerSkills, out this.ProbabilityTriggerSkills);
 			}
 			string text3 = this.对象模板.EnterCombatSkills;
 			if (text3 != null && text3.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.EnterCombatSkills, out this.EnterCombatSkills);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.EnterCombatSkills, out this.EnterCombatSkills);
 			}
 			string text4 = this.对象模板.ExitCombatSkills;
 			if (text4 != null && text4.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.ExitCombatSkills, out this.ExitCombatSkills);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.ExitCombatSkills, out this.ExitCombatSkills);
 			}
 			string text5 = this.对象模板.DeathReleaseSkill;
 			if (text5 != null && text5.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.DeathReleaseSkill, out this.DeathReleaseSkill);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.DeathReleaseSkill, out this.DeathReleaseSkill);
 			}
 			string text6 = this.对象模板.MoveReleaseSkill;
 			if (text6 != null && text6.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.MoveReleaseSkill, out this.MoveReleaseSkill);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.MoveReleaseSkill, out this.MoveReleaseSkill);
 			}
 			string text7 = this.对象模板.BirthReleaseSkill;
 			if (text7 != null && text7.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.BirthReleaseSkill, out this.BirthReleaseSkill);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.BirthReleaseSkill, out this.BirthReleaseSkill);
 			}
 			this.MapId = ++MapGatewayProcess.对象编号;
 			MapGatewayProcess.添加MapObject(this);
@@ -541,37 +541,37 @@ namespace GameServer.Maps
 			string text = this.对象模板.NormalAttackSkills;
 			if (text != null && text.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.NormalAttackSkills, out this.NormalAttackSkills);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.NormalAttackSkills, out this.NormalAttackSkills);
 			}
 			string text2 = this.对象模板.ProbabilityTriggerSkills;
 			if (text2 != null && text2.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.ProbabilityTriggerSkills, out this.ProbabilityTriggerSkills);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.ProbabilityTriggerSkills, out this.ProbabilityTriggerSkills);
 			}
 			string text3 = this.对象模板.EnterCombatSkills;
 			if (text3 != null && text3.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.EnterCombatSkills, out this.EnterCombatSkills);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.EnterCombatSkills, out this.EnterCombatSkills);
 			}
 			string text4 = this.对象模板.ExitCombatSkills;
 			if (text4 != null && text4.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.ExitCombatSkills, out this.ExitCombatSkills);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.ExitCombatSkills, out this.ExitCombatSkills);
 			}
 			string text5 = this.对象模板.DeathReleaseSkill;
 			if (text5 != null && text5.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.DeathReleaseSkill, out this.DeathReleaseSkill);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.DeathReleaseSkill, out this.DeathReleaseSkill);
 			}
 			string text6 = this.对象模板.MoveReleaseSkill;
 			if (text6 != null && text6.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.MoveReleaseSkill, out this.MoveReleaseSkill);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.MoveReleaseSkill, out this.MoveReleaseSkill);
 			}
 			string text7 = this.对象模板.BirthReleaseSkill;
 			if (text7 != null && text7.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.BirthReleaseSkill, out this.BirthReleaseSkill);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.BirthReleaseSkill, out this.BirthReleaseSkill);
 			}
 			MapGatewayProcess.添加MapObject(this);
 			this.激活对象 = true;
@@ -602,37 +602,37 @@ namespace GameServer.Maps
 			string text = this.对象模板.NormalAttackSkills;
 			if (text != null && text.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.NormalAttackSkills, out this.NormalAttackSkills);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.NormalAttackSkills, out this.NormalAttackSkills);
 			}
 			string text2 = this.对象模板.ProbabilityTriggerSkills;
 			if (text2 != null && text2.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.ProbabilityTriggerSkills, out this.ProbabilityTriggerSkills);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.ProbabilityTriggerSkills, out this.ProbabilityTriggerSkills);
 			}
 			string text3 = this.对象模板.EnterCombatSkills;
 			if (text3 != null && text3.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.EnterCombatSkills, out this.EnterCombatSkills);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.EnterCombatSkills, out this.EnterCombatSkills);
 			}
 			string text4 = this.对象模板.ExitCombatSkills;
 			if (text4 != null && text4.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.ExitCombatSkills, out this.ExitCombatSkills);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.ExitCombatSkills, out this.ExitCombatSkills);
 			}
 			string text5 = this.对象模板.DeathReleaseSkill;
 			if (text5 != null && text5.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.DeathReleaseSkill, out this.DeathReleaseSkill);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.DeathReleaseSkill, out this.DeathReleaseSkill);
 			}
 			string text6 = this.对象模板.MoveReleaseSkill;
 			if (text6 != null && text6.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.MoveReleaseSkill, out this.MoveReleaseSkill);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.MoveReleaseSkill, out this.MoveReleaseSkill);
 			}
 			string text7 = this.对象模板.BirthReleaseSkill;
 			if (text7 != null && text7.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.BirthReleaseSkill, out this.BirthReleaseSkill);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.BirthReleaseSkill, out this.BirthReleaseSkill);
 			}
 			诱惑怪物.怪物诱惑处理();
 			this.MapId = ++MapGatewayProcess.对象编号;
@@ -666,37 +666,37 @@ namespace GameServer.Maps
 			string text = this.对象模板.NormalAttackSkills;
 			if (text != null && text.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.NormalAttackSkills, out this.NormalAttackSkills);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.NormalAttackSkills, out this.NormalAttackSkills);
 			}
 			string text2 = this.对象模板.ProbabilityTriggerSkills;
 			if (text2 != null && text2.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.ProbabilityTriggerSkills, out this.ProbabilityTriggerSkills);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.ProbabilityTriggerSkills, out this.ProbabilityTriggerSkills);
 			}
 			string text3 = this.对象模板.EnterCombatSkills;
 			if (text3 != null && text3.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.EnterCombatSkills, out this.EnterCombatSkills);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.EnterCombatSkills, out this.EnterCombatSkills);
 			}
 			string text4 = this.对象模板.ExitCombatSkills;
 			if (text4 != null && text4.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.ExitCombatSkills, out this.ExitCombatSkills);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.ExitCombatSkills, out this.ExitCombatSkills);
 			}
 			string text5 = this.对象模板.DeathReleaseSkill;
 			if (text5 != null && text5.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.DeathReleaseSkill, out this.DeathReleaseSkill);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.DeathReleaseSkill, out this.DeathReleaseSkill);
 			}
 			string text6 = this.对象模板.MoveReleaseSkill;
 			if (text6 != null && text6.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.MoveReleaseSkill, out this.MoveReleaseSkill);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.MoveReleaseSkill, out this.MoveReleaseSkill);
 			}
 			string text7 = this.对象模板.BirthReleaseSkill;
 			if (text7 != null && text7.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.BirthReleaseSkill, out this.BirthReleaseSkill);
+				GameSkills.DataSheet.TryGetValue(this.对象模板.BirthReleaseSkill, out this.BirthReleaseSkill);
 			}
 			诱惑宠物.自身死亡处理(null, false);
 			this.阻塞网格 = true;
@@ -753,7 +753,7 @@ namespace GameServer.Maps
 				}
 				if (this.EnterCombatSkills != null && !base.战斗姿态 && this.HateObject.仇恨列表.Count != 0)
 				{
-					游戏技能 技能模板 = this.EnterCombatSkills;
+					GameSkills 技能模板 = this.EnterCombatSkills;
 					SkillData SkillData = null;
 					byte 动作编号 = base.动作编号;
 					base.动作编号 = (byte)(动作编号 + 1);
@@ -763,7 +763,7 @@ namespace GameServer.Maps
 				}
 				else if (this.ExitCombatSkills != null && base.战斗姿态 && this.HateObject.仇恨列表.Count == 0 && MainProcess.CurrentTime > base.脱战时间)
 				{
-					游戏技能 技能模板2 = this.ExitCombatSkills;
+					GameSkills 技能模板2 = this.ExitCombatSkills;
 					SkillData SkillData2 = null;
 					byte 动作编号 = base.动作编号;
 					base.动作编号 = (byte)(动作编号 + 1);
@@ -794,7 +794,7 @@ namespace GameServer.Maps
 		{
 			if (this.DeathReleaseSkill != null && 对象 != null)
 			{
-				游戏技能 技能模板 = this.DeathReleaseSkill;
+				GameSkills 技能模板 = this.DeathReleaseSkill;
 				SkillData SkillData = null;
 				byte 动作编号 = base.动作编号;
 				base.动作编号 = (byte)(动作编号 + 1);
@@ -911,20 +911,20 @@ namespace GameServer.Maps
 			{
 				return;
 			}
-			游戏技能 游戏技能;
-			if (this.ProbabilityTriggerSkills != null && (!this.冷却记录.ContainsKey((int)this.NormalAttackSkills.自身SkillId | 16777216) || MainProcess.CurrentTime > this.冷却记录[(int)this.NormalAttackSkills.自身SkillId | 16777216]) && ComputingClass.计算概率(this.ProbabilityTriggerSkills.计算幸运概率 ? ComputingClass.计算幸运(this[GameObjectStats.幸运等级]) : this.ProbabilityTriggerSkills.计算触发概率))
+			GameSkills 游戏技能;
+			if (this.ProbabilityTriggerSkills != null && (!this.冷却记录.ContainsKey((int)this.NormalAttackSkills.OwnSkillId | 16777216) || MainProcess.CurrentTime > this.冷却记录[(int)this.NormalAttackSkills.OwnSkillId | 16777216]) && ComputingClass.计算概率(this.ProbabilityTriggerSkills.CalculateLuckyProbability ? ComputingClass.计算幸运(this[GameObjectStats.幸运等级]) : this.ProbabilityTriggerSkills.CalculateTriggerProbability))
 			{
 				游戏技能 = this.ProbabilityTriggerSkills;
 			}
 			else
 			{
-				if (this.NormalAttackSkills == null || (this.冷却记录.ContainsKey((int)this.NormalAttackSkills.自身SkillId | 16777216) && !(MainProcess.CurrentTime > this.冷却记录[(int)this.NormalAttackSkills.自身SkillId | 16777216])))
+				if (this.NormalAttackSkills == null || (this.冷却记录.ContainsKey((int)this.NormalAttackSkills.OwnSkillId | 16777216) && !(MainProcess.CurrentTime > this.冷却记录[(int)this.NormalAttackSkills.OwnSkillId | 16777216])))
 				{
 					return;
 				}
 				游戏技能 = this.NormalAttackSkills;
 			}
-			if (base.网格距离(this.HateObject.当前目标) > (int)游戏技能.技能最远距离)
+			if (base.网格距离(this.HateObject.当前目标) > (int)游戏技能.MaxDistance)
 			{
 				if (this.能否走动())
 				{
@@ -968,7 +968,7 @@ namespace GameServer.Maps
 			{
 				if (MainProcess.CurrentTime > this.Attack时间)
 				{
-					游戏技能 技能模板 = 游戏技能;
+					GameSkills 技能模板 = 游戏技能;
 					SkillData SkillData = null;
 					byte 动作编号 = base.动作编号;
 					base.动作编号 = (byte)(动作编号 + 1);
@@ -1113,25 +1113,25 @@ namespace GameServer.Maps
 		public HateObject HateObject;
 
 		
-		public 游戏技能 NormalAttackSkills;
+		public GameSkills NormalAttackSkills;
 
 		
-		public 游戏技能 ProbabilityTriggerSkills;
+		public GameSkills ProbabilityTriggerSkills;
 
 		
-		public 游戏技能 EnterCombatSkills;
+		public GameSkills EnterCombatSkills;
 
 		
-		public 游戏技能 ExitCombatSkills;
+		public GameSkills ExitCombatSkills;
 
 		
-		public 游戏技能 DeathReleaseSkill;
+		public GameSkills DeathReleaseSkill;
 
 		
-		public 游戏技能 MoveReleaseSkill;
+		public GameSkills MoveReleaseSkill;
 
 		
-		public 游戏技能 BirthReleaseSkill;
+		public GameSkills BirthReleaseSkill;
 
 		
 		public PetData PetData;

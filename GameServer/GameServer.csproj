@@ -185,13 +185,13 @@
     <Compile Include="Templates\PendingRename56.cs" />
     <Compile Include="Templates\PendingRename54.cs" />
     <Compile Include="Templates\PendingRename2.cs" />
-    <Compile Include="Templates\PendingRename59.cs" />
+    <Compile Include="Templates\GameSkillType.cs" />
     <Compile Include="Templates\MonsterSize.cs" />
     <Compile Include="Templates\PendingRename57.cs" />
     <Compile Include="Templates\PendingRename55.cs" />
     <Compile Include="Templates\PendingRename52.cs" />
     <Compile Include="Templates\PendingRename3.cs" />
-    <Compile Include="Templates\PendingRename68.cs" />
+    <Compile Include="Templates\SpecifyTargetType.cs" />
     <Compile Include="Templates\GameBuffs.cs" />
     <Compile Include="Templates\GameStoreItem.cs" />
     <Compile Include="Templates\GameStore.cs" />
@@ -199,7 +199,7 @@
     <Compile Include="Templates\PendingRename66.cs" />
     <Compile Include="Templates\GameObjectState.cs" />
     <Compile Include="Templates\Monsters.cs" />
-    <Compile Include="Templates\PendingRename40.cs" />
+    <Compile Include="Templates\GameSkills.cs" />
     <Compile Include="Templates\GameItems.cs" />
     <Compile Include="Templates\GameTitle.cs" />
     <Compile Include="Templates\EquipmentItem.cs" />

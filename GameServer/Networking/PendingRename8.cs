@@ -90,7 +90,7 @@ namespace GameServer.Networking
 							goto IL_113;
 						}
 					}
-					text = "无";
+					text = "None";
 					IL_113:
 					array[num] = text;
 					array[2] = "]\r\n角色:[";
@@ -104,7 +104,7 @@ namespace GameServer.Networking
 							goto IL_139;
 						}
 					}
-					text2 = "无";
+					text2 = "None";
 					IL_139:
 					array[num2] = text2;
 					array[4] = "]\r\n网络地址:[";

@@ -101,17 +101,17 @@ namespace GameServer.Maps
 					this.Stat加成[EquipmentData] = EquipmentData.装备Stat;
 				}
 				SkillData SkillData;
-				if (EquipmentData.第一铭文 != null && this.主体技能表.TryGetValue(EquipmentData.第一铭文.SkillId, out SkillData))
+				if (EquipmentData.第一铭文 != null && this.MainSkills表.TryGetValue(EquipmentData.第一铭文.SkillId, out SkillData))
 				{
 					SkillData.Id = EquipmentData.第一铭文.Id;
 				}
 				SkillData SkillData2;
-				if (EquipmentData.第二铭文 != null && this.主体技能表.TryGetValue(EquipmentData.第二铭文.SkillId, out SkillData2))
+				if (EquipmentData.第二铭文 != null && this.MainSkills表.TryGetValue(EquipmentData.第二铭文.SkillId, out SkillData2))
 				{
 					SkillData2.Id = EquipmentData.第二铭文.Id;
 				}
 			}
-			foreach (SkillData SkillData3 in this.主体技能表.Values)
+			foreach (SkillData SkillData3 in this.MainSkills表.Values)
 			{
 				this.CombatBonus[SkillData3] = SkillData3.CombatBonus;
 				this.Stat加成[SkillData3] = SkillData3.Stat加成;
@@ -464,7 +464,7 @@ namespace GameServer.Maps
 				}
 				else
 				{
-					foreach (SkillData SkillData in this.主体技能表.Values.ToList<SkillData>())
+					foreach (SkillData SkillData in this.MainSkills表.Values.ToList<SkillData>())
 					{
 						if (SkillData.SkillCount > 0 && SkillData.剩余次数.V < SkillData.SkillCount)
 						{
@@ -1230,7 +1230,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x060008A6 RID: 2214 RVA: 0x00006FC0 File Offset: 0x000051C0
-		public MonitorDictionary<ushort, SkillData> 主体技能表
+		public MonitorDictionary<ushort, SkillData> MainSkills表
 		{
 			get
 			{
@@ -2430,7 +2430,7 @@ namespace GameServer.Maps
 		public void 技能增加经验(ushort SkillId)
 		{
 			SkillData SkillData;
-			if (!this.主体技能表.TryGetValue(SkillId, out SkillData) || this.当前等级 < SkillData.升级等级)
+			if (!this.MainSkills表.TryGetValue(SkillId, out SkillData) || this.当前等级 < SkillData.升级等级)
 			{
 				return;
 			}
@@ -2477,11 +2477,11 @@ namespace GameServer.Maps
 		
 		public bool 玩家学习技能(ushort SkillId)
 		{
-			if (this.主体技能表.ContainsKey(SkillId))
+			if (this.MainSkills表.ContainsKey(SkillId))
 			{
 				return false;
 			}
-			this.主体技能表[SkillId] = new SkillData(SkillId);
+			this.MainSkills表[SkillId] = new SkillData(SkillId);
 			客户网络 网络连接 = this.网络连接;
 			if (网络连接 != null)
 			{
@@ -2491,7 +2491,7 @@ namespace GameServer.Maps
 					SkillId = SkillId
 				});
 			}
-			if (this.主体技能表[SkillId].自动装配)
+			if (this.MainSkills表[SkillId].自动装配)
 			{
 				byte b = 0;
 				while (b < 8)
@@ -2502,7 +2502,7 @@ namespace GameServer.Maps
 					}
 					else
 					{
-						this.CharacterData.快捷栏位[b] = this.主体技能表[SkillId];
+						this.CharacterData.快捷栏位[b] = this.MainSkills表[SkillId];
 						客户网络 网络连接2 = this.网络连接;
 						if (网络连接2 == null)
 						{
@@ -2511,9 +2511,9 @@ namespace GameServer.Maps
 						网络连接2.发送封包(new CharacterDragSkillsPacket
 						{
 							技能栏位 = b,
-							Id = this.主体技能表[SkillId].Id,
-							SkillId = this.主体技能表[SkillId].SkillId.V,
-							技能等级 = this.主体技能表[SkillId].技能等级.V
+							Id = this.MainSkills表[SkillId].Id,
+							SkillId = this.MainSkills表[SkillId].SkillId.V,
+							技能等级 = this.MainSkills表[SkillId].技能等级.V
 						});
 						break;
 					}
@@ -2527,7 +2527,7 @@ namespace GameServer.Maps
 				int? num2 = (num != null) ? new int?((int)num.GetValueOrDefault()) : null;
 				if (num2.GetValueOrDefault() == (int)SkillId & num2 != null)
 				{
-					this.主体技能表[SkillId].Id = EquipmentData.第一铭文.Id;
+					this.MainSkills表[SkillId].Id = EquipmentData.第一铭文.Id;
 					客户网络 网络连接3 = this.网络连接;
 					if (网络连接3 != null)
 					{
@@ -2543,7 +2543,7 @@ namespace GameServer.Maps
 				num2 = ((num != null) ? new int?((int)num.GetValueOrDefault()) : null);
 				if (num2.GetValueOrDefault() == (int)SkillId & num2 != null)
 				{
-					this.主体技能表[SkillId].Id = EquipmentData.第二铭文.Id;
+					this.MainSkills表[SkillId].Id = EquipmentData.第二铭文.Id;
 					客户网络 网络连接4 = this.网络连接;
 					if (网络连接4 != null)
 					{
@@ -2555,17 +2555,17 @@ namespace GameServer.Maps
 					}
 				}
 			}
-			foreach (ushort key in this.主体技能表[SkillId].PassiveSkill)
+			foreach (ushort key in this.MainSkills表[SkillId].PassiveSkill)
 			{
-				this.PassiveSkill.Add(key, this.主体技能表[SkillId]);
+				this.PassiveSkill.Add(key, this.MainSkills表[SkillId]);
 			}
-			foreach (ushort 编号 in this.主体技能表[SkillId].技能Buff)
+			foreach (ushort 编号 in this.MainSkills表[SkillId].技能Buff)
 			{
 				base.添加Buff时处理(编号, this);
 			}
-			this.CombatBonus[this.主体技能表[SkillId]] = this.主体技能表[SkillId].CombatBonus;
+			this.CombatBonus[this.MainSkills表[SkillId]] = this.MainSkills表[SkillId].CombatBonus;
 			this.更新玩家战力();
-			this.Stat加成[this.主体技能表[SkillId]] = this.主体技能表[SkillId].Stat加成;
+			this.Stat加成[this.MainSkills表[SkillId]] = this.MainSkills表[SkillId].Stat加成;
 			this.更新对象Stat();
 			return true;
 		}
@@ -2574,7 +2574,7 @@ namespace GameServer.Maps
 		public void 玩家装卸铭文(ushort SkillId, byte Id)
 		{
 			SkillData SkillData;
-			if (this.主体技能表.TryGetValue(SkillId, out SkillData))
+			if (this.MainSkills表.TryGetValue(SkillId, out SkillData))
 			{
 				if (SkillData.Id == Id)
 				{
@@ -2725,7 +2725,7 @@ namespace GameServer.Maps
 				return;
 			}
 			SkillData SkillData;
-			if (参数.检查铭文技能 && (!this.主体技能表.TryGetValue((ushort)(参数.检查Id / 10), out SkillData) || (int)SkillData.Id != 参数.检查Id % 10))
+			if (参数.检查铭文技能 && (!this.MainSkills表.TryGetValue((ushort)(参数.检查Id / 10), out SkillData) || (int)SkillData.Id != 参数.检查Id % 10))
 			{
 				return;
 			}
@@ -3331,8 +3331,8 @@ namespace GameServer.Maps
 			}
 			base.绑定网格();
 			base.更新邻居时处理();
-			游戏技能 技能模板;
-			if (游戏技能.DataSheet.TryGetValue("通用-玩家取出武器", out 技能模板))
+			GameSkills 技能模板;
+			if (GameSkills.DataSheet.TryGetValue("通用-玩家取出武器", out 技能模板))
 			{
 				new 技能实例(this, 技能模板, null, base.动作编号, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false);
 			}
@@ -3706,7 +3706,7 @@ namespace GameServer.Maps
 				return;
 			}
 			SkillData SkillData;
-			if (!this.主体技能表.TryGetValue(SkillId, out SkillData) && !this.PassiveSkill.TryGetValue(SkillId, out SkillData))
+			if (!this.MainSkills表.TryGetValue(SkillId, out SkillData) && !this.PassiveSkill.TryGetValue(SkillId, out SkillData))
 			{
 				if (this != null)
 				{
@@ -3718,22 +3718,22 @@ namespace GameServer.Maps
 			{
 				foreach (string key in SkillData.铭文模板.SwitchSkills.ToList<string>())
 				{
-					游戏技能 游戏技能;
-					if (游戏技能.DataSheet.TryGetValue(key, out 游戏技能))
+					GameSkills 游戏技能;
+					if (GameSkills.DataSheet.TryGetValue(key, out 游戏技能))
 					{
 						SkillData SkillData2;
-						if (this.主体技能表.TryGetValue(游戏技能.绑定等级编号, out SkillData2))
+						if (this.MainSkills表.TryGetValue(游戏技能.BindingLevelId, out SkillData2))
 						{
-							int[] 需要消耗Magic = 游戏技能.需要消耗Magic;
-							int? num = (需要消耗Magic != null) ? new int?(需要消耗Magic.Length) : null;
+							int[] NeedConsumeMagic = 游戏技能.NeedConsumeMagic;
+							int? num = (NeedConsumeMagic != null) ? new int?(NeedConsumeMagic.Length) : null;
 							int v = (int)SkillData2.技能等级.V;
 							if (num.GetValueOrDefault() > v & num != null)
 							{
-								if (this.当前魔力 < 游戏技能.需要消耗Magic[(int)SkillData2.技能等级.V])
+								if (this.当前魔力 < 游戏技能.NeedConsumeMagic[(int)SkillData2.技能等级.V])
 								{
 									continue;
 								}
-								this.当前魔力 -= 游戏技能.需要消耗Magic[(int)SkillData2.技能等级.V];
+								this.当前魔力 -= 游戏技能.NeedConsumeMagic[(int)SkillData2.技能等级.V];
 							}
 						}
 						new 技能实例(this, 游戏技能, SkillData, 0, this.当前地图, this.当前坐标, this, this.当前坐标, null, null, false);
@@ -3751,7 +3751,7 @@ namespace GameServer.Maps
 				return;
 			}
 			SkillData SkillData;
-			if (!this.主体技能表.TryGetValue(SkillId, out SkillData) && !this.PassiveSkill.TryGetValue(SkillId, out SkillData))
+			if (!this.MainSkills表.TryGetValue(SkillId, out SkillData) && !this.PassiveSkill.TryGetValue(SkillId, out SkillData))
 			{
 				this.网络连接.尝试断开连接(new Exception(string.Format("错误操作: 玩家释放技能. 错误: 没有学会技能. SkillId:{0}", SkillId)));
 				return;
@@ -3776,13 +3776,13 @@ namespace GameServer.Maps
 					int num = 0;
 					int num2 = 0;
 					List<ItemData> list = null;
-					游戏技能 游戏技能;
-					if (游戏技能.DataSheet.TryGetValue(key, out 游戏技能) && 游戏技能.自身SkillId == SkillId)
+					GameSkills 游戏技能;
+					if (GameSkills.DataSheet.TryGetValue(key, out 游戏技能) && 游戏技能.OwnSkillId == SkillId)
 					{
 						DateTime dateTime2;
-						if (游戏技能.技能GroupId == 0 || !this.冷却记录.TryGetValue((int)(游戏技能.技能GroupId | 0), out dateTime2) || !(MainProcess.CurrentTime < dateTime2))
+						if (游戏技能.GroupId == 0 || !this.冷却记录.TryGetValue((int)(游戏技能.GroupId | 0), out dateTime2) || !(MainProcess.CurrentTime < dateTime2))
 						{
-							if (游戏技能.检查职业武器)
+							if (游戏技能.CheckOccupationalWeapons)
 							{
 								EquipmentData EquipmentData;
 								if (this.角色装备.TryGetValue(0, out EquipmentData))
@@ -3795,19 +3795,19 @@ namespace GameServer.Maps
 								break;
 							}
 							IL_24E:
-							if (!游戏技能.检查技能标记 || this.Buff列表.ContainsKey(游戏技能.技能标记编号))
+							if (!游戏技能.CheckSkillMarks || this.Buff列表.ContainsKey(游戏技能.SkillTagId))
 							{
-								if (游戏技能.检查被动标记 && this[GameObjectStats.技能标志] != 1)
+								if (游戏技能.CheckPassiveTags && this[GameObjectStats.技能标志] != 1)
 								{
 									break;
 								}
-								if (游戏技能.检查SkillCount && SkillData.剩余次数.V <= 0)
+								if (游戏技能.CheckSkillCount && SkillData.剩余次数.V <= 0)
 								{
 									break;
 								}
-								if (!游戏技能.检查BusyGreen || !(MainProcess.CurrentTime < this.忙碌时间))
+								if (!游戏技能.CheckBusyGreen || !(MainProcess.CurrentTime < this.忙碌时间))
 								{
-									if (游戏技能.检查Stiff && MainProcess.CurrentTime < this.硬直时间)
+									if (游戏技能.CheckStiff && MainProcess.CurrentTime < this.硬直时间)
 									{
 										客户网络 网络连接 = this.网络连接;
 										if (网络连接 != null)
@@ -3830,9 +3830,9 @@ namespace GameServer.Maps
 									}
 									else
 									{
-										if (游戏技能.计算幸运概率 || 游戏技能.计算触发概率 < 1f)
+										if (游戏技能.CalculateLuckyProbability || 游戏技能.CalculateTriggerProbability < 1f)
 										{
-											if (游戏技能.计算幸运概率)
+											if (游戏技能.CalculateLuckyProbability)
 											{
 												if (!ComputingClass.计算概率(ComputingClass.计算幸运(this[GameObjectStats.幸运等级])))
 												{
@@ -3842,11 +3842,11 @@ namespace GameServer.Maps
 											else
 											{
 												float num3 = 0f;
-												if (游戏技能.Stat提升概率 != GameObjectStats.未知Stat)
+												if (游戏技能.StatBoostProbability != GameObjectStats.未知Stat)
 												{
-													num3 = Math.Max(0f, (float)this[游戏技能.Stat提升概率] * 游戏技能.Stat提升系数);
+													num3 = Math.Max(0f, (float)this[游戏技能.StatBoostProbability] * 游戏技能.StatBoostFactor);
 												}
-												if (!ComputingClass.计算概率(游戏技能.计算触发概率 + num3))
+												if (!ComputingClass.计算概率(游戏技能.CalculateTriggerProbability + num3))
 												{
 													continue;
 												}
@@ -3855,38 +3855,38 @@ namespace GameServer.Maps
 										SkillData SkillData2;
 										BuffData BuffData2;
 										BuffData BuffData3;
-										if ((游戏技能.验证已学技能 == 0 
+										if ((游戏技能.ValidateLearnedSkills == 0 
 											|| (
-											this.主体技能表.TryGetValue(游戏技能.验证已学技能, out SkillData2) 
+											this.MainSkills表.TryGetValue(游戏技能.ValidateLearnedSkills, out SkillData2) 
 											&& (
-												游戏技能.验证技能铭文 == 0 
-												|| 游戏技能.验证技能铭文 == SkillData2.Id
+												游戏技能.VerficationSkillInscription == 0 
+												|| 游戏技能.VerficationSkillInscription == SkillData2.Id
 											   )
 											)
-										 ) && (游戏技能.验证角色Buff == 0 || (this.Buff列表.TryGetValue(游戏技能.验证角色Buff, out BuffData2) && (int)BuffData2.当前层数.V >= 游戏技能.角色Buff层数)) && (游戏技能.验证目标Buff == 0 || (MapObject != null && MapObject.Buff列表.TryGetValue(游戏技能.验证目标Buff, out BuffData3) && (int)BuffData3.当前层数.V >= 游戏技能.目标Buff层数)) && (游戏技能.验证目标类型 == 指定目标类型.无 || (MapObject != null && MapObject.特定类型(this, 游戏技能.验证目标类型))))
+										 ) && (游戏技能.VerifyPlayerBuff == 0 || (this.Buff列表.TryGetValue(游戏技能.VerifyPlayerBuff, out BuffData2) && (int)BuffData2.当前层数.V >= 游戏技能.PlayerBuffLayer)) && (游戏技能.VerifyTargetBuff == 0 || (MapObject != null && MapObject.Buff列表.TryGetValue(游戏技能.VerifyTargetBuff, out BuffData3) && (int)BuffData3.当前层数.V >= 游戏技能.TargetBuffLayers)) && (游戏技能.VerifyTargetType == SpecifyTargetType.None || (MapObject != null && MapObject.特定类型(this, 游戏技能.VerifyTargetType))))
 										{
 											SkillData SkillData3;
-											if (this.主体技能表.TryGetValue(游戏技能.绑定等级编号, out SkillData3))
+											if (this.MainSkills表.TryGetValue(游戏技能.BindingLevelId, out SkillData3))
 											{
-												int[] 需要消耗Magic = 游戏技能.需要消耗Magic;
-												int? num4 = (需要消耗Magic != null) ? new int?(需要消耗Magic.Length) : null;
+												int[] NeedConsumeMagic = 游戏技能.NeedConsumeMagic;
+												int? num4 = (NeedConsumeMagic != null) ? new int?(NeedConsumeMagic.Length) : null;
 												int v = (int)SkillData3.技能等级.V;
-												if ((num4.GetValueOrDefault() > v & num4 != null) && this.当前魔力 < (num = 游戏技能.需要消耗Magic[(int)SkillData3.技能等级.V]))
+												if ((num4.GetValueOrDefault() > v & num4 != null) && this.当前魔力 < (num = 游戏技能.NeedConsumeMagic[(int)SkillData3.技能等级.V]))
 												{
 													continue;
 												}
 											}
-											HashSet<int> 需要消耗物品 = 游戏技能.需要消耗物品;
-											if (需要消耗物品 != null && 需要消耗物品.Count != 0)
+											HashSet<int> NeedConsumeItems = 游戏技能.NeedConsumeItems;
+											if (NeedConsumeItems != null && NeedConsumeItems.Count != 0)
 											{
 												EquipmentData EquipmentData2;
-												if (!this.角色装备.TryGetValue(15, out EquipmentData2) || EquipmentData2.当前持久.V < 游戏技能.战具扣除点数)
+												if (!this.角色装备.TryGetValue(15, out EquipmentData2) || EquipmentData2.当前持久.V < 游戏技能.GearDeductionPoints)
 												{
-													if (!this.查找背包物品(游戏技能.消耗物品数量, 游戏技能.需要消耗物品, out list))
+													if (!this.查找背包物品(游戏技能.NeedConsumeItemsQuantity, 游戏技能.NeedConsumeItems, out list))
 													{
 														continue;
 													}
-													num2 = 游戏技能.消耗物品数量;
+													num2 = 游戏技能.NeedConsumeItemsQuantity;
 												}
 												else
 												{
@@ -3894,7 +3894,7 @@ namespace GameServer.Maps
 													{
 														EquipmentData2
 													};
-													num2 = 游戏技能.战具扣除点数;
+													num2 = 游戏技能.GearDeductionPoints;
 												}
 											}
 											if (num >= 0)
@@ -3909,7 +3909,7 @@ namespace GameServer.Maps
 											{
 												this.消耗背包物品(num2, list);
 											}
-											if (游戏技能.检查被动标记 && this[GameObjectStats.技能标志] == 1)
+											if (游戏技能.CheckPassiveTags && this[GameObjectStats.技能标志] == 1)
 											{
 												this[GameObjectStats.技能标志] = 0;
 											}
@@ -4037,7 +4037,7 @@ namespace GameServer.Maps
 				return;
 			}
 			SkillData SkillData;
-			if (!this.主体技能表.TryGetValue(SkillId, out SkillData))
+			if (!this.MainSkills表.TryGetValue(SkillId, out SkillData))
 			{
 				SkillData SkillData2;
 				if (this.快捷栏位.TryGetValue(技能栏位, out SkillData2))
@@ -23981,7 +23981,7 @@ namespace GameServer.Maps
 			{
 				using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
 				{
-					foreach (SkillData SkillData in this.主体技能表.Values)
+					foreach (SkillData SkillData in this.MainSkills表.Values)
 					{
 						binaryWriter.Write(SkillData.SkillId.V);
 						binaryWriter.Write(SkillData.Id);

@@ -3,7 +3,7 @@
 namespace GameServer.Templates
 {
 	
-	public sealed class C_03_计算对象位移 : 技能任务
+	public sealed class C_03_计算对象位移 : SkillTask
 	{
 		
 		public C_03_计算对象位移()
@@ -64,7 +64,7 @@ namespace GameServer.Templates
 		public float 推动目标概率;
 
 		
-		public 指定目标类型 推动目标类型;
+		public SpecifyTargetType 推动目标类型;
 
 		
 		public byte 连续推动数量;
@@ -88,7 +88,7 @@ namespace GameServer.Templates
 		public ushort 目标附加编号;
 
 		
-		public 指定目标类型 限定附加类型;
+		public SpecifyTargetType 限定附加类型;
 
 		
 		public float 附加Buff概率;

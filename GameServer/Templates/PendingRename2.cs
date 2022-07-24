@@ -27,7 +27,7 @@ namespace GameServer.Templates
 		{
 			get
 			{
-				return this.技能模板.技能GroupId;
+				return this.技能模板.GroupId;
 			}
 		}
 
@@ -37,7 +37,7 @@ namespace GameServer.Templates
 		{
 			get
 			{
-				return this.技能模板.自身Id;
+				return this.技能模板.Id;
 			}
 		}
 
@@ -47,7 +47,7 @@ namespace GameServer.Templates
 		{
 			get
 			{
-				return this.技能模板.自身SkillId;
+				return this.技能模板.OwnSkillId;
 			}
 		}
 
@@ -57,13 +57,13 @@ namespace GameServer.Templates
 		{
 			get
 			{
-				if (this.技能模板.绑定等级编号 == 0)
+				if (this.技能模板.BindingLevelId == 0)
 				{
 					return 0;
 				}
 				PlayerObject PlayerObject = this.技能来源 as PlayerObject;
 				SkillData SkillData;
-				if (PlayerObject != null && PlayerObject.主体技能表.TryGetValue(this.技能模板.绑定等级编号, out SkillData))
+				if (PlayerObject != null && PlayerObject.MainSkills表.TryGetValue(this.技能模板.BindingLevelId, out SkillData))
 				{
 					return SkillData.技能等级.V;
 				}
@@ -72,7 +72,7 @@ namespace GameServer.Templates
 				{
 					PlayerObject PlayerObject2 = TrapObject.陷阱来源 as PlayerObject;
 					SkillData SkillData2;
-					if (PlayerObject2 != null && PlayerObject2.主体技能表.TryGetValue(this.技能模板.绑定等级编号, out SkillData2))
+					if (PlayerObject2 != null && PlayerObject2.MainSkills表.TryGetValue(this.技能模板.BindingLevelId, out SkillData2))
 					{
 						return SkillData2.技能等级.V;
 					}
@@ -87,12 +87,12 @@ namespace GameServer.Templates
 		{
 			get
 			{
-				return this.技能模板.检查SkillCount;
+				return this.技能模板.CheckSkillCount;
 			}
 		}
 
 		
-		public 技能实例(MapObject 技能来源, 游戏技能 技能模板, SkillData SkillData, byte 动作编号, MapInstance 释放地图, Point 释放位置, MapObject 技能目标, Point 技能锚点, 技能实例 父类技能, Dictionary<int, 命中详情> 命中列表 = null, bool 目标借位 = false)
+		public 技能实例(MapObject 技能来源, GameSkills 技能模板, SkillData SkillData, byte 动作编号, MapInstance 释放地图, Point 释放位置, MapObject 技能目标, Point 技能锚点, 技能实例 父类技能, Dictionary<int, 命中详情> 命中列表 = null, bool 目标借位 = false)
 		{
 			
 			
@@ -108,11 +108,11 @@ namespace GameServer.Templates
 			this.释放时间 = MainProcess.CurrentTime;
 			this.目标借位 = 目标借位;
 			this.命中列表 = (命中列表 ?? new Dictionary<int, 命中详情>());
-			this.节点列表 = new SortedDictionary<int, 技能任务>(技能模板.节点列表);
-			if (this.节点列表.Count != 0)
+			this.Nodes = new SortedDictionary<int, SkillTask>(技能模板.Nodes);
+			if (this.Nodes.Count != 0)
 			{
 				this.技能来源.技能任务.Add(this);
-				this.预约时间 = this.释放时间.AddMilliseconds((double)(this.飞行耗时 + this.节点列表.First<KeyValuePair<int, 技能任务>>().Key));
+				this.预约时间 = this.释放时间.AddMilliseconds((double)(this.飞行耗时 + this.Nodes.First<KeyValuePair<int, SkillTask>>().Key));
 			}
 		}
 
@@ -123,56 +123,56 @@ namespace GameServer.Templates
 			{
 				return;
 			}
-			KeyValuePair<int, 技能任务> keyValuePair = this.节点列表.First<KeyValuePair<int, 技能任务>>();
-			this.节点列表.Remove(keyValuePair.Key);
-			技能任务 value = keyValuePair.Value;
+			KeyValuePair<int, SkillTask> keyValuePair = this.Nodes.First<KeyValuePair<int, SkillTask>>();
+			this.Nodes.Remove(keyValuePair.Key);
+			SkillTask value = keyValuePair.Value;
 			this.处理计时 = this.预约时间;
 			if (value != null)
 			{
-				A_00_触发子类技能 a_00_触发子类技能 = value as A_00_触发子类技能;
-				if (a_00_触发子类技能 != null)
+				A_00_触发SubSkills a_00_触发SubSkills = value as A_00_触发SubSkills;
+				if (a_00_触发SubSkills != null)
 				{
-					游戏技能 游戏技能;
-					if (!游戏技能.DataSheet.TryGetValue(a_00_触发子类技能.触发SkillName, out 游戏技能))
+					GameSkills 游戏技能;
+					if (!GameSkills.DataSheet.TryGetValue(a_00_触发SubSkills.触发SkillName, out 游戏技能))
 					{
 						goto IL_33E1;
 					}
 					bool flag = true;
-					if (a_00_触发子类技能.计算触发概率)
+					if (a_00_触发SubSkills.CalculateTriggerProbability)
 					{
-						if (a_00_触发子类技能.计算幸运概率)
+						if (a_00_触发SubSkills.CalculateLuckyProbability)
 						{
 							flag = ComputingClass.计算概率(ComputingClass.计算幸运(this.技能来源[GameObjectStats.幸运等级]));
 						}
 						else
 						{
-							flag = ComputingClass.计算概率(a_00_触发子类技能.技能触发概率 + ((a_00_触发子类技能.增加概率Buff == 0 || !this.技能来源.Buff列表.ContainsKey(a_00_触发子类技能.增加概率Buff)) ? 0f : a_00_触发子类技能.Buff增加系数));
+							flag = ComputingClass.计算概率(a_00_触发SubSkills.技能触发概率 + ((a_00_触发SubSkills.增加概率Buff == 0 || !this.技能来源.Buff列表.ContainsKey(a_00_触发SubSkills.增加概率Buff)) ? 0f : a_00_触发SubSkills.Buff增加系数));
 						}
 					}
-					if (flag && a_00_触发子类技能.验证自身Buff)
+					if (flag && a_00_触发SubSkills.验证自身Buff)
 					{
-						if (!this.技能来源.Buff列表.ContainsKey(a_00_触发子类技能.自身Id))
+						if (!this.技能来源.Buff列表.ContainsKey(a_00_触发SubSkills.Id))
 						{
 							flag = false;
 						}
-						else if (a_00_触发子类技能.触发成功移除)
+						else if (a_00_触发SubSkills.触发成功移除)
 						{
-							this.技能来源.移除Buff时处理(a_00_触发子类技能.自身Id);
+							this.技能来源.移除Buff时处理(a_00_触发SubSkills.Id);
 						}
 					}
-					if (flag && a_00_触发子类技能.验证铭文技能)
+					if (flag && a_00_触发SubSkills.验证铭文技能)
 					{
 						PlayerObject PlayerObject = this.技能来源 as PlayerObject;
 						if (PlayerObject != null)
 						{
-							int num = (int)(a_00_触发子类技能.所需Id / 10);
-							int num2 = (int)(a_00_触发子类技能.所需Id % 10);
+							int num = (int)(a_00_触发SubSkills.所需Id / 10);
+							int num2 = (int)(a_00_触发SubSkills.所需Id % 10);
 							SkillData SkillData;
-							if (!PlayerObject.主体技能表.TryGetValue((ushort)num, out SkillData))
+							if (!PlayerObject.MainSkills表.TryGetValue((ushort)num, out SkillData))
 							{
 								flag = false;
 							}
-							else if (a_00_触发子类技能.同组铭文无效)
+							else if (a_00_触发SubSkills.同组铭文无效)
 							{
 								flag = (num2 == (int)SkillData.Id);
 							}
@@ -186,7 +186,7 @@ namespace GameServer.Templates
 					{
 						goto IL_33E1;
 					}
-					switch (a_00_触发子类技能.技能触发方式)
+					switch (a_00_触发SubSkills.技能触发方式)
 					{
 					case 技能触发方式.原点位置绝对触发:
 						new 技能实例(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, this.释放位置, this.技能目标, this.释放位置, this, null, false);
@@ -274,7 +274,7 @@ namespace GameServer.Templates
 							if (keyValuePair6.Value.技能目标 is MonsterObject && (keyValuePair6.Value.技能反馈 & 技能命中反馈.死亡) != 技能命中反馈.正常)
 							{
 								MapObject MapObject = this.技能来源;
-								游戏技能 游戏技能2 = 游戏技能;
+								GameSkills 游戏技能2 = 游戏技能;
 								SkillData SkillData2 = null;
 								MapObject MapObject2 = keyValuePair6.Value.技能目标;
 								byte b = MapObject2.动作编号;
@@ -308,8 +308,8 @@ namespace GameServer.Templates
 					new 技能实例(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, this.释放位置, null, this.技能锚点, this, null, false);
 					goto IL_33E1;
 					IL_698:
-					游戏技能 游戏技能3;
-					if (ComputingClass.计算概率(0.5f) && 游戏技能.DataSheet.TryGetValue(a_00_触发子类技能.反手SkillName, out 游戏技能3))
+					GameSkills 游戏技能3;
+					if (ComputingClass.计算概率(0.5f) && GameSkills.DataSheet.TryGetValue(a_00_触发SubSkills.反手SkillName, out 游戏技能3))
 					{
 						new 技能实例(this.技能来源, 游戏技能3, this.SkillData, this.动作编号, this.释放地图, this.释放位置, null, this.技能锚点, this, null, false);
 						goto IL_33E1;
@@ -349,7 +349,7 @@ namespace GameServer.Templates
 								int num3 = (int)(触发Buff.所需Id / 10);
 								int num4 = (int)(触发Buff.所需Id % 10);
 								SkillData SkillData3;
-								if (!PlayerObject2.主体技能表.TryGetValue((ushort)num3, out SkillData3))
+								if (!PlayerObject2.MainSkills表.TryGetValue((ushort)num3, out SkillData3))
 								{
 									flag3 = false;
 								}
@@ -365,7 +365,7 @@ namespace GameServer.Templates
 						}
 						if (flag3 && 触发Buff.验证自身Buff)
 						{
-							if (!this.技能来源.Buff列表.ContainsKey(触发Buff.自身Id))
+							if (!this.技能来源.Buff列表.ContainsKey(触发Buff.Id))
 							{
 								flag3 = false;
 							}
@@ -373,7 +373,7 @@ namespace GameServer.Templates
 							{
 								if (触发Buff.触发成功移除)
 								{
-									this.技能来源.移除Buff时处理(触发Buff.自身Id);
+									this.技能来源.移除Buff时处理(触发Buff.Id);
 								}
 								if (触发Buff.移除伴生Buff)
 								{
@@ -385,7 +385,7 @@ namespace GameServer.Templates
 						{
 							flag3 = false;
 						}
-						if (flag3 && 触发Buff.验证目标Buff && this.命中列表.Values.FirstOrDefault(delegate(命中详情 O)
+						if (flag3 && 触发Buff.VerifyTargetBuff && this.命中列表.Values.FirstOrDefault(delegate(命中详情 O)
 						{
 							BuffData BuffData2;
 							return (O.技能反馈 & 技能命中反馈.闪避) == 技能命中反馈.正常 && (O.技能反馈 & 技能命中反馈.丢失) == 技能命中反馈.正常 && O.技能目标.Buff列表.TryGetValue(触发Buff.目标Id, out BuffData2) && BuffData2.当前层数.V >= 触发Buff.所需Buff层数;
@@ -393,7 +393,7 @@ namespace GameServer.Templates
 						{
 							flag3 = false;
 						}
-						if (flag3 && 触发Buff.验证目标类型 && this.命中列表.Values.FirstOrDefault((命中详情 O) => (O.技能反馈 & 技能命中反馈.闪避) == 技能命中反馈.正常 && (O.技能反馈 & 技能命中反馈.丢失) == 技能命中反馈.正常 && O.技能目标.特定类型(this.技能来源, 触发Buff.所需目标类型)) == null)
+						if (flag3 && 触发Buff.VerifyTargetType && this.命中列表.Values.FirstOrDefault((命中详情 O) => (O.技能反馈 & 技能命中反馈.闪避) == 技能命中反馈.正常 && (O.技能反馈 & 技能命中反馈.丢失) == 技能命中反馈.正常 && O.技能目标.特定类型(this.技能来源, 触发Buff.所需目标类型)) == null)
 						{
 							flag3 = false;
 						}
@@ -412,7 +412,7 @@ namespace GameServer.Templates
 						bool flag4 = true;
 						if (触发Buff.验证自身Buff)
 						{
-							if (!this.技能来源.Buff列表.ContainsKey(触发Buff.自身Id))
+							if (!this.技能来源.Buff列表.ContainsKey(触发Buff.Id))
 							{
 								flag4 = false;
 							}
@@ -420,7 +420,7 @@ namespace GameServer.Templates
 							{
 								if (触发Buff.触发成功移除)
 								{
-									this.技能来源.移除Buff时处理(触发Buff.自身Id);
+									this.技能来源.移除Buff时处理(触发Buff.Id);
 								}
 								if (触发Buff.移除伴生Buff)
 								{
@@ -440,7 +440,7 @@ namespace GameServer.Templates
 								int num5 = (int)(触发Buff.所需Id / 10);
 								int num6 = (int)(触发Buff.所需Id % 10);
 								SkillData SkillData4;
-								if (!PlayerObject3.主体技能表.TryGetValue((ushort)num5, out SkillData4))
+								if (!PlayerObject3.MainSkills表.TryGetValue((ushort)num5, out SkillData4))
 								{
 									flag4 = false;
 								}
@@ -467,11 +467,11 @@ namespace GameServer.Templates
 								{
 									flag5 = false;
 								}
-								if (flag5 && 触发Buff.验证目标类型 && !keyValuePair9.Value.技能目标.特定类型(this.技能来源, 触发Buff.所需目标类型))
+								if (flag5 && 触发Buff.VerifyTargetType && !keyValuePair9.Value.技能目标.特定类型(this.技能来源, 触发Buff.所需目标类型))
 								{
 									flag5 = false;
 								}
-								if (flag5 && 触发Buff.验证目标Buff)
+								if (flag5 && 触发Buff.VerifyTargetBuff)
 								{
 									BuffData BuffData;
 									flag5 = (keyValuePair9.Value.技能目标.Buff列表.TryGetValue(触发Buff.目标Id, out BuffData) && BuffData.当前层数.V >= 触发Buff.所需Buff层数);
@@ -548,16 +548,16 @@ namespace GameServer.Templates
 						B_00_技能切换通知 b_00_技能切换通知 = value as B_00_技能切换通知;
 						if (b_00_技能切换通知 != null)
 						{
-							if (this.技能来源.Buff列表.ContainsKey(b_00_技能切换通知.技能标记编号))
+							if (this.技能来源.Buff列表.ContainsKey(b_00_技能切换通知.SkillTagId))
 							{
 								if (b_00_技能切换通知.允许移除标记)
 								{
-									this.技能来源.移除Buff时处理(b_00_技能切换通知.技能标记编号);
+									this.技能来源.移除Buff时处理(b_00_技能切换通知.SkillTagId);
 								}
 							}
-							else if (GameBuffs.DataSheet.ContainsKey(b_00_技能切换通知.技能标记编号))
+							else if (GameBuffs.DataSheet.ContainsKey(b_00_技能切换通知.SkillTagId))
 							{
-								this.技能来源.添加Buff时处理(b_00_技能切换通知.技能标记编号, this.技能来源);
+								this.技能来源.添加Buff时处理(b_00_技能切换通知.SkillTagId, this.技能来源);
 							}
 						}
 						else
@@ -582,9 +582,9 @@ namespace GameServer.Templates
 										this.技能来源.当前方向 = ComputingClass.计算方向(this.释放位置, this.技能锚点);
 									}
 								}
-								if (b_01_技能释放通知.移除技能标记 && this.技能模板.技能标记编号 != 0)
+								if (b_01_技能释放通知.移除技能标记 && this.技能模板.SkillTagId != 0)
 								{
-									this.技能来源.移除Buff时处理(this.技能模板.技能标记编号);
+									this.技能来源.移除Buff时处理(this.技能模板.SkillTagId);
 								}
 								if (b_01_技能释放通知.自身Cooldown != 0 || b_01_技能释放通知.Buff增加冷却)
 								{
@@ -707,17 +707,17 @@ namespace GameServer.Templates
 											this.攻速缩减 = ComputingClass.Value限制(ComputingClass.计算攻速(-5), this.攻速缩减 + ComputingClass.计算攻速(this.技能来源[GameObjectStats.AttackSpeed]), ComputingClass.计算攻速(5));
 											if (this.攻速缩减 != 0)
 											{
-												foreach (KeyValuePair<int, 技能任务> keyValuePair10 in this.节点列表)
+												foreach (KeyValuePair<int, SkillTask> keyValuePair10 in this.Nodes)
 												{
 													if (keyValuePair10.Value is B_04_后摇结束通知)
 													{
 														int num9 = keyValuePair10.Key - this.攻速缩减;
-														while (this.节点列表.ContainsKey(num9))
+														while (this.Nodes.ContainsKey(num9))
 														{
 															num9++;
 														}
-														this.节点列表.Remove(keyValuePair10.Key);
-														this.节点列表.Add(num9, keyValuePair10.Value);
+														this.Nodes.Remove(keyValuePair10.Key);
+														this.Nodes.Add(num9, keyValuePair10.Value);
 														break;
 													}
 												}
@@ -787,10 +787,10 @@ namespace GameServer.Templates
 														this.技能锚点 = ComputingClass.前方坐标(this.技能来源.当前坐标, this.技能锚点, c_00_计算技能锚点.技能最近距离);
 													}
 												}
-												else if (ComputingClass.网格距离(this.释放位置, this.技能锚点) > c_00_计算技能锚点.技能最远距离)
+												else if (ComputingClass.网格距离(this.释放位置, this.技能锚点) > c_00_计算技能锚点.MaxDistance)
 												{
 													this.技能目标 = null;
-													this.技能锚点 = ComputingClass.前方坐标(this.释放位置, this.技能锚点, c_00_计算技能锚点.技能最远距离);
+													this.技能锚点 = ComputingClass.前方坐标(this.释放位置, this.技能锚点, c_00_计算技能锚点.MaxDistance);
 												}
 												else if (ComputingClass.网格距离(this.释放位置, this.技能锚点) < c_00_计算技能锚点.技能最近距离)
 												{
@@ -907,7 +907,7 @@ namespace GameServer.Templates
 														开始释放技能2.动作编号 = this.动作编号;
 														MapObject11.发送封包(开始释放技能2);
 													}
-													if (this.命中列表.Count != 0 && c_01_计算命中目标.攻速提升类型 != 指定目标类型.无 && this.命中列表[0].技能目标.特定类型(this.技能来源, c_01_计算命中目标.攻速提升类型))
+													if (this.命中列表.Count != 0 && c_01_计算命中目标.攻速提升类型 != SpecifyTargetType.None && this.命中列表[0].技能目标.特定类型(this.技能来源, c_01_计算命中目标.攻速提升类型))
 													{
 														this.攻速缩减 = ComputingClass.Value限制(ComputingClass.计算攻速(-5), this.攻速缩减 + ComputingClass.计算攻速(c_01_计算命中目标.攻速提升幅度), ComputingClass.计算攻速(5));
 													}
@@ -1256,11 +1256,11 @@ namespace GameServer.Templates
 																if (b2 > 1)
 																{
 																	int num19 = keyValuePair.Key + (int)(c_03_计算对象位移.自身位移耗时 * 60);
-																	while (this.节点列表.ContainsKey(num19))
+																	while (this.Nodes.ContainsKey(num19))
 																	{
 																		num19++;
 																	}
-																	this.节点列表.Add(num19, keyValuePair.Value);
+																	this.Nodes.Add(num19, keyValuePair.Value);
 																	goto IL_33E1;
 																}
 																goto IL_33E1;
@@ -1360,7 +1360,7 @@ namespace GameServer.Templates
 																if (PlayerObject11 != null)
 																{
 																	SkillData SkillData5;
-																	if (c_06_计算宠物召唤.检查技能铭文 && (!PlayerObject11.主体技能表.TryGetValue(this.SkillId, out SkillData5) || SkillData5.Id != this.Id))
+																	if (c_06_计算宠物召唤.检查技能铭文 && (!PlayerObject11.MainSkills表.TryGetValue(this.SkillId, out SkillData5) || SkillData5.Id != this.Id))
 																	{
 																		return;
 																	}
@@ -1435,19 +1435,19 @@ namespace GameServer.Templates
 				}
 			}
 			IL_33E1:
-			if (this.节点列表.Count == 0)
+			if (this.Nodes.Count == 0)
 			{
 				this.技能来源.技能任务.Remove(this);
 				return;
 			}
-			this.预约时间 = this.释放时间.AddMilliseconds((double)(this.飞行耗时 + this.节点列表.First<KeyValuePair<int, 技能任务>>().Key));
+			this.预约时间 = this.释放时间.AddMilliseconds((double)(this.飞行耗时 + this.Nodes.First<KeyValuePair<int, SkillTask>>().Key));
 			this.处理任务();
 		}
 
 		
 		public void 技能中断()
 		{
-			this.节点列表.Clear();
+			this.Nodes.Clear();
 			this.技能来源.发送封包(new 技能释放中断
 			{
 				对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId),
@@ -1460,7 +1460,7 @@ namespace GameServer.Templates
 		}
 
 		
-		public 游戏技能 技能模板;
+		public GameSkills 技能模板;
 
 		
 		public SkillData SkillData;
@@ -1514,6 +1514,6 @@ namespace GameServer.Templates
 		public DateTime 预约时间;
 
 		
-		public SortedDictionary<int, 技能任务> 节点列表;
+		public SortedDictionary<int, SkillTask> Nodes;
 	}
 }

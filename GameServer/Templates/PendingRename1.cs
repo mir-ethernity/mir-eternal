@@ -2,17 +2,8 @@
 
 namespace GameServer.Templates
 {
-	
-	public abstract class 技能任务
+	public abstract class SkillTask
 	{
-		
-		protected 技能任务()
-		{
-			
-			
-		}
-
-		
-		public string 任务说明;
+		public string Statement;
 	}
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace GameServer.Templates
 {
 	
-	public sealed class C_02_计算目标伤害 : 技能任务
+	public sealed class C_02_计算目标伤害 : SkillTask
 	{
 		
 		public C_02_计算目标伤害()
@@ -35,7 +35,7 @@ namespace GameServer.Templates
 		public SkillDamageType 技能伤害类型;
 
 		
-		public 指定目标类型 技能增伤类型;
+		public SpecifyTargetType 技能增伤类型;
 
 		
 		public int 技能增伤基数;
@@ -53,7 +53,7 @@ namespace GameServer.Templates
 		public float 伤害衰减下限;
 
 		
-		public 指定目标类型 技能斩杀类型;
+		public SpecifyTargetType 技能斩杀类型;
 
 		
 		public float 技能斩杀概率;
@@ -74,7 +74,7 @@ namespace GameServer.Templates
 		public bool 目标死亡回复;
 
 		
-		public 指定目标类型 回复限定类型;
+		public SpecifyTargetType 回复限定类型;
 
 		
 		public int PhysicalRecoveryBase;
@@ -98,7 +98,7 @@ namespace GameServer.Templates
 		public bool 命中减少冷却;
 
 		
-		public 指定目标类型 冷却减少类型;
+		public SpecifyTargetType 冷却减少类型;
 
 		
 		public ushort 冷却减少技能;

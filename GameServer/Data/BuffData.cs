@@ -29,7 +29,7 @@ namespace GameServer.Data
 			if (PlayerObject != null)
 			{
 				SkillData SkillData;
-				if (this.Buff模板.BindingSkillLevel != 0 && PlayerObject.主体技能表.TryGetValue(this.Buff模板.BindingSkillLevel, out SkillData))
+				if (this.Buff模板.BindingSkillLevel != 0 && PlayerObject.MainSkills表.TryGetValue(this.Buff模板.BindingSkillLevel, out SkillData))
 				{
 					this.Buff等级.V = SkillData.技能等级.V;
 				}
@@ -42,7 +42,7 @@ namespace GameServer.Data
 					this.持续时间.V += TimeSpan.FromMilliseconds((double)((float)PlayerObject[this.Buff模板.BoundPlayerStat] * this.Buff模板.StatDelayFactor));
 				}
 				SkillData SkillData2;
-				if (this.Buff模板.ExtendedDuration && this.Buff模板.HasSpecificInscriptionDelay && PlayerObject.主体技能表.TryGetValue((ushort)(this.Buff模板.SpecificInscriptionSkills / 10), out SkillData2) && (int)SkillData2.Id == this.Buff模板.SpecificInscriptionSkills % 10)
+				if (this.Buff模板.ExtendedDuration && this.Buff模板.HasSpecificInscriptionDelay && PlayerObject.MainSkills表.TryGetValue((ushort)(this.Buff模板.SpecificInscriptionSkills / 10), out SkillData2) && (int)SkillData2.Id == this.Buff模板.SpecificInscriptionSkills % 10)
 				{
 					this.持续时间.V += TimeSpan.FromMilliseconds((double)this.Buff模板.InscriptionExtendedTime);
 				}
@@ -53,7 +53,7 @@ namespace GameServer.Data
 				if (PetObject != null)
 				{
 					SkillData SkillData3;
-					if (this.Buff模板.BindingSkillLevel != 0 && PetObject.宠物主人.主体技能表.TryGetValue(this.Buff模板.BindingSkillLevel, out SkillData3))
+					if (this.Buff模板.BindingSkillLevel != 0 && PetObject.宠物主人.MainSkills表.TryGetValue(this.Buff模板.BindingSkillLevel, out SkillData3))
 					{
 						this.Buff等级.V = SkillData3.技能等级.V;
 					}
@@ -66,7 +66,7 @@ namespace GameServer.Data
 						this.持续时间.V += TimeSpan.FromMilliseconds((double)((float)PetObject.宠物主人[this.Buff模板.BoundPlayerStat] * this.Buff模板.StatDelayFactor));
 					}
 					SkillData SkillData4;
-					if (this.Buff模板.ExtendedDuration && this.Buff模板.HasSpecificInscriptionDelay && PetObject.宠物主人.主体技能表.TryGetValue((ushort)(this.Buff模板.SpecificInscriptionSkills / 10), out SkillData4) && (int)SkillData4.Id == this.Buff模板.SpecificInscriptionSkills % 10)
+					if (this.Buff模板.ExtendedDuration && this.Buff模板.HasSpecificInscriptionDelay && PetObject.宠物主人.MainSkills表.TryGetValue((ushort)(this.Buff模板.SpecificInscriptionSkills / 10), out SkillData4) && (int)SkillData4.Id == this.Buff模板.SpecificInscriptionSkills % 10)
 					{
 						this.持续时间.V += TimeSpan.FromMilliseconds((double)this.Buff模板.InscriptionExtendedTime);
 					}
@@ -85,7 +85,7 @@ namespace GameServer.Data
 				float num3 = (num.GetValueOrDefault() > v & num != null) ? this.Buff模板.DamageFactor[(int)this.Buff等级.V] : 0f;
 				PlayerObject PlayerObject2 = 来源 as PlayerObject;
 				SkillData SkillData5;
-				if (PlayerObject2 != null && this.Buff模板.StrengthenInscriptionId != 0 && PlayerObject2.主体技能表.TryGetValue((ushort)(this.Buff模板.StrengthenInscriptionId / 10), out SkillData5) && (int)SkillData5.Id == this.Buff模板.StrengthenInscriptionId % 10)
+				if (PlayerObject2 != null && this.Buff模板.StrengthenInscriptionId != 0 && PlayerObject2.MainSkills表.TryGetValue((ushort)(this.Buff模板.StrengthenInscriptionId / 10), out SkillData5) && (int)SkillData5.Id == this.Buff模板.StrengthenInscriptionId % 10)
 				{
 					num2 += this.Buff模板.StrengthenInscriptionBase;
 					num3 += this.Buff模板.StrengthenInscriptionFactor;

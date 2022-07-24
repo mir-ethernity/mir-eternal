@@ -3,7 +3,7 @@
 namespace GameServer.Templates
 {
 	
-	public sealed class B_01_技能释放通知 : 技能任务
+	public sealed class B_01_技能释放通知 : SkillTask
 	{
 		
 		public B_01_技能释放通知()

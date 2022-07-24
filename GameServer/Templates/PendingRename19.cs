@@ -3,7 +3,7 @@
 namespace GameServer.Templates
 {
 	
-	public sealed class B_03_前摇结束通知 : 技能任务
+	public sealed class B_03_前摇结束通知 : SkillTask
 	{
 		
 		public B_03_前摇结束通知()

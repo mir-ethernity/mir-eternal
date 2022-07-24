@@ -107,7 +107,7 @@ namespace GameServer.Templates
 		public bool 禁止重复触发;
 
 		
-		public 指定目标类型 被动指定类型;
+		public SpecifyTargetType 被动指定类型;
 
 		
 		public GameObjectType 被动限定类型;

@@ -27,7 +27,7 @@ namespace GameServer.Templates
 			Serializer.定向字典 = dictionary;
 			foreach (Type type in Assembly.GetExecutingAssembly().GetTypes())
 			{
-				if (type.IsSubclassOf(typeof(技能任务)))
+				if (type.IsSubclassOf(typeof(SkillTask)))
 				{
 					Serializer.定向字典[type.Name] = type.FullName;
 				}

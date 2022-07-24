@@ -785,66 +785,66 @@ namespace GameServer.Maps
         }
 
         
-        public bool 特定类型(MapObject 来源, 指定目标类型 类型)
+        public bool 特定类型(MapObject 来源, SpecifyTargetType 类型)
         {
             TrapObject TrapObject = 来源 as TrapObject;
             MapObject MapObject = (TrapObject != null) ? TrapObject.陷阱来源 : 来源;
             MonsterObject MonsterObject = this as MonsterObject;
             if (MonsterObject != null)
             {
-                if (类型 == 指定目标类型.无)
+                if (类型 == SpecifyTargetType.None)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.低级目标) == 指定目标类型.低级目标 && this.当前等级 < MapObject.当前等级)
+                if ((类型 & SpecifyTargetType.LowLevelTarget) == SpecifyTargetType.LowLevelTarget && this.当前等级 < MapObject.当前等级)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.所有怪物) == 指定目标类型.所有怪物)
+                if ((类型 & SpecifyTargetType.AllMonsters) == SpecifyTargetType.AllMonsters)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.低级怪物) == 指定目标类型.低级怪物 && this.当前等级 < MapObject.当前等级)
+                if ((类型 & SpecifyTargetType.LowLevelMonster) == SpecifyTargetType.LowLevelMonster && this.当前等级 < MapObject.当前等级)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.低血怪物) == 指定目标类型.低血怪物 && (float)this.当前体力 / (float)this[GameObjectStats.MaxPhysicalStrength] < 0.4f)
+                if ((类型 & SpecifyTargetType.LowBloodMonster) == SpecifyTargetType.LowBloodMonster && (float)this.当前体力 / (float)this[GameObjectStats.MaxPhysicalStrength] < 0.4f)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.Normal) == 指定目标类型.Normal && MonsterObject.Category == MonsterLevelType.Normal)
+                if ((类型 & SpecifyTargetType.Normal) == SpecifyTargetType.Normal && MonsterObject.Category == MonsterLevelType.Normal)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.Undead) == 指定目标类型.Undead && MonsterObject.怪物种族 == MonsterRaceType.Undead)
+                if ((类型 & SpecifyTargetType.Undead) == SpecifyTargetType.Undead && MonsterObject.怪物种族 == MonsterRaceType.Undead)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.ZergCreature) == 指定目标类型.ZergCreature && MonsterObject.怪物种族 == MonsterRaceType.ZergCreature)
+                if ((类型 & SpecifyTargetType.ZergCreature) == SpecifyTargetType.ZergCreature && MonsterObject.怪物种族 == MonsterRaceType.ZergCreature)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.WomaMonster) == 指定目标类型.WomaMonster && MonsterObject.怪物种族 == MonsterRaceType.WomaMonster)
+                if ((类型 & SpecifyTargetType.WomaMonster) == SpecifyTargetType.WomaMonster && MonsterObject.怪物种族 == MonsterRaceType.WomaMonster)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.PigMonster) == 指定目标类型.PigMonster && MonsterObject.怪物种族 == MonsterRaceType.PigMonster)
+                if ((类型 & SpecifyTargetType.PigMonster) == SpecifyTargetType.PigMonster && MonsterObject.怪物种族 == MonsterRaceType.PigMonster)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.ZumaMonster) == 指定目标类型.ZumaMonster && MonsterObject.怪物种族 == MonsterRaceType.ZumaMonster)
+                if ((类型 & SpecifyTargetType.ZumaMonster) == SpecifyTargetType.ZumaMonster && MonsterObject.怪物种族 == MonsterRaceType.ZumaMonster)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.DragonMonster) == 指定目标类型.DragonMonster && MonsterObject.怪物种族 == MonsterRaceType.DragonMonster)
+                if ((类型 & SpecifyTargetType.DragonMonster) == SpecifyTargetType.DragonMonster && MonsterObject.怪物种族 == MonsterRaceType.DragonMonster)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.精英怪物) == 指定目标类型.精英怪物 && (MonsterObject.Category == MonsterLevelType.Elite || MonsterObject.Category == MonsterLevelType.Boss))
+                if ((类型 & SpecifyTargetType.EliteMonsters) == SpecifyTargetType.EliteMonsters && (MonsterObject.Category == MonsterLevelType.Elite || MonsterObject.Category == MonsterLevelType.Boss))
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.背刺目标) == 指定目标类型.背刺目标)
+                if ((类型 & SpecifyTargetType.Backstab) == SpecifyTargetType.Backstab)
                 {
                     GameDirection GameDirection = ComputingClass.计算方向(来源.当前坐标, this.当前坐标);
                     GameDirection 当前方向 = this.当前方向;
@@ -930,15 +930,15 @@ namespace GameServer.Maps
             }
             else if (this is GuardInstance)
             {
-                if (类型 == 指定目标类型.无)
+                if (类型 == SpecifyTargetType.None)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.低级目标) == 指定目标类型.低级目标 && this.当前等级 < MapObject.当前等级)
+                if ((类型 & SpecifyTargetType.LowLevelTarget) == SpecifyTargetType.LowLevelTarget && this.当前等级 < MapObject.当前等级)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.背刺目标) == 指定目标类型.背刺目标)
+                if ((类型 & SpecifyTargetType.Backstab) == SpecifyTargetType.Backstab)
                 {
                     GameDirection GameDirection2 = ComputingClass.计算方向(来源.当前坐标, this.当前坐标);
                     GameDirection 当前方向 = this.当前方向;
@@ -1027,27 +1027,27 @@ namespace GameServer.Maps
                 PetObject PetObject = this as PetObject;
                 if (PetObject != null)
                 {
-                    if (类型 == 指定目标类型.无)
+                    if (类型 == SpecifyTargetType.None)
                     {
                         return true;
                     }
-                    if ((类型 & 指定目标类型.低级目标) == 指定目标类型.低级目标 && this.当前等级 < MapObject.当前等级)
+                    if ((类型 & SpecifyTargetType.LowLevelTarget) == SpecifyTargetType.LowLevelTarget && this.当前等级 < MapObject.当前等级)
                     {
                         return true;
                     }
-                    if ((类型 & 指定目标类型.Undead) == 指定目标类型.Undead && PetObject.宠物种族 == MonsterRaceType.Undead)
+                    if ((类型 & SpecifyTargetType.Undead) == SpecifyTargetType.Undead && PetObject.宠物种族 == MonsterRaceType.Undead)
                     {
                         return true;
                     }
-                    if ((类型 & 指定目标类型.ZergCreature) == 指定目标类型.ZergCreature && PetObject.宠物种族 == MonsterRaceType.ZergCreature)
+                    if ((类型 & SpecifyTargetType.ZergCreature) == SpecifyTargetType.ZergCreature && PetObject.宠物种族 == MonsterRaceType.ZergCreature)
                     {
                         return true;
                     }
-                    if ((类型 & 指定目标类型.所有宠物) == 指定目标类型.所有宠物)
+                    if ((类型 & SpecifyTargetType.AllPets) == SpecifyTargetType.AllPets)
                     {
                         return true;
                     }
-                    if ((类型 & 指定目标类型.背刺目标) == 指定目标类型.背刺目标)
+                    if ((类型 & SpecifyTargetType.Backstab) == SpecifyTargetType.Backstab)
                     {
                         GameDirection GameDirection3 = ComputingClass.计算方向(来源.当前坐标, this.当前坐标);
                         GameDirection 当前方向 = this.当前方向;
@@ -1136,19 +1136,19 @@ namespace GameServer.Maps
                     PlayerObject PlayerObject = this as PlayerObject;
                     if (PlayerObject != null)
                     {
-                        if (类型 == 指定目标类型.无)
+                        if (类型 == SpecifyTargetType.None)
                         {
                             return true;
                         }
-                        if ((类型 & 指定目标类型.低级目标) == 指定目标类型.低级目标 && this.当前等级 < MapObject.当前等级)
+                        if ((类型 & SpecifyTargetType.LowLevelTarget) == SpecifyTargetType.LowLevelTarget && this.当前等级 < MapObject.当前等级)
                         {
                             return true;
                         }
-                        if ((类型 & 指定目标类型.带盾法师) == 指定目标类型.带盾法师 && PlayerObject.角色职业 == GameObjectRace.法师 && PlayerObject.Buff列表.ContainsKey(25350))
+                        if ((类型 & SpecifyTargetType.ShieldMage) == SpecifyTargetType.ShieldMage && PlayerObject.角色职业 == GameObjectRace.法师 && PlayerObject.Buff列表.ContainsKey(25350))
                         {
                             return true;
                         }
-                        if ((类型 & 指定目标类型.背刺目标) == 指定目标类型.背刺目标)
+                        if ((类型 & SpecifyTargetType.Backstab) == SpecifyTargetType.Backstab)
                         {
                             GameDirection GameDirection4 = ComputingClass.计算方向(来源.当前坐标, this.当前坐标);
                             GameDirection 当前方向 = this.当前方向;
@@ -1232,7 +1232,7 @@ namespace GameServer.Maps
                             }
                         }
                     IL_7A8:
-                        if ((类型 & 指定目标类型.所有玩家) == 指定目标类型.所有玩家)
+                        if ((类型 & SpecifyTargetType.AllPlayers) == SpecifyTargetType.AllPlayers)
                         {
                             return true;
                         }
@@ -1557,7 +1557,7 @@ namespace GameServer.Maps
                 if (BuffData.添加冷却 && BuffData.绑定技能 != 0 && BuffData.Cooldown != 0)
                 {
                     PlayerObject PlayerObject = this as PlayerObject;
-                    if (PlayerObject != null && PlayerObject.主体技能表.ContainsKey(BuffData.绑定技能))
+                    if (PlayerObject != null && PlayerObject.MainSkills表.ContainsKey(BuffData.绑定技能))
                     {
                         DateTime dateTime = MainProcess.CurrentTime.AddMilliseconds((double)BuffData.Cooldown);
                         DateTime t = this.冷却记录.ContainsKey((int)BuffData.绑定技能 | 16777216) ? this.冷却记录[(int)BuffData.绑定技能 | 16777216] : default(DateTime);
@@ -1818,7 +1818,7 @@ namespace GameServer.Maps
             {
                 if ((详情.技能反馈 & 技能命中反馈.闪避) == 技能命中反馈.正常)
                 {
-                    if (参数.技能斩杀类型 != 指定目标类型.无 && ComputingClass.计算概率(参数.技能斩杀概率) && this.特定类型(MapObject, 参数.技能斩杀类型))
+                    if (参数.技能斩杀类型 != SpecifyTargetType.None && ComputingClass.计算概率(参数.技能斩杀概率) && this.特定类型(MapObject, 参数.技能斩杀类型))
                     {
                         详情.技能伤害 = this.当前体力;
                     }
@@ -1838,7 +1838,7 @@ namespace GameServer.Maps
                         }
                         int num5 = 0;
                         float num6 = 0f;
-                        if (参数.技能增伤类型 != 指定目标类型.无 && this.特定类型(MapObject, 参数.技能增伤类型))
+                        if (参数.技能增伤类型 != SpecifyTargetType.None && this.特定类型(MapObject, 参数.技能增伤类型))
                         {
                             num5 = 参数.技能增伤基数;
                             num6 = 参数.技能增伤系数;

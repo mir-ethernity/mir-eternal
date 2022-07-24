@@ -3,7 +3,7 @@
 namespace GameServer.Templates
 {
 	
-	public sealed class C_07_计算目标瞬移 : 技能任务
+	public sealed class C_07_计算目标瞬移 : SkillTask
 	{
 		
 		public C_07_计算目标瞬移()

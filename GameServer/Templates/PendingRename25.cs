@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace GameServer.Templates
 {
 	
-	public sealed class C_04_计算目标诱惑 : 技能任务
+	public sealed class C_04_计算目标诱惑 : SkillTask
 	{
 		
 		public C_04_计算目标诱惑()
