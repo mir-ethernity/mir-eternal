@@ -201,7 +201,7 @@
     <Compile Include="Templates\PendingRename46.cs" />
     <Compile Include="Templates\PendingRename40.cs" />
     <Compile Include="Templates\GameItems.cs" />
-    <Compile Include="Templates\PendingRename45.cs" />
+    <Compile Include="Templates\GameTitle.cs" />
     <Compile Include="Templates\EquipmentItem.cs" />
     <Compile Include="Templates\PendingRename29.cs" />
     <Compile Include="Templates\SystemDataService.cs" />

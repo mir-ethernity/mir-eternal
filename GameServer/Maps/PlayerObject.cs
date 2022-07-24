@@ -141,11 +141,11 @@ namespace GameServer.Maps
 					this.称号时间 = keyValuePair.Value;
 				}
 			}
-			游戏称号 游戏称号;
-			if (this.当前称号 > 0 && 游戏称号.DataSheet.TryGetValue(this.当前称号, out 游戏称号))
+			GameTitle 游戏称号;
+			if (this.当前称号 > 0 && GameTitle.DataSheet.TryGetValue(this.当前称号, out 游戏称号))
 			{
-				this.CombatBonus[this.当前称号] = 游戏称号.称号战力;
-				this.属性加成[this.当前称号] = 游戏称号.称号属性;
+				this.CombatBonus[this.当前称号] = 游戏称号.Combat;
+				this.属性加成[this.当前称号] = 游戏称号.Attributes;
 			}
 			if (this.当前体力 == 0)
 			{
@@ -3010,16 +3010,16 @@ namespace GameServer.Maps
 		}
 
 		
-		public void 玩家称号到期(byte 称号编号)
+		public void 玩家称号到期(byte Id)
 		{
-			if (this.称号列表.Remove(称号编号))
+			if (this.称号列表.Remove(Id))
 			{
-				if (this.当前称号 == 称号编号)
+				if (this.当前称号 == Id)
 				{
 					this.当前称号 = 0;
-					this.CombatBonus.Remove(称号编号);
+					this.CombatBonus.Remove(Id);
 					this.更新玩家战力();
-					this.属性加成.Remove(称号编号);
+					this.属性加成.Remove(Id);
 					this.更新对象属性();
 					base.发送封包(new 同步装配称号
 					{
@@ -3033,18 +3033,18 @@ namespace GameServer.Maps
 				}
 				网络连接.发送封包(new 玩家失去称号
 				{
-					称号编号 = 称号编号
+					Id = Id
 				});
 			}
 		}
 
 		
-		public void 玩家获得称号(byte 称号编号)
+		public void 玩家获得称号(byte Id)
 		{
-			游戏称号 游戏称号;
-			if (游戏称号.DataSheet.TryGetValue(称号编号, out 游戏称号))
+			GameTitle 游戏称号;
+			if (GameTitle.DataSheet.TryGetValue(Id, out 游戏称号))
 			{
-				this.称号列表[称号编号] = MainProcess.CurrentTime.AddMinutes((double)游戏称号.有效时间);
+				this.称号列表[Id] = MainProcess.CurrentTime.AddMinutes((double)游戏称号.EffectiveTime);
 				客户网络 网络连接 = this.网络连接;
 				if (网络连接 == null)
 				{
@@ -3052,8 +3052,8 @@ namespace GameServer.Maps
 				}
 				网络连接.发送封包(new 玩家获得称号
 				{
-					称号编号 = 称号编号,
-					剩余时间 = (int)(this.称号列表[称号编号] - MainProcess.CurrentTime).TotalMinutes
+					Id = Id,
+					剩余时间 = (int)(this.称号列表[Id] - MainProcess.CurrentTime).TotalMinutes
 				});
 			}
 		}
@@ -9641,10 +9641,10 @@ namespace GameServer.Maps
 		}
 
 		
-		public void 玩家使用称号(byte 称号编号)
+		public void 玩家使用称号(byte Id)
 		{
-			游戏称号 游戏称号;
-			if (!this.称号列表.ContainsKey(称号编号))
+			GameTitle 游戏称号;
+			if (!this.称号列表.ContainsKey(Id))
 			{
 				客户网络 网络连接 = this.网络连接;
 				if (网络连接 == null)
@@ -9657,7 +9657,7 @@ namespace GameServer.Maps
 				});
 				return;
 			}
-			else if (!游戏称号.DataSheet.TryGetValue(称号编号, out 游戏称号))
+			else if (!GameTitle.DataSheet.TryGetValue(Id, out 游戏称号))
 			{
 				客户网络 网络连接2 = this.网络连接;
 				if (网络连接2 == null)
@@ -9672,17 +9672,17 @@ namespace GameServer.Maps
 			}
 			else
 			{
-				if (this.当前称号 != 称号编号)
+				if (this.当前称号 != Id)
 				{
 					if (this.当前称号 != 0)
 					{
 						this.CombatBonus.Remove(this.当前称号);
 						this.属性加成.Remove(this.当前称号);
 					}
-					this.当前称号 = 称号编号;
-					this.CombatBonus[称号编号] = 游戏称号.称号战力;
+					this.当前称号 = Id;
+					this.CombatBonus[Id] = 游戏称号.Combat;
 					this.更新玩家战力();
-					this.属性加成[称号编号] = 游戏称号.称号属性;
+					this.属性加成[Id] = 游戏称号.Attributes;
 					this.更新对象属性();
 					客户网络 网络连接3 = this.网络连接;
 					if (网络连接3 != null)
@@ -9690,13 +9690,13 @@ namespace GameServer.Maps
 						网络连接3.发送封包(new GameErrorMessagePacket
 						{
 							错误代码 = 1500,
-							第一参数 = (int)称号编号
+							第一参数 = (int)Id
 						});
 					}
 					base.发送封包(new 同步装配称号
 					{
 						对象编号 = this.MapId,
-						称号编号 = 称号编号
+						Id = Id
 					});
 					return;
 				}
@@ -9708,7 +9708,7 @@ namespace GameServer.Maps
 				网络连接4.发送封包(new 同步装配称号
 				{
 					对象编号 = this.MapId,
-					称号编号 = 称号编号
+					Id = Id
 				});
 				return;
 			}

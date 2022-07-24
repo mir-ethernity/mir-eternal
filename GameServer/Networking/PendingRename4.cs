@@ -9,6 +9,6 @@ namespace GameServer.Networking
 		public string 登录账号;
 
 		
-		public DateTime 有效时间;
+		public DateTime EffectiveTime;
 	}
 }

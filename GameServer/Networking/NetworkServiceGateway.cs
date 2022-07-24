@@ -68,7 +68,7 @@ namespace GameServer.Networking
 						NetworkServiceGateway.门票DataSheet[array[0]] = new TicketInformation
 						{
 							登录账号 = array[1],
-							有效时间 = MainProcess.CurrentTime.AddMinutes(5.0)
+							EffectiveTime = MainProcess.CurrentTime.AddMinutes(5.0)
 						};
 					}
 				}

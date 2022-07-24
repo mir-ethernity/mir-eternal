@@ -28,7 +28,7 @@ namespace GameServer.Templates
 				typeof(EquipmentStats),
 				typeof(GameStore),
 				typeof(珍宝商品),
-				typeof(游戏称号),
+				typeof(GameTitle),
 				typeof(铭文技能),
 				typeof(游戏技能),
 				typeof(技能陷阱),

@@ -1514,7 +1514,7 @@ namespace GameServer.Networking
 				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
-			this.绑定角色.玩家使用称号(P.称号编号);
+			this.绑定角色.玩家使用称号(P.Id);
 		}
 
 		
@@ -2352,7 +2352,7 @@ namespace GameServer.Networking
             {
                 this.尝试断开连接(new Exception("登录的门票不存在."));
             }
-            else if (MainProcess.CurrentTime > TicketInformation.有效时间)
+            else if (MainProcess.CurrentTime > TicketInformation.EffectiveTime)
             {
                 this.尝试断开连接(new Exception("登录门票已经过期."));
             }

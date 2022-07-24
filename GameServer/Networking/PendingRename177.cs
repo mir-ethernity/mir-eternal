@@ -19,6 +19,6 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(下标 = 6, 长度 = 1)]
-		public byte 称号编号;
+		public byte Id;
 	}
 }
