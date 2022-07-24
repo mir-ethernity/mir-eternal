@@ -73,7 +73,7 @@ namespace GameServer.Maps
 
         
         // (get) Token: 0x06000775 RID: 1909
-        public abstract 技能范围类型 对象体型 { get; }
+        public abstract MonsterSize 对象体型 { get; }
 
         
         // (get) Token: 0x06000776 RID: 1910 RVA: 0x00006590 File Offset: 0x00004790
@@ -206,25 +206,25 @@ namespace GameServer.Maps
         public virtual DateTime 奔跑时间 { get; set; }
 
         
-        public virtual int this[GameObjectStats 属性]
+        public virtual int this[GameObjectStats Stat]
         {
             get
             {
-                if (!this.当前属性.ContainsKey(属性))
+                if (!this.当前Stat.ContainsKey(Stat))
                 {
                     return 0;
                 }
-                return this.当前属性[属性];
+                return this.当前Stat[Stat];
             }
             set
             {
-                this.当前属性[属性] = value;
-                if (属性 == GameObjectStats.MaxPhysicalStrength)
+                this.当前Stat[Stat] = value;
+                if (Stat == GameObjectStats.MaxPhysicalStrength)
                 {
                     this.当前体力 = Math.Min(this.当前体力, value);
                     return;
                 }
-                if (属性 == GameObjectStats.MaxMagic2)
+                if (Stat == GameObjectStats.MaxMagic2)
                 {
                     this.当前魔力 = Math.Min(this.当前魔力, value);
                 }
@@ -233,7 +233,7 @@ namespace GameServer.Maps
 
         
         // (get) Token: 0x0600079A RID: 1946 RVA: 0x00006724 File Offset: 0x00004924
-        public virtual Dictionary<GameObjectStats, int> 当前属性 { get; }
+        public virtual Dictionary<GameObjectStats, int> 当前Stat { get; }
 
         
         // (get) Token: 0x0600079B RID: 1947 RVA: 0x0000672C File Offset: 0x0000492C
@@ -244,7 +244,7 @@ namespace GameServer.Maps
         public virtual MonitorDictionary<ushort, BuffData> Buff列表 { get; }
 
         
-        public virtual void 更新对象属性()
+        public virtual void 更新对象Stat()
         {
             int num = 0;
             int num2 = 0;
@@ -254,7 +254,7 @@ namespace GameServer.Maps
             {
                 int num5 = 0;
                 GameObjectStats GameObjectProperties = (GameObjectStats)obj;
-                foreach (KeyValuePair<object, Dictionary<GameObjectStats, int>> keyValuePair in this.属性加成)
+                foreach (KeyValuePair<object, Dictionary<GameObjectStats, int>> keyValuePair in this.Stat加成)
                 {
                     int num6;
                     if (keyValuePair.Value != null && keyValuePair.Value.TryGetValue(GameObjectProperties, out num6) && num6 != 0)
@@ -304,15 +304,15 @@ namespace GameServer.Maps
             {
                 foreach (PetObject PetObject in PlayerObject.宠物列表)
                 {
-                    if (PetObject.对象模板.继承属性 != null)
+                    if (PetObject.对象模板.InheritsStats != null)
                     {
                         Dictionary<GameObjectStats, int> dictionary = new Dictionary<GameObjectStats, int>();
-                        foreach (属性继承 属性继承 in PetObject.对象模板.继承属性)
+                        foreach (InheritStat InheritStat in PetObject.对象模板.InheritsStats)
                         {
-                            dictionary[属性继承.转换属性] = (int)((float)this[属性继承.继承属性] * 属性继承.继承比例);
+                            dictionary[InheritStat.ConvertStat] = (int)((float)this[InheritStat.InheritsStats] * InheritStat.Ratio);
                         }
-                        PetObject.属性加成[PlayerObject.CharacterData] = dictionary;
-                        PetObject.更新对象属性();
+                        PetObject.Stat加成[PlayerObject.CharacterData] = dictionary;
+                        PetObject.更新对象Stat();
                     }
                 }
             }
@@ -352,10 +352,10 @@ namespace GameServer.Maps
             this.重要邻居 = new HashSet<MapObject>();
             this.潜行邻居 = new HashSet<MapObject>();
             this.邻居列表 = new HashSet<MapObject>();
-            this.当前属性 = new Dictionary<GameObjectStats, int>();
+            this.当前Stat = new Dictionary<GameObjectStats, int>();
             this.冷却记录 = new MonitorDictionary<int, DateTime>(null);
             this.Buff列表 = new MonitorDictionary<ushort, BuffData>(null);
-            this.属性加成 = new Dictionary<object, Dictionary<GameObjectStats, int>>();
+            this.Stat加成 = new Dictionary<object, Dictionary<GameObjectStats, int>>();
             this.预约时间 = MainProcess.CurrentTime.AddMilliseconds((double)MainProcess.RandomNumber.Next(this.处理间隔));
         }
 
@@ -478,7 +478,7 @@ namespace GameServer.Maps
             MonsterObject MonsterObject = this as MonsterObject;
             if (MonsterObject != null)
             {
-                if (MonsterObject.ActiveAttack目标)
+                if (MonsterObject.ActiveAttackTarget)
                 {
                     if (!(对象 is PlayerObject) && !(对象 is PetObject))
                     {
@@ -496,14 +496,14 @@ namespace GameServer.Maps
                 GuardInstance GuardInstance2 = this as GuardInstance;
                 if (GuardInstance2 != null)
                 {
-                    if (!GuardInstance2.ActiveAttack目标)
+                    if (!GuardInstance2.ActiveAttackTarget)
                     {
                         return false;
                     }
                     MonsterObject MonsterObject2 = 对象 as MonsterObject;
                     if (MonsterObject2 != null)
                     {
-                        return MonsterObject2.ActiveAttack目标;
+                        return MonsterObject2.ActiveAttackTarget;
                     }
                     PlayerObject PlayerObject = 对象 as PlayerObject;
                     if (PlayerObject != null)
@@ -518,7 +518,7 @@ namespace GameServer.Maps
                 else if (this is PetObject)
                 {
                     MonsterObject MonsterObject3 = 对象 as MonsterObject;
-                    return MonsterObject3 != null && MonsterObject3.ActiveAttack目标;
+                    return MonsterObject3 != null && MonsterObject3.ActiveAttackTarget;
                 }
             }
             return false;
@@ -812,35 +812,35 @@ namespace GameServer.Maps
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.普通怪物) == 指定目标类型.普通怪物 && MonsterObject.怪物级别 == MonsterLevelType.普通怪物)
+                if ((类型 & 指定目标类型.Normal) == 指定目标类型.Normal && MonsterObject.Category == MonsterLevelType.Normal)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.不死生物) == 指定目标类型.不死生物 && MonsterObject.怪物种族 == MonsterRaceType.不死生物)
+                if ((类型 & 指定目标类型.Undead) == 指定目标类型.Undead && MonsterObject.怪物种族 == MonsterRaceType.Undead)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.虫族生物) == 指定目标类型.虫族生物 && MonsterObject.怪物种族 == MonsterRaceType.虫族生物)
+                if ((类型 & 指定目标类型.ZergCreature) == 指定目标类型.ZergCreature && MonsterObject.怪物种族 == MonsterRaceType.ZergCreature)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.沃玛怪物) == 指定目标类型.沃玛怪物 && MonsterObject.怪物种族 == MonsterRaceType.沃玛怪物)
+                if ((类型 & 指定目标类型.WomaMonster) == 指定目标类型.WomaMonster && MonsterObject.怪物种族 == MonsterRaceType.WomaMonster)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.猪类怪物) == 指定目标类型.猪类怪物 && MonsterObject.怪物种族 == MonsterRaceType.猪类怪物)
+                if ((类型 & 指定目标类型.PigMonster) == 指定目标类型.PigMonster && MonsterObject.怪物种族 == MonsterRaceType.PigMonster)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.祖玛怪物) == 指定目标类型.祖玛怪物 && MonsterObject.怪物种族 == MonsterRaceType.祖玛怪物)
+                if ((类型 & 指定目标类型.ZumaMonster) == 指定目标类型.ZumaMonster && MonsterObject.怪物种族 == MonsterRaceType.ZumaMonster)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.魔龙怪物) == 指定目标类型.魔龙怪物 && MonsterObject.怪物种族 == MonsterRaceType.魔龙怪物)
+                if ((类型 & 指定目标类型.DragonMonster) == 指定目标类型.DragonMonster && MonsterObject.怪物种族 == MonsterRaceType.DragonMonster)
                 {
                     return true;
                 }
-                if ((类型 & 指定目标类型.精英怪物) == 指定目标类型.精英怪物 && (MonsterObject.怪物级别 == MonsterLevelType.精英干将 || MonsterObject.怪物级别 == MonsterLevelType.头目首领))
+                if ((类型 & 指定目标类型.精英怪物) == 指定目标类型.精英怪物 && (MonsterObject.Category == MonsterLevelType.Elite || MonsterObject.Category == MonsterLevelType.Boss))
                 {
                     return true;
                 }
@@ -1035,11 +1035,11 @@ namespace GameServer.Maps
                     {
                         return true;
                     }
-                    if ((类型 & 指定目标类型.不死生物) == 指定目标类型.不死生物 && PetObject.宠物种族 == MonsterRaceType.不死生物)
+                    if ((类型 & 指定目标类型.Undead) == 指定目标类型.Undead && PetObject.宠物种族 == MonsterRaceType.Undead)
                     {
                         return true;
                     }
-                    if ((类型 & 指定目标类型.虫族生物) == 指定目标类型.虫族生物 && PetObject.宠物种族 == MonsterRaceType.虫族生物)
+                    if ((类型 & 指定目标类型.ZergCreature) == 指定目标类型.ZergCreature && PetObject.宠物种族 == MonsterRaceType.ZergCreature)
                     {
                         return true;
                     }
@@ -1276,7 +1276,7 @@ namespace GameServer.Maps
                 return false;
             }
             MonsterObject MonsterObject = this as MonsterObject;
-            return (MonsterObject == null || MonsterObject.可被技能推动) && 来源.对象关系(this) == 游戏对象关系.敌对;
+            return (MonsterObject == null || MonsterObject.CanBeDrivenBySkills) && 来源.对象关系(this) == 游戏对象关系.敌对;
         }
 
         
@@ -1503,10 +1503,10 @@ namespace GameServer.Maps
                                     持续时间 = (int)BuffData2.持续时间.V.TotalMilliseconds
                                 });
                             }
-                            if ((游戏Buff.Buff效果 & Buff效果类型.属性增减) != Buff效果类型.技能标志)
+                            if ((游戏Buff.Buff效果 & Buff效果类型.Stat增减) != Buff效果类型.技能标志)
                             {
-                                this.属性加成.Add(BuffData2, BuffData2.属性加成);
-                                this.更新对象属性();
+                                this.Stat加成.Add(BuffData2, BuffData2.Stat加成);
+                                this.更新对象Stat();
                             }
                             if ((游戏Buff.Buff效果 & Buff效果类型.状态标志) != Buff效果类型.技能标志)
                             {
@@ -1582,10 +1582,10 @@ namespace GameServer.Maps
                         Buff索引 = (int)编号
                     });
                 }
-                if ((BuffData.Buff效果 & Buff效果类型.属性增减) != Buff效果类型.技能标志)
+                if ((BuffData.Buff效果 & Buff效果类型.Stat增减) != Buff效果类型.技能标志)
                 {
-                    this.属性加成.Remove(BuffData);
-                    this.更新对象属性();
+                    this.Stat加成.Remove(BuffData);
+                    this.更新对象Stat();
                 }
                 if ((BuffData.Buff效果 & Buff效果类型.状态标志) != Buff效果类型.技能标志)
                 {
@@ -1630,10 +1630,10 @@ namespace GameServer.Maps
                         Buff索引 = (int)编号
                     });
                 }
-                if ((BuffData.Buff效果 & Buff效果类型.属性增减) != Buff效果类型.技能标志)
+                if ((BuffData.Buff效果 & Buff效果类型.Stat增减) != Buff效果类型.技能标志)
                 {
-                    this.属性加成.Remove(BuffData);
-                    this.更新对象属性();
+                    this.Stat加成.Remove(BuffData);
+                    this.更新对象Stat();
                 }
                 if ((BuffData.Buff效果 & Buff效果类型.状态标志) != Buff效果类型.技能标志)
                 {
@@ -2132,7 +2132,7 @@ namespace GameServer.Maps
                                     }
                                     if (BuffData2.Buff模板.效果判定方式 == Buff判定方式.被动受伤减伤 && BuffData2.Buff模板.限定伤害上限)
                                     {
-                                        num13 = Math.Min(num13, BuffData2.Buff模板.限定伤害数值);
+                                        num13 = Math.Min(num13, BuffData2.Buff模板.限定伤害Value);
                                     }
                                     if (BuffData2.Buff模板.效果生效移除)
                                     {
@@ -2619,7 +2619,7 @@ namespace GameServer.Maps
                     if (MonsterObject != null)
                     {
                         HateObject.仇恨详情 仇恨详情2;
-                        if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.可见隐身目标 || !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
+                        if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.VisibleStealthTargets || !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
                         {
                             MonsterObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                         }
@@ -2678,7 +2678,7 @@ namespace GameServer.Maps
                     MonsterObject MonsterObject2 = 对象 as MonsterObject;
                     if (MonsterObject2 != null)
                     {
-                        if (MonsterObject2.网格距离(this) <= MonsterObject2.RangeHate && MonsterObject2.ActiveAttack(this) && (MonsterObject2.可见隐身目标 || !this.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
+                        if (MonsterObject2.网格距离(this) <= MonsterObject2.RangeHate && MonsterObject2.ActiveAttack(this) && (MonsterObject2.VisibleStealthTargets || !this.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
                         {
                             MonsterObject2.HateObject.添加仇恨(this, default(DateTime), 0);
                             return;
@@ -2873,7 +2873,7 @@ namespace GameServer.Maps
                                 MonsterObject MonsterObject = this as MonsterObject;
                                 if (MonsterObject != null)
                                 {
-                                    if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.可见隐身目标 || !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
+                                    if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.VisibleStealthTargets || !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
                                     {
                                         MonsterObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                                         return;
@@ -3043,7 +3043,7 @@ namespace GameServer.Maps
                                 if (MonsterObject2 != null && !this.对象死亡)
                                 {
                                     HateObject.仇恨详情 仇恨详情4;
-                                    if (this.网格距离(对象) <= MonsterObject2.RangeHate && MonsterObject2.ActiveAttack(对象) && (MonsterObject2.可见隐身目标 || !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
+                                    if (this.网格距离(对象) <= MonsterObject2.RangeHate && MonsterObject2.ActiveAttack(对象) && (MonsterObject2.VisibleStealthTargets || !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
                                     {
                                         MonsterObject2.HateObject.添加仇恨(对象, default(DateTime), 0);
                                     }
@@ -3168,7 +3168,7 @@ namespace GameServer.Maps
                 PetObject.HateObject.移除仇恨(对象);
             }
             MonsterObject MonsterObject = this as MonsterObject;
-            if (MonsterObject != null && MonsterObject.HateObject.仇恨列表.ContainsKey(对象) && !MonsterObject.可见隐身目标)
+            if (MonsterObject != null && MonsterObject.HateObject.仇恨列表.ContainsKey(对象) && !MonsterObject.VisibleStealthTargets)
             {
                 MonsterObject.HateObject.移除仇恨(对象);
             }
@@ -3187,7 +3187,7 @@ namespace GameServer.Maps
                 this.潜行邻居.Add(对象);
             }
             MonsterObject MonsterObject = this as MonsterObject;
-            if (MonsterObject != null && !MonsterObject.可见隐身目标)
+            if (MonsterObject != null && !MonsterObject.VisibleStealthTargets)
             {
                 if (MonsterObject.HateObject.仇恨列表.ContainsKey(对象))
                 {
@@ -3225,7 +3225,7 @@ namespace GameServer.Maps
             MonsterObject MonsterObject = this as MonsterObject;
             if (MonsterObject != null)
             {
-                if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.可见隐身目标 || !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
+                if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.VisibleStealthTargets || !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
                 {
                     MonsterObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                     return;
@@ -3317,6 +3317,6 @@ namespace GameServer.Maps
         public HashSet<TrapObject> 陷阱列表;
 
         
-        public Dictionary<object, Dictionary<GameObjectStats, int>> 属性加成;
+        public Dictionary<object, Dictionary<GameObjectStats, int>> Stat加成;
     }
 }

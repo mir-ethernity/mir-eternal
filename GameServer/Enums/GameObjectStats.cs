@@ -6,7 +6,7 @@ namespace GameServer
 	public enum GameObjectStats
 	{
 		
-		未知属性,
+		未知Stat,
 		
 		MinDef = 2,
 		

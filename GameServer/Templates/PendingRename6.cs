@@ -72,32 +72,32 @@ namespace GameServer.Templates
 
 		
 		// (get) Token: 0x060006CB RID: 1739 RVA: 0x00034FF8 File Offset: 0x000331F8
-		public Dictionary<GameObjectStats, int>[] 属性加成
+		public Dictionary<GameObjectStats, int>[] Stat加成
 		{
 			get
 			{
-				if (this._属性加成 != null)
+				if (this._Stat加成 != null)
 				{
-					return this._属性加成;
+					return this._Stat加成;
 				}
-				this._属性加成 = new Dictionary<GameObjectStats, int>[]
+				this._Stat加成 = new Dictionary<GameObjectStats, int>[]
 				{
 					new Dictionary<GameObjectStats, int>(),
 					new Dictionary<GameObjectStats, int>(),
 					new Dictionary<GameObjectStats, int>(),
 					new Dictionary<GameObjectStats, int>()
 				};
-				if (this.铭文属性加成 != null)
+				if (this.铭文Stat加成 != null)
 				{
-					foreach (铭文属性 铭文属性 in this.铭文属性加成)
+					foreach (铭文Stat 铭文Stat in this.铭文Stat加成)
 					{
-						this._属性加成[0][铭文属性.属性] = 铭文属性.零级;
-						this._属性加成[1][铭文属性.属性] = 铭文属性.一级;
-						this._属性加成[2][铭文属性.属性] = 铭文属性.二级;
-						this._属性加成[3][铭文属性.属性] = 铭文属性.三级;
+						this._Stat加成[0][铭文Stat.Stat] = 铭文Stat.Level0;
+						this._Stat加成[1][铭文Stat.Stat] = 铭文Stat.Level1;
+						this._Stat加成[2][铭文Stat.Stat] = 铭文Stat.Level2;
+						this._Stat加成[3][铭文Stat.Stat] = 铭文Stat.Level3;
 					}
 				}
-				return this._属性加成;
+				return this._Stat加成;
 			}
 		}
 
@@ -157,7 +157,7 @@ namespace GameServer.Templates
 		public int[] 技能CombatBonus;
 
 		
-		public 铭文属性[] 铭文属性加成;
+		public 铭文Stat[] 铭文Stat加成;
 
 		
 		public List<ushort> 铭文附带Buff;
@@ -172,6 +172,6 @@ namespace GameServer.Templates
 		public List<string> 开关技能列表;
 
 		
-		private Dictionary<GameObjectStats, int>[] _属性加成;
+		private Dictionary<GameObjectStats, int>[] _Stat加成;
 	}
 }

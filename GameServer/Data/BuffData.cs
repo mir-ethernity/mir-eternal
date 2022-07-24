@@ -37,9 +37,9 @@ namespace GameServer.Data
 				{
 					this.持续时间.V += TimeSpan.FromMilliseconds((double)((int)this.Buff等级.V * this.Buff模板.每级延长时间));
 				}
-				if (this.Buff模板.持续时间延长 && this.Buff模板.角色属性延时)
+				if (this.Buff模板.持续时间延长 && this.Buff模板.角色Stat延时)
 				{
-					this.持续时间.V += TimeSpan.FromMilliseconds((double)((float)PlayerObject[this.Buff模板.绑定角色属性] * this.Buff模板.属性延时系数));
+					this.持续时间.V += TimeSpan.FromMilliseconds((double)((float)PlayerObject[this.Buff模板.绑定角色Stat] * this.Buff模板.Stat延时系数));
 				}
 				SkillData SkillData2;
 				if (this.Buff模板.持续时间延长 && this.Buff模板.特定铭文延时 && PlayerObject.主体技能表.TryGetValue((ushort)(this.Buff模板.特定铭文技能 / 10), out SkillData2) && (int)SkillData2.铭文编号 == this.Buff模板.特定铭文技能 % 10)
@@ -61,9 +61,9 @@ namespace GameServer.Data
 					{
 						this.持续时间.V += TimeSpan.FromMilliseconds((double)((int)this.Buff等级.V * this.Buff模板.每级延长时间));
 					}
-					if (this.Buff模板.持续时间延长 && this.Buff模板.角色属性延时)
+					if (this.Buff模板.持续时间延长 && this.Buff模板.角色Stat延时)
 					{
-						this.持续时间.V += TimeSpan.FromMilliseconds((double)((float)PetObject.宠物主人[this.Buff模板.绑定角色属性] * this.Buff模板.属性延时系数));
+						this.持续时间.V += TimeSpan.FromMilliseconds((double)((float)PetObject.宠物主人[this.Buff模板.绑定角色Stat] * this.Buff模板.Stat延时系数));
 					}
 					SkillData SkillData4;
 					if (this.Buff模板.持续时间延长 && this.Buff模板.特定铭文延时 && PetObject.宠物主人.主体技能表.TryGetValue((ushort)(this.Buff模板.特定铭文技能 / 10), out SkillData4) && (int)SkillData4.铭文编号 == this.Buff模板.特定铭文技能 % 10)
@@ -326,13 +326,13 @@ namespace GameServer.Data
 
 		
 		// (get) Token: 0x0600043D RID: 1085 RVA: 0x000043BE File Offset: 0x000025BE
-		public Dictionary<GameObjectStats, int> 属性加成
+		public Dictionary<GameObjectStats, int> Stat加成
 		{
 			get
 			{
-				if ((this.Buff效果 & Buff效果类型.属性增减) != Buff效果类型.技能标志)
+				if ((this.Buff效果 & Buff效果类型.Stat增减) != Buff效果类型.技能标志)
 				{
-					return this.Buff模板.基础属性增减[(int)this.Buff等级.V];
+					return this.Buff模板.基础Stat增减[(int)this.Buff等级.V];
 				}
 				return null;
 			}

@@ -23,32 +23,32 @@ namespace GameServer.Templates
 
 		
 		// (get) Token: 0x06000681 RID: 1665 RVA: 0x00030B98 File Offset: 0x0002ED98
-		public Dictionary<GameObjectStats, int>[] 基础属性增减
+		public Dictionary<GameObjectStats, int>[] 基础Stat增减
 		{
 			get
 			{
-				if (this._基础属性增减 != null)
+				if (this._基础Stat增减 != null)
 				{
-					return this._基础属性增减;
+					return this._基础Stat增减;
 				}
-				this._基础属性增减 = new Dictionary<GameObjectStats, int>[]
+				this._基础Stat增减 = new Dictionary<GameObjectStats, int>[]
 				{
 					new Dictionary<GameObjectStats, int>(),
 					new Dictionary<GameObjectStats, int>(),
 					new Dictionary<GameObjectStats, int>(),
 					new Dictionary<GameObjectStats, int>()
 				};
-				if (this.属性增减 != null)
+				if (this.Stat增减 != null)
 				{
-					foreach (铭文属性 铭文属性 in this.属性增减)
+					foreach (铭文Stat 铭文Stat in this.Stat增减)
 					{
-						this._基础属性增减[0][铭文属性.属性] = 铭文属性.零级;
-						this._基础属性增减[1][铭文属性.属性] = 铭文属性.一级;
-						this._基础属性增减[2][铭文属性.属性] = 铭文属性.二级;
-						this._基础属性增减[3][铭文属性.属性] = 铭文属性.三级;
+						this._基础Stat增减[0][铭文Stat.Stat] = 铭文Stat.Level0;
+						this._基础Stat增减[1][铭文Stat.Stat] = 铭文Stat.Level1;
+						this._基础Stat增减[2][铭文Stat.Stat] = 铭文Stat.Level2;
+						this._基础Stat增减[3][铭文Stat.Stat] = 铭文Stat.Level3;
 					}
 				}
-				return this._基础属性增减;
+				return this._基础Stat增减;
 			}
 		}
 
@@ -150,13 +150,13 @@ namespace GameServer.Templates
 		public int 每级延长时间;
 
 		
-		public bool 角色属性延时;
+		public bool 角色Stat延时;
 
 		
-		public GameObjectStats 绑定角色属性;
+		public GameObjectStats 绑定角色Stat;
 
 		
-		public float 属性延时系数;
+		public float Stat延时系数;
 
 		
 		public bool 特定铭文延时;
@@ -171,10 +171,10 @@ namespace GameServer.Templates
 		public 游戏对象状态 角色所处状态;
 
 		
-		public 铭文属性[] 属性增减;
+		public 铭文Stat[] Stat增减;
 
 		
-		private Dictionary<GameObjectStats, int>[] _基础属性增减;
+		private Dictionary<GameObjectStats, int>[] _基础Stat增减;
 
 		
 		public 技能伤害类型 Buff伤害类型;
@@ -210,7 +210,7 @@ namespace GameServer.Templates
 		public bool 限定伤害上限;
 
 		
-		public int 限定伤害数值;
+		public int 限定伤害Value;
 
 		
 		public Buff判定类型 效果判定类型;
@@ -228,7 +228,7 @@ namespace GameServer.Templates
 		public string 触发陷阱技能;
 
 		
-		public 技能范围类型 触发陷阱数量;
+		public MonsterSize 触发陷阱数量;
 
 		
 		public byte[] 体力回复基数;

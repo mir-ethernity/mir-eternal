@@ -41,7 +41,7 @@ namespace GameServer.Templates
 		public ushort 分组编号;
 
 		
-		public 技能范围类型 陷阱体型;
+		public MonsterSize 陷阱体型;
 
 		
 		public ushort 绑定等级;
@@ -62,13 +62,13 @@ namespace GameServer.Templates
 		public int 每级延长时间;
 
 		
-		public bool 角色属性延时;
+		public bool 角色Stat延时;
 
 		
-		public GameObjectStats 绑定角色属性;
+		public GameObjectStats 绑定角色Stat;
 
 		
-		public float 属性延时系数;
+		public float Stat延时系数;
 
 		
 		public bool 特定铭文延时;

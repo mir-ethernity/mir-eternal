@@ -2,14 +2,10 @@
 
 namespace GameServer
 {
-	
 	public enum MonsterLevelType
 	{
-		
-		普通怪物 = 3,
-		
-		精英干将 = 6,
-		
-		头目首领 = 8
+		Normal = 3,
+		Elite = 6,
+		Boss = 8
 	}
 }

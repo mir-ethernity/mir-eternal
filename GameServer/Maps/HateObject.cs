@@ -25,7 +25,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public void 添加仇恨(MapObject 对象, DateTime 时间, int 仇恨数值)
+		public void 添加仇恨(MapObject 对象, DateTime 时间, int 仇恨Value)
 		{
 			if (对象.对象死亡)
 			{
@@ -35,10 +35,10 @@ namespace GameServer.Maps
 			if (this.仇恨列表.TryGetValue(对象, out 仇恨详情))
 			{
 				仇恨详情.仇恨时间 = ((仇恨详情.仇恨时间 < 时间) ? 时间 : 仇恨详情.仇恨时间);
-				仇恨详情.仇恨数值 += 仇恨数值;
+				仇恨详情.仇恨Value += 仇恨Value;
 				return;
 			}
-			this.仇恨列表[对象] = new HateObject.仇恨详情(时间, 仇恨数值);
+			this.仇恨列表[对象] = new HateObject.仇恨详情(时间, 仇恨Value);
 		}
 
 		
@@ -48,15 +48,15 @@ namespace GameServer.Maps
 			List<MapObject> list = new List<MapObject>();
 			foreach (KeyValuePair<MapObject, HateObject.仇恨详情> keyValuePair in this.仇恨列表)
 			{
-				if (keyValuePair.Value.仇恨数值 > num)
+				if (keyValuePair.Value.仇恨Value > num)
 				{
-					num = keyValuePair.Value.仇恨数值;
+					num = keyValuePair.Value.仇恨Value;
 					list = new List<MapObject>
 					{
 						keyValuePair.Key
 					};
 				}
-				else if (keyValuePair.Value.仇恨数值 == num)
+				else if (keyValuePair.Value.仇恨Value == num)
 				{
 					list.Add(keyValuePair.Key);
 				}
@@ -109,9 +109,9 @@ namespace GameServer.Maps
 			MapObject MapObject = null;
 			foreach (KeyValuePair<MapObject, HateObject.仇恨详情> keyValuePair in list)
 			{
-				if (keyValuePair.Value.仇恨数值 > num3)
+				if (keyValuePair.Value.仇恨Value > num3)
 				{
-					num3 = keyValuePair.Value.仇恨数值;
+					num3 = keyValuePair.Value.仇恨Value;
 					MapObject = keyValuePair.Key;
 				}
 			}
@@ -136,16 +136,16 @@ namespace GameServer.Maps
 		public sealed class 仇恨详情
 		{
 			
-			public 仇恨详情(DateTime 仇恨时间, int 仇恨数值)
+			public 仇恨详情(DateTime 仇恨时间, int 仇恨Value)
 			{
 				
 				
-				this.仇恨数值 = 仇恨数值;
+				this.仇恨Value = 仇恨Value;
 				this.仇恨时间 = 仇恨时间;
 			}
 
 			
-			public int 仇恨数值;
+			public int 仇恨Value;
 
 			
 			public DateTime 仇恨时间;

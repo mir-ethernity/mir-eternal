@@ -96,8 +96,8 @@ namespace GameServer.Data
 			dictionary[typeFromHandle12] = delegate(BinaryReader r, GameData o, DataField f)
 			{
 				DataMonitor<RandomStats> DataMonitor = new DataMonitor<RandomStats>(o);
-				RandomStats 随机属性;
-				DataMonitor.QuietlySetValue(RandomStats.DataSheet.TryGetValue(r.ReadInt32(), out 随机属性) ? 随机属性 : null);
+				RandomStats 随机Stat;
+				DataMonitor.QuietlySetValue(RandomStats.DataSheet.TryGetValue(r.ReadInt32(), out 随机Stat) ? 随机Stat : null);
 				return DataMonitor;
 			};
 			Type typeFromHandle13 = typeof(DataMonitor<铭文技能>);
@@ -908,9 +908,9 @@ namespace GameServer.Data
 			{
 				ListMonitor<RandomStats> ListMonitor = (ListMonitor<RandomStats>)o;
 				b.Write((ListMonitor != null) ? ListMonitor.Count : 0);
-				foreach (RandomStats 随机属性 in ListMonitor)
+				foreach (RandomStats 随机Stat in ListMonitor)
 				{
-					b.Write(随机属性.StatId);
+					b.Write(随机Stat.StatId);
 				}
 			};
 			typeFromHandle23 = typeof(ListMonitor<EquipHoleColor>);

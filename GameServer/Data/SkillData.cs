@@ -160,13 +160,13 @@ namespace GameServer.Data
 
 		
 		// (get) Token: 0x0600044C RID: 1100 RVA: 0x00020C20 File Offset: 0x0001EE20
-		public Dictionary<GameObjectStats, int> 属性加成
+		public Dictionary<GameObjectStats, int> Stat加成
 		{
 			get
 			{
-				if (this.铭文模板.属性加成 != null && this.铭文模板.属性加成.Length > (int)this.技能等级.V)
+				if (this.铭文模板.Stat加成 != null && this.铭文模板.Stat加成.Length > (int)this.技能等级.V)
 				{
-					return this.铭文模板.属性加成[(int)this.技能等级.V];
+					return this.铭文模板.Stat加成[(int)this.技能等级.V];
 				}
 				return null;
 			}

@@ -89,7 +89,7 @@ namespace GameServer.Maps
 			}
 			set
 			{
-				value = ComputingClass.数值限制(0, value, this[GameObjectStats.MaxPhysicalStrength]);
+				value = ComputingClass.Value限制(0, value, this[GameObjectStats.MaxPhysicalStrength]);
 				if (base.当前体力 != value)
 				{
 					base.当前体力 = value;
@@ -193,24 +193,24 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000715 RID: 1813 RVA: 0x00002855 File Offset: 0x00000A55
-		public override 技能范围类型 对象体型
+		public override MonsterSize 对象体型
 		{
 			get
 			{
-				return 技能范围类型.单体1x1;
+				return MonsterSize.Single1x1;
 			}
 		}
 
 		
-		public override int this[GameObjectStats 属性]
+		public override int this[GameObjectStats Stat]
 		{
 			get
 			{
-				return base[属性];
+				return base[Stat];
 			}
 			set
 			{
-				base[属性] = value;
+				base[Stat] = value;
 			}
 		}
 
@@ -276,7 +276,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x0600071E RID: 1822 RVA: 0x00006266 File Offset: 0x00004466
-		public bool ActiveAttack目标
+		public bool ActiveAttackTarget
 		{
 			get
 			{
@@ -295,10 +295,10 @@ namespace GameServer.Maps
 			this.出生方向 = 出生方向;
 			this.出生坐标 = 出生坐标;
 			this.MapId = ++MapGatewayProcess.对象编号;
-			Dictionary<object, Dictionary<GameObjectStats, int>> 属性加成 = this.属性加成;
+			Dictionary<object, Dictionary<GameObjectStats, int>> Stat加成 = this.Stat加成;
 			Dictionary<GameObjectStats, int> dictionary = new Dictionary<GameObjectStats, int>();
 			dictionary[GameObjectStats.MaxPhysicalStrength] = 9999;
-			属性加成[this] = dictionary;
+			Stat加成[this] = dictionary;
 			string text = this.对象模板.BasicAttackSkills;
 			if (text != null && text.Length > 0)
 			{
@@ -348,7 +348,7 @@ namespace GameServer.Maps
 					}
 					base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 				}
-				if (this.ActiveAttack目标 && MainProcess.CurrentTime > this.忙碌时间 && MainProcess.CurrentTime > this.硬直时间)
+				if (this.ActiveAttackTarget && MainProcess.CurrentTime > this.忙碌时间 && MainProcess.CurrentTime > this.硬直时间)
 				{
 					if (this.更新HateObject())
 					{
@@ -438,7 +438,7 @@ namespace GameServer.Maps
 		
 		public void 守卫复活处理()
 		{
-			this.更新对象属性();
+			this.更新对象Stat();
 			this.次要对象 = false;
 			this.对象死亡 = false;
 			this.阻塞网格 = !this.对象模板.Nothingness;

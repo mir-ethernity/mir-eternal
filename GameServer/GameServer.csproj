@@ -171,14 +171,14 @@
     <Compile Include="Enums\AreaType.cs" />
     <Compile Include="Templates\Guards.cs" />
     <Compile Include="Templates\Terrains.cs" />
-    <Compile Include="Templates\PendingRename4.cs" />
+    <Compile Include="Templates\BasicStats.cs" />
     <Compile Include="Templates\MapGuards.cs" />
     <Compile Include="Templates\NpcDialogs.cs" />
-    <Compile Include="Templates\PendingRename10.cs" />
+    <Compile Include="Templates\InheritStat.cs" />
     <Compile Include="Templates\Serializer.cs" />
     <Compile Include="Templates\MonsterSpawns.cs" />
-    <Compile Include="Templates\PendingRename35.cs" />
-    <Compile Include="Templates\PendingRename32.cs" />
+    <Compile Include="Templates\MonsterDrop.cs" />
+    <Compile Include="Templates\GrowthStat.cs" />
     <Compile Include="Templates\PendingRename1.cs" />
     <Compile Include="Templates\PendingRename53.cs" />
     <Compile Include="Templates\PendingRename51.cs" />
@@ -186,7 +186,7 @@
     <Compile Include="Templates\PendingRename54.cs" />
     <Compile Include="Templates\PendingRename2.cs" />
     <Compile Include="Templates\PendingRename59.cs" />
-    <Compile Include="Templates\PendingRename58.cs" />
+    <Compile Include="Templates\MonsterSize.cs" />
     <Compile Include="Templates\PendingRename57.cs" />
     <Compile Include="Templates\PendingRename55.cs" />
     <Compile Include="Templates\PendingRename52.cs" />
@@ -198,7 +198,7 @@
     <Compile Include="Templates\GameMap.cs" />
     <Compile Include="Templates\PendingRename66.cs" />
     <Compile Include="Templates\PendingRename67.cs" />
-    <Compile Include="Templates\PendingRename46.cs" />
+    <Compile Include="Templates\Monsters.cs" />
     <Compile Include="Templates\PendingRename40.cs" />
     <Compile Include="Templates\GameItems.cs" />
     <Compile Include="Templates\GameTitle.cs" />

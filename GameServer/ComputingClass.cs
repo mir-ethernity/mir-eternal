@@ -74,17 +74,17 @@ namespace GameServer
 		}
 
 		
-		public static int 数值限制(int 下限, int 数值, int 上限)
+		public static int Value限制(int 下限, int Value, int 上限)
 		{
-			if (数值 > 上限)
+			if (Value > 上限)
 			{
 				return 上限;
 			}
-			if (数值 < 下限)
+			if (Value < 下限)
 			{
 				return 下限;
 			}
-			return 数值;
+			return Value;
 		}
 
 		
@@ -124,9 +124,9 @@ namespace GameServer
 		}
 
 		
-		public static float 收益衰减(int 玩家等级, int 怪物等级)
+		public static float 收益衰减(int 玩家等级, int Level)
 		{
-			decimal val = Math.Max(0, 玩家等级 - 怪物等级 - (int)CustomClass.减收益等级差) * CustomClass.收益减少比率;
+			decimal val = Math.Max(0, 玩家等级 - Level - (int)CustomClass.减收益等级差) * CustomClass.收益减少比率;
 			return (float)Math.Max(0m, val);
 		}
 
@@ -284,7 +284,7 @@ namespace GameServer
 		
 		public static int 计算攻速(int 攻速)
 		{
-			return ComputingClass.数值限制(-5, 攻速, 5) * 50;
+			return ComputingClass.Value限制(-5, 攻速, 5) * 50;
 		}
 
 		
@@ -372,16 +372,16 @@ namespace GameServer
 		}
 
 		
-		public static Point[] 技能范围(Point 锚点, GameDirection 方向, 技能范围类型 范围)
+		public static Point[] 技能范围(Point 锚点, GameDirection 方向, MonsterSize 范围)
 		{
 			switch (范围)
 			{
-			case 技能范围类型.单体1x1:
+			case MonsterSize.Single1x1:
 				return new Point[]
 				{
 					锚点
 				};
-			case 技能范围类型.半月3x1:
+			case MonsterSize.HalfMoon3x1:
 				if (方向 <= GameDirection.上方)
 				{
 					if (方向 == GameDirection.左方)
@@ -476,7 +476,7 @@ namespace GameServer
 					new Point(锚点.X, 锚点.Y + 2),
 					new Point(锚点.X + 2, 锚点.Y)
 				};
-			case 技能范围类型.半月3x2:
+			case MonsterSize.HalfMoon3x2:
 				if (方向 <= GameDirection.上方)
 				{
 					if (方向 == GameDirection.左方)
@@ -595,7 +595,7 @@ namespace GameServer
 					new Point(锚点.X - 1, 锚点.Y + 1),
 					new Point(锚点.X + 1, 锚点.Y - 1)
 				};
-			case 技能范围类型.半月3x3:
+			case MonsterSize.HalfMoon3x3:
 				if (方向 <= GameDirection.上方)
 				{
 					if (方向 == GameDirection.左方)
@@ -746,7 +746,7 @@ namespace GameServer
 					new Point(锚点.X - 1, 锚点.Y + 2),
 					new Point(锚点.X + 2, 锚点.Y - 1)
 				};
-			case 技能范围类型.空心3x3:
+			case MonsterSize.Hollow3x3:
 				return new Point[]
 				{
 					ComputingClass.前方坐标(锚点, GameDirection.上方, 1),
@@ -758,7 +758,7 @@ namespace GameServer
 					ComputingClass.前方坐标(锚点, GameDirection.右上, 1),
 					ComputingClass.前方坐标(锚点, GameDirection.右下, 1)
 				};
-			case 技能范围类型.实心3x3:
+			case MonsterSize.Solid3x3:
 				return new Point[]
 				{
 					锚点,
@@ -771,7 +771,7 @@ namespace GameServer
 					ComputingClass.前方坐标(锚点, GameDirection.右上, 1),
 					ComputingClass.前方坐标(锚点, GameDirection.右下, 1)
 				};
-			case 技能范围类型.实心5x5:
+			case MonsterSize.Solid5x5:
 				return new Point[]
 				{
 					锚点,
@@ -800,14 +800,14 @@ namespace GameServer
 					new Point(锚点.X + 2, 锚点.Y - 2),
 					new Point(锚点.X + 2, 锚点.Y - 1)
 				};
-			case 技能范围类型.斩月1x3:
+			case MonsterSize.Zhanyue1x3:
 				return new Point[]
 				{
 					锚点,
 					ComputingClass.前方坐标(锚点, 方向, 1),
 					ComputingClass.前方坐标(锚点, 方向, 2)
 				};
-			case 技能范围类型.斩月3x3:
+			case MonsterSize.Zhanyue3x3:
 				if (方向 <= GameDirection.上方)
 				{
 					if (方向 == GameDirection.左方)
@@ -934,7 +934,7 @@ namespace GameServer
 					new Point(锚点.X - 2, 锚点.Y - 1),
 					new Point(锚点.X - 1, 锚点.Y - 2)
 				};
-			case 技能范围类型.线型1x5:
+			case MonsterSize.LineType1x5:
 				return new Point[]
 				{
 					锚点,
@@ -943,7 +943,7 @@ namespace GameServer
 					ComputingClass.前方坐标(锚点, 方向, 3),
 					ComputingClass.前方坐标(锚点, 方向, 4)
 				};
-			case 技能范围类型.线型1x8:
+			case MonsterSize.LineType1x8:
 				return new Point[]
 				{
 					锚点,
@@ -955,7 +955,7 @@ namespace GameServer
 					ComputingClass.前方坐标(锚点, 方向, 6),
 					ComputingClass.前方坐标(锚点, 方向, 7)
 				};
-			case 技能范围类型.线型3x8:
+			case MonsterSize.LineType3x8:
 				if (方向 <= GameDirection.上方)
 				{
 					if (方向 == GameDirection.左方)
@@ -1202,7 +1202,7 @@ namespace GameServer
 					new Point(锚点.X - 7, 锚点.Y - 6),
 					new Point(锚点.X - 6, 锚点.Y - 7)
 				};
-			case 技能范围类型.菱形3x3:
+			case MonsterSize.Diamond3x3:
 				return new Point[]
 				{
 					锚点,
@@ -1211,7 +1211,7 @@ namespace GameServer
 					new Point(锚点.X + 1, 锚点.Y),
 					new Point(锚点.X - 1, 锚点.Y)
 				};
-			case 技能范围类型.线型3x7:
+			case MonsterSize.LineType3x7:
 				if (方向 <= GameDirection.上方)
 				{
 					if (方向 == GameDirection.左方)
@@ -1434,7 +1434,7 @@ namespace GameServer
 					new Point(锚点.X - 6, 锚点.Y - 5),
 					new Point(锚点.X - 5, 锚点.Y - 6)
 				};
-			case 技能范围类型.叉型3x3:
+			case MonsterSize.Fork3x3:
 				return new Point[]
 				{
 					锚点,
@@ -1443,7 +1443,7 @@ namespace GameServer
 					new Point(锚点.X + 1, 锚点.Y - 1),
 					new Point(锚点.X - 1, 锚点.Y - 1)
 				};
-			case 技能范围类型.空心5x5:
+			case MonsterSize.Hollow5x5:
 				return new Point[]
 				{
 					new Point(锚点.X + 1, 锚点.Y + 1),
@@ -1471,13 +1471,13 @@ namespace GameServer
 					new Point(锚点.X + 2, 锚点.Y - 2),
 					new Point(锚点.X + 2, 锚点.Y - 1)
 				};
-			case 技能范围类型.线型1x2:
+			case MonsterSize.LineType1x2:
 				return new Point[]
 				{
 					锚点,
 					ComputingClass.前方坐标(锚点, 方向, 1)
 				};
-			case 技能范围类型.前方3x1:
+			case MonsterSize.Front3x1:
 				if (方向 <= GameDirection.上方)
 				{
 					if (方向 == GameDirection.左方)
@@ -1556,7 +1556,7 @@ namespace GameServer
 					new Point(锚点.X, 锚点.Y + 1),
 					new Point(锚点.X + 1, 锚点.Y)
 				};
-			case 技能范围类型.螺旋7x7:
+			case MonsterSize.Spiral7x7:
 				return new Point[]
 				{
 					锚点,
@@ -1609,7 +1609,7 @@ namespace GameServer
 					new Point(锚点.X - 2, 锚点.Y + 3),
 					new Point(锚点.X - 3, 锚点.Y + 3)
 				};
-			case 技能范围类型.炎龙1x2:
+			case MonsterSize.Yanlong1x2:
 				if (方向 <= GameDirection.上方)
 				{
 					if (方向 == GameDirection.左方)
@@ -1704,7 +1704,7 @@ namespace GameServer
 					new Point(锚点.X - 1, 锚点.Y),
 					new Point(锚点.X, 锚点.Y - 1)
 				};
-			case 技能范围类型.线型1x7:
+			case MonsterSize.LineType1x7:
 				return new Point[]
 				{
 					锚点,
@@ -1715,7 +1715,7 @@ namespace GameServer
 					ComputingClass.前方坐标(锚点, 方向, 5),
 					ComputingClass.前方坐标(锚点, 方向, 6)
 				};
-			case 技能范围类型.螺旋15x15:
+			case MonsterSize.Spiral15x15:
 				return new Point[]
 				{
 					new Point(锚点.X - 1, 锚点.Y),
@@ -2007,7 +2007,7 @@ namespace GameServer
 					new Point(锚点.X - 7, 锚点.Y + 8),
 					new Point(锚点.X - 8, 锚点.Y + 8)
 				};
-			case 技能范围类型.线型1x6:
+			case MonsterSize.LineType1x6:
 				return new Point[]
 				{
 					锚点,

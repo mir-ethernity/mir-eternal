@@ -85,7 +85,7 @@ namespace GameServer.Maps
 			this.CharacterData = CharacterData;
 			this.宠物列表 = new List<PetObject>();
 			this.被动技能 = new Dictionary<ushort, SkillData>();
-			this.属性加成[this] = 角色成长.获取数据(this.角色职业, this.当前等级);
+			this.Stat加成[this] = 角色成长.获取数据(this.角色职业, this.当前等级);
 			Dictionary<object, int> dictionary = new Dictionary<object, int>();
 			dictionary[this] = (int)(this.当前等级 * 10);
 			this.CombatBonus = dictionary;
@@ -98,7 +98,7 @@ namespace GameServer.Maps
 				this.CombatBonus[EquipmentData] = EquipmentData.装备战力;
 				if (EquipmentData.当前持久.V > 0)
 				{
-					this.属性加成[EquipmentData] = EquipmentData.装备属性;
+					this.Stat加成[EquipmentData] = EquipmentData.装备Stat;
 				}
 				SkillData SkillData;
 				if (EquipmentData.第一铭文 != null && this.主体技能表.TryGetValue(EquipmentData.第一铭文.技能编号, out SkillData))
@@ -114,7 +114,7 @@ namespace GameServer.Maps
 			foreach (SkillData SkillData3 in this.主体技能表.Values)
 			{
 				this.CombatBonus[SkillData3] = SkillData3.CombatBonus;
-				this.属性加成[SkillData3] = SkillData3.属性加成;
+				this.Stat加成[SkillData3] = SkillData3.Stat加成;
 				foreach (ushort key in SkillData3.被动技能.ToList<ushort>())
 				{
 					this.被动技能.Add(key, SkillData3);
@@ -122,9 +122,9 @@ namespace GameServer.Maps
 			}
 			foreach (BuffData BuffData in this.Buff列表.Values)
 			{
-				if ((BuffData.Buff效果 & Buff效果类型.属性增减) != Buff效果类型.技能标志)
+				if ((BuffData.Buff效果 & Buff效果类型.Stat增减) != Buff效果类型.技能标志)
 				{
-					this.属性加成.Add(BuffData, BuffData.属性加成);
+					this.Stat加成.Add(BuffData, BuffData.Stat加成);
 				}
 			}
 			foreach (KeyValuePair<byte, DateTime> keyValuePair in this.称号列表.ToList<KeyValuePair<byte, DateTime>>())
@@ -145,7 +145,7 @@ namespace GameServer.Maps
 			if (this.当前称号 > 0 && GameTitle.DataSheet.TryGetValue(this.当前称号, out 游戏称号))
 			{
 				this.CombatBonus[this.当前称号] = 游戏称号.Combat;
-				this.属性加成[this.当前称号] = 游戏称号.Attributes;
+				this.Stat加成[this.当前称号] = 游戏称号.Attributes;
 			}
 			if (this.当前体力 == 0)
 			{
@@ -185,7 +185,7 @@ namespace GameServer.Maps
 				this.当前地图 = MapGatewayProcess.分配地图(CharacterData.当前地图.V);
 			}
 			this.更新玩家战力();
-			this.更新对象属性();
+			this.更新对象Stat();
 			this.对象死亡 = false;
 			this.阻塞网格 = true;
 			MapGatewayProcess.添加MapObject(this);
@@ -267,7 +267,7 @@ namespace GameServer.Maps
 			}
 			if (网络连接 != null)
 			{
-				网络连接.发送封包(new 同步角色属性
+				网络连接.发送封包(new 同步角色Stat
 				{
 					StatDescription = this.玩家StatDescription()
 				});
@@ -1077,11 +1077,11 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000897 RID: 2199 RVA: 0x00002855 File Offset: 0x00000A55
-		public override 技能范围类型 对象体型
+		public override MonsterSize 对象体型
 		{
 			get
 			{
-				return 技能范围类型.单体1x1;
+				return MonsterSize.Single1x1;
 			}
 		}
 
@@ -1180,18 +1180,18 @@ namespace GameServer.Maps
 		}
 
 		
-		public override int this[GameObjectStats 属性]
+		public override int this[GameObjectStats Stat]
 		{
 			get
 			{
-				return base[属性];
+				return base[Stat];
 			}
 			set
 			{
-				if (base[属性] != value)
+				if (base[Stat] != value)
 				{
-					base[属性] = value;
-					if ((byte)属性 <= 64)
+					base[Stat] = value;
+					if ((byte)Stat <= 64)
 					{
 						客户网络 网络连接 = this.网络连接;
 						if (网络连接 == null)
@@ -1200,7 +1200,7 @@ namespace GameServer.Maps
 						}
 						网络连接.发送封包(new SyncPropChangePacket
 						{
-							StatId = (byte)属性,
+							StatId = (byte)Stat,
 							Value = value
 						});
 					}
@@ -2257,8 +2257,8 @@ namespace GameServer.Maps
 			}
 			this.CombatBonus[this] = (int)(this.当前等级 * 10);
 			this.更新玩家战力();
-			this.属性加成[this] = 角色成长.获取数据(this.角色职业, this.当前等级);
-			this.更新对象属性();
+			this.Stat加成[this] = 角色成长.获取数据(this.角色职业, this.当前等级);
+			this.更新对象Stat();
 			if (!this.对象死亡)
 			{
 				this.当前体力 = this[GameObjectStats.MaxPhysicalStrength];
@@ -2458,8 +2458,8 @@ namespace GameServer.Maps
 				});
 				this.CombatBonus[SkillData] = SkillData.CombatBonus;
 				this.更新玩家战力();
-				this.属性加成[SkillData] = SkillData.属性加成;
-				this.更新对象属性();
+				this.Stat加成[SkillData] = SkillData.Stat加成;
+				this.更新对象Stat();
 			}
 			客户网络 网络连接 = this.网络连接;
 			if (网络连接 == null)
@@ -2565,8 +2565,8 @@ namespace GameServer.Maps
 			}
 			this.CombatBonus[this.主体技能表[技能编号]] = this.主体技能表[技能编号].CombatBonus;
 			this.更新玩家战力();
-			this.属性加成[this.主体技能表[技能编号]] = this.主体技能表[技能编号].属性加成;
-			this.更新对象属性();
+			this.Stat加成[this.主体技能表[技能编号]] = this.主体技能表[技能编号].Stat加成;
+			this.更新对象Stat();
 			return true;
 		}
 
@@ -2635,8 +2635,8 @@ namespace GameServer.Maps
 				}
 				this.CombatBonus[SkillData] = SkillData.CombatBonus;
 				this.更新玩家战力();
-				this.属性加成[SkillData] = SkillData.属性加成;
-				this.更新对象属性();
+				this.Stat加成[SkillData] = SkillData.Stat加成;
+				this.更新对象Stat();
 			}
 		}
 
@@ -2684,7 +2684,7 @@ namespace GameServer.Maps
 					this.玩家装卸铭文(原有装备.第二铭文.技能编号, 0);
 				}
 				this.CombatBonus.Remove(原有装备);
-				this.属性加成.Remove(原有装备);
+				this.Stat加成.Remove(原有装备);
 			}
 			if (现有装备 != null)
 			{
@@ -2699,13 +2699,13 @@ namespace GameServer.Maps
 				this.CombatBonus[现有装备] = 现有装备.装备战力;
 				if (现有装备.当前持久.V > 0)
 				{
-					this.属性加成.Add(现有装备, 现有装备.装备属性);
+					this.Stat加成.Add(现有装备, 现有装备.装备Stat);
 				}
 			}
 			if (原有装备 != null || 现有装备 != null)
 			{
 				this.更新玩家战力();
-				this.更新对象属性();
+				this.更新对象Stat();
 			}
 		}
 
@@ -2732,7 +2732,7 @@ namespace GameServer.Maps
 			HashSet<string> 特定诱惑列表 = 参数.特定诱惑列表;
 			bool flag;
 			float num = (flag = (特定诱惑列表 != null && 特定诱惑列表.Contains(诱惑目标.对象名字))) ? 参数.特定诱惑概率 : 0f;
-			float num2 = (诱惑目标 is MonsterObject) ? (诱惑目标 as MonsterObject).基础诱惑概率 : (诱惑目标 as PetObject).基础诱惑概率;
+			float num2 = (诱惑目标 is MonsterObject) ? (诱惑目标 as MonsterObject).BaseTemptationProbability : (诱惑目标 as PetObject).BaseTemptationProbability;
 			if ((num2 += num) <= 0f)
 			{
 				return;
@@ -2760,7 +2760,7 @@ namespace GameServer.Maps
 					num8 += (int)BuffData.Buff模板.诱惑等级增加;
 				}
 			}
-			float num9 = (float)Math.Pow((this.当前等级 >= 诱惑目标.当前等级) ? 1.2 : 0.8, (double)ComputingClass.数值限制(0, Math.Abs((int)(诱惑目标.当前等级 - this.当前等级)), 2));
+			float num9 = (float)Math.Pow((this.当前等级 >= 诱惑目标.当前等级) ? 1.2 : 0.8, (double)ComputingClass.Value限制(0, Math.Abs((int)(诱惑目标.当前等级 - this.当前等级)), 2));
 			if (ComputingClass.计算概率(num2 * num9 * (1f + 额外诱惑概率 + num6)))
 			{
 				if (诱惑目标.Buff列表.ContainsKey(参数.狂暴状态编号))
@@ -2865,9 +2865,9 @@ namespace GameServer.Maps
 				{
 					return;
 				}
-				if ((EquipmentData.当前持久.V = Math.Max(0, EquipmentData.当前持久.V - MainProcess.RandomNumber.Next(1, 6))) <= 0 && this.属性加成.Remove(EquipmentData))
+				if ((EquipmentData.当前持久.V = Math.Max(0, EquipmentData.当前持久.V - MainProcess.RandomNumber.Next(1, 6))) <= 0 && this.Stat加成.Remove(EquipmentData))
 				{
-					this.更新对象属性();
+					this.更新对象Stat();
 				}
 				客户网络 网络连接 = this.网络连接;
 				if (网络连接 == null)
@@ -2942,9 +2942,9 @@ namespace GameServer.Maps
 			{
 				if (EquipmentData.当前持久.V > 0 && (this.本期特权 != 5 || !EquipmentData.CanRepair) && (this.本期特权 != 4 || !ComputingClass.计算概率(0.5f)) && EquipmentData.PersistType == PersistentItemType.装备 && ComputingClass.计算概率((EquipmentData.物品类型 == ItemType.衣服) ? 1f : 0.1f))
 				{
-					if ((EquipmentData.当前持久.V = Math.Max(0, EquipmentData.当前持久.V - 损失持久)) <= 0 && this.属性加成.Remove(EquipmentData))
+					if ((EquipmentData.当前持久.V = Math.Max(0, EquipmentData.当前持久.V - 损失持久)) <= 0 && this.Stat加成.Remove(EquipmentData))
 					{
-						this.更新对象属性();
+						this.更新对象Stat();
 					}
 					客户网络 网络连接 = this.网络连接;
 					if (网络连接 != null)
@@ -3019,8 +3019,8 @@ namespace GameServer.Maps
 					this.当前称号 = 0;
 					this.CombatBonus.Remove(Id);
 					this.更新玩家战力();
-					this.属性加成.Remove(Id);
-					this.更新对象属性();
+					this.Stat加成.Remove(Id);
+					this.更新对象Stat();
 					base.发送封包(new 同步装配称号
 					{
 						对象编号 = this.MapId
@@ -3340,7 +3340,7 @@ namespace GameServer.Maps
 			{
 				foreach (PetData PetData in this.PetData.ToList<PetData>())
 				{
-					if (!(MainProcess.CurrentTime >= PetData.叛变时间.V) && 游戏怪物.DataSheet.ContainsKey(PetData.宠物名字.V))
+					if (!(MainProcess.CurrentTime >= PetData.叛变时间.V) && Monsters.DataSheet.ContainsKey(PetData.宠物名字.V))
 					{
 						PetObject PetObject = new PetObject(this, PetData);
 						this.宠物列表.Add(PetObject);
@@ -3842,9 +3842,9 @@ namespace GameServer.Maps
 											else
 											{
 												float num3 = 0f;
-												if (游戏技能.属性提升概率 != GameObjectStats.未知属性)
+												if (游戏技能.Stat提升概率 != GameObjectStats.未知Stat)
 												{
-													num3 = Math.Max(0f, (float)this[游戏技能.属性提升概率] * 游戏技能.属性提升系数);
+													num3 = Math.Max(0f, (float)this[游戏技能.Stat提升概率] * 游戏技能.Stat提升系数);
 												}
 												if (!ComputingClass.计算概率(游戏技能.计算触发概率 + num3))
 												{
@@ -4507,7 +4507,7 @@ namespace GameServer.Maps
 										{
 											this.NumberGoldCoins -= num8;
 											this.消耗背包物品(num9, 物品列表);
-											EquipmentData2.随机属性.SetValue(EquipmentStats.GenerateStats(EquipmentData2.物品类型, true));
+											EquipmentData2.随机Stat.SetValue(EquipmentStats.GenerateStats(EquipmentData2.物品类型, true));
 											客户网络 网络连接16 = this.网络连接;
 											if (网络连接16 != null)
 											{
@@ -4516,8 +4516,8 @@ namespace GameServer.Maps
 													物品描述 = EquipmentData2.字节描述()
 												});
 											}
-											this.属性加成[EquipmentData2] = EquipmentData2.装备属性;
-											this.更新对象属性();
+											this.Stat加成[EquipmentData2] = EquipmentData2.装备Stat;
+											this.更新对象Stat();
 											this.对话页面 = 612606000;
 											客户网络 网络连接17 = this.网络连接;
 											if (网络连接17 == null)
@@ -7833,8 +7833,8 @@ namespace GameServer.Maps
 						EquipmentData.最大持久.V = Math.Max(1000, EquipmentData.最大持久.V - (int)((float)(EquipmentData.最大持久.V - EquipmentData.当前持久.V) * 0.035f));
 						if (EquipmentData.当前持久.V <= 0)
 						{
-							this.属性加成[EquipmentData] = EquipmentData.装备属性;
-							this.更新对象属性();
+							this.Stat加成[EquipmentData] = EquipmentData.装备Stat;
+							this.更新对象Stat();
 						}
 						EquipmentData.当前持久.V = EquipmentData.最大持久.V;
 						客户网络 网络连接4 = this.网络连接;
@@ -7982,8 +7982,8 @@ namespace GameServer.Maps
 						EquipmentData.最大持久.V = Math.Max(1000, EquipmentData.最大持久.V - (int)((float)(EquipmentData.最大持久.V - EquipmentData.当前持久.V) * 0.035f));
 						if (EquipmentData.当前持久.V <= 0)
 						{
-							this.属性加成[EquipmentData] = EquipmentData.装备属性;
-							this.更新对象属性();
+							this.Stat加成[EquipmentData] = EquipmentData.装备Stat;
+							this.更新对象Stat();
 						}
 						EquipmentData.当前持久.V = EquipmentData.最大持久.V;
 						客户网络 网络连接2 = this.网络连接;
@@ -8140,8 +8140,8 @@ namespace GameServer.Maps
 					this.NumberGoldCoins -= EquipmentData2.特修费用;
 					if (EquipmentData2.当前持久.V <= 0)
 					{
-						this.属性加成[EquipmentData2] = EquipmentData2.装备属性;
-						this.更新对象属性();
+						this.Stat加成[EquipmentData2] = EquipmentData2.装备Stat;
+						this.更新对象Stat();
 					}
 					EquipmentData2.当前持久.V = EquipmentData2.最大持久.V;
 					客户网络 网络连接9 = this.网络连接;
@@ -8199,8 +8199,8 @@ namespace GameServer.Maps
 						this.NumberGoldCoins -= EquipmentData.特修费用;
 						if (EquipmentData.当前持久.V <= 0)
 						{
-							this.属性加成[EquipmentData] = EquipmentData.装备属性;
-							this.更新对象属性();
+							this.Stat加成[EquipmentData] = EquipmentData.装备Stat;
+							this.更新对象Stat();
 						}
 						EquipmentData.当前持久.V = EquipmentData.最大持久.V;
 						客户网络 网络连接2 = this.网络连接;
@@ -9677,13 +9677,13 @@ namespace GameServer.Maps
 					if (this.当前称号 != 0)
 					{
 						this.CombatBonus.Remove(this.当前称号);
-						this.属性加成.Remove(this.当前称号);
+						this.Stat加成.Remove(this.当前称号);
 					}
 					this.当前称号 = Id;
 					this.CombatBonus[Id] = 游戏称号.Combat;
 					this.更新玩家战力();
-					this.属性加成[Id] = 游戏称号.Attributes;
-					this.更新对象属性();
+					this.Stat加成[Id] = 游戏称号.Attributes;
+					this.更新对象Stat();
 					客户网络 网络连接3 = this.网络连接;
 					if (网络连接3 != null)
 					{
@@ -9725,9 +9725,9 @@ namespace GameServer.Maps
 			{
 				this.更新玩家战力();
 			}
-			if (this.属性加成.Remove(this.当前称号))
+			if (this.Stat加成.Remove(this.当前称号))
 			{
-				this.更新对象属性();
+				this.更新对象Stat();
 			}
 			this.当前称号 = 0;
 			base.发送封包(new 同步装配称号
@@ -11851,8 +11851,8 @@ namespace GameServer.Maps
 																幸运变化 = 1
 															});
 														}
-														this.属性加成[EquipmentData] = EquipmentData.装备属性;
-														this.更新对象属性();
+														this.Stat加成[EquipmentData] = EquipmentData.装备Stat;
+														this.更新对象Stat();
 														if (EquipmentData.幸运等级.V >= 5)
 														{
 															NetworkServiceGateway.发送公告(string.Format("[{0}] successfully upgraded [{1}] to Luck {2}.", this.对象名字, EquipmentData.Name, EquipmentData.幸运等级.V), false);
@@ -11882,8 +11882,8 @@ namespace GameServer.Maps
 																	幸运变化 = -1
 																});
 															}
-															this.属性加成[EquipmentData] = EquipmentData.装备属性;
-															this.更新对象属性();
+															this.Stat加成[EquipmentData] = EquipmentData.装备Stat;
+															this.更新对象Stat();
 															return;
 														}
 														客户网络 网络连接37 = this.网络连接;
@@ -17014,34 +17014,34 @@ namespace GameServer.Maps
 					Dictionary<byte, Dictionary<EquipmentData, int>> dictionary4 = dictionary3;
 					foreach (EquipmentData EquipmentData3 in dictionary.Values)
 					{
-						Dictionary<GameObjectStats, int> 装备属性 = EquipmentData3.装备属性;
+						Dictionary<GameObjectStats, int> 装备Stat = EquipmentData3.装备Stat;
 						int value;
-						if ((value = (装备属性.ContainsKey(GameObjectStats.MinAttack) ? 装备属性[GameObjectStats.MinAttack] : 0) + (装备属性.ContainsKey(GameObjectStats.MaxAttack) ? 装备属性[GameObjectStats.MaxAttack] : 0)) > 0)
+						if ((value = (装备Stat.ContainsKey(GameObjectStats.MinAttack) ? 装备Stat[GameObjectStats.MinAttack] : 0) + (装备Stat.ContainsKey(GameObjectStats.MaxAttack) ? 装备Stat[GameObjectStats.MaxAttack] : 0)) > 0)
 						{
 							dictionary4[0][EquipmentData3] = value;
 						}
-						if ((value = (装备属性.ContainsKey(GameObjectStats.MinMagic) ? 装备属性[GameObjectStats.MinMagic] : 0) + (装备属性.ContainsKey(GameObjectStats.MaxMagic) ? 装备属性[GameObjectStats.MaxMagic] : 0)) > 0)
+						if ((value = (装备Stat.ContainsKey(GameObjectStats.MinMagic) ? 装备Stat[GameObjectStats.MinMagic] : 0) + (装备Stat.ContainsKey(GameObjectStats.MaxMagic) ? 装备Stat[GameObjectStats.MaxMagic] : 0)) > 0)
 						{
 							dictionary4[1][EquipmentData3] = value;
 						}
-						if ((value = (装备属性.ContainsKey(GameObjectStats.Minimalist) ? 装备属性[GameObjectStats.Minimalist] : 0) + (装备属性.ContainsKey(GameObjectStats.GreatestTaoism) ? 装备属性[GameObjectStats.GreatestTaoism] : 0)) > 0)
+						if ((value = (装备Stat.ContainsKey(GameObjectStats.Minimalist) ? 装备Stat[GameObjectStats.Minimalist] : 0) + (装备Stat.ContainsKey(GameObjectStats.GreatestTaoism) ? 装备Stat[GameObjectStats.GreatestTaoism] : 0)) > 0)
 						{
 							dictionary4[2][EquipmentData3] = value;
 						}
-						if ((value = (装备属性.ContainsKey(GameObjectStats.MinNeedle) ? 装备属性[GameObjectStats.MinNeedle] : 0) + (装备属性.ContainsKey(GameObjectStats.MaxNeedle) ? 装备属性[GameObjectStats.MaxNeedle] : 0)) > 0)
+						if ((value = (装备Stat.ContainsKey(GameObjectStats.MinNeedle) ? 装备Stat[GameObjectStats.MinNeedle] : 0) + (装备Stat.ContainsKey(GameObjectStats.MaxNeedle) ? 装备Stat[GameObjectStats.MaxNeedle] : 0)) > 0)
 						{
 							dictionary4[3][EquipmentData3] = value;
 						}
-						if ((value = (装备属性.ContainsKey(GameObjectStats.MinBow) ? 装备属性[GameObjectStats.MinBow] : 0) + (装备属性.ContainsKey(GameObjectStats.MaxBow) ? 装备属性[GameObjectStats.MaxBow] : 0)) > 0)
+						if ((value = (装备Stat.ContainsKey(GameObjectStats.MinBow) ? 装备Stat[GameObjectStats.MinBow] : 0) + (装备Stat.ContainsKey(GameObjectStats.MaxBow) ? 装备Stat[GameObjectStats.MaxBow] : 0)) > 0)
 						{
 							dictionary4[4][EquipmentData3] = value;
 						}
 					}
-					List<KeyValuePair<byte, Dictionary<EquipmentData, int>>> 排序属性 = (from x in dictionary4.ToList<KeyValuePair<byte, Dictionary<EquipmentData, int>>>()
+					List<KeyValuePair<byte, Dictionary<EquipmentData, int>>> 排序Stat = (from x in dictionary4.ToList<KeyValuePair<byte, Dictionary<EquipmentData, int>>>()
 					orderby x.Value.Values.Sum() descending
 					select x).ToList<KeyValuePair<byte, Dictionary<EquipmentData, int>>>();
-					List<KeyValuePair<byte, Dictionary<EquipmentData, int>>> list = (from O in 排序属性
-					where O.Value.Values.Sum() == 排序属性[0].Value.Values.Sum()
+					List<KeyValuePair<byte, Dictionary<EquipmentData, int>>> list = (from O in 排序Stat
+					where O.Value.Values.Sum() == 排序Stat[0].Value.Values.Sum()
 					select O).ToList<KeyValuePair<byte, Dictionary<EquipmentData, int>>>();
 					byte key = list[MainProcess.RandomNumber.Next(list.Count)].Key;
 					List<KeyValuePair<EquipmentData, int>> list2 = (from x in dictionary4[key].ToList<KeyValuePair<EquipmentData, int>>()
@@ -18130,7 +18130,7 @@ namespace GameServer.Maps
 								对象编号 = MonsterObject.MapId,
 								模板编号 = MonsterObject.模板编号,
 								当前等级 = MonsterObject.宠物等级,
-								对象质量 = (byte)MonsterObject.怪物级别,
+								对象质量 = (byte)MonsterObject.Category,
 								MaxPhysicalStrength = MonsterObject[GameObjectStats.MaxPhysicalStrength]
 							});
 							return;
@@ -18145,9 +18145,9 @@ namespace GameServer.Maps
 							同步Npcc数据 同步Npcc数据 = new 同步Npcc数据();
 							同步Npcc数据.对象编号 = MonsterObject.MapId;
 							同步Npcc数据.对象等级 = MonsterObject.当前等级;
-							同步Npcc数据.对象质量 = (byte)MonsterObject.怪物级别;
-							游戏怪物 对象模板 = MonsterObject.对象模板;
-							同步Npcc数据.对象模板 = ((ushort)((对象模板 != null) ? 对象模板.怪物编号 : 0));
+							同步Npcc数据.对象质量 = (byte)MonsterObject.Category;
+							Monsters 对象模板 = MonsterObject.对象模板;
+							同步Npcc数据.对象模板 = ((ushort)((对象模板 != null) ? 对象模板.Id : 0));
 							同步Npcc数据.体力上限 = MonsterObject[GameObjectStats.MaxPhysicalStrength];
 							网络连接4.发送封包(同步Npcc数据);
 							return;

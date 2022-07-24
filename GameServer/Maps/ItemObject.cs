@@ -85,11 +85,11 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000833 RID: 2099 RVA: 0x00002855 File Offset: 0x00000A55
-		public override 技能范围类型 对象体型
+		public override MonsterSize 对象体型
 		{
 			get
 			{
-				return 技能范围类型.单体1x1;
+				return MonsterSize.Single1x1;
 			}
 		}
 

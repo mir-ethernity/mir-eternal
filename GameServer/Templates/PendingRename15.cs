@@ -16,7 +16,7 @@ namespace GameServer.Templates
 		public string 触发陷阱技能;
 
 		
-		public 技能范围类型 触发陷阱数量;
+		public MonsterSize 触发陷阱数量;
 
 		
 		public bool 增加技能经验;

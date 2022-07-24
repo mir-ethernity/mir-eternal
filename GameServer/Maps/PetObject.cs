@@ -184,7 +184,7 @@ namespace GameServer.Maps
 			}
 			set
 			{
-				value = ComputingClass.数值限制(0, value, this[GameObjectStats.MaxPhysicalStrength]);
+				value = ComputingClass.Value限制(0, value, this[GameObjectStats.MaxPhysicalStrength]);
 				if (this.PetData.当前体力.V != value)
 				{
 					this.PetData.当前体力.V = value;
@@ -252,7 +252,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.对象模板.怪物等级;
+				return this.对象模板.Level;
 			}
 		}
 
@@ -278,24 +278,24 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x060007FA RID: 2042 RVA: 0x00006A16 File Offset: 0x00004C16
-		public override 技能范围类型 对象体型
+		public override MonsterSize 对象体型
 		{
 			get
 			{
-				return this.对象模板.怪物体型;
+				return this.对象模板.Size;
 			}
 		}
 
 		
-		public override int this[GameObjectStats 属性]
+		public override int this[GameObjectStats Stat]
 		{
 			get
 			{
-				return base[属性];
+				return base[Stat];
 			}
 			set
 			{
-				base[属性] = value;
+				base[Stat] = value;
 			}
 		}
 
@@ -335,7 +335,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.对象模板.怪物编号;
+				return this.对象模板.Id;
 			}
 		}
 
@@ -362,7 +362,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return (int)this.对象模板.怪物移动间隔;
+				return (int)this.对象模板.MoveInterval;
 			}
 		}
 
@@ -372,7 +372,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return (int)this.对象模板.怪物漫游间隔;
+				return (int)this.对象模板.RoamInterval;
 			}
 		}
 
@@ -382,27 +382,27 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return (int)this.对象模板.CorpsePreservation时长;
+				return (int)this.对象模板.CorpsePreservationDuration;
 			}
 		}
 
 		
 		// (get) Token: 0x06000805 RID: 2053 RVA: 0x00006A68 File Offset: 0x00004C68
-		public bool 可被技能诱惑
+		public bool CanBeSeducedBySkills
 		{
 			get
 			{
-				return this.对象模板.可被技能诱惑;
+				return this.对象模板.CanBeSeducedBySkills;
 			}
 		}
 
 		
 		// (get) Token: 0x06000806 RID: 2054 RVA: 0x00006A75 File Offset: 0x00004C75
-		public float 基础诱惑概率
+		public float BaseTemptationProbability
 		{
 			get
 			{
-				return this.对象模板.基础诱惑概率;
+				return this.对象模板.BaseTemptationProbability;
 			}
 		}
 
@@ -412,7 +412,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.对象模板.怪物分类;
+				return this.对象模板.Race;
 			}
 		}
 
@@ -422,24 +422,24 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.对象模板.怪物级别;
+				return this.对象模板.Category;
 			}
 		}
 
 		
 		// (get) Token: 0x06000809 RID: 2057 RVA: 0x0003F75C File Offset: 0x0003D95C
-		public Dictionary<GameObjectStats, int> 基础属性
+		public Dictionary<GameObjectStats, int> 基础Stat
 		{
 			get
 			{
-				Dictionary<GameObjectStats, int>[] 成长属性 = this.对象模板.成长属性;
-				int? num = (成长属性 != null) ? new int?(成长属性.Length) : null;
+				Dictionary<GameObjectStats, int>[] GrowthStat = this.对象模板.GrowStats;
+				int? num = (GrowthStat != null) ? new int?(GrowthStat.Length) : null;
 				int 宠物等级 = (int)this.宠物等级;
 				if (!(num.GetValueOrDefault() > 宠物等级 & num != null))
 				{
-					return this.对象模板.基础属性;
+					return this.对象模板.BasicStats;
 				}
-				return this.对象模板.成长属性[(int)this.宠物等级];
+				return this.对象模板.GrowStats[(int)this.宠物等级];
 			}
 		}
 
@@ -450,58 +450,58 @@ namespace GameServer.Maps
 			
 			this.宠物主人 = 宠物主人;
 			this.PetData = 对象数据;
-			this.对象模板 = 游戏怪物.DataSheet[对象数据.宠物名字.V];
+			this.对象模板 = Monsters.DataSheet[对象数据.宠物名字.V];
 			this.当前坐标 = 宠物主人.当前坐标;
 			this.当前地图 = 宠物主人.当前地图;
 			this.当前方向 = ComputingClass.随机方向();
-			this.属性加成[this] = this.基础属性;
-			this.属性加成[宠物主人.CharacterData] = new Dictionary<GameObjectStats, int>();
-			if (this.对象模板.继承属性 != null)
+			this.Stat加成[this] = this.基础Stat;
+			this.Stat加成[宠物主人.CharacterData] = new Dictionary<GameObjectStats, int>();
+			if (this.对象模板.InheritsStats != null)
 			{
-				foreach (属性继承 属性继承 in this.对象模板.继承属性)
+				foreach (InheritStat InheritStat in this.对象模板.InheritsStats)
 				{
-					this.属性加成[宠物主人.CharacterData][属性继承.转换属性] = (int)((float)宠物主人[属性继承.继承属性] * 属性继承.继承比例);
+					this.Stat加成[宠物主人.CharacterData][InheritStat.ConvertStat] = (int)((float)宠物主人[InheritStat.InheritsStats] * InheritStat.Ratio);
 				}
 			}
-			this.更新对象属性();
+			this.更新对象Stat();
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 			this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(MainProcess.RandomNumber.Next(5000) + this.漫游间隔));
 			this.HateObject = new HateObject();
-			string text = this.对象模板.普通攻击技能;
+			string text = this.对象模板.NormalAttackSkills;
 			if (text != null && text.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.普通攻击技能, out this.普通攻击技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.NormalAttackSkills, out this.NormalAttackSkills);
 			}
-			string text2 = this.对象模板.概率触发技能;
+			string text2 = this.对象模板.ProbabilityTriggerSkills;
 			if (text2 != null && text2.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.概率触发技能, out this.概率触发技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.ProbabilityTriggerSkills, out this.ProbabilityTriggerSkills);
 			}
-			string text3 = this.对象模板.进入战斗技能;
+			string text3 = this.对象模板.EnterCombatSkills;
 			if (text3 != null && text3.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.进入战斗技能, out this.进入战斗技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.EnterCombatSkills, out this.EnterCombatSkills);
 			}
-			string text4 = this.对象模板.退出战斗技能;
+			string text4 = this.对象模板.ExitCombatSkills;
 			if (text4 != null && text4.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.退出战斗技能, out this.退出战斗技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.ExitCombatSkills, out this.ExitCombatSkills);
 			}
-			string text5 = this.对象模板.死亡释放技能;
+			string text5 = this.对象模板.DeathReleaseSkill;
 			if (text5 != null && text5.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.死亡释放技能, out this.死亡释放技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.DeathReleaseSkill, out this.DeathReleaseSkill);
 			}
-			string text6 = this.对象模板.移动释放技能;
+			string text6 = this.对象模板.MoveReleaseSkill;
 			if (text6 != null && text6.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.移动释放技能, out this.移动释放技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.MoveReleaseSkill, out this.MoveReleaseSkill);
 			}
-			string text7 = this.对象模板.出生释放技能;
+			string text7 = this.对象模板.BirthReleaseSkill;
 			if (text7 != null && text7.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.出生释放技能, out this.出生释放技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.BirthReleaseSkill, out this.BirthReleaseSkill);
 			}
 			this.MapId = ++MapGatewayProcess.对象编号;
 			MapGatewayProcess.添加MapObject(this);
@@ -512,7 +512,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public PetObject(PlayerObject 宠物主人, 游戏怪物 召唤宠物, byte 初始等级, byte 等级上限, bool 绑定武器)
+		public PetObject(PlayerObject 宠物主人, Monsters 召唤宠物, byte 初始等级, byte 等级上限, bool 绑定武器)
 		{
 			
 			
@@ -523,55 +523,55 @@ namespace GameServer.Maps
 			this.当前地图 = 宠物主人.当前地图;
 			this.当前方向 = ComputingClass.随机方向();
 			this.MapId = ++MapGatewayProcess.对象编号;
-			this.属性加成[this] = this.基础属性;
-			this.属性加成[宠物主人.CharacterData] = new Dictionary<GameObjectStats, int>();
-			if (this.对象模板.继承属性 != null)
+			this.Stat加成[this] = this.基础Stat;
+			this.Stat加成[宠物主人.CharacterData] = new Dictionary<GameObjectStats, int>();
+			if (this.对象模板.InheritsStats != null)
 			{
-				foreach (属性继承 属性继承 in this.对象模板.继承属性)
+				foreach (InheritStat InheritStat in this.对象模板.InheritsStats)
 				{
-					this.属性加成[宠物主人.CharacterData][属性继承.转换属性] = (int)((float)宠物主人[属性继承.继承属性] * 属性继承.继承比例);
+					this.Stat加成[宠物主人.CharacterData][InheritStat.ConvertStat] = (int)((float)宠物主人[InheritStat.InheritsStats] * InheritStat.Ratio);
 				}
 			}
-			this.更新对象属性();
+			this.更新对象Stat();
 			this.当前体力 = this[GameObjectStats.MaxPhysicalStrength];
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 			this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(MainProcess.RandomNumber.Next(5000) + this.漫游间隔));
 			this.HateObject = new HateObject();
-			string text = this.对象模板.普通攻击技能;
+			string text = this.对象模板.NormalAttackSkills;
 			if (text != null && text.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.普通攻击技能, out this.普通攻击技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.NormalAttackSkills, out this.NormalAttackSkills);
 			}
-			string text2 = this.对象模板.概率触发技能;
+			string text2 = this.对象模板.ProbabilityTriggerSkills;
 			if (text2 != null && text2.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.概率触发技能, out this.概率触发技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.ProbabilityTriggerSkills, out this.ProbabilityTriggerSkills);
 			}
-			string text3 = this.对象模板.进入战斗技能;
+			string text3 = this.对象模板.EnterCombatSkills;
 			if (text3 != null && text3.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.进入战斗技能, out this.进入战斗技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.EnterCombatSkills, out this.EnterCombatSkills);
 			}
-			string text4 = this.对象模板.退出战斗技能;
+			string text4 = this.对象模板.ExitCombatSkills;
 			if (text4 != null && text4.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.退出战斗技能, out this.退出战斗技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.ExitCombatSkills, out this.ExitCombatSkills);
 			}
-			string text5 = this.对象模板.死亡释放技能;
+			string text5 = this.对象模板.DeathReleaseSkill;
 			if (text5 != null && text5.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.死亡释放技能, out this.死亡释放技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.DeathReleaseSkill, out this.DeathReleaseSkill);
 			}
-			string text6 = this.对象模板.移动释放技能;
+			string text6 = this.对象模板.MoveReleaseSkill;
 			if (text6 != null && text6.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.移动释放技能, out this.移动释放技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.MoveReleaseSkill, out this.MoveReleaseSkill);
 			}
-			string text7 = this.对象模板.出生释放技能;
+			string text7 = this.对象模板.BirthReleaseSkill;
 			if (text7 != null && text7.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.出生释放技能, out this.出生释放技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.BirthReleaseSkill, out this.BirthReleaseSkill);
 			}
 			MapGatewayProcess.添加MapObject(this);
 			this.激活对象 = true;
@@ -591,48 +591,48 @@ namespace GameServer.Maps
 			this.当前坐标 = 诱惑怪物.当前坐标;
 			this.当前地图 = 诱惑怪物.当前地图;
 			this.当前方向 = 诱惑怪物.当前方向;
-			this.属性加成[this] = this.基础属性;
-			this.更新对象属性();
+			this.Stat加成[this] = this.基础Stat;
+			this.更新对象Stat();
 			this.当前体力 = Math.Min(诱惑怪物.当前体力, this[GameObjectStats.MaxPhysicalStrength]);
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 			this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.忙碌时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.漫游间隔);
 			this.HateObject = new HateObject();
-			string text = this.对象模板.普通攻击技能;
+			string text = this.对象模板.NormalAttackSkills;
 			if (text != null && text.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.普通攻击技能, out this.普通攻击技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.NormalAttackSkills, out this.NormalAttackSkills);
 			}
-			string text2 = this.对象模板.概率触发技能;
+			string text2 = this.对象模板.ProbabilityTriggerSkills;
 			if (text2 != null && text2.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.概率触发技能, out this.概率触发技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.ProbabilityTriggerSkills, out this.ProbabilityTriggerSkills);
 			}
-			string text3 = this.对象模板.进入战斗技能;
+			string text3 = this.对象模板.EnterCombatSkills;
 			if (text3 != null && text3.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.进入战斗技能, out this.进入战斗技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.EnterCombatSkills, out this.EnterCombatSkills);
 			}
-			string text4 = this.对象模板.退出战斗技能;
+			string text4 = this.对象模板.ExitCombatSkills;
 			if (text4 != null && text4.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.退出战斗技能, out this.退出战斗技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.ExitCombatSkills, out this.ExitCombatSkills);
 			}
-			string text5 = this.对象模板.死亡释放技能;
+			string text5 = this.对象模板.DeathReleaseSkill;
 			if (text5 != null && text5.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.死亡释放技能, out this.死亡释放技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.DeathReleaseSkill, out this.DeathReleaseSkill);
 			}
-			string text6 = this.对象模板.移动释放技能;
+			string text6 = this.对象模板.MoveReleaseSkill;
 			if (text6 != null && text6.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.移动释放技能, out this.移动释放技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.MoveReleaseSkill, out this.MoveReleaseSkill);
 			}
-			string text7 = this.对象模板.出生释放技能;
+			string text7 = this.对象模板.BirthReleaseSkill;
 			if (text7 != null && text7.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.出生释放技能, out this.出生释放技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.BirthReleaseSkill, out this.BirthReleaseSkill);
 			}
 			诱惑怪物.怪物诱惑处理();
 			this.MapId = ++MapGatewayProcess.对象编号;
@@ -655,48 +655,48 @@ namespace GameServer.Maps
 			this.当前坐标 = 诱惑宠物.当前坐标;
 			this.当前地图 = 诱惑宠物.当前地图;
 			this.当前方向 = 诱惑宠物.当前方向;
-			this.属性加成[this] = this.基础属性;
-			this.更新对象属性();
+			this.Stat加成[this] = this.基础Stat;
+			this.更新对象Stat();
 			this.当前体力 = Math.Min(诱惑宠物.当前体力, this[GameObjectStats.MaxPhysicalStrength]);
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 			this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.忙碌时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.漫游间隔);
 			this.HateObject = new HateObject();
-			string text = this.对象模板.普通攻击技能;
+			string text = this.对象模板.NormalAttackSkills;
 			if (text != null && text.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.普通攻击技能, out this.普通攻击技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.NormalAttackSkills, out this.NormalAttackSkills);
 			}
-			string text2 = this.对象模板.概率触发技能;
+			string text2 = this.对象模板.ProbabilityTriggerSkills;
 			if (text2 != null && text2.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.概率触发技能, out this.概率触发技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.ProbabilityTriggerSkills, out this.ProbabilityTriggerSkills);
 			}
-			string text3 = this.对象模板.进入战斗技能;
+			string text3 = this.对象模板.EnterCombatSkills;
 			if (text3 != null && text3.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.进入战斗技能, out this.进入战斗技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.EnterCombatSkills, out this.EnterCombatSkills);
 			}
-			string text4 = this.对象模板.退出战斗技能;
+			string text4 = this.对象模板.ExitCombatSkills;
 			if (text4 != null && text4.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.退出战斗技能, out this.退出战斗技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.ExitCombatSkills, out this.ExitCombatSkills);
 			}
-			string text5 = this.对象模板.死亡释放技能;
+			string text5 = this.对象模板.DeathReleaseSkill;
 			if (text5 != null && text5.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.死亡释放技能, out this.死亡释放技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.DeathReleaseSkill, out this.DeathReleaseSkill);
 			}
-			string text6 = this.对象模板.移动释放技能;
+			string text6 = this.对象模板.MoveReleaseSkill;
 			if (text6 != null && text6.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.移动释放技能, out this.移动释放技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.MoveReleaseSkill, out this.MoveReleaseSkill);
 			}
-			string text7 = this.对象模板.出生释放技能;
+			string text7 = this.对象模板.BirthReleaseSkill;
 			if (text7 != null && text7.Length > 0)
 			{
-				游戏技能.DataSheet.TryGetValue(this.对象模板.出生释放技能, out this.出生释放技能);
+				游戏技能.DataSheet.TryGetValue(this.对象模板.BirthReleaseSkill, out this.BirthReleaseSkill);
 			}
 			诱惑宠物.自身死亡处理(null, false);
 			this.阻塞网格 = true;
@@ -751,9 +751,9 @@ namespace GameServer.Maps
 					base.治疗时间 = MainProcess.CurrentTime.AddMilliseconds(500.0);
 					this.当前体力 += base.治疗基数;
 				}
-				if (this.进入战斗技能 != null && !base.战斗姿态 && this.HateObject.仇恨列表.Count != 0)
+				if (this.EnterCombatSkills != null && !base.战斗姿态 && this.HateObject.仇恨列表.Count != 0)
 				{
-					游戏技能 技能模板 = this.进入战斗技能;
+					游戏技能 技能模板 = this.EnterCombatSkills;
 					SkillData SkillData = null;
 					byte 动作编号 = base.动作编号;
 					base.动作编号 = (byte)(动作编号 + 1);
@@ -761,9 +761,9 @@ namespace GameServer.Maps
 					base.战斗姿态 = true;
 					base.脱战时间 = MainProcess.CurrentTime.AddSeconds(10.0);
 				}
-				else if (this.退出战斗技能 != null && base.战斗姿态 && this.HateObject.仇恨列表.Count == 0 && MainProcess.CurrentTime > base.脱战时间)
+				else if (this.ExitCombatSkills != null && base.战斗姿态 && this.HateObject.仇恨列表.Count == 0 && MainProcess.CurrentTime > base.脱战时间)
 				{
-					游戏技能 技能模板2 = this.退出战斗技能;
+					游戏技能 技能模板2 = this.ExitCombatSkills;
 					SkillData SkillData2 = null;
 					byte 动作编号 = base.动作编号;
 					base.动作编号 = (byte)(动作编号 + 1);
@@ -792,9 +792,9 @@ namespace GameServer.Maps
 		
 		public override void 自身死亡处理(MapObject 对象, bool 技能击杀)
 		{
-			if (this.死亡释放技能 != null && 对象 != null)
+			if (this.DeathReleaseSkill != null && 对象 != null)
 			{
-				游戏技能 技能模板 = this.死亡释放技能;
+				游戏技能 技能模板 = this.DeathReleaseSkill;
 				SkillData SkillData = null;
 				byte 动作编号 = base.动作编号;
 				base.动作编号 = (byte)(动作编号 + 1);
@@ -912,17 +912,17 @@ namespace GameServer.Maps
 				return;
 			}
 			游戏技能 游戏技能;
-			if (this.概率触发技能 != null && (!this.冷却记录.ContainsKey((int)this.普通攻击技能.自身技能编号 | 16777216) || MainProcess.CurrentTime > this.冷却记录[(int)this.普通攻击技能.自身技能编号 | 16777216]) && ComputingClass.计算概率(this.概率触发技能.计算幸运概率 ? ComputingClass.计算幸运(this[GameObjectStats.幸运等级]) : this.概率触发技能.计算触发概率))
+			if (this.ProbabilityTriggerSkills != null && (!this.冷却记录.ContainsKey((int)this.NormalAttackSkills.自身技能编号 | 16777216) || MainProcess.CurrentTime > this.冷却记录[(int)this.NormalAttackSkills.自身技能编号 | 16777216]) && ComputingClass.计算概率(this.ProbabilityTriggerSkills.计算幸运概率 ? ComputingClass.计算幸运(this[GameObjectStats.幸运等级]) : this.ProbabilityTriggerSkills.计算触发概率))
 			{
-				游戏技能 = this.概率触发技能;
+				游戏技能 = this.ProbabilityTriggerSkills;
 			}
 			else
 			{
-				if (this.普通攻击技能 == null || (this.冷却记录.ContainsKey((int)this.普通攻击技能.自身技能编号 | 16777216) && !(MainProcess.CurrentTime > this.冷却记录[(int)this.普通攻击技能.自身技能编号 | 16777216])))
+				if (this.NormalAttackSkills == null || (this.冷却记录.ContainsKey((int)this.NormalAttackSkills.自身技能编号 | 16777216) && !(MainProcess.CurrentTime > this.冷却记录[(int)this.NormalAttackSkills.自身技能编号 | 16777216])))
 				{
 					return;
 				}
-				游戏技能 = this.普通攻击技能;
+				游戏技能 = this.NormalAttackSkills;
 			}
 			if (base.网格距离(this.HateObject.当前目标) > (int)游戏技能.技能最远距离)
 			{
@@ -973,7 +973,7 @@ namespace GameServer.Maps
 					byte 动作编号 = base.动作编号;
 					base.动作编号 = (byte)(动作编号 + 1);
 					new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, this.HateObject.当前目标, this.HateObject.当前目标.当前坐标, null, null, false);
-					this.攻击时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.数值限制(0, 10 - this[GameObjectStats.AttackSpeed], 10) * 500));
+					this.攻击时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.Value限制(0, 10 - this[GameObjectStats.AttackSpeed], 10) * 500));
 					return;
 				}
 				if (this.能否转动())
@@ -994,8 +994,8 @@ namespace GameServer.Maps
 			{
 				this.宠物等级 += 1;
 				this.宠物经验 = 0;
-				this.属性加成[this] = this.基础属性;
-				this.更新对象属性();
+				this.Stat加成[this] = this.基础Stat;
+				this.更新对象Stat();
 				this.当前体力 = this[GameObjectStats.MaxPhysicalStrength];
 				base.发送封包(new ObjectTransformTypePacket
 				{
@@ -1107,31 +1107,31 @@ namespace GameServer.Maps
 		public PlayerObject 宠物主人;
 
 		
-		public 游戏怪物 对象模板;
+		public Monsters 对象模板;
 
 		
 		public HateObject HateObject;
 
 		
-		public 游戏技能 普通攻击技能;
+		public 游戏技能 NormalAttackSkills;
 
 		
-		public 游戏技能 概率触发技能;
+		public 游戏技能 ProbabilityTriggerSkills;
 
 		
-		public 游戏技能 进入战斗技能;
+		public 游戏技能 EnterCombatSkills;
 
 		
-		public 游戏技能 退出战斗技能;
+		public 游戏技能 ExitCombatSkills;
 
 		
-		public 游戏技能 死亡释放技能;
+		public 游戏技能 DeathReleaseSkill;
 
 		
-		public 游戏技能 移动释放技能;
+		public 游戏技能 MoveReleaseSkill;
 
 		
-		public 游戏技能 出生释放技能;
+		public 游戏技能 BirthReleaseSkill;
 
 		
 		public PetData PetData;

@@ -32,7 +32,7 @@ namespace GameServer.Templates
 		public 技能命中反馈 技能命中反馈;
 
 		
-		public 技能范围类型 技能范围类型;
+		public MonsterSize 技能范围类型;
 
 		
 		public bool 放空结束技能;

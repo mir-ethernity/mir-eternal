@@ -23,9 +23,9 @@ namespace GameServer.Maps
 			if (MapGatewayProcess.沙城地图 == null)
 			{
 				游戏Buff 游戏Buff;
-				游戏怪物 对应模板;
-				游戏怪物 对应模板2;
-				if (MapGatewayProcess.MapInstance表.TryGetValue(2433, out MapGatewayProcess.沙城地图) && 游戏Buff.DataSheet.TryGetValue(22300, out 游戏Buff) && 游戏怪物.DataSheet.TryGetValue("沙巴克城门", out 对应模板) && 游戏怪物.DataSheet.TryGetValue("沙巴克宫门", out 对应模板2))
+				Monsters 对应模板;
+				Monsters 对应模板2;
+				if (MapGatewayProcess.MapInstance表.TryGetValue(2433, out MapGatewayProcess.沙城地图) && 游戏Buff.DataSheet.TryGetValue(22300, out 游戏Buff) && Monsters.DataSheet.TryGetValue("沙巴克城门", out 对应模板) && Monsters.DataSheet.TryGetValue("沙巴克宫门", out 对应模板2))
 				{
 					if ((MapGatewayProcess.皇宫随机区域 = MapGatewayProcess.沙城地图.地图区域.FirstOrDefault((MapAreas O) => O.RegionName == "沙巴克-皇宫随机区域")) != null)
 					{
@@ -794,8 +794,8 @@ namespace GameServer.Maps
 							Point[] 出生范围 = 怪物刷新2.RangeCoords.ToArray<Point>();
 							foreach (MonsterSpawnInfo 刷新信息 in 怪物刷新2.Spawns)
 							{
-								游戏怪物 游戏怪物;
-								if (游戏怪物.DataSheet.TryGetValue(刷新信息.MonsterName, out 游戏怪物))
+								Monsters 游戏怪物;
+								if (Monsters.DataSheet.TryGetValue(刷新信息.MonsterName, out 游戏怪物))
 								{
 									MainForm.添加怪物数据(游戏怪物);
 									int RevivalInterval = 刷新信息.RevivalInterval * 60 * 1000;

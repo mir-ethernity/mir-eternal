@@ -1330,7 +1330,7 @@
             this.S_注意事项标签4.Name = "S_注意事项标签4";
             this.S_注意事项标签4.Size = new System.Drawing.Size(488, 15);
             this.S_注意事项标签4.TabIndex = 23;
-            this.S_注意事项标签4.Text = "收益减少比率为超出等级差时, 每超出一级时减少设定比率的经验和爆率";
+            this.S_注意事项标签4.Text = "收益减少比率为超出等级差时, 每超出Level1时减少设定比率的经验和爆率";
             // 
             // S_注意事项标签3
             // 
@@ -1577,7 +1577,7 @@
             this.S_物品归属时间.Size = new System.Drawing.Size(145, 28);
             this.S_物品归属时间.TabIndex = 18;
             this.S_物品归属时间.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.S_物品归属时间.ValueChanged += new System.EventHandler(this.更改设置数值_Value);
+            this.S_物品归属时间.ValueChanged += new System.EventHandler(this.更改设置Value_Value);
             // 
             // S_物品清理标签
             // 
@@ -1603,7 +1603,7 @@
             this.S_物品清理时间.Size = new System.Drawing.Size(145, 28);
             this.S_物品清理时间.TabIndex = 16;
             this.S_物品清理时间.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.S_物品清理时间.ValueChanged += new System.EventHandler(this.更改设置数值_Value);
+            this.S_物品清理时间.ValueChanged += new System.EventHandler(this.更改设置Value_Value);
             // 
             // S_诱惑时长标签
             // 
@@ -1629,7 +1629,7 @@
             this.S_怪物诱惑时长.Size = new System.Drawing.Size(145, 28);
             this.S_怪物诱惑时长.TabIndex = 14;
             this.S_怪物诱惑时长.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.S_怪物诱惑时长.ValueChanged += new System.EventHandler(this.更改设置数值_Value);
+            this.S_怪物诱惑时长.ValueChanged += new System.EventHandler(this.更改设置Value_Value);
             // 
             // S_收益衰减标签
             // 
@@ -1661,7 +1661,7 @@
             0,
             0,
             65536});
-            this.S_收益减少比率.ValueChanged += new System.EventHandler(this.更改设置数值_Value);
+            this.S_收益减少比率.ValueChanged += new System.EventHandler(this.更改设置Value_Value);
             // 
             // S_收益等级标签
             // 
@@ -1687,7 +1687,7 @@
             this.S_减收益等级差.Size = new System.Drawing.Size(145, 28);
             this.S_减收益等级差.TabIndex = 10;
             this.S_减收益等级差.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.S_减收益等级差.ValueChanged += new System.EventHandler(this.更改设置数值_Value);
+            this.S_减收益等级差.ValueChanged += new System.EventHandler(this.更改设置Value_Value);
             // 
             // S_经验倍率标签
             // 
@@ -1719,7 +1719,7 @@
             this.S_怪物经验倍率.Size = new System.Drawing.Size(145, 28);
             this.S_怪物经验倍率.TabIndex = 8;
             this.S_怪物经验倍率.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.S_怪物经验倍率.ValueChanged += new System.EventHandler(this.更改设置数值_Value);
+            this.S_怪物经验倍率.ValueChanged += new System.EventHandler(this.更改设置Value_Value);
             // 
             // S_特修折扣标签
             // 
@@ -1751,7 +1751,7 @@
             this.S_装备特修折扣.Size = new System.Drawing.Size(145, 28);
             this.S_装备特修折扣.TabIndex = 6;
             this.S_装备特修折扣.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.S_装备特修折扣.ValueChanged += new System.EventHandler(this.更改设置数值_Value);
+            this.S_装备特修折扣.ValueChanged += new System.EventHandler(this.更改设置Value_Value);
             // 
             // S_怪物爆率标签
             // 
@@ -1783,7 +1783,7 @@
             this.S_怪物额外爆率.Size = new System.Drawing.Size(145, 28);
             this.S_怪物额外爆率.TabIndex = 4;
             this.S_怪物额外爆率.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.S_怪物额外爆率.ValueChanged += new System.EventHandler(this.更改设置数值_Value);
+            this.S_怪物额外爆率.ValueChanged += new System.EventHandler(this.更改设置Value_Value);
             // 
             // S_OpenLevelCommand标签
             // 
@@ -1809,7 +1809,7 @@
             this.S_游戏OpenLevelCommand.Size = new System.Drawing.Size(145, 28);
             this.S_游戏OpenLevelCommand.TabIndex = 2;
             this.S_游戏OpenLevelCommand.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.S_游戏OpenLevelCommand.ValueChanged += new System.EventHandler(this.更改设置数值_Value);
+            this.S_游戏OpenLevelCommand.ValueChanged += new System.EventHandler(this.更改设置Value_Value);
             // 
             // S_网络设置分组
             // 
@@ -1857,7 +1857,7 @@
             this.S_掉线判定时间.Size = new System.Drawing.Size(145, 28);
             this.S_掉线判定时间.TabIndex = 8;
             this.S_掉线判定时间.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.S_掉线判定时间.ValueChanged += new System.EventHandler(this.更改设置数值_Value);
+            this.S_掉线判定时间.ValueChanged += new System.EventHandler(this.更改设置Value_Value);
             // 
             // S_限定封包标签
             // 
@@ -1883,7 +1883,7 @@
             this.S_封包限定数量.Size = new System.Drawing.Size(145, 28);
             this.S_封包限定数量.TabIndex = 6;
             this.S_封包限定数量.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.S_封包限定数量.ValueChanged += new System.EventHandler(this.更改设置数值_Value);
+            this.S_封包限定数量.ValueChanged += new System.EventHandler(this.更改设置Value_Value);
             // 
             // S_屏蔽时间标签
             // 
@@ -1909,7 +1909,7 @@
             this.S_异常屏蔽时间.Size = new System.Drawing.Size(145, 28);
             this.S_异常屏蔽时间.TabIndex = 4;
             this.S_异常屏蔽时间.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.S_异常屏蔽时间.ValueChanged += new System.EventHandler(this.更改设置数值_Value);
+            this.S_异常屏蔽时间.ValueChanged += new System.EventHandler(this.更改设置Value_Value);
             // 
             // S_接收端口标签
             // 
@@ -1935,7 +1935,7 @@
             this.S_门票接收端口.Size = new System.Drawing.Size(145, 28);
             this.S_门票接收端口.TabIndex = 2;
             this.S_门票接收端口.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.S_门票接收端口.ValueChanged += new System.EventHandler(this.更改设置数值_Value);
+            this.S_门票接收端口.ValueChanged += new System.EventHandler(this.更改设置Value_Value);
             // 
             // S_监听端口标签
             // 
@@ -1961,7 +1961,7 @@
             this.S_客户连接端口.Size = new System.Drawing.Size(145, 28);
             this.S_客户连接端口.TabIndex = 0;
             this.S_客户连接端口.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.S_客户连接端口.ValueChanged += new System.EventHandler(this.更改设置数值_Value);
+            this.S_客户连接端口.ValueChanged += new System.EventHandler(this.更改设置Value_Value);
             // 
             // 界面定时更新
             // 

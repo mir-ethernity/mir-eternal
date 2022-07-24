@@ -68,10 +68,10 @@ namespace GameServer.Templates
 		public float 计算触发概率;
 
 		
-		public GameObjectStats 属性提升概率;
+		public GameObjectStats Stat提升概率;
 
 		
-		public float 属性提升系数;
+		public float Stat提升系数;
 
 		
 		public bool 检查忙绿状态;

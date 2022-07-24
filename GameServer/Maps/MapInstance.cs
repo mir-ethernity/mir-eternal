@@ -176,8 +176,8 @@ namespace GameServer.Maps
 						{
 							this.地图公告(string.Format("The {0}th wave of monsters has appeared, please take care of your defences", num + 1));
 						}
-						游戏怪物 对应模板;
-						if (游戏怪物.DataSheet.TryGetValue(刷新信息.MonsterName, out 对应模板))
+						Monsters 对应模板;
+						if (Monsters.DataSheet.TryGetValue(刷新信息.MonsterName, out 对应模板))
 						{
 							new MonsterObject(对应模板, this, int.MaxValue, new Point[]
 							{

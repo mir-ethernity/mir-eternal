@@ -26,9 +26,9 @@ namespace GameServer.Templates
                 int num2 = (num < stats.SingleProbability) ? 1 : ((num < stats.TwoProbability) ? 2 : 3);
                 for (int i = 0; i < num2; i++)
                 {
-                    RandomStats 随机属性 = array[MainProcess.RandomNumber.Next(array.Length)];
-                    if (!dictionary.ContainsKey(随机属性.Stat))
-                        dictionary[随机属性.Stat] = 随机属性;
+                    RandomStats 随机Stat = array[MainProcess.RandomNumber.Next(array.Length)];
+                    if (!dictionary.ContainsKey(随机Stat.Stat))
+                        dictionary[随机Stat.Stat] = 随机Stat;
                 }
                 return dictionary.Values.ToList();
             }
@@ -52,9 +52,9 @@ namespace GameServer.Templates
             {
                 var list = new List<RandomStats>();
                 
-                foreach (StatsDetail 属性详情 in kvp.Value.Stats)
-                    if (RandomStats.DataSheet.TryGetValue(属性详情.StatId, out RandomStats item))
-                        for (int j = 0; j < 属性详情.Probability; j++)
+                foreach (StatsDetail Stat详情 in kvp.Value.Stats)
+                    if (RandomStats.DataSheet.TryGetValue(Stat详情.StatId, out RandomStats item))
+                        for (int j = 0; j < Stat详情.Probability; j++)
                             list.Add(item);
 
                 概率表[kvp.Key] = list.ToArray();

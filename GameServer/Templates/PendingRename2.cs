@@ -704,7 +704,7 @@ namespace GameServer.Templates
 									{
 										if (b_03_前摇结束通知.计算攻速缩减)
 										{
-											this.攻速缩减 = ComputingClass.数值限制(ComputingClass.计算攻速(-5), this.攻速缩减 + ComputingClass.计算攻速(this.技能来源[GameObjectStats.AttackSpeed]), ComputingClass.计算攻速(5));
+											this.攻速缩减 = ComputingClass.Value限制(ComputingClass.计算攻速(-5), this.攻速缩减 + ComputingClass.计算攻速(this.技能来源[GameObjectStats.AttackSpeed]), ComputingClass.计算攻速(5));
 											if (this.攻速缩减 != 0)
 											{
 												foreach (KeyValuePair<int, 技能任务> keyValuePair10 in this.节点列表)
@@ -909,7 +909,7 @@ namespace GameServer.Templates
 													}
 													if (this.命中列表.Count != 0 && c_01_计算命中目标.攻速提升类型 != 指定目标类型.无 && this.命中列表[0].技能目标.特定类型(this.技能来源, c_01_计算命中目标.攻速提升类型))
 													{
-														this.攻速缩减 = ComputingClass.数值限制(ComputingClass.计算攻速(-5), this.攻速缩减 + ComputingClass.计算攻速(c_01_计算命中目标.攻速提升幅度), ComputingClass.计算攻速(5));
+														this.攻速缩减 = ComputingClass.Value限制(ComputingClass.计算攻速(-5), this.攻速缩减 + ComputingClass.计算攻速(c_01_计算命中目标.攻速提升幅度), ComputingClass.计算攻速(5));
 													}
 													if (c_01_计算命中目标.清除目标状态 && c_01_计算命中目标.清除状态列表.Count != 0)
 													{
@@ -1008,9 +1008,9 @@ namespace GameServer.Templates
 																	int num11 = c_02_计算目标伤害.体力回复基数;
 																	if (c_02_计算目标伤害.等级差减回复)
 																	{
-																		int 数值 = (int)(this.技能来源.当前等级 - keyValuePair13.Value.技能目标.当前等级) - c_02_计算目标伤害.减回复等级差;
+																		int Value = (int)(this.技能来源.当前等级 - keyValuePair13.Value.技能目标.当前等级) - c_02_计算目标伤害.减回复等级差;
 																		int num12 = c_02_计算目标伤害.零回复等级差 - c_02_计算目标伤害.减回复等级差;
-																		float num13 = (float)ComputingClass.数值限制(0, 数值, num12) / (float)num12;
+																		float num13 = (float)ComputingClass.Value限制(0, Value, num12) / (float)num12;
 																		num11 = (int)((float)num11 - (float)num11 * num13);
 																	}
 																	if (num11 > 0)
@@ -1112,7 +1112,7 @@ namespace GameServer.Templates
 																if ((keyValuePair16.Value.技能反馈 & 技能命中反馈.闪避) == 技能命中反馈.正常 && (keyValuePair16.Value.技能反馈 & 技能命中反馈.丢失) == 技能命中反馈.正常)
 																{
 																	MonsterObject MonsterObject = keyValuePair16.Value.技能目标 as MonsterObject;
-																	if (MonsterObject != null && MonsterObject.怪物级别 != MonsterLevelType.头目首领)
+																	if (MonsterObject != null && MonsterObject.Category != MonsterLevelType.Boss)
 																	{
 																		keyValuePair16.Value.技能目标.硬直时间 = MainProcess.CurrentTime.AddMilliseconds((double)c_02_计算目标伤害.目标硬直时间);
 																	}
@@ -1345,8 +1345,8 @@ namespace GameServer.Templates
 																{
 																	return;
 																}
-																游戏怪物 对应模板;
-																if (游戏怪物.DataSheet.TryGetValue(c_06_计算宠物召唤.召唤宠物名字, out 对应模板))
+																Monsters 对应模板;
+																if (Monsters.DataSheet.TryGetValue(c_06_计算宠物召唤.召唤宠物名字, out 对应模板))
 																{
 																	new MonsterObject(对应模板, this.释放地图, int.MaxValue, new Point[]
 																	{
@@ -1372,8 +1372,8 @@ namespace GameServer.Templates
 																	int? num23 = (召唤宠物数量 != null) ? new int?(召唤宠物数量.Length) : null;
 																	int i = (int)this.技能等级;
 																	int num24 = (int)((num23.GetValueOrDefault() > i & num23 != null) ? c_06_计算宠物召唤.召唤宠物数量[(int)this.技能等级] : 0);
-																	游戏怪物 召唤宠物;
-																	if (PlayerObject11.宠物列表.Count < num24 && 游戏怪物.DataSheet.TryGetValue(c_06_计算宠物召唤.召唤宠物名字, out 召唤宠物))
+																	Monsters 召唤宠物;
+																	if (PlayerObject11.宠物列表.Count < num24 && Monsters.DataSheet.TryGetValue(c_06_计算宠物召唤.召唤宠物名字, out 召唤宠物))
 																	{
 																		byte[] 宠物等级上限 = c_06_计算宠物召唤.宠物等级上限;
 																		num23 = ((宠物等级上限 != null) ? new int?(宠物等级上限.Length) : null);

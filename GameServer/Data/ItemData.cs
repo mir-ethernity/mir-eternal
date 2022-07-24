@@ -144,9 +144,9 @@ namespace GameServer.Data
 						}
 					}
 					int num4 = 0;
-					foreach (RandomStats 随机属性 in EquipmentData.随机属性)
+					foreach (RandomStats 随机Stat in EquipmentData.随机Stat)
 					{
-						num4 += 随机属性.CombatBonus * 100;
+						num4 += 随机Stat.CombatBonus * 100;
 					}
 					int num5 = 0;
 					foreach (GameItems 游戏物品 in EquipmentData.镶嵌灵石.Values)

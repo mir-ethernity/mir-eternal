@@ -17,19 +17,19 @@ namespace GameServer.Templates
 		
 		低血怪物 = 8,
 		
-		普通怪物 = 16,
+		Normal = 16,
 		
 		所有怪物 = 32,
 		
-		不死生物 = 64,
+		Undead = 64,
 		
-		虫族生物 = 128,
+		ZergCreature = 128,
 		
-		沃玛怪物 = 256,
+		WomaMonster = 256,
 		
-		猪类怪物 = 512,
+		PigMonster = 512,
 		
-		祖玛怪物 = 1024,
+		ZumaMonster = 1024,
 		
 		精英怪物 = 2048,
 		
@@ -37,7 +37,7 @@ namespace GameServer.Templates
 		
 		背刺目标 = 8192,
 		
-		魔龙怪物 = 16384,
+		DragonMonster = 16384,
 		
 		所有玩家 = 32768
 	}

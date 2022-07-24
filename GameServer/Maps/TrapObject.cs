@@ -147,7 +147,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000825 RID: 2085 RVA: 0x00006B3B File Offset: 0x00004D3B
-		public override 技能范围类型 对象体型
+		public override MonsterSize 对象体型
 		{
 			get
 			{
@@ -157,11 +157,11 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000826 RID: 2086 RVA: 0x00006B48 File Offset: 0x00004D48
-		public override Dictionary<GameObjectStats, int> 当前属性
+		public override Dictionary<GameObjectStats, int> 当前Stat
 		{
 			get
 			{
-				return base.当前属性;
+				return base.当前Stat;
 			}
 		}
 
@@ -193,9 +193,9 @@ namespace GameServer.Maps
 				{
 					this.消失时间 += TimeSpan.FromMilliseconds((double)((int)this.陷阱等级 * this.陷阱模板.每级延长时间));
 				}
-				if (this.陷阱模板.持续时间延长 && this.陷阱模板.角色属性延时)
+				if (this.陷阱模板.持续时间延长 && this.陷阱模板.角色Stat延时)
 				{
-					this.消失时间 += TimeSpan.FromMilliseconds((double)((float)PlayerObject[this.陷阱模板.绑定角色属性] * this.陷阱模板.属性延时系数));
+					this.消失时间 += TimeSpan.FromMilliseconds((double)((float)PlayerObject[this.陷阱模板.绑定角色Stat] * this.陷阱模板.Stat延时系数));
 				}
 				SkillData SkillData2;
 				if (this.陷阱模板.持续时间延长 && this.陷阱模板.特定铭文延时 && PlayerObject.主体技能表.TryGetValue((ushort)(this.陷阱模板.特定铭文技能 / 10), out SkillData2) && (int)SkillData2.铭文编号 == this.陷阱模板.特定铭文技能 % 10)

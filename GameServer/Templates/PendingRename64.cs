@@ -13,7 +13,7 @@ namespace GameServer.Templates
 		
 		造成伤害 = 2,
 		
-		属性增减 = 4,
+		Stat增减 = 4,
 		
 		伤害增减 = 8,
 		

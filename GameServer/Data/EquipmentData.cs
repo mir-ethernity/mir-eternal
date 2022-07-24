@@ -29,7 +29,7 @@ namespace GameServer.Data
 				{
 					int num = (int)((long)(this.装备模板.BasicPowerCombat * (int)(this.幸运等级.V + 20)) * 1717986919L >> 32 >> 3);
 					int num2 = (int)(this.神圣伤害.V * 3 + this.升级攻击.V * 5 + this.升级魔法.V * 5 + this.升级道术.V * 5 + this.升级刺术.V * 5 + this.升级弓术.V * 5);
-					int num3 = this.随机属性.Sum((RandomStats x) => x.CombatBonus);
+					int num3 = this.随机Stat.Sum((RandomStats x) => x.CombatBonus);
 					return num + num2 + num3;
 				}
 				int num4 = 0;
@@ -1932,7 +1932,7 @@ namespace GameServer.Data
 					IL_1A0A:
 					num5 += 30;
 				}
-				int num7 = this.随机属性.Sum((RandomStats x) => x.CombatBonus);
+				int num7 = this.随机Stat.Sum((RandomStats x) => x.CombatBonus);
 				return this.装备模板.BasicPowerCombat + num4 + num7 + num5;
 			}
 		}
@@ -2160,9 +2160,9 @@ namespace GameServer.Data
 			{
 				string text = "";
 				Dictionary<GameObjectStats, int> dictionary = new Dictionary<GameObjectStats, int>();
-				foreach (RandomStats 随机属性 in this.随机属性)
+				foreach (RandomStats 随机Stat in this.随机Stat)
 				{
-					dictionary[随机属性.Stat] = 随机属性.Value;
+					dictionary[随机Stat.Stat] = 随机Stat.Value;
 				}
 				if (dictionary.ContainsKey(GameObjectStats.MinAttack) || dictionary.ContainsKey(GameObjectStats.MaxAttack))
 				{
@@ -2417,7 +2417,7 @@ namespace GameServer.Data
 
 		
 		// (get) Token: 0x0600059F RID: 1439 RVA: 0x00029204 File Offset: 0x00027404
-		public Dictionary<GameObjectStats, int> 装备属性
+		public Dictionary<GameObjectStats, int> 装备Stat
 		{
 			get
 			{
@@ -2526,9 +2526,9 @@ namespace GameServer.Data
 				{
 					dictionary[GameObjectStats.MaxBow] = (dictionary.ContainsKey(GameObjectStats.MaxBow) ? (dictionary[GameObjectStats.MaxBow] + (int)this.升级弓术.V) : ((int)this.升级弓术.V));
 				}
-				foreach (RandomStats 随机属性 in this.随机属性.ToList<RandomStats>())
+				foreach (RandomStats 随机Stat in this.随机Stat.ToList<RandomStats>())
 				{
-					dictionary[随机属性.Stat] = (dictionary.ContainsKey(随机属性.Stat) ? (dictionary[随机属性.Stat] + 随机属性.Value) : 随机属性.Value);
+					dictionary[随机Stat.Stat] = (dictionary.ContainsKey(随机Stat.Stat) ? (dictionary[随机Stat.Stat] + 随机Stat.Value) : 随机Stat.Value);
 				}
 				foreach (GameItems 游戏物品 in this.镶嵌灵石.Values)
 				{
@@ -2736,7 +2736,7 @@ namespace GameServer.Data
 			当前持久.V = v;
 			if (随机生成 && 模板.PersistType == PersistentItemType.装备)
 			{
-				this.随机属性.SetValue(GameServer.Templates.EquipmentStats.GenerateStats(base.物品类型, false));
+				this.随机Stat.SetValue(GameServer.Templates.EquipmentStats.GenerateStats(base.物品类型, false));
 			}
 			GameDataGateway.EquipmentData表.AddData(this, true);
 		}
@@ -2801,7 +2801,7 @@ namespace GameServer.Data
 					{
 						num2 |= 1;
 					}
-					else if (this.随机属性.Count != 0)
+					else if (this.随机Stat.Count != 0)
 					{
 						num2 |= 1;
 					}
@@ -2809,19 +2809,19 @@ namespace GameServer.Data
 					{
 						num2 |= 1;
 					}
-					if (this.随机属性.Count >= 1)
+					if (this.随机Stat.Count >= 1)
 					{
 						num2 |= 2;
 					}
-					if (this.随机属性.Count >= 2)
+					if (this.随机Stat.Count >= 2)
 					{
 						num2 |= 4;
 					}
-					if (this.随机属性.Count >= 3)
+					if (this.随机Stat.Count >= 3)
 					{
 						num2 |= 8;
 					}
-					if (this.随机属性.Count >= 4)
+					if (this.随机Stat.Count >= 4)
 					{
 						num2 |= 16;
 					}
@@ -2876,19 +2876,19 @@ namespace GameServer.Data
 					}
 					if ((num2 & 2) != 0)
 					{
-						binaryWriter.Write((ushort)this.随机属性[0].StatId);
+						binaryWriter.Write((ushort)this.随机Stat[0].StatId);
 					}
 					if ((num2 & 4) != 0)
 					{
-						binaryWriter.Write((ushort)this.随机属性[1].StatId);
+						binaryWriter.Write((ushort)this.随机Stat[1].StatId);
 					}
 					if ((num2 & 8) != 0)
 					{
-						binaryWriter.Write((ushort)this.随机属性[2].StatId);
+						binaryWriter.Write((ushort)this.随机Stat[2].StatId);
 					}
 					if ((num2 & 16) != 0)
 					{
-						binaryWriter.Write((ushort)this.随机属性[3].StatId);
+						binaryWriter.Write((ushort)this.随机Stat[3].StatId);
 					}
 					if ((num & 256) != 0)
 					{
@@ -3063,7 +3063,7 @@ namespace GameServer.Data
 		public readonly DataMonitor<byte> 物品状态;
 
 		
-		public readonly ListMonitor<RandomStats> 随机属性;
+		public readonly ListMonitor<RandomStats> 随机Stat;
 
 		
 		public readonly ListMonitor<EquipHoleColor> 孔洞颜色;

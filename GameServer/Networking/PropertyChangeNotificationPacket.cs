@@ -15,7 +15,7 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(下标 = 2, 长度 = 4)]
-		public int 属性类型;
+		public int Stat类型;
 
 		
 		[WrappingFieldAttribute(下标 = 6, 长度 = 4)]
