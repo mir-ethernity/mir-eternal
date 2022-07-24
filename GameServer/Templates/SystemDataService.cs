@@ -22,7 +22,7 @@ namespace GameServer.Templates
 				typeof(MapAreas),
 				typeof(TeleportGates),
 				typeof(MonsterSpawns),
-				typeof(Guards),
+				typeof(MapGuards),
 				typeof(GameItems),
 				typeof(RandomStats),
 				typeof(EquipmentStats),

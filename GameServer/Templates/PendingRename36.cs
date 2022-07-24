@@ -4,7 +4,6 @@ using System.IO;
 
 namespace GameServer.Templates
 {
-	
 	public sealed class 地图守卫
 	{
 		

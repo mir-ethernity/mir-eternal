@@ -5,9 +5,9 @@ using System.IO;
 
 namespace GameServer.Templates
 {
-	public sealed class Guards
+	public sealed class MapGuards
 	{
-		public static HashSet<Guards> DataSheet;
+		public static HashSet<MapGuards> DataSheet;
 
 		public ushort GuardNumber;
 		public byte FromMapId;
@@ -18,13 +18,13 @@ namespace GameServer.Templates
 
 		public static void LoadData()
 		{
-			DataSheet = new HashSet<Guards>();
+			DataSheet = new HashSet<MapGuards>();
 			string text = CustomClass.GameDataPath + "\\System\\GameMap\\Guards\\";
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in Serializer.Deserialize(text, typeof(Guards)))
+				foreach (object obj in Serializer.Deserialize(text, typeof(MapGuards)))
 				{
-					DataSheet.Add((Guards)obj);
+					DataSheet.Add((MapGuards)obj);
 				}
 			}
 		}

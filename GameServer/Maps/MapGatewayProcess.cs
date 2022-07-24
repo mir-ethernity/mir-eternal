@@ -763,7 +763,7 @@ namespace GameServer.Maps
 					}
 				}
 			}
-			foreach (Guards 守卫刷新 in Guards.DataSheet)
+			foreach (MapGuards 守卫刷新 in MapGuards.DataSheet)
 			{
 				foreach (MapInstance MapInstance4 in MapGatewayProcess.MapInstance表.Values)
 				{
@@ -807,11 +807,11 @@ namespace GameServer.Maps
 							}
 						}
 					}
-					using (HashSet<Guards>.Enumerator enumerator6 = MapInstance6.守卫区域.GetEnumerator())
+					using (HashSet<MapGuards>.Enumerator enumerator6 = MapInstance6.守卫区域.GetEnumerator())
 					{
 						while (enumerator6.MoveNext())
 						{
-							Guards 守卫刷新2 = enumerator6.Current;
+							MapGuards 守卫刷新2 = enumerator6.Current;
 							地图守卫 对应模板;
 							if (地图守卫.DataSheet.TryGetValue(守卫刷新2.GuardNumber, out 对应模板))
 							{
