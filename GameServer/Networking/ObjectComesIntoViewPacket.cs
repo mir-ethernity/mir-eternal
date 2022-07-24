@@ -44,6 +44,6 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(下标 = 18, 长度 = 1)]
-		public byte 补充参数;
+		public byte AdditionalParam;
 	}
 }

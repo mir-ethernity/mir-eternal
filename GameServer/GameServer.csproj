@@ -203,7 +203,7 @@
     <Compile Include="Templates\GameItems.cs" />
     <Compile Include="Templates\GameTitle.cs" />
     <Compile Include="Templates\EquipmentItem.cs" />
-    <Compile Include="Templates\PendingRename29.cs" />
+    <Compile Include="Templates\Treasures.cs" />
     <Compile Include="Templates\SystemDataService.cs" />
     <Compile Include="Templates\EquipmentStats.cs" />
     <Compile Include="Templates\PendingRename30.cs" />

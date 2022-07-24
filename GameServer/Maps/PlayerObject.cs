@@ -8262,7 +8262,7 @@ namespace GameServer.Maps
 		{
 			if (数据版本 != 0)
 			{
-				if (数据版本 == 珍宝商品.珍宝商店效验)
+				if (数据版本 == Treasures.Effect)
 				{
 					客户网络 网络连接 = this.网络连接;
 					if (网络连接 == null)
@@ -8271,7 +8271,7 @@ namespace GameServer.Maps
 					}
 					网络连接.发送封包(new 同步珍宝数据
 					{
-						版本编号 = 珍宝商品.珍宝商店效验,
+						版本编号 = Treasures.Effect,
 						商品数量 = 0,
 						商店数据 = new byte[0]
 					});
@@ -8285,9 +8285,9 @@ namespace GameServer.Maps
 			}
 			网络连接2.发送封包(new 同步珍宝数据
 			{
-				版本编号 = 珍宝商品.珍宝商店效验,
-				商品数量 = 珍宝商品.珍宝商店数量,
-				商店数据 = 珍宝商品.珍宝商店数据
+				版本编号 = Treasures.Effect,
+				商品数量 = Treasures.Count,
+				商店数据 = Treasures.Buffer
 			});
 		}
 
@@ -8299,9 +8299,9 @@ namespace GameServer.Maps
 		
 		public void 购买珍宝商品(int Id, int 购入数量)
 		{
-			珍宝商品 珍宝商品;
+			Treasures 珍宝商品;
 			GameItems 游戏物品;
-			if (珍宝商品.DataSheet.TryGetValue(Id, out 珍宝商品) && GameItems.DataSheet.TryGetValue(Id, out 游戏物品))
+			if (Treasures.DataSheet.TryGetValue(Id, out 珍宝商品) && GameItems.DataSheet.TryGetValue(Id, out 游戏物品))
 			{
 				int num;
 				if (购入数量 != 1)
@@ -8315,7 +8315,7 @@ namespace GameServer.Maps
 				num = 1;
 				IL_42:
 				int num2 = num;
-				int num3 = 珍宝商品.商品现价 * num2;
+				int num3 = 珍宝商品.CurrentPrice * num2;
 				int num4 = -1;
 				byte b = 0;
 				while (b < this.背包大小)

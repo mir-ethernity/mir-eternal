@@ -2794,7 +2794,7 @@ namespace GameServer.Maps
                             ObjectComesIntoViewPacket.现身姿态 = ((byte)(对象.对象死亡 ? 13 : 1));
                             ObjectComesIntoViewPacket.体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectStats.MaxPhysicalStrength]);
                             PlayerObject PlayerObject2 = 对象 as PlayerObject;
-                            ObjectComesIntoViewPacket.补充参数 = ((byte)((PlayerObject2 == null || !PlayerObject2.灰名玩家) ? 0 : 2));
+                            ObjectComesIntoViewPacket.AdditionalParam = ((byte)((PlayerObject2 == null || !PlayerObject2.灰名玩家) ? 0 : 2));
                             网络连接.发送封包(ObjectComesIntoViewPacket);
                             PlayerObject.网络连接.发送封包(new 同步对象体力
                             {
@@ -2963,7 +2963,7 @@ namespace GameServer.Maps
                             ObjectComesIntoViewPacket2.现身姿态 = ((byte)(对象.对象死亡 ? 13 : 1));
                             ObjectComesIntoViewPacket2.体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectStats.MaxPhysicalStrength]);
                             PlayerObject PlayerObject4 = 对象 as PlayerObject;
-                            ObjectComesIntoViewPacket2.补充参数 = ((byte)((PlayerObject4 == null || !PlayerObject4.灰名玩家) ? 0 : 2));
+                            ObjectComesIntoViewPacket2.AdditionalParam = ((byte)((PlayerObject4 == null || !PlayerObject4.灰名玩家) ? 0 : 2));
                             网络连接2.发送封包(ObjectComesIntoViewPacket2);
                             PlayerObject3.网络连接.发送封包(new 同步对象体力
                             {
