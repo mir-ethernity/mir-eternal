@@ -1205,7 +1205,7 @@ namespace GameServer
                 GMCommand GMCommand;
                 if (this.GMCommand文本.Text[0] != '@')
                 {
-                    MainForm.添加命令日志("<= Command error, GM commands must start with '@' at the start. '@ViewCommand' 获取所有受支持的命令格式");
+                    MainForm.添加命令日志("<= Command error, GM commands must start with '@' at the start. '@View' to see all available commands");
                 }
                 else if (this.GMCommand文本.Text.Trim(new char[]
                 {
@@ -1213,7 +1213,7 @@ namespace GameServer
                     ' '
                 }).Length == 0)
                 {
-                    MainForm.添加命令日志("<= Command error, GM commands can not be empty. Type '@ViewCommand' to see all available");
+                    MainForm.添加命令日志("<= Command error, GM commands can not be empty. Type '@View' to see all available commands");
                 }
                 else if (GMCommand.解析命令(this.GMCommand文本.Text, out GMCommand))
                 {

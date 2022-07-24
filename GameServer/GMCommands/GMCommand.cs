@@ -75,7 +75,7 @@ namespace GameServer
 			FieldInfo[] array2;
 			if (!GMCommand.命令字典.TryGetValue(array[0], out type) || !GMCommand.字段列表.TryGetValue(array[0], out array2))
 			{
-				MainForm.添加命令日志("<= @" + array[0] + " is not a valid GM command, use @ViewCommand");
+				MainForm.添加命令日志("<= @" + array[0] + " is not a valid GM command, use @View");
 				命令 = null;
 				return false;
 			}
