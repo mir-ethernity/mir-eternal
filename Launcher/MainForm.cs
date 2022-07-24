@@ -106,6 +106,10 @@ namespace Launcher
                     if (!MainForm.IPList.TryGetValue(this.start_selected_zone.Text, out ipEndPoint))
                         break;
                     string str1 = "-wegame=" + string.Format("1,1,{0},{1},", (object)ipEndPoint.Address, (object)ipEndPoint.Port) + string.Format("1,1,{0},{1},", (object)ipEndPoint.Address, (object)ipEndPoint.Port) + this.start_selected_zone.Text + "  " + string.Format("/ip:1,1,{0} ", (object)ipEndPoint.Address) + string.Format("/port:{0} ", (object)ipEndPoint.Port) + "/ticket:" + strArray1[4] + " /AreaName:" + this.start_selected_zone.Text;
+
+                    // last chinese connection string
+                    // -sdo -ip=1,1,175.24.251.29,8701,175.24.251.29,8701,??
+
                     Settings.Default.SaveArea = this.start_selected_zone.Text;
                     Settings.Default.Save();
                     MainForm.GameProgress = new Process();

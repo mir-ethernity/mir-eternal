@@ -18,46 +18,46 @@ namespace Launcher
 
         private void InitializeComponent()
         {
-            this.components = (IContainer)new Container();
-            ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof(MainForm));
-            this.MainTab = new UITabControl();
-            this.AccountLoginTab = new global::System.Windows.Forms.TabPage();
-            this.Login_userIcon = new UIAvatar();
-            this.LoginAccountLabel = new UISymbolButton();
-            this.ForgotPasswordLabel = new UILinkLabel();
-            this.AccountPasswordTextBox = new UITextBox();
-            this.RegisterAccountLabel = new UISymbolButton();
-            this.login_error_label = new UILabel();
-            this.AccountTextBox = new UITextBox();
-            this.RegistrationTab = new global::System.Windows.Forms.TabPage();
-            this.Register_Back_To_LoginBtn = new UISymbolButton();
-            this.RegistrationErrorLabel = new UILabel();
-            this.Register_AccountBtn = new UISymbolButton();
-            this.Register_SecretAnswerTextBox = new UITextBox();
-            this.Register_PasswordTextBox = new UITextBox();
-            this.Register_QuestionTextBox = new UITextBox();
-            this.Register_AccountNameTextBox = new UITextBox();
-            this.ChangePasswordTab = new global::System.Windows.Forms.TabPage();
-            this.Modify_Back_To_LoginBtn = new UISymbolButton();
-            this.Modify_ErrorLabel = new UILabel();
-            this.Modify_PasswordBtn = new UISymbolButton();
-            this.Modify_AnswerTextBox = new UITextBox();
-            this.Modify_PasswordTextBox = new UITextBox();
-            this.Modify_QuestionTextBox = new UITextBox();
-            this.Modify_AccountNameTextBox = new UITextBox();
-            this.StartGameTab = new global::System.Windows.Forms.TabPage();
-            this.activate_account = new UISymbolButton();
-            this.selected_tab = new UILabel();
-            this.start_selected_zone = new UILinkLabel();
-            this.logoutLabel = new UILinkLabel();
-            this.GameServerList = new global::System.Windows.Forms.ListBox();
-            this.Launcher_enterGameBtn = new UIButton();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.MainTab = new Sunny.UI.UITabControl();
+            this.AccountLoginTab = new System.Windows.Forms.TabPage();
+            this.Login_userIcon = new Sunny.UI.UIAvatar();
+            this.LoginAccountLabel = new Sunny.UI.UISymbolButton();
+            this.ForgotPasswordLabel = new Sunny.UI.UILinkLabel();
+            this.AccountPasswordTextBox = new Sunny.UI.UITextBox();
+            this.RegisterAccountLabel = new Sunny.UI.UISymbolButton();
+            this.login_error_label = new Sunny.UI.UILabel();
+            this.AccountTextBox = new Sunny.UI.UITextBox();
+            this.RegistrationTab = new System.Windows.Forms.TabPage();
+            this.Register_Back_To_LoginBtn = new Sunny.UI.UISymbolButton();
+            this.RegistrationErrorLabel = new Sunny.UI.UILabel();
+            this.Register_AccountBtn = new Sunny.UI.UISymbolButton();
+            this.Register_SecretAnswerTextBox = new Sunny.UI.UITextBox();
+            this.Register_PasswordTextBox = new Sunny.UI.UITextBox();
+            this.Register_QuestionTextBox = new Sunny.UI.UITextBox();
+            this.Register_AccountNameTextBox = new Sunny.UI.UITextBox();
+            this.ChangePasswordTab = new System.Windows.Forms.TabPage();
+            this.Modify_Back_To_LoginBtn = new Sunny.UI.UISymbolButton();
+            this.Modify_ErrorLabel = new Sunny.UI.UILabel();
+            this.Modify_PasswordBtn = new Sunny.UI.UISymbolButton();
+            this.Modify_AnswerTextBox = new Sunny.UI.UITextBox();
+            this.Modify_PasswordTextBox = new Sunny.UI.UITextBox();
+            this.Modify_QuestionTextBox = new Sunny.UI.UITextBox();
+            this.Modify_AccountNameTextBox = new Sunny.UI.UITextBox();
+            this.StartGameTab = new System.Windows.Forms.TabPage();
+            this.activate_account = new Sunny.UI.UISymbolButton();
+            this.selected_tab = new Sunny.UI.UILabel();
+            this.start_selected_zone = new Sunny.UI.UILinkLabel();
+            this.logoutLabel = new Sunny.UI.UILinkLabel();
+            this.GameServerList = new System.Windows.Forms.ListBox();
+            this.Launcher_enterGameBtn = new Sunny.UI.UIButton();
             this.InterfaceUpdateTimer = new System.Windows.Forms.Timer(this.components);
             this.DataProcessTimer = new System.Windows.Forms.Timer(this.components);
-            this.minimizeToTray = new global::System.Windows.Forms.NotifyIcon(this.components);
-            this.TrayRightClickMenu = new global::System.Windows.Forms.ContextMenuStrip(this.components);
-            this.OpenToolStripMenuItem = new global::System.Windows.Forms.ToolStripMenuItem();
-            this.QuitToolStripMenuItem = new global::System.Windows.Forms.ToolStripMenuItem();
+            this.minimizeToTray = new System.Windows.Forms.NotifyIcon(this.components);
+            this.TrayRightClickMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.OpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.QuitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GameProcessTimer = new System.Windows.Forms.Timer(this.components);
             this.MainTab.SuspendLayout();
             this.AccountLoginTab.SuspendLayout();
@@ -66,654 +66,797 @@ namespace Launcher
             this.StartGameTab.SuspendLayout();
             this.TrayRightClickMenu.SuspendLayout();
             this.SuspendLayout();
-            this.MainTab.Controls.Add((global::System.Windows.Forms.Control)this.AccountLoginTab);
-            this.MainTab.Controls.Add((global::System.Windows.Forms.Control)this.RegistrationTab);
-            this.MainTab.Controls.Add((global::System.Windows.Forms.Control)this.ChangePasswordTab);
-            this.MainTab.Controls.Add((global::System.Windows.Forms.Control)this.StartGameTab);
-            this.MainTab.DrawMode = global::System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.MainTab.FillColor = Color.FromArgb((int)byte.MaxValue, 244, 240);
-            this.MainTab.Font = new Font("Arial", 12f);
-            this.MainTab.ItemSize = new Size(260, 28);
-            this.MainTab.Location = new Point(0, 0);
+            // 
+            // MainTab
+            // 
+            this.MainTab.Controls.Add(this.AccountLoginTab);
+            this.MainTab.Controls.Add(this.RegistrationTab);
+            this.MainTab.Controls.Add(this.ChangePasswordTab);
+            this.MainTab.Controls.Add(this.StartGameTab);
+            this.MainTab.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.MainTab.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(240)))));
+            this.MainTab.Font = new System.Drawing.Font("Arial", 12F);
+            this.MainTab.ItemSize = new System.Drawing.Size(260, 28);
+            this.MainTab.Location = new System.Drawing.Point(0, 0);
             this.MainTab.MainPage = "";
-            this.MainTab.Margin = new global::System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MainTab.MenuStyle = UIMenuStyle.Custom;
+            this.MainTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MainTab.MenuStyle = Sunny.UI.UIMenuStyle.Custom;
             this.MainTab.Name = "MainTab";
             this.MainTab.SelectedIndex = 0;
-            this.MainTab.Size = new Size(381, 366);
-            this.MainTab.SizeMode = global::System.Windows.Forms.TabSizeMode.Fixed;
-            this.MainTab.Style = UIStyle.LayuiRed;
+            this.MainTab.Size = new System.Drawing.Size(381, 396);
+            this.MainTab.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.MainTab.Style = Sunny.UI.UIStyle.LayuiRed;
             this.MainTab.StyleCustomMode = true;
             this.MainTab.TabIndex = 9;
-            this.MainTab.TabSelectedColor = Color.FromArgb(56, 56, 56);
-            this.MainTab.TabSelectedForeColor = Color.FromArgb((int)byte.MaxValue, 87, 34);
-            this.MainTab.TabSelectedHighColor = Color.FromArgb((int)byte.MaxValue, 87, 34);
+            this.MainTab.TabSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.MainTab.TabSelectedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(34)))));
+            this.MainTab.TabSelectedHighColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(34)))));
             this.MainTab.TabSelectedHighColorSize = 0;
             this.MainTab.TabStop = false;
-            this.MainTab.TabUnSelectedForeColor = Color.FromArgb((int)byte.MaxValue, 87, 34);
-            this.MainTab.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            this.AccountLoginTab.BackColor = Color.FromArgb((int)byte.MaxValue, 244, 240);
-            this.AccountLoginTab.Controls.Add((global::System.Windows.Forms.Control)this.Login_userIcon);
-            this.AccountLoginTab.Controls.Add((global::System.Windows.Forms.Control)this.LoginAccountLabel);
-            this.AccountLoginTab.Controls.Add((global::System.Windows.Forms.Control)this.ForgotPasswordLabel);
-            this.AccountLoginTab.Controls.Add((global::System.Windows.Forms.Control)this.AccountPasswordTextBox);
-            this.AccountLoginTab.Controls.Add((global::System.Windows.Forms.Control)this.RegisterAccountLabel);
-            this.AccountLoginTab.Controls.Add((global::System.Windows.Forms.Control)this.login_error_label);
-            this.AccountLoginTab.Controls.Add((global::System.Windows.Forms.Control)this.AccountTextBox);
-            this.AccountLoginTab.Location = new Point(0, 28);
-            this.AccountLoginTab.Margin = new global::System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MainTab.TabUnSelectedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(34)))));
+            this.MainTab.TipsFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainTab.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // AccountLoginTab
+            // 
+            this.AccountLoginTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(240)))));
+            this.AccountLoginTab.Controls.Add(this.Login_userIcon);
+            this.AccountLoginTab.Controls.Add(this.LoginAccountLabel);
+            this.AccountLoginTab.Controls.Add(this.ForgotPasswordLabel);
+            this.AccountLoginTab.Controls.Add(this.AccountPasswordTextBox);
+            this.AccountLoginTab.Controls.Add(this.RegisterAccountLabel);
+            this.AccountLoginTab.Controls.Add(this.login_error_label);
+            this.AccountLoginTab.Controls.Add(this.AccountTextBox);
+            this.AccountLoginTab.Location = new System.Drawing.Point(0, 28);
+            this.AccountLoginTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AccountLoginTab.Name = "AccountLoginTab";
-            this.AccountLoginTab.Size = new Size(385, 338);
+            this.AccountLoginTab.Size = new System.Drawing.Size(381, 368);
             this.AccountLoginTab.TabIndex = 0;
             this.AccountLoginTab.Text = "Account Login";
-            this.Login_userIcon.Font = new Font("Arial", 12f);
-            this.Login_userIcon.ForeColor = Color.FromArgb(230, 80, 80);
-            this.Login_userIcon.Location = new Point(104, 13);
-            this.Login_userIcon.Margin = new Padding(3, 2, 3, 2);
-            this.Login_userIcon.MinimumSize = new Size(1, 1);
+            // 
+            // Login_userIcon
+            // 
+            this.Login_userIcon.Font = new System.Drawing.Font("Arial", 12F);
+            this.Login_userIcon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Login_userIcon.Location = new System.Drawing.Point(104, 14);
+            this.Login_userIcon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Login_userIcon.MinimumSize = new System.Drawing.Size(1, 1);
             this.Login_userIcon.Name = "Login_userIcon";
-            this.Login_userIcon.Size = new Size(45, 45);
-            this.Login_userIcon.Style = UIStyle.Red;
+            this.Login_userIcon.Size = new System.Drawing.Size(45, 49);
+            this.Login_userIcon.Style = Sunny.UI.UIStyle.Red;
             this.Login_userIcon.TabIndex = 10;
             this.Login_userIcon.TabStop = false;
-            this.LoginAccountLabel.Cursor = Cursors.Hand;
-            this.LoginAccountLabel.FillColor = Color.FromArgb(230, 80, 80);
-            this.LoginAccountLabel.FillColor2 = Color.FromArgb(230, 80, 80);
-            this.LoginAccountLabel.FillHoverColor = Color.FromArgb(235, 115, 115);
-            this.LoginAccountLabel.FillPressColor = Color.FromArgb(184, 64, 64);
-            this.LoginAccountLabel.FillSelectedColor = Color.FromArgb(184, 64, 64);
-            this.LoginAccountLabel.Font = new Font("Arial", 12f);
-            this.LoginAccountLabel.Location = new Point(21, 212);
-            this.LoginAccountLabel.Margin = new Padding(3, 2, 3, 2);
-            this.LoginAccountLabel.MinimumSize = new Size(1, 1);
+            this.Login_userIcon.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // LoginAccountLabel
+            // 
+            this.LoginAccountLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LoginAccountLabel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.LoginAccountLabel.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.LoginAccountLabel.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.LoginAccountLabel.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.LoginAccountLabel.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.LoginAccountLabel.Font = new System.Drawing.Font("Arial", 12F);
+            this.LoginAccountLabel.Location = new System.Drawing.Point(21, 230);
+            this.LoginAccountLabel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.LoginAccountLabel.MinimumSize = new System.Drawing.Size(1, 1);
             this.LoginAccountLabel.Name = "LoginAccountLabel";
-            this.LoginAccountLabel.RectColor = Color.FromArgb(230, 80, 80);
-            this.LoginAccountLabel.RectHoverColor = Color.FromArgb(235, 115, 115);
-            this.LoginAccountLabel.RectPressColor = Color.FromArgb(184, 64, 64);
-            this.LoginAccountLabel.RectSelectedColor = Color.FromArgb(184, 64, 64);
-            this.LoginAccountLabel.Size = new Size(267, 29);
-            this.LoginAccountLabel.Style = UIStyle.Red;
+            this.LoginAccountLabel.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.LoginAccountLabel.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.LoginAccountLabel.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.LoginAccountLabel.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.LoginAccountLabel.Size = new System.Drawing.Size(335, 31);
+            this.LoginAccountLabel.Style = Sunny.UI.UIStyle.Red;
             this.LoginAccountLabel.TabIndex = 13;
             this.LoginAccountLabel.TabStop = false;
             this.LoginAccountLabel.Text = "Login";
-            this.LoginAccountLabel.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            this.LoginAccountLabel.Click += new EventHandler(this.LoginAccountLabel_Click);
-            this.ForgotPasswordLabel.ActiveLinkColor = Color.FromArgb(220, 155, 40);
-            this.ForgotPasswordLabel.Font = new Font("Arial", 9f);
-            this.ForgotPasswordLabel.LinkBehavior = LinkBehavior.AlwaysUnderline;
-            this.ForgotPasswordLabel.LinkColor = Color.FromArgb(230, 80, 80);
-            this.ForgotPasswordLabel.Location = new Point(173, 167);
+            this.LoginAccountLabel.TipsFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginAccountLabel.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.LoginAccountLabel.Click += new System.EventHandler(this.LoginAccountLabel_Click);
+            // 
+            // ForgotPasswordLabel
+            // 
+            this.ForgotPasswordLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.ForgotPasswordLabel.Font = new System.Drawing.Font("Arial", 9F);
+            this.ForgotPasswordLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
+            this.ForgotPasswordLabel.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.ForgotPasswordLabel.Location = new System.Drawing.Point(241, 155);
             this.ForgotPasswordLabel.Name = "ForgotPasswordLabel";
-            this.ForgotPasswordLabel.Size = new Size(65, 18);
-            this.ForgotPasswordLabel.Style = UIStyle.Red;
+            this.ForgotPasswordLabel.Size = new System.Drawing.Size(115, 20);
+            this.ForgotPasswordLabel.Style = Sunny.UI.UIStyle.Red;
             this.ForgotPasswordLabel.TabIndex = 16;
             this.ForgotPasswordLabel.TabStop = true;
             this.ForgotPasswordLabel.Text = "Forgot Password?";
-            this.ForgotPasswordLabel.VisitedLinkColor = Color.FromArgb(230, 80, 80);
-            this.ForgotPasswordLabel.Click += new EventHandler(this.Login_ForgotPassword_Click);
-            this.AccountPasswordTextBox.ButtonFillColor = Color.FromArgb(230, 80, 80);
-            this.AccountPasswordTextBox.ButtonFillHoverColor = Color.FromArgb(235, 115, 115);
-            this.AccountPasswordTextBox.ButtonFillPressColor = Color.FromArgb(184, 64, 64);
-            this.AccountPasswordTextBox.ButtonRectColor = Color.FromArgb(230, 80, 80);
-            this.AccountPasswordTextBox.ButtonRectHoverColor = Color.FromArgb(235, 115, 115);
-            this.AccountPasswordTextBox.ButtonRectPressColor = Color.FromArgb(184, 64, 64);
-            this.AccountPasswordTextBox.Cursor = Cursors.IBeam;
-            this.AccountPasswordTextBox.FillColor2 = Color.FromArgb(253, 243, 243);
-            this.AccountPasswordTextBox.Font = new Font("Arial", 12f);
-            this.AccountPasswordTextBox.Location = new Point(21, 101);
-            this.AccountPasswordTextBox.Margin = new Padding(3, 4, 3, 4);
-            this.AccountPasswordTextBox.MinimumSize = new Size(1, 11);
+            this.ForgotPasswordLabel.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.ForgotPasswordLabel.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.ForgotPasswordLabel.Click += new System.EventHandler(this.Login_ForgotPassword_Click);
+            // 
+            // AccountPasswordTextBox
+            // 
+            this.AccountPasswordTextBox.ButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.AccountPasswordTextBox.ButtonFillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.AccountPasswordTextBox.ButtonFillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.AccountPasswordTextBox.ButtonRectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.AccountPasswordTextBox.ButtonRectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.AccountPasswordTextBox.ButtonRectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.AccountPasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.AccountPasswordTextBox.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.AccountPasswordTextBox.Font = new System.Drawing.Font("Arial", 12F);
+            this.AccountPasswordTextBox.Location = new System.Drawing.Point(21, 109);
+            this.AccountPasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AccountPasswordTextBox.MinimumSize = new System.Drawing.Size(1, 12);
             this.AccountPasswordTextBox.Name = "AccountPasswordTextBox";
             this.AccountPasswordTextBox.PasswordChar = '*';
-            this.AccountPasswordTextBox.RectColor = Color.FromArgb(230, 80, 80);
-            this.AccountPasswordTextBox.ScrollBarColor = Color.FromArgb(230, 80, 80);
+            this.AccountPasswordTextBox.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.AccountPasswordTextBox.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.AccountPasswordTextBox.ShowText = false;
-            this.AccountPasswordTextBox.Size = new Size(267, 29);
-            this.AccountPasswordTextBox.Style = UIStyle.Red;
+            this.AccountPasswordTextBox.Size = new System.Drawing.Size(335, 31);
+            this.AccountPasswordTextBox.Style = Sunny.UI.UIStyle.Red;
             this.AccountPasswordTextBox.Symbol = 61475;
             this.AccountPasswordTextBox.SymbolSize = 22;
             this.AccountPasswordTextBox.TabIndex = 2;
-            this.AccountPasswordTextBox.TextAlignment = ContentAlignment.MiddleLeft;
+            this.AccountPasswordTextBox.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.AccountPasswordTextBox.Watermark = "Please enter password";
-            this.RegisterAccountLabel.Cursor = Cursors.Hand;
-            this.RegisterAccountLabel.FillColor = Color.FromArgb(230, 80, 80);
-            this.RegisterAccountLabel.FillColor2 = Color.FromArgb(230, 80, 80);
-            this.RegisterAccountLabel.FillHoverColor = Color.FromArgb(235, 115, 115);
-            this.RegisterAccountLabel.FillPressColor = Color.FromArgb(184, 64, 64);
-            this.RegisterAccountLabel.FillSelectedColor = Color.FromArgb(184, 64, 64);
-            this.RegisterAccountLabel.Font = new Font("Arial", 12f);
-            this.RegisterAccountLabel.Location = new Point(21, 256);
-            this.RegisterAccountLabel.Margin = new Padding(3, 2, 3, 2);
-            this.RegisterAccountLabel.MinimumSize = new Size(1, 1);
+            this.AccountPasswordTextBox.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // RegisterAccountLabel
+            // 
+            this.RegisterAccountLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RegisterAccountLabel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.RegisterAccountLabel.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.RegisterAccountLabel.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.RegisterAccountLabel.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.RegisterAccountLabel.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.RegisterAccountLabel.Font = new System.Drawing.Font("Arial", 12F);
+            this.RegisterAccountLabel.Location = new System.Drawing.Point(21, 277);
+            this.RegisterAccountLabel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RegisterAccountLabel.MinimumSize = new System.Drawing.Size(1, 1);
             this.RegisterAccountLabel.Name = "RegisterAccountLabel";
-            this.RegisterAccountLabel.RectColor = Color.FromArgb(230, 80, 80);
-            this.RegisterAccountLabel.RectHoverColor = Color.FromArgb(235, 115, 115);
-            this.RegisterAccountLabel.RectPressColor = Color.FromArgb(184, 64, 64);
-            this.RegisterAccountLabel.RectSelectedColor = Color.FromArgb(184, 64, 64);
-            this.RegisterAccountLabel.Size = new Size(267, 29);
-            this.RegisterAccountLabel.Style = UIStyle.Red;
+            this.RegisterAccountLabel.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.RegisterAccountLabel.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.RegisterAccountLabel.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.RegisterAccountLabel.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.RegisterAccountLabel.Size = new System.Drawing.Size(335, 31);
+            this.RegisterAccountLabel.Style = Sunny.UI.UIStyle.Red;
             this.RegisterAccountLabel.Symbol = 62004;
             this.RegisterAccountLabel.TabIndex = 14;
             this.RegisterAccountLabel.TabStop = false;
             this.RegisterAccountLabel.Text = "Register";
-            this.RegisterAccountLabel.TipsColor = Color.FromArgb(128, (int)byte.MaxValue, 128);
-            this.RegisterAccountLabel.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            this.RegisterAccountLabel.Click += new EventHandler(this.Login_Registertab_Click);
-            this.login_error_label.Font = new Font("Arial", 9f);
-            this.login_error_label.ForeColor = Color.Red;
-            this.login_error_label.Location = new Point(21, 194);
+            this.RegisterAccountLabel.TipsColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.RegisterAccountLabel.TipsFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegisterAccountLabel.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.RegisterAccountLabel.Click += new System.EventHandler(this.Login_Registertab_Click);
+            // 
+            // login_error_label
+            // 
+            this.login_error_label.Font = new System.Drawing.Font("Arial", 9F);
+            this.login_error_label.ForeColor = System.Drawing.Color.Red;
+            this.login_error_label.Location = new System.Drawing.Point(21, 210);
             this.login_error_label.Name = "login_error_label";
-            this.login_error_label.Size = new Size(169, 16);
-            this.login_error_label.Style = UIStyle.Custom;
+            this.login_error_label.Size = new System.Drawing.Size(335, 17);
+            this.login_error_label.Style = Sunny.UI.UIStyle.Custom;
             this.login_error_label.TabIndex = 15;
             this.login_error_label.Text = "Error message";
-            this.login_error_label.TextAlign = ContentAlignment.MiddleLeft;
+            this.login_error_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.login_error_label.Visible = false;
-            this.AccountTextBox.ButtonFillColor = Color.FromArgb(230, 80, 80);
-            this.AccountTextBox.ButtonFillHoverColor = Color.FromArgb(235, 115, 115);
-            this.AccountTextBox.ButtonFillPressColor = Color.FromArgb(184, 64, 64);
-            this.AccountTextBox.ButtonRectColor = Color.FromArgb(230, 80, 80);
-            this.AccountTextBox.ButtonRectHoverColor = Color.FromArgb(235, 115, 115);
-            this.AccountTextBox.ButtonRectPressColor = Color.FromArgb(184, 64, 64);
-            this.AccountTextBox.Cursor = Cursors.IBeam;
-            this.AccountTextBox.FillColor2 = Color.FromArgb(253, 243, 243);
-            this.AccountTextBox.Font = new Font("Arial", 12f);
-            this.AccountTextBox.Location = new Point(21, 64);
-            this.AccountTextBox.Margin = new Padding(3, 4, 3, 4);
-            this.AccountTextBox.MinimumSize = new Size(1, 11);
+            this.login_error_label.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // AccountTextBox
+            // 
+            this.AccountTextBox.ButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.AccountTextBox.ButtonFillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.AccountTextBox.ButtonFillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.AccountTextBox.ButtonRectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.AccountTextBox.ButtonRectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.AccountTextBox.ButtonRectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.AccountTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.AccountTextBox.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.AccountTextBox.Font = new System.Drawing.Font("Arial", 12F);
+            this.AccountTextBox.Location = new System.Drawing.Point(21, 69);
+            this.AccountTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AccountTextBox.MinimumSize = new System.Drawing.Size(1, 12);
             this.AccountTextBox.Name = "AccountTextBox";
-            this.AccountTextBox.RectColor = Color.FromArgb(230, 80, 80);
-            this.AccountTextBox.ScrollBarColor = Color.FromArgb(230, 80, 80);
+            this.AccountTextBox.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.AccountTextBox.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.AccountTextBox.ShowText = false;
-            this.AccountTextBox.Size = new Size(267, 29);
-            this.AccountTextBox.Style = UIStyle.Red;
+            this.AccountTextBox.Size = new System.Drawing.Size(335, 31);
+            this.AccountTextBox.Style = Sunny.UI.UIStyle.Red;
             this.AccountTextBox.Symbol = 61447;
             this.AccountTextBox.SymbolSize = 22;
             this.AccountTextBox.TabIndex = 1;
-            this.AccountTextBox.TextAlignment = ContentAlignment.MiddleLeft;
+            this.AccountTextBox.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.AccountTextBox.Watermark = "Please enter a account name";
-            this.RegistrationTab.BackColor = Color.FromArgb((int)byte.MaxValue, 244, 240);
-            this.RegistrationTab.Controls.Add((Control)this.Register_Back_To_LoginBtn);
-            this.RegistrationTab.Controls.Add((Control)this.RegistrationErrorLabel);
-            this.RegistrationTab.Controls.Add((Control)this.Register_AccountBtn);
-            this.RegistrationTab.Controls.Add((Control)this.Register_SecretAnswerTextBox);
-            this.RegistrationTab.Controls.Add((Control)this.Register_PasswordTextBox);
-            this.RegistrationTab.Controls.Add((Control)this.Register_QuestionTextBox);
-            this.RegistrationTab.Controls.Add((Control)this.Register_AccountNameTextBox);
-            this.RegistrationTab.Location = new Point(0, 28);
-            this.RegistrationTab.Margin = new Padding(3, 2, 3, 2);
+            this.AccountTextBox.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // RegistrationTab
+            // 
+            this.RegistrationTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(240)))));
+            this.RegistrationTab.Controls.Add(this.Register_Back_To_LoginBtn);
+            this.RegistrationTab.Controls.Add(this.RegistrationErrorLabel);
+            this.RegistrationTab.Controls.Add(this.Register_AccountBtn);
+            this.RegistrationTab.Controls.Add(this.Register_SecretAnswerTextBox);
+            this.RegistrationTab.Controls.Add(this.Register_PasswordTextBox);
+            this.RegistrationTab.Controls.Add(this.Register_QuestionTextBox);
+            this.RegistrationTab.Controls.Add(this.Register_AccountNameTextBox);
+            this.RegistrationTab.Location = new System.Drawing.Point(0, 28);
+            this.RegistrationTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RegistrationTab.Name = "RegistrationTab";
-            this.RegistrationTab.Size = new Size(385, 338);
+            this.RegistrationTab.Size = new System.Drawing.Size(381, 368);
             this.RegistrationTab.TabIndex = 1;
             this.RegistrationTab.Text = "Register Account";
-            this.Register_Back_To_LoginBtn.Cursor = Cursors.Hand;
-            this.Register_Back_To_LoginBtn.FillColor = Color.FromArgb(230, 80, 80);
-            this.Register_Back_To_LoginBtn.FillColor2 = Color.FromArgb(230, 80, 80);
-            this.Register_Back_To_LoginBtn.FillHoverColor = Color.FromArgb(235, 115, 115);
-            this.Register_Back_To_LoginBtn.FillPressColor = Color.FromArgb(184, 64, 64);
-            this.Register_Back_To_LoginBtn.FillSelectedColor = Color.FromArgb(184, 64, 64);
-            this.Register_Back_To_LoginBtn.Font = new Font("Arial", 12f);
-            this.Register_Back_To_LoginBtn.Location = new Point(21, 263);
-            this.Register_Back_To_LoginBtn.Margin = new Padding(3, 2, 3, 2);
-            this.Register_Back_To_LoginBtn.MinimumSize = new Size(1, 1);
+            // 
+            // Register_Back_To_LoginBtn
+            // 
+            this.Register_Back_To_LoginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Register_Back_To_LoginBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Register_Back_To_LoginBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Register_Back_To_LoginBtn.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Register_Back_To_LoginBtn.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Register_Back_To_LoginBtn.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Register_Back_To_LoginBtn.Font = new System.Drawing.Font("Arial", 12F);
+            this.Register_Back_To_LoginBtn.Location = new System.Drawing.Point(21, 285);
+            this.Register_Back_To_LoginBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Register_Back_To_LoginBtn.MinimumSize = new System.Drawing.Size(1, 1);
             this.Register_Back_To_LoginBtn.Name = "Register_Back_To_LoginBtn";
-            this.Register_Back_To_LoginBtn.RectColor = Color.FromArgb(230, 80, 80);
-            this.Register_Back_To_LoginBtn.RectHoverColor = Color.FromArgb(235, 115, 115);
-            this.Register_Back_To_LoginBtn.RectPressColor = Color.FromArgb(184, 64, 64);
-            this.Register_Back_To_LoginBtn.RectSelectedColor = Color.FromArgb(184, 64, 64);
-            this.Register_Back_To_LoginBtn.Size = new Size(213, 30);
-            this.Register_Back_To_LoginBtn.Style = UIStyle.Red;
+            this.Register_Back_To_LoginBtn.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Register_Back_To_LoginBtn.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Register_Back_To_LoginBtn.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Register_Back_To_LoginBtn.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Register_Back_To_LoginBtn.Size = new System.Drawing.Size(213, 32);
+            this.Register_Back_To_LoginBtn.Style = Sunny.UI.UIStyle.Red;
             this.Register_Back_To_LoginBtn.Symbol = 61730;
             this.Register_Back_To_LoginBtn.TabIndex = 20;
             this.Register_Back_To_LoginBtn.TabStop = false;
             this.Register_Back_To_LoginBtn.Text = "Back to Login";
-            this.Register_Back_To_LoginBtn.TipsColor = Color.FromArgb(128, (int)byte.MaxValue, 128);
-            this.Register_Back_To_LoginBtn.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            this.Register_Back_To_LoginBtn.Click += new EventHandler(this.RegisterBackToLogin_Click);
-            this.RegistrationErrorLabel.Font = new Font("Arial", 9f);
-            this.RegistrationErrorLabel.ForeColor = Color.Red;
-            this.RegistrationErrorLabel.Location = new Point(21, 194);
+            this.Register_Back_To_LoginBtn.TipsColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.Register_Back_To_LoginBtn.TipsFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Register_Back_To_LoginBtn.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.Register_Back_To_LoginBtn.Click += new System.EventHandler(this.RegisterBackToLogin_Click);
+            // 
+            // RegistrationErrorLabel
+            // 
+            this.RegistrationErrorLabel.Font = new System.Drawing.Font("Arial", 9F);
+            this.RegistrationErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.RegistrationErrorLabel.Location = new System.Drawing.Point(21, 210);
             this.RegistrationErrorLabel.Name = "RegistrationErrorLabel";
-            this.RegistrationErrorLabel.Size = new Size(213, 23);
-            this.RegistrationErrorLabel.Style = UIStyle.Custom;
+            this.RegistrationErrorLabel.Size = new System.Drawing.Size(213, 25);
+            this.RegistrationErrorLabel.Style = Sunny.UI.UIStyle.Custom;
             this.RegistrationErrorLabel.TabIndex = 17;
             this.RegistrationErrorLabel.Text = "Error message";
-            this.RegistrationErrorLabel.TextAlign = ContentAlignment.MiddleLeft;
+            this.RegistrationErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RegistrationErrorLabel.Visible = false;
-            this.Register_AccountBtn.Cursor = Cursors.Hand;
-            this.Register_AccountBtn.FillColor = Color.FromArgb(230, 80, 80);
-            this.Register_AccountBtn.FillColor2 = Color.FromArgb(230, 80, 80);
-            this.Register_AccountBtn.FillHoverColor = Color.FromArgb(235, 115, 115);
-            this.Register_AccountBtn.FillPressColor = Color.FromArgb(184, 64, 64);
-            this.Register_AccountBtn.FillSelectedColor = Color.FromArgb(184, 64, 64);
-            this.Register_AccountBtn.Font = new Font("Arial", 12f);
-            this.Register_AccountBtn.Location = new Point(21, 219);
-            this.Register_AccountBtn.Margin = new Padding(3, 2, 3, 2);
-            this.Register_AccountBtn.MinimumSize = new Size(1, 1);
+            this.RegistrationErrorLabel.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // Register_AccountBtn
+            // 
+            this.Register_AccountBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Register_AccountBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Register_AccountBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Register_AccountBtn.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Register_AccountBtn.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Register_AccountBtn.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Register_AccountBtn.Font = new System.Drawing.Font("Arial", 12F);
+            this.Register_AccountBtn.Location = new System.Drawing.Point(21, 237);
+            this.Register_AccountBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Register_AccountBtn.MinimumSize = new System.Drawing.Size(1, 1);
             this.Register_AccountBtn.Name = "Register_AccountBtn";
-            this.Register_AccountBtn.RectColor = Color.FromArgb(230, 80, 80);
-            this.Register_AccountBtn.RectHoverColor = Color.FromArgb(235, 115, 115);
-            this.Register_AccountBtn.RectPressColor = Color.FromArgb(184, 64, 64);
-            this.Register_AccountBtn.RectSelectedColor = Color.FromArgb(184, 64, 64);
-            this.Register_AccountBtn.Size = new Size(213, 30);
-            this.Register_AccountBtn.Style = UIStyle.Red;
+            this.Register_AccountBtn.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Register_AccountBtn.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Register_AccountBtn.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Register_AccountBtn.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Register_AccountBtn.Size = new System.Drawing.Size(213, 32);
+            this.Register_AccountBtn.Style = Sunny.UI.UIStyle.Red;
             this.Register_AccountBtn.Symbol = 62004;
             this.Register_AccountBtn.TabIndex = 16;
             this.Register_AccountBtn.TabStop = false;
             this.Register_AccountBtn.Text = "Register new account";
-            this.Register_AccountBtn.TipsColor = Color.FromArgb(128, (int)byte.MaxValue, 128);
-            this.Register_AccountBtn.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            this.Register_AccountBtn.Click += new EventHandler(this.RegisterAccount_Click);
-            this.Register_SecretAnswerTextBox.ButtonFillColor = Color.FromArgb(230, 80, 80);
-            this.Register_SecretAnswerTextBox.ButtonFillHoverColor = Color.FromArgb(235, 115, 115);
-            this.Register_SecretAnswerTextBox.ButtonFillPressColor = Color.FromArgb(184, 64, 64);
-            this.Register_SecretAnswerTextBox.ButtonRectColor = Color.FromArgb(230, 80, 80);
-            this.Register_SecretAnswerTextBox.ButtonRectHoverColor = Color.FromArgb(235, 115, 115);
-            this.Register_SecretAnswerTextBox.ButtonRectPressColor = Color.FromArgb(184, 64, 64);
-            this.Register_SecretAnswerTextBox.Cursor = Cursors.IBeam;
-            this.Register_SecretAnswerTextBox.FillColor2 = Color.FromArgb(253, 243, 243);
-            this.Register_SecretAnswerTextBox.Font = new Font("Arial", 12f);
-            this.Register_SecretAnswerTextBox.Location = new Point(21, 121);
-            this.Register_SecretAnswerTextBox.Margin = new Padding(3, 4, 3, 4);
-            this.Register_SecretAnswerTextBox.MinimumSize = new Size(1, 11);
+            this.Register_AccountBtn.TipsColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.Register_AccountBtn.TipsFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Register_AccountBtn.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.Register_AccountBtn.Click += new System.EventHandler(this.RegisterAccount_Click);
+            // 
+            // Register_SecretAnswerTextBox
+            // 
+            this.Register_SecretAnswerTextBox.ButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Register_SecretAnswerTextBox.ButtonFillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Register_SecretAnswerTextBox.ButtonFillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Register_SecretAnswerTextBox.ButtonRectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Register_SecretAnswerTextBox.ButtonRectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Register_SecretAnswerTextBox.ButtonRectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Register_SecretAnswerTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Register_SecretAnswerTextBox.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.Register_SecretAnswerTextBox.Font = new System.Drawing.Font("Arial", 12F);
+            this.Register_SecretAnswerTextBox.Location = new System.Drawing.Point(21, 131);
+            this.Register_SecretAnswerTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Register_SecretAnswerTextBox.MinimumSize = new System.Drawing.Size(1, 12);
             this.Register_SecretAnswerTextBox.Name = "Register_SecretAnswerTextBox";
             this.Register_SecretAnswerTextBox.PasswordChar = '*';
-            this.Register_SecretAnswerTextBox.RectColor = Color.FromArgb(230, 80, 80);
-            this.Register_SecretAnswerTextBox.ScrollBarColor = Color.FromArgb(230, 80, 80);
+            this.Register_SecretAnswerTextBox.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Register_SecretAnswerTextBox.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.Register_SecretAnswerTextBox.ShowText = false;
-            this.Register_SecretAnswerTextBox.Size = new Size(213, 30);
-            this.Register_SecretAnswerTextBox.Style = UIStyle.Red;
+            this.Register_SecretAnswerTextBox.Size = new System.Drawing.Size(213, 32);
+            this.Register_SecretAnswerTextBox.Style = Sunny.UI.UIStyle.Red;
             this.Register_SecretAnswerTextBox.Symbol = 61716;
             this.Register_SecretAnswerTextBox.SymbolSize = 22;
             this.Register_SecretAnswerTextBox.TabIndex = 4;
-            this.Register_SecretAnswerTextBox.TextAlignment = ContentAlignment.MiddleLeft;
+            this.Register_SecretAnswerTextBox.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.Register_SecretAnswerTextBox.Watermark = "Please enter a secret answer";
-            this.Register_PasswordTextBox.ButtonFillColor = Color.FromArgb(230, 80, 80);
-            this.Register_PasswordTextBox.ButtonFillHoverColor = Color.FromArgb(235, 115, 115);
-            this.Register_PasswordTextBox.ButtonFillPressColor = Color.FromArgb(184, 64, 64);
-            this.Register_PasswordTextBox.ButtonRectColor = Color.FromArgb(230, 80, 80);
-            this.Register_PasswordTextBox.ButtonRectHoverColor = Color.FromArgb(235, 115, 115);
-            this.Register_PasswordTextBox.ButtonRectPressColor = Color.FromArgb(184, 64, 64);
-            this.Register_PasswordTextBox.Cursor = Cursors.IBeam;
-            this.Register_PasswordTextBox.FillColor2 = Color.FromArgb(253, 243, 243);
-            this.Register_PasswordTextBox.Font = new Font("Arial", 12f);
-            this.Register_PasswordTextBox.Location = new Point(21, 47);
-            this.Register_PasswordTextBox.Margin = new Padding(3, 4, 3, 4);
-            this.Register_PasswordTextBox.MinimumSize = new Size(1, 11);
+            this.Register_SecretAnswerTextBox.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // Register_PasswordTextBox
+            // 
+            this.Register_PasswordTextBox.ButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Register_PasswordTextBox.ButtonFillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Register_PasswordTextBox.ButtonFillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Register_PasswordTextBox.ButtonRectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Register_PasswordTextBox.ButtonRectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Register_PasswordTextBox.ButtonRectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Register_PasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Register_PasswordTextBox.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.Register_PasswordTextBox.Font = new System.Drawing.Font("Arial", 12F);
+            this.Register_PasswordTextBox.Location = new System.Drawing.Point(21, 51);
+            this.Register_PasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Register_PasswordTextBox.MinimumSize = new System.Drawing.Size(1, 12);
             this.Register_PasswordTextBox.Name = "Register_PasswordTextBox";
             this.Register_PasswordTextBox.PasswordChar = '*';
-            this.Register_PasswordTextBox.RectColor = Color.FromArgb(230, 80, 80);
-            this.Register_PasswordTextBox.ScrollBarColor = Color.FromArgb(230, 80, 80);
+            this.Register_PasswordTextBox.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Register_PasswordTextBox.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.Register_PasswordTextBox.ShowText = false;
-            this.Register_PasswordTextBox.Size = new Size(213, 30);
-            this.Register_PasswordTextBox.Style = UIStyle.Red;
+            this.Register_PasswordTextBox.Size = new System.Drawing.Size(213, 32);
+            this.Register_PasswordTextBox.Style = Sunny.UI.UIStyle.Red;
             this.Register_PasswordTextBox.Symbol = 61475;
             this.Register_PasswordTextBox.SymbolSize = 22;
             this.Register_PasswordTextBox.TabIndex = 2;
-            this.Register_PasswordTextBox.TextAlignment = ContentAlignment.MiddleLeft;
+            this.Register_PasswordTextBox.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.Register_PasswordTextBox.Watermark = "Please enter a password";
-            this.Register_QuestionTextBox.ButtonFillColor = Color.FromArgb(230, 80, 80);
-            this.Register_QuestionTextBox.ButtonFillHoverColor = Color.FromArgb(235, 115, 115);
-            this.Register_QuestionTextBox.ButtonFillPressColor = Color.FromArgb(184, 64, 64);
-            this.Register_QuestionTextBox.ButtonRectColor = Color.FromArgb(230, 80, 80);
-            this.Register_QuestionTextBox.ButtonRectHoverColor = Color.FromArgb(235, 115, 115);
-            this.Register_QuestionTextBox.ButtonRectPressColor = Color.FromArgb(184, 64, 64);
-            this.Register_QuestionTextBox.Cursor = Cursors.IBeam;
-            this.Register_QuestionTextBox.FillColor2 = Color.FromArgb(253, 243, 243);
-            this.Register_QuestionTextBox.Font = new Font("Arial", 12f);
-            this.Register_QuestionTextBox.Location = new Point(21, 84);
-            this.Register_QuestionTextBox.Margin = new Padding(3, 4, 3, 4);
-            this.Register_QuestionTextBox.MinimumSize = new Size(1, 11);
+            this.Register_PasswordTextBox.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // Register_QuestionTextBox
+            // 
+            this.Register_QuestionTextBox.ButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Register_QuestionTextBox.ButtonFillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Register_QuestionTextBox.ButtonFillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Register_QuestionTextBox.ButtonRectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Register_QuestionTextBox.ButtonRectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Register_QuestionTextBox.ButtonRectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Register_QuestionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Register_QuestionTextBox.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.Register_QuestionTextBox.Font = new System.Drawing.Font("Arial", 12F);
+            this.Register_QuestionTextBox.Location = new System.Drawing.Point(21, 91);
+            this.Register_QuestionTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Register_QuestionTextBox.MinimumSize = new System.Drawing.Size(1, 12);
             this.Register_QuestionTextBox.Name = "Register_QuestionTextBox";
-            this.Register_QuestionTextBox.RectColor = Color.FromArgb(230, 80, 80);
-            this.Register_QuestionTextBox.ScrollBarColor = Color.FromArgb(230, 80, 80);
+            this.Register_QuestionTextBox.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Register_QuestionTextBox.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.Register_QuestionTextBox.ShowText = false;
-            this.Register_QuestionTextBox.Size = new Size(213, 30);
-            this.Register_QuestionTextBox.Style = UIStyle.Red;
+            this.Register_QuestionTextBox.Size = new System.Drawing.Size(213, 32);
+            this.Register_QuestionTextBox.Style = Sunny.UI.UIStyle.Red;
             this.Register_QuestionTextBox.Symbol = 61563;
             this.Register_QuestionTextBox.SymbolSize = 22;
             this.Register_QuestionTextBox.TabIndex = 3;
-            this.Register_QuestionTextBox.TextAlignment = ContentAlignment.MiddleLeft;
+            this.Register_QuestionTextBox.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.Register_QuestionTextBox.Watermark = "Please enter a security question";
-            this.Register_AccountNameTextBox.ButtonFillColor = Color.FromArgb(230, 80, 80);
-            this.Register_AccountNameTextBox.ButtonFillHoverColor = Color.FromArgb(235, 115, 115);
-            this.Register_AccountNameTextBox.ButtonFillPressColor = Color.FromArgb(184, 64, 64);
-            this.Register_AccountNameTextBox.ButtonRectColor = Color.FromArgb(230, 80, 80);
-            this.Register_AccountNameTextBox.ButtonRectHoverColor = Color.FromArgb(235, 115, 115);
-            this.Register_AccountNameTextBox.ButtonRectPressColor = Color.FromArgb(184, 64, 64);
-            this.Register_AccountNameTextBox.Cursor = Cursors.IBeam;
-            this.Register_AccountNameTextBox.FillColor2 = Color.FromArgb(253, 243, 243);
-            this.Register_AccountNameTextBox.Font = new Font("Arial", 12f);
-            this.Register_AccountNameTextBox.Location = new Point(21, 10);
-            this.Register_AccountNameTextBox.Margin = new Padding(3, 4, 3, 4);
-            this.Register_AccountNameTextBox.MinimumSize = new Size(1, 11);
+            this.Register_QuestionTextBox.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // Register_AccountNameTextBox
+            // 
+            this.Register_AccountNameTextBox.ButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Register_AccountNameTextBox.ButtonFillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Register_AccountNameTextBox.ButtonFillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Register_AccountNameTextBox.ButtonRectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Register_AccountNameTextBox.ButtonRectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Register_AccountNameTextBox.ButtonRectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Register_AccountNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Register_AccountNameTextBox.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.Register_AccountNameTextBox.Font = new System.Drawing.Font("Arial", 12F);
+            this.Register_AccountNameTextBox.Location = new System.Drawing.Point(21, 11);
+            this.Register_AccountNameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Register_AccountNameTextBox.MinimumSize = new System.Drawing.Size(1, 12);
             this.Register_AccountNameTextBox.Name = "Register_AccountNameTextBox";
-            this.Register_AccountNameTextBox.RectColor = Color.FromArgb(230, 80, 80);
-            this.Register_AccountNameTextBox.ScrollBarColor = Color.FromArgb(230, 80, 80);
+            this.Register_AccountNameTextBox.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Register_AccountNameTextBox.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.Register_AccountNameTextBox.ShowText = false;
-            this.Register_AccountNameTextBox.Size = new Size(213, 30);
-            this.Register_AccountNameTextBox.Style = UIStyle.Red;
+            this.Register_AccountNameTextBox.Size = new System.Drawing.Size(213, 32);
+            this.Register_AccountNameTextBox.Style = Sunny.UI.UIStyle.Red;
             this.Register_AccountNameTextBox.Symbol = 61447;
             this.Register_AccountNameTextBox.SymbolSize = 22;
             this.Register_AccountNameTextBox.TabIndex = 1;
-            this.Register_AccountNameTextBox.TextAlignment = ContentAlignment.MiddleLeft;
+            this.Register_AccountNameTextBox.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.Register_AccountNameTextBox.Watermark = "Please enter the account name";
-            this.ChangePasswordTab.BackColor = Color.FromArgb((int)byte.MaxValue, 244, 240);
-            this.ChangePasswordTab.Controls.Add((Control)this.Modify_Back_To_LoginBtn);
-            this.ChangePasswordTab.Controls.Add((Control)this.Modify_ErrorLabel);
-            this.ChangePasswordTab.Controls.Add((Control)this.Modify_PasswordBtn);
-            this.ChangePasswordTab.Controls.Add((Control)this.Modify_AnswerTextBox);
-            this.ChangePasswordTab.Controls.Add((Control)this.Modify_PasswordTextBox);
-            this.ChangePasswordTab.Controls.Add((Control)this.Modify_QuestionTextBox);
-            this.ChangePasswordTab.Controls.Add((Control)this.Modify_AccountNameTextBox);
-            this.ChangePasswordTab.Location = new Point(0, 28);
-            this.ChangePasswordTab.Margin = new Padding(3, 2, 3, 2);
+            this.Register_AccountNameTextBox.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // ChangePasswordTab
+            // 
+            this.ChangePasswordTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(240)))));
+            this.ChangePasswordTab.Controls.Add(this.Modify_Back_To_LoginBtn);
+            this.ChangePasswordTab.Controls.Add(this.Modify_ErrorLabel);
+            this.ChangePasswordTab.Controls.Add(this.Modify_PasswordBtn);
+            this.ChangePasswordTab.Controls.Add(this.Modify_AnswerTextBox);
+            this.ChangePasswordTab.Controls.Add(this.Modify_PasswordTextBox);
+            this.ChangePasswordTab.Controls.Add(this.Modify_QuestionTextBox);
+            this.ChangePasswordTab.Controls.Add(this.Modify_AccountNameTextBox);
+            this.ChangePasswordTab.Location = new System.Drawing.Point(0, 28);
+            this.ChangePasswordTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ChangePasswordTab.Name = "ChangePasswordTab";
-            this.ChangePasswordTab.Size = new Size(385, 338);
+            this.ChangePasswordTab.Size = new System.Drawing.Size(381, 368);
             this.ChangePasswordTab.TabIndex = 2;
             this.ChangePasswordTab.Text = "Change Password";
-            this.Modify_Back_To_LoginBtn.Cursor = Cursors.Hand;
-            this.Modify_Back_To_LoginBtn.FillColor = Color.FromArgb(230, 80, 80);
-            this.Modify_Back_To_LoginBtn.FillColor2 = Color.FromArgb(230, 80, 80);
-            this.Modify_Back_To_LoginBtn.FillHoverColor = Color.FromArgb(235, 115, 115);
-            this.Modify_Back_To_LoginBtn.FillPressColor = Color.FromArgb(184, 64, 64);
-            this.Modify_Back_To_LoginBtn.FillSelectedColor = Color.FromArgb(184, 64, 64);
-            this.Modify_Back_To_LoginBtn.Font = new Font("Arial", 12f);
-            this.Modify_Back_To_LoginBtn.Location = new Point(21, 262);
-            this.Modify_Back_To_LoginBtn.Margin = new Padding(3, 2, 3, 2);
-            this.Modify_Back_To_LoginBtn.MinimumSize = new Size(1, 1);
+            // 
+            // Modify_Back_To_LoginBtn
+            // 
+            this.Modify_Back_To_LoginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Modify_Back_To_LoginBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Modify_Back_To_LoginBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Modify_Back_To_LoginBtn.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Modify_Back_To_LoginBtn.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Modify_Back_To_LoginBtn.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Modify_Back_To_LoginBtn.Font = new System.Drawing.Font("Arial", 12F);
+            this.Modify_Back_To_LoginBtn.Location = new System.Drawing.Point(21, 284);
+            this.Modify_Back_To_LoginBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Modify_Back_To_LoginBtn.MinimumSize = new System.Drawing.Size(1, 1);
             this.Modify_Back_To_LoginBtn.Name = "Modify_Back_To_LoginBtn";
-            this.Modify_Back_To_LoginBtn.RectColor = Color.FromArgb(230, 80, 80);
-            this.Modify_Back_To_LoginBtn.RectHoverColor = Color.FromArgb(235, 115, 115);
-            this.Modify_Back_To_LoginBtn.RectPressColor = Color.FromArgb(184, 64, 64);
-            this.Modify_Back_To_LoginBtn.RectSelectedColor = Color.FromArgb(184, 64, 64);
-            this.Modify_Back_To_LoginBtn.Size = new Size(213, 30);
-            this.Modify_Back_To_LoginBtn.Style = UIStyle.Red;
+            this.Modify_Back_To_LoginBtn.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Modify_Back_To_LoginBtn.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Modify_Back_To_LoginBtn.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Modify_Back_To_LoginBtn.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Modify_Back_To_LoginBtn.Size = new System.Drawing.Size(213, 32);
+            this.Modify_Back_To_LoginBtn.Style = Sunny.UI.UIStyle.Red;
             this.Modify_Back_To_LoginBtn.Symbol = 61730;
             this.Modify_Back_To_LoginBtn.TabIndex = 24;
             this.Modify_Back_To_LoginBtn.TabStop = false;
             this.Modify_Back_To_LoginBtn.Text = "Back to Login";
-            this.Modify_Back_To_LoginBtn.TipsColor = Color.FromArgb(128, (int)byte.MaxValue, 128);
-            this.Modify_Back_To_LoginBtn.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            this.Modify_Back_To_LoginBtn.Click += new EventHandler(this.Modify_BackToLogin_Click);
-            this.Modify_ErrorLabel.Font = new Font("Arial", 9f);
-            this.Modify_ErrorLabel.ForeColor = Color.Red;
-            this.Modify_ErrorLabel.Location = new Point(18, 200);
+            this.Modify_Back_To_LoginBtn.TipsColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.Modify_Back_To_LoginBtn.TipsFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Modify_Back_To_LoginBtn.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.Modify_Back_To_LoginBtn.Click += new System.EventHandler(this.Modify_BackToLogin_Click);
+            // 
+            // Modify_ErrorLabel
+            // 
+            this.Modify_ErrorLabel.Font = new System.Drawing.Font("Arial", 9F);
+            this.Modify_ErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.Modify_ErrorLabel.Location = new System.Drawing.Point(18, 217);
             this.Modify_ErrorLabel.Name = "Modify_ErrorLabel";
-            this.Modify_ErrorLabel.Size = new Size(216, 16);
-            this.Modify_ErrorLabel.Style = UIStyle.Custom;
+            this.Modify_ErrorLabel.Size = new System.Drawing.Size(216, 17);
+            this.Modify_ErrorLabel.Style = Sunny.UI.UIStyle.Custom;
             this.Modify_ErrorLabel.TabIndex = 22;
             this.Modify_ErrorLabel.Text = "Error message";
-            this.Modify_ErrorLabel.TextAlign = ContentAlignment.MiddleLeft;
+            this.Modify_ErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Modify_ErrorLabel.Visible = false;
-            this.Modify_PasswordBtn.Cursor = Cursors.Hand;
-            this.Modify_PasswordBtn.FillColor = Color.FromArgb(230, 80, 80);
-            this.Modify_PasswordBtn.FillColor2 = Color.FromArgb(230, 80, 80);
-            this.Modify_PasswordBtn.FillHoverColor = Color.FromArgb(235, 115, 115);
-            this.Modify_PasswordBtn.FillPressColor = Color.FromArgb(184, 64, 64);
-            this.Modify_PasswordBtn.FillSelectedColor = Color.FromArgb(184, 64, 64);
-            this.Modify_PasswordBtn.Font = new Font("Arial", 12f);
-            this.Modify_PasswordBtn.Location = new Point(21, 219);
-            this.Modify_PasswordBtn.Margin = new Padding(3, 2, 3, 2);
-            this.Modify_PasswordBtn.MinimumSize = new Size(1, 1);
+            this.Modify_ErrorLabel.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // Modify_PasswordBtn
+            // 
+            this.Modify_PasswordBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Modify_PasswordBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Modify_PasswordBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Modify_PasswordBtn.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Modify_PasswordBtn.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Modify_PasswordBtn.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Modify_PasswordBtn.Font = new System.Drawing.Font("Arial", 12F);
+            this.Modify_PasswordBtn.Location = new System.Drawing.Point(21, 237);
+            this.Modify_PasswordBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Modify_PasswordBtn.MinimumSize = new System.Drawing.Size(1, 1);
             this.Modify_PasswordBtn.Name = "Modify_PasswordBtn";
-            this.Modify_PasswordBtn.RectColor = Color.FromArgb(230, 80, 80);
-            this.Modify_PasswordBtn.RectHoverColor = Color.FromArgb(235, 115, 115);
-            this.Modify_PasswordBtn.RectPressColor = Color.FromArgb(184, 64, 64);
-            this.Modify_PasswordBtn.RectSelectedColor = Color.FromArgb(184, 64, 64);
-            this.Modify_PasswordBtn.Size = new Size(213, 30);
-            this.Modify_PasswordBtn.Style = UIStyle.Red;
+            this.Modify_PasswordBtn.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Modify_PasswordBtn.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Modify_PasswordBtn.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Modify_PasswordBtn.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Modify_PasswordBtn.Size = new System.Drawing.Size(213, 32);
+            this.Modify_PasswordBtn.Style = Sunny.UI.UIStyle.Red;
             this.Modify_PasswordBtn.Symbol = 61573;
             this.Modify_PasswordBtn.TabIndex = 21;
             this.Modify_PasswordBtn.TabStop = false;
             this.Modify_PasswordBtn.Text = "Change password";
-            this.Modify_PasswordBtn.TipsColor = Color.FromArgb(128, (int)byte.MaxValue, 128);
-            this.Modify_PasswordBtn.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            this.Modify_PasswordBtn.Click += new EventHandler(this.Modify_ChangePassword_Click);
-            this.Modify_AnswerTextBox.ButtonFillColor = Color.FromArgb(230, 80, 80);
-            this.Modify_AnswerTextBox.ButtonFillHoverColor = Color.FromArgb(235, 115, 115);
-            this.Modify_AnswerTextBox.ButtonFillPressColor = Color.FromArgb(184, 64, 64);
-            this.Modify_AnswerTextBox.ButtonRectColor = Color.FromArgb(230, 80, 80);
-            this.Modify_AnswerTextBox.ButtonRectHoverColor = Color.FromArgb(235, 115, 115);
-            this.Modify_AnswerTextBox.ButtonRectPressColor = Color.FromArgb(184, 64, 64);
-            this.Modify_AnswerTextBox.Cursor = Cursors.IBeam;
-            this.Modify_AnswerTextBox.FillColor2 = Color.FromArgb(253, 243, 243);
-            this.Modify_AnswerTextBox.Font = new Font("Arial", 12f);
-            this.Modify_AnswerTextBox.Location = new Point(21, 121);
-            this.Modify_AnswerTextBox.Margin = new Padding(3, 4, 3, 4);
-            this.Modify_AnswerTextBox.MinimumSize = new Size(1, 11);
+            this.Modify_PasswordBtn.TipsColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.Modify_PasswordBtn.TipsFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Modify_PasswordBtn.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.Modify_PasswordBtn.Click += new System.EventHandler(this.Modify_ChangePassword_Click);
+            // 
+            // Modify_AnswerTextBox
+            // 
+            this.Modify_AnswerTextBox.ButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Modify_AnswerTextBox.ButtonFillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Modify_AnswerTextBox.ButtonFillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Modify_AnswerTextBox.ButtonRectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Modify_AnswerTextBox.ButtonRectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Modify_AnswerTextBox.ButtonRectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Modify_AnswerTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Modify_AnswerTextBox.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.Modify_AnswerTextBox.Font = new System.Drawing.Font("Arial", 12F);
+            this.Modify_AnswerTextBox.Location = new System.Drawing.Point(21, 131);
+            this.Modify_AnswerTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Modify_AnswerTextBox.MinimumSize = new System.Drawing.Size(1, 12);
             this.Modify_AnswerTextBox.Name = "Modify_AnswerTextBox";
             this.Modify_AnswerTextBox.PasswordChar = '*';
-            this.Modify_AnswerTextBox.RectColor = Color.FromArgb(230, 80, 80);
-            this.Modify_AnswerTextBox.ScrollBarColor = Color.FromArgb(230, 80, 80);
+            this.Modify_AnswerTextBox.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Modify_AnswerTextBox.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.Modify_AnswerTextBox.ShowText = false;
-            this.Modify_AnswerTextBox.Size = new Size(213, 30);
-            this.Modify_AnswerTextBox.Style = UIStyle.Red;
+            this.Modify_AnswerTextBox.Size = new System.Drawing.Size(213, 32);
+            this.Modify_AnswerTextBox.Style = Sunny.UI.UIStyle.Red;
             this.Modify_AnswerTextBox.Symbol = 61716;
             this.Modify_AnswerTextBox.SymbolSize = 22;
             this.Modify_AnswerTextBox.TabIndex = 20;
-            this.Modify_AnswerTextBox.TextAlignment = ContentAlignment.MiddleLeft;
+            this.Modify_AnswerTextBox.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.Modify_AnswerTextBox.Watermark = "Please enter the secret answer";
-            this.Modify_PasswordTextBox.ButtonFillColor = Color.FromArgb(230, 80, 80);
-            this.Modify_PasswordTextBox.ButtonFillHoverColor = Color.FromArgb(235, 115, 115);
-            this.Modify_PasswordTextBox.ButtonFillPressColor = Color.FromArgb(184, 64, 64);
-            this.Modify_PasswordTextBox.ButtonRectColor = Color.FromArgb(230, 80, 80);
-            this.Modify_PasswordTextBox.ButtonRectHoverColor = Color.FromArgb(235, 115, 115);
-            this.Modify_PasswordTextBox.ButtonRectPressColor = Color.FromArgb(184, 64, 64);
-            this.Modify_PasswordTextBox.Cursor = Cursors.IBeam;
-            this.Modify_PasswordTextBox.FillColor2 = Color.FromArgb(253, 243, 243);
-            this.Modify_PasswordTextBox.Font = new Font("Arial", 12f);
-            this.Modify_PasswordTextBox.Location = new Point(21, 47);
-            this.Modify_PasswordTextBox.Margin = new Padding(3, 4, 3, 4);
-            this.Modify_PasswordTextBox.MinimumSize = new Size(1, 11);
+            this.Modify_AnswerTextBox.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // Modify_PasswordTextBox
+            // 
+            this.Modify_PasswordTextBox.ButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Modify_PasswordTextBox.ButtonFillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Modify_PasswordTextBox.ButtonFillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Modify_PasswordTextBox.ButtonRectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Modify_PasswordTextBox.ButtonRectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Modify_PasswordTextBox.ButtonRectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Modify_PasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Modify_PasswordTextBox.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.Modify_PasswordTextBox.Font = new System.Drawing.Font("Arial", 12F);
+            this.Modify_PasswordTextBox.Location = new System.Drawing.Point(21, 51);
+            this.Modify_PasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Modify_PasswordTextBox.MinimumSize = new System.Drawing.Size(1, 12);
             this.Modify_PasswordTextBox.Name = "Modify_PasswordTextBox";
             this.Modify_PasswordTextBox.PasswordChar = '*';
-            this.Modify_PasswordTextBox.RectColor = Color.FromArgb(230, 80, 80);
-            this.Modify_PasswordTextBox.ScrollBarColor = Color.FromArgb(230, 80, 80);
+            this.Modify_PasswordTextBox.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Modify_PasswordTextBox.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.Modify_PasswordTextBox.ShowText = false;
-            this.Modify_PasswordTextBox.Size = new Size(213, 30);
-            this.Modify_PasswordTextBox.Style = UIStyle.Red;
+            this.Modify_PasswordTextBox.Size = new System.Drawing.Size(213, 32);
+            this.Modify_PasswordTextBox.Style = Sunny.UI.UIStyle.Red;
             this.Modify_PasswordTextBox.Symbol = 61475;
             this.Modify_PasswordTextBox.SymbolSize = 22;
             this.Modify_PasswordTextBox.TabIndex = 18;
-            this.Modify_PasswordTextBox.TextAlignment = ContentAlignment.MiddleLeft;
+            this.Modify_PasswordTextBox.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.Modify_PasswordTextBox.Watermark = "Please enter a new password";
-            this.Modify_QuestionTextBox.ButtonFillColor = Color.FromArgb(230, 80, 80);
-            this.Modify_QuestionTextBox.ButtonFillHoverColor = Color.FromArgb(235, 115, 115);
-            this.Modify_QuestionTextBox.ButtonFillPressColor = Color.FromArgb(184, 64, 64);
-            this.Modify_QuestionTextBox.ButtonRectColor = Color.FromArgb(230, 80, 80);
-            this.Modify_QuestionTextBox.ButtonRectHoverColor = Color.FromArgb(235, 115, 115);
-            this.Modify_QuestionTextBox.ButtonRectPressColor = Color.FromArgb(184, 64, 64);
-            this.Modify_QuestionTextBox.Cursor = Cursors.IBeam;
-            this.Modify_QuestionTextBox.FillColor2 = Color.FromArgb(253, 243, 243);
-            this.Modify_QuestionTextBox.Font = new Font("Arial", 12f);
-            this.Modify_QuestionTextBox.Location = new Point(21, 84);
-            this.Modify_QuestionTextBox.Margin = new Padding(3, 4, 3, 4);
-            this.Modify_QuestionTextBox.MinimumSize = new Size(1, 11);
+            this.Modify_PasswordTextBox.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // Modify_QuestionTextBox
+            // 
+            this.Modify_QuestionTextBox.ButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Modify_QuestionTextBox.ButtonFillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Modify_QuestionTextBox.ButtonFillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Modify_QuestionTextBox.ButtonRectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Modify_QuestionTextBox.ButtonRectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Modify_QuestionTextBox.ButtonRectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Modify_QuestionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Modify_QuestionTextBox.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.Modify_QuestionTextBox.Font = new System.Drawing.Font("Arial", 12F);
+            this.Modify_QuestionTextBox.Location = new System.Drawing.Point(21, 91);
+            this.Modify_QuestionTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Modify_QuestionTextBox.MinimumSize = new System.Drawing.Size(1, 12);
             this.Modify_QuestionTextBox.Name = "Modify_QuestionTextBox";
-            this.Modify_QuestionTextBox.RectColor = Color.FromArgb(230, 80, 80);
-            this.Modify_QuestionTextBox.ScrollBarColor = Color.FromArgb(230, 80, 80);
+            this.Modify_QuestionTextBox.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Modify_QuestionTextBox.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.Modify_QuestionTextBox.ShowText = false;
-            this.Modify_QuestionTextBox.Size = new Size(213, 30);
-            this.Modify_QuestionTextBox.Style = UIStyle.Red;
+            this.Modify_QuestionTextBox.Size = new System.Drawing.Size(213, 32);
+            this.Modify_QuestionTextBox.Style = Sunny.UI.UIStyle.Red;
             this.Modify_QuestionTextBox.Symbol = 61563;
             this.Modify_QuestionTextBox.SymbolSize = 22;
             this.Modify_QuestionTextBox.TabIndex = 19;
-            this.Modify_QuestionTextBox.TextAlignment = ContentAlignment.MiddleLeft;
+            this.Modify_QuestionTextBox.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.Modify_QuestionTextBox.Watermark = "Please, enter a security question";
-            this.Modify_AccountNameTextBox.ButtonFillColor = Color.FromArgb(230, 80, 80);
-            this.Modify_AccountNameTextBox.ButtonFillHoverColor = Color.FromArgb(235, 115, 115);
-            this.Modify_AccountNameTextBox.ButtonFillPressColor = Color.FromArgb(184, 64, 64);
-            this.Modify_AccountNameTextBox.ButtonRectColor = Color.FromArgb(230, 80, 80);
-            this.Modify_AccountNameTextBox.ButtonRectHoverColor = Color.FromArgb(235, 115, 115);
-            this.Modify_AccountNameTextBox.ButtonRectPressColor = Color.FromArgb(184, 64, 64);
-            this.Modify_AccountNameTextBox.Cursor = Cursors.IBeam;
-            this.Modify_AccountNameTextBox.FillColor2 = Color.FromArgb(253, 243, 243);
-            this.Modify_AccountNameTextBox.Font = new Font("Arial", 12f);
-            this.Modify_AccountNameTextBox.Location = new Point(21, 10);
-            this.Modify_AccountNameTextBox.Margin = new Padding(3, 4, 3, 4);
-            this.Modify_AccountNameTextBox.MinimumSize = new Size(1, 11);
+            this.Modify_QuestionTextBox.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // Modify_AccountNameTextBox
+            // 
+            this.Modify_AccountNameTextBox.ButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Modify_AccountNameTextBox.ButtonFillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Modify_AccountNameTextBox.ButtonFillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Modify_AccountNameTextBox.ButtonRectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Modify_AccountNameTextBox.ButtonRectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+            this.Modify_AccountNameTextBox.ButtonRectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Modify_AccountNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Modify_AccountNameTextBox.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.Modify_AccountNameTextBox.Font = new System.Drawing.Font("Arial", 12F);
+            this.Modify_AccountNameTextBox.Location = new System.Drawing.Point(21, 11);
+            this.Modify_AccountNameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Modify_AccountNameTextBox.MinimumSize = new System.Drawing.Size(1, 12);
             this.Modify_AccountNameTextBox.Name = "Modify_AccountNameTextBox";
-            this.Modify_AccountNameTextBox.RectColor = Color.FromArgb(230, 80, 80);
-            this.Modify_AccountNameTextBox.ScrollBarColor = Color.FromArgb(230, 80, 80);
+            this.Modify_AccountNameTextBox.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.Modify_AccountNameTextBox.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.Modify_AccountNameTextBox.ShowText = false;
-            this.Modify_AccountNameTextBox.Size = new Size(213, 30);
-            this.Modify_AccountNameTextBox.Style = UIStyle.Red;
+            this.Modify_AccountNameTextBox.Size = new System.Drawing.Size(213, 32);
+            this.Modify_AccountNameTextBox.Style = Sunny.UI.UIStyle.Red;
             this.Modify_AccountNameTextBox.Symbol = 61447;
             this.Modify_AccountNameTextBox.SymbolSize = 22;
             this.Modify_AccountNameTextBox.TabIndex = 17;
-            this.Modify_AccountNameTextBox.TextAlignment = ContentAlignment.MiddleLeft;
+            this.Modify_AccountNameTextBox.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.Modify_AccountNameTextBox.Watermark = "Please enter an existing account";
-            this.StartGameTab.BackColor = Color.FromArgb((int)byte.MaxValue, 244, 240);
-            this.StartGameTab.Controls.Add((Control)this.activate_account);
-            this.StartGameTab.Controls.Add((Control)this.selected_tab);
-            this.StartGameTab.Controls.Add((Control)this.start_selected_zone);
-            this.StartGameTab.Controls.Add((Control)this.logoutLabel);
-            this.StartGameTab.Controls.Add((Control)this.GameServerList);
-            this.StartGameTab.Controls.Add((Control)this.Launcher_enterGameBtn);
-            this.StartGameTab.Location = new Point(0, 28);
-            this.StartGameTab.Margin = new Padding(3, 2, 3, 2);
-            this.StartGameTab.Name = "StartGame";
-            this.StartGameTab.Size = new Size(385, 338);
+            this.Modify_AccountNameTextBox.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // StartGameTab
+            // 
+            this.StartGameTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(240)))));
+            this.StartGameTab.Controls.Add(this.activate_account);
+            this.StartGameTab.Controls.Add(this.selected_tab);
+            this.StartGameTab.Controls.Add(this.start_selected_zone);
+            this.StartGameTab.Controls.Add(this.logoutLabel);
+            this.StartGameTab.Controls.Add(this.GameServerList);
+            this.StartGameTab.Controls.Add(this.Launcher_enterGameBtn);
+            this.StartGameTab.Location = new System.Drawing.Point(0, 28);
+            this.StartGameTab.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.StartGameTab.Name = "StartGameTab";
+            this.StartGameTab.Size = new System.Drawing.Size(381, 368);
             this.StartGameTab.TabIndex = 3;
             this.StartGameTab.Text = "Start Game";
-            this.activate_account.Cursor = Cursors.Hand;
+            // 
+            // activate_account
+            // 
+            this.activate_account.Cursor = System.Windows.Forms.Cursors.Hand;
             this.activate_account.Enabled = false;
-            this.activate_account.FillColor = Color.FromArgb(110, 190, 40);
-            this.activate_account.FillColor2 = Color.FromArgb(110, 190, 40);
-            this.activate_account.FillHoverColor = Color.FromArgb(139, 203, 83);
-            this.activate_account.FillPressColor = Color.FromArgb(88, 152, 32);
-            this.activate_account.FillSelectedColor = Color.FromArgb(88, 152, 32);
-            this.activate_account.Font = new Font("Arial", 12f);
-            this.activate_account.Location = new Point(3, 2);
-            this.activate_account.Margin = new Padding(3, 2, 3, 2);
-            this.activate_account.MinimumSize = new Size(1, 1);
-            this.activate_account.Name = "Activate Account";
+            this.activate_account.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(190)))), ((int)(((byte)(40)))));
+            this.activate_account.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(190)))), ((int)(((byte)(40)))));
+            this.activate_account.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(203)))), ((int)(((byte)(83)))));
+            this.activate_account.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(152)))), ((int)(((byte)(32)))));
+            this.activate_account.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(152)))), ((int)(((byte)(32)))));
+            this.activate_account.Font = new System.Drawing.Font("Arial", 12F);
+            this.activate_account.Location = new System.Drawing.Point(3, 2);
+            this.activate_account.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.activate_account.MinimumSize = new System.Drawing.Size(1, 1);
+            this.activate_account.Name = "activate_account";
             this.activate_account.Radius = 15;
-            this.activate_account.RectColor = Color.FromArgb(110, 190, 40);
-            this.activate_account.RectHoverColor = Color.FromArgb(139, 203, 83);
-            this.activate_account.RectPressColor = Color.FromArgb(88, 152, 32);
-            this.activate_account.RectSelectedColor = Color.FromArgb(88, 152, 32);
-            this.activate_account.Size = new Size(253, 30);
-            this.activate_account.Style = UIStyle.Green;
+            this.activate_account.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(190)))), ((int)(((byte)(40)))));
+            this.activate_account.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(203)))), ((int)(((byte)(83)))));
+            this.activate_account.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(152)))), ((int)(((byte)(32)))));
+            this.activate_account.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(152)))), ((int)(((byte)(32)))));
+            this.activate_account.Size = new System.Drawing.Size(253, 32);
+            this.activate_account.Style = Sunny.UI.UIStyle.Green;
             this.activate_account.Symbol = 57607;
             this.activate_account.TabIndex = 9;
             this.activate_account.Text = "mistyes";
-            this.activate_account.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            this.selected_tab.Font = new Font("Arial", 9f);
-            this.selected_tab.Location = new Point(7, 220);
-            this.selected_tab.Name = "Start tab";
-            this.selected_tab.Size = new Size(118, 20);
+            this.activate_account.TipsFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.activate_account.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // selected_tab
+            // 
+            this.selected_tab.Font = new System.Drawing.Font("Arial", 9F);
+            this.selected_tab.Location = new System.Drawing.Point(7, 238);
+            this.selected_tab.Name = "selected_tab";
+            this.selected_tab.Size = new System.Drawing.Size(118, 22);
             this.selected_tab.TabIndex = 8;
             this.selected_tab.Text = "Currently Selected Server:";
-            this.selected_tab.TextAlign = ContentAlignment.MiddleLeft;
-            this.start_selected_zone.ActiveLinkColor = Color.FromArgb(220, 155, 40);
-            this.start_selected_zone.Font = new Font("Arial", 12f);
-            this.start_selected_zone.ImageAlign = ContentAlignment.MiddleRight;
-            this.start_selected_zone.LinkBehavior = global::System.Windows.Forms.LinkBehavior.AlwaysUnderline;
-            this.start_selected_zone.LinkColor = Color.FromArgb(192, 64, 0);
-            this.start_selected_zone.Location = new Point(131, 214);
-            this.start_selected_zone.Name = "Start Selected Zone";
-            this.start_selected_zone.Size = new Size(116, 25);
-            this.start_selected_zone.Style = UIStyle.Custom;
+            this.selected_tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.selected_tab.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // start_selected_zone
+            // 
+            this.start_selected_zone.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.start_selected_zone.Font = new System.Drawing.Font("Arial", 12F);
+            this.start_selected_zone.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.start_selected_zone.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
+            this.start_selected_zone.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.start_selected_zone.Location = new System.Drawing.Point(131, 232);
+            this.start_selected_zone.Name = "start_selected_zone";
+            this.start_selected_zone.Size = new System.Drawing.Size(116, 27);
+            this.start_selected_zone.Style = Sunny.UI.UIStyle.Custom;
             this.start_selected_zone.TabIndex = 7;
-            this.start_selected_zone.TextAlign = ContentAlignment.MiddleLeft;
-            this.start_selected_zone.VisitedLinkColor = Color.FromArgb(230, 80, 80);
-            this.logoutLabel.ActiveLinkColor = Color.FromArgb(220, 155, 40);
-            this.logoutLabel.Font = new Font("Arial", 9f);
-            this.logoutLabel.ImageAlign = ContentAlignment.MiddleRight;
-            this.logoutLabel.LinkBehavior = global::System.Windows.Forms.LinkBehavior.AlwaysUnderline;
-            this.logoutLabel.LinkColor = Color.Red;
-            this.logoutLabel.Location = new Point(216, 34);
-            this.logoutLabel.Name = "Logout";
-            this.logoutLabel.Size = new Size(40, 17);
-            this.logoutLabel.Style = UIStyle.Custom;
+            this.start_selected_zone.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.start_selected_zone.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.start_selected_zone.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // logoutLabel
+            // 
+            this.logoutLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(40)))));
+            this.logoutLabel.Font = new System.Drawing.Font("Arial", 9F);
+            this.logoutLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.logoutLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
+            this.logoutLabel.LinkColor = System.Drawing.Color.Red;
+            this.logoutLabel.Location = new System.Drawing.Point(216, 37);
+            this.logoutLabel.Name = "logoutLabel";
+            this.logoutLabel.Size = new System.Drawing.Size(40, 18);
+            this.logoutLabel.Style = Sunny.UI.UIStyle.Custom;
             this.logoutLabel.TabIndex = 6;
             this.logoutLabel.TabStop = true;
             this.logoutLabel.Text = "Quit";
-            this.logoutLabel.TextAlign = ContentAlignment.MiddleRight;
-            this.logoutLabel.VisitedLinkColor = Color.FromArgb(230, 80, 80);
-            this.logoutLabel.Click += new EventHandler(this.LogoutTab_Click);
-            this.GameServerList.BackColor = Color.Wheat;
-            this.GameServerList.DrawMode = global::System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.GameServerList.Font = new Font("Arial", 10.5f);
-            this.GameServerList.ForeColor = Color.Blue;
+            this.logoutLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.logoutLabel.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.logoutLabel.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.logoutLabel.Click += new System.EventHandler(this.LogoutTab_Click);
+            // 
+            // GameServerList
+            // 
+            this.GameServerList.BackColor = System.Drawing.Color.Wheat;
+            this.GameServerList.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.GameServerList.Font = new System.Drawing.Font("Arial", 10.5F);
+            this.GameServerList.ForeColor = System.Drawing.Color.Blue;
             this.GameServerList.FormattingEnabled = true;
             this.GameServerList.ItemHeight = 20;
-            this.GameServerList.Items.AddRange(new object[2]
-            {
-            (object) "DragonValley",
-            (object) "SadTree"
-            });
-            this.GameServerList.Location = new Point(73, 40);
-            this.GameServerList.Margin = new global::System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.GameServerList.Name = "Select server";
-            this.GameServerList.Size = new Size(120, 171);
+            this.GameServerList.Items.AddRange(new object[] {
+            "DragonValley",
+            "SadTree"});
+            this.GameServerList.Location = new System.Drawing.Point(73, 43);
+            this.GameServerList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.GameServerList.Name = "GameServerList";
+            this.GameServerList.Size = new System.Drawing.Size(120, 185);
             this.GameServerList.TabIndex = 4;
             this.GameServerList.TabStop = false;
-            this.GameServerList.DrawItem += new global::System.Windows.Forms.DrawItemEventHandler(this.StartupChoosegameServer_DrawItem);
-            this.GameServerList.SelectedIndexChanged += new EventHandler(this.StartupChooseGS_SelectedIndexChanged);
-            this.Launcher_enterGameBtn.Cursor = global::System.Windows.Forms.Cursors.Hand;
-            this.Launcher_enterGameBtn.FillColor = Color.FromArgb((int)byte.MaxValue, 87, 34);
-            this.Launcher_enterGameBtn.FillColor2 = Color.FromArgb((int)byte.MaxValue, 87, 34);
-            this.Launcher_enterGameBtn.FillHoverColor = Color.FromArgb((int)byte.MaxValue, 121, 78);
-            this.Launcher_enterGameBtn.FillPressColor = Color.FromArgb(204, 70, 28);
-            this.Launcher_enterGameBtn.FillSelectedColor = Color.FromArgb(204, 70, 28);
-            this.Launcher_enterGameBtn.Font = new Font("Arial", 12f);
-            this.Launcher_enterGameBtn.Location = new Point(3, 241);
-            this.Launcher_enterGameBtn.Margin = new global::System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Launcher_enterGameBtn.MinimumSize = new Size(1, 1);
-            this.Launcher_enterGameBtn.Name = "Enter Game";
-            this.Launcher_enterGameBtn.RectColor = Color.FromArgb((int)byte.MaxValue, 87, 34);
-            this.Launcher_enterGameBtn.RectHoverColor = Color.FromArgb((int)byte.MaxValue, 121, 78);
-            this.Launcher_enterGameBtn.RectPressColor = Color.FromArgb(204, 70, 28);
-            this.Launcher_enterGameBtn.RectSelectedColor = Color.FromArgb(204, 70, 28);
-            this.Launcher_enterGameBtn.Size = new Size(253, 30);
-            this.Launcher_enterGameBtn.Style = UIStyle.LayuiRed;
+            this.GameServerList.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.StartupChoosegameServer_DrawItem);
+            this.GameServerList.SelectedIndexChanged += new System.EventHandler(this.StartupChooseGS_SelectedIndexChanged);
+            // 
+            // Launcher_enterGameBtn
+            // 
+            this.Launcher_enterGameBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Launcher_enterGameBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(34)))));
+            this.Launcher_enterGameBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(34)))));
+            this.Launcher_enterGameBtn.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(121)))), ((int)(((byte)(78)))));
+            this.Launcher_enterGameBtn.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(70)))), ((int)(((byte)(28)))));
+            this.Launcher_enterGameBtn.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(70)))), ((int)(((byte)(28)))));
+            this.Launcher_enterGameBtn.Font = new System.Drawing.Font("Arial", 12F);
+            this.Launcher_enterGameBtn.Location = new System.Drawing.Point(3, 261);
+            this.Launcher_enterGameBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Launcher_enterGameBtn.MinimumSize = new System.Drawing.Size(1, 1);
+            this.Launcher_enterGameBtn.Name = "Launcher_enterGameBtn";
+            this.Launcher_enterGameBtn.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(87)))), ((int)(((byte)(34)))));
+            this.Launcher_enterGameBtn.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(121)))), ((int)(((byte)(78)))));
+            this.Launcher_enterGameBtn.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(70)))), ((int)(((byte)(28)))));
+            this.Launcher_enterGameBtn.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(70)))), ((int)(((byte)(28)))));
+            this.Launcher_enterGameBtn.Size = new System.Drawing.Size(253, 32);
+            this.Launcher_enterGameBtn.Style = Sunny.UI.UIStyle.LayuiRed;
             this.Launcher_enterGameBtn.TabIndex = 1;
             this.Launcher_enterGameBtn.TabStop = false;
             this.Launcher_enterGameBtn.Text = "Enter Game";
-            this.Launcher_enterGameBtn.TipsFont = new Font("Arial", 9f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            this.Launcher_enterGameBtn.Click += new EventHandler(this.Launch_EnterGame_Click);
+            this.Launcher_enterGameBtn.TipsFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Launcher_enterGameBtn.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.Launcher_enterGameBtn.Click += new System.EventHandler(this.Launch_EnterGame_Click);
+            // 
+            // InterfaceUpdateTimer
+            // 
             this.InterfaceUpdateTimer.Interval = 30000;
-            this.InterfaceUpdateTimer.Tick += new EventHandler(this.UIUnlock);
+            this.InterfaceUpdateTimer.Tick += new System.EventHandler(this.UIUnlock);
+            // 
+            // DataProcessTimer
+            // 
             this.DataProcessTimer.Enabled = true;
-            this.DataProcessTimer.Tick += new EventHandler(this.PacketProcess);
+            this.DataProcessTimer.Tick += new System.EventHandler(this.PacketProcess);
+            // 
+            // minimizeToTray
+            // 
             this.minimizeToTray.ContextMenuStrip = this.TrayRightClickMenu;
-            //this.minimizeToTray.Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
-            this.minimizeToTray.Text = "Login Launcher";
-            this.minimizeToTray.MouseClick += new global::System.Windows.Forms.MouseEventHandler(this.TrayRestoreFromTaskBar);
-            this.TrayRightClickMenu.Items.AddRange(new global::System.Windows.Forms.ToolStripItem[2]
-            {
-            (global::System.Windows.Forms.ToolStripItem) this.OpenToolStripMenuItem,
-            (global::System.Windows.Forms.ToolStripItem) this.QuitToolStripMenuItem
-            });
+            this.minimizeToTray.Icon = ((System.Drawing.Icon)(resources.GetObject("minimizeToTray.Icon")));
+            this.minimizeToTray.Text = "Mir3D Launcher";
+            this.minimizeToTray.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TrayRestoreFromTaskBar);
+            // 
+            // TrayRightClickMenu
+            // 
+            this.TrayRightClickMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.OpenToolStripMenuItem,
+            this.QuitToolStripMenuItem});
             this.TrayRightClickMenu.Name = "TrayRightClickMenu";
-            this.TrayRightClickMenu.Size = new Size(101, 48);
+            this.TrayRightClickMenu.Size = new System.Drawing.Size(104, 48);
+            // 
+            // OpenToolStripMenuItem
+            // 
             this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
-            this.OpenToolStripMenuItem.Size = new Size(100, 22);
+            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.OpenToolStripMenuItem.Text = "Open";
-            this.OpenToolStripMenuItem.Click += new EventHandler(this.Tray_Restore);
+            this.OpenToolStripMenuItem.Click += new System.EventHandler(this.Tray_Restore);
+            // 
+            // QuitToolStripMenuItem
+            // 
             this.QuitToolStripMenuItem.Name = "QuitToolStripMenuItem";
-            this.QuitToolStripMenuItem.Size = new Size(100, 22);
+            this.QuitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.QuitToolStripMenuItem.Text = "Quit";
-            this.QuitToolStripMenuItem.Click += new EventHandler(this.TrayCloseLauncher);
+            this.QuitToolStripMenuItem.Click += new System.EventHandler(this.TrayCloseLauncher);
+            // 
+            // GameProcessTimer
+            // 
             this.GameProcessTimer.Enabled = true;
-            this.GameProcessTimer.Tick += new EventHandler(this.GameProgressCheck);
-            this.AutoScaleDimensions = new SizeF(6f, 12f);
-            this.AutoScaleMode = global::System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImageLayout = global::System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new Size(385, 366);
-            this.Controls.Add((global::System.Windows.Forms.Control)this.MainTab);
+            this.GameProcessTimer.Tick += new System.EventHandler(this.GameProgressCheck);
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(385, 396);
+            this.Controls.Add(this.MainTab);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = global::System.Windows.Forms.FormBorderStyle.FixedSingle;
-            //this.Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
-            this.Margin = new global::System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.StartPosition = global::System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Launcher - Translated by DjDarkBoyZ";
-            this.FormClosing += new global::System.Windows.Forms.FormClosingEventHandler(this.TrayHideToTaskBar);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Mir3D - Launcher LomCN";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrayHideToTaskBar);
             this.MainTab.ResumeLayout(false);
             this.AccountLoginTab.ResumeLayout(false);
             this.RegistrationTab.ResumeLayout(false);
@@ -721,6 +864,7 @@ namespace Launcher
             this.StartGameTab.ResumeLayout(false);
             this.TrayRightClickMenu.ResumeLayout(false);
             this.ResumeLayout(false);
+
         }
 
         private IContainer components;
