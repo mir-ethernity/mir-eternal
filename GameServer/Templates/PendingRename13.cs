@@ -37,7 +37,7 @@ namespace GameServer.Templates
 		public float Buff增加系数;
 
 		
-		public bool 验证自身Buff;
+		public bool 验证ItSelfBuff;
 
 		
 		public ushort Id;

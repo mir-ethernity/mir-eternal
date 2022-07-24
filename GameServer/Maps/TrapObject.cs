@@ -23,21 +23,21 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000818 RID: 2072 RVA: 0x00006AEC File Offset: 0x00004CEC
-		public ushort 主动触发间隔
+		public ushort ActivelyTriggerInterval
 		{
 			get
 			{
-				return this.陷阱模板.主动触发间隔;
+				return this.陷阱模板.ActivelyTriggerInterval;
 			}
 		}
 
 		
 		// (get) Token: 0x06000819 RID: 2073 RVA: 0x00006AF9 File Offset: 0x00004CF9
-		public ushort 主动触发延迟
+		public ushort ActivelyTriggerDelay
 		{
 			get
 			{
-				return this.陷阱模板.主动触发延迟;
+				return this.陷阱模板.ActivelyTriggerDelay;
 			}
 		}
 
@@ -131,7 +131,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.陷阱模板.陷阱名字;
+				return this.陷阱模板.Name;
 			}
 		}
 
@@ -151,7 +151,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.陷阱模板.陷阱体型;
+				return this.陷阱模板.Size;
 			}
 		}
 
@@ -166,7 +166,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public TrapObject(MapObject 来源, 技能陷阱 模板, MapInstance 地图, Point 坐标)
+		public TrapObject(MapObject 来源, SkillTraps 模板, MapInstance 地图, Point 坐标)
 		{
 			
 			
@@ -176,16 +176,16 @@ namespace GameServer.Maps
 			this.当前坐标 = 坐标;
 			this.行走时间 = MainProcess.CurrentTime;
 			this.放置时间 = MainProcess.CurrentTime;
-			this.陷阱编号 = 模板.陷阱编号;
+			this.Id = 模板.Id;
 			this.当前方向 = this.陷阱来源.当前方向;
 			this.被动触发列表 = new HashSet<MapObject>();
-			this.消失时间 = this.放置时间 + TimeSpan.FromMilliseconds((double)this.陷阱模板.陷阱持续时间);
-			this.触发时间 = this.放置时间 + TimeSpan.FromMilliseconds((double)this.陷阱模板.主动触发延迟);
+			this.消失时间 = this.放置时间 + TimeSpan.FromMilliseconds((double)this.陷阱模板.Duration);
+			this.触发时间 = this.放置时间 + TimeSpan.FromMilliseconds((double)this.陷阱模板.ActivelyTriggerDelay);
 			PlayerObject PlayerObject = 来源 as PlayerObject;
 			if (PlayerObject != null)
 			{
 				SkillData SkillData;
-				if (this.陷阱模板.绑定等级 != 0 && PlayerObject.MainSkills表.TryGetValue(this.陷阱模板.绑定等级, out SkillData))
+				if (this.陷阱模板.BindingLevel != 0 && PlayerObject.MainSkills表.TryGetValue(this.陷阱模板.BindingLevel, out SkillData))
 				{
 					this.陷阱等级 = SkillData.技能等级.V;
 				}
@@ -203,9 +203,9 @@ namespace GameServer.Maps
 					this.消失时间 += TimeSpan.FromMilliseconds((double)this.陷阱模板.InscriptionExtendedTime);
 				}
 			}
-			this.主动触发技能 = ((this.陷阱模板.主动触发技能 == null || !GameSkills.DataSheet.ContainsKey(this.陷阱模板.主动触发技能)) ? null : GameSkills.DataSheet[this.陷阱模板.主动触发技能]);
-			this.被动触发技能 = ((this.陷阱模板.被动触发技能 == null || !GameSkills.DataSheet.ContainsKey(this.陷阱模板.被动触发技能)) ? null : GameSkills.DataSheet[this.陷阱模板.被动触发技能]);
-			this.MapId = ++MapGatewayProcess.陷阱编号;
+			this.ActivelyTriggerSkills = ((this.陷阱模板.ActivelyTriggerSkills == null || !GameSkills.DataSheet.ContainsKey(this.陷阱模板.ActivelyTriggerSkills)) ? null : GameSkills.DataSheet[this.陷阱模板.ActivelyTriggerSkills]);
+			this.PassiveTriggerSkill = ((this.陷阱模板.PassiveTriggerSkill == null || !GameSkills.DataSheet.ContainsKey(this.陷阱模板.PassiveTriggerSkill)) ? null : GameSkills.DataSheet[this.陷阱模板.PassiveTriggerSkill]);
+			this.MapId = ++MapGatewayProcess.Id;
 			base.绑定网格();
 			base.更新邻居时处理();
 			MapGatewayProcess.添加MapObject(this);
@@ -230,24 +230,24 @@ namespace GameServer.Maps
 				{
 					技能实例.处理任务();
 				}
-				if (this.主动触发技能 != null && MainProcess.CurrentTime > this.触发时间)
+				if (this.ActivelyTriggerSkills != null && MainProcess.CurrentTime > this.触发时间)
 				{
 					this.主动触发陷阱();
 				}
-				if (this.陷阱模板.陷阱能否移动 && this.陷阱移动次数 < this.陷阱模板.限制移动次数 && MainProcess.CurrentTime > this.行走时间)
+				if (this.陷阱模板.CanMove && this.陷阱移动次数 < this.陷阱模板.LimitMoveSteps && MainProcess.CurrentTime > this.行走时间)
 				{
-					if (this.陷阱模板.当前方向移动)
+					if (this.陷阱模板.MoveInCurrentDirection)
 					{
-						base.自身移动时处理(ComputingClass.前方坐标(this.当前坐标, this.当前方向, 1));
+						base.ItSelf移动时处理(ComputingClass.前方坐标(this.当前坐标, this.当前方向, 1));
 						base.发送封包(new TrapMoveLocationPacket
 						{
-							陷阱编号 = this.MapId,
+							Id = this.MapId,
 							移动坐标 = this.当前坐标,
 							移动高度 = this.当前高度,
-							移动速度 = this.陷阱模板.陷阱移动速度
+							移动速度 = this.陷阱模板.MoveSpeed
 						});
 					}
-					if (this.被动触发技能 != null)
+					if (this.PassiveTriggerSkill != null)
 					{
 						foreach (Point 坐标 in ComputingClass.技能范围(this.当前坐标, this.当前方向, this.对象体型))
 						{
@@ -258,7 +258,7 @@ namespace GameServer.Maps
 						}
 					}
 					this.陷阱移动次数 += 1;
-					this.行走时间 = this.行走时间.AddMilliseconds((double)(this.陷阱模板.陷阱移动速度 * 60));
+					this.行走时间 = this.行走时间.AddMilliseconds((double)(this.陷阱模板.MoveSpeed * 60));
 				}
 			}
 			base.处理对象数据();
@@ -271,9 +271,9 @@ namespace GameServer.Maps
 			{
 				return;
 			}
-			if (this.被动触发技能 != null && !对象.对象死亡 && (对象.对象类型 & this.陷阱模板.被动限定类型) != (GameObjectType)0 && 对象.特定类型(this.陷阱来源, this.陷阱模板.被动指定类型) && (this.陷阱来源.对象关系(对象) & this.陷阱模板.被动限定关系) != (游戏对象关系)0 && (!this.陷阱模板.禁止重复触发 || this.被动触发列表.Add(对象)))
+			if (this.PassiveTriggerSkill != null && !对象.对象死亡 && (对象.对象类型 & this.陷阱模板.PassiveObjectType) != (GameObjectType)0 && 对象.特定类型(this.陷阱来源, this.陷阱模板.PassiveTargetType) && (this.陷阱来源.对象关系(对象) & this.陷阱模板.PassiveType) != (GameObjectRelationship)0 && (!this.陷阱模板.RetriggeringIsProhibited || this.被动触发列表.Add(对象)))
 			{
-				new 技能实例(this, this.被动触发技能, null, 0, this.当前地图, this.当前坐标, 对象, 对象.当前坐标, null, null, false);
+				new 技能实例(this, this.PassiveTriggerSkill, null, 0, this.当前地图, this.当前坐标, 对象, 对象.当前坐标, null, null, false);
 			}
 		}
 
@@ -284,8 +284,8 @@ namespace GameServer.Maps
 			{
 				return;
 			}
-			new 技能实例(this, this.主动触发技能, null, 0, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false);
-			this.触发时间 += TimeSpan.FromMilliseconds((double)this.主动触发间隔);
+			new 技能实例(this, this.ActivelyTriggerSkills, null, 0, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false);
+			this.触发时间 += TimeSpan.FromMilliseconds((double)this.ActivelyTriggerInterval);
 		}
 
 		
@@ -298,7 +298,7 @@ namespace GameServer.Maps
 		public byte 陷阱等级;
 
 		
-		public ushort 陷阱编号;
+		public ushort Id;
 
 		
 		public DateTime 放置时间;
@@ -313,7 +313,7 @@ namespace GameServer.Maps
 		public MapObject 陷阱来源;
 
 		
-		public 技能陷阱 陷阱模板;
+		public SkillTraps 陷阱模板;
 
 		
 		public HashSet<MapObject> 被动触发列表;
@@ -322,9 +322,9 @@ namespace GameServer.Maps
 		public byte 陷阱移动次数;
 
 		
-		public GameSkills 被动触发技能;
+		public GameSkills PassiveTriggerSkill;
 
 		
-		public GameSkills 主动触发技能;
+		public GameSkills ActivelyTriggerSkills;
 	}
 }

@@ -62,7 +62,7 @@ namespace GameServer.Templates
 		public GameObjectType 限定目标类型;
 
 		
-		public 游戏对象关系 限定目标关系;
+		public GameObjectRelationship 限定目标关系;
 
 		
 		public SpecifyTargetType 限定特定类型;

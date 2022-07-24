@@ -3,11 +3,11 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.服务器, 编号 = 642, 长度 = 10, 注释 = "申请敌对应答")]
-	public sealed class 申请敌对应答 : GamePacket
+	[PacketInfoAttribute(来源 = PacketSource.服务器, 编号 = 642, 长度 = 10, 注释 = "申请Hostility应答")]
+	public sealed class 申请Hostility应答 : GamePacket
 	{
 		
-		public 申请敌对应答()
+		public 申请Hostility应答()
 		{
 			
 			

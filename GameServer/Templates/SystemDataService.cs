@@ -31,7 +31,7 @@ namespace GameServer.Templates
 				typeof(GameTitle),
 				typeof(InscriptionSkill),
 				typeof(GameSkills),
-				typeof(技能陷阱),
+				typeof(SkillTraps),
 				typeof(GameBuffs)
 			};
 			Task.Run(delegate()

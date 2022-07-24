@@ -24,7 +24,7 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(下标 = 12, 长度 = 2)]
-		public ushort 陷阱编号;
+		public ushort Id;
 
 		
 		[WrappingFieldAttribute(下标 = 14, 长度 = 4)]

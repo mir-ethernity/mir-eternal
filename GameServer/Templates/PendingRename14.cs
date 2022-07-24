@@ -13,7 +13,7 @@ namespace GameServer.Templates
 		}
 
 		
-		public bool 角色自身添加;
+		public bool 角色ItSelf添加;
 
 		
 		public ushort 触发Id;
@@ -34,7 +34,7 @@ namespace GameServer.Templates
 		public bool 同组铭文无效;
 
 		
-		public bool 验证自身Buff;
+		public bool 验证ItSelfBuff;
 
 		
 		public ushort Id;

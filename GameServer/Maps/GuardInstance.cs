@@ -373,9 +373,9 @@ namespace GameServer.Maps
 		}
 
 		
-		public override void 自身死亡处理(MapObject 对象, bool 技能击杀)
+		public override void ItSelf死亡处理(MapObject 对象, bool 技能击杀)
 		{
-			base.自身死亡处理(对象, 技能击杀);
+			base.ItSelf死亡处理(对象, 技能击杀);
 			this.消失时间 = MainProcess.CurrentTime.AddMilliseconds(10000.0);
 			this.复活时间 = MainProcess.CurrentTime.AddMilliseconds((double)((this.当前地图.MapId == 80) ? int.MaxValue : 60000));
 			this.Buff列表.Clear();

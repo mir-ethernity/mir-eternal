@@ -695,9 +695,9 @@ namespace GameServer.Maps
 		}
 
 		
-		public override void 自身死亡处理(MapObject 对象, bool 技能击杀)
+		public override void ItSelf死亡处理(MapObject 对象, bool 技能击杀)
 		{
-			base.自身死亡处理(对象, 技能击杀);
+			base.ItSelf死亡处理(对象, 技能击杀);
 			foreach (BuffData BuffData in this.Buff列表.Values.ToList<BuffData>())
 			{
 				if (BuffData.死亡消失)
@@ -715,7 +715,7 @@ namespace GameServer.Maps
 			}
 			foreach (PetObject PetObject in this.宠物列表.ToList<PetObject>())
 			{
-				PetObject.自身死亡处理(null, false);
+				PetObject.ItSelf死亡处理(null, false);
 			}
 			客户网络 网络连接 = this.网络连接;
 			if (网络连接 != null)
@@ -2595,7 +2595,7 @@ namespace GameServer.Maps
 				{
 					if (PetObject.绑定武器)
 					{
-						PetObject.自身死亡处理(null, false);
+						PetObject.ItSelf死亡处理(null, false);
 					}
 				}
 				SkillData.Id = Id;
@@ -2671,7 +2671,7 @@ namespace GameServer.Maps
 					{
 						if (PetObject.绑定武器)
 						{
-							PetObject.自身死亡处理(null, false);
+							PetObject.ItSelf死亡处理(null, false);
 						}
 					}
 				}
@@ -3584,7 +3584,7 @@ namespace GameServer.Maps
 					移动坐标 = point,
 					移动速度 = base.行走速度
 				});
-				base.自身移动时处理(point);
+				base.ItSelf移动时处理(point);
 				return;
 			}
 		}
@@ -3659,7 +3659,7 @@ namespace GameServer.Maps
 					移动坐标 = point2,
 					移动耗时 = base.奔跑速度
 				});
-				base.自身移动时处理(point2);
+				base.ItSelf移动时处理(point2);
 				return;
 			}
 			else
@@ -21061,7 +21061,7 @@ namespace GameServer.Maps
 							});
 							return;
 						}
-						else if (this.所属行会.敌对行会.ContainsKey(GuildData))
+						else if (this.所属行会.Hostility行会.ContainsKey(GuildData))
 						{
 							客户网络 网络连接5 = this.网络连接;
 							if (网络连接5 == null)
@@ -21119,7 +21119,7 @@ namespace GameServer.Maps
 							{
 								if (外交类型 == 2)
 								{
-									this.所属行会.行会敌对(GuildData, 外交时间);
+									this.所属行会.行会Hostility(GuildData, 外交时间);
 									NetworkServiceGateway.发送公告(string.Format("[{0}] and [{1}] become enemy guilds.", this.所属行会, GuildData), false);
 									return;
 								}
@@ -21143,7 +21143,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public void 申请行会敌对(byte 敌对时间, string 行会名字)
+		public void 申请行会Hostility(byte Hostility时间, string 行会名字)
 		{
 			if (this.所属行会 == null)
 			{
@@ -21205,7 +21205,7 @@ namespace GameServer.Maps
 							});
 							return;
 						}
-						else if (this.所属行会.敌对行会.ContainsKey(GuildData))
+						else if (this.所属行会.Hostility行会.ContainsKey(GuildData))
 						{
 							客户网络 网络连接5 = this.网络连接;
 							if (网络连接5 == null)
@@ -21220,9 +21220,9 @@ namespace GameServer.Maps
 						}
 						else
 						{
-							if (敌对时间 >= 1 && 敌对时间 <= 3)
+							if (Hostility时间 >= 1 && Hostility时间 <= 3)
 							{
-								this.所属行会.行会敌对(GuildData, 敌对时间);
+								this.所属行会.行会Hostility(GuildData, Hostility时间);
 								NetworkServiceGateway.发送公告(string.Format("[{0}] and [{1}] have become rival guilds.", this.所属行会, GuildData), false);
 								return;
 							}
@@ -21338,7 +21338,7 @@ namespace GameServer.Maps
 							});
 							return;
 						}
-						else if (this.所属行会.敌对行会.ContainsKey(GuildData))
+						else if (this.所属行会.Hostility行会.ContainsKey(GuildData))
 						{
 							客户网络 网络连接5 = this.网络连接;
 							if (网络连接5 == null)
@@ -21487,7 +21487,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public void 申请解除敌对(int 行会编号)
+		public void 申请解除Hostility(int 行会编号)
 		{
 			if (this.所属行会 == null)
 			{
@@ -21536,7 +21536,7 @@ namespace GameServer.Maps
 					GuildData GuildData = GameData as GuildData;
 					if (GuildData != null)
 					{
-						if (!this.所属行会.敌对行会.ContainsKey(GuildData))
+						if (!this.所属行会.Hostility行会.ContainsKey(GuildData))
 						{
 							客户网络 网络连接4 = this.网络连接;
 							if (网络连接4 == null)
@@ -21632,7 +21632,7 @@ namespace GameServer.Maps
 					GuildData GuildData = GameData as GuildData;
 					if (GuildData != null)
 					{
-						if (!this.所属行会.敌对行会.ContainsKey(GuildData))
+						if (!this.所属行会.Hostility行会.ContainsKey(GuildData))
 						{
 							客户网络 网络连接4 = this.网络连接;
 							if (网络连接4 == null)
@@ -21672,7 +21672,7 @@ namespace GameServer.Maps
 							}
 							if (MapGatewayProcess.沙城节点 < 2 || ((this.所属行会 != SystemData.数据.占领行会.V || !MapGatewayProcess.攻城行会.Contains(GuildData)) && (GuildData != SystemData.数据.占领行会.V || !MapGatewayProcess.攻城行会.Contains(this.所属行会))))
 							{
-								this.所属行会.解除敌对(GuildData);
+								this.所属行会.解除Hostility(GuildData);
 								NetworkServiceGateway.发送公告(string.Format("[{0}] has released the guild from hostilities with [{1}].", this.所属行会, GuildData), false);
 								this.所属行会.解除申请.Remove(GuildData);
 								return;

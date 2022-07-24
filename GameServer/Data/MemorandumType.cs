@@ -22,7 +22,7 @@ namespace GameServer.Data
 		
 		行会结盟,
 		
-		行会敌对,
+		行会Hostility,
 		
 		建造建筑 = 12,
 		
@@ -42,6 +42,6 @@ namespace GameServer.Data
 		
 		取消结盟 = 21,
 		
-		取消敌对
+		取消Hostility
 	}
 }

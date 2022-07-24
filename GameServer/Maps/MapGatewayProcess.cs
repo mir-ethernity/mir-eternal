@@ -259,10 +259,10 @@ namespace GameServer.Maps
 									行会编号 = GuildData.行会编号
 								});
 							}
-							if (!GuildData.敌对行会.ContainsKey(v))
+							if (!GuildData.Hostility行会.ContainsKey(v))
 							{
-								GuildData.敌对行会.Add(v, MainProcess.CurrentTime.AddHours(1.0));
-								v.敌对行会.Add(GuildData, MainProcess.CurrentTime.AddHours(1.0));
+								GuildData.Hostility行会.Add(v, MainProcess.CurrentTime.AddHours(1.0));
+								v.Hostility行会.Add(GuildData, MainProcess.CurrentTime.AddHours(1.0));
 								GuildData.发送封包(new AddDiplomaticAnnouncementPacket
 								{
 									外交类型 = 2,
@@ -270,7 +270,7 @@ namespace GameServer.Maps
 									行会名字 = v.行会名字.V,
 									行会等级 = v.行会等级.V,
 									行会人数 = (byte)v.行会成员.Count,
-									外交时间 = (int)(GuildData.敌对行会[v] - MainProcess.CurrentTime).TotalSeconds
+									外交时间 = (int)(GuildData.Hostility行会[v] - MainProcess.CurrentTime).TotalSeconds
 								});
 								v.发送封包(new AddDiplomaticAnnouncementPacket
 								{
@@ -279,13 +279,13 @@ namespace GameServer.Maps
 									行会名字 = GuildData.行会名字.V,
 									行会等级 = GuildData.行会等级.V,
 									行会人数 = (byte)GuildData.行会成员.Count,
-									外交时间 = (int)(v.敌对行会[GuildData] - MainProcess.CurrentTime).TotalSeconds
+									外交时间 = (int)(v.Hostility行会[GuildData] - MainProcess.CurrentTime).TotalSeconds
 								});
 							}
-							if (GuildData.敌对行会[v] < MainProcess.CurrentTime.AddHours(1.0))
+							if (GuildData.Hostility行会[v] < MainProcess.CurrentTime.AddHours(1.0))
 							{
-								GuildData.敌对行会[v] = MainProcess.CurrentTime.AddHours(1.0);
-								v.敌对行会[GuildData] = MainProcess.CurrentTime.AddHours(1.0);
+								GuildData.Hostility行会[v] = MainProcess.CurrentTime.AddHours(1.0);
+								v.Hostility行会[GuildData] = MainProcess.CurrentTime.AddHours(1.0);
 								GuildData.发送封包(new AddDiplomaticAnnouncementPacket
 								{
 									外交类型 = 2,
@@ -293,7 +293,7 @@ namespace GameServer.Maps
 									行会名字 = v.行会名字.V,
 									行会等级 = v.行会等级.V,
 									行会人数 = (byte)v.行会成员.Count,
-									外交时间 = (int)(GuildData.敌对行会[v] - MainProcess.CurrentTime).TotalSeconds
+									外交时间 = (int)(GuildData.Hostility行会[v] - MainProcess.CurrentTime).TotalSeconds
 								});
 								v.发送封包(new AddDiplomaticAnnouncementPacket
 								{
@@ -302,7 +302,7 @@ namespace GameServer.Maps
 									行会名字 = GuildData.行会名字.V,
 									行会等级 = GuildData.行会等级.V,
 									行会人数 = (byte)GuildData.行会成员.Count,
-									外交时间 = (int)(v.敌对行会[GuildData] - MainProcess.CurrentTime).TotalSeconds
+									外交时间 = (int)(v.Hostility行会[GuildData] - MainProcess.CurrentTime).TotalSeconds
 								});
 							}
 						}
@@ -974,7 +974,7 @@ namespace GameServer.Maps
 		{
 			
 			MapGatewayProcess.对象编号 = 268435456;
-			MapGatewayProcess.陷阱编号 = 1073741824;
+			MapGatewayProcess.TrapId = 1073741824;
 			MapGatewayProcess.Id = 1342177280;
 			MapGatewayProcess.沙城城门坐标 = new Point(1020, 506);
 			MapGatewayProcess.皇宫下门坐标 = new Point(1079, 557);
@@ -1054,7 +1054,7 @@ namespace GameServer.Maps
 		public static int 对象编号;
 
 		
-		public static int 陷阱编号;
+		public static int TrapId;
 
 		
 		public static int Id;

@@ -698,7 +698,7 @@ namespace GameServer.Maps
 			{
 				GameSkills.DataSheet.TryGetValue(this.对象模板.BirthReleaseSkill, out this.BirthReleaseSkill);
 			}
-			诱惑宠物.自身死亡处理(null, false);
+			诱惑宠物.ItSelf死亡处理(null, false);
 			this.阻塞网格 = true;
 			base.绑定网格();
 			this.MapId = ++MapGatewayProcess.对象编号;
@@ -790,7 +790,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public override void 自身死亡处理(MapObject 对象, bool 技能击杀)
+		public override void ItSelf死亡处理(MapObject 对象, bool 技能击杀)
 		{
 			if (this.DeathReleaseSkill != null && 对象 != null)
 			{
@@ -800,7 +800,7 @@ namespace GameServer.Maps
 				base.动作编号 = (byte)(动作编号 + 1);
 				new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false).处理任务();
 			}
-			base.自身死亡处理(对象, 技能击杀);
+			base.ItSelf死亡处理(对象, 技能击杀);
 			this.消失时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.CorpsePreservation);
 			this.清空宠物仇恨();
 			PlayerObject PlayerObject = this.宠物主人;
@@ -865,7 +865,7 @@ namespace GameServer.Maps
 							this.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.行走耗时);
 							this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.行走耗时 + this.移动间隔));
 							this.当前方向 = ComputingClass.计算方向(this.当前坐标, point2);
-							base.自身移动时处理(point2);
+							base.ItSelf移动时处理(point2);
 							base.发送封包(new ObjectCharacterWalkPacket
 							{
 								对象编号 = this.MapId,
@@ -887,7 +887,7 @@ namespace GameServer.Maps
 						this.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.行走耗时);
 						this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.行走耗时 + this.移动间隔));
 						this.当前方向 = ComputingClass.计算方向(this.当前坐标, point3);
-						base.自身移动时处理(point3);
+						base.ItSelf移动时处理(point3);
 						base.发送封包(new ObjectCharacterWalkPacket
 						{
 							对象编号 = this.MapId,
@@ -944,7 +944,7 @@ namespace GameServer.Maps
 							this.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.行走耗时);
 							this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.行走耗时 + this.移动间隔));
 							this.当前方向 = ComputingClass.计算方向(this.当前坐标, point);
-							base.自身移动时处理(point);
+							base.ItSelf移动时处理(point);
 							base.发送封包(new ObjectCharacterWalkPacket
 							{
 								对象编号 = this.MapId,
@@ -1077,7 +1077,7 @@ namespace GameServer.Maps
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}
-			else if (this.宠物主人.对象关系(this.HateObject.当前目标) != 游戏对象关系.敌对)
+			else if (this.宠物主人.对象关系(this.HateObject.当前目标) != GameObjectRelationship.Hostility)
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}

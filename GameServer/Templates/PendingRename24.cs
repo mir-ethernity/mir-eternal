@@ -13,7 +13,7 @@ namespace GameServer.Templates
 		}
 
 		
-		public bool 角色自身位移;
+		public bool 角色ItSelf位移;
 
 		
 		public bool 允许超出锚点;
@@ -31,16 +31,16 @@ namespace GameServer.Templates
 		public bool 能否穿越障碍;
 
 		
-		public ushort 自身位移耗时;
+		public ushort ItSelf位移耗时;
 
 		
-		public ushort 自身硬直时间;
+		public ushort ItSelf硬直时间;
 
 		
-		public byte[] 自身位移次数;
+		public byte[] ItSelf位移次数;
 
 		
-		public byte[] 自身位移距离;
+		public byte[] ItSelf位移距离;
 
 		
 		public ushort 成功Id;

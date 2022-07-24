@@ -326,7 +326,7 @@ namespace GameServer.Maps
         }
 
         
-        public virtual void 自身死亡处理(MapObject 对象, bool 技能击杀)
+        public virtual void ItSelf死亡处理(MapObject 对象, bool 技能击杀)
         {
             this.发送封包(new ObjectCharacterDiesPacket
             {
@@ -599,7 +599,7 @@ namespace GameServer.Maps
         }
 
         
-        public 游戏对象关系 对象关系(MapObject 对象)
+        public GameObjectRelationship 对象关系(MapObject 对象)
         {
             TrapObject TrapObject = 对象 as TrapObject;
             if (TrapObject != null)
@@ -608,7 +608,7 @@ namespace GameServer.Maps
             }
             if (this == 对象)
             {
-                return 游戏对象关系.自身;
+                return GameObjectRelationship.ItSelf;
             }
             if (!(this is MonsterObject))
             {
@@ -616,7 +616,7 @@ namespace GameServer.Maps
                 {
                     if (对象 is MonsterObject || 对象 is PetObject || 对象 is PlayerObject)
                     {
-                        return 游戏对象关系.敌对;
+                        return GameObjectRelationship.Hostility;
                     }
                 }
                 else
@@ -626,7 +626,7 @@ namespace GameServer.Maps
                     {
                         if (对象 is MonsterObject)
                         {
-                            return 游戏对象关系.敌对;
+                            return GameObjectRelationship.Hostility;
                         }
                         if (对象 is GuardInstance)
                         {
@@ -634,25 +634,25 @@ namespace GameServer.Maps
                             {
                                 if (this.当前地图.MapId != 80)
                                 {
-                                    return 游戏对象关系.敌对;
+                                    return GameObjectRelationship.Hostility;
                                 }
                             }
-                            return 游戏对象关系.友方;
+                            return GameObjectRelationship.Friendly;
                         }
                         PlayerObject PlayerObject2 = 对象 as PlayerObject;
                         if (PlayerObject2 != null)
                         {
                             if (PlayerObject.AttackMode == AttackMode.和平)
                             {
-                                return 游戏对象关系.友方;
+                                return GameObjectRelationship.Friendly;
                             }
                             if (PlayerObject.AttackMode == AttackMode.行会)
                             {
                                 if (PlayerObject.所属行会 != null && PlayerObject2.所属行会 != null && (PlayerObject.所属行会 == PlayerObject2.所属行会 || PlayerObject.所属行会.结盟行会.ContainsKey(PlayerObject2.所属行会)))
                                 {
-                                    return 游戏对象关系.友方;
+                                    return GameObjectRelationship.Friendly;
                                 }
-                                return 游戏对象关系.敌对;
+                                return GameObjectRelationship.Hostility;
                             }
                             else
                             {
@@ -662,30 +662,30 @@ namespace GameServer.Maps
                                     {
                                         if (PlayerObject.所属队伍 == PlayerObject2.所属队伍)
                                         {
-                                            return 游戏对象关系.友方;
+                                            return GameObjectRelationship.Friendly;
                                         }
                                     }
-                                    return 游戏对象关系.敌对;
+                                    return GameObjectRelationship.Hostility;
                                 }
                                 if (PlayerObject.AttackMode == AttackMode.全体)
                                 {
-                                    return 游戏对象关系.敌对;
+                                    return GameObjectRelationship.Hostility;
                                 }
                                 if (PlayerObject.AttackMode == AttackMode.善恶)
                                 {
                                     if (!PlayerObject2.红名玩家 && !PlayerObject2.灰名玩家)
                                     {
-                                        return 游戏对象关系.友方;
+                                        return GameObjectRelationship.Friendly;
                                     }
-                                    return 游戏对象关系.敌对;
+                                    return GameObjectRelationship.Hostility;
                                 }
-                                else if (PlayerObject.AttackMode == AttackMode.敌对)
+                                else if (PlayerObject.AttackMode == AttackMode.Hostility)
                                 {
-                                    if (PlayerObject.所属行会 != null && PlayerObject2.所属行会 != null && PlayerObject.所属行会.敌对行会.ContainsKey(PlayerObject2.所属行会))
+                                    if (PlayerObject.所属行会 != null && PlayerObject2.所属行会 != null && PlayerObject.所属行会.Hostility行会.ContainsKey(PlayerObject2.所属行会))
                                     {
-                                        return 游戏对象关系.敌对;
+                                        return GameObjectRelationship.Hostility;
                                     }
-                                    return 游戏对象关系.友方;
+                                    return GameObjectRelationship.Friendly;
                                 }
                             }
                         }
@@ -698,23 +698,23 @@ namespace GameServer.Maps
                                 {
                                     if (PlayerObject.AttackMode != AttackMode.全体)
                                     {
-                                        return 游戏对象关系.友方;
+                                        return GameObjectRelationship.Friendly;
                                     }
-                                    return 游戏对象关系.友方 | 游戏对象关系.敌对;
+                                    return GameObjectRelationship.Friendly | GameObjectRelationship.Hostility;
                                 }
                                 else
                                 {
                                     if (PlayerObject.AttackMode == AttackMode.和平)
                                     {
-                                        return 游戏对象关系.友方;
+                                        return GameObjectRelationship.Friendly;
                                     }
                                     if (PlayerObject.AttackMode == AttackMode.行会)
                                     {
                                         if (PlayerObject.所属行会 != null && PetObject.宠物主人.所属行会 != null && (PlayerObject.所属行会 == PetObject.宠物主人.所属行会 || PlayerObject.所属行会.结盟行会.ContainsKey(PetObject.宠物主人.所属行会)))
                                         {
-                                            return 游戏对象关系.友方;
+                                            return GameObjectRelationship.Friendly;
                                         }
-                                        return 游戏对象关系.敌对;
+                                        return GameObjectRelationship.Hostility;
                                     }
                                     else
                                     {
@@ -724,30 +724,30 @@ namespace GameServer.Maps
                                             {
                                                 if (PlayerObject.所属队伍 == PetObject.宠物主人.所属队伍)
                                                 {
-                                                    return 游戏对象关系.友方;
+                                                    return GameObjectRelationship.Friendly;
                                                 }
                                             }
-                                            return 游戏对象关系.敌对;
+                                            return GameObjectRelationship.Hostility;
                                         }
                                         if (PlayerObject.AttackMode == AttackMode.全体)
                                         {
-                                            return 游戏对象关系.敌对;
+                                            return GameObjectRelationship.Hostility;
                                         }
                                         if (PlayerObject.AttackMode == AttackMode.善恶)
                                         {
                                             if (!PetObject.宠物主人.红名玩家 && !PetObject.宠物主人.灰名玩家)
                                             {
-                                                return 游戏对象关系.友方;
+                                                return GameObjectRelationship.Friendly;
                                             }
-                                            return 游戏对象关系.敌对;
+                                            return GameObjectRelationship.Hostility;
                                         }
-                                        else if (PlayerObject.AttackMode == AttackMode.敌对)
+                                        else if (PlayerObject.AttackMode == AttackMode.Hostility)
                                         {
-                                            if (PlayerObject.所属行会 != null && PetObject.宠物主人.所属行会 != null && PlayerObject.所属行会.敌对行会.ContainsKey(PetObject.宠物主人.所属行会))
+                                            if (PlayerObject.所属行会 != null && PetObject.宠物主人.所属行会 != null && PlayerObject.所属行会.Hostility行会.ContainsKey(PetObject.宠物主人.所属行会))
                                             {
-                                                return 游戏对象关系.敌对;
+                                                return GameObjectRelationship.Hostility;
                                             }
-                                            return 游戏对象关系.友方;
+                                            return GameObjectRelationship.Friendly;
                                         }
                                     }
                                 }
@@ -763,7 +763,7 @@ namespace GameServer.Maps
                             {
                                 return PetObject2.宠物主人.对象关系(对象);
                             }
-                            return 游戏对象关系.友方;
+                            return GameObjectRelationship.Friendly;
                         }
                         else
                         {
@@ -775,13 +775,13 @@ namespace GameServer.Maps
                         }
                     }
                 }
-                return 游戏对象关系.自身;
+                return GameObjectRelationship.ItSelf;
             }
             if (!(对象 is MonsterObject))
             {
-                return 游戏对象关系.敌对;
+                return GameObjectRelationship.Hostility;
             }
-            return 游戏对象关系.友方;
+            return GameObjectRelationship.Friendly;
         }
 
         
@@ -1276,7 +1276,7 @@ namespace GameServer.Maps
                 return false;
             }
             MonsterObject MonsterObject = this as MonsterObject;
-            return (MonsterObject == null || MonsterObject.CanBeDrivenBySkills) && 来源.对象关系(this) == 游戏对象关系.敌对;
+            return (MonsterObject == null || MonsterObject.CanBeDrivenBySkills) && 来源.对象关系(this) == GameObjectRelationship.Hostility;
         }
 
         
@@ -1694,7 +1694,7 @@ namespace GameServer.Maps
             {
                 return;
             }
-            if ((参数.限定目标关系 & MapObject.对象关系(this)) == (游戏对象关系)0)
+            if ((参数.限定目标关系 & MapObject.对象关系(this)) == (GameObjectRelationship)0)
             {
                 return;
             }
@@ -1706,7 +1706,7 @@ namespace GameServer.Maps
             {
                 return;
             }
-            if ((参数.限定目标关系 & 游戏对象关系.敌对) != (游戏对象关系)0)
+            if ((参数.限定目标关系 & GameObjectRelationship.Hostility) != (GameObjectRelationship)0)
             {
                 if (this.检查状态(GameObjectState.Invencible))
                 {
@@ -1802,7 +1802,7 @@ namespace GameServer.Maps
             {
                 详情.技能反馈 = 技能命中反馈.丢失;
             }
-            else if ((MapObject.对象关系(this) & 游戏对象关系.敌对) == (游戏对象关系)0)
+            else if ((MapObject.对象关系(this) & GameObjectRelationship.Hostility) == (GameObjectRelationship)0)
             {
                 详情.技能反馈 = 技能命中反馈.丢失;
             }
@@ -2182,7 +2182,7 @@ namespace GameServer.Maps
                         {
                             PlayerObject.扣除护盾时间(详情.技能伤害);
                         }
-                        if (PlayerObject.对象关系(MapObject) == 游戏对象关系.敌对)
+                        if (PlayerObject.对象关系(MapObject) == GameObjectRelationship.Hostility)
                         {
                             foreach (PetObject PetObject in PlayerObject.宠物列表.ToList<PetObject>())
                             {
@@ -2225,7 +2225,7 @@ namespace GameServer.Maps
                         PetObject PetObject3 = this as PetObject;
                         if (PetObject3 != null)
                         {
-                            if (MapObject != PetObject3.宠物主人 && PetObject3.对象关系(MapObject) == 游戏对象关系.敌对)
+                            if (MapObject != PetObject3.宠物主人 && PetObject3.对象关系(MapObject) == GameObjectRelationship.Hostility)
                             {
                                 PlayerObject 宠物主人 = PetObject3.宠物主人;
                                 foreach (PetObject PetObject4 in ((宠物主人 != null) ? 宠物主人.宠物列表.ToList<PetObject>() : null))
@@ -2248,7 +2248,7 @@ namespace GameServer.Maps
                         else
                         {
                             GuardInstance GuardInstance = this as GuardInstance;
-                            if (GuardInstance != null && GuardInstance.对象关系(MapObject) == 游戏对象关系.敌对)
+                            if (GuardInstance != null && GuardInstance.对象关系(MapObject) == GameObjectRelationship.Hostility)
                             {
                                 GuardInstance.HateObject.添加仇恨(MapObject, default(DateTime), 0);
                             }
@@ -2258,7 +2258,7 @@ namespace GameServer.Maps
                 PlayerObject PlayerObject4 = MapObject as PlayerObject;
                 if (PlayerObject4 != null)
                 {
-                    if (PlayerObject4.对象关系(this) == 游戏对象关系.敌对 && !this.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus))
+                    if (PlayerObject4.对象关系(this) == GameObjectRelationship.Hostility && !this.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus))
                     {
                         foreach (PetObject PetObject5 in PlayerObject4.宠物列表.ToList<PetObject>())
                         {
@@ -2279,7 +2279,7 @@ namespace GameServer.Maps
                 if ((this.当前体力 = Math.Max(0, this.当前体力 - 详情.技能伤害)) == 0)
                 {
                     详情.技能反馈 |= 技能命中反馈.死亡;
-                    this.自身死亡处理(MapObject, true);
+                    this.ItSelf死亡处理(MapObject, true);
                 }
                 return;
             }
@@ -2312,7 +2312,7 @@ namespace GameServer.Maps
             this.发送封包(触发状态效果);
             if (this.当前体力 == 0)
             {
-                this.自身死亡处理(数据.Buff来源, false);
+                this.ItSelf死亡处理(数据.Buff来源, false);
             }
         }
 
@@ -2425,7 +2425,7 @@ namespace GameServer.Maps
         }
 
         
-        public void 自身移动时处理(Point 坐标)
+        public void ItSelf移动时处理(Point 坐标)
         {
             PlayerObject PlayerObject = this as PlayerObject;
             if (PlayerObject != null)
@@ -2440,8 +2440,8 @@ namespace GameServer.Maps
                     while (enumerator.MoveNext())
                     {
                         BuffData BuffData = enumerator.Current;
-                        技能陷阱 陷阱模板;
-                        if ((BuffData.Effect & BuffEffectType.创建陷阱) != BuffEffectType.技能标志 && 技能陷阱.DataSheet.TryGetValue(BuffData.Buff模板.TriggerTrapSkills, out 陷阱模板))
+                        SkillTraps 陷阱模板;
+                        if ((BuffData.Effect & BuffEffectType.创建陷阱) != BuffEffectType.技能标志 && SkillTraps.DataSheet.TryGetValue(BuffData.Buff模板.TriggerTrapSkills, out 陷阱模板))
                         {
                             int num = 0;
 
@@ -2487,8 +2487,8 @@ namespace GameServer.Maps
             {
                 foreach (BuffData BuffData2 in this.Buff列表.Values.ToList<BuffData>())
                 {
-                    技能陷阱 陷阱模板;
-                    if ((BuffData2.Effect & BuffEffectType.创建陷阱) != BuffEffectType.技能标志 && 技能陷阱.DataSheet.TryGetValue(BuffData2.Buff模板.TriggerTrapSkills, out 陷阱模板))
+                    SkillTraps 陷阱模板;
+                    if ((BuffData2.Effect & BuffEffectType.创建陷阱) != BuffEffectType.技能标志 && SkillTraps.DataSheet.TryGetValue(BuffData2.Buff模板.TriggerTrapSkills, out 陷阱模板))
                     {
                         int num2 = 0;
 
@@ -2813,7 +2813,7 @@ namespace GameServer.Maps
                                     陷阱坐标 = 对象.当前坐标,
                                     陷阱高度 = 对象.当前高度,
                                     来源编号 = (对象 as TrapObject).陷阱来源.MapId,
-                                    陷阱编号 = (对象 as TrapObject).陷阱编号,
+                                    Id = (对象 as TrapObject).Id,
                                     持续时间 = (对象 as TrapObject).陷阱剩余时间
                                 });
                             }
@@ -2982,7 +2982,7 @@ namespace GameServer.Maps
                                     陷阱坐标 = 对象.当前坐标,
                                     陷阱高度 = 对象.当前高度,
                                     来源编号 = (对象 as TrapObject).陷阱来源.MapId,
-                                    陷阱编号 = (对象 as TrapObject).陷阱编号,
+                                    Id = (对象 as TrapObject).Id,
                                     持续时间 = (对象 as TrapObject).陷阱剩余时间
                                 });
                             }
@@ -3196,7 +3196,7 @@ namespace GameServer.Maps
                 this.潜行邻居.Add(对象);
             }
             PlayerObject PlayerObject = this as PlayerObject;
-            if (PlayerObject != null && (this.对象关系(对象) == 游戏对象关系.敌对 || 对象.对象关系(this) == 游戏对象关系.敌对))
+            if (PlayerObject != null && (this.对象关系(对象) == GameObjectRelationship.Hostility || 对象.对象关系(this) == GameObjectRelationship.Hostility))
             {
                 this.潜行邻居.Add(对象);
                 PlayerObject.网络连接.发送封包(new ObjectOutOfViewPacket

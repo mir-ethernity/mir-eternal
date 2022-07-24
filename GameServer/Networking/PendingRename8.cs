@@ -1815,14 +1815,14 @@ namespace GameServer.Networking
 		}
 
 		
-		public void 处理封包(申请行会敌对 P)
+		public void 处理封包(申请行会Hostility P)
 		{
 			if (this.当前阶段 != GameStage.正在游戏)
 			{
 				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
-			this.绑定角色.申请行会敌对(P.敌对时间, P.行会名字);
+			this.绑定角色.申请行会Hostility(P.Hostility时间, P.行会名字);
 		}
 
 		
@@ -1848,14 +1848,14 @@ namespace GameServer.Networking
 		}
 
 		
-		public void 处理封包(申请解除敌对 P)
+		public void 处理封包(申请解除Hostility P)
 		{
 			if (this.当前阶段 != GameStage.正在游戏)
 			{
 				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
-			this.绑定角色.申请解除敌对(P.行会编号);
+			this.绑定角色.申请解除Hostility(P.行会编号);
 		}
 
 		

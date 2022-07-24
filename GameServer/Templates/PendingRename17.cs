@@ -22,7 +22,7 @@ namespace GameServer.Templates
 		public bool 调整角色朝向;
 
 		
-		public int 自身Cooldown;
+		public int ItSelfCooldown;
 
 		
 		public bool Buff增加冷却;

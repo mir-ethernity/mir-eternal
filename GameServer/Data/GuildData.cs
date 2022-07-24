@@ -149,12 +149,12 @@ namespace GameServer.Data
 						NetworkServiceGateway.发送公告(string.Format("The guild covenant for [{0}] and [{1}] has expired and been automatically dissolved", this, keyValuePair.Key), false);
 					}
 				}
-				foreach (KeyValuePair<GuildData, DateTime> keyValuePair2 in this.敌对行会.ToList<KeyValuePair<GuildData, DateTime>>())
+				foreach (KeyValuePair<GuildData, DateTime> keyValuePair2 in this.Hostility行会.ToList<KeyValuePair<GuildData, DateTime>>())
 				{
 					if (MainProcess.CurrentTime > keyValuePair2.Value)
 					{
-						this.敌对行会.Remove(keyValuePair2.Key);
-						keyValuePair2.Key.敌对行会.Remove(this);
+						this.Hostility行会.Remove(keyValuePair2.Key);
+						keyValuePair2.Key.Hostility行会.Remove(this);
 						this.发送封包(new 删除外交公告
 						{
 							外交类型 = 2,
@@ -491,9 +491,9 @@ namespace GameServer.Data
 		}
 
 		
-		public void 行会敌对(GuildData 行会, byte 时间参数)
+		public void 行会Hostility(GuildData 行会, byte 时间参数)
 		{
-			this.敌对行会[行会] = (行会.敌对行会[this] = MainProcess.CurrentTime.AddDays((double)((时间参数 == 1) ? 1 : ((时间参数 == 2) ? 3 : 7))));
+			this.Hostility行会[行会] = (行会.Hostility行会[this] = MainProcess.CurrentTime.AddDays((double)((时间参数 == 1) ? 1 : ((时间参数 == 2) ? 3 : 7))));
 			this.发送封包(new AddDiplomaticAnnouncementPacket
 			{
 				外交类型 = 2,
@@ -501,7 +501,7 @@ namespace GameServer.Data
 				行会名字 = 行会.行会名字.V,
 				行会等级 = 行会.行会等级.V,
 				行会人数 = (byte)行会.行会成员.Count,
-				外交时间 = (int)(this.敌对行会[行会] - MainProcess.CurrentTime).TotalSeconds
+				外交时间 = (int)(this.Hostility行会[行会] - MainProcess.CurrentTime).TotalSeconds
 			});
 			行会.发送封包(new AddDiplomaticAnnouncementPacket
 			{
@@ -510,18 +510,18 @@ namespace GameServer.Data
 				行会名字 = this.行会名字.V,
 				行会等级 = this.行会等级.V,
 				行会人数 = (byte)this.行会成员.Count,
-				外交时间 = (int)(行会.敌对行会[this] - MainProcess.CurrentTime).TotalSeconds
+				外交时间 = (int)(行会.Hostility行会[this] - MainProcess.CurrentTime).TotalSeconds
 			});
 			this.添加事记(new GuildEvents
 			{
-				MemorandumType = MemorandumType.行会敌对,
+				MemorandumType = MemorandumType.行会Hostility,
 				第一参数 = this.行会编号,
 				第二参数 = 行会.行会编号,
 				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
 			});
 			行会.添加事记(new GuildEvents
 			{
-				MemorandumType = MemorandumType.行会敌对,
+				MemorandumType = MemorandumType.行会Hostility,
 				第一参数 = 行会.行会编号,
 				第二参数 = this.行会编号,
 				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
@@ -607,13 +607,13 @@ namespace GameServer.Data
 		}
 
 		
-		public void 申请解敌(CharacterData 主事, GuildData 敌对行会)
+		public void 申请解敌(CharacterData 主事, GuildData Hostility行会)
 		{
 			主事.网络连接.发送封包(new 社交错误提示
 			{
 				错误编号 = 6829
 			});
-			foreach (KeyValuePair<CharacterData, GuildJobs> keyValuePair in 敌对行会.行会成员)
+			foreach (KeyValuePair<CharacterData, GuildJobs> keyValuePair in Hostility行会.行会成员)
 			{
 				if (keyValuePair.Value <= GuildJobs.副长)
 				{
@@ -628,14 +628,14 @@ namespace GameServer.Data
 					}
 				}
 			}
-			敌对行会.解除申请[this] = MainProcess.CurrentTime.AddHours(10.0);
+			Hostility行会.解除申请[this] = MainProcess.CurrentTime.AddHours(10.0);
 		}
 
 		
-		public void 解除敌对(GuildData 行会)
+		public void 解除Hostility(GuildData 行会)
 		{
-			this.敌对行会.Remove(行会);
-			行会.敌对行会.Remove(this);
+			this.Hostility行会.Remove(行会);
+			行会.Hostility行会.Remove(this);
 			this.发送封包(new DisarmHostileListPacket
 			{
 				申请类型 = 2,
@@ -653,14 +653,14 @@ namespace GameServer.Data
 			});
 			this.添加事记(new GuildEvents
 			{
-				MemorandumType = MemorandumType.取消敌对,
+				MemorandumType = MemorandumType.取消Hostility,
 				第一参数 = this.行会编号,
 				第二参数 = 行会.行会编号,
 				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
 			});
 			行会.添加事记(new GuildEvents
 			{
-				MemorandumType = MemorandumType.取消敌对,
+				MemorandumType = MemorandumType.取消Hostility,
 				第一参数 = 行会.行会编号,
 				第二参数 = this.行会编号,
 				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
@@ -817,8 +817,8 @@ namespace GameServer.Data
 						binaryWriter.Write(array2);
 					}
 					binaryWriter.Seek(1953, SeekOrigin.Begin);
-					binaryWriter.Write((byte)this.敌对行会.Count);
-					foreach (KeyValuePair<GuildData, DateTime> keyValuePair3 in this.敌对行会)
+					binaryWriter.Write((byte)this.Hostility行会.Count);
+					foreach (KeyValuePair<GuildData, DateTime> keyValuePair3 in this.Hostility行会)
 					{
 						binaryWriter.Write(2);
 						binaryWriter.Write(keyValuePair3.Key.行会编号);
@@ -983,7 +983,7 @@ namespace GameServer.Data
 		public readonly MonitorDictionary<GuildData, DateTime> 结盟行会;
 
 		
-		public readonly MonitorDictionary<GuildData, DateTime> 敌对行会;
+		public readonly MonitorDictionary<GuildData, DateTime> Hostility行会;
 
 		
 		public Dictionary<CharacterData, DateTime> 申请列表;

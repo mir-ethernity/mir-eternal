@@ -458,7 +458,7 @@ namespace GameServer.Maps
 			{
 				GameSkills.DataSheet.TryGetValue(this.对象模板.BirthReleaseSkill, out this.BirthReleaseSkill);
 			}
-			对应宠物.自身死亡处理(null, false);
+			对应宠物.ItSelf死亡处理(null, false);
 			对应宠物.删除对象();
 			this.对象死亡 = false;
 			base.战斗姿态 = false;
@@ -639,13 +639,13 @@ namespace GameServer.Maps
 		}
 
 		
-		public override void 自身死亡处理(MapObject 对象, bool 技能击杀)
+		public override void ItSelf死亡处理(MapObject 对象, bool 技能击杀)
 		{
 			foreach (技能实例 技能实例 in this.技能任务)
 			{
 				技能实例.技能中断();
 			}
-			base.自身死亡处理(对象, 技能击杀);
+			base.ItSelf死亡处理(对象, 技能击杀);
 			if (this.DeathReleaseSkill != null && 对象 != null)
 			{
 				GameSkills 技能模板 = this.DeathReleaseSkill;
@@ -868,7 +868,7 @@ namespace GameServer.Maps
 						this.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.行走耗时);
 						this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.行走耗时 + this.移动间隔));
 						this.当前方向 = ComputingClass.计算方向(this.当前坐标, point);
-						base.自身移动时处理(point);
+						base.ItSelf移动时处理(point);
 						if (!this.对象死亡)
 						{
 							base.发送封包(new ObjectCharacterWalkPacket
@@ -925,7 +925,7 @@ namespace GameServer.Maps
 								移动坐标 = point,
 								移动速度 = base.行走速度
 							});
-							base.自身移动时处理(point);
+							base.ItSelf移动时处理(point);
 							return;
 						}
 						GameDirection = ComputingClass.旋转方向(GameDirection, (MainProcess.RandomNumber.Next(2) == 0) ? -1 : 1);
@@ -946,7 +946,7 @@ namespace GameServer.Maps
 							this.当前方向 = ComputingClass.计算方向(this.当前坐标, point2);
 							this.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.行走耗时);
 							this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.行走耗时 + this.移动间隔));
-							base.自身移动时处理(point2);
+							base.ItSelf移动时处理(point2);
 							if (!this.对象死亡)
 							{
 								base.发送封包(new ObjectCharacterWalkPacket

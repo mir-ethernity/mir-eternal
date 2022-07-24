@@ -149,7 +149,7 @@ namespace GameServer.Templates
 							flag = ComputingClass.计算概率(a_00_触发SubSkills.技能触发概率 + ((a_00_触发SubSkills.增加概率Buff == 0 || !this.技能来源.Buff列表.ContainsKey(a_00_触发SubSkills.增加概率Buff)) ? 0f : a_00_触发SubSkills.Buff增加系数));
 						}
 					}
-					if (flag && a_00_触发SubSkills.验证自身Buff)
+					if (flag && a_00_触发SubSkills.验证ItSelfBuff)
 					{
 						if (!this.技能来源.Buff列表.ContainsKey(a_00_触发SubSkills.Id))
 						{
@@ -334,7 +334,7 @@ namespace GameServer.Templates
 				if (触发Buff != null)
 				{
 					bool flag2 = false;
-					if (触发Buff.角色自身添加)
+					if (触发Buff.角色ItSelf添加)
 					{
 						bool flag3 = true;
 						if (!ComputingClass.计算概率(触发Buff.Buff触发概率))
@@ -363,7 +363,7 @@ namespace GameServer.Templates
 								}
 							}
 						}
-						if (flag3 && 触发Buff.验证自身Buff)
+						if (flag3 && 触发Buff.验证ItSelfBuff)
 						{
 							if (!this.技能来源.Buff列表.ContainsKey(触发Buff.Id))
 							{
@@ -410,7 +410,7 @@ namespace GameServer.Templates
 					else
 					{
 						bool flag4 = true;
-						if (触发Buff.验证自身Buff)
+						if (触发Buff.验证ItSelfBuff)
 						{
 							if (!this.技能来源.Buff列表.ContainsKey(触发Buff.Id))
 							{
@@ -502,8 +502,8 @@ namespace GameServer.Templates
 					A_02_TriggerTrapSkills a_02_TriggerTrapSkills = value as A_02_TriggerTrapSkills;
 					if (a_02_TriggerTrapSkills != null)
 					{
-						技能陷阱 陷阱模板;
-						if (技能陷阱.DataSheet.TryGetValue(a_02_TriggerTrapSkills.TriggerTrapSkills, out 陷阱模板))
+						SkillTraps 陷阱模板;
+						if (SkillTraps.DataSheet.TryGetValue(a_02_TriggerTrapSkills.TriggerTrapSkills, out 陷阱模板))
 						{
 							int num7 = 0;
 							
@@ -511,7 +511,7 @@ namespace GameServer.Templates
 							{
 								if (!this.释放地图.地形阻塞(坐标))
 								{
-									if (!陷阱模板.陷阱允许叠加)
+									if (!陷阱模板.AllowStacking)
 									{
 										IEnumerable<MapObject> source = this.释放地图[坐标];
 										Func<MapObject, bool> predicate=null;
@@ -586,7 +586,7 @@ namespace GameServer.Templates
 								{
 									this.技能来源.移除Buff时处理(this.技能模板.SkillTagId);
 								}
-								if (b_01_技能释放通知.自身Cooldown != 0 || b_01_技能释放通知.Buff增加冷却)
+								if (b_01_技能释放通知.ItSelfCooldown != 0 || b_01_技能释放通知.Buff增加冷却)
 								{
 									if (this.检查计数)
 									{
@@ -607,9 +607,9 @@ namespace GameServer.Templates
 											goto IL_11B7;
 										}
 									}
-									if (b_01_技能释放通知.自身Cooldown > 0 || b_01_技能释放通知.Buff增加冷却)
+									if (b_01_技能释放通知.ItSelfCooldown > 0 || b_01_技能释放通知.Buff增加冷却)
 									{
-										int num8 = b_01_技能释放通知.自身Cooldown;
+										int num8 = b_01_技能释放通知.ItSelfCooldown;
 										if (b_01_技能释放通知.Buff增加冷却 && this.技能来源.Buff列表.ContainsKey(b_01_技能释放通知.增加冷却Buff))
 										{
 											num8 += b_01_技能释放通知.冷却增加时间;
@@ -767,7 +767,7 @@ namespace GameServer.Templates
 											});
 											if (b_04_后摇结束通知.后摇结束死亡)
 											{
-												this.技能来源.自身死亡处理(null, false);
+												this.技能来源.ItSelf死亡处理(null, false);
 											}
 										}
 										else
@@ -818,7 +818,7 @@ namespace GameServer.Templates
 													{
 														switch (c_01_计算命中目标.技能锁定方式)
 														{
-														case 技能锁定类型.锁定自身:
+														case 技能锁定类型.锁定ItSelf:
 															this.技能来源.被技能命中处理(this, c_01_计算命中目标);
 															break;
 														case 技能锁定类型.锁定目标:
@@ -830,7 +830,7 @@ namespace GameServer.Templates
 															}
 															break;
 														}
-														case 技能锁定类型.锁定自身坐标:
+														case 技能锁定类型.锁定ItSelf坐标:
 															foreach (Point 坐标2 in ComputingClass.技能范围(this.技能来源.当前坐标, ComputingClass.计算方向(this.释放位置, this.技能锚点), c_01_计算命中目标.技能范围类型))
 															{
 																foreach (MapObject MapObject6 in this.释放地图[坐标2])
@@ -860,7 +860,7 @@ namespace GameServer.Templates
 																}
 															}
 															break;
-														case 技能锁定类型.放空锁定自身:
+														case 技能锁定类型.放空锁定ItSelf:
 															foreach (Point 坐标5 in ComputingClass.技能范围(this.技能锚点, ComputingClass.计算方向(this.释放位置, this.技能锚点), c_01_计算命中目标.技能范围类型))
 															{
 																foreach (MapObject MapObject10 in this.释放地图[坐标5])
@@ -1146,9 +1146,9 @@ namespace GameServer.Templates
 														C_03_计算对象位移 c_03_计算对象位移 = value as C_03_计算对象位移;
 														if (c_03_计算对象位移 != null)
 														{
-															byte[] 自身位移次数 = c_03_计算对象位移.自身位移次数;
-															byte b2 = (byte)((((自身位移次数 != null) ? 自身位移次数.Length : 0) > (int)this.技能等级) ? c_03_计算对象位移.自身位移次数[(int)this.技能等级] : 0);
-															if (c_03_计算对象位移.角色自身位移 && (this.释放地图 != this.技能来源.当前地图 || this.分段编号 >= b2))
+															byte[] ItSelf位移次数 = c_03_计算对象位移.ItSelf位移次数;
+															byte b2 = (byte)((((ItSelf位移次数 != null) ? ItSelf位移次数.Length : 0) > (int)this.技能等级) ? c_03_计算对象位移.ItSelf位移次数[(int)this.技能等级] : 0);
+															if (c_03_计算对象位移.角色ItSelf位移 && (this.释放地图 != this.技能来源.当前地图 || this.分段编号 >= b2))
 															{
 																this.技能来源.发送封包(new 技能释放中断
 																{
@@ -1166,11 +1166,11 @@ namespace GameServer.Templates
 																});
 																goto IL_33E1;
 															}
-															if (c_03_计算对象位移.角色自身位移)
+															if (c_03_计算对象位移.角色ItSelf位移)
 															{
 																int 数量 = (int)(c_03_计算对象位移.推动目标位移 ? c_03_计算对象位移.连续推动数量 : 0);
-																byte[] 自身位移距离 = c_03_计算对象位移.自身位移距离;
-																int num16 = (int)((((自身位移距离 != null) ? 自身位移距离.Length : 0) > (int)this.技能等级) ? c_03_计算对象位移.自身位移距离[(int)this.技能等级] : 0);
+																byte[] ItSelf位移距离 = c_03_计算对象位移.ItSelf位移距离;
+																int num16 = (int)((((ItSelf位移距离 != null) ? ItSelf位移距离.Length : 0) > (int)this.技能等级) ? c_03_计算对象位移.ItSelf位移距离[(int)this.技能等级] : 0);
 																int num17 = (c_03_计算对象位移.允许超出锚点 || c_03_计算对象位移.锚点反向位移) ? num16 : Math.Min(num16, ComputingClass.网格距离(this.释放位置, this.技能锚点));
 																Point 锚点 = c_03_计算对象位移.锚点反向位移 ? ComputingClass.前方坐标(this.技能来源.当前坐标, ComputingClass.计算方向(this.技能锚点, this.技能来源.当前坐标), num17) : this.技能锚点;
 																Point point;
@@ -1198,7 +1198,7 @@ namespace GameServer.Templates
 																			位移朝向 = (ushort)MapObject13.当前方向,
 																			位移速度 = c_03_计算对象位移.目标位移耗时
 																		});
-																		MapObject13.自身移动时处理(point2);
+																		MapObject13.ItSelf移动时处理(point2);
 																		if (c_03_计算对象位移.推动增加经验 && !this.经验增加)
 																		{
 																			(this.技能来源 as PlayerObject).技能增加经验(this.SkillId);
@@ -1210,7 +1210,7 @@ namespace GameServer.Templates
 																		this.技能来源.添加Buff时处理(c_03_计算对象位移.成功Id, this.技能来源);
 																	}
 																	this.技能来源.当前方向 = ComputingClass.计算方向(this.技能来源.当前坐标, point);
-																	int num18 = (int)c_03_计算对象位移.自身位移耗时 * this.技能来源.网格距离(point);
+																	int num18 = (int)c_03_计算对象位移.ItSelf位移耗时 * this.技能来源.网格距离(point);
 																	this.技能来源.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)(num18 * 60));
 																	this.技能来源.发送封包(new ObjectPassiveDisplacementPacket
 																	{
@@ -1219,7 +1219,7 @@ namespace GameServer.Templates
 																		位移朝向 = (ushort)this.技能来源.当前方向,
 																		位移速度 = (ushort)num18
 																	});
-																	this.技能来源.自身移动时处理(point);
+																	this.技能来源.ItSelf移动时处理(point);
 																	PlayerObject PlayerObject10 = this.技能来源 as PlayerObject;
 																	if (PlayerObject10 != null && c_03_计算对象位移.位移增加经验 && !this.经验增加)
 																	{
@@ -1250,12 +1250,12 @@ namespace GameServer.Templates
 																	{
 																		this.技能来源.添加Buff时处理(c_03_计算对象位移.失败Id, this.技能来源);
 																	}
-																	this.技能来源.硬直时间 = MainProcess.CurrentTime.AddMilliseconds((double)c_03_计算对象位移.自身硬直时间);
+																	this.技能来源.硬直时间 = MainProcess.CurrentTime.AddMilliseconds((double)c_03_计算对象位移.ItSelf硬直时间);
 																	this.分段编号 = b2;
 																}
 																if (b2 > 1)
 																{
-																	int num19 = keyValuePair.Key + (int)(c_03_计算对象位移.自身位移耗时 * 60);
+																	int num19 = keyValuePair.Key + (int)(c_03_计算对象位移.ItSelf位移耗时 * 60);
 																	while (this.Nodes.ContainsKey(num19))
 																	{
 																		num19++;
@@ -1309,7 +1309,7 @@ namespace GameServer.Templates
 																						对象编号 = keyValuePair18.Value.技能目标.MapId,
 																						位移朝向 = (ushort)keyValuePair18.Value.技能目标.当前方向
 																					});
-																					keyValuePair18.Value.技能目标.自身移动时处理(point3);
+																					keyValuePair18.Value.技能目标.ItSelf移动时处理(point3);
 																					if (c_03_计算对象位移.推动增加经验 && !this.经验增加)
 																					{
 																						(this.技能来源 as PlayerObject).技能增加经验(this.SkillId);
