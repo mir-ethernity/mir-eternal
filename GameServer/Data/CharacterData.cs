@@ -377,11 +377,11 @@ namespace GameServer.Data
 					this.角色装备[1] = new EquipmentData(游戏装备2, this, 0, 1, false);
 				}
 			}
-			铭文技能 铭文技能;
-			if (铭文技能.DataSheet.TryGetValue((ushort)((职业 == GameObjectRace.战士) ? 10300 : ((职业 == GameObjectRace.法师) ? 25300 : ((职业 == GameObjectRace.道士) ? 30000 : ((职业 == GameObjectRace.刺客) ? 15300 : ((职业 == GameObjectRace.弓手) ? 20400 : 12000))))), out 铭文技能))
+			InscriptionSkill 铭文技能;
+			if (InscriptionSkill.DataSheet.TryGetValue((ushort)((职业 == GameObjectRace.战士) ? 10300 : ((职业 == GameObjectRace.法师) ? 25300 : ((职业 == GameObjectRace.道士) ? 30000 : ((职业 == GameObjectRace.刺客) ? 15300 : ((职业 == GameObjectRace.弓手) ? 20400 : 12000))))), out 铭文技能))
 			{
-				SkillData SkillData = new SkillData(铭文技能.技能编号);
-				this.SkillData.Add(SkillData.技能编号.V, SkillData);
+				SkillData SkillData = new SkillData(铭文技能.SkillId);
+				this.SkillData.Add(SkillData.SkillId.V, SkillData);
 				this.快捷栏位[0] = SkillData;
 				SkillData.快捷栏位.V = 0;
 			}

@@ -28,7 +28,7 @@ namespace GameServer.Templates
 		public bool 验证铭文技能;
 
 		
-		public ushort 所需铭文编号;
+		public ushort 所需Id;
 
 		
 		public bool 同组铭文无效;
@@ -73,6 +73,6 @@ namespace GameServer.Templates
 		public bool 增加技能经验;
 
 		
-		public ushort 经验技能编号;
+		public ushort 经验SkillId;
 	}
 }

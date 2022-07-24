@@ -21,7 +21,7 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(下标 = 8, 长度 = 2)]
-		public ushort 技能编号;
+		public ushort SkillId;
 
 		
 		[WrappingFieldAttribute(下标 = 10, 长度 = 1)]

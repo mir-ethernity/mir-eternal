@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -84,7 +84,7 @@ namespace GameServer.Maps
 			
 			this.CharacterData = CharacterData;
 			this.宠物列表 = new List<PetObject>();
-			this.被动技能 = new Dictionary<ushort, SkillData>();
+			this.PassiveSkill = new Dictionary<ushort, SkillData>();
 			this.Stat加成[this] = 角色成长.获取数据(this.角色职业, this.当前等级);
 			Dictionary<object, int> dictionary = new Dictionary<object, int>();
 			dictionary[this] = (int)(this.当前等级 * 10);
@@ -101,23 +101,23 @@ namespace GameServer.Maps
 					this.Stat加成[EquipmentData] = EquipmentData.装备Stat;
 				}
 				SkillData SkillData;
-				if (EquipmentData.第一铭文 != null && this.主体技能表.TryGetValue(EquipmentData.第一铭文.技能编号, out SkillData))
+				if (EquipmentData.第一铭文 != null && this.主体技能表.TryGetValue(EquipmentData.第一铭文.SkillId, out SkillData))
 				{
-					SkillData.铭文编号 = EquipmentData.第一铭文.铭文编号;
+					SkillData.Id = EquipmentData.第一铭文.Id;
 				}
 				SkillData SkillData2;
-				if (EquipmentData.第二铭文 != null && this.主体技能表.TryGetValue(EquipmentData.第二铭文.技能编号, out SkillData2))
+				if (EquipmentData.第二铭文 != null && this.主体技能表.TryGetValue(EquipmentData.第二铭文.SkillId, out SkillData2))
 				{
-					SkillData2.铭文编号 = EquipmentData.第二铭文.铭文编号;
+					SkillData2.Id = EquipmentData.第二铭文.Id;
 				}
 			}
 			foreach (SkillData SkillData3 in this.主体技能表.Values)
 			{
 				this.CombatBonus[SkillData3] = SkillData3.CombatBonus;
 				this.Stat加成[SkillData3] = SkillData3.Stat加成;
-				foreach (ushort key in SkillData3.被动技能.ToList<ushort>())
+				foreach (ushort key in SkillData3.PassiveSkill.ToList<ushort>())
 				{
-					this.被动技能.Add(key, SkillData3);
+					this.PassiveSkill.Add(key, SkillData3);
 				}
 			}
 			foreach (BuffData BuffData in this.Buff列表.Values)
@@ -466,31 +466,31 @@ namespace GameServer.Maps
 				{
 					foreach (SkillData SkillData in this.主体技能表.Values.ToList<SkillData>())
 					{
-						if (SkillData.技能计数 > 0 && SkillData.剩余次数.V < SkillData.技能计数)
+						if (SkillData.SkillCount > 0 && SkillData.剩余次数.V < SkillData.SkillCount)
 						{
 							if (SkillData.计数时间 == default(DateTime))
 							{
-								SkillData.计数时间 = MainProcess.CurrentTime.AddMilliseconds((double)SkillData.计数周期);
+								SkillData.计数时间 = MainProcess.CurrentTime.AddMilliseconds((double)SkillData.PeriodCount);
 							}
 							else if (MainProcess.CurrentTime > SkillData.计数时间)
 							{
 								DataMonitor<byte> 剩余次数 = SkillData.剩余次数;
-								if ((剩余次数.V += 1) >= SkillData.技能计数)
+								if ((剩余次数.V += 1) >= SkillData.SkillCount)
 								{
 									SkillData.计数时间 = default(DateTime);
 								}
 								else
 								{
-									SkillData.计数时间 = MainProcess.CurrentTime.AddMilliseconds((double)SkillData.计数周期);
+									SkillData.计数时间 = MainProcess.CurrentTime.AddMilliseconds((double)SkillData.PeriodCount);
 								}
 								客户网络 网络连接 = this.网络连接;
 								if (网络连接 != null)
 								{
 									网络连接.发送封包(new SyncSkillCountPacket
 									{
-										技能编号 = SkillData.技能编号.V,
-										技能计数 = SkillData.剩余次数.V,
-										技能冷却 = (int)SkillData.计数周期
+										SkillId = SkillData.SkillId.V,
+										SkillCount = SkillData.剩余次数.V,
+										技能冷却 = (int)SkillData.PeriodCount
 									});
 								}
 							}
@@ -2427,10 +2427,10 @@ namespace GameServer.Maps
 		}
 
 		
-		public void 技能增加经验(ushort 技能编号)
+		public void 技能增加经验(ushort SkillId)
 		{
 			SkillData SkillData;
-			if (!this.主体技能表.TryGetValue(技能编号, out SkillData) || this.当前等级 < SkillData.升级等级)
+			if (!this.主体技能表.TryGetValue(SkillId, out SkillData) || this.当前等级 < SkillData.升级等级)
 			{
 				return;
 			}
@@ -2453,7 +2453,7 @@ namespace GameServer.Maps
 				技能等级.V += 1;
 				base.发送封包(new 玩家技能升级
 				{
-					技能编号 = SkillData.技能编号.V,
+					SkillId = SkillData.SkillId.V,
 					技能等级 = SkillData.技能等级.V
 				});
 				this.CombatBonus[SkillData] = SkillData.CombatBonus;
@@ -2468,30 +2468,30 @@ namespace GameServer.Maps
 			}
 			网络连接.发送封包(new SyncSkillLevelPacket
 			{
-				技能编号 = SkillData.技能编号.V,
+				SkillId = SkillData.SkillId.V,
 				当前经验 = SkillData.技能经验.V,
 				当前等级 = SkillData.技能等级.V
 			});
 		}
 
 		
-		public bool 玩家学习技能(ushort 技能编号)
+		public bool 玩家学习技能(ushort SkillId)
 		{
-			if (this.主体技能表.ContainsKey(技能编号))
+			if (this.主体技能表.ContainsKey(SkillId))
 			{
 				return false;
 			}
-			this.主体技能表[技能编号] = new SkillData(技能编号);
+			this.主体技能表[SkillId] = new SkillData(SkillId);
 			客户网络 网络连接 = this.网络连接;
 			if (网络连接 != null)
 			{
 				网络连接.发送封包(new CharacterLearningSkillPacket
 				{
 					角色编号 = this.MapId,
-					技能编号 = 技能编号
+					SkillId = SkillId
 				});
 			}
-			if (this.主体技能表[技能编号].自动装配)
+			if (this.主体技能表[SkillId].自动装配)
 			{
 				byte b = 0;
 				while (b < 8)
@@ -2502,7 +2502,7 @@ namespace GameServer.Maps
 					}
 					else
 					{
-						this.CharacterData.快捷栏位[b] = this.主体技能表[技能编号];
+						this.CharacterData.快捷栏位[b] = this.主体技能表[SkillId];
 						客户网络 网络连接2 = this.网络连接;
 						if (网络连接2 == null)
 						{
@@ -2511,9 +2511,9 @@ namespace GameServer.Maps
 						网络连接2.发送封包(new CharacterDragSkillsPacket
 						{
 							技能栏位 = b,
-							铭文编号 = this.主体技能表[技能编号].铭文编号,
-							技能编号 = this.主体技能表[技能编号].技能编号.V,
-							技能等级 = this.主体技能表[技能编号].技能等级.V
+							Id = this.主体技能表[SkillId].Id,
+							SkillId = this.主体技能表[SkillId].SkillId.V,
+							技能等级 = this.主体技能表[SkillId].技能等级.V
 						});
 						break;
 					}
@@ -2522,67 +2522,67 @@ namespace GameServer.Maps
 			EquipmentData EquipmentData;
 			if (this.角色装备.TryGetValue(0, out EquipmentData))
 			{
-				铭文技能 第一铭文 = EquipmentData.第一铭文;
-				ushort? num = (第一铭文 != null) ? new ushort?(第一铭文.技能编号) : null;
+				InscriptionSkill 第一铭文 = EquipmentData.第一铭文;
+				ushort? num = (第一铭文 != null) ? new ushort?(第一铭文.SkillId) : null;
 				int? num2 = (num != null) ? new int?((int)num.GetValueOrDefault()) : null;
-				if (num2.GetValueOrDefault() == (int)技能编号 & num2 != null)
+				if (num2.GetValueOrDefault() == (int)SkillId & num2 != null)
 				{
-					this.主体技能表[技能编号].铭文编号 = EquipmentData.第一铭文.铭文编号;
+					this.主体技能表[SkillId].Id = EquipmentData.第一铭文.Id;
 					客户网络 网络连接3 = this.网络连接;
 					if (网络连接3 != null)
 					{
 						网络连接3.发送封包(new CharacterAssemblyInscriptionPacket
 						{
-							技能编号 = 技能编号,
-							铭文编号 = EquipmentData.第一铭文.铭文编号
+							SkillId = SkillId,
+							Id = EquipmentData.第一铭文.Id
 						});
 					}
 				}
-				铭文技能 第二铭文 = EquipmentData.第二铭文;
-				num = ((第二铭文 != null) ? new ushort?(第二铭文.技能编号) : null);
+				InscriptionSkill 第二铭文 = EquipmentData.第二铭文;
+				num = ((第二铭文 != null) ? new ushort?(第二铭文.SkillId) : null);
 				num2 = ((num != null) ? new int?((int)num.GetValueOrDefault()) : null);
-				if (num2.GetValueOrDefault() == (int)技能编号 & num2 != null)
+				if (num2.GetValueOrDefault() == (int)SkillId & num2 != null)
 				{
-					this.主体技能表[技能编号].铭文编号 = EquipmentData.第二铭文.铭文编号;
+					this.主体技能表[SkillId].Id = EquipmentData.第二铭文.Id;
 					客户网络 网络连接4 = this.网络连接;
 					if (网络连接4 != null)
 					{
 						网络连接4.发送封包(new CharacterAssemblyInscriptionPacket
 						{
-							技能编号 = 技能编号,
-							铭文编号 = EquipmentData.第二铭文.铭文编号
+							SkillId = SkillId,
+							Id = EquipmentData.第二铭文.Id
 						});
 					}
 				}
 			}
-			foreach (ushort key in this.主体技能表[技能编号].被动技能)
+			foreach (ushort key in this.主体技能表[SkillId].PassiveSkill)
 			{
-				this.被动技能.Add(key, this.主体技能表[技能编号]);
+				this.PassiveSkill.Add(key, this.主体技能表[SkillId]);
 			}
-			foreach (ushort 编号 in this.主体技能表[技能编号].技能Buff)
+			foreach (ushort 编号 in this.主体技能表[SkillId].技能Buff)
 			{
 				base.添加Buff时处理(编号, this);
 			}
-			this.CombatBonus[this.主体技能表[技能编号]] = this.主体技能表[技能编号].CombatBonus;
+			this.CombatBonus[this.主体技能表[SkillId]] = this.主体技能表[SkillId].CombatBonus;
 			this.更新玩家战力();
-			this.Stat加成[this.主体技能表[技能编号]] = this.主体技能表[技能编号].Stat加成;
+			this.Stat加成[this.主体技能表[SkillId]] = this.主体技能表[SkillId].Stat加成;
 			this.更新对象Stat();
 			return true;
 		}
 
 		
-		public void 玩家装卸铭文(ushort 技能编号, byte 铭文编号)
+		public void 玩家装卸铭文(ushort SkillId, byte Id)
 		{
 			SkillData SkillData;
-			if (this.主体技能表.TryGetValue(技能编号, out SkillData))
+			if (this.主体技能表.TryGetValue(SkillId, out SkillData))
 			{
-				if (SkillData.铭文编号 == 铭文编号)
+				if (SkillData.Id == Id)
 				{
 					return;
 				}
-				foreach (ushort key in SkillData.被动技能)
+				foreach (ushort key in SkillData.PassiveSkill)
 				{
-					this.被动技能.Remove(key);
+					this.PassiveSkill.Remove(key);
 				}
 				foreach (ushort num in SkillData.技能Buff)
 				{
@@ -2598,38 +2598,38 @@ namespace GameServer.Maps
 						PetObject.自身死亡处理(null, false);
 					}
 				}
-				SkillData.铭文编号 = 铭文编号;
+				SkillData.Id = Id;
 				客户网络 网络连接 = this.网络连接;
 				if (网络连接 != null)
 				{
 					网络连接.发送封包(new CharacterAssemblyInscriptionPacket
 					{
-						铭文编号 = 铭文编号,
-						技能编号 = 技能编号,
+						Id = Id,
+						SkillId = SkillId,
 						技能等级 = SkillData.技能等级.V
 					});
 				}
-				foreach (ushort key2 in SkillData.被动技能)
+				foreach (ushort key2 in SkillData.PassiveSkill)
 				{
-					this.被动技能.Add(key2, SkillData);
+					this.PassiveSkill.Add(key2, SkillData);
 				}
 				foreach (ushort 编号 in SkillData.技能Buff)
 				{
 					base.添加Buff时处理(编号, this);
 				}
-				if (SkillData.技能计数 != 0)
+				if (SkillData.SkillCount != 0)
 				{
 					SkillData.剩余次数.V = 0;
-					SkillData.计数时间 = MainProcess.CurrentTime.AddMilliseconds((double)SkillData.计数周期);
-					this.冷却记录[(int)技能编号 | 16777216] = MainProcess.CurrentTime.AddMilliseconds((double)SkillData.计数周期);
+					SkillData.计数时间 = MainProcess.CurrentTime.AddMilliseconds((double)SkillData.PeriodCount);
+					this.冷却记录[(int)SkillId | 16777216] = MainProcess.CurrentTime.AddMilliseconds((double)SkillData.PeriodCount);
 					客户网络 网络连接2 = this.网络连接;
 					if (网络连接2 != null)
 					{
 						网络连接2.发送封包(new SyncSkillCountPacket
 						{
-							技能编号 = SkillData.技能编号.V,
-							技能计数 = SkillData.剩余次数.V,
-							技能冷却 = (int)SkillData.计数周期
+							SkillId = SkillData.SkillId.V,
+							SkillCount = SkillData.剩余次数.V,
+							技能冷却 = (int)SkillData.PeriodCount
 						});
 					}
 				}
@@ -2677,11 +2677,11 @@ namespace GameServer.Maps
 				}
 				if (原有装备.第一铭文 != null)
 				{
-					this.玩家装卸铭文(原有装备.第一铭文.技能编号, 0);
+					this.玩家装卸铭文(原有装备.第一铭文.SkillId, 0);
 				}
 				if (原有装备.第二铭文 != null)
 				{
-					this.玩家装卸铭文(原有装备.第二铭文.技能编号, 0);
+					this.玩家装卸铭文(原有装备.第二铭文.SkillId, 0);
 				}
 				this.CombatBonus.Remove(原有装备);
 				this.Stat加成.Remove(原有装备);
@@ -2690,11 +2690,11 @@ namespace GameServer.Maps
 			{
 				if (现有装备.第一铭文 != null)
 				{
-					this.玩家装卸铭文(现有装备.第一铭文.技能编号, 现有装备.第一铭文.铭文编号);
+					this.玩家装卸铭文(现有装备.第一铭文.SkillId, 现有装备.第一铭文.Id);
 				}
 				if (现有装备.第二铭文 != null)
 				{
-					this.玩家装卸铭文(现有装备.第二铭文.技能编号, 现有装备.第二铭文.铭文编号);
+					this.玩家装卸铭文(现有装备.第二铭文.SkillId, 现有装备.第二铭文.Id);
 				}
 				this.CombatBonus[现有装备] = 现有装备.装备战力;
 				if (现有装备.当前持久.V > 0)
@@ -2725,7 +2725,7 @@ namespace GameServer.Maps
 				return;
 			}
 			SkillData SkillData;
-			if (参数.检查铭文技能 && (!this.主体技能表.TryGetValue((ushort)(参数.检查铭文编号 / 10), out SkillData) || (int)SkillData.铭文编号 != 参数.检查铭文编号 % 10))
+			if (参数.检查铭文技能 && (!this.主体技能表.TryGetValue((ushort)(参数.检查Id / 10), out SkillData) || (int)SkillData.Id != 参数.检查Id % 10))
 			{
 				return;
 			}
@@ -2816,7 +2816,7 @@ namespace GameServer.Maps
 			}
 			if (参数.增加技能经验)
 			{
-				this.技能增加经验(参数.经验技能编号);
+				this.技能增加经验(参数.经验SkillId);
 			}
 		}
 
@@ -3699,14 +3699,14 @@ namespace GameServer.Maps
 		}
 
 		
-		public void 玩家开关技能(ushort 技能编号)
+		public void 玩家开关技能(ushort SkillId)
 		{
 			if (this.对象死亡)
 			{
 				return;
 			}
 			SkillData SkillData;
-			if (!this.主体技能表.TryGetValue(技能编号, out SkillData) && !this.被动技能.TryGetValue(技能编号, out SkillData))
+			if (!this.主体技能表.TryGetValue(SkillId, out SkillData) && !this.PassiveSkill.TryGetValue(SkillId, out SkillData))
 			{
 				if (this != null)
 				{
@@ -3716,7 +3716,7 @@ namespace GameServer.Maps
 			}
 			else
 			{
-				foreach (string key in SkillData.铭文模板.开关技能列表.ToList<string>())
+				foreach (string key in SkillData.铭文模板.SwitchSkills.ToList<string>())
 				{
 					游戏技能 游戏技能;
 					if (游戏技能.DataSheet.TryGetValue(key, out 游戏技能))
@@ -3744,20 +3744,20 @@ namespace GameServer.Maps
 		}
 
 		
-		public void 玩家释放技能(ushort 技能编号, byte 动作编号, int 目标编号, Point 技能锚点)
+		public void 玩家释放技能(ushort SkillId, byte 动作编号, int 目标编号, Point 技能锚点)
 		{
 			if (this.对象死亡 || this.摆摊状态 > 0 || this.交易状态 >= 3)
 			{
 				return;
 			}
 			SkillData SkillData;
-			if (!this.主体技能表.TryGetValue(技能编号, out SkillData) && !this.被动技能.TryGetValue(技能编号, out SkillData))
+			if (!this.主体技能表.TryGetValue(SkillId, out SkillData) && !this.PassiveSkill.TryGetValue(SkillId, out SkillData))
 			{
-				this.网络连接.尝试断开连接(new Exception(string.Format("错误操作: 玩家释放技能. 错误: 没有学会技能. 技能编号:{0}", 技能编号)));
+				this.网络连接.尝试断开连接(new Exception(string.Format("错误操作: 玩家释放技能. 错误: 没有学会技能. SkillId:{0}", SkillId)));
 				return;
 			}
 			DateTime dateTime;
-			if (!this.冷却记录.TryGetValue((int)技能编号 | 16777216, out dateTime) || !(MainProcess.CurrentTime < dateTime))
+			if (!this.冷却记录.TryGetValue((int)SkillId | 16777216, out dateTime) || !(MainProcess.CurrentTime < dateTime))
 			{
 				if (this.角色职业 == GameObjectRace.刺客)
 				{
@@ -3771,13 +3771,13 @@ namespace GameServer.Maps
 				}
 				MapObject MapObject;
 				MapGatewayProcess.Objects.TryGetValue(目标编号, out MapObject);
-				foreach (string key in SkillData.铭文模板.主体技能列表.ToList<string>())
+				foreach (string key in SkillData.铭文模板.MainSkills.ToList<string>())
 				{
 					int num = 0;
 					int num2 = 0;
 					List<ItemData> list = null;
 					游戏技能 游戏技能;
-					if (游戏技能.DataSheet.TryGetValue(key, out 游戏技能) && 游戏技能.自身技能编号 == 技能编号)
+					if (游戏技能.DataSheet.TryGetValue(key, out 游戏技能) && 游戏技能.自身SkillId == SkillId)
 					{
 						DateTime dateTime2;
 						if (游戏技能.技能GroupId == 0 || !this.冷却记录.TryGetValue((int)(游戏技能.技能GroupId | 0), out dateTime2) || !(MainProcess.CurrentTime < dateTime2))
@@ -3801,7 +3801,7 @@ namespace GameServer.Maps
 								{
 									break;
 								}
-								if (游戏技能.检查技能计数 && SkillData.剩余次数.V <= 0)
+								if (游戏技能.检查SkillCount && SkillData.剩余次数.V <= 0)
 								{
 									break;
 								}
@@ -3814,7 +3814,7 @@ namespace GameServer.Maps
 										{
 											网络连接.发送封包(new AddedSkillCooldownPacket
 											{
-												冷却编号 = ((int)技能编号 | 16777216),
+												冷却编号 = ((int)SkillId | 16777216),
 												Cooldown = (int)(this.硬直时间 - MainProcess.CurrentTime).TotalMilliseconds
 											});
 										}
@@ -3823,7 +3823,7 @@ namespace GameServer.Maps
 										{
 											网络连接2.发送封包(new 技能释放完成
 											{
-												技能编号 = 技能编号,
+												SkillId = SkillId,
 												动作编号 = 动作编号
 											});
 										}
@@ -3860,7 +3860,7 @@ namespace GameServer.Maps
 											this.主体技能表.TryGetValue(游戏技能.验证已学技能, out SkillData2) 
 											&& (
 												游戏技能.验证技能铭文 == 0 
-												|| 游戏技能.验证技能铭文 == SkillData2.铭文编号
+												|| 游戏技能.验证技能铭文 == SkillData2.Id
 											   )
 											)
 										 ) && (游戏技能.验证角色Buff == 0 || (this.Buff列表.TryGetValue(游戏技能.验证角色Buff, out BuffData2) && (int)BuffData2.当前层数.V >= 游戏技能.角色Buff层数)) && (游戏技能.验证目标Buff == 0 || (MapObject != null && MapObject.Buff列表.TryGetValue(游戏技能.验证目标Buff, out BuffData3) && (int)BuffData3.当前层数.V >= 游戏技能.目标Buff层数)) && (游戏技能.验证目标类型 == 指定目标类型.无 || (MapObject != null && MapObject.特定类型(this, 游戏技能.验证目标类型))))
@@ -3925,7 +3925,7 @@ namespace GameServer.Maps
 									{
 										网络连接3.发送封包(new AddedSkillCooldownPacket
 										{
-											冷却编号 = ((int)技能编号 | 16777216),
+											冷却编号 = ((int)SkillId | 16777216),
 											Cooldown = (int)(this.忙碌时间 - MainProcess.CurrentTime).TotalMilliseconds
 										});
 									}
@@ -3936,7 +3936,7 @@ namespace GameServer.Maps
 									}
 									网络连接4.发送封包(new 技能释放完成
 									{
-										技能编号 = 技能编号,
+										SkillId = SkillId,
 										动作编号 = 动作编号
 									});
 									break;
@@ -3950,7 +3950,7 @@ namespace GameServer.Maps
 							{
 								网络连接5.发送封包(new AddedSkillCooldownPacket
 								{
-									冷却编号 = ((int)技能编号 | 16777216),
+									冷却编号 = ((int)SkillId | 16777216),
 									Cooldown = (int)(dateTime2 - MainProcess.CurrentTime).TotalMilliseconds
 								});
 							}
@@ -3961,7 +3961,7 @@ namespace GameServer.Maps
 							}
 							网络连接6.发送封包(new 技能释放完成
 							{
-								技能编号 = 技能编号,
+								SkillId = SkillId,
 								动作编号 = 动作编号
 							});
 							break;
@@ -3975,7 +3975,7 @@ namespace GameServer.Maps
 			{
 				网络连接7.发送封包(new AddedSkillCooldownPacket
 				{
-					冷却编号 = ((int)技能编号 | 16777216),
+					冷却编号 = ((int)SkillId | 16777216),
 					Cooldown = (int)(dateTime - MainProcess.CurrentTime).TotalMilliseconds
 				});
 			}
@@ -3984,7 +3984,7 @@ namespace GameServer.Maps
 			{
 				网络连接8.发送封包(new 技能释放完成
 				{
-					技能编号 = 技能编号,
+					SkillId = SkillId,
 					动作编号 = 动作编号
 				});
 			}
@@ -3996,7 +3996,7 @@ namespace GameServer.Maps
 			网络连接9.发送封包(new GameErrorMessagePacket
 			{
 				错误代码 = 1281,
-				第一参数 = (int)技能编号,
+				第一参数 = (int)SkillId,
 				第二参数 = (int)动作编号
 			});
 		}
@@ -4030,14 +4030,14 @@ namespace GameServer.Maps
 		}
 
 		
-		public void 玩家拖动技能(byte 技能栏位, ushort 技能编号)
+		public void 玩家拖动技能(byte 技能栏位, ushort SkillId)
 		{
 			if (技能栏位 <= 7 || 技能栏位 >= 32)
 			{
 				return;
 			}
 			SkillData SkillData;
-			if (!this.主体技能表.TryGetValue(技能编号, out SkillData))
+			if (!this.主体技能表.TryGetValue(SkillId, out SkillData))
 			{
 				SkillData SkillData2;
 				if (this.快捷栏位.TryGetValue(技能栏位, out SkillData2))
@@ -4072,8 +4072,8 @@ namespace GameServer.Maps
 			网络连接.发送封包(new CharacterDragSkillsPacket
 			{
 				技能栏位 = 技能栏位,
-				铭文编号 = SkillData.铭文编号,
-				技能编号 = SkillData.技能编号.V,
+				Id = SkillData.Id,
+				SkillId = SkillData.SkillId.V,
 				技能等级 = SkillData.技能等级.V
 			});
 		}
@@ -12604,20 +12604,20 @@ namespace GameServer.Maps
 										{
 											if (EquipmentData2.第一铭文 != null)
 											{
-												this.玩家装卸铭文(EquipmentData2.第一铭文.技能编号, 0);
+												this.玩家装卸铭文(EquipmentData2.第一铭文.SkillId, 0);
 											}
 											if (EquipmentData2.第二铭文 != null)
 											{
-												this.玩家装卸铭文(EquipmentData2.第二铭文.技能编号, 0);
+												this.玩家装卸铭文(EquipmentData2.第二铭文.SkillId, 0);
 											}
 											EquipmentData2.当前铭栏.V = ((byte)((EquipmentData2.当前铭栏.V == 0) ? 1 : 0));
 											if (EquipmentData2.第一铭文 != null)
 											{
-												this.玩家装卸铭文(EquipmentData2.第一铭文.技能编号, EquipmentData2.第一铭文.铭文编号);
+												this.玩家装卸铭文(EquipmentData2.第一铭文.SkillId, EquipmentData2.第一铭文.Id);
 											}
 											if (EquipmentData2.第二铭文 != null)
 											{
-												this.玩家装卸铭文(EquipmentData2.第二铭文.技能编号, EquipmentData2.第二铭文.铭文编号);
+												this.玩家装卸铭文(EquipmentData2.第二铭文.SkillId, EquipmentData2.第二铭文.Id);
 											}
 											客户网络 网络连接56 = this.网络连接;
 											if (网络连接56 != null)
@@ -12632,10 +12632,10 @@ namespace GameServer.Maps
 											{
 												DoubleInscriptionPositionSwitchPacket DoubleInscriptionPositionSwitchPacket = new DoubleInscriptionPositionSwitchPacket();
 												DoubleInscriptionPositionSwitchPacket.当前栏位 = (ushort)EquipmentData2.当前铭栏.V;
-												铭文技能 第一铭文 = EquipmentData2.第一铭文;
-												DoubleInscriptionPositionSwitchPacket.第一铭文 = ((ushort)((第一铭文 != null) ? 第一铭文.铭文索引 : 0));
-												铭文技能 第二铭文 = EquipmentData2.第二铭文;
-												DoubleInscriptionPositionSwitchPacket.第二铭文 = ((ushort)((第二铭文 != null) ? 第二铭文.铭文索引 : 0));
+												InscriptionSkill 第一铭文 = EquipmentData2.第一铭文;
+												DoubleInscriptionPositionSwitchPacket.第一铭文 = ((ushort)((第一铭文 != null) ? 第一铭文.Index : 0));
+												InscriptionSkill 第二铭文 = EquipmentData2.第二铭文;
+												DoubleInscriptionPositionSwitchPacket.第二铭文 = ((ushort)((第二铭文 != null) ? 第二铭文.Index : 0));
 												网络连接57.发送封包(DoubleInscriptionPositionSwitchPacket);
 											}
 											this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
@@ -12656,10 +12656,10 @@ namespace GameServer.Maps
 											}
 											DoubleInscriptionPositionSwitchPacket DoubleInscriptionPositionSwitchPacket2 = new DoubleInscriptionPositionSwitchPacket();
 											DoubleInscriptionPositionSwitchPacket2.当前栏位 = (ushort)EquipmentData2.当前铭栏.V;
-											铭文技能 第一铭文2 = EquipmentData2.第一铭文;
-											DoubleInscriptionPositionSwitchPacket2.第一铭文 = ((ushort)((第一铭文2 != null) ? 第一铭文2.铭文索引 : 0));
-											铭文技能 第二铭文2 = EquipmentData2.第二铭文;
-											DoubleInscriptionPositionSwitchPacket2.第二铭文 = ((ushort)((第二铭文2 != null) ? 第二铭文2.铭文索引 : 0));
+											InscriptionSkill 第一铭文2 = EquipmentData2.第一铭文;
+											DoubleInscriptionPositionSwitchPacket2.第一铭文 = ((ushort)((第一铭文2 != null) ? 第一铭文2.Index : 0));
+											InscriptionSkill 第二铭文2 = EquipmentData2.第二铭文;
+											DoubleInscriptionPositionSwitchPacket2.第二铭文 = ((ushort)((第二铭文2 != null) ? 第二铭文2.Index : 0));
 											网络连接59.发送封包(DoubleInscriptionPositionSwitchPacket2);
 											return;
 										}
@@ -15857,16 +15857,16 @@ namespace GameServer.Maps
 					}
 					if (EquipmentData.第一铭文 == null)
 					{
-						EquipmentData.第一铭文 = 铭文技能.随机洗练(洗练职业);
-						this.玩家装卸铭文(EquipmentData.第一铭文.技能编号, EquipmentData.第一铭文.铭文编号);
-						if (EquipmentData.第一铭文.广播通知)
+						EquipmentData.第一铭文 = InscriptionSkill.RandomWashing(洗练职业);
+						this.玩家装卸铭文(EquipmentData.第一铭文.SkillId, EquipmentData.第一铭文.Id);
+						if (EquipmentData.第一铭文.BroadcastNotification)
 						{
 							NetworkServiceGateway.发送公告(string.Concat(new string[]
 							{
 								"Congratulations to [",
 								this.对象名字,
 								"] For Obtain rare inscriptions in the inscription refining [",
-								EquipmentData.第一铭文.技能名字.Split(new char[]
+								EquipmentData.第一铭文.SkillName.Split(new char[]
 								{
 									'-'
 								}).Last<string>(),
@@ -15876,25 +15876,25 @@ namespace GameServer.Maps
 					}
 					else if (EquipmentData.传承材料 != 0 && (EquipmentData.双铭文点 += MainProcess.RandomNumber.Next(1, 6)) >= 1200 && EquipmentData.第二铭文 == null)
 					{
-						int 技能编号;
+						int SkillId;
 						int? num2;
 						do
 						{
-							技能编号 = (int)(EquipmentData.第二铭文 = 铭文技能.随机洗练(洗练职业)).技能编号;
-							铭文技能 第一铭文 = EquipmentData.第一铭文;
-							ushort? num = (第一铭文 == null) ? null : new ushort?(第一铭文.技能编号);
+							SkillId = (int)(EquipmentData.第二铭文 = InscriptionSkill.RandomWashing(洗练职业)).SkillId;
+							InscriptionSkill 第一铭文 = EquipmentData.第一铭文;
+							ushort? num = (第一铭文 == null) ? null : new ushort?(第一铭文.SkillId);
 							num2 = ((num != null) ? new int?((int)num.GetValueOrDefault()) : null);
 						}
-						while (技能编号 == num2.GetValueOrDefault() & num2 != null);
-						this.玩家装卸铭文(EquipmentData.第二铭文.技能编号, EquipmentData.第二铭文.铭文编号);
-						if (EquipmentData.第二铭文.广播通知)
+						while (SkillId == num2.GetValueOrDefault() & num2 != null);
+						this.玩家装卸铭文(EquipmentData.第二铭文.SkillId, EquipmentData.第二铭文.Id);
+						if (EquipmentData.第二铭文.BroadcastNotification)
 						{
 							NetworkServiceGateway.发送公告(string.Concat(new string[]
 							{
 								"Congratulations to [",
 								this.对象名字,
 								"] For Obtain rare inscriptions in the inscription wash [",
-								EquipmentData.第二铭文.技能名字.Split(new char[]
+								EquipmentData.第二铭文.SkillName.Split(new char[]
 								{
 									'-'
 								}).Last<string>(),
@@ -15906,30 +15906,30 @@ namespace GameServer.Maps
 					{
 						if (装备类型 == 0)
 						{
-							this.玩家装卸铭文(EquipmentData.第一铭文.技能编号, 0);
+							this.玩家装卸铭文(EquipmentData.第一铭文.SkillId, 0);
 						}
 						int? num2;
-						int 技能编号2;
+						int SkillId2;
 						do
 						{
-							技能编号2 = (int)(EquipmentData.第一铭文 = 铭文技能.随机洗练(洗练职业)).技能编号;
-							铭文技能 第二铭文 = EquipmentData.第二铭文;
-							ushort? num = (第二铭文 == null) ? null : new ushort?(第二铭文.技能编号);
+							SkillId2 = (int)(EquipmentData.第一铭文 = InscriptionSkill.RandomWashing(洗练职业)).SkillId;
+							InscriptionSkill 第二铭文 = EquipmentData.第二铭文;
+							ushort? num = (第二铭文 == null) ? null : new ushort?(第二铭文.SkillId);
 							num2 = ((num != null) ? new int?((int)num.GetValueOrDefault()) : null);
 						}
-						while (技能编号2 == num2.GetValueOrDefault() & num2 != null);
+						while (SkillId2 == num2.GetValueOrDefault() & num2 != null);
 						if (装备类型 == 0)
 						{
-							this.玩家装卸铭文(EquipmentData.第一铭文.技能编号, EquipmentData.第一铭文.铭文编号);
+							this.玩家装卸铭文(EquipmentData.第一铭文.SkillId, EquipmentData.第一铭文.Id);
 						}
-						if (EquipmentData.第一铭文.广播通知)
+						if (EquipmentData.第一铭文.BroadcastNotification)
 						{
 							NetworkServiceGateway.发送公告(string.Concat(new string[]
 							{
 								"Congratulations to [",
 								this.对象名字,
 								"]For Obtain rare inscriptions in the Inscription Wash[",
-								EquipmentData.第一铭文.技能名字.Split(new char[]
+								EquipmentData.第一铭文.SkillName.Split(new char[]
 								{
 									'-'
 								}).Last<string>(),
@@ -15951,10 +15951,10 @@ namespace GameServer.Maps
 						return;
 					}
 					玩家普通洗练 玩家普通洗练 = new 玩家普通洗练();
-					铭文技能 第一铭文2 = EquipmentData.第一铭文;
-					玩家普通洗练.铭文位一 = ((ushort)((第一铭文2 != null) ? 第一铭文2.铭文索引 : 0));
-					铭文技能 第二铭文2 = EquipmentData.第二铭文;
-					玩家普通洗练.铭文位二 = ((ushort)((第二铭文2 != null) ? 第二铭文2.铭文索引 : 0));
+					InscriptionSkill 第一铭文2 = EquipmentData.第一铭文;
+					玩家普通洗练.铭文位一 = ((ushort)((第一铭文2 != null) ? 第一铭文2.Index : 0));
+					InscriptionSkill 第二铭文2 = EquipmentData.第二铭文;
+					玩家普通洗练.铭文位二 = ((ushort)((第二铭文2 != null) ? 第二铭文2.Index : 0));
 					网络连接5.发送封包(玩家普通洗练);
 					return;
 				}
@@ -16076,7 +16076,7 @@ namespace GameServer.Maps
 						洗练职业 = 5;
 						break;
 					}
-					while ((this.洗练铭文 = 铭文技能.随机洗练(洗练职业)).技能编号 == EquipmentData.最优铭文.技能编号)
+					while ((this.InscriptionSkill = InscriptionSkill.RandomWashing(洗练职业)).SkillId == EquipmentData.最优铭文.SkillId)
 					{
 					}
 					if (EquipmentData.最优铭文 == EquipmentData.第一铭文)
@@ -16087,8 +16087,8 @@ namespace GameServer.Maps
 							网络连接4.发送封包(new 玩家高级洗练
 							{
 								洗练结果 = 1,
-								铭文位一 = EquipmentData.最优铭文.铭文索引,
-								铭文位二 = this.洗练铭文.铭文索引
+								铭文位一 = EquipmentData.最优铭文.Index,
+								铭文位二 = this.InscriptionSkill.Index
 							});
 						}
 					}
@@ -16100,19 +16100,19 @@ namespace GameServer.Maps
 							网络连接5.发送封包(new 玩家高级洗练
 							{
 								洗练结果 = 1,
-								铭文位一 = this.洗练铭文.铭文索引,
-								铭文位二 = EquipmentData.最优铭文.铭文索引
+								铭文位一 = this.InscriptionSkill.Index,
+								铭文位二 = EquipmentData.最优铭文.Index
 							});
 						}
 					}
-					if (this.洗练铭文.广播通知)
+					if (this.InscriptionSkill.BroadcastNotification)
 					{
 						NetworkServiceGateway.发送公告(string.Concat(new string[]
 						{
 							"Congratulations to [",
 							this.对象名字,
 							"] For Obtain rare inscriptions in the Inscription Wash[",
-							this.洗练铭文.技能名字.Split(new char[]
+							this.InscriptionSkill.SkillName.Split(new char[]
 							{
 								'-'
 							}).Last<string>(),
@@ -16240,7 +16240,7 @@ namespace GameServer.Maps
 						洗练职业 = 5;
 						break;
 					}
-					while ((this.洗练铭文 = 铭文技能.随机洗练(洗练职业)).技能编号 == EquipmentData.最差铭文.技能编号)
+					while ((this.InscriptionSkill = InscriptionSkill.RandomWashing(洗练职业)).SkillId == EquipmentData.最差铭文.SkillId)
 					{
 					}
 					客户网络 网络连接4 = this.网络连接;
@@ -16249,18 +16249,18 @@ namespace GameServer.Maps
 						网络连接4.发送封包(new 玩家高级洗练
 						{
 							洗练结果 = 1,
-							铭文位一 = EquipmentData.最差铭文.铭文索引,
-							铭文位二 = this.洗练铭文.铭文索引
+							铭文位一 = EquipmentData.最差铭文.Index,
+							铭文位二 = this.InscriptionSkill.Index
 						});
 					}
-					if (this.洗练铭文.广播通知)
+					if (this.InscriptionSkill.BroadcastNotification)
 					{
 						NetworkServiceGateway.发送公告(string.Concat(new string[]
 						{
 							"Congratulations to [",
 							this.对象名字,
 							"] For Obtain rare inscriptions in the Inscription Wash[",
-							this.洗练铭文.技能名字.Split(new char[]
+							this.InscriptionSkill.SkillName.Split(new char[]
 							{
 								'-'
 							}).Last<string>(),
@@ -16310,7 +16310,7 @@ namespace GameServer.Maps
 			}
 			else
 			{
-				if (this.洗练铭文 == null)
+				if (this.InscriptionSkill == null)
 				{
 					this.网络连接.尝试断开连接(new Exception("Wrong action: Confirmation of replacement inscription.  Error: There is no no record of the inscription.."));
 					return;
@@ -16327,12 +16327,12 @@ namespace GameServer.Maps
 				}
 				if (装备类型 == 0)
 				{
-					this.玩家装卸铭文(EquipmentData.最差铭文.技能编号, 0);
+					this.玩家装卸铭文(EquipmentData.最差铭文.SkillId, 0);
 				}
-				EquipmentData.最差铭文 = this.洗练铭文;
+				EquipmentData.最差铭文 = this.InscriptionSkill;
 				if (装备类型 == 0)
 				{
-					this.玩家装卸铭文(this.洗练铭文.技能编号, this.洗练铭文.铭文编号);
+					this.玩家装卸铭文(this.InscriptionSkill.SkillId, this.InscriptionSkill.Id);
 				}
 				客户网络 网络连接2 = this.网络连接;
 				if (网络连接2 != null)
@@ -16393,7 +16393,7 @@ namespace GameServer.Maps
 			}
 			else
 			{
-				if (this.洗练铭文 == null)
+				if (this.InscriptionSkill == null)
 				{
 					this.网络连接.尝试断开连接(new Exception("Mistake: Confirmation of replacement inscription.  Error: There is no record of the inscription."));
 					return;
@@ -16410,12 +16410,12 @@ namespace GameServer.Maps
 				}
 				if (装备类型 == 0)
 				{
-					this.玩家装卸铭文(EquipmentData.最优铭文.技能编号, 0);
+					this.玩家装卸铭文(EquipmentData.最优铭文.SkillId, 0);
 				}
-				EquipmentData.最优铭文 = this.洗练铭文;
+				EquipmentData.最优铭文 = this.InscriptionSkill;
 				if (装备类型 == 0)
 				{
-					this.玩家装卸铭文(this.洗练铭文.技能编号, this.洗练铭文.铭文编号);
+					this.玩家装卸铭文(this.InscriptionSkill.SkillId, this.InscriptionSkill.Id);
 				}
 				客户网络 网络连接2 = this.网络连接;
 				if (网络连接2 != null)
@@ -16441,7 +16441,7 @@ namespace GameServer.Maps
 		
 		public void 放弃替换铭文()
 		{
-			this.洗练铭文 = null;
+			this.InscriptionSkill = null;
 			客户网络 网络连接 = this.网络连接;
 			if (网络连接 == null)
 			{
@@ -16526,10 +16526,10 @@ namespace GameServer.Maps
 								}
 								DoubleInscriptionPositionSwitchPacket DoubleInscriptionPositionSwitchPacket = new DoubleInscriptionPositionSwitchPacket();
 								DoubleInscriptionPositionSwitchPacket.当前栏位 = (ushort)EquipmentData.当前铭栏.V;
-								铭文技能 第一铭文 = EquipmentData.第一铭文;
-								DoubleInscriptionPositionSwitchPacket.第一铭文 = ((ushort)((第一铭文 != null) ? 第一铭文.铭文索引 : 0));
-								铭文技能 第二铭文 = EquipmentData.第二铭文;
-								DoubleInscriptionPositionSwitchPacket.第二铭文 = ((ushort)((第二铭文 != null) ? 第二铭文.铭文索引 : 0));
+								InscriptionSkill 第一铭文 = EquipmentData.第一铭文;
+								DoubleInscriptionPositionSwitchPacket.第一铭文 = ((ushort)((第一铭文 != null) ? 第一铭文.Index : 0));
+								InscriptionSkill 第二铭文 = EquipmentData.第二铭文;
+								DoubleInscriptionPositionSwitchPacket.第二铭文 = ((ushort)((第二铭文 != null) ? 第二铭文.Index : 0));
 								网络连接4.发送封包(DoubleInscriptionPositionSwitchPacket);
 							}
 						}
@@ -16611,10 +16611,10 @@ namespace GameServer.Maps
 							}
 							DoubleInscriptionPositionSwitchPacket DoubleInscriptionPositionSwitchPacket = new DoubleInscriptionPositionSwitchPacket();
 							DoubleInscriptionPositionSwitchPacket.当前栏位 = (ushort)EquipmentData.当前铭栏.V;
-							铭文技能 第一铭文 = EquipmentData.第一铭文;
-							DoubleInscriptionPositionSwitchPacket.第一铭文 = ((ushort)((第一铭文 != null) ? 第一铭文.铭文索引 : 0));
-							铭文技能 第二铭文 = EquipmentData.第二铭文;
-							DoubleInscriptionPositionSwitchPacket.第二铭文 = ((ushort)((第二铭文 != null) ? 第二铭文.铭文索引 : 0));
+							InscriptionSkill 第一铭文 = EquipmentData.第一铭文;
+							DoubleInscriptionPositionSwitchPacket.第一铭文 = ((ushort)((第一铭文 != null) ? 第一铭文.Index : 0));
+							InscriptionSkill 第二铭文 = EquipmentData.第二铭文;
+							DoubleInscriptionPositionSwitchPacket.第二铭文 = ((ushort)((第二铭文 != null) ? 第二铭文.Index : 0));
 							网络连接3.发送封包(DoubleInscriptionPositionSwitchPacket);
 							return;
 						}
@@ -23983,8 +23983,8 @@ namespace GameServer.Maps
 				{
 					foreach (SkillData SkillData in this.主体技能表.Values)
 					{
-						binaryWriter.Write(SkillData.技能编号.V);
-						binaryWriter.Write(SkillData.铭文编号);
+						binaryWriter.Write(SkillData.SkillId.V);
+						binaryWriter.Write(SkillData.Id);
 						binaryWriter.Write(SkillData.技能等级.V);
 						binaryWriter.Write(SkillData.技能经验.V);
 					}
@@ -24051,7 +24051,7 @@ namespace GameServer.Maps
 						binaryWriter.Write(keyValuePair.Key);
 						BinaryWriter binaryWriter2 = binaryWriter;
 						SkillData value = keyValuePair.Value;
-						binaryWriter2.Write((value != null) ? value.技能编号.V : 0);
+						binaryWriter2.Write((value != null) ? value.SkillId.V : 0);
 						binaryWriter.Write(false);
 					}
 					result = memoryStream.ToArray();
@@ -24312,7 +24312,7 @@ namespace GameServer.Maps
 		public CharacterData CharacterData;
 
 		
-		public 铭文技能 洗练铭文;
+		public InscriptionSkill InscriptionSkill;
 
 		
 		public PlayerDeals 当前交易;
@@ -24390,6 +24390,6 @@ namespace GameServer.Maps
 		public Dictionary<object, int> CombatBonus;
 
 		
-		public readonly Dictionary<ushort, SkillData> 被动技能;
+		public readonly Dictionary<ushort, SkillData> PassiveSkill;
 	}
 }

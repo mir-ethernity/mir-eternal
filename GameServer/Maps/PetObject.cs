@@ -912,13 +912,13 @@ namespace GameServer.Maps
 				return;
 			}
 			游戏技能 游戏技能;
-			if (this.ProbabilityTriggerSkills != null && (!this.冷却记录.ContainsKey((int)this.NormalAttackSkills.自身技能编号 | 16777216) || MainProcess.CurrentTime > this.冷却记录[(int)this.NormalAttackSkills.自身技能编号 | 16777216]) && ComputingClass.计算概率(this.ProbabilityTriggerSkills.计算幸运概率 ? ComputingClass.计算幸运(this[GameObjectStats.幸运等级]) : this.ProbabilityTriggerSkills.计算触发概率))
+			if (this.ProbabilityTriggerSkills != null && (!this.冷却记录.ContainsKey((int)this.NormalAttackSkills.自身SkillId | 16777216) || MainProcess.CurrentTime > this.冷却记录[(int)this.NormalAttackSkills.自身SkillId | 16777216]) && ComputingClass.计算概率(this.ProbabilityTriggerSkills.计算幸运概率 ? ComputingClass.计算幸运(this[GameObjectStats.幸运等级]) : this.ProbabilityTriggerSkills.计算触发概率))
 			{
 				游戏技能 = this.ProbabilityTriggerSkills;
 			}
 			else
 			{
-				if (this.NormalAttackSkills == null || (this.冷却记录.ContainsKey((int)this.NormalAttackSkills.自身技能编号 | 16777216) && !(MainProcess.CurrentTime > this.冷却记录[(int)this.NormalAttackSkills.自身技能编号 | 16777216])))
+				if (this.NormalAttackSkills == null || (this.冷却记录.ContainsKey((int)this.NormalAttackSkills.自身SkillId | 16777216) && !(MainProcess.CurrentTime > this.冷却记录[(int)this.NormalAttackSkills.自身SkillId | 16777216])))
 				{
 					return;
 				}

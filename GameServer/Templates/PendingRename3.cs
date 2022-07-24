@@ -74,7 +74,7 @@ namespace GameServer.Templates
 		public bool HasSpecificInscriptionDelay;
 
 		
-		public 铭文技能 绑定铭文技能;
+		public InscriptionSkill 绑定铭文技能;
 
 		
 		public int SpecificInscriptionSkills;

@@ -13,7 +13,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return (int)(this.技能编号.V * 100 + (ushort)(this.铭文编号 * 10) + (ushort)this.技能等级.V);
+				return (int)(this.SkillId.V * 100 + (ushort)(this.Id * 10) + (ushort)this.技能等级.V);
 			}
 		}
 
@@ -30,29 +30,29 @@ namespace GameServer.Data
 			
 			
 			this.快捷栏位.V = 100;
-			this.技能编号.V = 编号;
-			this.剩余次数.V = this.技能计数;
+			this.SkillId.V = 编号;
+			this.剩余次数.V = this.SkillCount;
 			GameDataGateway.SkillData表.AddData(this, true);
 		}
 
 		
 		public override string ToString()
 		{
-			铭文技能 铭文模板 = this.铭文模板;
+			InscriptionSkill 铭文模板 = this.铭文模板;
 			if (铭文模板 == null)
 			{
 				return null;
 			}
-			return 铭文模板.技能名字;
+			return 铭文模板.SkillName;
 		}
 
 		
 		// (get) Token: 0x06000442 RID: 1090 RVA: 0x0000441C File Offset: 0x0000261C
-		public 铭文技能 铭文模板
+		public InscriptionSkill 铭文模板
 		{
 			get
 			{
-				return 铭文技能.DataSheet[this.铭文索引];
+				return InscriptionSkill.DataSheet[this.Index];
 			}
 		}
 
@@ -62,7 +62,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.铭文模板.被动技能;
+				return this.铭文模板.PassiveSkill;
 			}
 		}
 
@@ -72,35 +72,35 @@ namespace GameServer.Data
 		{
 			get
 			{
-				if (this.铭文模板.需要角色等级 == null || this.铭文模板.需要角色等级.Length <= (int)(this.技能等级.V + 1))
+				if (this.铭文模板.MinPlayerLevel == null || this.铭文模板.MinPlayerLevel.Length <= (int)(this.技能等级.V + 1))
 				{
 					return byte.MaxValue;
 				}
-				if (this.铭文模板.需要角色等级[(int)this.技能等级.V] == 0)
+				if (this.铭文模板.MinPlayerLevel[(int)this.技能等级.V] == 0)
 				{
 					return byte.MaxValue;
 				}
-				return this.铭文模板.需要角色等级[(int)this.技能等级.V];
+				return this.铭文模板.MinPlayerLevel[(int)this.技能等级.V];
 			}
 		}
 
 		
 		// (get) Token: 0x06000445 RID: 1093 RVA: 0x0000443B File Offset: 0x0000263B
-		public byte 技能计数
+		public byte SkillCount
 		{
 			get
 			{
-				return this.铭文模板.技能计数;
+				return this.铭文模板.SkillCount;
 			}
 		}
 
 		
 		// (get) Token: 0x06000446 RID: 1094 RVA: 0x00004448 File Offset: 0x00002648
-		public ushort 计数周期
+		public ushort PeriodCount
 		{
 			get
 			{
-				return this.铭文模板.计数周期;
+				return this.铭文模板.PeriodCount;
 			}
 		}
 
@@ -110,9 +110,9 @@ namespace GameServer.Data
 		{
 			get
 			{
-				if (this.铭文模板.需要技能经验 != null && this.铭文模板.需要技能经验.Length > (int)this.技能等级.V)
+				if (this.铭文模板.MinSkillExp != null && this.铭文模板.MinSkillExp.Length > (int)this.技能等级.V)
 				{
-					return this.铭文模板.需要技能经验[(int)this.技能等级.V];
+					return this.铭文模板.MinSkillExp[(int)this.技能等级.V];
 				}
 				return 0;
 			}
@@ -120,11 +120,11 @@ namespace GameServer.Data
 
 		
 		// (get) Token: 0x06000448 RID: 1096 RVA: 0x00004455 File Offset: 0x00002655
-		public ushort 铭文索引
+		public ushort Index
 		{
 			get
 			{
-				return (ushort)(this.技能编号.V * 10 + (ushort)this.铭文编号);
+				return (ushort)(this.SkillId.V * 10 + (ushort)this.Id);
 			}
 		}
 
@@ -134,7 +134,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.铭文模板.技能CombatBonus[(int)this.技能等级.V];
+				return this.铭文模板.SkillCombatBonus[(int)this.技能等级.V];
 			}
 		}
 
@@ -144,17 +144,17 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.铭文模板.铭文附带Buff;
+				return this.铭文模板.ComesWithBuff;
 			}
 		}
 
 		
 		// (get) Token: 0x0600044B RID: 1099 RVA: 0x00004493 File Offset: 0x00002693
-		public List<ushort> 被动技能
+		public List<ushort> PassiveSkill
 		{
 			get
 			{
-				return this.铭文模板.被动技能列表;
+				return this.铭文模板.PassiveSkills;
 			}
 		}
 
@@ -164,22 +164,22 @@ namespace GameServer.Data
 		{
 			get
 			{
-				if (this.铭文模板.Stat加成 != null && this.铭文模板.Stat加成.Length > (int)this.技能等级.V)
+				if (this.铭文模板.StatsBonusDictionary != null && this.铭文模板.StatsBonusDictionary.Length > (int)this.技能等级.V)
 				{
-					return this.铭文模板.Stat加成[(int)this.技能等级.V];
+					return this.铭文模板.StatsBonusDictionary[(int)this.技能等级.V];
 				}
 				return null;
 			}
 		}
 
 		
-		public byte 铭文编号;
+		public byte Id;
 
 		
 		public DateTime 计数时间;
 
 		
-		public readonly DataMonitor<ushort> 技能编号;
+		public readonly DataMonitor<ushort> SkillId;
 
 		
 		public readonly DataMonitor<ushort> 技能经验;

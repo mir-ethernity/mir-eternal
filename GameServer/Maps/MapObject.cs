@@ -1905,7 +1905,7 @@ namespace GameServer.Maps
                                                 if (EffectJudgeType == BuffJudgmentType.AllSpecificInjuries)
                                                 {
                                                     HashSet<ushort> SpecificSkillId = BuffData.Buff模板.SpecificSkillId;
-                                                    flag = (SpecificSkillId != null && SpecificSkillId.Contains(技能.技能编号));
+                                                    flag = (SpecificSkillId != null && SpecificSkillId.Contains(技能.SkillId));
                                                 }
                                             }
                                             else
@@ -1925,7 +1925,7 @@ namespace GameServer.Maps
                                             case BuffJudgmentType.AllSpecificInjuries:
                                                 {
                                                     HashSet<ushort> SpecificSkillId2 = BuffData.Buff模板.SpecificSkillId;
-                                                    flag = (SpecificSkillId2 != null && SpecificSkillId2.Contains(技能.技能编号));
+                                                    flag = (SpecificSkillId2 != null && SpecificSkillId2.Contains(技能.SkillId));
                                                     break;
                                                 }
                                         }
@@ -1937,7 +1937,7 @@ namespace GameServer.Maps
                                         if (BuffData.Buff模板.EffectJudgeType == BuffJudgmentType.AllSpecificInjuries)
                                         {
                                             HashSet<ushort> SpecificSkillId3 = BuffData.Buff模板.SpecificSkillId;
-                                            flag = (SpecificSkillId3 != null && SpecificSkillId3.Contains(技能.技能编号));
+                                            flag = (SpecificSkillId3 != null && SpecificSkillId3.Contains(技能.SkillId));
                                         }
                                         break;
                                 }
@@ -1993,7 +1993,7 @@ namespace GameServer.Maps
                                                     if (EffectJudgeType == BuffJudgmentType.AllSpecificInjuries)
                                                     {
                                                         HashSet<ushort> SpecificSkillId4 = BuffData2.Buff模板.SpecificSkillId;
-                                                        flag2 = (SpecificSkillId4 != null && SpecificSkillId4.Contains(技能.技能编号));
+                                                        flag2 = (SpecificSkillId4 != null && SpecificSkillId4.Contains(技能.SkillId));
                                                     }
                                                 }
                                                 else
@@ -2009,7 +2009,7 @@ namespace GameServer.Maps
                                                     if (MapObject == BuffData2.Buff来源)
                                                     {
                                                         HashSet<ushort> SpecificSkillId5 = BuffData2.Buff模板.SpecificSkillId;
-                                                        flag3 = (SpecificSkillId5 != null && SpecificSkillId5.Contains(技能.技能编号));
+                                                        flag3 = (SpecificSkillId5 != null && SpecificSkillId5.Contains(技能.SkillId));
                                                     }
                                                     else
                                                     {
@@ -2040,7 +2040,7 @@ namespace GameServer.Maps
                                                     case (BuffJudgmentType)3:
                                                         goto IL_953;
                                                     case BuffJudgmentType.AllSpecificInjuries:
-                                                        flag2 = BuffData2.Buff模板.SpecificSkillId.Contains(技能.技能编号);
+                                                        flag2 = BuffData2.Buff模板.SpecificSkillId.Contains(技能.SkillId);
                                                         goto IL_953;
                                                     default:
                                                         if (EffectJudgeType != BuffJudgmentType.SourceSkillDamage)
@@ -2060,7 +2060,7 @@ namespace GameServer.Maps
                                                 if (MapObject == BuffData2.Buff来源)
                                                 {
                                                     HashSet<ushort> SpecificSkillId6 = BuffData2.Buff模板.SpecificSkillId;
-                                                    flag4 = (SpecificSkillId6 != null && SpecificSkillId6.Contains(技能.技能编号));
+                                                    flag4 = (SpecificSkillId6 != null && SpecificSkillId6.Contains(技能.SkillId));
                                                 }
                                                 else
                                                 {
@@ -2086,7 +2086,7 @@ namespace GameServer.Maps
                                                     if (MapObject == BuffData2.Buff来源)
                                                     {
                                                         HashSet<ushort> SpecificSkillId7 = BuffData2.Buff模板.SpecificSkillId;
-                                                        flag5 = (SpecificSkillId7 != null && SpecificSkillId7.Contains(技能.技能编号));
+                                                        flag5 = (SpecificSkillId7 != null && SpecificSkillId7.Contains(技能.SkillId));
                                                     }
                                                     else
                                                     {
@@ -2098,7 +2098,7 @@ namespace GameServer.Maps
                                             else
                                             {
                                                 HashSet<ushort> SpecificSkillId8 = BuffData2.Buff模板.SpecificSkillId;
-                                                flag2 = (SpecificSkillId8 != null && SpecificSkillId8.Contains(技能.技能编号));
+                                                flag2 = (SpecificSkillId8 != null && SpecificSkillId8.Contains(技能.SkillId));
                                             }
                                             break;
                                         }

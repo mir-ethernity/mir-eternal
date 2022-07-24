@@ -116,7 +116,7 @@ namespace GameServer.Templates
 		public bool 增加技能经验;
 
 		
-		public ushort 经验技能编号;
+		public ushort 经验SkillId;
 
 		
 		public bool 清除目标状态;

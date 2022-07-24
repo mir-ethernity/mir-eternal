@@ -17,7 +17,7 @@ namespace GameServer.Templates
 		public bool 检查铭文技能;
 
 		
-		public int 检查铭文编号;
+		public int 检查Id;
 
 		
 		public ushort 瘫痪状态编号;

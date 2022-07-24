@@ -890,13 +890,13 @@ namespace GameServer.Maps
 		{
 			base.脱战时间 = MainProcess.CurrentTime.AddSeconds(10.0);
 			游戏技能 游戏技能;
-			if (this.ProbabilityTriggerSkills != null && (!this.冷却记录.ContainsKey((int)this.ProbabilityTriggerSkills.自身技能编号 | 16777216) || MainProcess.CurrentTime > this.冷却记录[(int)this.ProbabilityTriggerSkills.自身技能编号 | 16777216]) && ComputingClass.计算概率(this.ProbabilityTriggerSkills.计算触发概率))
+			if (this.ProbabilityTriggerSkills != null && (!this.冷却记录.ContainsKey((int)this.ProbabilityTriggerSkills.自身SkillId | 16777216) || MainProcess.CurrentTime > this.冷却记录[(int)this.ProbabilityTriggerSkills.自身SkillId | 16777216]) && ComputingClass.计算概率(this.ProbabilityTriggerSkills.计算触发概率))
 			{
 				游戏技能 = this.ProbabilityTriggerSkills;
 			}
 			else
 			{
-				if (this.NormalAttackSkills == null || (this.冷却记录.ContainsKey((int)this.NormalAttackSkills.自身技能编号 | 16777216) && !(MainProcess.CurrentTime > this.冷却记录[(int)this.NormalAttackSkills.自身技能编号 | 16777216])))
+				if (this.NormalAttackSkills == null || (this.冷却记录.ContainsKey((int)this.NormalAttackSkills.自身SkillId | 16777216) && !(MainProcess.CurrentTime > this.冷却记录[(int)this.NormalAttackSkills.自身SkillId | 16777216])))
 				{
 					return;
 				}

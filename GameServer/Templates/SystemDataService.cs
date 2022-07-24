@@ -29,7 +29,7 @@ namespace GameServer.Templates
 				typeof(GameStore),
 				typeof(Treasures),
 				typeof(GameTitle),
-				typeof(铭文技能),
+				typeof(InscriptionSkill),
 				typeof(游戏技能),
 				typeof(技能陷阱),
 				typeof(GameBuffs)

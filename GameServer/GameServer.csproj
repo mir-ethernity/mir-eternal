@@ -208,7 +208,7 @@
     <Compile Include="Templates\EquipmentStats.cs" />
     <Compile Include="Templates\PendingRename30.cs" />
     <Compile Include="Templates\InscriptionStat.cs" />
-    <Compile Include="Templates\PendingRename6.cs" />
+    <Compile Include="Templates\InscriptionSkill.cs" />
     <Compile Include="Templates\RandomStats.cs" />
     <Compile Include="GMCommands\AddIngots.cs" />
     <Compile Include="GMCommands\AddItems.cs" />

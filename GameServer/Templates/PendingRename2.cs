@@ -33,21 +33,21 @@ namespace GameServer.Templates
 
 		
 		// (get) Token: 0x060006B2 RID: 1714 RVA: 0x00005F28 File Offset: 0x00004128
-		public byte 铭文编号
+		public byte Id
 		{
 			get
 			{
-				return this.技能模板.自身铭文编号;
+				return this.技能模板.自身Id;
 			}
 		}
 
 		
 		// (get) Token: 0x060006B3 RID: 1715 RVA: 0x00005F35 File Offset: 0x00004135
-		public ushort 技能编号
+		public ushort SkillId
 		{
 			get
 			{
-				return this.技能模板.自身技能编号;
+				return this.技能模板.自身SkillId;
 			}
 		}
 
@@ -87,7 +87,7 @@ namespace GameServer.Templates
 		{
 			get
 			{
-				return this.技能模板.检查技能计数;
+				return this.技能模板.检查SkillCount;
 			}
 		}
 
@@ -133,7 +133,7 @@ namespace GameServer.Templates
 				if (a_00_触发子类技能 != null)
 				{
 					游戏技能 游戏技能;
-					if (!游戏技能.DataSheet.TryGetValue(a_00_触发子类技能.触发技能名字, out 游戏技能))
+					if (!游戏技能.DataSheet.TryGetValue(a_00_触发子类技能.触发SkillName, out 游戏技能))
 					{
 						goto IL_33E1;
 					}
@@ -165,8 +165,8 @@ namespace GameServer.Templates
 						PlayerObject PlayerObject = this.技能来源 as PlayerObject;
 						if (PlayerObject != null)
 						{
-							int num = (int)(a_00_触发子类技能.所需铭文编号 / 10);
-							int num2 = (int)(a_00_触发子类技能.所需铭文编号 % 10);
+							int num = (int)(a_00_触发子类技能.所需Id / 10);
+							int num2 = (int)(a_00_触发子类技能.所需Id % 10);
 							SkillData SkillData;
 							if (!PlayerObject.主体技能表.TryGetValue((ushort)num, out SkillData))
 							{
@@ -174,11 +174,11 @@ namespace GameServer.Templates
 							}
 							else if (a_00_触发子类技能.同组铭文无效)
 							{
-								flag = (num2 == (int)SkillData.铭文编号);
+								flag = (num2 == (int)SkillData.Id);
 							}
 							else
 							{
-								flag = (num2 == 0 || num2 == (int)SkillData.铭文编号);
+								flag = (num2 == 0 || num2 == (int)SkillData.Id);
 							}
 						}
 					}
@@ -309,7 +309,7 @@ namespace GameServer.Templates
 					goto IL_33E1;
 					IL_698:
 					游戏技能 游戏技能3;
-					if (ComputingClass.计算概率(0.5f) && 游戏技能.DataSheet.TryGetValue(a_00_触发子类技能.反手技能名字, out 游戏技能3))
+					if (ComputingClass.计算概率(0.5f) && 游戏技能.DataSheet.TryGetValue(a_00_触发子类技能.反手SkillName, out 游戏技能3))
 					{
 						new 技能实例(this.技能来源, 游戏技能3, this.SkillData, this.动作编号, this.释放地图, this.释放位置, null, this.技能锚点, this, null, false);
 						goto IL_33E1;
@@ -346,8 +346,8 @@ namespace GameServer.Templates
 							PlayerObject PlayerObject2 = this.技能来源 as PlayerObject;
 							if (PlayerObject2 != null)
 							{
-								int num3 = (int)(触发Buff.所需铭文编号 / 10);
-								int num4 = (int)(触发Buff.所需铭文编号 % 10);
+								int num3 = (int)(触发Buff.所需Id / 10);
+								int num4 = (int)(触发Buff.所需Id % 10);
 								SkillData SkillData3;
 								if (!PlayerObject2.主体技能表.TryGetValue((ushort)num3, out SkillData3))
 								{
@@ -355,11 +355,11 @@ namespace GameServer.Templates
 								}
 								else if (触发Buff.同组铭文无效)
 								{
-									flag3 = (num4 == (int)SkillData3.铭文编号);
+									flag3 = (num4 == (int)SkillData3.Id);
 								}
 								else
 								{
-									flag3 = (num4 == 0 || num4 == (int)SkillData3.铭文编号);
+									flag3 = (num4 == 0 || num4 == (int)SkillData3.Id);
 								}
 							}
 						}
@@ -437,8 +437,8 @@ namespace GameServer.Templates
 							PlayerObject PlayerObject3 = this.技能来源 as PlayerObject;
 							if (PlayerObject3 != null)
 							{
-								int num5 = (int)(触发Buff.所需铭文编号 / 10);
-								int num6 = (int)(触发Buff.所需铭文编号 % 10);
+								int num5 = (int)(触发Buff.所需Id / 10);
+								int num6 = (int)(触发Buff.所需Id % 10);
 								SkillData SkillData4;
 								if (!PlayerObject3.主体技能表.TryGetValue((ushort)num5, out SkillData4))
 								{
@@ -446,11 +446,11 @@ namespace GameServer.Templates
 								}
 								else if (触发Buff.同组铭文无效)
 								{
-									flag4 = (num6 == (int)SkillData4.铭文编号);
+									flag4 = (num6 == (int)SkillData4.Id);
 								}
 								else
 								{
-									flag4 = (num6 == 0 || num6 == (int)SkillData4.铭文编号);
+									flag4 = (num6 == 0 || num6 == (int)SkillData4.Id);
 								}
 							}
 						}
@@ -493,7 +493,7 @@ namespace GameServer.Templates
 						PlayerObject PlayerObject4 = this.技能来源 as PlayerObject;
 						if (PlayerObject4 != null)
 						{
-							PlayerObject4.技能增加经验(触发Buff.经验技能编号);
+							PlayerObject4.技能增加经验(触发Buff.经验SkillId);
 						}
 					}
 				}
@@ -533,12 +533,12 @@ namespace GameServer.Templates
 								}
 								IL_E2A:;
 							}
-							if (num7 != 0 && a_02_TriggerTrapSkills.经验技能编号 != 0)
+							if (num7 != 0 && a_02_TriggerTrapSkills.经验SkillId != 0)
 							{
 								PlayerObject PlayerObject5 = this.技能来源 as PlayerObject;
 								if (PlayerObject5 != null)
 								{
-									PlayerObject5.技能增加经验(a_02_TriggerTrapSkills.经验技能编号);
+									PlayerObject5.技能增加经验(a_02_TriggerTrapSkills.经验SkillId);
 								}
 							}
 						}
@@ -596,12 +596,12 @@ namespace GameServer.Templates
 											DataMonitor<byte> 剩余次数 = this.SkillData.剩余次数;
 											if ((剩余次数.V -= 1) <= 0)
 											{
-												this.技能来源.冷却记录[(int)this.技能编号 | 16777216] = this.释放时间.AddMilliseconds((this.SkillData.计数时间 - MainProcess.CurrentTime).TotalMilliseconds);
+												this.技能来源.冷却记录[(int)this.SkillId | 16777216] = this.释放时间.AddMilliseconds((this.SkillData.计数时间 - MainProcess.CurrentTime).TotalMilliseconds);
 											}
 											PlayerObject6.网络连接.发送封包(new SyncSkillCountPacket
 											{
-												技能编号 = this.SkillData.技能编号.V,
-												技能计数 = this.SkillData.剩余次数.V,
+												SkillId = this.SkillData.SkillId.V,
+												SkillCount = this.SkillData.剩余次数.V,
 												技能冷却 = (int)(this.SkillData.计数时间 - MainProcess.CurrentTime).TotalMilliseconds
 											});
 											goto IL_11B7;
@@ -615,13 +615,13 @@ namespace GameServer.Templates
 											num8 += b_01_技能释放通知.冷却增加时间;
 										}
 										DateTime dateTime = this.释放时间.AddMilliseconds((double)num8);
-										DateTime t = this.技能来源.冷却记录.ContainsKey((int)this.技能编号 | 16777216) ? this.技能来源.冷却记录[(int)this.技能编号 | 16777216] : default(DateTime);
+										DateTime t = this.技能来源.冷却记录.ContainsKey((int)this.SkillId | 16777216) ? this.技能来源.冷却记录[(int)this.SkillId | 16777216] : default(DateTime);
 										if (num8 > 0 && dateTime > t)
 										{
-											this.技能来源.冷却记录[(int)this.技能编号 | 16777216] = dateTime;
+											this.技能来源.冷却记录[(int)this.SkillId | 16777216] = dateTime;
 											this.技能来源.发送封包(new AddedSkillCooldownPacket
 											{
-												冷却编号 = ((int)this.技能编号 | 16777216),
+												冷却编号 = ((int)this.SkillId | 16777216),
 												Cooldown = num8
 											});
 										}
@@ -652,9 +652,9 @@ namespace GameServer.Templates
 									MapObject MapObject3 = this.技能来源;
 									开始释放技能 开始释放技能 = new 开始释放技能();
 									开始释放技能.对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId);
-									开始释放技能.技能编号 = this.技能编号;
+									开始释放技能.SkillId = this.SkillId;
 									开始释放技能.技能等级 = this.技能等级;
-									开始释放技能.技能铭文 = this.铭文编号;
+									开始释放技能.技能铭文 = this.Id;
 									开始释放技能.锚点坐标 = this.技能锚点;
 									开始释放技能.动作编号 = this.动作编号;
 									MapObject MapObject4 = this.技能目标;
@@ -673,9 +673,9 @@ namespace GameServer.Templates
 										this.技能来源.发送封包(new 触发技能扩展
 										{
 											对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId),
-											技能编号 = this.技能编号,
+											SkillId = this.SkillId,
 											技能等级 = this.技能等级,
-											技能铭文 = this.铭文编号,
+											技能铭文 = this.Id,
 											动作编号 = this.动作编号,
 											命中描述 = 命中详情.命中描述(this.命中列表, this.飞行耗时)
 										});
@@ -685,9 +685,9 @@ namespace GameServer.Templates
 										this.技能来源.发送封包(new 触发技能正常
 										{
 											对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId),
-											技能编号 = this.技能编号,
+											SkillId = this.SkillId,
 											技能等级 = this.技能等级,
-											技能铭文 = this.铭文编号,
+											技能铭文 = this.Id,
 											动作编号 = this.动作编号,
 											命中描述 = 命中详情.命中描述(this.命中列表, this.飞行耗时)
 										});
@@ -740,9 +740,9 @@ namespace GameServer.Templates
 											this.技能来源.发送封包(new 触发技能正常
 											{
 												对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId),
-												技能编号 = this.技能编号,
+												SkillId = this.SkillId,
 												技能等级 = this.技能等级,
-												技能铭文 = this.铭文编号,
+												技能铭文 = this.Id,
 												动作编号 = this.动作编号
 											});
 										}
@@ -762,7 +762,7 @@ namespace GameServer.Templates
 										{
 											this.技能来源.发送封包(new 技能释放完成
 											{
-												技能编号 = this.技能编号,
+												SkillId = this.SkillId,
 												动作编号 = this.动作编号
 											});
 											if (b_04_后摇结束通知.后摇结束死亡)
@@ -882,9 +882,9 @@ namespace GameServer.Templates
 															this.技能来源.发送封包(new 技能释放中断
 															{
 																对象编号 = this.技能来源.MapId,
-																技能编号 = this.技能编号,
+																SkillId = this.SkillId,
 																技能等级 = this.技能等级,
-																技能铭文 = this.铭文编号,
+																技能铭文 = this.Id,
 																动作编号 = this.动作编号,
 																技能分段 = this.分段编号
 															});
@@ -897,9 +897,9 @@ namespace GameServer.Templates
 														MapObject MapObject11 = this.技能来源;
 														开始释放技能 开始释放技能2 = new 开始释放技能();
 														开始释放技能2.对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId);
-														开始释放技能2.技能编号 = this.技能编号;
+														开始释放技能2.SkillId = this.SkillId;
 														开始释放技能2.技能等级 = this.技能等级;
-														开始释放技能2.技能铭文 = this.铭文编号;
+														开始释放技能2.技能铭文 = this.Id;
 														MapObject MapObject12 = this.技能目标;
 														开始释放技能2.目标编号 = ((MapObject12 != null) ? MapObject12.MapId : 0);
 														开始释放技能2.锚点坐标 = this.技能锚点;
@@ -924,13 +924,13 @@ namespace GameServer.Templates
 															}
 														}
 													}
-													if (c_01_计算命中目标.触发被动技能 && this.命中列表.Count != 0 && ComputingClass.计算概率(c_01_计算命中目标.触发被动概率))
+													if (c_01_计算命中目标.触发PassiveSkill && this.命中列表.Count != 0 && ComputingClass.计算概率(c_01_计算命中目标.触发被动概率))
 													{
 														this.技能来源[GameObjectStats.技能标志] = 1;
 													}
 													if (c_01_计算命中目标.增加技能经验 && this.命中列表.Count != 0)
 													{
-														(this.技能来源 as PlayerObject).技能增加经验(c_01_计算命中目标.经验技能编号);
+														(this.技能来源 as PlayerObject).技能增加经验(c_01_计算命中目标.经验SkillId);
 													}
 													if (c_01_计算命中目标.计算飞行耗时 && c_01_计算命中目标.单格飞行耗时 != 0)
 													{
@@ -941,9 +941,9 @@ namespace GameServer.Templates
 														this.技能来源.发送封包(new 触发技能正常
 														{
 															对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId),
-															技能编号 = this.技能编号,
+															SkillId = this.SkillId,
 															技能等级 = this.技能等级,
-															技能铭文 = this.铭文编号,
+															技能铭文 = this.Id,
 															动作编号 = this.动作编号,
 															命中描述 = 命中详情.命中描述(this.命中列表, this.飞行耗时)
 														});
@@ -953,9 +953,9 @@ namespace GameServer.Templates
 														this.技能来源.发送封包(new 触发技能扩展
 														{
 															对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId),
-															技能编号 = this.技能编号,
+															SkillId = this.SkillId,
 															技能等级 = this.技能等级,
-															技能铭文 = this.铭文编号,
+															技能铭文 = this.Id,
 															动作编号 = this.动作编号,
 															命中描述 = 命中详情.命中描述(this.命中列表, this.飞行耗时)
 														});
@@ -988,9 +988,9 @@ namespace GameServer.Templates
 																this.技能来源.发送封包(new 触发命中特效
 																{
 																	对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId),
-																	技能编号 = this.技能编号,
+																	SkillId = this.SkillId,
 																	技能等级 = this.技能等级,
-																	技能铭文 = this.铭文编号,
+																	技能铭文 = this.Id,
 																	动作编号 = this.动作编号,
 																	目标编号 = keyValuePair12.Value.技能目标.MapId,
 																	技能反馈 = (ushort)keyValuePair12.Value.技能反馈,
@@ -1134,7 +1134,7 @@ namespace GameServer.Templates
 														}
 														if (c_02_计算目标伤害.增加技能经验 && this.命中列表.Count != 0)
 														{
-															(this.技能来源 as PlayerObject).技能增加经验(c_02_计算目标伤害.经验技能编号);
+															(this.技能来源 as PlayerObject).技能增加经验(c_02_计算目标伤害.经验SkillId);
 														}
 														if (c_02_计算目标伤害.扣除武器持久 && this.命中列表.Count != 0)
 														{
@@ -1153,15 +1153,15 @@ namespace GameServer.Templates
 																this.技能来源.发送封包(new 技能释放中断
 																{
 																	对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId),
-																	技能编号 = this.技能编号,
+																	SkillId = this.SkillId,
 																	技能等级 = this.技能等级,
-																	技能铭文 = this.铭文编号,
+																	技能铭文 = this.Id,
 																	动作编号 = this.动作编号,
 																	技能分段 = this.分段编号
 																});
 																this.技能来源.发送封包(new 技能释放完成
 																{
-																	技能编号 = this.技能编号,
+																	SkillId = this.SkillId,
 																	动作编号 = this.动作编号
 																});
 																goto IL_33E1;
@@ -1201,7 +1201,7 @@ namespace GameServer.Templates
 																		MapObject13.自身移动时处理(point2);
 																		if (c_03_计算对象位移.推动增加经验 && !this.经验增加)
 																		{
-																			(this.技能来源 as PlayerObject).技能增加经验(this.技能编号);
+																			(this.技能来源 as PlayerObject).技能增加经验(this.SkillId);
 																			this.经验增加 = true;
 																		}
 																	}
@@ -1223,7 +1223,7 @@ namespace GameServer.Templates
 																	PlayerObject PlayerObject10 = this.技能来源 as PlayerObject;
 																	if (PlayerObject10 != null && c_03_计算对象位移.位移增加经验 && !this.经验增加)
 																	{
-																		PlayerObject10.技能增加经验(this.技能编号);
+																		PlayerObject10.技能增加经验(this.SkillId);
 																		this.经验增加 = true;
 																	}
 																	if (c_03_计算对象位移.多段位移通知)
@@ -1231,9 +1231,9 @@ namespace GameServer.Templates
 																		this.技能来源.发送封包(new 触发技能正常
 																		{
 																			对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId),
-																			技能编号 = this.技能编号,
+																			SkillId = this.SkillId,
 																			技能等级 = this.技能等级,
-																			技能铭文 = this.铭文编号,
+																			技能铭文 = this.Id,
 																			动作编号 = this.动作编号,
 																			技能分段 = this.分段编号
 																		});
@@ -1312,7 +1312,7 @@ namespace GameServer.Templates
 																					keyValuePair18.Value.技能目标.自身移动时处理(point3);
 																					if (c_03_计算对象位移.推动增加经验 && !this.经验增加)
 																					{
-																						(this.技能来源 as PlayerObject).技能增加经验(this.技能编号);
+																						(this.技能来源 as PlayerObject).技能增加经验(this.SkillId);
 																						this.经验增加 = true;
 																					}
 																				}
@@ -1360,7 +1360,7 @@ namespace GameServer.Templates
 																if (PlayerObject11 != null)
 																{
 																	SkillData SkillData5;
-																	if (c_06_计算宠物召唤.检查技能铭文 && (!PlayerObject11.主体技能表.TryGetValue(this.技能编号, out SkillData5) || SkillData5.铭文编号 != this.铭文编号))
+																	if (c_06_计算宠物召唤.检查技能铭文 && (!PlayerObject11.主体技能表.TryGetValue(this.SkillId, out SkillData5) || SkillData5.Id != this.Id))
 																	{
 																		return;
 																	}
@@ -1394,7 +1394,7 @@ namespace GameServer.Templates
 																		PlayerObject11.宠物列表.Add(PetObject);
 																		if (c_06_计算宠物召唤.增加技能经验)
 																		{
-																			PlayerObject11.技能增加经验(c_06_计算宠物召唤.经验技能编号);
+																			PlayerObject11.技能增加经验(c_06_计算宠物召唤.经验SkillId);
 																		}
 																	}
 																}
@@ -1411,7 +1411,7 @@ namespace GameServer.Templates
 																}
 																if (c_05_计算目标回复.增加技能经验 && this.命中列表.Count != 0)
 																{
-																	(this.技能来源 as PlayerObject).技能增加经验(c_05_计算目标回复.经验技能编号);
+																	(this.技能来源 as PlayerObject).技能增加经验(c_05_计算目标回复.经验SkillId);
 																}
 															}
 															else
@@ -1451,9 +1451,9 @@ namespace GameServer.Templates
 			this.技能来源.发送封包(new 技能释放中断
 			{
 				对象编号 = ((!this.目标借位 || this.技能目标 == null) ? this.技能来源.MapId : this.技能目标.MapId),
-				技能编号 = this.技能编号,
+				SkillId = this.SkillId,
 				技能等级 = this.技能等级,
-				技能铭文 = this.铭文编号,
+				技能铭文 = this.Id,
 				动作编号 = this.动作编号,
 				技能分段 = this.分段编号
 			});

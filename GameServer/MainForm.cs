@@ -138,8 +138,8 @@ namespace GameServer
                 }));
             }
             MainForm.角色技能表 = new Dictionary<CharacterData, List<KeyValuePair<ushort, SkillData>>>();
-            MainForm.SkillData表.Columns.Add("技能名字", typeof(string));
-            MainForm.SkillData表.Columns.Add("技能编号", typeof(string));
+            MainForm.SkillData表.Columns.Add("SkillName", typeof(string));
+            MainForm.SkillData表.Columns.Add("SkillId", typeof(string));
             MainForm.SkillData表.Columns.Add("当前等级", typeof(string));
             MainForm.SkillData表.Columns.Add("当前经验", typeof(string));
             MainForm MainForm2 = MainForm.Singleton;
@@ -525,8 +525,8 @@ namespace GameServer
                         foreach (KeyValuePair<ushort, SkillData> keyValuePair in list)
                         {
                             DataRow dataRow = MainForm.SkillData表.NewRow();
-                            dataRow["技能名字"] = keyValuePair.Value.铭文模板.技能名字;
-                            dataRow["技能编号"] = keyValuePair.Value.技能编号;
+                            dataRow["SkillName"] = keyValuePair.Value.铭文模板.SkillName;
+                            dataRow["SkillId"] = keyValuePair.Value.SkillId;
                             dataRow["当前等级"] = keyValuePair.Value.技能等级;
                             dataRow["当前经验"] = keyValuePair.Value.技能经验;
                             MainForm.SkillData表.Rows.Add(dataRow);

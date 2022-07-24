@@ -2248,7 +2248,7 @@ namespace GameServer.Data
 		
 		// (get) Token: 0x06000595 RID: 1429 RVA: 0x000053A8 File Offset: 0x000035A8
 		// (set) Token: 0x06000596 RID: 1430 RVA: 0x000053D0 File Offset: 0x000035D0
-		public 铭文技能 第一铭文
+		public InscriptionSkill 第一铭文
 		{
 			get
 			{
@@ -2272,7 +2272,7 @@ namespace GameServer.Data
 		
 		// (get) Token: 0x06000597 RID: 1431 RVA: 0x000053FA File Offset: 0x000035FA
 		// (set) Token: 0x06000598 RID: 1432 RVA: 0x00005422 File Offset: 0x00003622
-		public 铭文技能 第二铭文
+		public InscriptionSkill 第二铭文
 		{
 			get
 			{
@@ -2296,13 +2296,13 @@ namespace GameServer.Data
 		
 		// (get) Token: 0x06000599 RID: 1433 RVA: 0x00028F9C File Offset: 0x0002719C
 		// (set) Token: 0x0600059A RID: 1434 RVA: 0x00029034 File Offset: 0x00027234
-		public 铭文技能 最优铭文
+		public InscriptionSkill 最优铭文
 		{
 			get
 			{
 				if (this.当前铭栏.V == 0)
 				{
-					if (this.铭文技能[0].铭文品质 < this.铭文技能[1].铭文品质)
+					if (this.铭文技能[0].Quality < this.铭文技能[1].Quality)
 					{
 						return this.铭文技能[1];
 					}
@@ -2310,7 +2310,7 @@ namespace GameServer.Data
 				}
 				else
 				{
-					if (this.铭文技能[2].铭文品质 < this.铭文技能[3].铭文品质)
+					if (this.铭文技能[2].Quality < this.铭文技能[3].Quality)
 					{
 						return this.铭文技能[3];
 					}
@@ -2321,7 +2321,7 @@ namespace GameServer.Data
 			{
 				if (this.当前铭栏.V == 0)
 				{
-					if (this.铭文技能[0].铭文品质 >= this.铭文技能[1].铭文品质)
+					if (this.铭文技能[0].Quality >= this.铭文技能[1].Quality)
 					{
 						this.铭文技能[0] = value;
 						return;
@@ -2331,7 +2331,7 @@ namespace GameServer.Data
 				}
 				else
 				{
-					if (this.铭文技能[2].铭文品质 >= this.铭文技能[3].铭文品质)
+					if (this.铭文技能[2].Quality >= this.铭文技能[3].Quality)
 					{
 						this.铭文技能[2] = value;
 						return;
@@ -2345,13 +2345,13 @@ namespace GameServer.Data
 		
 		// (get) Token: 0x0600059B RID: 1435 RVA: 0x000290D0 File Offset: 0x000272D0
 		// (set) Token: 0x0600059C RID: 1436 RVA: 0x00029168 File Offset: 0x00027368
-		public 铭文技能 最差铭文
+		public InscriptionSkill 最差铭文
 		{
 			get
 			{
 				if (this.当前铭栏.V == 0)
 				{
-					if (this.铭文技能[0].铭文品质 >= this.铭文技能[1].铭文品质)
+					if (this.铭文技能[0].Quality >= this.铭文技能[1].Quality)
 					{
 						return this.铭文技能[1];
 					}
@@ -2359,7 +2359,7 @@ namespace GameServer.Data
 				}
 				else
 				{
-					if (this.铭文技能[2].铭文品质 >= this.铭文技能[3].铭文品质)
+					if (this.铭文技能[2].Quality >= this.铭文技能[3].Quality)
 					{
 						return this.铭文技能[3];
 					}
@@ -2370,7 +2370,7 @@ namespace GameServer.Data
 			{
 				if (this.当前铭栏.V == 0)
 				{
-					if (this.铭文技能[0].铭文品质 < this.铭文技能[1].铭文品质)
+					if (this.铭文技能[0].Quality < this.铭文技能[1].Quality)
 					{
 						this.铭文技能[0] = value;
 						return;
@@ -2380,7 +2380,7 @@ namespace GameServer.Data
 				}
 				else
 				{
-					if (this.铭文技能[2].铭文品质 < this.铭文技能[3].铭文品质)
+					if (this.铭文技能[2].Quality < this.铭文技能[3].Quality)
 					{
 						this.铭文技能[2] = value;
 						return;
@@ -2905,11 +2905,11 @@ namespace GameServer.Data
 						binaryWriter.Write(this.洗练数一.V * 10000);
 						if ((num3 & 1) != 0)
 						{
-							binaryWriter.Write(this.铭文技能[0].铭文索引);
+							binaryWriter.Write(this.铭文技能[0].Index);
 						}
 						if ((num3 & 2) != 0)
 						{
-							binaryWriter.Write(this.铭文技能[1].铭文索引);
+							binaryWriter.Write(this.铭文技能[1].Index);
 						}
 					}
 					if ((num & 512) != 0)
@@ -2927,11 +2927,11 @@ namespace GameServer.Data
 						binaryWriter.Write(this.洗练数二.V * 10000);
 						if ((num4 & 1) != 0)
 						{
-							binaryWriter.Write(this.铭文技能[2].铭文索引);
+							binaryWriter.Write(this.铭文技能[2].Index);
 						}
 						if ((num4 & 2) != 0)
 						{
-							binaryWriter.Write(this.铭文技能[3].铭文索引);
+							binaryWriter.Write(this.铭文技能[3].Index);
 						}
 					}
 					if ((num2 & 2048) != 0)
@@ -3069,7 +3069,7 @@ namespace GameServer.Data
 		public readonly ListMonitor<EquipHoleColor> 孔洞颜色;
 
 		
-		public readonly MonitorDictionary<byte, 铭文技能> 铭文技能;
+		public readonly MonitorDictionary<byte, InscriptionSkill> 铭文技能;
 
 		
 		public readonly MonitorDictionary<byte, GameItems> 镶嵌灵石;

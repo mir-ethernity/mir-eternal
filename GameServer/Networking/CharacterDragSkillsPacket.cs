@@ -19,11 +19,11 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(下标 = 3, 长度 = 2)]
-		public ushort 技能编号;
+		public ushort SkillId;
 
 		
 		[WrappingFieldAttribute(下标 = 5, 长度 = 1)]
-		public byte 铭文编号;
+		public byte Id;
 
 		
 		[WrappingFieldAttribute(下标 = 6, 长度 = 1)]

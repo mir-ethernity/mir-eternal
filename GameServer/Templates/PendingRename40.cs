@@ -16,7 +16,7 @@ namespace GameServer.Templates
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(游戏技能)))
 				{
-					游戏技能.DataSheet.Add(((游戏技能)obj).技能名字, (游戏技能)obj);
+					游戏技能.DataSheet.Add(((游戏技能)obj).SkillName, (游戏技能)obj);
 				}
 			}
 		}
@@ -35,19 +35,19 @@ namespace GameServer.Templates
 		public static Dictionary<string, 游戏技能> DataSheet;
 
 		
-		public string 技能名字;
+		public string SkillName;
 
 		
-		public GameObjectRace 技能职业;
+		public GameObjectRace Race;
 
 		
 		public 技能对应类型 技能类型;
 
 		
-		public ushort 自身技能编号;
+		public ushort 自身SkillId;
 
 		
-		public byte 自身铭文编号;
+		public byte 自身Id;
 
 		
 		public byte 技能GroupId;
@@ -89,7 +89,7 @@ namespace GameServer.Templates
 		public bool 检查技能标记;
 
 		
-		public bool 检查技能计数;
+		public bool 检查SkillCount;
 
 		
 		public ushort 技能标记编号;

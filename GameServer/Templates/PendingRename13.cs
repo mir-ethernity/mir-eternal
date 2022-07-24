@@ -16,10 +16,10 @@ namespace GameServer.Templates
 		public 技能触发方式 技能触发方式;
 
 		
-		public string 触发技能名字;
+		public string 触发SkillName;
 
 		
-		public string 反手技能名字;
+		public string 反手SkillName;
 
 		
 		public bool 计算触发概率;
@@ -49,7 +49,7 @@ namespace GameServer.Templates
 		public bool 验证铭文技能;
 
 		
-		public ushort 所需铭文编号;
+		public ushort 所需Id;
 
 		
 		public bool 同组铭文无效;

@@ -133,7 +133,7 @@ namespace GameServer.Data
 					int num = (int)Math.Max(0, v2);
 					int num2 = (int)(EquipmentData.升级Attack.V * 100 + EquipmentData.升级Magic.V * 100 + EquipmentData.升级Taoism.V * 100 + EquipmentData.升级Needle.V * 100 + EquipmentData.升级Archery.V * 100);
 					int num3 = 0;
-					using (IEnumerator<铭文技能> enumerator = EquipmentData.铭文技能.Values.GetEnumerator())
+					using (IEnumerator<InscriptionSkill> enumerator = EquipmentData.铭文技能.Values.GetEnumerator())
 					{
 						while (enumerator.MoveNext())
 						{
@@ -2077,7 +2077,7 @@ namespace GameServer.Data
 
 		
 		// (get) Token: 0x0600057D RID: 1405 RVA: 0x000052D5 File Offset: 0x000034D5
-		public ushort 技能编号
+		public ushort SkillId
 		{
 			get
 			{

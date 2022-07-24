@@ -508,7 +508,7 @@ namespace GameServer.Networking
 				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
-			this.绑定角色.玩家开关技能(P.技能编号);
+			this.绑定角色.玩家开关技能(P.SkillId);
 		}
 
 		
@@ -521,7 +521,7 @@ namespace GameServer.Networking
 			}
 			if (P.技能栏位 < 32)
 			{
-				this.绑定角色.玩家拖动技能(P.技能栏位, P.技能编号);
+				this.绑定角色.玩家拖动技能(P.技能栏位, P.SkillId);
 				return;
 			}
 			this.尝试断开连接(new Exception("玩家装配技能时提供错误的封包参数.即将断开连接."));
@@ -535,7 +535,7 @@ namespace GameServer.Networking
 				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
-			this.绑定角色.玩家释放技能(P.技能编号, P.动作编号, P.目标编号, P.锚点坐标);
+			this.绑定角色.玩家释放技能(P.SkillId, P.动作编号, P.目标编号, P.锚点坐标);
 		}
 
 		
