@@ -994,7 +994,7 @@ namespace GameServer.Networking
 				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
-			this.绑定角色.继续Npcc对话(P.对话编号);
+			this.绑定角色.继续Npcc对话(P.Id);
 		}
 
 		

@@ -173,7 +173,7 @@
     <Compile Include="Templates\Terrains.cs" />
     <Compile Include="Templates\PendingRename4.cs" />
     <Compile Include="Templates\Guards.cs" />
-    <Compile Include="Templates\PendingRename39.cs" />
+    <Compile Include="Templates\NpcDialogs.cs" />
     <Compile Include="Templates\PendingRename10.cs" />
     <Compile Include="Templates\Serializer.cs" />
     <Compile Include="Templates\MonsterSpawns.cs" />
