@@ -16,13 +16,13 @@ namespace GameServer.Templates
 		public int[] 体力回复次数;
 
 		
-		public float[] 道术叠加次数;
+		public float[] Taoism叠加次数;
 
 		
-		public byte[] 体力回复基数;
+		public byte[] PhysicalRecoveryBase;
 
 		
-		public float[] 道术叠加基数;
+		public float[] Taoism叠加基数;
 
 		
 		public int[] 立即回复基数;

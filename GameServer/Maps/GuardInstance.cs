@@ -342,7 +342,7 @@ namespace GameServer.Maps
 				}
 				if (MainProcess.CurrentTime > base.恢复时间)
 				{
-					if (!this.检查状态(游戏对象状态.中毒状态))
+					if (!this.检查状态(GameObjectState.Poisoned))
 					{
 						this.当前体力 += 5;
 					}
@@ -352,7 +352,7 @@ namespace GameServer.Maps
 				{
 					if (this.更新HateObject())
 					{
-						this.守卫智能攻击();
+						this.守卫智能Attack();
 					}
 					else if (this.HateObject.仇恨列表.Count == 0 && this.能否转动())
 					{
@@ -413,9 +413,9 @@ namespace GameServer.Maps
 		}
 
 		
-		public void 守卫智能攻击()
+		public void 守卫智能Attack()
 		{
-			if (this.检查状态(游戏对象状态.麻痹状态 | 游戏对象状态.失神状态))
+			if (this.检查状态(GameObjectState.Paralyzed | GameObjectState.Absence))
 			{
 				return;
 			}

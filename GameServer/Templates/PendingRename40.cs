@@ -50,7 +50,7 @@ namespace GameServer.Templates
 		public byte 自身铭文编号;
 
 		
-		public byte 技能分组编号;
+		public byte 技能GroupId;
 
 		
 		public ushort 绑定等级编号;
@@ -74,10 +74,10 @@ namespace GameServer.Templates
 		public float Stat提升系数;
 
 		
-		public bool 检查忙绿状态;
+		public bool 检查BusyGreen;
 
 		
-		public bool 检查硬直状态;
+		public bool 检查Stiff;
 
 		
 		public bool 检查职业武器;
@@ -95,7 +95,7 @@ namespace GameServer.Templates
 		public ushort 技能标记编号;
 
 		
-		public int[] 需要消耗魔法;
+		public int[] 需要消耗Magic;
 
 		
 		public HashSet<int> 需要消耗物品;

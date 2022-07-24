@@ -19,7 +19,7 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(下标 = 6, 长度 = 2)]
-		public ushort Buff编号;
+		public ushort Id;
 
 		
 		[WrappingFieldAttribute(下标 = 8, 长度 = 4)]

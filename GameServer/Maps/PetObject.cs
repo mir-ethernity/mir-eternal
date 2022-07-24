@@ -19,7 +19,7 @@ namespace GameServer.Maps
 		
 		// (get) Token: 0x060007DA RID: 2010 RVA: 0x0000684B File Offset: 0x00004A4B
 		// (set) Token: 0x060007DB RID: 2011 RVA: 0x00006853 File Offset: 0x00004A53
-		public DateTime 攻击时间 { get; set; }
+		public DateTime Attack时间 { get; set; }
 
 		
 		// (get) Token: 0x060007DC RID: 2012 RVA: 0x0000685C File Offset: 0x00004A5C
@@ -465,7 +465,7 @@ namespace GameServer.Maps
 			}
 			this.更新对象Stat();
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
-			this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
+			this.Attack时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(MainProcess.RandomNumber.Next(5000) + this.漫游间隔));
 			this.HateObject = new HateObject();
 			string text = this.对象模板.NormalAttackSkills;
@@ -535,7 +535,7 @@ namespace GameServer.Maps
 			this.更新对象Stat();
 			this.当前体力 = this[GameObjectStats.MaxPhysicalStrength];
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
-			this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
+			this.Attack时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(MainProcess.RandomNumber.Next(5000) + this.漫游间隔));
 			this.HateObject = new HateObject();
 			string text = this.对象模板.NormalAttackSkills;
@@ -595,7 +595,7 @@ namespace GameServer.Maps
 			this.更新对象Stat();
 			this.当前体力 = Math.Min(诱惑怪物.当前体力, this[GameObjectStats.MaxPhysicalStrength]);
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
-			this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
+			this.Attack时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.忙碌时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.漫游间隔);
 			this.HateObject = new HateObject();
@@ -659,7 +659,7 @@ namespace GameServer.Maps
 			this.更新对象Stat();
 			this.当前体力 = Math.Min(诱惑宠物.当前体力, this[GameObjectStats.MaxPhysicalStrength]);
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
-			this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
+			this.Attack时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.忙碌时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.漫游间隔);
 			this.HateObject = new HateObject();
@@ -738,7 +738,7 @@ namespace GameServer.Maps
 				}
 				if (MainProcess.CurrentTime > base.恢复时间)
 				{
-					if (!this.检查状态(游戏对象状态.中毒状态))
+					if (!this.检查状态(GameObjectState.Poisoned))
 					{
 						this.当前体力 += this[GameObjectStats.体力恢复];
 					}
@@ -770,7 +770,7 @@ namespace GameServer.Maps
 					new 技能实例(this, 技能模板2, SkillData2, 动作编号, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false);
 					base.战斗姿态 = false;
 				}
-				else if (this.宠物主人.PetMode == PetMode.攻击 && MainProcess.CurrentTime > this.忙碌时间 && MainProcess.CurrentTime > this.硬直时间)
+				else if (this.宠物主人.PetMode == PetMode.Attack && MainProcess.CurrentTime > this.忙碌时间 && MainProcess.CurrentTime > this.硬直时间)
 				{
 					if (this.HateObject.当前目标 == null && !this.邻居列表.Contains(this.宠物主人))
 					{
@@ -778,7 +778,7 @@ namespace GameServer.Maps
 					}
 					else if (this.更新HateObject())
 					{
-						this.宠物智能攻击();
+						this.宠物智能Attack();
 					}
 					else
 					{
@@ -905,9 +905,9 @@ namespace GameServer.Maps
 		}
 
 		
-		public void 宠物智能攻击()
+		public void 宠物智能Attack()
 		{
-			if (this.检查状态(游戏对象状态.麻痹状态 | 游戏对象状态.失神状态))
+			if (this.检查状态(GameObjectState.Paralyzed | GameObjectState.Absence))
 			{
 				return;
 			}
@@ -966,14 +966,14 @@ namespace GameServer.Maps
 			}
 			else
 			{
-				if (MainProcess.CurrentTime > this.攻击时间)
+				if (MainProcess.CurrentTime > this.Attack时间)
 				{
 					游戏技能 技能模板 = 游戏技能;
 					SkillData SkillData = null;
 					byte 动作编号 = base.动作编号;
 					base.动作编号 = (byte)(动作编号 + 1);
 					new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, this.HateObject.当前目标, this.HateObject.当前目标.当前坐标, null, null, false);
-					this.攻击时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.Value限制(0, 10 - this[GameObjectStats.AttackSpeed], 10) * 500));
+					this.Attack时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.Value限制(0, 10 - this[GameObjectStats.AttackSpeed], 10) * 500));
 					return;
 				}
 				if (this.能否转动())

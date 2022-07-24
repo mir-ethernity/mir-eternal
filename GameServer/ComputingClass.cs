@@ -320,7 +320,7 @@ namespace GameServer
 		}
 
 		
-		public static int 计算攻击(int 下限, int 上限, int 幸运)
+		public static int 计算Attack(int 下限, int 上限, int 幸运)
 		{
 			int result = (幸运 >= 0) ? 上限 : 下限;
 			if (ComputingClass.计算概率(ComputingClass.计算幸运(Math.Abs(幸运))))

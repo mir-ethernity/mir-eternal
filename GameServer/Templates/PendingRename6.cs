@@ -89,7 +89,7 @@ namespace GameServer.Templates
 				};
 				if (this.铭文Stat加成 != null)
 				{
-					foreach (铭文Stat 铭文Stat in this.铭文Stat加成)
+					foreach (InscriptionStat 铭文Stat in this.铭文Stat加成)
 					{
 						this._Stat加成[0][铭文Stat.Stat] = 铭文Stat.Level0;
 						this._Stat加成[1][铭文Stat.Stat] = 铭文Stat.Level1;
@@ -157,7 +157,7 @@ namespace GameServer.Templates
 		public int[] 技能CombatBonus;
 
 		
-		public 铭文Stat[] 铭文Stat加成;
+		public InscriptionStat[] 铭文Stat加成;
 
 		
 		public List<ushort> 铭文附带Buff;

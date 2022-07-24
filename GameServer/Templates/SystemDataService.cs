@@ -32,7 +32,7 @@ namespace GameServer.Templates
 				typeof(铭文技能),
 				typeof(游戏技能),
 				typeof(技能陷阱),
-				typeof(游戏Buff)
+				typeof(GameBuffs)
 			};
 			Task.Run(delegate()
 			{

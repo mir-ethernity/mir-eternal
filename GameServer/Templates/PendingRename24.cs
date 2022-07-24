@@ -43,13 +43,13 @@ namespace GameServer.Templates
 		public byte[] 自身位移距离;
 
 		
-		public ushort 成功Buff编号;
+		public ushort 成功Id;
 
 		
 		public float 成功Buff概率;
 
 		
-		public ushort 失败Buff编号;
+		public ushort 失败Id;
 
 		
 		public float 失败Buff概率;

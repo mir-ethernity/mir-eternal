@@ -40,7 +40,7 @@ namespace GameServer.Templates
 		public bool 验证自身Buff;
 
 		
-		public ushort 自身Buff编号;
+		public ushort 自身Id;
 
 		
 		public bool 触发成功移除;

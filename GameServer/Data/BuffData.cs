@@ -21,30 +21,30 @@ namespace GameServer.Data
 			
 			
 			this.Buff来源 = 来源;
-			this.Buff编号.V = 编号;
-			this.当前层数.V = this.Buff模板.Buff初始层数;
-			this.持续时间.V = TimeSpan.FromMilliseconds((double)this.Buff模板.Buff持续时间);
-			this.处理计时.V = TimeSpan.FromMilliseconds((double)this.Buff模板.Buff处理延迟);
+			this.Id.V = 编号;
+			this.当前层数.V = this.Buff模板.BuffInitialLayer;
+			this.持续时间.V = TimeSpan.FromMilliseconds((double)this.Buff模板.Duration);
+			this.处理计时.V = TimeSpan.FromMilliseconds((double)this.Buff模板.ProcessDelay);
 			PlayerObject PlayerObject = 来源 as PlayerObject;
 			if (PlayerObject != null)
 			{
 				SkillData SkillData;
-				if (this.Buff模板.绑定技能等级 != 0 && PlayerObject.主体技能表.TryGetValue(this.Buff模板.绑定技能等级, out SkillData))
+				if (this.Buff模板.BindingSkillLevel != 0 && PlayerObject.主体技能表.TryGetValue(this.Buff模板.BindingSkillLevel, out SkillData))
 				{
 					this.Buff等级.V = SkillData.技能等级.V;
 				}
-				if (this.Buff模板.持续时间延长 && this.Buff模板.技能等级延时)
+				if (this.Buff模板.ExtendedDuration && this.Buff模板.SkillLevelDelay)
 				{
-					this.持续时间.V += TimeSpan.FromMilliseconds((double)((int)this.Buff等级.V * this.Buff模板.每级延长时间));
+					this.持续时间.V += TimeSpan.FromMilliseconds((double)((int)this.Buff等级.V * this.Buff模板.ExtendedTimePerLevel));
 				}
-				if (this.Buff模板.持续时间延长 && this.Buff模板.角色Stat延时)
+				if (this.Buff模板.ExtendedDuration && this.Buff模板.PlayerStatDelay)
 				{
-					this.持续时间.V += TimeSpan.FromMilliseconds((double)((float)PlayerObject[this.Buff模板.绑定角色Stat] * this.Buff模板.Stat延时系数));
+					this.持续时间.V += TimeSpan.FromMilliseconds((double)((float)PlayerObject[this.Buff模板.BoundPlayerStat] * this.Buff模板.StatDelayFactor));
 				}
 				SkillData SkillData2;
-				if (this.Buff模板.持续时间延长 && this.Buff模板.特定铭文延时 && PlayerObject.主体技能表.TryGetValue((ushort)(this.Buff模板.特定铭文技能 / 10), out SkillData2) && (int)SkillData2.铭文编号 == this.Buff模板.特定铭文技能 % 10)
+				if (this.Buff模板.ExtendedDuration && this.Buff模板.HasSpecificInscriptionDelay && PlayerObject.主体技能表.TryGetValue((ushort)(this.Buff模板.SpecificInscriptionSkills / 10), out SkillData2) && (int)SkillData2.铭文编号 == this.Buff模板.SpecificInscriptionSkills % 10)
 				{
-					this.持续时间.V += TimeSpan.FromMilliseconds((double)this.Buff模板.铭文延长时间);
+					this.持续时间.V += TimeSpan.FromMilliseconds((double)this.Buff模板.InscriptionExtendedTime);
 				}
 			}
 			else
@@ -53,66 +53,66 @@ namespace GameServer.Data
 				if (PetObject != null)
 				{
 					SkillData SkillData3;
-					if (this.Buff模板.绑定技能等级 != 0 && PetObject.宠物主人.主体技能表.TryGetValue(this.Buff模板.绑定技能等级, out SkillData3))
+					if (this.Buff模板.BindingSkillLevel != 0 && PetObject.宠物主人.主体技能表.TryGetValue(this.Buff模板.BindingSkillLevel, out SkillData3))
 					{
 						this.Buff等级.V = SkillData3.技能等级.V;
 					}
-					if (this.Buff模板.持续时间延长 && this.Buff模板.技能等级延时)
+					if (this.Buff模板.ExtendedDuration && this.Buff模板.SkillLevelDelay)
 					{
-						this.持续时间.V += TimeSpan.FromMilliseconds((double)((int)this.Buff等级.V * this.Buff模板.每级延长时间));
+						this.持续时间.V += TimeSpan.FromMilliseconds((double)((int)this.Buff等级.V * this.Buff模板.ExtendedTimePerLevel));
 					}
-					if (this.Buff模板.持续时间延长 && this.Buff模板.角色Stat延时)
+					if (this.Buff模板.ExtendedDuration && this.Buff模板.PlayerStatDelay)
 					{
-						this.持续时间.V += TimeSpan.FromMilliseconds((double)((float)PetObject.宠物主人[this.Buff模板.绑定角色Stat] * this.Buff模板.Stat延时系数));
+						this.持续时间.V += TimeSpan.FromMilliseconds((double)((float)PetObject.宠物主人[this.Buff模板.BoundPlayerStat] * this.Buff模板.StatDelayFactor));
 					}
 					SkillData SkillData4;
-					if (this.Buff模板.持续时间延长 && this.Buff模板.特定铭文延时 && PetObject.宠物主人.主体技能表.TryGetValue((ushort)(this.Buff模板.特定铭文技能 / 10), out SkillData4) && (int)SkillData4.铭文编号 == this.Buff模板.特定铭文技能 % 10)
+					if (this.Buff模板.ExtendedDuration && this.Buff模板.HasSpecificInscriptionDelay && PetObject.宠物主人.主体技能表.TryGetValue((ushort)(this.Buff模板.SpecificInscriptionSkills / 10), out SkillData4) && (int)SkillData4.铭文编号 == this.Buff模板.SpecificInscriptionSkills % 10)
 					{
-						this.持续时间.V += TimeSpan.FromMilliseconds((double)this.Buff模板.铭文延长时间);
+						this.持续时间.V += TimeSpan.FromMilliseconds((double)this.Buff模板.InscriptionExtendedTime);
 					}
 				}
 			}
 			this.剩余时间.V = this.持续时间.V;
-			if ((this.Buff效果 & Buff效果类型.造成伤害) != Buff效果类型.技能标志)
+			if ((this.Effect & BuffEffectType.造成伤害) != BuffEffectType.技能标志)
 			{
-				int[] buff伤害基数 = this.Buff模板.Buff伤害基数;
-				int? num = (buff伤害基数 != null) ? new int?(buff伤害基数.Length) : null;
+				int[] DamageBase = this.Buff模板.DamageBase;
+				int? num = (DamageBase != null) ? new int?(DamageBase.Length) : null;
 				int v = (int)this.Buff等级.V;
-				int num2 = (num.GetValueOrDefault() > v & num != null) ? this.Buff模板.Buff伤害基数[(int)this.Buff等级.V] : 0;
-				float[] buff伤害系数 = this.Buff模板.Buff伤害系数;
-				num = ((buff伤害系数 != null) ? new int?(buff伤害系数.Length) : null);
+				int num2 = (num.GetValueOrDefault() > v & num != null) ? this.Buff模板.DamageBase[(int)this.Buff等级.V] : 0;
+				float[] DamageFactor = this.Buff模板.DamageFactor;
+				num = ((DamageFactor != null) ? new int?(DamageFactor.Length) : null);
 				v = (int)this.Buff等级.V;
-				float num3 = (num.GetValueOrDefault() > v & num != null) ? this.Buff模板.Buff伤害系数[(int)this.Buff等级.V] : 0f;
+				float num3 = (num.GetValueOrDefault() > v & num != null) ? this.Buff模板.DamageFactor[(int)this.Buff等级.V] : 0f;
 				PlayerObject PlayerObject2 = 来源 as PlayerObject;
 				SkillData SkillData5;
-				if (PlayerObject2 != null && this.Buff模板.强化铭文编号 != 0 && PlayerObject2.主体技能表.TryGetValue((ushort)(this.Buff模板.强化铭文编号 / 10), out SkillData5) && (int)SkillData5.铭文编号 == this.Buff模板.强化铭文编号 % 10)
+				if (PlayerObject2 != null && this.Buff模板.StrengthenInscriptionId != 0 && PlayerObject2.主体技能表.TryGetValue((ushort)(this.Buff模板.StrengthenInscriptionId / 10), out SkillData5) && (int)SkillData5.铭文编号 == this.Buff模板.StrengthenInscriptionId % 10)
 				{
-					num2 += this.Buff模板.铭文强化基数;
-					num3 += this.Buff模板.铭文强化系数;
+					num2 += this.Buff模板.StrengthenInscriptionBase;
+					num3 += this.Buff模板.StrengthenInscriptionFactor;
 				}
 				int num4 = 0;
 				switch (this.伤害类型)
 				{
-				case 技能伤害类型.攻击:
-					num4 = ComputingClass.计算攻击(来源[GameObjectStats.MinAttack], 来源[GameObjectStats.MaxAttack], 来源[GameObjectStats.幸运等级]);
+				case SkillDamageType.Attack:
+					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinAttack], 来源[GameObjectStats.MaxAttack], 来源[GameObjectStats.幸运等级]);
 					break;
-				case 技能伤害类型.魔法:
-					num4 = ComputingClass.计算攻击(来源[GameObjectStats.MinMagic], 来源[GameObjectStats.MaxMagic], 来源[GameObjectStats.幸运等级]);
+				case SkillDamageType.Magic:
+					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinMagic], 来源[GameObjectStats.MaxMagic], 来源[GameObjectStats.幸运等级]);
 					break;
-				case 技能伤害类型.道术:
-					num4 = ComputingClass.计算攻击(来源[GameObjectStats.Minimalist], 来源[GameObjectStats.GreatestTaoism], 来源[GameObjectStats.幸运等级]);
+				case SkillDamageType.Taoism:
+					num4 = ComputingClass.计算Attack(来源[GameObjectStats.Minimalist], 来源[GameObjectStats.GreatestTaoism], 来源[GameObjectStats.幸运等级]);
 					break;
-				case 技能伤害类型.刺术:
-					num4 = ComputingClass.计算攻击(来源[GameObjectStats.MinNeedle], 来源[GameObjectStats.MaxNeedle], 来源[GameObjectStats.幸运等级]);
+				case SkillDamageType.Needle:
+					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinNeedle], 来源[GameObjectStats.MaxNeedle], 来源[GameObjectStats.幸运等级]);
 					break;
-				case 技能伤害类型.弓术:
-					num4 = ComputingClass.计算攻击(来源[GameObjectStats.MinBow], 来源[GameObjectStats.MaxBow], 来源[GameObjectStats.幸运等级]);
+				case SkillDamageType.Archery:
+					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinBow], 来源[GameObjectStats.MaxBow], 来源[GameObjectStats.幸运等级]);
 					break;
-				case 技能伤害类型.毒性:
+				case SkillDamageType.Toxicity:
 					num4 = 来源[GameObjectStats.GreatestTaoism];
 					break;
-				case 技能伤害类型.神圣:
-					num4 = ComputingClass.计算攻击(来源[GameObjectStats.最小圣伤], 来源[GameObjectStats.最大圣伤], 0);
+				case SkillDamageType.Sacred:
+					num4 = ComputingClass.计算Attack(来源[GameObjectStats.最小圣伤], 来源[GameObjectStats.最大圣伤], 0);
 					break;
 				}
 				this.伤害基数.V = num2 + (int)((float)num4 * num3);
@@ -126,42 +126,42 @@ namespace GameServer.Data
 		
 		public override string ToString()
 		{
-			游戏Buff buff模板 = this.Buff模板;
+			GameBuffs buff模板 = this.Buff模板;
 			if (buff模板 == null)
 			{
 				return null;
 			}
-			return buff模板.Buff名字;
+			return buff模板.Name;
 		}
 
 		
 		// (get) Token: 0x0600042B RID: 1067 RVA: 0x000042BF File Offset: 0x000024BF
-		public Buff效果类型 Buff效果
+		public BuffEffectType Effect
 		{
 			get
 			{
-				return this.Buff模板.Buff效果;
+				return this.Buff模板.Effect;
 			}
 		}
 
 		
 		// (get) Token: 0x0600042C RID: 1068 RVA: 0x000042CC File Offset: 0x000024CC
-		public 技能伤害类型 伤害类型
+		public SkillDamageType 伤害类型
 		{
 			get
 			{
-				return this.Buff模板.Buff伤害类型;
+				return this.Buff模板.DamageType;
 			}
 		}
 
 		
 		// (get) Token: 0x0600042D RID: 1069 RVA: 0x00020AE0 File Offset: 0x0001ECE0
-		public 游戏Buff Buff模板
+		public GameBuffs Buff模板
 		{
 			get
 			{
-				游戏Buff result;
-				if (!游戏Buff.DataSheet.TryGetValue(this.Buff编号.V, out result))
+				GameBuffs result;
+				if (!GameBuffs.DataSheet.TryGetValue(this.Id.V, out result))
 				{
 					return null;
 				}
@@ -175,7 +175,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.作用类型 == Buff作用类型.增益类型;
+				return this.Buff模板.ActionType == BuffActionType.增益类型;
 			}
 		}
 
@@ -185,7 +185,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.同步至客户端;
+				return this.Buff模板.SyncClient;
 			}
 		}
 
@@ -195,8 +195,8 @@ namespace GameServer.Data
 		{
 			get
 			{
-				游戏Buff buff模板 = this.Buff模板;
-				return buff模板 != null && buff模板.到期主动消失;
+				GameBuffs buff模板 = this.Buff模板;
+				return buff模板 != null && buff模板.RemoveOnExpire;
 			}
 		}
 
@@ -206,7 +206,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.角色下线消失;
+				return this.Buff模板.OnPlayerDisconnectRemove;
 			}
 		}
 
@@ -216,7 +216,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.角色死亡消失;
+				return this.Buff模板.OnPlayerDiesRemove;
 			}
 		}
 
@@ -226,7 +226,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.切换地图消失;
+				return this.Buff模板.OnChangeMapRemove;
 			}
 		}
 
@@ -236,7 +236,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.切换武器消失;
+				return this.Buff模板.OnChangeWeaponRemove;
 			}
 		}
 
@@ -246,7 +246,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.移除添加冷却;
+				return this.Buff模板.RemoveAddCooling;
 			}
 		}
 
@@ -256,7 +256,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.绑定技能等级;
+				return this.Buff模板.BindingSkillLevel;
 			}
 		}
 
@@ -266,7 +266,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.技能Cooldown;
+				return this.Buff模板.SkillCooldown;
 			}
 		}
 
@@ -276,7 +276,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.Buff处理延迟;
+				return this.Buff模板.ProcessDelay;
 			}
 		}
 
@@ -286,7 +286,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.Buff处理间隔;
+				return this.Buff模板.ProcessInterval;
 			}
 		}
 
@@ -296,7 +296,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.Buff最大层数;
+				return this.Buff模板.MaxBuffCount;
 			}
 		}
 
@@ -306,11 +306,11 @@ namespace GameServer.Data
 		{
 			get
 			{
-				if (this.Buff模板.分组编号 == 0)
+				if (this.Buff模板.GroupId == 0)
 				{
-					return this.Buff编号.V;
+					return this.Id.V;
 				}
-				return this.Buff模板.分组编号;
+				return this.Buff模板.GroupId;
 			}
 		}
 
@@ -320,7 +320,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.依存Buff列表;
+				return this.Buff模板.RequireBuff;
 			}
 		}
 
@@ -330,9 +330,9 @@ namespace GameServer.Data
 		{
 			get
 			{
-				if ((this.Buff效果 & Buff效果类型.Stat增减) != Buff效果类型.技能标志)
+				if ((this.Effect & BuffEffectType.StatsIncOrDec) != BuffEffectType.技能标志)
 				{
-					return this.Buff模板.基础Stat增减[(int)this.Buff等级.V];
+					return this.Buff模板.基础StatsIncOrDec[(int)this.Buff等级.V];
 				}
 				return null;
 			}
@@ -342,7 +342,7 @@ namespace GameServer.Data
 		public MapObject Buff来源;
 
 		
-		public readonly DataMonitor<ushort> Buff编号;
+		public readonly DataMonitor<ushort> Id;
 
 		
 		public readonly DataMonitor<TimeSpan> 持续时间;

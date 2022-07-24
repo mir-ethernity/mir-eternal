@@ -13,11 +13,11 @@ namespace GameServer.Maps
 	{
 		
 		// (get) Token: 0x06000817 RID: 2071 RVA: 0x00006ADF File Offset: 0x00004CDF
-		public ushort 陷阱分组编号
+		public ushort 陷阱GroupId
 		{
 			get
 			{
-				return this.陷阱模板.分组编号;
+				return this.陷阱模板.GroupId;
 			}
 		}
 
@@ -189,18 +189,18 @@ namespace GameServer.Maps
 				{
 					this.陷阱等级 = SkillData.技能等级.V;
 				}
-				if (this.陷阱模板.持续时间延长 && this.陷阱模板.技能等级延时)
+				if (this.陷阱模板.ExtendedDuration && this.陷阱模板.SkillLevelDelay)
 				{
-					this.消失时间 += TimeSpan.FromMilliseconds((double)((int)this.陷阱等级 * this.陷阱模板.每级延长时间));
+					this.消失时间 += TimeSpan.FromMilliseconds((double)((int)this.陷阱等级 * this.陷阱模板.ExtendedTimePerLevel));
 				}
-				if (this.陷阱模板.持续时间延长 && this.陷阱模板.角色Stat延时)
+				if (this.陷阱模板.ExtendedDuration && this.陷阱模板.PlayerStatDelay)
 				{
-					this.消失时间 += TimeSpan.FromMilliseconds((double)((float)PlayerObject[this.陷阱模板.绑定角色Stat] * this.陷阱模板.Stat延时系数));
+					this.消失时间 += TimeSpan.FromMilliseconds((double)((float)PlayerObject[this.陷阱模板.BoundPlayerStat] * this.陷阱模板.StatDelayFactor));
 				}
 				SkillData SkillData2;
-				if (this.陷阱模板.持续时间延长 && this.陷阱模板.特定铭文延时 && PlayerObject.主体技能表.TryGetValue((ushort)(this.陷阱模板.特定铭文技能 / 10), out SkillData2) && (int)SkillData2.铭文编号 == this.陷阱模板.特定铭文技能 % 10)
+				if (this.陷阱模板.ExtendedDuration && this.陷阱模板.HasSpecificInscriptionDelay && PlayerObject.主体技能表.TryGetValue((ushort)(this.陷阱模板.SpecificInscriptionSkills / 10), out SkillData2) && (int)SkillData2.铭文编号 == this.陷阱模板.SpecificInscriptionSkills % 10)
 				{
-					this.消失时间 += TimeSpan.FromMilliseconds((double)this.陷阱模板.铭文延长时间);
+					this.消失时间 += TimeSpan.FromMilliseconds((double)this.陷阱模板.InscriptionExtendedTime);
 				}
 			}
 			this.主动触发技能 = ((this.陷阱模板.主动触发技能 == null || !游戏技能.DataSheet.ContainsKey(this.陷阱模板.主动触发技能)) ? null : 游戏技能.DataSheet[this.陷阱模板.主动触发技能]);

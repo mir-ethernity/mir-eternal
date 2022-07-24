@@ -24,7 +24,7 @@ namespace GameServer.Maps
 		
 		// (get) Token: 0x06000841 RID: 2113 RVA: 0x00006C20 File Offset: 0x00004E20
 		// (set) Token: 0x06000842 RID: 2114 RVA: 0x00006C28 File Offset: 0x00004E28
-		public DateTime 攻击时间 { get; set; }
+		public DateTime Attack时间 { get; set; }
 
 		
 		// (get) Token: 0x06000843 RID: 2115 RVA: 0x00006C31 File Offset: 0x00004E31
@@ -418,7 +418,7 @@ namespace GameServer.Maps
 			this.HateObject = new HateObject();
 			this.存活时间 = MainProcess.CurrentTime.AddHours(2.0);
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
-			this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
+			this.Attack时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.漫游间隔);
 			this.Stat加成[this] = 对应宠物.基础Stat;
 			this.更新对象Stat();
@@ -580,7 +580,7 @@ namespace GameServer.Maps
 				}
 				if (MainProcess.CurrentTime > base.恢复时间)
 				{
-					if (!this.检查状态(游戏对象状态.中毒状态))
+					if (!this.检查状态(GameObjectState.Poisoned))
 					{
 						this.当前体力 += this[GameObjectStats.体力恢复];
 					}
@@ -627,7 +627,7 @@ namespace GameServer.Maps
 					}
 					else if ((this.Category == MonsterLevelType.Boss) ? this.更新最近仇恨() : this.更新HateObject())
 					{
-						this.怪物智能攻击();
+						this.怪物智能Attack();
 					}
 					else
 					{
@@ -685,7 +685,7 @@ namespace GameServer.Maps
 						}
 					}
 					GameItems 物品模板2;
-					if (GameItems.DateSheetByName.TryGetValue("强效魔法药", out 物品模板2))
+					if (GameItems.DateSheetByName.TryGetValue("强效Magic药", out 物品模板2))
 					{
 						int num4 = (this.Category == MonsterLevelType.Normal) ? 20 : 1;
 						int num5 = Math.Max(1, num4 - (int)Math.Round(num4 * CustomClass.怪物额外爆率));
@@ -886,7 +886,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public void 怪物智能攻击()
+		public void 怪物智能Attack()
 		{
 			base.脱战时间 = MainProcess.CurrentTime.AddSeconds(10.0);
 			游戏技能 游戏技能;
@@ -902,7 +902,7 @@ namespace GameServer.Maps
 				}
 				游戏技能 = this.NormalAttackSkills;
 			}
-			if (this.检查状态(游戏对象状态.忙绿状态 | 游戏对象状态.麻痹状态 | 游戏对象状态.失神状态))
+			if (this.检查状态(GameObjectState.BusyGreen | GameObjectState.Paralyzed | GameObjectState.Absence))
 			{
 				return;
 			}
@@ -965,14 +965,14 @@ namespace GameServer.Maps
 			}
 			else
 			{
-				if (MainProcess.CurrentTime > this.攻击时间)
+				if (MainProcess.CurrentTime > this.Attack时间)
 				{
 					游戏技能 技能模板 = 游戏技能;
 					SkillData SkillData = null;
 					byte 动作编号 = base.动作编号;
 					base.动作编号 = (byte)(动作编号 + 1);
 					new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, this.HateObject.当前目标, this.HateObject.当前目标.当前坐标, null, null, false);
-					this.攻击时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.Value限制(0, 10 - this[GameObjectStats.AttackSpeed], 10) * 500));
+					this.Attack时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.Value限制(0, 10 - this[GameObjectStats.AttackSpeed], 10) * 500));
 					return;
 				}
 				if (!this.ForbbidenMove && this.能否转动())
@@ -1007,7 +1007,7 @@ namespace GameServer.Maps
 				{
 					this.当前坐标 = 当前坐标;
 					IL_F1:
-					this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
+					this.Attack时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 					base.恢复时间 = MainProcess.CurrentTime.AddMilliseconds((double)MainProcess.RandomNumber.Next(5000));
 					this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(MainProcess.RandomNumber.Next(5000) + this.漫游间隔));
 					this.HateObject = new HateObject();
@@ -1087,7 +1087,7 @@ namespace GameServer.Maps
 				int num = (int)Math.Max(0.0, (MainProcess.CurrentTime - base.恢复时间).TotalSeconds / 5.0);
 				base.当前体力 = Math.Min(this[GameObjectStats.MaxPhysicalStrength], this.当前体力 + num * this[GameObjectStats.体力恢复]);
 				base.恢复时间 = base.恢复时间.AddSeconds(5.0);
-				this.攻击时间 = MainProcess.CurrentTime.AddSeconds(1.0);
+				this.Attack时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 				this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(MainProcess.RandomNumber.Next(5000) + this.漫游间隔));
 			}
 		}

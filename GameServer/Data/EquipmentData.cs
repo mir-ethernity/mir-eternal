@@ -28,7 +28,7 @@ namespace GameServer.Data
 				if (this.装备模板.Type == ItemType.武器)
 				{
 					int num = (int)((long)(this.装备模板.BasicPowerCombat * (int)(this.幸运等级.V + 20)) * 1717986919L >> 32 >> 3);
-					int num2 = (int)(this.神圣伤害.V * 3 + this.升级攻击.V * 5 + this.升级魔法.V * 5 + this.升级道术.V * 5 + this.升级刺术.V * 5 + this.升级弓术.V * 5);
+					int num2 = (int)(this.Sacred伤害.V * 3 + this.升级Attack.V * 5 + this.升级Magic.V * 5 + this.升级Taoism.V * 5 + this.升级Needle.V * 5 + this.升级Archery.V * 5);
 					int num3 = this.随机Stat.Sum((RandomStats x) => x.CombatBonus);
 					return num + num2 + num3;
 				}
@@ -2168,31 +2168,31 @@ namespace GameServer.Data
 				{
 					int num;
 					int num2;
-					text += string.Format("\n攻击{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinAttack, out num) ? num : 0, dictionary.TryGetValue(GameObjectStats.MaxAttack, out num2) ? num2 : 0);
+					text += string.Format("\nAttack{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinAttack, out num) ? num : 0, dictionary.TryGetValue(GameObjectStats.MaxAttack, out num2) ? num2 : 0);
 				}
 				if (dictionary.ContainsKey(GameObjectStats.MinMagic) || dictionary.ContainsKey(GameObjectStats.MaxMagic))
 				{
 					int num3;
 					int num4;
-					text += string.Format("\n魔法{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinMagic, out num3) ? num3 : 0, dictionary.TryGetValue(GameObjectStats.MaxMagic, out num4) ? num4 : 0);
+					text += string.Format("\nMagic{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinMagic, out num3) ? num3 : 0, dictionary.TryGetValue(GameObjectStats.MaxMagic, out num4) ? num4 : 0);
 				}
 				if (dictionary.ContainsKey(GameObjectStats.Minimalist) || dictionary.ContainsKey(GameObjectStats.GreatestTaoism))
 				{
 					int num5;
 					int num6;
-					text += string.Format("\n道术{0}-{1}", dictionary.TryGetValue(GameObjectStats.Minimalist, out num5) ? num5 : 0, dictionary.TryGetValue(GameObjectStats.GreatestTaoism, out num6) ? num6 : 0);
+					text += string.Format("\nTaoism{0}-{1}", dictionary.TryGetValue(GameObjectStats.Minimalist, out num5) ? num5 : 0, dictionary.TryGetValue(GameObjectStats.GreatestTaoism, out num6) ? num6 : 0);
 				}
 				if (dictionary.ContainsKey(GameObjectStats.MinNeedle) || dictionary.ContainsKey(GameObjectStats.MaxNeedle))
 				{
 					int num7;
 					int num8;
-					text += string.Format("\n刺术{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinNeedle, out num7) ? num7 : 0, dictionary.TryGetValue(GameObjectStats.MaxNeedle, out num8) ? num8 : 0);
+					text += string.Format("\nNeedle{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinNeedle, out num7) ? num7 : 0, dictionary.TryGetValue(GameObjectStats.MaxNeedle, out num8) ? num8 : 0);
 				}
 				if (dictionary.ContainsKey(GameObjectStats.MinBow) || dictionary.ContainsKey(GameObjectStats.MaxBow))
 				{
 					int num9;
 					int num10;
-					text += string.Format("\n弓术{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinBow, out num9) ? num9 : 0, dictionary.TryGetValue(GameObjectStats.MaxBow, out num10) ? num10 : 0);
+					text += string.Format("\nArchery{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinBow, out num9) ? num9 : 0, dictionary.TryGetValue(GameObjectStats.MaxBow, out num10) ? num10 : 0);
 				}
 				if (dictionary.ContainsKey(GameObjectStats.MinDef) || dictionary.ContainsKey(GameObjectStats.MaxDef))
 				{
@@ -2506,25 +2506,25 @@ namespace GameServer.Data
 				{
 					dictionary[GameObjectStats.幸运等级] = (dictionary.ContainsKey(GameObjectStats.幸运等级) ? (dictionary[GameObjectStats.幸运等级] + (int)this.幸运等级.V) : ((int)this.幸运等级.V));
 				}
-				if (this.升级攻击.V != 0)
+				if (this.升级Attack.V != 0)
 				{
-					dictionary[GameObjectStats.MaxAttack] = (dictionary.ContainsKey(GameObjectStats.MaxAttack) ? (dictionary[GameObjectStats.MaxAttack] + (int)this.升级攻击.V) : ((int)this.升级攻击.V));
+					dictionary[GameObjectStats.MaxAttack] = (dictionary.ContainsKey(GameObjectStats.MaxAttack) ? (dictionary[GameObjectStats.MaxAttack] + (int)this.升级Attack.V) : ((int)this.升级Attack.V));
 				}
-				if (this.升级魔法.V != 0)
+				if (this.升级Magic.V != 0)
 				{
-					dictionary[GameObjectStats.MaxMagic] = (dictionary.ContainsKey(GameObjectStats.MaxMagic) ? (dictionary[GameObjectStats.MaxMagic] + (int)this.升级魔法.V) : ((int)this.升级魔法.V));
+					dictionary[GameObjectStats.MaxMagic] = (dictionary.ContainsKey(GameObjectStats.MaxMagic) ? (dictionary[GameObjectStats.MaxMagic] + (int)this.升级Magic.V) : ((int)this.升级Magic.V));
 				}
-				if (this.升级道术.V != 0)
+				if (this.升级Taoism.V != 0)
 				{
-					dictionary[GameObjectStats.GreatestTaoism] = (dictionary.ContainsKey(GameObjectStats.GreatestTaoism) ? (dictionary[GameObjectStats.GreatestTaoism] + (int)this.升级道术.V) : ((int)this.升级道术.V));
+					dictionary[GameObjectStats.GreatestTaoism] = (dictionary.ContainsKey(GameObjectStats.GreatestTaoism) ? (dictionary[GameObjectStats.GreatestTaoism] + (int)this.升级Taoism.V) : ((int)this.升级Taoism.V));
 				}
-				if (this.升级刺术.V != 0)
+				if (this.升级Needle.V != 0)
 				{
-					dictionary[GameObjectStats.MaxNeedle] = (dictionary.ContainsKey(GameObjectStats.MaxNeedle) ? (dictionary[GameObjectStats.MaxNeedle] + (int)this.升级刺术.V) : ((int)this.升级刺术.V));
+					dictionary[GameObjectStats.MaxNeedle] = (dictionary.ContainsKey(GameObjectStats.MaxNeedle) ? (dictionary[GameObjectStats.MaxNeedle] + (int)this.升级Needle.V) : ((int)this.升级Needle.V));
 				}
-				if (this.升级弓术.V != 0)
+				if (this.升级Archery.V != 0)
 				{
-					dictionary[GameObjectStats.MaxBow] = (dictionary.ContainsKey(GameObjectStats.MaxBow) ? (dictionary[GameObjectStats.MaxBow] + (int)this.升级弓术.V) : ((int)this.升级弓术.V));
+					dictionary[GameObjectStats.MaxBow] = (dictionary.ContainsKey(GameObjectStats.MaxBow) ? (dictionary[GameObjectStats.MaxBow] + (int)this.升级Archery.V) : ((int)this.升级Archery.V));
 				}
 				foreach (RandomStats 随机Stat in this.随机Stat.ToList<RandomStats>())
 				{
@@ -2805,7 +2805,7 @@ namespace GameServer.Data
 					{
 						num2 |= 1;
 					}
-					else if (this.神圣伤害.V != 0)
+					else if (this.Sacred伤害.V != 0)
 					{
 						num2 |= 1;
 					}
@@ -2853,7 +2853,7 @@ namespace GameServer.Data
 					{
 						num2 |= 131072;
 					}
-					if (this.神圣伤害.V != 0)
+					if (this.Sacred伤害.V != 0)
 					{
 						num2 |= 4194304;
 					}
@@ -2942,11 +2942,11 @@ namespace GameServer.Data
 					{
 						binaryWriter.Write(this.升级次数.V);
 						binaryWriter.Write(0);
-						binaryWriter.Write(this.升级攻击.V);
-						binaryWriter.Write(this.升级魔法.V);
-						binaryWriter.Write(this.升级道术.V);
-						binaryWriter.Write(this.升级刺术.V);
-						binaryWriter.Write(this.升级弓术.V);
+						binaryWriter.Write(this.升级Attack.V);
+						binaryWriter.Write(this.升级Magic.V);
+						binaryWriter.Write(this.升级Taoism.V);
+						binaryWriter.Write(this.升级Needle.V);
+						binaryWriter.Write(this.升级Archery.V);
 						binaryWriter.Write(new byte[3]);
 						binaryWriter.Write(this.灵魂绑定.V);
 					}
@@ -2990,7 +2990,7 @@ namespace GameServer.Data
 					}
 					if ((num2 & 4194304) != 0)
 					{
-						binaryWriter.Write(this.神圣伤害.V);
+						binaryWriter.Write(this.Sacred伤害.V);
 						binaryWriter.Write(this.圣石数量.V);
 					}
 					if ((num2 & 8388608) != 0)
@@ -3015,19 +3015,19 @@ namespace GameServer.Data
 		public readonly DataMonitor<byte> 升级次数;
 
 		
-		public readonly DataMonitor<byte> 升级攻击;
+		public readonly DataMonitor<byte> 升级Attack;
 
 		
-		public readonly DataMonitor<byte> 升级魔法;
+		public readonly DataMonitor<byte> 升级Magic;
 
 		
-		public readonly DataMonitor<byte> 升级道术;
+		public readonly DataMonitor<byte> 升级Taoism;
 
 		
-		public readonly DataMonitor<byte> 升级刺术;
+		public readonly DataMonitor<byte> 升级Needle;
 
 		
-		public readonly DataMonitor<byte> 升级弓术;
+		public readonly DataMonitor<byte> 升级Archery;
 
 		
 		public readonly DataMonitor<bool> 灵魂绑定;
@@ -3042,7 +3042,7 @@ namespace GameServer.Data
 		public readonly DataMonitor<bool> 装备神佑;
 
 		
-		public readonly DataMonitor<byte> 神圣伤害;
+		public readonly DataMonitor<byte> Sacred伤害;
 
 		
 		public readonly DataMonitor<ushort> 圣石数量;

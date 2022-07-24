@@ -3,20 +3,20 @@
 namespace GameServer.Templates
 {
 	
-	public sealed class A_02_触发陷阱技能 : 技能任务
+	public sealed class A_02_TriggerTrapSkills : 技能任务
 	{
 		
-		public A_02_触发陷阱技能()
+		public A_02_TriggerTrapSkills()
 		{
 			
 			
 		}
 
 		
-		public string 触发陷阱技能;
+		public string TriggerTrapSkills;
 
 		
-		public MonsterSize 触发陷阱数量;
+		public MonsterSize NumberTrapsTriggered;
 
 		
 		public bool 增加技能经验;

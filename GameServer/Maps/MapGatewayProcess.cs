@@ -22,10 +22,10 @@ namespace GameServer.Maps
 			MapGatewayProcess.沙城处理计时 = MainProcess.CurrentTime.AddMilliseconds(50.0);
 			if (MapGatewayProcess.沙城地图 == null)
 			{
-				游戏Buff 游戏Buff;
+				GameBuffs 游戏Buff;
 				Monsters 对应模板;
 				Monsters 对应模板2;
-				if (MapGatewayProcess.MapInstance表.TryGetValue(2433, out MapGatewayProcess.沙城地图) && 游戏Buff.DataSheet.TryGetValue(22300, out 游戏Buff) && Monsters.DataSheet.TryGetValue("沙巴克城门", out 对应模板) && Monsters.DataSheet.TryGetValue("沙巴克宫门", out 对应模板2))
+				if (MapGatewayProcess.MapInstance表.TryGetValue(2433, out MapGatewayProcess.沙城地图) && GameBuffs.DataSheet.TryGetValue(22300, out 游戏Buff) && Monsters.DataSheet.TryGetValue("沙巴克城门", out 对应模板) && Monsters.DataSheet.TryGetValue("沙巴克宫门", out 对应模板2))
 				{
 					if ((MapGatewayProcess.皇宫随机区域 = MapGatewayProcess.沙城地图.地图区域.FirstOrDefault((MapAreas O) => O.RegionName == "沙巴克-皇宫随机区域")) != null)
 					{
@@ -67,10 +67,10 @@ namespace GameServer.Maps
 										当前方向 = GameDirection.左下,
 										存活时间 = DateTime.MaxValue
 									};
-									MapGatewayProcess.沙城城门.添加Buff时处理(游戏Buff.Buff编号, MapGatewayProcess.沙城城门);
-									MapGatewayProcess.上方宫门.添加Buff时处理(游戏Buff.Buff编号, MapGatewayProcess.上方宫门);
-									MapGatewayProcess.下方宫门.添加Buff时处理(游戏Buff.Buff编号, MapGatewayProcess.下方宫门);
-									MapGatewayProcess.左方宫门.添加Buff时处理(游戏Buff.Buff编号, MapGatewayProcess.左方宫门);
+									MapGatewayProcess.沙城城门.添加Buff时处理(游戏Buff.Id, MapGatewayProcess.沙城城门);
+									MapGatewayProcess.上方宫门.添加Buff时处理(游戏Buff.Id, MapGatewayProcess.上方宫门);
+									MapGatewayProcess.下方宫门.添加Buff时处理(游戏Buff.Id, MapGatewayProcess.下方宫门);
+									MapGatewayProcess.左方宫门.添加Buff时处理(游戏Buff.Id, MapGatewayProcess.左方宫门);
 									goto IL_2D4;
 								}
 							}

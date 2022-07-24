@@ -131,7 +131,7 @@ namespace GameServer.Data
 					int SalePrice = 游戏装备.SalePrice;
 					int v2 = EquipmentData.幸运等级.V;
 					int num = (int)Math.Max(0, v2);
-					int num2 = (int)(EquipmentData.升级攻击.V * 100 + EquipmentData.升级魔法.V * 100 + EquipmentData.升级道术.V * 100 + EquipmentData.升级刺术.V * 100 + EquipmentData.升级弓术.V * 100);
+					int num2 = (int)(EquipmentData.升级Attack.V * 100 + EquipmentData.升级Magic.V * 100 + EquipmentData.升级Taoism.V * 100 + EquipmentData.升级Needle.V * 100 + EquipmentData.升级Archery.V * 100);
 					int num3 = 0;
 					using (IEnumerator<铭文技能> enumerator = EquipmentData.铭文技能.Values.GetEnumerator())
 					{
@@ -2087,7 +2087,7 @@ namespace GameServer.Data
 
 		
 		// (get) Token: 0x0600057E RID: 1406 RVA: 0x000052E2 File Offset: 0x000034E2
-		public byte 分组编号
+		public byte GroupId
 		{
 			get
 			{

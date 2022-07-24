@@ -4,7 +4,7 @@ namespace GameServer.Templates
 {
 	
 	[Flags]
-	public enum Buff效果类型
+	public enum BuffEffectType
 	{
 		
 		技能标志 = 0,
@@ -13,7 +13,7 @@ namespace GameServer.Templates
 		
 		造成伤害 = 2,
 		
-		Stat增减 = 4,
+		StatsIncOrDec = 4,
 		
 		伤害增减 = 8,
 		

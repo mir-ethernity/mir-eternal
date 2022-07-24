@@ -10,6 +10,6 @@ namespace GameServer
 		
 		休息,
 		
-		攻击
+		Attack
 	}
 }

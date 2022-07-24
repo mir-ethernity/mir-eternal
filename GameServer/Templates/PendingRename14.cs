@@ -16,10 +16,10 @@ namespace GameServer.Templates
 		public bool 角色自身添加;
 
 		
-		public ushort 触发Buff编号;
+		public ushort 触发Id;
 
 		
-		public ushort 伴生Buff编号;
+		public ushort 伴生Id;
 
 		
 		public float Buff触发概率;
@@ -37,7 +37,7 @@ namespace GameServer.Templates
 		public bool 验证自身Buff;
 
 		
-		public ushort 自身Buff编号;
+		public ushort 自身Id;
 
 		
 		public bool 触发成功移除;
@@ -52,13 +52,13 @@ namespace GameServer.Templates
 		public bool 验证分组Buff;
 
 		
-		public ushort Buff分组编号;
+		public ushort BuffGroupId;
 
 		
 		public bool 验证目标Buff;
 
 		
-		public ushort 目标Buff编号;
+		public ushort 目标Id;
 
 		
 		public byte 所需Buff层数;

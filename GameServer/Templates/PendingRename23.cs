@@ -32,7 +32,7 @@ namespace GameServer.Templates
 		public float[] 技能伤害系数;
 
 		
-		public 技能伤害类型 技能伤害类型;
+		public SkillDamageType 技能伤害类型;
 
 		
 		public 指定目标类型 技能增伤类型;
@@ -77,7 +77,7 @@ namespace GameServer.Templates
 		public 指定目标类型 回复限定类型;
 
 		
-		public int 体力回复基数;
+		public int PhysicalRecoveryBase;
 
 		
 		public bool 等级差减回复;

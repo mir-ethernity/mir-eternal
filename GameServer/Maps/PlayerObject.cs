@@ -122,7 +122,7 @@ namespace GameServer.Maps
 			}
 			foreach (BuffData BuffData in this.Buff列表.Values)
 			{
-				if ((BuffData.Buff效果 & Buff效果类型.Stat增减) != Buff效果类型.技能标志)
+				if ((BuffData.Effect & BuffEffectType.StatsIncOrDec) != BuffEffectType.技能标志)
 				{
 					this.Stat加成.Add(BuffData, BuffData.Stat加成);
 				}
@@ -603,7 +603,7 @@ namespace GameServer.Maps
 						}
 						if (MainProcess.CurrentTime > base.恢复时间)
 						{
-							if (!this.检查状态(游戏对象状态.中毒状态))
+							if (!this.检查状态(GameObjectState.Poisoned))
 							{
 								this.当前体力 += this[GameObjectStats.体力恢复];
 								this.当前魔力 += this[GameObjectStats.魔力恢复];
@@ -702,7 +702,7 @@ namespace GameServer.Maps
 			{
 				if (BuffData.死亡消失)
 				{
-					base.删除Buff时处理(BuffData.Buff编号.V);
+					base.删除Buff时处理(BuffData.Id.V);
 				}
 			}
 			this.回魔次数 = 0;
@@ -1917,8 +1917,8 @@ namespace GameServer.Maps
 			{
 				if (this.CharacterData.PetMode.V == PetMode.自动)
 				{
-					this.CharacterData.PetMode.V = PetMode.攻击;
-					return PetMode.攻击;
+					this.CharacterData.PetMode.V = PetMode.Attack;
+					return PetMode.Attack;
 				}
 				return this.CharacterData.PetMode.V;
 			}
@@ -2661,7 +2661,7 @@ namespace GameServer.Maps
 					{
 						if (BuffData.绑定武器 && (BuffData.Buff来源 == null || BuffData.Buff来源.MapId == this.MapId))
 						{
-							base.删除Buff时处理(BuffData.Buff编号.V);
+							base.删除Buff时处理(BuffData.Id.V);
 						}
 					}
 				}
@@ -2753,11 +2753,11 @@ namespace GameServer.Maps
 			int num8 = 0;
 			foreach (BuffData BuffData in this.Buff列表.Values)
 			{
-				if ((BuffData.Buff效果 & Buff效果类型.诱惑提升) != Buff效果类型.技能标志)
+				if ((BuffData.Effect & BuffEffectType.诱惑提升) != BuffEffectType.技能标志)
 				{
-					num6 += BuffData.Buff模板.诱惑概率增加;
-					num7 += BuffData.Buff模板.诱惑时长增加;
-					num8 += (int)BuffData.Buff模板.诱惑等级增加;
+					num6 += BuffData.Buff模板.TemptationIncreaseRate;
+					num7 += BuffData.Buff模板.TemptationIncreaseDuration;
+					num8 += (int)BuffData.Buff模板.TemptationIncreaseLevel;
 				}
 			}
 			float num9 = (float)Math.Pow((this.当前等级 >= 诱惑目标.当前等级) ? 1.2 : 0.8, (double)ComputingClass.Value限制(0, Math.Abs((int)(诱惑目标.当前等级 - this.当前等级)), 2));
@@ -2829,15 +2829,15 @@ namespace GameServer.Maps
 				{
 					if ((BuffData.剩余时间.V -= TimeSpan.FromSeconds((double)Math.Min(15f, (float)技能伤害 * 15f / 50f))) < TimeSpan.Zero)
 					{
-						base.删除Buff时处理(BuffData.Buff编号.V);
+						base.删除Buff时处理(BuffData.Id.V);
 					}
 					else
 					{
 						base.发送封包(new ObjectStateChangePacket
 						{
 							对象编号 = this.MapId,
-							Buff编号 = BuffData.Buff编号.V,
-							Buff索引 = (int)BuffData.Buff编号.V,
+							Id = BuffData.Id.V,
+							Buff索引 = (int)BuffData.Id.V,
 							当前层数 = BuffData.当前层数.V,
 							剩余时间 = (int)BuffData.剩余时间.V.TotalMilliseconds,
 							持续时间 = (int)BuffData.持续时间.V.TotalMilliseconds
@@ -3063,7 +3063,7 @@ namespace GameServer.Maps
 		{
 			foreach (PetObject PetObject in this.宠物列表.ToList<PetObject>())
 			{
-				if (PetObject.邻居列表.Contains(对象) && !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
+				if (PetObject.邻居列表.Contains(对象) && !对象.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus))
 				{
 					PetObject.HateObject.添加仇恨(对象, default(DateTime), 0);
 				}
@@ -3232,7 +3232,7 @@ namespace GameServer.Maps
 			{
 				if (BuffData.下线消失)
 				{
-					base.删除Buff时处理(BuffData.Buff编号.V);
+					base.删除Buff时处理(BuffData.Id.V);
 				}
 			}
 			this.CharacterData.角色下线();
@@ -3724,16 +3724,16 @@ namespace GameServer.Maps
 						SkillData SkillData2;
 						if (this.主体技能表.TryGetValue(游戏技能.绑定等级编号, out SkillData2))
 						{
-							int[] 需要消耗魔法 = 游戏技能.需要消耗魔法;
-							int? num = (需要消耗魔法 != null) ? new int?(需要消耗魔法.Length) : null;
+							int[] 需要消耗Magic = 游戏技能.需要消耗Magic;
+							int? num = (需要消耗Magic != null) ? new int?(需要消耗Magic.Length) : null;
 							int v = (int)SkillData2.技能等级.V;
 							if (num.GetValueOrDefault() > v & num != null)
 							{
-								if (this.当前魔力 < 游戏技能.需要消耗魔法[(int)SkillData2.技能等级.V])
+								if (this.当前魔力 < 游戏技能.需要消耗Magic[(int)SkillData2.技能等级.V])
 								{
 									continue;
 								}
-								this.当前魔力 -= 游戏技能.需要消耗魔法[(int)SkillData2.技能等级.V];
+								this.当前魔力 -= 游戏技能.需要消耗Magic[(int)SkillData2.技能等级.V];
 							}
 						}
 						new 技能实例(this, 游戏技能, SkillData, 0, this.当前地图, this.当前坐标, this, this.当前坐标, null, null, false);
@@ -3763,9 +3763,9 @@ namespace GameServer.Maps
 				{
 					foreach (BuffData BuffData in this.Buff列表.Values.ToList<BuffData>())
 					{
-						if ((BuffData.Buff效果 & Buff效果类型.状态标志) != Buff效果类型.技能标志 && (BuffData.Buff模板.角色所处状态 & 游戏对象状态.潜行状态) != 游戏对象状态.正常状态)
+						if ((BuffData.Effect & BuffEffectType.状态标志) != BuffEffectType.技能标志 && (BuffData.Buff模板.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal)
 						{
-							base.移除Buff时处理(BuffData.Buff编号.V);
+							base.移除Buff时处理(BuffData.Id.V);
 						}
 					}
 				}
@@ -3780,7 +3780,7 @@ namespace GameServer.Maps
 					if (游戏技能.DataSheet.TryGetValue(key, out 游戏技能) && 游戏技能.自身技能编号 == 技能编号)
 					{
 						DateTime dateTime2;
-						if (游戏技能.技能分组编号 == 0 || !this.冷却记录.TryGetValue((int)(游戏技能.技能分组编号 | 0), out dateTime2) || !(MainProcess.CurrentTime < dateTime2))
+						if (游戏技能.技能GroupId == 0 || !this.冷却记录.TryGetValue((int)(游戏技能.技能GroupId | 0), out dateTime2) || !(MainProcess.CurrentTime < dateTime2))
 						{
 							if (游戏技能.检查职业武器)
 							{
@@ -3805,9 +3805,9 @@ namespace GameServer.Maps
 								{
 									break;
 								}
-								if (!游戏技能.检查忙绿状态 || !(MainProcess.CurrentTime < this.忙碌时间))
+								if (!游戏技能.检查BusyGreen || !(MainProcess.CurrentTime < this.忙碌时间))
 								{
-									if (游戏技能.检查硬直状态 && MainProcess.CurrentTime < this.硬直时间)
+									if (游戏技能.检查Stiff && MainProcess.CurrentTime < this.硬直时间)
 									{
 										客户网络 网络连接 = this.网络连接;
 										if (网络连接 != null)
@@ -3868,10 +3868,10 @@ namespace GameServer.Maps
 											SkillData SkillData3;
 											if (this.主体技能表.TryGetValue(游戏技能.绑定等级编号, out SkillData3))
 											{
-												int[] 需要消耗魔法 = 游戏技能.需要消耗魔法;
-												int? num4 = (需要消耗魔法 != null) ? new int?(需要消耗魔法.Length) : null;
+												int[] 需要消耗Magic = 游戏技能.需要消耗Magic;
+												int? num4 = (需要消耗Magic != null) ? new int?(需要消耗Magic.Length) : null;
 												int v = (int)SkillData3.技能等级.V;
-												if ((num4.GetValueOrDefault() > v & num4 != null) && this.当前魔力 < (num = 游戏技能.需要消耗魔法[(int)SkillData3.技能等级.V]))
+												if ((num4.GetValueOrDefault() > v & num4 != null) && this.当前魔力 < (num = 游戏技能.需要消耗Magic[(int)SkillData3.技能等级.V]))
 												{
 													continue;
 												}
@@ -4014,16 +4014,16 @@ namespace GameServer.Maps
 			{
 				return;
 			}
-			if (this.PetMode == PetMode.休息 && (模式 == PetMode.自动 || 模式 == PetMode.攻击))
+			if (this.PetMode == PetMode.休息 && (模式 == PetMode.自动 || 模式 == PetMode.Attack))
 			{
 				foreach (PetObject PetObject in this.宠物列表.ToList<PetObject>())
 				{
 					PetObject.HateObject.仇恨列表.Clear();
 				}
-				this.PetMode = PetMode.攻击;
+				this.PetMode = PetMode.Attack;
 				return;
 			}
-			if (this.PetMode == PetMode.攻击 && (模式 == PetMode.自动 || 模式 == PetMode.休息))
+			if (this.PetMode == PetMode.Attack && (模式 == PetMode.自动 || 模式 == PetMode.休息))
 			{
 				this.PetMode = PetMode.休息;
 			}
@@ -10628,7 +10628,7 @@ namespace GameServer.Maps
 					else
 					{
 						DateTime t2;
-						if (ItemData.分组编号 <= 0 || !this.冷却记录.TryGetValue((int)(ItemData.分组编号 | 0), out t2) || !(MainProcess.CurrentTime < t2))
+						if (ItemData.GroupId <= 0 || !this.冷却记录.TryGetValue((int)(ItemData.GroupId | 0), out t2) || !(MainProcess.CurrentTime < t2))
 						{
 							string Name = ItemData.Name;
 							uint num = PrivateImplementationDetails.ComputeStringHash(Name);
@@ -10756,7 +10756,7 @@ namespace GameServer.Maps
 													{
 														return;
 													}
-													if (!(Name == "神圣战甲术"))
+													if (!(Name == "Sacred战甲术"))
 													{
 														return;
 													}
@@ -10806,15 +10806,15 @@ namespace GameServer.Maps
 													{
 														return;
 													}
-													if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+													if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 													{
-														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+														this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 														客户网络 网络连接5 = this.网络连接;
 														if (网络连接5 != null)
 														{
 															网络连接5.发送封包(new AddedSkillCooldownPacket
 															{
-																冷却编号 = (int)(ItemData.分组编号 | 0),
+																冷却编号 = (int)(ItemData.GroupId | 0),
 																Cooldown = ItemData.GroupCooling
 															});
 														}
@@ -10883,7 +10883,7 @@ namespace GameServer.Maps
 															}
 															else if (this.角色职业 == GameObjectRace.法师)
 															{
-																GameItems.DateSheetByName.TryGetValue("魔法石", out 游戏物品2);
+																GameItems.DateSheetByName.TryGetValue("Magic石", out 游戏物品2);
 															}
 															else if (this.角色职业 == GameObjectRace.道士)
 															{
@@ -11004,15 +11004,15 @@ namespace GameServer.Maps
 													GameItems 模板;
 													if (GameItems.DateSheetByName.TryGetValue("疗伤药", out 模板))
 													{
-														if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+														if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 														{
-															this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+															this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 															客户网络 网络连接10 = this.网络连接;
 															if (网络连接10 != null)
 															{
 																网络连接10.发送封包(new AddedSkillCooldownPacket
 																{
-																	冷却编号 = (int)(ItemData.分组编号 | 0),
+																	冷却编号 = (int)(ItemData.GroupId | 0),
 																	Cooldown = ItemData.GroupCooling
 																});
 															}
@@ -11065,15 +11065,15 @@ namespace GameServer.Maps
 												{
 													return;
 												}
-												if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 													客户网络 网络连接13 = this.网络连接;
 													if (网络连接13 != null)
 													{
 														网络连接13.发送封包(new AddedSkillCooldownPacket
 														{
-															冷却编号 = (int)(ItemData.分组编号 | 0),
+															冷却编号 = (int)(ItemData.GroupId | 0),
 															Cooldown = ItemData.GroupCooling
 														});
 													}
@@ -11110,15 +11110,15 @@ namespace GameServer.Maps
 												{
 													return;
 												}
-												if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 													客户网络 网络连接15 = this.网络连接;
 													if (网络连接15 != null)
 													{
 														网络连接15.发送封包(new AddedSkillCooldownPacket
 														{
-															冷却编号 = (int)(ItemData.分组编号 | 0),
+															冷却编号 = (int)(ItemData.GroupId | 0),
 															Cooldown = ItemData.GroupCooling
 														});
 													}
@@ -11212,15 +11212,15 @@ namespace GameServer.Maps
 												GameItems 模板2;
 												if (GameItems.DateSheetByName.TryGetValue("魔龙城回城卷", out 模板2))
 												{
-													if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+													if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 													{
-														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+														this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 														客户网络 网络连接18 = this.网络连接;
 														if (网络连接18 != null)
 														{
 															网络连接18.发送封包(new AddedSkillCooldownPacket
 															{
-																冷却编号 = (int)(ItemData.分组编号 | 0),
+																冷却编号 = (int)(ItemData.GroupId | 0),
 																Cooldown = ItemData.GroupCooling
 															});
 														}
@@ -11361,15 +11361,15 @@ namespace GameServer.Maps
 												{
 													return;
 												}
-												if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 													客户网络 网络连接21 = this.网络连接;
 													if (网络连接21 != null)
 													{
 														网络连接21.发送封包(new AddedSkillCooldownPacket
 														{
-															冷却编号 = (int)(ItemData.分组编号 | 0),
+															冷却编号 = (int)(ItemData.GroupId | 0),
 															Cooldown = ItemData.GroupCooling
 														});
 													}
@@ -11444,7 +11444,7 @@ namespace GameServer.Maps
 											}
 											else
 											{
-												if (!(Name == "魔法药(小)包"))
+												if (!(Name == "Magic药(小)包"))
 												{
 													return;
 												}
@@ -11464,17 +11464,17 @@ namespace GameServer.Maps
 												else
 												{
 													GameItems 模板3;
-													if (GameItems.DateSheetByName.TryGetValue("魔法药(小量)", out 模板3))
+													if (GameItems.DateSheetByName.TryGetValue("Magic药(小量)", out 模板3))
 													{
-														if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+														if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 														{
-															this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+															this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 															客户网络 网络连接24 = this.网络连接;
 															if (网络连接24 != null)
 															{
 																网络连接24.发送封包(new AddedSkillCooldownPacket
 																{
-																	冷却编号 = (int)(ItemData.分组编号 | 0),
+																	冷却编号 = (int)(ItemData.GroupId | 0),
 																	Cooldown = ItemData.GroupCooling
 																});
 															}
@@ -11550,15 +11550,15 @@ namespace GameServer.Maps
 												GameItems 模板4;
 												if (GameItems.DateSheetByName.TryGetValue("盟重回城卷", out 模板4))
 												{
-													if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+													if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 													{
-														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+														this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 														客户网络 网络连接28 = this.网络连接;
 														if (网络连接28 != null)
 														{
 															网络连接28.发送封包(new AddedSkillCooldownPacket
 															{
-																冷却编号 = (int)(ItemData.分组编号 | 0),
+																冷却编号 = (int)(ItemData.GroupId | 0),
 																Cooldown = ItemData.GroupCooling
 															});
 														}
@@ -11681,7 +11681,7 @@ namespace GameServer.Maps
 									}
 									else
 									{
-										if (!(Name == "魔法盾"))
+										if (!(Name == "Magic盾"))
 										{
 											return;
 										}
@@ -11905,15 +11905,15 @@ namespace GameServer.Maps
 												{
 													return;
 												}
-												if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 													客户网络 网络连接38 = this.网络连接;
 													if (网络连接38 != null)
 													{
 														网络连接38.发送封包(new AddedSkillCooldownPacket
 														{
-															冷却编号 = (int)(ItemData.分组编号 | 0),
+															冷却编号 = (int)(ItemData.GroupId | 0),
 															Cooldown = ItemData.GroupCooling
 														});
 													}
@@ -12078,15 +12078,15 @@ namespace GameServer.Maps
 												GameItems 模板5;
 												if (GameItems.DateSheetByName.TryGetValue("万年雪霜", out 模板5))
 												{
-													if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+													if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 													{
-														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+														this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 														客户网络 网络连接41 = this.网络连接;
 														if (网络连接41 != null)
 														{
 															网络连接41.发送封包(new AddedSkillCooldownPacket
 															{
-																冷却编号 = (int)(ItemData.分组编号 | 0),
+																冷却编号 = (int)(ItemData.GroupId | 0),
 																Cooldown = ItemData.GroupCooling
 															});
 														}
@@ -12177,15 +12177,15 @@ namespace GameServer.Maps
 												GameItems 模板6;
 												if (GameItems.DateSheetByName.TryGetValue("太阳水", out 模板6))
 												{
-													if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+													if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 													{
-														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+														this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 														客户网络 网络连接45 = this.网络连接;
 														if (网络连接45 != null)
 														{
 															网络连接45.发送封包(new AddedSkillCooldownPacket
 															{
-																冷却编号 = (int)(ItemData.分组编号 | 0),
+																冷却编号 = (int)(ItemData.GroupId | 0),
 																Cooldown = ItemData.GroupCooling
 															});
 														}
@@ -12384,15 +12384,15 @@ namespace GameServer.Maps
 										{
 											return;
 										}
-										if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+										if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 										{
-											this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+											this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 											客户网络 网络连接48 = this.网络连接;
 											if (网络连接48 != null)
 											{
 												网络连接48.发送封包(new AddedSkillCooldownPacket
 												{
-													冷却编号 = (int)(ItemData.分组编号 | 0),
+													冷却编号 = (int)(ItemData.GroupId | 0),
 													Cooldown = ItemData.GroupCooling
 												});
 											}
@@ -12492,15 +12492,15 @@ namespace GameServer.Maps
 											GameItems 模板7;
 											if (GameItems.DateSheetByName.TryGetValue("金创药(小量)", out 模板7))
 											{
-												if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 													客户网络 网络连接51 = this.网络连接;
 													if (网络连接51 != null)
 													{
 														网络连接51.发送封包(new AddedSkillCooldownPacket
 														{
-															冷却编号 = (int)(ItemData.分组编号 | 0),
+															冷却编号 = (int)(ItemData.GroupId | 0),
 															Cooldown = ItemData.GroupCooling
 														});
 													}
@@ -12793,15 +12793,15 @@ namespace GameServer.Maps
 										GameItems 模板8;
 										if (GameItems.DateSheetByName.TryGetValue("随机传送卷", out 模板8))
 										{
-											if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+											if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 											{
-												this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+												this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 												客户网络 网络连接63 = this.网络连接;
 												if (网络连接63 != null)
 												{
 													网络连接63.发送封包(new AddedSkillCooldownPacket
 													{
-														冷却编号 = (int)(ItemData.分组编号 | 0),
+														冷却编号 = (int)(ItemData.GroupId | 0),
 														Cooldown = ItemData.GroupCooling
 													});
 												}
@@ -13010,15 +13010,15 @@ namespace GameServer.Maps
 												{
 													return;
 												}
-												if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 													客户网络 网络连接67 = this.网络连接;
 													if (网络连接67 != null)
 													{
 														网络连接67.发送封包(new AddedSkillCooldownPacket
 														{
-															冷却编号 = (int)(ItemData.分组编号 | 0),
+															冷却编号 = (int)(ItemData.GroupId | 0),
 															Cooldown = ItemData.GroupCooling
 														});
 													}
@@ -13083,15 +13083,15 @@ namespace GameServer.Maps
 												GameItems 模板9;
 												if (GameItems.DateSheetByName.TryGetValue("沙巴克回城卷", out 模板9))
 												{
-													if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+													if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 													{
-														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+														this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 														客户网络 网络连接70 = this.网络连接;
 														if (网络连接70 != null)
 														{
 															网络连接70.发送封包(new AddedSkillCooldownPacket
 															{
-																冷却编号 = (int)(ItemData.分组编号 | 0),
+																冷却编号 = (int)(ItemData.GroupId | 0),
 																Cooldown = ItemData.GroupCooling
 															});
 														}
@@ -13182,15 +13182,15 @@ namespace GameServer.Maps
 												GameItems 模板10;
 												if (GameItems.DateSheetByName.TryGetValue("强效金创药", out 模板10))
 												{
-													if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+													if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 													{
-														this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+														this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 														客户网络 网络连接74 = this.网络连接;
 														if (网络连接74 != null)
 														{
 															网络连接74.发送封包(new AddedSkillCooldownPacket
 															{
-																冷却编号 = (int)(ItemData.分组编号 | 0),
+																冷却编号 = (int)(ItemData.GroupId | 0),
 																Cooldown = ItemData.GroupCooling
 															});
 														}
@@ -13286,19 +13286,19 @@ namespace GameServer.Maps
 									}
 									else
 									{
-										if (!(Name == "魔法药(小量)"))
+										if (!(Name == "Magic药(小量)"))
 										{
 											return;
 										}
-										if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+										if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 										{
-											this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+											this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 											客户网络 网络连接77 = this.网络连接;
 											if (网络连接77 != null)
 											{
 												网络连接77.发送封包(new AddedSkillCooldownPacket
 												{
-													冷却编号 = (int)(ItemData.分组编号 | 0),
+													冷却编号 = (int)(ItemData.GroupId | 0),
 													Cooldown = ItemData.GroupCooling
 												});
 											}
@@ -13348,19 +13348,19 @@ namespace GameServer.Maps
 											}
 											else
 											{
-												if (!(Name == "强效魔法药"))
+												if (!(Name == "强效Magic药"))
 												{
 													return;
 												}
-												if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 													客户网络 网络连接79 = this.网络连接;
 													if (网络连接79 != null)
 													{
 														网络连接79.发送封包(new AddedSkillCooldownPacket
 														{
-															冷却编号 = (int)(ItemData.分组编号 | 0),
+															冷却编号 = (int)(ItemData.GroupId | 0),
 															Cooldown = ItemData.GroupCooling
 														});
 													}
@@ -13706,7 +13706,7 @@ namespace GameServer.Maps
 									}
 									else
 									{
-										if (!(Name == "超级魔法药"))
+										if (!(Name == "超级Magic药"))
 										{
 											return;
 										}
@@ -13726,17 +13726,17 @@ namespace GameServer.Maps
 										else
 										{
 											GameItems 模板14;
-											if (GameItems.DateSheetByName.TryGetValue("强效魔法药", out 模板14))
+											if (GameItems.DateSheetByName.TryGetValue("强效Magic药", out 模板14))
 											{
-												if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 													客户网络 网络连接87 = this.网络连接;
 													if (网络连接87 != null)
 													{
 														网络连接87.发送封包(new AddedSkillCooldownPacket
 														{
-															冷却编号 = (int)(ItemData.分组编号 | 0),
+															冷却编号 = (int)(ItemData.GroupId | 0),
 															Cooldown = ItemData.GroupCooling
 														});
 													}
@@ -14100,15 +14100,15 @@ namespace GameServer.Maps
 											GameItems 模板15;
 											if (GameItems.DateSheetByName.TryGetValue("镇魔古城回城卷", out 模板15))
 											{
-												if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 													客户网络 网络连接95 = this.网络连接;
 													if (网络连接95 != null)
 													{
 														网络连接95.发送封包(new AddedSkillCooldownPacket
 														{
-															冷却编号 = (int)(ItemData.分组编号 | 0),
+															冷却编号 = (int)(ItemData.GroupId | 0),
 															Cooldown = ItemData.GroupCooling
 														});
 													}
@@ -14232,15 +14232,15 @@ namespace GameServer.Maps
 											GameItems 模板16;
 											if (GameItems.DateSheetByName.TryGetValue("强效太阳水", out 模板16))
 											{
-												if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 													客户网络 网络连接99 = this.网络连接;
 													if (网络连接99 != null)
 													{
 														网络连接99.发送封包(new AddedSkillCooldownPacket
 														{
-															冷却编号 = (int)(ItemData.分组编号 | 0),
+															冷却编号 = (int)(ItemData.GroupId | 0),
 															Cooldown = ItemData.GroupCooling
 														});
 													}
@@ -14311,15 +14311,15 @@ namespace GameServer.Maps
 											GameItems 模板17;
 											if (GameItems.DateSheetByName.TryGetValue("比奇回城卷", out 模板17))
 											{
-												if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 													客户网络 网络连接103 = this.网络连接;
 													if (网络连接103 != null)
 													{
 														网络连接103.发送封包(new AddedSkillCooldownPacket
 														{
-															冷却编号 = (int)(ItemData.分组编号 | 0),
+															冷却编号 = (int)(ItemData.GroupId | 0),
 															Cooldown = ItemData.GroupCooling
 														});
 													}
@@ -14397,15 +14397,15 @@ namespace GameServer.Maps
 											GameItems 模板18;
 											if (GameItems.DateSheetByName.TryGetValue("金创药(中量)", out 模板18))
 											{
-												if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 												{
-													this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 													客户网络 网络连接107 = this.网络连接;
 													if (网络连接107 != null)
 													{
 														网络连接107.发送封包(new AddedSkillCooldownPacket
 														{
-															冷却编号 = (int)(ItemData.分组编号 | 0),
+															冷却编号 = (int)(ItemData.GroupId | 0),
 															Cooldown = ItemData.GroupCooling
 														});
 													}
@@ -14525,19 +14525,19 @@ namespace GameServer.Maps
 											{
 												return;
 											}
-											if (!(Name == "魔法药(中量)"))
+											if (!(Name == "Magic药(中量)"))
 											{
 												return;
 											}
-											if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+											if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 											{
-												this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+												this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 												客户网络 网络连接110 = this.网络连接;
 												if (网络连接110 != null)
 												{
 													网络连接110.发送封包(new AddedSkillCooldownPacket
 													{
-														冷却编号 = (int)(ItemData.分组编号 | 0),
+														冷却编号 = (int)(ItemData.GroupId | 0),
 														Cooldown = ItemData.GroupCooling
 													});
 												}
@@ -14748,7 +14748,7 @@ namespace GameServer.Maps
 									{
 										return;
 									}
-									if (!(Name == "魔法药(中)包"))
+									if (!(Name == "Magic药(中)包"))
 									{
 										return;
 									}
@@ -14768,17 +14768,17 @@ namespace GameServer.Maps
 									else
 									{
 										GameItems 模板19;
-										if (GameItems.DateSheetByName.TryGetValue("魔法药(中量)", out 模板19))
+										if (GameItems.DateSheetByName.TryGetValue("Magic药(中量)", out 模板19))
 										{
-											if (ItemData.分组编号 > 0 && ItemData.GroupCooling > 0)
+											if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
 											{
-												this.冷却记录[(int)(ItemData.分组编号 | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
+												this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
 												客户网络 网络连接113 = this.网络连接;
 												if (网络连接113 != null)
 												{
 													网络连接113.发送封包(new AddedSkillCooldownPacket
 													{
-														冷却编号 = (int)(ItemData.分组编号 | 0),
+														冷却编号 = (int)(ItemData.GroupId | 0),
 														Cooldown = ItemData.GroupCooling
 													});
 												}
@@ -17060,28 +17060,28 @@ namespace GameServer.Maps
 						升级次数.V += 1;
 						if (key == 0)
 						{
-							DataMonitor<byte> 升级攻击 = EquipmentData.升级攻击;
-							升级攻击.V += 1;
+							DataMonitor<byte> 升级Attack = EquipmentData.升级Attack;
+							升级Attack.V += 1;
 						}
 						else if (key == 1)
 						{
-							DataMonitor<byte> 升级魔法 = EquipmentData.升级魔法;
-							升级魔法.V += 1;
+							DataMonitor<byte> 升级Magic = EquipmentData.升级Magic;
+							升级Magic.V += 1;
 						}
 						else if (key == 2)
 						{
-							DataMonitor<byte> 升级道术 = EquipmentData.升级道术;
-							升级道术.V += 1;
+							DataMonitor<byte> 升级Taoism = EquipmentData.升级Taoism;
+							升级Taoism.V += 1;
 						}
 						else if (key == 3)
 						{
-							DataMonitor<byte> 升级刺术 = EquipmentData.升级刺术;
-							升级刺术.V += 1;
+							DataMonitor<byte> 升级Needle = EquipmentData.升级Needle;
+							升级Needle.V += 1;
 						}
 						else if (key == 4)
 						{
-							DataMonitor<byte> 升级弓术 = EquipmentData.升级弓术;
-							升级弓术.V += 1;
+							DataMonitor<byte> 升级Archery = EquipmentData.升级Archery;
+							升级Archery.V += 1;
 						}
 					}
 					if (num2 < 30)
@@ -24026,8 +24026,8 @@ namespace GameServer.Maps
 				{
 					foreach (BuffData BuffData in this.Buff列表.Values)
 					{
-						binaryWriter.Write(BuffData.Buff编号.V);
-						binaryWriter.Write((int)BuffData.Buff编号.V);
+						binaryWriter.Write(BuffData.Id.V);
+						binaryWriter.Write((int)BuffData.Id.V);
 						binaryWriter.Write(BuffData.当前层数.V);
 						binaryWriter.Write((int)BuffData.剩余时间.V.TotalMilliseconds);
 						binaryWriter.Write((int)BuffData.持续时间.V.TotalMilliseconds);

@@ -1245,19 +1245,19 @@ namespace GameServer.Maps
         
         public virtual bool 能否走动()
         {
-            return !this.对象死亡 && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.行走时间) && !this.检查状态(游戏对象状态.忙绿状态 | 游戏对象状态.定身状态 | 游戏对象状态.麻痹状态 | 游戏对象状态.失神状态);
+            return !this.对象死亡 && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.行走时间) && !this.检查状态(GameObjectState.BusyGreen | GameObjectState.Inmobilized | GameObjectState.Paralyzed | GameObjectState.Absence);
         }
 
         
         public virtual bool 能否跑动()
         {
-            return !this.对象死亡 && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.奔跑时间) && !this.检查状态(游戏对象状态.忙绿状态 | 游戏对象状态.残废状态 | 游戏对象状态.定身状态 | 游戏对象状态.麻痹状态 | 游戏对象状态.失神状态);
+            return !this.对象死亡 && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.奔跑时间) && !this.检查状态(GameObjectState.BusyGreen | GameObjectState.Disabled | GameObjectState.Inmobilized | GameObjectState.Paralyzed | GameObjectState.Absence);
         }
 
         
         public virtual bool 能否转动()
         {
-            return !this.对象死亡 && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.行走时间) && !this.检查状态(游戏对象状态.忙绿状态 | 游戏对象状态.麻痹状态 | 游戏对象状态.失神状态);
+            return !this.对象死亡 && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.行走时间) && !this.检查状态(GameObjectState.BusyGreen | GameObjectState.Paralyzed | GameObjectState.Absence);
         }
 
         
@@ -1353,11 +1353,11 @@ namespace GameServer.Maps
         }
 
         
-        public virtual bool 检查状态(游戏对象状态 待检状态)
+        public virtual bool 检查状态(GameObjectState 待检状态)
         {
             foreach (BuffData BuffData in this.Buff列表.Values)
             {
-                if ((BuffData.Buff效果 & Buff效果类型.状态标志) != Buff效果类型.技能标志 && (BuffData.Buff模板.角色所处状态 & 待检状态) != 游戏对象状态.正常状态)
+                if ((BuffData.Effect & BuffEffectType.状态标志) != BuffEffectType.技能标志 && (BuffData.Buff模板.PlayerState & 待检状态) != GameObjectState.Normal)
                 {
                     return true;
                 }
@@ -1378,67 +1378,67 @@ namespace GameServer.Maps
                     {
                         来源 = TrapObject.陷阱来源;
                     }
-                    游戏Buff 游戏Buff;
-                    if (游戏Buff.DataSheet.TryGetValue(编号, out 游戏Buff))
+                    GameBuffs 游戏Buff;
+                    if (GameBuffs.DataSheet.TryGetValue(编号, out 游戏Buff))
                     {
-                        if ((游戏Buff.Buff效果 & Buff效果类型.状态标志) != Buff效果类型.技能标志)
+                        if ((游戏Buff.Effect & BuffEffectType.状态标志) != BuffEffectType.技能标志)
                         {
-                            if (((游戏Buff.角色所处状态 & 游戏对象状态.隐身状态) != 游戏对象状态.正常状态 || (游戏Buff.角色所处状态 & 游戏对象状态.潜行状态) != 游戏对象状态.正常状态) && this.检查状态(游戏对象状态.暴露状态))
+                            if (((游戏Buff.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal || (游戏Buff.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal) && this.检查状态(GameObjectState.Exposed))
                             {
                                 return;
                             }
-                            if ((游戏Buff.角色所处状态 & 游戏对象状态.暴露状态) != 游戏对象状态.正常状态)
+                            if ((游戏Buff.PlayerState & GameObjectState.Exposed) != GameObjectState.Normal)
                             {
                                 foreach (BuffData BuffData in this.Buff列表.Values.ToList<BuffData>())
                                 {
-                                    if ((BuffData.Buff模板.角色所处状态 & 游戏对象状态.隐身状态) != 游戏对象状态.正常状态 || (BuffData.Buff模板.角色所处状态 & 游戏对象状态.潜行状态) != 游戏对象状态.正常状态)
+                                    if ((BuffData.Buff模板.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal || (BuffData.Buff模板.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal)
                                     {
-                                        this.移除Buff时处理(BuffData.Buff编号.V);
+                                        this.移除Buff时处理(BuffData.Id.V);
                                     }
                                 }
                             }
                         }
-                        if ((游戏Buff.Buff效果 & Buff效果类型.造成伤害) != Buff效果类型.技能标志 && 游戏Buff.Buff伤害类型 == 技能伤害类型.灼烧 && this.Buff列表.ContainsKey(25352))
+                        if ((游戏Buff.Effect & BuffEffectType.造成伤害) != BuffEffectType.技能标志 && 游戏Buff.DamageType == SkillDamageType.Burn && this.Buff列表.ContainsKey(25352))
                         {
                             return;
                         }
-                        ushort 分组编号 = (游戏Buff.分组编号 != 0) ? 游戏Buff.分组编号 : 游戏Buff.Buff编号;
+                        ushort GroupId = (游戏Buff.GroupId != 0) ? 游戏Buff.GroupId : 游戏Buff.Id;
                         BuffData BuffData2 = null;
-                        switch (游戏Buff.叠加类型)
+                        switch (游戏Buff.OverlayType)
                         {
-                            case Buff叠加类型.禁止叠加:
-                                if (this.Buff列表.Values.FirstOrDefault((BuffData O) => O.Buff分组 == 分组编号) == null)
+                            case BuffOverlayType.禁止叠加:
+                                if (this.Buff列表.Values.FirstOrDefault((BuffData O) => O.Buff分组 == GroupId) == null)
                                 {
-                                    BuffData2 = (this.Buff列表[游戏Buff.Buff编号] = new BuffData(来源, this, 游戏Buff.Buff编号));
+                                    BuffData2 = (this.Buff列表[游戏Buff.Id] = new BuffData(来源, this, 游戏Buff.Id));
                                 }
                                 break;
-                            case Buff叠加类型.同类替换:
+                            case BuffOverlayType.同类替换:
                                 {
                                     IEnumerable<BuffData> values = this.Buff列表.Values;
                                     Func<BuffData, bool> predicate = null;
 
                                     if (predicate == null)
                                     {
-                                        predicate = ((BuffData O) => O.Buff分组 == 分组编号);
+                                        predicate = ((BuffData O) => O.Buff分组 == GroupId);
                                     }
                                     foreach (BuffData BuffData3 in values.Where(predicate).ToList<BuffData>())
                                     {
-                                        this.移除Buff时处理(BuffData3.Buff编号.V);
+                                        this.移除Buff时处理(BuffData3.Id.V);
                                     }
-                                    BuffData2 = (this.Buff列表[游戏Buff.Buff编号] = new BuffData(来源, this, 游戏Buff.Buff编号));
+                                    BuffData2 = (this.Buff列表[游戏Buff.Id] = new BuffData(来源, this, 游戏Buff.Id));
                                     break;
                                 }
-                            case Buff叠加类型.同类叠加:
+                            case BuffOverlayType.同类叠加:
                                 {
                                     BuffData BuffData4;
                                     if (this.Buff列表.TryGetValue(编号, out BuffData4))
                                     {
                                         BuffData4.当前层数.V = (byte)Math.Min(BuffData4.当前层数.V + 1, BuffData4.最大层数);
-                                        游戏Buff 游戏Buff2;
-                                        if (游戏Buff.Buff允许合成 && BuffData4.当前层数.V >= 游戏Buff.Buff合成层数 && 游戏Buff.DataSheet.TryGetValue(游戏Buff.Buff合成编号, out 游戏Buff2))
+                                        GameBuffs 游戏Buff2;
+                                        if (游戏Buff.AllowsSynthesis && BuffData4.当前层数.V >= 游戏Buff.BuffSynthesisLayer && GameBuffs.DataSheet.TryGetValue(游戏Buff.BuffSynthesisId, out 游戏Buff2))
                                         {
-                                            this.移除Buff时处理(BuffData4.Buff编号.V);
-                                            this.添加Buff时处理(游戏Buff.Buff合成编号, 来源);
+                                            this.移除Buff时处理(BuffData4.Id.V);
+                                            this.添加Buff时处理(游戏Buff.BuffSynthesisId, 来源);
                                         }
                                         else
                                         {
@@ -1448,8 +1448,8 @@ namespace GameServer.Maps
                                                 this.发送封包(new ObjectStateChangePacket
                                                 {
                                                     对象编号 = this.MapId,
-                                                    Buff编号 = BuffData4.Buff编号.V,
-                                                    Buff索引 = (int)BuffData4.Buff编号.V,
+                                                    Id = BuffData4.Id.V,
+                                                    Buff索引 = (int)BuffData4.Id.V,
                                                     当前层数 = BuffData4.当前层数.V,
                                                     剩余时间 = (int)BuffData4.剩余时间.V.TotalMilliseconds,
                                                     持续时间 = (int)BuffData4.持续时间.V.TotalMilliseconds
@@ -1459,11 +1459,11 @@ namespace GameServer.Maps
                                     }
                                     else
                                     {
-                                        BuffData2 = (this.Buff列表[游戏Buff.Buff编号] = new BuffData(来源, this, 游戏Buff.Buff编号));
+                                        BuffData2 = (this.Buff列表[游戏Buff.Id] = new BuffData(来源, this, 游戏Buff.Id));
                                     }
                                     break;
                                 }
-                            case Buff叠加类型.同类延时:
+                            case BuffOverlayType.同类延时:
                                 {
                                     BuffData BuffData5;
                                     if (this.Buff列表.TryGetValue(编号, out BuffData5))
@@ -1474,8 +1474,8 @@ namespace GameServer.Maps
                                             this.发送封包(new ObjectStateChangePacket
                                             {
                                                 对象编号 = this.MapId,
-                                                Buff编号 = BuffData5.Buff编号.V,
-                                                Buff索引 = (int)BuffData5.Buff编号.V,
+                                                Id = BuffData5.Id.V,
+                                                Buff索引 = (int)BuffData5.Id.V,
                                                 当前层数 = BuffData5.当前层数.V,
                                                 剩余时间 = (int)BuffData5.剩余时间.V.TotalMilliseconds,
                                                 持续时间 = (int)BuffData5.持续时间.V.TotalMilliseconds
@@ -1484,7 +1484,7 @@ namespace GameServer.Maps
                                     }
                                     else
                                     {
-                                        BuffData2 = (this.Buff列表[游戏Buff.Buff编号] = new BuffData(来源, this, 游戏Buff.Buff编号));
+                                        BuffData2 = (this.Buff列表[游戏Buff.Id] = new BuffData(来源, this, 游戏Buff.Id));
                                     }
                                     break;
                                 }
@@ -1497,27 +1497,27 @@ namespace GameServer.Maps
                                 {
                                     对象编号 = this.MapId,
                                     Buff来源 = 来源.MapId,
-                                    Buff编号 = BuffData2.Buff编号.V,
-                                    Buff索引 = (int)BuffData2.Buff编号.V,
+                                    Id = BuffData2.Id.V,
+                                    Buff索引 = (int)BuffData2.Id.V,
                                     Buff层数 = BuffData2.当前层数.V,
                                     持续时间 = (int)BuffData2.持续时间.V.TotalMilliseconds
                                 });
                             }
-                            if ((游戏Buff.Buff效果 & Buff效果类型.Stat增减) != Buff效果类型.技能标志)
+                            if ((游戏Buff.Effect & BuffEffectType.StatsIncOrDec) != BuffEffectType.技能标志)
                             {
                                 this.Stat加成.Add(BuffData2, BuffData2.Stat加成);
                                 this.更新对象Stat();
                             }
-                            if ((游戏Buff.Buff效果 & Buff效果类型.状态标志) != Buff效果类型.技能标志)
+                            if ((游戏Buff.Effect & BuffEffectType.状态标志) != BuffEffectType.技能标志)
                             {
-                                if ((游戏Buff.角色所处状态 & 游戏对象状态.隐身状态) != 游戏对象状态.正常状态)
+                                if ((游戏Buff.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal)
                                 {
                                     foreach (MapObject MapObject in this.邻居列表.ToList<MapObject>())
                                     {
                                         MapObject.对象隐身时处理(this);
                                     }
                                 }
-                                if ((游戏Buff.角色所处状态 & 游戏对象状态.潜行状态) != 游戏对象状态.正常状态)
+                                if ((游戏Buff.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal)
                                 {
                                     foreach (MapObject MapObject2 in this.邻居列表.ToList<MapObject>())
                                     {
@@ -1525,9 +1525,9 @@ namespace GameServer.Maps
                                     }
                                 }
                             }
-                            if (游戏Buff.连带Buff编号 != 0)
+                            if (游戏Buff.AssociatedId != 0)
                             {
-                                this.添加Buff时处理(游戏Buff.连带Buff编号, 来源);
+                                this.添加Buff时处理(游戏Buff.AssociatedId, 来源);
                             }
                         }
                     }
@@ -1543,9 +1543,9 @@ namespace GameServer.Maps
             if (this.Buff列表.TryGetValue(编号, out BuffData))
             {
                 MapObject MapObject;
-                if (BuffData.Buff模板.后接Buff编号 != 0 && BuffData.Buff来源 != null && MapGatewayProcess.Objects.TryGetValue(BuffData.Buff来源.MapId, out MapObject) && MapObject == BuffData.Buff来源)
+                if (BuffData.Buff模板.FollowedById != 0 && BuffData.Buff来源 != null && MapGatewayProcess.Objects.TryGetValue(BuffData.Buff来源.MapId, out MapObject) && MapObject == BuffData.Buff来源)
                 {
-                    this.添加Buff时处理(BuffData.Buff模板.后接Buff编号, BuffData.Buff来源);
+                    this.添加Buff时处理(BuffData.Buff模板.FollowedById, BuffData.Buff来源);
                 }
                 if (BuffData.依存列表 != null)
                 {
@@ -1582,21 +1582,21 @@ namespace GameServer.Maps
                         Buff索引 = (int)编号
                     });
                 }
-                if ((BuffData.Buff效果 & Buff效果类型.Stat增减) != Buff效果类型.技能标志)
+                if ((BuffData.Effect & BuffEffectType.StatsIncOrDec) != BuffEffectType.技能标志)
                 {
                     this.Stat加成.Remove(BuffData);
                     this.更新对象Stat();
                 }
-                if ((BuffData.Buff效果 & Buff效果类型.状态标志) != Buff效果类型.技能标志)
+                if ((BuffData.Effect & BuffEffectType.状态标志) != BuffEffectType.技能标志)
                 {
-                    if ((BuffData.Buff模板.角色所处状态 & 游戏对象状态.隐身状态) != 游戏对象状态.正常状态)
+                    if ((BuffData.Buff模板.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal)
                     {
                         foreach (MapObject MapObject2 in this.邻居列表.ToList<MapObject>())
                         {
                             MapObject2.对象显隐时处理(this);
                         }
                     }
-                    if ((BuffData.Buff模板.角色所处状态 & 游戏对象状态.潜行状态) != 游戏对象状态.正常状态)
+                    if ((BuffData.Buff模板.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal)
                     {
                         foreach (MapObject MapObject3 in this.邻居列表.ToList<MapObject>())
                         {
@@ -1630,21 +1630,21 @@ namespace GameServer.Maps
                         Buff索引 = (int)编号
                     });
                 }
-                if ((BuffData.Buff效果 & Buff效果类型.Stat增减) != Buff效果类型.技能标志)
+                if ((BuffData.Effect & BuffEffectType.StatsIncOrDec) != BuffEffectType.技能标志)
                 {
                     this.Stat加成.Remove(BuffData);
                     this.更新对象Stat();
                 }
-                if ((BuffData.Buff效果 & Buff效果类型.状态标志) != Buff效果类型.技能标志)
+                if ((BuffData.Effect & BuffEffectType.状态标志) != BuffEffectType.技能标志)
                 {
-                    if ((BuffData.Buff模板.角色所处状态 & 游戏对象状态.隐身状态) != 游戏对象状态.正常状态)
+                    if ((BuffData.Buff模板.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal)
                     {
                         foreach (MapObject MapObject in this.邻居列表.ToList<MapObject>())
                         {
                             MapObject.对象显隐时处理(this);
                         }
                     }
-                    if ((BuffData.Buff模板.角色所处状态 & 游戏对象状态.潜行状态) != 游戏对象状态.正常状态)
+                    if ((BuffData.Buff模板.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal)
                     {
                         foreach (MapObject MapObject2 in this.邻居列表.ToList<MapObject>())
                         {
@@ -1660,17 +1660,17 @@ namespace GameServer.Maps
         {
             if (数据.到期消失 && (数据.剩余时间.V -= MainProcess.CurrentTime - this.处理计时) < TimeSpan.Zero)
             {
-                this.移除Buff时处理(数据.Buff编号.V);
+                this.移除Buff时处理(数据.Id.V);
                 return;
             }
             if ((数据.处理计时.V -= MainProcess.CurrentTime - this.处理计时) < TimeSpan.Zero)
             {
                 数据.处理计时.V += TimeSpan.FromMilliseconds((double)数据.处理间隔);
-                if ((数据.Buff效果 & Buff效果类型.造成伤害) != Buff效果类型.技能标志)
+                if ((数据.Effect & BuffEffectType.造成伤害) != BuffEffectType.技能标志)
                 {
                     this.被动受伤时处理(数据);
                 }
-                if ((数据.Buff效果 & Buff效果类型.生命回复) != Buff效果类型.技能标志)
+                if ((数据.Effect & BuffEffectType.生命回复) != BuffEffectType.技能标志)
                 {
                     this.被动回复时处理(数据);
                 }
@@ -1708,7 +1708,7 @@ namespace GameServer.Maps
             }
             if ((参数.限定目标关系 & 游戏对象关系.敌对) != (游戏对象关系)0)
             {
-                if (this.检查状态(游戏对象状态.无敌状态))
+                if (this.检查状态(GameObjectState.Invencible))
                 {
                     return;
                 }
@@ -1854,31 +1854,31 @@ namespace GameServer.Maps
                         int num10 = 0;
                         switch (参数.技能伤害类型)
                         {
-                            case 技能伤害类型.攻击:
+                            case SkillDamageType.Attack:
                                 num10 = ComputingClass.计算防御(this[GameObjectStats.MinDef], this[GameObjectStats.MaxDef]);
-                                num9 = ComputingClass.计算攻击(MapObject[GameObjectStats.MinAttack], MapObject[GameObjectStats.MaxAttack], MapObject[GameObjectStats.幸运等级]);
+                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinAttack], MapObject[GameObjectStats.MaxAttack], MapObject[GameObjectStats.幸运等级]);
                                 break;
-                            case 技能伤害类型.魔法:
+                            case SkillDamageType.Magic:
                                 num10 = ComputingClass.计算防御(this[GameObjectStats.MinMagicDef], this[GameObjectStats.MaxMagicDef]);
-                                num9 = ComputingClass.计算攻击(MapObject[GameObjectStats.MinMagic], MapObject[GameObjectStats.MaxMagic], MapObject[GameObjectStats.幸运等级]);
+                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinMagic], MapObject[GameObjectStats.MaxMagic], MapObject[GameObjectStats.幸运等级]);
                                 break;
-                            case 技能伤害类型.道术:
+                            case SkillDamageType.Taoism:
                                 num10 = ComputingClass.计算防御(this[GameObjectStats.MinMagicDef], this[GameObjectStats.MaxMagicDef]);
-                                num9 = ComputingClass.计算攻击(MapObject[GameObjectStats.Minimalist], MapObject[GameObjectStats.GreatestTaoism], MapObject[GameObjectStats.幸运等级]);
+                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.Minimalist], MapObject[GameObjectStats.GreatestTaoism], MapObject[GameObjectStats.幸运等级]);
                                 break;
-                            case 技能伤害类型.刺术:
+                            case SkillDamageType.Needle:
                                 num10 = ComputingClass.计算防御(this[GameObjectStats.MinDef], this[GameObjectStats.MaxDef]);
-                                num9 = ComputingClass.计算攻击(MapObject[GameObjectStats.MinNeedle], MapObject[GameObjectStats.MaxNeedle], MapObject[GameObjectStats.幸运等级]);
+                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinNeedle], MapObject[GameObjectStats.MaxNeedle], MapObject[GameObjectStats.幸运等级]);
                                 break;
-                            case 技能伤害类型.弓术:
+                            case SkillDamageType.Archery:
                                 num10 = ComputingClass.计算防御(this[GameObjectStats.MinDef], this[GameObjectStats.MaxDef]);
-                                num9 = ComputingClass.计算攻击(MapObject[GameObjectStats.MinBow], MapObject[GameObjectStats.MaxBow], MapObject[GameObjectStats.幸运等级]);
+                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinBow], MapObject[GameObjectStats.MaxBow], MapObject[GameObjectStats.幸运等级]);
                                 break;
-                            case 技能伤害类型.毒性:
+                            case SkillDamageType.Toxicity:
                                 num9 = MapObject[GameObjectStats.GreatestTaoism];
                                 break;
-                            case 技能伤害类型.神圣:
-                                num9 = ComputingClass.计算攻击(MapObject[GameObjectStats.最小圣伤], MapObject[GameObjectStats.最大圣伤], 0);
+                            case SkillDamageType.Sacred:
+                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.最小圣伤], MapObject[GameObjectStats.最大圣伤], 0);
                                 break;
                         }
                         if (this is MonsterObject)
@@ -1890,22 +1890,22 @@ namespace GameServer.Maps
                         int num13 = int.MaxValue;
                         foreach (BuffData BuffData in MapObject.Buff列表.Values.ToList<BuffData>())
                         {
-                            if ((BuffData.Buff效果 & Buff效果类型.伤害增减) != Buff效果类型.技能标志 && (BuffData.Buff模板.效果判定方式 == Buff判定方式.ActiveAttack增伤 || BuffData.Buff模板.效果判定方式 == Buff判定方式.ActiveAttack减伤))
+                            if ((BuffData.Effect & BuffEffectType.伤害增减) != BuffEffectType.技能标志 && (BuffData.Buff模板.HowJudgeEffect == BuffDetherminationMethod.ActiveAttackDamageBoost || BuffData.Buff模板.HowJudgeEffect == BuffDetherminationMethod.ActiveAttackDamageReduction))
                             {
                                 bool flag = false;
                                 switch (参数.技能伤害类型)
                                 {
-                                    case 技能伤害类型.攻击:
-                                    case 技能伤害类型.刺术:
-                                    case 技能伤害类型.弓术:
+                                    case SkillDamageType.Attack:
+                                    case SkillDamageType.Needle:
+                                    case SkillDamageType.Archery:
                                         {
-                                            Buff判定类型 效果判定类型 = BuffData.Buff模板.效果判定类型;
-                                            if (效果判定类型 > Buff判定类型.所有物理伤害)
+                                            BuffJudgmentType EffectJudgeType = BuffData.Buff模板.EffectJudgeType;
+                                            if (EffectJudgeType > BuffJudgmentType.AllPhysicalDamage)
                                             {
-                                                if (效果判定类型 == Buff判定类型.所有特定伤害)
+                                                if (EffectJudgeType == BuffJudgmentType.AllSpecificInjuries)
                                                 {
-                                                    HashSet<ushort> 特定技能编号 = BuffData.Buff模板.特定技能编号;
-                                                    flag = (特定技能编号 != null && 特定技能编号.Contains(技能.技能编号));
+                                                    HashSet<ushort> SpecificSkillId = BuffData.Buff模板.SpecificSkillId;
+                                                    flag = (SpecificSkillId != null && SpecificSkillId.Contains(技能.技能编号));
                                                 }
                                             }
                                             else
@@ -1914,86 +1914,86 @@ namespace GameServer.Maps
                                             }
                                             break;
                                         }
-                                    case 技能伤害类型.魔法:
-                                    case 技能伤害类型.道术:
-                                        switch (BuffData.Buff模板.效果判定类型)
+                                    case SkillDamageType.Magic:
+                                    case SkillDamageType.Taoism:
+                                        switch (BuffData.Buff模板.EffectJudgeType)
                                         {
-                                            case Buff判定类型.所有技能伤害:
-                                            case Buff判定类型.所有魔法伤害:
+                                            case BuffJudgmentType.AllSkillDamage:
+                                            case BuffJudgmentType.AllMagicDamage:
                                                 flag = true;
                                                 break;
-                                            case Buff判定类型.所有特定伤害:
+                                            case BuffJudgmentType.AllSpecificInjuries:
                                                 {
-                                                    HashSet<ushort> 特定技能编号2 = BuffData.Buff模板.特定技能编号;
-                                                    flag = (特定技能编号2 != null && 特定技能编号2.Contains(技能.技能编号));
+                                                    HashSet<ushort> SpecificSkillId2 = BuffData.Buff模板.SpecificSkillId;
+                                                    flag = (SpecificSkillId2 != null && SpecificSkillId2.Contains(技能.技能编号));
                                                     break;
                                                 }
                                         }
                                         break;
-                                    case 技能伤害类型.毒性:
-                                    case 技能伤害类型.神圣:
-                                    case 技能伤害类型.灼烧:
-                                    case 技能伤害类型.撕裂:
-                                        if (BuffData.Buff模板.效果判定类型 == Buff判定类型.所有特定伤害)
+                                    case SkillDamageType.Toxicity:
+                                    case SkillDamageType.Sacred:
+                                    case SkillDamageType.Burn:
+                                    case SkillDamageType.Tear:
+                                        if (BuffData.Buff模板.EffectJudgeType == BuffJudgmentType.AllSpecificInjuries)
                                         {
-                                            HashSet<ushort> 特定技能编号3 = BuffData.Buff模板.特定技能编号;
-                                            flag = (特定技能编号3 != null && 特定技能编号3.Contains(技能.技能编号));
+                                            HashSet<ushort> SpecificSkillId3 = BuffData.Buff模板.SpecificSkillId;
+                                            flag = (SpecificSkillId3 != null && SpecificSkillId3.Contains(技能.技能编号));
                                         }
                                         break;
                                 }
                                 if (flag)
                                 {
                                     int v = (int)BuffData.当前层数.V;
-                                    int[] 伤害增减基数 = BuffData.Buff模板.伤害增减基数;
-                                    num = ((伤害增减基数 != null) ? new int?(伤害增减基数.Length) : null);
+                                    int[] DamageIncOrDecBase = BuffData.Buff模板.DamageIncOrDecBase;
+                                    num = ((DamageIncOrDecBase != null) ? new int?(DamageIncOrDecBase.Length) : null);
                                     num2 = (int)BuffData.Buff等级.V;
-                                    int num14 = v * ((num.GetValueOrDefault() > num2 & num != null) ? BuffData.Buff模板.伤害增减基数[(int)BuffData.Buff等级.V] : 0);
+                                    int num14 = v * ((num.GetValueOrDefault() > num2 & num != null) ? BuffData.Buff模板.DamageIncOrDecBase[(int)BuffData.Buff等级.V] : 0);
                                     float num15 = (float)BuffData.当前层数.V;
-                                    float[] 伤害增减系数 = BuffData.Buff模板.伤害增减系数;
-                                    num = ((伤害增减系数 != null) ? new int?(伤害增减系数.Length) : null);
+                                    float[] DamageIncOrDecFactor = BuffData.Buff模板.DamageIncOrDecFactor;
+                                    num = ((DamageIncOrDecFactor != null) ? new int?(DamageIncOrDecFactor.Length) : null);
                                     num2 = (int)BuffData.Buff等级.V;
-                                    float num16 = num15 * ((num.GetValueOrDefault() > num2 & num != null) ? BuffData.Buff模板.伤害增减系数[(int)BuffData.Buff等级.V] : 0f);
-                                    num11 += ((BuffData.Buff模板.效果判定方式 == Buff判定方式.ActiveAttack增伤) ? num14 : (-num14));
-                                    num12 += ((BuffData.Buff模板.效果判定方式 == Buff判定方式.ActiveAttack增伤) ? num16 : (-num16));
+                                    float num16 = num15 * ((num.GetValueOrDefault() > num2 & num != null) ? BuffData.Buff模板.DamageIncOrDecFactor[(int)BuffData.Buff等级.V] : 0f);
+                                    num11 += ((BuffData.Buff模板.HowJudgeEffect == BuffDetherminationMethod.ActiveAttackDamageBoost) ? num14 : (-num14));
+                                    num12 += ((BuffData.Buff模板.HowJudgeEffect == BuffDetherminationMethod.ActiveAttackDamageBoost) ? num16 : (-num16));
                                     MapObject MapObject2;
-                                    if (BuffData.Buff模板.生效后接编号 != 0 && BuffData.Buff来源 != null && MapGatewayProcess.Objects.TryGetValue(BuffData.Buff来源.MapId, out MapObject2) && MapObject2 == BuffData.Buff来源)
+                                    if (BuffData.Buff模板.EffectiveFollowedById != 0 && BuffData.Buff来源 != null && MapGatewayProcess.Objects.TryGetValue(BuffData.Buff来源.MapId, out MapObject2) && MapObject2 == BuffData.Buff来源)
                                     {
-                                        if (BuffData.Buff模板.后接技能来源)
+                                        if (BuffData.Buff模板.FollowUpSkillSource)
                                         {
-                                            MapObject.添加Buff时处理(BuffData.Buff模板.生效后接编号, BuffData.Buff来源);
+                                            MapObject.添加Buff时处理(BuffData.Buff模板.EffectiveFollowedById, BuffData.Buff来源);
                                         }
                                         else
                                         {
-                                            this.添加Buff时处理(BuffData.Buff模板.生效后接编号, BuffData.Buff来源);
+                                            this.添加Buff时处理(BuffData.Buff模板.EffectiveFollowedById, BuffData.Buff来源);
                                         }
                                     }
-                                    if (BuffData.Buff模板.效果生效移除)
+                                    if (BuffData.Buff模板.EffectRemoved)
                                     {
-                                        MapObject.移除Buff时处理(BuffData.Buff编号.V);
+                                        MapObject.移除Buff时处理(BuffData.Id.V);
                                     }
                                 }
                             }
                         }
                         foreach (BuffData BuffData2 in this.Buff列表.Values.ToList<BuffData>())
                         {
-                            if ((BuffData2.Buff效果 & Buff效果类型.伤害增减) != Buff效果类型.技能标志 && (BuffData2.Buff模板.效果判定方式 == Buff判定方式.被动受伤增伤 || BuffData2.Buff模板.效果判定方式 == Buff判定方式.被动受伤减伤))
+                            if ((BuffData2.Effect & BuffEffectType.伤害增减) != BuffEffectType.技能标志 && (BuffData2.Buff模板.HowJudgeEffect == BuffDetherminationMethod.PassiveInjuryIncrease || BuffData2.Buff模板.HowJudgeEffect == BuffDetherminationMethod.PassiveInjuryReduction))
                             {
                                 bool flag2 = false;
                                 switch (参数.技能伤害类型)
                                 {
-                                    case 技能伤害类型.攻击:
-                                    case 技能伤害类型.刺术:
-                                    case 技能伤害类型.弓术:
+                                    case SkillDamageType.Attack:
+                                    case SkillDamageType.Needle:
+                                    case SkillDamageType.Archery:
                                         {
-                                            Buff判定类型 效果判定类型 = BuffData2.Buff模板.效果判定类型;
-                                            if (效果判定类型 <= Buff判定类型.所有特定伤害)
+                                            BuffJudgmentType EffectJudgeType = BuffData2.Buff模板.EffectJudgeType;
+                                            if (EffectJudgeType <= BuffJudgmentType.AllSpecificInjuries)
                                             {
-                                                if (效果判定类型 > Buff判定类型.所有物理伤害)
+                                                if (EffectJudgeType > BuffJudgmentType.AllPhysicalDamage)
                                                 {
-                                                    if (效果判定类型 == Buff判定类型.所有特定伤害)
+                                                    if (EffectJudgeType == BuffJudgmentType.AllSpecificInjuries)
                                                     {
-                                                        HashSet<ushort> 特定技能编号4 = BuffData2.Buff模板.特定技能编号;
-                                                        flag2 = (特定技能编号4 != null && 特定技能编号4.Contains(技能.技能编号));
+                                                        HashSet<ushort> SpecificSkillId4 = BuffData2.Buff模板.SpecificSkillId;
+                                                        flag2 = (SpecificSkillId4 != null && SpecificSkillId4.Contains(技能.技能编号));
                                                     }
                                                 }
                                                 else
@@ -2001,15 +2001,15 @@ namespace GameServer.Maps
                                                     flag2 = true;
                                                 }
                                             }
-                                            else if (效果判定类型 != Buff判定类型.来源技能伤害 && 效果判定类型 != Buff判定类型.来源物理伤害)
+                                            else if (EffectJudgeType != BuffJudgmentType.SourceSkillDamage && EffectJudgeType != BuffJudgmentType.SourcePhysicalDamage)
                                             {
-                                                if (效果判定类型 == Buff判定类型.来源特定伤害)
+                                                if (EffectJudgeType == BuffJudgmentType.SourceSpecificDamage)
                                                 {
                                                     bool flag3;
                                                     if (MapObject == BuffData2.Buff来源)
                                                     {
-                                                        HashSet<ushort> 特定技能编号5 = BuffData2.Buff模板.特定技能编号;
-                                                        flag3 = (特定技能编号5 != null && 特定技能编号5.Contains(技能.技能编号));
+                                                        HashSet<ushort> SpecificSkillId5 = BuffData2.Buff模板.SpecificSkillId;
+                                                        flag3 = (SpecificSkillId5 != null && SpecificSkillId5.Contains(技能.技能编号));
                                                     }
                                                     else
                                                     {
@@ -2024,43 +2024,43 @@ namespace GameServer.Maps
                                             }
                                             break;
                                         }
-                                    case 技能伤害类型.魔法:
-                                    case 技能伤害类型.道术:
+                                    case SkillDamageType.Magic:
+                                    case SkillDamageType.Taoism:
                                         {
-                                            Buff判定类型 效果判定类型 = BuffData2.Buff模板.效果判定类型;
-                                            if (效果判定类型 <= Buff判定类型.来源技能伤害)
+                                            BuffJudgmentType EffectJudgeType = BuffData2.Buff模板.EffectJudgeType;
+                                            if (EffectJudgeType <= BuffJudgmentType.SourceSkillDamage)
                                             {
-                                                switch (效果判定类型)
+                                                switch (EffectJudgeType)
                                                 {
-                                                    case Buff判定类型.所有技能伤害:
-                                                    case Buff判定类型.所有魔法伤害:
+                                                    case BuffJudgmentType.AllSkillDamage:
+                                                    case BuffJudgmentType.AllMagicDamage:
                                                         flag2 = true;
                                                         goto IL_953;
-                                                    case Buff判定类型.所有物理伤害:
-                                                    case (Buff判定类型)3:
+                                                    case BuffJudgmentType.AllPhysicalDamage:
+                                                    case (BuffJudgmentType)3:
                                                         goto IL_953;
-                                                    case Buff判定类型.所有特定伤害:
-                                                        flag2 = BuffData2.Buff模板.特定技能编号.Contains(技能.技能编号);
+                                                    case BuffJudgmentType.AllSpecificInjuries:
+                                                        flag2 = BuffData2.Buff模板.SpecificSkillId.Contains(技能.技能编号);
                                                         goto IL_953;
                                                     default:
-                                                        if (效果判定类型 != Buff判定类型.来源技能伤害)
+                                                        if (EffectJudgeType != BuffJudgmentType.SourceSkillDamage)
                                                         {
                                                             goto IL_953;
                                                         }
                                                         break;
                                                 }
                                             }
-                                            else if (效果判定类型 != Buff判定类型.来源魔法伤害)
+                                            else if (EffectJudgeType != BuffJudgmentType.SourceMagicDamage)
                                             {
-                                                if (效果判定类型 != Buff判定类型.来源特定伤害)
+                                                if (EffectJudgeType != BuffJudgmentType.SourceSpecificDamage)
                                                 {
                                                     break;
                                                 }
                                                 bool flag4;
                                                 if (MapObject == BuffData2.Buff来源)
                                                 {
-                                                    HashSet<ushort> 特定技能编号6 = BuffData2.Buff模板.特定技能编号;
-                                                    flag4 = (特定技能编号6 != null && 特定技能编号6.Contains(技能.技能编号));
+                                                    HashSet<ushort> SpecificSkillId6 = BuffData2.Buff模板.SpecificSkillId;
+                                                    flag4 = (SpecificSkillId6 != null && SpecificSkillId6.Contains(技能.技能编号));
                                                 }
                                                 else
                                                 {
@@ -2072,21 +2072,21 @@ namespace GameServer.Maps
                                             flag2 = (MapObject == BuffData2.Buff来源);
                                             break;
                                         }
-                                    case 技能伤害类型.毒性:
-                                    case 技能伤害类型.神圣:
-                                    case 技能伤害类型.灼烧:
-                                    case 技能伤害类型.撕裂:
+                                    case SkillDamageType.Toxicity:
+                                    case SkillDamageType.Sacred:
+                                    case SkillDamageType.Burn:
+                                    case SkillDamageType.Tear:
                                         {
-                                            Buff判定类型 效果判定类型 = BuffData2.Buff模板.效果判定类型;
-                                            if (效果判定类型 != Buff判定类型.所有特定伤害)
+                                            BuffJudgmentType EffectJudgeType = BuffData2.Buff模板.EffectJudgeType;
+                                            if (EffectJudgeType != BuffJudgmentType.AllSpecificInjuries)
                                             {
-                                                if (效果判定类型 == Buff判定类型.来源特定伤害)
+                                                if (EffectJudgeType == BuffJudgmentType.SourceSpecificDamage)
                                                 {
                                                     bool flag5;
                                                     if (MapObject == BuffData2.Buff来源)
                                                     {
-                                                        HashSet<ushort> 特定技能编号7 = BuffData2.Buff模板.特定技能编号;
-                                                        flag5 = (特定技能编号7 != null && 特定技能编号7.Contains(技能.技能编号));
+                                                        HashSet<ushort> SpecificSkillId7 = BuffData2.Buff模板.SpecificSkillId;
+                                                        flag5 = (SpecificSkillId7 != null && SpecificSkillId7.Contains(技能.技能编号));
                                                     }
                                                     else
                                                     {
@@ -2097,8 +2097,8 @@ namespace GameServer.Maps
                                             }
                                             else
                                             {
-                                                HashSet<ushort> 特定技能编号8 = BuffData2.Buff模板.特定技能编号;
-                                                flag2 = (特定技能编号8 != null && 特定技能编号8.Contains(技能.技能编号));
+                                                HashSet<ushort> SpecificSkillId8 = BuffData2.Buff模板.SpecificSkillId;
+                                                flag2 = (SpecificSkillId8 != null && SpecificSkillId8.Contains(技能.技能编号));
                                             }
                                             break;
                                         }
@@ -2107,36 +2107,36 @@ namespace GameServer.Maps
                                 if (flag2)
                                 {
                                     int v2 = (int)BuffData2.当前层数.V;
-                                    int[] 伤害增减基数2 = BuffData2.Buff模板.伤害增减基数;
-                                    num = ((伤害增减基数2 != null) ? new int?(伤害增减基数2.Length) : null);
+                                    int[] DamageIncOrDecBase2 = BuffData2.Buff模板.DamageIncOrDecBase;
+                                    num = ((DamageIncOrDecBase2 != null) ? new int?(DamageIncOrDecBase2.Length) : null);
                                     num2 = (int)BuffData2.Buff等级.V;
-                                    int num17 = v2 * ((num.GetValueOrDefault() > num2 & num != null) ? BuffData2.Buff模板.伤害增减基数[(int)BuffData2.Buff等级.V] : 0);
+                                    int num17 = v2 * ((num.GetValueOrDefault() > num2 & num != null) ? BuffData2.Buff模板.DamageIncOrDecBase[(int)BuffData2.Buff等级.V] : 0);
                                     float num18 = (float)BuffData2.当前层数.V;
-                                    float[] 伤害增减系数2 = BuffData2.Buff模板.伤害增减系数;
-                                    num = ((伤害增减系数2 != null) ? new int?(伤害增减系数2.Length) : null);
+                                    float[] DamageIncOrDecFactor2 = BuffData2.Buff模板.DamageIncOrDecFactor;
+                                    num = ((DamageIncOrDecFactor2 != null) ? new int?(DamageIncOrDecFactor2.Length) : null);
                                     num2 = (int)BuffData2.Buff等级.V;
-                                    float num19 = num18 * ((num.GetValueOrDefault() > num2 & num != null) ? BuffData2.Buff模板.伤害增减系数[(int)BuffData2.Buff等级.V] : 0f);
-                                    num11 += ((BuffData2.Buff模板.效果判定方式 == Buff判定方式.被动受伤增伤) ? num17 : (-num17));
-                                    num12 += ((BuffData2.Buff模板.效果判定方式 == Buff判定方式.被动受伤增伤) ? num19 : (-num19));
+                                    float num19 = num18 * ((num.GetValueOrDefault() > num2 & num != null) ? BuffData2.Buff模板.DamageIncOrDecFactor[(int)BuffData2.Buff等级.V] : 0f);
+                                    num11 += ((BuffData2.Buff模板.HowJudgeEffect == BuffDetherminationMethod.PassiveInjuryIncrease) ? num17 : (-num17));
+                                    num12 += ((BuffData2.Buff模板.HowJudgeEffect == BuffDetherminationMethod.PassiveInjuryIncrease) ? num19 : (-num19));
                                     MapObject MapObject3;
-                                    if (BuffData2.Buff模板.生效后接编号 != 0 && BuffData2.Buff来源 != null && MapGatewayProcess.Objects.TryGetValue(BuffData2.Buff来源.MapId, out MapObject3) && MapObject3 == BuffData2.Buff来源)
+                                    if (BuffData2.Buff模板.EffectiveFollowedById != 0 && BuffData2.Buff来源 != null && MapGatewayProcess.Objects.TryGetValue(BuffData2.Buff来源.MapId, out MapObject3) && MapObject3 == BuffData2.Buff来源)
                                     {
-                                        if (BuffData2.Buff模板.后接技能来源)
+                                        if (BuffData2.Buff模板.FollowUpSkillSource)
                                         {
-                                            MapObject.添加Buff时处理(BuffData2.Buff模板.生效后接编号, BuffData2.Buff来源);
+                                            MapObject.添加Buff时处理(BuffData2.Buff模板.EffectiveFollowedById, BuffData2.Buff来源);
                                         }
                                         else
                                         {
-                                            this.添加Buff时处理(BuffData2.Buff模板.生效后接编号, BuffData2.Buff来源);
+                                            this.添加Buff时处理(BuffData2.Buff模板.EffectiveFollowedById, BuffData2.Buff来源);
                                         }
                                     }
-                                    if (BuffData2.Buff模板.效果判定方式 == Buff判定方式.被动受伤减伤 && BuffData2.Buff模板.限定伤害上限)
+                                    if (BuffData2.Buff模板.HowJudgeEffect == BuffDetherminationMethod.PassiveInjuryReduction && BuffData2.Buff模板.LimitedDamage)
                                     {
-                                        num13 = Math.Min(num13, BuffData2.Buff模板.限定伤害Value);
+                                        num13 = Math.Min(num13, BuffData2.Buff模板.LimitedDamageValue);
                                     }
-                                    if (BuffData2.Buff模板.效果生效移除)
+                                    if (BuffData2.Buff模板.EffectRemoved)
                                     {
-                                        this.移除Buff时处理(BuffData2.Buff编号.V);
+                                        this.移除Buff时处理(BuffData2.Id.V);
                                     }
                                 }
                             }
@@ -2154,9 +2154,9 @@ namespace GameServer.Maps
                 {
                     foreach (BuffData BuffData3 in this.Buff列表.Values.ToList<BuffData>())
                     {
-                        if ((BuffData3.Buff效果 & Buff效果类型.状态标志) != Buff效果类型.技能标志 && (BuffData3.Buff模板.角色所处状态 & 游戏对象状态.失神状态) != 游戏对象状态.正常状态)
+                        if ((BuffData3.Effect & BuffEffectType.状态标志) != BuffEffectType.技能标志 && (BuffData3.Buff模板.PlayerState & GameObjectState.Absence) != GameObjectState.Normal)
                         {
-                            this.移除Buff时处理(BuffData3.Buff编号.V);
+                            this.移除Buff时处理(BuffData3.Id.V);
                         }
                     }
                 }
@@ -2186,7 +2186,7 @@ namespace GameServer.Maps
                         {
                             foreach (PetObject PetObject in PlayerObject.宠物列表.ToList<PetObject>())
                             {
-                                if (PetObject.邻居列表.Contains(MapObject) && !MapObject.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
+                                if (PetObject.邻居列表.Contains(MapObject) && !MapObject.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus))
                                 {
                                     PetObject.HateObject.添加仇恨(MapObject, MainProcess.CurrentTime.AddMilliseconds((double)PetObject.仇恨时长), 0);
                                 }
@@ -2230,7 +2230,7 @@ namespace GameServer.Maps
                                 PlayerObject 宠物主人 = PetObject3.宠物主人;
                                 foreach (PetObject PetObject4 in ((宠物主人 != null) ? 宠物主人.宠物列表.ToList<PetObject>() : null))
                                 {
-                                    if (PetObject4.邻居列表.Contains(MapObject) && !MapObject.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
+                                    if (PetObject4.邻居列表.Contains(MapObject) && !MapObject.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus))
                                     {
                                         PetObject4.HateObject.添加仇恨(MapObject, MainProcess.CurrentTime.AddMilliseconds((double)PetObject4.仇恨时长), 0);
                                     }
@@ -2258,7 +2258,7 @@ namespace GameServer.Maps
                 PlayerObject PlayerObject4 = MapObject as PlayerObject;
                 if (PlayerObject4 != null)
                 {
-                    if (PlayerObject4.对象关系(this) == 游戏对象关系.敌对 && !this.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
+                    if (PlayerObject4.对象关系(this) == 游戏对象关系.敌对 && !this.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus))
                     {
                         foreach (PetObject PetObject5 in PlayerObject4.宠物列表.ToList<PetObject>())
                         {
@@ -2291,20 +2291,20 @@ namespace GameServer.Maps
             int num = 0;
             switch (数据.伤害类型)
             {
-                case 技能伤害类型.攻击:
-                case 技能伤害类型.刺术:
-                case 技能伤害类型.弓术:
+                case SkillDamageType.Attack:
+                case SkillDamageType.Needle:
+                case SkillDamageType.Archery:
                     num = ComputingClass.计算防御(this[GameObjectStats.MinDef], this[GameObjectStats.MaxDef]);
                     break;
-                case 技能伤害类型.魔法:
-                case 技能伤害类型.道术:
+                case SkillDamageType.Magic:
+                case SkillDamageType.Taoism:
                     num = ComputingClass.计算防御(this[GameObjectStats.MinMagicDef], this[GameObjectStats.MaxMagicDef]);
                     break;
             }
             int num2 = Math.Max(0, 数据.伤害基数.V * (int)数据.当前层数.V - num);
             this.当前体力 = Math.Max(0, this.当前体力 - num2);
             触发状态效果 触发状态效果 = new 触发状态效果();
-            触发状态效果.Buff编号 = 数据.Buff编号.V;
+            触发状态效果.Id = 数据.Id.V;
             MapObject buff来源 = 数据.Buff来源;
             触发状态效果.Buff来源 = ((buff来源 != null) ? buff来源.MapId : 0);
             触发状态效果.Buff目标 = this.MapId;
@@ -2333,18 +2333,18 @@ namespace GameServer.Maps
                     int? num = (体力回复次数 != null) ? new int?(体力回复次数.Length) : null;
                     int 技能等级 = (int)技能.技能等级;
                     int num2 = (num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.体力回复次数[(int)技能.技能等级] : 0;
-                    byte[] 体力回复基数 = 参数.体力回复基数;
-                    num = ((体力回复基数 != null) ? new int?(体力回复基数.Length) : null);
+                    byte[] PhysicalRecoveryBase = 参数.PhysicalRecoveryBase;
+                    num = ((PhysicalRecoveryBase != null) ? new int?(PhysicalRecoveryBase.Length) : null);
                     技能等级 = (int)技能.技能等级;
-                    int num3 = (int)((num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.体力回复基数[(int)技能.技能等级] : 0);
-                    float[] 道术叠加次数 = 参数.道术叠加次数;
-                    num = ((道术叠加次数 != null) ? new int?(道术叠加次数.Length) : null);
+                    int num3 = (int)((num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.PhysicalRecoveryBase[(int)技能.技能等级] : 0);
+                    float[] Taoism叠加次数 = 参数.Taoism叠加次数;
+                    num = ((Taoism叠加次数 != null) ? new int?(Taoism叠加次数.Length) : null);
                     技能等级 = (int)技能.技能等级;
-                    float num4 = (num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.道术叠加次数[(int)技能.技能等级] : 0f;
-                    float[] 道术叠加基数 = 参数.道术叠加基数;
-                    num = ((道术叠加基数 != null) ? new int?(道术叠加基数.Length) : null);
+                    float num4 = (num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.Taoism叠加次数[(int)技能.技能等级] : 0f;
+                    float[] Taoism叠加基数 = 参数.Taoism叠加基数;
+                    num = ((Taoism叠加基数 != null) ? new int?(Taoism叠加基数.Length) : null);
                     技能等级 = (int)技能.技能等级;
-                    float num5 = (num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.道术叠加基数[(int)技能.技能等级] : 0f;
+                    float num5 = (num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.Taoism叠加基数[(int)技能.技能等级] : 0f;
                     int[] 立即回复基数 = 参数.立即回复基数;
                     num = ((立即回复基数 != null) ? new int?(立即回复基数.Length) : null);
                     技能等级 = (int)技能.技能等级;
@@ -2377,11 +2377,11 @@ namespace GameServer.Maps
                     float num9 = num8;
                     if (num4 > 0f)
                     {
-                        num2 += (int)(num4 * (float)ComputingClass.计算攻击(MapObject[GameObjectStats.Minimalist], MapObject[GameObjectStats.GreatestTaoism], MapObject[GameObjectStats.幸运等级]));
+                        num2 += (int)(num4 * (float)ComputingClass.计算Attack(MapObject[GameObjectStats.Minimalist], MapObject[GameObjectStats.GreatestTaoism], MapObject[GameObjectStats.幸运等级]));
                     }
                     if (num5 > 0f)
                     {
-                        num3 += (int)(num5 * (float)ComputingClass.计算攻击(MapObject[GameObjectStats.Minimalist], MapObject[GameObjectStats.GreatestTaoism], MapObject[GameObjectStats.幸运等级]));
+                        num3 += (int)(num5 * (float)ComputingClass.计算Attack(MapObject[GameObjectStats.Minimalist], MapObject[GameObjectStats.GreatestTaoism], MapObject[GameObjectStats.幸运等级]));
                     }
                     if (num7 > 0)
                     {
@@ -2405,18 +2405,18 @@ namespace GameServer.Maps
         
         public void 被动回复时处理(BuffData 数据)
         {
-            if (数据.Buff模板.体力回复基数 == null)
+            if (数据.Buff模板.PhysicalRecoveryBase == null)
             {
                 return;
             }
-            if (数据.Buff模板.体力回复基数.Length <= (int)数据.Buff等级.V)
+            if (数据.Buff模板.PhysicalRecoveryBase.Length <= (int)数据.Buff等级.V)
             {
                 return;
             }
-            byte b = 数据.Buff模板.体力回复基数[(int)数据.Buff等级.V];
+            byte b = 数据.Buff模板.PhysicalRecoveryBase[(int)数据.Buff等级.V];
             this.当前体力 += (int)b;
             触发状态效果 触发状态效果 = new 触发状态效果();
-            触发状态效果.Buff编号 = 数据.Buff编号.V;
+            触发状态效果.Id = 数据.Id.V;
             MapObject buff来源 = 数据.Buff来源;
             触发状态效果.Buff来源 = ((buff来源 != null) ? buff来源.MapId : 0);
             触发状态效果.Buff目标 = this.MapId;
@@ -2441,7 +2441,7 @@ namespace GameServer.Maps
                     {
                         BuffData BuffData = enumerator.Current;
                         技能陷阱 陷阱模板;
-                        if ((BuffData.Buff效果 & Buff效果类型.创建陷阱) != Buff效果类型.技能标志 && 技能陷阱.DataSheet.TryGetValue(BuffData.Buff模板.触发陷阱技能, out 陷阱模板))
+                        if ((BuffData.Effect & BuffEffectType.创建陷阱) != BuffEffectType.技能标志 && 技能陷阱.DataSheet.TryGetValue(BuffData.Buff模板.TriggerTrapSkills, out 陷阱模板))
                         {
                             int num = 0;
 
@@ -2452,7 +2452,7 @@ namespace GameServer.Maps
                                 {
                                     break;
                                 }
-                                foreach (Point 坐标2 in ComputingClass.技能范围(point, this.当前方向, BuffData.Buff模板.触发陷阱数量))
+                                foreach (Point 坐标2 in ComputingClass.技能范围(point, this.当前方向, BuffData.Buff模板.NumberTrapsTriggered))
                                 {
                                     if (!this.当前地图.地形阻塞(坐标2))
                                     {
@@ -2463,7 +2463,7 @@ namespace GameServer.Maps
                                             predicate = delegate (MapObject O)
                                           {
                                               TrapObject TrapObject = O as TrapObject;
-                                              return TrapObject != null && TrapObject.陷阱分组编号 != 0 && TrapObject.陷阱分组编号 == 陷阱模板.分组编号;
+                                              return TrapObject != null && TrapObject.陷阱GroupId != 0 && TrapObject.陷阱GroupId == 陷阱模板.GroupId;
                                           };
                                         }
                                         if (source.FirstOrDefault(predicate) == null)
@@ -2475,9 +2475,9 @@ namespace GameServer.Maps
                                 num++;
                             }
                         }
-                        if ((BuffData.Buff效果 & Buff效果类型.状态标志) != Buff效果类型.技能标志 && (BuffData.Buff模板.角色所处状态 & 游戏对象状态.隐身状态) != 游戏对象状态.正常状态)
+                        if ((BuffData.Effect & BuffEffectType.状态标志) != BuffEffectType.技能标志 && (BuffData.Buff模板.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal)
                         {
-                            this.移除Buff时处理(BuffData.Buff编号.V);
+                            this.移除Buff时处理(BuffData.Id.V);
                         }
                     }
                     goto IL_30E;
@@ -2488,7 +2488,7 @@ namespace GameServer.Maps
                 foreach (BuffData BuffData2 in this.Buff列表.Values.ToList<BuffData>())
                 {
                     技能陷阱 陷阱模板;
-                    if ((BuffData2.Buff效果 & Buff效果类型.创建陷阱) != Buff效果类型.技能标志 && 技能陷阱.DataSheet.TryGetValue(BuffData2.Buff模板.触发陷阱技能, out 陷阱模板))
+                    if ((BuffData2.Effect & BuffEffectType.创建陷阱) != BuffEffectType.技能标志 && 技能陷阱.DataSheet.TryGetValue(BuffData2.Buff模板.TriggerTrapSkills, out 陷阱模板))
                     {
                         int num2 = 0;
 
@@ -2499,7 +2499,7 @@ namespace GameServer.Maps
                             {
                                 break;
                             }
-                            foreach (Point 坐标3 in ComputingClass.技能范围(point2, this.当前方向, BuffData2.Buff模板.触发陷阱数量))
+                            foreach (Point 坐标3 in ComputingClass.技能范围(point2, this.当前方向, BuffData2.Buff模板.NumberTrapsTriggered))
                             {
                                 if (!this.当前地图.地形阻塞(坐标3))
                                 {
@@ -2510,7 +2510,7 @@ namespace GameServer.Maps
                                         predicate2 = delegate (MapObject O)
                                        {
                                            TrapObject TrapObject = O as TrapObject;
-                                           return TrapObject != null && TrapObject.陷阱分组编号 != 0 && TrapObject.陷阱分组编号 == 陷阱模板.分组编号;
+                                           return TrapObject != null && TrapObject.陷阱GroupId != 0 && TrapObject.陷阱GroupId == 陷阱模板.GroupId;
                                        };
                                     }
                                     if (source2.FirstOrDefault(predicate2) == null)
@@ -2522,9 +2522,9 @@ namespace GameServer.Maps
                             num2++;
                         }
                     }
-                    if ((BuffData2.Buff效果 & Buff效果类型.状态标志) != Buff效果类型.技能标志 && (BuffData2.Buff模板.角色所处状态 & 游戏对象状态.隐身状态) != 游戏对象状态.正常状态)
+                    if ((BuffData2.Effect & BuffEffectType.状态标志) != BuffEffectType.技能标志 && (BuffData2.Buff模板.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal)
                     {
-                        this.移除Buff时处理(BuffData2.Buff编号.V);
+                        this.移除Buff时处理(BuffData2.Id.V);
                     }
                 }
             }
@@ -2604,7 +2604,7 @@ namespace GameServer.Maps
                 if (PetObject != null)
                 {
                     HateObject.仇恨详情 仇恨详情;
-                    if (PetObject.ActiveAttack(对象) && this.网格距离(对象) <= PetObject.RangeHate && !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
+                    if (PetObject.ActiveAttack(对象) && this.网格距离(对象) <= PetObject.RangeHate && !对象.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus))
                     {
                         PetObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                     }
@@ -2619,7 +2619,7 @@ namespace GameServer.Maps
                     if (MonsterObject != null)
                     {
                         HateObject.仇恨详情 仇恨详情2;
-                        if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.VisibleStealthTargets || !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
+                        if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.VisibleStealthTargets || !对象.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus)))
                         {
                             MonsterObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                         }
@@ -2661,7 +2661,7 @@ namespace GameServer.Maps
                 PetObject PetObject2 = 对象 as PetObject;
                 if (PetObject2 != null)
                 {
-                    if (PetObject2.网格距离(this) <= PetObject2.RangeHate && PetObject2.ActiveAttack(this) && !this.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
+                    if (PetObject2.网格距离(this) <= PetObject2.RangeHate && PetObject2.ActiveAttack(this) && !this.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus))
                     {
                         PetObject2.HateObject.添加仇恨(this, default(DateTime), 0);
                         return;
@@ -2678,7 +2678,7 @@ namespace GameServer.Maps
                     MonsterObject MonsterObject2 = 对象 as MonsterObject;
                     if (MonsterObject2 != null)
                     {
-                        if (MonsterObject2.网格距离(this) <= MonsterObject2.RangeHate && MonsterObject2.ActiveAttack(this) && (MonsterObject2.VisibleStealthTargets || !this.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
+                        if (MonsterObject2.网格距离(this) <= MonsterObject2.RangeHate && MonsterObject2.ActiveAttack(this) && (MonsterObject2.VisibleStealthTargets || !this.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus)))
                         {
                             MonsterObject2.HateObject.添加仇恨(this, default(DateTime), 0);
                             return;
@@ -2856,7 +2856,7 @@ namespace GameServer.Maps
                             PetObject PetObject = this as PetObject;
                             if (PetObject != null)
                             {
-                                if (this.网格距离(对象) <= PetObject.RangeHate && PetObject.ActiveAttack(对象) && !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
+                                if (this.网格距离(对象) <= PetObject.RangeHate && PetObject.ActiveAttack(对象) && !对象.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus))
                                 {
                                     PetObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                                     return;
@@ -2873,7 +2873,7 @@ namespace GameServer.Maps
                                 MonsterObject MonsterObject = this as MonsterObject;
                                 if (MonsterObject != null)
                                 {
-                                    if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.VisibleStealthTargets || !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
+                                    if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.VisibleStealthTargets || !对象.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus)))
                                     {
                                         MonsterObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                                         return;
@@ -3025,7 +3025,7 @@ namespace GameServer.Maps
                             PetObject PetObject2 = this as PetObject;
                             if (PetObject2 != null && !this.对象死亡)
                             {
-                                if (this.网格距离(对象) <= PetObject2.RangeHate && PetObject2.ActiveAttack(对象) && !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
+                                if (this.网格距离(对象) <= PetObject2.RangeHate && PetObject2.ActiveAttack(对象) && !对象.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus))
                                 {
                                     PetObject2.HateObject.添加仇恨(对象, default(DateTime), 0);
                                     return;
@@ -3043,7 +3043,7 @@ namespace GameServer.Maps
                                 if (MonsterObject2 != null && !this.对象死亡)
                                 {
                                     HateObject.仇恨详情 仇恨详情4;
-                                    if (this.网格距离(对象) <= MonsterObject2.RangeHate && MonsterObject2.ActiveAttack(对象) && (MonsterObject2.VisibleStealthTargets || !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
+                                    if (this.网格距离(对象) <= MonsterObject2.RangeHate && MonsterObject2.ActiveAttack(对象) && (MonsterObject2.VisibleStealthTargets || !对象.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus)))
                                     {
                                         MonsterObject2.HateObject.添加仇恨(对象, default(DateTime), 0);
                                     }
@@ -3213,7 +3213,7 @@ namespace GameServer.Maps
             if (PetObject != null)
             {
                 HateObject.仇恨详情 仇恨详情;
-                if (this.网格距离(对象) <= PetObject.RangeHate && PetObject.ActiveAttack(对象) && !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态))
+                if (this.网格距离(对象) <= PetObject.RangeHate && PetObject.ActiveAttack(对象) && !对象.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus))
                 {
                     PetObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                 }
@@ -3225,7 +3225,7 @@ namespace GameServer.Maps
             MonsterObject MonsterObject = this as MonsterObject;
             if (MonsterObject != null)
             {
-                if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.VisibleStealthTargets || !对象.检查状态(游戏对象状态.隐身状态 | 游戏对象状态.潜行状态)))
+                if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.VisibleStealthTargets || !对象.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus)))
                 {
                     MonsterObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                     return;
@@ -3258,8 +3258,8 @@ namespace GameServer.Maps
                     binaryWriter.Write((byte)this.Buff列表.Count);
                     foreach (KeyValuePair<ushort, BuffData> keyValuePair in this.Buff列表)
                     {
-                        binaryWriter.Write(keyValuePair.Value.Buff编号.V);
-                        binaryWriter.Write((int)keyValuePair.Value.Buff编号.V);
+                        binaryWriter.Write(keyValuePair.Value.Id.V);
+                        binaryWriter.Write((int)keyValuePair.Value.Id.V);
                         binaryWriter.Write(keyValuePair.Value.当前层数.V);
                         binaryWriter.Write((int)keyValuePair.Value.剩余时间.V.TotalMilliseconds);
                         binaryWriter.Write((int)keyValuePair.Value.持续时间.V.TotalMilliseconds);
@@ -3282,8 +3282,8 @@ namespace GameServer.Maps
                     int num = 0;
                     foreach (KeyValuePair<ushort, BuffData> keyValuePair in this.Buff列表)
                     {
-                        binaryWriter.Write(keyValuePair.Value.Buff编号.V);
-                        binaryWriter.Write((int)keyValuePair.Value.Buff编号.V);
+                        binaryWriter.Write(keyValuePair.Value.Id.V);
+                        binaryWriter.Write((int)keyValuePair.Value.Id.V);
                         if (++num >= 5)
                         {
                             break;

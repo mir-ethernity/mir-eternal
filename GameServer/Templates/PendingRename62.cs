@@ -3,7 +3,7 @@
 namespace GameServer.Templates
 {
 	
-	public enum Buff叠加类型
+	public enum BuffOverlayType
 	{
 		
 		禁止叠加,

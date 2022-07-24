@@ -38,7 +38,7 @@ namespace GameServer.Templates
 		public ushort 陷阱编号;
 
 		
-		public ushort 分组编号;
+		public ushort GroupId;
 
 		
 		public MonsterSize 陷阱体型;
@@ -53,34 +53,34 @@ namespace GameServer.Templates
 		public int 陷阱持续时间;
 
 		
-		public bool 持续时间延长;
+		public bool ExtendedDuration;
 
 		
-		public bool 技能等级延时;
+		public bool SkillLevelDelay;
 
 		
-		public int 每级延长时间;
+		public int ExtendedTimePerLevel;
 
 		
-		public bool 角色Stat延时;
+		public bool PlayerStatDelay;
 
 		
-		public GameObjectStats 绑定角色Stat;
+		public GameObjectStats BoundPlayerStat;
 
 		
-		public float Stat延时系数;
+		public float StatDelayFactor;
 
 		
-		public bool 特定铭文延时;
+		public bool HasSpecificInscriptionDelay;
 
 		
 		public 铭文技能 绑定铭文技能;
 
 		
-		public int 特定铭文技能;
+		public int SpecificInscriptionSkills;
 
 		
-		public int 铭文延长时间;
+		public int InscriptionExtendedTime;
 
 		
 		public bool 陷阱能否移动;

@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.服务器, 编号 = 119, 长度 = 22, 注释 = "BUFF效果")]
+	[PacketInfoAttribute(来源 = PacketSource.服务器, 编号 = 119, 长度 = 22, 注释 = "Effect")]
 	public sealed class 触发状态效果 : GamePacket
 	{
 		
@@ -15,7 +15,7 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(下标 = 6, 长度 = 2)]
-		public ushort Buff编号;
+		public ushort Id;
 
 		
 		[WrappingFieldAttribute(下标 = 8, 长度 = 4)]
