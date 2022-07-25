@@ -66,7 +66,7 @@ namespace GameServer.Networking
 					this.当前连接.Close();
 					this.接收列表 = null;
 					this.发送列表 = null;
-					this.CurrentStage = GameStage.正在登录;
+					this.当前阶段 = GameStage.正在登录;
 				}
 				else
 				{
@@ -138,7 +138,7 @@ namespace GameServer.Networking
 				}
 				this.接收列表 = null;
 				this.发送列表 = null;
-				this.CurrentStage = GameStage.正在登录;
+				this.当前阶段 = GameStage.正在登录;
 			}
 		}
 
@@ -332,9 +332,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(上传游戏设置 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家更改设置(P.字节描述);
@@ -343,18 +343,18 @@ namespace GameServer.Networking
 		
 		public void 处理封包(客户碰触法阵 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(客户进入法阵 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家进入法阵(P.TeleportGateNumber);
@@ -363,18 +363,18 @@ namespace GameServer.Networking
 		
 		public void 处理封包(ClickNpcDialogPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(RequestObjectDataPacket P)
 		{
-			if (this.CurrentStage != GameStage.场景加载 && this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.场景加载 && this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.请求对象外观(P.对象编号, P.状态编号);
@@ -383,9 +383,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(客户网速测试 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.发送封包(new InternetSpeedTestPacket
@@ -397,9 +397,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(测试网关网速 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.发送封包(new LoginQueryResponsePacket
@@ -411,9 +411,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(客户请求复活 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家请求复活();
@@ -422,9 +422,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(ToggleAttackMode P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
             if (Enum.IsDefined(typeof(AttackMode), (int)P.AttackMode) && Enum.TryParse<AttackMode>(P.AttackMode.ToString(), out AttackMode 模式))
@@ -438,9 +438,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(更改PetMode P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
             if (Enum.IsDefined(typeof(PetMode), (int)P.PetMode) && Enum.TryParse<PetMode>(P.PetMode.ToString(), out PetMode 模式))
@@ -454,9 +454,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(上传角色位置 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家同步位置();
@@ -465,9 +465,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(客户角色转动 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
             if (Enum.IsDefined(typeof(GameDirection), (int)P.转动方向) && Enum.TryParse<GameDirection>(P.转动方向.ToString(), out GameDirection 转动方向))
@@ -481,9 +481,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(客户角色走动 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家角色走动(P.坐标);
@@ -492,9 +492,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(客户角色跑动 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家角色跑动(P.坐标);
@@ -503,9 +503,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(CharacterSwitchSkillsPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家开关技能(P.SkillId);
@@ -514,9 +514,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(CharacterEquipmentSkillsPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			if (P.技能栏位 < 32)
@@ -530,9 +530,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(CharacterReleaseSkillsPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家释放技能(P.SkillId, P.动作编号, P.目标编号, P.锚点坐标);
@@ -541,9 +541,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(BattleStanceSwitchPacket P)
 		{
-			if (this.CurrentStage != GameStage.场景加载 && this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.场景加载 && this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家切换姿态();
@@ -552,33 +552,33 @@ namespace GameServer.Networking
 		
 		public void 处理封包(客户更换角色 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.绑定账号.更换角色(this);
-			this.CurrentStage = GameStage.选择角色;
+			this.当前阶段 = GameStage.选择角色;
 		}
 
 		
 		public void 处理封包(场景加载完成 P)
 		{
-			if (this.CurrentStage != GameStage.场景加载 && this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.场景加载 && this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家进入场景();
-			this.CurrentStage = GameStage.正在游戏;
+			this.当前阶段 = GameStage.正在游戏;
 		}
 
 		
 		public void 处理封包(ExitCurrentCopyPacket P)
 		{
-			if (this.CurrentStage != GameStage.场景加载 && this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.场景加载 && this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家退出副本();
@@ -587,9 +587,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家退出登录 P)
 		{
-			if (this.CurrentStage == GameStage.正在登录)
+			if (this.当前阶段 == GameStage.正在登录)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.绑定账号.返回登录(this);
@@ -598,27 +598,27 @@ namespace GameServer.Networking
 		
 		public void 处理封包(打开角色背包 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(CharacterPickupItemsPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(CharacterDropsItemsPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家丢弃物品(P.背包类型, P.物品位置, P.丢弃数量);
@@ -627,9 +627,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(CharacterTransferItemPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家转移物品(P.当前背包, P.原有位置, P.目标背包, P.目标位置);
@@ -638,9 +638,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(CharacterUseItemsPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家使用物品(P.背包类型, P.物品位置);
@@ -649,9 +649,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家喝修复油 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家喝修复油(P.背包类型, P.物品位置);
@@ -660,9 +660,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家扩展背包 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家扩展背包(P.背包类型, P.扩展大小);
@@ -671,9 +671,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(RequestStoreDataPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.RequestStoreDataPacket(P.版本编号);
@@ -682,9 +682,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(CharacterPurchageItemsPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家购买物品(P.StoreId, P.物品位置, P.购入数量);
@@ -693,9 +693,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(CharacterSellItemsPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家出售物品(P.背包类型, P.物品位置, P.卖出数量);
@@ -704,9 +704,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(查询回购列表 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.请求回购清单();
@@ -715,9 +715,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(CharacterRepurchageItemsPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			if (P.物品位置 < 100)
@@ -731,9 +731,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(商店修理单件 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.商店修理单件(P.背包类型, P.物品位置);
@@ -742,9 +742,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(商店修理全部 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.商店修理全部();
@@ -753,9 +753,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(商店特修单件 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.商店特修单件(P.物品容器, P.物品位置);
@@ -764,9 +764,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(随身修理单件 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.随身修理单件(P.物品容器, P.物品位置, P.Id);
@@ -775,9 +775,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(随身特修全部 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.随身修理全部();
@@ -786,9 +786,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(CharacterOrganizerBackpackPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家整理背包(P.背包类型);
@@ -797,9 +797,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(CharacterSplitItemsPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家拆分物品(P.当前背包, P.物品位置, P.拆分数量, P.目标背包, P.目标位置);
@@ -808,9 +808,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(CharacterBreakdownItemsPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
             if (Enum.TryParse<ItemBackPack>(P.背包类型.ToString(), out ItemBackPack ItemBackPack) && Enum.IsDefined(typeof(ItemBackPack), ItemBackPack))
@@ -824,9 +824,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(CharacterSynthesisItemPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家合成物品();
@@ -835,9 +835,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家镶嵌灵石 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家镶嵌灵石(P.装备类型, P.装备位置, P.装备孔位, P.灵石类型, P.灵石位置);
@@ -846,9 +846,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家拆除灵石 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家拆除灵石(P.装备类型, P.装备位置, P.装备孔位);
@@ -857,9 +857,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(OrdinaryInscriptionRefinementPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.OrdinaryInscriptionRefinementPacket(P.装备类型, P.装备位置, P.Id);
@@ -868,9 +868,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(高级铭文洗练 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.高级铭文洗练(P.装备类型, P.装备位置, P.Id);
@@ -879,9 +879,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(ReplaceInscriptionRefinementPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.ReplaceInscriptionRefinementPacket(P.装备类型, P.装备位置, P.Id);
@@ -890,9 +890,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(ReplaceAdvancedInscriptionPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.高级洗练确认(P.装备类型, P.装备位置);
@@ -901,9 +901,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(ReplaceLowLevelInscriptionsPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.替换洗练确认(P.装备类型, P.装备位置);
@@ -912,9 +912,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(AbandonInscriptionReplacementPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.放弃替换铭文();
@@ -923,9 +923,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(UnlockDoubleInscriptionSlotPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.UnlockDoubleInscriptionSlotPacket(P.装备类型, P.装备位置, P.操作参数);
@@ -934,9 +934,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(ToggleDoubleInscriptionBitPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.ToggleDoubleInscriptionBitPacket(P.装备类型, P.装备位置, P.操作参数);
@@ -945,9 +945,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(传承武器铭文 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.传承武器铭文(P.来源类型, P.来源位置, P.目标类型, P.目标位置);
@@ -956,9 +956,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(升级武器普通 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.升级武器普通(P.首饰组, P.材料组);
@@ -967,9 +967,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(CharacterSelectionTargetPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家选中对象(P.对象编号);
@@ -978,9 +978,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(开始Npcc对话 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.开始Npcc对话(P.对象编号);
@@ -989,9 +989,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(继续Npcc对话 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.继续Npcc对话(P.Id);
@@ -1000,9 +1000,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(查看玩家装备 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.查看对象装备(P.对象编号);
@@ -1011,36 +1011,36 @@ namespace GameServer.Networking
 		
 		public void 处理封包(RequestDragonguardDataPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(RequestSoulStoneDataPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(查询奖励找回 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(同步角色战力 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.查询玩家战力(P.对象编号);
@@ -1049,18 +1049,18 @@ namespace GameServer.Networking
 		
 		public void 处理封包(查询问卷调查 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(玩家申请交易 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家申请交易(P.对象编号);
@@ -1069,9 +1069,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家同意交易 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家同意交易(P.对象编号);
@@ -1080,9 +1080,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家结束交易 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家结束交易();
@@ -1091,9 +1091,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家放入金币 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家放入金币(P.NumberGoldCoins);
@@ -1102,9 +1102,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家放入物品 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家放入物品(P.放入位置, P.放入物品, P.物品容器, P.物品位置);
@@ -1113,9 +1113,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家锁定交易 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家锁定交易();
@@ -1124,9 +1124,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家解锁交易 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家解锁交易();
@@ -1135,9 +1135,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家确认交易 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家确认交易();
@@ -1146,9 +1146,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家准备摆摊 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家准备摆摊();
@@ -1157,9 +1157,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家重整摊位 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家重整摊位();
@@ -1168,9 +1168,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家开始摆摊 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家开始摆摊();
@@ -1179,9 +1179,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家收起摊位 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家收起摊位();
@@ -1190,9 +1190,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(PutItemsInBoothPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.PutItemsInBoothPacket(P.放入位置, P.物品容器, P.物品位置, P.物品数量, P.物品价格);
@@ -1201,9 +1201,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(取回摊位物品 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.取回摊位物品(P.取回位置);
@@ -1212,9 +1212,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(更改摊位名字 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.更改摊位名字(P.摊位名字);
@@ -1223,9 +1223,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(更改摊位外观 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.升级摊位外观(P.外观编号);
@@ -1234,9 +1234,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(打开角色摊位 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家打开摊位(P.对象编号);
@@ -1245,9 +1245,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(购买摊位物品 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.购买摊位物品(P.对象编号, P.物品位置, P.购买数量);
@@ -1256,9 +1256,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(AddFriendsToFollowPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家添加关注(P.对象编号, P.对象名字);
@@ -1267,9 +1267,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(取消好友关注 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家取消关注(P.对象编号);
@@ -1278,27 +1278,27 @@ namespace GameServer.Networking
 		
 		public void 处理封包(CreateNewFriendGroupPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(MobileFriendsGroupPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(SendFriendChatPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			if (P.字节数据.Length < 7)
@@ -1317,9 +1317,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家添加仇人 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家添加仇人(P.对象编号);
@@ -1328,9 +1328,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家删除仇人 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家删除仇人(P.对象编号);
@@ -1339,9 +1339,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家屏蔽对象 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家屏蔽目标(P.对象编号);
@@ -1350,9 +1350,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家解除屏蔽 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家解除屏蔽(P.对象编号);
@@ -1361,18 +1361,18 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家比较成就 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(SendChatMessagePacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			if (P.字节数据.Length < 7)
@@ -1391,9 +1391,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(SendSocialMessagePacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			if (P.字节数据.Length < 6)
@@ -1412,9 +1412,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(RequestCharacterDataPacket P)
 		{
-			if (this.CurrentStage != GameStage.场景加载 && this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.场景加载 && this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.请求角色资料(P.角色编号);
@@ -1423,18 +1423,18 @@ namespace GameServer.Networking
 		
 		public void 处理封包(上传社交信息 P)
 		{
-			if (this.CurrentStage != GameStage.场景加载 && this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.场景加载 && this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(查询附近队伍 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.查询附近队伍();
@@ -1443,9 +1443,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(查询队伍信息 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.查询队伍信息(P.对象编号);
@@ -1454,9 +1454,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(申请创建队伍 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.申请创建队伍(P.对象编号, P.分配方式);
@@ -1465,9 +1465,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(SendTeamRequestPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.SendTeamRequestPacket(P.对象编号);
@@ -1476,9 +1476,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(申请离开队伍 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.申请队员离队(P.对象编号);
@@ -1487,9 +1487,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(申请更改队伍 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.申请移交队长(P.队长编号);
@@ -1498,9 +1498,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(回应组队请求 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.回应组队请求(P.对象编号, P.组队方式, P.回应方式);
@@ -1509,9 +1509,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家装配称号 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家使用称号(P.Id);
@@ -1520,9 +1520,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家卸下称号 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家卸下称号();
@@ -1531,9 +1531,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(申请发送邮件 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.申请发送邮件(P.字节数据);
@@ -1542,9 +1542,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(QueryMailboxContentPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.QueryMailboxContentPacket();
@@ -1553,9 +1553,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(查看邮件内容 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.查看邮件内容(P.邮件编号);
@@ -1564,9 +1564,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(删除指定邮件 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.删除指定邮件(P.邮件编号);
@@ -1575,9 +1575,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(提取邮件附件 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.提取邮件附件(P.邮件编号);
@@ -1586,9 +1586,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(查询行会名字 P)
 		{
-			if (this.CurrentStage != GameStage.场景加载 && this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.场景加载 && this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.查询行会信息(P.行会编号);
@@ -1597,9 +1597,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(更多行会信息 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.更多行会信息();
@@ -1608,9 +1608,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(查看行会列表 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.查看行会列表(P.行会编号, P.查看方式);
@@ -1619,9 +1619,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(FindCorrespondingGuildPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.FindCorrespondingGuildPacket(P.行会编号, P.行会名字);
@@ -1630,9 +1630,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(申请加入行会 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.申请加入行会(P.行会编号, P.行会名字);
@@ -1641,9 +1641,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(查看申请列表 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.查看申请列表();
@@ -1652,9 +1652,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(处理入会申请 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.处理入会申请(P.对象编号, P.处理类型);
@@ -1663,9 +1663,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(处理入会邀请 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.处理入会邀请(P.对象编号, P.处理类型);
@@ -1674,9 +1674,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(InviteToJoinGuildPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.InviteToJoinGuildPacket(P.对象名字);
@@ -1685,9 +1685,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(申请创建行会 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.申请创建行会(P.字节数据);
@@ -1696,9 +1696,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(申请解散行会 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.申请解散行会();
@@ -1707,9 +1707,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(DonateGuildFundsPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.DonateGuildFundsPacket(P.NumberGoldCoins);
@@ -1718,9 +1718,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(DistributeGuildBenefitsPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.DistributeGuildBenefitsPacket();
@@ -1729,9 +1729,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(申请离开行会 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.申请离开行会();
@@ -1740,9 +1740,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(更改行会公告 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.更改行会公告(P.行会公告);
@@ -1751,9 +1751,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(更改行会宣言 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.更改行会宣言(P.行会宣言);
@@ -1762,9 +1762,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(设置行会禁言 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.设置行会禁言(P.对象编号, P.禁言状态);
@@ -1773,9 +1773,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(变更会员职位 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.变更会员职位(P.对象编号, P.对象职位);
@@ -1784,9 +1784,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(ExpelMembersPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.ExpelMembersPacket(P.对象编号);
@@ -1795,9 +1795,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(TransferPresidentPositionPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.TransferPresidentPositionPacket(P.对象编号);
@@ -1806,9 +1806,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(申请行会外交 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.申请行会外交(P.外交类型, P.外交时间, P.行会名字);
@@ -1817,9 +1817,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(申请行会Hostility P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.申请行会Hostility(P.Hostility时间, P.行会名字);
@@ -1828,9 +1828,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(处理结盟申请 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.处理结盟申请(P.处理类型, P.行会编号);
@@ -1839,9 +1839,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(申请解除结盟 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.申请解除结盟(P.行会编号);
@@ -1850,9 +1850,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(申请解除Hostility P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.申请解除Hostility(P.行会编号);
@@ -1861,9 +1861,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(处理解敌申请 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.处理解除申请(P.行会编号, P.回应类型);
@@ -1872,18 +1872,18 @@ namespace GameServer.Networking
 		
 		public void 处理封包(更改存储权限 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(查看结盟申请 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.查看结盟申请();
@@ -1892,9 +1892,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(更多GuildEvents P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.更多GuildEvents();
@@ -1903,54 +1903,54 @@ namespace GameServer.Networking
 		
 		public void 处理封包(QueryGuildAchievementsPacket P)
 		{
-			if (this.CurrentStage != GameStage.场景加载 && this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.场景加载 && this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(开启行会活动 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(PublishWantedListPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(SyncedWantedListPacket P)
 		{
-			if (this.CurrentStage != GameStage.场景加载 && this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.场景加载 && this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(StartGuildWarPacket P)
 		{
-			if (this.CurrentStage != GameStage.场景加载 && this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.场景加载 && this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(查询地图路线 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.查询地图路线();
@@ -1959,9 +1959,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(ToggleMapRoutePacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.ToggleMapRoutePacket();
@@ -1970,18 +1970,18 @@ namespace GameServer.Networking
 		
 		public void 处理封包(跳过剧情动画 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(更改收徒推送 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.更改收徒推送(P.收徒推送);
@@ -1990,9 +1990,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(查询师门成员 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.查询师门成员();
@@ -2001,9 +2001,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(查询师门奖励 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.查询师门奖励();
@@ -2012,9 +2012,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(查询拜师名册 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.查询拜师名册();
@@ -2023,9 +2023,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(查询收徒名册 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.查询收徒名册();
@@ -2034,18 +2034,18 @@ namespace GameServer.Networking
 		
 		public void 处理封包(CongratsToApprenticeForUpgradePacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(玩家申请拜师 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家申请拜师(P.对象编号);
@@ -2054,9 +2054,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(同意拜师申请 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.同意拜师申请(P.对象编号);
@@ -2065,9 +2065,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(RefusedApplyApprenticeshipPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.RefusedApplyApprenticeshipPacket(P.对象编号);
@@ -2076,9 +2076,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家申请收徒 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.玩家申请收徒(P.对象编号);
@@ -2087,9 +2087,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(同意收徒申请 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.同意收徒申请(P.对象编号);
@@ -2098,9 +2098,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(RejectionApprenticeshipAppPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.RejectionApprenticeshipAppPacket(P.对象编号);
@@ -2109,9 +2109,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(AppForExpulsionPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.AppForExpulsionPacket(P.对象编号);
@@ -2120,9 +2120,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(离开师门申请 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.离开师门申请();
@@ -2131,9 +2131,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(提交出师申请 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.提交出师申请();
@@ -2142,9 +2142,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(查询排名榜单 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.查询排名榜单(P.榜单类型, P.起始位置);
@@ -2153,54 +2153,54 @@ namespace GameServer.Networking
 		
 		public void 处理封包(查看演武排名 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(刷新演武挑战 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(开始战场演武 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(EnterMartialArtsBatllefieldPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(跨服武道排名 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(LoginConsignmentPlatformPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.发送封包(new 社交错误提示
@@ -2212,9 +2212,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(查询平台商品 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.发送封包(new 社交错误提示
@@ -2226,9 +2226,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(InquireAboutSpecifiedProductPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.发送封包(new 社交错误提示
@@ -2240,9 +2240,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(上架平台商品 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.发送封包(new 社交错误提示
@@ -2254,9 +2254,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(RequestTreasureDataPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.查询珍宝商店(P.数据版本);
@@ -2265,9 +2265,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(查询出售信息 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.查询出售信息();
@@ -2276,9 +2276,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(购买珍宝商品 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.购买珍宝商品(P.Id, P.购买数量);
@@ -2287,9 +2287,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(购买每周特惠 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.购买每周特惠(P.礼包编号);
@@ -2298,9 +2298,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(购买玛法特权 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.购买玛法特权(P.特权类型, P.购买数量);
@@ -2309,9 +2309,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(BookMarfaPrivilegesPacket P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.BookMarfaPrivilegesPacket(P.特权类型);
@@ -2320,9 +2320,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(领取特权礼包 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.Player.领取特权礼包(P.特权类型, P.礼包位置);
@@ -2331,18 +2331,18 @@ namespace GameServer.Networking
 		
 		public void 处理封包(玩家每日签到 P)
 		{
-			if (this.CurrentStage != GameStage.正在游戏)
+			if (this.当前阶段 != GameStage.正在游戏)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 			}
 		}
 
 		
 		public void 处理封包(客户账号登录 P)
 		{
-            if (this.CurrentStage != GameStage.正在登录)
+            if (this.当前阶段 != GameStage.正在登录)
             {
-                this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+                this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
             }
             else if (SystemData.数据.网卡封禁.TryGetValue(P.物理地址, out DateTime t) && t > MainProcess.CurrentTime)
             {
@@ -2391,9 +2391,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(客户创建角色 P)
 		{
-			if (this.CurrentStage != GameStage.选择角色)
+			if (this.当前阶段 != GameStage.选择角色)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.绑定账号.创建角色(this, P);
@@ -2402,9 +2402,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(客户删除角色 P)
 		{
-			if (this.CurrentStage != GameStage.选择角色)
+			if (this.当前阶段 != GameStage.选择角色)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.绑定账号.删除角色(this, P);
@@ -2413,9 +2413,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(彻底删除角色 P)
 		{
-			if (this.CurrentStage != GameStage.选择角色)
+			if (this.当前阶段 != GameStage.选择角色)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.绑定账号.永久删除(this, P);
@@ -2424,9 +2424,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(客户进入游戏 P)
 		{
-			if (this.CurrentStage != GameStage.选择角色)
+			if (this.当前阶段 != GameStage.选择角色)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.绑定账号.进入游戏(this, P);
@@ -2435,9 +2435,9 @@ namespace GameServer.Networking
 		
 		public void 处理封包(客户GetBackCharacterPacket P)
 		{
-			if (this.CurrentStage != GameStage.选择角色)
+			if (this.当前阶段 != GameStage.选择角色)
 			{
-				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+				this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
 				return;
 			}
 			this.绑定账号.GetBackCharacter(this, P);
@@ -2471,7 +2471,7 @@ namespace GameServer.Networking
 		public readonly TcpClient 当前连接;
 
 		
-		public GameStage CurrentStage;
+		public GameStage 当前阶段;
 
 		
 		public AccountData 绑定账号;
