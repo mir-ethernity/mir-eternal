@@ -254,7 +254,7 @@ namespace GameServer.Data
 
         // (get) Token: 0x060005E5 RID: 1509 RVA: 0x000057B3 File Offset: 0x000039B3
         // (set) Token: 0x060005E6 RID: 1510 RVA: 0x000057BB File Offset: 0x000039BB
-        public 客户网络 网络连接 { get; set; }
+        public 客户网络 ActiveConnection { get; set; }
 
 
         public void 获得经验(int 经验值)
@@ -276,8 +276,8 @@ namespace GameServer.Data
 
         public void 角色下线()
         {
-            this.网络连接.绑定角色 = null;
-            this.网络连接 = null;
+            this.ActiveConnection.Player = null;
+            this.ActiveConnection = null;
             NetworkServiceGateway.ConnectionsOnline -= 1U;
             this.OfflineDate.V = MainProcess.CurrentTime;
             MainForm.更新CharacterData(this, "离线日期", this.OfflineDate);
@@ -286,7 +286,7 @@ namespace GameServer.Data
 
         public void 角色上线(客户网络 网络)
         {
-            this.网络连接 = 网络;
+            this.ActiveConnection = 网络;
             NetworkServiceGateway.ConnectionsOnline += 1U;
             this.物理地址.V = 网络.物理地址;
             this.网络地址.V = 网络.网络地址;
@@ -300,7 +300,7 @@ namespace GameServer.Data
             邮件.收件地址.V = this;
             this.角色邮件.Add(邮件);
             this.未读邮件.Add(邮件);
-            客户网络 网络连接 = this.网络连接;
+            客户网络 网络连接 = this.ActiveConnection;
             if (网络连接 == null)
             {
                 return;
@@ -314,7 +314,7 @@ namespace GameServer.Data
 
         public bool 角色在线(out 客户网络 网络)
         {
-            网络 = this.网络连接;
+            网络 = this.ActiveConnection;
             return 网络 != null;
         }
 
@@ -435,7 +435,7 @@ namespace GameServer.Data
             };
             this.OfflineDate.更改事件 += delegate (DateTime O)
             {
-                MainForm.更新CharacterData(this, "离线日期", (this.网络连接 == null) ? O : null);
+                MainForm.更新CharacterData(this, "离线日期", (this.ActiveConnection == null) ? O : null);
             };
             this.网络地址.更改事件 += delegate (string O)
             {

@@ -27,7 +27,7 @@ namespace GameServer
 				if (CharacterData != null)
 				{
 					CharacterData.元宝数量 += this.元宝数量;
-					客户网络 网络连接 = CharacterData.网络连接;
+					客户网络 网络连接 = CharacterData.ActiveConnection;
 					if (网络连接 != null)
 					{
 						网络连接.发送封包(new 同步元宝数量

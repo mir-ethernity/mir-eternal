@@ -27,7 +27,7 @@ namespace GameServer
 				if (CharacterData != null)
 				{
 					CharacterData.封禁日期.V = DateTime.Now.AddDays((double)this.封禁天数);
-					客户网络 网络连接 = CharacterData.网络连接;
+					客户网络 网络连接 = CharacterData.ActiveConnection;
 					if (网络连接 != null)
 					{
 						网络连接.尝试断开连接(new Exception("角色被封禁, 强制下线"));

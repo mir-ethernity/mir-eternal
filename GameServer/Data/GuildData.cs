@@ -217,7 +217,7 @@ namespace GameServer.Data
 			foreach (CharacterData CharacterData in this.行会成员.Keys)
 			{
 				CharacterData.当前行会 = null;
-				客户网络 网络连接 = CharacterData.网络连接;
+				客户网络 网络连接 = CharacterData.ActiveConnection;
 				if (网络连接 != null)
 				{
 					网络连接.发送封包(new 同步对象行会
@@ -244,7 +244,7 @@ namespace GameServer.Data
 		{
 			foreach (CharacterData CharacterData in this.行会成员.Keys)
 			{
-				客户网络 网络连接 = CharacterData.网络连接;
+				客户网络 网络连接 = CharacterData.ActiveConnection;
 				if (网络连接 != null)
 				{
 					网络连接.发送封包(封包);
@@ -266,7 +266,7 @@ namespace GameServer.Data
 				对象职业 = (byte)成员.角色职业.V,
 				当前地图 = (byte)成员.当前地图.V
 			});
-			if (成员.网络连接 == null)
+			if (成员.ActiveConnection == null)
 			{
 				this.发送封包(new SyncMemberInfoPacket
 				{
@@ -274,7 +274,7 @@ namespace GameServer.Data
 					对象信息 = ComputingClass.TimeShift(成员.OfflineDate.V)
 				});
 			}
-			客户网络 网络连接 = 成员.网络连接;
+			客户网络 网络连接 = 成员.ActiveConnection;
 			if (网络连接 != null)
 			{
 				网络连接.发送封包(new GuildInfoAnnouncementPacket
@@ -306,7 +306,7 @@ namespace GameServer.Data
 			this.行会成员.Remove(成员);
 			this.行会禁言.Remove(成员);
 			成员.当前行会 = null;
-			客户网络 网络连接 = 成员.网络连接;
+			客户网络 网络连接 = 成员.ActiveConnection;
 			if (网络连接 != null)
 			{
 				网络连接.发送封包(new 脱离行会应答
@@ -342,7 +342,7 @@ namespace GameServer.Data
 			{
 				this.行会禁言.Remove(成员);
 				成员.当前行会 = null;
-				客户网络 网络连接 = 成员.网络连接;
+				客户网络 网络连接 = 成员.ActiveConnection;
 				if (网络连接 != null)
 				{
 					网络连接.发送封包(new 脱离行会应答
@@ -398,7 +398,7 @@ namespace GameServer.Data
 		public void 更改宣言(CharacterData 主事, string 宣言)
 		{
 			this.行会宣言.V = 宣言;
-			客户网络 网络连接 = 主事.网络连接;
+			客户网络 网络连接 = 主事.ActiveConnection;
 			if (网络连接 == null)
 			{
 				return;
@@ -461,7 +461,7 @@ namespace GameServer.Data
 				});
 				return;
 			}
-			客户网络 网络连接 = 主事.网络连接;
+			客户网络 网络连接 = 主事.ActiveConnection;
 			if (网络连接 == null)
 			{
 				return;
@@ -475,7 +475,7 @@ namespace GameServer.Data
 		
 		public void 申请结盟(CharacterData 主事, GuildData 行会, byte 时间参数)
 		{
-			主事.网络连接.发送封包(new 申请结盟应答
+			主事.ActiveConnection.发送封包(new 申请结盟应答
 			{
 				行会编号 = 行会.行会编号
 			});
@@ -595,7 +595,7 @@ namespace GameServer.Data
 				第二参数 = this.行会编号,
 				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 			});
-			客户网络 网络连接 = 主事.网络连接;
+			客户网络 网络连接 = 主事.ActiveConnection;
 			if (网络连接 == null)
 			{
 				return;
@@ -609,7 +609,7 @@ namespace GameServer.Data
 		
 		public void 申请解敌(CharacterData 主事, GuildData Hostility行会)
 		{
-			主事.网络连接.发送封包(new 社交错误提示
+			主事.ActiveConnection.发送封包(new 社交错误提示
 			{
 				错误编号 = 6829
 			});
@@ -617,7 +617,7 @@ namespace GameServer.Data
 			{
 				if (keyValuePair.Value <= GuildJobs.副长)
 				{
-					客户网络 网络连接 = keyValuePair.Key.网络连接;
+					客户网络 网络连接 = keyValuePair.Key.ActiveConnection;
 					if (网络连接 != null)
 					{
 						网络连接.发送封包(new DisarmHostileListPacket

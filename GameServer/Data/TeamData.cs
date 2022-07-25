@@ -129,7 +129,7 @@ namespace GameServer.Data
 		{
 			foreach (CharacterData CharacterData in this.队伍成员)
 			{
-				客户网络 网络连接 = CharacterData.网络连接;
+				客户网络 网络连接 = CharacterData.ActiveConnection;
 				if (网络连接 != null)
 				{
 					网络连接.发送封包(P);
@@ -176,7 +176,7 @@ namespace GameServer.Data
 					binaryWriter.Seek(36, SeekOrigin.Begin);
 					binaryWriter.Write((byte)队友.角色性别.V);
 					binaryWriter.Write((byte)队友.角色职业.V);
-					binaryWriter.Write((队友.网络连接 != null) ? 0 : 3);
+					binaryWriter.Write((队友.ActiveConnection != null) ? 0 : 3);
 					result = memoryStream.ToArray();
 				}
 			}

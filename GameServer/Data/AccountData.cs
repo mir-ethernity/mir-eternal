@@ -868,7 +868,7 @@ namespace GameServer.Data
 				列表描述 = this.角色列表描述()
 			});
 			当前网络.绑定账号 = this;
-			当前网络.当前阶段 = GameStage.选择角色;
+			当前网络.CurrentStage = GameStage.选择角色;
 			this.网络连接 = 当前网络;
 			this.网络连接.物理地址 = 物理地址;
 			NetworkServiceGateway.ActiveConnections += 1U;
@@ -1084,7 +1084,7 @@ namespace GameServer.Data
 		}
 
 		
-		public void 进入游戏(客户网络 当前网络, 客户进入游戏 P)
+		public void 进入游戏(客户网络 conn, 客户进入游戏 P)
 		{
 			GameData GameData;
 			if (GameDataGateway.CharacterDataTable.DataSheet.TryGetValue(P.角色编号, out GameData))
@@ -1094,7 +1094,7 @@ namespace GameServer.Data
 				{
 					if (MainProcess.CurrentTime < this.封禁日期.V)
 					{
-						当前网络.发送封包(new LoginErrorMessagePacket
+						conn.发送封包(new LoginErrorMessagePacket
 						{
 							错误代码 = 285U,
 							参数一 = ComputingClass.TimeShift(this.封禁日期.V)
@@ -1103,23 +1103,23 @@ namespace GameServer.Data
 					}
 					if (MainProcess.CurrentTime < CharacterData.封禁日期.V)
 					{
-						当前网络.发送封包(new LoginErrorMessagePacket
+						conn.发送封包(new LoginErrorMessagePacket
 						{
 							错误代码 = 285U,
 							参数一 = ComputingClass.TimeShift(CharacterData.封禁日期.V)
 						});
 						return;
 					}
-					当前网络.发送封包(new EnterGameAnswerPacket
+					conn.发送封包(new EnterGameAnswerPacket
 					{
 						角色编号 = CharacterData.角色编号
 					});
-					当前网络.绑定角色 = new PlayerObject(CharacterData, 当前网络);
-					当前网络.当前阶段 = GameStage.场景加载;
+					conn.Player = new PlayerObject(CharacterData, conn);
+					conn.CurrentStage = GameStage.场景加载;
 					return;
 				}
 			}
-			当前网络.发送封包(new LoginErrorMessagePacket
+			conn.发送封包(new LoginErrorMessagePacket
 			{
 				错误代码 = 284U
 			});
@@ -1135,9 +1135,9 @@ namespace GameServer.Data
 			当前网络.发送封包(new 更换角色应答());
 			当前网络.发送封包(new ObjectOutOfViewPacket
 			{
-				对象编号 = 当前网络.绑定角色.MapId
+				对象编号 = 当前网络.Player.MapId
 			});
-			当前网络.绑定角色.玩家角色下线();
+			当前网络.Player.玩家角色下线();
 			当前网络.发送封包(new BackCharacterListPacket
 			{
 				列表描述 = this.角色列表描述()

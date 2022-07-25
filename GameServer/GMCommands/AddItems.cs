@@ -67,7 +67,7 @@ namespace GameServer
 							{
 								CharacterData.角色背包[b] = new ItemData(游戏物品, CharacterData, 1, b, 游戏物品.ItemLast);
 							}
-							客户网络 网络连接 = CharacterData.网络连接;
+							客户网络 网络连接 = CharacterData.ActiveConnection;
 							if (网络连接 != null)
 							{
 								网络连接.发送封包(new 玩家物品变动

@@ -27,7 +27,7 @@ namespace GameServer
 				if (CharacterData != null)
 				{
 					CharacterData.NumberGoldCoins += this.NumberGoldCoins;
-					客户网络 网络连接 = CharacterData.网络连接;
+					客户网络 网络连接 = CharacterData.ActiveConnection;
 					if (网络连接 != null)
 					{
 						网络连接.发送封包(new 货币数量变动

@@ -115,7 +115,7 @@ namespace GameServer.Networking
                     {
                         foreach (客户网络 客户网络2 in Connections)
                         {
-                            if (客户网络2.绑定角色 != null)
+                            if (客户网络2.Player != null)
                             {
                                 客户网络2.发送封包(封包);
                             }
@@ -187,9 +187,9 @@ namespace GameServer.Networking
 			{
 				text = text + " Account: " + 客户网络.绑定账号.Account.V;
 			}
-			if (客户网络.绑定角色 != null)
+			if (客户网络.Player != null)
 			{
-				text = text + " Character: " + 客户网络.绑定角色.对象名字;
+				text = text + " Character: " + 客户网络.Player.对象名字;
 			}
 			text = text + " Info: " + e.Message;
 			MainProcess.AddSystemLog(text);

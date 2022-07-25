@@ -19,7 +19,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.CharacterData.网络连接;
+				return this.CharacterData.ActiveConnection;
 			}
 		}
 
@@ -332,7 +332,7 @@ namespace GameServer.Maps
 			}
 			foreach (CharacterData CharacterData2 in this.粉丝列表)
 			{
-				客户网络 网络连接2 = CharacterData2.网络连接;
+				客户网络 网络连接2 = CharacterData2.ActiveConnection;
 				if (网络连接2 != null)
 				{
 					网络连接2.发送封包(new 好友上线下线
@@ -347,7 +347,7 @@ namespace GameServer.Maps
 			}
 			foreach (CharacterData CharacterData3 in this.仇恨列表)
 			{
-				客户网络 网络连接3 = CharacterData3.网络连接;
+				客户网络 网络连接3 = CharacterData3.ActiveConnection;
 				if (网络连接3 != null)
 				{
 					网络连接3.发送封包(new 好友上线下线
@@ -3196,7 +3196,7 @@ namespace GameServer.Maps
 			}
 			foreach (CharacterData CharacterData in this.粉丝列表)
 			{
-				客户网络 网络连接 = CharacterData.网络连接;
+				客户网络 网络连接 = CharacterData.ActiveConnection;
 				if (网络连接 != null)
 				{
 					网络连接.发送封包(new 好友上线下线
@@ -3211,7 +3211,7 @@ namespace GameServer.Maps
 			}
 			foreach (CharacterData CharacterData2 in this.仇恨列表)
 			{
-				客户网络 网络连接2 = CharacterData2.网络连接;
+				客户网络 网络连接2 = CharacterData2.ActiveConnection;
 				if (网络连接2 != null)
 				{
 					网络连接2.发送封包(new 好友上线下线
@@ -6552,7 +6552,7 @@ namespace GameServer.Maps
 								else if (this.所属队伍.队伍成员.FirstOrDefault(delegate(CharacterData O)
 								{
 									MapObject item;
-									return O.网络连接 == null || !MapGatewayProcess.Objects.TryGetValue(O.角色编号, out item) || !this.对话守卫.邻居列表.Contains(item);
+									return O.ActiveConnection == null || !MapGatewayProcess.Objects.TryGetValue(O.角色编号, out item) || !this.对话守卫.邻居列表.Contains(item);
 								}) != null)
 								{
 									this.对话页面 = 624203000;
@@ -17415,7 +17415,7 @@ namespace GameServer.Maps
 					{
 						return;
 					}
-					if (CharacterData.网络连接 == null)
+					if (CharacterData.ActiveConnection == null)
 					{
 						return;
 					}
@@ -17457,7 +17457,7 @@ namespace GameServer.Maps
 							字节描述2 = memoryStream4.ToArray();
 						}
 					}
-					CharacterData.网络连接.发送封包(new ReceiveChatMessagesPacket
+					CharacterData.ActiveConnection.发送封包(new ReceiveChatMessagesPacket
 					{
 						字节描述 = 字节描述2
 					});
@@ -17487,7 +17487,7 @@ namespace GameServer.Maps
 				CharacterData CharacterData = GameData as CharacterData;
 				if (CharacterData != null && this.好友列表.Contains(CharacterData))
 				{
-					if (CharacterData.网络连接 != null)
+					if (CharacterData.ActiveConnection != null)
 					{
 						byte[] 字节数据 = null;
 						using (MemoryStream memoryStream = new MemoryStream())
@@ -17500,7 +17500,7 @@ namespace GameServer.Maps
 								字节数据 = memoryStream.ToArray();
 							}
 						}
-						CharacterData.网络连接.发送封包(new SendFriendMessagePacket
+						CharacterData.ActiveConnection.发送封包(new SendFriendMessagePacket
 						{
 							字节数据 = 字节数据
 						});
@@ -17600,7 +17600,7 @@ namespace GameServer.Maps
 										对象名字 = CharacterData.CharName.V,
 										对象职业 = (byte)CharacterData.角色职业.V,
 										对象性别 = (byte)CharacterData.角色性别.V,
-										上线下线 = ((byte)((CharacterData.网络连接 != null) ? 0 : 3))
+										上线下线 = ((byte)((CharacterData.ActiveConnection != null) ? 0 : 3))
 									});
 								}
 								if (this.粉丝列表.Contains(CharacterData) || CharacterData.偶像列表.Contains(this.CharacterData))
@@ -17608,7 +17608,7 @@ namespace GameServer.Maps
 									this.好友列表.Add(CharacterData);
 									CharacterData.好友列表.Add(this.CharacterData);
 								}
-								客户网络 网络连接5 = CharacterData.网络连接;
+								客户网络 网络连接5 = CharacterData.ActiveConnection;
 								if (网络连接5 == null)
 								{
 									return;
@@ -17678,7 +17678,7 @@ namespace GameServer.Maps
 									对象名字 = CharacterData2.CharName.V,
 									对象职业 = (byte)CharacterData2.角色职业.V,
 									对象性别 = (byte)CharacterData2.角色性别.V,
-									上线下线 = ((byte)((CharacterData2.网络连接 != null) ? 0 : 3))
+									上线下线 = ((byte)((CharacterData2.ActiveConnection != null) ? 0 : 3))
 								});
 							}
 							if (this.粉丝列表.Contains(CharacterData2) || CharacterData2.偶像列表.Contains(this.CharacterData))
@@ -17686,7 +17686,7 @@ namespace GameServer.Maps
 								this.好友列表.Add(CharacterData2);
 								CharacterData2.好友列表.Add(this.CharacterData);
 							}
-							客户网络 网络连接9 = CharacterData2.网络连接;
+							客户网络 网络连接9 = CharacterData2.ActiveConnection;
 							if (网络连接9 == null)
 							{
 								return;
@@ -17747,7 +17747,7 @@ namespace GameServer.Maps
 							this.好友列表.Remove(CharacterData);
 							CharacterData.好友列表.Remove(this.CharacterData);
 						}
-						客户网络 网络连接3 = CharacterData.网络连接;
+						客户网络 网络连接3 = CharacterData.ActiveConnection;
 						if (网络连接3 == null)
 						{
 							return;
@@ -17825,7 +17825,7 @@ namespace GameServer.Maps
 							对象名字 = CharacterData.CharName.V,
 							对象职业 = (byte)CharacterData.角色职业.V,
 							对象性别 = (byte)CharacterData.角色性别.V,
-							上线下线 = ((byte)((CharacterData.网络连接 != null) ? 0 : 3))
+							上线下线 = ((byte)((CharacterData.ActiveConnection != null) ? 0 : 3))
 						});
 						return;
 					}
@@ -19169,7 +19169,7 @@ namespace GameServer.Maps
 							}
 							if (this.CharacterData == this.所属队伍.队长数据)
 							{
-								CharacterData CharacterData2 = this.所属队伍.队伍成员.FirstOrDefault((CharacterData O) => O.网络连接 != null);
+								CharacterData CharacterData2 = this.所属队伍.队伍成员.FirstOrDefault((CharacterData O) => O.ActiveConnection != null);
 								if (CharacterData2 != null)
 								{
 									this.所属队伍.队长数据 = CharacterData2;
@@ -19225,7 +19225,7 @@ namespace GameServer.Maps
 								队伍编号 = this.所属队伍.数据索引.V,
 								对象编号 = CharacterData.角色编号
 							});
-							客户网络 网络连接5 = CharacterData.网络连接;
+							客户网络 网络连接5 = CharacterData.ActiveConnection;
 							if (网络连接5 == null)
 							{
 								return;
@@ -20127,7 +20127,7 @@ namespace GameServer.Maps
 							{
 								if (CharacterData.所属行会.V.行会成员.Count < 100)
 								{
-									客户网络 网络连接2 = CharacterData.网络连接;
+									客户网络 网络连接2 = CharacterData.ActiveConnection;
 									if (网络连接2 != null)
 									{
 										网络连接2.发送封包(new GuildInvitationAnswerPacket
@@ -20153,7 +20153,7 @@ namespace GameServer.Maps
 						}
 						else
 						{
-							客户网络 网络连接4 = CharacterData.网络连接;
+							客户网络 网络连接4 = CharacterData.ActiveConnection;
 							if (网络连接4 == null)
 							{
 								return;
@@ -22058,7 +22058,7 @@ namespace GameServer.Maps
 						{
 							return;
 						}
-						客户网络 网络连接3 = CharacterData.网络连接;
+						客户网络 网络连接3 = CharacterData.ActiveConnection;
 						if (网络连接3 == null)
 						{
 							return;
@@ -22387,7 +22387,7 @@ namespace GameServer.Maps
 						{
 							return;
 						}
-						客户网络 网络连接3 = CharacterData.网络连接;
+						客户网络 网络连接3 = CharacterData.ActiveConnection;
 						if (网络连接3 == null)
 						{
 							return;
@@ -22457,7 +22457,7 @@ namespace GameServer.Maps
 					}
 					this.所属师门.移除徒弟(CharacterData);
 					CharacterData.当前师门 = null;
-					客户网络 网络连接2 = CharacterData.网络连接;
+					客户网络 网络连接2 = CharacterData.ActiveConnection;
 					if (网络连接2 != null)
 					{
 						网络连接2.发送封包(new SyncTeacherInfoPacket
@@ -22498,7 +22498,7 @@ namespace GameServer.Maps
 			{
 				网络连接.发送封包(new 离开师门应答());
 			}
-			客户网络 网络连接2 = this.所属师门.师父数据.网络连接;
+			客户网络 网络连接2 = this.所属师门.师父数据.ActiveConnection;
 			if (网络连接2 != null)
 			{
 				网络连接2.发送封包(new 离开师门提示
@@ -22576,7 +22576,7 @@ namespace GameServer.Maps
 			}
 			this.NumberGoldCoins += this.所属师门.徒弟出师金币(this.CharacterData);
 			this.玩家增加经验(null, this.所属师门.徒弟出师经验(this.CharacterData));
-			客户网络 网络连接 = this.所属师门.师父数据.网络连接;
+			客户网络 网络连接 = this.所属师门.师父数据.ActiveConnection;
 			if (网络连接 != null)
 			{
 				网络连接.发送封包(new ApprenticeSuccessfullyPacket
@@ -24264,7 +24264,7 @@ namespace GameServer.Maps
 						binaryWriter.Write(array);
 						binaryWriter.Write((byte)CharacterData.角色职业.V);
 						binaryWriter.Write((byte)CharacterData.角色性别.V);
-						binaryWriter.Write((CharacterData.网络连接 != null) ? 0 : 3);
+						binaryWriter.Write((CharacterData.ActiveConnection != null) ? 0 : 3);
 						binaryWriter.Write(0U);
 						binaryWriter.Write(0);
 						binaryWriter.Write(this.好友列表.Contains(CharacterData) ? 1 : 0);
@@ -24278,7 +24278,7 @@ namespace GameServer.Maps
 						binaryWriter.Write(array3);
 						binaryWriter.Write((byte)CharacterData2.角色职业.V);
 						binaryWriter.Write((byte)CharacterData2.角色性别.V);
-						binaryWriter.Write((CharacterData2.网络连接 != null) ? 0 : 3);
+						binaryWriter.Write((CharacterData2.ActiveConnection != null) ? 0 : 3);
 						binaryWriter.Write(0U);
 						binaryWriter.Write(21);
 						binaryWriter.Write(0);

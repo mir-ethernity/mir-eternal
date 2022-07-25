@@ -445,7 +445,7 @@ namespace GameServer
                     dataRow["冻结日期"] = ((角色.FreezeDate.V != default(DateTime)) ? 角色.FreezeDate : null);
                     dataRow["删除日期"] = ((角色.删除日期.V != default(DateTime)) ? 角色.删除日期 : null);
                     dataRow["登录日期"] = ((角色.登录日期.V != default(DateTime)) ? 角色.登录日期 : null);
-                    dataRow["离线日期"] = ((角色.网络连接 == null) ? 角色.OfflineDate : null);
+                    dataRow["离线日期"] = ((角色.ActiveConnection == null) ? 角色.OfflineDate : null);
                     dataRow["网络地址"] = 角色.网络地址;
                     dataRow["物理地址"] = 角色.物理地址;
                     dataRow["角色职业"] = 角色.角色职业;

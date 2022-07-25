@@ -140,7 +140,7 @@ namespace GameServer.Data
 		{
 			foreach (CharacterData CharacterData in this.师门成员)
 			{
-				客户网络 网络连接 = CharacterData.网络连接;
+				客户网络 网络连接 = CharacterData.ActiveConnection;
 				if (网络连接 != null)
 				{
 					网络连接.发送封包(P);
@@ -162,7 +162,7 @@ namespace GameServer.Data
 			{
 				if (CharacterData != null)
 				{
-					CharacterData.网络连接.发送封包(new SyncGuildMemberPacket
+					CharacterData.ActiveConnection.发送封包(new SyncGuildMemberPacket
 					{
 						字节数据 = this.成员数据()
 					});
@@ -183,7 +183,7 @@ namespace GameServer.Data
 			{
 				if (CharacterData != null)
 				{
-					CharacterData.网络连接.发送封包(new SyncGuildMemberPacket
+					CharacterData.ActiveConnection.发送封包(new SyncGuildMemberPacket
 					{
 						字节数据 = this.成员数据()
 					});
