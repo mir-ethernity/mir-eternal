@@ -926,7 +926,7 @@ namespace GameServer.Templates
 													}
 													if (c_01_计算命中目标.触发PassiveSkill && this.命中列表.Count != 0 && ComputingClass.计算概率(c_01_计算命中目标.触发被动概率))
 													{
-														this.技能来源[GameObjectStats.技能标志] = 1;
+														this.技能来源[GameObjectStats.SkillSign] = 1;
 													}
 													if (c_01_计算命中目标.增加技能经验 && this.命中列表.Count != 0)
 													{

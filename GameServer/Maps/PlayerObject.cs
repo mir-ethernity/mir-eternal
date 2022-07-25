@@ -122,7 +122,7 @@ namespace GameServer.Maps
 			}
 			foreach (BuffData BuffData in this.Buff列表.Values)
 			{
-				if ((BuffData.Effect & BuffEffectType.StatsIncOrDec) != BuffEffectType.技能标志)
+				if ((BuffData.Effect & BuffEffectType.StatsIncOrDec) != BuffEffectType.SkillSign)
 				{
 					this.Stat加成.Add(BuffData, BuffData.Stat加成);
 				}
@@ -2753,7 +2753,7 @@ namespace GameServer.Maps
 			int num8 = 0;
 			foreach (BuffData BuffData in this.Buff列表.Values)
 			{
-				if ((BuffData.Effect & BuffEffectType.诱惑提升) != BuffEffectType.技能标志)
+				if ((BuffData.Effect & BuffEffectType.TemptationBoost) != BuffEffectType.SkillSign)
 				{
 					num6 += BuffData.Buff模板.TemptationIncreaseRate;
 					num7 += BuffData.Buff模板.TemptationIncreaseDuration;
@@ -3763,7 +3763,7 @@ namespace GameServer.Maps
 				{
 					foreach (BuffData BuffData in this.Buff列表.Values.ToList<BuffData>())
 					{
-						if ((BuffData.Effect & BuffEffectType.状态标志) != BuffEffectType.技能标志 && (BuffData.Buff模板.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal)
+						if ((BuffData.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign && (BuffData.Buff模板.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal)
 						{
 							base.移除Buff时处理(BuffData.Id.V);
 						}
@@ -3797,7 +3797,7 @@ namespace GameServer.Maps
 							IL_24E:
 							if (!游戏技能.CheckSkillMarks || this.Buff列表.ContainsKey(游戏技能.SkillTagId))
 							{
-								if (游戏技能.CheckPassiveTags && this[GameObjectStats.技能标志] != 1)
+								if (游戏技能.CheckPassiveTags && this[GameObjectStats.SkillSign] != 1)
 								{
 									break;
 								}
@@ -3909,9 +3909,9 @@ namespace GameServer.Maps
 											{
 												this.消耗背包物品(num2, list);
 											}
-											if (游戏技能.CheckPassiveTags && this[GameObjectStats.技能标志] == 1)
+											if (游戏技能.CheckPassiveTags && this[GameObjectStats.SkillSign] == 1)
 											{
-												this[GameObjectStats.技能标志] = 0;
+												this[GameObjectStats.SkillSign] = 0;
 											}
 											new 技能实例(this, 游戏技能, SkillData, 动作编号, this.当前地图, this.当前坐标, MapObject, 技能锚点, null, null, false);
 											break;

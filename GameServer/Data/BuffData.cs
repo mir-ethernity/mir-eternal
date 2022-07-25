@@ -73,7 +73,7 @@ namespace GameServer.Data
 				}
 			}
 			this.剩余时间.V = this.持续时间.V;
-			if ((this.Effect & BuffEffectType.造成伤害) != BuffEffectType.技能标志)
+			if ((this.Effect & BuffEffectType.CausesSomeDamages) != BuffEffectType.SkillSign)
 			{
 				int[] DamageBase = this.Buff模板.DamageBase;
 				int? num = (DamageBase != null) ? new int?(DamageBase.Length) : null;
@@ -330,7 +330,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				if ((this.Effect & BuffEffectType.StatsIncOrDec) != BuffEffectType.技能标志)
+				if ((this.Effect & BuffEffectType.StatsIncOrDec) != BuffEffectType.SkillSign)
 				{
 					return this.Buff模板.基础StatsIncOrDec[(int)this.Buff等级.V];
 				}

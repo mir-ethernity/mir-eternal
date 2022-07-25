@@ -1357,7 +1357,7 @@ namespace GameServer.Maps
         {
             foreach (BuffData BuffData in this.Buff列表.Values)
             {
-                if ((BuffData.Effect & BuffEffectType.状态标志) != BuffEffectType.技能标志 && (BuffData.Buff模板.PlayerState & 待检状态) != GameObjectState.Normal)
+                if ((BuffData.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign && (BuffData.Buff模板.PlayerState & 待检状态) != GameObjectState.Normal)
                 {
                     return true;
                 }
@@ -1381,7 +1381,7 @@ namespace GameServer.Maps
                     GameBuffs 游戏Buff;
                     if (GameBuffs.DataSheet.TryGetValue(编号, out 游戏Buff))
                     {
-                        if ((游戏Buff.Effect & BuffEffectType.状态标志) != BuffEffectType.技能标志)
+                        if ((游戏Buff.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign)
                         {
                             if (((游戏Buff.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal || (游戏Buff.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal) && this.检查状态(GameObjectState.Exposed))
                             {
@@ -1398,7 +1398,7 @@ namespace GameServer.Maps
                                 }
                             }
                         }
-                        if ((游戏Buff.Effect & BuffEffectType.造成伤害) != BuffEffectType.技能标志 && 游戏Buff.DamageType == SkillDamageType.Burn && this.Buff列表.ContainsKey(25352))
+                        if ((游戏Buff.Effect & BuffEffectType.CausesSomeDamages) != BuffEffectType.SkillSign && 游戏Buff.DamageType == SkillDamageType.Burn && this.Buff列表.ContainsKey(25352))
                         {
                             return;
                         }
@@ -1503,12 +1503,12 @@ namespace GameServer.Maps
                                     持续时间 = (int)BuffData2.持续时间.V.TotalMilliseconds
                                 });
                             }
-                            if ((游戏Buff.Effect & BuffEffectType.StatsIncOrDec) != BuffEffectType.技能标志)
+                            if ((游戏Buff.Effect & BuffEffectType.StatsIncOrDec) != BuffEffectType.SkillSign)
                             {
                                 this.Stat加成.Add(BuffData2, BuffData2.Stat加成);
                                 this.更新对象Stat();
                             }
-                            if ((游戏Buff.Effect & BuffEffectType.状态标志) != BuffEffectType.技能标志)
+                            if ((游戏Buff.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign)
                             {
                                 if ((游戏Buff.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal)
                                 {
@@ -1582,12 +1582,12 @@ namespace GameServer.Maps
                         Buff索引 = (int)编号
                     });
                 }
-                if ((BuffData.Effect & BuffEffectType.StatsIncOrDec) != BuffEffectType.技能标志)
+                if ((BuffData.Effect & BuffEffectType.StatsIncOrDec) != BuffEffectType.SkillSign)
                 {
                     this.Stat加成.Remove(BuffData);
                     this.更新对象Stat();
                 }
-                if ((BuffData.Effect & BuffEffectType.状态标志) != BuffEffectType.技能标志)
+                if ((BuffData.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign)
                 {
                     if ((BuffData.Buff模板.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal)
                     {
@@ -1630,12 +1630,12 @@ namespace GameServer.Maps
                         Buff索引 = (int)编号
                     });
                 }
-                if ((BuffData.Effect & BuffEffectType.StatsIncOrDec) != BuffEffectType.技能标志)
+                if ((BuffData.Effect & BuffEffectType.StatsIncOrDec) != BuffEffectType.SkillSign)
                 {
                     this.Stat加成.Remove(BuffData);
                     this.更新对象Stat();
                 }
-                if ((BuffData.Effect & BuffEffectType.状态标志) != BuffEffectType.技能标志)
+                if ((BuffData.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign)
                 {
                     if ((BuffData.Buff模板.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal)
                     {
@@ -1666,11 +1666,11 @@ namespace GameServer.Maps
             if ((数据.处理计时.V -= MainProcess.CurrentTime - this.处理计时) < TimeSpan.Zero)
             {
                 数据.处理计时.V += TimeSpan.FromMilliseconds((double)数据.处理间隔);
-                if ((数据.Effect & BuffEffectType.造成伤害) != BuffEffectType.技能标志)
+                if ((数据.Effect & BuffEffectType.CausesSomeDamages) != BuffEffectType.SkillSign)
                 {
                     this.被动受伤时处理(数据);
                 }
-                if ((数据.Effect & BuffEffectType.生命回复) != BuffEffectType.技能标志)
+                if ((数据.Effect & BuffEffectType.LifeRecovery) != BuffEffectType.SkillSign)
                 {
                     this.被动回复时处理(数据);
                 }
@@ -1890,7 +1890,7 @@ namespace GameServer.Maps
                         int num13 = int.MaxValue;
                         foreach (BuffData BuffData in MapObject.Buff列表.Values.ToList<BuffData>())
                         {
-                            if ((BuffData.Effect & BuffEffectType.伤害增减) != BuffEffectType.技能标志 && (BuffData.Buff模板.HowJudgeEffect == BuffDetherminationMethod.ActiveAttackDamageBoost || BuffData.Buff模板.HowJudgeEffect == BuffDetherminationMethod.ActiveAttackDamageReduction))
+                            if ((BuffData.Effect & BuffEffectType.DamageIncOrDec) != BuffEffectType.SkillSign && (BuffData.Buff模板.HowJudgeEffect == BuffDetherminationMethod.ActiveAttackDamageBoost || BuffData.Buff模板.HowJudgeEffect == BuffDetherminationMethod.ActiveAttackDamageReduction))
                             {
                                 bool flag = false;
                                 switch (参数.技能伤害类型)
@@ -1976,7 +1976,7 @@ namespace GameServer.Maps
                         }
                         foreach (BuffData BuffData2 in this.Buff列表.Values.ToList<BuffData>())
                         {
-                            if ((BuffData2.Effect & BuffEffectType.伤害增减) != BuffEffectType.技能标志 && (BuffData2.Buff模板.HowJudgeEffect == BuffDetherminationMethod.PassiveInjuryIncrease || BuffData2.Buff模板.HowJudgeEffect == BuffDetherminationMethod.PassiveInjuryReduction))
+                            if ((BuffData2.Effect & BuffEffectType.DamageIncOrDec) != BuffEffectType.SkillSign && (BuffData2.Buff模板.HowJudgeEffect == BuffDetherminationMethod.PassiveInjuryIncrease || BuffData2.Buff模板.HowJudgeEffect == BuffDetherminationMethod.PassiveInjuryReduction))
                             {
                                 bool flag2 = false;
                                 switch (参数.技能伤害类型)
@@ -2154,7 +2154,7 @@ namespace GameServer.Maps
                 {
                     foreach (BuffData BuffData3 in this.Buff列表.Values.ToList<BuffData>())
                     {
-                        if ((BuffData3.Effect & BuffEffectType.状态标志) != BuffEffectType.技能标志 && (BuffData3.Buff模板.PlayerState & GameObjectState.Absence) != GameObjectState.Normal)
+                        if ((BuffData3.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign && (BuffData3.Buff模板.PlayerState & GameObjectState.Absence) != GameObjectState.Normal)
                         {
                             this.移除Buff时处理(BuffData3.Id.V);
                         }
@@ -2441,7 +2441,7 @@ namespace GameServer.Maps
                     {
                         BuffData BuffData = enumerator.Current;
                         SkillTraps 陷阱模板;
-                        if ((BuffData.Effect & BuffEffectType.创建陷阱) != BuffEffectType.技能标志 && SkillTraps.DataSheet.TryGetValue(BuffData.Buff模板.TriggerTrapSkills, out 陷阱模板))
+                        if ((BuffData.Effect & BuffEffectType.CreateTrap) != BuffEffectType.SkillSign && SkillTraps.DataSheet.TryGetValue(BuffData.Buff模板.TriggerTrapSkills, out 陷阱模板))
                         {
                             int num = 0;
 
@@ -2475,7 +2475,7 @@ namespace GameServer.Maps
                                 num++;
                             }
                         }
-                        if ((BuffData.Effect & BuffEffectType.状态标志) != BuffEffectType.技能标志 && (BuffData.Buff模板.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal)
+                        if ((BuffData.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign && (BuffData.Buff模板.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal)
                         {
                             this.移除Buff时处理(BuffData.Id.V);
                         }
@@ -2488,7 +2488,7 @@ namespace GameServer.Maps
                 foreach (BuffData BuffData2 in this.Buff列表.Values.ToList<BuffData>())
                 {
                     SkillTraps 陷阱模板;
-                    if ((BuffData2.Effect & BuffEffectType.创建陷阱) != BuffEffectType.技能标志 && SkillTraps.DataSheet.TryGetValue(BuffData2.Buff模板.TriggerTrapSkills, out 陷阱模板))
+                    if ((BuffData2.Effect & BuffEffectType.CreateTrap) != BuffEffectType.SkillSign && SkillTraps.DataSheet.TryGetValue(BuffData2.Buff模板.TriggerTrapSkills, out 陷阱模板))
                     {
                         int num2 = 0;
 
@@ -2522,7 +2522,7 @@ namespace GameServer.Maps
                             num2++;
                         }
                     }
-                    if ((BuffData2.Effect & BuffEffectType.状态标志) != BuffEffectType.技能标志 && (BuffData2.Buff模板.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal)
+                    if ((BuffData2.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign && (BuffData2.Buff模板.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal)
                     {
                         this.移除Buff时处理(BuffData2.Id.V);
                     }

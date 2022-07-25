@@ -74,7 +74,7 @@ namespace GameServer
 		
 		最大负重,
 		
-		技能标志 = 56,
+		SkillSign = 56,
 		
 		攻杀标志,
 		
