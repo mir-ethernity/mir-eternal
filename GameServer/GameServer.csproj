@@ -144,11 +144,11 @@
     <Compile Include="Templates\Skills\PendingRename13.cs" />
     <Compile Include="Templates\Skills\PendingRename14.cs" />
     <Compile Include="Templates\Skills\PendingRename15.cs" />
-    <Compile Include="Templates\BuffActionType.cs" />
-    <Compile Include="Templates\BuffDetherminationMethod.cs" />
-    <Compile Include="Templates\BuffJudgmentType.cs" />
-    <Compile Include="Templates\BuffOverlayType.cs" />
-    <Compile Include="Templates\BuffEffectType.cs" />
+    <Compile Include="Enums\BuffActionType.cs" />
+    <Compile Include="Enums\BuffDetherminationMethod.cs" />
+    <Compile Include="Enums\BuffJudgmentType.cs" />
+    <Compile Include="Enums\BuffOverlayType.cs" />
+    <Compile Include="Enums\BuffEffectType.cs" />
     <Compile Include="Templates\Skills\PendingRename16.cs" />
     <Compile Include="Templates\Skills\PendingRename17.cs" />
     <Compile Include="Templates\Skills\PendingRename18.cs" />

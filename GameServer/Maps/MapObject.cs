@@ -1406,13 +1406,13 @@ namespace GameServer.Maps
                         BuffData BuffData2 = null;
                         switch (游戏Buff.OverlayType)
                         {
-                            case BuffOverlayType.禁止叠加:
+                            case BuffOverlayType.SuperpositionDisabled:
                                 if (this.Buff列表.Values.FirstOrDefault((BuffData O) => O.Buff分组 == GroupId) == null)
                                 {
                                     BuffData2 = (this.Buff列表[游戏Buff.Id] = new BuffData(来源, this, 游戏Buff.Id));
                                 }
                                 break;
-                            case BuffOverlayType.同类替换:
+                            case BuffOverlayType.SimilarReplacement:
                                 {
                                     IEnumerable<BuffData> values = this.Buff列表.Values;
                                     Func<BuffData, bool> predicate = null;
@@ -1428,7 +1428,7 @@ namespace GameServer.Maps
                                     BuffData2 = (this.Buff列表[游戏Buff.Id] = new BuffData(来源, this, 游戏Buff.Id));
                                     break;
                                 }
-                            case BuffOverlayType.同类叠加:
+                            case BuffOverlayType.HomogeneousStacking:
                                 {
                                     BuffData BuffData4;
                                     if (this.Buff列表.TryGetValue(编号, out BuffData4))
@@ -1463,7 +1463,7 @@ namespace GameServer.Maps
                                     }
                                     break;
                                 }
-                            case BuffOverlayType.同类延时:
+                            case BuffOverlayType.SimilarDelay:
                                 {
                                     BuffData BuffData5;
                                     if (this.Buff列表.TryGetValue(编号, out BuffData5))
