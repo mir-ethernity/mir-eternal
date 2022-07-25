@@ -19675,7 +19675,7 @@ namespace GameServer.Maps
 					{
 						行会编号 = GuildData.数据索引.V,
 						行会名字 = GuildData.行会名字.V,
-						创建时间 = GuildData.创建日期.V,
+						创建时间 = GuildData.CreatedDate.V,
 						会长编号 = GuildData.行会会长.V.数据索引.V,
 						行会人数 = (byte)GuildData.行会成员.Count,
 						行会等级 = GuildData.行会等级.V

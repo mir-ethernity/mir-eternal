@@ -340,7 +340,7 @@ namespace GameServer.Data
             this.角色发型.V = 发型;
             this.角色发色.V = 发色;
             this.角色脸型.V = 脸型;
-            this.创建日期.V = MainProcess.CurrentTime;
+            this.CreatedDate.V = MainProcess.CurrentTime;
             this.当前血量.V = 角色成长.获取数据(职业, 1)[GameObjectStats.MaxPhysicalStrength];
             this.当前蓝量.V = 角色成长.获取数据(职业, 1)[GameObjectStats.MaxMagic2];
             this.当前朝向.V = ComputingClass.随机方向();
@@ -757,7 +757,7 @@ namespace GameServer.Data
         public readonly DataMonitor<string> 物理地址;
 
 
-        public readonly DataMonitor<DateTime> 创建日期;
+        public readonly DataMonitor<DateTime> CreatedDate;
 
 
         public readonly DataMonitor<DateTime> 登录日期;

@@ -520,7 +520,7 @@ namespace GameServer.Data
 										CharacterData CharacterData5 = GameData2 as CharacterData;
 										if (CharacterData5 != null)
 										{
-											if (CharacterData5.创建日期.V > CharacterData4.创建日期.V)
+											if (CharacterData5.CreatedDate.V > CharacterData4.CreatedDate.V)
 											{
 												DataMonitor<string> CharName = CharacterData5.CharName;
 												CharName.V += "_";
@@ -552,7 +552,7 @@ namespace GameServer.Data
 										GuildData GuildData2 = GameData3 as GuildData;
 										if (GuildData2 != null)
 										{
-											if (GuildData2.创建日期.V > GuildData.创建日期.V)
+											if (GuildData2.CreatedDate.V > GuildData.CreatedDate.V)
 											{
 												DataMonitor<string> 行会名字 = GuildData2.行会名字;
 												行会名字.V += "_";

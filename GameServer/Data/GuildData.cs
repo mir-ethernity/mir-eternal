@@ -28,7 +28,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return ComputingClass.TimeShift(this.创建日期.V);
+				return ComputingClass.TimeShift(this.CreatedDate.V);
 			}
 		}
 
@@ -120,7 +120,7 @@ namespace GameServer.Data
 			this.木材数量.V = 1000000;
 			this.石材数量.V = 1000000;
 			this.铁矿数量.V = 1000000;
-			this.创建日期.V = MainProcess.CurrentTime;
+			this.CreatedDate.V = MainProcess.CurrentTime;
 			GameDataGateway.GuildData表.AddData(this, true);
 			SystemData.数据.更新行会(this);
 		}
@@ -935,7 +935,7 @@ namespace GameServer.Data
 		public readonly DataMonitor<CharacterData> 行会会长;
 
 		
-		public readonly DataMonitor<DateTime> 创建日期;
+		public readonly DataMonitor<DateTime> CreatedDate;
 
 		
 		public readonly DataMonitor<string> 行会名字;

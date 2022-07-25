@@ -25,7 +25,7 @@ namespace GameServer.Data
 			this.邮件附件.V = 附件;
 			this.未读邮件.V = true;
 			this.系统邮件.V = (作者 == null);
-			this.创建日期.V = MainProcess.CurrentTime;
+			this.CreatedDate.V = MainProcess.CurrentTime;
 			GameDataGateway.MailData表.AddData(this, true);
 		}
 
@@ -45,7 +45,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return ComputingClass.TimeShift(this.创建日期.V);
+				return ComputingClass.TimeShift(this.CreatedDate.V);
 			}
 		}
 
@@ -166,7 +166,7 @@ namespace GameServer.Data
 		public readonly DataMonitor<string> 邮件正文;
 
 		
-		public readonly DataMonitor<DateTime> 创建日期;
+		public readonly DataMonitor<DateTime> CreatedDate;
 
 		
 		public readonly DataMonitor<ItemData> 邮件附件;

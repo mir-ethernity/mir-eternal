@@ -23,7 +23,7 @@ namespace AccountServer
 			this.Password = 密码;
 			this.Question = 问题;
 			this.Answer = 答案;
-			this.创建日期 = DateTime.Now;
+			this.CreatedDate = DateTime.Now;
 		}
 
 		
@@ -109,6 +109,6 @@ namespace AccountServer
 		public string Answer;
 
 		
-		public DateTime 创建日期;
+		public DateTime CreatedDate;
 	}
 }
