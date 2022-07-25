@@ -852,8 +852,8 @@ namespace GameServer
             this.S_软件注册代码.Text = (CustomClass.软件注册代码 = Settings.Default.软件注册代码);
             this.S_GameData目录.Text = (CustomClass.GameDataPath = Settings.Default.GameData目录);
             this.S_数据备份目录.Text = (CustomClass.数据备份目录 = Settings.Default.数据备份目录);
-            this.S_客户连接端口.Value = (CustomClass.客户连接端口 = Settings.Default.客户连接端口);
-            this.S_门票接收端口.Value = (CustomClass.门票接收端口 = Settings.Default.门票接收端口);
+            this.S_GSPort.Value = (CustomClass.GSPort = Settings.Default.GSPort);
+            this.S_TSPort.Value = (CustomClass.TSPort = Settings.Default.TSPort);
             this.S_封包限定数量.Value = (CustomClass.封包限定数量 = Settings.Default.封包限定数量);
             this.S_异常屏蔽时间.Value = (CustomClass.异常屏蔽时间 = Settings.Default.异常屏蔽时间);
             this.S_掉线判定时间.Value = (CustomClass.掉线判定时间 = Settings.Default.掉线判定时间);
@@ -1155,8 +1155,8 @@ namespace GameServer
                     case "S_怪物经验倍率":
                         CustomClass.怪物经验倍率 = (Settings.Default.怪物经验倍率 = numericUpDown.Value);
                         break;
-                    case "S_门票接收端口":
-                        CustomClass.门票接收端口 = (Settings.Default.门票接收端口 = (ushort)numericUpDown.Value);
+                    case "S_TSPort":
+                        CustomClass.TSPort = (Settings.Default.TSPort = (ushort)numericUpDown.Value);
                         break;
                     case "S_异常屏蔽时间":
                         CustomClass.异常屏蔽时间 = (Settings.Default.异常屏蔽时间 = (ushort)numericUpDown.Value);
@@ -1182,8 +1182,8 @@ namespace GameServer
                     case "S_封包限定数量":
                         CustomClass.封包限定数量 = (Settings.Default.封包限定数量 = (ushort)numericUpDown.Value);
                         break;
-                    case "S_客户连接端口":
-                        CustomClass.客户连接端口 = (Settings.Default.客户连接端口 = (ushort)numericUpDown.Value);
+                    case "S_GSPort":
+                        CustomClass.GSPort = (Settings.Default.GSPort = (ushort)numericUpDown.Value);
                         break;
                     default:
                         MessageBox.Show("未知变量! " + numericUpDown.Name);

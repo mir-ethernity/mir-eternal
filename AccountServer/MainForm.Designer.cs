@@ -28,10 +28,8 @@
             this.lblTicketsCount = new System.Windows.Forms.Label();
             this.lblBytesSend = new System.Windows.Forms.Label();
             this.lblBytesReceived = new System.Windows.Forms.Label();
-            this.txtServerPort = new System.Windows.Forms.NumericUpDown();
-            this.lblServerPort = new System.Windows.Forms.Label();
-            this.lblTicketsPort = new System.Windows.Forms.Label();
-            this.txtTicketPort = new System.Windows.Forms.NumericUpDown();
+            this.lblTSPort = new System.Windows.Forms.Label();
+            this.txtTSPort = new System.Windows.Forms.NumericUpDown();
             this.MinimizeTray = new System.Windows.Forms.NotifyIcon(this.components);
             this.托盘右键菜单 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.打开ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,11 +38,13 @@
             this.btnOpenAccount = new System.Windows.Forms.Button();
             this.btnLoadConfig = new System.Windows.Forms.Button();
             this.btnLoadAccount = new System.Windows.Forms.Button();
+            this.lblASPort = new System.Windows.Forms.Label();
+            this.txtASPort = new System.Windows.Forms.NumericUpDown();
             this.主选项卡.SuspendLayout();
             this.日志选项卡.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtServerPort)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTicketPort)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTSPort)).BeginInit();
             this.托盘右键菜单.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtASPort)).BeginInit();
             this.SuspendLayout();
             // 
             // 主选项卡
@@ -159,59 +159,35 @@
             this.lblBytesReceived.TabIndex = 7;
             this.lblBytesReceived.Text = "Bytes Received: 0";
             // 
-            // txtServerPort
+            // lblTSPort
             // 
-            this.txtServerPort.Location = new System.Drawing.Point(120, 5);
-            this.txtServerPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtServerPort.Maximum = new decimal(new int[] {
+            this.lblTSPort.AutoSize = true;
+            this.lblTSPort.Location = new System.Drawing.Point(218, 12);
+            this.lblTSPort.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTSPort.Name = "lblTSPort";
+            this.lblTSPort.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblTSPort.Size = new System.Drawing.Size(65, 20);
+            this.lblTSPort.TabIndex = 11;
+            this.lblTSPort.Text = "TS Port";
+            // 
+            // txtTSPort
+            // 
+            this.txtTSPort.Location = new System.Drawing.Point(304, 10);
+            this.txtTSPort.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTSPort.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
-            this.txtServerPort.Name = "txtServerPort";
-            this.txtServerPort.Size = new System.Drawing.Size(116, 22);
-            this.txtServerPort.TabIndex = 8;
-            this.txtServerPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTSPort.Name = "txtTSPort";
+            this.txtTSPort.Size = new System.Drawing.Size(116, 22);
+            this.txtTSPort.TabIndex = 10;
+            this.txtTSPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lblServerPort
-            // 
-            this.lblServerPort.AutoSize = true;
-            this.lblServerPort.Location = new System.Drawing.Point(9, 12);
-            this.lblServerPort.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblServerPort.Name = "lblServerPort";
-            this.lblServerPort.Size = new System.Drawing.Size(74, 16);
-            this.lblServerPort.TabIndex = 9;
-            this.lblServerPort.Text = "Server Port";
-            // 
-            // lblTicketsPort
-            // 
-            this.lblTicketsPort.AutoSize = true;
-            this.lblTicketsPort.Location = new System.Drawing.Point(263, 12);
-            this.lblTicketsPort.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTicketsPort.Name = "lblTicketsPort";
-            this.lblTicketsPort.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblTicketsPort.Size = new System.Drawing.Size(78, 16);
-            this.lblTicketsPort.TabIndex = 11;
-            this.lblTicketsPort.Text = "Tickets Port";
-            // 
-            // txtTicketPort
-            // 
-            this.txtTicketPort.Location = new System.Drawing.Point(373, 5);
-            this.txtTicketPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtTicketPort.Maximum = new decimal(new int[] {
-            65535,
-            0,
-            0,
-            0});
-            this.txtTicketPort.Name = "txtTicketPort";
-            this.txtTicketPort.Size = new System.Drawing.Size(116, 22);
-            this.txtTicketPort.TabIndex = 10;
-            this.txtTicketPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // 最小化到托盘
+            // MinimizeTray
             // 
             this.MinimizeTray.ContextMenuStrip = this.托盘右键菜单;
-            this.MinimizeTray.Icon = ((System.Drawing.Icon)(resources.GetObject("最小化到托盘.Icon")));
+            this.MinimizeTray.Icon = ((System.Drawing.Icon)(resources.GetObject("MinimizeTray.Icon")));
             this.MinimizeTray.Text = "AccountServer";
             this.MinimizeTray.MouseClick += new System.Windows.Forms.MouseEventHandler(this.RestoreWindow_Click);
             // 
@@ -290,19 +266,44 @@
             this.btnLoadAccount.UseVisualStyleBackColor = false;
             this.btnLoadAccount.Click += new System.EventHandler(this.LoadAccount_Click);
             // 
+            // lblASPort
+            // 
+            this.lblASPort.AutoSize = true;
+            this.lblASPort.Location = new System.Drawing.Point(26, 12);
+            this.lblASPort.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblASPort.Name = "lblASPort";
+            this.lblASPort.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblASPort.Size = new System.Drawing.Size(52, 16);
+            this.lblASPort.TabIndex = 17;
+            this.lblASPort.Text = "AS Port";
+            // 
+            // txtASPort
+            // 
+            this.txtASPort.Location = new System.Drawing.Point(83, 10);
+            this.txtASPort.Margin = new System.Windows.Forms.Padding(4);
+            this.txtASPort.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+            this.txtASPort.Name = "txtASPort";
+            this.txtASPort.Size = new System.Drawing.Size(116, 22);
+            this.txtASPort.TabIndex = 16;
+            this.txtASPort.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 580);
+            this.Controls.Add(this.lblASPort);
+            this.Controls.Add(this.txtASPort);
             this.Controls.Add(this.btnLoadAccount);
             this.Controls.Add(this.btnLoadConfig);
             this.Controls.Add(this.btnOpenAccount);
             this.Controls.Add(this.btnServerConfig);
-            this.Controls.Add(this.lblTicketsPort);
-            this.Controls.Add(this.txtTicketPort);
-            this.Controls.Add(this.lblServerPort);
-            this.Controls.Add(this.txtServerPort);
+            this.Controls.Add(this.lblTSPort);
+            this.Controls.Add(this.txtTSPort);
             this.Controls.Add(this.lblBytesReceived);
             this.Controls.Add(this.lblBytesSend);
             this.Controls.Add(this.lblTicketsCount);
@@ -321,9 +322,9 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CloseWindow_Click);
             this.主选项卡.ResumeLayout(false);
             this.日志选项卡.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtServerPort)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTicketPort)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTSPort)).EndInit();
             this.托盘右键菜单.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtASPort)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,17 +363,13 @@
 		
 		private global::System.Windows.Forms.Label lblBytesReceived;
 
-		
-		private global::System.Windows.Forms.Label lblServerPort;
 
 		
-		private global::System.Windows.Forms.Label lblTicketsPort;
+		private global::System.Windows.Forms.Label lblTSPort;
+
 
 		
-		public global::System.Windows.Forms.NumericUpDown txtServerPort;
-
-		
-		public global::System.Windows.Forms.NumericUpDown txtTicketPort;
+		public global::System.Windows.Forms.NumericUpDown txtTSPort;
 
 		
 		private global::System.Windows.Forms.NotifyIcon MinimizeTray;
@@ -397,5 +394,7 @@
 
 		
 		private global::System.Windows.Forms.Button btnLoadAccount;
-	}
+        private System.Windows.Forms.Label lblASPort;
+        public System.Windows.Forms.NumericUpDown txtASPort;
+    }
 }

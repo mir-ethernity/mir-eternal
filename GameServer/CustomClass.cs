@@ -23,10 +23,10 @@ namespace GameServer
 		public static string 数据备份目录;
 
 		
-		public static ushort 客户连接端口;
+		public static ushort GSPort;
 
 		
-		public static ushort 门票接收端口;
+		public static ushort TSPort;
 
 		
 		public static ushort 封包限定数量;

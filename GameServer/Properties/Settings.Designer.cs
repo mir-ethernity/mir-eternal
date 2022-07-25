@@ -26,24 +26,24 @@ namespace GameServer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("8701")]
-        public ushort 客户连接端口 {
+        public ushort GSPort {
             get {
-                return ((ushort)(this["客户连接端口"]));
+                return ((ushort)(this["GSPort"]));
             }
             set {
-                this["客户连接端口"] = value;
+                this["GSPort"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("6678")]
-        public ushort 门票接收端口 {
+        public ushort TSPort {
             get {
-                return ((ushort)(this["门票接收端口"]));
+                return ((ushort)(this["TSPort"]));
             }
             set {
-                this["门票接收端口"] = value;
+                this["TSPort"] = value;
             }
         }
         

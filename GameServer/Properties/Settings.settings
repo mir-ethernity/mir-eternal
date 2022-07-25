@@ -2,10 +2,10 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GameServer.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="客户连接端口" Type="System.UInt16" Scope="User">
+    <Setting Name="GSPort" Type="System.UInt16" Scope="User">
       <Value Profile="(Default)">8701</Value>
     </Setting>
-    <Setting Name="门票接收端口" Type="System.UInt16" Scope="User">
+    <Setting Name="TSPort" Type="System.UInt16" Scope="User">
       <Value Profile="(Default)">6678</Value>
     </Setting>
     <Setting Name="封包限定数量" Type="System.UInt16" Scope="User">

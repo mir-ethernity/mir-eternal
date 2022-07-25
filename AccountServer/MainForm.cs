@@ -17,39 +17,40 @@ namespace AccountServer
 		
 		public MainForm()
 		{
-			this.InitializeComponent();
-			MainForm.Singleton = this;
-			this.txtServerPort.Value = Settings.Default.ServerPort;
-			this.txtTicketPort.Value = Settings.Default.TicketsPort;
+			InitializeComponent();
+			Singleton = this;
+			txtTSPort.Value = Settings.Default.TSPort;
+			txtASPort.Value = Settings.Default.ASPort;
+
 			if (!File.Exists(".\\server"))
 			{
-				this.日志文本框.AppendText("No server configuration file found, please note the configuration\r\n");
+				日志文本框.AppendText("No server configuration file found, please note the configuration\r\n");
 			}
-			if (!Directory.Exists(MainForm.DataDirectory))
+			if (!Directory.Exists(DataDirectory))
 			{
-				this.日志文本框.AppendText("Account configuration folder not found, please note import\r\n");
+				日志文本框.AppendText("Account configuration folder not found, please note import\r\n");
 			}
 		}
 
 		
 		public static void UpdateTotalNewAccounts()
 		{
-			MainForm MainForm = MainForm.Singleton;
+			MainForm MainForm = Singleton;
 			if (MainForm == null)
 			{
 				return;
 			}
 			MainForm.BeginInvoke(new MethodInvoker(delegate()
 			{
-				MainForm.Singleton.lblRegisteredAccounts.Text = string.Format("Registered accounts: {0}", MainForm.AccountData.Count);
+				Singleton.lblRegisteredAccounts.Text = string.Format("Registered accounts: {0}", AccountData.Count);
 			}));
 		}
 
 		
 		public static void 更新新注册账号数()
 		{
-			MainForm MainForm = MainForm.Singleton;
-			MainForm.UpdateTotalNewAccounts();
+			MainForm MainForm = Singleton;
+			UpdateTotalNewAccounts();
 			
 			if (MainForm == null)
 			{
@@ -57,108 +58,108 @@ namespace AccountServer
 			}
 			MainForm.BeginInvoke(new MethodInvoker(delegate()
 			{
-				MainForm.Singleton.lblNewAccounts.Text = string.Format("New accounts: {0}", MainForm.TotalNewAccounts);
+				Singleton.lblNewAccounts.Text = string.Format("New accounts: {0}", TotalNewAccounts);
 			}));
 		}
 
 		
 		public static void UpdateTotalTickets()
 		{
-			MainForm MainForm = MainForm.Singleton;
+			MainForm MainForm = Singleton;
 			if (MainForm == null)
 			{
 				return;
 			}
 			MainForm.BeginInvoke(new MethodInvoker(delegate()
 			{
-				MainForm.Singleton.lblTicketsCount.Text = string.Format("Tickets generated {0}", MainForm.TotalTickets);
+				Singleton.lblTicketsCount.Text = string.Format("Tickets generated {0}", TotalTickets);
 			}));
 		}
 
 		
 		public static void UpdateTotalBytesReceived()
 		{
-			MainForm MainForm = MainForm.Singleton;
+			MainForm MainForm = Singleton;
 			if (MainForm == null)
 			{
 				return;
 			}
 			MainForm.BeginInvoke(new MethodInvoker(delegate()
 			{
-				MainForm.Singleton.lblBytesReceived.Text = string.Format("Bytes received: {0}", MainForm.TotalBytesReceived);
+				Singleton.lblBytesReceived.Text = string.Format("Bytes received: {0}", TotalBytesReceived);
 			}));
 		}
 
 		
 		public static void UpdateTotalBytesSended()
 		{
-			MainForm MainForm = MainForm.Singleton;
+			MainForm MainForm = Singleton;
 			if (MainForm == null)
 			{
 				return;
 			}
 			MainForm.BeginInvoke(new MethodInvoker(delegate()
 			{
-				MainForm.Singleton.lblBytesSend.Text = string.Format("Bytes sent: {0}", MainForm.TotalBytesSended);
+				Singleton.lblBytesSend.Text = string.Format("Bytes sent: {0}", TotalBytesSended);
 			}));
 		}
 
 		
 		public static void AddLog(string 内容)
 		{
-			MainForm MainForm = MainForm.Singleton;
+			MainForm MainForm = Singleton;
 			if (MainForm == null)
 			{
 				return;
 			}
 			MainForm.BeginInvoke(new MethodInvoker(delegate()
 			{
-				MainForm.Singleton.日志文本框.AppendText(内容 + "\r\n");
-				MainForm.Singleton.日志文本框.ScrollToCaret();
+				Singleton.日志文本框.AppendText(内容 + "\r\n");
+				Singleton.日志文本框.ScrollToCaret();
 			}));
 		}
 
 		
 		public static void AddAccount(AccountData 账号)
 		{
-			if (!MainForm.AccountData.ContainsKey(账号.账号名字))
+			if (!AccountData.ContainsKey(账号.账号名字))
 			{
-				MainForm.AccountData[账号.账号名字] = 账号;
-				MainForm.SaveAccount(账号);
+				AccountData[账号.账号名字] = 账号;
+				SaveAccount(账号);
 			}
 		}
 
 		
 		public static void SaveAccount(AccountData 账号)
 		{
-			File.WriteAllText(MainForm.DataDirectory + "\\" + 账号.账号名字 + ".txt", Serializer.Serialize(账号));
+			File.WriteAllText(DataDirectory + "\\" + 账号.账号名字 + ".txt", Serializer.Serialize(账号));
 		}
 
 		
 		private void Start_Click(object sender, EventArgs e)
 		{
-			if (MainForm.ServerData == null || MainForm.ServerData.Count == 0)
+			if (ServerData == null || ServerData.Count == 0)
 			{
-				this.LoadConfig_Click(sender, e);
+				LoadConfig_Click(sender, e);
 			}
-			if (MainForm.ServerData == null || MainForm.ServerData.Count == 0)
+			if (ServerData == null || ServerData.Count == 0)
 			{
-				MainForm.AddLog("Server configuration is empty, startup failed");
+				AddLog("Server configuration is empty, startup failed");
 				return;
 			}
-			if (MainForm.AccountData == null || MainForm.AccountData.Count == 0)
+			if (AccountData == null || AccountData.Count == 0)
 			{
-				this.LoadAccount_Click(sender, e);
+				LoadAccount_Click(sender, e);
 			}
 			if (Network.Start())
 			{
-				this.btnStop.Enabled = true;
-				this.btnLoadConfig.Enabled = (this.btnLoadAccount.Enabled = false);
-				this.btnStart.Enabled = false;
-				this.txtServerPort.Enabled = false;
-				this.txtTicketPort.Enabled = false;
-				Settings.Default.ServerPort = (ushort)this.txtServerPort.Value;
-				Settings.Default.TicketsPort = (ushort)this.txtTicketPort.Value;
+				btnStop.Enabled = true;
+				btnLoadConfig.Enabled = (btnLoadAccount.Enabled = false);
+				btnStart.Enabled = false;
+				txtASPort.Enabled = false;
+				txtTSPort.Enabled = false;
+				Settings.Default.ASPort = (ushort)txtASPort.Value;
+				Settings.Default.TSPort = (ushort)txtTSPort.Value;
 				Settings.Default.Save();
 			}
 		}
@@ -167,9 +168,9 @@ namespace AccountServer
 		private void Stop_Click(object sender, EventArgs e)
 		{
 			Network.Stop();
-			this.btnStop.Enabled = false;
-			this.btnLoadConfig.Enabled = (this.btnLoadAccount.Enabled = true);
-			this.btnStart.Enabled = (this.txtServerPort.Enabled = (this.txtTicketPort.Enabled = true));
+			btnStop.Enabled = false;
+			btnLoadConfig.Enabled = (btnLoadAccount.Enabled = true);
+			btnStart.Enabled = (txtASPort.Enabled = (txtTSPort.Enabled = true));
 		}
 
 		
@@ -177,17 +178,17 @@ namespace AccountServer
 		{
 			if (MessageBox.Show("Are you sure you want to shut down the server?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
 			{
-				this.MinimizeTray.Visible = false;
+				MinimizeTray.Visible = false;
 				Environment.Exit(0);
 				return;
 			}
-			this.MinimizeTray.Visible = true;
+			MinimizeTray.Visible = true;
 			base.Hide();
 			if (e != null)
 			{
 				e.Cancel = true;
 			}
-			this.MinimizeTray.ShowBalloonTip(1000, "", "The server has moved to the background.", ToolTipIcon.Info);
+			MinimizeTray.ShowBalloonTip(1000, "", "The server has moved to the background.", ToolTipIcon.Info);
 		}
 
 		
@@ -196,7 +197,7 @@ namespace AccountServer
 			if (e.Button == MouseButtons.Left)
 			{
 				base.Visible = true;
-				this.MinimizeTray.Visible = false;
+				MinimizeTray.Visible = false;
 			}
 		}
 
@@ -204,7 +205,7 @@ namespace AccountServer
 		private void RestoreWindow2_Click(object sender, EventArgs e)
 		{
 			base.Visible = true;
-			this.MinimizeTray.Visible = false;
+			MinimizeTray.Visible = false;
 		}
 
 		
@@ -213,7 +214,7 @@ namespace AccountServer
 			if (MessageBox.Show("Are you sure you want to shut down the server?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
 			{
 				Network.Stop();
-				this.MinimizeTray.Visible = false;
+				MinimizeTray.Visible = false;
 				Environment.Exit(0);
 			}
 		}
@@ -223,7 +224,7 @@ namespace AccountServer
 		{
 			if (!File.Exists(".\\server"))
 			{
-				MainForm.AddLog("Profile does not exist, it was created automatically");
+				AddLog("Profile does not exist, it was created automatically");
 				File.WriteAllBytes(".\\server", new byte[0]);
 			}
 			Process.Start("notepad.exe", ".\\server");
@@ -234,14 +235,14 @@ namespace AccountServer
 		{
 			if (File.Exists(".\\server"))
 			{
-				MainForm.ServerData = new Dictionary<string, IPEndPoint>();
-				MainForm.GameServerArea = File.ReadAllText(".\\server", Encoding.Unicode).Trim(new char[]
+				ServerData = new Dictionary<string, IPEndPoint>();
+				GameServerArea = File.ReadAllText(".\\server", Encoding.Unicode).Trim(new char[]
 				{
 					'\r',
 					'\n',
 					' '
 				});
-				foreach (string text in MainForm.GameServerArea.Split(new char[]
+				foreach (string text in GameServerArea.Split(new char[]
 				{
 					'\r',
 					'\n'
@@ -257,45 +258,45 @@ namespace AccountServer
 						MessageBox.Show("server configuration error, parsing error. Line: " + text);
 						Environment.Exit(0);
 					}
-					MainForm.ServerData.Add(array2[2], new IPEndPoint(IPAddress.Parse(array2[0]), Convert.ToInt32(array2[1])));
+					ServerData.Add(array2[2], new IPEndPoint(IPAddress.Parse(array2[0]), Convert.ToInt32(array2[1])));
 				}
-				MainForm.AddLog("Network configuration loaded, current configuration list:\r\n" + MainForm.GameServerArea);
+				AddLog("Network configuration loaded, current configuration list:\r\n" + GameServerArea);
 			}
 		}
 
 		
 		private void ViewAccount_Click(object sender, EventArgs e)
 		{
-			if (!Directory.Exists(MainForm.DataDirectory))
+			if (!Directory.Exists(DataDirectory))
 			{
-				MainForm.AddLog("Account directory does not exist, it has been created automatically");
-				Directory.CreateDirectory(MainForm.DataDirectory);
+				AddLog("Account directory does not exist, it has been created automatically");
+				Directory.CreateDirectory(DataDirectory);
 				return;
 			}
-			Process.Start("explorer.exe", MainForm.DataDirectory);
+			Process.Start("explorer.exe", DataDirectory);
 		}
 
 		
 		private void LoadAccount_Click(object sender, EventArgs e)
 		{
-			MainForm.AccountData = new Dictionary<string, AccountData>();
-			if (!Directory.Exists(MainForm.DataDirectory))
+			AccountData = new Dictionary<string, AccountData>();
+			if (!Directory.Exists(DataDirectory))
 			{
-				MainForm.AddLog("Account directory does not exist, it has been created automatically");
-				Directory.CreateDirectory(MainForm.DataDirectory);
+				AddLog("Account directory does not exist, it has been created automatically");
+				Directory.CreateDirectory(DataDirectory);
 				return;
 			}
-			object[] array = Serializer.Deserialize(MainForm.DataDirectory, typeof(AccountData));
+			object[] array = Serializer.Deserialize(DataDirectory, typeof(AccountData));
 			for (int i = 0; i < array.Length; i++)
 			{
-				AccountData AccountData = array[i] as AccountData;
-				if (AccountData != null)
+				AccountData accountData = array[i] as AccountData;
+				if (accountData != null)
 				{
-					MainForm.AccountData[AccountData.账号名字] = AccountData;
+					AccountData[accountData.账号名字] = accountData;
 				}
 			}
-			MainForm.AddLog(string.Format("Accounts has been loaded, the current number of accounts: {0}", MainForm.AccountData.Count));
-			this.lblRegisteredAccounts.Text = string.Format("Registered account: {0}", MainForm.AccountData.Count);
+			AddLog(string.Format("Accounts has been loaded, the current number of accounts: {0}", AccountData.Count));
+			lblRegisteredAccounts.Text = string.Format("Registered account: {0}", AccountData.Count);
 		}
 
 		

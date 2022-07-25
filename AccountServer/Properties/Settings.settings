@@ -2,11 +2,11 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AccountServer.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="ServerPort" Type="System.UInt16" Scope="User">
-      <Value Profile="(Default)">8001</Value>
-    </Setting>
-    <Setting Name="TicketsPort" Type="System.UInt16" Scope="User">
+    <Setting Name="TSPort" Type="System.UInt16" Scope="User">
       <Value Profile="(Default)">6678</Value>
+    </Setting>
+    <Setting Name="ASPort" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">7000</Value>
     </Setting>
   </Settings>
 </SettingsFile>

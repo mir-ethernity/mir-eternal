@@ -26,7 +26,7 @@ namespace Launcher
         {
             this.InitializeComponent();
             MainForm.CurrentForm = this;
-            Comunication.MainSocket();
+            Network.MainSocket();
             MainForm.IPList = new Dictionary<string, IPEndPoint>();
             this.start_selected_zone.Text = Settings.Default.SaveArea;
             this.AccountTextBox.Text = Settings.Default.SaveAccount;
@@ -46,7 +46,7 @@ namespace Launcher
                 int num = (int)MessageBox.Show("Server information error.");
                 Environment.Exit(0);
             }
-            Comunication.ip = new IPEndPoint(IPAddress.Parse(strArray[0]), Convert.ToInt32(strArray[1]));
+            Network.ASAddress = new IPEndPoint(IPAddress.Parse(strArray[0]), Convert.ToInt32(strArray[1]));
         }
 
         public void UILock()
@@ -60,7 +60,7 @@ namespace Launcher
         public void PacketProcess(object sender, EventArgs e)
         {
             byte[] result1;
-            if (Comunication.udpClient == null || Comunication.Packets.IsEmpty || !Comunication.Packets.TryDequeue(out result1))
+            if (Network.UDPClient == null || Network.Packets.IsEmpty || !Network.Packets.TryDequeue(out result1))
                 return;
             string[] strArray1 = Encoding.UTF8.GetString(result1, 0, result1.Length).Split(new char[1]
             {
@@ -209,7 +209,7 @@ namespace Launcher
             }
             else
             {
-                if (Comunication.SendPacket(Encoding.UTF8.GetBytes(string.Format("{0} 0 ", (object)++MainForm.PacketNumber) + this.AccountTextBox.Text + " " + this.AccountPasswordTextBox.Text)))
+                if (Network.SendPacket(Encoding.UTF8.GetBytes(string.Format("{0} 0 ", (object)++MainForm.PacketNumber) + this.AccountTextBox.Text + " " + this.AccountPasswordTextBox.Text)))
                     this.UILock();
                 this.AccountPasswordTextBox.Text = "";
                 this.InterfaceUpdateTimer.Enabled = true;
@@ -343,7 +343,7 @@ namespace Launcher
             }
             else
             {
-                if (Comunication.SendPacket(Encoding.UTF8.GetBytes(string.Format("{0} 1 ", (object)++MainForm.PacketNumber) + this.Register_AccountNameTextBox.Text + " " + this.Register_PasswordTextBox.Text + " " + this.Register_QuestionTextBox.Text + " " + this.Register_SecretAnswerTextBox.Text)))
+                if (Network.SendPacket(Encoding.UTF8.GetBytes(string.Format("{0} 1 ", (object)++MainForm.PacketNumber) + this.Register_AccountNameTextBox.Text + " " + this.Register_PasswordTextBox.Text + " " + this.Register_QuestionTextBox.Text + " " + this.Register_SecretAnswerTextBox.Text)))
                     this.UILock();
                 this.Register_PasswordTextBox.Text = this.Register_SecretAnswerTextBox.Text = "";
                 this.InterfaceUpdateTimer.Enabled = true;
@@ -401,7 +401,7 @@ namespace Launcher
             }
             else
             {
-                if (Comunication.SendPacket(Encoding.UTF8.GetBytes(string.Format("{0} 2 ", (object)++MainForm.PacketNumber) + this.Modify_AccountNameTextBox.Text + " " + this.Modify_PasswordTextBox.Text + " " + this.Modify_QuestionTextBox.Text + " " + this.Modify_AnswerTextBox.Text)))
+                if (Network.SendPacket(Encoding.UTF8.GetBytes(string.Format("{0} 2 ", (object)++MainForm.PacketNumber) + this.Modify_AccountNameTextBox.Text + " " + this.Modify_PasswordTextBox.Text + " " + this.Modify_QuestionTextBox.Text + " " + this.Modify_AnswerTextBox.Text)))
                     this.UILock();
                 this.Modify_PasswordTextBox.Text = this.Modify_AnswerTextBox.Text = "";
                 this.InterfaceUpdateTimer.Enabled = true;
@@ -424,7 +424,7 @@ namespace Launcher
             }
             else
             {
-                if (!Comunication.SendPacket(Encoding.UTF8.GetBytes(string.Format("{0} 3 ", (object)++MainForm.PacketNumber) + MainForm.LoginAccount + " " + MainForm.LoginPassword + " " + this.start_selected_zone.Text + " v1.0")))
+                if (!Network.SendPacket(Encoding.UTF8.GetBytes(string.Format("{0} 3 ", (object)++MainForm.PacketNumber) + MainForm.LoginAccount + " " + MainForm.LoginPassword + " " + this.start_selected_zone.Text + " v1.0")))
                     return;
                 this.UILock();
                 this.InterfaceUpdateTimer.Enabled = true;

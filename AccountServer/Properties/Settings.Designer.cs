@@ -25,25 +25,25 @@ namespace AccountServer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("8001")]
-        public ushort ServerPort {
+        [global::System.Configuration.DefaultSettingValueAttribute("6678")]
+        public ushort TSPort {
             get {
-                return ((ushort)(this["ServerPort"]));
+                return ((ushort)(this["TSPort"]));
             }
             set {
-                this["ServerPort"] = value;
+                this["TSPort"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("6678")]
-        public ushort TicketsPort {
+        [global::System.Configuration.DefaultSettingValueAttribute("7000")]
+        public ushort ASPort {
             get {
-                return ((ushort)(this["TicketsPort"]));
+                return ((ushort)(this["ASPort"]));
             }
             set {
-                this["TicketsPort"] = value;
+                this["ASPort"] = value;
             }
         }
     }

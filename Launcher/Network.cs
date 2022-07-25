@@ -7,25 +7,25 @@ using System.Windows.Forms;
 
 namespace Launcher
 {
-  public sealed class Comunication
+  public sealed class Network
   {
-    public static UdpClient udpClient;
-    public static IPEndPoint ip;
+    public static UdpClient UDPClient;
+    public static IPEndPoint ASAddress;
     public static ConcurrentQueue<byte[]> Packets;
 
     public static void MainSocket()
     {
-      Comunication.udpClient = new UdpClient(new IPEndPoint(IPAddress.Any, 0));
-      Comunication.Packets = new ConcurrentQueue<byte[]>();
+      Network.UDPClient = new UdpClient(new IPEndPoint(IPAddress.Any, 0));
+      Network.Packets = new ConcurrentQueue<byte[]>();
       Task.Run((Action) (() =>
       {
-        while (Comunication.udpClient != null)
+        while (Network.UDPClient != null)
         {
           try
           {
             IPEndPoint remoteEP = (IPEndPoint) null;
-            byte[] numArray = Comunication.udpClient.Receive(ref remoteEP);
-            Comunication.Packets.Enqueue(numArray);
+            byte[] numArray = Network.UDPClient.Receive(ref remoteEP);
+            Network.Packets.Enqueue(numArray);
           }
           catch (Exception ex)
           {
@@ -41,17 +41,17 @@ namespace Launcher
 
     public static void CloseSocket()
     {
-      Comunication.udpClient.Close();
-      Comunication.udpClient = (UdpClient) null;
+      Network.UDPClient.Close();
+      Network.UDPClient = (UdpClient) null;
     }
 
     public static bool SendPacket(byte[] data)
     {
-      if (Comunication.udpClient == null)
+      if (Network.UDPClient == null)
         return false;
       try
       {
-        Comunication.udpClient.Send(data, data.Length, Comunication.ip);
+        Network.UDPClient.Send(data, data.Length, Network.ASAddress);
         return true;
       }
       catch

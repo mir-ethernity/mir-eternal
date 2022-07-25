@@ -16,34 +16,34 @@ namespace GameServer.Networking
 		
 		public static void Start()
 		{
-			NetworkServiceGateway.网络服务停止 = false;
-			NetworkServiceGateway.Connections = new HashSet<客户网络>();
-			NetworkServiceGateway.等待添加表 = new ConcurrentQueue<客户网络>();
-			NetworkServiceGateway.等待移除表 = new ConcurrentQueue<客户网络>();
-			NetworkServiceGateway.全服公告表 = new ConcurrentQueue<GamePacket>();
-			NetworkServiceGateway.网络监听器 = new TcpListener(IPAddress.Any, (int)CustomClass.客户连接端口);
-			NetworkServiceGateway.网络监听器.Start();
-			NetworkServiceGateway.网络监听器.BeginAcceptTcpClient(new AsyncCallback(NetworkServiceGateway.异步连接), null);
-			NetworkServiceGateway.门票DataSheet = new Dictionary<string, TicketInformation>();
-			NetworkServiceGateway.门票接收器 = new UdpClient(new IPEndPoint(IPAddress.Any, (int)CustomClass.门票接收端口));
+			网络服务停止 = false;
+			Connections = new HashSet<客户网络>();
+			等待添加表 = new ConcurrentQueue<客户网络>();
+			等待移除表 = new ConcurrentQueue<客户网络>();
+			全服公告表 = new ConcurrentQueue<GamePacket>();
+			网络监听器 = new TcpListener(IPAddress.Any, (int)CustomClass.GSPort);
+			网络监听器.Start();
+			网络监听器.BeginAcceptTcpClient(new AsyncCallback(异步连接), null);
+			门票DataSheet = new Dictionary<string, TicketInformation>();
+			门票接收器 = new UdpClient(new IPEndPoint(IPAddress.Any, (int)CustomClass.TSPort));
 		}
 
 		
 		public static void Stop()
 		{
-			NetworkServiceGateway.网络服务停止 = true;
-			TcpListener tcpListener = NetworkServiceGateway.网络监听器;
+			网络服务停止 = true;
+			TcpListener tcpListener = 网络监听器;
 			if (tcpListener != null)
 			{
 				tcpListener.Stop();
 			}
-			NetworkServiceGateway.网络监听器 = null;
-			UdpClient udpClient = NetworkServiceGateway.门票接收器;
+			网络监听器 = null;
+			UdpClient udpClient = 门票接收器;
 			if (udpClient != null)
 			{
 				udpClient.Close();
 			}
-			NetworkServiceGateway.门票接收器 = null;
+			门票接收器 = null;
 		}
 
 		
@@ -53,19 +53,19 @@ namespace GameServer.Networking
 			{
 				for (;;)
 				{
-					UdpClient udpClient = NetworkServiceGateway.门票接收器;
+					UdpClient udpClient = 门票接收器;
 					if (udpClient == null || udpClient.Available == 0)
 					{
 						break;
 					}
-					byte[] bytes = NetworkServiceGateway.门票接收器.Receive(ref NetworkServiceGateway.门票发送端);
+					byte[] bytes = 门票接收器.Receive(ref 门票发送端);
 					string[] array = Encoding.UTF8.GetString(bytes).Split(new char[]
 					{
 						';'
 					});
 					if (array.Length == 2)
 					{
-						NetworkServiceGateway.门票DataSheet[array[0]] = new TicketInformation
+						门票DataSheet[array[0]] = new TicketInformation
 						{
 							登录账号 = array[1],
 							EffectiveTime = MainProcess.CurrentTime.AddMinutes(5.0)
@@ -77,7 +77,7 @@ namespace GameServer.Networking
 			{
 				MainProcess.AddSystemLog("接收登录门票时发生错误. " + ex.Message);
 			}
-			using (HashSet<客户网络>.Enumerator enumerator = NetworkServiceGateway.Connections.GetEnumerator())
+			using (HashSet<客户网络>.Enumerator enumerator = Connections.GetEnumerator())
 			{
 				while (enumerator.MoveNext())
 				{
@@ -95,25 +95,25 @@ namespace GameServer.Networking
 			}
 			IL_123:
 			客户网络 item;
-			if (NetworkServiceGateway.等待移除表.TryDequeue(out item))
+			if (等待移除表.TryDequeue(out item))
 			{
-				NetworkServiceGateway.Connections.Remove(item);
+				Connections.Remove(item);
 			}
 			IL_13E:
-			if (NetworkServiceGateway.等待移除表.IsEmpty)
+			if (等待移除表.IsEmpty)
 			{
-				while (!NetworkServiceGateway.等待添加表.IsEmpty)
+				while (!等待添加表.IsEmpty)
 				{
-                    if (NetworkServiceGateway.等待添加表.TryDequeue(out 客户网络 item2))
+                    if (等待添加表.TryDequeue(out 客户网络 item2))
                     {
-                        NetworkServiceGateway.Connections.Add(item2);
+                        Connections.Add(item2);
                     }
                 }
-				while (!NetworkServiceGateway.全服公告表.IsEmpty)
+				while (!全服公告表.IsEmpty)
 				{
-                    if (NetworkServiceGateway.全服公告表.TryDequeue(out GamePacket 封包))
+                    if (全服公告表.TryDequeue(out GamePacket 封包))
                     {
-                        foreach (客户网络 客户网络2 in NetworkServiceGateway.Connections)
+                        foreach (客户网络 客户网络2 in Connections)
                         {
                             if (客户网络2.绑定角色 != null)
                             {
@@ -132,11 +132,11 @@ namespace GameServer.Networking
 		{
 			try
 			{
-				if (NetworkServiceGateway.网络服务停止)
+				if (网络服务停止)
 				{
 					return;
 				}
-				TcpClient tcpClient = NetworkServiceGateway.网络监听器.EndAcceptTcpClient(异步参数);
+				TcpClient tcpClient = 网络监听器.EndAcceptTcpClient(异步参数);
 				string text = tcpClient.Client.RemoteEndPoint.ToString().Split(new char[]
 				{
 					':'
@@ -145,9 +145,9 @@ namespace GameServer.Networking
 				{
 					tcpClient.Client.Close();
 				}
-				else if (NetworkServiceGateway.Connections.Count < 10000)
+				else if (Connections.Count < 10000)
 				{
-					ConcurrentQueue<客户网络> concurrentQueue = NetworkServiceGateway.等待添加表;
+					ConcurrentQueue<客户网络> concurrentQueue = 等待添加表;
 					if (concurrentQueue != null)
 					{
 						concurrentQueue.Enqueue(new 客户网络(tcpClient));
@@ -161,20 +161,20 @@ namespace GameServer.Networking
 				goto IL_CA;
 			}
 			IL_B6:
-			if (NetworkServiceGateway.Connections.Count <= 100)
+			if (Connections.Count <= 100)
 			{
 				goto IL_D1;
 			}
 			Thread.Sleep(1);
 			IL_CA:
-			if (!NetworkServiceGateway.网络服务停止)
+			if (!网络服务停止)
 			{
 				goto IL_B6;
 			}
 			IL_D1:
-			if (!NetworkServiceGateway.网络服务停止)
+			if (!网络服务停止)
 			{
-				NetworkServiceGateway.网络监听器.BeginAcceptTcpClient(new AsyncCallback(NetworkServiceGateway.异步连接), null);
+				网络监听器.BeginAcceptTcpClient(new AsyncCallback(异步连接), null);
 			}
 		}
 
@@ -212,7 +212,7 @@ namespace GameServer.Networking
                 binaryWriter.Write(滚动播报 ? 2 : 3);
                 binaryWriter.Write(0);
                 binaryWriter.Write(Encoding.UTF8.GetBytes(内容 + "\0"));
-                NetworkServiceGateway.发送封包(new ReceiveChatMessagesPacket
+                发送封包(new ReceiveChatMessagesPacket
                 {
                     字节描述 = memoryStream.ToArray()
                 });
@@ -225,7 +225,7 @@ namespace GameServer.Networking
 		{
 			if (封包 != null)
 			{
-				ConcurrentQueue<GamePacket> concurrentQueue = NetworkServiceGateway.全服公告表;
+				ConcurrentQueue<GamePacket> concurrentQueue = 全服公告表;
 				if (concurrentQueue == null)
 				{
 					return;
@@ -239,7 +239,7 @@ namespace GameServer.Networking
 		{
 			if (网络 != null)
 			{
-				NetworkServiceGateway.等待添加表.Enqueue(网络);
+				等待添加表.Enqueue(网络);
 			}
 		}
 
@@ -248,7 +248,7 @@ namespace GameServer.Networking
 		{
 			if (网络 != null)
 			{
-				NetworkServiceGateway.等待移除表.Enqueue(网络);
+				等待移除表.Enqueue(网络);
 			}
 		}
 
