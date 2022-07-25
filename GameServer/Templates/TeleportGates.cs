@@ -23,7 +23,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			DataSheet = new List<TeleportGates>();
-			string text = CustomClass.GameDataPath + "\\System\\GameMap\\TeleportGates\\";
+			string text = Config.GameDataPath + "\\System\\GameMap\\TeleportGates\\";
 			if (Directory.Exists(text))
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(TeleportGates)))

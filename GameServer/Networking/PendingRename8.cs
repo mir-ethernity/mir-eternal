@@ -23,7 +23,7 @@ namespace GameServer.Networking
 			this.当前连接 = 客户端;
 			this.当前连接.NoDelay = true;
 			this.接入时间 = MainProcess.CurrentTime;
-			this.断开时间 = MainProcess.CurrentTime.AddMinutes((double)CustomClass.掉线判定时间);
+			this.断开时间 = MainProcess.CurrentTime.AddMinutes((double)Config.掉线判定时间);
 			this.断网事件 = (EventHandler<Exception>)Delegate.Combine(this.断网事件, new EventHandler<Exception>(NetworkServiceGateway.断网回调));
 			this.网络地址 = this.当前连接.Client.RemoteEndPoint.ToString().Split(new char[]
 			{
@@ -171,7 +171,7 @@ namespace GameServer.Networking
 		{
 			while (!this.接收列表.IsEmpty)
 			{
-				if (this.接收列表.Count > (int)CustomClass.封包限定数量)
+				if (this.接收列表.Count > (int)Config.封包限定数量)
 				{
 					this.接收列表 = new ConcurrentQueue<GamePacket>();
 					NetworkServiceGateway.屏蔽网络(this.网络地址);
@@ -213,7 +213,7 @@ namespace GameServer.Networking
 		
 		private void 延迟掉线时间()
 		{
-			this.断开时间 = MainProcess.CurrentTime.AddMinutes((double)CustomClass.掉线判定时间);
+			this.断开时间 = MainProcess.CurrentTime.AddMinutes((double)Config.掉线判定时间);
 		}
 
 		

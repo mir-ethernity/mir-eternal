@@ -56,7 +56,7 @@ namespace GameServer.Templates
         public static void LoadData()
         {
             DataSheet = new Dictionary<byte, Terrains>();
-            string path = CustomClass.GameDataPath + "\\System\\GameMap\\Terrains\\";
+            string path = Config.GameDataPath + "\\System\\GameMap\\Terrains\\";
             if (Directory.Exists(path))
             {
                 var terrains = new ConcurrentBag<Terrains>();

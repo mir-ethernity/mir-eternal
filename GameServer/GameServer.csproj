@@ -723,7 +723,7 @@
     <Compile Include="Networking\PendingRename190.cs" />
     <Compile Include="Networking\PendingRename191.cs" />
     <Compile Include="Networking\PendingRename264.cs" />
-    <Compile Include="CustomClass.cs" />
+    <Compile Include="Config.cs" />
     <Compile Include="Enums\EquipHoleColor.cs" />
     <Compile Include="Enums\EquipmentWearingParts.cs" />
     <Compile Include="GMCommands\RenameCharacter.cs" />

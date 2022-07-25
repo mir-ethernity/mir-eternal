@@ -1959,7 +1959,7 @@ namespace GameServer.Data
 				decimal d = this.最大持久.V - this.当前持久.V;
 				decimal d2 = ((EquipmentItem)this.对应模板.V).SpecialRepairCost;
 				decimal d3 = ((EquipmentItem)this.对应模板.V).ItemLast * 1000m;
-				return (int)(d2 / d3 * d * CustomClass.装备特修折扣 * 1.15m);
+				return (int)(d2 / d3 * d * Config.装备特修折扣 * 1.15m);
 			}
 		}
 

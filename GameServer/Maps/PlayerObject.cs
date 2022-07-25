@@ -212,8 +212,8 @@ namespace GameServer.Maps
 					对象等级 = this.当前等级,
 					AttackMode = (byte)this.AttackMode,
 					当前时间 = ComputingClass.时间转换(MainProcess.CurrentTime),
-					OpenLevelCommand = (ushort)CustomClass.游戏OpenLevelCommand,
-					特修折扣 = (ushort)(CustomClass.装备特修折扣 * 10000m)
+					OpenLevelCommand = (ushort)Config.游戏OpenLevelCommand,
+					特修折扣 = (ushort)(Config.装备特修折扣 * 10000m)
 				});
 			}
 			if (网络连接 != null)
@@ -452,7 +452,7 @@ namespace GameServer.Maps
 		{
 			if (this.绑定地图)
 			{
-				if (this.当前地图.MapId == 183 && MainProcess.CurrentTime.Hour != (int)CustomClass.武斗场时间一 && MainProcess.CurrentTime.Hour != (int)CustomClass.武斗场时间二)
+				if (this.当前地图.MapId == 183 && MainProcess.CurrentTime.Hour != (int)Config.武斗场时间一 && MainProcess.CurrentTime.Hour != (int)Config.武斗场时间二)
 				{
 					if (this.对象死亡)
 					{
@@ -2380,15 +2380,15 @@ namespace GameServer.Maps
 		
 		public void 玩家增加经验(MonsterObject 怪物, int 经验增加)
 		{
-			if (经验增加 > 0 && (this.当前等级 < CustomClass.游戏OpenLevelCommand || this.当前经验 < this.所需经验))
+			if (经验增加 > 0 && (this.当前等级 < Config.游戏OpenLevelCommand || this.当前经验 < this.所需经验))
 			{
 				int num = 经验增加;
 				int num2 = 0;
 				if (怪物 != null)
 				{
 					num = (int)Math.Max(0.0, (double)num - Math.Round((double)((float)num * ComputingClass.收益衰减((int)this.当前等级, (int)怪物.当前等级))));
-					num = (int)(num * CustomClass.怪物经验倍率);
-					if (this.当前等级 <= CustomClass.NoobSupportCommand等级)
+					num = (int)(num * Config.怪物经验倍率);
+					if (this.当前等级 <= Config.NoobSupportCommand等级)
 					{
 						num *= 2;
 					}
@@ -2398,7 +2398,7 @@ namespace GameServer.Maps
 				this.双倍经验 -= num2;
 				if (num3 > 0)
 				{
-					if ((this.当前经验 += num3) >= this.所需经验 && this.当前等级 < CustomClass.游戏OpenLevelCommand)
+					if ((this.当前经验 += num3) >= this.所需经验 && this.当前等级 < Config.游戏OpenLevelCommand)
 					{
 						while (this.当前经验 >= this.所需经验)
 						{
@@ -2768,7 +2768,7 @@ namespace GameServer.Maps
 					if (this.宠物列表.Count < num4 + (int)额外诱惑数量)
 					{
 						int num10 = Math.Min(num5 + num8, 7);
-						int 宠物时长 = (int)CustomClass.怪物诱惑时长 + 额外诱惑时长 + num7;
+						int 宠物时长 = (int)Config.怪物诱惑时长 + 额外诱惑时长 + num7;
 						bool 绑定武器 = flag || num5 != 0 || 额外诱惑时长 != 0 || 额外诱惑概率 != 0f || this.宠物列表.Count >= num4;
 						MonsterObject MonsterObject = 诱惑目标 as MonsterObject;
 						PetObject PetObject = (MonsterObject != null) ? new PetObject(this, MonsterObject, (byte)Math.Max((int)MonsterObject.宠物等级, num10), 绑定武器, 宠物时长) : new PetObject(this, (PetObject)诱惑目标, (byte)num10, 绑定武器, 宠物时长);
@@ -4199,7 +4199,7 @@ namespace GameServer.Maps
 								}
 								else if (选项编号 == 1)
 								{
-									if (MainProcess.CurrentTime.Hour != (int)CustomClass.武斗场时间一 && MainProcess.CurrentTime.Hour != (int)CustomClass.武斗场时间二)
+									if (MainProcess.CurrentTime.Hour != (int)Config.武斗场时间一 && MainProcess.CurrentTime.Hour != (int)Config.武斗场时间二)
 									{
 										this.对话页面 = 479501000;
 										客户网络 网络连接 = this.网络连接;
@@ -4210,7 +4210,7 @@ namespace GameServer.Maps
 										网络连接.发送封包(new 同步交互结果
 										{
 											对象编号 = this.对话守卫.MapId,
-											交互文本 = NpcDialogs.CombineDialog(this.对话页面, string.Format("<#P0:{0}><#P1:{1}>", CustomClass.武斗场时间一, CustomClass.武斗场时间二))
+											交互文本 = NpcDialogs.CombineDialog(this.对话页面, string.Format("<#P0:{0}><#P1:{1}>", Config.武斗场时间一, Config.武斗场时间二))
 										});
 										return;
 									}

@@ -43,7 +43,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			DataSheet = new Dictionary<string, SkillTraps>();
-			string text = CustomClass.GameDataPath + "\\System\\Skills\\Trap\\";
+			string text = Config.GameDataPath + "\\System\\Skills\\Trap\\";
 			if (Directory.Exists(text))
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(SkillTraps)))

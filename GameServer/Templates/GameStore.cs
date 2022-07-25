@@ -23,7 +23,7 @@ namespace GameServer.Templates
         public static void LoadData()
         {
             DataSheet = new Dictionary<int, GameStore>();
-            string text = CustomClass.GameDataPath + "\\System\\Items\\GameStore\\";
+            string text = Config.GameDataPath + "\\System\\Items\\GameStore\\";
             if (Directory.Exists(text))
             {
                 foreach (object obj in Serializer.Deserialize(text, typeof(GameStore)))

@@ -653,7 +653,7 @@ namespace GameServer.Maps
 			}
 			if (MainProcess.CurrentTime.Minute == 55 && MainProcess.CurrentTime.Hour != MapGatewayProcess.通知时间.Hour)
 			{
-				if (MainProcess.CurrentTime.Hour + 1 == (int)CustomClass.武斗场时间一 || MainProcess.CurrentTime.Hour + 1 == (int)CustomClass.武斗场时间二)
+				if (MainProcess.CurrentTime.Hour + 1 == (int)Config.武斗场时间一 || MainProcess.CurrentTime.Hour + 1 == (int)Config.武斗场时间二)
 				{
 					NetworkServiceGateway.发送公告("The Experience Arena will open in five minutes, so get ready if you want to participate!", true);
 				}

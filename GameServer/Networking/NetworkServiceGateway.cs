@@ -21,11 +21,11 @@ namespace GameServer.Networking
 			等待添加表 = new ConcurrentQueue<客户网络>();
 			等待移除表 = new ConcurrentQueue<客户网络>();
 			全服公告表 = new ConcurrentQueue<GamePacket>();
-			网络监听器 = new TcpListener(IPAddress.Any, (int)CustomClass.GSPort);
+			网络监听器 = new TcpListener(IPAddress.Any, (int)Config.GSPort);
 			网络监听器.Start();
 			网络监听器.BeginAcceptTcpClient(new AsyncCallback(异步连接), null);
 			门票DataSheet = new Dictionary<string, TicketInformation>();
-			门票接收器 = new UdpClient(new IPEndPoint(IPAddress.Any, (int)CustomClass.TSPort));
+			门票接收器 = new UdpClient(new IPEndPoint(IPAddress.Any, (int)Config.TSPort));
 		}
 
 		
@@ -198,7 +198,7 @@ namespace GameServer.Networking
 		
 		public static void 屏蔽网络(string 地址)
 		{
-			SystemData.数据.BanIPCommand(地址, MainProcess.CurrentTime.AddMinutes((double)CustomClass.异常屏蔽时间));
+			SystemData.数据.BanIPCommand(地址, MainProcess.CurrentTime.AddMinutes((double)Config.异常屏蔽时间));
 		}
 
 		

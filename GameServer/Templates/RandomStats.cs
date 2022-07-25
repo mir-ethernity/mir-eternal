@@ -17,7 +17,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			DataSheet = new Dictionary<int, RandomStats>();
-			var text = CustomClass.GameDataPath + "\\System\\Items\\RandomStats\\";
+			var text = Config.GameDataPath + "\\System\\Items\\RandomStats\\";
 
 			if (Directory.Exists(text))
 			{

@@ -677,7 +677,7 @@ namespace GameServer.Maps
 					if (GameItems.DateSheetByName.TryGetValue("强效金创药", out 物品模板))
 					{
 						int num2 = (this.Category == MonsterLevelType.Normal) ? 15 : 1;
-						int num3 = Math.Max(1, num2 - (int)Math.Round(num2 * CustomClass.怪物额外爆率));
+						int num3 = Math.Max(1, num2 - (int)Math.Round(num2 * Config.怪物额外爆率));
 						if (MainProcess.RandomNumber.Next(num3) == num3 / 2)
 						{
 							num++;
@@ -688,7 +688,7 @@ namespace GameServer.Maps
 					if (GameItems.DateSheetByName.TryGetValue("强效Magic药", out 物品模板2))
 					{
 						int num4 = (this.Category == MonsterLevelType.Normal) ? 20 : 1;
-						int num5 = Math.Max(1, num4 - (int)Math.Round(num4 * CustomClass.怪物额外爆率));
+						int num5 = Math.Max(1, num4 - (int)Math.Round(num4 * Config.怪物额外爆率));
 						if (MainProcess.RandomNumber.Next(num5) == num5 / 2)
 						{
 							num++;
@@ -699,7 +699,7 @@ namespace GameServer.Maps
 					if (GameItems.DateSheetByName.TryGetValue("疗伤药", out 物品模板3))
 					{
 						int num6 = (this.Category == MonsterLevelType.Normal) ? 100 : 1;
-						int num7 = Math.Max(1, num6 - (int)Math.Round(num6 * CustomClass.怪物额外爆率));
+						int num7 = Math.Max(1, num6 - (int)Math.Round(num6 * Config.怪物额外爆率));
 						if (MainProcess.RandomNumber.Next(num7) == num7 / 2)
 						{
 							num++;
@@ -710,7 +710,7 @@ namespace GameServer.Maps
 					if (GameItems.DateSheetByName.TryGetValue("祝福油", out 物品模板4))
 					{
 						int num8 = (this.Category == MonsterLevelType.Normal) ? 1000 : ((this.Category == MonsterLevelType.Elite) ? 50 : 10);
-						int num9 = Math.Max(1, num8 - (int)Math.Round(num8 * CustomClass.怪物额外爆率));
+						int num9 = Math.Max(1, num8 - (int)Math.Round(num8 * Config.怪物额外爆率));
 						if (MainProcess.RandomNumber.Next(num9) == num9 / 2)
 						{
 							num++;
@@ -759,7 +759,7 @@ namespace GameServer.Maps
 						GameItems 游戏物品;
 						if (GameItems.DateSheetByName.TryGetValue(怪物掉落.Name, out 游戏物品) && !ComputingClass.计算概率(num10) && (PlayerObject.本期特权 != 0 || this.Category == MonsterLevelType.Boss || 游戏物品.Type == ItemType.可用药剂 || !ComputingClass.计算概率(0.5f)) && (PlayerObject.本期特权 != 3 || this.Category == MonsterLevelType.Boss || 游戏物品.Type == ItemType.可用药剂 || !ComputingClass.计算概率(0.25f)))
 						{
-							int num13 = Math.Max(1, 怪物掉落.Probability - (int)Math.Round(怪物掉落.Probability * CustomClass.怪物额外爆率));
+							int num13 = Math.Max(1, 怪物掉落.Probability - (int)Math.Round(怪物掉落.Probability * Config.怪物额外爆率));
 							if (MainProcess.RandomNumber.Next(num13) == num13 / 2)
 							{
 								int num14 = MainProcess.RandomNumber.Next(怪物掉落.MinAmount, 怪物掉落.MaxAmount + 1);

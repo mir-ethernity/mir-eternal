@@ -22,7 +22,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			DataSheet = new Dictionary<byte, GameMap>();
-			string text = CustomClass.GameDataPath + "\\System\\GameMap\\Maps";
+			string text = Config.GameDataPath + "\\System\\GameMap\\Maps";
 			if (Directory.Exists(text))
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(GameMap)))

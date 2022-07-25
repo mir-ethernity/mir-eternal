@@ -38,7 +38,7 @@ namespace GameServer.Templates
         public static void LoadData()
         {
             DataSheet = new Dictionary<byte, EquipmentStats>();
-            var text = CustomClass.GameDataPath + "\\System\\Items\\EquipmentStats\\";
+            var text = Config.GameDataPath + "\\System\\Items\\EquipmentStats\\";
 
             if (Directory.Exists(text))
             {

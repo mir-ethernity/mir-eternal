@@ -55,7 +55,7 @@ namespace GameServer.Templates
 			DataSheet = new Dictionary<int, GameItems>();
 			DateSheetByName = new Dictionary<string, GameItems>();
 
-			string text = CustomClass.GameDataPath + "\\System\\Items\\Common\\";
+			string text = Config.GameDataPath + "\\System\\Items\\Common\\";
 			if (Directory.Exists(text))
 			{
 				object[] array = Serializer.Deserialize(text, typeof(GameItems));
@@ -67,7 +67,7 @@ namespace GameServer.Templates
 				}
 			}
 
-			text = CustomClass.GameDataPath + "\\System\\Items\\Equipment\\";
+			text = Config.GameDataPath + "\\System\\Items\\Equipment\\";
 			if (Directory.Exists(text))
 			{
 				object[] array = Serializer.Deserialize(text, typeof(EquipmentItem));

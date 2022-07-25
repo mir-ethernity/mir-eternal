@@ -73,7 +73,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			DataSheet = new Dictionary<ushort, GameBuffs>();
-			string text = CustomClass.GameDataPath + "\\System\\Skills\\Buffs\\";
+			string text = Config.GameDataPath + "\\System\\Skills\\Buffs\\";
 			if (Directory.Exists(text))
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(GameBuffs)))

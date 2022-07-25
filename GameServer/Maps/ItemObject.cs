@@ -207,8 +207,8 @@ namespace GameServer.Maps
 						当前坐标 = point;
 						IL_111:
 						this.当前坐标 = 当前坐标;
-						this.消失时间 = MainProcess.CurrentTime.AddMinutes((double)CustomClass.物品清理时间);
-						this.归属时间 = MainProcess.CurrentTime.AddMinutes((double)CustomClass.物品归属时间);
+						this.消失时间 = MainProcess.CurrentTime.AddMinutes((double)Config.物品清理时间);
+						this.归属时间 = MainProcess.CurrentTime.AddMinutes((double)Config.物品归属时间);
 						this.MapId = ++MapGatewayProcess.Id;
 						base.绑定网格();
 						base.更新邻居时处理();

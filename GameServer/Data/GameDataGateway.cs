@@ -40,7 +40,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return CustomClass.GameDataPath + "\\User";
+				return Config.GameDataPath + "\\User";
 			}
 		}
 
@@ -50,7 +50,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return CustomClass.数据备份目录;
+				return Config.数据备份目录;
 			}
 		}
 
@@ -60,7 +60,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return CustomClass.GameDataPath + "\\User\\Data.db";
+				return Config.GameDataPath + "\\User\\Data.db";
 			}
 		}
 
@@ -70,7 +70,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return CustomClass.GameDataPath + "\\User\\Temp.db";
+				return Config.GameDataPath + "\\User\\Temp.db";
 			}
 		}
 
@@ -80,7 +80,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return string.Format("{0}\\User-{1:yyyy-MM-dd-HH-mm-ss-ffff}.db.gz", CustomClass.数据备份目录, MainProcess.CurrentTime);
+				return string.Format("{0}\\User-{1:yyyy-MM-dd-HH-mm-ss-ffff}.db.gz", Config.数据备份目录, MainProcess.CurrentTime);
 			}
 		}
 
@@ -201,9 +201,9 @@ namespace GameServer.Data
 					binaryWriter.Write(array);
 				}
 			}
-			if (!Directory.Exists(CustomClass.数据备份目录))
+			if (!Directory.Exists(Config.数据备份目录))
 			{
-				Directory.CreateDirectory(CustomClass.数据备份目录);
+				Directory.CreateDirectory(Config.数据备份目录);
 			}
 			if (File.Exists(GameDataGateway.UserPath))
 			{

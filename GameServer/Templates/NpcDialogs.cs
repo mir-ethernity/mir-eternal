@@ -50,7 +50,7 @@ namespace GameServer.Templates
 		{
 			DataSheet = new Dictionary<int, string>();
 			DataById = new Dictionary<int, byte[]>();
-			string text = CustomClass.GameDataPath + "\\System\\Npc\\Dialogs\\";
+			string text = Config.GameDataPath + "\\System\\Npc\\Dialogs\\";
 
 			if (Directory.Exists(text))
 			{

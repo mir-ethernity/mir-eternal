@@ -24,7 +24,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			DataSheet = new Dictionary<ushort, Guards>();
-			string text = CustomClass.GameDataPath + "\\System\\Npc\\Guards\\";
+			string text = Config.GameDataPath + "\\System\\Npc\\Guards\\";
 
 			if (Directory.Exists(text))
 			{

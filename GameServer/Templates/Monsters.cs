@@ -48,7 +48,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			DataSheet = new Dictionary<string, Monsters>();
-			string text = CustomClass.GameDataPath + "\\System\\Npc\\Monsters\\";
+			string text = Config.GameDataPath + "\\System\\Npc\\Monsters\\";
 			if (Directory.Exists(text))
 			{
 				object[] array = Serializer.Deserialize(text, typeof(Monsters));

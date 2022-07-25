@@ -79,7 +79,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			DataSheet = new Dictionary<ushort, InscriptionSkill>();
-			string text = CustomClass.GameDataPath + "\\System\\Skills\\Inscriptions\\";
+			string text = Config.GameDataPath + "\\System\\Skills\\Inscriptions\\";
 			if (Directory.Exists(text))
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(InscriptionSkill)))

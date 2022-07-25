@@ -87,7 +87,7 @@ namespace GameServer.Templates
 				45
 			};
 			角色成长.DataSheet = new Dictionary<int, Dictionary<GameObjectStats, int>>();
-			string path = CustomClass.GameDataPath + "\\System\\GrowthAttribute.txt";
+			string path = Config.GameDataPath + "\\System\\GrowthAttribute.txt";
 			string[] array = Regex.Split(File.ReadAllText(path).Trim(new char[]
 			{
 				'\r',

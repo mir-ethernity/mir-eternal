@@ -24,7 +24,7 @@ namespace GameServer.Templates
         public static void LoadData()
         {
             DataSheet = new Dictionary<int, Treasures>();
-            string text = CustomClass.GameDataPath + "\\System\\Items\\Treasures\\";
+            string text = Config.GameDataPath + "\\System\\Items\\Treasures\\";
             if (Directory.Exists(text))
             {
                 foreach (object obj in Serializer.Deserialize(text, typeof(Treasures)))

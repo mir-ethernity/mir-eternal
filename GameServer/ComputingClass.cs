@@ -126,7 +126,7 @@ namespace GameServer
 		
 		public static float 收益衰减(int 玩家等级, int Level)
 		{
-			decimal val = Math.Max(0, 玩家等级 - Level - (int)CustomClass.减收益等级差) * CustomClass.收益减少比率;
+			decimal val = Math.Max(0, 玩家等级 - Level - (int)Config.减收益等级差) * Config.收益减少比率;
 			return (float)Math.Max(0m, val);
 		}
 

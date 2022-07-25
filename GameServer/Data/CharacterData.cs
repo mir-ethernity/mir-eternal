@@ -259,11 +259,11 @@ namespace GameServer.Data
 		
 		public void 获得经验(int 经验值)
 		{
-			if (this.角色等级 >= CustomClass.游戏OpenLevelCommand && this.角色经验 >= this.所需经验)
+			if (this.角色等级 >= Config.游戏OpenLevelCommand && this.角色经验 >= this.所需经验)
 			{
 				return;
 			}
-			if ((this.角色经验 += 经验值) > this.所需经验 && this.角色等级 < CustomClass.游戏OpenLevelCommand)
+			if ((this.角色经验 += 经验值) > this.所需经验 && this.角色等级 < Config.游戏OpenLevelCommand)
 			{
 				while (this.角色经验 >= this.所需经验)
 				{

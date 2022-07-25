@@ -19,7 +19,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			DataSheet = new HashSet<MapGuards>();
-			string text = CustomClass.GameDataPath + "\\System\\GameMap\\Guards\\";
+			string text = Config.GameDataPath + "\\System\\GameMap\\Guards\\";
 			if (Directory.Exists(text))
 			{
 				foreach (object obj in Serializer.Deserialize(text, typeof(MapGuards)))

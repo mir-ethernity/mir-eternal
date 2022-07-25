@@ -849,24 +849,24 @@ namespace GameServer
 
             }
             this.dgvCharacters.ColumnHeadersDefaultCellStyle.Font = (this.dgvMaps.ColumnHeadersDefaultCellStyle.Font = (this.怪物浏览表.ColumnHeadersDefaultCellStyle.Font = (this.掉落浏览表.ColumnHeadersDefaultCellStyle.Font = (this.封禁浏览表.ColumnHeadersDefaultCellStyle.Font = (this.dgvCharacters.DefaultCellStyle.Font = (this.dgvMaps.DefaultCellStyle.Font = (this.怪物浏览表.DefaultCellStyle.Font = (this.封禁浏览表.DefaultCellStyle.Font = (this.掉落浏览表.DefaultCellStyle.Font = new Font("宋体", 9f))))))))));
-            this.S_软件注册代码.Text = (CustomClass.软件注册代码 = Settings.Default.软件注册代码);
-            this.S_GameData目录.Text = (CustomClass.GameDataPath = Settings.Default.GameData目录);
-            this.S_数据备份目录.Text = (CustomClass.数据备份目录 = Settings.Default.数据备份目录);
-            this.S_GSPort.Value = (CustomClass.GSPort = Settings.Default.GSPort);
-            this.S_TSPort.Value = (CustomClass.TSPort = Settings.Default.TSPort);
-            this.S_封包限定数量.Value = (CustomClass.封包限定数量 = Settings.Default.封包限定数量);
-            this.S_异常屏蔽时间.Value = (CustomClass.异常屏蔽时间 = Settings.Default.异常屏蔽时间);
-            this.S_掉线判定时间.Value = (CustomClass.掉线判定时间 = Settings.Default.掉线判定时间);
-            this.S_游戏OpenLevelCommand.Value = (CustomClass.游戏OpenLevelCommand = Settings.Default.游戏OpenLevelCommand);
-            this.S_NoobSupportCommand等级.Value = (CustomClass.NoobSupportCommand等级 = Settings.Default.NoobSupportCommand等级);
-            this.S_装备特修折扣.Value = (CustomClass.装备特修折扣 = Settings.Default.装备特修折扣);
-            this.S_怪物额外爆率.Value = (CustomClass.怪物额外爆率 = Settings.Default.怪物额外爆率);
-            this.S_怪物经验倍率.Value = (CustomClass.怪物经验倍率 = Settings.Default.怪物经验倍率);
-            this.S_减收益等级差.Value = (CustomClass.减收益等级差 = (ushort)Settings.Default.减收益等级差);
-            this.S_收益减少比率.Value = (CustomClass.收益减少比率 = Settings.Default.收益减少比率);
-            this.S_怪物诱惑时长.Value = (CustomClass.怪物诱惑时长 = Settings.Default.怪物诱惑时长);
-            this.S_物品归属时间.Value = (CustomClass.物品归属时间 = (ushort)Settings.Default.物品归属时间);
-            this.S_物品清理时间.Value = (CustomClass.物品清理时间 = (ushort)Settings.Default.物品清理时间);
+            this.S_软件注册代码.Text = (Config.软件注册代码 = Settings.Default.软件注册代码);
+            this.S_GameData目录.Text = (Config.GameDataPath = Settings.Default.GameData目录);
+            this.S_数据备份目录.Text = (Config.数据备份目录 = Settings.Default.数据备份目录);
+            this.S_GSPort.Value = (Config.GSPort = Settings.Default.GSPort);
+            this.S_TSPort.Value = (Config.TSPort = Settings.Default.TSPort);
+            this.S_封包限定数量.Value = (Config.封包限定数量 = Settings.Default.封包限定数量);
+            this.S_异常屏蔽时间.Value = (Config.异常屏蔽时间 = Settings.Default.异常屏蔽时间);
+            this.S_掉线判定时间.Value = (Config.掉线判定时间 = Settings.Default.掉线判定时间);
+            this.S_游戏OpenLevelCommand.Value = (Config.游戏OpenLevelCommand = Settings.Default.游戏OpenLevelCommand);
+            this.S_NoobSupportCommand等级.Value = (Config.NoobSupportCommand等级 = Settings.Default.NoobSupportCommand等级);
+            this.S_装备特修折扣.Value = (Config.装备特修折扣 = Settings.Default.装备特修折扣);
+            this.S_怪物额外爆率.Value = (Config.怪物额外爆率 = Settings.Default.怪物额外爆率);
+            this.S_怪物经验倍率.Value = (Config.怪物经验倍率 = Settings.Default.怪物经验倍率);
+            this.S_减收益等级差.Value = (Config.减收益等级差 = (ushort)Settings.Default.减收益等级差);
+            this.S_收益减少比率.Value = (Config.收益减少比率 = Settings.Default.收益减少比率);
+            this.S_怪物诱惑时长.Value = (Config.怪物诱惑时长 = Settings.Default.怪物诱惑时长);
+            this.S_物品归属时间.Value = (Config.物品归属时间 = (ushort)Settings.Default.物品归属时间);
+            this.S_物品清理时间.Value = (Config.物品清理时间 = (ushort)Settings.Default.物品清理时间);
             Task.Run(delegate ()
             {
                 Thread.Sleep(100);
@@ -916,7 +916,7 @@ namespace GameServer
         private void 启动服务器_Click(object sender, EventArgs e)
         {
             MainProcess.Start();
-            CustomClass.软件注册代码 = (Settings.Default.软件注册代码 = this.S_软件注册代码.Text);
+            Config.软件注册代码 = (Settings.Default.软件注册代码 = this.S_软件注册代码.Text);
             Settings.Default.Save();
             MainForm.MapsDataTable = new DataTable("地图数据表");
             MainForm.MapsDataRow = new Dictionary<GameMap, DataRow>();
@@ -1113,13 +1113,13 @@ namespace GameServer
             {
                 if (sender == this.S_浏览数据目录)
                 {
-                    CustomClass.GameDataPath = (Settings.Default.GameData目录 = (this.S_GameData目录.Text = folderBrowserDialog.SelectedPath));
+                    Config.GameDataPath = (Settings.Default.GameData目录 = (this.S_GameData目录.Text = folderBrowserDialog.SelectedPath));
                     Settings.Default.Save();
                     return;
                 }
                 if (sender == this.S_浏览备份目录)
                 {
-                    CustomClass.数据备份目录 = (Settings.Default.数据备份目录 = (this.S_数据备份目录.Text = folderBrowserDialog.SelectedPath));
+                    Config.数据备份目录 = (Settings.Default.数据备份目录 = (this.S_数据备份目录.Text = folderBrowserDialog.SelectedPath));
                     Settings.Default.Save();
                     return;
                 }
@@ -1141,49 +1141,49 @@ namespace GameServer
                 switch (name)
                 {
                     case "S_收益减少比率":
-                        CustomClass.收益减少比率 = (Settings.Default.收益减少比率 = numericUpDown.Value);
+                        Config.收益减少比率 = (Settings.Default.收益减少比率 = numericUpDown.Value);
                         break;
                     case "S_掉线判定时间":
-                        CustomClass.掉线判定时间 = (Settings.Default.掉线判定时间 = (ushort)numericUpDown.Value);
+                        Config.掉线判定时间 = (Settings.Default.掉线判定时间 = (ushort)numericUpDown.Value);
                         break;
                     case "S_游戏OpenLevelCommand":
-                        CustomClass.游戏OpenLevelCommand = (Settings.Default.游戏OpenLevelCommand = (byte)numericUpDown.Value);
+                        Config.游戏OpenLevelCommand = (Settings.Default.游戏OpenLevelCommand = (byte)numericUpDown.Value);
                         break;
                     case "S_怪物诱惑时长":
-                        CustomClass.怪物诱惑时长 = (Settings.Default.怪物诱惑时长 = (ushort)numericUpDown.Value);
+                        Config.怪物诱惑时长 = (Settings.Default.怪物诱惑时长 = (ushort)numericUpDown.Value);
                         break;
                     case "S_怪物经验倍率":
-                        CustomClass.怪物经验倍率 = (Settings.Default.怪物经验倍率 = numericUpDown.Value);
+                        Config.怪物经验倍率 = (Settings.Default.怪物经验倍率 = numericUpDown.Value);
                         break;
                     case "S_TSPort":
-                        CustomClass.TSPort = (Settings.Default.TSPort = (ushort)numericUpDown.Value);
+                        Config.TSPort = (Settings.Default.TSPort = (ushort)numericUpDown.Value);
                         break;
                     case "S_异常屏蔽时间":
-                        CustomClass.异常屏蔽时间 = (Settings.Default.异常屏蔽时间 = (ushort)numericUpDown.Value);
+                        Config.异常屏蔽时间 = (Settings.Default.异常屏蔽时间 = (ushort)numericUpDown.Value);
                         break;
                     case "S_减收益等级差":
-                        CustomClass.减收益等级差 = (ushort)(Settings.Default.减收益等级差 = (byte)numericUpDown.Value);
+                        Config.减收益等级差 = (ushort)(Settings.Default.减收益等级差 = (byte)numericUpDown.Value);
                         break;
                     case "S_怪物额外爆率":
-                        CustomClass.怪物额外爆率 = (Settings.Default.怪物额外爆率 = numericUpDown.Value);
+                        Config.怪物额外爆率 = (Settings.Default.怪物额外爆率 = numericUpDown.Value);
                         break;
                     case "S_物品归属时间":
-                        CustomClass.物品归属时间 = (ushort)(Settings.Default.物品归属时间 = (byte)numericUpDown.Value);
+                        Config.物品归属时间 = (ushort)(Settings.Default.物品归属时间 = (byte)numericUpDown.Value);
                         break;
                     case "S_NoobSupportCommand等级":
-                        CustomClass.NoobSupportCommand等级 = (Settings.Default.NoobSupportCommand等级 = (byte)numericUpDown.Value);
+                        Config.NoobSupportCommand等级 = (Settings.Default.NoobSupportCommand等级 = (byte)numericUpDown.Value);
                         break;
                     case "S_装备特修折扣":
-                        CustomClass.装备特修折扣 = (Settings.Default.装备特修折扣 = numericUpDown.Value);
+                        Config.装备特修折扣 = (Settings.Default.装备特修折扣 = numericUpDown.Value);
                         break;
                     case "S_物品清理时间":
-                        CustomClass.物品清理时间 = (ushort)(Settings.Default.物品清理时间 = (byte)numericUpDown.Value);
+                        Config.物品清理时间 = (ushort)(Settings.Default.物品清理时间 = (byte)numericUpDown.Value);
                         break;
                     case "S_封包限定数量":
-                        CustomClass.封包限定数量 = (Settings.Default.封包限定数量 = (ushort)numericUpDown.Value);
+                        Config.封包限定数量 = (Settings.Default.封包限定数量 = (ushort)numericUpDown.Value);
                         break;
                     case "S_GSPort":
-                        CustomClass.GSPort = (Settings.Default.GSPort = (ushort)numericUpDown.Value);
+                        Config.GSPort = (Settings.Default.GSPort = (ushort)numericUpDown.Value);
                         break;
                     default:
                         MessageBox.Show("未知变量! " + numericUpDown.Name);
