@@ -42,6 +42,7 @@ namespace GameServer.Data
 		
 		public byte[] 角色列表描述()
 		{
+			// TODO: Method to send characters
 			byte[] result;
 			using (MemoryStream memoryStream = new MemoryStream())
 			{
@@ -50,7 +51,7 @@ namespace GameServer.Data
 					binaryWriter.Write((byte)(Math.Min(4, this.角色列表.Count) + Math.Min(5, this.冻结列表.Count)));
 					List<CharacterData> list = (from O in this.角色列表
 					orderby O.当前等级.V descending
-					select O).ToList<CharacterData>();
+					select O).ToList();
 					int num = 0;
 					while (num < 4 && num < list.Count)
 					{
@@ -58,7 +59,7 @@ namespace GameServer.Data
 						num++;
 					}
 					List<CharacterData> list2 = (from O in this.冻结列表
-					orderby O.当前等级.V descending
+												 orderby O.当前等级.V descending
 					select O).ToList<CharacterData>();
 					int num2 = 0;
 					while (num2 < 5 && num2 < list2.Count)
@@ -995,7 +996,7 @@ namespace GameServer.Data
 						当前网络.尝试断开连接(new Exception("删除角色时找回列表已满, 断开连接."));
 						return;
 					}
-					CharacterData.冻结日期.V = MainProcess.CurrentTime;
+					CharacterData.FreezeDate.V = MainProcess.CurrentTime;
 					this.角色列表.Remove(CharacterData);
 					this.冻结列表.Add(CharacterData);
 					当前网络.发送封包(new 删除角色应答
@@ -1066,7 +1067,7 @@ namespace GameServer.Data
 						当前网络.尝试断开连接(new Exception("GetBackCharacter时角色列表已满, 断开连接."));
 						return;
 					}
-					CharacterData.冻结日期.V = default(DateTime);
+					CharacterData.FreezeDate.V = default(DateTime);
 					this.冻结列表.Remove(CharacterData);
 					this.角色列表.Add(CharacterData);
 					当前网络.发送封包(new GetBackCharacterAnswersPacket
@@ -1096,7 +1097,7 @@ namespace GameServer.Data
 						当前网络.发送封包(new LoginErrorMessagePacket
 						{
 							错误代码 = 285U,
-							参数一 = ComputingClass.时间转换(this.封禁日期.V)
+							参数一 = ComputingClass.TimeShift(this.封禁日期.V)
 						});
 						return;
 					}
@@ -1105,7 +1106,7 @@ namespace GameServer.Data
 						当前网络.发送封包(new LoginErrorMessagePacket
 						{
 							错误代码 = 285U,
-							参数一 = ComputingClass.时间转换(CharacterData.封禁日期.V)
+							参数一 = ComputingClass.TimeShift(CharacterData.封禁日期.V)
 						});
 						return;
 					}

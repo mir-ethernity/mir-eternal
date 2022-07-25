@@ -211,7 +211,7 @@ namespace GameServer.Maps
 					对象性别 = (byte)this.角色性别,
 					对象等级 = this.当前等级,
 					AttackMode = (byte)this.AttackMode,
-					当前时间 = ComputingClass.时间转换(MainProcess.CurrentTime),
+					当前时间 = ComputingClass.TimeShift(MainProcess.CurrentTime),
 					OpenLevelCommand = (ushort)Config.游戏OpenLevelCommand,
 					特修折扣 = (ushort)(Config.装备特修折扣 * 10000m)
 				});
@@ -223,7 +223,7 @@ namespace GameServer.Maps
 					变量类型 = 1,
 					对象编号 = this.MapId,
 					变量索引 = 112,
-					变量内容 = ComputingClass.时间转换(CharacterData.补给日期.V)
+					变量内容 = ComputingClass.TimeShift(CharacterData.补给日期.V)
 				});
 			}
 			if (网络连接 != null)
@@ -233,7 +233,7 @@ namespace GameServer.Maps
 					变量类型 = 1,
 					对象编号 = this.MapId,
 					变量索引 = 975,
-					变量内容 = ComputingClass.时间转换(CharacterData.战备日期.V)
+					变量内容 = ComputingClass.TimeShift(CharacterData.战备日期.V)
 				});
 			}
 			if (网络连接 != null)
@@ -3191,7 +3191,7 @@ namespace GameServer.Maps
 				所属行会.发送封包(new SyncMemberInfoPacket
 				{
 					对象编号 = this.MapId,
-					对象信息 = ComputingClass.时间转换(MainProcess.CurrentTime)
+					对象信息 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 				});
 			}
 			foreach (CharacterData CharacterData in this.粉丝列表)
@@ -8498,7 +8498,7 @@ namespace GameServer.Maps
 									变量类型 = 1,
 									对象编号 = this.MapId,
 									变量索引 = 112,
-									变量内容 = ComputingClass.时间转换(MainProcess.CurrentTime)
+									变量内容 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 								});
 							}
 							MainProcess.AddSystemLog(string.Format("Level [{0}][{1}] purchased [Weekly Refill Pack], consumed [600] GameCoins", this.对象名字, this.当前等级));
@@ -8578,7 +8578,7 @@ namespace GameServer.Maps
 											变量类型 = 1,
 											对象编号 = this.MapId,
 											变量索引 = 975,
-											变量内容 = ComputingClass.时间转换(MainProcess.CurrentTime)
+											变量内容 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 										});
 									}
 									MainProcess.AddSystemLog(string.Format("[{0}][Level {1}] Purchased [Weekly Battle Pack], consumed [3000] GameCoins", this.对象名字, this.当前等级));
@@ -8651,7 +8651,7 @@ namespace GameServer.Maps
 								变量类型 = 1,
 								对象编号 = this.MapId,
 								变量索引 = 975,
-								变量内容 = ComputingClass.时间转换(MainProcess.CurrentTime)
+								变量内容 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 							});
 						}
 						MainProcess.AddSystemLog(string.Format("Level [{0}][{1}] purchased [Weekly Battle Pack], consumed [3000] Game Coins", this.对象名字, this.当前等级));
@@ -24227,10 +24227,10 @@ namespace GameServer.Maps
 				{
 					binaryWriter.Write(this.CharacterData.预定特权.V);
 					binaryWriter.Write(this.本期特权);
-					binaryWriter.Write((this.本期特权 == 0) ? 0 : ComputingClass.时间转换(this.本期日期));
+					binaryWriter.Write((this.本期特权 == 0) ? 0 : ComputingClass.TimeShift(this.本期日期));
 					binaryWriter.Write((this.本期特权 == 0) ? 0U : this.本期记录);
 					binaryWriter.Write(this.上期特权);
-					binaryWriter.Write((this.上期特权 == 0) ? 0 : ComputingClass.时间转换(this.上期日期));
+					binaryWriter.Write((this.上期特权 == 0) ? 0 : ComputingClass.TimeShift(this.上期日期));
 					binaryWriter.Write((this.上期特权 == 0) ? 0U : this.上期记录);
 					binaryWriter.Write(5);
 					for (byte b = 1; b <= 5; b += 1)

@@ -163,7 +163,7 @@ namespace GameServer.Networking
 			dictionary2[typeFromHandle11] = delegate(BinaryWriter 写入流, WrappingFieldAttribute 描述符, object 对象)
 			{
 				写入流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-				写入流.Write(ComputingClass.时间转换((DateTime)对象));
+				写入流.Write(ComputingClass.TimeShift((DateTime)对象));
 			};
 			GamePacket.封包字段写入表 = dictionary2;
 			GamePacket.服务器封包类型表 = new Dictionary<ushort, Type>();

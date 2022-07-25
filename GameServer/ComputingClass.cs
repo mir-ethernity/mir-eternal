@@ -96,7 +96,7 @@ namespace GameServer
 		}
 
 		
-		public static int 时间转换(DateTime 时间)
+		public static int TimeShift(DateTime 时间)
 		{
 			return (int)(时间 - ComputingClass.系统相对时间).TotalSeconds;
 		}

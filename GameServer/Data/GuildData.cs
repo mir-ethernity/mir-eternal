@@ -28,7 +28,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return ComputingClass.时间转换(this.创建日期.V);
+				return ComputingClass.TimeShift(this.创建日期.V);
 			}
 		}
 
@@ -106,13 +106,13 @@ namespace GameServer.Data
 			{
 				MemorandumType = MemorandumType.创建公会,
 				第一参数 = 创建玩家.MapId,
-				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
+				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 			});
 			this.添加事记(new GuildEvents
 			{
 				MemorandumType = MemorandumType.加入公会,
 				第一参数 = 创建玩家.MapId,
-				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
+				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 			});
 			this.行会等级.V = 1;
 			this.行会资金.V = 1000000;
@@ -271,7 +271,7 @@ namespace GameServer.Data
 				this.发送封包(new SyncMemberInfoPacket
 				{
 					对象编号 = 成员.角色编号,
-					对象信息 = ComputingClass.时间转换(成员.离线日期.V)
+					对象信息 = ComputingClass.TimeShift(成员.OfflineDate.V)
 				});
 			}
 			客户网络 网络连接 = 成员.网络连接;
@@ -286,7 +286,7 @@ namespace GameServer.Data
 			{
 				MemorandumType = MemorandumType.加入公会,
 				第一参数 = 成员.角色编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
+				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 			});
 			PlayerObject PlayerObject;
 			if (MapGatewayProcess.玩家对象表.TryGetValue(成员.角色编号, out PlayerObject))
@@ -322,7 +322,7 @@ namespace GameServer.Data
 			{
 				MemorandumType = MemorandumType.离开公会,
 				第一参数 = 成员.角色编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
+				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 			});
 			PlayerObject PlayerObject;
 			if (MapGatewayProcess.玩家对象表.TryGetValue(成员.角色编号, out PlayerObject))
@@ -359,7 +359,7 @@ namespace GameServer.Data
 					MemorandumType = MemorandumType.逐出公会,
 					第一参数 = 成员.角色编号,
 					第二参数 = 主事.角色编号,
-					事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
+					事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 				});
 				PlayerObject PlayerObject;
 				if (MapGatewayProcess.玩家对象表.TryGetValue(成员.角色编号, out PlayerObject))
@@ -390,7 +390,7 @@ namespace GameServer.Data
 				第二参数 = 成员.角色编号,
 				第三参数 = (int)((byte)职位),
 				第四参数 = (int)((byte)职位),
-				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
+				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 			});
 		}
 
@@ -435,7 +435,7 @@ namespace GameServer.Data
 				MemorandumType = MemorandumType.会长传位,
 				第一参数 = 会长.角色编号,
 				第二参数 = 成员.角色编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
+				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 			});
 		}
 
@@ -517,14 +517,14 @@ namespace GameServer.Data
 				MemorandumType = MemorandumType.行会Hostility,
 				第一参数 = this.行会编号,
 				第二参数 = 行会.行会编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
+				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 			});
 			行会.添加事记(new GuildEvents
 			{
 				MemorandumType = MemorandumType.行会Hostility,
 				第一参数 = 行会.行会编号,
 				第二参数 = this.行会编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
+				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 			});
 		}
 
@@ -555,14 +555,14 @@ namespace GameServer.Data
 				MemorandumType = MemorandumType.行会结盟,
 				第一参数 = this.行会编号,
 				第二参数 = 行会.行会编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
+				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 			});
 			行会.添加事记(new GuildEvents
 			{
 				MemorandumType = MemorandumType.行会结盟,
 				第一参数 = 行会.行会编号,
 				第二参数 = this.行会编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
+				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 			});
 		}
 
@@ -586,14 +586,14 @@ namespace GameServer.Data
 				MemorandumType = MemorandumType.取消结盟,
 				第一参数 = this.行会编号,
 				第二参数 = 行会.行会编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
+				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 			});
 			行会.添加事记(new GuildEvents
 			{
 				MemorandumType = MemorandumType.取消结盟,
 				第一参数 = 行会.行会编号,
 				第二参数 = this.行会编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
+				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 			});
 			客户网络 网络连接 = 主事.网络连接;
 			if (网络连接 == null)
@@ -656,14 +656,14 @@ namespace GameServer.Data
 				MemorandumType = MemorandumType.取消Hostility,
 				第一参数 = this.行会编号,
 				第二参数 = 行会.行会编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
+				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 			});
 			行会.添加事记(new GuildEvents
 			{
 				MemorandumType = MemorandumType.取消Hostility,
 				第一参数 = 行会.行会编号,
 				第二参数 = this.行会编号,
-				事记时间 = ComputingClass.时间转换(MainProcess.CurrentTime)
+				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 			});
 		}
 
@@ -786,7 +786,7 @@ namespace GameServer.Data
 						binaryWriter.Write((byte)keyValuePair.Key.角色职业.V);
 						binaryWriter.Write(keyValuePair.Key.当前地图.V);
 						客户网络 客户网络;
-						binaryWriter.Write(keyValuePair.Key.角色在线(out 客户网络) ? 0 : ComputingClass.时间转换(keyValuePair.Key.离线日期.V));
+						binaryWriter.Write(keyValuePair.Key.角色在线(out 客户网络) ? 0 : ComputingClass.TimeShift(keyValuePair.Key.OfflineDate.V));
 						binaryWriter.Write(0);
 						binaryWriter.Write(this.行会禁言.ContainsKey(keyValuePair.Key));
 					}
@@ -809,7 +809,7 @@ namespace GameServer.Data
 					{
 						binaryWriter.Write(1);
 						binaryWriter.Write(keyValuePair2.Key.行会编号);
-						binaryWriter.Write(ComputingClass.时间转换(keyValuePair2.Value));
+						binaryWriter.Write(ComputingClass.TimeShift(keyValuePair2.Value));
 						binaryWriter.Write(keyValuePair2.Key.行会等级.V);
 						binaryWriter.Write((byte)keyValuePair2.Key.行会成员.Count);
 						byte[] array2 = new byte[25];
@@ -822,7 +822,7 @@ namespace GameServer.Data
 					{
 						binaryWriter.Write(2);
 						binaryWriter.Write(keyValuePair3.Key.行会编号);
-						binaryWriter.Write(ComputingClass.时间转换(keyValuePair3.Value));
+						binaryWriter.Write(ComputingClass.TimeShift(keyValuePair3.Value));
 						binaryWriter.Write(keyValuePair3.Key.行会等级.V);
 						binaryWriter.Write((byte)keyValuePair3.Key.行会成员.Count);
 						byte[] array3 = new byte[25];
@@ -853,7 +853,7 @@ namespace GameServer.Data
 						binaryWriter.Write(CharacterData.角色等级);
 						binaryWriter.Write(CharacterData.角色等级);
 						客户网络 客户网络;
-						binaryWriter.Write(CharacterData.角色在线(out 客户网络) ? ComputingClass.时间转换(MainProcess.CurrentTime) : ComputingClass.时间转换(CharacterData.离线日期.V));
+						binaryWriter.Write(CharacterData.角色在线(out 客户网络) ? ComputingClass.TimeShift(MainProcess.CurrentTime) : ComputingClass.TimeShift(CharacterData.OfflineDate.V));
 					}
 					result = memoryStream.ToArray();
 				}
@@ -881,7 +881,7 @@ namespace GameServer.Data
 						array = new byte[32];
 						Encoding.UTF8.GetBytes(keyValuePair.Key.会长名字).CopyTo(array, 0);
 						binaryWriter.Write(array);
-						binaryWriter.Write(ComputingClass.时间转换(keyValuePair.Value.申请时间));
+						binaryWriter.Write(ComputingClass.TimeShift(keyValuePair.Value.申请时间));
 					}
 					result = memoryStream.ToArray();
 				}

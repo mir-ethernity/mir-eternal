@@ -2783,7 +2783,7 @@ namespace GameServer.Data
 					BinaryWriter binaryWriter2 = binaryWriter;
 					CharacterData v = this.生成来源.V;
 					binaryWriter2.Write((v != null) ? v.数据索引.V : 0);
-					binaryWriter.Write(ComputingClass.时间转换(this.生成时间.V));
+					binaryWriter.Write(ComputingClass.TimeShift(this.生成时间.V));
 					binaryWriter.Write(this.对应模板.V.Id);
 					binaryWriter.Write(this.物品容器.V);
 					binaryWriter.Write(this.物品位置.V);

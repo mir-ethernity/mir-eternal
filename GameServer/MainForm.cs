@@ -442,10 +442,10 @@ namespace GameServer
                     dataRow["所属账号"] = 角色.所属账号;
                     dataRow["账号封禁"] = ((角色.所属账号.V.封禁日期.V != default(DateTime)) ? 角色.所属账号.V.封禁日期 : null);
                     dataRow["角色封禁"] = ((角色.封禁日期.V != default(DateTime)) ? 角色.封禁日期 : null);
-                    dataRow["冻结日期"] = ((角色.冻结日期.V != default(DateTime)) ? 角色.冻结日期 : null);
+                    dataRow["冻结日期"] = ((角色.FreezeDate.V != default(DateTime)) ? 角色.FreezeDate : null);
                     dataRow["删除日期"] = ((角色.删除日期.V != default(DateTime)) ? 角色.删除日期 : null);
                     dataRow["登录日期"] = ((角色.登录日期.V != default(DateTime)) ? 角色.登录日期 : null);
-                    dataRow["离线日期"] = ((角色.网络连接 == null) ? 角色.离线日期 : null);
+                    dataRow["离线日期"] = ((角色.网络连接 == null) ? 角色.OfflineDate : null);
                     dataRow["网络地址"] = 角色.网络地址;
                     dataRow["物理地址"] = 角色.物理地址;
                     dataRow["角色职业"] = 角色.角色职业;

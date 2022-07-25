@@ -45,7 +45,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return ComputingClass.时间转换(this.创建日期.V);
+				return ComputingClass.TimeShift(this.创建日期.V);
 			}
 		}
 

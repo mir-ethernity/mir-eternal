@@ -41,7 +41,7 @@ namespace GameServer
 						return;
 					}
 					DataMonitor<DateTime> 删除日期 = CharacterData.删除日期;
-					DataMonitor<DateTime> 冻结日期 = CharacterData.冻结日期;
+					DataMonitor<DateTime> 冻结日期 = CharacterData.FreezeDate;
 					DateTime v = default(DateTime);
 					冻结日期.V = v;
 					删除日期.V = v;

@@ -212,7 +212,7 @@ namespace GameServer.Data
 					foreach (KeyValuePair<DateTime, GuildData> keyValuePair in this.申请行会)
 					{
 						binaryWriter.Write(keyValuePair.Value.行会编号);
-						binaryWriter.Write(ComputingClass.时间转换(keyValuePair.Key.AddDays(-1.0)));
+						binaryWriter.Write(ComputingClass.TimeShift(keyValuePair.Key.AddDays(-1.0)));
 					}
 					result = memoryStream.ToArray();
 				}

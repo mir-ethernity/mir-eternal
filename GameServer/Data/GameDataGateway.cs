@@ -344,26 +344,26 @@ namespace GameServer.Data
 			foreach (GameData GameData in GameDataGateway.CharacterDataTable.DataSheet.Values.ToList<GameData>())
 			{
 				CharacterData CharacterData = GameData as CharacterData;
-				if (CharacterData != null && (int)CharacterData.当前等级.V < MinLevel && !(CharacterData.离线日期.V > t))
+				if (CharacterData != null && (int)CharacterData.当前等级.V < MinLevel && !(CharacterData.OfflineDate.V > t))
 				{
 					if (CharacterData.当前排名.Count > 0)
 					{
-						MainForm.添加命令日志(string.Format("[{0}]({1}/{2}) 在排行榜单上, 已跳过清理", CharacterData, CharacterData.当前等级, (int)(DateTime.Now - CharacterData.离线日期.V).TotalDays));
+						MainForm.添加命令日志(string.Format("[{0}]({1}/{2}) 在排行榜单上, 已跳过清理", CharacterData, CharacterData.当前等级, (int)(DateTime.Now - CharacterData.OfflineDate.V).TotalDays));
 					}
 					else if (CharacterData.元宝数量 > 0)
 					{
-						MainForm.添加命令日志(string.Format("[{0}]({1}/{2}) 有未消费元宝, 已跳过清理", CharacterData, CharacterData.当前等级, (int)(DateTime.Now - CharacterData.离线日期.V).TotalDays));
+						MainForm.添加命令日志(string.Format("[{0}]({1}/{2}) 有未消费元宝, 已跳过清理", CharacterData, CharacterData.当前等级, (int)(DateTime.Now - CharacterData.OfflineDate.V).TotalDays));
 					}
 					else
 					{
 						GuildData 当前行会 = CharacterData.当前行会;
 						if (((当前行会 != null) ? 当前行会.会长数据 : null) == CharacterData)
 						{
-							MainForm.添加命令日志(string.Format("[{0}]({1}/{2}) 是行会的会长, 已跳过清理", CharacterData, CharacterData.当前等级, (int)(DateTime.Now - CharacterData.离线日期.V).TotalDays));
+							MainForm.添加命令日志(string.Format("[{0}]({1}/{2}) 是行会的会长, 已跳过清理", CharacterData, CharacterData.当前等级, (int)(DateTime.Now - CharacterData.OfflineDate.V).TotalDays));
 						}
 						else
 						{
-							MainForm.添加命令日志(string.Format("开始清理[{0}]({1}/{2})...", CharacterData, CharacterData.当前等级, (int)(DateTime.Now - CharacterData.离线日期.V).TotalDays));
+							MainForm.添加命令日志(string.Format("开始清理[{0}]({1}/{2})...", CharacterData, CharacterData.当前等级, (int)(DateTime.Now - CharacterData.OfflineDate.V).TotalDays));
 							CharacterData.Delete();
 							num++;
 							MainForm.RemoveCharacter(CharacterData);
