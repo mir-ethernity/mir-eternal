@@ -475,7 +475,7 @@ namespace GameServer.Data
 									KeyValuePair<int, GameData> keyValuePair3 = enumerator3.Current;
 									AccountData AccountData = keyValuePair3.Value as AccountData;
 									GameData GameData;
-									if (DataTableExample.Keyword.TryGetValue(AccountData.账号名字.V, out GameData))
+									if (DataTableExample.Keyword.TryGetValue(AccountData.Account.V, out GameData))
 									{
 										AccountData AccountData2 = GameData as AccountData;
 										if (AccountData2 != null)

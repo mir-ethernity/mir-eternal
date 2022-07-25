@@ -21,7 +21,7 @@ namespace GameServer
 		public override void Execute()
 		{
 			GameData GameData;
-			if (GameDataGateway.AccountData表.Keyword.TryGetValue(this.账号名字, out GameData))
+			if (GameDataGateway.AccountData表.Keyword.TryGetValue(this.Account, out GameData))
 			{
 				AccountData AccountData = GameData as AccountData;
 				if (AccountData != null)
@@ -48,7 +48,7 @@ namespace GameServer
 
 		
 		[FieldAttribute(0, 排序 = 0)]
-		public string 账号名字;
+		public string Account;
 
 		
 		[FieldAttribute(0, 排序 = 1)]

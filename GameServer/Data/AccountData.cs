@@ -9,7 +9,7 @@ using GameServer.Networking;
 namespace GameServer.Data
 {
 	
-	[FastDataReturnAttribute(检索字段 = "账号名字")]
+	[FastDataReturnAttribute(检索字段 = "Account")]
 	public sealed class AccountData : GameData
 	{
 		
@@ -24,14 +24,14 @@ namespace GameServer.Data
 		{
 			
 			
-			this.账号名字.V = 账号;
+			this.Account.V = 账号;
 			GameDataGateway.AccountData表.AddData(this, true);
 		}
 
 		
 		public override string ToString()
 		{
-			DataMonitor<string> DataMonitor = this.账号名字;
+			DataMonitor<string> DataMonitor = this.Account;
 			if (DataMonitor == null)
 			{
 				return null;
@@ -1148,7 +1148,7 @@ namespace GameServer.Data
 		public 客户网络 网络连接;
 
 		
-		public readonly DataMonitor<string> 账号名字;
+		public readonly DataMonitor<string> Account;
 
 		
 		public readonly DataMonitor<DateTime> 封禁日期;

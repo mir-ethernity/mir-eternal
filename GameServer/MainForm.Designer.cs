@@ -82,7 +82,7 @@
             this.dgvCharacters = new System.Windows.Forms.DataGridView();
             this.角色右键菜单 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.右键菜单_复制CharName = new System.Windows.Forms.ToolStripMenuItem();
-            this.右键菜单_复制账号名字 = new System.Windows.Forms.ToolStripMenuItem();
+            this.右键菜单_复制Account = new System.Windows.Forms.ToolStripMenuItem();
             this.右键菜单_复制网络地址 = new System.Windows.Forms.ToolStripMenuItem();
             this.右键菜单_复制物理地址 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabMaps = new System.Windows.Forms.TabPage();
@@ -785,7 +785,7 @@
             this.角色右键菜单.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.角色右键菜单.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.右键菜单_复制CharName,
-            this.右键菜单_复制账号名字,
+            this.右键菜单_复制Account,
             this.右键菜单_复制网络地址,
             this.右键菜单_复制物理地址});
             this.角色右键菜单.Name = "角色右键菜单";
@@ -798,12 +798,12 @@
             this.右键菜单_复制CharName.Text = "Copy char name";
             this.右键菜单_复制CharName.Click += new System.EventHandler(this.角色右键菜单_Click);
             // 
-            // 右键菜单_复制账号名字
+            // 右键菜单_复制Account
             // 
-            this.右键菜单_复制账号名字.Name = "右键菜单_复制账号名字";
-            this.右键菜单_复制账号名字.Size = new System.Drawing.Size(209, 24);
-            this.右键菜单_复制账号名字.Text = "Copy account name";
-            this.右键菜单_复制账号名字.Click += new System.EventHandler(this.角色右键菜单_Click);
+            this.右键菜单_复制Account.Name = "右键菜单_复制Account";
+            this.右键菜单_复制Account.Size = new System.Drawing.Size(209, 24);
+            this.右键菜单_复制Account.Text = "Copy account name";
+            this.右键菜单_复制Account.Click += new System.EventHandler(this.角色右键菜单_Click);
             // 
             // 右键菜单_复制网络地址
             // 
@@ -2414,7 +2414,7 @@
 		private global::System.Windows.Forms.ToolStripMenuItem 右键菜单_复制CharName;
 
 		
-		private global::System.Windows.Forms.ToolStripMenuItem 右键菜单_复制账号名字;
+		private global::System.Windows.Forms.ToolStripMenuItem 右键菜单_复制Account;
 
 		
 		private global::System.Windows.Forms.ToolStripMenuItem 右键菜单_复制网络地址;

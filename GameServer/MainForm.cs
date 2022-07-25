@@ -1297,7 +1297,7 @@ namespace GameServer
             if (toolStripMenuItem != null && MainForm.Singleton.dgvCharacters.Rows.Count > 0 && MainForm.Singleton.dgvCharacters.SelectedRows.Count > 0)
             {
                 DataRow row = (MainForm.Singleton.dgvCharacters.Rows[MainForm.Singleton.dgvCharacters.SelectedRows[0].Index].DataBoundItem as DataRowView).Row;
-                if (toolStripMenuItem.Name == "右键菜单_复制账号名字")
+                if (toolStripMenuItem.Name == "右键菜单_复制Account")
                 {
                     Clipboard.SetDataObject(row["所属账号"]);
                 }

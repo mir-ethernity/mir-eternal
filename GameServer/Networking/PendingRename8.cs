@@ -85,7 +85,7 @@ namespace GameServer.Networking
 					string text;
 					if (AccountData2 != null)
 					{
-						if ((text = AccountData2.账号名字.V) != null)
+						if ((text = AccountData2.Account.V) != null)
 						{
 							goto IL_113;
 						}

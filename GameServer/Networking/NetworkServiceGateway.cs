@@ -185,7 +185,7 @@ namespace GameServer.Networking
 			string text = "IP: " + 客户网络.网络地址;
 			if (客户网络.绑定账号 != null)
 			{
-				text = text + " Account: " + 客户网络.绑定账号.账号名字.V;
+				text = text + " Account: " + 客户网络.绑定账号.Account.V;
 			}
 			if (客户网络.绑定角色 != null)
 			{
