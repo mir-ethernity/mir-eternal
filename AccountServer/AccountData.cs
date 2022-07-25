@@ -19,7 +19,7 @@ namespace AccountServer
 		
 		public AccountData(string 账号, string 密码, string 问题, string 答案)
 		{
-			this.账号名字 = 账号;
+			this.Account = 账号;
 			this.Password = 密码;
 			this.Question = 问题;
 			this.Answer = 答案;
@@ -97,7 +97,7 @@ namespace AccountServer
 		};
 
 		
-		public string 账号名字;
+		public string Account;
 
 		
 		public string Password;
