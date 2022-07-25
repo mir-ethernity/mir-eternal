@@ -137,7 +137,7 @@
             this.lblTicketsCount.Name = "lblTicketsCount";
             this.lblTicketsCount.Size = new System.Drawing.Size(101, 16);
             this.lblTicketsCount.TabIndex = 5;
-            this.lblTicketsCount.Text = "Tickets Count: 0";
+            this.lblTicketsCount.Text = "Login Count: 0";
             // 
             // lblBytesSend
             // 

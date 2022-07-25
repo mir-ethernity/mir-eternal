@@ -38,7 +38,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.行会会长.V.角色名字.V;
+				return this.行会会长.V.CharName.V;
 			}
 		}
 
@@ -260,7 +260,7 @@ namespace GameServer.Data
 			this.发送封包(new GuildJoinMemberPacket
 			{
 				对象编号 = 成员.角色编号,
-				对象名字 = 成员.角色名字.V,
+				对象名字 = 成员.CharName.V,
 				对象职位 = 7,
 				对象等级 = 成员.角色等级,
 				对象职业 = (byte)成员.角色职业.V,
@@ -779,7 +779,7 @@ namespace GameServer.Data
 					{
 						binaryWriter.Write(keyValuePair.Key.角色编号);
 						byte[] array = new byte[32];
-						Encoding.UTF8.GetBytes(keyValuePair.Key.角色名字.V).CopyTo(array, 0);
+						Encoding.UTF8.GetBytes(keyValuePair.Key.CharName.V).CopyTo(array, 0);
 						binaryWriter.Write(array);
 						binaryWriter.Write((byte)keyValuePair.Value);
 						binaryWriter.Write(keyValuePair.Key.角色等级);
@@ -848,7 +848,7 @@ namespace GameServer.Data
 					{
 						binaryWriter.Write(CharacterData.角色编号);
 						byte[] array = new byte[32];
-						Encoding.UTF8.GetBytes(CharacterData.角色名字.V).CopyTo(array, 0);
+						Encoding.UTF8.GetBytes(CharacterData.CharName.V).CopyTo(array, 0);
 						binaryWriter.Write(array);
 						binaryWriter.Write(CharacterData.角色等级);
 						binaryWriter.Write(CharacterData.角色等级);

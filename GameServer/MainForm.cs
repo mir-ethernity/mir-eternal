@@ -93,7 +93,7 @@ namespace GameServer
             MainForm.CharacterData行 = new Dictionary<CharacterData, DataRow>();
             MainForm.数据行角色 = new Dictionary<DataRow, CharacterData>();
 
-            MainForm.CharacterDataTable.Columns.Add("角色名字", typeof(string));
+            MainForm.CharacterDataTable.Columns.Add("CharName", typeof(string));
             MainForm.CharacterDataTable.Columns.Add("角色封禁", typeof(string));
             MainForm.CharacterDataTable.Columns.Add("所属账号", typeof(string));
             MainForm.CharacterDataTable.Columns.Add("账号封禁", typeof(string));
@@ -438,7 +438,7 @@ namespace GameServer
                 if (!MainForm.CharacterData行.ContainsKey(角色))
                 {
                     DataRow dataRow = MainForm.CharacterDataTable.NewRow();
-                    dataRow["角色名字"] = 角色;
+                    dataRow["CharName"] = 角色;
                     dataRow["所属账号"] = 角色.所属账号;
                     dataRow["账号封禁"] = ((角色.所属账号.V.封禁日期.V != default(DateTime)) ? 角色.所属账号.V.封禁日期 : null);
                     dataRow["角色封禁"] = ((角色.封禁日期.V != default(DateTime)) ? 角色.封禁日期 : null);
@@ -1107,7 +1107,7 @@ namespace GameServer
         {
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog
             {
-                Description = "请选择文件夹"
+                Description = "Please select folder"
             };
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
@@ -1205,7 +1205,7 @@ namespace GameServer
                 GMCommand GMCommand;
                 if (this.GMCommand文本.Text[0] != '@')
                 {
-                    MainForm.添加命令日志("<= Command error, GM commands must start with '@' at the start. '@ViewCommand' 获取所有受支持的命令格式");
+                    MainForm.添加命令日志("<= Command error, GM commands must start with '@' at the start. '@View' to see all available commands");
                 }
                 else if (this.GMCommand文本.Text.Trim(new char[]
                 {
@@ -1213,7 +1213,7 @@ namespace GameServer
                     ' '
                 }).Length == 0)
                 {
-                    MainForm.添加命令日志("<= Command error, GM commands can not be empty. Type '@ViewCommand' to see all available");
+                    MainForm.添加命令日志("<= Command error, GM commands can not be empty. Type '@View' to see all available commands");
                 }
                 else if (GMCommand.解析命令(this.GMCommand文本.Text, out GMCommand))
                 {
@@ -1301,9 +1301,9 @@ namespace GameServer
                 {
                     Clipboard.SetDataObject(row["所属账号"]);
                 }
-                if (toolStripMenuItem.Name == "右键菜单_复制角色名字")
+                if (toolStripMenuItem.Name == "右键菜单_复制CharName")
                 {
-                    Clipboard.SetDataObject(row["角色名字"]);
+                    Clipboard.SetDataObject(row["CharName"]);
                 }
                 if (toolStripMenuItem.Name == "右键菜单_复制网络地址")
                 {
