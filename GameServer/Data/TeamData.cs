@@ -54,7 +54,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.队长数据.角色名字.V;
+				return this.队长数据.CharName.V;
 			}
 		}
 
@@ -84,12 +84,12 @@ namespace GameServer.Data
 			{
 				return null;
 			}
-			DataMonitor<string> 角色名字 = 队长数据.角色名字;
-			if (角色名字 == null)
+			DataMonitor<string> CharName = 队长数据.CharName;
+			if (CharName == null)
 			{
 				return null;
 			}
-			return 角色名字.V;
+			return CharName.V;
 		}
 
 		

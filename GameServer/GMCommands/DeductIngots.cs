@@ -21,7 +21,7 @@ namespace GameServer
 		public override void Execute()
 		{
 			GameData GameData;
-			if (GameDataGateway.CharacterDataTable.Keyword.TryGetValue(this.角色名字, out GameData))
+			if (GameDataGateway.CharacterDataTable.Keyword.TryGetValue(this.CharName, out GameData))
 			{
 				CharacterData CharacterData = GameData as CharacterData;
 				if (CharacterData != null)
@@ -51,7 +51,7 @@ namespace GameServer
 
 		
 		[FieldAttribute(0, 排序 = 0)]
-		public string 角色名字;
+		public string CharName;
 
 		
 		[FieldAttribute(0, 排序 = 1)]

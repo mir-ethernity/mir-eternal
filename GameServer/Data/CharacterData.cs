@@ -11,7 +11,7 @@ using GameServer.Networking;
 namespace GameServer.Data
 {
 	
-	[FastDataReturnAttribute(检索字段 = "角色名字")]
+	[FastDataReturnAttribute(检索字段 = "CharName")]
 	public sealed class CharacterData : GameData
 	{
 		
@@ -291,7 +291,7 @@ namespace GameServer.Data
 			this.物理地址.V = 网络.物理地址;
 			this.网络地址.V = 网络.网络地址;
 			MainForm.更新CharacterData(this, "离线日期", null);
-			MainForm.AddSystemLog(string.Format("Player [{0}] [Level {1} has entered the game", this.角色名字, this.当前等级));
+			MainForm.AddSystemLog(string.Format("Player [{0}] [Level {1}] has entered the game", this.CharName, this.当前等级));
 		}
 
 		
@@ -334,7 +334,7 @@ namespace GameServer.Data
 			this.背包大小.V = 32;
 			this.仓库大小.V = 16;
 			this.所属账号.V = 账号;
-			this.角色名字.V = 名字;
+			this.CharName.V = 名字;
 			this.角色职业.V = 职业;
 			this.角色性别.V = 性别;
 			this.角色发型.V = 发型;
@@ -393,7 +393,7 @@ namespace GameServer.Data
 		
 		public override string ToString()
 		{
-			DataMonitor<string> DataMonitor = this.角色名字;
+			DataMonitor<string> DataMonitor = this.CharName;
 			if (DataMonitor == null)
 			{
 				return null;
@@ -413,9 +413,9 @@ namespace GameServer.Data
 			{
 				MainForm.更新CharacterData(this, "账号封禁", (O != default(DateTime)) ? O : null);
 			};
-			this.角色名字.更改事件 += delegate(string O)
+			this.CharName.更改事件 += delegate(string O)
 			{
-				MainForm.更新CharacterData(this, "角色名字", O);
+				MainForm.更新CharacterData(this, "CharName", O);
 			};
 			this.封禁日期.更改事件 += delegate(DateTime O)
 			{
@@ -707,7 +707,7 @@ namespace GameServer.Data
 		
 		public byte[] 名字描述()
 		{
-			return Encoding.UTF8.GetBytes(this.角色名字.V);
+			return Encoding.UTF8.GetBytes(this.CharName.V);
 		}
 
 		
@@ -748,7 +748,7 @@ namespace GameServer.Data
 		}
 
 		
-		public readonly DataMonitor<string> 角色名字;
+		public readonly DataMonitor<string> CharName;
 
 		
 		public readonly DataMonitor<string> 网络地址;

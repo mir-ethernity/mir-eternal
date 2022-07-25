@@ -106,7 +106,7 @@ namespace GameServer.Data
 					byte[] array = new byte[32];
 					if (!this.系统邮件.V)
 					{
-						Encoding.UTF8.GetBytes(this.邮件作者.V.角色名字.V + "\0").CopyTo(array, 0);
+						Encoding.UTF8.GetBytes(this.邮件作者.V.CharName.V + "\0").CopyTo(array, 0);
 					}
 					binaryWriter.Write(array);
 					byte[] array2 = new byte[61];
@@ -136,7 +136,7 @@ namespace GameServer.Data
 					byte[] array = new byte[32];
 					if (!this.系统邮件.V)
 					{
-						Encoding.UTF8.GetBytes(this.邮件作者.V.角色名字.V + "\0").CopyTo(array, 0);
+						Encoding.UTF8.GetBytes(this.邮件作者.V.CharName.V + "\0").CopyTo(array, 0);
 					}
 					binaryWriter.Write(array);
 					byte[] array2 = new byte[61];

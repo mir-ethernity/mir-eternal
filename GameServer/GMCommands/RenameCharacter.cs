@@ -41,9 +41,9 @@ namespace GameServer
 						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, name already registered");
 						return;
 					}
-					GameDataGateway.CharacterDataTable.Keyword.Remove(CharacterData.角色名字.V);
-					CharacterData.角色名字.V = this.NewCharacterName;
-					GameDataGateway.CharacterDataTable.Keyword.Add(CharacterData.角色名字.V, CharacterData);
+					GameDataGateway.CharacterDataTable.Keyword.Remove(CharacterData.CharName.V);
+					CharacterData.CharName.V = this.NewCharacterName;
+					GameDataGateway.CharacterDataTable.Keyword.Add(CharacterData.CharName.V, CharacterData);
 					MainForm.添加命令日志(string.Format("<= @{0} command has been executed, with the current name of the character: {1}", base.GetType().Name, CharacterData));
 					return;
 				}

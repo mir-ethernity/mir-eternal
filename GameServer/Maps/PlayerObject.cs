@@ -883,7 +883,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.CharacterData.角色名字.V;
+				return this.CharacterData.CharName.V;
 			}
 		}
 
@@ -17461,7 +17461,7 @@ namespace GameServer.Maps
 					{
 						字节描述 = 字节描述2
 					});
-					MainProcess.AddChatLog(string.Format("[Whisper][{0}]=>[{1}]: ", this.对象名字, CharacterData.角色名字), array);
+					MainProcess.AddChatLog(string.Format("[Whisper][{0}]=>[{1}]: ", this.对象名字, CharacterData.CharName), array);
 					return;
 				}
 			}
@@ -17587,7 +17587,7 @@ namespace GameServer.Maps
 									网络连接3.发送封包(new 玩家添加关注
 									{
 										对象编号 = CharacterData.数据索引.V,
-										对象名字 = CharacterData.角色名字.V,
+										对象名字 = CharacterData.CharName.V,
 										是否好友 = (this.粉丝列表.Contains(CharacterData) || CharacterData.偶像列表.Contains(this.CharacterData))
 									});
 								}
@@ -17597,7 +17597,7 @@ namespace GameServer.Maps
 									网络连接4.发送封包(new 好友上线下线
 									{
 										对象编号 = CharacterData.数据索引.V,
-										对象名字 = CharacterData.角色名字.V,
+										对象名字 = CharacterData.CharName.V,
 										对象职业 = (byte)CharacterData.角色职业.V,
 										对象性别 = (byte)CharacterData.角色性别.V,
 										上线下线 = ((byte)((CharacterData.网络连接 != null) ? 0 : 3))
@@ -17665,7 +17665,7 @@ namespace GameServer.Maps
 								网络连接7.发送封包(new 玩家添加关注
 								{
 									对象编号 = CharacterData2.数据索引.V,
-									对象名字 = CharacterData2.角色名字.V,
+									对象名字 = CharacterData2.CharName.V,
 									是否好友 = (this.粉丝列表.Contains(CharacterData2) || CharacterData2.偶像列表.Contains(this.CharacterData))
 								});
 							}
@@ -17675,7 +17675,7 @@ namespace GameServer.Maps
 								网络连接8.发送封包(new 好友上线下线
 								{
 									对象编号 = CharacterData2.数据索引.V,
-									对象名字 = CharacterData2.角色名字.V,
+									对象名字 = CharacterData2.CharName.V,
 									对象职业 = (byte)CharacterData2.角色职业.V,
 									对象性别 = (byte)CharacterData2.角色性别.V,
 									上线下线 = ((byte)((CharacterData2.网络连接 != null) ? 0 : 3))
@@ -17822,7 +17822,7 @@ namespace GameServer.Maps
 						网络连接4.发送封包(new 好友上线下线
 						{
 							对象编号 = CharacterData.数据索引.V,
-							对象名字 = CharacterData.角色名字.V,
+							对象名字 = CharacterData.CharName.V,
 							对象职业 = (byte)CharacterData.角色职业.V,
 							对象性别 = (byte)CharacterData.角色性别.V,
 							上线下线 = ((byte)((CharacterData.网络连接 != null) ? 0 : 3))
@@ -17945,7 +17945,7 @@ namespace GameServer.Maps
 						网络连接4.发送封包(new 玩家屏蔽目标
 						{
 							对象编号 = CharacterData.数据索引.V,
-							对象名字 = CharacterData.角色名字.V
+							对象名字 = CharacterData.CharName.V
 						});
 						return;
 					}
@@ -18227,7 +18227,7 @@ namespace GameServer.Maps
 					}
 					同步角色信息 同步角色信息 = new 同步角色信息();
 					同步角色信息.对象编号 = CharacterData.数据索引.V;
-					同步角色信息.对象名字 = CharacterData.角色名字.V;
+					同步角色信息.对象名字 = CharacterData.CharName.V;
 					同步角色信息.会员等级 = CharacterData.本期特权.V;
 					同步角色信息.对象职业 = (byte)CharacterData.角色职业.V;
 					同步角色信息.对象性别 = (byte)CharacterData.角色性别.V;
@@ -19065,7 +19065,7 @@ namespace GameServer.Maps
 									{
 										队伍编号 = this.所属队伍.队伍编号,
 										对象编号 = CharacterData.角色编号,
-										对象名字 = CharacterData.角色名字.V,
+										对象名字 = CharacterData.CharName.V,
 										对象性别 = (byte)CharacterData.角色性别.V,
 										对象职业 = (byte)CharacterData.角色职业.V,
 										在线离线 = 0

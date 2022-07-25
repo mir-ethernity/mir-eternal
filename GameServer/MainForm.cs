@@ -93,7 +93,7 @@ namespace GameServer
             MainForm.CharacterData行 = new Dictionary<CharacterData, DataRow>();
             MainForm.数据行角色 = new Dictionary<DataRow, CharacterData>();
 
-            MainForm.CharacterDataTable.Columns.Add("角色名字", typeof(string));
+            MainForm.CharacterDataTable.Columns.Add("CharName", typeof(string));
             MainForm.CharacterDataTable.Columns.Add("角色封禁", typeof(string));
             MainForm.CharacterDataTable.Columns.Add("所属账号", typeof(string));
             MainForm.CharacterDataTable.Columns.Add("账号封禁", typeof(string));
@@ -438,7 +438,7 @@ namespace GameServer
                 if (!MainForm.CharacterData行.ContainsKey(角色))
                 {
                     DataRow dataRow = MainForm.CharacterDataTable.NewRow();
-                    dataRow["角色名字"] = 角色;
+                    dataRow["CharName"] = 角色;
                     dataRow["所属账号"] = 角色.所属账号;
                     dataRow["账号封禁"] = ((角色.所属账号.V.封禁日期.V != default(DateTime)) ? 角色.所属账号.V.封禁日期 : null);
                     dataRow["角色封禁"] = ((角色.封禁日期.V != default(DateTime)) ? 角色.封禁日期 : null);
@@ -1301,9 +1301,9 @@ namespace GameServer
                 {
                     Clipboard.SetDataObject(row["所属账号"]);
                 }
-                if (toolStripMenuItem.Name == "右键菜单_复制角色名字")
+                if (toolStripMenuItem.Name == "右键菜单_复制CharName")
                 {
-                    Clipboard.SetDataObject(row["角色名字"]);
+                    Clipboard.SetDataObject(row["CharName"]);
                 }
                 if (toolStripMenuItem.Name == "右键菜单_复制网络地址")
                 {

@@ -515,20 +515,20 @@ namespace GameServer.Data
 									KeyValuePair<int, GameData> keyValuePair4 = enumerator3.Current;
 									CharacterData CharacterData4 = keyValuePair4.Value as CharacterData;
 									GameData GameData2;
-									if (DataTableExample2.Keyword.TryGetValue(CharacterData4.角色名字.V, out GameData2))
+									if (DataTableExample2.Keyword.TryGetValue(CharacterData4.CharName.V, out GameData2))
 									{
 										CharacterData CharacterData5 = GameData2 as CharacterData;
 										if (CharacterData5 != null)
 										{
 											if (CharacterData5.创建日期.V > CharacterData4.创建日期.V)
 											{
-												DataMonitor<string> 角色名字 = CharacterData5.角色名字;
-												角色名字.V += "_";
+												DataMonitor<string> CharName = CharacterData5.CharName;
+												CharName.V += "_";
 											}
 											else
 											{
-												DataMonitor<string> 角色名字2 = CharacterData4.角色名字;
-												角色名字2.V += "_";
+												DataMonitor<string> CharName2 = CharacterData4.CharName;
+												CharName2.V += "_";
 											}
 										}
 									}
