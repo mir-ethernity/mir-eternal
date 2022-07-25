@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace GameServer.Templates
 {
-
     public sealed class Terrains
     {
         public static Dictionary<byte, Terrains> DataSheet;

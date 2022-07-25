@@ -2,7 +2,6 @@
 
 namespace GameServer.Templates
 {
-	
 	public struct BasicStats
 	{
 		public GameObjectStats Stat;

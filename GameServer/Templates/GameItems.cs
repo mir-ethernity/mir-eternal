@@ -4,7 +4,6 @@ using System.IO;
 
 namespace GameServer.Templates
 {
-	
 	public class GameItems
 	{
 		public static Dictionary<int, GameItems> DataSheet;

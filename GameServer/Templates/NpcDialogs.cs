@@ -6,7 +6,6 @@ using System.Text;
 
 namespace GameServer.Templates
 {
-	
 	public sealed class NpcDialogs
 	{
 		public static Dictionary<int, string> DataSheet;

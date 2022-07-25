@@ -5,7 +5,6 @@ using System.IO;
 
 namespace GameServer.Templates
 {
-	
 	public class MonsterSpawns
 	{
 		public static HashSet<MonsterSpawns> DataSheet;

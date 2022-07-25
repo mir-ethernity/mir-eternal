@@ -2,7 +2,6 @@
 
 namespace GameServer.Templates
 {
-	
 	public struct InheritStat
 	{
 		public GameObjectStats InheritsStats;

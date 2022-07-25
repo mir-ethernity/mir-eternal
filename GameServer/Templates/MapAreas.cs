@@ -6,7 +6,6 @@ using System.Linq;
 
 namespace GameServer.Templates
 {
-
     public class MapAreas
     {
         public static List<MapAreas> DataSheet;
@@ -29,7 +28,7 @@ namespace GameServer.Templates
             {
                 foreach (object obj in Serializer.Deserialize(text, typeof(MapAreas)))
                 {
-                    MapAreas.DataSheet.Add((MapAreas)obj);
+                    DataSheet.Add((MapAreas)obj);
                 }
             }
         }
@@ -39,7 +38,7 @@ namespace GameServer.Templates
         {
             get
             {
-                return this.RangeCoordsList[MainProcess.RandomNumber.Next(this.RangeCoords.Count)];
+                return RangeCoordsList[MainProcess.RandomNumber.Next(RangeCoords.Count)];
             }
         }
 

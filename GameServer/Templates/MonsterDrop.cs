@@ -2,7 +2,6 @@
 
 namespace GameServer.Templates
 {
-	
 	public class MonsterDrop
 	{
 		public string Name;
