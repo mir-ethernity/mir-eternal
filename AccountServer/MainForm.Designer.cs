@@ -137,7 +137,7 @@
             this.lblTicketsCount.Name = "lblTicketsCount";
             this.lblTicketsCount.Size = new System.Drawing.Size(101, 16);
             this.lblTicketsCount.TabIndex = 5;
-            this.lblTicketsCount.Text = "Tickets Count: 0";
+            this.lblTicketsCount.Text = "Login Count: 0";
             // 
             // lblBytesSend
             // 
@@ -192,7 +192,7 @@
             this.lblTicketsPort.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblTicketsPort.Size = new System.Drawing.Size(78, 16);
             this.lblTicketsPort.TabIndex = 11;
-            this.lblTicketsPort.Text = "Tickets Port";
+            this.lblTicketsPort.Text = "Login Port";
             // 
             // txtTicketPort
             // 

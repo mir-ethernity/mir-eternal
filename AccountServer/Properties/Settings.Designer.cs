@@ -25,7 +25,7 @@ namespace AccountServer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("8001")]
+        [global::System.Configuration.DefaultSettingValueAttribute("8701")]
         public ushort ServerPort {
             get {
                 return ((ushort)(this["ServerPort"]));
