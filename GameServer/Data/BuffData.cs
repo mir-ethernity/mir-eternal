@@ -175,7 +175,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.ActionType == BuffActionType.增益类型;
+				return this.Buff模板.ActionType == BuffActionType.Gain;
 			}
 		}
 
