@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 30000,
-  "NormalAttackSkills": "电脑-Sea CrabNormalAttackSkills",
+  "NormalAttackSkills": "电脑-海蟹普通攻击技能",
   "ProbabilityTriggerSkills": "",
   "EnterCombatSkills": "",
   "ExitCombatSkills": "",

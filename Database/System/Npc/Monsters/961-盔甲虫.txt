@@ -13,7 +13,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Beetle的BasicAttackSkills",
+  "NormalAttackSkills": "电脑-盔甲虫的普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

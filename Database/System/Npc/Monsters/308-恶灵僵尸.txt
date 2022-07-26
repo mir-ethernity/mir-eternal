@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Evil ZombieBasicAttackSkills",
+  "NormalAttackSkills": "电脑-恶灵僵尸普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

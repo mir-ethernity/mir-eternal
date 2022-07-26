@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 3,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-Tree DemonNormalAttackSkills",
+  "NormalAttackSkills": "电脑-树妖普通攻击技能",
   "ProbabilityTriggerSkills": "",
   "EnterCombatSkills": "",
   "ExitCombatSkills": "",

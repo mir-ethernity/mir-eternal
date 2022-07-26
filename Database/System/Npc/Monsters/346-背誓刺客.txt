@@ -12,7 +12,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-背誓刺客BasicAttackSkills",
+  "NormalAttackSkills": "电脑-背誓刺客普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

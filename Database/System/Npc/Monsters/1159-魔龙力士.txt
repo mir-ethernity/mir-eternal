@@ -12,7 +12,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 6,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-Magic Dragon RexBasicAttackSkills",
+  "NormalAttackSkills": "电脑-魔龙力士普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

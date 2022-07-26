@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-魔龙刀兵BasicAttackSkills",
+  "NormalAttackSkills": "电脑-魔龙刀兵普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

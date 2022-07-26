@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Two-headed Blood DemonBasicAttackSkills",
+  "NormalAttackSkills": "电脑-双头血魔普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

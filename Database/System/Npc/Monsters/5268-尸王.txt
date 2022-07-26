@@ -9,7 +9,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 8,
   "HateTime": 30000,
-  "NormalAttackSkills": "电脑-Corpse KingNormalAttackSkills",
+  "NormalAttackSkills": "电脑-尸王普通攻击技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

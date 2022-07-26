@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 8,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Skeleton Archer的普攻",
+  "NormalAttackSkills": "电脑-骷髅弓箭手的普攻",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

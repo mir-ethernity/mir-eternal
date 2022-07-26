@@ -9,7 +9,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 8,
   "HateTime": 30000,
-  "NormalAttackSkills": "电脑-Lord Yellow SpringsBasicAttackSkills",
+  "NormalAttackSkills": "电脑-黄泉教主普攻技能",
   "ProbabilityTriggerSkills": "电脑-Lord Yellow Springs概率技能",
   "Stats": [
     {

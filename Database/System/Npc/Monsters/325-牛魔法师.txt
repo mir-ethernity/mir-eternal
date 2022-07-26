@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 8,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Ox MagicianBasicAttackSkills",
+  "NormalAttackSkills": "电脑-牛魔法师普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

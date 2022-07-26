@@ -9,7 +9,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 8,
   "HateTime": 30000,
-  "NormalAttackSkills": "电脑-Rainbow Demon GodBasicAttackSkills",
+  "NormalAttackSkills": "电脑-虹魔教主普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

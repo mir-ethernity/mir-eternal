@@ -12,7 +12,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 15000,
-  "NormalAttackSkills": "电脑-Flaming WarmaBasicAttackSkills",
+  "NormalAttackSkills": "电脑-火焰沃玛普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

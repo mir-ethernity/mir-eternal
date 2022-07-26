@@ -471,8 +471,6 @@ namespace GameServer.Maps
 		
 		public MonsterObject(Monsters 对应模板, MapInstance 出生地图, int RevivalInterval, Point[] 出生范围, bool 禁止复活, bool 立即刷新)
 		{
-			
-			
 			this.对象模板 = 对应模板;
 			this.出生地图 = 出生地图;
 			this.当前地图 = 出生地图;

@@ -10,7 +10,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-Zombie PirateBasicAttackSkills",
+  "NormalAttackSkills": "电脑-僵尸海盗普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 30000,
-  "NormalAttackSkills": "电脑-Ambassador Of The UnderworldBasicAttackSkills",
+  "NormalAttackSkills": "电脑-幽冥大使普攻技能",
   "ProbabilityTriggerSkills": "电脑-Ambassador Of The Underworld概率技能",
   "Stats": [
     {

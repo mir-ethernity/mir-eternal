@@ -12,7 +12,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Zuma RatBasicAttackSkills",
+  "NormalAttackSkills": "电脑-祖玛老鼠普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

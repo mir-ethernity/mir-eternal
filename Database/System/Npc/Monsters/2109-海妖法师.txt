@@ -10,7 +10,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 6,
   "HateTime": 30000,
-  "NormalAttackSkills": "电脑-Siren MageBasicAttackSkills",
+  "NormalAttackSkills": "电脑-海妖法师普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

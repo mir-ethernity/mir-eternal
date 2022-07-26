@@ -12,7 +12,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Giant WormBasicAttackSkills",
+  "NormalAttackSkills": "电脑-巨型蠕虫普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

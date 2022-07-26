@@ -10,7 +10,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 6,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-Zombie Spear Thrower的普攻",
+  "NormalAttackSkills": "电脑-僵尸掷矛手的普攻",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

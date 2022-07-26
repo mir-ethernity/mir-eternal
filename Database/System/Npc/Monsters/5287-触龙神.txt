@@ -9,7 +9,7 @@
   "CorpsePreservationDuration": 60000,
   "ActiveAttackTarget": true,
   "RangeHate": 8,
-  "NormalAttackSkills": "电脑-Dragon God的BasicAttackSkills",
+  "NormalAttackSkills": "电脑-触龙神的普攻技能",
   "EnterCombatSkills": "电脑-Dragon God的钻出技能",
   "ExitCombatSkills": "电脑-Dragon God的钻入技能",
   "Stats": [

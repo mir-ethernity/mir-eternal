@@ -12,7 +12,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 6,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Zuma Archer的普攻",
+  "NormalAttackSkills": "电脑-祖玛弓箭手的普攻",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

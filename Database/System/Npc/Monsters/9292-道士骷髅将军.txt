@@ -13,7 +13,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 15000,
-  "NormalAttackSkills": "电脑-骷髅将军BasicAttackSkills",
+  "NormalAttackSkills": "电脑-骷髅将军普攻技能",
   "ProbabilityTriggerSkills": "",
   "EnterCombatSkills": "",
   "ExitCombatSkills": "",

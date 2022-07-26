@@ -10,7 +10,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 6,
   "HateTime": 10000,
-  "NormalAttackSkills": "电脑-Phantom SpiderBasicAttackSkills",
+  "NormalAttackSkills": "电脑-幻影蜘蛛普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

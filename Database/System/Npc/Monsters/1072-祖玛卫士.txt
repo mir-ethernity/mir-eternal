@@ -14,7 +14,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Zuma GuardianBasicAttackSkills",
+  "NormalAttackSkills": "电脑-祖玛卫士普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

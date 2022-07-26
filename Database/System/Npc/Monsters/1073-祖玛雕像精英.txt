@@ -13,7 +13,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Zuma StatueBasicAttackSkills",
+  "NormalAttackSkills": "电脑-祖玛雕像普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

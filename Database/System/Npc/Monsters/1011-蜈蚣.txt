@@ -14,7 +14,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-CentipedeNormalAttackSkills",
+  "NormalAttackSkills": "电脑-蜈蚣普通攻击技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

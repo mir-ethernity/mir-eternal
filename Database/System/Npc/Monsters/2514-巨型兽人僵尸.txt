@@ -8,7 +8,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 8,
   "HateTime": 30000,
-  "NormalAttackSkills": "电脑-Giant Orc Zombie普攻",
+  "NormalAttackSkills": "电脑-巨型兽人僵尸普攻",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

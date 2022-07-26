@@ -10,7 +10,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 6,
   "HateTime": 21000,
-  "NormalAttackSkills": "电脑-Wooma WarriorBasicAttackSkills",
+  "NormalAttackSkills": "电脑-沃玛战士普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

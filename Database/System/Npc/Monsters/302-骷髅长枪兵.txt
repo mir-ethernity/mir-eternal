@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Skeleton Lanceman的普攻",
+  "NormalAttackSkills": "电脑-骷髅长枪兵的普攻",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

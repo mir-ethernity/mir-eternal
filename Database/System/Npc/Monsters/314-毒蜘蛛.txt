@@ -13,7 +13,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Poisonous Spider的BasicAttackSkills",
+  "NormalAttackSkills": "电脑-毒蜘蛛的普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

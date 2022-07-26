@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 5,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Toothless SpiderBasicAttackSkills",
+  "NormalAttackSkills": "电脑-暴牙蜘蛛普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

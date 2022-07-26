@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 6,
   "HateTime": 18000,
-  "NormalAttackSkills": "电脑-Rainbow Pig GuardBasicAttackSkills",
+  "NormalAttackSkills": "电脑-虹魔猪卫普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

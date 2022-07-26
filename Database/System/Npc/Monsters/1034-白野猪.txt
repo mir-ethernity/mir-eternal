@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 5,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-White Boar的BasicAttackSkills",
+  "NormalAttackSkills": "电脑-白野猪的普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

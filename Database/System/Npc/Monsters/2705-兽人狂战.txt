@@ -9,7 +9,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-Orc BerserkerBasicAttackSkills",
+  "NormalAttackSkills": "电脑-兽人狂战普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 6,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-闪电僵尸BasicAttackSkills",
+  "NormalAttackSkills": "电脑-闪电僵尸普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

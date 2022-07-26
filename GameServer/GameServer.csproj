@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GMCommands\GMCommand.cs" />
+    <Compile Include="GMCommands\Mob.cs" />
     <Compile Include="GMCommands\Move.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

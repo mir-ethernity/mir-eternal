@@ -11,7 +11,7 @@
   "RoamInterval": 16000,
   "CorpsePreservationDuration": 16000,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-鹰卫NormalAttackSkills",
+  "NormalAttackSkills": "电脑-鹰卫普通攻击技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

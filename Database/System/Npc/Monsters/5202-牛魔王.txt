@@ -9,7 +9,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 8,
   "HateTime": 30000,
-  "NormalAttackSkills": "电脑-Bull Demon King的BasicAttackSkills",
+  "NormalAttackSkills": "电脑-牛魔王的普攻技能",
   "ProbabilityTriggerSkills": "电脑-Bull Demon King的特殊技能",
   "Stats": [
     {

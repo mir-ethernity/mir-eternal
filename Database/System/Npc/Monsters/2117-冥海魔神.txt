@@ -9,7 +9,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 6,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-Demon God Of The UnderseaBasicAttackSkills",
+  "NormalAttackSkills": "电脑-冥海魔神普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

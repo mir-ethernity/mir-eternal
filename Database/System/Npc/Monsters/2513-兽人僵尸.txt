@@ -10,7 +10,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-Orc ZombieBasicAttackSkills",
+  "NormalAttackSkills": "电脑-兽人僵尸普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

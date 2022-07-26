@@ -12,7 +12,7 @@
   "CorpsePreservationDuration": 15000,
   "RangeHate": 3,
   "HateTime": 10000,
-  "NormalAttackSkills": "电脑-小羊NormalAttackSkills",
+  "NormalAttackSkills": "电脑-小羊普通攻击技能",
   "ProbabilityTriggerSkills": "",
   "EnterCombatSkills": "",
   "ExitCombatSkills": "",

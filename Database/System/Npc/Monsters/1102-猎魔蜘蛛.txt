@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Demon Hunting SpiderBasicAttackSkills",
+  "NormalAttackSkills": "电脑-猎魔蜘蛛普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

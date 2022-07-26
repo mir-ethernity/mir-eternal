@@ -10,7 +10,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-General Bull DemonBasicAttackSkills",
+  "NormalAttackSkills": "电脑-牛魔将军普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

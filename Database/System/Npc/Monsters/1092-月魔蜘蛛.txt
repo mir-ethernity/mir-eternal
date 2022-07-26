@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Moon Demon SpiderBasicAttackSkills",
+  "NormalAttackSkills": "电脑-月魔蜘蛛普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

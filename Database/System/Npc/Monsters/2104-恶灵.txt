@@ -10,7 +10,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-Evil SpiritNormalAttackSkills",
+  "NormalAttackSkills": "电脑-恶灵普通攻击技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

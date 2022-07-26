@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 8,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Ox Magician King的普攻",
+  "NormalAttackSkills": "电脑-牛魔法师王的普攻",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

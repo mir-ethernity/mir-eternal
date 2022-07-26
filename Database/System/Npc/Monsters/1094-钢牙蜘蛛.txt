@@ -12,7 +12,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Steel Tooth SpiderBasicAttackSkills",
+  "NormalAttackSkills": "电脑-钢牙蜘蛛普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Polydactylus的BasicAttackSkills",
+  "NormalAttackSkills": "电脑-多角虫的普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

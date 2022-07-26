@@ -9,7 +9,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 8,
   "HateTime": 5000,
-  "NormalAttackSkills": "电脑-鱼人死士BasicAttackSkills",
+  "NormalAttackSkills": "电脑-鱼人死士普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

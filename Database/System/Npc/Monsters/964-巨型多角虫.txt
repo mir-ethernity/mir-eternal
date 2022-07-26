@@ -13,7 +13,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Giant Polydactylus的普攻",
+  "NormalAttackSkills": "电脑-巨型多角虫的普攻",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

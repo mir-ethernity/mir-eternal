@@ -8,7 +8,7 @@
   "CorpsePreservationDuration": 60000,
   "ActiveAttackTarget": true,
   "RangeHate": 8,
-  "NormalAttackSkills": "电脑-Red Moon DemonBasicAttackSkills",
+  "NormalAttackSkills": "电脑-赤月恶魔普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

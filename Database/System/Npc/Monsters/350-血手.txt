@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 30000,
-  "NormalAttackSkills": "电脑-Blood HandNormalAttackSkills",
+  "NormalAttackSkills": "电脑-血手普通攻击技能",
   "ProbabilityTriggerSkills": "电脑-Blood HandProbabilityTriggerSkills",
   "Stats": [
     {

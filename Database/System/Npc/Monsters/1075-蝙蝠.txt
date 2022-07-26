@@ -12,7 +12,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 5,
   "HateTime": 15000,
-  "NormalAttackSkills": "电脑-蝙蝠NormalAttackSkills",
+  "NormalAttackSkills": "电脑-蝙蝠普通攻击技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

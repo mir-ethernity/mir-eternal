@@ -10,7 +10,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-Siren WarriorBasicAttackSkills",
+  "NormalAttackSkills": "电脑-海妖战士普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

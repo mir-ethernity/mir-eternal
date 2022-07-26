@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 5,
   "HateTime": 10000,
-  "NormalAttackSkills": "电脑-Horned FlyNormalAttackSkills",
+  "NormalAttackSkills": "电脑-角蝇普通攻击技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

@@ -10,7 +10,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-Orc RitualBasicAttackSkills",
+  "NormalAttackSkills": "电脑-兽人祭祀普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

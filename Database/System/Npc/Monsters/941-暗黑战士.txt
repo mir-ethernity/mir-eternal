@@ -14,7 +14,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 5,
   "HateTime": 15000,
-  "NormalAttackSkills": "电脑-Dark WarriorBasicAttackSkills",
+  "NormalAttackSkills": "电脑-暗黑战士普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

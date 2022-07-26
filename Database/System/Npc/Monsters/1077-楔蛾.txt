@@ -14,7 +14,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 15000,
-  "NormalAttackSkills": "电脑-WedgeMothNormalAttackSkills",
+  "NormalAttackSkills": "电脑-楔蛾普通攻击技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

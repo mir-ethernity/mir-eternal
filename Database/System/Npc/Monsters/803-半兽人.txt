@@ -13,7 +13,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 3,
   "HateTime": 30000,
-  "NormalAttackSkills": "电脑-Orc的BasicAttackSkills",
+  "NormalAttackSkills": "电脑-半兽人的普攻技能",
   "ProbabilityTriggerSkills": "",
   "EnterCombatSkills": "",
   "ExitCombatSkills": "",

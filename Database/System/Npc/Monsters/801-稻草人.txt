@@ -12,7 +12,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 3,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-Scarecrow的普通Attack",
+  "NormalAttackSkills": "电脑-稻草人的普通攻击",
   "ProbabilityTriggerSkills": "",
   "EnterCombatSkills": "",
   "ExitCombatSkills": "",

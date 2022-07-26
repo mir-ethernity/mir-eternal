@@ -12,7 +12,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Jumping Bee的BasicAttackSkills",
+  "NormalAttackSkills": "电脑-跳跳蜂的普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

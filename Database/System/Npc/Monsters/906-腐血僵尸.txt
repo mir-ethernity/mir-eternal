@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 18000,
-  "NormalAttackSkills": "电脑-Creepy Crawly ZombieBasicAttackSkills",
+  "NormalAttackSkills": "电脑-爬行僵尸普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

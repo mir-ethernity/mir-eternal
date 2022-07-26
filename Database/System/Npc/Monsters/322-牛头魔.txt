@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-牛头魔的BasicAttackSkills",
+  "NormalAttackSkills": "电脑-牛头魔的普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

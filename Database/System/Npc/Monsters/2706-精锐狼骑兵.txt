@@ -9,7 +9,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-Elite Wolf Cavalry的普攻",
+  "NormalAttackSkills": "电脑-精锐狼骑兵的普攻",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

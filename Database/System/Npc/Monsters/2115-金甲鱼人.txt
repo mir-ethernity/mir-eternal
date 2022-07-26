@@ -9,7 +9,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 6,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-Golden Armour FishermanBasicAttackSkills",
+  "NormalAttackSkills": "电脑-金甲鱼人普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

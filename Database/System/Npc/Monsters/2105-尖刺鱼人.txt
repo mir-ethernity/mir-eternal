@@ -10,7 +10,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-Spiky FishermanBasicAttackSkills",
+  "NormalAttackSkills": "电脑-尖刺鱼人普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

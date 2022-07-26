@@ -13,7 +13,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Wolf SpiderBasicAttackSkills",
+  "NormalAttackSkills": "电脑-天狼蜘蛛普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

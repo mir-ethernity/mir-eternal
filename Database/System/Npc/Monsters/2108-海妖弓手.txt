@@ -10,7 +10,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 6,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-Siren ArcherBasicAttackSkills",
+  "NormalAttackSkills": "电脑-海妖弓手普攻技能",
   "ProbabilityTriggerSkills": "",
   "Stats": [
     {

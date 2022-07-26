@@ -10,7 +10,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 8,
   "HateTime": 30000,
-  "NormalAttackSkills": "电脑-WarmachineBasicAttackSkills",
+  "NormalAttackSkills": "电脑-沃玛教主普攻技能",
   "ProbabilityTriggerSkills": "",
   "EnterCombatSkills": "",
   "ExitCombatSkills": "",

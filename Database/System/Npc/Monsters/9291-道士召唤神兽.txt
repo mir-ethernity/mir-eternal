@@ -12,7 +12,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 15000,
-  "NormalAttackSkills": "电脑-SummonBeast神兽普攻",
+  "NormalAttackSkills": "电脑-召唤神兽神兽普攻",
   "ProbabilityTriggerSkills": "",
   "EnterCombatSkills": "电脑-SummonBeast进入战斗",
   "ExitCombatSkills": "电脑-SummonBeast退出战斗",

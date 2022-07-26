@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 16000,
-  "NormalAttackSkills": "电脑-Bull Demon WarriorBasicAttackSkills",
+  "NormalAttackSkills": "电脑-牛魔战士普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

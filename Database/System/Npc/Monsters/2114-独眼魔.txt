@@ -10,7 +10,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 6,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-One-Eyed Demon的BasicAttackSkills",
+  "NormalAttackSkills": "电脑-独眼魔的普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

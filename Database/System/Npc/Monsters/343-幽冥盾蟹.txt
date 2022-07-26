@@ -11,7 +11,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-Spectral Shield CrabBasicAttackSkills",
+  "NormalAttackSkills": "电脑-幽冥盾蟹普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",

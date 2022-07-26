@@ -10,7 +10,7 @@
   "ActiveAttackTarget": true,
   "RangeHate": 4,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-Orc MinerBasicAttackSkills",
+  "NormalAttackSkills": "电脑-兽人矿工普攻技能",
   "Stats": [
     {
       "Stat": "MaxPhysicalStrength",
