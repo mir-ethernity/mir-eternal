@@ -61,7 +61,6 @@
   <ItemGroup>
     <Compile Include="GMCommands\GMCommand.cs" />
     <Compile Include="GMCommands\Move.cs" />
-    <Compile Include="PrivateImplementationDetails.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

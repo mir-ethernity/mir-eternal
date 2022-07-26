@@ -19,1921 +19,287 @@ namespace GameServer.Data
 			}
 		}
 
-		
+
 		// (get) Token: 0x06000588 RID: 1416 RVA: 0x00026D44 File Offset: 0x00024F44
 		public int 装备战力
 		{
 			get
 			{
-				if (this.装备模板.Type == ItemType.武器)
+				if (装备模板.Type == ItemType.武器)
 				{
-					int num = (int)((long)(this.装备模板.BasicPowerCombat * (int)(this.幸运等级.V + 20)) * 1717986919L >> 32 >> 3);
-					int num2 = (int)(this.Sacred伤害.V * 3 + this.升级Attack.V * 5 + this.升级Magic.V * 5 + this.升级Taoism.V * 5 + this.升级Needle.V * 5 + this.升级Archery.V * 5);
-					int num3 = this.随机Stat.Sum((RandomStats x) => x.CombatBonus);
+					int num = (int)(装备模板.BasicPowerCombat * (幸运等级.V + 20) * 1717986919L >> 32 >> 3);
+					int num2 = Sacred伤害.V * 3 + 升级Attack.V * 5 + 升级Magic.V * 5 + 升级Taoism.V * 5 + 升级Needle.V * 5 + 升级Archery.V * 5;
+					int num3 = 随机Stat.Sum((RandomStats x) => x.CombatBonus);
 					return num + num2 + num3;
 				}
 				int num4 = 0;
-				switch (this.装备模板.EquipSet)
+				switch (装备模板.EquipSet)
 				{
-				case GameEquipmentSet.祖玛装备:
+					case GameEquipmentSet.祖玛装备:
+						switch (装备模板.Type)
+						{
+							case ItemType.腰带:
+							case ItemType.鞋子:
+							case ItemType.头盔:
+								num4 = 2 * 升级次数.V;
+								break;
+							case ItemType.衣服:
+								num4 = 4 * 升级次数.V;
+								break;
+						}
+						break;
+					case GameEquipmentSet.赤月装备:
+						switch (装备模板.Type)
+						{
+							case ItemType.腰带:
+							case ItemType.鞋子:
+							case ItemType.头盔:
+								num4 = 4 * 升级次数.V;
+								break;
+							case ItemType.衣服:
+								num4 = 6 * 升级次数.V;
+								break;
+						}
+						break;
+					case GameEquipmentSet.魔龙装备:
+						switch (装备模板.Type)
+						{
+							case ItemType.腰带:
+							case ItemType.鞋子:
+							case ItemType.头盔:
+								num4 = 5 * 升级次数.V;
+								break;
+							case ItemType.衣服:
+								num4 = 8 * 升级次数.V;
+								break;
+						}
+						break;
+					case GameEquipmentSet.苍月装备:
+						switch (装备模板.Type)
+						{
+							case ItemType.腰带:
+							case ItemType.鞋子:
+							case ItemType.头盔:
+								num4 = 7 * 升级次数.V;
+								break;
+							case ItemType.衣服:
+								num4 = 11 * 升级次数.V;
+								break;
+						}
+						break;
+					case GameEquipmentSet.星王装备:
+						if (装备模板.Type == ItemType.衣服)
+						{
+							num4 = 13 * 升级次数.V;
+						}
+						break;
+					case GameEquipmentSet.神秘装备:
+					case GameEquipmentSet.城主装备:
+						switch (装备模板.Type)
+						{
+							case ItemType.腰带:
+							case ItemType.鞋子:
+							case ItemType.头盔:
+								num4 = 9 * 升级次数.V;
+								break;
+							case ItemType.衣服:
+								num4 = 13 * 升级次数.V;
+								break;
+						}
+						break;
+				}
+				int num5 = 孔洞颜色.Count * 10;
+				using (IEnumerator<GameItems> enumerator = 镶嵌灵石.Values.GetEnumerator())
 				{
-					ItemType Type = this.装备模板.Type;
-					if (Type != ItemType.衣服)
+					while (enumerator.MoveNext())
 					{
-						if (Type - ItemType.腰带 <= 1 || Type == ItemType.头盔)
+						switch (enumerator.Current.Name)
 						{
-							num4 = (int)(2 * this.升级次数.V);
+							case "驭朱灵石8级":
+							case "精绿灵石8级":
+							case "韧紫灵石8级":
+							case "抵御幻彩灵石8级":
+							case "进击幻彩灵石8级":
+							case "盈绿灵石8级":
+							case "狂热幻彩灵石8级":
+							case "透蓝灵石8级":
+							case "守阳灵石8级":
+							case "新阳灵石8级":
+							case "命朱灵石8级":
+							case "蔚蓝灵石8级":
+							case "赤褐灵石8级":
+							case "橙黄灵石8级":
+							case "纯紫灵石8级":
+							case "深灰灵石8级":
+								num5 += 80;
+								break;
+							case "精绿灵石5级":
+							case "新阳灵石5级":
+							case "命朱灵石5级":
+							case "蔚蓝灵石5级":
+							case "橙黄灵石5级":
+							case "进击幻彩灵石5级":
+							case "深灰灵石5级":
+							case "盈绿灵石5级":
+							case "透蓝灵石5级":
+							case "韧紫灵石5级":
+							case "抵御幻彩灵石5级":
+							case "驭朱灵石5级":
+							case "赤褐灵石5级":
+							case "守阳灵石5级":
+							case "狂热幻彩灵石5级":
+							case "纯紫灵石5级":
+								num5 += 50;
+								break;
+							case "精绿灵石2级":
+							case "蔚蓝灵石2级":
+							case "驭朱灵石2级":
+							case "橙黄灵石2级":
+							case "守阳灵石2级":
+							case "纯紫灵石2级":
+							case "透蓝灵石2级":
+							case "抵御幻彩灵石2级":
+							case "命朱灵石2级":
+							case "深灰灵石2级":
+							case "赤褐灵石2级":
+							case "新阳灵石2级":
+							case "进击幻彩灵石2级":
+							case "狂热幻彩灵石2级":
+							case "盈绿灵石2级":
+							case "韧紫灵石2级":
+								num5 += 20;
+								break;
+							case "抵御幻彩灵石7级":
+							case "命朱灵石7级":
+							case "赤褐灵石7级":
+							case "狂热幻彩灵石7级":
+							case "精绿灵石7级":
+							case "纯紫灵石7级":
+							case "韧紫灵石7级":
+							case "驭朱灵石7级":
+							case "深灰灵石7级":
+							case "盈绿灵石7级":
+							case "新阳灵石7级":
+							case "蔚蓝灵石7级":
+							case "橙黄灵石7级":
+							case "守阳灵石7级":
+							case "进击幻彩灵石7级":
+							case "透蓝灵石7级":
+								num5 += 70;
+								break;
+							case "精绿灵石9级":
+							case "驭朱灵石9级":
+							case "蔚蓝灵石9级":
+							case "橙黄灵石9级":
+							case "抵御幻彩灵石9级":
+							case "透蓝灵石9级":
+							case "纯紫灵石9级":
+							case "命朱灵石9级":
+							case "赤褐灵石9级":
+							case "深灰灵石9级":
+							case "守阳灵石9级":
+							case "新阳灵石9级":
+							case "盈绿灵石9级":
+							case "进击幻彩灵石9级":
+							case "狂热幻彩灵石9级":
+							case "韧紫灵石9级":
+								num5 += 90;
+								break;
+							case "驭朱灵石4级":
+							case "深灰灵石4级":
+							case "新阳灵石4级":
+							case "盈绿灵石4级":
+							case "蔚蓝灵石4级":
+							case "命朱灵石4级":
+							case "橙黄灵石4级":
+							case "进击幻彩灵石4级":
+							case "抵御幻彩灵石4级":
+							case "透蓝灵石4级":
+							case "守阳灵石4级":
+							case "精绿灵石4级":
+							case "赤褐灵石4级":
+							case "纯紫灵石4级":
+							case "韧紫灵石4级":
+							case "狂热幻彩灵石4级":
+								num5 += 40;
+								break;
+							case "透蓝灵石6级":
+							case "抵御幻彩灵石6级":
+							case "命朱灵石6级":
+							case "盈绿灵石6级":
+							case "深灰灵石6级":
+							case "蔚蓝灵石6级":
+							case "进击幻彩灵石6级":
+							case "橙黄灵石6级":
+							case "赤褐灵石6级":
+							case "驭朱灵石6级":
+							case "精绿灵石6级":
+							case "新阳灵石6级":
+							case "韧紫灵石6级":
+							case "守阳灵石6级":
+							case "纯紫灵石6级":
+							case "狂热幻彩灵石6级":
+								num5 += 60;
+								break;
+							case "透蓝灵石1级":
+							case "驭朱灵石1级":
+							case "韧紫灵石1级":
+							case "守阳灵石1级":
+							case "赤褐灵石1级":
+							case "纯紫灵石1级":
+							case "狂热幻彩灵石1级":
+							case "精绿灵石1级":
+							case "新阳灵石1级":
+							case "盈绿灵石1级":
+							case "蔚蓝灵石1级":
+							case "橙黄灵石1级":
+							case "深灰灵石1级":
+							case "命朱灵石1级":
+							case "进击幻彩灵石1级":
+							case "抵御幻彩灵石1级":
+								num5 += 10;
+								break;
+							case "蔚蓝灵石10级":
+							case "狂热幻彩灵石10级":
+							case "精绿灵石10级":
+							case "透蓝灵石10级":
+							case "橙黄灵石10级":
+							case "抵御幻彩灵石10级":
+							case "进击幻彩灵石10级":
+							case "命朱灵石10级":
+							case "守阳灵石10级":
+							case "赤褐灵石10级":
+							case "盈绿灵石10级":
+							case "深灰灵石10级":
+							case "韧紫灵石10级":
+							case "纯紫灵石10级":
+							case "新阳灵石10级":
+							case "驭朱灵石10级":
+								num5 += 100;
+								break;
+							case "驭朱灵石3级":
+							case "韧紫灵石3级":
+							case "精绿灵石3级":
+							case "新阳灵石3级":
+							case "守阳灵石3级":
+							case "盈绿灵石3级":
+							case "蔚蓝灵石3级":
+							case "命朱灵石3级":
+							case "橙黄灵石3级":
+							case "进击幻彩灵石3级":
+							case "抵御幻彩灵石3级":
+							case "透蓝灵石3级":
+							case "赤褐灵石3级":
+							case "深灰灵石3级":
+							case "狂热幻彩灵石3级":
+							case "纯紫灵石3级":
+								num5 += 30;
+								break;
 						}
 					}
-					else
-					{
-						num4 = (int)(4 * this.升级次数.V);
-					}
-					break;
 				}
-				case GameEquipmentSet.赤月装备:
-				{
-					ItemType Type = this.装备模板.Type;
-					if (Type != ItemType.衣服)
-					{
-						if (Type - ItemType.腰带 <= 1 || Type == ItemType.头盔)
-						{
-							num4 = (int)(4 * this.升级次数.V);
-						}
-					}
-					else
-					{
-						num4 = (int)(6 * this.升级次数.V);
-					}
-					break;
-				}
-				case GameEquipmentSet.魔龙装备:
-				{
-					ItemType Type = this.装备模板.Type;
-					if (Type != ItemType.衣服)
-					{
-						if (Type - ItemType.腰带 <= 1 || Type == ItemType.头盔)
-						{
-							num4 = (int)(5 * this.升级次数.V);
-						}
-					}
-					else
-					{
-						num4 = (int)(8 * this.升级次数.V);
-					}
-					break;
-				}
-				case GameEquipmentSet.苍月装备:
-				{
-					ItemType Type = this.装备模板.Type;
-					if (Type != ItemType.衣服)
-					{
-						if (Type - ItemType.腰带 <= 1 || Type == ItemType.头盔)
-						{
-							num4 = (int)(7 * this.升级次数.V);
-						}
-					}
-					else
-					{
-						num4 = (int)(11 * this.升级次数.V);
-					}
-					break;
-				}
-				case GameEquipmentSet.星王装备:
-					if (this.装备模板.Type == ItemType.衣服)
-					{
-						num4 = (int)(13 * this.升级次数.V);
-					}
-					break;
-				case GameEquipmentSet.神秘装备:
-				case GameEquipmentSet.城主装备:
-				{
-					ItemType Type = this.装备模板.Type;
-					if (Type != ItemType.衣服)
-					{
-						if (Type - ItemType.腰带 <= 1 || Type == ItemType.头盔)
-						{
-							num4 = (int)(9 * this.升级次数.V);
-						}
-					}
-					else
-					{
-						num4 = (int)(13 * this.升级次数.V);
-					}
-					break;
-				}
-				}
-				int num5 = this.孔洞颜色.Count * 10;
-				foreach (GameItems 游戏物品 in this.镶嵌灵石.Values)
-				{
-					string Name = 游戏物品.Name;
-					uint num6 = PrivateImplementationDetails.ComputeStringHash(Name);
-					if (num6 <= 1965594569U)
-					{
-						if (num6 <= 943749297U)
-						{
-							if (num6 <= 573099060U)
-							{
-								if (num6 <= 245049310U)
-								{
-									if (num6 <= 208490910U)
-									{
-										if (num6 <= 36171325U)
-										{
-											if (num6 != 35240798U)
-											{
-												if (num6 != 36171325U)
-												{
-													continue;
-												}
-												if (!(Name == "精绿灵石2级"))
-												{
-													continue;
-												}
-												goto IL_18E4;
-											}
-											else
-											{
-												if (!(Name == "精绿灵石5级"))
-												{
-													continue;
-												}
-												goto IL_1885;
-											}
-										}
-										else if (num6 != 36983370U)
-										{
-											if (num6 != 74678801U)
-											{
-												if (num6 != 208490910U)
-												{
-													continue;
-												}
-												if (!(Name == "驭朱灵石4级"))
-												{
-													continue;
-												}
-												goto IL_1991;
-											}
-											else
-											{
-												if (!(Name == "透蓝灵石1级"))
-												{
-													continue;
-												}
-												goto IL_19DC;
-											}
-										}
-										else
-										{
-											if (!(Name == "精绿灵石9级"))
-											{
-												continue;
-											}
-											goto IL_1954;
-										}
-									}
-									else if (num6 <= 209834109U)
-									{
-										if (num6 != 209302955U)
-										{
-											if (num6 != 209834109U)
-											{
-												continue;
-											}
-											if (!(Name == "驭朱灵石3级"))
-											{
-												continue;
-											}
-											goto IL_1A0A;
-										}
-										else
-										{
-											if (!(Name == "驭朱灵石1级"))
-											{
-												continue;
-											}
-											goto IL_19DC;
-										}
-									}
-									else if (num6 != 210646154U)
-									{
-										if (num6 != 234198814U)
-										{
-											if (num6 != 245049310U)
-											{
-												continue;
-											}
-											if (!(Name == "蔚蓝灵石10级"))
-											{
-												continue;
-											}
-											goto IL_19F3;
-										}
-										else
-										{
-											if (!(Name == "狂热幻彩灵石10级"))
-											{
-												continue;
-											}
-											goto IL_19F3;
-										}
-									}
-									else if (!(Name == "驭朱灵石8级"))
-									{
-										continue;
-									}
-								}
-								else if (num6 <= 406321612U)
-								{
-									if (num6 <= 305587683U)
-									{
-										if (num6 != 263991377U)
-										{
-											if (num6 != 305587683U)
-											{
-												continue;
-											}
-											if (!(Name == "精绿灵石8级"))
-											{
-												continue;
-											}
-										}
-										else
-										{
-											if (!(Name == "抵御幻彩灵石7级"))
-											{
-												continue;
-											}
-											goto IL_1937;
-										}
-									}
-									else if (num6 != 335211465U)
-									{
-										if (num6 != 336023510U)
-										{
-											if (num6 != 406321612U)
-											{
-												continue;
-											}
-											if (!(Name == "精绿灵石10级"))
-											{
-												continue;
-											}
-											goto IL_19F3;
-										}
-										else if (!(Name == "韧紫灵石8级"))
-										{
-											continue;
-										}
-									}
-									else
-									{
-										if (!(Name == "韧紫灵石3级"))
-										{
-											continue;
-										}
-										goto IL_1A0A;
-									}
-								}
-								else if (num6 <= 479250467U)
-								{
-									if (num6 != 470449305U)
-									{
-										if (num6 != 479250467U)
-										{
-											continue;
-										}
-										if (!(Name == "驭朱灵石9级"))
-										{
-											continue;
-										}
-										goto IL_1954;
-									}
-									else
-									{
-										if (!(Name == "命朱灵石7级"))
-										{
-											continue;
-										}
-										goto IL_1937;
-									}
-								}
-								else if (num6 != 531090082U)
-								{
-									if (num6 != 549347465U)
-									{
-										if (num6 != 573099060U)
-										{
-											continue;
-										}
-										if (!(Name == "精绿灵石3级"))
-										{
-											continue;
-										}
-										goto IL_1A0A;
-									}
-									else
-									{
-										if (!(Name == "透蓝灵石10级"))
-										{
-											continue;
-										}
-										goto IL_19F3;
-									}
-								}
-								else if (!(Name == "抵御幻彩灵石8级"))
-								{
-									continue;
-								}
-							}
-							else if (num6 <= 738772727U)
-							{
-								if (num6 <= 680541790U)
-								{
-									if (num6 <= 607107224U)
-									{
-										if (num6 != 603534887U)
-										{
-											if (num6 != 607107224U)
-											{
-												continue;
-											}
-											if (!(Name == "新阳灵石5级"))
-											{
-												continue;
-											}
-											goto IL_1885;
-										}
-										else
-										{
-											if (!(Name == "韧紫灵石1级"))
-											{
-												continue;
-											}
-											goto IL_19DC;
-										}
-									}
-									else if (num6 != 607638378U)
-									{
-										if (num6 != 611931354U)
-										{
-											if (num6 != 680541790U)
-											{
-												continue;
-											}
-											if (!(Name == "橙黄灵石10级"))
-											{
-												continue;
-											}
-											goto IL_19F3;
-										}
-										else
-										{
-											if (!(Name == "透蓝灵石6级"))
-											{
-												continue;
-											}
-											goto IL_19A8;
-										}
-									}
-									else
-									{
-										if (!(Name == "新阳灵石3级"))
-										{
-											continue;
-										}
-										goto IL_1A0A;
-									}
-								}
-								else if (num6 <= 692924671U)
-								{
-									if (num6 != 691994144U)
-									{
-										if (num6 != 692924671U)
-										{
-											continue;
-										}
-										if (!(Name == "蔚蓝灵石2级"))
-										{
-											continue;
-										}
-										goto IL_18E4;
-									}
-									else
-									{
-										if (!(Name == "蔚蓝灵石9级"))
-										{
-											continue;
-										}
-										goto IL_1954;
-									}
-								}
-								else if (num6 != 693736716U)
-								{
-									if (num6 != 714727999U)
-									{
-										if (num6 != 738772727U)
-										{
-											continue;
-										}
-										if (!(Name == "命朱灵石5级"))
-										{
-											continue;
-										}
-										goto IL_1885;
-									}
-									else
-									{
-										if (!(Name == "抵御幻彩灵石10级"))
-										{
-											continue;
-										}
-										goto IL_19F3;
-									}
-								}
-								else
-								{
-									if (!(Name == "蔚蓝灵石5级"))
-									{
-										continue;
-									}
-									goto IL_1885;
-								}
-							}
-							else if (num6 <= 804167584U)
-							{
-								if (num6 <= 771022468U)
-								{
-									if (num6 != 746349172U)
-									{
-										if (num6 != 771022468U)
-										{
-											continue;
-										}
-										if (!(Name == "守阳灵石1级"))
-										{
-											continue;
-										}
-										goto IL_19DC;
-									}
-									else
-									{
-										if (!(Name == "驭朱灵石2级"))
-										{
-											continue;
-										}
-										goto IL_18E4;
-									}
-								}
-								else if (num6 != 799900731U)
-								{
-									if (num6 != 800712776U)
-									{
-										if (num6 != 804167584U)
-										{
-											continue;
-										}
-										if (!(Name == "橙黄灵石9级"))
-										{
-											continue;
-										}
-										goto IL_1954;
-									}
-									else
-									{
-										if (!(Name == "抵御幻彩灵石6级"))
-										{
-											continue;
-										}
-										goto IL_19A8;
-									}
-								}
-								else
-								{
-									if (!(Name == "抵御幻彩灵石9级"))
-									{
-										continue;
-									}
-									goto IL_1954;
-								}
-							}
-							else if (num6 <= 805910156U)
-							{
-								if (num6 != 805098111U)
-								{
-									if (num6 != 805910156U)
-									{
-										continue;
-									}
-									if (!(Name == "橙黄灵石5级"))
-									{
-										continue;
-									}
-									goto IL_1885;
-								}
-								else
-								{
-									if (!(Name == "橙黄灵石2级"))
-									{
-										continue;
-									}
-									goto IL_18E4;
-								}
-							}
-							else if (num6 != 840642163U)
-							{
-								if (num6 != 896281263U)
-								{
-									if (num6 != 943749297U)
-									{
-										continue;
-									}
-									if (!(Name == "深灰灵石4级"))
-									{
-										continue;
-									}
-									goto IL_1991;
-								}
-								else
-								{
-									if (!(Name == "进击幻彩灵石10级"))
-									{
-										continue;
-									}
-									goto IL_19F3;
-								}
-							}
-							else
-							{
-								if (!(Name == "赤褐灵石7级"))
-								{
-									continue;
-								}
-								goto IL_1937;
-							}
-						}
-						else if (num6 <= 1307537531U)
-						{
-							if (num6 <= 1144359777U)
-							{
-								if (num6 <= 1038933218U)
-								{
-									if (num6 <= 1014483090U)
-									{
-										if (num6 != 1007377040U)
-										{
-											if (num6 != 1014483090U)
-											{
-												continue;
-											}
-											if (!(Name == "进击幻彩灵石8级"))
-											{
-												continue;
-											}
-										}
-										else
-										{
-											if (!(Name == "命朱灵石6级"))
-											{
-												continue;
-											}
-											goto IL_19A8;
-										}
-									}
-									else if (num6 != 1015295135U)
-									{
-										if (num6 != 1025365623U)
-										{
-											if (num6 != 1038933218U)
-											{
-												continue;
-											}
-											if (!(Name == "守阳灵石3级"))
-											{
-												continue;
-											}
-											goto IL_1A0A;
-										}
-										else
-										{
-											if (!(Name == "命朱灵石10级"))
-											{
-												continue;
-											}
-											goto IL_19F3;
-										}
-									}
-									else
-									{
-										if (!(Name == "进击幻彩灵石5级"))
-										{
-											continue;
-										}
-										goto IL_1885;
-									}
-								}
-								else if (num6 <= 1127514398U)
-								{
-									if (num6 != 1108552913U)
-									{
-										if (num6 != 1127514398U)
-										{
-											continue;
-										}
-										if (!(Name == "盈绿灵石3级"))
-										{
-											continue;
-										}
-										goto IL_1A0A;
-									}
-									else
-									{
-										if (!(Name == "赤褐灵石1级"))
-										{
-											continue;
-										}
-										goto IL_19DC;
-									}
-								}
-								else if (num6 != 1128326443U)
-								{
-									if (num6 != 1128444925U)
-									{
-										if (num6 != 1144359777U)
-										{
-											continue;
-										}
-										if (!(Name == "新阳灵石4级"))
-										{
-											continue;
-										}
-										goto IL_1991;
-									}
-									else
-									{
-										if (!(Name == "盈绿灵石4级"))
-										{
-											continue;
-										}
-										goto IL_1991;
-									}
-								}
-								else
-								{
-									if (!(Name == "盈绿灵石6级"))
-									{
-										continue;
-									}
-									goto IL_19A8;
-								}
-							}
-							else if (num6 <= 1230989269U)
-							{
-								if (num6 <= 1211660047U)
-								{
-									if (num6 != 1200044703U)
-									{
-										if (num6 != 1211660047U)
-										{
-											continue;
-										}
-										if (!(Name == "深灰灵石6级"))
-										{
-											continue;
-										}
-										goto IL_19A8;
-									}
-									else
-									{
-										if (!(Name == "纯紫灵石1级"))
-										{
-											continue;
-										}
-										goto IL_19DC;
-									}
-								}
-								else if (num6 != 1229646070U)
-								{
-									if (num6 != 1230458115U)
-									{
-										if (num6 != 1230989269U)
-										{
-											continue;
-										}
-										if (!(Name == "蔚蓝灵石4级"))
-										{
-											continue;
-										}
-										goto IL_1991;
-									}
-									else
-									{
-										if (!(Name == "蔚蓝灵石6级"))
-										{
-											continue;
-										}
-										goto IL_19A8;
-									}
-								}
-								else
-								{
-									if (!(Name == "蔚蓝灵石3级"))
-									{
-										continue;
-									}
-									goto IL_1A0A;
-								}
-							}
-							else if (num6 <= 1276630989U)
-							{
-								if (num6 != 1275287790U)
-								{
-									if (num6 != 1276630989U)
-									{
-										continue;
-									}
-									if (!(Name == "命朱灵石3级"))
-									{
-										continue;
-									}
-									goto IL_1A0A;
-								}
-								else
-								{
-									if (!(Name == "命朱灵石4级"))
-									{
-										continue;
-									}
-									goto IL_1991;
-								}
-							}
-							else if (num6 != 1284105784U)
-							{
-								if (num6 != 1300070770U)
-								{
-									if (num6 != 1307537531U)
-									{
-										continue;
-									}
-									if (!(Name == "守阳灵石2级"))
-									{
-										continue;
-									}
-									goto IL_18E4;
-								}
-								else
-								{
-									if (!(Name == "守阳灵石10级"))
-									{
-										continue;
-									}
-									goto IL_19F3;
-								}
-							}
-							else
-							{
-								if (!(Name == "进击幻彩灵石6级"))
-								{
-									continue;
-								}
-								goto IL_19A8;
-							}
-						}
-						else if (num6 <= 1665978369U)
-						{
-							if (num6 <= 1480470696U)
-							{
-								if (num6 <= 1342837891U)
-								{
-									if (num6 != 1342025846U)
-									{
-										if (num6 != 1342837891U)
-										{
-											continue;
-										}
-										if (!(Name == "橙黄灵石6级"))
-										{
-											continue;
-										}
-										goto IL_19A8;
-									}
-									else
-									{
-										if (!(Name == "橙黄灵石3级"))
-										{
-											continue;
-										}
-										goto IL_1A0A;
-									}
-								}
-								else if (num6 != 1342956373U)
-								{
-									if (num6 != 1468855352U)
-									{
-										if (num6 != 1480470696U)
-										{
-											continue;
-										}
-										if (!(Name == "深灰灵石5级"))
-										{
-											continue;
-										}
-										goto IL_1885;
-									}
-									else
-									{
-										if (!(Name == "纯紫灵石2级"))
-										{
-											continue;
-										}
-										goto IL_18E4;
-									}
-								}
-								else
-								{
-									if (!(Name == "橙黄灵石4级"))
-									{
-										continue;
-									}
-									goto IL_1991;
-								}
-							}
-							else if (num6 <= 1553359733U)
-							{
-								if (num6 != 1552016534U)
-								{
-									if (num6 != 1553359733U)
-									{
-										continue;
-									}
-									if (!(Name == "进击幻彩灵石3级"))
-									{
-										continue;
-									}
-									goto IL_1A0A;
-								}
-								else
-								{
-									if (!(Name == "进击幻彩灵石4级"))
-									{
-										continue;
-									}
-									goto IL_1991;
-								}
-							}
-							else if (num6 != 1645599130U)
-							{
-								if (num6 != 1665166324U)
-								{
-									if (num6 != 1665978369U)
-									{
-										continue;
-									}
-									if (!(Name == "盈绿灵石8级"))
-									{
-										continue;
-									}
-								}
-								else
-								{
-									if (!(Name == "盈绿灵石5级"))
-									{
-										continue;
-									}
-									goto IL_1885;
-								}
-							}
-							else
-							{
-								if (!(Name == "赤褐灵石6级"))
-								{
-									continue;
-								}
-								goto IL_19A8;
-							}
-						}
-						else if (num6 <= 1914880594U)
-						{
-							if (num6 <= 1697659818U)
-							{
-								if (num6 != 1697128664U)
-								{
-									if (num6 != 1697659818U)
-									{
-										continue;
-									}
-									if (!(Name == "狂热幻彩灵石7级"))
-									{
-										continue;
-									}
-									goto IL_1937;
-								}
-								else
-								{
-									if (!(Name == "狂热幻彩灵石1级"))
-									{
-										continue;
-									}
-									goto IL_19DC;
-								}
-							}
-							else if (num6 != 1738109301U)
-							{
-								if (num6 != 1914349440U)
-								{
-									if (num6 != 1914880594U)
-									{
-										continue;
-									}
-									if (!(Name == "精绿灵石1级"))
-									{
-										continue;
-									}
-									goto IL_19DC;
-								}
-								else
-								{
-									if (!(Name == "精绿灵石7级"))
-									{
-										continue;
-									}
-									goto IL_1937;
-								}
-							}
-							else
-							{
-								if (!(Name == "纯紫灵石7级"))
-								{
-									continue;
-								}
-								goto IL_1937;
-							}
-						}
-						else if (num6 <= 1953388070U)
-						{
-							if (num6 != 1952576025U)
-							{
-								if (num6 != 1953388070U)
-								{
-									continue;
-								}
-								if (!(Name == "透蓝灵石2级"))
-								{
-									continue;
-								}
-								goto IL_18E4;
-							}
-							else
-							{
-								if (!(Name == "透蓝灵石9级"))
-								{
-									continue;
-								}
-								goto IL_1954;
-							}
-						}
-						else if (num6 != 1954318597U)
-						{
-							if (num6 != 1964640041U)
-							{
-								if (num6 != 1965594569U)
-								{
-									continue;
-								}
-								if (!(Name == "赤褐灵石10级"))
-								{
-									continue;
-								}
-								goto IL_19F3;
-							}
-							else if (!(Name == "狂热幻彩灵石8级"))
-							{
-								continue;
-							}
-						}
-						else
-						{
-							if (!(Name == "透蓝灵石5级"))
-							{
-								continue;
-							}
-							goto IL_1885;
-						}
-					}
-					else if (num6 <= 3186246800U)
-					{
-						if (num6 <= 2719719079U)
-						{
-							if (num6 <= 2489297424U)
-							{
-								if (num6 <= 2214629611U)
-								{
-									if (num6 <= 2087909056U)
-									{
-										if (num6 != 2004277479U)
-										{
-											if (num6 != 2087909056U)
-											{
-												continue;
-											}
-											if (!(Name == "驭朱灵石6级"))
-											{
-												continue;
-											}
-											goto IL_19A8;
-										}
-										else
-										{
-											if (!(Name == "纯紫灵石9级"))
-											{
-												continue;
-											}
-											goto IL_1954;
-										}
-									}
-									else if (num6 != 2142391142U)
-									{
-										if (num6 != 2143734341U)
-										{
-											if (num6 != 2214629611U)
-											{
-												continue;
-											}
-											if (!(Name == "韧紫灵石5级"))
-											{
-												continue;
-											}
-											goto IL_1885;
-										}
-										else
-										{
-											if (!(Name == "抵御幻彩灵石3级"))
-											{
-												continue;
-											}
-											goto IL_1A0A;
-										}
-									}
-									else
-									{
-										if (!(Name == "抵御幻彩灵石4级"))
-										{
-											continue;
-										}
-										goto IL_1991;
-									}
-								}
-								else if (num6 <= 2451395657U)
-								{
-									if (num6 != 2215160765U)
-									{
-										if (num6 != 2451395657U)
-										{
-											continue;
-										}
-										if (!(Name == "精绿灵石6级"))
-										{
-											continue;
-										}
-										goto IL_19A8;
-									}
-									else
-									{
-										if (!(Name == "韧紫灵石7级"))
-										{
-											continue;
-										}
-										goto IL_1937;
-									}
-								}
-								else if (num6 != 2486038143U)
-								{
-									if (num6 != 2486850188U)
-									{
-										if (num6 != 2489297424U)
-										{
-											continue;
-										}
-										if (!(Name == "透蓝灵石8级"))
-										{
-											continue;
-										}
-									}
-									else
-									{
-										if (!(Name == "新阳灵石1级"))
-										{
-											continue;
-										}
-										goto IL_19DC;
-									}
-								}
-								else
-								{
-									if (!(Name == "新阳灵石6级"))
-									{
-										continue;
-									}
-									goto IL_19A8;
-								}
-							}
-							else if (num6 <= 2649319065U)
-							{
-								if (num6 <= 2491039996U)
-								{
-									if (num6 != 2490227951U)
-									{
-										if (num6 != 2491039996U)
-										{
-											continue;
-										}
-										if (!(Name == "透蓝灵石4级"))
-										{
-											continue;
-										}
-										goto IL_1991;
-									}
-									else
-									{
-										if (!(Name == "透蓝灵石3级"))
-										{
-											continue;
-										}
-										goto IL_1A0A;
-									}
-								}
-								else if (num6 != 2619608627U)
-								{
-									if (num6 != 2625161609U)
-									{
-										if (num6 != 2649319065U)
-										{
-											continue;
-										}
-										if (!(Name == "守阳灵石4级"))
-										{
-											continue;
-										}
-										goto IL_1991;
-									}
-									else
-									{
-										if (!(Name == "驭朱灵石7级"))
-										{
-											continue;
-										}
-										goto IL_1937;
-									}
-								}
-								else
-								{
-									if (!(Name == "命朱灵石9级"))
-									{
-										continue;
-									}
-									goto IL_1954;
-								}
-							}
-							else if (num6 <= 2679437359U)
-							{
-								if (num6 != 2651474309U)
-								{
-									if (num6 != 2679437359U)
-									{
-										continue;
-									}
-									if (!(Name == "抵御幻彩灵石5级"))
-									{
-										continue;
-									}
-									goto IL_1885;
-								}
-								else if (!(Name == "守阳灵石8级"))
-								{
-									continue;
-								}
-							}
-							else if (num6 != 2680249404U)
-							{
-								if (num6 != 2718739222U)
-								{
-									if (num6 != 2719719079U)
-									{
-										continue;
-									}
-									if (!(Name == "精绿灵石4级"))
-									{
-										continue;
-									}
-									goto IL_1991;
-								}
-								else
-								{
-									if (!(Name == "盈绿灵石10级"))
-									{
-										continue;
-									}
-									goto IL_19F3;
-								}
-							}
-							else
-							{
-								if (!(Name == "抵御幻彩灵石2级"))
-								{
-									continue;
-								}
-								goto IL_18E4;
-							}
-						}
-						else if (num6 <= 2988502213U)
-						{
-							if (num6 <= 2887120004U)
-							{
-								if (num6 <= 2754361565U)
-								{
-									if (num6 != 2751882164U)
-									{
-										if (num6 != 2754361565U)
-										{
-											continue;
-										}
-										if (!(Name == "新阳灵石8级"))
-										{
-											continue;
-										}
-									}
-									else
-									{
-										if (!(Name == "韧紫灵石6级"))
-										{
-											continue;
-										}
-										goto IL_19A8;
-									}
-								}
-								else if (num6 != 2822149062U)
-								{
-									if (num6 != 2822961107U)
-									{
-										if (num6 != 2887120004U)
-										{
-											continue;
-										}
-										if (!(Name == "命朱灵石2级"))
-										{
-											continue;
-										}
-										goto IL_18E4;
-									}
-									else
-									{
-										if (!(Name == "深灰灵石2级"))
-										{
-											continue;
-										}
-										goto IL_18E4;
-									}
-								}
-								else
-								{
-									if (!(Name == "深灰灵石7级"))
-									{
-										continue;
-									}
-									goto IL_1937;
-								}
-							}
-							else if (num6 <= 2917642487U)
-							{
-								if (num6 != 2893072359U)
-								{
-									if (num6 != 2917642487U)
-									{
-										continue;
-									}
-									if (!(Name == "守阳灵石6级"))
-									{
-										continue;
-									}
-									goto IL_19A8;
-								}
-								else
-								{
-									if (!(Name == "驭朱灵石5级"))
-									{
-										continue;
-									}
-									goto IL_1885;
-								}
-							}
-							else if (num6 != 2986346969U)
-							{
-								if (num6 != 2987159014U)
-								{
-									if (num6 != 2988502213U)
-									{
-										continue;
-									}
-									if (!(Name == "赤褐灵石5级"))
-									{
-										continue;
-									}
-									goto IL_1885;
-								}
-								else
-								{
-									if (!(Name == "赤褐灵石2级"))
-									{
-										continue;
-									}
-									goto IL_18E4;
-								}
-							}
-							else
-							{
-								if (!(Name == "赤褐灵石9级"))
-								{
-									continue;
-								}
-								goto IL_1954;
-							}
-						}
-						else if (num6 <= 3090472484U)
-						{
-							if (num6 <= 3007257362U)
-							{
-								if (num6 != 3006726208U)
-								{
-									if (num6 != 3007257362U)
-									{
-										continue;
-									}
-									if (!(Name == "盈绿灵石7级"))
-									{
-										continue;
-									}
-									goto IL_1937;
-								}
-								else
-								{
-									if (!(Name == "盈绿灵石1级"))
-									{
-										continue;
-									}
-									goto IL_19DC;
-								}
-							}
-							else if (num6 != 3022965878U)
-							{
-								if (num6 != 3023777923U)
-								{
-									if (num6 != 3090472484U)
-									{
-										continue;
-									}
-									if (!(Name == "深灰灵石9级"))
-									{
-										continue;
-									}
-									goto IL_1954;
-								}
-								else
-								{
-									if (!(Name == "新阳灵石2级"))
-									{
-										continue;
-									}
-									goto IL_18E4;
-								}
-							}
-							else
-							{
-								if (!(Name == "新阳灵石7级"))
-								{
-									continue;
-								}
-								goto IL_1937;
-							}
-						}
-						else if (num6 <= 3109167384U)
-						{
-							if (num6 != 3101887706U)
-							{
-								if (num6 != 3109167384U)
-								{
-									continue;
-								}
-								if (!(Name == "蔚蓝灵石1级"))
-								{
-									continue;
-								}
-								goto IL_19DC;
-							}
-							else
-							{
-								if (!(Name == "深灰灵石10级"))
-								{
-									continue;
-								}
-								goto IL_19F3;
-							}
-						}
-						else if (num6 != 3109285866U)
-						{
-							if (num6 != 3163745580U)
-							{
-								if (num6 != 3186246800U)
-								{
-									continue;
-								}
-								if (!(Name == "守阳灵石5级"))
-								{
-									continue;
-								}
-								goto IL_1885;
-							}
-							else
-							{
-								if (!(Name == "进击幻彩灵石2级"))
-								{
-									continue;
-								}
-								goto IL_18E4;
-							}
-						}
-						else
-						{
-							if (!(Name == "蔚蓝灵石7级"))
-							{
-								continue;
-							}
-							goto IL_1937;
-						}
-					}
-					else if (num6 <= 3581907291U)
-					{
-						if (num6 <= 3424978266U)
-						{
-							if (num6 <= 3290876628U)
-							{
-								if (num6 <= 3221134488U)
-								{
-									if (num6 != 3187989372U)
-									{
-										if (num6 != 3221134488U)
-										{
-											continue;
-										}
-										if (!(Name == "橙黄灵石1级"))
-										{
-											continue;
-										}
-										goto IL_19DC;
-									}
-									else
-									{
-										if (!(Name == "守阳灵石9级"))
-										{
-											continue;
-										}
-										goto IL_1954;
-									}
-								}
-								else if (num6 != 3221665642U)
-								{
-									if (num6 != 3276673720U)
-									{
-										if (num6 != 3290876628U)
-										{
-											continue;
-										}
-										if (!(Name == "新阳灵石9级"))
-										{
-											continue;
-										}
-										goto IL_1954;
-									}
-									else
-									{
-										if (!(Name == "盈绿灵石9级"))
-										{
-											continue;
-										}
-										goto IL_1954;
-									}
-								}
-								else
-								{
-									if (!(Name == "橙黄灵石7级"))
-									{
-										continue;
-									}
-									goto IL_1937;
-								}
-							}
-							else if (num6 <= 3360007324U)
-							{
-								if (num6 != 3348495148U)
-								{
-									if (num6 != 3360007324U)
-									{
-										continue;
-									}
-									if (!(Name == "深灰灵石1级"))
-									{
-										continue;
-									}
-									goto IL_19DC;
-								}
-								else
-								{
-									if (!(Name == "纯紫灵石6级"))
-									{
-										continue;
-									}
-									goto IL_19A8;
-								}
-							}
-							else if (num6 != 3376266089U)
-							{
-								if (num6 != 3423635067U)
-								{
-									if (num6 != 3424978266U)
-									{
-										continue;
-									}
-									if (!(Name == "命朱灵石8级"))
-									{
-										continue;
-									}
-								}
-								else
-								{
-									if (!(Name == "命朱灵石1级"))
-									{
-										continue;
-									}
-									goto IL_19DC;
-								}
-							}
-							else if (!(Name == "蔚蓝灵石8级"))
-							{
-								continue;
-							}
-						}
-						else if (num6 <= 3524411567U)
-						{
-							if (num6 <= 3454157550U)
-							{
-								if (num6 != 3430725803U)
-								{
-									if (num6 != 3454157550U)
-									{
-										continue;
-									}
-									if (!(Name == "守阳灵石7级"))
-									{
-										continue;
-									}
-									goto IL_1937;
-								}
-								else
-								{
-									if (!(Name == "进击幻彩灵石9级"))
-									{
-										continue;
-									}
-									goto IL_1954;
-								}
-							}
-							else if (num6 != 3488645865U)
-							{
-								if (num6 != 3523068368U)
-								{
-									if (num6 != 3524411567U)
-									{
-										continue;
-									}
-									if (!(Name == "赤褐灵石3级"))
-									{
-										continue;
-									}
-									goto IL_1A0A;
-								}
-								else if (!(Name == "赤褐灵石8级"))
-								{
-									continue;
-								}
-							}
-							else if (!(Name == "橙黄灵石8级"))
-							{
-								continue;
-							}
-						}
-						else if (num6 <= 3575025888U)
-						{
-							if (num6 != 3525223612U)
-							{
-								if (num6 != 3575025888U)
-								{
-									continue;
-								}
-								if (!(Name == "狂热幻彩灵石9级"))
-								{
-									continue;
-								}
-								goto IL_1954;
-							}
-							else
-							{
-								if (!(Name == "赤褐灵石4级"))
-								{
-									continue;
-								}
-								goto IL_1991;
-							}
-						}
-						else if (num6 != 3575956415U)
-						{
-							if (num6 != 3576768460U)
-							{
-								if (num6 != 3581907291U)
-								{
-									continue;
-								}
-								if (!(Name == "韧紫灵石10级"))
-								{
-									continue;
-								}
-								goto IL_19F3;
-							}
-							else
-							{
-								if (!(Name == "狂热幻彩灵石5级"))
-								{
-									continue;
-								}
-								goto IL_1885;
-							}
-						}
-						else
-						{
-							if (!(Name == "狂热幻彩灵石2级"))
-							{
-								continue;
-							}
-							goto IL_18E4;
-						}
-					}
-					else if (num6 <= 3968584065U)
-					{
-						if (num6 <= 3686647075U)
-						{
-							if (num6 <= 3616405898U)
-							{
-								if (num6 != 3614663326U)
-								{
-									if (num6 != 3616405898U)
-									{
-										continue;
-									}
-									if (!(Name == "纯紫灵石4级"))
-									{
-										continue;
-									}
-									goto IL_1991;
-								}
-								else if (!(Name == "纯紫灵石8级"))
-								{
-									continue;
-								}
-							}
-							else if (num6 != 3627518701U)
-							{
-								if (num6 != 3628330746U)
-								{
-									if (num6 != 3686647075U)
-									{
-										continue;
-									}
-									if (!(Name == "纯紫灵石10级"))
-									{
-										continue;
-									}
-									goto IL_19F3;
-								}
-								else
-								{
-									if (!(Name == "深灰灵石3级"))
-									{
-										continue;
-									}
-									goto IL_1A0A;
-								}
-							}
-							else if (!(Name == "深灰灵石8级"))
-							{
-								continue;
-							}
-						}
-						else if (num6 <= 3812095847U)
-						{
-							if (num6 != 3700260643U)
-							{
-								if (num6 != 3812095847U)
-								{
-									continue;
-								}
-								if (!(Name == "盈绿灵石2级"))
-								{
-									continue;
-								}
-								goto IL_18E4;
-							}
-							else
-							{
-								if (!(Name == "进击幻彩灵石1级"))
-								{
-									continue;
-								}
-								goto IL_19DC;
-							}
-						}
-						else if (num6 != 3885010211U)
-						{
-							if (num6 != 3922679306U)
-							{
-								if (num6 != 3968584065U)
-								{
-									continue;
-								}
-								if (!(Name == "进击幻彩灵石7级"))
-								{
-									continue;
-								}
-								goto IL_1937;
-							}
-							else
-							{
-								if (!(Name == "新阳灵石10级"))
-								{
-									continue;
-								}
-								goto IL_19F3;
-							}
-						}
-						else
-						{
-							if (Name == "纯紫灵石5级")
-							{
-								goto IL_1885;
-							}
-							continue;
-						}
-					}
-					else if (num6 <= 4112884150U)
-					{
-						if (num6 <= 4093457362U)
-						{
-							if (num6 != 4093338880U)
-							{
-								if (num6 != 4093457362U)
-								{
-									continue;
-								}
-								if (!(Name == "韧紫灵石4级"))
-								{
-									continue;
-								}
-								goto IL_1991;
-							}
-							else
-							{
-								if (Name == "韧紫灵石2级")
-								{
-									goto IL_18E4;
-								}
-								continue;
-							}
-						}
-						else if (num6 != 4094269407U)
-						{
-							if (num6 != 4101735347U)
-							{
-								if (num6 != 4112884150U)
-								{
-									continue;
-								}
-								if (!(Name == "狂热幻彩灵石3级"))
-								{
-									continue;
-								}
-								goto IL_1A0A;
-							}
-							else
-							{
-								if (Name == "透蓝灵石7级")
-								{
-									goto IL_1937;
-								}
-								continue;
-							}
-						}
-						else
-						{
-							if (Name == "韧紫灵石9级")
-							{
-								goto IL_1954;
-							}
-							continue;
-						}
-					}
-					else if (num6 <= 4113814677U)
-					{
-						if (num6 != 4113696195U)
-						{
-							if (num6 != 4113814677U)
-							{
-								continue;
-							}
-							if (Name == "狂热幻彩灵石4级")
-							{
-								goto IL_1991;
-							}
-							continue;
-						}
-						else
-						{
-							if (Name == "狂热幻彩灵石6级")
-							{
-								goto IL_19A8;
-							}
-							continue;
-						}
-					}
-					else if (num6 != 4153333633U)
-					{
-						if (num6 != 4189275687U)
-						{
-							if (num6 != 4290635251U)
-							{
-								continue;
-							}
-							if (Name == "抵御幻彩灵石1级")
-							{
-								goto IL_19DC;
-							}
-							continue;
-						}
-						else
-						{
-							if (Name == "驭朱灵石10级")
-							{
-								goto IL_19F3;
-							}
-							continue;
-						}
-					}
-					else
-					{
-						if (Name == "纯紫灵石3级")
-						{
-							goto IL_1A0A;
-						}
-						continue;
-					}
-					num5 += 80;
-					continue;
-					IL_1885:
-					num5 += 50;
-					continue;
-					IL_18E4:
-					num5 += 20;
-					continue;
-					IL_1937:
-					num5 += 70;
-					continue;
-					IL_1954:
-					num5 += 90;
-					continue;
-					IL_1991:
-					num5 += 40;
-					continue;
-					IL_19A8:
-					num5 += 60;
-					continue;
-					IL_19DC:
-					num5 += 10;
-					continue;
-					IL_19F3:
-					num5 += 100;
-					continue;
-					IL_1A0A:
-					num5 += 30;
-				}
-				int num7 = this.随机Stat.Sum((RandomStats x) => x.CombatBonus);
-				return this.装备模板.BasicPowerCombat + num4 + num7 + num5;
+				int num6 = 随机Stat.Sum((RandomStats x) => x.CombatBonus);
+				return 装备模板.BasicPowerCombat + num4 + num6 + num5;
 			}
 		}
 
@@ -2530,9 +896,9 @@ namespace GameServer.Data
 				{
 					dictionary[随机Stat.Stat] = (dictionary.ContainsKey(随机Stat.Stat) ? (dictionary[随机Stat.Stat] + 随机Stat.Value) : 随机Stat.Value);
 				}
-				foreach (GameItems 游戏物品 in this.镶嵌灵石.Values)
+				foreach (GameItems GameItems in this.镶嵌灵石.Values)
 				{
-					int Id = 游戏物品.Id;
+					int Id = GameItems.Id;
 					if (Id <= 10324)
 					{
 						switch (Id)
