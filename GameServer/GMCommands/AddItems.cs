@@ -28,7 +28,7 @@ namespace GameServer
 				if (CharacterData != null)
 				{
 					GameItems 游戏物品;
-					if (!GameItems.DateSheetByName.TryGetValue(this.Name, out 游戏物品))
+					if (!GameItems.DataSheetByName.TryGetValue(this.Name, out 游戏物品))
 					{
 						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, item does not exist");
 						return;

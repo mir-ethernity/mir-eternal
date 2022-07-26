@@ -7,7 +7,7 @@ namespace GameServer.Templates
 	public class GameItems
 	{
 		public static Dictionary<int, GameItems> DataSheet;
-		public static Dictionary<string, GameItems> DateSheetByName;
+		public static Dictionary<string, GameItems> DataSheetByName;
 
 		public string Name;
 		public int Id;
@@ -44,7 +44,7 @@ namespace GameServer.Templates
 		
 		public static GameItems GetItem(string name)
 		{
-            if (!DateSheetByName.TryGetValue(name, out GameItems result))
+            if (!DataSheetByName.TryGetValue(name, out GameItems result))
 				return null;
 			return result;
 		}
@@ -53,7 +53,7 @@ namespace GameServer.Templates
 		public static void LoadData()
 		{
 			DataSheet = new Dictionary<int, GameItems>();
-			DateSheetByName = new Dictionary<string, GameItems>();
+			DataSheetByName = new Dictionary<string, GameItems>();
 
 			string text = Config.GameDataPath + "\\System\\Items\\Common\\";
 			if (Directory.Exists(text))
@@ -63,7 +63,7 @@ namespace GameServer.Templates
 				{
 					GameItems gameItem = array[i] as GameItems;
 					DataSheet.Add(gameItem.Id, gameItem);
-					DateSheetByName.Add(gameItem.Name, gameItem);
+					DataSheetByName.Add(gameItem.Name, gameItem);
 				}
 			}
 
@@ -75,7 +75,7 @@ namespace GameServer.Templates
 				{
 					EquipmentItem gameItem = array[i] as EquipmentItem;
 					DataSheet.Add(gameItem.Id, gameItem);
-					DateSheetByName.Add(gameItem.Name, gameItem);
+					DataSheetByName.Add(gameItem.Name, gameItem);
 				}
 			}
 		}

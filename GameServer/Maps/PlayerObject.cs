@@ -10,7 +10,6 @@ using GameServer.Networking;
 
 namespace GameServer.Maps
 {
-	
 	public sealed class PlayerObject : MapObject
 	{
 		
@@ -80,8 +79,6 @@ namespace GameServer.Maps
 		
 		public PlayerObject(CharacterData CharacterData, 客户网络 网络连接)
 		{
-			
-			
 			this.CharacterData = CharacterData;
 			this.宠物列表 = new List<PetObject>();
 			this.PassiveSkill = new Dictionary<ushort, SkillData>();
@@ -6775,7 +6772,7 @@ namespace GameServer.Maps
 													});
 													return;
 												}
-												else if (!GameItems.DateSheetByName.TryGetValue("沙城每日宝箱", out 模板))
+												else if (!GameItems.DataSheetByName.TryGetValue("沙城每日宝箱", out 模板))
 												{
 													客户网络 网络连接126 = this.网络连接;
 													if (网络连接126 == null)
@@ -8300,15 +8297,15 @@ namespace GameServer.Maps
 		public void 购买珍宝商品(int Id, int 购入数量)
 		{
 			Treasures 珍宝商品;
-			GameItems 游戏物品;
-			if (Treasures.DataSheet.TryGetValue(Id, out 珍宝商品) && GameItems.DataSheet.TryGetValue(Id, out 游戏物品))
+			GameItems GameItems;
+			if (Treasures.DataSheet.TryGetValue(Id, out 珍宝商品) && GameItems.DataSheet.TryGetValue(Id, out GameItems))
 			{
 				int num;
 				if (购入数量 != 1)
 				{
-					if (游戏物品.PersistType == PersistentItemType.堆叠)
+					if (GameItems.PersistType == PersistentItemType.堆叠)
 					{
-						num = Math.Min(购入数量, 游戏物品.ItemLast);
+						num = Math.Min(购入数量, GameItems.ItemLast);
 						goto IL_42;
 					}
 				}
@@ -8321,7 +8318,7 @@ namespace GameServer.Maps
 				while (b < this.背包大小)
 				{
 					ItemData ItemData;
-					if (this.角色背包.TryGetValue(b, out ItemData) && (游戏物品.PersistType != PersistentItemType.堆叠 || 游戏物品.Id != ItemData.Id || ItemData.当前持久.V + 购入数量 > 游戏物品.ItemLast))
+					if (this.角色背包.TryGetValue(b, out ItemData) && (GameItems.PersistType != PersistentItemType.堆叠 || GameItems.Id != ItemData.Id || ItemData.当前持久.V + 购入数量 > GameItems.ItemLast))
 					{
 						b += 1;
 					}
@@ -8366,19 +8363,19 @@ namespace GameServer.Maps
 								}
 								else
 								{
-									EquipmentItem 游戏装备 = 游戏物品 as EquipmentItem;
-									if (游戏装备 != null)
+									EquipmentItem EquipmentItem = GameItems as EquipmentItem;
+									if (EquipmentItem != null)
 									{
-										this.角色背包[(byte)num4] = new EquipmentData(游戏装备, this.CharacterData, 1, (byte)num4, false);
+										this.角色背包[(byte)num4] = new EquipmentData(EquipmentItem, this.CharacterData, 1, (byte)num4, false);
 									}
 									else
 									{
 										int 持久 = 0;
-										switch (游戏物品.PersistType)
+										switch (GameItems.PersistType)
 										{
 										case PersistentItemType.消耗:
 										case PersistentItemType.纯度:
-											持久 = 游戏物品.ItemLast;
+											持久 = GameItems.ItemLast;
 											break;
 										case PersistentItemType.堆叠:
 											持久 = num2;
@@ -8387,7 +8384,7 @@ namespace GameServer.Maps
 											持久 = 0;
 											break;
 										}
-										this.角色背包[(byte)num4] = new ItemData(游戏物品, this.CharacterData, 1, (byte)num4, 持久);
+										this.角色背包[(byte)num4] = new ItemData(GameItems, this.CharacterData, 1, (byte)num4, 持久);
 									}
 									客户网络 网络连接3 = this.网络连接;
 									if (网络连接3 != null)
@@ -8402,7 +8399,7 @@ namespace GameServer.Maps
 								{
 									this.对象名字,
 									this.当前等级,
-									游戏物品.Name,
+									GameItems.Name,
 									num2,
 									num3
 								}));
@@ -8470,7 +8467,7 @@ namespace GameServer.Maps
 					});
 					return;
 				}
-				else if (GameItems.DateSheetByName.TryGetValue("战具礼盒", out 模板))
+				else if (GameItems.DataSheetByName.TryGetValue("战具礼盒", out 模板))
 				{
 					for (byte b = 0; b < this.背包大小; b += 1)
 					{
@@ -8538,7 +8535,7 @@ namespace GameServer.Maps
 					});
 					return;
 				}
-				else if (GameItems.DateSheetByName.TryGetValue("强化战具礼盒", out 模板2) && GameItems.DateSheetByName.TryGetValue("命运之证", out 模板3))
+				else if (GameItems.DataSheetByName.TryGetValue("强化战具礼盒", out 模板2) && GameItems.DataSheetByName.TryGetValue("命运之证", out 模板3))
 				{
 					if (!(this.CharacterData.战备日期.V == default(DateTime)))
 					{
@@ -8899,7 +8896,7 @@ namespace GameServer.Maps
 								else
 								{
 									GameItems 模板;
-									if (!GameItems.DateSheetByName.TryGetValue((this.本期特权 == 3) ? "名俊铭文石礼包" : "豪杰铭文石礼包", out 模板))
+									if (!GameItems.DataSheetByName.TryGetValue((this.本期特权 == 3) ? "名俊铭文石礼包" : "豪杰铭文石礼包", out 模板))
 									{
 										return;
 									}
@@ -8958,7 +8955,7 @@ namespace GameServer.Maps
 								else
 								{
 									GameItems 模板2;
-									if (!GameItems.DateSheetByName.TryGetValue("随机传送石", out 模板2))
+									if (!GameItems.DataSheetByName.TryGetValue("随机传送石", out 模板2))
 									{
 										return;
 									}
@@ -9017,7 +9014,7 @@ namespace GameServer.Maps
 								else
 								{
 									GameItems 模板3;
-									if (!GameItems.DateSheetByName.TryGetValue((this.本期特权 == 3) ? "名俊灵石宝盒" : "豪杰灵石宝盒", out 模板3))
+									if (!GameItems.DataSheetByName.TryGetValue((this.本期特权 == 3) ? "名俊灵石宝盒" : "豪杰灵石宝盒", out 模板3))
 									{
 										return;
 									}
@@ -9076,7 +9073,7 @@ namespace GameServer.Maps
 								else
 								{
 									GameItems 模板4;
-									if (!GameItems.DateSheetByName.TryGetValue("雕色石", out 模板4))
+									if (!GameItems.DataSheetByName.TryGetValue("雕色石", out 模板4))
 									{
 										return;
 									}
@@ -9135,7 +9132,7 @@ namespace GameServer.Maps
 								else
 								{
 									GameItems 模板5;
-									if (!GameItems.DateSheetByName.TryGetValue("修复油", out 模板5))
+									if (!GameItems.DataSheetByName.TryGetValue("修复油", out 模板5))
 									{
 										return;
 									}
@@ -9194,7 +9191,7 @@ namespace GameServer.Maps
 								else
 								{
 									GameItems 模板6;
-									if (!GameItems.DateSheetByName.TryGetValue("祝福油", out 模板6))
+									if (!GameItems.DataSheetByName.TryGetValue("祝福油", out 模板6))
 									{
 										return;
 									}
@@ -9300,7 +9297,7 @@ namespace GameServer.Maps
 								else
 								{
 									GameItems 模板7;
-									if (!GameItems.DateSheetByName.TryGetValue((this.上期特权 == 3) ? "名俊铭文石礼包" : "豪杰铭文石礼包", out 模板7))
+									if (!GameItems.DataSheetByName.TryGetValue((this.上期特权 == 3) ? "名俊铭文石礼包" : "豪杰铭文石礼包", out 模板7))
 									{
 										return;
 									}
@@ -9359,7 +9356,7 @@ namespace GameServer.Maps
 								else
 								{
 									GameItems 模板8;
-									if (!GameItems.DateSheetByName.TryGetValue("随机传送石", out 模板8))
+									if (!GameItems.DataSheetByName.TryGetValue("随机传送石", out 模板8))
 									{
 										return;
 									}
@@ -9418,7 +9415,7 @@ namespace GameServer.Maps
 								else
 								{
 									GameItems 模板9;
-									if (!GameItems.DateSheetByName.TryGetValue((this.上期特权 == 3) ? "名俊灵石宝盒" : "豪杰灵石宝盒", out 模板9))
+									if (!GameItems.DataSheetByName.TryGetValue((this.上期特权 == 3) ? "名俊灵石宝盒" : "豪杰灵石宝盒", out 模板9))
 									{
 										return;
 									}
@@ -9477,7 +9474,7 @@ namespace GameServer.Maps
 								else
 								{
 									GameItems 模板10;
-									if (!GameItems.DateSheetByName.TryGetValue("雕色石", out 模板10))
+									if (!GameItems.DataSheetByName.TryGetValue("雕色石", out 模板10))
 									{
 										return;
 									}
@@ -9536,7 +9533,7 @@ namespace GameServer.Maps
 								else
 								{
 									GameItems 模板11;
-									if (!GameItems.DateSheetByName.TryGetValue("修复油", out 模板11))
+									if (!GameItems.DataSheetByName.TryGetValue("修复油", out 模板11))
 									{
 										return;
 									}
@@ -9595,7 +9592,7 @@ namespace GameServer.Maps
 								else
 								{
 									GameItems 模板12;
-									if (!GameItems.DateSheetByName.TryGetValue("祝福油", out 模板12))
+									if (!GameItems.DataSheetByName.TryGetValue("祝福油", out 模板12))
 									{
 										return;
 									}
@@ -9927,10 +9924,10 @@ namespace GameServer.Maps
 						}
 						else
 						{
-							EquipmentItem 游戏装备 = 物品.物品模板 as EquipmentItem;
-							if (游戏装备 != null)
+							EquipmentItem EquipmentItem = 物品.物品模板 as EquipmentItem;
+							if (EquipmentItem != null)
 							{
-								this.角色背包[b] = new EquipmentData(游戏装备, this.CharacterData, 1, b, true);
+								this.角色背包[b] = new EquipmentData(EquipmentItem, this.CharacterData, 1, b, true);
 							}
 							else if (物品.PersistType == PersistentItemType.容器)
 							{
@@ -10570,4431 +10567,2315 @@ namespace GameServer.Maps
 			}
 		}
 
-		
 		public void 玩家使用物品(byte 背包类型, byte 物品位置)
 		{
-			if (!this.对象死亡 && this.摆摊状态 <= 0 && this.交易状态 < 3)
+			if (!对象死亡 && 摆摊状态 <= 0 && 交易状态 < 3)
 			{
 				if (背包类型 != 1)
 				{
-					this.网络连接.尝试断开连接(new Exception("Wrong action: Player using an item.  Error: Wrong type of backpack."));
+					网络连接.尝试断开连接(new Exception("错误操作: 玩家使用物品.  错误: 背包类型错误."));
 					return;
 				}
-				ItemData ItemData;
-				if (!this.角色背包.TryGetValue(物品位置, out ItemData))
+				if (!角色背包.TryGetValue(物品位置, out var v))
 				{
-					客户网络 网络连接 = this.网络连接;
-					if (网络连接 == null)
-					{
-						return;
-					}
-					网络连接.发送封包(new GameErrorMessagePacket
+					网络连接?.发送封包(new GameErrorMessagePacket
 					{
 						错误代码 = 1802
 					});
 					return;
 				}
-				else
+				if (当前等级 < v.NeedLevel)
 				{
-					if ((int)this.当前等级 < ItemData.NeedLevel)
+					网络连接.尝试断开连接(new Exception("错误操作: 玩家使用物品.  错误: 等级无法使用."));
+					return;
+				}
+				if (v.NeedRace != GameObjectRace.通用 && 角色职业 != v.NeedRace)
+				{
+					网络连接.尝试断开连接(new Exception("错误操作: 玩家使用物品.  错误: 性别无法使用."));
+					return;
+				}
+				if (v.NeedRace != GameObjectRace.通用 && 角色职业 != v.NeedRace)
+				{
+					网络连接.尝试断开连接(new Exception("错误操作: 玩家使用物品.  错误: 职业无法使用."));
+					return;
+				}
+				if (冷却记录.TryGetValue(v.Id | 0x2000000, out var v2) && MainProcess.CurrentTime < v2)
+				{
+					网络连接?.发送封包(new GameErrorMessagePacket
 					{
-						this.网络连接.尝试断开连接(new Exception("Error: Player uses an item.  Error: Level cannot be used."));
-						return;
-					}
-					if (ItemData.NeedRace != GameObjectRace.通用 && this.角色职业 != ItemData.NeedRace)
+						错误代码 = 1825
+					});
+					return;
+				}
+				if (v.GroupId > 0 && 冷却记录.TryGetValue(v.GroupId | 0, out var v3) && MainProcess.CurrentTime < v3)
+				{
+					网络连接?.发送封包(new GameErrorMessagePacket
 					{
-						this.网络连接.尝试断开连接(new Exception("Bug: Player using an item.  Error: Gender is not available."));
-						return;
-					}
-					if (ItemData.NeedRace != GameObjectRace.通用 && this.角色职业 != ItemData.NeedRace)
-					{
-						this.网络连接.尝试断开连接(new Exception("Error: Player uses an item.  Error: Occupation cannot be used."));
-						return;
-					}
-					DateTime t;
-					if (this.冷却记录.TryGetValue(ItemData.Id | 33554432, out t) && MainProcess.CurrentTime < t)
-					{
-						客户网络 网络连接2 = this.网络连接;
-						if (网络连接2 == null)
+						错误代码 = 1825
+					});
+					return;
+				}
+				switch (v.Name)
+				{
+					case "豪杰灵石宝盒":
 						{
-							return;
+							byte b41 = byte.MaxValue;
+							byte b42 = 0;
+							while (b42 < 背包大小)
+							{
+								if (角色背包.ContainsKey(b42))
+								{
+									b42 = (byte)(b42 + 1);
+									continue;
+								}
+								b41 = b42;
+								break;
+							}
+							if (b41 == byte.MaxValue)
+							{
+								网络连接?.发送封包(new GameErrorMessagePacket
+								{
+									错误代码 = 1793
+								});
+								break;
+							}
+							GameItems value24 = null;
+							switch (MainProcess.RandomNumber.Next(8))
+							{
+								case 0:
+									GameItems.DataSheetByName.TryGetValue("驭朱灵石1级", out value24);
+									break;
+								case 1:
+									GameItems.DataSheetByName.TryGetValue("命朱灵石1级", out value24);
+									break;
+								case 2:
+									GameItems.DataSheetByName.TryGetValue("守阳灵石1级", out value24);
+									break;
+								case 3:
+									GameItems.DataSheetByName.TryGetValue("蔚蓝灵石1级", out value24);
+									break;
+								case 4:
+									GameItems.DataSheetByName.TryGetValue("精绿灵石1级", out value24);
+									break;
+								case 5:
+									GameItems.DataSheetByName.TryGetValue("纯紫灵石1级", out value24);
+									break;
+								case 6:
+									GameItems.DataSheetByName.TryGetValue("深灰灵石1级", out value24);
+									break;
+								case 7:
+									GameItems.DataSheetByName.TryGetValue("橙黄灵石1级", out value24);
+									break;
+							}
+							if (value24 != null)
+							{
+								消耗背包物品(1, v);
+								角色背包[b41] = new ItemData(value24, CharacterData, 背包类型, b41, 2);
+								网络连接?.发送封包(new 玩家物品变动
+								{
+									物品描述 = 角色背包[b41].字节描述()
+								});
+							}
+							break;
 						}
-						网络连接2.发送封包(new GameErrorMessagePacket
+					case "精准打击":
+						if (玩家学习技能(2042))
 						{
-							错误代码 = 1825
-						});
-						return;
-					}
-					else
-					{
-						DateTime t2;
-						if (ItemData.GroupId <= 0 || !this.冷却记录.TryGetValue((int)(ItemData.GroupId | 0), out t2) || !(MainProcess.CurrentTime < t2))
+							消耗背包物品(1, v);
+						}
+						break;
+					case "神圣战甲术":
+						if (玩家学习技能(3007))
 						{
-							string Name = ItemData.Name;
-							uint num = PrivateImplementationDetails.ComputeStringHash(Name);
-							if (num <= 1924148130U)
+							消耗背包物品(1, v);
+						}
+						break;
+					case "施毒术":
+						if (玩家学习技能(3004))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "寒冰掌":
+						if (玩家学习技能(2550))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "金创药(中量)":
+						if (v.GroupId > 0 && v.GroupCooling > 0)
+						{
+							冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
 							{
-								if (num <= 945242832U)
+								冷却编号 = (v.GroupId | 0),
+								Cooldown = v.GroupCooling
+							});
+						}
+						if (v.Cooldown > 0)
+						{
+							冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
+							{
+								冷却编号 = (v.Id | 0x2000000),
+								Cooldown = v.Cooldown
+							});
+						}
+						消耗背包物品(1, v);
+						药品回血 = MainProcess.CurrentTime.AddSeconds(1.0);
+						回血基数 = 10;
+						回血次数 = 5;
+						break;
+					case "战具礼盒":
+						{
+							byte b11 = byte.MaxValue;
+							byte b12 = 0;
+							while (b12 < 背包大小)
+							{
+								if (角色背包.ContainsKey(b12))
 								{
-									if (num <= 515484477U)
-									{
-										if (num <= 253384834U)
-										{
-											if (num <= 175729813U)
-											{
-												if (num <= 132777484U)
-												{
-													if (num != 38564539U)
-													{
-														if (num != 132777484U)
-														{
-															return;
-														}
-														if (!(Name == "豪杰灵石宝盒"))
-														{
-															return;
-														}
-														byte b = byte.MaxValue;
-														byte b2 = 0;
-														while (b2 < this.背包大小)
-														{
-															if (this.角色背包.ContainsKey(b2))
-															{
-																b2 += 1;
-															}
-															else
-															{
-																b = b2;
-																IL_229:
-																if (b == 255)
-																{
-																	客户网络 网络连接3 = this.网络连接;
-																	if (网络连接3 == null)
-																	{
-																		return;
-																	}
-																	网络连接3.发送封包(new GameErrorMessagePacket
-																	{
-																		错误代码 = 1793
-																	});
-																	return;
-																}
-																else
-																{
-																	GameItems 游戏物品 = null;
-																	int num2 = MainProcess.RandomNumber.Next(8);
-																	if (num2 == 0)
-																	{
-																		GameItems.DateSheetByName.TryGetValue("驭朱灵石1级", out 游戏物品);
-																	}
-																	else if (num2 == 1)
-																	{
-																		GameItems.DateSheetByName.TryGetValue("命朱灵石1级", out 游戏物品);
-																	}
-																	else if (num2 == 2)
-																	{
-																		GameItems.DateSheetByName.TryGetValue("守阳灵石1级", out 游戏物品);
-																	}
-																	else if (num2 == 3)
-																	{
-																		GameItems.DateSheetByName.TryGetValue("蔚蓝灵石1级", out 游戏物品);
-																	}
-																	else if (num2 == 4)
-																	{
-																		GameItems.DateSheetByName.TryGetValue("精绿灵石1级", out 游戏物品);
-																	}
-																	else if (num2 == 5)
-																	{
-																		GameItems.DateSheetByName.TryGetValue("纯紫灵石1级", out 游戏物品);
-																	}
-																	else if (num2 == 6)
-																	{
-																		GameItems.DateSheetByName.TryGetValue("深灰灵石1级", out 游戏物品);
-																	}
-																	else if (num2 == 7)
-																	{
-																		GameItems.DateSheetByName.TryGetValue("橙黄灵石1级", out 游戏物品);
-																	}
-																	if (游戏物品 == null)
-																	{
-																		return;
-																	}
-																	this.消耗背包物品(1, ItemData);
-																	this.角色背包[b] = new ItemData(游戏物品, this.CharacterData, 背包类型, b, 2);
-																	客户网络 网络连接4 = this.网络连接;
-																	if (网络连接4 == null)
-																	{
-																		return;
-																	}
-																	网络连接4.发送封包(new 玩家物品变动
-																	{
-																		物品描述 = this.角色背包[b].字节描述()
-																	});
-																	return;
-																}
-															}
-														}
-														//goto IL_229;
-													}
-													else
-													{
-														if (!(Name == "精准打击"))
-														{
-															return;
-														}
-														if (this.玩家学习技能(2042))
-														{
-															this.消耗背包物品(1, ItemData);
-															return;
-														}
-														return;
-													}
-												}
-												else if (num != 153527731U)
-												{
-													if (num != 175729813U)
-													{
-														return;
-													}
-													if (!(Name == "Sacred战甲术"))
-													{
-														return;
-													}
-													if (this.玩家学习技能(3007))
-													{
-														this.消耗背包物品(1, ItemData);
-														return;
-													}
-													return;
-												}
-												else
-												{
-													if (!(Name == "施毒术"))
-													{
-														return;
-													}
-													if (this.玩家学习技能(3004))
-													{
-														this.消耗背包物品(1, ItemData);
-														return;
-													}
-													return;
-												}
-											}
-											else if (num <= 224836393U)
-											{
-												if (num != 182669421U)
-												{
-													if (num != 224836393U)
-													{
-														return;
-													}
-													if (!(Name == "寒冰掌"))
-													{
-														return;
-													}
-													if (this.玩家学习技能(2550))
-													{
-														this.消耗背包物品(1, ItemData);
-														return;
-													}
-													return;
-												}
-												else
-												{
-													if (!(Name == "金创药(中量)"))
-													{
-														return;
-													}
-													if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-													{
-														this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-														客户网络 网络连接5 = this.网络连接;
-														if (网络连接5 != null)
-														{
-															网络连接5.发送封包(new AddedSkillCooldownPacket
-															{
-																冷却编号 = (int)(ItemData.GroupId | 0),
-																Cooldown = ItemData.GroupCooling
-															});
-														}
-													}
-													if (ItemData.Cooldown > 0)
-													{
-														this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-														客户网络 网络连接6 = this.网络连接;
-														if (网络连接6 != null)
-														{
-															网络连接6.发送封包(new AddedSkillCooldownPacket
-															{
-																冷却编号 = (ItemData.Id | 33554432),
-																Cooldown = ItemData.Cooldown
-															});
-														}
-													}
-													this.消耗背包物品(1, ItemData);
-													this.药品回血 = MainProcess.CurrentTime.AddSeconds(1.0);
-													this.回血基数 = 10;
-													this.回血次数 = 5;
-													return;
-												}
-											}
-											else if (num != 228047627U)
-											{
-												if (num != 253384834U)
-												{
-													return;
-												}
-												if (!(Name == "战具礼盒"))
-												{
-													return;
-												}
-												byte b3 = byte.MaxValue;
-												byte b4 = 0;
-												while (b4 < this.背包大小)
-												{
-													if (this.角色背包.ContainsKey(b4))
-													{
-														b4 += 1;
-													}
-													else
-													{
-														b3 = b4;
-														IL_5B0:
-														if (b3 == 255)
-														{
-															客户网络 网络连接7 = this.网络连接;
-															if (网络连接7 == null)
-															{
-																return;
-															}
-															网络连接7.发送封包(new GameErrorMessagePacket
-															{
-																错误代码 = 1793
-															});
-															return;
-														}
-														else
-														{
-															GameItems 游戏物品2 = null;
-															if (this.角色职业 == GameObjectRace.战士)
-															{
-																GameItems.DateSheetByName.TryGetValue("气血石", out 游戏物品2);
-															}
-															else if (this.角色职业 == GameObjectRace.法师)
-															{
-																GameItems.DateSheetByName.TryGetValue("Magic石", out 游戏物品2);
-															}
-															else if (this.角色职业 == GameObjectRace.道士)
-															{
-																GameItems.DateSheetByName.TryGetValue("万灵符", out 游戏物品2);
-															}
-															else if (this.角色职业 == GameObjectRace.刺客)
-															{
-																GameItems.DateSheetByName.TryGetValue("吸血令", out 游戏物品2);
-															}
-															else if (this.角色职业 == GameObjectRace.弓手)
-															{
-																GameItems.DateSheetByName.TryGetValue("守护箭袋", out 游戏物品2);
-															}
-															else if (this.角色职业 == GameObjectRace.龙枪)
-															{
-																GameItems.DateSheetByName.TryGetValue("血精石", out 游戏物品2);
-															}
-															if (游戏物品2 == null)
-															{
-																return;
-															}
-															EquipmentItem 游戏装备 = 游戏物品2 as EquipmentItem;
-															if (游戏装备 == null)
-															{
-																return;
-															}
-															this.消耗背包物品(1, ItemData);
-															this.角色背包[b3] = new EquipmentData(游戏装备, this.CharacterData, 背包类型, b3, false);
-															客户网络 网络连接8 = this.网络连接;
-															if (网络连接8 == null)
-															{
-																return;
-															}
-															网络连接8.发送封包(new 玩家物品变动
-															{
-																物品描述 = this.角色背包[b3].字节描述()
-															});
-															return;
-														}
-													}
-												}
-												//goto IL_5B0;
-											}
-											else
-											{
-												if (!(Name == "御龙晶甲"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(1209))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-										}
-										else if (num <= 402624442U)
-										{
-											if (num <= 279453913U)
-											{
-												if (num != 273878844U)
-												{
-													if (num != 279453913U)
-													{
-														return;
-													}
-													if (!(Name == "击飞射击"))
-													{
-														return;
-													}
-													if (this.玩家学习技能(2046))
-													{
-														this.消耗背包物品(1, ItemData);
-														return;
-													}
-													return;
-												}
-												else
-												{
-													if (!(Name == "大火球"))
-													{
-														return;
-													}
-													if (this.玩家学习技能(2549))
-													{
-														this.消耗背包物品(1, ItemData);
-														return;
-													}
-													return;
-												}
-											}
-											else if (num != 307526948U)
-											{
-												if (num != 402624442U)
-												{
-													return;
-												}
-												if (!(Name == "疗伤药包"))
-												{
-													return;
-												}
-												if ((int)this.背包大小 - this.角色背包.Count < 5)
-												{
-													客户网络 网络连接9 = this.网络连接;
-													if (网络连接9 == null)
-													{
-														return;
-													}
-													网络连接9.发送封包(new GameErrorMessagePacket
-													{
-														错误代码 = 1793
-													});
-													return;
-												}
-												else
-												{
-													GameItems 模板;
-													if (GameItems.DateSheetByName.TryGetValue("疗伤药", out 模板))
-													{
-														if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-														{
-															this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-															客户网络 网络连接10 = this.网络连接;
-															if (网络连接10 != null)
-															{
-																网络连接10.发送封包(new AddedSkillCooldownPacket
-																{
-																	冷却编号 = (int)(ItemData.GroupId | 0),
-																	Cooldown = ItemData.GroupCooling
-																});
-															}
-														}
-														if (ItemData.Cooldown > 0)
-														{
-															this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-															客户网络 网络连接11 = this.网络连接;
-															if (网络连接11 != null)
-															{
-																网络连接11.发送封包(new AddedSkillCooldownPacket
-																{
-																	冷却编号 = (ItemData.Id | 33554432),
-																	Cooldown = ItemData.Cooldown
-																});
-															}
-														}
-														this.消耗背包物品(1, ItemData);
-														byte b5 = 0;
-														byte b6 = 0;
-														while (b5 < this.背包大小)
-														{
-															if (b6 >= 6)
-															{
-																return;
-															}
-															if (!this.角色背包.ContainsKey(b5))
-															{
-																this.角色背包[b5] = new ItemData(模板, this.CharacterData, 1, b5, 1);
-																客户网络 网络连接12 = this.网络连接;
-																if (网络连接12 != null)
-																{
-																	网络连接12.发送封包(new 玩家物品变动
-																	{
-																		物品描述 = this.角色背包[b5].字节描述()
-																	});
-																}
-																b6 += 1;
-															}
-															b5 += 1;
-														}
-														return;
-													}
-													return;
-												}
-											}
-											else
-											{
-												if (!(Name == "强效金创药"))
-												{
-													return;
-												}
-												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-												{
-													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-													客户网络 网络连接13 = this.网络连接;
-													if (网络连接13 != null)
-													{
-														网络连接13.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (int)(ItemData.GroupId | 0),
-															Cooldown = ItemData.GroupCooling
-														});
-													}
-												}
-												if (ItemData.Cooldown > 0)
-												{
-													this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-													客户网络 网络连接14 = this.网络连接;
-													if (网络连接14 != null)
-													{
-														网络连接14.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (ItemData.Id | 33554432),
-															Cooldown = ItemData.Cooldown
-														});
-													}
-												}
-												this.消耗背包物品(1, ItemData);
-												this.药品回血 = MainProcess.CurrentTime.AddSeconds(1.0);
-												this.回血基数 = 15;
-												this.回血次数 = 6;
-												return;
-											}
-										}
-										else if (num <= 437358392U)
-										{
-											if (num != 433779267U)
-											{
-												if (num != 437358392U)
-												{
-													return;
-												}
-												if (!(Name == "万年雪霜"))
-												{
-													return;
-												}
-												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-												{
-													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-													客户网络 网络连接15 = this.网络连接;
-													if (网络连接15 != null)
-													{
-														网络连接15.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (int)(ItemData.GroupId | 0),
-															Cooldown = ItemData.GroupCooling
-														});
-													}
-												}
-												if (ItemData.Cooldown > 0)
-												{
-													this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-													客户网络 网络连接16 = this.网络连接;
-													if (网络连接16 != null)
-													{
-														网络连接16.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (ItemData.Id | 33554432),
-															Cooldown = ItemData.Cooldown
-														});
-													}
-												}
-												this.消耗背包物品(1, ItemData);
-												this.当前体力 += (int)Math.Max(75f * (1f + (float)this[GameObjectStats.药品回血] / 10000f), 0f);
-												this.当前魔力 += (int)Math.Max(100f * (1f + (float)this[GameObjectStats.药品回魔] / 10000f), 0f);
-												return;
-											}
-											else
-											{
-												if (!(Name == "地狱火"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(2544))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-										}
-										else if (num != 439214012U)
-										{
-											if (num != 487394802U)
-											{
-												if (num != 515484477U)
-												{
-													return;
-												}
-												if (!(Name == "鬼灵步"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(1537))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-											else
-											{
-												if (!(Name == "觉醒·羿神庇佑"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(2049))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-										}
-										else
-										{
-											if (!(Name == "魔龙城回城卷包"))
-											{
-												return;
-											}
-											if ((int)this.背包大小 - this.角色背包.Count < 5)
-											{
-												客户网络 网络连接17 = this.网络连接;
-												if (网络连接17 == null)
-												{
-													return;
-												}
-												网络连接17.发送封包(new GameErrorMessagePacket
-												{
-													错误代码 = 1793
-												});
-												return;
-											}
-											else
-											{
-												GameItems 模板2;
-												if (GameItems.DateSheetByName.TryGetValue("魔龙城回城卷", out 模板2))
-												{
-													if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-													{
-														this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-														客户网络 网络连接18 = this.网络连接;
-														if (网络连接18 != null)
-														{
-															网络连接18.发送封包(new AddedSkillCooldownPacket
-															{
-																冷却编号 = (int)(ItemData.GroupId | 0),
-																Cooldown = ItemData.GroupCooling
-															});
-														}
-													}
-													if (ItemData.Cooldown > 0)
-													{
-														this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-														客户网络 网络连接19 = this.网络连接;
-														if (网络连接19 != null)
-														{
-															网络连接19.发送封包(new AddedSkillCooldownPacket
-															{
-																冷却编号 = (ItemData.Id | 33554432),
-																Cooldown = ItemData.Cooldown
-															});
-														}
-													}
-													this.消耗背包物品(1, ItemData);
-													byte b7 = 0;
-													byte b8 = 0;
-													while (b7 < this.背包大小)
-													{
-														if (b8 >= 6)
-														{
-															return;
-														}
-														if (!this.角色背包.ContainsKey(b7))
-														{
-															this.角色背包[b7] = new ItemData(模板2, this.CharacterData, 1, b7, 1);
-															客户网络 网络连接20 = this.网络连接;
-															if (网络连接20 != null)
-															{
-																网络连接20.发送封包(new 玩家物品变动
-																{
-																	物品描述 = this.角色背包[b7].字节描述()
-																});
-															}
-															b8 += 1;
-														}
-														b7 += 1;
-													}
-													return;
-												}
-												return;
-											}
-										}
-									}
-									else if (num <= 768845918U)
-									{
-										if (num <= 621619839U)
-										{
-											if (num <= 541220042U)
-											{
-												if (num != 539053209U)
-												{
-													if (num != 541220042U)
-													{
-														return;
-													}
-													if (!(Name == "中平枪术"))
-													{
-														return;
-													}
-													if (this.玩家学习技能(1201))
-													{
-														this.消耗背包物品(1, ItemData);
-														return;
-													}
-													return;
-												}
-												else
-												{
-													if (!(Name == "燃血化元"))
-													{
-														return;
-													}
-													if (this.玩家学习技能(1211))
-													{
-														this.消耗背包物品(1, ItemData);
-														return;
-													}
-													return;
-												}
-											}
-											else if (num != 605360497U)
-											{
-												if (num != 621619839U)
-												{
-													return;
-												}
-												if (!(Name == "冰咆哮"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(2537))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-											else
-											{
-												if (!(Name == "二连射"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(2043))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-										}
-										else if (num <= 649459506U)
-										{
-											if (num != 639976640U)
-											{
-												if (num != 649459506U)
-												{
-													return;
-												}
-												if (!(Name == "觉醒·法神奥义"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(2557))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-											else
-											{
-												if (!(Name == "强效太阳水"))
-												{
-													return;
-												}
-												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-												{
-													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-													客户网络 网络连接21 = this.网络连接;
-													if (网络连接21 != null)
-													{
-														网络连接21.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (int)(ItemData.GroupId | 0),
-															Cooldown = ItemData.GroupCooling
-														});
-													}
-												}
-												if (ItemData.Cooldown > 0)
-												{
-													this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-													客户网络 网络连接22 = this.网络连接;
-													if (网络连接22 != null)
-													{
-														网络连接22.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (ItemData.Id | 33554432),
-															Cooldown = ItemData.Cooldown
-														});
-													}
-												}
-												this.消耗背包物品(1, ItemData);
-												this.当前体力 += (int)Math.Max(50f * (1f + (float)this[GameObjectStats.药品回血] / 10000f), 0f);
-												this.当前魔力 += (int)Math.Max(80f * (1f + (float)this[GameObjectStats.药品回魔] / 10000f), 0f);
-												return;
-											}
-										}
-										else if (num != 704592788U)
-										{
-											if (num != 768845918U)
-											{
-												return;
-											}
-											if (!(Name == "元宝袋(小)"))
-											{
-												return;
-											}
-											this.消耗背包物品(1, ItemData);
-											this.元宝数量 += 100;
-											return;
-										}
-										else
-										{
-											if (!(Name == "献祭"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(1545))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-									}
-									else if (num <= 825912053U)
-									{
-										if (num <= 779912283U)
-										{
-											if (num != 779452040U)
-											{
-												if (num != 779912283U)
-												{
-													return;
-												}
-												if (!(Name == "幽灵盾"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(3006))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-											else
-											{
-												if (!(Name == "Magic药(小)包"))
-												{
-													return;
-												}
-												if ((int)this.背包大小 - this.角色背包.Count < 5)
-												{
-													客户网络 网络连接23 = this.网络连接;
-													if (网络连接23 == null)
-													{
-														return;
-													}
-													网络连接23.发送封包(new GameErrorMessagePacket
-													{
-														错误代码 = 1793
-													});
-													return;
-												}
-												else
-												{
-													GameItems 模板3;
-													if (GameItems.DateSheetByName.TryGetValue("Magic药(小量)", out 模板3))
-													{
-														if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-														{
-															this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-															客户网络 网络连接24 = this.网络连接;
-															if (网络连接24 != null)
-															{
-																网络连接24.发送封包(new AddedSkillCooldownPacket
-																{
-																	冷却编号 = (int)(ItemData.GroupId | 0),
-																	Cooldown = ItemData.GroupCooling
-																});
-															}
-														}
-														if (ItemData.Cooldown > 0)
-														{
-															this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-															客户网络 网络连接25 = this.网络连接;
-															if (网络连接25 != null)
-															{
-																网络连接25.发送封包(new AddedSkillCooldownPacket
-																{
-																	冷却编号 = (ItemData.Id | 33554432),
-																	Cooldown = ItemData.Cooldown
-																});
-															}
-														}
-														this.消耗背包物品(1, ItemData);
-														byte b9 = 0;
-														byte b10 = 0;
-														while (b9 < this.背包大小)
-														{
-															if (b10 >= 6)
-															{
-																return;
-															}
-															if (!this.角色背包.ContainsKey(b9))
-															{
-																this.角色背包[b9] = new ItemData(模板3, this.CharacterData, 1, b9, 1);
-																客户网络 网络连接26 = this.网络连接;
-																if (网络连接26 != null)
-																{
-																	网络连接26.发送封包(new 玩家物品变动
-																	{
-																		物品描述 = this.角色背包[b9].字节描述()
-																	});
-																}
-																b10 += 1;
-															}
-															b9 += 1;
-														}
-														return;
-													}
-													return;
-												}
-											}
-										}
-										else if (num != 799778284U)
-										{
-											if (num != 825912053U)
-											{
-												return;
-											}
-											if (!(Name == "盟重回城卷包"))
-											{
-												return;
-											}
-											if ((int)this.背包大小 - this.角色背包.Count < 5)
-											{
-												客户网络 网络连接27 = this.网络连接;
-												if (网络连接27 == null)
-												{
-													return;
-												}
-												网络连接27.发送封包(new GameErrorMessagePacket
-												{
-													错误代码 = 1793
-												});
-												return;
-											}
-											else
-											{
-												GameItems 模板4;
-												if (GameItems.DateSheetByName.TryGetValue("盟重回城卷", out 模板4))
-												{
-													if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-													{
-														this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-														客户网络 网络连接28 = this.网络连接;
-														if (网络连接28 != null)
-														{
-															网络连接28.发送封包(new AddedSkillCooldownPacket
-															{
-																冷却编号 = (int)(ItemData.GroupId | 0),
-																Cooldown = ItemData.GroupCooling
-															});
-														}
-													}
-													if (ItemData.Cooldown > 0)
-													{
-														this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-														客户网络 网络连接29 = this.网络连接;
-														if (网络连接29 != null)
-														{
-															网络连接29.发送封包(new AddedSkillCooldownPacket
-															{
-																冷却编号 = (ItemData.Id | 33554432),
-																Cooldown = ItemData.Cooldown
-															});
-														}
-													}
-													this.消耗背包物品(1, ItemData);
-													byte b11 = 0;
-													byte b12 = 0;
-													while (b11 < this.背包大小)
-													{
-														if (b12 >= 6)
-														{
-															return;
-														}
-														if (!this.角色背包.ContainsKey(b11))
-														{
-															this.角色背包[b11] = new ItemData(模板4, this.CharacterData, 1, b11, 1);
-															客户网络 网络连接30 = this.网络连接;
-															if (网络连接30 != null)
-															{
-																网络连接30.发送封包(new 玩家物品变动
-																{
-																	物品描述 = this.角色背包[b11].字节描述()
-																});
-															}
-															b12 += 1;
-														}
-														b11 += 1;
-													}
-													return;
-												}
-												return;
-											}
-										}
-										else
-										{
-											if (!(Name == "火球术"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(2531))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-									}
-									else if (num <= 858066211U)
-									{
-										if (num != 830322995U)
-										{
-											if (num != 858066211U)
-											{
-												return;
-											}
-											if (!(Name == "守护箭羽"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(2052))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-										else
-										{
-											if (!(Name == "灵魂火符"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(3005))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-									}
-									else if (num != 932904532U)
-									{
-										if (num != 936733853U)
-										{
-											if (num != 945242832U)
-											{
-												return;
-											}
-											if (!(Name == "随机传送石(大)"))
-											{
-												return;
-											}
-										}
-										else
-										{
-											if (!(Name == "狮子吼"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(1037))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-									}
-									else
-									{
-										if (!(Name == "Magic盾"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(2535))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
+									b12 = (byte)(b12 + 1);
+									continue;
 								}
-								else if (num <= 1306323010U)
+								b11 = b12;
+								break;
+							}
+							if (b11 == byte.MaxValue)
+							{
+								网络连接?.发送封包(new GameErrorMessagePacket
 								{
-									if (num <= 1039482936U)
+									错误代码 = 1793
+								});
+								break;
+							}
+							GameItems value6 = null;
+							if (角色职业 == GameObjectRace.战士)
+							{
+								GameItems.DataSheetByName.TryGetValue("气血石", out value6);
+							}
+							else if (角色职业 == GameObjectRace.法师)
+							{
+								GameItems.DataSheetByName.TryGetValue("魔法石", out value6);
+							}
+							else if (角色职业 == GameObjectRace.道士)
+							{
+								GameItems.DataSheetByName.TryGetValue("万灵符", out value6);
+							}
+							else if (角色职业 == GameObjectRace.刺客)
+							{
+								GameItems.DataSheetByName.TryGetValue("吸血令", out value6);
+							}
+							else if (角色职业 == GameObjectRace.弓手)
+							{
+								GameItems.DataSheetByName.TryGetValue("守护箭袋", out value6);
+							}
+							else if (角色职业 == GameObjectRace.龙枪)
+							{
+								GameItems.DataSheetByName.TryGetValue("血精石", out value6);
+							}
+							if (value6 != null && value6 is EquipmentItem 模板)
+							{
+								消耗背包物品(1, v);
+								角色背包[b11] = new EquipmentData(模板, CharacterData, 背包类型, b11);
+								网络连接?.发送封包(new 玩家物品变动
+								{
+									物品描述 = 角色背包[b11].字节描述()
+								});
+							}
+							break;
+						}
+					case "御龙晶甲":
+						if (玩家学习技能(1209))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "击飞射击":
+						if (玩家学习技能(2046))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "大火球":
+						if (玩家学习技能(2549))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "疗伤药包":
+						if (背包大小 - 角色背包.Count < 5)
+						{
+							网络连接?.发送封包(new GameErrorMessagePacket
+							{
+								错误代码 = 1793
+							});
+						}
+						else
+						{
+							if (!GameItems.DataSheetByName.TryGetValue("疗伤药", out var value3))
+							{
+								break;
+							}
+							if (v.GroupId > 0 && v.GroupCooling > 0)
+							{
+								冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.GroupId | 0),
+									Cooldown = v.GroupCooling
+								});
+							}
+							if (v.Cooldown > 0)
+							{
+								冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.Id | 0x2000000),
+									Cooldown = v.Cooldown
+								});
+							}
+							消耗背包物品(1, v);
+							byte b5 = 0;
+							byte b6 = 0;
+							while (b5 < 背包大小 && b6 < 6)
+							{
+								if (!角色背包.ContainsKey(b5))
+								{
+									角色背包[b5] = new ItemData(value3, CharacterData, 1, b5, 1);
+									网络连接?.发送封包(new 玩家物品变动
 									{
-										if (num <= 1007770633U)
-										{
-											if (num <= 957580626U)
-											{
-												if (num != 950545171U)
-												{
-													if (num != 957580626U)
-													{
-														return;
-													}
-													if (!(Name == "盟重回城卷"))
-													{
-														return;
-													}
-													this.消耗背包物品(1, ItemData);
-													this.玩家切换地图((this.当前地图.MapId == 147) ? this.当前地图 : MapGatewayProcess.分配地图(147), AreaType.复活区域, default(Point));
-													return;
-												}
-												else
-												{
-													if (!(Name == "回避射击"))
-													{
-														return;
-													}
-													if (this.玩家学习技能(2056))
-													{
-														this.消耗背包物品(1, ItemData);
-														return;
-													}
-													return;
-												}
-											}
-											else if (num != 973506970U)
-											{
-												if (num != 1007770633U)
-												{
-													return;
-												}
-												if (!(Name == "困魔咒"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(3011))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-											else
-											{
-												if (!(Name == "噬血术"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(3010))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-										}
-										else if (num <= 1022834100U)
-										{
-											if (num != 1014197875U)
-											{
-												if (num != 1022834100U)
-												{
-													return;
-												}
-												if (!(Name == "祝福油"))
-												{
-													return;
-												}
-												EquipmentData EquipmentData;
-												if (!this.角色装备.TryGetValue(0, out EquipmentData))
-												{
-													客户网络 网络连接31 = this.网络连接;
-													if (网络连接31 == null)
-													{
-														return;
-													}
-													网络连接31.发送封包(new GameErrorMessagePacket
-													{
-														错误代码 = 1927
-													});
-													return;
-												}
-												else if (EquipmentData.幸运等级.V >= 7)
-												{
-													客户网络 网络连接32 = this.网络连接;
-													if (网络连接32 == null)
-													{
-														return;
-													}
-													网络连接32.发送封包(new GameErrorMessagePacket
-													{
-														错误代码 = 1843
-													});
-													return;
-												}
-												else
-												{
-													this.消耗背包物品(1, ItemData);
-													int num3;
-													switch (EquipmentData.幸运等级.V)
-													{
-													case 0:
-														num3 = 80;
-														break;
-													case 1:
-														num3 = 10;
-														break;
-													case 2:
-														num3 = 8;
-														break;
-													case 3:
-														num3 = 6;
-														break;
-													case 4:
-														num3 = 5;
-														break;
-													case 5:
-														num3 = 4;
-														break;
-													case 6:
-														num3 = 3;
-														break;
-													default:
-														num3 = 80;
-														break;
-													}
-													int num4 = MainProcess.RandomNumber.Next(100);
-													if (num4 < num3)
-													{
-														DataMonitor<sbyte> 幸运等级 = EquipmentData.幸运等级;
-														幸运等级.V += 1;
-														客户网络 网络连接33 = this.网络连接;
-														if (网络连接33 != null)
-														{
-															网络连接33.发送封包(new 玩家物品变动
-															{
-																物品描述 = EquipmentData.字节描述()
-															});
-														}
-														客户网络 网络连接34 = this.网络连接;
-														if (网络连接34 != null)
-														{
-															网络连接34.发送封包(new 武器幸运变化
-															{
-																幸运变化 = 1
-															});
-														}
-														this.Stat加成[EquipmentData] = EquipmentData.装备Stat;
-														this.更新对象Stat();
-														if (EquipmentData.幸运等级.V >= 5)
-														{
-															NetworkServiceGateway.发送公告(string.Format("[{0}] successfully upgraded [{1}] to Luck {2}.", this.对象名字, EquipmentData.Name, EquipmentData.幸运等级.V), false);
-															return;
-														}
-														return;
-													}
-													else
-													{
-														if (num4 >= 95 && EquipmentData.幸运等级.V > -9)
-														{
-															DataMonitor<sbyte> 幸运等级2 = EquipmentData.幸运等级;
-															幸运等级2.V -= 1;
-															客户网络 网络连接35 = this.网络连接;
-															if (网络连接35 != null)
-															{
-																网络连接35.发送封包(new 玩家物品变动
-																{
-																	物品描述 = EquipmentData.字节描述()
-																});
-															}
-															客户网络 网络连接36 = this.网络连接;
-															if (网络连接36 != null)
-															{
-																网络连接36.发送封包(new 武器幸运变化
-																{
-																	幸运变化 = -1
-																});
-															}
-															this.Stat加成[EquipmentData] = EquipmentData.装备Stat;
-															this.更新对象Stat();
-															return;
-														}
-														客户网络 网络连接37 = this.网络连接;
-														if (网络连接37 == null)
-														{
-															return;
-														}
-														网络连接37.发送封包(new 武器幸运变化
-														{
-															幸运变化 = 0
-														});
-														return;
-													}
-												}
-											}
-											else
-											{
-												if (!(Name == "金创药(小量)"))
-												{
-													return;
-												}
-												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-												{
-													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-													客户网络 网络连接38 = this.网络连接;
-													if (网络连接38 != null)
-													{
-														网络连接38.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (int)(ItemData.GroupId | 0),
-															Cooldown = ItemData.GroupCooling
-														});
-													}
-												}
-												if (ItemData.Cooldown > 0)
-												{
-													this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-													客户网络 网络连接39 = this.网络连接;
-													if (网络连接39 != null)
-													{
-														网络连接39.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (ItemData.Id | 33554432),
-															Cooldown = ItemData.Cooldown
-														});
-													}
-												}
-												this.消耗背包物品(1, ItemData);
-												this.药品回血 = MainProcess.CurrentTime.AddSeconds(1.0);
-												this.回血基数 = 5;
-												this.回血次数 = 4;
-												return;
-											}
-										}
-										else if (num != 1029945161U)
-										{
-											if (num != 1039482936U)
-											{
-												return;
-											}
-											if (!(Name == "灭天火"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(2539))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-										else
-										{
-											if (!(Name == "穿刺射击"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(2050))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-									}
-									else if (num <= 1192480010U)
-									{
-										if (num <= 1152785787U)
-										{
-											if (num != 1090880528U)
-											{
-												if (num != 1152785787U)
-												{
-													return;
-												}
-												if (!(Name == "圣言术"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(2547))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-											else
-											{
-												if (!(Name == "连环暗雷"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(2047))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-										}
-										else if (num != 1153849804U)
-										{
-											if (num != 1192480010U)
-											{
-												return;
-											}
-											if (!(Name == "爆裂火焰"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(2545))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-										else
-										{
-											if (!(Name == "群体治愈术"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(3012))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-									}
-									else if (num <= 1195995716U)
-									{
-										if (num != 1193128967U)
-										{
-											if (num != 1195995716U)
-											{
-												return;
-											}
-											if (!(Name == "觉醒·百战军魂"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(1214))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-										else
-										{
-											if (!(Name == "万年雪霜包"))
-											{
-												return;
-											}
-											if ((int)this.背包大小 - this.角色背包.Count < 5)
-											{
-												客户网络 网络连接40 = this.网络连接;
-												if (网络连接40 == null)
-												{
-													return;
-												}
-												网络连接40.发送封包(new GameErrorMessagePacket
-												{
-													错误代码 = 1793
-												});
-												return;
-											}
-											else
-											{
-												GameItems 模板5;
-												if (GameItems.DateSheetByName.TryGetValue("万年雪霜", out 模板5))
-												{
-													if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-													{
-														this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-														客户网络 网络连接41 = this.网络连接;
-														if (网络连接41 != null)
-														{
-															网络连接41.发送封包(new AddedSkillCooldownPacket
-															{
-																冷却编号 = (int)(ItemData.GroupId | 0),
-																Cooldown = ItemData.GroupCooling
-															});
-														}
-													}
-													if (ItemData.Cooldown > 0)
-													{
-														this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-														客户网络 网络连接42 = this.网络连接;
-														if (网络连接42 != null)
-														{
-															网络连接42.发送封包(new AddedSkillCooldownPacket
-															{
-																冷却编号 = (ItemData.Id | 33554432),
-																Cooldown = ItemData.Cooldown
-															});
-														}
-													}
-													this.消耗背包物品(1, ItemData);
-													byte b13 = 0;
-													byte b14 = 0;
-													while (b13 < this.背包大小)
-													{
-														if (b14 >= 6)
-														{
-															return;
-														}
-														if (!this.角色背包.ContainsKey(b13))
-														{
-															this.角色背包[b13] = new ItemData(模板5, this.CharacterData, 1, b13, 1);
-															客户网络 网络连接43 = this.网络连接;
-															if (网络连接43 != null)
-															{
-																网络连接43.发送封包(new 玩家物品变动
-																{
-																	物品描述 = this.角色背包[b13].字节描述()
-																});
-															}
-															b14 += 1;
-														}
-														b13 += 1;
-													}
-													return;
-												}
-												return;
-											}
-										}
-									}
-									else if (num != 1275229229U)
-									{
-										if (num != 1293889613U)
-										{
-											if (num != 1306323010U)
-											{
-												return;
-											}
-											if (!(Name == "觉醒·金钟罩"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(1047))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-										else
-										{
-											if (!(Name == "太阳水包"))
-											{
-												return;
-											}
-											if ((int)this.背包大小 - this.角色背包.Count < 5)
-											{
-												客户网络 网络连接44 = this.网络连接;
-												if (网络连接44 == null)
-												{
-													return;
-												}
-												网络连接44.发送封包(new GameErrorMessagePacket
-												{
-													错误代码 = 1793
-												});
-												return;
-											}
-											else
-											{
-												GameItems 模板6;
-												if (GameItems.DateSheetByName.TryGetValue("太阳水", out 模板6))
-												{
-													if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-													{
-														this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-														客户网络 网络连接45 = this.网络连接;
-														if (网络连接45 != null)
-														{
-															网络连接45.发送封包(new AddedSkillCooldownPacket
-															{
-																冷却编号 = (int)(ItemData.GroupId | 0),
-																Cooldown = ItemData.GroupCooling
-															});
-														}
-													}
-													if (ItemData.Cooldown > 0)
-													{
-														this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-														客户网络 网络连接46 = this.网络连接;
-														if (网络连接46 != null)
-														{
-															网络连接46.发送封包(new AddedSkillCooldownPacket
-															{
-																冷却编号 = (ItemData.Id | 33554432),
-																Cooldown = ItemData.Cooldown
-															});
-														}
-													}
-													this.消耗背包物品(1, ItemData);
-													byte b15 = 0;
-													byte b16 = 0;
-													while (b15 < this.背包大小)
-													{
-														if (b16 >= 6)
-														{
-															return;
-														}
-														if (!this.角色背包.ContainsKey(b15))
-														{
-															this.角色背包[b15] = new ItemData(模板6, this.CharacterData, 1, b15, 1);
-															客户网络 网络连接47 = this.网络连接;
-															if (网络连接47 != null)
-															{
-																网络连接47.发送封包(new 玩家物品变动
-																{
-																	物品描述 = this.角色背包[b15].字节描述()
-																});
-															}
-															b16 += 1;
-														}
-														b15 += 1;
-													}
-													return;
-												}
-												return;
-											}
-										}
-									}
-									else
-									{
-										if (!(Name == "比奇回城卷"))
-										{
-											return;
-										}
-										this.消耗背包物品(1, ItemData);
-										this.玩家切换地图((this.当前地图.MapId == 143) ? this.当前地图 : MapGatewayProcess.分配地图(143), AreaType.复活区域, default(Point));
-										return;
-									}
+										物品描述 = 角色背包[b5].字节描述()
+									});
+									b6 = (byte)(b6 + 1);
 								}
-								else if (num <= 1552935915U)
+								b5 = (byte)(b5 + 1);
+							}
+						}
+						break;
+					case "强效金创药":
+						if (v.GroupId > 0 && v.GroupCooling > 0)
+						{
+							冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
+							{
+								冷却编号 = (v.GroupId | 0),
+								Cooldown = v.GroupCooling
+							});
+						}
+						if (v.Cooldown > 0)
+						{
+							冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
+							{
+								冷却编号 = (v.Id | 0x2000000),
+								Cooldown = v.Cooldown
+							});
+						}
+						消耗背包物品(1, v);
+						药品回血 = MainProcess.CurrentTime.AddSeconds(1.0);
+						回血基数 = 15;
+						回血次数 = 6;
+						break;
+					case "万年雪霜":
+						if (v.GroupId > 0 && v.GroupCooling > 0)
+						{
+							冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
+							{
+								冷却编号 = (v.GroupId | 0),
+								Cooldown = v.GroupCooling
+							});
+						}
+						if (v.Cooldown > 0)
+						{
+							冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
+							{
+								冷却编号 = (v.Id | 0x2000000),
+								Cooldown = v.Cooldown
+							});
+						}
+						消耗背包物品(1, v);
+						当前体力 += (int)Math.Max(75f * (1f + (float)this[GameObjectStats.药品回血] / 10000f), 0f);
+						当前魔力 += (int)Math.Max(100f * (1f + (float)this[GameObjectStats.药品回魔] / 10000f), 0f);
+						break;
+					case "地狱火":
+						if (玩家学习技能(2544))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "鬼灵步":
+						if (玩家学习技能(1537))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "觉醒·羿神庇佑":
+						if (玩家学习技能(2049))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "魔龙城回城卷包":
+						if (背包大小 - 角色背包.Count < 5)
+						{
+							网络连接?.发送封包(new GameErrorMessagePacket
+							{
+								错误代码 = 1793
+							});
+						}
+						else
+						{
+							if (!GameItems.DataSheetByName.TryGetValue("魔龙城回城卷", out var value21))
+							{
+								break;
+							}
+							if (v.GroupId > 0 && v.GroupCooling > 0)
+							{
+								冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
 								{
-									if (num <= 1459710420U)
+									冷却编号 = (v.GroupId | 0),
+									Cooldown = v.GroupCooling
+								});
+							}
+							if (v.Cooldown > 0)
+							{
+								冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.Id | 0x2000000),
+									Cooldown = v.Cooldown
+								});
+							}
+							消耗背包物品(1, v);
+							byte b35 = 0;
+							byte b36 = 0;
+							while (b35 < 背包大小 && b36 < 6)
+							{
+								if (!角色背包.ContainsKey(b35))
+								{
+									角色背包[b35] = new ItemData(value21, CharacterData, 1, b35, 1);
+									网络连接?.发送封包(new 玩家物品变动
 									{
-										if (num <= 1421955778U)
-										{
-											if (num != 1412264406U)
-											{
-												if (num != 1421955778U)
-												{
-													return;
-												}
-												if (!(Name == "气功波"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(3018))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-											else
-											{
-												if (!(Name == "基础射击"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(2041))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-										}
-										else if (num != 1450016702U)
-										{
-											if (num != 1459710420U)
-											{
-												return;
-											}
-											if (!(Name == "枪出如龙"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(1208))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-										else
-										{
-											if (!(Name == "抗拒火环"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(2532))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-									}
-									else if (num <= 1497098343U)
-									{
-										if (num != 1466467729U)
-										{
-											if (num != 1497098343U)
-											{
-												return;
-											}
-											if (!(Name == "瞬息移动"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(2538))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-										else
-										{
-											if (!(Name == "无极真气"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(3015))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-									}
-									else if (num != 1520624026U)
-									{
-										if (num != 1543183168U)
-										{
-											if (num != 1552935915U)
-											{
-												return;
-											}
-											if (!(Name == "基本剑术"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(1031))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-										else
-										{
-											if (!(Name == "强袭"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(2048))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-									}
-									else
-									{
-										if (!(Name == "太阳水"))
-										{
-											return;
-										}
-										if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-										{
-											this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-											客户网络 网络连接48 = this.网络连接;
-											if (网络连接48 != null)
-											{
-												网络连接48.发送封包(new AddedSkillCooldownPacket
-												{
-													冷却编号 = (int)(ItemData.GroupId | 0),
-													Cooldown = ItemData.GroupCooling
-												});
-											}
-										}
-										if (ItemData.Cooldown > 0)
-										{
-											this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-											客户网络 网络连接49 = this.网络连接;
-											if (网络连接49 != null)
-											{
-												网络连接49.发送封包(new AddedSkillCooldownPacket
-												{
-													冷却编号 = (ItemData.Id | 33554432),
-													Cooldown = ItemData.Cooldown
-												});
-											}
-										}
-										this.消耗背包物品(1, ItemData);
-										this.当前体力 += (int)Math.Max(30f * (1f + (float)this[GameObjectStats.药品回血] / 10000f), 0f);
-										this.当前魔力 += (int)Math.Max(40f * (1f + (float)this[GameObjectStats.药品回魔] / 10000f), 0f);
-										return;
-									}
+										物品描述 = 角色背包[b35].字节描述()
+									});
+									b36 = (byte)(b36 + 1);
 								}
-								else if (num <= 1715679023U)
+								b35 = (byte)(b35 + 1);
+							}
+						}
+						break;
+					case "中平枪术":
+						if (玩家学习技能(1201))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "燃血化元":
+						if (玩家学习技能(1211))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "冰咆哮":
+						if (玩家学习技能(2537))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "二连射":
+						if (玩家学习技能(2043))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "觉醒·法神奥义":
+						if (玩家学习技能(2557))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "强效太阳水":
+						if (v.GroupId > 0 && v.GroupCooling > 0)
+						{
+							冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
+							{
+								冷却编号 = (v.GroupId | 0),
+								Cooldown = v.GroupCooling
+							});
+						}
+						if (v.Cooldown > 0)
+						{
+							冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
+							{
+								冷却编号 = (v.Id | 0x2000000),
+								Cooldown = v.Cooldown
+							});
+						}
+						消耗背包物品(1, v);
+						当前体力 += (int)Math.Max(50f * (1f + (float)this[GameObjectStats.药品回血] / 10000f), 0f);
+						当前魔力 += (int)Math.Max(80f * (1f + (float)this[GameObjectStats.药品回魔] / 10000f), 0f);
+						break;
+					case "元宝袋(小)":
+						消耗背包物品(1, v);
+						元宝数量 += 100;
+						break;
+					case "献祭":
+						if (玩家学习技能(1545))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "幽灵盾":
+						if (玩家学习技能(3006))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "魔法药(小)包":
+						if (背包大小 - 角色背包.Count < 5)
+						{
+							网络连接?.发送封包(new GameErrorMessagePacket
+							{
+								错误代码 = 1793
+							});
+						}
+						else
+						{
+							if (!GameItems.DataSheetByName.TryGetValue("魔法药(小量)", out var value11))
+							{
+								break;
+							}
+							if (v.GroupId > 0 && v.GroupCooling > 0)
+							{
+								冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
 								{
-									if (num <= 1557513097U)
+									冷却编号 = (v.GroupId | 0),
+									Cooldown = v.GroupCooling
+								});
+							}
+							if (v.Cooldown > 0)
+							{
+								冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.Id | 0x2000000),
+									Cooldown = v.Cooldown
+								});
+							}
+							消耗背包物品(1, v);
+							byte b21 = 0;
+							byte b22 = 0;
+							while (b21 < 背包大小 && b22 < 6)
+							{
+								if (!角色背包.ContainsKey(b21))
+								{
+									角色背包[b21] = new ItemData(value11, CharacterData, 1, b21, 1);
+									网络连接?.发送封包(new 玩家物品变动
 									{
-										if (num != 1556902968U)
-										{
-											if (num != 1557513097U)
-											{
-												return;
-											}
-											if (!(Name == "旋风腿"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(1536))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-										else
-										{
-											if (!(Name == "伏波荡寇"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(1202))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-									}
-									else if (num != 1614388941U)
-									{
-										if (num != 1715679023U)
-										{
-											return;
-										}
-										if (!(Name == "狂飙突刺"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(1204))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
-									else
-									{
-										if (!(Name == "金创药(小)包"))
-										{
-											return;
-										}
-										if ((int)this.背包大小 - this.角色背包.Count < 5)
-										{
-											客户网络 网络连接50 = this.网络连接;
-											if (网络连接50 == null)
-											{
-												return;
-											}
-											网络连接50.发送封包(new GameErrorMessagePacket
-											{
-												错误代码 = 1793
-											});
-											return;
-										}
-										else
-										{
-											GameItems 模板7;
-											if (GameItems.DateSheetByName.TryGetValue("金创药(小量)", out 模板7))
-											{
-												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-												{
-													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-													客户网络 网络连接51 = this.网络连接;
-													if (网络连接51 != null)
-													{
-														网络连接51.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (int)(ItemData.GroupId | 0),
-															Cooldown = ItemData.GroupCooling
-														});
-													}
-												}
-												if (ItemData.Cooldown > 0)
-												{
-													this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-													客户网络 网络连接52 = this.网络连接;
-													if (网络连接52 != null)
-													{
-														网络连接52.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (ItemData.Id | 33554432),
-															Cooldown = ItemData.Cooldown
-														});
-													}
-												}
-												this.消耗背包物品(1, ItemData);
-												byte b17 = 0;
-												byte b18 = 0;
-												while (b17 < this.背包大小)
-												{
-													if (b18 >= 6)
-													{
-														return;
-													}
-													if (!this.角色背包.ContainsKey(b17))
-													{
-														this.角色背包[b17] = new ItemData(模板7, this.CharacterData, 1, b17, 1);
-														客户网络 网络连接53 = this.网络连接;
-														if (网络连接53 != null)
-														{
-															网络连接53.发送封包(new 玩家物品变动
-															{
-																物品描述 = this.角色背包[b17].字节描述()
-															});
-														}
-														b18 += 1;
-													}
-													b17 += 1;
-												}
-												return;
-											}
-											return;
-										}
-									}
+										物品描述 = 角色背包[b21].字节描述()
+									});
+									b22 = (byte)(b22 + 1);
 								}
-								else if (num <= 1870048867U)
+								b21 = (byte)(b21 + 1);
+							}
+						}
+						break;
+					case "盟重回城卷包":
+						if (背包大小 - 角色背包.Count < 5)
+						{
+							网络连接?.发送封包(new GameErrorMessagePacket
+							{
+								错误代码 = 1793
+							});
+						}
+						else
+						{
+							if (!GameItems.DataSheetByName.TryGetValue("盟重回城卷", out var value25))
+							{
+								break;
+							}
+							if (v.GroupId > 0 && v.GroupCooling > 0)
+							{
+								冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
 								{
-									if (num != 1746842853U)
+									冷却编号 = (v.GroupId | 0),
+									Cooldown = v.GroupCooling
+								});
+							}
+							if (v.Cooldown > 0)
+							{
+								冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.Id | 0x2000000),
+									Cooldown = v.Cooldown
+								});
+							}
+							消耗背包物品(1, v);
+							byte b43 = 0;
+							byte b44 = 0;
+							while (b43 < 背包大小 && b44 < 6)
+							{
+								if (!角色背包.ContainsKey(b43))
+								{
+									角色背包[b43] = new ItemData(value25, CharacterData, 1, b43, 1);
+									网络连接?.发送封包(new 玩家物品变动
 									{
-										if (num != 1870048867U)
-										{
-											return;
-										}
-										if (!(Name == "致残毒药"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(1533))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
-									else
-									{
-										if (!(Name == "铭文位切换神符"))
-										{
-											return;
-										}
-										EquipmentData EquipmentData2;
-										if (!this.角色装备.TryGetValue(0, out EquipmentData2))
-										{
-											客户网络 网络连接54 = this.网络连接;
-											if (网络连接54 == null)
-											{
-												return;
-											}
-											网络连接54.发送封包(new GameErrorMessagePacket
-											{
-												错误代码 = 1927
-											});
-											return;
-										}
-										else if (!EquipmentData2.双铭文栏.V)
-										{
-											客户网络 网络连接55 = this.网络连接;
-											if (网络连接55 == null)
-											{
-												return;
-											}
-											网络连接55.发送封包(new GameErrorMessagePacket
-											{
-												错误代码 = 1926
-											});
-											return;
-										}
-										else
-										{
-											if (EquipmentData2.第一铭文 != null)
-											{
-												this.玩家装卸铭文(EquipmentData2.第一铭文.SkillId, 0);
-											}
-											if (EquipmentData2.第二铭文 != null)
-											{
-												this.玩家装卸铭文(EquipmentData2.第二铭文.SkillId, 0);
-											}
-											EquipmentData2.当前铭栏.V = ((byte)((EquipmentData2.当前铭栏.V == 0) ? 1 : 0));
-											if (EquipmentData2.第一铭文 != null)
-											{
-												this.玩家装卸铭文(EquipmentData2.第一铭文.SkillId, EquipmentData2.第一铭文.Id);
-											}
-											if (EquipmentData2.第二铭文 != null)
-											{
-												this.玩家装卸铭文(EquipmentData2.第二铭文.SkillId, EquipmentData2.第二铭文.Id);
-											}
-											客户网络 网络连接56 = this.网络连接;
-											if (网络连接56 != null)
-											{
-												网络连接56.发送封包(new 玩家物品变动
-												{
-													物品描述 = EquipmentData2.字节描述()
-												});
-											}
-											客户网络 网络连接57 = this.网络连接;
-											if (网络连接57 != null)
-											{
-												DoubleInscriptionPositionSwitchPacket DoubleInscriptionPositionSwitchPacket = new DoubleInscriptionPositionSwitchPacket();
-												DoubleInscriptionPositionSwitchPacket.当前栏位 = (ushort)EquipmentData2.当前铭栏.V;
-												InscriptionSkill 第一铭文 = EquipmentData2.第一铭文;
-												DoubleInscriptionPositionSwitchPacket.第一铭文 = ((ushort)((第一铭文 != null) ? 第一铭文.Index : 0));
-												InscriptionSkill 第二铭文 = EquipmentData2.第二铭文;
-												DoubleInscriptionPositionSwitchPacket.第二铭文 = ((ushort)((第二铭文 != null) ? 第二铭文.Index : 0));
-												网络连接57.发送封包(DoubleInscriptionPositionSwitchPacket);
-											}
-											this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-											客户网络 网络连接58 = this.网络连接;
-											if (网络连接58 != null)
-											{
-												网络连接58.发送封包(new AddedSkillCooldownPacket
-												{
-													冷却编号 = (ItemData.Id | 33554432),
-													Cooldown = ItemData.Cooldown
-												});
-											}
-											this.消耗背包物品(1, ItemData);
-											客户网络 网络连接59 = this.网络连接;
-											if (网络连接59 == null)
-											{
-												return;
-											}
-											DoubleInscriptionPositionSwitchPacket DoubleInscriptionPositionSwitchPacket2 = new DoubleInscriptionPositionSwitchPacket();
-											DoubleInscriptionPositionSwitchPacket2.当前栏位 = (ushort)EquipmentData2.当前铭栏.V;
-											InscriptionSkill 第一铭文2 = EquipmentData2.第一铭文;
-											DoubleInscriptionPositionSwitchPacket2.第一铭文 = ((ushort)((第一铭文2 != null) ? 第一铭文2.Index : 0));
-											InscriptionSkill 第二铭文2 = EquipmentData2.第二铭文;
-											DoubleInscriptionPositionSwitchPacket2.第二铭文 = ((ushort)((第二铭文2 != null) ? 第二铭文2.Index : 0));
-											网络连接59.发送封包(DoubleInscriptionPositionSwitchPacket2);
-											return;
-										}
-									}
+										物品描述 = 角色背包[b43].字节描述()
+									});
+									b44 = (byte)(b44 + 1);
 								}
-								else if (num != 1875146759U)
+								b43 = (byte)(b43 + 1);
+							}
+						}
+						break;
+					case "火球术":
+						if (玩家学习技能(2531))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "守护箭羽":
+						if (玩家学习技能(2052))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "灵魂火符":
+						if (玩家学习技能(3005))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "狮子吼":
+						if (玩家学习技能(1037))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "魔法盾":
+						if (玩家学习技能(2535))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "盟重回城卷":
+						消耗背包物品(1, v);
+						玩家切换地图((当前地图.MapId == 147) ? 当前地图 : MapGatewayProcess.分配地图(147), AreaType.复活区域);
+						break;
+					case "回避射击":
+						if (玩家学习技能(2056))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "困魔咒":
+						if (玩家学习技能(3011))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "噬血术":
+						if (玩家学习技能(3010))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "祝福油":
+						{
+							if (!角色装备.TryGetValue(0, out var v5))
+							{
+								网络连接?.发送封包(new GameErrorMessagePacket
 								{
-									if (num != 1875586158U)
-									{
-										if (num != 1924148130U)
-										{
-											return;
-										}
-										if (!(Name == "道尊天谕"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(3022))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
-									else
-									{
-										if (!(Name == "强化战具礼盒"))
-										{
-											return;
-										}
-										byte b19 = byte.MaxValue;
-										byte b20 = 0;
-										while (b20 < this.背包大小)
-										{
-											if (this.角色背包.ContainsKey(b20))
-											{
-												b20 += 1;
-											}
-											else
-											{
-												b19 = b20;
-												IL_27DE:
-												if (b19 == 255)
-												{
-													客户网络 网络连接60 = this.网络连接;
-													if (网络连接60 == null)
-													{
-														return;
-													}
-													网络连接60.发送封包(new GameErrorMessagePacket
-													{
-														错误代码 = 1793
-													});
-													return;
-												}
-												else
-												{
-													GameItems 游戏物品3 = null;
-													if (this.角色职业 == GameObjectRace.战士)
-													{
-														GameItems.DateSheetByName.TryGetValue("灵疗石", out 游戏物品3);
-													}
-													else if (this.角色职业 == GameObjectRace.法师)
-													{
-														GameItems.DateSheetByName.TryGetValue("幻魔石", out 游戏物品3);
-													}
-													else if (this.角色职业 == GameObjectRace.道士)
-													{
-														GameItems.DateSheetByName.TryGetValue("圣灵符", out 游戏物品3);
-													}
-													else if (this.角色职业 == GameObjectRace.刺客)
-													{
-														GameItems.DateSheetByName.TryGetValue("狂血令", out 游戏物品3);
-													}
-													else if (this.角色职业 == GameObjectRace.弓手)
-													{
-														GameItems.DateSheetByName.TryGetValue("射手箭袋", out 游戏物品3);
-													}
-													else if (this.角色职业 == GameObjectRace.龙枪)
-													{
-														GameItems.DateSheetByName.TryGetValue("龙晶石", out 游戏物品3);
-													}
-													if (游戏物品3 == null)
-													{
-														return;
-													}
-													EquipmentItem 游戏装备2 = 游戏物品3 as EquipmentItem;
-													if (游戏装备2 == null)
-													{
-														return;
-													}
-													this.消耗背包物品(1, ItemData);
-													this.角色背包[b19] = new EquipmentData(游戏装备2, this.CharacterData, 背包类型, b19, false);
-													客户网络 网络连接61 = this.网络连接;
-													if (网络连接61 == null)
-													{
-														return;
-													}
-													网络连接61.发送封包(new 玩家物品变动
-													{
-														物品描述 = this.角色背包[b19].字节描述()
-													});
-													return;
-												}
-											}
-										}
-										//goto IL_27DE;
-									}
-								}
-								else
+									错误代码 = 1927
+								});
+								break;
+							}
+							if (v5.幸运等级.V >= 7)
+							{
+								网络连接?.发送封包(new GameErrorMessagePacket
 								{
-									if (!(Name == "随机传送卷包"))
-									{
-										return;
-									}
-									if ((int)this.背包大小 - this.角色背包.Count < 5)
-									{
-										客户网络 网络连接62 = this.网络连接;
-										if (网络连接62 == null)
-										{
-											return;
-										}
-										网络连接62.发送封包(new GameErrorMessagePacket
-										{
-											错误代码 = 1793
-										});
-										return;
-									}
-									else
-									{
-										GameItems 模板8;
-										if (GameItems.DateSheetByName.TryGetValue("随机传送卷", out 模板8))
-										{
-											if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-											{
-												this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-												客户网络 网络连接63 = this.网络连接;
-												if (网络连接63 != null)
-												{
-													网络连接63.发送封包(new AddedSkillCooldownPacket
-													{
-														冷却编号 = (int)(ItemData.GroupId | 0),
-														Cooldown = ItemData.GroupCooling
-													});
-												}
-											}
-											if (ItemData.Cooldown > 0)
-											{
-												this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-												客户网络 网络连接64 = this.网络连接;
-												if (网络连接64 != null)
-												{
-													网络连接64.发送封包(new AddedSkillCooldownPacket
-													{
-														冷却编号 = (ItemData.Id | 33554432),
-														Cooldown = ItemData.Cooldown
-													});
-												}
-											}
-											this.消耗背包物品(1, ItemData);
-											byte b21 = 0;
-											byte b22 = 0;
-											while (b21 < this.背包大小)
-											{
-												if (b22 >= 6)
-												{
-													return;
-												}
-												if (!this.角色背包.ContainsKey(b21))
-												{
-													this.角色背包[b21] = new ItemData(模板8, this.CharacterData, 1, b21, 1);
-													客户网络 网络连接65 = this.网络连接;
-													if (网络连接65 != null)
-													{
-														网络连接65.发送封包(new 玩家物品变动
-														{
-															物品描述 = this.角色背包[b21].字节描述()
-														});
-													}
-													b22 += 1;
-												}
-												b21 += 1;
-											}
-											return;
-										}
-										return;
-									}
+									错误代码 = 1843
+								});
+								break;
+							}
+							消耗背包物品(1, v);
+							int num2 = 0;
+							num2 = v5.幸运等级.V switch
+							{
+								0 => 80,
+								1 => 10,
+								2 => 8,
+								3 => 6,
+								4 => 5,
+								5 => 4,
+								6 => 3,
+								_ => 80,
+							};
+							int num3 = MainProcess.RandomNumber.Next(100);
+							if (num3 < num2)
+							{
+								v5.幸运等级.V++;
+								网络连接?.发送封包(new 玩家物品变动
+								{
+									物品描述 = v5.字节描述()
+								});
+								网络连接?.发送封包(new 武器幸运变化
+								{
+									幸运变化 = 1
+								});
+								Stat加成[v5] = v5.装备Stat;
+								更新对象Stat();
+								if (v5.幸运等级.V >= 5)
+								{
+									NetworkServiceGateway.发送公告($"[{对象名字}] 成功将 [{v5.Name}] 升到幸运 {v5.幸运等级.V} 级.");
 								}
 							}
-							else if (num <= 3245730473U)
+							else if (num3 >= 95 && v5.幸运等级.V > -9)
 							{
-								if (num <= 2511680096U)
+								v5.幸运等级.V--;
+								网络连接?.发送封包(new 玩家物品变动
 								{
-									if (num <= 2111422439U)
-									{
-										if (num <= 2032491674U)
-										{
-											if (num <= 1974467567U)
-											{
-												if (num != 1931139896U)
-												{
-													if (num != 1974467567U)
-													{
-														return;
-													}
-													if (!(Name == "觉醒·盘龙枪势"))
-													{
-														return;
-													}
-													if (this.玩家学习技能(1213))
-													{
-														this.消耗背包物品(1, ItemData);
-														return;
-													}
-													return;
-												}
-												else
-												{
-													if (!(Name == "随机传送卷"))
-													{
-														return;
-													}
-													Point point = this.当前地图.随机传送(this.当前坐标);
-													if (point != default(Point))
-													{
-														this.消耗背包物品(1, ItemData);
-														this.玩家切换地图(this.当前地图, AreaType.未知区域, point);
-														return;
-													}
-													客户网络 网络连接66 = this.网络连接;
-													if (网络连接66 == null)
-													{
-														return;
-													}
-													网络连接66.发送封包(new GameErrorMessagePacket
-													{
-														错误代码 = 776
-													});
-													return;
-												}
-											}
-											else if (num != 1993649496U)
-											{
-												if (num != 2032491674U)
-												{
-													return;
-												}
-												if (!(Name == "地狱雷光"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(2546))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-											else
-											{
-												if (!(Name == "觉醒·召唤月灵"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(3024))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-										}
-										else if (num <= 2052019000U)
-										{
-											if (num != 2041183640U)
-											{
-												if (num != 2052019000U)
-												{
-													return;
-												}
-												if (!(Name == "神威盾甲"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(1046))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-											else
-											{
-												if (!(Name == "逐日剑法"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(1038))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-										}
-										else if (num != 2097455623U)
-										{
-											if (num != 2111422439U)
-											{
-												return;
-											}
-											if (!(Name == "刺杀剑术"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(1033))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-										else
-										{
-											if (!(Name == "诱惑之光"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(2541))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-									}
-									else if (num <= 2315812237U)
-									{
-										if (num <= 2168536731U)
-										{
-											if (num != 2165854372U)
-											{
-												if (num != 2168536731U)
-												{
-													return;
-												}
-												if (!(Name == "疗伤药"))
-												{
-													return;
-												}
-												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-												{
-													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-													客户网络 网络连接67 = this.网络连接;
-													if (网络连接67 != null)
-													{
-														网络连接67.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (int)(ItemData.GroupId | 0),
-															Cooldown = ItemData.GroupCooling
-														});
-													}
-												}
-												if (ItemData.Cooldown > 0)
-												{
-													this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-													客户网络 网络连接68 = this.网络连接;
-													if (网络连接68 != null)
-													{
-														网络连接68.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (ItemData.Id | 33554432),
-															Cooldown = ItemData.Cooldown
-														});
-													}
-												}
-												this.消耗背包物品(1, ItemData);
-												this.当前体力 += (int)Math.Max(100f * (1f + (float)this[GameObjectStats.药品回血] / 10000f), 0f);
-												this.当前魔力 += (int)Math.Max(160f * (1f + (float)this[GameObjectStats.药品回魔] / 10000f), 0f);
-												return;
-											}
-											else
-											{
-												if (!(Name == "乾坤斗气"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(1206))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-										}
-										else if (num != 2229182433U)
-										{
-											if (num != 2315812237U)
-											{
-												return;
-											}
-											if (!(Name == "沙巴克回城卷包"))
-											{
-												return;
-											}
-											if ((int)this.背包大小 - this.角色背包.Count < 5)
-											{
-												客户网络 网络连接69 = this.网络连接;
-												if (网络连接69 == null)
-												{
-													return;
-												}
-												网络连接69.发送封包(new GameErrorMessagePacket
-												{
-													错误代码 = 1793
-												});
-												return;
-											}
-											else
-											{
-												GameItems 模板9;
-												if (GameItems.DateSheetByName.TryGetValue("沙巴克回城卷", out 模板9))
-												{
-													if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-													{
-														this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-														客户网络 网络连接70 = this.网络连接;
-														if (网络连接70 != null)
-														{
-															网络连接70.发送封包(new AddedSkillCooldownPacket
-															{
-																冷却编号 = (int)(ItemData.GroupId | 0),
-																Cooldown = ItemData.GroupCooling
-															});
-														}
-													}
-													if (ItemData.Cooldown > 0)
-													{
-														this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-														客户网络 网络连接71 = this.网络连接;
-														if (网络连接71 != null)
-														{
-															网络连接71.发送封包(new AddedSkillCooldownPacket
-															{
-																冷却编号 = (ItemData.Id | 33554432),
-																Cooldown = ItemData.Cooldown
-															});
-														}
-													}
-													this.消耗背包物品(1, ItemData);
-													byte b23 = 0;
-													byte b24 = 0;
-													while (b23 < this.背包大小)
-													{
-														if (b24 >= 6)
-														{
-															return;
-														}
-														if (!this.角色背包.ContainsKey(b23))
-														{
-															this.角色背包[b23] = new ItemData(模板9, this.CharacterData, 1, b23, 1);
-															客户网络 网络连接72 = this.网络连接;
-															if (网络连接72 != null)
-															{
-																网络连接72.发送封包(new 玩家物品变动
-																{
-																	物品描述 = this.角色背包[b23].字节描述()
-																});
-															}
-															b24 += 1;
-														}
-														b23 += 1;
-													}
-													return;
-												}
-												return;
-											}
-										}
-										else
-										{
-											if (!(Name == "召唤骷髅"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(3003))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-									}
-									else if (num <= 2352242142U)
-									{
-										if (num != 2317656207U)
-										{
-											if (num != 2352242142U)
-											{
-												return;
-											}
-											if (!(Name == "超级金创药"))
-											{
-												return;
-											}
-											if ((int)this.背包大小 - this.角色背包.Count < 5)
-											{
-												客户网络 网络连接73 = this.网络连接;
-												if (网络连接73 == null)
-												{
-													return;
-												}
-												网络连接73.发送封包(new GameErrorMessagePacket
-												{
-													错误代码 = 1793
-												});
-												return;
-											}
-											else
-											{
-												GameItems 模板10;
-												if (GameItems.DateSheetByName.TryGetValue("强效金创药", out 模板10))
-												{
-													if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-													{
-														this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-														客户网络 网络连接74 = this.网络连接;
-														if (网络连接74 != null)
-														{
-															网络连接74.发送封包(new AddedSkillCooldownPacket
-															{
-																冷却编号 = (int)(ItemData.GroupId | 0),
-																Cooldown = ItemData.GroupCooling
-															});
-														}
-													}
-													if (ItemData.Cooldown > 0)
-													{
-														this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-														客户网络 网络连接75 = this.网络连接;
-														if (网络连接75 != null)
-														{
-															网络连接75.发送封包(new AddedSkillCooldownPacket
-															{
-																冷却编号 = (ItemData.Id | 33554432),
-																Cooldown = ItemData.Cooldown
-															});
-														}
-													}
-													this.消耗背包物品(1, ItemData);
-													byte b25 = 0;
-													byte b26 = 0;
-													while (b25 < this.背包大小)
-													{
-														if (b26 >= 6)
-														{
-															return;
-														}
-														if (!this.角色背包.ContainsKey(b25))
-														{
-															this.角色背包[b25] = new ItemData(模板10, this.CharacterData, 1, b25, 1);
-															客户网络 网络连接76 = this.网络连接;
-															if (网络连接76 != null)
-															{
-																网络连接76.发送封包(new 玩家物品变动
-																{
-																	物品描述 = this.角色背包[b25].字节描述()
-																});
-															}
-															b26 += 1;
-														}
-														b25 += 1;
-													}
-													return;
-												}
-												return;
-											}
-										}
-										else
-										{
-											if (!(Name == "横扫六合"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(1203))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-									}
-									else if (num != 2409407366U)
-									{
-										if (num != 2480678565U)
-										{
-											if (num != 2511680096U)
-											{
-												return;
-											}
-											if (!(Name == "三发散射"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(2045))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-										else
-										{
-											if (!(Name == "暴击术"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(1531))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-									}
-									else
-									{
-										if (!(Name == "Magic药(小量)"))
-										{
-											return;
-										}
-										if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-										{
-											this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-											客户网络 网络连接77 = this.网络连接;
-											if (网络连接77 != null)
-											{
-												网络连接77.发送封包(new AddedSkillCooldownPacket
-												{
-													冷却编号 = (int)(ItemData.GroupId | 0),
-													Cooldown = ItemData.GroupCooling
-												});
-											}
-										}
-										if (ItemData.Cooldown > 0)
-										{
-											this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-											客户网络 网络连接78 = this.网络连接;
-											if (网络连接78 != null)
-											{
-												网络连接78.发送封包(new AddedSkillCooldownPacket
-												{
-													冷却编号 = (ItemData.Id | 33554432),
-													Cooldown = ItemData.Cooldown
-												});
-											}
-										}
-										this.消耗背包物品(1, ItemData);
-										this.药品回魔 = MainProcess.CurrentTime.AddSeconds(1.0);
-										this.回魔基数 = 10;
-										this.回魔次数 = 3;
-										return;
-									}
-								}
-								else if (num <= 2961023740U)
+									物品描述 = v5.字节描述()
+								});
+								网络连接?.发送封包(new 武器幸运变化
 								{
-									if (num <= 2797940994U)
-									{
-										if (num <= 2659595170U)
-										{
-											if (num != 2588360569U)
-											{
-												if (num != 2659595170U)
-												{
-													return;
-												}
-												if (!(Name == "雷电术"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(2533))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-											else
-											{
-												if (!(Name == "强效Magic药"))
-												{
-													return;
-												}
-												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-												{
-													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-													客户网络 网络连接79 = this.网络连接;
-													if (网络连接79 != null)
-													{
-														网络连接79.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (int)(ItemData.GroupId | 0),
-															Cooldown = ItemData.GroupCooling
-														});
-													}
-												}
-												if (ItemData.Cooldown > 0)
-												{
-													this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-													客户网络 网络连接80 = this.网络连接;
-													if (网络连接80 != null)
-													{
-														网络连接80.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (ItemData.Id | 33554432),
-															Cooldown = ItemData.Cooldown
-														});
-													}
-												}
-												this.消耗背包物品(1, ItemData);
-												this.药品回魔 = MainProcess.CurrentTime.AddSeconds(1.0);
-												this.回魔基数 = 25;
-												this.回魔次数 = 6;
-												return;
-											}
-										}
-										else if (num != 2753264674U)
-										{
-											if (num != 2797940994U)
-											{
-												return;
-											}
-											if (!(Name == "觉醒·魔刃天旋"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(1547))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-										else
-										{
-											if (!(Name == "凝神"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(2051))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-									}
-									else if (num <= 2938795323U)
-									{
-										if (num != 2914407960U)
-										{
-											if (num != 2938795323U)
-											{
-												return;
-											}
-											if (!(Name == "凌云枪法"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(1210))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-										else
-										{
-											if (!(Name == "追魂镖"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(1541))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-									}
-									else if (num != 2941636078U)
-									{
-										if (num != 2961023740U)
-										{
-											return;
-										}
-										if (!(Name == "觉醒·雷霆剑法"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(1049))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
-									else
-									{
-										if (!(Name == "神威镇域"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(1207))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
-								}
-								else if (num <= 3093483143U)
-								{
-									if (num <= 3062485908U)
-									{
-										if (num != 3041616262U)
-										{
-											if (num != 3062485908U)
-											{
-												return;
-											}
-											if (!(Name == "沙城每日宝箱"))
-											{
-												return;
-											}
-											byte b27 = byte.MaxValue;
-											byte b28 = 0;
-											while (b28 < this.背包大小)
-											{
-												if (this.角色背包.ContainsKey(b28))
-												{
-													b28 += 1;
-												}
-												else
-												{
-													b27 = b28;
-													IL_36BB:
-													if (b27 == 255)
-													{
-														客户网络 网络连接81 = this.网络连接;
-														if (网络连接81 == null)
-														{
-															return;
-														}
-														网络连接81.发送封包(new GameErrorMessagePacket
-														{
-															错误代码 = 1793
-														});
-														return;
-													}
-													else
-													{
-														int num5 = MainProcess.RandomNumber.Next(100);
-														if (num5 < 60)
-														{
-															this.消耗背包物品(1, ItemData);
-															this.双倍经验 += 500000;
-															return;
-														}
-														if (num5 < 80)
-														{
-															this.消耗背包物品(1, ItemData);
-															this.NumberGoldCoins += 100000;
-															return;
-														}
-														if (num5 < 90)
-														{
-															GameItems 模板11;
-															if (!GameItems.DateSheetByName.TryGetValue("元宝袋(小)", out 模板11))
-															{
-																return;
-															}
-															this.消耗背包物品(1, ItemData);
-															this.角色背包[b27] = new ItemData(模板11, this.CharacterData, 背包类型, b27, 5);
-															客户网络 网络连接82 = this.网络连接;
-															if (网络连接82 == null)
-															{
-																return;
-															}
-															网络连接82.发送封包(new 玩家物品变动
-															{
-																物品描述 = this.角色背包[b27].字节描述()
-															});
-															return;
-														}
-														else if (num5 < 95)
-														{
-															GameItems 游戏物品4 = null;
-															if (this.角色职业 == GameObjectRace.战士)
-															{
-																GameItems.DateSheetByName.TryGetValue("战士铭文石", out 游戏物品4);
-															}
-															else if (this.角色职业 == GameObjectRace.法师)
-															{
-																GameItems.DateSheetByName.TryGetValue("法师铭文石", out 游戏物品4);
-															}
-															else if (this.角色职业 == GameObjectRace.道士)
-															{
-																GameItems.DateSheetByName.TryGetValue("道士铭文石", out 游戏物品4);
-															}
-															else if (this.角色职业 == GameObjectRace.刺客)
-															{
-																GameItems.DateSheetByName.TryGetValue("刺客铭文石", out 游戏物品4);
-															}
-															else if (this.角色职业 == GameObjectRace.弓手)
-															{
-																GameItems.DateSheetByName.TryGetValue("弓手铭文石", out 游戏物品4);
-															}
-															else if (this.角色职业 == GameObjectRace.龙枪)
-															{
-																GameItems.DateSheetByName.TryGetValue("龙枪铭文石", out 游戏物品4);
-															}
-															if (游戏物品4 == null)
-															{
-																return;
-															}
-															this.消耗背包物品(1, ItemData);
-															this.角色背包[b27] = new ItemData(游戏物品4, this.CharacterData, 背包类型, b27, 3);
-															客户网络 网络连接83 = this.网络连接;
-															if (网络连接83 == null)
-															{
-																return;
-															}
-															网络连接83.发送封包(new 玩家物品变动
-															{
-																物品描述 = this.角色背包[b27].字节描述()
-															});
-															return;
-														}
-														else if (num5 < 98)
-														{
-															GameItems 模板12;
-															if (!GameItems.DateSheetByName.TryGetValue("祝福油", out 模板12))
-															{
-																return;
-															}
-															this.消耗背包物品(1, ItemData);
-															this.角色背包[b27] = new ItemData(模板12, this.CharacterData, 背包类型, b27, 2);
-															客户网络 网络连接84 = this.网络连接;
-															if (网络连接84 == null)
-															{
-																return;
-															}
-															网络连接84.发送封包(new 玩家物品变动
-															{
-																物品描述 = this.角色背包[b27].字节描述()
-															});
-															return;
-														}
-														else
-														{
-															GameItems 模板13;
-															if (!GameItems.DateSheetByName.TryGetValue("沙城奖杯", out 模板13))
-															{
-																return;
-															}
-															this.消耗背包物品(1, ItemData);
-															this.角色背包[b27] = new ItemData(模板13, this.CharacterData, 背包类型, b27, 1);
-															客户网络 网络连接85 = this.网络连接;
-															if (网络连接85 == null)
-															{
-																return;
-															}
-															网络连接85.发送封包(new 玩家物品变动
-															{
-																物品描述 = this.角色背包[b27].字节描述()
-															});
-															return;
-														}
-													}
-												}
-											}
-											//goto IL_36BB;
-										}
-										else
-										{
-											if (!(Name == "盟重回城石"))
-											{
-												return;
-											}
-											this.消耗背包物品(1, ItemData);
-											this.玩家切换地图((this.当前地图.MapId == 147) ? this.当前地图 : MapGatewayProcess.分配地图(147), AreaType.复活区域, default(Point));
-											return;
-										}
-									}
-									else if (num != 3088335470U)
-									{
-										if (num != 3093483143U)
-										{
-											return;
-										}
-										if (!(Name == "战术标记"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(2044))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
-									else
-									{
-										if (!(Name == "潜行术"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(1532))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
-								}
-								else if (num <= 3159723296U)
-								{
-									if (num != 3138080663U)
-									{
-										if (num != 3159723296U)
-										{
-											return;
-										}
-										if (!(Name == "半月弯刀"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(1034))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
-									else
-									{
-										if (!(Name == "超级Magic药"))
-										{
-											return;
-										}
-										if ((int)this.背包大小 - this.角色背包.Count < 5)
-										{
-											客户网络 网络连接86 = this.网络连接;
-											if (网络连接86 == null)
-											{
-												return;
-											}
-											网络连接86.发送封包(new GameErrorMessagePacket
-											{
-												错误代码 = 1793
-											});
-											return;
-										}
-										else
-										{
-											GameItems 模板14;
-											if (GameItems.DateSheetByName.TryGetValue("强效Magic药", out 模板14))
-											{
-												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-												{
-													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-													客户网络 网络连接87 = this.网络连接;
-													if (网络连接87 != null)
-													{
-														网络连接87.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (int)(ItemData.GroupId | 0),
-															Cooldown = ItemData.GroupCooling
-														});
-													}
-												}
-												if (ItemData.Cooldown > 0)
-												{
-													this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-													客户网络 网络连接88 = this.网络连接;
-													if (网络连接88 != null)
-													{
-														网络连接88.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (ItemData.Id | 33554432),
-															Cooldown = ItemData.Cooldown
-														});
-													}
-												}
-												this.消耗背包物品(1, ItemData);
-												byte b29 = 0;
-												byte b30 = 0;
-												while (b29 < this.背包大小)
-												{
-													if (b30 >= 6)
-													{
-														return;
-													}
-													if (!this.角色背包.ContainsKey(b29))
-													{
-														this.角色背包[b29] = new ItemData(模板14, this.CharacterData, 1, b29, 1);
-														客户网络 网络连接89 = this.网络连接;
-														if (网络连接89 != null)
-														{
-															网络连接89.发送封包(new 玩家物品变动
-															{
-																物品描述 = this.角色背包[b29].字节描述()
-															});
-														}
-														b30 += 1;
-													}
-													b29 += 1;
-												}
-												return;
-											}
-											return;
-										}
-									}
-								}
-								else if (num != 3174904723U)
-								{
-									if (num != 3219701320U)
-									{
-										if (num != 3245730473U)
-										{
-											return;
-										}
-										if (!(Name == "野蛮冲撞"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(1035))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
-									else
-									{
-										if (!(Name == "名俊铭文石礼包"))
-										{
-											return;
-										}
-										byte b31 = byte.MaxValue;
-										byte b32 = 0;
-										while (b32 < this.背包大小)
-										{
-											if (this.角色背包.ContainsKey(b32))
-											{
-												b32 += 1;
-											}
-											else
-											{
-												b31 = b32;
-												IL_3CBC:
-												if (b31 == 255)
-												{
-													客户网络 网络连接90 = this.网络连接;
-													if (网络连接90 == null)
-													{
-														return;
-													}
-													网络连接90.发送封包(new GameErrorMessagePacket
-													{
-														错误代码 = 1793
-													});
-													return;
-												}
-												else
-												{
-													GameItems 游戏物品5 = null;
-													if (this.角色职业 == GameObjectRace.战士)
-													{
-														GameItems.DateSheetByName.TryGetValue("战士铭文石", out 游戏物品5);
-													}
-													else if (this.角色职业 == GameObjectRace.法师)
-													{
-														GameItems.DateSheetByName.TryGetValue("法师铭文石", out 游戏物品5);
-													}
-													else if (this.角色职业 == GameObjectRace.道士)
-													{
-														GameItems.DateSheetByName.TryGetValue("道士铭文石", out 游戏物品5);
-													}
-													else if (this.角色职业 == GameObjectRace.刺客)
-													{
-														GameItems.DateSheetByName.TryGetValue("刺客铭文石", out 游戏物品5);
-													}
-													else if (this.角色职业 == GameObjectRace.弓手)
-													{
-														GameItems.DateSheetByName.TryGetValue("弓手铭文石", out 游戏物品5);
-													}
-													else if (this.角色职业 == GameObjectRace.龙枪)
-													{
-														GameItems.DateSheetByName.TryGetValue("龙枪铭文石", out 游戏物品5);
-													}
-													if (游戏物品5 == null)
-													{
-														return;
-													}
-													this.消耗背包物品(1, ItemData);
-													this.角色背包[b31] = new ItemData(游戏物品5, this.CharacterData, 背包类型, b31, 5);
-													客户网络 网络连接91 = this.网络连接;
-													if (网络连接91 == null)
-													{
-														return;
-													}
-													网络连接91.发送封包(new 玩家物品变动
-													{
-														物品描述 = this.角色背包[b31].字节描述()
-													});
-													return;
-												}
-											}
-										}
-										//goto IL_3CBC;
-									}
-								}
-								else
-								{
-									if (!(Name == "冷酷"))
-									{
-										return;
-									}
-									if (this.玩家学习技能(1538))
-									{
-										this.消耗背包物品(1, ItemData);
-										return;
-									}
-									return;
-								}
-							}
-							else if (num <= 3647640975U)
-							{
-								if (num <= 3406523492U)
-								{
-									if (num <= 3344220624U)
-									{
-										if (num <= 3309193614U)
-										{
-											if (num != 3294314030U)
-											{
-												if (num != 3309193614U)
-												{
-													return;
-												}
-												if (!(Name == "炎龙波"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(1535))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-											else
-											{
-												if (!(Name == "火镰狂舞"))
-												{
-													return;
-												}
-												if (this.玩家学习技能(1539))
-												{
-													this.消耗背包物品(1, ItemData);
-													return;
-												}
-												return;
-											}
-										}
-										else if (num != 3335659700U)
-										{
-											if (num != 3344220624U)
-											{
-												return;
-											}
-											if (!(Name == "魔能闪"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(2554))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-										else
-										{
-											if (!(Name == "霹雳弹"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(1542))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-									}
-									else if (num <= 3359969457U)
-									{
-										if (num != 3359368033U)
-										{
-											if (num != 3359969457U)
-											{
-												return;
-											}
-											if (!(Name == "名俊灵石宝盒"))
-											{
-												return;
-											}
-											byte b33 = byte.MaxValue;
-											byte b34 = 0;
-											while (b34 < this.背包大小)
-											{
-												if (this.角色背包.ContainsKey(b34))
-												{
-													b34 += 1;
-												}
-												else
-												{
-													b33 = b34;
-													IL_3F5F:
-													if (b33 == 255)
-													{
-														客户网络 网络连接92 = this.网络连接;
-														if (网络连接92 == null)
-														{
-															return;
-														}
-														网络连接92.发送封包(new GameErrorMessagePacket
-														{
-															错误代码 = 1793
-														});
-														return;
-													}
-													else
-													{
-														GameItems 游戏物品6 = null;
-														int num6 = MainProcess.RandomNumber.Next(8);
-														if (num6 == 0)
-														{
-															GameItems.DateSheetByName.TryGetValue("驭朱灵石1级", out 游戏物品6);
-														}
-														else if (num6 == 1)
-														{
-															GameItems.DateSheetByName.TryGetValue("命朱灵石1级", out 游戏物品6);
-														}
-														else if (num6 == 2)
-														{
-															GameItems.DateSheetByName.TryGetValue("守阳灵石1级", out 游戏物品6);
-														}
-														else if (num6 == 3)
-														{
-															GameItems.DateSheetByName.TryGetValue("蔚蓝灵石1级", out 游戏物品6);
-														}
-														else if (num6 == 4)
-														{
-															GameItems.DateSheetByName.TryGetValue("精绿灵石1级", out 游戏物品6);
-														}
-														else if (num6 == 5)
-														{
-															GameItems.DateSheetByName.TryGetValue("纯紫灵石1级", out 游戏物品6);
-														}
-														else if (num6 == 6)
-														{
-															GameItems.DateSheetByName.TryGetValue("深灰灵石1级", out 游戏物品6);
-														}
-														else if (num6 == 7)
-														{
-															GameItems.DateSheetByName.TryGetValue("橙黄灵石1级", out 游戏物品6);
-														}
-														if (游戏物品6 == null)
-														{
-															return;
-														}
-														this.消耗背包物品(1, ItemData);
-														this.角色背包[b33] = new ItemData(游戏物品6, this.CharacterData, 背包类型, b33, 1);
-														客户网络 网络连接93 = this.网络连接;
-														if (网络连接93 == null)
-														{
-															return;
-														}
-														网络连接93.发送封包(new 玩家物品变动
-														{
-															物品描述 = this.角色背包[b33].字节描述()
-														});
-														return;
-													}
-												}
-											}
-											//goto IL_3F5F;
-										}
-										else
-										{
-											if (!(Name == "比奇回城石"))
-											{
-												return;
-											}
-											this.消耗背包物品(1, ItemData);
-											this.玩家切换地图((this.当前地图.MapId == 143) ? this.当前地图 : MapGatewayProcess.分配地图(143), AreaType.复活区域, default(Point));
-											return;
-										}
-									}
-									else if (num != 3399072020U)
-									{
-										if (num != 3406523492U)
-										{
-											return;
-										}
-										if (!(Name == "镇魔古城回城卷包"))
-										{
-											return;
-										}
-										if ((int)this.背包大小 - this.角色背包.Count < 5)
-										{
-											客户网络 网络连接94 = this.网络连接;
-											if (网络连接94 == null)
-											{
-												return;
-											}
-											网络连接94.发送封包(new GameErrorMessagePacket
-											{
-												错误代码 = 1793
-											});
-											return;
-										}
-										else
-										{
-											GameItems 模板15;
-											if (GameItems.DateSheetByName.TryGetValue("镇魔古城回城卷", out 模板15))
-											{
-												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-												{
-													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-													客户网络 网络连接95 = this.网络连接;
-													if (网络连接95 != null)
-													{
-														网络连接95.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (int)(ItemData.GroupId | 0),
-															Cooldown = ItemData.GroupCooling
-														});
-													}
-												}
-												if (ItemData.Cooldown > 0)
-												{
-													this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-													客户网络 网络连接96 = this.网络连接;
-													if (网络连接96 != null)
-													{
-														网络连接96.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (ItemData.Id | 33554432),
-															Cooldown = ItemData.Cooldown
-														});
-													}
-												}
-												this.消耗背包物品(1, ItemData);
-												byte b35 = 0;
-												byte b36 = 0;
-												while (b35 < this.背包大小)
-												{
-													if (b36 >= 6)
-													{
-														return;
-													}
-													if (!this.角色背包.ContainsKey(b35))
-													{
-														this.角色背包[b35] = new ItemData(模板15, this.CharacterData, 1, b35, 1);
-														客户网络 网络连接97 = this.网络连接;
-														if (网络连接97 != null)
-														{
-															网络连接97.发送封包(new 玩家物品变动
-															{
-																物品描述 = this.角色背包[b35].字节描述()
-															});
-														}
-														b36 += 1;
-													}
-													b35 += 1;
-												}
-												return;
-											}
-											return;
-										}
-									}
-									else
-									{
-										if (!(Name == "集体隐身术"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(3014))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
-								}
-								else if (num <= 3513019167U)
-								{
-									if (num <= 3432771189U)
-									{
-										if (num != 3407770555U)
-										{
-											if (num != 3432771189U)
-											{
-												return;
-											}
-											if (!(Name == "钩镰枪法"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(1205))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-										else
-										{
-											if (!(Name == "治愈术"))
-											{
-												return;
-											}
-											if (this.玩家学习技能(3002))
-											{
-												this.消耗背包物品(1, ItemData);
-												return;
-											}
-											return;
-										}
-									}
-									else if (num != 3479413752U)
-									{
-										if (num != 3513019167U)
-										{
-											return;
-										}
-										if (!(Name == "强效太阳水包"))
-										{
-											return;
-										}
-										if ((int)this.背包大小 - this.角色背包.Count < 5)
-										{
-											客户网络 网络连接98 = this.网络连接;
-											if (网络连接98 == null)
-											{
-												return;
-											}
-											网络连接98.发送封包(new GameErrorMessagePacket
-											{
-												错误代码 = 1793
-											});
-											return;
-										}
-										else
-										{
-											GameItems 模板16;
-											if (GameItems.DateSheetByName.TryGetValue("强效太阳水", out 模板16))
-											{
-												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-												{
-													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-													客户网络 网络连接99 = this.网络连接;
-													if (网络连接99 != null)
-													{
-														网络连接99.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (int)(ItemData.GroupId | 0),
-															Cooldown = ItemData.GroupCooling
-														});
-													}
-												}
-												if (ItemData.Cooldown > 0)
-												{
-													this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-													客户网络 网络连接100 = this.网络连接;
-													if (网络连接100 != null)
-													{
-														网络连接100.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (ItemData.Id | 33554432),
-															Cooldown = ItemData.Cooldown
-														});
-													}
-												}
-												this.消耗背包物品(1, ItemData);
-												byte b37 = 0;
-												byte b38 = 0;
-												while (b37 < this.背包大小)
-												{
-													if (b38 >= 6)
-													{
-														return;
-													}
-													if (!this.角色背包.ContainsKey(b37))
-													{
-														this.角色背包[b37] = new ItemData(模板16, this.CharacterData, 1, b37, 1);
-														客户网络 网络连接101 = this.网络连接;
-														if (网络连接101 != null)
-														{
-															网络连接101.发送封包(new 玩家物品变动
-															{
-																物品描述 = this.角色背包[b37].字节描述()
-															});
-														}
-														b38 += 1;
-													}
-													b37 += 1;
-												}
-												return;
-											}
-											return;
-										}
-									}
-									else
-									{
-										if (!(Name == "比奇回城卷包"))
-										{
-											return;
-										}
-										if ((int)this.背包大小 - this.角色背包.Count < 5)
-										{
-											客户网络 网络连接102 = this.网络连接;
-											if (网络连接102 == null)
-											{
-												return;
-											}
-											网络连接102.发送封包(new GameErrorMessagePacket
-											{
-												错误代码 = 1793
-											});
-											return;
-										}
-										else
-										{
-											GameItems 模板17;
-											if (GameItems.DateSheetByName.TryGetValue("比奇回城卷", out 模板17))
-											{
-												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-												{
-													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-													客户网络 网络连接103 = this.网络连接;
-													if (网络连接103 != null)
-													{
-														网络连接103.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (int)(ItemData.GroupId | 0),
-															Cooldown = ItemData.GroupCooling
-														});
-													}
-												}
-												if (ItemData.Cooldown > 0)
-												{
-													this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-													客户网络 网络连接104 = this.网络连接;
-													if (网络连接104 != null)
-													{
-														网络连接104.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (ItemData.Id | 33554432),
-															Cooldown = ItemData.Cooldown
-														});
-													}
-												}
-												this.消耗背包物品(1, ItemData);
-												byte b39 = 0;
-												byte b40 = 0;
-												while (b39 < this.背包大小)
-												{
-													if (b40 >= 6)
-													{
-														return;
-													}
-													if (!this.角色背包.ContainsKey(b39))
-													{
-														this.角色背包[b39] = new ItemData(模板17, this.CharacterData, 1, b39, 1);
-														客户网络 网络连接105 = this.网络连接;
-														if (网络连接105 != null)
-														{
-															网络连接105.发送封包(new 玩家物品变动
-															{
-																物品描述 = this.角色背包[b39].字节描述()
-															});
-														}
-														b40 += 1;
-													}
-													b39 += 1;
-												}
-												return;
-											}
-											return;
-										}
-									}
-								}
-								else if (num <= 3527102171U)
-								{
-									if (num != 3520328714U)
-									{
-										if (num != 3527102171U)
-										{
-											return;
-										}
-										if (!(Name == "金创药(中)包"))
-										{
-											return;
-										}
-										if ((int)this.背包大小 - this.角色背包.Count < 5)
-										{
-											客户网络 网络连接106 = this.网络连接;
-											if (网络连接106 == null)
-											{
-												return;
-											}
-											网络连接106.发送封包(new GameErrorMessagePacket
-											{
-												错误代码 = 1793
-											});
-											return;
-										}
-										else
-										{
-											GameItems 模板18;
-											if (GameItems.DateSheetByName.TryGetValue("金创药(中量)", out 模板18))
-											{
-												if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-												{
-													this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-													客户网络 网络连接107 = this.网络连接;
-													if (网络连接107 != null)
-													{
-														网络连接107.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (int)(ItemData.GroupId | 0),
-															Cooldown = ItemData.GroupCooling
-														});
-													}
-												}
-												if (ItemData.Cooldown > 0)
-												{
-													this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-													客户网络 网络连接108 = this.网络连接;
-													if (网络连接108 != null)
-													{
-														网络连接108.发送封包(new AddedSkillCooldownPacket
-														{
-															冷却编号 = (ItemData.Id | 33554432),
-															Cooldown = ItemData.Cooldown
-														});
-													}
-												}
-												this.消耗背包物品(1, ItemData);
-												byte b41 = 0;
-												byte b42 = 0;
-												while (b41 < this.背包大小)
-												{
-													if (b42 >= 6)
-													{
-														return;
-													}
-													if (!this.角色背包.ContainsKey(b41))
-													{
-														this.角色背包[b41] = new ItemData(模板18, this.CharacterData, 1, b41, 1);
-														客户网络 网络连接109 = this.网络连接;
-														if (网络连接109 != null)
-														{
-															网络连接109.发送封包(new 玩家物品变动
-															{
-																物品描述 = this.角色背包[b41].字节描述()
-															});
-														}
-														b42 += 1;
-													}
-													b41 += 1;
-												}
-												return;
-											}
-											return;
-										}
-									}
-									else
-									{
-										if (!(Name == "流星火雨"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(2540))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
-								}
-								else if (num != 3549071716U)
-								{
-									if (num != 3583071852U)
-									{
-										if (num != 3647640975U)
-										{
-											return;
-										}
-										if (!(Name == "召唤龙驹"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(1212))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
-									else
-									{
-										if (!(Name == "召唤神兽"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(3008))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
-								}
-								else
-								{
-									if (!(Name == "爆炎剑诀"))
-									{
-										return;
-									}
-									if (this.玩家学习技能(1042))
-									{
-										this.消耗背包物品(1, ItemData);
-										return;
-									}
-									return;
-								}
-							}
-							else if (num <= 4014540841U)
-							{
-								if (num <= 3795192434U)
-								{
-									if (num <= 3702292988U)
-									{
-										if (num != 3667548118U)
-										{
-											if (num != 3702292988U)
-											{
-												return;
-											}
-											if (!(Name == "Magic药(中量)"))
-											{
-												return;
-											}
-											if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-											{
-												this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-												客户网络 网络连接110 = this.网络连接;
-												if (网络连接110 != null)
-												{
-													网络连接110.发送封包(new AddedSkillCooldownPacket
-													{
-														冷却编号 = (int)(ItemData.GroupId | 0),
-														Cooldown = ItemData.GroupCooling
-													});
-												}
-											}
-											if (ItemData.Cooldown > 0)
-											{
-												this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-												客户网络 网络连接111 = this.网络连接;
-												if (网络连接111 != null)
-												{
-													网络连接111.发送封包(new AddedSkillCooldownPacket
-													{
-														冷却编号 = (ItemData.Id | 33554432),
-														Cooldown = ItemData.Cooldown
-													});
-												}
-											}
-											this.消耗背包物品(1, ItemData);
-											this.药品回魔 = MainProcess.CurrentTime.AddSeconds(1.0);
-											this.回魔基数 = 16;
-											this.回魔次数 = 5;
-											return;
-										}
-										else
-										{
-											if (!(Name == "元宝袋(大)"))
-											{
-												return;
-											}
-											this.消耗背包物品(1, ItemData);
-											this.元宝数量 += 10000;
-											return;
-										}
-									}
-									else if (num != 3772731046U)
-									{
-										if (num != 3795192434U)
-										{
-											return;
-										}
-										if (!(Name == "疾光电影"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(2536))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
-									else
-									{
-										if (!(Name == "觉醒·暗影守卫"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(1546))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
-								}
-								else if (num <= 3882040824U)
-								{
-									if (num != 3844416382U)
-									{
-										if (num != 3882040824U)
-										{
-											return;
-										}
-										if (!(Name == "元宝袋(超)"))
-										{
-											return;
-										}
-										this.消耗背包物品(1, ItemData);
-										this.元宝数量 += 100000;
-										return;
-									}
-									else
-									{
-										if (!(Name == "烈火剑法"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(1036))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
-								}
-								else if (num != 3887825342U)
-								{
-									if (num != 3952968827U)
-									{
-										if (num != 4014540841U)
-										{
-											return;
-										}
-										if (!(Name == "觉醒·万箭穿心"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(2057))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
-									else
-									{
-										if (!(Name == "觉醒·元素星辰"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(2558))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
-								}
-								else
-								{
-									if (!(Name == "精准术"))
-									{
-										return;
-									}
-									if (this.玩家学习技能(1534))
-									{
-										this.消耗背包物品(1, ItemData);
-										return;
-									}
-									return;
-								}
-							}
-							else if (num <= 4149396484U)
-							{
-								if (num <= 4027989798U)
-								{
-									if (num != 4016459641U)
-									{
-										if (num != 4027989798U)
-										{
-											return;
-										}
-										if (!(Name == "攻杀剑术"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(1032))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
-									else
-									{
-										if (!(Name == "隐身术"))
-										{
-											return;
-										}
-										if (this.玩家学习技能(3009))
-										{
-											this.消耗背包物品(1, ItemData);
-											return;
-										}
-										return;
-									}
-								}
-								else if (num != 4142859529U)
-								{
-									if (num != 4149396484U)
-									{
-										return;
-									}
-									if (!(Name == "随机传送石"))
-									{
-										return;
-									}
-								}
-								else
-								{
-									if (!(Name == "火墙"))
-									{
-										return;
-									}
-									if (this.玩家学习技能(2534))
-									{
-										this.消耗背包物品(1, ItemData);
-										return;
-									}
-									return;
-								}
-							}
-							else if (num <= 4169154538U)
-							{
-								if (num != 4164874145U)
-								{
-									if (num != 4169154538U)
-									{
-										return;
-									}
-									if (!(Name == "Magic药(中)包"))
-									{
-										return;
-									}
-									if ((int)this.背包大小 - this.角色背包.Count < 5)
-									{
-										客户网络 网络连接112 = this.网络连接;
-										if (网络连接112 == null)
-										{
-											return;
-										}
-										网络连接112.发送封包(new GameErrorMessagePacket
-										{
-											错误代码 = 1793
-										});
-										return;
-									}
-									else
-									{
-										GameItems 模板19;
-										if (GameItems.DateSheetByName.TryGetValue("Magic药(中量)", out 模板19))
-										{
-											if (ItemData.GroupId > 0 && ItemData.GroupCooling > 0)
-											{
-												this.冷却记录[(int)(ItemData.GroupId | 0)] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.GroupCooling);
-												客户网络 网络连接113 = this.网络连接;
-												if (网络连接113 != null)
-												{
-													网络连接113.发送封包(new AddedSkillCooldownPacket
-													{
-														冷却编号 = (int)(ItemData.GroupId | 0),
-														Cooldown = ItemData.GroupCooling
-													});
-												}
-											}
-											if (ItemData.Cooldown > 0)
-											{
-												this.冷却记录[ItemData.Id | 33554432] = MainProcess.CurrentTime.AddMilliseconds((double)ItemData.Cooldown);
-												客户网络 网络连接114 = this.网络连接;
-												if (网络连接114 != null)
-												{
-													网络连接114.发送封包(new AddedSkillCooldownPacket
-													{
-														冷却编号 = (ItemData.Id | 33554432),
-														Cooldown = ItemData.Cooldown
-													});
-												}
-											}
-											this.消耗背包物品(1, ItemData);
-											byte b43 = 0;
-											byte b44 = 0;
-											while (b43 < this.背包大小)
-											{
-												if (b44 >= 6)
-												{
-													return;
-												}
-												if (!this.角色背包.ContainsKey(b43))
-												{
-													this.角色背包[b43] = new ItemData(模板19, this.CharacterData, 1, b43, 1);
-													客户网络 网络连接115 = this.网络连接;
-													if (网络连接115 != null)
-													{
-														网络连接115.发送封包(new 玩家物品变动
-														{
-															物品描述 = this.角色背包[b43].字节描述()
-														});
-													}
-													b44 += 1;
-												}
-												b43 += 1;
-											}
-											return;
-										}
-										return;
-									}
-								}
-								else
-								{
-									if (!(Name == "精神力战法"))
-									{
-										return;
-									}
-									if (this.玩家学习技能(3001))
-									{
-										this.消耗背包物品(1, ItemData);
-										return;
-									}
-									return;
-								}
-							}
-							else if (num != 4253839136U)
-							{
-								if (num != 4284225939U)
-								{
-									if (num != 4293299835U)
-									{
-										return;
-									}
-									if (!(Name == "豪杰铭文石礼包"))
-									{
-										return;
-									}
-									byte b45 = byte.MaxValue;
-									byte b46 = 0;
-									while (b46 < this.背包大小)
-									{
-										if (this.角色背包.ContainsKey(b46))
-										{
-											b46 += 1;
-										}
-										else
-										{
-											b45 = b46;
-											IL_4F91:
-											if (b45 == 255)
-											{
-												客户网络 网络连接116 = this.网络连接;
-												if (网络连接116 == null)
-												{
-													return;
-												}
-												网络连接116.发送封包(new GameErrorMessagePacket
-												{
-													错误代码 = 1793
-												});
-												return;
-											}
-											else
-											{
-												GameItems 游戏物品7 = null;
-												if (this.角色职业 == GameObjectRace.战士)
-												{
-													GameItems.DateSheetByName.TryGetValue("战士铭文石", out 游戏物品7);
-												}
-												else if (this.角色职业 == GameObjectRace.法师)
-												{
-													GameItems.DateSheetByName.TryGetValue("法师铭文石", out 游戏物品7);
-												}
-												else if (this.角色职业 == GameObjectRace.道士)
-												{
-													GameItems.DateSheetByName.TryGetValue("道士铭文石", out 游戏物品7);
-												}
-												else if (this.角色职业 == GameObjectRace.刺客)
-												{
-													GameItems.DateSheetByName.TryGetValue("刺客铭文石", out 游戏物品7);
-												}
-												else if (this.角色职业 == GameObjectRace.弓手)
-												{
-													GameItems.DateSheetByName.TryGetValue("弓手铭文石", out 游戏物品7);
-												}
-												else if (this.角色职业 == GameObjectRace.龙枪)
-												{
-													GameItems.DateSheetByName.TryGetValue("龙枪铭文石", out 游戏物品7);
-												}
-												if (游戏物品7 == null)
-												{
-													return;
-												}
-												this.消耗背包物品(1, ItemData);
-												this.角色背包[b45] = new ItemData(游戏物品7, this.CharacterData, 背包类型, b45, 10);
-												客户网络 网络连接117 = this.网络连接;
-												if (网络连接117 == null)
-												{
-													return;
-												}
-												网络连接117.发送封包(new 玩家物品变动
-												{
-													物品描述 = this.角色背包[b45].字节描述()
-												});
-												return;
-											}
-										}
-									}
-									//goto IL_4F91;
-								}
-								else
-								{
-									if (!(Name == "觉醒·阴阳道盾"))
-									{
-										return;
-									}
-									if (this.玩家学习技能(3025))
-									{
-										this.消耗背包物品(1, ItemData);
-										return;
-									}
-									return;
-								}
+									幸运变化 = -1
+								});
+								Stat加成[v5] = v5.装备Stat;
+								更新对象Stat();
 							}
 							else
 							{
-								if (!(Name == "元宝袋(中)"))
+								网络连接?.发送封包(new 武器幸运变化
 								{
-									return;
-								}
-								this.消耗背包物品(1, ItemData);
-								this.元宝数量 += 1000;
-								return;
+									幸运变化 = 0
+								});
 							}
-							Point point2 = this.当前地图.随机传送(this.当前坐标);
+							break;
+						}
+					case "金创药(小量)":
+						if (v.GroupId > 0 && v.GroupCooling > 0)
+						{
+							冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
+							{
+								冷却编号 = (v.GroupId | 0),
+								Cooldown = v.GroupCooling
+							});
+						}
+						if (v.Cooldown > 0)
+						{
+							冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
+							{
+								冷却编号 = (v.Id | 0x2000000),
+								Cooldown = v.Cooldown
+							});
+						}
+						消耗背包物品(1, v);
+						药品回血 = MainProcess.CurrentTime.AddSeconds(1.0);
+						回血基数 = 5;
+						回血次数 = 4;
+						break;
+					case "灭天火":
+						if (玩家学习技能(2539))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "穿刺射击":
+						if (玩家学习技能(2050))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "圣言术":
+						if (玩家学习技能(2547))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "连环暗雷":
+						if (玩家学习技能(2047))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "爆裂火焰":
+						if (玩家学习技能(2545))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "群体治愈术":
+						if (玩家学习技能(3012))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "觉醒·百战军魂":
+						if (玩家学习技能(1214))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "万年雪霜包":
+						if (背包大小 - 角色背包.Count < 5)
+						{
+							网络连接?.发送封包(new GameErrorMessagePacket
+							{
+								错误代码 = 1793
+							});
+						}
+						else
+						{
+							if (!GameItems.DataSheetByName.TryGetValue("万年雪霜", out var value4))
+							{
+								break;
+							}
+							if (v.GroupId > 0 && v.GroupCooling > 0)
+							{
+								冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.GroupId | 0),
+									Cooldown = v.GroupCooling
+								});
+							}
+							if (v.Cooldown > 0)
+							{
+								冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.Id | 0x2000000),
+									Cooldown = v.Cooldown
+								});
+							}
+							消耗背包物品(1, v);
+							byte b7 = 0;
+							byte b8 = 0;
+							while (b7 < 背包大小 && b8 < 6)
+							{
+								if (!角色背包.ContainsKey(b7))
+								{
+									角色背包[b7] = new ItemData(value4, CharacterData, 1, b7, 1);
+									网络连接?.发送封包(new 玩家物品变动
+									{
+										物品描述 = 角色背包[b7].字节描述()
+									});
+									b8 = (byte)(b8 + 1);
+								}
+								b7 = (byte)(b7 + 1);
+							}
+						}
+						break;
+					case "觉醒·金钟罩":
+						if (玩家学习技能(1047))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "太阳水包":
+						if (背包大小 - 角色背包.Count < 5)
+						{
+							网络连接?.发送封包(new GameErrorMessagePacket
+							{
+								错误代码 = 1793
+							});
+						}
+						else
+						{
+							if (!GameItems.DataSheetByName.TryGetValue("太阳水", out var value22))
+							{
+								break;
+							}
+							if (v.GroupId > 0 && v.GroupCooling > 0)
+							{
+								冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.GroupId | 0),
+									Cooldown = v.GroupCooling
+								});
+							}
+							if (v.Cooldown > 0)
+							{
+								冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.Id | 0x2000000),
+									Cooldown = v.Cooldown
+								});
+							}
+							消耗背包物品(1, v);
+							byte b37 = 0;
+							byte b38 = 0;
+							while (b37 < 背包大小 && b38 < 6)
+							{
+								if (!角色背包.ContainsKey(b37))
+								{
+									角色背包[b37] = new ItemData(value22, CharacterData, 1, b37, 1);
+									网络连接?.发送封包(new 玩家物品变动
+									{
+										物品描述 = 角色背包[b37].字节描述()
+									});
+									b38 = (byte)(b38 + 1);
+								}
+								b37 = (byte)(b37 + 1);
+							}
+						}
+						break;
+					case "比奇回城卷":
+						消耗背包物品(1, v);
+						玩家切换地图((当前地图.MapId == 143) ? 当前地图 : MapGatewayProcess.分配地图(143), AreaType.复活区域);
+						break;
+					case "气功波":
+						if (玩家学习技能(3018))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "基础射击":
+						if (玩家学习技能(2041))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "枪出如龙":
+						if (玩家学习技能(1208))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "抗拒火环":
+						if (玩家学习技能(2532))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "瞬息移动":
+						if (玩家学习技能(2538))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "无极真气":
+						if (玩家学习技能(3015))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "基本剑术":
+						if (玩家学习技能(1031))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "强袭":
+						if (玩家学习技能(2048))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "太阳水":
+						if (v.GroupId > 0 && v.GroupCooling > 0)
+						{
+							冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
+							{
+								冷却编号 = (v.GroupId | 0),
+								Cooldown = v.GroupCooling
+							});
+						}
+						if (v.Cooldown > 0)
+						{
+							冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
+							{
+								冷却编号 = (v.Id | 0x2000000),
+								Cooldown = v.Cooldown
+							});
+						}
+						消耗背包物品(1, v);
+						当前体力 += (int)Math.Max(30f * (1f + (float)this[GameObjectStats.药品回血] / 10000f), 0f);
+						当前魔力 += (int)Math.Max(40f * (1f + (float)this[GameObjectStats.药品回魔] / 10000f), 0f);
+						break;
+					case "旋风腿":
+						if (玩家学习技能(1536))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "伏波荡寇":
+						if (玩家学习技能(1202))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "狂飙突刺":
+						if (玩家学习技能(1204))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "金创药(小)包":
+						if (背包大小 - 角色背包.Count < 5)
+						{
+							网络连接?.发送封包(new GameErrorMessagePacket
+							{
+								错误代码 = 1793
+							});
+						}
+						else
+						{
+							if (!GameItems.DataSheetByName.TryGetValue("金创药(小量)", out var value5))
+							{
+								break;
+							}
+							if (v.GroupId > 0 && v.GroupCooling > 0)
+							{
+								冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.GroupId | 0),
+									Cooldown = v.GroupCooling
+								});
+							}
+							if (v.Cooldown > 0)
+							{
+								冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.Id | 0x2000000),
+									Cooldown = v.Cooldown
+								});
+							}
+							消耗背包物品(1, v);
+							byte b9 = 0;
+							byte b10 = 0;
+							while (b9 < 背包大小 && b10 < 6)
+							{
+								if (!角色背包.ContainsKey(b9))
+								{
+									角色背包[b9] = new ItemData(value5, CharacterData, 1, b9, 1);
+									网络连接?.发送封包(new 玩家物品变动
+									{
+										物品描述 = 角色背包[b9].字节描述()
+									});
+									b10 = (byte)(b10 + 1);
+								}
+								b9 = (byte)(b9 + 1);
+							}
+						}
+						break;
+					case "致残毒药":
+						if (玩家学习技能(1533))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "铭文位切换神符":
+						{
+							if (!角色装备.TryGetValue(0, out var v4))
+							{
+								网络连接?.发送封包(new GameErrorMessagePacket
+								{
+									错误代码 = 1927
+								});
+								break;
+							}
+							if (!v4.双铭文栏.V)
+							{
+								网络连接?.发送封包(new GameErrorMessagePacket
+								{
+									错误代码 = 1926
+								});
+								break;
+							}
+							if (v4.第一铭文 != null)
+							{
+								玩家装卸铭文(v4.第一铭文.SkillId, 0);
+							}
+							if (v4.第二铭文 != null)
+							{
+								玩家装卸铭文(v4.第二铭文.SkillId, 0);
+							}
+							v4.当前铭栏.V = (byte)((v4.当前铭栏.V == 0) ? 1u : 0u);
+							if (v4.第一铭文 != null)
+							{
+								玩家装卸铭文(v4.第一铭文.SkillId, v4.第一铭文.Id);
+							}
+							if (v4.第二铭文 != null)
+							{
+								玩家装卸铭文(v4.第二铭文.SkillId, v4.第二铭文.Id);
+							}
+							网络连接?.发送封包(new 玩家物品变动
+							{
+								物品描述 = v4.字节描述()
+							});
+							网络连接?.发送封包(new DoubleInscriptionPositionSwitchPacket
+							{
+								当前栏位 = v4.当前铭栏.V,
+								第一铭文 = (v4.第一铭文?.Index ?? 0),
+								第二铭文 = (v4.第二铭文?.Index ?? 0)
+							});
+							冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
+							{
+								冷却编号 = (v.Id | 0x2000000),
+								Cooldown = v.Cooldown
+							});
+							消耗背包物品(1, v);
+							网络连接?.发送封包(new DoubleInscriptionPositionSwitchPacket
+							{
+								当前栏位 = v4.当前铭栏.V,
+								第一铭文 = (v4.第一铭文?.Index ?? 0),
+								第二铭文 = (v4.第二铭文?.Index ?? 0)
+							});
+							break;
+						}
+					case "道尊天谕":
+						if (玩家学习技能(3022))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "强化战具礼盒":
+						{
+							byte b13 = byte.MaxValue;
+							byte b14 = 0;
+							while (b14 < 背包大小)
+							{
+								if (角色背包.ContainsKey(b14))
+								{
+									b14 = (byte)(b14 + 1);
+									continue;
+								}
+								b13 = b14;
+								break;
+							}
+							if (b13 == byte.MaxValue)
+							{
+								网络连接?.发送封包(new GameErrorMessagePacket
+								{
+									错误代码 = 1793
+								});
+								break;
+							}
+							GameItems value7 = null;
+							if (角色职业 == GameObjectRace.战士)
+							{
+								GameItems.DataSheetByName.TryGetValue("灵疗石", out value7);
+							}
+							else if (角色职业 == GameObjectRace.法师)
+							{
+								GameItems.DataSheetByName.TryGetValue("幻魔石", out value7);
+							}
+							else if (角色职业 == GameObjectRace.道士)
+							{
+								GameItems.DataSheetByName.TryGetValue("圣灵符", out value7);
+							}
+							else if (角色职业 == GameObjectRace.刺客)
+							{
+								GameItems.DataSheetByName.TryGetValue("狂血令", out value7);
+							}
+							else if (角色职业 == GameObjectRace.弓手)
+							{
+								GameItems.DataSheetByName.TryGetValue("射手箭袋", out value7);
+							}
+							else if (角色职业 == GameObjectRace.龙枪)
+							{
+								GameItems.DataSheetByName.TryGetValue("龙晶石", out value7);
+							}
+							if (value7 != null && value7 is EquipmentItem 模板2)
+							{
+								消耗背包物品(1, v);
+								角色背包[b13] = new EquipmentData(模板2, CharacterData, 背包类型, b13);
+								网络连接?.发送封包(new 玩家物品变动
+								{
+									物品描述 = 角色背包[b13].字节描述()
+								});
+							}
+							break;
+						}
+					case "随机传送卷包":
+						if (背包大小 - 角色背包.Count < 5)
+						{
+							网络连接?.发送封包(new GameErrorMessagePacket
+							{
+								错误代码 = 1793
+							});
+						}
+						else
+						{
+							if (!GameItems.DataSheetByName.TryGetValue("随机传送卷", out var value26))
+							{
+								break;
+							}
+							if (v.GroupId > 0 && v.GroupCooling > 0)
+							{
+								冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.GroupId | 0),
+									Cooldown = v.GroupCooling
+								});
+							}
+							if (v.Cooldown > 0)
+							{
+								冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.Id | 0x2000000),
+									Cooldown = v.Cooldown
+								});
+							}
+							消耗背包物品(1, v);
+							byte b45 = 0;
+							byte b46 = 0;
+							while (b45 < 背包大小 && b46 < 6)
+							{
+								if (!角色背包.ContainsKey(b45))
+								{
+									角色背包[b45] = new ItemData(value26, CharacterData, 1, b45, 1);
+									网络连接?.发送封包(new 玩家物品变动
+									{
+										物品描述 = 角色背包[b45].字节描述()
+									});
+									b46 = (byte)(b46 + 1);
+								}
+								b45 = (byte)(b45 + 1);
+							}
+						}
+						break;
+					case "觉醒·盘龙枪势":
+						if (玩家学习技能(1213))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "随机传送卷":
+						{
+							Point point2 = 当前地图.随机传送(当前坐标);
 							if (point2 != default(Point))
 							{
-								this.消耗背包物品(1, ItemData);
-								this.玩家切换地图(this.当前地图, AreaType.未知区域, point2);
-								return;
+								消耗背包物品(1, v);
+								玩家切换地图(当前地图, AreaType.未知区域, point2);
 							}
-							客户网络 网络连接118 = this.网络连接;
-							if (网络连接118 == null)
+							else
 							{
-								return;
+								网络连接?.发送封包(new GameErrorMessagePacket
+								{
+									错误代码 = 776
+								});
 							}
-							网络连接118.发送封包(new GameErrorMessagePacket
+							break;
+						}
+					case "地狱雷光":
+						if (玩家学习技能(2546))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "觉醒·召唤月灵":
+						if (玩家学习技能(3024))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "神威盾甲":
+						if (玩家学习技能(1046))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "逐日剑法":
+						if (玩家学习技能(1038))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "刺杀剑术":
+						if (玩家学习技能(1033))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "诱惑之光":
+						if (玩家学习技能(2541))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "疗伤药":
+						if (v.GroupId > 0 && v.GroupCooling > 0)
+						{
+							冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
 							{
-								错误代码 = 776
+								冷却编号 = (v.GroupId | 0),
+								Cooldown = v.GroupCooling
 							});
-							return;
 						}
-						客户网络 网络连接119 = this.网络连接;
-						if (网络连接119 == null)
+						if (v.Cooldown > 0)
 						{
-							return;
+							冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
+							{
+								冷却编号 = (v.Id | 0x2000000),
+								Cooldown = v.Cooldown
+							});
 						}
-						网络连接119.发送封包(new GameErrorMessagePacket
+						消耗背包物品(1, v);
+						当前体力 += (int)Math.Max(100f * (1f + (float)this[GameObjectStats.药品回血] / 10000f), 0f);
+						当前魔力 += (int)Math.Max(160f * (1f + (float)this[GameObjectStats.药品回魔] / 10000f), 0f);
+						break;
+					case "乾坤斗气":
+						if (玩家学习技能(1206))
 						{
-							错误代码 = 1825
-						});
-						return;
-					}
+							消耗背包物品(1, v);
+						}
+						break;
+					case "沙巴克回城卷包":
+						if (背包大小 - 角色背包.Count < 5)
+						{
+							网络连接?.发送封包(new GameErrorMessagePacket
+							{
+								错误代码 = 1793
+							});
+						}
+						else
+						{
+							if (!GameItems.DataSheetByName.TryGetValue("沙巴克回城卷", out var value14))
+							{
+								break;
+							}
+							if (v.GroupId > 0 && v.GroupCooling > 0)
+							{
+								冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.GroupId | 0),
+									Cooldown = v.GroupCooling
+								});
+							}
+							if (v.Cooldown > 0)
+							{
+								冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.Id | 0x2000000),
+									Cooldown = v.Cooldown
+								});
+							}
+							消耗背包物品(1, v);
+							byte b27 = 0;
+							byte b28 = 0;
+							while (b27 < 背包大小 && b28 < 6)
+							{
+								if (!角色背包.ContainsKey(b27))
+								{
+									角色背包[b27] = new ItemData(value14, CharacterData, 1, b27, 1);
+									网络连接?.发送封包(new 玩家物品变动
+									{
+										物品描述 = 角色背包[b27].字节描述()
+									});
+									b28 = (byte)(b28 + 1);
+								}
+								b27 = (byte)(b27 + 1);
+							}
+						}
+						break;
+					case "召唤骷髅":
+						if (玩家学习技能(3003))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "超级金创药":
+						if (背包大小 - 角色背包.Count < 5)
+						{
+							网络连接?.发送封包(new GameErrorMessagePacket
+							{
+								错误代码 = 1793
+							});
+						}
+						else
+						{
+							if (!GameItems.DataSheetByName.TryGetValue("强效金创药", out var value10))
+							{
+								break;
+							}
+							if (v.GroupId > 0 && v.GroupCooling > 0)
+							{
+								冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.GroupId | 0),
+									Cooldown = v.GroupCooling
+								});
+							}
+							if (v.Cooldown > 0)
+							{
+								冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.Id | 0x2000000),
+									Cooldown = v.Cooldown
+								});
+							}
+							消耗背包物品(1, v);
+							byte b19 = 0;
+							byte b20 = 0;
+							while (b19 < 背包大小 && b20 < 6)
+							{
+								if (!角色背包.ContainsKey(b19))
+								{
+									角色背包[b19] = new ItemData(value10, CharacterData, 1, b19, 1);
+									网络连接?.发送封包(new 玩家物品变动
+									{
+										物品描述 = 角色背包[b19].字节描述()
+									});
+									b20 = (byte)(b20 + 1);
+								}
+								b19 = (byte)(b19 + 1);
+							}
+						}
+						break;
+					case "横扫六合":
+						if (玩家学习技能(1203))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "三发散射":
+						if (玩家学习技能(2045))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "暴击术":
+						if (玩家学习技能(1531))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "魔法药(小量)":
+						if (v.GroupId > 0 && v.GroupCooling > 0)
+						{
+							冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
+							{
+								冷却编号 = (v.GroupId | 0),
+								Cooldown = v.GroupCooling
+							});
+						}
+						if (v.Cooldown > 0)
+						{
+							冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
+							{
+								冷却编号 = (v.Id | 0x2000000),
+								Cooldown = v.Cooldown
+							});
+						}
+						消耗背包物品(1, v);
+						药品回魔 = MainProcess.CurrentTime.AddSeconds(1.0);
+						回魔基数 = 10;
+						回魔次数 = 3;
+						break;
+					case "雷电术":
+						if (玩家学习技能(2533))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "强效魔法药":
+						if (v.GroupId > 0 && v.GroupCooling > 0)
+						{
+							冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
+							{
+								冷却编号 = (v.GroupId | 0),
+								Cooldown = v.GroupCooling
+							});
+						}
+						if (v.Cooldown > 0)
+						{
+							冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
+							{
+								冷却编号 = (v.Id | 0x2000000),
+								Cooldown = v.Cooldown
+							});
+						}
+						消耗背包物品(1, v);
+						药品回魔 = MainProcess.CurrentTime.AddSeconds(1.0);
+						回魔基数 = 25;
+						回魔次数 = 6;
+						break;
+					case "觉醒·魔刃天旋":
+						if (玩家学习技能(1547))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "凝神":
+						if (玩家学习技能(2051))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "凌云枪法":
+						if (玩家学习技能(1210))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "追魂镖":
+						if (玩家学习技能(1541))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "觉醒·雷霆剑法":
+						if (玩家学习技能(1049))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "神威镇域":
+						if (玩家学习技能(1207))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "沙城每日宝箱":
+						{
+							byte b29 = byte.MaxValue;
+							byte b30 = 0;
+							while (b30 < 背包大小)
+							{
+								if (角色背包.ContainsKey(b30))
+								{
+									b30 = (byte)(b30 + 1);
+									continue;
+								}
+								b29 = b30;
+								break;
+							}
+							if (b29 == byte.MaxValue)
+							{
+								网络连接?.发送封包(new GameErrorMessagePacket
+								{
+									错误代码 = 1793
+								});
+								break;
+							}
+							int num = MainProcess.RandomNumber.Next(100);
+							GameItems value18;
+							if (num < 60)
+							{
+								消耗背包物品(1, v);
+								双倍经验 += 500000;
+							}
+							else if (num < 80)
+							{
+								消耗背包物品(1, v);
+								NumberGoldCoins += 100000;
+							}
+							else if (num < 90)
+							{
+								if (GameItems.DataSheetByName.TryGetValue("元宝袋(小)", out var value15))
+								{
+									消耗背包物品(1, v);
+									角色背包[b29] = new ItemData(value15, CharacterData, 背包类型, b29, 5);
+									网络连接?.发送封包(new 玩家物品变动
+									{
+										物品描述 = 角色背包[b29].字节描述()
+									});
+								}
+							}
+							else if (num < 95)
+							{
+								GameItems value16 = null;
+								if (角色职业 == GameObjectRace.战士)
+								{
+									GameItems.DataSheetByName.TryGetValue("战士铭文石", out value16);
+								}
+								else if (角色职业 == GameObjectRace.法师)
+								{
+									GameItems.DataSheetByName.TryGetValue("法师铭文石", out value16);
+								}
+								else if (角色职业 == GameObjectRace.道士)
+								{
+									GameItems.DataSheetByName.TryGetValue("道士铭文石", out value16);
+								}
+								else if (角色职业 == GameObjectRace.刺客)
+								{
+									GameItems.DataSheetByName.TryGetValue("刺客铭文石", out value16);
+								}
+								else if (角色职业 == GameObjectRace.弓手)
+								{
+									GameItems.DataSheetByName.TryGetValue("弓手铭文石", out value16);
+								}
+								else if (角色职业 == GameObjectRace.龙枪)
+								{
+									GameItems.DataSheetByName.TryGetValue("龙枪铭文石", out value16);
+								}
+								if (value16 != null)
+								{
+									消耗背包物品(1, v);
+									角色背包[b29] = new ItemData(value16, CharacterData, 背包类型, b29, 3);
+									网络连接?.发送封包(new 玩家物品变动
+									{
+										物品描述 = 角色背包[b29].字节描述()
+									});
+								}
+							}
+							else if (num < 98)
+							{
+								if (GameItems.DataSheetByName.TryGetValue("祝福油", out var value17))
+								{
+									消耗背包物品(1, v);
+									角色背包[b29] = new ItemData(value17, CharacterData, 背包类型, b29, 2);
+									网络连接?.发送封包(new 玩家物品变动
+									{
+										物品描述 = 角色背包[b29].字节描述()
+									});
+								}
+							}
+							else if (GameItems.DataSheetByName.TryGetValue("沙城奖杯", out value18))
+							{
+								消耗背包物品(1, v);
+								角色背包[b29] = new ItemData(value18, CharacterData, 背包类型, b29, 1);
+								网络连接?.发送封包(new 玩家物品变动
+								{
+									物品描述 = 角色背包[b29].字节描述()
+								});
+							}
+							break;
+						}
+					case "盟重回城石":
+						消耗背包物品(1, v);
+						玩家切换地图((当前地图.MapId == 147) ? 当前地图 : MapGatewayProcess.分配地图(147), AreaType.复活区域);
+						break;
+					case "战术标记":
+						if (玩家学习技能(2044))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "潜行术":
+						if (玩家学习技能(1532))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "半月弯刀":
+						if (玩家学习技能(1034))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "超级魔法药":
+						if (背包大小 - 角色背包.Count < 5)
+						{
+							网络连接?.发送封包(new GameErrorMessagePacket
+							{
+								错误代码 = 1793
+							});
+						}
+						else
+						{
+							if (!GameItems.DataSheetByName.TryGetValue("强效魔法药", out var value12))
+							{
+								break;
+							}
+							if (v.GroupId > 0 && v.GroupCooling > 0)
+							{
+								冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.GroupId | 0),
+									Cooldown = v.GroupCooling
+								});
+							}
+							if (v.Cooldown > 0)
+							{
+								冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.Id | 0x2000000),
+									Cooldown = v.Cooldown
+								});
+							}
+							消耗背包物品(1, v);
+							byte b23 = 0;
+							byte b24 = 0;
+							while (b23 < 背包大小 && b24 < 6)
+							{
+								if (!角色背包.ContainsKey(b23))
+								{
+									角色背包[b23] = new ItemData(value12, CharacterData, 1, b23, 1);
+									网络连接?.发送封包(new 玩家物品变动
+									{
+										物品描述 = 角色背包[b23].字节描述()
+									});
+									b24 = (byte)(b24 + 1);
+								}
+								b23 = (byte)(b23 + 1);
+							}
+						}
+						break;
+					case "野蛮冲撞":
+						if (玩家学习技能(1035))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "名俊铭文石礼包":
+						{
+							byte b17 = byte.MaxValue;
+							byte b18 = 0;
+							while (b18 < 背包大小)
+							{
+								if (角色背包.ContainsKey(b18))
+								{
+									b18 = (byte)(b18 + 1);
+									continue;
+								}
+								b17 = b18;
+								break;
+							}
+							if (b17 == byte.MaxValue)
+							{
+								网络连接?.发送封包(new GameErrorMessagePacket
+								{
+									错误代码 = 1793
+								});
+								break;
+							}
+							GameItems value9 = null;
+							if (角色职业 == GameObjectRace.战士)
+							{
+								GameItems.DataSheetByName.TryGetValue("战士铭文石", out value9);
+							}
+							else if (角色职业 == GameObjectRace.法师)
+							{
+								GameItems.DataSheetByName.TryGetValue("法师铭文石", out value9);
+							}
+							else if (角色职业 == GameObjectRace.道士)
+							{
+								GameItems.DataSheetByName.TryGetValue("道士铭文石", out value9);
+							}
+							else if (角色职业 == GameObjectRace.刺客)
+							{
+								GameItems.DataSheetByName.TryGetValue("刺客铭文石", out value9);
+							}
+							else if (角色职业 == GameObjectRace.弓手)
+							{
+								GameItems.DataSheetByName.TryGetValue("弓手铭文石", out value9);
+							}
+							else if (角色职业 == GameObjectRace.龙枪)
+							{
+								GameItems.DataSheetByName.TryGetValue("龙枪铭文石", out value9);
+							}
+							if (value9 != null)
+							{
+								消耗背包物品(1, v);
+								角色背包[b17] = new ItemData(value9, CharacterData, 背包类型, b17, 5);
+								网络连接?.发送封包(new 玩家物品变动
+								{
+									物品描述 = 角色背包[b17].字节描述()
+								});
+							}
+							break;
+						}
+					case "冷酷":
+						if (玩家学习技能(1538))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "炎龙波":
+						if (玩家学习技能(1535))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "火镰狂舞":
+						if (玩家学习技能(1539))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "魔能闪":
+						if (玩家学习技能(2554))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "霹雳弹":
+						if (玩家学习技能(1542))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "名俊灵石宝盒":
+						{
+							byte b3 = byte.MaxValue;
+							byte b4 = 0;
+							while (b4 < 背包大小)
+							{
+								if (角色背包.ContainsKey(b4))
+								{
+									b4 = (byte)(b4 + 1);
+									continue;
+								}
+								b3 = b4;
+								break;
+							}
+							if (b3 == byte.MaxValue)
+							{
+								网络连接?.发送封包(new GameErrorMessagePacket
+								{
+									错误代码 = 1793
+								});
+								break;
+							}
+							GameItems value2 = null;
+							switch (MainProcess.RandomNumber.Next(8))
+							{
+								case 0:
+									GameItems.DataSheetByName.TryGetValue("驭朱灵石1级", out value2);
+									break;
+								case 1:
+									GameItems.DataSheetByName.TryGetValue("命朱灵石1级", out value2);
+									break;
+								case 2:
+									GameItems.DataSheetByName.TryGetValue("守阳灵石1级", out value2);
+									break;
+								case 3:
+									GameItems.DataSheetByName.TryGetValue("蔚蓝灵石1级", out value2);
+									break;
+								case 4:
+									GameItems.DataSheetByName.TryGetValue("精绿灵石1级", out value2);
+									break;
+								case 5:
+									GameItems.DataSheetByName.TryGetValue("纯紫灵石1级", out value2);
+									break;
+								case 6:
+									GameItems.DataSheetByName.TryGetValue("深灰灵石1级", out value2);
+									break;
+								case 7:
+									GameItems.DataSheetByName.TryGetValue("橙黄灵石1级", out value2);
+									break;
+							}
+							if (value2 != null)
+							{
+								消耗背包物品(1, v);
+								角色背包[b3] = new ItemData(value2, CharacterData, 背包类型, b3, 1);
+								网络连接?.发送封包(new 玩家物品变动
+								{
+									物品描述 = 角色背包[b3].字节描述()
+								});
+							}
+							break;
+						}
+					case "比奇回城石":
+						消耗背包物品(1, v);
+						玩家切换地图((当前地图.MapId == 143) ? 当前地图 : MapGatewayProcess.分配地图(143), AreaType.复活区域);
+						break;
+					case "镇魔古城回城卷包":
+						if (背包大小 - 角色背包.Count < 5)
+						{
+							网络连接?.发送封包(new GameErrorMessagePacket
+							{
+								错误代码 = 1793
+							});
+						}
+						else
+						{
+							if (!GameItems.DataSheetByName.TryGetValue("镇魔古城回城卷", out var value23))
+							{
+								break;
+							}
+							if (v.GroupId > 0 && v.GroupCooling > 0)
+							{
+								冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.GroupId | 0),
+									Cooldown = v.GroupCooling
+								});
+							}
+							if (v.Cooldown > 0)
+							{
+								冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.Id | 0x2000000),
+									Cooldown = v.Cooldown
+								});
+							}
+							消耗背包物品(1, v);
+							byte b39 = 0;
+							byte b40 = 0;
+							while (b39 < 背包大小 && b40 < 6)
+							{
+								if (!角色背包.ContainsKey(b39))
+								{
+									角色背包[b39] = new ItemData(value23, CharacterData, 1, b39, 1);
+									网络连接?.发送封包(new 玩家物品变动
+									{
+										物品描述 = 角色背包[b39].字节描述()
+									});
+									b40 = (byte)(b40 + 1);
+								}
+								b39 = (byte)(b39 + 1);
+							}
+						}
+						break;
+					case "集体隐身术":
+						if (玩家学习技能(3014))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "钩镰枪法":
+						if (玩家学习技能(1205))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "治愈术":
+						if (玩家学习技能(3002))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "强效太阳水包":
+						if (背包大小 - 角色背包.Count < 5)
+						{
+							网络连接?.发送封包(new GameErrorMessagePacket
+							{
+								错误代码 = 1793
+							});
+						}
+						else
+						{
+							if (!GameItems.DataSheetByName.TryGetValue("强效太阳水", out var value20))
+							{
+								break;
+							}
+							if (v.GroupId > 0 && v.GroupCooling > 0)
+							{
+								冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.GroupId | 0),
+									Cooldown = v.GroupCooling
+								});
+							}
+							if (v.Cooldown > 0)
+							{
+								冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.Id | 0x2000000),
+									Cooldown = v.Cooldown
+								});
+							}
+							消耗背包物品(1, v);
+							byte b33 = 0;
+							byte b34 = 0;
+							while (b33 < 背包大小 && b34 < 6)
+							{
+								if (!角色背包.ContainsKey(b33))
+								{
+									角色背包[b33] = new ItemData(value20, CharacterData, 1, b33, 1);
+									网络连接?.发送封包(new 玩家物品变动
+									{
+										物品描述 = 角色背包[b33].字节描述()
+									});
+									b34 = (byte)(b34 + 1);
+								}
+								b33 = (byte)(b33 + 1);
+							}
+						}
+						break;
+					case "比奇回城卷包":
+						if (背包大小 - 角色背包.Count < 5)
+						{
+							网络连接?.发送封包(new GameErrorMessagePacket
+							{
+								错误代码 = 1793
+							});
+						}
+						else
+						{
+							if (!GameItems.DataSheetByName.TryGetValue("比奇回城卷", out var value19))
+							{
+								break;
+							}
+							if (v.GroupId > 0 && v.GroupCooling > 0)
+							{
+								冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.GroupId | 0),
+									Cooldown = v.GroupCooling
+								});
+							}
+							if (v.Cooldown > 0)
+							{
+								冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.Id | 0x2000000),
+									Cooldown = v.Cooldown
+								});
+							}
+							消耗背包物品(1, v);
+							byte b31 = 0;
+							byte b32 = 0;
+							while (b31 < 背包大小 && b32 < 6)
+							{
+								if (!角色背包.ContainsKey(b31))
+								{
+									角色背包[b31] = new ItemData(value19, CharacterData, 1, b31, 1);
+									网络连接?.发送封包(new 玩家物品变动
+									{
+										物品描述 = 角色背包[b31].字节描述()
+									});
+									b32 = (byte)(b32 + 1);
+								}
+								b31 = (byte)(b31 + 1);
+							}
+						}
+						break;
+					case "金创药(中)包":
+						if (背包大小 - 角色背包.Count < 5)
+						{
+							网络连接?.发送封包(new GameErrorMessagePacket
+							{
+								错误代码 = 1793
+							});
+						}
+						else
+						{
+							if (!GameItems.DataSheetByName.TryGetValue("金创药(中量)", out var value13))
+							{
+								break;
+							}
+							if (v.GroupId > 0 && v.GroupCooling > 0)
+							{
+								冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.GroupId | 0),
+									Cooldown = v.GroupCooling
+								});
+							}
+							if (v.Cooldown > 0)
+							{
+								冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.Id | 0x2000000),
+									Cooldown = v.Cooldown
+								});
+							}
+							消耗背包物品(1, v);
+							byte b25 = 0;
+							byte b26 = 0;
+							while (b25 < 背包大小 && b26 < 6)
+							{
+								if (!角色背包.ContainsKey(b25))
+								{
+									角色背包[b25] = new ItemData(value13, CharacterData, 1, b25, 1);
+									网络连接?.发送封包(new 玩家物品变动
+									{
+										物品描述 = 角色背包[b25].字节描述()
+									});
+									b26 = (byte)(b26 + 1);
+								}
+								b25 = (byte)(b25 + 1);
+							}
+						}
+						break;
+					case "流星火雨":
+						if (玩家学习技能(2540))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "召唤龙驹":
+						if (玩家学习技能(1212))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "召唤神兽":
+						if (玩家学习技能(3008))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "爆炎剑诀":
+						if (玩家学习技能(1042))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "魔法药(中量)":
+						if (v.GroupId > 0 && v.GroupCooling > 0)
+						{
+							冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
+							{
+								冷却编号 = (v.GroupId | 0),
+								Cooldown = v.GroupCooling
+							});
+						}
+						if (v.Cooldown > 0)
+						{
+							冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+							网络连接?.发送封包(new AddedSkillCooldownPacket
+							{
+								冷却编号 = (v.Id | 0x2000000),
+								Cooldown = v.Cooldown
+							});
+						}
+						消耗背包物品(1, v);
+						药品回魔 = MainProcess.CurrentTime.AddSeconds(1.0);
+						回魔基数 = 16;
+						回魔次数 = 5;
+						break;
+					case "元宝袋(大)":
+						消耗背包物品(1, v);
+						元宝数量 += 10000;
+						break;
+					case "疾光电影":
+						if (玩家学习技能(2536))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "觉醒·暗影守卫":
+						if (玩家学习技能(1546))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "元宝袋(超)":
+						消耗背包物品(1, v);
+						元宝数量 += 100000;
+						break;
+					case "烈火剑法":
+						if (玩家学习技能(1036))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "觉醒·万箭穿心":
+						if (玩家学习技能(2057))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "觉醒·元素星辰":
+						if (玩家学习技能(2558))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "精准术":
+						if (玩家学习技能(1534))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "攻杀剑术":
+						if (玩家学习技能(1032))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "隐身术":
+						if (玩家学习技能(3009))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "随机传送石(大)":
+					case "随机传送石":
+						{
+							Point point = 当前地图.随机传送(当前坐标);
+							if (point != default(Point))
+							{
+								消耗背包物品(1, v);
+								玩家切换地图(当前地图, AreaType.未知区域, point);
+							}
+							else
+							{
+								网络连接?.发送封包(new GameErrorMessagePacket
+								{
+									错误代码 = 776
+								});
+							}
+							break;
+						}
+					case "火墙":
+						if (玩家学习技能(2534))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "魔法药(中)包":
+						if (背包大小 - 角色背包.Count < 5)
+						{
+							网络连接?.发送封包(new GameErrorMessagePacket
+							{
+								错误代码 = 1793
+							});
+						}
+						else
+						{
+							if (!GameItems.DataSheetByName.TryGetValue("魔法药(中量)", out var value8))
+							{
+								break;
+							}
+							if (v.GroupId > 0 && v.GroupCooling > 0)
+							{
+								冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.GroupId | 0),
+									Cooldown = v.GroupCooling
+								});
+							}
+							if (v.Cooldown > 0)
+							{
+								冷却记录[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+								网络连接?.发送封包(new AddedSkillCooldownPacket
+								{
+									冷却编号 = (v.Id | 0x2000000),
+									Cooldown = v.Cooldown
+								});
+							}
+							消耗背包物品(1, v);
+							byte b15 = 0;
+							byte b16 = 0;
+							while (b15 < 背包大小 && b16 < 6)
+							{
+								if (!角色背包.ContainsKey(b15))
+								{
+									角色背包[b15] = new ItemData(value8, CharacterData, 1, b15, 1);
+									网络连接?.发送封包(new 玩家物品变动
+									{
+										物品描述 = 角色背包[b15].字节描述()
+									});
+									b16 = (byte)(b16 + 1);
+								}
+								b15 = (byte)(b15 + 1);
+							}
+						}
+						break;
+					case "精神力战法":
+						if (玩家学习技能(3001))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "豪杰铭文石礼包":
+						{
+							byte b = byte.MaxValue;
+							byte b2 = 0;
+							while (b2 < 背包大小)
+							{
+								if (角色背包.ContainsKey(b2))
+								{
+									b2 = (byte)(b2 + 1);
+									continue;
+								}
+								b = b2;
+								break;
+							}
+							if (b == byte.MaxValue)
+							{
+								网络连接?.发送封包(new GameErrorMessagePacket
+								{
+									错误代码 = 1793
+								});
+								break;
+							}
+							GameItems value = null;
+							if (角色职业 == GameObjectRace.战士)
+							{
+								GameItems.DataSheetByName.TryGetValue("战士铭文石", out value);
+							}
+							else if (角色职业 == GameObjectRace.法师)
+							{
+								GameItems.DataSheetByName.TryGetValue("法师铭文石", out value);
+							}
+							else if (角色职业 == GameObjectRace.道士)
+							{
+								GameItems.DataSheetByName.TryGetValue("道士铭文石", out value);
+							}
+							else if (角色职业 == GameObjectRace.刺客)
+							{
+								GameItems.DataSheetByName.TryGetValue("刺客铭文石", out value);
+							}
+							else if (角色职业 == GameObjectRace.弓手)
+							{
+								GameItems.DataSheetByName.TryGetValue("弓手铭文石", out value);
+							}
+							else if (角色职业 == GameObjectRace.龙枪)
+							{
+								GameItems.DataSheetByName.TryGetValue("龙枪铭文石", out value);
+							}
+							if (value != null)
+							{
+								消耗背包物品(1, v);
+								角色背包[b] = new ItemData(value, CharacterData, 背包类型, b, 10);
+								网络连接?.发送封包(new 玩家物品变动
+								{
+									物品描述 = 角色背包[b].字节描述()
+								});
+							}
+							break;
+						}
+					case "觉醒·阴阳道盾":
+						if (玩家学习技能(3025))
+						{
+							消耗背包物品(1, v);
+						}
+						break;
+					case "元宝袋(中)":
+						消耗背包物品(1, v);
+						元宝数量 += 1000;
+						break;
 				}
 			}
 			else
 			{
-				客户网络 网络连接120 = this.网络连接;
-				if (网络连接120 == null)
-				{
-					return;
-				}
-				网络连接120.发送封包(new GameErrorMessagePacket
+				网络连接?.发送封包(new GameErrorMessagePacket
 				{
 					错误代码 = 1877
 				});
-				return;
 			}
 		}
 
-		
 		public void 玩家喝修复油(byte 背包类型, byte 物品位置)
 		{
 			if (!this.对象死亡 && this.摆摊状态 <= 0 && this.交易状态 < 3)
@@ -15176,15 +13057,15 @@ namespace GameServer.Maps
 			if (!this.对象死亡 && this.摆摊状态 <= 0 && this.交易状态 < 3)
 			{
 				GameStore 游戏商店;
-				GameItems 游戏物品;
-				if (this.对话守卫 != null && this.当前地图 == this.对话守卫.当前地图 && base.网格距离(this.对话守卫) <= 12 && this.打开商店 != 0 && 购入数量 > 0 && this.打开商店 == StoreId && GameStore.DataSheet.TryGetValue(this.打开商店, out 游戏商店) && 游戏商店.Products.Count > 物品位置 && GameItems.DataSheet.TryGetValue(游戏商店.Products[物品位置].Id, out 游戏物品))
+				GameItems GameItems;
+				if (this.对话守卫 != null && this.当前地图 == this.对话守卫.当前地图 && base.网格距离(this.对话守卫) <= 12 && this.打开商店 != 0 && 购入数量 > 0 && this.打开商店 == StoreId && GameStore.DataSheet.TryGetValue(this.打开商店, out 游戏商店) && 游戏商店.Products.Count > 物品位置 && GameItems.DataSheet.TryGetValue(游戏商店.Products[物品位置].Id, out GameItems))
 				{
 					int num;
 					if (购入数量 != 1)
 					{
-						if (游戏物品.PersistType == PersistentItemType.堆叠)
+						if (GameItems.PersistType == PersistentItemType.堆叠)
 						{
-							num = Math.Min((int)购入数量, 游戏物品.ItemLast);
+							num = Math.Min((int)购入数量, GameItems.ItemLast);
 							goto IL_DD;
 						}
 					}
@@ -15197,7 +13078,7 @@ namespace GameServer.Maps
 					while (b < this.背包大小)
 					{
 						ItemData ItemData;
-						if (this.角色背包.TryGetValue(b, out ItemData) && (游戏物品.PersistType != PersistentItemType.堆叠 || 游戏物品.Id != ItemData.Id || ItemData.当前持久.V + (int)购入数量 > 游戏物品.ItemLast))
+						if (this.角色背包.TryGetValue(b, out ItemData) && (GameItems.PersistType != PersistentItemType.堆叠 || GameItems.Id != ItemData.Id || ItemData.当前持久.V + (int)购入数量 > GameItems.ItemLast))
 						{
 							b += 1;
 						}
@@ -15341,19 +13222,19 @@ namespace GameServer.Maps
 								}
 								else
 								{
-									EquipmentItem 游戏装备 = 游戏物品 as EquipmentItem;
-									if (游戏装备 != null)
+									EquipmentItem EquipmentItem = GameItems as EquipmentItem;
+									if (EquipmentItem != null)
 									{
-										this.角色背包[(byte)num3] = new EquipmentData(游戏装备, this.CharacterData, 1, (byte)num3, false);
+										this.角色背包[(byte)num3] = new EquipmentData(EquipmentItem, this.CharacterData, 1, (byte)num3, false);
 									}
 									else
 									{
 										int 持久 = 0;
-										switch (游戏物品.PersistType)
+										switch (GameItems.PersistType)
 										{
 										case PersistentItemType.消耗:
 										case PersistentItemType.纯度:
-											持久 = 游戏物品.ItemLast;
+											持久 = GameItems.ItemLast;
 											break;
 										case PersistentItemType.堆叠:
 											持久 = num2;
@@ -15362,7 +13243,7 @@ namespace GameServer.Maps
 											持久 = 0;
 											break;
 										}
-										this.角色背包[(byte)num3] = new ItemData(游戏物品, this.CharacterData, 1, (byte)num3, 持久);
+										this.角色背包[(byte)num3] = new ItemData(GameItems, this.CharacterData, 1, (byte)num3, 持久);
 									}
 									客户网络 网络连接8 = this.网络连接;
 									if (网络连接8 == null)
@@ -15621,13 +13502,13 @@ namespace GameServer.Maps
 					EquipmentData EquipmentData = ItemData as EquipmentData;
 					if (EquipmentData != null)
 					{
-						GameItems 游戏物品;
-						if (!EquipmentData.镶嵌灵石.TryGetValue(装备孔位, out 游戏物品))
+						GameItems GameItems;
+						if (!EquipmentData.镶嵌灵石.TryGetValue(装备孔位, out GameItems))
 						{
 							this.网络连接.尝试断开连接(new Exception("Error: The player has set a spirit stone.  Error: No stones are inlaid"));
 							return;
 						}
-						if (游戏物品.Name.IndexOf("1级") > 0)
+						if (GameItems.Name.IndexOf("1级") > 0)
 						{
 							int NumberGoldCoins = this.NumberGoldCoins;
 							int num2 = 100000;
@@ -15637,7 +13518,7 @@ namespace GameServer.Maps
 								goto IL_199;
 							}
 						}
-						if (游戏物品.Name.IndexOf("2级") > 0)
+						if (GameItems.Name.IndexOf("2级") > 0)
 						{
 							int NumberGoldCoins2 = this.NumberGoldCoins;
 							int num3 = 500000;
@@ -15647,7 +13528,7 @@ namespace GameServer.Maps
 								goto IL_199;
 							}
 						}
-						if (游戏物品.Name.IndexOf("3级") > 0)
+						if (GameItems.Name.IndexOf("3级") > 0)
 						{
 							int NumberGoldCoins3 = this.NumberGoldCoins;
 							int num4 = 2500000;
@@ -15657,7 +13538,7 @@ namespace GameServer.Maps
 								goto IL_199;
 							}
 						}
-						if (游戏物品.Name.IndexOf("4级") > 0)
+						if (GameItems.Name.IndexOf("4级") > 0)
 						{
 							int NumberGoldCoins4 = this.NumberGoldCoins;
 							int num5 = 10000000;
@@ -15667,7 +13548,7 @@ namespace GameServer.Maps
 								goto IL_199;
 							}
 						}
-						if (游戏物品.Name.IndexOf("5级") > 0)
+						if (GameItems.Name.IndexOf("5级") > 0)
 						{
 							int NumberGoldCoins5 = this.NumberGoldCoins;
 							int num6 = 25000000;
@@ -15696,7 +13577,7 @@ namespace GameServer.Maps
 										物品描述 = EquipmentData.字节描述()
 									});
 								}
-								this.角色背包[b] = new ItemData(游戏物品, this.CharacterData, 1, b, 1);
+								this.角色背包[b] = new ItemData(GameItems, this.CharacterData, 1, b, 1);
 								客户网络 网络连接2 = this.网络连接;
 								if (网络连接2 != null)
 								{
