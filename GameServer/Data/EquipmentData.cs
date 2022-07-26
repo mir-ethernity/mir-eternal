@@ -1155,7 +1155,7 @@ namespace GameServer.Data
 					binaryWriter.Write(this.物品位置.V);
 					binaryWriter.Write(this.当前持久.V);
 					binaryWriter.Write(this.最大持久.V);
-					binaryWriter.Write(base.IsBound ? 10 : 0);
+					binaryWriter.Write((byte)(base.IsBound ? 10 : 0));
 					int num = 256 | (int)this.当前铭栏.V;
 					if (this.双铭文栏.V)
 					{
