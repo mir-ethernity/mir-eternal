@@ -1917,7 +1917,7 @@
             this.S_接收端口标签.Location = new System.Drawing.Point(36, 81);
             this.S_接收端口标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_接收端口标签.Name = "S_接收端口标签";
-            this.S_接收端口标签.Size = new System.Drawing.Size(73, 21);
+            this.S_接收端口标签.Size = new System.Drawing.Size(58, 17);
             this.S_接收端口标签.TabIndex = 3;
             this.S_接收端口标签.Text = "TS Port";
             // 
@@ -1985,8 +1985,9 @@
             // 
             this.保存按钮.BackColor = System.Drawing.Color.LightSteelBlue;
             this.保存按钮.Enabled = false;
-            this.保存按钮.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.保存按钮.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.保存按钮.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.保存按钮.Image = global::GameServer.Properties.Resources.Save_Image;
             this.保存按钮.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.保存按钮.Location = new System.Drawing.Point(1049, 9);
             this.保存按钮.Margin = new System.Windows.Forms.Padding(4);
@@ -2024,8 +2025,9 @@
             // 
             this.启动按钮.BackColor = System.Drawing.Color.LightSteelBlue;
             this.启动按钮.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.启动按钮.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.启动按钮.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.启动按钮.ForeColor = System.Drawing.Color.Green;
+            this.启动按钮.Image = global::GameServer.Properties.Resources.Start_Image;
             this.启动按钮.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.启动按钮.Location = new System.Drawing.Point(1232, 9);
             this.启动按钮.Margin = new System.Windows.Forms.Padding(4);
@@ -2041,8 +2043,9 @@
             // 
             this.停止按钮.BackColor = System.Drawing.Color.LightSteelBlue;
             this.停止按钮.Enabled = false;
-            this.停止按钮.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.停止按钮.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.停止按钮.ForeColor = System.Drawing.Color.Brown;
+            this.停止按钮.Image = global::GameServer.Properties.Resources.Stop_Image;
             this.停止按钮.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.停止按钮.Location = new System.Drawing.Point(1415, 9);
             this.停止按钮.Margin = new System.Windows.Forms.Padding(4);
