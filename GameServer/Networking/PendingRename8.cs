@@ -525,7 +525,7 @@ namespace GameServer.Networking
             }
             if (P.技能栏位 < 32)
             {
-                this.Player.玩家拖动技能(P.技能栏位, P.SkillId);
+                this.Player.EquipSkill(P.技能栏位, P.SkillId);
                 return;
             }
             this.尝试断开连接(new Exception("玩家装配技能时提供错误的封包参数.即将断开连接."));
@@ -647,7 +647,7 @@ namespace GameServer.Networking
                 this.尝试断开连接(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
                 return;
             }
-            this.Player.玩家使用物品(P.背包类型, P.物品位置);
+            this.Player.UseItem(P.背包类型, P.物品位置);
         }
 
 
