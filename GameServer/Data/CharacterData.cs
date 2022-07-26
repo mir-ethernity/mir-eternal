@@ -354,13 +354,14 @@ namespace GameServer.Data
             this.玩家设置.SetValue(new uint[128].ToList<uint>());
             GameItems 游戏物品;
             GameItems 模板;
-            if (GameItems.DataSheetByName.TryGetValue("金创药(小)包", out 模板))
+            // 金创药(小)包
+            if (GameItems.DataSheetByName.TryGetValue("GoldBag(S)", out 模板))
             {
                 this.角色背包[0] = new ItemData(模板, this, 1, 0, 1);
                 this.角色背包[1] = new ItemData(模板, this, 1, 1, 1);
             }
-
-            if (GameItems.DataSheetByName.TryGetValue((职业 == GameObjectRace.刺客) ? "柴刀" : "木剑", out 游戏物品))
+            // Shibori 柴刀 Wooden Sword 木剑
+            if (GameItems.DataSheetByName.TryGetValue((职业 == GameObjectRace.刺客) ? "Shibori" : "Wooden Sword", out 游戏物品))
             {
                 EquipmentItem 游戏装备 = 游戏物品 as EquipmentItem;
                 if (游戏装备 != null)
@@ -369,7 +370,8 @@ namespace GameServer.Data
                 }
             }
             GameItems 游戏物品2;
-            if (GameItems.DataSheetByName.TryGetValue((性别 == GameObjectGender.男性) ? "布衣(男)" : "布衣(女)", out 游戏物品2))
+            // Cloth(M) 布衣(男) Cloth(F) 布衣(女)
+            if (GameItems.DataSheetByName.TryGetValue((性别 == GameObjectGender.男性) ? "Cloth(M)" : "Cloth(F)", out 游戏物品2))
             {
                 EquipmentItem 游戏装备2 = 游戏物品2 as EquipmentItem;
                 if (游戏装备2 != null)
