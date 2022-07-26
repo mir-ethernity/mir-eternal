@@ -538,8 +538,8 @@ namespace GameServer.Data
 					binaryWriter.Write(this.物品位置.V);
 					binaryWriter.Write(this.当前持久.V);
 					binaryWriter.Write(this.最大持久.V);
-					binaryWriter.Write(this.IsBound ? 10 : 0);
-					binaryWriter.Write(0);
+					binaryWriter.Write((byte)(this.IsBound ? 10 : 0));
+					binaryWriter.Write((ushort)0);
 					binaryWriter.Write(0);
 					result = memoryStream.ToArray();
 				}
@@ -565,8 +565,8 @@ namespace GameServer.Data
 					binaryWriter.Write(this.物品位置.V);
 					binaryWriter.Write(数量);
 					binaryWriter.Write(this.最大持久.V);
-					binaryWriter.Write(this.IsBound ? 10 : 0);
-					binaryWriter.Write(0);
+					binaryWriter.Write((byte)(this.IsBound ? 10 : 0));
+					binaryWriter.Write((ushort)0);
 					binaryWriter.Write(0);
 					result = memoryStream.ToArray();
 				}
