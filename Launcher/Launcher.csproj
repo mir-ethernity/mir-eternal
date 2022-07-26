@@ -64,7 +64,6 @@
     <Compile Include="Network.cs" />
     <Compile Include="Properties\Resources.cs" />
     <Compile Include="Properties\Settings.cs" />
-    <Compile Include="Launcher\PrivateImplementationDetails.cs" />
     <Compile Include="AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

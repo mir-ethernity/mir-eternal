@@ -9,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Launcher.Properties;
+using System.IO;
 
 namespace Launcher
 {
@@ -59,113 +60,115 @@ namespace Launcher
 
         public void PacketProcess(object sender, EventArgs e)
         {
-            byte[] result1;
-            if (Network.UDPClient == null || Network.Packets.IsEmpty || !Network.Packets.TryDequeue(out result1))
-                return;
-            string[] strArray1 = Encoding.UTF8.GetString(result1, 0, result1.Length).Split(new char[1]
+            if (Network.UDPClient == null || Network.Packets.IsEmpty || !Network.Packets.TryDequeue(out var result))
             {
-        ' '
-            }, StringSplitOptions.RemoveEmptyEntries);
-            int result2;
-            if (strArray1.Length <= 2 || !int.TryParse(strArray1[0], out result2) || result2 != MainForm.PacketNumber)
                 return;
-            string s = strArray1[1];
-            // ISSUE: reference to a compiler-generated method
-            switch (PrivateImplementationDetails.ComputeStringHash(s))
+            }
+            string[] array = Encoding.UTF8.GetString(result, 0, result.Length).Split(new char[1] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            if (array.Length <= 2 || !int.TryParse(array[0], out var result2) || result2 != PacketNumber)
             {
-                case 806133968:
-                    if (!(s == "5") || strArray1.Length != 3)
-                        break;
-                    this.UIUnlock((object)null, (EventArgs)null);
-                    this.Modify_ErrorLabel.Text = strArray1[2];
-                    this.Modify_ErrorLabel.Visible = true;
-                    break;
-                case 822911587:
-                    if (!(s == "4") || strArray1.Length != 4)
-                        break;
-                    this.UIUnlock((object)null, (EventArgs)null);
-                    int num1 = (int)MessageBox.Show("Password reset complete!");
-                    break;
-                case 839689206:
-                    if (!(s == "7") || strArray1.Length != 3)
-                        break;
-                    this.UIUnlock((object)null, (EventArgs)null);
-                    int num2 = (int)MessageBox.Show("Failed to start the game! " + strArray1[2]);
-                    break;
-                case 856466825:
-                    if (!(s == "6") || strArray1.Length != 5)
-                        break;
-                    if (!System.IO.File.Exists(".\\Binaries\\Win32\\MMOGame-Win32-Shipping.exe"))
+                return;
+            }
+            switch (array[1])
+            {
+                case "4":
+                    if (array.Length == 4)
                     {
-                        int num3 = (int)MessageBox.Show("The game exe cannot be found.");
-                        this.InterfaceUpdateTimer.Enabled = false;
-                        this.UIUnlock((object)null, (EventArgs)null);
-                        break;
+                        UIUnlock(null, null);
+                        MessageBox.Show("Password reset complete!");
                     }
-                    IPEndPoint ipEndPoint;
-                    if (!MainForm.IPList.TryGetValue(this.start_selected_zone.Text, out ipEndPoint))
-                        break;
-                    string str1 = "-wegame=" + string.Format("1,1,{0},{1},", (object)ipEndPoint.Address, (object)ipEndPoint.Port) + string.Format("1,1,{0},{1},", (object)ipEndPoint.Address, (object)ipEndPoint.Port) + this.start_selected_zone.Text + "  " + string.Format("/ip:1,1,{0} ", (object)ipEndPoint.Address) + string.Format("/port:{0} ", (object)ipEndPoint.Port) + "/ticket:" + strArray1[4] + " /AreaName:" + this.start_selected_zone.Text;
-
-                    // last chinese connection string
-                    // -sdo -ip=1,1,175.24.251.29,8701,175.24.251.29,8701,??
-
-                    Settings.Default.SaveArea = this.start_selected_zone.Text;
-                    Settings.Default.Save();
-                    MainForm.GameProgress = new Process();
-                    MainForm.GameProgress.StartInfo.FileName = ".\\Binaries\\Win32\\MMOGame-Win32-Shipping.exe";
-                    MainForm.GameProgress.StartInfo.Arguments = str1;
-                    MainForm.GameProgress.Start();
-                    this.GameProcessTimer.Enabled = true;
-                    this.TrayHideToTaskBar((object)null, (FormClosingEventArgs)null);
-                    this.UILock();
-                    this.InterfaceUpdateTimer.Enabled = false;
-                    this.minimizeToTray.ShowBalloonTip(1000, "", "Starting the Game, please wait...", ToolTipIcon.Info);
                     break;
-                case 873244444:
-                    if (!(s == "1") || strArray1.Length != 3)
-                        break;
-                    this.UIUnlock((object)null, (EventArgs)null);
-                    this.login_error_label.Text = strArray1[2];
-                    this.login_error_label.Visible = true;
-                    break;
-                case 890022063:
-                    if (!(s == "0") || strArray1.Length != 5)
-                        break;
-                    this.UIUnlock((object)null, (EventArgs)null);
-                    MainForm.LoginAccount = this.activate_account.Text = strArray1[2];
-                    MainForm.LoginPassword = strArray1[3];
-                    this.GameServerList.Items.Clear();
-                    string str2 = strArray1[4];
-                    char[] separator1 = new char[2] { '\r', '\n' };
-                    foreach (string str3 in str2.Split(separator1, StringSplitOptions.RemoveEmptyEntries))
+                case "5":
+                    if (array.Length == 3)
                     {
-                        char[] separator2 = new char[2] { ',', '/' };
-                        string[] strArray2 = str3.Split(separator2, StringSplitOptions.RemoveEmptyEntries);
-                        if (strArray2.Length != 3)
+                        UIUnlock(null, null);
+                        Modify_ErrorLabel.Text = array[2];
+                        Modify_ErrorLabel.Visible = true;
+                    }
+                    break;
+                case "6":
+                    if (array.Length == 5)
+                    {
+                        IPEndPoint value;
+                        if (!File.Exists(".\\Binaries\\Win32\\MMOGame-Win32-Shipping.exe"))
                         {
-                            int num4 = (int)MessageBox.Show("Server data parsing failed!");
-                            Environment.Exit(0);
+                            MessageBox.Show("The game exe cannot be found.");
+                            InterfaceUpdateTimer.Enabled = false;
+                            UIUnlock(null, null);
                         }
-                        MainForm.IPList[strArray2[2]] = new IPEndPoint(IPAddress.Parse(strArray2[0]), Convert.ToInt32(strArray2[1]));
-                        this.GameServerList.Items.Add((object)strArray2[2]);
+                        else if (IPList.TryGetValue(start_selected_zone.Text, out value))
+                        {
+                            string arguments = "-wegame=" + $"1,1,{value.Address},{value.Port}," + $"1,1,{value.Address},{value.Port}," + start_selected_zone.Text + "  " + $"/ip:1,1,{value.Address} " + $"/port:{value.Port} " + "/ticket:" + array[4] + " /AreaName:" + start_selected_zone.Text;
+                            Settings.Default.SaveArea = start_selected_zone.Text;
+                            Settings.Default.Save();
+                            GameProgress = new Process();
+                            GameProgress.StartInfo.FileName = ".\\Binaries\\Win32\\MMOGame-Win32-Shipping.exe";
+                            GameProgress.StartInfo.Arguments = arguments;
+                            GameProgress.Start();
+                            GameProcessTimer.Enabled = true;
+                            TrayHideToTaskBar(null, null);
+                            UILock();
+                            InterfaceUpdateTimer.Enabled = false;
+                            minimizeToTray.ShowBalloonTip(1000, "", "Starting the Game, please wait...", ToolTipIcon.Info);
+                        }
                     }
-                    this.MainTab.SelectedIndex = 3;
-                    Settings.Default.SaveAccount = strArray1[2];
-                    Settings.Default.Save();
                     break;
-                case 906799682:
-                    if (!(s == "3") || strArray1.Length != 3)
-                        break;
-                    this.UIUnlock((object)null, (EventArgs)null);
-                    this.RegistrationErrorLabel.Text = strArray1[2];
-                    this.RegistrationErrorLabel.Visible = true;
+                case "7":
+                    if (array.Length == 3)
+                    {
+                        UIUnlock(null, null);
+                        MessageBox.Show("Failed to start the game! " + array[2]);
+                    }
                     break;
-                case 923577301:
-                    if (!(s == "2") || strArray1.Length != 4)
+                case "0":
+                    {
+                        if (array.Length != 5)
+                        {
+                            break;
+                        }
+                        UIUnlock(null, null);
+                        string text2 = (LoginAccount = (activate_account.Text = array[2]));
+                        LoginPassword = array[3];
+                        GameServerList.Items.Clear();
+                        string[] array2 = array[4].Split(new char[2] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                        for (int i = 0; i < array2.Length; i++)
+                        {
+                            string[] array3 = array2[i].Split(new char[2] { ',', '/' }, StringSplitOptions.RemoveEmptyEntries);
+                            if (array3.Length != 3)
+                            {
+                                MessageBox.Show("Server data parsing failed!");
+                                Environment.Exit(0);
+                            }
+                            IPList[array3[2]] = new IPEndPoint(IPAddress.Parse(array3[0]), Convert.ToInt32(array3[1]));
+                            GameServerList.Items.Add(array3[2]);
+                        }
+                        MainTab.SelectedIndex = 3;
+                        Settings.Default.SaveAccount = array[2];
+                        Settings.Default.Save();
                         break;
-                    this.UIUnlock((object)null, (EventArgs)null);
-                    int num5 = (int)MessageBox.Show("Account registration successful");
+                    }
+                case "1":
+                    if (array.Length == 3)
+                    {
+                        UIUnlock(null, null);
+                        RegistrationErrorLabel.Text = array[2];
+                        RegistrationErrorLabel.Visible = true;
+                    }
+                    break;
+                case "2":
+                    if (array.Length == 4)
+                    {
+                        UIUnlock(null, null);
+                        MessageBox.Show("账号注册成功");
+                    }
+                    break;
+                case "3":
+                    if (array.Length == 3)
+                    {
+                        UIUnlock(null, null);
+                        RegistrationErrorLabel.Text = array[2];
+                        RegistrationErrorLabel.Visible = true;
+                    }
                     break;
             }
         }
