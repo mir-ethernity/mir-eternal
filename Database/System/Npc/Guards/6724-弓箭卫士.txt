@@ -7,5 +7,5 @@
   "RevivalInterval": 30000,
   "ActiveAttack": true,
   "RangeHate": 8,
-  "BasicAttackSkills": "电脑-弓箭守卫BasicAttackSkills"
+  "BasicAttackSkills": "电脑-弓箭守卫普攻技能"
 }
