@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 2,
+  "FromMapId": 206,
+  "ToMapId": 159,
+  "TeleportGateName": "石墓二层",
+  "FromMapName": "香石墓穴三层",
+  "ToMapName": "石墓二层",
+  "FromMapFile": "MirDg08_3",
+  "ToMapFile": "Mir_Dg02_1",
+  "FromCoords": "818, 376",
+  "ToCoords": "1014, 352"
+}

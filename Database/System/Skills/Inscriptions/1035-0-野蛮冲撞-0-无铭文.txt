@@ -1,0 +1,24 @@
+{
+  "SkillName": "野蛮冲撞-0-无铭文",
+  "SkillId": 1035,
+  "MinPlayerLevel": "HiInKw==",
+  "MinSkillExp": [
+    300,
+    600,
+    900,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "野蛮冲撞-0-全铭文-制约主体",
+    "野蛮冲撞-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

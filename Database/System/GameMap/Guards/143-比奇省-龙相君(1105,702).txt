@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6692,
+  "FromMapId": 143,
+  "FromMapName": "比奇省",
+  "FromCoords": "1105, 702",
+  "Direction": "左下",
+  "RegionName": "比奇省-龙相君(1105,702)"
+}

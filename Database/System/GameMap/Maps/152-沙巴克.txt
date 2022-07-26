@@ -1,0 +1,10 @@
+{
+  "MapId": 152,
+  "MapName": "沙巴克",
+  "MapFile": "MirCt01",
+  "TerrainFile": "0152-Shabak",
+  "LimitPlayers": 9999,
+  "MinLevel": 30,
+  "LimitInstances": 1,
+  "NoReconnect": true
+}

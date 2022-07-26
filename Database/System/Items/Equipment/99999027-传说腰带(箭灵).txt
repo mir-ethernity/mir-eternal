@@ -1,0 +1,48 @@
+{
+  "Name": "传说腰带(箭灵)",
+  "Id": 99999027,
+  "ItemLast": 6,
+  "Weight": 1,
+  "Level": 52,
+  "NeedLevel": 45,
+  "SalePrice": 35000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "腰带",
+  "NeedRace": "弓手",
+  "PersistType": "装备",
+  "StoreType": "服装",
+  "BasicPowerCombat": 109,
+  "MaxBow": 2,
+  "MinDef": 2,
+  "MaxDef": 3,
+  "MinMagicDef": 1,
+  "MaxMagicDef": 2,
+  "CanRepair": true,
+  "RepairCost": 21000,
+  "SpecialRepairCost": 105000,
+  "能否打孔": true,
+  "PunchUpperLimit": 2,
+  "CostPerHole": 30,
+  "TwoHoleCost": 60,
+  "铭文职业": "通用",
+  "打孔职业": "弓手",
+  "EquipSet": "苍月装备",
+  "物品掉落列表": [
+    {
+      "Name": "传说腰带(箭灵)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传说腰带(箭灵)",
+      "MonsterName": "牛魔王",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

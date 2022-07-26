@@ -1,0 +1,62 @@
+{
+  "Name": "铁柴刀",
+  "Id": 99900051,
+  "ItemLast": 4,
+  "Weight": 9,
+  "Level": 3,
+  "NeedLevel": 1,
+  "SalePrice": 250,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "武器",
+  "NeedRace": "刺客",
+  "PersistType": "装备",
+  "StoreType": "武器",
+  "BasicPowerCombat": 22,
+  "MinNeedle": 3,
+  "MaxNeedle": 5,
+  "CanRepair": true,
+  "RepairCost": 150,
+  "SpecialRepairCost": 750,
+  "灵魂绑点": 9,
+  "圣伤上限": 10,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "铁柴刀",
+      "MonsterName": "稻草人",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "铁柴刀",
+      "MonsterName": "海蟹",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "铁柴刀",
+      "MonsterName": "鹿",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "铁柴刀",
+      "MonsterName": "钉耙猫",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "铁柴刀",
+      "MonsterName": "羊",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    }
+  ]
+}

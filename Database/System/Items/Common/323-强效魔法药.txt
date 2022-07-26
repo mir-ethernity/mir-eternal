@@ -1,0 +1,852 @@
+{
+  "Name": "强效魔法药",
+  "Id": 323,
+  "ItemLast": 1,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "Group": 102,
+  "GroupCooling": 1000,
+  "SalePrice": 30,
+  "AdditionalSkill": 4567,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用药剂",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "药品",
+  "物品掉落列表": [
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "巨型多角虫",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "巨型多角虫变异",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "魔化巨虫",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "黑色恶蛆",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "半兽勇士",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "半兽勇士变异",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "沃玛斥候",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "鹰卫",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "鹰卫变异",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "虎卫",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "虎卫变异",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "沃玛战士",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "沃玛勇士",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "沃玛战将",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "沃玛卫兵",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "沃玛将领",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "钳虫",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "火焰沃玛",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "红野猪",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "红野猪精英",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "楔蛾",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "黑野猪",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "黑野猪精英",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "祖玛老鼠",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "祖玛弓箭手",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "祖玛弓箭手精英",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "祖玛雕像",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "祖玛雕像精英",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "祖玛卫士",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "祖玛卫士精英",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "天狼蜘蛛",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "暴牙蜘蛛",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "钢牙蜘蛛",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "月魔蜘蛛",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "花吻蜘蛛",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "黑锷蜘蛛",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "幻影蜘蛛",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "猎魔蜘蛛",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "血巨人",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "血僵尸",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "双刀冥使",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "角蝇",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "魔龙血蛙",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "幽冥盾蟹",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "寄居盾蟹",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "寄居镰蟹",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "背誓刺客",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "暗影刺客",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "血眼杀手",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "幽冥先锋",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "魔龙刺蛙绿",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "魔龙刺蛙红",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "魔龙邪眼绿",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "魔龙邪眼红",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "魔龙射手",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "魔龙刀兵",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "魔龙破甲兵",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "牛头魔",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "骷髅刀斧手",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "骷髅长枪兵",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "骷髅弓箭手",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "骷髅锤兵",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "碎颅弓箭手",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "恶灵僵尸",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "恶灵尸王",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "牛魔战士",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "牛魔侍卫",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "牛魔祭司",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "牛魔法师",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "牛魔将军",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "牛魔斗士",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "牛魔法师王",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "黑暗祭司",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "恶灵",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "尖刺鱼人",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "双刀武士",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "海妖战士",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "海妖弓手",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "海妖法师",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "僵尸海盗",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "僵尸剑客",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "僵尸掷矛手",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "毒魔",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "独眼魔",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "火岩魔",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "僵尸锤兵",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "双刀鱼人",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "兽人僵尸",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "兽人幽魂",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "兽人矿工",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "兽人狂战",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "精锐狼骑兵",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "兽人祭祀",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "邪恶钳虫",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "白野猪",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "虹魔猪卫",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "虹魔蝎卫",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "双头金刚",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "双头血魔",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "魔龙鬼射",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "魔龙力士",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "金甲鱼人",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "冥海魔神",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "沃玛卫士",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "巨型兽人僵尸",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "狂暴兽魂",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "幽冥大使",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "秘密信使",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "血手",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 3
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "黄泉教主",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 3
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "牛魔王",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 3
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "尸王",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 3
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "沃玛教主",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 3
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "魔龙教主",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 3
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "触龙神",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 3
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "虹魔教主",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 3
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "祖玛教主",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 3
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "赤月恶魔",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 3
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "烈焰恶魔",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 3
+    }
+  ]
+}

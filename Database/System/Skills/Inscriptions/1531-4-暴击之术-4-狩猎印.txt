@@ -1,0 +1,30 @@
+{
+  "SkillName": "暴击之术-4-狩猎印",
+  "Race": "刺客",
+  "SkillId": 1531,
+  "Id": 4,
+  "PassiveSkill": true,
+  "Quality": 3,
+  "Probability": 60,
+  "MinPlayerLevel": "BwoNEA==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1930
+  ],
+  "MainSkills": [
+    "暴击之术-4-狩猎印-主体技能"
+  ],
+  "SwitchSkills": []
+}

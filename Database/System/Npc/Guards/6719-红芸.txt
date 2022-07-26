@@ -1,0 +1,8 @@
+{
+  "Name": "红芸",
+  "GuardNumber": 6719,
+  "Level": 99,
+  "RangeHate": 8,
+  "StoreId": 1203,
+  "InterfaceCode": "Shop"
+}

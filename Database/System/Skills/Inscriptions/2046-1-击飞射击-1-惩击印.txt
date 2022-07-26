@@ -1,0 +1,27 @@
+{
+  "SkillName": "击飞射击-1-惩击印",
+  "Race": "弓手",
+  "SkillId": 2046,
+  "Id": 1,
+  "Quality": 1,
+  "Probability": 100,
+  "MinPlayerLevel": "HiEkJw==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "击飞射击-1-惩击印-主体技能"
+  ],
+  "SwitchSkills": []
+}

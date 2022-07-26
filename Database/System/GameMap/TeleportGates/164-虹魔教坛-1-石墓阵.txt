@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 164,
+  "ToMapId": 163,
+  "TeleportGateName": "石墓阵",
+  "FromMapName": "虹魔教坛",
+  "ToMapName": "石墓阵",
+  "FromMapFile": "Mir_Dg02_6",
+  "ToMapFile": "Mir_Dg02_5",
+  "FromCoords": "1086, 298",
+  "ToCoords": "1013, 124"
+}

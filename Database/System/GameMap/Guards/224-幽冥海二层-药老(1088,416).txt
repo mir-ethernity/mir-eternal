@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6663,
+  "FromMapId": 224,
+  "FromMapName": "幽冥海二层",
+  "FromCoords": "1088, 416",
+  "Direction": "下方",
+  "RegionName": "幽冥海二层-药老(1088,416)"
+}

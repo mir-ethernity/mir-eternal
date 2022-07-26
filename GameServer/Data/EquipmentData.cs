@@ -1307,7 +1307,7 @@ namespace GameServer.Data
 					if ((num2 & 4096) != 0)
 					{
 						binaryWriter.Write(this.升级次数.V);
-						binaryWriter.Write(0);
+						binaryWriter.Write((byte)0);
 						binaryWriter.Write(this.升级Attack.V);
 						binaryWriter.Write(this.升级Magic.V);
 						binaryWriter.Write(this.升级Taoism.V);

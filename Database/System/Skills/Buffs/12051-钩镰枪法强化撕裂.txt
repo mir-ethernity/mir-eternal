@@ -1,0 +1,40 @@
+{
+  "Name": "钩镰枪法强化撕裂",
+  "Id": 12051,
+  "GroupId": 1205,
+  "ActionType": "Debuff",
+  "OverlayType": "HomogeneousStacking",
+  "Effect": "CausesSomeDamages",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BindingSkillLevel": 1205,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 5,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 1000,
+  "ProcessDelay": 1000,
+  "Duration": 6000,
+  "RequireBuff": [],
+  "DamageType": "Tear",
+  "DamageBase": [
+    3,
+    3,
+    3,
+    3
+  ],
+  "DamageFactor": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

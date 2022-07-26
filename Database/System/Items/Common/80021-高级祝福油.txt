@@ -1,0 +1,14 @@
+{
+  "Name": "高级祝福油",
+  "Id": 80021,
+  "ItemLast": 100,
+  "NeedLevel": 1,
+  "SalePrice": 5000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

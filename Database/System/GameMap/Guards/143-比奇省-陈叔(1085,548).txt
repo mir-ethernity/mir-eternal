@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6771,
+  "FromMapId": 143,
+  "FromMapName": "比奇省",
+  "FromCoords": "1085, 548",
+  "Direction": "左下",
+  "RegionName": "比奇省-陈叔(1085,548)"
+}

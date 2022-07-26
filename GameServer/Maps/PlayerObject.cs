@@ -13904,7 +13904,7 @@ namespace GameServer.Maps
                         binaryWriter.Write((int)this.当前等级);
                         binaryWriter.Write(array);
                         binaryWriter.Write(Encoding.UTF8.GetBytes(this.对象名字));
-                        binaryWriter.Write(0);
+                        binaryWriter.Write((byte)0);
                         字节描述 = memoryStream.ToArray();
                     }
                 }
@@ -13974,7 +13974,7 @@ namespace GameServer.Maps
                         binaryWriter2.Write((int)this.当前等级);
                         binaryWriter2.Write(array);
                         binaryWriter2.Write(Encoding.UTF8.GetBytes(this.对象名字));
-                        binaryWriter2.Write(0);
+                        binaryWriter2.Write((byte)0);
                         字节描述2 = memoryStream2.ToArray();
                     }
                 }
@@ -14082,7 +14082,7 @@ namespace GameServer.Maps
                             binaryWriter2.Write((int)this.当前等级);
                             binaryWriter2.Write(array);
                             binaryWriter2.Write(Encoding.UTF8.GetBytes(this.对象名字));
-                            binaryWriter2.Write(0);
+                            binaryWriter2.Write((byte)0);
                             this.所属行会.发送封包(new ReceiveChatMessagesPacket
                             {
                                 字节描述 = memoryStream2.ToArray()
@@ -14122,7 +14122,7 @@ namespace GameServer.Maps
                             binaryWriter3.Write((int)this.当前等级);
                             binaryWriter3.Write(array);
                             binaryWriter3.Write(Encoding.UTF8.GetBytes(this.对象名字));
-                            binaryWriter3.Write(0);
+                            binaryWriter3.Write((byte)0);
                             字节描述 = memoryStream3.ToArray();
                         }
                     }
@@ -14145,7 +14145,7 @@ namespace GameServer.Maps
                             binaryWriter4.Write((int)this.当前等级);
                             binaryWriter4.Write(array);
                             binaryWriter4.Write(Encoding.UTF8.GetBytes(this.对象名字));
-                            binaryWriter4.Write(0);
+                            binaryWriter4.Write((byte)0);
                             字节描述2 = memoryStream4.ToArray();
                         }
                     }
@@ -16399,67 +16399,36 @@ namespace GameServer.Maps
 
         public void 查看行会列表(int 行会编号, byte 查看方式)
         {
-            int val = 0;
-            GameData GameData;
-            int val2;
-            if (GameDataGateway.GuildData表.DataSheet.TryGetValue(行会编号, out GameData))
-            {
-                GuildData GuildData = GameData as GuildData;
-                if (GuildData != null)
-                {
-                    val2 = GuildData.行会排名.V - 1;
-                    goto IL_32;
-                }
-            }
-            val2 = 0;
-        IL_32:
-            int num = Math.Max(val, val2);
-            int num2 = (查看方式 == 2) ? Math.Max(0, num) : Math.Max(0, num - 11);
+            GameData value;
+            int num = Math.Max(0, (GameDataGateway.GuildData表.DataSheet.TryGetValue(行会编号, out value) && value is GuildData 行会数据) ? (行会数据.行会排名.V - 1) : 0);
+            int num2 = ((查看方式 == 2) ? Math.Max(0, num) : Math.Max(0, num - 11));
             int num3 = Math.Min(12, SystemData.数据.行会人数排名.Count - num2);
             if (num3 > 0)
             {
                 List<GuildData> range = SystemData.数据.行会人数排名.GetRange(num2, num3);
-                using (MemoryStream memoryStream = new MemoryStream())
+                using MemoryStream memoryStream = new MemoryStream();
+                using BinaryWriter binaryWriter = new BinaryWriter(memoryStream);
+                binaryWriter.Write(查看方式);
+                binaryWriter.Write((byte)num3);
+                foreach (GuildData item in range)
                 {
-                    using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
-                    {
-                        binaryWriter.Write(查看方式);
-                        binaryWriter.Write((byte)num3);
-                        foreach (GuildData GuildData2 in range)
-                        {
-                            binaryWriter.Write(GuildData2.行会检索描述());
-                        }
-                        客户网络 网络连接 = this.网络连接;
-                        if (网络连接 == null)
-                        {
-                            return;
-                        }
-                        网络连接.发送封包(new 同步行会列表
-                        {
-                            字节数据 = memoryStream.ToArray()
-                        });
-                        return;
-                    }
+                    binaryWriter.Write(item.行会检索描述());
                 }
+                网络连接?.发送封包(new 同步行会列表
+                {
+                    字节数据 = memoryStream.ToArray()
+                });
+                return;
             }
-            using (MemoryStream memoryStream2 = new MemoryStream())
+            using MemoryStream memoryStream2 = new MemoryStream();
+            using BinaryWriter binaryWriter2 = new BinaryWriter(memoryStream2);
+            binaryWriter2.Write(查看方式);
+            binaryWriter2.Write((byte)0);
+            网络连接?.发送封包(new 同步行会列表
             {
-                using (BinaryWriter binaryWriter2 = new BinaryWriter(memoryStream2))
-                {
-                    binaryWriter2.Write(查看方式);
-                    binaryWriter2.Write(0);
-                    客户网络 网络连接2 = this.网络连接;
-                    if (网络连接2 != null)
-                    {
-                        网络连接2.发送封包(new 同步行会列表
-                        {
-                            字节数据 = memoryStream2.ToArray()
-                        });
-                    }
-                }
-            }
+                字节数据 = memoryStream2.ToArray()
+            });
         }
-
 
         public void FindCorrespondingGuildPacket(int 行会编号, string 行会名字)
         {
@@ -20924,7 +20893,7 @@ namespace GameServer.Maps
                     binaryWriter.Write(this.上期特权);
                     binaryWriter.Write((this.上期特权 == 0) ? 0 : ComputingClass.TimeShift(this.上期日期));
                     binaryWriter.Write((this.上期特权 == 0) ? 0U : this.上期记录);
-                    binaryWriter.Write(5);
+                    binaryWriter.Write((byte)5);
                     for (byte b = 1; b <= 5; b += 1)
                     {
                         binaryWriter.Write(b);
@@ -20958,8 +20927,8 @@ namespace GameServer.Maps
                         binaryWriter.Write((byte)CharacterData.角色性别.V);
                         binaryWriter.Write((CharacterData.ActiveConnection != null) ? 0 : 3);
                         binaryWriter.Write(0U);
-                        binaryWriter.Write(0);
-                        binaryWriter.Write(this.好友列表.Contains(CharacterData) ? 1 : 0);
+                        binaryWriter.Write((byte)0);
+                        binaryWriter.Write((byte)(this.好友列表.Contains(CharacterData) ? 1 : 0));
                     }
                     foreach (CharacterData CharacterData2 in this.仇人列表)
                     {
@@ -20972,8 +20941,8 @@ namespace GameServer.Maps
                         binaryWriter.Write((byte)CharacterData2.角色性别.V);
                         binaryWriter.Write((CharacterData2.ActiveConnection != null) ? 0 : 3);
                         binaryWriter.Write(0U);
-                        binaryWriter.Write(21);
-                        binaryWriter.Write(0);
+                        binaryWriter.Write((byte)21);
+                        binaryWriter.Write((byte)0);
                     }
                     result = memoryStream.ToArray();
                 }

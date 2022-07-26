@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6724,
+  "FromMapId": 142,
+  "FromMapName": "边界村",
+  "FromCoords": "868, 440",
+  "Direction": "左下",
+  "RegionName": "边界村-弓箭卫士(868,440)"
+}

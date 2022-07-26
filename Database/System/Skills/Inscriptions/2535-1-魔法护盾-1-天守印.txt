@@ -1,0 +1,27 @@
+{
+  "SkillName": "魔法护盾-1-天守印",
+  "Race": "法师",
+  "SkillId": 2535,
+  "Id": 1,
+  "Quality": 6,
+  "Probability": 6,
+  "MinPlayerLevel": "HyImKQ==",
+  "MinSkillExp": [
+    400,
+    800,
+    1200,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "魔法护盾-1-天守印-主体技能"
+  ],
+  "SwitchSkills": []
+}

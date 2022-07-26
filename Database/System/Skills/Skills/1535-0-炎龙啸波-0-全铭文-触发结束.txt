@@ -1,0 +1,29 @@
+{
+  "SkillName": "炎龙啸波-0-全铭文-触发结束",
+  "Race": "刺客",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 1535,
+  "BindingLevelId": 1535,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "限定命中数量": 1,
+      "限定目标类型": "玩家",
+      "限定目标关系": "ItSelf",
+      "清除目标状态": true,
+      "清除状态列表": [
+        15380,
+        15383,
+        15384,
+        15385
+      ]
+    }
+  }
+}

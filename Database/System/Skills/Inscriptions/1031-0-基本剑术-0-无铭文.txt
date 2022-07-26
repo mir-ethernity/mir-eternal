@@ -1,0 +1,31 @@
+{
+  "SkillName": "基本剑术-0-无铭文",
+  "SkillId": 1031,
+  "PassiveSkill": true,
+  "MinPlayerLevel": "BwsQFA==",
+  "MinSkillExp": [
+    100,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "StatsBonus": [
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 3,
+      "Level1": 4,
+      "Level2": 5,
+      "Level3": 6
+    }
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [],
+  "SwitchSkills": []
+}

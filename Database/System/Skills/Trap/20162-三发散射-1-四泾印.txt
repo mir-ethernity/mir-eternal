@@ -1,0 +1,6 @@
+{
+  "Name": "三发散射-1-四泾印",
+  "Id": 20162,
+  "Duration": 1000,
+  "LimitMoveSteps": 255
+}

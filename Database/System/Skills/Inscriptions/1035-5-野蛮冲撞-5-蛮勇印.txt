@@ -1,0 +1,27 @@
+{
+  "SkillName": "野蛮冲撞-5-蛮勇印",
+  "SkillId": 1035,
+  "Id": 5,
+  "Quality": 1,
+  "Probability": 100,
+  "MinPlayerLevel": "HiInKw==",
+  "MinSkillExp": [
+    300,
+    600,
+    900,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "野蛮冲撞-0-全铭文-制约主体",
+    "野蛮冲撞-5-蛮勇印-主体技能"
+  ],
+  "SwitchSkills": []
+}

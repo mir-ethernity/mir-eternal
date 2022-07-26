@@ -1,0 +1,112 @@
+{
+  "Name": "轻型盔甲",
+  "Id": 99980213,
+  "ItemLast": 8,
+  "Weight": 8,
+  "Level": 12,
+  "NeedLevel": 11,
+  "SalePrice": 1500,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "衣服",
+  "NeedRace": "通用",
+  "NeedGender": "男性",
+  "PersistType": "装备",
+  "StoreType": "服装",
+  "BasicPowerCombat": 57,
+  "MinDef": 3,
+  "MaxDef": 3,
+  "MinMagicDef": 1,
+  "MaxMagicDef": 2,
+  "CanRepair": true,
+  "RepairCost": 900,
+  "SpecialRepairCost": 4500,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "轻型盔甲",
+      "MonsterName": "半兽人",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "轻型盔甲",
+      "MonsterName": "野狼",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "轻型盔甲",
+      "MonsterName": "树妖",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "轻型盔甲",
+      "MonsterName": "毒蜘蛛",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "轻型盔甲",
+      "MonsterName": "盔甲虫",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "轻型盔甲",
+      "MonsterName": "多角虫",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "轻型盔甲",
+      "MonsterName": "腐蚀虫",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "轻型盔甲",
+      "MonsterName": "游熊",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "轻型盔甲",
+      "MonsterName": "鬼尸僵尸",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "轻型盔甲",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "轻型盔甲",
+      "MonsterName": "山洞蝙蝠",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "轻型盔甲",
+      "MonsterName": "半兽人战士",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

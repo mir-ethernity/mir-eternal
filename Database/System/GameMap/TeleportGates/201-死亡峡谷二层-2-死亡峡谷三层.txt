@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 2,
+  "FromMapId": 201,
+  "ToMapId": 157,
+  "TeleportGateName": "死亡峡谷三层",
+  "FromMapName": "死亡峡谷二层",
+  "ToMapName": "死亡峡谷三层",
+  "FromMapFile": "MirDg01_3",
+  "ToMapFile": "MirDg01_1",
+  "FromCoords": "677, 482",
+  "ToCoords": "1352, 533"
+}

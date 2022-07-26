@@ -1,0 +1,30 @@
+{
+  "FromMapId": 80,
+  "FromMapName": "屠魔大厅",
+  "FromCoords": "932, 330",
+  "RegionName": "屠魔大厅-22波怪物",
+  "AreaRadius": 1,
+  "Spawns": [
+    {
+      "MonsterName": "海妖法师",
+      "SpawnCount": 2,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "双刀鱼人",
+      "SpawnCount": 20,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "毒魔",
+      "SpawnCount": 2,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "冥海魔神",
+      "SpawnCount": 1,
+      "RevivalInterval": 1
+    }
+  ],
+  "RangeCoords": []
+}

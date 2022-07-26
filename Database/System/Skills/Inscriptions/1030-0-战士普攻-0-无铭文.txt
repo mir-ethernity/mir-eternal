@@ -1,0 +1,30 @@
+{
+  "SkillName": "战士普攻-0-无铭文",
+  "SkillId": 1030,
+  "PassiveSkill": true,
+  "MinPlayerLevel": "AAAAAA==",
+  "MinSkillExp": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SkillCombatBonus": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "战士普攻-4-压制印-跳劈主体",
+    "战士普攻-4-压制印-主体技能",
+    "战士普攻-3-幽速印-主体技能",
+    "战士普攻-2-主宰印-主体技能",
+    "战士普攻-1-旋风印-旋风主体",
+    "战士普攻-0-有被动-主体技能",
+    "战士普攻-0-无被动-主体技能"
+  ],
+  "SwitchSkills": []
+}

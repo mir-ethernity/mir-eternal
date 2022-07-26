@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6680,
+  "FromMapId": 143,
+  "FromMapName": "比奇省",
+  "FromCoords": "822, 248",
+  "Direction": "右下",
+  "RegionName": "比奇省-玉娘(822,248)"
+}

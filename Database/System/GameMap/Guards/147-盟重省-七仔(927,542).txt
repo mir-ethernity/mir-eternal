@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6705,
+  "FromMapId": 147,
+  "FromMapName": "盟重省",
+  "FromCoords": "927, 542",
+  "Direction": "左下",
+  "RegionName": "盟重省-七仔(927,542)"
+}

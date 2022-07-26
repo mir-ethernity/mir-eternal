@@ -1,0 +1,34 @@
+{
+  "Name": "战神手镯",
+  "Id": 99940033,
+  "ItemLast": 8,
+  "Weight": 2,
+  "Level": 55,
+  "SalePrice": 60000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "手镯",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "NeedAttack": 54,
+  "BasicPowerCombat": 142,
+  "MinAttack": 1,
+  "MaxAttack": 5,
+  "MaxDef": 1,
+  "CanRepair": true,
+  "RepairCost": 36000,
+  "SpecialRepairCost": 180000,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "苍月装备",
+  "物品掉落列表": [
+    {
+      "Name": "战神手镯",
+      "MonsterName": "牛魔王",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

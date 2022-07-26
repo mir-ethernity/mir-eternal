@@ -1,0 +1,64 @@
+{
+  "StoreId": 1901,
+  "Name": "师徒商店",
+  "Products": [
+    {
+      "Id": 363,
+      "Units": 1,
+      "CurrencyType": 6,
+      "Price": 10
+    },
+    {
+      "Id": 373,
+      "Units": 1,
+      "CurrencyType": 6,
+      "Price": 10
+    },
+    {
+      "Id": 382,
+      "Units": 1,
+      "CurrencyType": 6,
+      "Price": 20
+    },
+    {
+      "Id": 383,
+      "Units": 1,
+      "CurrencyType": 6,
+      "Price": 80
+    },
+    {
+      "Id": 80203,
+      "Units": 1,
+      "CurrencyType": 6,
+      "Price": 150
+    },
+    {
+      "Id": 80201,
+      "Units": 1,
+      "CurrencyType": 6,
+      "Price": 150
+    },
+    {
+      "Id": 80202,
+      "Units": 1,
+      "CurrencyType": 6,
+      "Price": 150
+    },
+    {
+      "Id": 91116,
+      "Units": 1,
+      "CurrencyType": 6,
+      "Price": 200
+    },
+    {
+      "Id": 110012,
+      "CurrencyType": 6,
+      "Price": 300
+    },
+    {
+      "Id": 80003,
+      "CurrencyType": 6,
+      "Price": 300
+    }
+  ]
+}

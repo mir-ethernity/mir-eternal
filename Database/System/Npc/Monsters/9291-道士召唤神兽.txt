@@ -1,0 +1,199 @@
+{
+  "MonsterName": "道士召唤神兽",
+  "Id": 9291,
+  "Level": 32,
+  "Race": "Undead",
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "可被技能召唤": true,
+  "RoamInterval": 10000,
+  "CorpsePreservationDuration": 10000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 15000,
+  "NormalAttackSkills": "电脑-SummonBeast神兽普攻",
+  "ProbabilityTriggerSkills": "",
+  "EnterCombatSkills": "电脑-SummonBeast进入战斗",
+  "ExitCombatSkills": "电脑-SummonBeast退出战斗",
+  "瞬移释放技能": "",
+  "复活释放技能": "",
+  "DeathReleaseSkill": "",
+  "Stats": [],
+  "Grows": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Level0": 300,
+      "Level1": 420,
+      "Level2": 600,
+      "Level3": 840,
+      "Level4": 1140,
+      "Level5": 1500,
+      "Level6": 1920,
+      "Level7": 2400
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 21,
+      "Level1": 23,
+      "Level2": 25,
+      "Level3": 27,
+      "Level4": 29,
+      "Level5": 31,
+      "Level6": 33,
+      "Level7": 35
+    },
+    {
+      "Stat": "行走速度",
+      "Level0": 9,
+      "Level1": 9,
+      "Level2": 9,
+      "Level3": 8,
+      "Level4": 8,
+      "Level5": 8,
+      "Level6": 8,
+      "Level7": 8
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 6,
+      "Level1": 6,
+      "Level2": 6,
+      "Level3": 7,
+      "Level4": 7,
+      "Level5": 7,
+      "Level6": 7,
+      "Level7": 7
+    },
+    {
+      "Stat": "Minimalist",
+      "Level0": 16,
+      "Level1": 17,
+      "Level2": 18,
+      "Level3": 19,
+      "Level4": 20,
+      "Level5": 21,
+      "Level6": 22,
+      "Level7": 23
+    },
+    {
+      "Stat": "GreatestTaoism",
+      "Level0": 28,
+      "Level1": 29,
+      "Level2": 30,
+      "Level3": 31,
+      "Level4": 32,
+      "Level5": 33,
+      "Level6": 34,
+      "Level7": 35
+    },
+    {
+      "Stat": "MinDef",
+      "Level0": 13,
+      "Level1": 13,
+      "Level2": 13,
+      "Level3": 15,
+      "Level4": 15,
+      "Level5": 17,
+      "Level6": 17,
+      "Level7": 17
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 19,
+      "Level1": 19,
+      "Level2": 19,
+      "Level3": 21,
+      "Level4": 21,
+      "Level5": 23,
+      "Level6": 23,
+      "Level7": 23
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Level0": 17,
+      "Level1": 17,
+      "Level2": 17,
+      "Level3": 19,
+      "Level4": 19,
+      "Level5": 19,
+      "Level6": 21,
+      "Level7": 21
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Level0": 23,
+      "Level1": 23,
+      "Level2": 23,
+      "Level3": 25,
+      "Level4": 25,
+      "Level5": 27,
+      "Level6": 27,
+      "Level7": 27
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 1,
+      "Level1": 1,
+      "Level2": 1,
+      "Level3": 2,
+      "Level4": 2,
+      "Level5": 3,
+      "Level6": 3,
+      "Level7": 3
+    }
+  ],
+  "InheritsStats": [
+    {
+      "InheritsStats": "GreatestTaoism",
+      "Ratio": 0.3,
+      "ConvertStat": "Minimalist"
+    },
+    {
+      "InheritsStats": "GreatestTaoism",
+      "Ratio": 0.6,
+      "ConvertStat": "GreatestTaoism"
+    },
+    {
+      "InheritsStats": "GreatestTaoism",
+      "Ratio": 0.2,
+      "ConvertStat": "MinDef"
+    },
+    {
+      "InheritsStats": "GreatestTaoism",
+      "Ratio": 0.5,
+      "ConvertStat": "MaxDef"
+    },
+    {
+      "InheritsStats": "GreatestTaoism",
+      "Ratio": 0.2,
+      "ConvertStat": "MinMagicDef"
+    },
+    {
+      "InheritsStats": "GreatestTaoism",
+      "Ratio": 0.5,
+      "ConvertStat": "MaxMagicDef"
+    },
+    {
+      "InheritsStats": "PhysicalAgility",
+      "Ratio": 1,
+      "ConvertStat": "PhysicalAgility"
+    },
+    {
+      "InheritsStats": "PhysicallyAccurate",
+      "Ratio": 1,
+      "ConvertStat": "PhysicallyAccurate"
+    },
+    {
+      "InheritsStats": "MagicDodge",
+      "Ratio": 1,
+      "ConvertStat": "MagicDodge"
+    },
+    {
+      "InheritsStats": "幸运等级",
+      "Ratio": 1,
+      "ConvertStat": "幸运等级"
+    }
+  ],
+  "Drops": []
+}

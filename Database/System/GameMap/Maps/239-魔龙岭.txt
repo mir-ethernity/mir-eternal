@@ -1,0 +1,8 @@
+{
+  "MapId": 239,
+  "MapName": "魔龙岭",
+  "MapFile": "MirDg12_8",
+  "TerrainFile": "0239-MagicDragonRidge",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

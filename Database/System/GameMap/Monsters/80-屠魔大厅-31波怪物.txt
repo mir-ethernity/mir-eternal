@@ -1,0 +1,30 @@
+{
+  "FromMapId": 80,
+  "FromMapName": "屠魔大厅",
+  "FromCoords": "941, 330",
+  "RegionName": "屠魔大厅-31波怪物",
+  "AreaRadius": 1,
+  "Spawns": [
+    {
+      "MonsterName": "骷髅刀斧手",
+      "SpawnCount": 12,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "骷髅长枪兵",
+      "SpawnCount": 12,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "骷髅锤兵",
+      "SpawnCount": 12,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "骷髅弓箭手",
+      "SpawnCount": 6,
+      "RevivalInterval": 1
+    }
+  ],
+  "RangeCoords": []
+}

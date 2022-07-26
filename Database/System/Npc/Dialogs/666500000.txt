@@ -1,0 +1,4 @@
+{
+  "Id": 666500000,
+  "Content": "<#UI:Warehouse>仓库<#UI/>"
+}

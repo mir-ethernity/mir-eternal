@@ -1,0 +1,58 @@
+{
+  "Name": "潜行术无铭文效果",
+  "Id": 15320,
+  "GroupId": 1532,
+  "Effect": "StatusFlag, StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 1532,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 7000,
+  "ProcessDelay": 7000,
+  "Duration": 7000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "SkillLevelDelay": true,
+  "ExtendedTimePerLevel": 1000,
+  "PlayerState": "StealthStatus",
+  "StatsIncOrDec": [
+    {
+      "Stat": "奔跑速度",
+      "Level0": 4,
+      "Level1": 4,
+      "Level2": 4,
+      "Level3": 4
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

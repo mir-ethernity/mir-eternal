@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6662,
+  "FromMapId": 50,
+  "FromMapName": "苍月岛",
+  "FromCoords": "807, 873",
+  "Direction": "左下",
+  "RegionName": "苍月岛-白玉兰(807,873)"
+}

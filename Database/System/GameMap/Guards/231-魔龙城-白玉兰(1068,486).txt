@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6662,
+  "FromMapId": 231,
+  "FromMapName": "魔龙城",
+  "FromCoords": "1068, 486",
+  "Direction": "右下",
+  "RegionName": "魔龙城-白玉兰(1068,486)"
+}

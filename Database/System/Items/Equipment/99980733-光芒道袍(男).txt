@@ -1,0 +1,64 @@
+{
+  "Name": "光芒道袍(男)",
+  "Id": 99980733,
+  "ItemLast": 35,
+  "Weight": 35,
+  "Level": 50,
+  "NeedLevel": 44,
+  "SalePrice": 80000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "衣服",
+  "NeedRace": "道士",
+  "NeedGender": "男性",
+  "PersistType": "装备",
+  "StoreType": "服装",
+  "BasicPowerCombat": 389,
+  "Minimalist": 3,
+  "GreatestTaoism": 6,
+  "MinDef": 6,
+  "MaxDef": 13,
+  "MinMagicDef": 4,
+  "MaxMagicDef": 9,
+  "CanRepair": true,
+  "RepairCost": 48000,
+  "SpecialRepairCost": 240000,
+  "能否打孔": true,
+  "PunchUpperLimit": 2,
+  "CostPerHole": 30,
+  "TwoHoleCost": 60,
+  "铭文职业": "通用",
+  "打孔职业": "道士",
+  "EquipSet": "魔龙装备",
+  "物品掉落列表": [
+    {
+      "Name": "光芒道袍(男)",
+      "MonsterName": "血手",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "光芒道袍(男)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "光芒道袍(男)",
+      "MonsterName": "牛魔王",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "光芒道袍(男)",
+      "MonsterName": "魔龙教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

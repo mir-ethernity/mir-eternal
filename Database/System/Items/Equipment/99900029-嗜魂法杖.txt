@@ -1,0 +1,60 @@
+{
+  "Name": "嗜魂法杖",
+  "Id": 99900029,
+  "ItemLast": 10,
+  "Weight": 26,
+  "Level": 43,
+  "NeedLevel": 35,
+  "SalePrice": 70000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "武器",
+  "NeedRace": "法师",
+  "PersistType": "装备",
+  "StoreType": "武器",
+  "BasicPowerCombat": 402,
+  "MinAttack": 6,
+  "MaxAttack": 13,
+  "MinMagic": 2,
+  "MaxMagic": 8,
+  "CanRepair": true,
+  "RepairCost": 42000,
+  "SpecialRepairCost": 210000,
+  "灵魂绑点": 9,
+  "圣伤上限": 60,
+  "铭文传承": true,
+  "铭文职业": "法师",
+  "打孔职业": "通用",
+  "EquipSet": "魔龙装备",
+  "物品掉落列表": [
+    {
+      "Name": "嗜魂法杖",
+      "MonsterName": "血手",
+      "Probability": 500,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "嗜魂法杖",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "嗜魂法杖",
+      "MonsterName": "牛魔王",
+      "Probability": 500,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "嗜魂法杖",
+      "MonsterName": "魔龙教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "最大数量": 1
+    }
+  ]
+}

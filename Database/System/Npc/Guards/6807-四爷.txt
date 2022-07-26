@@ -1,0 +1,6 @@
+{
+  "Name": "四爷",
+  "GuardNumber": 6807,
+  "Level": 99,
+  "RangeHate": 8
+}

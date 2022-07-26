@@ -1,0 +1,62 @@
+{
+  "Name": "伏波荡寇减速效果",
+  "Id": 12021,
+  "GroupId": 12021,
+  "ActionType": "Debuff",
+  "OverlayType": "SimilarReplacement",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BindingSkillLevel": 1202,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 6000,
+  "ProcessDelay": 6000,
+  "Duration": 6000,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "行走速度",
+      "Level0": 1,
+      "Level1": 1,
+      "Level2": 1,
+      "Level3": 1
+    },
+    {
+      "Stat": "奔跑速度",
+      "Level0": 2,
+      "Level1": 2,
+      "Level2": 2,
+      "Level3": 2
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

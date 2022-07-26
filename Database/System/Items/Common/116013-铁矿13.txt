@@ -1,0 +1,14 @@
+{
+  "Name": "铁矿13",
+  "Id": 116013,
+  "ItemLast": 13,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 66,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}

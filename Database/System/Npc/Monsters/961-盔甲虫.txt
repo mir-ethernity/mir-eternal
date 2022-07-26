@@ -1,0 +1,368 @@
+{
+  "MonsterName": "盔甲虫",
+  "Id": 961,
+  "Level": 11,
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CanBeSeducedBySkills": true,
+  "BaseTemptationProbability": 0.25,
+  "MoveInterval": 500,
+  "RoamInterval": 14500,
+  "CorpsePreservationDuration": 14500,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 16000,
+  "NormalAttackSkills": "电脑-Beetle的BasicAttackSkills",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 45
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 1
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 10
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 10
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Value": 4
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 10
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef"
+    },
+    {
+      "Stat": "MaxDef"
+    },
+    {
+      "Stat": "MinMagicDef"
+    },
+    {
+      "Stat": "MaxMagicDef"
+    }
+  ],
+  "Grows": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Level0": 45,
+      "Level1": 55,
+      "Level2": 65,
+      "Level3": 80,
+      "Level4": 95,
+      "Level5": 115,
+      "Level6": 135,
+      "Level7": 160
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 1,
+      "Level1": 2,
+      "Level2": 3,
+      "Level3": 3,
+      "Level4": 3,
+      "Level5": 4,
+      "Level6": 4,
+      "Level7": 5
+    },
+    {
+      "Stat": "行走速度",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 10,
+      "Level4": 10,
+      "Level5": 10,
+      "Level6": 10,
+      "Level7": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 5,
+      "Level6": 5,
+      "Level7": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 11,
+      "Level4": 11,
+      "Level5": 12,
+      "Level6": 12,
+      "Level7": 12
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 11,
+      "Level4": 11,
+      "Level5": 12,
+      "Level6": 12,
+      "Level7": 12
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Level0": 7,
+      "Level1": 7,
+      "Level2": 7,
+      "Level3": 7,
+      "Level4": 7,
+      "Level5": 7,
+      "Level6": 7,
+      "Level7": 7
+    },
+    {
+      "Stat": "MaxAttack",
+      "Level0": 9,
+      "Level1": 10,
+      "Level2": 11,
+      "Level3": 12,
+      "Level4": 13,
+      "Level5": 14,
+      "Level6": 15,
+      "Level7": 16
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Level1": 1,
+      "Level2": 2,
+      "Level3": 3,
+      "Level4": 4,
+      "Level5": 5,
+      "Level6": 6,
+      "Level7": 7
+    },
+    {
+      "Stat": "MaxDef"
+    },
+    {
+      "Stat": "MinMagicDef"
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Level1": 1,
+      "Level2": 2,
+      "Level3": 3,
+      "Level4": 4,
+      "Level5": 5,
+      "Level6": 6,
+      "Level7": 7
+    }
+  ],
+  "ProvideExperience": 48,
+  "Drops": [
+    {
+      "Name": "轻型盔甲",
+      "MonsterName": "盔甲虫",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "轻型盔甲(女)",
+      "MonsterName": "盔甲虫",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黄色水晶项链",
+      "MonsterName": "盔甲虫",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑檀项链",
+      "MonsterName": "盔甲虫",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑色水晶项链",
+      "MonsterName": "盔甲虫",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古铜戒指",
+      "MonsterName": "盔甲虫",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玻璃戒指",
+      "MonsterName": "盔甲虫",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "六角戒指",
+      "MonsterName": "盔甲虫",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "牛角戒指",
+      "MonsterName": "盔甲虫",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁手镯",
+      "MonsterName": "盔甲虫",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "银手镯",
+      "MonsterName": "盔甲虫",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "皮制手套",
+      "MonsterName": "盔甲虫",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "钢手镯",
+      "MonsterName": "盔甲虫",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "大手镯",
+      "MonsterName": "盔甲虫",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "短剑",
+      "MonsterName": "盔甲虫",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁剑",
+      "MonsterName": "盔甲虫",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜斧",
+      "MonsterName": "盔甲虫",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "双刀",
+      "MonsterName": "盔甲虫",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "神臂弓",
+      "MonsterName": "盔甲虫",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜枪",
+      "MonsterName": "盔甲虫",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "盔甲虫",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "盔甲虫",
+      "Probability": 5,
+      "MinAmount": 150,
+      "MaxAmount": 300
+    },
+    {
+      "Name": "金创药(小量)",
+      "MonsterName": "盔甲虫",
+      "Probability": 4,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(小量)",
+      "MonsterName": "盔甲虫",
+      "Probability": 4,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

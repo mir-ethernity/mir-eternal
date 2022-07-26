@@ -1,0 +1,278 @@
+{
+  "Name": "布鞋",
+  "Id": 99990317,
+  "ItemLast": 6,
+  "Weight": 1,
+  "Level": 18,
+  "NeedLevel": 15,
+  "SalePrice": 4000,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "鞋子",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "服装",
+  "BasicPowerCombat": 24,
+  "MaxDef": 1,
+  "CanRepair": true,
+  "RepairCost": 2400,
+  "SpecialRepairCost": 12000,
+  "勇者试炼": true,
+  "试炼币数": 20,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "布鞋",
+      "MonsterName": "蜈蚣",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "巨型蠕虫",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "跳跳蜂",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "毒虫",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "道士僵尸",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "暗黑战士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "巨型多角虫",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "魔化巨虫",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "黑色恶蛆",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "半兽勇士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "沃玛斥候",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "鹰卫",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "鹰卫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "虎卫",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "虎卫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "沃玛战士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "沃玛勇士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "沃玛战将",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "沃玛卫兵",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "沃玛将领",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "钳虫",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "火焰沃玛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "红野猪",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "红野猪精英",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "楔蛾",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "黑野猪",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "黑野猪精英",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "祖玛老鼠",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "祖玛弓箭手",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "祖玛弓箭手精英",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "祖玛雕像",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "祖玛雕像精英",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "祖玛卫士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "祖玛卫士精英",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

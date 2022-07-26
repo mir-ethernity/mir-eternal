@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 115,
+  "ToMapId": 114,
+  "TeleportGateName": "至黑岩峰底",
+  "FromMapName": "龙栖峰",
+  "ToMapName": "黑岩峰底",
+  "FromMapFile": "MirDg26_2",
+  "ToMapFile": "MirDg26_1",
+  "FromCoords": "993, 431",
+  "ToCoords": "696, 558"
+}

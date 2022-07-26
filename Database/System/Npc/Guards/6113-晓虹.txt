@@ -1,0 +1,6 @@
+{
+  "Name": "晓虹",
+  "GuardNumber": 6113,
+  "Level": 99,
+  "RangeHate": 8
+}

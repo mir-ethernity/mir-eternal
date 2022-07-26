@@ -1,0 +1,24 @@
+{
+  "SkillName": "治愈之术-0-无铭文-命中特效",
+  "Race": "道士",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 30022,
+  "BindingLevelId": 3002,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "1": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

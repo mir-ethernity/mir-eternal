@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6664,
+  "FromMapId": 202,
+  "FromMapName": "死亡峡谷四层",
+  "FromCoords": "771, 533",
+  "Direction": "左上",
+  "RegionName": "死亡峡谷四层-醉爷(771,533)"
+}

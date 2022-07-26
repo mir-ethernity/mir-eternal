@@ -1,0 +1,35 @@
+{
+  "Name": "龙王之戒",
+  "Id": 99930088,
+  "ItemLast": 8,
+  "Weight": 3,
+  "Level": 60,
+  "SalePrice": 60000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "戒指",
+  "NeedRace": "龙枪",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "NeedAttack": 52,
+  "BasicPowerCombat": 220,
+  "MinAttack": 1,
+  "MaxAttack": 8,
+  "MaxMagicDef": 1,
+  "CanRepair": true,
+  "RepairCost": 36000,
+  "SpecialRepairCost": 180000,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "苍月装备",
+  "物品掉落列表": [
+    {
+      "Name": "龙王之戒",
+      "MonsterName": "牛魔王",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "StoreId": 6434,
+  "Name": "技能兑换",
+  "Products": [
+    {
+      "Id": 31035,
+      "Units": 1,
+      "CurrencyType": 202006,
+      "Price": 50
+    },
+    {
+      "Id": 31036,
+      "Units": 1,
+      "CurrencyType": 202006,
+      "Price": 100
+    },
+    {
+      "Id": 32535,
+      "Units": 1,
+      "CurrencyType": 202006,
+      "Price": 30
+    },
+    {
+      "Id": 32537,
+      "Units": 1,
+      "CurrencyType": 202006,
+      "Price": 150
+    },
+    {
+      "Id": 33012,
+      "Units": 1,
+      "CurrencyType": 202006,
+      "Price": 10
+    },
+    {
+      "Id": 33008,
+      "Units": 1,
+      "CurrencyType": 202006,
+      "Price": 200
+    },
+    {
+      "Id": 34006,
+      "Units": 1,
+      "CurrencyType": 202006,
+      "Price": 20
+    },
+    {
+      "Id": 34008,
+      "Units": 1,
+      "CurrencyType": 202006,
+      "Price": 40
+    },
+    {
+      "Id": 35013,
+      "Units": 1,
+      "CurrencyType": 202006,
+      "Price": 50
+    },
+    {
+      "Id": 35007,
+      "Units": 1,
+      "CurrencyType": 202006,
+      "Price": 100
+    },
+    {
+      "Id": 36007,
+      "Units": 1,
+      "CurrencyType": 202006,
+      "Price": 10
+    },
+    {
+      "Id": 36008,
+      "Units": 1,
+      "CurrencyType": 202006,
+      "Price": 150
+    }
+  ]
+}

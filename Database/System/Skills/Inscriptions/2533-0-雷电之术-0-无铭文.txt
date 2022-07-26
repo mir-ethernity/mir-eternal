@@ -1,0 +1,24 @@
+{
+  "SkillName": "雷电之术-0-无铭文",
+  "Race": "法师",
+  "SkillId": 2533,
+  "MinPlayerLevel": "ERQXGg==",
+  "MinSkillExp": [
+    120,
+    300,
+    500,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "雷电之术-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

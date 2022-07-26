@@ -1,0 +1,39 @@
+{
+  "Name": "回避射击旋风撕裂",
+  "Id": 38450,
+  "Effect": "DamageIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 2056,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 15000,
+  "ProcessDelay": 15000,
+  "Duration": 15000,
+  "RequireBuff": [],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "HowJudgeEffect": "PassiveInjuryIncrease",
+  "EffectJudgeType": "SourceSkillDamage",
+  "DamageIncOrDecBase": [],
+  "DamageIncOrDecFactor": [
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

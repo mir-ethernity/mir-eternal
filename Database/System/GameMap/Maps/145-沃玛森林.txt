@@ -1,0 +1,8 @@
+{
+  "MapId": 145,
+  "MapName": "沃玛森林",
+  "MapFile": "Mir_Dg04",
+  "TerrainFile": "0145-WoomaForest",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

@@ -1,0 +1,57 @@
+{
+  "Name": "烈焰护腕",
+  "Id": 99940031,
+  "ItemLast": 5,
+  "Weight": 1,
+  "Level": 52,
+  "SalePrice": 50000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "手镯",
+  "NeedRace": "法师",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "NeedMagic": 30,
+  "BasicPowerCombat": 130,
+  "MinMagic": 2,
+  "MaxMagic": 4,
+  "MaxDef": 2,
+  "MaxMagicDef": 2,
+  "CanRepair": true,
+  "RepairCost": 30000,
+  "SpecialRepairCost": 150000,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "魔龙装备",
+  "物品掉落列表": [
+    {
+      "Name": "烈焰护腕",
+      "MonsterName": "血手",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "烈焰护腕",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "烈焰护腕",
+      "MonsterName": "牛魔王",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "烈焰护腕",
+      "MonsterName": "魔龙教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

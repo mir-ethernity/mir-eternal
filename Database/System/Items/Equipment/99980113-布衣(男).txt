@@ -1,0 +1,61 @@
+{
+  "Name": "布衣(男)",
+  "Id": 99980113,
+  "ItemLast": 5,
+  "Weight": 5,
+  "Level": 5,
+  "NeedLevel": 1,
+  "SalePrice": 60,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "衣服",
+  "NeedRace": "通用",
+  "NeedGender": "男性",
+  "PersistType": "装备",
+  "StoreType": "服装",
+  "BasicPowerCombat": 24,
+  "MaxDef": 2,
+  "MaxMagicDef": 1,
+  "CanRepair": true,
+  "RepairCost": 36,
+  "SpecialRepairCost": 180,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "布衣(男)",
+      "MonsterName": "稻草人",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布衣(男)",
+      "MonsterName": "海蟹",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布衣(男)",
+      "MonsterName": "鹿",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布衣(男)",
+      "MonsterName": "钉耙猫",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布衣(男)",
+      "MonsterName": "羊",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

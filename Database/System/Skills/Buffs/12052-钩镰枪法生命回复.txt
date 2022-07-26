@@ -1,0 +1,43 @@
+{
+  "Name": "钩镰枪法生命回复",
+  "Id": 12052,
+  "GroupId": 12052,
+  "Effect": "LifeRecovery",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BindingSkillLevel": 1205,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 2000,
+  "Duration": 500,
+  "RequireBuff": [],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "BQYHCA=="
+}

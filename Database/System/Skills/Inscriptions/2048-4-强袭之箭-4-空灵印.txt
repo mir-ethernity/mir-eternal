@@ -1,0 +1,27 @@
+{
+  "SkillName": "强袭之箭-4-空灵印",
+  "Race": "弓手",
+  "SkillId": 2048,
+  "Id": 4,
+  "Quality": 3,
+  "Probability": 60,
+  "MinPlayerLevel": "IyYpLA==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "强袭之箭-4-空灵印-主体技能"
+  ],
+  "SwitchSkills": []
+}

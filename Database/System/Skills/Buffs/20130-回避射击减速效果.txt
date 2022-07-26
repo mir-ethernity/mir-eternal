@@ -1,0 +1,59 @@
+{
+  "Name": "回避射击减速效果",
+  "Id": 20130,
+  "GroupId": 20130,
+  "ActionType": "Debuff",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BindingSkillLevel": 20130,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 5000,
+  "ProcessDelay": 5000,
+  "Duration": 5000,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "奔跑速度",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5
+    },
+    {
+      "Stat": "行走速度",
+      "Level0": 2,
+      "Level1": 2,
+      "Level2": 2,
+      "Level3": 2
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

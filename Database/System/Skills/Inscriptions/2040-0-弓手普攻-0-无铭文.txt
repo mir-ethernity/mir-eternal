@@ -1,0 +1,27 @@
+{
+  "SkillName": "弓手普攻-0-无铭文",
+  "Race": "弓手",
+  "SkillId": 2040,
+  "PassiveSkill": true,
+  "MinPlayerLevel": "AAAAAA==",
+  "MinSkillExp": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SkillCombatBonus": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    2040
+  ],
+  "MainSkills": [
+    "弓手普攻-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

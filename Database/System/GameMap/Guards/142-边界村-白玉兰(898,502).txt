@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6662,
+  "FromMapId": 142,
+  "FromMapName": "边界村",
+  "FromCoords": "898, 502",
+  "Direction": "右下",
+  "RegionName": "边界村-白玉兰(898,502)"
+}

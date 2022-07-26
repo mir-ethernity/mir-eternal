@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6664,
+  "FromMapId": 142,
+  "FromMapName": "边界村",
+  "FromCoords": "897, 458",
+  "Direction": "左下",
+  "RegionName": "边界村-醉爷(897,458)"
+}

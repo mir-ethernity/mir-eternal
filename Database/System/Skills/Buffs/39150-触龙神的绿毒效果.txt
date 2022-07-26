@@ -1,0 +1,44 @@
+{
+  "Name": "触龙神的绿毒效果",
+  "Id": 39150,
+  "GroupId": 39150,
+  "ActionType": "Debuff",
+  "OverlayType": "HomogeneousStacking",
+  "Effect": "CausesSomeDamages",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 10,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 2000,
+  "ProcessDelay": 2000,
+  "Duration": 20000,
+  "RequireBuff": [],
+  "DamageType": "Toxicity",
+  "DamageBase": [
+    6,
+    6,
+    6,
+    6
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

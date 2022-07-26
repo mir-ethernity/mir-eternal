@@ -1,0 +1,14 @@
+{
+  "Name": "矿渣",
+  "Id": 114000,
+  "ItemLast": 99,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "SalePrice": 10,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "普通杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

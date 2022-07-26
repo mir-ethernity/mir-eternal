@@ -1,0 +1,30 @@
+{
+  "FromMapId": 80,
+  "FromMapName": "屠魔大厅",
+  "FromCoords": "929, 330",
+  "RegionName": "屠魔大厅-19波怪物",
+  "AreaRadius": 1,
+  "Spawns": [
+    {
+      "MonsterName": "僵尸海盗",
+      "SpawnCount": 9,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "僵尸剑客",
+      "SpawnCount": 9,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "恶灵",
+      "SpawnCount": 9,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "僵尸掷矛手",
+      "SpawnCount": 9,
+      "RevivalInterval": 1
+    }
+  ],
+  "RangeCoords": []
+}

@@ -1,0 +1,14 @@
+{
+  "Name": "银矿19",
+  "Id": 117019,
+  "ItemLast": 19,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 264,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}

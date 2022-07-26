@@ -1,0 +1,654 @@
+{
+  "MonsterName": "鹰卫变异",
+  "Id": 1191,
+  "Level": 30,
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CanBeSeducedBySkills": true,
+  "BaseTemptationProbability": 0.1,
+  "MoveInterval": 400,
+  "RoamInterval": 16000,
+  "CorpsePreservationDuration": 16000,
+  "HateTime": 16000,
+  "NormalAttackSkills": "电脑-鹰卫NormalAttackSkills",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 750
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 8
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 8
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 20
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 20
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Value": 30
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 43
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 14
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 19
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Value": 18
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Value": 25
+    }
+  ],
+  "Grows": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Level0": 750,
+      "Level1": 805,
+      "Level2": 860,
+      "Level3": 920,
+      "Level4": 980,
+      "Level5": 1045,
+      "Level6": 1110,
+      "Level7": 1180
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 8,
+      "Level1": 8,
+      "Level2": 8,
+      "Level3": 9,
+      "Level4": 9,
+      "Level5": 10,
+      "Level6": 10,
+      "Level7": 10
+    },
+    {
+      "Stat": "行走速度",
+      "Level0": 8,
+      "Level1": 8,
+      "Level2": 8,
+      "Level3": 8,
+      "Level4": 8,
+      "Level5": 8,
+      "Level6": 8,
+      "Level7": 8
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 5,
+      "Level6": 5,
+      "Level7": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 20,
+      "Level1": 20,
+      "Level2": 20,
+      "Level3": 21,
+      "Level4": 21,
+      "Level5": 22,
+      "Level6": 22,
+      "Level7": 22
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 20,
+      "Level1": 20,
+      "Level2": 20,
+      "Level3": 21,
+      "Level4": 21,
+      "Level5": 22,
+      "Level6": 22,
+      "Level7": 22
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Level0": 30,
+      "Level1": 30,
+      "Level2": 30,
+      "Level3": 30,
+      "Level4": 30,
+      "Level5": 30,
+      "Level6": 30,
+      "Level7": 30
+    },
+    {
+      "Stat": "MaxAttack",
+      "Level0": 38,
+      "Level1": 39,
+      "Level2": 40,
+      "Level3": 41,
+      "Level4": 42,
+      "Level5": 43,
+      "Level6": 44,
+      "Level7": 45
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Level0": 14,
+      "Level1": 14,
+      "Level2": 14,
+      "Level3": 14,
+      "Level4": 14,
+      "Level5": 14,
+      "Level6": 14,
+      "Level7": 14
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 19,
+      "Level1": 20,
+      "Level2": 21,
+      "Level3": 22,
+      "Level4": 23,
+      "Level5": 24,
+      "Level6": 25,
+      "Level7": 26
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Level0": 18,
+      "Level1": 18,
+      "Level2": 18,
+      "Level3": 18,
+      "Level4": 18,
+      "Level5": 18,
+      "Level6": 18,
+      "Level7": 18
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Level0": 25,
+      "Level1": 26,
+      "Level2": 27,
+      "Level3": 28,
+      "Level4": 29,
+      "Level5": 30,
+      "Level6": 31,
+      "Level7": 32
+    }
+  ],
+  "ProvideExperience": 250,
+  "Drops": [
+    {
+      "Name": "重盔甲(男)",
+      "MonsterName": "鹰卫变异",
+      "Probability": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(男)",
+      "MonsterName": "鹰卫变异",
+      "Probability": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(男)",
+      "MonsterName": "鹰卫变异",
+      "Probability": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(男)",
+      "MonsterName": "鹰卫变异",
+      "Probability": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(男)",
+      "MonsterName": "鹰卫变异",
+      "Probability": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(男)",
+      "MonsterName": "鹰卫变异",
+      "Probability": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "重盔甲(女)",
+      "MonsterName": "鹰卫变异",
+      "Probability": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(女)",
+      "MonsterName": "鹰卫变异",
+      "Probability": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(女)",
+      "MonsterName": "鹰卫变异",
+      "Probability": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(女)",
+      "MonsterName": "鹰卫变异",
+      "Probability": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(女)",
+      "MonsterName": "鹰卫变异",
+      "Probability": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(女)",
+      "MonsterName": "鹰卫变异",
+      "Probability": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽皮腰带",
+      "MonsterName": "鹰卫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "鹰卫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "白金项链",
+      "MonsterName": "鹰卫变异",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "琥珀项链",
+      "MonsterName": "鹰卫变异",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔鬼项链",
+      "MonsterName": "鹰卫变异",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "软玉项链",
+      "MonsterName": "鹰卫变异",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤项链",
+      "MonsterName": "鹰卫变异",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "鹰卫变异",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "躲避项链",
+      "MonsterName": "鹰卫变异",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝翡翠项链",
+      "MonsterName": "鹰卫变异",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "竹笛",
+      "MonsterName": "鹰卫变异",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "放大镜",
+      "MonsterName": "鹰卫变异",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "十方项链",
+      "MonsterName": "鹰卫变异",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狞猫项链",
+      "MonsterName": "鹰卫变异",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道德戒指",
+      "MonsterName": "鹰卫变异",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魅力戒指",
+      "MonsterName": "鹰卫变异",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅戒指",
+      "MonsterName": "鹰卫变异",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "翡翠戒指",
+      "MonsterName": "鹰卫变异",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "扣弦扳指",
+      "MonsterName": "鹰卫变异",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金戒指",
+      "MonsterName": "鹰卫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珊瑚戒指",
+      "MonsterName": "鹰卫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫玉戒指",
+      "MonsterName": "鹰卫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁皮指环",
+      "MonsterName": "鹰卫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法手镯",
+      "MonsterName": "鹰卫变异",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔力手镯",
+      "MonsterName": "鹰卫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "坚固手套",
+      "MonsterName": "鹰卫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士手镯",
+      "MonsterName": "鹰卫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑檀手镯",
+      "MonsterName": "鹰卫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "夏普儿手镯",
+      "MonsterName": "鹰卫变异",
+      "Probability": 3000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "辟邪手镯",
+      "MonsterName": "鹰卫变异",
+      "Probability": 5000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金手镯",
+      "MonsterName": "鹰卫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "桃木手镯",
+      "MonsterName": "鹰卫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤手镯",
+      "MonsterName": "鹰卫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "鹰卫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "破魂",
+      "MonsterName": "鹰卫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "罗刹",
+      "MonsterName": "鹰卫变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "偃月",
+      "MonsterName": "鹰卫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "降魔",
+      "MonsterName": "鹰卫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "斩马刀",
+      "MonsterName": "鹰卫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "冰月戟",
+      "MonsterName": "鹰卫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁胎弓",
+      "MonsterName": "鹰卫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "百炼枪",
+      "MonsterName": "鹰卫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "修罗",
+      "MonsterName": "鹰卫变异",
+      "Probability": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凝霜",
+      "MonsterName": "鹰卫变异",
+      "Probability": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅头盔",
+      "MonsterName": "鹰卫变异",
+      "Probability": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士头盔",
+      "MonsterName": "鹰卫变异",
+      "Probability": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "鹰卫变异",
+      "Probability": 5,
+      "MinAmount": 400,
+      "MaxAmount": 500
+    },
+    {
+      "Name": "强效金创药",
+      "MonsterName": "鹰卫变异",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "鹰卫变异",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效太阳水",
+      "MonsterName": "鹰卫变异",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

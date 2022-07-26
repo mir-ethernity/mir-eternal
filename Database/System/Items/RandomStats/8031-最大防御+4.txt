@@ -1,0 +1,7 @@
+{
+  "Stat": "MaxDef",
+  "Value": 4,
+  "StatId": 8031,
+  "CombatBonus": 40,
+  "StatDescription": "最大防御+4"
+}

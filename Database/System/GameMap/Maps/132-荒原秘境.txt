@@ -1,0 +1,9 @@
+{
+  "MapId": 132,
+  "MapName": "荒原秘境",
+  "MapFile": "MirDg22_2",
+  "TerrainFile": "0132-TheSecretWilderness",
+  "LimitPlayers": 9999,
+  "MinLevel": 45,
+  "LimitInstances": 1
+}

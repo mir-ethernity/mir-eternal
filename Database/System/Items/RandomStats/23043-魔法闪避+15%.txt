@@ -1,0 +1,7 @@
+{
+  "Stat": "MagicDodge",
+  "Value": 1500,
+  "StatId": 23043,
+  "CombatBonus": 45,
+  "StatDescription": "魔法闪避+15%"
+}

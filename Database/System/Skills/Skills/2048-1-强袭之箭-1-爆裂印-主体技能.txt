@@ -1,0 +1,61 @@
+{
+  "SkillName": "强袭之箭-1-爆裂印-主体技能",
+  "Race": "弓手",
+  "OwnSkillId": 2048,
+  "Id": 1,
+  "GroupId": 4,
+  "BindingLevelId": 2048,
+  "CalculateTriggerProbability": 1,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "CheckOccupationalWeapons": true,
+  "NeedConsumeMagic": [
+    11,
+    13,
+    15,
+    17
+  ],
+  "NeedConsumeItems": [
+    40202,
+    40201
+  ],
+  "NeedConsumeItemsQuantity": 1,
+  "GearDeductionPoints": 1,
+  "Nodes": {
+    "0": {
+      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "MaxDistance": 8
+    },
+    "1": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 10000,
+      "分组Cooldown": 10000,
+      "角色忙绿时间": 500
+    },
+    "499": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "角色硬直时间": 1000,
+      "禁止行走时间": 875,
+      "禁止奔跑时间": 650
+    },
+    "500": {
+      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定目标",
+      "限定命中数量": 1,
+      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
+      "限定目标关系": "Hostility",
+      "清除状态列表": []
+    },
+    "501": {
+      "$type": "A_00_触发SubSkills, Assembly-CSharp",
+      "技能触发方式": "锚点位置绝对触发",
+      "触发SkillName": "强袭之箭-1-爆裂印-子类技能"
+    },
+    "1000": {
+      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+    }
+  }
+}

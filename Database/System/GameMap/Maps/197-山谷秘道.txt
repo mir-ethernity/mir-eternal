@@ -1,0 +1,11 @@
+{
+  "MapId": 197,
+  "MapName": "山谷秘道",
+  "MapFile": "MirDg11_9",
+  "TerrainFile": "0197-SecretValleyRoad",
+  "LimitPlayers": 9999,
+  "MinLevel": 40,
+  "LimitInstances": 1,
+  "NoReconnect": true,
+  "NoReconnectMapId": 195
+}

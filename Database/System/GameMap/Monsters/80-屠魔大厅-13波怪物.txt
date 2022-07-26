@@ -1,0 +1,34 @@
+{
+  "FromMapId": 80,
+  "FromMapName": "屠魔大厅",
+  "FromCoords": "923, 330",
+  "RegionName": "屠魔大厅-13波怪物",
+  "AreaRadius": 1,
+  "Spawns": [
+    {
+      "MonsterName": "祖玛雕像",
+      "SpawnCount": 10,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "祖玛卫士",
+      "SpawnCount": 10,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "祖玛弓箭手精英",
+      "SpawnCount": 3,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "虹魔猪卫",
+      "SpawnCount": 2,
+      "RevivalInterval": 1
+    }
+  ],
+  "RangeCoords": [
+    "996, 293",
+    "997, 292",
+    "997, 293"
+  ]
+}

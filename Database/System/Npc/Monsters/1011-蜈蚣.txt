@@ -1,0 +1,720 @@
+{
+  "MonsterName": "蜈蚣",
+  "Id": 1011,
+  "Level": 26,
+  "Race": "ZergCreature",
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CanBeSeducedBySkills": true,
+  "BaseTemptationProbability": 0.2,
+  "MoveInterval": 400,
+  "RoamInterval": 16000,
+  "CorpsePreservationDuration": 16000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 16000,
+  "NormalAttackSkills": "电脑-CentipedeNormalAttackSkills",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 230
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 4
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 14
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 13
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 13
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Value": 12
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 18
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 1
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 3
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Value": 3
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Value": 8
+    }
+  ],
+  "Grows": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Level0": 230,
+      "Level1": 245,
+      "Level2": 260,
+      "Level3": 280,
+      "Level4": 300,
+      "Level5": 325,
+      "Level6": 350,
+      "Level7": 375
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 4,
+      "Level1": 4,
+      "Level2": 4,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 6,
+      "Level6": 6,
+      "Level7": 6
+    },
+    {
+      "Stat": "行走速度",
+      "Level0": 14,
+      "Level1": 14,
+      "Level2": 14,
+      "Level3": 14,
+      "Level4": 14,
+      "Level5": 14,
+      "Level6": 14,
+      "Level7": 14
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 5,
+      "Level6": 5,
+      "Level7": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 13,
+      "Level1": 13,
+      "Level2": 13,
+      "Level3": 14,
+      "Level4": 14,
+      "Level5": 15,
+      "Level6": 15,
+      "Level7": 15
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 13,
+      "Level1": 13,
+      "Level2": 13,
+      "Level3": 14,
+      "Level4": 14,
+      "Level5": 15,
+      "Level6": 15,
+      "Level7": 15
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Level0": 12,
+      "Level1": 12,
+      "Level2": 12,
+      "Level3": 12,
+      "Level4": 12,
+      "Level5": 12,
+      "Level6": 12,
+      "Level7": 12
+    },
+    {
+      "Stat": "MaxAttack",
+      "Level0": 18,
+      "Level1": 19,
+      "Level2": 20,
+      "Level3": 21,
+      "Level4": 22,
+      "Level5": 23,
+      "Level6": 24,
+      "Level7": 25
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Level0": 1,
+      "Level1": 1,
+      "Level2": 1,
+      "Level3": 1,
+      "Level4": 1,
+      "Level5": 1,
+      "Level6": 1,
+      "Level7": 1
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 3,
+      "Level1": 4,
+      "Level2": 5,
+      "Level3": 6,
+      "Level4": 7,
+      "Level5": 8,
+      "Level6": 9,
+      "Level7": 10
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Level0": 3,
+      "Level1": 3,
+      "Level2": 3,
+      "Level3": 3,
+      "Level4": 3,
+      "Level5": 3,
+      "Level6": 3,
+      "Level7": 3
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Level0": 8,
+      "Level1": 9,
+      "Level2": 10,
+      "Level3": 11,
+      "Level4": 12,
+      "Level5": 13,
+      "Level6": 14,
+      "Level7": 15
+    }
+  ],
+  "ProvideExperience": 230,
+  "Drops": [
+    {
+      "Name": "重盔甲(男)",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(男)",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(男)",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(男)",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(男)",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(男)",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "重盔甲(女)",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(女)",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(女)",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(女)",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(女)",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(女)",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽皮腰带",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "白金项链",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "琥珀项链",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔鬼项链",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "软玉项链",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤项链",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "躲避项链",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝翡翠项链",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "竹笛",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "放大镜",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "十方项链",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狞猫项链",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色水晶戒指",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珍珠戒指",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑色水晶戒指",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蛇眼戒指",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜戒指",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤戒指",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道德戒指",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魅力戒指",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅戒指",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "翡翠戒指",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "扣弦扳指",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金戒指",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珊瑚戒指",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫玉戒指",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁皮指环",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法手镯",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔力手镯",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "坚固手套",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士手镯",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑檀手镯",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "夏普儿手镯",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 3000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "辟邪手镯",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 5000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金手镯",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "桃木手镯",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤手镯",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "海魂",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "八荒",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "半月",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "破魂",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "罗刹",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "偃月",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "降魔",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "斩马刀",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "冰月戟",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁胎弓",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "百炼枪",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "修罗",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凝霜",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士头盔",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 5,
+      "MinAmount": 400,
+      "MaxAmount": 500
+    },
+    {
+      "Name": "金创药(中量)",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 6,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(中量)",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "太阳水",
+      "MonsterName": "蜈蚣",
+      "掉落概率": 20,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "MapId": 144,
+  "MapName": "比奇矿区",
+  "MapFile": "Mir_Dg03",
+  "TerrainFile": "0144-BeechMines",
+  "LimitPlayers": 9999,
+  "MinLevel": 15,
+  "LimitInstances": 1
+}

@@ -1,0 +1,9 @@
+{
+  "MapId": 180,
+  "MapName": "祖玛寺庙一层",
+  "MapFile": "MirDg07_1",
+  "TerrainFile": "0180-ZumaTemple1st",
+  "LimitPlayers": 9999,
+  "MinLevel": 30,
+  "LimitInstances": 1
+}

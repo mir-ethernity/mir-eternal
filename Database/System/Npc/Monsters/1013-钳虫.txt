@@ -1,0 +1,657 @@
+{
+  "MonsterName": "钳虫",
+  "Id": 1013,
+  "Level": 31,
+  "Race": "ZergCreature",
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CanBeSeducedBySkills": true,
+  "BaseTemptationProbability": 0.2,
+  "MoveInterval": 300,
+  "RoamInterval": 16000,
+  "CorpsePreservationDuration": 16000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 16000,
+  "NormalAttackSkills": "电脑-TongsNormalAttackSkills",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 270
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 4
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 11
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 13
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 14
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Value": 15
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 25
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 3
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 7
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Value": 5
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Value": 9
+    }
+  ],
+  "Grows": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Level0": 270,
+      "Level1": 300,
+      "Level2": 330,
+      "Level3": 365,
+      "Level4": 400,
+      "Level5": 440,
+      "Level6": 480,
+      "Level7": 525
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 4,
+      "Level1": 4,
+      "Level2": 4,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 6,
+      "Level6": 6,
+      "Level7": 6
+    },
+    {
+      "Stat": "行走速度",
+      "Level0": 11,
+      "Level1": 11,
+      "Level2": 11,
+      "Level3": 11,
+      "Level4": 11,
+      "Level5": 11,
+      "Level6": 11,
+      "Level7": 11
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 6,
+      "Level1": 6,
+      "Level2": 6,
+      "Level3": 6,
+      "Level4": 6,
+      "Level5": 6,
+      "Level6": 6,
+      "Level7": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 13,
+      "Level1": 13,
+      "Level2": 13,
+      "Level3": 14,
+      "Level4": 14,
+      "Level5": 15,
+      "Level6": 15,
+      "Level7": 15
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 14,
+      "Level1": 14,
+      "Level2": 14,
+      "Level3": 15,
+      "Level4": 15,
+      "Level5": 16,
+      "Level6": 16,
+      "Level7": 16
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Level0": 15,
+      "Level1": 15,
+      "Level2": 15,
+      "Level3": 15,
+      "Level4": 15,
+      "Level5": 15,
+      "Level6": 15,
+      "Level7": 15
+    },
+    {
+      "Stat": "MaxAttack",
+      "Level0": 25,
+      "Level1": 26,
+      "Level2": 27,
+      "Level3": 28,
+      "Level4": 29,
+      "Level5": 30,
+      "Level6": 31,
+      "Level7": 32
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Level0": 3,
+      "Level1": 3,
+      "Level2": 3,
+      "Level3": 3,
+      "Level4": 3,
+      "Level5": 3,
+      "Level6": 3,
+      "Level7": 3
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 7,
+      "Level1": 8,
+      "Level2": 9,
+      "Level3": 10,
+      "Level4": 11,
+      "Level5": 12,
+      "Level6": 13,
+      "Level7": 14
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 5,
+      "Level6": 5,
+      "Level7": 5
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Level0": 9,
+      "Level1": 10,
+      "Level2": 11,
+      "Level3": 12,
+      "Level4": 13,
+      "Level5": 14,
+      "Level6": 15,
+      "Level7": 16
+    }
+  ],
+  "ProvideExperience": 250,
+  "Drops": [
+    {
+      "Name": "重盔甲(男)",
+      "MonsterName": "钳虫",
+      "掉落概率": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(男)",
+      "MonsterName": "钳虫",
+      "掉落概率": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(男)",
+      "MonsterName": "钳虫",
+      "掉落概率": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(男)",
+      "MonsterName": "钳虫",
+      "掉落概率": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(男)",
+      "MonsterName": "钳虫",
+      "掉落概率": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(男)",
+      "MonsterName": "钳虫",
+      "掉落概率": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "重盔甲(女)",
+      "MonsterName": "钳虫",
+      "掉落概率": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(女)",
+      "MonsterName": "钳虫",
+      "掉落概率": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(女)",
+      "MonsterName": "钳虫",
+      "掉落概率": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(女)",
+      "MonsterName": "钳虫",
+      "掉落概率": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(女)",
+      "MonsterName": "钳虫",
+      "掉落概率": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(女)",
+      "MonsterName": "钳虫",
+      "掉落概率": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽皮腰带",
+      "MonsterName": "钳虫",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "钳虫",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "白金项链",
+      "MonsterName": "钳虫",
+      "掉落概率": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "琥珀项链",
+      "MonsterName": "钳虫",
+      "掉落概率": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔鬼项链",
+      "MonsterName": "钳虫",
+      "掉落概率": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "软玉项链",
+      "MonsterName": "钳虫",
+      "掉落概率": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤项链",
+      "MonsterName": "钳虫",
+      "掉落概率": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "钳虫",
+      "掉落概率": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "躲避项链",
+      "MonsterName": "钳虫",
+      "掉落概率": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝翡翠项链",
+      "MonsterName": "钳虫",
+      "掉落概率": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "竹笛",
+      "MonsterName": "钳虫",
+      "掉落概率": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "放大镜",
+      "MonsterName": "钳虫",
+      "掉落概率": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "十方项链",
+      "MonsterName": "钳虫",
+      "掉落概率": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狞猫项链",
+      "MonsterName": "钳虫",
+      "掉落概率": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道德戒指",
+      "MonsterName": "钳虫",
+      "掉落概率": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魅力戒指",
+      "MonsterName": "钳虫",
+      "掉落概率": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅戒指",
+      "MonsterName": "钳虫",
+      "掉落概率": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "翡翠戒指",
+      "MonsterName": "钳虫",
+      "掉落概率": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "扣弦扳指",
+      "MonsterName": "钳虫",
+      "掉落概率": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金戒指",
+      "MonsterName": "钳虫",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珊瑚戒指",
+      "MonsterName": "钳虫",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫玉戒指",
+      "MonsterName": "钳虫",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁皮指环",
+      "MonsterName": "钳虫",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法手镯",
+      "MonsterName": "钳虫",
+      "掉落概率": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔力手镯",
+      "MonsterName": "钳虫",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "坚固手套",
+      "MonsterName": "钳虫",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士手镯",
+      "MonsterName": "钳虫",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑檀手镯",
+      "MonsterName": "钳虫",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "夏普儿手镯",
+      "MonsterName": "钳虫",
+      "掉落概率": 3000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "辟邪手镯",
+      "MonsterName": "钳虫",
+      "掉落概率": 5000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金手镯",
+      "MonsterName": "钳虫",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "桃木手镯",
+      "MonsterName": "钳虫",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤手镯",
+      "MonsterName": "钳虫",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "钳虫",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "破魂",
+      "MonsterName": "钳虫",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "罗刹",
+      "MonsterName": "钳虫",
+      "掉落概率": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "偃月",
+      "MonsterName": "钳虫",
+      "掉落概率": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "降魔",
+      "MonsterName": "钳虫",
+      "掉落概率": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "斩马刀",
+      "MonsterName": "钳虫",
+      "掉落概率": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "冰月戟",
+      "MonsterName": "钳虫",
+      "掉落概率": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁胎弓",
+      "MonsterName": "钳虫",
+      "掉落概率": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "百炼枪",
+      "MonsterName": "钳虫",
+      "掉落概率": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "修罗",
+      "MonsterName": "钳虫",
+      "掉落概率": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凝霜",
+      "MonsterName": "钳虫",
+      "掉落概率": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅头盔",
+      "MonsterName": "钳虫",
+      "掉落概率": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士头盔",
+      "MonsterName": "钳虫",
+      "掉落概率": 900,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "钳虫",
+      "掉落概率": 5,
+      "MinAmount": 500,
+      "MaxAmount": 600
+    },
+    {
+      "Name": "强效金创药",
+      "MonsterName": "钳虫",
+      "掉落概率": 8,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "钳虫",
+      "掉落概率": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效太阳水",
+      "MonsterName": "钳虫",
+      "掉落概率": 125,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

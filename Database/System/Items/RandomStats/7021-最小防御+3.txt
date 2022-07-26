@@ -1,0 +1,7 @@
+{
+  "Stat": "MinDef",
+  "Value": 3,
+  "StatId": 7021,
+  "CombatBonus": 30,
+  "StatDescription": "最小防御+3"
+}

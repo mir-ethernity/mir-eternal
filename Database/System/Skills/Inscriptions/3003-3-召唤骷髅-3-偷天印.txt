@@ -1,0 +1,28 @@
+{
+  "SkillName": "召唤骷髅-3-偷天印",
+  "Race": "道士",
+  "SkillId": 3003,
+  "Id": 3,
+  "Quality": 7,
+  "Probability": 5,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "ExcaHg==",
+  "MinSkillExp": [
+    200,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "召唤骷髅-3-偷天印-主体技能"
+  ],
+  "SwitchSkills": []
+}

@@ -1,0 +1,13 @@
+{
+  "Name": "豪杰灵石宝盒",
+  "Id": 1500824,
+  "ItemLast": 1,
+  "Weight": 1,
+  "Level": 1,
+  "NeedLevel": 1,
+  "IsBound": true,
+  "ValuableObjects": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠"
+}

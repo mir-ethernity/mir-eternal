@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 8463,
+  "FromMapId": 143,
+  "FromMapName": "比奇省",
+  "FromCoords": "815, 254",
+  "Direction": "右下",
+  "RegionName": "比奇省-夏二丫(815,254)"
+}

@@ -1,0 +1,165 @@
+{
+  "Name": "生铁戒指",
+  "Id": 99930006,
+  "ItemLast": 5,
+  "Weight": 1,
+  "Level": 14,
+  "SalePrice": 1500,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "戒指",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "NeedMagic": 9,
+  "BasicPowerCombat": 28,
+  "MaxMagic": 1,
+  "MaxDef": 2,
+  "CanRepair": true,
+  "RepairCost": 900,
+  "SpecialRepairCost": 4500,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "游熊",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "鬼尸僵尸",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "山洞蝙蝠",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "半兽人战士",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "爬行僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "佝偻僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "直立僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "和尚僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "腐血僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "利爪僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "蜈蚣",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "巨型蠕虫",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "跳跳蜂",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "毒虫",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "道士僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "暗黑战士",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "巨型多角虫",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "魔化巨虫",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

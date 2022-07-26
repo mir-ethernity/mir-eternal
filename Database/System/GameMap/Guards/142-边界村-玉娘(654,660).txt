@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6680,
+  "FromMapId": 142,
+  "FromMapName": "边界村",
+  "FromCoords": "654, 660",
+  "Direction": "左下",
+  "RegionName": "边界村-玉娘(654,660)"
+}

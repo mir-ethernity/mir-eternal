@@ -1,0 +1,87 @@
+{
+  "Name": "圣言术",
+  "Id": 32547,
+  "ItemLast": 10,
+  "Weight": 1,
+  "NeedLevel": 32,
+  "SalePrice": 5000,
+  "AdditionalSkill": 2547,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "技能书籍",
+  "NeedRace": "法师",
+  "PersistType": "堆叠",
+  "StoreType": "书籍",
+  "物品掉落列表": [
+    {
+      "Name": "圣言术",
+      "MonsterName": "邪恶钳虫",
+      "掉落概率": 100,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣言术",
+      "MonsterName": "白野猪",
+      "掉落概率": 100,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣言术",
+      "MonsterName": "虹魔猪卫",
+      "掉落概率": 100,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣言术",
+      "MonsterName": "虹魔蝎卫",
+      "掉落概率": 100,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣言术",
+      "MonsterName": "沃玛卫士",
+      "掉落概率": 100,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣言术",
+      "MonsterName": "尸王",
+      "掉落概率": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣言术",
+      "MonsterName": "沃玛教主",
+      "掉落概率": 25,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣言术",
+      "MonsterName": "触龙神",
+      "掉落概率": 25,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣言术",
+      "MonsterName": "虹魔教主",
+      "掉落概率": 25,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣言术",
+      "MonsterName": "祖玛教主",
+      "掉落概率": 25,
+      "最小数量": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

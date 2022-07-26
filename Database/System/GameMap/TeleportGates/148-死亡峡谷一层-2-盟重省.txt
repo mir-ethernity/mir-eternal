@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 2,
+  "FromMapId": 148,
+  "ToMapId": 147,
+  "TeleportGateName": "盟重省",
+  "FromMapName": "死亡峡谷一层",
+  "ToMapName": "盟重省",
+  "FromMapFile": "MirDg01",
+  "ToMapFile": "MirPb01",
+  "FromCoords": "1315, 553",
+  "ToCoords": "1208, 722"
+}

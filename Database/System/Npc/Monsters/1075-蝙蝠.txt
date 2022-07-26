@@ -1,0 +1,71 @@
+{
+  "MonsterName": "蝙蝠",
+  "Id": 1075,
+  "Level": 5,
+  "Race": "ZergCreature",
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "MoveInterval": 125,
+  "RoamInterval": 15000,
+  "CorpsePreservationDuration": 10000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 5,
+  "HateTime": 15000,
+  "NormalAttackSkills": "电脑-蝙蝠NormalAttackSkills",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 3
+    },
+    {
+      "Stat": "体力恢复"
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 13
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 8
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack"
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 22
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef"
+    },
+    {
+      "Stat": "MaxDef"
+    },
+    {
+      "Stat": "MinMagicDef"
+    },
+    {
+      "Stat": "MaxMagicDef"
+    }
+  ],
+  "ProvideExperience": 5,
+  "Drops": []
+}

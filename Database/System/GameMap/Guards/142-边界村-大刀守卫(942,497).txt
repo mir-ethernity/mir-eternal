@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6734,
+  "FromMapId": 142,
+  "FromMapName": "边界村",
+  "FromCoords": "942, 497",
+  "Direction": "左上",
+  "RegionName": "边界村-大刀守卫(942,497)"
+}

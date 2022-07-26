@@ -1,0 +1,29 @@
+{
+  "SkillName": "狂飙突刺-3-白衣印",
+  "Race": "龙枪",
+  "SkillId": 1204,
+  "Id": 3,
+  "SkillCount": 2,
+  "PeriodCount": 9999,
+  "Quality": 2,
+  "Probability": 80,
+  "MinPlayerLevel": "GBseIQ==",
+  "MinSkillExp": [
+    400,
+    800,
+    1200,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "狂飙突刺-3-白衣印-主体技能"
+  ],
+  "SwitchSkills": []
+}

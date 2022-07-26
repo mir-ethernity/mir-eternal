@@ -1,0 +1,26 @@
+{
+  "SkillName": "二连射击-2-驱魔印",
+  "Race": "弓手",
+  "SkillId": 2043,
+  "Id": 2,
+  "PassiveSkill": true,
+  "Quality": 5,
+  "Probability": 15,
+  "MinPlayerLevel": "EBMWGQ==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [],
+  "SwitchSkills": []
+}

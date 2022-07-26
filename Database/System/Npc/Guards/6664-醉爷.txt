@@ -1,0 +1,9 @@
+{
+  "Name": "醉爷",
+  "GuardNumber": 6664,
+  "Level": 99,
+  "RangeHate": 8,
+  "BasicAttackSkills": "",
+  "StoreId": 5,
+  "InterfaceCode": "Shop"
+}

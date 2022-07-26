@@ -1,0 +1,49 @@
+{
+  "SkillName": "法师火墙-2-真红印-主动伤害",
+  "Race": "法师",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 25340,
+  "BindingLevelId": 2534,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "技能闪避方式": "可被MagicDodge",
+      "技能命中反馈": "后仰",
+      "放空结束技能": true,
+      "补发释放通知": true,
+      "技能命中通知": true,
+      "限定命中数量": 1,
+      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
+      "限定目标关系": "Hostility",
+      "清除状态列表": []
+    },
+    "1": {
+      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Magic",
+      "技能伤害基数": [
+        6,
+        9,
+        12,
+        15
+      ],
+      "技能伤害系数": [
+        0.8,
+        0.9,
+        1,
+        1.1
+      ],
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    }
+  }
+}

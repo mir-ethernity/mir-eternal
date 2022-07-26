@@ -1,0 +1,27 @@
+{
+  "SkillName": "瞬息移动-1-空行印",
+  "Race": "法师",
+  "SkillId": 2538,
+  "Id": 1,
+  "Quality": 1,
+  "Probability": 100,
+  "MinPlayerLevel": "ExYZHA==",
+  "MinSkillExp": [
+    100,
+    200,
+    400,
+    0
+  ],
+  "SkillCombatBonus": [
+    5,
+    7,
+    10,
+    13
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "瞬息移动-1-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

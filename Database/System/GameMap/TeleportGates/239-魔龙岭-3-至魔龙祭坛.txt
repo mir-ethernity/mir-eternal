@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 3,
+  "FromMapId": 239,
+  "ToMapId": 236,
+  "TeleportGateName": "至魔龙祭坛",
+  "FromMapName": "魔龙岭",
+  "ToMapName": "魔龙祭坛",
+  "FromMapFile": "MirDg12_8",
+  "ToMapFile": "MirDg12_5",
+  "FromCoords": "1188, 318",
+  "ToCoords": "956, 236"
+}

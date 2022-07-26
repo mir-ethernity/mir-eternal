@@ -1,0 +1,6 @@
+{
+  "Name": "游吟诗人",
+  "GuardNumber": 6252,
+  "Level": 99,
+  "RangeHate": 8
+}

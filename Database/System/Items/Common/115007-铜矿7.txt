@@ -1,0 +1,14 @@
+{
+  "Name": "铜矿7",
+  "Id": 115007,
+  "ItemLast": 7,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 18,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}

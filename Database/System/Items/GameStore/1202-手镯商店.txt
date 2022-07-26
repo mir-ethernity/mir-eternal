@@ -1,0 +1,85 @@
+{
+  "StoreId": 1202,
+  "Name": "手镯商店",
+  "RecyclingType": "首饰",
+  "Products": [
+    {
+      "Id": 99940002,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1000
+    },
+    {
+      "Id": 99940003,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1500
+    },
+    {
+      "Id": 99940001,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 800
+    },
+    {
+      "Id": 99940005,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 2000
+    },
+    {
+      "Id": 99940017,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1500
+    },
+    {
+      "Id": 99940004,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 5000
+    },
+    {
+      "Id": 99940018,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 7000
+    },
+    {
+      "Id": 99940027,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 8000
+    },
+    {
+      "Id": 99940009,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 7000
+    },
+    {
+      "Id": 99940007,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 4000
+    },
+    {
+      "Id": 99940008,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 4000
+    },
+    {
+      "Id": 99940036,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 7000
+    },
+    {
+      "Id": 99940071,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 7000
+    }
+  ]
+}

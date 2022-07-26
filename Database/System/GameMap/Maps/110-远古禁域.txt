@@ -1,0 +1,9 @@
+{
+  "MapId": 110,
+  "MapName": "远古禁域",
+  "MapFile": "MirDg23",
+  "TerrainFile": "0110-AncientForbiddenRealm",
+  "LimitPlayers": 9999,
+  "MinLevel": 45,
+  "LimitInstances": 1
+}

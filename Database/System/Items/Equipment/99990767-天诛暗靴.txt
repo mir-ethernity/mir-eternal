@@ -1,0 +1,60 @@
+{
+  "Name": "天诛暗靴",
+  "Id": 99990767,
+  "ItemLast": 6,
+  "Weight": 1,
+  "Level": 50,
+  "SalePrice": 30000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "鞋子",
+  "NeedRace": "龙枪",
+  "PersistType": "装备",
+  "StoreType": "服装",
+  "NeedAttack": 42,
+  "BasicPowerCombat": 102,
+  "MinAttack": 1,
+  "MaxDef": 2,
+  "MaxMagicDef": 1,
+  "CanRepair": true,
+  "RepairCost": 18000,
+  "SpecialRepairCost": 90000,
+  "能否打孔": true,
+  "PunchUpperLimit": 2,
+  "CostPerHole": 30,
+  "TwoHoleCost": 60,
+  "铭文职业": "通用",
+  "打孔职业": "龙枪",
+  "EquipSet": "魔龙装备",
+  "物品掉落列表": [
+    {
+      "Name": "天诛暗靴",
+      "MonsterName": "血手",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天诛暗靴",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天诛暗靴",
+      "MonsterName": "牛魔王",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天诛暗靴",
+      "MonsterName": "魔龙教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

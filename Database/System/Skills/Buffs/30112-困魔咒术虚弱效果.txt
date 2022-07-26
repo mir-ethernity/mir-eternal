@@ -1,0 +1,47 @@
+{
+  "Name": "困魔咒术虚弱效果",
+  "Id": 30112,
+  "ActionType": "Debuff",
+  "OverlayType": "SimilarReplacement",
+  "Effect": "DamageIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 3011,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 8000,
+  "ProcessDelay": 8000,
+  "Duration": 8000,
+  "RequireBuff": [],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "HowJudgeEffect": "ActiveAttackDamageReduction",
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

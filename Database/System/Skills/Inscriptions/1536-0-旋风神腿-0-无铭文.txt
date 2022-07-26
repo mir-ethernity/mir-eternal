@@ -1,0 +1,25 @@
+{
+  "SkillName": "旋风神腿-0-无铭文",
+  "Race": "刺客",
+  "SkillId": 1536,
+  "MinPlayerLevel": "ICMmKQ==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "旋风神腿-0-全铭文-制约主体",
+    "旋风神腿-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

@@ -1,0 +1,8 @@
+{
+  "Name": "勇者商人",
+  "GuardNumber": 6994,
+  "Level": 99,
+  "RangeHate": 8,
+  "StoreId": 6997,
+  "InterfaceCode": "Shop"
+}

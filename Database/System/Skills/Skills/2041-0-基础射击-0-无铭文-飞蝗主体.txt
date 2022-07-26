@@ -1,0 +1,104 @@
+{
+  "SkillName": "基础射击-0-无铭文-飞蝗主体",
+  "Race": "弓手",
+  "OwnSkillId": 2041,
+  "BindingLevelId": 2041,
+  "CalculateTriggerProbability": 0.2,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "CheckOccupationalWeapons": true,
+  "NeedConsumeMagic": [],
+  "NeedConsumeItems": [
+    40202,
+    40201
+  ],
+  "NeedConsumeItemsQuantity": 1,
+  "GearDeductionPoints": 1,
+  "ValidateLearnedSkills": 2042,
+  "VerficationSkillInscription": 3,
+  "Nodes": {
+    "0": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 1400,
+      "角色忙绿时间": 500
+    },
+    "500": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "角色硬直时间": 1400,
+      "禁止行走时间": 875,
+      "禁止奔跑时间": 650
+    },
+    "600": {
+      "$type": "A_00_触发SubSkills, Assembly-CSharp",
+      "技能触发方式": "锚点位置绝对触发",
+      "触发SkillName": "基础射击-0-无铭文-飞蝗子类"
+    },
+    "688": {
+      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "MaxDistance": 8,
+      "技能最近距离": 1
+    },
+    "699": {
+      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定目标",
+      "限定命中数量": 1,
+      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
+      "限定目标关系": "Hostility",
+      "清除状态列表": []
+    },
+    "700": {
+      "$type": "A_00_触发SubSkills, Assembly-CSharp",
+      "技能触发方式": "目标命中绝对触发",
+      "触发SkillName": "二连射击-0-无铭文-主体技能",
+      "CalculateTriggerProbability": true,
+      "技能触发概率": 0.2,
+      "增加概率Buff": 20431,
+      "Buff增加系数": 1,
+      "验证铭文技能": true,
+      "所需Id": 20430,
+      "同组铭文无效": true
+    },
+    "701": {
+      "$type": "A_00_触发SubSkills, Assembly-CSharp",
+      "技能触发方式": "目标命中绝对触发",
+      "触发SkillName": "二连射击-1-冰羽印-主体技能",
+      "CalculateTriggerProbability": true,
+      "技能触发概率": 0.2,
+      "增加概率Buff": 20431,
+      "Buff增加系数": 1,
+      "验证铭文技能": true,
+      "所需Id": 20431,
+      "同组铭文无效": true
+    },
+    "702": {
+      "$type": "A_00_触发SubSkills, Assembly-CSharp",
+      "技能触发方式": "目标命中绝对触发",
+      "触发SkillName": "二连射击-2-驱魔印-主体技能",
+      "CalculateTriggerProbability": true,
+      "技能触发概率": 0.3,
+      "增加概率Buff": 20431,
+      "Buff增加系数": 1,
+      "验证铭文技能": true,
+      "所需Id": 20432,
+      "同组铭文无效": true
+    },
+    "703": {
+      "$type": "A_00_触发SubSkills, Assembly-CSharp",
+      "技能触发方式": "目标命中绝对触发",
+      "触发SkillName": "二连射击-3-双刑印-主体技能",
+      "CalculateTriggerProbability": true,
+      "技能触发概率": 0.2,
+      "增加概率Buff": 20431,
+      "Buff增加系数": 1,
+      "验证铭文技能": true,
+      "所需Id": 20433,
+      "同组铭文无效": true
+    },
+    "1400": {
+      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+    }
+  }
+}

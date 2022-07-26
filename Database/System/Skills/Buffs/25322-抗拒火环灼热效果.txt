@@ -1,0 +1,47 @@
+{
+  "Name": "抗拒火环灼热效果",
+  "Id": 25322,
+  "ActionType": "Debuff",
+  "Effect": "DamageIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 2532,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 10000,
+  "Duration": 10000,
+  "RequireBuff": [],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "EffectRemoved": true,
+  "HowJudgeEffect": "PassiveInjuryIncrease",
+  "EffectJudgeType": "SourceMagicDamage",
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    7,
+    8,
+    9,
+    10
+  ],
+  "DamageIncOrDecFactor": [
+    0.1,
+    0.1,
+    0.2,
+    0.2
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

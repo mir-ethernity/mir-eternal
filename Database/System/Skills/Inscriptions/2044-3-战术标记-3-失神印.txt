@@ -1,0 +1,27 @@
+{
+  "SkillName": "战术标记-3-失神印",
+  "Race": "弓手",
+  "SkillId": 2044,
+  "Id": 3,
+  "Quality": 1,
+  "Probability": 100,
+  "MinPlayerLevel": "FRgbHg==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "战术标记-3-失神印-主体技能"
+  ],
+  "SwitchSkills": []
+}

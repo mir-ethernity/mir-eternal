@@ -1,0 +1,529 @@
+{
+  "MonsterName": "钢牙蜘蛛",
+  "Id": 1094,
+  "Level": 46,
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CanBeSeducedBySkills": true,
+  "MoveInterval": 400,
+  "RoamInterval": 16000,
+  "CorpsePreservationDuration": 16000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 16000,
+  "NormalAttackSkills": "电脑-Steel Tooth SpiderBasicAttackSkills",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 800
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 10
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 8
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 18
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 18
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Value": 35
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 47
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 10
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 18
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Value": 25
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Value": 38
+    }
+  ],
+  "Grows": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Level0": 800,
+      "Level1": 860,
+      "Level2": 920,
+      "Level3": 985,
+      "Level4": 1050,
+      "Level5": 1120,
+      "Level6": 1190,
+      "Level7": 1265
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 11,
+      "Level4": 11,
+      "Level5": 12,
+      "Level6": 12,
+      "Level7": 12
+    },
+    {
+      "Stat": "行走速度",
+      "Level0": 8,
+      "Level1": 8,
+      "Level2": 8,
+      "Level3": 8,
+      "Level4": 8,
+      "Level5": 8,
+      "Level6": 8,
+      "Level7": 8
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 6,
+      "Level1": 6,
+      "Level2": 6,
+      "Level3": 6,
+      "Level4": 6,
+      "Level5": 6,
+      "Level6": 6,
+      "Level7": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 18,
+      "Level1": 18,
+      "Level2": 18,
+      "Level3": 19,
+      "Level4": 19,
+      "Level5": 20,
+      "Level6": 20,
+      "Level7": 20
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 18,
+      "Level1": 18,
+      "Level2": 18,
+      "Level3": 19,
+      "Level4": 19,
+      "Level5": 20,
+      "Level6": 20,
+      "Level7": 20
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Level0": 35,
+      "Level1": 35,
+      "Level2": 35,
+      "Level3": 35,
+      "Level4": 35,
+      "Level5": 35,
+      "Level6": 35,
+      "Level7": 35
+    },
+    {
+      "Stat": "MaxAttack",
+      "Level0": 47,
+      "Level1": 48,
+      "Level2": 49,
+      "Level3": 50,
+      "Level4": 51,
+      "Level5": 52,
+      "Level6": 53,
+      "Level7": 54
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 10,
+      "Level4": 10,
+      "Level5": 10,
+      "Level6": 10,
+      "Level7": 10
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 18,
+      "Level1": 19,
+      "Level2": 20,
+      "Level3": 21,
+      "Level4": 22,
+      "Level5": 23,
+      "Level6": 24,
+      "Level7": 25
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Level0": 25,
+      "Level1": 25,
+      "Level2": 25,
+      "Level3": 25,
+      "Level4": 25,
+      "Level5": 25,
+      "Level6": 25,
+      "Level7": 25
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Level0": 38,
+      "Level1": 39,
+      "Level2": 40,
+      "Level3": 41,
+      "Level4": 42,
+      "Level5": 43,
+      "Level6": 44,
+      "Level7": 45
+    }
+  ],
+  "ProvideExperience": 680,
+  "Drops": [
+    {
+      "Name": "重盔甲(男)",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(男)",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(男)",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(男)",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(男)",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(男)",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "重盔甲(女)",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(女)",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(女)",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(女)",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(女)",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(女)",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽皮腰带",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁腰带",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 1600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "鹿皮靴",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 1600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵项链",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生命项链",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天珠项链",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影项链",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "降妖除魔戒指",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铂金戒指",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "红宝石戒指",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙之戒指",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影戒指",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼首戒指",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "死神手套",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "思贝儿手镯",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "心灵手镯",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵手套",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影手镯",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狮纹手镯",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔杖",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "炼狱",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "银蛇",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "追魂",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "双环战弓",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蛇牙枪",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅头盔",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士头盔",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 5,
+      "MinAmount": 800,
+      "MaxAmount": 2000
+    },
+    {
+      "Name": "强效金创药",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 6,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效太阳水",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

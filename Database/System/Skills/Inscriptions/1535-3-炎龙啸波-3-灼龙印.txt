@@ -1,0 +1,30 @@
+{
+  "SkillName": "炎龙啸波-3-灼龙印",
+  "Race": "刺客",
+  "SkillId": 1535,
+  "Id": 3,
+  "PassiveSkill": true,
+  "Quality": 3,
+  "Probability": 60,
+  "MinPlayerLevel": "HiEkJw==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1931
+  ],
+  "MainSkills": [
+    "炎龙啸波-3-灼龙印-主体技能"
+  ],
+  "SwitchSkills": []
+}

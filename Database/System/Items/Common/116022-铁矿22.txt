@@ -1,0 +1,14 @@
+{
+  "Name": "铁矿22",
+  "Id": 116022,
+  "ItemLast": 22,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 132,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}

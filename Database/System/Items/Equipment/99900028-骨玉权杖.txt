@@ -1,0 +1,125 @@
+{
+  "Name": "骨玉权杖",
+  "Id": 99900028,
+  "ItemLast": 18,
+  "Weight": 20,
+  "Level": 37,
+  "NeedLevel": 35,
+  "SalePrice": 25000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "武器",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "武器",
+  "BasicPowerCombat": 320,
+  "MinAttack": 6,
+  "MaxAttack": 12,
+  "MinMagic": 2,
+  "MaxMagic": 6,
+  "CanRepair": true,
+  "RepairCost": 15000,
+  "SpecialRepairCost": 75000,
+  "勇者试炼": true,
+  "试炼币数": 1500,
+  "灵魂绑点": 9,
+  "圣伤上限": 40,
+  "铭文传承": true,
+  "铭文职业": "法师",
+  "打孔职业": "通用",
+  "EquipSet": "赤月装备",
+  "物品掉落列表": [
+    {
+      "Name": "骨玉权杖",
+      "MonsterName": "毒魔",
+      "Probability": 25000,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "骨玉权杖",
+      "MonsterName": "独眼魔",
+      "Probability": 25000,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "骨玉权杖",
+      "MonsterName": "火岩魔",
+      "Probability": 25000,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "骨玉权杖",
+      "MonsterName": "双头金刚",
+      "Probability": 1000,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "骨玉权杖",
+      "MonsterName": "双头血魔",
+      "Probability": 1000,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "骨玉权杖",
+      "MonsterName": "金甲鱼人",
+      "Probability": 1000,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "骨玉权杖",
+      "MonsterName": "冥海魔神",
+      "Probability": 1000,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "骨玉权杖",
+      "MonsterName": "血手",
+      "Probability": 100,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "骨玉权杖",
+      "MonsterName": "黄泉教主",
+      "Probability": 100,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "骨玉权杖",
+      "MonsterName": "牛魔王",
+      "Probability": 100,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "骨玉权杖",
+      "MonsterName": "魔龙教主",
+      "Probability": 100,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "骨玉权杖",
+      "MonsterName": "赤月恶魔",
+      "Probability": 100,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "骨玉权杖",
+      "MonsterName": "烈焰恶魔",
+      "Probability": 100,
+      "最小数量": 1,
+      "最大数量": 1
+    }
+  ]
+}

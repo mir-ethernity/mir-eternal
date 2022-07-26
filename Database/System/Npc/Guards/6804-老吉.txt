@@ -1,0 +1,8 @@
+{
+  "Name": "老吉",
+  "GuardNumber": 6804,
+  "Level": 99,
+  "RangeHate": 8,
+  "StoreId": 35,
+  "InterfaceCode": "Shop"
+}

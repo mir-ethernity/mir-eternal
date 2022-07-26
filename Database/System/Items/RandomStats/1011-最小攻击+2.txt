@@ -1,0 +1,7 @@
+{
+  "Stat": "MinAttack",
+  "Value": 2,
+  "StatId": 1011,
+  "CombatBonus": 20,
+  "StatDescription": "最小攻击+2"
+}

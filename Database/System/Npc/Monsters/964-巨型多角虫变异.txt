@@ -1,0 +1,680 @@
+{
+  "MonsterName": "巨型多角虫变异",
+  "Id": 964,
+  "Level": 27,
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CanBeSeducedBySkills": true,
+  "BaseTemptationProbability": 0.1,
+  "MoveInterval": 200,
+  "RoamInterval": 20000,
+  "CorpsePreservationDuration": 20000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 20000,
+  "NormalAttackSkills": "电脑-Giant Polydactylus的普攻",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 900
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 6
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 18
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 20
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack"
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 65
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 10
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 19
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Value": 24
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Value": 36
+    }
+  ],
+  "Grows": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Level0": 900,
+      "Level1": 960,
+      "Level2": 1020,
+      "Level3": 1080,
+      "Level4": 1140,
+      "Level5": 1200,
+      "Level6": 1260,
+      "Level7": 1320
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 6,
+      "Level1": 7,
+      "Level2": 8,
+      "Level3": 9,
+      "Level4": 10,
+      "Level5": 11,
+      "Level6": 12,
+      "Level7": 13
+    },
+    {
+      "Stat": "行走速度",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 10,
+      "Level4": 10,
+      "Level5": 10,
+      "Level6": 10,
+      "Level7": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 6,
+      "Level1": 6,
+      "Level2": 6,
+      "Level3": 6,
+      "Level4": 6,
+      "Level5": 6,
+      "Level6": 6,
+      "Level7": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 18,
+      "Level1": 18,
+      "Level2": 18,
+      "Level3": 19,
+      "Level4": 19,
+      "Level5": 19,
+      "Level6": 19,
+      "Level7": 19
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 20,
+      "Level1": 20,
+      "Level2": 20,
+      "Level3": 21,
+      "Level4": 21,
+      "Level5": 22,
+      "Level6": 22,
+      "Level7": 22
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack"
+    },
+    {
+      "Stat": "MaxAttack",
+      "Level0": 65,
+      "Level1": 66,
+      "Level2": 67,
+      "Level3": 68,
+      "Level4": 69,
+      "Level5": 70,
+      "Level6": 71,
+      "Level7": 72
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef"
+    },
+    {
+      "Stat": "MaxDef",
+      "Level1": 1,
+      "Level2": 2,
+      "Level3": 3,
+      "Level4": 4,
+      "Level5": 5,
+      "Level6": 6,
+      "Level7": 7
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Level0": 24,
+      "Level1": 24,
+      "Level2": 24,
+      "Level3": 24,
+      "Level4": 24,
+      "Level5": 24,
+      "Level6": 24,
+      "Level7": 24
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Level0": 37,
+      "Level1": 38,
+      "Level2": 39,
+      "Level3": 40,
+      "Level4": 41,
+      "Level5": 42,
+      "Level6": 43,
+      "Level7": 44
+    }
+  ],
+  "ProvideExperience": 200,
+  "Drops": [
+    {
+      "Name": "重盔甲(男)",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(男)",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(男)",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(男)",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(男)",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(男)",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "重盔甲(女)",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(女)",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(女)",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(女)",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(女)",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(女)",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽皮腰带",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "白金项链",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "琥珀项链",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔鬼项链",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "软玉项链",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤项链",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "躲避项链",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝翡翠项链",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "竹笛",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "放大镜",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "十方项链",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狞猫项链",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色水晶戒指",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珍珠戒指",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑色水晶戒指",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蛇眼戒指",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜戒指",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤戒指",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道德戒指",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魅力戒指",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅戒指",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "翡翠戒指",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "扣弦扳指",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金戒指",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珊瑚戒指",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫玉戒指",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁皮指环",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法手镯",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔力手镯",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "坚固手套",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士手镯",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑檀手镯",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "夏普儿手镯",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 3000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "辟邪手镯",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 5000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金手镯",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "桃木手镯",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤手镯",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "破魂",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "罗刹",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "偃月",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "降魔",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "斩马刀",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "冰月戟",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁胎弓",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "百炼枪",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "修罗",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凝霜",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士头盔",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 1,
+      "MinAmount": 400,
+      "MaxAmount": 500
+    },
+    {
+      "Name": "强效金创药",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效太阳水",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

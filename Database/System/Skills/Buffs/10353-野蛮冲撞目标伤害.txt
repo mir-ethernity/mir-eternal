@@ -1,0 +1,48 @@
+{
+  "Name": "野蛮冲撞目标伤害",
+  "Id": 10353,
+  "GroupId": 10353,
+  "ActionType": "Debuff",
+  "OverlayType": "SimilarReplacement",
+  "Effect": "StatusFlag, CausesSomeDamages",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 1035,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 1001,
+  "Duration": 1000,
+  "RequireBuff": [],
+  "PlayerState": "Paralyzed",
+  "DamageType": "Sacred",
+  "DamageBase": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "StrengthenInscriptionId": 1035,
+  "StrengthenInscriptionBase": 5,
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

@@ -1,0 +1,30 @@
+{
+  "SkillName": "乾坤斗气-2-龙威印",
+  "Race": "龙枪",
+  "SkillId": 1206,
+  "Id": 2,
+  "Quality": 5,
+  "Probability": 15,
+  "MinPlayerLevel": "HiEkJw==",
+  "MinSkillExp": [
+    200,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1606
+  ],
+  "MainSkills": [
+    "乾坤游龙-2-龙威印-主体技能",
+    "乾坤狂龙-2-龙威印-主体技能"
+  ],
+  "SwitchSkills": []
+}

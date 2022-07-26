@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6664,
+  "FromMapId": 50,
+  "FromMapName": "苍月岛",
+  "FromCoords": "1182, 469",
+  "Direction": "右下",
+  "RegionName": "苍月岛-醉爷(1182,469)"
+}

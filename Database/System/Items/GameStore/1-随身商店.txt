@@ -1,0 +1,18 @@
+{
+  "StoreId": 1,
+  "Name": "随身商店",
+  "Products": [
+    {
+      "Id": 301,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 40
+    },
+    {
+      "Id": 302,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 110
+    }
+  ]
+}

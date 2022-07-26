@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 15,
+  "FromMapId": 50,
+  "ToMapId": 50,
+  "TeleportGateName": "至首饰店",
+  "FromMapName": "苍月岛",
+  "ToMapName": "苍月岛",
+  "FromMapFile": "MirPb04",
+  "ToMapFile": "MirPb04",
+  "FromCoords": "1171, 436",
+  "ToCoords": "875, 938"
+}

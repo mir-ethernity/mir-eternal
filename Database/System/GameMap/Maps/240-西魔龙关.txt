@@ -1,0 +1,8 @@
+{
+  "MapId": 240,
+  "MapName": "西魔龙关",
+  "MapFile": "MirDg12_9",
+  "TerrainFile": "0240-WestDevil'sDragonPass",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

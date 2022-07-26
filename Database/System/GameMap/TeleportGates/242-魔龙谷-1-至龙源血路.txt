@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 242,
+  "ToMapId": 243,
+  "TeleportGateName": "至龙源血路",
+  "FromMapName": "魔龙谷",
+  "ToMapName": "龙源血路",
+  "FromMapFile": "MirDg12_11",
+  "ToMapFile": "MirDg12_12",
+  "FromCoords": "1184, 510",
+  "ToCoords": "902, 350"
+}

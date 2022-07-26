@@ -1,0 +1,9 @@
+{
+  "MapId": 157,
+  "MapName": "死亡峡谷三层",
+  "MapFile": "MirDg01_1",
+  "TerrainFile": "0157-DeathCanyon3rd",
+  "LimitPlayers": 9999,
+  "MinLevel": 20,
+  "LimitInstances": 1
+}

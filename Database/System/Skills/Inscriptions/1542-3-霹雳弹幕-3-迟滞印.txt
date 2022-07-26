@@ -1,0 +1,27 @@
+{
+  "SkillName": "霹雳弹幕-3-迟滞印",
+  "Race": "刺客",
+  "SkillId": 1542,
+  "Id": 3,
+  "Quality": 5,
+  "Probability": 15,
+  "MinPlayerLevel": "EhccIQ==",
+  "MinSkillExp": [
+    400,
+    800,
+    1200,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "霹雳弹幕-3-迟滞印-主体技能"
+  ],
+  "SwitchSkills": []
+}

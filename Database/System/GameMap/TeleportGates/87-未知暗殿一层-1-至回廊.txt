@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 87,
+  "ToMapId": 87,
+  "TeleportGateName": "至回廊",
+  "FromMapName": "未知暗殿一层",
+  "ToMapName": "未知暗殿一层",
+  "FromMapFile": "MirAct25",
+  "ToMapFile": "MirAct25",
+  "FromCoords": "1042, 340",
+  "ToCoords": "1051, 349"
+}

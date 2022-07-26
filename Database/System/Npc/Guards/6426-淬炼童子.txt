@@ -1,0 +1,8 @@
+{
+  "Name": "淬炼童子",
+  "GuardNumber": 6426,
+  "Level": 99,
+  "RangeHate": 8,
+  "StoreId": 6426,
+  "InterfaceCode": "Shop"
+}

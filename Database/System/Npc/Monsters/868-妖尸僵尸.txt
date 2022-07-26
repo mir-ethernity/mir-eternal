@@ -1,0 +1,300 @@
+{
+  "MonsterName": "妖尸僵尸",
+  "Id": 868,
+  "Level": 17,
+  "Race": "Undead",
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "MoveInterval": 450,
+  "RoamInterval": 16000,
+  "CorpsePreservationDuration": 14000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 16000,
+  "NormalAttackSkills": "电脑-UpRightZombieBasicAttackSkills",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 110
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 2
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 12
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 11
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 11
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Value": 7
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 13
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef"
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 1
+    },
+    {
+      "Stat": "MinMagicDef"
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Value": 1
+    }
+  ],
+  "ProvideExperience": 100,
+  "Drops": [
+    {
+      "Name": "轻型盔甲",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "轻型盔甲(女)",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黄色水晶项链",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑檀项链",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑色水晶项链",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "白金项链",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色水晶戒指",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珍珠戒指",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑色水晶戒指",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蛇眼戒指",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜戒指",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤戒指",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁手镯",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "银手镯",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "皮制手套",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "钢手镯",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "大手镯",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "短剑",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁剑",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜斧",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "双刀",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "神臂弓",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜枪",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "海魂",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "八荒",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "半月",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 5,
+      "MinAmount": 175,
+      "MaxAmount": 325
+    },
+    {
+      "Name": "金创药(中量)",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 6,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(中量)",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "太阳水",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 20,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

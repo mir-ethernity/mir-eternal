@@ -1,0 +1,382 @@
+{
+  "ItemType": "鞋子",
+  "ExtremeProbability": 0.05,
+  "SingleProbability": 85,
+  "TwoProbability": 95,
+  "Stats": [
+    {
+      "StatId": 1001,
+      "Probability": 50,
+      "StatDescription": "最小攻击+1"
+    },
+    {
+      "StatId": 1011,
+      "Probability": 20,
+      "StatDescription": "最小攻击+2"
+    },
+    {
+      "StatId": 1021,
+      "StatDescription": "最小攻击+3"
+    },
+    {
+      "StatId": 1031,
+      "StatDescription": "最小攻击+4"
+    },
+    {
+      "StatId": 2001,
+      "Probability": 100,
+      "StatDescription": "最大攻击+1"
+    },
+    {
+      "StatId": 2011,
+      "Probability": 10,
+      "StatDescription": "最大攻击+2"
+    },
+    {
+      "StatId": 2021,
+      "Probability": 2,
+      "StatDescription": "最大攻击+3"
+    },
+    {
+      "StatId": 2031,
+      "StatDescription": "最大攻击+4"
+    },
+    {
+      "StatId": 3001,
+      "Probability": 50,
+      "StatDescription": "最小魔法+1"
+    },
+    {
+      "StatId": 3011,
+      "Probability": 20,
+      "StatDescription": "最小魔法+2"
+    },
+    {
+      "StatId": 3021,
+      "StatDescription": "最小魔法+3"
+    },
+    {
+      "StatId": 3031,
+      "StatDescription": "最小魔法+4"
+    },
+    {
+      "StatId": 4001,
+      "Probability": 100,
+      "StatDescription": "最大魔法+1"
+    },
+    {
+      "StatId": 4011,
+      "Probability": 10,
+      "StatDescription": "最大魔法+2"
+    },
+    {
+      "StatId": 4021,
+      "Probability": 2,
+      "StatDescription": "最大魔法+3"
+    },
+    {
+      "StatId": 4031,
+      "StatDescription": "最大魔法+4"
+    },
+    {
+      "StatId": 5001,
+      "Probability": 50,
+      "StatDescription": "最小道术+1"
+    },
+    {
+      "StatId": 5011,
+      "Probability": 20,
+      "StatDescription": "最小道术+2"
+    },
+    {
+      "StatId": 5021,
+      "StatDescription": "最小道术+3"
+    },
+    {
+      "StatId": 5031,
+      "StatDescription": "最小道术+4"
+    },
+    {
+      "StatId": 6001,
+      "Probability": 100,
+      "StatDescription": "最大道术+1"
+    },
+    {
+      "StatId": 6011,
+      "Probability": 10,
+      "StatDescription": "最大道术+2"
+    },
+    {
+      "StatId": 6021,
+      "Probability": 2,
+      "StatDescription": "最大道术+3"
+    },
+    {
+      "StatId": 6031,
+      "StatDescription": "最大道术+4"
+    },
+    {
+      "StatId": 7001,
+      "Probability": 50,
+      "StatDescription": "最小防御+1"
+    },
+    {
+      "StatId": 7011,
+      "Probability": 30,
+      "StatDescription": "最小防御+2"
+    },
+    {
+      "StatId": 7021,
+      "StatDescription": "最小防御+3"
+    },
+    {
+      "StatId": 7031,
+      "StatDescription": "最小防御+4"
+    },
+    {
+      "StatId": 8001,
+      "Probability": 100,
+      "StatDescription": "最大防御+1"
+    },
+    {
+      "StatId": 8011,
+      "Probability": 50,
+      "StatDescription": "最大防御+2"
+    },
+    {
+      "StatId": 8021,
+      "Probability": 20,
+      "StatDescription": "最大防御+3"
+    },
+    {
+      "StatId": 8031,
+      "StatDescription": "最大防御+4"
+    },
+    {
+      "StatId": 9001,
+      "Probability": 50,
+      "StatDescription": "最小魔防+1"
+    },
+    {
+      "StatId": 9011,
+      "Probability": 30,
+      "StatDescription": "最小魔防+2"
+    },
+    {
+      "StatId": 9021,
+      "StatDescription": "最小魔防+3"
+    },
+    {
+      "StatId": 9031,
+      "StatDescription": "最小魔防+4"
+    },
+    {
+      "StatId": 10001,
+      "Probability": 100,
+      "StatDescription": "最大魔防+1"
+    },
+    {
+      "StatId": 10011,
+      "Probability": 50,
+      "StatDescription": "最大魔防+2"
+    },
+    {
+      "StatId": 10021,
+      "Probability": 20,
+      "StatDescription": "最大魔防+3"
+    },
+    {
+      "StatId": 10031,
+      "StatDescription": "最大魔防+4"
+    },
+    {
+      "StatId": 11009,
+      "Probability": 100,
+      "StatDescription": "最大体力+5"
+    },
+    {
+      "StatId": 11019,
+      "Probability": 60,
+      "StatDescription": "最大体力+10"
+    },
+    {
+      "StatId": 11029,
+      "Probability": 30,
+      "StatDescription": "最大体力+15"
+    },
+    {
+      "StatId": 11039,
+      "Probability": 10,
+      "StatDescription": "最大体力+20"
+    },
+    {
+      "StatId": 12005,
+      "Probability": 100,
+      "StatDescription": "最大魔力+5"
+    },
+    {
+      "StatId": 12010,
+      "Probability": 60,
+      "StatDescription": "最大魔力+10"
+    },
+    {
+      "StatId": 12015,
+      "Probability": 30,
+      "StatDescription": "最大魔力+15"
+    },
+    {
+      "StatId": 12020,
+      "Probability": 10,
+      "StatDescription": "最大魔力+20"
+    },
+    {
+      "StatId": 21001,
+      "StatDescription": "物理准确+1"
+    },
+    {
+      "StatId": 21011,
+      "StatDescription": "物理准确+2"
+    },
+    {
+      "StatId": 21021,
+      "StatDescription": "物理准确+3"
+    },
+    {
+      "StatId": 21031,
+      "StatDescription": "物理准确+4"
+    },
+    {
+      "StatId": 22001,
+      "Probability": 100,
+      "StatDescription": "物理敏捷+1"
+    },
+    {
+      "StatId": 22011,
+      "Probability": 10,
+      "StatDescription": "物理敏捷+2"
+    },
+    {
+      "StatId": 22021,
+      "Probability": 2,
+      "StatDescription": "物理敏捷+3"
+    },
+    {
+      "StatId": 22031,
+      "StatDescription": "物理敏捷+4"
+    },
+    {
+      "StatId": 23013,
+      "StatDescription": "魔法闪避+5%"
+    },
+    {
+      "StatId": 23028,
+      "StatDescription": "魔法闪避+10%"
+    },
+    {
+      "StatId": 23043,
+      "StatDescription": "魔法闪避+15%"
+    },
+    {
+      "StatId": 23058,
+      "StatDescription": "魔法闪避+20%"
+    },
+    {
+      "StatId": 32001,
+      "StatDescription": "幸运等级+1"
+    },
+    {
+      "StatId": 32041,
+      "StatDescription": "幸运等级+2"
+    },
+    {
+      "StatId": 34009,
+      "StatDescription": "中毒躲避+5%"
+    },
+    {
+      "StatId": 34019,
+      "StatDescription": "中毒躲避+10%"
+    },
+    {
+      "StatId": 34029,
+      "StatDescription": "中毒躲避+15%"
+    },
+    {
+      "StatId": 34039,
+      "StatDescription": "中毒躲避+20%"
+    },
+    {
+      "StatId": 44001,
+      "Probability": 50,
+      "StatDescription": "最小刺术+1"
+    },
+    {
+      "StatId": 44011,
+      "Probability": 20,
+      "StatDescription": "最小刺术+2"
+    },
+    {
+      "StatId": 44021,
+      "StatDescription": "最小刺术+3"
+    },
+    {
+      "StatId": 44031,
+      "StatDescription": "最小刺术+4"
+    },
+    {
+      "StatId": 45001,
+      "Probability": 100,
+      "StatDescription": "最大刺术+1"
+    },
+    {
+      "StatId": 45011,
+      "Probability": 10,
+      "StatDescription": "最大刺术+2"
+    },
+    {
+      "StatId": 45021,
+      "Probability": 2,
+      "StatDescription": "最大刺术+3"
+    },
+    {
+      "StatId": 45031,
+      "StatDescription": "最大刺术+4"
+    },
+    {
+      "StatId": 46001,
+      "Probability": 50,
+      "StatDescription": "最小弓术+1"
+    },
+    {
+      "StatId": 46011,
+      "Probability": 20,
+      "StatDescription": "最小弓术+2"
+    },
+    {
+      "StatId": 46021,
+      "StatDescription": "最小弓术+3"
+    },
+    {
+      "StatId": 46031,
+      "StatDescription": "最小弓术+4"
+    },
+    {
+      "StatId": 47001,
+      "Probability": 100,
+      "StatDescription": "最大弓术+1"
+    },
+    {
+      "StatId": 47011,
+      "Probability": 10,
+      "StatDescription": "最大弓术+2"
+    },
+    {
+      "StatId": 47021,
+      "Probability": 2,
+      "StatDescription": "最大弓术+3"
+    },
+    {
+      "StatId": 47031,
+      "StatDescription": "最大弓术+4"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "SkillName": "群隐之术-0-无铭文",
+  "Race": "道士",
+  "SkillId": 3014,
+  "MinPlayerLevel": "FRkdIQ==",
+  "MinSkillExp": [
+    200,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "群隐之术-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

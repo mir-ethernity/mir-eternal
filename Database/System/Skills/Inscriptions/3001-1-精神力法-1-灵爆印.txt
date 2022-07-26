@@ -1,0 +1,35 @@
+{
+  "SkillName": "精神力法-1-灵爆印",
+  "Race": "道士",
+  "SkillId": 3001,
+  "Id": 1,
+  "PassiveSkill": true,
+  "Quality": 3,
+  "Probability": 60,
+  "MinPlayerLevel": "CQ0TFw==",
+  "MinSkillExp": [
+    100,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "StatsBonus": [
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 3,
+      "Level1": 4,
+      "Level2": 5,
+      "Level3": 6
+    }
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [],
+  "SwitchSkills": []
+}

@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 22,
+  "FromMapId": 147,
+  "ToMapId": 147,
+  "TeleportGateName": "铁匠铺",
+  "FromMapName": "盟重省",
+  "ToMapName": "盟重省",
+  "FromMapFile": "MirPb01",
+  "ToMapFile": "MirPb01",
+  "FromCoords": "932, 547",
+  "ToCoords": "661, 850"
+}

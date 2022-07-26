@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6734,
+  "FromMapId": 147,
+  "FromMapName": "盟重省",
+  "FromCoords": "897, 494",
+  "Direction": "右下",
+  "RegionName": "盟重省-大刀守卫(897,494)"
+}

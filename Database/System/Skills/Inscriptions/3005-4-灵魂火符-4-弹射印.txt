@@ -1,0 +1,27 @@
+{
+  "SkillName": "灵魂火符-4-弹射印",
+  "Race": "道士",
+  "SkillId": 3005,
+  "Id": 4,
+  "Quality": 6,
+  "Probability": 6,
+  "MinPlayerLevel": "EhUYGw==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "灵魂火符-4-弹射印-主体技能"
+  ],
+  "SwitchSkills": []
+}

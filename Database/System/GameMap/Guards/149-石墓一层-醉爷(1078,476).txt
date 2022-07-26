@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6664,
+  "FromMapId": 149,
+  "FromMapName": "石墓一层",
+  "FromCoords": "1078, 476",
+  "Direction": "右下",
+  "RegionName": "石墓一层-醉爷(1078,476)"
+}

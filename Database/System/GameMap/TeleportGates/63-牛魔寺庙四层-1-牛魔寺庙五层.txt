@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 63,
+  "ToMapId": 64,
+  "TeleportGateName": "牛魔寺庙五层",
+  "FromMapName": "牛魔寺庙四层",
+  "ToMapName": "牛魔寺庙五层",
+  "FromMapFile": "MirDg15_4",
+  "ToMapFile": "MirDg15_5",
+  "FromCoords": "766, 866",
+  "ToCoords": "1078, 284"
+}

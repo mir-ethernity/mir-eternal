@@ -1,0 +1,29 @@
+{
+  "SkillName": "法师火墙-2-真红印",
+  "Race": "法师",
+  "SkillId": 2534,
+  "Id": 2,
+  "Quality": 8,
+  "Probability": 3,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "GB0hJQ==",
+  "MinSkillExp": [
+    400,
+    800,
+    1600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "法师火墙-2-真红印-真红主体",
+    "法师火墙-2-真红印-普通主体"
+  ],
+  "SwitchSkills": []
+}

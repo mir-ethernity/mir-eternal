@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 8,
+  "FromMapId": 142,
+  "ToMapId": 142,
+  "TeleportGateName": "藏书阁",
+  "FromMapName": "边界村",
+  "ToMapName": "边界村",
+  "FromMapFile": "Mir_Pb03",
+  "ToMapFile": "Mir_Pb03",
+  "FromCoords": "921, 426",
+  "ToCoords": "631, 691"
+}

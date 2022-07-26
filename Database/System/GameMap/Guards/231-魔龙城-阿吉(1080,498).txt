@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6665,
+  "FromMapId": 231,
+  "FromMapName": "魔龙城",
+  "FromCoords": "1080, 498",
+  "Direction": "右下",
+  "RegionName": "魔龙城-阿吉(1080,498)"
+}

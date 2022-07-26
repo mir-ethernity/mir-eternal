@@ -1,0 +1,48 @@
+{
+  "Name": "野蛮冲撞冲撞标记",
+  "Id": 10355,
+  "GroupId": 10355,
+  "ActionType": "Debuff",
+  "Effect": "DamageIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 1035,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 5000,
+  "Duration": 5000,
+  "RequireBuff": [],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "EffectRemoved": true,
+  "HowJudgeEffect": "PassiveInjuryIncrease",
+  "EffectJudgeType": "SourceSkillDamage",
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.1,
+    0.15,
+    0.2,
+    0.25
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

@@ -1,0 +1,74 @@
+{
+  "Name": "逐日神威状态",
+  "Id": 10387,
+  "GroupId": 10387,
+  "Effect": "StatsIncOrDec, DamageIncOrDec",
+  "OverlayType": "SimilarReplacement",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnChangeWeaponRemove": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 1207,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 7000,
+  "ProcessDelay": 7000,
+  "Duration": 7000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "HasSpecificInscriptionDelay": true,
+  "SpecificInscriptionSkills": 10381,
+  "StatsIncOrDec": [
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 2,
+      "Level1": 3,
+      "Level2": 4,
+      "Level3": 5
+    },
+    {
+      "Stat": "MaxAttack",
+      "Level0": 15,
+      "Level1": 30,
+      "Level2": 25,
+      "Level3": 30
+    },
+    {
+      "Stat": "MinDef",
+      "Level0": 5,
+      "Level1": 8,
+      "Level2": 10,
+      "Level3": 12
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 5,
+      "Level1": 8,
+      "Level2": 10,
+      "Level3": 12
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "HowJudgeEffect": "PassiveInjuryReduction",
+  "DamageIncOrDecBase": [],
+  "DamageIncOrDecFactor": [
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

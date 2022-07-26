@@ -1,0 +1,42 @@
+{
+  "Name": "潜行术破隐击效果",
+  "Id": 15324,
+  "GroupId": 15324,
+  "Effect": "DamageIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 1532,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 6000,
+  "ProcessDelay": 6000,
+  "Duration": 6000,
+  "RequireBuff": [],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "EffectRemoved": true,
+  "EffectiveFollowedById": 15326,
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [],
+  "DamageIncOrDecFactor": [
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

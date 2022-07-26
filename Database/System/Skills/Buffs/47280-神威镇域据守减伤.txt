@@ -1,0 +1,42 @@
+{
+  "Name": "神威镇域据守减伤",
+  "Id": 47280,
+  "GroupId": 47280,
+  "OverlayType": "SimilarReplacement",
+  "Effect": "DamageIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 1207,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 6000,
+  "ProcessDelay": 6000,
+  "Duration": 6000,
+  "RequireBuff": [],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "HowJudgeEffect": "PassiveInjuryReduction",
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [],
+  "DamageIncOrDecFactor": [
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

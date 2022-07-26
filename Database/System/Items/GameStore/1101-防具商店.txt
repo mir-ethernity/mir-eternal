@@ -1,0 +1,55 @@
+{
+  "StoreId": 1101,
+  "Name": "防具商店",
+  "RecyclingType": "服装",
+  "Products": [
+    {
+      "Id": 99980113,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 120
+    },
+    {
+      "Id": 99990113,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 120
+    },
+    {
+      "Id": 99990111,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1000
+    },
+    {
+      "Id": 99980213,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 3000
+    },
+    {
+      "Id": 99990213,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 3000
+    },
+    {
+      "Id": 99990211,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 2000
+    },
+    {
+      "Id": 99980313,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 6000
+    },
+    {
+      "Id": 99990313,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 6000
+    }
+  ]
+}

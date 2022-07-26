@@ -1,0 +1,23 @@
+{
+  "SkillName": "三发散射-1-四泾印-空放触发",
+  "Race": "弓手",
+  "OwnSkillId": 20458,
+  "BindingLevelId": 2045,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "1": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

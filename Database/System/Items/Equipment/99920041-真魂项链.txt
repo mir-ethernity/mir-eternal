@@ -1,0 +1,36 @@
+{
+  "Name": "真魂项链",
+  "Id": 99920041,
+  "ItemLast": 7,
+  "Weight": 2,
+  "Level": 53,
+  "SalePrice": 60000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "项链",
+  "NeedRace": "道士",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "NeedTaoism": 30,
+  "BasicPowerCombat": 224,
+  "Minimalist": 1,
+  "GreatestTaoism": 8,
+  "MagicDodge": 2000,
+  "CanRepair": true,
+  "RepairCost": 36000,
+  "SpecialRepairCost": 180000,
+  "铭文刻印": true,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "苍月装备",
+  "物品掉落列表": [
+    {
+      "Name": "真魂项链",
+      "MonsterName": "牛魔王",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

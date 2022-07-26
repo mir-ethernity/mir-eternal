@@ -1,0 +1,9 @@
+{
+  "MapId": 213,
+  "MapName": "暗影通道二",
+  "MapFile": "Mir_Dg05_5",
+  "TerrainFile": "0213-ShadowPassage2nd",
+  "LimitPlayers": 9999,
+  "MinLevel": 25,
+  "LimitInstances": 1
+}

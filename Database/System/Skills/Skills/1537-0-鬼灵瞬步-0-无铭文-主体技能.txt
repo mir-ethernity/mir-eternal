@@ -1,0 +1,42 @@
+{
+  "SkillName": "鬼灵瞬步-0-无铭文-主体技能",
+  "Race": "刺客",
+  "OwnSkillId": 1537,
+  "GroupId": 2,
+  "BindingLevelId": 1537,
+  "CalculateTriggerProbability": 1,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    15,
+    15,
+    20,
+    25
+  ],
+  "Nodes": {
+    "1": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 30000,
+      "分组Cooldown": 30000,
+      "角色忙绿时间": 250
+    },
+    "2": {
+      "$type": "C_03_计算对象位移, Assembly-CSharp",
+      "角色ItSelf位移": true,
+      "位移增加经验": true,
+      "能否穿越障碍": true,
+      "ItSelf位移次数": "AQEBAQ==",
+      "ItSelf位移距离": "AwQFBg==",
+      "目标位移距离": "AAAAAA=="
+    },
+    "3": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true
+    },
+    "250": {
+      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+    }
+  }
+}

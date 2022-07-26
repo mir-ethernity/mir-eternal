@@ -1,0 +1,91 @@
+{
+  "SkillName": "钩镰枪法-0-全铭文-必定触发",
+  "Race": "龙枪",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 1205,
+  "BindingLevelId": 1205,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "技能锁定方式": "锁定目标",
+      "放空结束技能": true,
+      "限定命中数量": 1,
+      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
+      "限定目标关系": "Hostility",
+      "清除状态列表": []
+    },
+    "1": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "触发Id": 12050,
+      "Buff触发概率": 1,
+      "验证铭文技能": true,
+      "所需Id": 12050,
+      "同组铭文无效": true,
+      "所需Buff层数": 1,
+      "增加技能经验": true,
+      "经验SkillId": 1205
+    },
+    "2": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "触发Id": 12050,
+      "Buff触发概率": 1,
+      "验证铭文技能": true,
+      "所需Id": 12051,
+      "同组铭文无效": true,
+      "所需Buff层数": 1,
+      "增加技能经验": true,
+      "经验SkillId": 1205
+    },
+    "3": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "触发Id": 12051,
+      "Buff触发概率": 1,
+      "验证铭文技能": true,
+      "所需Id": 12052,
+      "同组铭文无效": true,
+      "所需Buff层数": 1,
+      "增加技能经验": true,
+      "经验SkillId": 1205
+    },
+    "4": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "触发Id": 12050,
+      "Buff触发概率": 1,
+      "验证铭文技能": true,
+      "所需Id": 12053,
+      "同组铭文无效": true,
+      "所需Buff层数": 1,
+      "增加技能经验": true,
+      "经验SkillId": 1205
+    },
+    "5": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "触发Id": 12050,
+      "Buff触发概率": 1,
+      "验证铭文技能": true,
+      "所需Id": 12054,
+      "同组铭文无效": true,
+      "所需Buff层数": 1,
+      "增加技能经验": true,
+      "经验SkillId": 1205
+    },
+    "6": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 12052,
+      "Buff触发概率": 1,
+      "验证铭文技能": true,
+      "所需Id": 12054,
+      "VerifyTargetBuff": true,
+      "目标Id": 12050,
+      "所需Buff层数": 5
+    }
+  }
+}

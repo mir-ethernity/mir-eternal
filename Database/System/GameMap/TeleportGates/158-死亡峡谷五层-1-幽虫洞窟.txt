@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 158,
+  "ToMapId": 210,
+  "TeleportGateName": "幽虫洞窟",
+  "FromMapName": "死亡峡谷五层",
+  "ToMapName": "幽虫洞窟",
+  "FromMapFile": "MirDg01_2",
+  "ToMapFile": "MirDg01_8",
+  "FromCoords": "1296, 652",
+  "ToCoords": "1142, 312"
+}

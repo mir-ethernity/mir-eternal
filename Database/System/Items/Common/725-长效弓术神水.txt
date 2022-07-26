@@ -1,0 +1,16 @@
+{
+  "Name": "长效弓术神水",
+  "Id": 725,
+  "ItemLast": 100,
+  "Weight": 2,
+  "NeedLevel": 1,
+  "Cooldown": 900000,
+  "SalePrice": 5000,
+  "AdditionalSkill": 4609,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用药剂",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "药品"
+}

@@ -1,0 +1,70 @@
+{
+  "Name": "中型盔甲(男)",
+  "Id": 99980313,
+  "ItemLast": 12,
+  "Weight": 12,
+  "Level": 18,
+  "NeedLevel": 16,
+  "SalePrice": 3000,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "衣服",
+  "NeedRace": "通用",
+  "NeedGender": "男性",
+  "PersistType": "装备",
+  "StoreType": "服装",
+  "BasicPowerCombat": 91,
+  "MinDef": 3,
+  "MaxDef": 5,
+  "MinMagicDef": 1,
+  "MaxMagicDef": 2,
+  "CanRepair": true,
+  "RepairCost": 1800,
+  "SpecialRepairCost": 9000,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "中型盔甲(男)",
+      "MonsterName": "爬行僵尸",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "中型盔甲(男)",
+      "MonsterName": "佝偻僵尸",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "中型盔甲(男)",
+      "MonsterName": "直立僵尸",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "中型盔甲(男)",
+      "MonsterName": "和尚僵尸",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "中型盔甲(男)",
+      "MonsterName": "腐血僵尸",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "中型盔甲(男)",
+      "MonsterName": "利爪僵尸",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 2,
+  "FromMapId": 209,
+  "ToMapId": 210,
+  "TeleportGateName": "幽虫洞窟",
+  "FromMapName": "虫巢",
+  "ToMapName": "幽虫洞窟",
+  "FromMapFile": "MirDg01_7",
+  "ToMapFile": "MirDg01_8",
+  "FromCoords": "957, 330",
+  "ToCoords": "934, 394"
+}

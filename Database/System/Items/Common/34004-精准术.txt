@@ -1,0 +1,66 @@
+{
+  "Name": "精准术",
+  "Id": 34004,
+  "ItemLast": 10,
+  "Weight": 1,
+  "NeedLevel": 9,
+  "SalePrice": 500,
+  "AdditionalSkill": 1534,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "技能书籍",
+  "NeedRace": "刺客",
+  "PersistType": "堆叠",
+  "StoreType": "书籍",
+  "物品掉落列表": [
+    {
+      "Name": "精准术",
+      "MonsterName": "爬行僵尸",
+      "掉落概率": 150,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精准术",
+      "MonsterName": "佝偻僵尸",
+      "掉落概率": 150,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精准术",
+      "MonsterName": "直立僵尸",
+      "掉落概率": 150,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精准术",
+      "MonsterName": "和尚僵尸",
+      "掉落概率": 150,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精准术",
+      "MonsterName": "腐血僵尸",
+      "掉落概率": 150,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精准术",
+      "MonsterName": "利爪僵尸",
+      "掉落概率": 150,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精准术",
+      "MonsterName": "道士僵尸",
+      "掉落概率": 150,
+      "最小数量": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

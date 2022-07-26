@@ -1,0 +1,31 @@
+{
+  "SkillName": "精准打击-0-无铭文",
+  "Race": "弓手",
+  "SkillId": 2042,
+  "MinPlayerLevel": "Cg0QEw==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "StatsBonus": [
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 4,
+      "Level1": 6,
+      "Level2": 8,
+      "Level3": 10
+    }
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [],
+  "SwitchSkills": []
+}

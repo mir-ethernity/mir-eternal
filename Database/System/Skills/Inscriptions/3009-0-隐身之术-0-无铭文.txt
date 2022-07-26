@@ -1,0 +1,24 @@
+{
+  "SkillName": "隐身之术-0-无铭文",
+  "Race": "道士",
+  "SkillId": 3009,
+  "MinPlayerLevel": "FBcaHQ==",
+  "MinSkillExp": [
+    300,
+    600,
+    900,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "隐身之术-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

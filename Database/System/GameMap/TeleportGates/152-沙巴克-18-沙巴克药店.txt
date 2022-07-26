@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 18,
+  "FromMapId": 152,
+  "ToMapId": 152,
+  "TeleportGateName": "沙巴克药店",
+  "FromMapName": "沙巴克",
+  "ToMapName": "沙巴克",
+  "FromMapFile": "MirCt01",
+  "ToMapFile": "MirCt01",
+  "FromCoords": "1018, 535",
+  "ToCoords": "512, 1013"
+}

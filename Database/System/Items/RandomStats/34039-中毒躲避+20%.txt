@@ -1,0 +1,7 @@
+{
+  "Stat": "中毒躲避",
+  "Value": 2000,
+  "StatId": 34039,
+  "CombatBonus": 40,
+  "StatDescription": "中毒躲避+20%"
+}

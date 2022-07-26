@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 58,
+  "ToMapId": 56,
+  "TeleportGateName": "至尸魔洞一层",
+  "FromMapName": "尸魔洞二层",
+  "ToMapName": "尸魔洞一层",
+  "FromMapFile": "MirDg14_3",
+  "ToMapFile": "MirDg14_1",
+  "FromCoords": "983, 146",
+  "ToCoords": "1021, 175"
+}

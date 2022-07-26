@@ -1,0 +1,9 @@
+{
+  "Name": "玉娘",
+  "GuardNumber": 6680,
+  "Level": 99,
+  "RangeHate": 8,
+  "BasicAttackSkills": "",
+  "StoreId": 1201,
+  "InterfaceCode": "Shop"
+}

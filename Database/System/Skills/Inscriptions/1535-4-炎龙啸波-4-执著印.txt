@@ -1,0 +1,31 @@
+{
+  "SkillName": "炎龙啸波-4-执著印",
+  "Race": "刺客",
+  "SkillId": 1535,
+  "Id": 4,
+  "PassiveSkill": true,
+  "Quality": 8,
+  "Probability": 1,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "HiEkJw==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1931
+  ],
+  "MainSkills": [
+    "炎龙啸波-4-执著印-主体技能"
+  ],
+  "SwitchSkills": []
+}

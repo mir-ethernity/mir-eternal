@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6663,
+  "FromMapId": 143,
+  "FromMapName": "比奇省",
+  "FromCoords": "789, 355",
+  "Direction": "右下",
+  "RegionName": "比奇省-药老(789,355)"
+}

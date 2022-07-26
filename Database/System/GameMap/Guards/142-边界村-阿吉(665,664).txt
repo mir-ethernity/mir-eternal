@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6665,
+  "FromMapId": 142,
+  "FromMapName": "边界村",
+  "FromCoords": "665, 664",
+  "Direction": "右下",
+  "RegionName": "边界村-阿吉(665,664)"
+}

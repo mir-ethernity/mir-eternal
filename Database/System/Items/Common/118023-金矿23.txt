@@ -1,0 +1,14 @@
+{
+  "Name": "金矿23",
+  "Id": 118023,
+  "ItemLast": 23,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 845,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "武器"
+}

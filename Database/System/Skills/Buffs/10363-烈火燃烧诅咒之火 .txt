@@ -1,0 +1,45 @@
+{
+  "Name": "烈火燃烧诅咒之火 ",
+  "Id": 10363,
+  "ActionType": "Debuff",
+  "Effect": "CausesSomeDamages, CreateTrap",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 1036,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 1000,
+  "Duration": 8000,
+  "RequireBuff": [],
+  "DamageType": "Burn",
+  "DamageBase": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

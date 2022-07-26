@@ -1,0 +1,7 @@
+{
+  "Stat": "GreatestTaoism",
+  "Value": 4,
+  "StatId": 6031,
+  "CombatBonus": 40,
+  "StatDescription": "最大道术+4"
+}

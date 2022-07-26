@@ -1,0 +1,27 @@
+{
+  "SkillName": "灵魂火符-3-火蛇印",
+  "Race": "道士",
+  "SkillId": 3005,
+  "Id": 3,
+  "Quality": 4,
+  "Probability": 25,
+  "MinPlayerLevel": "EhUYGw==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "灵魂火符-3-火蛇印-主体技能"
+  ],
+  "SwitchSkills": []
+}

@@ -1,0 +1,8 @@
+{
+  "MapId": 244,
+  "MapName": "魔龙血域",
+  "MapFile": "MirDg12_13",
+  "TerrainFile": "0244-Dragon'sBlood",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

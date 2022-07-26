@@ -1,0 +1,20 @@
+{
+  "Name": "法师火墙-2-真红印",
+  "Id": 25341,
+  "GroupId": 2534,
+  "BindingLevel": 2534,
+  "Duration": 20000,
+  "ExtendedDuration": true,
+  "SkillLevelDelay": true,
+  "ExtendedTimePerLevel": 4000,
+  "PlayerStatDelay": true,
+  "BoundPlayerStat": "幸运等级",
+  "StatDelayFactor": 3000,
+  "LimitMoveSteps": 255,
+  "PassiveTriggerSkill": "法师Firewall-2-真红印-被动伤害",
+  "PassiveObjectType": "玩家, 宠物, 怪物, Npcc",
+  "PassiveType": "Hostility",
+  "ActivelyTriggerSkills": "法师Firewall-2-真红印-主动伤害",
+  "ActivelyTriggerInterval": 2000,
+  "ActivelyTriggerDelay": 2000
+}

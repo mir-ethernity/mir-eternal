@@ -1,0 +1,23 @@
+{
+  "SkillName": "召唤神兽-3-灵兽印-召唤灵兽",
+  "Race": "道士",
+  "OwnSkillId": 30081,
+  "BindingLevelId": 3008,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "1": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "Name": "烈焰恶魔灼烧效果",
+  "Id": 54890,
+  "GroupId": 54890,
+  "OverlayType": "HomogeneousStacking",
+  "Effect": "CausesSomeDamages",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 5,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 2000,
+  "ProcessDelay": 2000,
+  "Duration": 20000,
+  "RequireBuff": [],
+  "DamageType": "Burn",
+  "DamageBase": [
+    10,
+    10,
+    10,
+    10
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

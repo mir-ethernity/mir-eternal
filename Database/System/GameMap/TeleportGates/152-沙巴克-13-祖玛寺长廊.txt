@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 13,
+  "FromMapId": 152,
+  "ToMapId": 175,
+  "TeleportGateName": "祖玛寺长廊",
+  "FromMapName": "沙巴克",
+  "ToMapName": "祖玛寺长廊",
+  "FromMapFile": "MirCt01",
+  "ToMapFile": "MirDg07",
+  "FromCoords": "839, 562",
+  "ToCoords": "1024, 30"
+}

@@ -1,0 +1,9 @@
+{
+  "MapId": 161,
+  "MapName": "石墓四层",
+  "MapFile": "Mir_Dg02_3",
+  "TerrainFile": "0161-StoneTomb4th",
+  "LimitPlayers": 9999,
+  "MinLevel": 25,
+  "LimitInstances": 1
+}

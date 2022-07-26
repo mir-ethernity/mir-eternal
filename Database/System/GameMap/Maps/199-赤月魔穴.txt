@@ -1,0 +1,11 @@
+{
+  "MapId": 199,
+  "MapName": "赤月魔穴",
+  "MapFile": "MirDg11_11",
+  "TerrainFile": "0199-Red Moon Demon Cave",
+  "LimitPlayers": 9999,
+  "MinLevel": 40,
+  "LimitInstances": 1,
+  "NoReconnect": true,
+  "NoReconnectMapId": 195
+}

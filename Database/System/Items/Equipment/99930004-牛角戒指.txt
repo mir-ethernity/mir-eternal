@@ -1,0 +1,95 @@
+{
+  "Name": "牛角戒指",
+  "Id": 99930004,
+  "ItemLast": 6,
+  "Weight": 1,
+  "Level": 9,
+  "NeedLevel": 9,
+  "SalePrice": 500,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "戒指",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "BasicPowerCombat": 17,
+  "MaxAttack": 1,
+  "MaxMagicDef": 1,
+  "CanRepair": true,
+  "RepairCost": 300,
+  "SpecialRepairCost": 1500,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "牛角戒指",
+      "MonsterName": "稻草人",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "牛角戒指",
+      "MonsterName": "海蟹",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "牛角戒指",
+      "MonsterName": "钉耙猫",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "牛角戒指",
+      "MonsterName": "半兽人",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "牛角戒指",
+      "MonsterName": "野狼",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "牛角戒指",
+      "MonsterName": "树妖",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "牛角戒指",
+      "MonsterName": "毒蜘蛛",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "牛角戒指",
+      "MonsterName": "盔甲虫",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "牛角戒指",
+      "MonsterName": "多角虫",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "牛角戒指",
+      "MonsterName": "腐蚀虫",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

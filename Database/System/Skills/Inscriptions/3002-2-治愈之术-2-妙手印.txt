@@ -1,0 +1,27 @@
+{
+  "SkillName": "治愈之术-2-妙手印",
+  "Race": "道士",
+  "SkillId": 3002,
+  "Id": 2,
+  "Quality": 2,
+  "Probability": 80,
+  "MinPlayerLevel": "BwsQFA==",
+  "MinSkillExp": [
+    50,
+    150,
+    300,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "治愈之术-2-妙手印-主体技能"
+  ],
+  "SwitchSkills": []
+}

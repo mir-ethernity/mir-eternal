@@ -1,0 +1,28 @@
+{
+  "SkillName": "伏波荡寇-1-泽国印",
+  "Race": "龙枪",
+  "SkillId": 1202,
+  "Id": 1,
+  "Quality": 5,
+  "Probability": 15,
+  "MinPlayerLevel": "DA8SFQ==",
+  "MinSkillExp": [
+    100,
+    300,
+    500,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "伏波荡寇-0-全铭文-制约主体",
+    "伏波荡寇-1-泽国印-主体技能"
+  ],
+  "SwitchSkills": []
+}

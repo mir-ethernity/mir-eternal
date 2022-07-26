@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 53,
+  "ToMapId": 54,
+  "TeleportGateName": "至骨魔洞四层",
+  "FromMapName": "骨魔洞三层",
+  "ToMapName": "骨魔洞四层",
+  "FromMapFile": "MirDg13_3",
+  "ToMapFile": "MirDg13_4",
+  "FromCoords": "1119, 340",
+  "ToCoords": "1104, 247"
+}

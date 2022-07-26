@@ -1,0 +1,33 @@
+{
+  "FromMapId": 80,
+  "FromMapName": "屠魔大厅",
+  "FromCoords": "919, 330",
+  "RegionName": "屠魔大厅-09波怪物",
+  "AreaRadius": 1,
+  "Spawns": [
+    {
+      "MonsterName": "红野猪",
+      "SpawnCount": 10,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "黑野猪精英",
+      "SpawnCount": 6,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "楔蛾",
+      "SpawnCount": 8,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "白野猪",
+      "SpawnCount": 2,
+      "RevivalInterval": 1
+    }
+  ],
+  "RangeCoords": [
+    "991, 287",
+    "991, 288"
+  ]
+}

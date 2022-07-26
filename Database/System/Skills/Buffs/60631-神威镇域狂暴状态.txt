@@ -1,0 +1,74 @@
+{
+  "Name": "神威镇域狂暴状态",
+  "Id": 60631,
+  "GroupId": 60631,
+  "Effect": "StatsIncOrDec, DamageIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnChangeWeaponRemove": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 1207,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 6000,
+  "ProcessDelay": 6000,
+  "Duration": 6000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "HasSpecificInscriptionDelay": true,
+  "SpecificInscriptionSkills": 12071,
+  "InscriptionExtendedTime": 4000,
+  "StatsIncOrDec": [
+    {
+      "Stat": "行走速度",
+      "Level0": -1,
+      "Level1": -1,
+      "Level2": -1,
+      "Level3": -1
+    },
+    {
+      "Stat": "奔跑速度",
+      "Level0": -3,
+      "Level1": -3,
+      "Level2": -3,
+      "Level3": -3
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 2,
+      "Level1": 3,
+      "Level2": 4,
+      "Level3": 5
+    },
+    {
+      "Stat": "MaxAttack",
+      "Level0": 15,
+      "Level1": 30,
+      "Level2": 25,
+      "Level3": 30
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "HowJudgeEffect": "PassiveInjuryReduction",
+  "DamageIncOrDecBase": [],
+  "DamageIncOrDecFactor": [
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

@@ -1,0 +1,27 @@
+{
+  "SkillName": "神威镇域-2-断喝印",
+  "Race": "龙枪",
+  "SkillId": 1207,
+  "Id": 2,
+  "Quality": 3,
+  "Probability": 60,
+  "MinPlayerLevel": "ISQnKg==",
+  "MinSkillExp": [
+    200,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "神威镇域-2-断喝印-主体技能"
+  ],
+  "SwitchSkills": []
+}

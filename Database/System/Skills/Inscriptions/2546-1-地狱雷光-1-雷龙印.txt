@@ -1,0 +1,27 @@
+{
+  "SkillName": "地狱雷光-1-雷龙印",
+  "Race": "法师",
+  "SkillId": 2546,
+  "Id": 1,
+  "Quality": 6,
+  "Probability": 6,
+  "MinPlayerLevel": "HiAiJA==",
+  "MinSkillExp": [
+    400,
+    800,
+    1200,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "地狱雷光-1-雷龙印-主体技能"
+  ],
+  "SwitchSkills": []
+}

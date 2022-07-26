@@ -1,0 +1,27 @@
+{
+  "SkillName": "困魔咒术-1-邪咒印",
+  "Race": "道士",
+  "SkillId": 3011,
+  "Id": 1,
+  "Quality": 1,
+  "Probability": 100,
+  "MinPlayerLevel": "HB4gIg==",
+  "MinSkillExp": [
+    300,
+    600,
+    1200,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "困魔咒术-1-邪咒印-主体技能"
+  ],
+  "SwitchSkills": []
+}

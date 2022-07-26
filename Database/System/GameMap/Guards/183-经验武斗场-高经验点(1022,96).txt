@@ -1,0 +1,7 @@
+{
+  "GuardNumber": 6121,
+  "FromMapId": 183,
+  "FromMapName": "经验武斗场",
+  "FromCoords": "1022, 96",
+  "RegionName": "经验武斗场-高经验点(1022,96)"
+}

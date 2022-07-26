@@ -1,0 +1,15 @@
+{
+  "Name": "金砖",
+  "Id": 80209,
+  "ItemLast": 1,
+  "Weight": 10,
+  "Level": 10,
+  "NeedLevel": 1,
+  "SalePrice": 5000000,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "宝图宝物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

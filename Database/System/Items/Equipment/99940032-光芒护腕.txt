@@ -1,0 +1,57 @@
+{
+  "Name": "光芒护腕",
+  "Id": 99940032,
+  "ItemLast": 6,
+  "Weight": 1,
+  "Level": 52,
+  "SalePrice": 50000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "手镯",
+  "NeedRace": "道士",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "NeedTaoism": 28,
+  "BasicPowerCombat": 130,
+  "Minimalist": 2,
+  "GreatestTaoism": 4,
+  "MinDef": 1,
+  "MaxDef": 3,
+  "CanRepair": true,
+  "RepairCost": 30000,
+  "SpecialRepairCost": 150000,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "魔龙装备",
+  "物品掉落列表": [
+    {
+      "Name": "光芒护腕",
+      "MonsterName": "血手",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "光芒护腕",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "光芒护腕",
+      "MonsterName": "牛魔王",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "光芒护腕",
+      "MonsterName": "魔龙教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "MapId": 237,
+  "MapName": "西林间胜地",
+  "MapFile": "MirDg12_6",
+  "TerrainFile": "0237-WestWoodsResort",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

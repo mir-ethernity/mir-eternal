@@ -1,0 +1,15 @@
+{
+  "Name": "寒冰咆哮-1-龙行印",
+  "Id": 25370,
+  "GroupId": 25370,
+  "Size": "Solid3x3",
+  "BindingLevel": 2537,
+  "AllowStacking": true,
+  "Duration": 1500,
+  "CanMove": true,
+  "MoveSpeed": 1,
+  "LimitMoveSteps": 5,
+  "MoveInCurrentDirection": true,
+  "PassiveTriggerSkill": "",
+  "ActivelyTriggerSkills": ""
+}

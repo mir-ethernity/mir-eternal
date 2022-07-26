@@ -1,0 +1,23 @@
+{
+  "Name": "血精石",
+  "Id": 99999110,
+  "ItemLast": 28000,
+  "Weight": 1,
+  "Level": 10,
+  "NeedLevel": 10,
+  "SalePrice": 100,
+  "IsBound": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "战具",
+  "NeedRace": "龙枪",
+  "PersistType": "消耗",
+  "StoreType": "杂货",
+  "BasicPowerCombat": 10,
+  "PhysicallyAccurate": 1,
+  "PhysicalAgility": 1,
+  "RepairCost": 1,
+  "SpecialRepairCost": 1,
+  "铭文职业": "通用",
+  "打孔职业": "通用"
+}

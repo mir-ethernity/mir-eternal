@@ -1,0 +1,30 @@
+{
+  "SkillName": "炎龙啸波-1-游龙印",
+  "Race": "刺客",
+  "SkillId": 1535,
+  "Id": 1,
+  "PassiveSkill": true,
+  "Quality": 4,
+  "Probability": 25,
+  "MinPlayerLevel": "HiEkJw==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1931
+  ],
+  "MainSkills": [
+    "炎龙啸波-1-游龙印-主体技能"
+  ],
+  "SwitchSkills": []
+}

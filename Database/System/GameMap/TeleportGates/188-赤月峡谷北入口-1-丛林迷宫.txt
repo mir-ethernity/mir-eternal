@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 188,
+  "ToMapId": 187,
+  "TeleportGateName": "丛林迷宫",
+  "FromMapName": "赤月峡谷北入口",
+  "ToMapName": "丛林迷宫",
+  "FromMapFile": "MirDg11",
+  "ToMapFile": "MirDg10",
+  "FromCoords": "899, 236",
+  "ToCoords": "1307, 740"
+}

@@ -1,0 +1,8 @@
+{
+  "Name": "夏二丫",
+  "GuardNumber": 8463,
+  "Level": 99,
+  "RangeHate": 8,
+  "StoreId": 1202,
+  "InterfaceCode": "Shop"
+}

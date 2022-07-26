@@ -1,0 +1,31 @@
+{
+  "MonsterName": "沙巴克宫门",
+  "Id": 8618,
+  "Level": 99,
+  "Category": "Normal",
+  "ForbbidenMove": true,
+  "CorpsePreservationDuration": 60000,
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 9999
+    },
+    {
+      "Stat": "MagicDodge",
+      "Value": 10000
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Value": 99999
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Value": 99999
+    },
+    {
+      "Stat": "中毒躲避",
+      "Value": 99999
+    }
+  ],
+  "Drops": []
+}

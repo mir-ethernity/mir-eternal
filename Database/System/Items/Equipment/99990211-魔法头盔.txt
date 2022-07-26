@@ -1,0 +1,159 @@
+{
+  "Name": "魔法头盔",
+  "Id": 99990211,
+  "ItemLast": 9,
+  "Weight": 4,
+  "Level": 12,
+  "NeedLevel": 14,
+  "SalePrice": 1000,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "头盔",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "服装",
+  "BasicPowerCombat": 39,
+  "MaxDef": 1,
+  "MinMagicDef": 1,
+  "MaxMagicDef": 1,
+  "CanRepair": true,
+  "RepairCost": 600,
+  "SpecialRepairCost": 3000,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "半兽人",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "野狼",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "树妖",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "毒蜘蛛",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "盔甲虫",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "多角虫",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "腐蚀虫",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "游熊",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "鬼尸僵尸",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "山洞蝙蝠",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "半兽人战士",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "爬行僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "佝偻僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "直立僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "和尚僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "道士僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "腐血僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "利爪僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

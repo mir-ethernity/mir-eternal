@@ -1,0 +1,27 @@
+{
+  "SkillName": "灵魂火符-2-灵控印",
+  "Race": "道士",
+  "SkillId": 3005,
+  "Id": 2,
+  "Quality": 2,
+  "Probability": 80,
+  "MinPlayerLevel": "EhUYGw==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "灵魂火符-2-灵控印-主体技能"
+  ],
+  "SwitchSkills": []
+}

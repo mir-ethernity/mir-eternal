@@ -1,0 +1,70 @@
+{
+  "SkillName": "抗拒火环-0-无铭文-主体技能",
+  "Race": "法师",
+  "OwnSkillId": 2532,
+  "GroupId": 1,
+  "BindingLevelId": 2532,
+  "CalculateTriggerProbability": 1,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    2,
+    4,
+    6,
+    8
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 15337,
+      "Buff触发概率": 1,
+      "验证ItSelfBuff": true,
+      "Id": 15336,
+      "所需Buff层数": 1
+    },
+    "1": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 3000,
+      "分组Cooldown": 1000,
+      "角色忙绿时间": 625
+    },
+    "125": {
+      "$type": "C_00_计算技能锚点, Assembly-CSharp"
+    },
+    "126": {
+      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定ItSelf坐标",
+      "技能命中反馈": "后仰",
+      "技能范围类型": "Hollow3x3",
+      "技能命中通知": true,
+      "限定命中数量": 9,
+      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
+      "限定目标关系": "Hostility",
+      "清除状态列表": []
+    },
+    "127": {
+      "$type": "C_03_计算对象位移, Assembly-CSharp",
+      "ItSelf位移次数": "AAAAAA==",
+      "ItSelf位移距离": "AAAAAA==",
+      "推动目标位移": true,
+      "推动增加经验": true,
+      "推动目标概率": 1,
+      "目标位移耗时": 3,
+      "目标位移距离": "AQIDBA=="
+    },
+    "625": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "725": {
+      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+    }
+  }
+}

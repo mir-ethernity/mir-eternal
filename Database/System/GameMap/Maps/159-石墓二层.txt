@@ -1,0 +1,9 @@
+{
+  "MapId": 159,
+  "MapName": "石墓二层",
+  "MapFile": "Mir_Dg02_1",
+  "TerrainFile": "0159-StoneTomb1st",
+  "LimitPlayers": 9999,
+  "MinLevel": 25,
+  "LimitInstances": 1
+}

@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6482,
+  "FromMapId": 102,
+  "FromMapName": "白日门城",
+  "FromCoords": "964, 461",
+  "Direction": "右下",
+  "RegionName": "白日门城-白日门哨探(964,461)"
+}

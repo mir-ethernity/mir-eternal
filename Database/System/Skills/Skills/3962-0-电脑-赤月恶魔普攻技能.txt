@@ -1,0 +1,32 @@
+{
+  "SkillName": "电脑-赤月恶魔普攻技能",
+  "Race": "电脑",
+  "OwnSkillId": 3962,
+  "MaxDistance": 8,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "角色忙绿时间": 5000
+    },
+    "1": {
+      "$type": "C_00_计算技能锚点, Assembly-CSharp"
+    },
+    "875": {
+      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "技能锁定方式": "锁定锚点坐标",
+      "技能闪避方式": "可被物理闪避",
+      "技能范围类型": "Spiral15x15",
+      "限定命中数量": 20,
+      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
+      "限定目标关系": "Hostility"
+    },
+    "876": {
+      "$type": "A_00_触发SubSkills, Assembly-CSharp",
+      "技能触发方式": "目标命中绝对触发",
+      "触发SkillName": "电脑-赤月恶魔陷阱触发"
+    }
+  }
+}

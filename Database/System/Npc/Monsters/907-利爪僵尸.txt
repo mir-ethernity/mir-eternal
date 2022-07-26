@@ -1,0 +1,752 @@
+{
+  "MonsterName": "利爪僵尸",
+  "Id": 907,
+  "Level": 25,
+  "Race": "Undead",
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "MoveInterval": 375,
+  "RoamInterval": 17000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 19000,
+  "NormalAttackSkills": "电脑-UpRightZombieBasicAttackSkills",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 170
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 2
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 13
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 12
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 12
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Value": 8
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 17
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef"
+    },
+    {
+      "Stat": "MaxDef"
+    },
+    {
+      "Stat": "MinMagicDef"
+    },
+    {
+      "Stat": "MaxMagicDef"
+    }
+  ],
+  "ProvideExperience": 175,
+  "Drops": [
+    {
+      "Name": "中型盔甲(男)",
+      "MonsterName": "利爪僵尸",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "中型盔甲(女)",
+      "MonsterName": "利爪僵尸",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "白金项链",
+      "MonsterName": "利爪僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "琥珀项链",
+      "MonsterName": "利爪僵尸",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔鬼项链",
+      "MonsterName": "利爪僵尸",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "软玉项链",
+      "MonsterName": "利爪僵尸",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤项链",
+      "MonsterName": "利爪僵尸",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "利爪僵尸",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "躲避项链",
+      "MonsterName": "利爪僵尸",
+      "Probability": 5000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝翡翠项链",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "竹笛",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "放大镜",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "十方项链",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狞猫项链",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色水晶戒指",
+      "MonsterName": "利爪僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "利爪僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珍珠戒指",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑色水晶戒指",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蛇眼戒指",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜戒指",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤戒指",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道德戒指",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魅力戒指",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅戒指",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "翡翠戒指",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "扣弦扳指",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金戒指",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珊瑚戒指",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫玉戒指",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁皮指环",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法手镯",
+      "MonsterName": "利爪僵尸",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔力手镯",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "坚固手套",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士手镯",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑檀手镯",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "夏普儿手镯",
+      "MonsterName": "利爪僵尸",
+      "Probability": 5000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "辟邪手镯",
+      "MonsterName": "利爪僵尸",
+      "Probability": 5000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金手镯",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "桃木手镯",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤手镯",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "海魂",
+      "MonsterName": "利爪僵尸",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "八荒",
+      "MonsterName": "利爪僵尸",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "半月",
+      "MonsterName": "利爪僵尸",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "破魂",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "罗刹",
+      "MonsterName": "利爪僵尸",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "偃月",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "降魔",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "斩马刀",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "冰月戟",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁胎弓",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "百炼枪",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "修罗",
+      "MonsterName": "利爪僵尸",
+      "Probability": 3000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凝霜",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "利爪僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "利爪僵尸",
+      "Probability": 5,
+      "MinAmount": 300,
+      "MaxAmount": 400
+    },
+    {
+      "Name": "金创药(中量)",
+      "MonsterName": "利爪僵尸",
+      "Probability": 6,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(中量)",
+      "MonsterName": "利爪僵尸",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "太阳水",
+      "MonsterName": "利爪僵尸",
+      "Probability": 20,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "基本剑术",
+      "MonsterName": "利爪僵尸",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "攻杀剑术",
+      "MonsterName": "利爪僵尸",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺杀剑术",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "火球术",
+      "MonsterName": "利爪僵尸",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "抗拒火环",
+      "MonsterName": "利爪僵尸",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雷电术",
+      "MonsterName": "利爪僵尸",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "火墙",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "疾光电影",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "瞬息移动",
+      "MonsterName": "利爪僵尸",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "诱惑之光",
+      "MonsterName": "利爪僵尸",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "地狱火",
+      "MonsterName": "利爪僵尸",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "爆裂火焰",
+      "MonsterName": "利爪僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "大火球",
+      "MonsterName": "利爪僵尸",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精神力战法",
+      "MonsterName": "利爪僵尸",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "治愈术",
+      "MonsterName": "利爪僵尸",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "召唤骷髅",
+      "MonsterName": "利爪僵尸",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "施毒术",
+      "MonsterName": "利爪僵尸",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂火符",
+      "MonsterName": "利爪僵尸",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵盾",
+      "MonsterName": "利爪僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "神圣战甲术",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "隐身术",
+      "MonsterName": "利爪僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "集体隐身术",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "暴击术",
+      "MonsterName": "利爪僵尸",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "潜行术",
+      "MonsterName": "利爪僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "致残毒药",
+      "MonsterName": "利爪僵尸",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精准术",
+      "MonsterName": "利爪僵尸",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "鬼灵步",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "霹雳弹",
+      "MonsterName": "利爪僵尸",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "基础射击",
+      "MonsterName": "利爪僵尸",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精准打击",
+      "MonsterName": "利爪僵尸",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "二连射",
+      "MonsterName": "利爪僵尸",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "战术标记",
+      "MonsterName": "利爪僵尸",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "三发散射",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "中平枪术",
+      "MonsterName": "利爪僵尸",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "伏波荡寇",
+      "MonsterName": "利爪僵尸",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "横扫六合",
+      "MonsterName": "利爪僵尸",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狂飙突刺",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "钩镰枪法",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "SkillName": "刺客普攻-0-无铭文",
+  "Race": "刺客",
+  "SkillId": 1530,
+  "PassiveSkill": true,
+  "MinPlayerLevel": "AAAAAA==",
+  "MinSkillExp": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SkillCombatBonus": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "刺客普攻-4-乱影印-主体技能",
+    "刺客普攻-3-续战印-主体技能",
+    "刺客普攻-2-混沌印-主体技能",
+    "刺客普攻-1-审判印-主体技能",
+    "刺客普攻-0-有被动-主体技能",
+    "刺客普攻-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

@@ -1,0 +1,698 @@
+{
+  "MonsterName": "巨型多角虫",
+  "Id": 964,
+  "Level": 27,
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CanBeSeducedBySkills": true,
+  "BaseTemptationProbability": 0.2,
+  "MoveInterval": 400,
+  "RoamInterval": 15000,
+  "CorpsePreservationDuration": 15000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 16000,
+  "NormalAttackSkills": "电脑-Giant Polydactylus的普攻",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 250
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 3
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 12
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 12
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Value": 9
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 21
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 3
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 6
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Value": 5
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Value": 9
+    }
+  ],
+  "Grows": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Level0": 250,
+      "Level1": 275,
+      "Level2": 300,
+      "Level3": 330,
+      "Level4": 360,
+      "Level5": 390,
+      "Level6": 425,
+      "Level7": 460
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 3,
+      "Level1": 4,
+      "Level2": 5,
+      "Level3": 6,
+      "Level4": 7,
+      "Level5": 8,
+      "Level6": 9,
+      "Level7": 10
+    },
+    {
+      "Stat": "行走速度",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 10,
+      "Level4": 10,
+      "Level5": 10,
+      "Level6": 10,
+      "Level7": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 5,
+      "Level6": 5,
+      "Level7": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 12,
+      "Level1": 12,
+      "Level2": 12,
+      "Level3": 13,
+      "Level4": 13,
+      "Level5": 14,
+      "Level6": 14,
+      "Level7": 14
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 12,
+      "Level1": 12,
+      "Level2": 12,
+      "Level3": 13,
+      "Level4": 13,
+      "Level5": 14,
+      "Level6": 14,
+      "Level7": 14
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Level0": 9,
+      "Level1": 9,
+      "Level2": 9,
+      "Level3": 9,
+      "Level4": 9,
+      "Level5": 9,
+      "Level6": 9,
+      "Level7": 9
+    },
+    {
+      "Stat": "MaxAttack",
+      "Level0": 21,
+      "Level1": 22,
+      "Level2": 23,
+      "Level3": 24,
+      "Level4": 25,
+      "Level5": 26,
+      "Level6": 27,
+      "Level7": 28
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Level0": 3,
+      "Level1": 3,
+      "Level2": 3,
+      "Level3": 3,
+      "Level4": 3,
+      "Level5": 3,
+      "Level6": 3,
+      "Level7": 3
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 6,
+      "Level1": 7,
+      "Level2": 8,
+      "Level3": 9,
+      "Level4": 10,
+      "Level5": 11,
+      "Level6": 12,
+      "Level7": 13
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 5,
+      "Level6": 5,
+      "Level7": 5
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Level0": 9,
+      "Level1": 10,
+      "Level2": 11,
+      "Level3": 12,
+      "Level4": 13,
+      "Level5": 14,
+      "Level6": 15,
+      "Level7": 16
+    }
+  ],
+  "ProvideExperience": 200,
+  "Drops": [
+    {
+      "Name": "重盔甲(男)",
+      "MonsterName": "巨型多角虫",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(男)",
+      "MonsterName": "巨型多角虫",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(男)",
+      "MonsterName": "巨型多角虫",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(男)",
+      "MonsterName": "巨型多角虫",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(男)",
+      "MonsterName": "巨型多角虫",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(男)",
+      "MonsterName": "巨型多角虫",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "重盔甲(女)",
+      "MonsterName": "巨型多角虫",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(女)",
+      "MonsterName": "巨型多角虫",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(女)",
+      "MonsterName": "巨型多角虫",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(女)",
+      "MonsterName": "巨型多角虫",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(女)",
+      "MonsterName": "巨型多角虫",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(女)",
+      "MonsterName": "巨型多角虫",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽皮腰带",
+      "MonsterName": "巨型多角虫",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "巨型多角虫",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "白金项链",
+      "MonsterName": "巨型多角虫",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "琥珀项链",
+      "MonsterName": "巨型多角虫",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔鬼项链",
+      "MonsterName": "巨型多角虫",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "软玉项链",
+      "MonsterName": "巨型多角虫",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤项链",
+      "MonsterName": "巨型多角虫",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "巨型多角虫",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "躲避项链",
+      "MonsterName": "巨型多角虫",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝翡翠项链",
+      "MonsterName": "巨型多角虫",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "竹笛",
+      "MonsterName": "巨型多角虫",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "放大镜",
+      "MonsterName": "巨型多角虫",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "十方项链",
+      "MonsterName": "巨型多角虫",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狞猫项链",
+      "MonsterName": "巨型多角虫",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色水晶戒指",
+      "MonsterName": "巨型多角虫",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "巨型多角虫",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珍珠戒指",
+      "MonsterName": "巨型多角虫",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑色水晶戒指",
+      "MonsterName": "巨型多角虫",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蛇眼戒指",
+      "MonsterName": "巨型多角虫",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜戒指",
+      "MonsterName": "巨型多角虫",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤戒指",
+      "MonsterName": "巨型多角虫",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道德戒指",
+      "MonsterName": "巨型多角虫",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魅力戒指",
+      "MonsterName": "巨型多角虫",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅戒指",
+      "MonsterName": "巨型多角虫",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "翡翠戒指",
+      "MonsterName": "巨型多角虫",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "扣弦扳指",
+      "MonsterName": "巨型多角虫",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金戒指",
+      "MonsterName": "巨型多角虫",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珊瑚戒指",
+      "MonsterName": "巨型多角虫",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫玉戒指",
+      "MonsterName": "巨型多角虫",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁皮指环",
+      "MonsterName": "巨型多角虫",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法手镯",
+      "MonsterName": "巨型多角虫",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔力手镯",
+      "MonsterName": "巨型多角虫",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "坚固手套",
+      "MonsterName": "巨型多角虫",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士手镯",
+      "MonsterName": "巨型多角虫",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑檀手镯",
+      "MonsterName": "巨型多角虫",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "夏普儿手镯",
+      "MonsterName": "巨型多角虫",
+      "Probability": 3000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "辟邪手镯",
+      "MonsterName": "巨型多角虫",
+      "Probability": 5000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金手镯",
+      "MonsterName": "巨型多角虫",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "桃木手镯",
+      "MonsterName": "巨型多角虫",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤手镯",
+      "MonsterName": "巨型多角虫",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "巨型多角虫",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "破魂",
+      "MonsterName": "巨型多角虫",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "罗刹",
+      "MonsterName": "巨型多角虫",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "偃月",
+      "MonsterName": "巨型多角虫",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "降魔",
+      "MonsterName": "巨型多角虫",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "斩马刀",
+      "MonsterName": "巨型多角虫",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "冰月戟",
+      "MonsterName": "巨型多角虫",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁胎弓",
+      "MonsterName": "巨型多角虫",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "百炼枪",
+      "MonsterName": "巨型多角虫",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "修罗",
+      "MonsterName": "巨型多角虫",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凝霜",
+      "MonsterName": "巨型多角虫",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士头盔",
+      "MonsterName": "巨型多角虫",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "巨型多角虫",
+      "Probability": 5,
+      "MinAmount": 400,
+      "MaxAmount": 500
+    },
+    {
+      "Name": "强效金创药",
+      "MonsterName": "巨型多角虫",
+      "Probability": 6,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "巨型多角虫",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效太阳水",
+      "MonsterName": "巨型多角虫",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

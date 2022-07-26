@@ -1,0 +1,24 @@
+{
+  "SkillName": "神威镇域-0-无铭文-威字特效",
+  "Race": "龙枪",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 12072,
+  "BindingLevelId": 1207,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "1": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

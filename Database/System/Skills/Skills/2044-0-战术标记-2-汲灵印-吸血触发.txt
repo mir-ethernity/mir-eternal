@@ -1,0 +1,34 @@
+{
+  "SkillName": "战术标记-2-汲灵印-吸血触发",
+  "Race": "弓手",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 2044,
+  "BindingLevelId": 2044,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "技能锁定方式": "锁定目标",
+      "放空结束技能": true,
+      "限定命中数量": 1,
+      "限定目标类型": "玩家",
+      "限定目标关系": "Hostility",
+      "清除状态列表": []
+    },
+    "1": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 20446,
+      "Buff触发概率": 1,
+      "VerifyTargetBuff": true,
+      "目标Id": 20442,
+      "所需Buff层数": 1
+    }
+  }
+}

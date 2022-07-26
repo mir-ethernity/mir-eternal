@@ -1,0 +1,14 @@
+{
+  "Name": "黑铁矿石8",
+  "Id": 114008,
+  "ItemLast": 8,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 40,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "武器锻造",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "武器"
+}

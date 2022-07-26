@@ -1,0 +1,151 @@
+{
+  "StoreId": 5000,
+  "Name": "技能书店",
+  "RecyclingType": "书籍",
+  "Products": [
+    {
+      "Id": 31031,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 25
+    },
+    {
+      "Id": 32531,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 25
+    },
+    {
+      "Id": 33002,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 25
+    },
+    {
+      "Id": 35001,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 25
+    },
+    {
+      "Id": 36001,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 25
+    },
+    {
+      "Id": 34001,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 25
+    },
+    {
+      "Id": 33001,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 250
+    },
+    {
+      "Id": 32532,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 250
+    },
+    {
+      "Id": 34004,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 250
+    },
+    {
+      "Id": 32541,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 500
+    },
+    {
+      "Id": 33004,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 500
+    },
+    {
+      "Id": 32544,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 500
+    },
+    {
+      "Id": 32533,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 500
+    },
+    {
+      "Id": 33005,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 500
+    },
+    {
+      "Id": 35002,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 500
+    },
+    {
+      "Id": 36002,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 500
+    },
+    {
+      "Id": 34011,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 500
+    },
+    {
+      "Id": 31032,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1000
+    },
+    {
+      "Id": 32538,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1000
+    },
+    {
+      "Id": 32549,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1000
+    },
+    {
+      "Id": 33003,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1000
+    },
+    {
+      "Id": 35003,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1000
+    },
+    {
+      "Id": 36003,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1000
+    },
+    {
+      "Id": 33009,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1000
+    }
+  ]
+}

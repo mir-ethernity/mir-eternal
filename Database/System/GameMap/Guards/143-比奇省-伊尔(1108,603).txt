@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6542,
+  "FromMapId": 143,
+  "FromMapName": "比奇省",
+  "FromCoords": "1108, 603",
+  "Direction": "上方",
+  "RegionName": "比奇省-伊尔(1108,603)"
+}

@@ -1,0 +1,24 @@
+{
+  "SkillName": "神圣战甲-0-无铭文",
+  "Race": "道士",
+  "SkillId": 3007,
+  "MinPlayerLevel": "GRsdHw==",
+  "MinSkillExp": [
+    500,
+    1000,
+    1500,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "神圣战甲-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

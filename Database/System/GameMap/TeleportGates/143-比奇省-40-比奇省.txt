@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 40,
+  "FromMapId": 143,
+  "ToMapId": 143,
+  "TeleportGateName": "比奇省",
+  "FromMapName": "比奇省",
+  "ToMapName": "比奇省",
+  "FromMapFile": "Mir_Pb02",
+  "ToMapFile": "Mir_Pb02",
+  "FromCoords": "754, 296",
+  "ToCoords": "1075, 542"
+}

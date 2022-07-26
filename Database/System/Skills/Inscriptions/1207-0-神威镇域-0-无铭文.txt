@@ -1,0 +1,24 @@
+{
+  "SkillName": "神威镇域-0-无铭文",
+  "Race": "龙枪",
+  "SkillId": 1207,
+  "MinPlayerLevel": "ISQnKg==",
+  "MinSkillExp": [
+    200,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "神威镇域-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 116,
+  "ToMapId": 116,
+  "TeleportGateName": "离开避难营",
+  "FromMapName": "冰川地脉",
+  "ToMapName": "冰川地脉",
+  "FromMapFile": "MirDg27_1",
+  "ToMapFile": "MirDg27_1",
+  "FromCoords": "1179, 274",
+  "ToCoords": "1179, 263"
+}

@@ -1,0 +1,143 @@
+{
+  "Name": "避魂靴",
+  "Id": 99990617,
+  "ItemLast": 10,
+  "Weight": 2,
+  "Level": 40,
+  "NeedLevel": 35,
+  "SalePrice": 20000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "鞋子",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "服装",
+  "BasicPowerCombat": 72,
+  "MinDef": 2,
+  "MaxDef": 3,
+  "CanRepair": true,
+  "RepairCost": 12000,
+  "SpecialRepairCost": 60000,
+  "能否打孔": true,
+  "PunchUpperLimit": 2,
+  "CostPerHole": 25,
+  "TwoHoleCost": 50,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "赤月装备",
+  "物品掉落列表": [
+    {
+      "Name": "避魂靴",
+      "MonsterName": "双头金刚",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "避魂靴",
+      "MonsterName": "双头血魔",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "避魂靴",
+      "MonsterName": "魔龙鬼射",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "避魂靴",
+      "MonsterName": "魔龙力士",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "避魂靴",
+      "MonsterName": "金甲鱼人",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "避魂靴",
+      "MonsterName": "冥海魔神",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "避魂靴",
+      "MonsterName": "巨型兽人僵尸",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "避魂靴",
+      "MonsterName": "狂暴兽魂",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "避魂靴",
+      "MonsterName": "幽冥大使",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "避魂靴",
+      "MonsterName": "秘密信使",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "避魂靴",
+      "MonsterName": "血手",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "避魂靴",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "避魂靴",
+      "MonsterName": "牛魔王",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "避魂靴",
+      "MonsterName": "魔龙教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "避魂靴",
+      "MonsterName": "赤月恶魔",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "避魂靴",
+      "MonsterName": "烈焰恶魔",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "Name": "通用八秒十点破甲",
+  "Id": 15164,
+  "GroupId": 15164,
+  "ActionType": "Debuff",
+  "OverlayType": "SimilarReplacement",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 8000,
+  "ProcessDelay": 8000,
+  "Duration": 8000,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "MinDef",
+      "Level0": -10,
+      "Level1": -10,
+      "Level2": -10,
+      "Level3": -10
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": -10,
+      "Level1": -10,
+      "Level2": -10,
+      "Level3": -10
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

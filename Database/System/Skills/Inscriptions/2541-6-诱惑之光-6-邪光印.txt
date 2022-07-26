@@ -1,0 +1,27 @@
+{
+  "SkillName": "诱惑之光-6-邪光印",
+  "Race": "法师",
+  "SkillId": 2541,
+  "Id": 6,
+  "Quality": 2,
+  "Probability": 80,
+  "MinPlayerLevel": "DRIYHQ==",
+  "MinSkillExp": [
+    100,
+    200,
+    400,
+    0
+  ],
+  "SkillCombatBonus": [
+    5,
+    7,
+    10,
+    13
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "诱惑之光-6-邪光印-主体技能"
+  ],
+  "SwitchSkills": []
+}

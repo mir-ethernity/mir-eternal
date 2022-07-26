@@ -1,0 +1,25 @@
+{
+  "SkillName": "抗拒火环-0-无铭文",
+  "Race": "法师",
+  "SkillId": 2532,
+  "MinPlayerLevel": "DA8TFw==",
+  "MinSkillExp": [
+    80,
+    240,
+    400,
+    0
+  ],
+  "SkillCombatBonus": [
+    5,
+    7,
+    10,
+    13
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "抗拒火环-0-全铭文-制约主体",
+    "抗拒火环-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

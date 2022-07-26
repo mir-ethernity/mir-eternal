@@ -1,0 +1,31 @@
+{
+  "SkillName": "逐日剑法-2-神躯印",
+  "SkillId": 1038,
+  "Id": 2,
+  "Quality": 8,
+  "Probability": 25,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "LzI1OA==",
+  "MinSkillExp": [
+    100,
+    200,
+    400,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1434
+  ],
+  "MainSkills": [
+    "逐日剑法-2-神躯印-主体技能"
+  ],
+  "SwitchSkills": [
+    "逐日剑法-0-无铭文-技能开关"
+  ]
+}

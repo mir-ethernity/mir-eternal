@@ -1,0 +1,30 @@
+{
+  "FromMapId": 80,
+  "FromMapName": "屠魔大厅",
+  "FromCoords": "939, 330",
+  "RegionName": "屠魔大厅-29波怪物",
+  "AreaRadius": 1,
+  "Spawns": [
+    {
+      "MonsterName": "幽冥先锋",
+      "SpawnCount": 10,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "背誓刺客",
+      "SpawnCount": 10,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "暗影刺客",
+      "SpawnCount": 10,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "幽冥大使",
+      "SpawnCount": 2,
+      "RevivalInterval": 1
+    }
+  ],
+  "RangeCoords": []
+}

@@ -1,0 +1,33 @@
+{
+  "FromMapId": 80,
+  "FromMapName": "屠魔大厅",
+  "FromCoords": "914, 330",
+  "RegionName": "屠魔大厅-04波怪物",
+  "AreaRadius": 1,
+  "Spawns": [
+    {
+      "MonsterName": "钳虫",
+      "SpawnCount": 7,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "黑色恶蛆",
+      "SpawnCount": 7,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "钳虫",
+      "SpawnCount": 7,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "邪恶钳虫",
+      "SpawnCount": 1,
+      "RevivalInterval": 1
+    }
+  ],
+  "RangeCoords": [
+    "984, 280",
+    "984, 281"
+  ]
+}

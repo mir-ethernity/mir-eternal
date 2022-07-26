@@ -1,0 +1,9 @@
+{
+  "MapId": 158,
+  "MapName": "死亡峡谷五层",
+  "MapFile": "MirDg01_2",
+  "TerrainFile": "0158-DeathCanyon5th",
+  "LimitPlayers": 9999,
+  "MinLevel": 20,
+  "LimitInstances": 1
+}

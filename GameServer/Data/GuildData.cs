@@ -807,7 +807,7 @@ namespace GameServer.Data
 					binaryWriter.Write((byte)this.结盟行会.Count);
 					foreach (KeyValuePair<GuildData, DateTime> keyValuePair2 in this.结盟行会)
 					{
-						binaryWriter.Write(1);
+						binaryWriter.Write((byte)1);
 						binaryWriter.Write(keyValuePair2.Key.行会编号);
 						binaryWriter.Write(ComputingClass.TimeShift(keyValuePair2.Value));
 						binaryWriter.Write(keyValuePair2.Key.行会等级.V);
@@ -820,7 +820,7 @@ namespace GameServer.Data
 					binaryWriter.Write((byte)this.Hostility行会.Count);
 					foreach (KeyValuePair<GuildData, DateTime> keyValuePair3 in this.Hostility行会)
 					{
-						binaryWriter.Write(2);
+						binaryWriter.Write((byte)2);
 						binaryWriter.Write(keyValuePair3.Key.行会编号);
 						binaryWriter.Write(ComputingClass.TimeShift(keyValuePair3.Value));
 						binaryWriter.Write(keyValuePair3.Key.行会等级.V);

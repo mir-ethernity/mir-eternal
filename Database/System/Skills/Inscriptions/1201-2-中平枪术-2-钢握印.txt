@@ -1,0 +1,43 @@
+{
+  "SkillName": "中平枪术-2-钢握印",
+  "Race": "龙枪",
+  "SkillId": 1201,
+  "Id": 2,
+  "PassiveSkill": true,
+  "Quality": 7,
+  "Probability": 2,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "BwoNEA==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "StatsBonus": [
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 2,
+      "Level1": 4,
+      "Level2": 6,
+      "Level3": 8
+    },
+    {
+      "Stat": "怪物闪避",
+      "Level0": 1500,
+      "Level1": 2000,
+      "Level2": 2500,
+      "Level3": 3000
+    }
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [],
+  "SwitchSkills": []
+}

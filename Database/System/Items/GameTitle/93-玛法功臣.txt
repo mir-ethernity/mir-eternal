@@ -1,0 +1,13 @@
+{
+  "Name": "玛法功臣",
+  "Id": 93,
+  "Combat": 40,
+  "Attributes": {
+    "MaxAttack": 1,
+    "MaxMagic": 1,
+    "GreatestTaoism": 1,
+    "MaxNeedle": 1,
+    "MaxBow": 1,
+    "MaxPhysicalStrength": 5
+  }
+}

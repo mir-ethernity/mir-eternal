@@ -1,0 +1,228 @@
+{
+  "MonsterName": "海蟹",
+  "Id": 3133,
+  "Level": 8,
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "MoveInterval": 500,
+  "RoamInterval": 15000,
+  "CorpsePreservationDuration": 10000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 30000,
+  "NormalAttackSkills": "电脑-Sea CrabNormalAttackSkills",
+  "ProbabilityTriggerSkills": "",
+  "EnterCombatSkills": "",
+  "ExitCombatSkills": "",
+  "瞬移释放技能": "",
+  "复活释放技能": "",
+  "DeathReleaseSkill": "",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 23
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 1
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 6
+    },
+    {
+      "Stat": "PhysicalAgility"
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Value": 1
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 2
+    },
+    {
+      "Stat": "MinMagic",
+      "Value": 1
+    },
+    {
+      "Stat": "MaxMagic",
+      "Value": 2
+    },
+    {
+      "Stat": "MinDef"
+    },
+    {
+      "Stat": "MaxDef"
+    },
+    {
+      "Stat": "MinMagicDef"
+    },
+    {
+      "Stat": "MaxMagicDef"
+    }
+  ],
+  "InheritsStats": [],
+  "ProvideExperience": 32,
+  "Drops": [
+    {
+      "Name": "布衣(男)",
+      "MonsterName": "海蟹",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布衣(女)",
+      "MonsterName": "海蟹",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传统项链",
+      "MonsterName": "海蟹",
+      "Probability": 75,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金项链",
+      "MonsterName": "海蟹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古铜戒指",
+      "MonsterName": "海蟹",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玻璃戒指",
+      "MonsterName": "海蟹",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "六角戒指",
+      "MonsterName": "海蟹",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "牛角戒指",
+      "MonsterName": "海蟹",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "小手镯",
+      "MonsterName": "海蟹",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "柴刀",
+      "MonsterName": "海蟹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "木剑",
+      "MonsterName": "海蟹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "木弓",
+      "MonsterName": "海蟹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "木枪",
+      "MonsterName": "海蟹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "匕首",
+      "MonsterName": "海蟹",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁柴刀",
+      "MonsterName": "海蟹",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜剑",
+      "MonsterName": "海蟹",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "乌木剑",
+      "MonsterName": "海蟹",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜头盔",
+      "MonsterName": "海蟹",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "海蟹",
+      "Probability": 4,
+      "MinAmount": 115,
+      "MaxAmount": 210
+    },
+    {
+      "Name": "金创药(小量)",
+      "MonsterName": "海蟹",
+      "Probability": 6,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(小量)",
+      "MonsterName": "海蟹",
+      "Probability": 3,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

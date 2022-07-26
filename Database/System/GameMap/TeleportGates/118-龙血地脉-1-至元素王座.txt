@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 118,
+  "ToMapId": 119,
+  "TeleportGateName": "至元素王座",
+  "FromMapName": "龙血地脉",
+  "ToMapName": "元素王座",
+  "FromMapFile": "MirDg27_3",
+  "ToMapFile": "MirDg27_4",
+  "FromCoords": "1007, 199",
+  "ToCoords": "1027, 254"
+}

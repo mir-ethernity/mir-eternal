@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 124,
+  "ToMapId": 123,
+  "TeleportGateName": "至石原荒漠",
+  "FromMapName": "石原废墟",
+  "ToMapName": "石原荒漠",
+  "FromMapFile": "MirDg24_2",
+  "ToMapFile": "MirDg24_1",
+  "FromCoords": "1007, 369",
+  "ToCoords": "937, 270"
+}

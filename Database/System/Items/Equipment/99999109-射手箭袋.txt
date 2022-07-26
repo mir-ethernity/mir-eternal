@@ -1,0 +1,22 @@
+{
+  "Name": "射手箭袋",
+  "Id": 99999109,
+  "ItemLast": 13000,
+  "Weight": 1,
+  "Level": 20,
+  "NeedLevel": 20,
+  "SalePrice": 100,
+  "IsBound": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "战具",
+  "NeedRace": "弓手",
+  "PersistType": "消耗",
+  "StoreType": "杂货",
+  "BasicPowerCombat": 22,
+  "MaxBow": 2,
+  "RepairCost": 1,
+  "SpecialRepairCost": 1,
+  "铭文职业": "通用",
+  "打孔职业": "通用"
+}

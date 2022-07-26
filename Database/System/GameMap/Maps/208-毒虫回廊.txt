@@ -1,0 +1,9 @@
+{
+  "MapId": 208,
+  "MapName": "毒虫回廊",
+  "MapFile": "MirDg01_6",
+  "TerrainFile": "0208-PoisonousInsectCloister",
+  "LimitPlayers": 9999,
+  "MinLevel": 20,
+  "LimitInstances": 1
+}

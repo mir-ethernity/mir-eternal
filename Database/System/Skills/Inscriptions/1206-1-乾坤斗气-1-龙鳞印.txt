@@ -1,0 +1,60 @@
+{
+  "SkillName": "乾坤斗气-1-龙鳞印",
+  "Race": "龙枪",
+  "SkillId": 1206,
+  "Id": 1,
+  "Quality": 4,
+  "Probability": 25,
+  "MinPlayerLevel": "HiEkJw==",
+  "MinSkillExp": [
+    200,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "StatsBonus": [
+    {
+      "Stat": "MinDef",
+      "Level0": 5,
+      "Level1": 6,
+      "Level2": 7,
+      "Level3": 8
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 5,
+      "Level1": 6,
+      "Level2": 7,
+      "Level3": 8
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Level0": 5,
+      "Level1": 6,
+      "Level2": 7,
+      "Level3": 8
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Level0": 5,
+      "Level1": 6,
+      "Level2": 7,
+      "Level3": 8
+    }
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1606
+  ],
+  "MainSkills": [
+    "乾坤游龙-1-龙鳞印-主体技能",
+    "乾坤狂龙-1-龙鳞印-主体技能"
+  ],
+  "SwitchSkills": []
+}

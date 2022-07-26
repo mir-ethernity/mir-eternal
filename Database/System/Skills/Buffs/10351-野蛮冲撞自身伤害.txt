@@ -1,0 +1,47 @@
+{
+  "Name": "野蛮冲撞自身伤害",
+  "Id": 10351,
+  "GroupId": 10351,
+  "ActionType": "Debuff",
+  "OverlayType": "SimilarReplacement",
+  "Effect": "CausesSomeDamages",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 1035,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 250,
+  "Duration": 250,
+  "RequireBuff": [],
+  "DamageType": "Sacred",
+  "DamageBase": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

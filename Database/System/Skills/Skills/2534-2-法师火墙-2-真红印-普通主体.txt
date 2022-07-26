@@ -1,0 +1,48 @@
+{
+  "SkillName": "法师火墙-2-真红印-普通主体",
+  "Race": "法师",
+  "OwnSkillId": 2534,
+  "Id": 2,
+  "GroupId": 1,
+  "BindingLevelId": 2534,
+  "CalculateTriggerProbability": 1,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    40,
+    50,
+    60,
+    70
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "MaxDistance": 8
+    },
+    "1": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 1375,
+      "分组Cooldown": 1000,
+      "角色忙绿时间": 625
+    },
+    "225": {
+      "$type": "A_02_TriggerTrapSkills, Assembly-CSharp",
+      "TriggerTrapSkills": "法师Firewall-0-无铭文",
+      "NumberTrapsTriggered": "Diamond3x3",
+      "增加技能经验": true,
+      "经验SkillId": 2534
+    },
+    "625": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "725": {
+      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+    }
+  }
+}

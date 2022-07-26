@@ -1,0 +1,56 @@
+{
+  "Name": "屠龙",
+  "Id": 99900026,
+  "ItemLast": 33,
+  "Weight": 99,
+  "Level": 43,
+  "NeedLevel": 34,
+  "SalePrice": 70000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "武器",
+  "PersistType": "装备",
+  "StoreType": "武器",
+  "BasicPowerCombat": 402,
+  "MinAttack": 5,
+  "MaxAttack": 35,
+  "CanRepair": true,
+  "RepairCost": 42000,
+  "SpecialRepairCost": 210000,
+  "灵魂绑点": 9,
+  "圣伤上限": 60,
+  "铭文传承": true,
+  "打孔职业": "通用",
+  "EquipSet": "魔龙装备",
+  "物品掉落列表": [
+    {
+      "Name": "屠龙",
+      "MonsterName": "血手",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "屠龙",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "屠龙",
+      "MonsterName": "牛魔王",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "屠龙",
+      "MonsterName": "魔龙教主",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    }
+  ]
+}

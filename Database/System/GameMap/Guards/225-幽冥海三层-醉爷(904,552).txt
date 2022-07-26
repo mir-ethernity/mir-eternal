@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6664,
+  "FromMapId": 225,
+  "FromMapName": "幽冥海三层",
+  "FromCoords": "904, 552",
+  "Direction": "右上",
+  "RegionName": "幽冥海三层-醉爷(904,552)"
+}

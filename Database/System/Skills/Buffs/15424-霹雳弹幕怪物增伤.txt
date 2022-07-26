@@ -1,0 +1,44 @@
+{
+  "Name": "霹雳弹幕怪物增伤",
+  "Id": 15424,
+  "GroupId": 15424,
+  "ActionType": "Debuff",
+  "OverlayType": "SimilarReplacement",
+  "Effect": "DamageIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 1542,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 1500,
+  "ProcessDelay": 1500,
+  "Duration": 1500,
+  "RequireBuff": [],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "HowJudgeEffect": "PassiveInjuryIncrease",
+  "EffectJudgeType": "SourceSkillDamage",
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [],
+  "DamageIncOrDecFactor": [
+    0.1,
+    0.15,
+    0.2,
+    0.25
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

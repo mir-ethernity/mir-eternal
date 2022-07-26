@@ -1,0 +1,7 @@
+{
+  "Name": "陈叔",
+  "GuardNumber": 6771,
+  "Level": 99,
+  "RangeHate": 8,
+  "InterfaceCode": "WeaponRune"
+}

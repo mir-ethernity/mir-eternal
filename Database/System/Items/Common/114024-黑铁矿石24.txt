@@ -1,0 +1,14 @@
+{
+  "Name": "黑铁矿石24",
+  "Id": 114024,
+  "ItemLast": 24,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 136,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "武器锻造",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "武器"
+}

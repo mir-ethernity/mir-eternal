@@ -1,0 +1,30 @@
+{
+  "SkillName": "暴击之术-2-残像印",
+  "Race": "刺客",
+  "SkillId": 1531,
+  "Id": 2,
+  "PassiveSkill": true,
+  "Quality": 4,
+  "Probability": 25,
+  "MinPlayerLevel": "BwoNEA==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1930
+  ],
+  "MainSkills": [
+    "暴击之术-2-残像印-主体技能"
+  ],
+  "SwitchSkills": []
+}

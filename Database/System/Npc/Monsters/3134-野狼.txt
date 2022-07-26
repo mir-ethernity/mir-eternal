@@ -1,0 +1,397 @@
+{
+  "MonsterName": "野狼",
+  "Id": 3134,
+  "Level": 12,
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CanBeSeducedBySkills": true,
+  "BaseTemptationProbability": 0.25,
+  "MoveInterval": 250,
+  "RoamInterval": 15000,
+  "CorpsePreservationDuration": 10000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 3,
+  "HateTime": 30000,
+  "NormalAttackSkills": "电脑-Wild WolfNormalAttackSkills",
+  "ProbabilityTriggerSkills": "",
+  "EnterCombatSkills": "",
+  "ExitCombatSkills": "",
+  "瞬移释放技能": "",
+  "复活释放技能": "",
+  "DeathReleaseSkill": "",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 50
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 1
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 9
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 10
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Value": 2
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 6
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 1
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 2
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Value": 1
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Value": 3
+    }
+  ],
+  "Grows": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Level0": 50,
+      "Level1": 55,
+      "Level2": 60,
+      "Level3": 70,
+      "Level4": 80,
+      "Level5": 95,
+      "Level6": 110,
+      "Level7": 125
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 1,
+      "Level1": 1,
+      "Level2": 1,
+      "Level3": 2,
+      "Level4": 2,
+      "Level5": 3,
+      "Level6": 3,
+      "Level7": 3
+    },
+    {
+      "Stat": "行走速度",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 10,
+      "Level4": 10,
+      "Level5": 10,
+      "Level6": 10,
+      "Level7": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 5,
+      "Level6": 5,
+      "Level7": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 9,
+      "Level1": 9,
+      "Level2": 9,
+      "Level3": 10,
+      "Level4": 10,
+      "Level5": 11,
+      "Level6": 11,
+      "Level7": 11
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 11,
+      "Level4": 11,
+      "Level5": 12,
+      "Level6": 12,
+      "Level7": 12
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Level0": 2,
+      "Level1": 2,
+      "Level2": 2,
+      "Level3": 2,
+      "Level4": 2,
+      "Level5": 2,
+      "Level6": 2,
+      "Level7": 2
+    },
+    {
+      "Stat": "MaxAttack",
+      "Level0": 6,
+      "Level1": 6,
+      "Level2": 6,
+      "Level3": 6,
+      "Level4": 6,
+      "Level5": 6,
+      "Level6": 6,
+      "Level7": 6
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Level0": 1,
+      "Level1": 1,
+      "Level2": 1,
+      "Level3": 1,
+      "Level4": 1,
+      "Level5": 1,
+      "Level6": 1,
+      "Level7": 1
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 2,
+      "Level1": 3,
+      "Level2": 4,
+      "Level3": 5,
+      "Level4": 6,
+      "Level5": 7,
+      "Level6": 8,
+      "Level7": 9
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Level0": 1,
+      "Level1": 1,
+      "Level2": 1,
+      "Level3": 1,
+      "Level4": 1,
+      "Level5": 1,
+      "Level6": 1,
+      "Level7": 1
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Level0": 3,
+      "Level1": 4,
+      "Level2": 5,
+      "Level3": 6,
+      "Level4": 7,
+      "Level5": 8,
+      "Level6": 9,
+      "Level7": 10
+    }
+  ],
+  "InheritsStats": [],
+  "ProvideExperience": 65,
+  "Drops": [
+    {
+      "Name": "轻型盔甲",
+      "MonsterName": "野狼",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "轻型盔甲(女)",
+      "MonsterName": "野狼",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黄色水晶项链",
+      "MonsterName": "野狼",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑檀项链",
+      "MonsterName": "野狼",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑色水晶项链",
+      "MonsterName": "野狼",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古铜戒指",
+      "MonsterName": "野狼",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玻璃戒指",
+      "MonsterName": "野狼",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "六角戒指",
+      "MonsterName": "野狼",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "牛角戒指",
+      "MonsterName": "野狼",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁手镯",
+      "MonsterName": "野狼",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "银手镯",
+      "MonsterName": "野狼",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "皮制手套",
+      "MonsterName": "野狼",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "钢手镯",
+      "MonsterName": "野狼",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "大手镯",
+      "MonsterName": "野狼",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "短剑",
+      "MonsterName": "野狼",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁剑",
+      "MonsterName": "野狼",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜斧",
+      "MonsterName": "野狼",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "双刀",
+      "MonsterName": "野狼",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "神臂弓",
+      "MonsterName": "野狼",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜枪",
+      "MonsterName": "野狼",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "野狼",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "野狼",
+      "Probability": 4,
+      "MinAmount": 135,
+      "MaxAmount": 285
+    },
+    {
+      "Name": "金创药(小量)",
+      "MonsterName": "野狼",
+      "Probability": 4,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(小量)",
+      "MonsterName": "野狼",
+      "Probability": 4,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "FromMapId": 80,
+  "FromMapName": "屠魔大厅",
+  "FromCoords": "935, 330",
+  "RegionName": "屠魔大厅-25波怪物",
+  "AreaRadius": 1,
+  "Spawns": [
+    {
+      "MonsterName": "兽人祭祀",
+      "SpawnCount": 4,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "兽人僵尸",
+      "SpawnCount": 12,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "精锐狼骑兵",
+      "SpawnCount": 12,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "巨型兽人僵尸",
+      "SpawnCount": 1,
+      "RevivalInterval": 1
+    }
+  ],
+  "RangeCoords": []
+}

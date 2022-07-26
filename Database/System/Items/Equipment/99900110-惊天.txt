@@ -1,0 +1,38 @@
+{
+  "Name": "惊天",
+  "Id": 99900110,
+  "ItemLast": 32,
+  "Weight": 16,
+  "Level": 50,
+  "NeedLevel": 43,
+  "SalePrice": 200000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "武器",
+  "NeedRace": "龙枪",
+  "PersistType": "装备",
+  "StoreType": "武器",
+  "BasicPowerCombat": 512,
+  "MinAttack": 8,
+  "MaxAttack": 39,
+  "PhysicallyAccurate": 2,
+  "CanRepair": true,
+  "RepairCost": 120000,
+  "SpecialRepairCost": 600000,
+  "灵魂绑点": 9,
+  "圣伤上限": 20,
+  "铭文传承": true,
+  "铭文职业": "龙枪",
+  "打孔职业": "通用",
+  "EquipSet": "苍月装备",
+  "物品掉落列表": [
+    {
+      "Name": "惊天",
+      "MonsterName": "牛魔王",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "最大数量": 1
+    }
+  ]
+}

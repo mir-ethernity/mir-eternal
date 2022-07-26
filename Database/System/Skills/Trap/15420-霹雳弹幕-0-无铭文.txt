@@ -1,0 +1,11 @@
+{
+  "Name": "霹雳弹幕-0-无铭文",
+  "Id": 15420,
+  "GroupId": 1542,
+  "BindingLevel": 1542,
+  "Duration": 10000,
+  "LimitMoveSteps": 255,
+  "PassiveTriggerSkill": "",
+  "ActivelyTriggerSkills": "Percussion幕-0-无铭文-主动触发",
+  "ActivelyTriggerInterval": 1000
+}

@@ -1,0 +1,27 @@
+{
+  "SkillName": "隐身之术-1-空相印",
+  "Race": "道士",
+  "SkillId": 3009,
+  "Id": 1,
+  "Quality": 3,
+  "Probability": 60,
+  "MinPlayerLevel": "FBcaHQ==",
+  "MinSkillExp": [
+    300,
+    600,
+    900,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "隐身之术-1-空相印-主体技能"
+  ],
+  "SwitchSkills": []
+}

@@ -1,0 +1,104 @@
+{
+  "Name": "双刀",
+  "Id": 99900052,
+  "ItemLast": 10,
+  "Weight": 11,
+  "Level": 13,
+  "NeedLevel": 13,
+  "SalePrice": 750,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "武器",
+  "NeedRace": "刺客",
+  "PersistType": "装备",
+  "StoreType": "武器",
+  "BasicPowerCombat": 80,
+  "MinNeedle": 6,
+  "MaxNeedle": 7,
+  "CanRepair": true,
+  "RepairCost": 450,
+  "SpecialRepairCost": 2250,
+  "灵魂绑点": 9,
+  "圣伤上限": 20,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "双刀",
+      "MonsterName": "半兽人",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "双刀",
+      "MonsterName": "野狼",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "双刀",
+      "MonsterName": "树妖",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "双刀",
+      "MonsterName": "毒蜘蛛",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "双刀",
+      "MonsterName": "盔甲虫",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "双刀",
+      "MonsterName": "多角虫",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "双刀",
+      "MonsterName": "腐蚀虫",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "双刀",
+      "MonsterName": "游熊",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "双刀",
+      "MonsterName": "鬼尸僵尸",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "双刀",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "双刀",
+      "MonsterName": "山洞蝙蝠",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    }
+  ]
+}

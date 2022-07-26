@@ -1,0 +1,38 @@
+{
+  "Name": "召唤圣兽圣兽灼烧 ",
+  "Id": 60490,
+  "GroupId": 60490,
+  "OverlayType": "HomogeneousStacking",
+  "Effect": "CausesSomeDamages",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BindingSkillLevel": 3008,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 5,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 1000,
+  "Duration": 8000,
+  "RequireBuff": [],
+  "DamageType": "Burn",
+  "DamageBase": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "DamageFactor": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

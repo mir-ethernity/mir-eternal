@@ -1,0 +1,6 @@
+{
+  "Name": "阿聘",
+  "GuardNumber": 6358,
+  "Level": 99,
+  "RangeHate": 8
+}

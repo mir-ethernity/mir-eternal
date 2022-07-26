@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 221,
+  "ToMapId": 222,
+  "TeleportGateName": "幽闭通道四",
+  "FromMapName": "幽闭通道三",
+  "ToMapName": "幽闭通道四",
+  "FromMapFile": "Mir_Dg05_13",
+  "ToMapFile": "Mir_Dg05_14",
+  "FromCoords": "1037, 251",
+  "ToCoords": "1077, 206"
+}

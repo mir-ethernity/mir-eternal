@@ -1,0 +1,7 @@
+{
+  "Stat": "MaxPhysicalStrength",
+  "Value": 15,
+  "StatId": 11029,
+  "CombatBonus": 30,
+  "StatDescription": "最大体力+15"
+}

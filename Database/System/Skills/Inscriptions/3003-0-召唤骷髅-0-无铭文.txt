@@ -1,0 +1,24 @@
+{
+  "SkillName": "召唤骷髅-0-无铭文",
+  "Race": "道士",
+  "SkillId": 3003,
+  "MinPlayerLevel": "ExcaHg==",
+  "MinSkillExp": [
+    200,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "召唤骷髅-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

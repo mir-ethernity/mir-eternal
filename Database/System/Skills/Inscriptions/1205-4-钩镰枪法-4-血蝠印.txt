@@ -1,0 +1,26 @@
+{
+  "SkillName": "钩镰枪法-4-血蝠印",
+  "Race": "龙枪",
+  "SkillId": 1205,
+  "Id": 4,
+  "PassiveSkill": true,
+  "Quality": 1,
+  "Probability": 100,
+  "MinPlayerLevel": "HB8iJQ==",
+  "MinSkillExp": [
+    200,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [],
+  "SwitchSkills": []
+}

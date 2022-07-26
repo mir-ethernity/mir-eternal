@@ -1,0 +1,43 @@
+{
+  "Name": "祖玛怪物石化状态",
+  "Id": 35510,
+  "GroupId": 35510,
+  "Effect": "StatusFlag",
+  "SyncClient": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 3600000,
+  "ProcessDelay": 3600000,
+  "Duration": 3600000,
+  "FollowedById": 35511,
+  "RequireBuff": [],
+  "PlayerState": "Paralyzed, Invencible",
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

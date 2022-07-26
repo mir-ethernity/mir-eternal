@@ -1,0 +1,14 @@
+{
+  "Name": "金矿17",
+  "Id": 118017,
+  "ItemLast": 17,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 528,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "武器"
+}

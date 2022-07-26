@@ -1,0 +1,25 @@
+{
+  "SkillName": "钩镰枪法-1-狮牙印",
+  "Race": "龙枪",
+  "SkillId": 1205,
+  "Id": 1,
+  "Quality": 4,
+  "Probability": 25,
+  "MinPlayerLevel": "HB8iJQ==",
+  "MinSkillExp": [
+    200,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [],
+  "SwitchSkills": []
+}

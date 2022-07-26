@@ -1,0 +1,27 @@
+{
+  "SkillName": "诱惑之光-5-噬魂印",
+  "Race": "法师",
+  "SkillId": 2541,
+  "Id": 5,
+  "Quality": 6,
+  "Probability": 6,
+  "MinPlayerLevel": "DRIYHQ==",
+  "MinSkillExp": [
+    100,
+    200,
+    400,
+    0
+  ],
+  "SkillCombatBonus": [
+    5,
+    7,
+    10,
+    13
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "诱惑之光-5-噬魂印-主体技能"
+  ],
+  "SwitchSkills": []
+}

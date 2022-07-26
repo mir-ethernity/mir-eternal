@@ -1,0 +1,37 @@
+{
+  "Name": "龙王之腕",
+  "Id": 99940086,
+  "ItemLast": 8,
+  "Weight": 3,
+  "Level": 55,
+  "SalePrice": 60000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "手镯",
+  "NeedRace": "龙枪",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "NeedAttack": 53,
+  "BasicPowerCombat": 142,
+  "MinAttack": 2,
+  "MaxAttack": 5,
+  "MaxDef": 1,
+  "MinMagicDef": 1,
+  "MaxMagicDef": 1,
+  "CanRepair": true,
+  "RepairCost": 36000,
+  "SpecialRepairCost": 180000,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "苍月装备",
+  "物品掉落列表": [
+    {
+      "Name": "龙王之腕",
+      "MonsterName": "牛魔王",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "Name": "法神头盔",
+  "Id": 99990621,
+  "ItemLast": 7,
+  "Weight": 2,
+  "Level": 42,
+  "SalePrice": 30000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "头盔",
+  "NeedRace": "法师",
+  "PersistType": "装备",
+  "StoreType": "服装",
+  "NeedMagic": 28,
+  "BasicPowerCombat": 202,
+  "MaxMagic": 1,
+  "MinDef": 4,
+  "MaxDef": 4,
+  "MinMagicDef": 1,
+  "MaxMagicDef": 2,
+  "CanRepair": true,
+  "RepairCost": 18000,
+  "SpecialRepairCost": 90000,
+  "勇者试炼": true,
+  "试炼币数": 800,
+  "能否打孔": true,
+  "PunchUpperLimit": 2,
+  "CostPerHole": 15,
+  "TwoHoleCost": 30,
+  "铭文职业": "通用",
+  "打孔职业": "法师",
+  "EquipSet": "赤月装备",
+  "物品掉落列表": [
+    {
+      "Name": "法神头盔",
+      "MonsterName": "双头金刚",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神头盔",
+      "MonsterName": "双头血魔",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神头盔",
+      "MonsterName": "魔龙鬼射",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神头盔",
+      "MonsterName": "魔龙力士",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神头盔",
+      "MonsterName": "金甲鱼人",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神头盔",
+      "MonsterName": "冥海魔神",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神头盔",
+      "MonsterName": "巨型兽人僵尸",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神头盔",
+      "MonsterName": "狂暴兽魂",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神头盔",
+      "MonsterName": "幽冥大使",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神头盔",
+      "MonsterName": "秘密信使",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神头盔",
+      "MonsterName": "血手",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神头盔",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神头盔",
+      "MonsterName": "牛魔王",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神头盔",
+      "MonsterName": "魔龙教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神头盔",
+      "MonsterName": "赤月恶魔",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神头盔",
+      "MonsterName": "烈焰恶魔",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "MapId": 231,
+  "MapName": "魔龙城",
+  "MapFile": "MirDg12",
+  "TerrainFile": "0231-MagicDragonCity",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

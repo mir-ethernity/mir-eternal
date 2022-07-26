@@ -1,0 +1,30 @@
+{
+  "SkillName": "道士普攻-0-无铭文",
+  "Race": "道士",
+  "SkillId": 3000,
+  "PassiveSkill": true,
+  "MinPlayerLevel": "AAAAAA==",
+  "MinSkillExp": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SkillCombatBonus": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    3000
+  ],
+  "MainSkills": [
+    "道士普攻-3-道法印-主体技能",
+    "道士普攻-2-灵击印-主体技能",
+    "道士普攻-1-灵爆印-主体技能",
+    "道士普攻-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

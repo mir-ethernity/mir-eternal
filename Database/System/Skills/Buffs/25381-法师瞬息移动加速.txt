@@ -1,0 +1,58 @@
+{
+  "Name": "法师瞬息移动加速",
+  "Id": 25381,
+  "GroupId": 25381,
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 60000,
+  "ProcessDelay": 60000,
+  "Duration": 6000,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "行走速度",
+      "Level0": -2,
+      "Level1": -2,
+      "Level2": -2,
+      "Level3": -2
+    },
+    {
+      "Stat": "奔跑速度",
+      "Level0": -2,
+      "Level1": -2,
+      "Level2": -2,
+      "Level3": -2
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

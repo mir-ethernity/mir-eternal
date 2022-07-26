@@ -1,0 +1,59 @@
+{
+  "Name": "神圣战甲防御效果",
+  "Id": 30070,
+  "OverlayType": "SimilarReplacement",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BindingSkillLevel": 3007,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 30000,
+  "ProcessDelay": 30000,
+  "Duration": 30000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "SkillLevelDelay": true,
+  "ExtendedTimePerLevel": 5000,
+  "PlayerStatDelay": true,
+  "BoundPlayerStat": "GreatestTaoism",
+  "StatDelayFactor": 1000,
+  "StatsIncOrDec": [
+    {
+      "Stat": "MaxDef",
+      "Level0": 5,
+      "Level1": 6,
+      "Level2": 7,
+      "Level3": 8
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

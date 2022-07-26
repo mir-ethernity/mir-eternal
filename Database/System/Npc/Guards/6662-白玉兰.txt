@@ -1,0 +1,9 @@
+{
+  "Name": "白玉兰",
+  "GuardNumber": 6662,
+  "Level": 99,
+  "RangeHate": 8,
+  "BasicAttackSkills": "",
+  "StoreId": 1101,
+  "InterfaceCode": "Shop"
+}

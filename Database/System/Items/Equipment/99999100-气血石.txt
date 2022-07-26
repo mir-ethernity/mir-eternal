@@ -1,0 +1,22 @@
+{
+  "Name": "气血石",
+  "Id": 99999100,
+  "ItemLast": 36000,
+  "Weight": 1,
+  "Level": 10,
+  "NeedLevel": 10,
+  "SalePrice": 100,
+  "IsBound": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "战具",
+  "PersistType": "消耗",
+  "StoreType": "杂货",
+  "BasicPowerCombat": 10,
+  "MinDef": 1,
+  "MaxDef": 2,
+  "RepairCost": 1,
+  "SpecialRepairCost": 1,
+  "铭文职业": "通用",
+  "打孔职业": "通用"
+}

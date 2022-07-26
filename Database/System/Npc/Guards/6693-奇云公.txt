@@ -1,0 +1,9 @@
+{
+  "Name": "奇云公",
+  "GuardNumber": 6693,
+  "Level": 99,
+  "RangeHate": 8,
+  "BasicAttackSkills": "",
+  "StoreId": 5000,
+  "InterfaceCode": "Shop"
+}

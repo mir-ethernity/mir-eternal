@@ -635,73 +635,28 @@ namespace GameServer.Data
 
         public byte[] 角色描述()
         {
-            byte[] result;
-            using (MemoryStream memoryStream = new MemoryStream(new byte[94]))
-            {
-                using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
-                {
-                    binaryWriter.Write(this.数据索引.V);
-                    binaryWriter.Write(this.名字描述());
-                    binaryWriter.Seek(61, SeekOrigin.Begin);
-                    binaryWriter.Write((byte)this.角色职业.V);
-                    binaryWriter.Write((byte)this.角色性别.V);
-                    binaryWriter.Write((byte)this.角色发型.V);
-                    binaryWriter.Write((byte)this.角色发色.V);
-                    binaryWriter.Write((byte)this.角色脸型.V);
-                    binaryWriter.Write(0);
-                    binaryWriter.Write(this.角色等级);
-                    binaryWriter.Write(this.当前地图.V);
-                    BinaryWriter binaryWriter2 = binaryWriter;
-                    EquipmentData EquipmentData = this.角色装备[0];
-                    binaryWriter2.Write((EquipmentData != null) ? EquipmentData.升级次数.V : 0);
-                    BinaryWriter binaryWriter3 = binaryWriter;
-                    EquipmentData EquipmentData2 = this.角色装备[0];
-                    int? num;
-                    if (EquipmentData2 == null)
-                    {
-                        num = null;
-                    }
-                    else
-                    {
-                        GameItems v = EquipmentData2.对应模板.V;
-                        num = ((v != null) ? new int?(v.Id) : null);
-                    }
-                    int? num2 = num;
-                    binaryWriter3.Write(num2.GetValueOrDefault());
-                    BinaryWriter binaryWriter4 = binaryWriter;
-                    EquipmentData EquipmentData3 = this.角色装备[1];
-                    int? num3;
-                    if (EquipmentData3 == null)
-                    {
-                        num3 = null;
-                    }
-                    else
-                    {
-                        GameItems v2 = EquipmentData3.对应模板.V;
-                        num3 = ((v2 != null) ? new int?(v2.Id) : null);
-                    }
-                    num2 = num3;
-                    binaryWriter4.Write(num2.GetValueOrDefault());
-                    BinaryWriter binaryWriter5 = binaryWriter;
-                    EquipmentData EquipmentData4 = this.角色装备[2];
-                    int? num4;
-                    if (EquipmentData4 == null)
-                    {
-                        num4 = null;
-                    }
-                    else
-                    {
-                        GameItems v3 = EquipmentData4.对应模板.V;
-                        num4 = ((v3 != null) ? new int?(v3.Id) : null);
-                    }
-                    num2 = num4;
-                    binaryWriter5.Write(num2.GetValueOrDefault());
-                    binaryWriter.Write((byte)0); // (byte)ComputingClass.TimeShift(this.OfflineDate.V)
-                    binaryWriter.Write(FreezeDate.V.Equals(default) ? (byte)0 : (byte)ComputingClass.TimeShift(this.FreezeDate.V));
-                    result = memoryStream.ToArray();
-                }
-            }
-            return result;
+            using var memoryStream = new MemoryStream(new byte[94]);
+            using var binaryWriter = new BinaryWriter(memoryStream);
+
+            binaryWriter.Write(数据索引.V);
+            binaryWriter.Write(名字描述());
+            binaryWriter.Seek(61, SeekOrigin.Begin);
+            binaryWriter.Write((byte)角色职业.V);
+            binaryWriter.Write((byte)角色性别.V);
+            binaryWriter.Write((byte)角色发型.V);
+            binaryWriter.Write((byte)角色发色.V);
+            binaryWriter.Write((byte)角色脸型.V);
+            binaryWriter.Write((byte)0);
+            binaryWriter.Write(角色等级);
+            binaryWriter.Write(当前地图.V);
+            binaryWriter.Write(角色装备[0]?.升级次数.V ?? 0);
+            binaryWriter.Write((角色装备[0]?.对应模板.V?.Id).GetValueOrDefault());
+            binaryWriter.Write((角色装备[1]?.对应模板.V?.Id).GetValueOrDefault());
+            binaryWriter.Write((角色装备[2]?.对应模板.V?.Id).GetValueOrDefault());
+            binaryWriter.Write(ComputingClass.TimeShift(OfflineDate.V));
+            binaryWriter.Write((!FreezeDate.V.Equals(default(DateTime))) ? ComputingClass.TimeShift(FreezeDate.V) : 0);
+
+            return memoryStream.ToArray();
         }
 
 

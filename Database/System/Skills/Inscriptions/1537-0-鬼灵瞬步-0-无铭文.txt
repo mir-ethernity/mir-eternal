@@ -1,0 +1,24 @@
+{
+  "SkillName": "鬼灵瞬步-0-无铭文",
+  "Race": "刺客",
+  "SkillId": 1537,
+  "MinPlayerLevel": "HB8iJQ==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "鬼灵瞬步-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

@@ -1,0 +1,56 @@
+{
+  "Name": "玄冰指环",
+  "Id": 99930077,
+  "ItemLast": 7,
+  "Weight": 3,
+  "Level": 58,
+  "SalePrice": 50000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "戒指",
+  "NeedRace": "弓手",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "NeedArchery": 30,
+  "BasicPowerCombat": 208,
+  "MinBow": 1,
+  "MaxBow": 6,
+  "MaxDef": 1,
+  "CanRepair": true,
+  "RepairCost": 30000,
+  "SpecialRepairCost": 150000,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "魔龙装备",
+  "物品掉落列表": [
+    {
+      "Name": "玄冰指环",
+      "MonsterName": "血手",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玄冰指环",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玄冰指环",
+      "MonsterName": "牛魔王",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玄冰指环",
+      "MonsterName": "魔龙教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

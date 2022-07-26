@@ -1,0 +1,28 @@
+{
+  "SkillName": "霹雳弹幕-1-窒息印",
+  "Race": "刺客",
+  "SkillId": 1542,
+  "Id": 1,
+  "Quality": 7,
+  "Probability": 2,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "EhccIQ==",
+  "MinSkillExp": [
+    400,
+    800,
+    1200,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "霹雳弹幕-1-窒息印-主体技能"
+  ],
+  "SwitchSkills": []
+}

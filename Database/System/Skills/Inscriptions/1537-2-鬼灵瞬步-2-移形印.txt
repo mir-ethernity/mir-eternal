@@ -1,0 +1,27 @@
+{
+  "SkillName": "鬼灵瞬步-2-移形印",
+  "Race": "刺客",
+  "SkillId": 1537,
+  "Id": 2,
+  "Quality": 2,
+  "Probability": 80,
+  "MinPlayerLevel": "HB8iJQ==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "鬼灵瞬步-2-移形印-主体技能"
+  ],
+  "SwitchSkills": []
+}

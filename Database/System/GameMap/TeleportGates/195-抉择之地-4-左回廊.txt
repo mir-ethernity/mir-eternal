@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 4,
+  "FromMapId": 195,
+  "ToMapId": 193,
+  "TeleportGateName": "左回廊",
+  "FromMapName": "抉择之地",
+  "ToMapName": "左回廊",
+  "FromMapFile": "MirDg11_7",
+  "ToMapFile": "MirDg11_5",
+  "FromCoords": "1135, 240",
+  "ToCoords": "1006, 319"
+}

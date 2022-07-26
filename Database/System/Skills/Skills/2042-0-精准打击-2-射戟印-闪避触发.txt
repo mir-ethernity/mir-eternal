@@ -1,0 +1,23 @@
+{
+  "SkillName": "精准打击-2-射戟印-闪避触发",
+  "Race": "弓手",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 2042,
+  "BindingLevelId": 2042,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 20421,
+      "Buff触发概率": 1,
+      "所需Buff层数": 1
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "Name": "黑铁矿石13",
+  "Id": 114013,
+  "ItemLast": 13,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 60,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "武器锻造",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "武器"
+}

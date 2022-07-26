@@ -1,0 +1,16 @@
+{
+  "Name": "魔法盾",
+  "Id": 32535,
+  "ItemLast": 10,
+  "Weight": 1,
+  "NeedLevel": 31,
+  "SalePrice": 5000,
+  "AdditionalSkill": 2535,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "技能书籍",
+  "NeedRace": "法师",
+  "PersistType": "堆叠",
+  "StoreType": "书籍"
+}

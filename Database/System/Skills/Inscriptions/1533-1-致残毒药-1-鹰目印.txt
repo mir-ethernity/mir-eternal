@@ -1,0 +1,29 @@
+{
+  "SkillName": "致残毒药-1-鹰目印",
+  "Race": "刺客",
+  "SkillId": 1533,
+  "Id": 1,
+  "Quality": 2,
+  "Probability": 80,
+  "MinPlayerLevel": "FxodIA==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "致残毒药-1-鹰目印-主体技能"
+  ],
+  "SwitchSkills": [
+    "致残毒药-1-鹰目印-主体技能"
+  ]
+}

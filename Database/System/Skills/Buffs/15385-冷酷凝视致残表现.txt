@@ -1,0 +1,49 @@
+{
+  "Name": "冷酷凝视致残表现",
+  "Id": 15385,
+  "GroupId": 15383,
+  "OverlayType": "SimilarReplacement",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnChangeWeaponRemove": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 1538,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 9000,
+  "ProcessDelay": 9000,
+  "Duration": 9000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "SkillLevelDelay": true,
+  "ExtendedTimePerLevel": 3000,
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 7119,
+  "FromMapId": 102,
+  "FromMapName": "白日门城",
+  "FromCoords": "967, 458",
+  "Direction": "右下",
+  "RegionName": "白日门城-玛法通驿(967,458)"
+}

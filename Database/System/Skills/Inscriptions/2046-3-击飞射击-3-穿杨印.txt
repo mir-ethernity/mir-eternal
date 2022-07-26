@@ -1,0 +1,27 @@
+{
+  "SkillName": "击飞射击-3-穿杨印",
+  "Race": "弓手",
+  "SkillId": 2046,
+  "Id": 3,
+  "Quality": 3,
+  "Probability": 60,
+  "MinPlayerLevel": "HiEkJw==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "击飞射击-3-穿杨印-主体技能"
+  ],
+  "SwitchSkills": []
+}

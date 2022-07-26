@@ -1,0 +1,41 @@
+{
+  "SkillName": "炎龙啸波-0-全铭文-触发判定",
+  "Race": "刺客",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 1535,
+  "BindingLevelId": 1535,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 15350,
+      "Buff触发概率": 1,
+      "验证ItSelfBuff": true,
+      "Id": 15380,
+      "所需Buff层数": 1
+    },
+    "1": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 15350,
+      "Buff触发概率": 1,
+      "验证铭文技能": true,
+      "所需Id": 15354,
+      "所需Buff层数": 1
+    },
+    "2": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 15350,
+      "Buff触发概率": 0.35,
+      "所需Buff层数": 1
+    }
+  }
+}

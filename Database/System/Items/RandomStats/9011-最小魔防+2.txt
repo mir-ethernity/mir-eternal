@@ -1,0 +1,7 @@
+{
+  "Stat": "MinMagicDef",
+  "Value": 2,
+  "StatId": 9011,
+  "CombatBonus": 20,
+  "StatDescription": "最小魔防+2"
+}

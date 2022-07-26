@@ -1,0 +1,1518 @@
+{
+  "MonsterName": "黄泉教主",
+  "Id": 5201,
+  "Level": 99,
+  "Category": "Boss",
+  "VisibleStealthTargets": true,
+  "RoamInterval": 30000,
+  "CorpsePreservationDuration": 60000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 8,
+  "HateTime": 30000,
+  "NormalAttackSkills": "电脑-Lord Yellow SpringsBasicAttackSkills",
+  "ProbabilityTriggerSkills": "电脑-Lord Yellow Springs概率技能",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 12000
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 60
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 8
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 10
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 25
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 21
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Value": 105
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 188
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 40
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 65
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Value": 51
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Value": 70
+    }
+  ],
+  "ProvideExperience": 25000,
+  "Drops": [
+    {
+      "Name": "战神盔甲(男)",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "恶魔长袍(男)",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵战衣(男)",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风侠短袍(男)",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽骨猎袍(男)",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "陷阵之甲(男)",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "战神盔甲(女)",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "恶魔长袍(女)",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵战衣(女)",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风侠短袍(女)",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽骨猎袍(女)",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "陷阵之甲(女)",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天魔神甲",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神披风",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天尊道袍",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "耀阳赤衣",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "箭灵铠甲",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙枪神甲",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣战宝甲",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "霓裳羽衣",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天师长袍",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "暗影赤衣",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "羽灵护甲",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙枪宝甲",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雷霆战甲(男)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "烈焰魔衣(男)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "光芒道袍(男)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风行盾甲(男)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玄冰战甲(男)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天诛魔甲(男)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雷霆战甲(女)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "烈焰魔衣(女)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "光芒道袍(女)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风行盾甲(女)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玄冰战甲(女)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天诛魔甲(女)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁腰带",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜腰带",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "钢铁腰带",
+      "MonsterName": "黄泉教主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雷霆腰带",
+      "MonsterName": "黄泉教主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "烈焰腰带",
+      "MonsterName": "黄泉教主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "光芒腰带",
+      "MonsterName": "黄泉教主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风行腰带",
+      "MonsterName": "黄泉教主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玄冰腰带",
+      "MonsterName": "黄泉教主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天诛腰带",
+      "MonsterName": "黄泉教主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传说腰带(圣战)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传说腰带(法神)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传说腰带(天尊)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传说腰带(影刺)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传说腰带(箭灵)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传说腰带(龙枪)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "鹿皮靴",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫绸靴",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "避魂靴",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雷霆战靴",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "烈焰魔靴",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "光芒道靴",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风行灵靴",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玄冰猎靴",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天诛暗靴",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传说靴子(圣战)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传说靴子(法神)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传说靴子(天尊)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传说靴子(影刺)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传说靴子(箭灵)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传说靴子(龙枪)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生命项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天珠项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "绿色项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "恶魔铃铛",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "芒星项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "神射项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁虎项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣战项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天尊项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "箭灵项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "虎贲项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雷霆项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "烈焰项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "光芒项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风行项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玄冰项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天诛凶链",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铂金戒指",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "红宝石戒指",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙之戒指",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影戒指",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼首戒指",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "力量戒指",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫碧螺",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "泰坦戒指",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "芒星戒指",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "射手指环",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁虎指环",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣战戒指",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神戒指",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天尊戒指",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴戒指",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "箭灵戒指",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "虎贲戒指",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雷霆战戒",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "烈焰魔戒",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "光芒道戒",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风行暗戒",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玄冰指环",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天诛血戒",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "死神手套",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "思贝儿手镯",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "心灵手镯",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵手套",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影手镯",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狮纹手镯",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "三眼手镯",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骑士手镯",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙之手镯",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "阎罗手套",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "芒星手镯",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "血狮腕带",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁虎腕轮",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣战手镯",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神手镯",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天尊手镯",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴手镯",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "箭灵手镯",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "虎贲手镯",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雷霆护腕",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "烈焰护腕",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "光芒护腕",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风行护腕",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玄冰手镯",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天诛邪镯",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔杖",
+      "MonsterName": "黄泉教主",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "炼狱",
+      "MonsterName": "黄泉教主",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "银蛇",
+      "MonsterName": "黄泉教主",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "追魂",
+      "MonsterName": "黄泉教主",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "双环战弓",
+      "MonsterName": "黄泉教主",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蛇牙枪",
+      "MonsterName": "黄泉教主",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "井中月",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "血饮",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "无极棍",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "赤影",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "沉锋",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青虹",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "裁决之杖",
+      "MonsterName": "黄泉教主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙纹剑",
+      "MonsterName": "黄泉教主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骨玉权杖",
+      "MonsterName": "黄泉教主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙爪手",
+      "MonsterName": "黄泉教主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "猎首",
+      "MonsterName": "黄泉教主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "虎咆",
+      "MonsterName": "黄泉教主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "逍遥扇",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "怒斩",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙牙",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "霜影",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "血染",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "横江",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "屠龙",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "嗜魂法杖",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "倚天剑",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黯灭轮",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "擎龙",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙炎",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑铁头盔",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣战头盔",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神头盔",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天尊头盔",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴头盔",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "箭灵头盔",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙枪头盔",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传说头盔(圣战)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传说头盔(法神)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传说头盔(天尊)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传说头盔(影刺)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传说头盔(箭灵)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传说头盔(龙枪)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "黄泉教主",
+      "Probability": 1,
+      "MinAmount": 50000,
+      "MaxAmount": 80000
+    },
+    {
+      "Name": "天书残页",
+      "MonsterName": "黄泉教主",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效金创药",
+      "MonsterName": "黄泉教主",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 3
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "黄泉教主",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 3
+    },
+    {
+      "Name": "疗伤药",
+      "MonsterName": "黄泉教主",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 3
+    },
+    {
+      "Name": "修复油",
+      "MonsterName": "黄泉教主",
+      "Probability": 20,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "祝福油",
+      "MonsterName": "黄泉教主",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "驭朱灵石1级",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "命朱灵石1级",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "守阳灵石1级",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蔚蓝灵石1级",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精绿灵石1级",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "纯紫灵石1级",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "深灰灵石1级",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙黄灵石1级",
+      "MonsterName": "黄泉教主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "战士铭文石",
+      "MonsterName": "黄泉教主",
+      "Probability": 4,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法师铭文石",
+      "MonsterName": "黄泉教主",
+      "Probability": 4,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士铭文石",
+      "MonsterName": "黄泉教主",
+      "Probability": 4,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客铭文石",
+      "MonsterName": "黄泉教主",
+      "Probability": 4,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "弓手铭文石",
+      "MonsterName": "黄泉教主",
+      "Probability": 4,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙枪铭文石",
+      "MonsterName": "黄泉教主",
+      "Probability": 4,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色灵气",
+      "MonsterName": "黄泉教主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫色灵气",
+      "MonsterName": "黄泉教主",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙色灵气",
+      "MonsterName": "黄泉教主",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "屠魔令",
+      "MonsterName": "黄泉教主",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雕色石",
+      "MonsterName": "黄泉教主",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

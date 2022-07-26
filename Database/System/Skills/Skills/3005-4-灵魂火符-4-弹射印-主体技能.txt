@@ -1,0 +1,50 @@
+{
+  "SkillName": "灵魂火符-4-弹射印-主体技能",
+  "Race": "道士",
+  "OwnSkillId": 3005,
+  "Id": 4,
+  "BindingLevelId": 3005,
+  "CalculateTriggerProbability": 1,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    10,
+    12,
+    16,
+    18
+  ],
+  "NeedConsumeItems": [
+    40103,
+    40101,
+    40102
+  ],
+  "NeedConsumeItemsQuantity": 1,
+  "GearDeductionPoints": 1,
+  "Nodes": {
+    "0": {
+      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "MaxDistance": 8
+    },
+    "1": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 1250,
+      "角色忙绿时间": 500
+    },
+    "425": {
+      "$type": "A_00_触发SubSkills, Assembly-CSharp",
+      "技能触发方式": "锚点位置绝对触发",
+      "触发SkillName": "灵魂火符-4-弹射印-火符特效"
+    },
+    "500": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "1000": {
+      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+    }
+  }
+}

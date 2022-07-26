@@ -1,0 +1,67 @@
+{
+  "StoreId": 35,
+  "Name": "打捆商店",
+  "RecyclingType": "杂货",
+  "Products": [
+    {
+      "Id": 363,
+      "Units": 1,
+      "CurrencyType": 303,
+      "Price": 6
+    },
+    {
+      "Id": 373,
+      "Units": 1,
+      "CurrencyType": 323,
+      "Price": 6
+    },
+    {
+      "Id": 381,
+      "Units": 1,
+      "CurrencyType": 351,
+      "Price": 6
+    },
+    {
+      "Id": 382,
+      "Units": 1,
+      "CurrencyType": 352,
+      "Price": 6
+    },
+    {
+      "Id": 383,
+      "Units": 1,
+      "CurrencyType": 353,
+      "Price": 6
+    },
+    {
+      "Id": 80105,
+      "Units": 1,
+      "CurrencyType": 80005,
+      "Price": 6
+    },
+    {
+      "Id": 80101,
+      "Units": 1,
+      "CurrencyType": 80001,
+      "Price": 6
+    },
+    {
+      "Id": 80107,
+      "Units": 1,
+      "CurrencyType": 80007,
+      "Price": 6
+    },
+    {
+      "Id": 80207,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1050000
+    },
+    {
+      "Id": 80209,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 5200000
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 152,
+  "ToMapId": 152,
+  "TeleportGateName": "沙巴克仓库",
+  "FromMapName": "沙巴克",
+  "ToMapName": "沙巴克",
+  "FromMapFile": "MirCt01",
+  "ToMapFile": "MirCt01",
+  "FromCoords": "1050, 504",
+  "ToCoords": "587, 940"
+}

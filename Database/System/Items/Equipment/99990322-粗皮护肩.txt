@@ -1,0 +1,23 @@
+{
+  "Name": "粗皮护肩",
+  "Id": 99990322,
+  "ItemLast": 8,
+  "Weight": 2,
+  "Level": 18,
+  "NeedLevel": 15,
+  "SalePrice": 6000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "护肩",
+  "NeedRace": "法师",
+  "PersistType": "装备",
+  "StoreType": "服装",
+  "BasicPowerCombat": 28,
+  "MaxMagic": 1,
+  "CanRepair": true,
+  "RepairCost": 3600,
+  "SpecialRepairCost": 18000,
+  "铭文职业": "通用",
+  "打孔职业": "通用"
+}

@@ -1,0 +1,6 @@
+{
+  "Name": "神秘剑客",
+  "GuardNumber": 4795,
+  "Level": 99,
+  "RangeHate": 8
+}

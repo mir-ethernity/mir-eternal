@@ -1,0 +1,15 @@
+{
+  "Name": "深灰灵石3级",
+  "Id": 10622,
+  "ItemLast": 100,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "SalePrice": 20000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "普通灵石",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

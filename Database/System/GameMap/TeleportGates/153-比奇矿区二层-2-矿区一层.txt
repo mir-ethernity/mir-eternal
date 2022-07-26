@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 2,
+  "FromMapId": 153,
+  "ToMapId": 144,
+  "TeleportGateName": "矿区一层",
+  "FromMapName": "比奇矿区二层",
+  "ToMapName": "比奇矿区",
+  "FromMapFile": "Mir_Dg03_1",
+  "ToMapFile": "Mir_Dg03",
+  "FromCoords": "1128, 203",
+  "ToCoords": "1096, 427"
+}

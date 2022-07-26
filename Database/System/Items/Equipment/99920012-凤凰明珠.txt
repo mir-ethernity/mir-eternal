@@ -1,0 +1,320 @@
+{
+  "Name": "凤凰明珠",
+  "Id": 99920012,
+  "ItemLast": 7,
+  "Weight": 1,
+  "Level": 19,
+  "NeedLevel": 17,
+  "SalePrice": 1000,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "项链",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "BasicPowerCombat": 51,
+  "Minimalist": 1,
+  "GreatestTaoism": 2,
+  "PhysicallyAccurate": 1,
+  "CanRepair": true,
+  "RepairCost": 600,
+  "SpecialRepairCost": 3000,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "爬行僵尸",
+      "Probability": 700,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "佝偻僵尸",
+      "Probability": 700,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "直立僵尸",
+      "Probability": 700,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "和尚僵尸",
+      "Probability": 700,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "腐血僵尸",
+      "Probability": 700,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "利爪僵尸",
+      "Probability": 700,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "蜈蚣",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "巨型蠕虫",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "跳跳蜂",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "毒虫",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "道士僵尸",
+      "Probability": 700,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "暗黑战士",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "巨型多角虫",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "魔化巨虫",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "黑色恶蛆",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "半兽勇士",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "沃玛斥候",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "鹰卫",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "鹰卫变异",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "虎卫",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "虎卫变异",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "沃玛战士",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "沃玛勇士",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "沃玛战将",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "沃玛卫兵",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "沃玛将领",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "钳虫",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "火焰沃玛",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "红野猪",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "红野猪精英",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "楔蛾",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "黑野猪",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "黑野猪精英",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "祖玛老鼠",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "祖玛弓箭手",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "祖玛弓箭手精英",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "祖玛雕像",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "祖玛雕像精英",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "祖玛卫士",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "祖玛卫士精英",
+      "Probability": 350,
+      "MinAmount": 1,
+      "最大数量": 1
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "MapId": 143,
+  "MapName": "比奇省",
+  "MapFile": "Mir_Pb02",
+  "TerrainFile": "0143-BichProvince",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

@@ -1,0 +1,27 @@
+{
+  "SkillName": "群隐之术-1-太极印",
+  "Race": "道士",
+  "SkillId": 3014,
+  "Id": 1,
+  "Quality": 2,
+  "Probability": 80,
+  "MinPlayerLevel": "FRkdIQ==",
+  "MinSkillExp": [
+    200,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "群隐之术-1-太极印-主体技能"
+  ],
+  "SwitchSkills": []
+}

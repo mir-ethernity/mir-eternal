@@ -1,0 +1,30 @@
+{
+  "SkillName": "炎龙啸波-2-龙霄印",
+  "Race": "刺客",
+  "SkillId": 1535,
+  "Id": 2,
+  "PassiveSkill": true,
+  "Quality": 5,
+  "Probability": 15,
+  "MinPlayerLevel": "HiEkJw==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1931
+  ],
+  "MainSkills": [
+    "炎龙啸波-2-龙霄印-主体技能"
+  ],
+  "SwitchSkills": []
+}

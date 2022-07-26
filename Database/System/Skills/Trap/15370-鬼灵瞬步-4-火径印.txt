@@ -1,0 +1,17 @@
+{
+  "Name": "鬼灵瞬步-4-火径印",
+  "Id": 15370,
+  "GroupId": 2534,
+  "BindingLevel": 1537,
+  "Duration": 10000,
+  "ExtendedDuration": true,
+  "SkillLevelDelay": true,
+  "ExtendedTimePerLevel": 5000,
+  "LimitMoveSteps": 255,
+  "PassiveTriggerSkill": "鬼灵瞬步-4-火径印-被动触发",
+  "PassiveObjectType": "玩家, 宠物, 怪物, Npcc",
+  "PassiveType": "Hostility",
+  "ActivelyTriggerSkills": "鬼灵瞬步-4-火径印-主动触发",
+  "ActivelyTriggerInterval": 2000,
+  "ActivelyTriggerDelay": 2000
+}

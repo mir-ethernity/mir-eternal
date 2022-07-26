@@ -1,0 +1,624 @@
+{
+  "MonsterName": "半兽勇士变异",
+  "Id": 805,
+  "Level": 28,
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CanBeSeducedBySkills": true,
+  "BaseTemptationProbability": 0.1,
+  "MoveInterval": 250,
+  "RoamInterval": 20000,
+  "CorpsePreservationDuration": 20000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 20000,
+  "NormalAttackSkills": "电脑-半兽战士勇士普攻",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 900
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 6
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 18
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 20
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack"
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 68
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 20
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 34
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Value": 7
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Value": 13
+    }
+  ],
+  "Grows": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Level0": 900,
+      "Level1": 960,
+      "Level2": 1020,
+      "Level3": 1080,
+      "Level4": 1140,
+      "Level5": 1200,
+      "Level6": 1260,
+      "Level7": 1320
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 6,
+      "Level1": 6,
+      "Level2": 6,
+      "Level3": 7,
+      "Level4": 7,
+      "Level5": 8,
+      "Level6": 8,
+      "Level7": 8
+    },
+    {
+      "Stat": "行走速度",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 10,
+      "Level4": 10,
+      "Level5": 10,
+      "Level6": 10,
+      "Level7": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 6,
+      "Level1": 6,
+      "Level2": 6,
+      "Level3": 6,
+      "Level4": 6,
+      "Level5": 6,
+      "Level6": 6,
+      "Level7": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 18,
+      "Level1": 18,
+      "Level2": 18,
+      "Level3": 19,
+      "Level4": 19,
+      "Level5": 20,
+      "Level6": 20,
+      "Level7": 20
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 20,
+      "Level1": 20,
+      "Level2": 20,
+      "Level3": 21,
+      "Level4": 21,
+      "Level5": 22,
+      "Level6": 22,
+      "Level7": 22
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack"
+    },
+    {
+      "Stat": "MaxAttack",
+      "Level0": 68,
+      "Level1": 69,
+      "Level2": 70,
+      "Level3": 71,
+      "Level4": 72,
+      "Level5": 73,
+      "Level6": 74,
+      "Level7": 75
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Level0": 20,
+      "Level1": 20,
+      "Level2": 20,
+      "Level3": 20,
+      "Level4": 20,
+      "Level5": 20,
+      "Level6": 20,
+      "Level7": 20
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 34,
+      "Level1": 35,
+      "Level2": 36,
+      "Level3": 37,
+      "Level4": 38,
+      "Level5": 39,
+      "Level6": 40,
+      "Level7": 41
+    },
+    {
+      "Stat": "MinMagicDef"
+    },
+    {
+      "Stat": "MaxMagicDef"
+    }
+  ],
+  "ProvideExperience": 300,
+  "Drops": [
+    {
+      "Name": "重盔甲(男)",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(男)",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(男)",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(男)",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(男)",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(男)",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "重盔甲(女)",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(女)",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(女)",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(女)",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(女)",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(女)",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽皮腰带",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "白金项链",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "琥珀项链",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔鬼项链",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "软玉项链",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤项链",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "躲避项链",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝翡翠项链",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "竹笛",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "放大镜",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "十方项链",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狞猫项链",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道德戒指",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魅力戒指",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅戒指",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "翡翠戒指",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "扣弦扳指",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金戒指",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珊瑚戒指",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫玉戒指",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁皮指环",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法手镯",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔力手镯",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "坚固手套",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士手镯",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑檀手镯",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "夏普儿手镯",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 3000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "辟邪手镯",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 5000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金手镯",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "桃木手镯",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤手镯",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "破魂",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "罗刹",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "偃月",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "降魔",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "斩马刀",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "冰月戟",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁胎弓",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "百炼枪",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "修罗",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凝霜",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士头盔",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 1,
+      "MinAmount": 400,
+      "MaxAmount": 500
+    },
+    {
+      "Name": "强效金创药",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效太阳水",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

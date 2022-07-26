@@ -1,0 +1,30 @@
+{
+  "SkillName": "施毒之术-5-凌蛊印",
+  "Race": "道士",
+  "SkillId": 3004,
+  "Id": 5,
+  "Quality": 6,
+  "Probability": 6,
+  "MinPlayerLevel": "DhEUFw==",
+  "MinSkillExp": [
+    100,
+    200,
+    400,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    3400
+  ],
+  "MainSkills": [
+    "施毒之术-5-凌蛊印-红毒主体",
+    "施毒之术-5-凌蛊印-绿毒主体"
+  ],
+  "SwitchSkills": []
+}

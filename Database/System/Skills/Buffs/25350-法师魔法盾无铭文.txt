@@ -1,0 +1,62 @@
+{
+  "Name": "法师魔法盾无铭文",
+  "Id": 25350,
+  "GroupId": 2535,
+  "Effect": "DamageIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnChangeWeaponRemove": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 2535,
+  "RemoveAddCooling": true,
+  "SkillCooldown": 1000,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 10000,
+  "Duration": 10000,
+  "ExtendedDuration": true,
+  "RequireBuff": [
+    25352,
+    25354,
+    25355,
+    25356
+  ],
+  "SkillLevelDelay": true,
+  "ExtendedTimePerLevel": 5000,
+  "PlayerStatDelay": true,
+  "BoundPlayerStat": "MaxMagic",
+  "StatDelayFactor": 1000,
+  "HasSpecificInscriptionDelay": true,
+  "SpecificInscriptionSkills": 25352,
+  "InscriptionExtendedTime": 15000,
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "HowJudgeEffect": "PassiveInjuryReduction",
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.15,
+    0.3,
+    0.45,
+    0.6
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

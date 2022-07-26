@@ -1,0 +1,14 @@
+{
+  "Name": "铜矿18",
+  "Id": 115018,
+  "ItemLast": 18,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 44,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}

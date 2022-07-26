@@ -1,0 +1,27 @@
+{
+  "SkillName": "爆炎剑诀-0-无铭文",
+  "SkillId": 1042,
+  "MinPlayerLevel": "IyUoKg==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1435
+  ],
+  "MainSkills": [
+    "爆炎剑诀-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": [
+    "爆炎剑诀-0-无铭文-技能开关"
+  ]
+}

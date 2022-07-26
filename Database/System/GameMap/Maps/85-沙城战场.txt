@@ -1,0 +1,8 @@
+{
+  "MapId": 85,
+  "MapName": "沙城战场",
+  "MapFile": "MirAct21",
+  "TerrainFile": "0085-SandCity Battlefield ",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

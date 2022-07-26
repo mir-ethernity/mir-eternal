@@ -1,0 +1,30 @@
+{
+  "FromMapId": 80,
+  "FromMapName": "屠魔大厅",
+  "FromCoords": "943, 330",
+  "RegionName": "屠魔大厅-33波怪物",
+  "AreaRadius": 1,
+  "Spawns": [
+    {
+      "MonsterName": "恶灵僵尸",
+      "SpawnCount": 12,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "恶灵尸王",
+      "SpawnCount": 12,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "碎颅弓箭手",
+      "SpawnCount": 3,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "黄泉教主",
+      "SpawnCount": 1,
+      "RevivalInterval": 1
+    }
+  ],
+  "RangeCoords": []
+}

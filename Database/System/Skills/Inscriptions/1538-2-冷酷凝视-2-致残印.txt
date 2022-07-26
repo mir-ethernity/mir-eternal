@@ -1,0 +1,29 @@
+{
+  "SkillName": "冷酷凝视-2-致残印",
+  "Race": "刺客",
+  "SkillId": 1538,
+  "Id": 2,
+  "Quality": 6,
+  "Probability": 6,
+  "MinPlayerLevel": "IyYpLA==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "冷酷凝视-2-致残印-主体技能"
+  ],
+  "SwitchSkills": [
+    "冷酷凝视-2-致残印-主体技能"
+  ]
+}

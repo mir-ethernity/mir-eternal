@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6714,
+  "FromMapId": 231,
+  "FromMapName": "魔龙城",
+  "FromCoords": "1040,498",
+  "Direction": "右下",
+  "RegionName": "魔龙城-紫容(1040,498)"
+}

@@ -1,0 +1,19 @@
+{
+  "FromMapId": 80,
+  "FromMapName": "屠魔大厅",
+  "FromCoords": "924, 330",
+  "RegionName": "屠魔大厅-14波怪物",
+  "AreaRadius": 1,
+  "Spawns": [
+    {
+      "MonsterName": "虹魔蝎卫",
+      "SpawnCount": 2,
+      "RevivalInterval": 1
+    }
+  ],
+  "RangeCoords": [
+    "998, 294",
+    "999, 293",
+    "999, 294"
+  ]
+}

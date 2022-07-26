@@ -1,0 +1,29 @@
+{
+  "SkillName": "致残毒药-2-心妒印",
+  "Race": "刺客",
+  "SkillId": 1533,
+  "Id": 2,
+  "Quality": 1,
+  "Probability": 100,
+  "MinPlayerLevel": "FxodIA==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "致残毒药-2-心妒印-主体技能"
+  ],
+  "SwitchSkills": [
+    "致残毒药-2-心妒印-主体技能"
+  ]
+}

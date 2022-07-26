@@ -1,0 +1,16 @@
+{
+  "Name": "召唤神兽",
+  "Id": 33008,
+  "ItemLast": 10,
+  "Weight": 1,
+  "NeedLevel": 35,
+  "SalePrice": 10000,
+  "AdditionalSkill": 3008,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "技能书籍",
+  "NeedRace": "道士",
+  "PersistType": "堆叠",
+  "StoreType": "书籍"
+}

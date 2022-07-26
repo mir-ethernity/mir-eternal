@@ -1,0 +1,18 @@
+{
+  "SkillName": "半月弯刀-0-无铭文-刀光特效",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 14322,
+  "BindingLevelId": 1034,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "1": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

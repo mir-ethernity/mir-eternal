@@ -1,0 +1,9 @@
+{
+  "MapId": 112,
+  "MapName": "陵墓深层",
+  "MapFile": "MirDg23_2",
+  "TerrainFile": "0112-DeepInTheTomb",
+  "LimitPlayers": 9999,
+  "MinLevel": 45,
+  "LimitInstances": 1
+}

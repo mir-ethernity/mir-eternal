@@ -1,0 +1,23 @@
+{
+  "Name": "探测项链",
+  "Id": 99920023,
+  "ItemLast": 7,
+  "Weight": 1,
+  "Level": 20,
+  "NeedLevel": 1,
+  "SalePrice": 10000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "项链",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "BasicPowerCombat": 55,
+  "CanRepair": true,
+  "RepairCost": 6000,
+  "SpecialRepairCost": 30000,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "神秘装备"
+}

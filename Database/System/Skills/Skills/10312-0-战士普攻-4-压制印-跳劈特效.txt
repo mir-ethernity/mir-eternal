@@ -1,0 +1,18 @@
+{
+  "SkillName": "战士普攻-4-压制印-跳劈特效",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 10312,
+  "BindingLevelId": 1031,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "1": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

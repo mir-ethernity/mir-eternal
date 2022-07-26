@@ -1,0 +1,14 @@
+{
+  "Name": "铁矿24",
+  "Id": 116024,
+  "ItemLast": 24,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 150,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}

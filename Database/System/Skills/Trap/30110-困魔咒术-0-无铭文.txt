@@ -1,0 +1,19 @@
+{
+  "Name": "困魔咒术-0-无铭文",
+  "Id": 30110,
+  "GroupId": 3011,
+  "Size": "Solid3x3",
+  "BindingLevel": 3011,
+  "Duration": 10000,
+  "ExtendedDuration": true,
+  "SkillLevelDelay": true,
+  "ExtendedTimePerLevel": 5000,
+  "BoundPlayerStat": "GreatestTaoism",
+  "LimitMoveSteps": 255,
+  "PassiveTriggerSkill": "TrapOctagon术-0-无铭文-被动触发",
+  "PassiveObjectType": "玩家, 宠物",
+  "PassiveType": "ItSelf, Friendly, Hostility",
+  "ActivelyTriggerSkills": "TrapOctagon术-0-无铭文-主动触发",
+  "ActivelyTriggerInterval": 2000,
+  "ActivelyTriggerDelay": 50
+}

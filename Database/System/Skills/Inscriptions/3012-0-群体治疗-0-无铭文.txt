@@ -1,0 +1,24 @@
+{
+  "SkillName": "群体治疗-0-无铭文",
+  "Race": "道士",
+  "SkillId": 3012,
+  "MinPlayerLevel": "ISMmKA==",
+  "MinSkillExp": [
+    400,
+    800,
+    1200,
+    0
+  ],
+  "SkillCombatBonus": [
+    12,
+    18,
+    24,
+    30
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "群体治疗-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

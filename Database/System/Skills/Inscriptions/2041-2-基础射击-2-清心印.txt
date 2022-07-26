@@ -1,0 +1,28 @@
+{
+  "SkillName": "基础射击-2-清心印",
+  "Race": "弓手",
+  "SkillId": 2041,
+  "Id": 2,
+  "Quality": 3,
+  "Probability": 60,
+  "MinPlayerLevel": "BwoNEA==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "基础射击-2-清心印-飞蝗主体",
+    "基础射击-2-清心印-主体技能"
+  ],
+  "SwitchSkills": []
+}

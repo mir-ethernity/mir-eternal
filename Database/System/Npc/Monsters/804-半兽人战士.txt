@@ -1,0 +1,425 @@
+{
+  "MonsterName": "半兽人战士",
+  "Id": 804,
+  "Level": 16,
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CanBeSeducedBySkills": true,
+  "BaseTemptationProbability": 0.25,
+  "MoveInterval": 500,
+  "RoamInterval": 15000,
+  "CorpsePreservationDuration": 10000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 3,
+  "HateTime": 30000,
+  "NormalAttackSkills": "电脑-半兽战士勇士普攻",
+  "ProbabilityTriggerSkills": "",
+  "EnterCombatSkills": "",
+  "ExitCombatSkills": "",
+  "瞬移释放技能": "",
+  "复活释放技能": "",
+  "DeathReleaseSkill": "",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 85
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 1
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 10
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 10
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Value": 5
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 12
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 2
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 2
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Value": 2
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Value": 2
+    }
+  ],
+  "Grows": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Level0": 85,
+      "Level1": 105,
+      "Level2": 125,
+      "Level3": 150,
+      "Level4": 175,
+      "Level5": 205,
+      "Level6": 235,
+      "Level7": 265
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 1,
+      "Level1": 1,
+      "Level2": 1,
+      "Level3": 2,
+      "Level4": 2,
+      "Level5": 3,
+      "Level6": 3,
+      "Level7": 3
+    },
+    {
+      "Stat": "行走速度",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 10,
+      "Level4": 10,
+      "Level5": 10,
+      "Level6": 10,
+      "Level7": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 5,
+      "Level6": 5,
+      "Level7": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 11,
+      "Level4": 11,
+      "Level5": 12,
+      "Level6": 12,
+      "Level7": 12
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 11,
+      "Level4": 11,
+      "Level5": 12,
+      "Level6": 12,
+      "Level7": 12
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 5,
+      "Level6": 5,
+      "Level7": 5
+    },
+    {
+      "Stat": "MaxAttack",
+      "Level0": 12,
+      "Level1": 13,
+      "Level2": 14,
+      "Level3": 15,
+      "Level4": 16,
+      "Level5": 17,
+      "Level6": 18,
+      "Level7": 19
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Level0": 2,
+      "Level1": 2,
+      "Level2": 2,
+      "Level3": 2,
+      "Level4": 2,
+      "Level5": 2,
+      "Level6": 2,
+      "Level7": 2
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 2,
+      "Level1": 3,
+      "Level2": 4,
+      "Level3": 5,
+      "Level4": 6,
+      "Level5": 7,
+      "Level6": 8,
+      "Level7": 9
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Level0": 2,
+      "Level1": 2,
+      "Level2": 2,
+      "Level3": 2,
+      "Level4": 2,
+      "Level5": 2,
+      "Level6": 2,
+      "Level7": 2
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Level0": 2,
+      "Level1": 3,
+      "Level2": 4,
+      "Level3": 5,
+      "Level4": 6,
+      "Level5": 7,
+      "Level6": 8,
+      "Level7": 9
+    }
+  ],
+  "InheritsStats": [],
+  "ProvideExperience": 94,
+  "Drops": [
+    {
+      "Name": "轻型盔甲",
+      "MonsterName": "半兽人战士",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "轻型盔甲(女)",
+      "MonsterName": "半兽人战士",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黄色水晶项链",
+      "MonsterName": "半兽人战士",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑檀项链",
+      "MonsterName": "半兽人战士",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑色水晶项链",
+      "MonsterName": "半兽人战士",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "白金项链",
+      "MonsterName": "半兽人战士",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色水晶戒指",
+      "MonsterName": "半兽人战士",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "半兽人战士",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珍珠戒指",
+      "MonsterName": "半兽人战士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑色水晶戒指",
+      "MonsterName": "半兽人战士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蛇眼戒指",
+      "MonsterName": "半兽人战士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜戒指",
+      "MonsterName": "半兽人战士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤戒指",
+      "MonsterName": "半兽人战士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁手镯",
+      "MonsterName": "半兽人战士",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "银手镯",
+      "MonsterName": "半兽人战士",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "皮制手套",
+      "MonsterName": "半兽人战士",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "钢手镯",
+      "MonsterName": "半兽人战士",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "大手镯",
+      "MonsterName": "半兽人战士",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "海魂",
+      "MonsterName": "半兽人战士",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "八荒",
+      "MonsterName": "半兽人战士",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "半月",
+      "MonsterName": "半兽人战士",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "半兽人战士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "破魂",
+      "MonsterName": "半兽人战士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "半兽人战士",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "半兽人战士",
+      "Probability": 5,
+      "MinAmount": 200,
+      "MaxAmount": 350
+    },
+    {
+      "Name": "金创药(中量)",
+      "MonsterName": "半兽人战士",
+      "Probability": 6,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(中量)",
+      "MonsterName": "半兽人战士",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "太阳水",
+      "MonsterName": "半兽人战士",
+      "Probability": 20,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

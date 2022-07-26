@@ -1,0 +1,57 @@
+{
+  "SkillName": "召唤神兽-3-灵兽印-主体技能",
+  "Race": "道士",
+  "OwnSkillId": 3008,
+  "Id": 3,
+  "GroupId": 1,
+  "BindingLevelId": 3008,
+  "CalculateTriggerProbability": 1,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    50,
+    60,
+    70,
+    80
+  ],
+  "NeedConsumeItems": [
+    40103,
+    40101,
+    40102
+  ],
+  "NeedConsumeItemsQuantity": 5,
+  "GearDeductionPoints": 5,
+  "Nodes": {
+    "0": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 1750,
+      "分组Cooldown": 1750,
+      "角色忙绿时间": 625
+    },
+    "1": {
+      "$type": "A_00_触发SubSkills, Assembly-CSharp",
+      "触发SkillName": "召唤神兽-3-灵兽印-召唤灵兽"
+    },
+    "624": {
+      "$type": "C_06_计算宠物召唤, Assembly-CSharp",
+      "召唤宠物名字": "道士召唤灵兽",
+      "召唤宠物数量": "AQEBAQ==",
+      "宠物等级上限": "AQMFBw==",
+      "增加技能经验": true,
+      "经验SkillId": 3008,
+      "宠物绑定武器": true,
+      "检查技能铭文": true
+    },
+    "625": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "1000": {
+      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+    }
+  }
+}

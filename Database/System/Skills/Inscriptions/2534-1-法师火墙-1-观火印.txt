@@ -1,0 +1,27 @@
+{
+  "SkillName": "法师火墙-1-观火印",
+  "Race": "法师",
+  "SkillId": 2534,
+  "Id": 1,
+  "Quality": 6,
+  "Probability": 10,
+  "MinPlayerLevel": "GB0hJQ==",
+  "MinSkillExp": [
+    400,
+    800,
+    1600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "法师火墙-1-观火印-主体技能"
+  ],
+  "SwitchSkills": []
+}

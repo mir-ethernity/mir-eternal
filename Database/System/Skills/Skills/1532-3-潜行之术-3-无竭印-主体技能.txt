@@ -1,0 +1,62 @@
+{
+  "SkillName": "潜行之术-3-无竭印-主体技能",
+  "Race": "刺客",
+  "OwnSkillId": 1532,
+  "Id": 3,
+  "GroupId": 5,
+  "BindingLevelId": 1532,
+  "CalculateTriggerProbability": 1,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    15,
+    20,
+    25,
+    30
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 30000,
+      "分组Cooldown": 30000
+    },
+    "1": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 15325,
+      "Buff触发概率": 1,
+      "所需Buff层数": 1,
+      "增加技能经验": true,
+      "经验SkillId": 1532
+    },
+    "2": {
+      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "限定命中数量": 1,
+      "限定目标类型": "玩家",
+      "限定目标关系": "ItSelf",
+      "清除状态列表": []
+    },
+    "3": {
+      "$type": "C_05_计算目标回复, Assembly-CSharp",
+      "体力回复次数": [],
+      "Taoism叠加次数": [],
+      "PhysicalRecoveryBase": "",
+      "Taoism叠加基数": [],
+      "立即回复基数": [],
+      "立即回复系数": [
+        0.1,
+        0.15,
+        0.2,
+        0.25
+      ]
+    },
+    "4": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true
+    },
+    "5": {
+      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+    }
+  }
+}

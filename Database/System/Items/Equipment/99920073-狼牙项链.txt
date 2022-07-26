@@ -1,0 +1,681 @@
+{
+  "Name": "狼牙项链",
+  "Id": 99920073,
+  "ItemLast": 6,
+  "Weight": 1,
+  "Level": 30,
+  "NeedLevel": 24,
+  "SalePrice": 10000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "项链",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "BasicPowerCombat": 95,
+  "MinBow": 1,
+  "MaxBow": 3,
+  "MaxMagicDef": 1,
+  "CanRepair": true,
+  "RepairCost": 6000,
+  "SpecialRepairCost": 30000,
+  "勇者试炼": true,
+  "试炼币数": 10,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "沃玛装备",
+  "物品掉落列表": [
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "红野猪精英",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "黑野猪精英",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "祖玛弓箭手精英",
+      "Probability": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "祖玛雕像精英",
+      "Probability": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "祖玛卫士精英",
+      "Probability": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "暴牙蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "钢牙蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "月魔蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "花吻蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "黑锷蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "幻影蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "猎魔蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "血巨人",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "血僵尸",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "双刀冥使",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "幽冥盾蟹",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "寄居盾蟹",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "寄居镰蟹",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "背誓刺客",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "暗影刺客",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "血眼杀手",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "幽冥先锋",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "魔龙刺蛙绿",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "魔龙刺蛙红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "魔龙邪眼绿",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "魔龙射手",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "魔龙刀兵",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "魔龙破甲兵",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "牛头魔",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "骷髅刀斧手",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "骷髅长枪兵",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "骷髅弓箭手",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "骷髅锤兵",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "碎颅弓箭手",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "恶灵僵尸",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "恶灵尸王",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "牛魔战士",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "牛魔侍卫",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "牛魔祭司",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "牛魔法师",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "牛魔将军",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "牛魔斗士",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "牛魔法师王",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "黑暗祭司",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "恶灵",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "尖刺鱼人",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "双刀武士",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "海妖战士",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "海妖弓手",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "海妖法师",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "僵尸海盗",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "僵尸剑客",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "僵尸掷矛手",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "毒魔",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "独眼魔",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "火岩魔",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "僵尸锤兵",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "双刀鱼人",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "兽人僵尸",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "兽人幽魂",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "兽人矿工",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "兽人狂战",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "精锐狼骑兵",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "兽人祭祀",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "邪恶钳虫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "白野猪",
+      "Probability": 60,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "虹魔猪卫",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "双头金刚",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "双头血魔",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "魔龙鬼射",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "魔龙力士",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "金甲鱼人",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "冥海魔神",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "沃玛卫士",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "巨型兽人僵尸",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "狂暴兽魂",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "幽冥大使",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "秘密信使",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "血手",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "黄泉教主",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "牛魔王",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "尸王",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "沃玛教主",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "魔龙教主",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "触龙神",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "虹魔教主",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "祖玛教主",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "赤月恶魔",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "烈焰恶魔",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

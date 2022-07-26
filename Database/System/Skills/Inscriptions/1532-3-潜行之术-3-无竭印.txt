@@ -1,0 +1,29 @@
+{
+  "SkillName": "潜行之术-3-无竭印",
+  "Race": "刺客",
+  "SkillId": 1532,
+  "Id": 3,
+  "Quality": 4,
+  "Probability": 25,
+  "MinPlayerLevel": "FhkcHw==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "潜行之术-3-无竭印-主体技能"
+  ],
+  "SwitchSkills": [
+    "潜行之术-3-无竭印-主体技能"
+  ]
+}

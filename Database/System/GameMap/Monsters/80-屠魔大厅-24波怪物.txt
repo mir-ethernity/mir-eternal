@@ -1,0 +1,30 @@
+{
+  "FromMapId": 80,
+  "FromMapName": "屠魔大厅",
+  "FromCoords": "934, 330",
+  "RegionName": "屠魔大厅-24波怪物",
+  "AreaRadius": 1,
+  "Spawns": [
+    {
+      "MonsterName": "兽人僵尸",
+      "SpawnCount": 12,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "兽人矿工",
+      "SpawnCount": 12,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "兽人幽魂",
+      "SpawnCount": 4,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "狂暴兽魂",
+      "SpawnCount": 1,
+      "RevivalInterval": 1
+    }
+  ],
+  "RangeCoords": []
+}

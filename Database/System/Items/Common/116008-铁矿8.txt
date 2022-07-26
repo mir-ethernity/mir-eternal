@@ -1,0 +1,14 @@
+{
+  "Name": "铁矿8",
+  "Id": 116008,
+  "ItemLast": 8,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 44,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}

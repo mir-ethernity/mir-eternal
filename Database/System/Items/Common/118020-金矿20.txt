@@ -1,0 +1,14 @@
+{
+  "Name": "金矿20",
+  "Id": 118020,
+  "ItemLast": 20,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 687,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "武器"
+}

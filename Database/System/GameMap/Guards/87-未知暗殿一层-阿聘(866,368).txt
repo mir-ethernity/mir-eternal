@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6358,
+  "FromMapId": 87,
+  "FromMapName": "未知暗殿一层",
+  "FromCoords": "866, 368",
+  "Direction": "右上",
+  "RegionName": "未知暗殿一层-阿聘(866,368)"
+}

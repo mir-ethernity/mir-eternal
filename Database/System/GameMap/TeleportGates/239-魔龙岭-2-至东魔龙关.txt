@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 2,
+  "FromMapId": 239,
+  "ToMapId": 241,
+  "TeleportGateName": "至东魔龙关",
+  "FromMapName": "魔龙岭",
+  "ToMapName": "东魔龙关",
+  "FromMapFile": "MirDg12_8",
+  "ToMapFile": "MirDg12_10",
+  "FromCoords": "937, 658",
+  "ToCoords": "1126, 368"
+}

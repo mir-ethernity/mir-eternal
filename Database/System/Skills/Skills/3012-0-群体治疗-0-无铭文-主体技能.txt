@@ -1,0 +1,80 @@
+{
+  "SkillName": "群体治疗-0-无铭文-主体技能",
+  "Race": "道士",
+  "OwnSkillId": 3012,
+  "GroupId": 1,
+  "BindingLevelId": 3012,
+  "CalculateTriggerProbability": 1,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    33,
+    36,
+    39,
+    42
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "MaxDistance": 8
+    },
+    "1": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 1500,
+      "分组Cooldown": 1500,
+      "角色忙绿时间": 625
+    },
+    "2": {
+      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "技能范围类型": "Solid3x3",
+      "限定命中数量": 9,
+      "限定目标类型": "玩家, 宠物",
+      "限定目标关系": "ItSelf, Friendly",
+      "清除状态列表": []
+    },
+    "623": {
+      "$type": "C_05_计算目标回复, Assembly-CSharp",
+      "体力回复次数": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "Taoism叠加次数": [
+        0.125,
+        0.125,
+        0.125,
+        0.125
+      ],
+      "PhysicalRecoveryBase": "BQUFBQ==",
+      "Taoism叠加基数": [
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "立即回复基数": [],
+      "立即回复系数": [],
+      "增加技能经验": true,
+      "经验SkillId": 3012
+    },
+    "624": {
+      "$type": "A_00_触发SubSkills, Assembly-CSharp",
+      "技能触发方式": "目标命中绝对触发",
+      "触发SkillName": "治愈之术-0-无铭文-命中特效"
+    },
+    "625": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "角色硬直时间": 725,
+      "禁止行走时间": 625,
+      "禁止奔跑时间": 625
+    },
+    "1000": {
+      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+    }
+  }
+}

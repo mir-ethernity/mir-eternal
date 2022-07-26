@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 4,
+  "FromMapId": 85,
+  "ToMapId": 85,
+  "TeleportGateName": "沙城战场东门",
+  "FromMapName": "沙城战场",
+  "ToMapName": "沙城战场",
+  "FromMapFile": "MirAct21",
+  "ToMapFile": "MirAct21",
+  "FromCoords": "279, 1256",
+  "ToCoords": "1025, 584"
+}

@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 4,
+  "FromMapId": 145,
+  "ToMapId": 143,
+  "TeleportGateName": "比奇省",
+  "FromMapName": "沃玛森林",
+  "ToMapName": "比奇省",
+  "FromMapFile": "Mir_Dg04",
+  "ToMapFile": "Mir_Pb02",
+  "FromCoords": "800, 356",
+  "ToCoords": "1161, 970"
+}

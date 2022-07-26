@@ -1,0 +1,9 @@
+{
+  "MapId": 119,
+  "MapName": "元素王座",
+  "MapFile": "MirDg27_4",
+  "TerrainFile": "0119-ElementalThrone",
+  "LimitPlayers": 9999,
+  "MinLevel": 45,
+  "LimitInstances": 1
+}

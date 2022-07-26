@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 187,
+  "ToMapId": 145,
+  "TeleportGateName": "沃玛森林",
+  "FromMapName": "丛林迷宫",
+  "ToMapName": "沃玛森林",
+  "FromMapFile": "MirDg10",
+  "ToMapFile": "Mir_Dg04",
+  "FromCoords": "773, 518",
+  "ToCoords": "1184, 532"
+}

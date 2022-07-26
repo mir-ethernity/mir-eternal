@@ -1,0 +1,28 @@
+{
+  "SkillName": "回避射击-3-回风印",
+  "Race": "弓手",
+  "SkillId": 2056,
+  "Id": 3,
+  "Quality": 7,
+  "Probability": 2,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "ISQnKg==",
+  "MinSkillExp": [
+    400,
+    800,
+    1600,
+    0
+  ],
+  "SkillCombatBonus": [
+    30,
+    40,
+    50,
+    60
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "回避射击-3-回风印-主体技能"
+  ],
+  "SwitchSkills": []
+}

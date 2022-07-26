@@ -1,0 +1,7 @@
+{
+  "Name": "龙相君",
+  "GuardNumber": 6692,
+  "Level": 99,
+  "RangeHate": 8,
+  "InterfaceCode": "Guild"
+}

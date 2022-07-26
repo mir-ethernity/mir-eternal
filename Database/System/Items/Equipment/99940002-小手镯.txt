@@ -1,0 +1,59 @@
+{
+  "Name": "小手镯",
+  "Id": 99940002,
+  "ItemLast": 5,
+  "Weight": 1,
+  "Level": 5,
+  "NeedLevel": 5,
+  "SalePrice": 500,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "手镯",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "BasicPowerCombat": 7,
+  "MaxMagicDef": 1,
+  "CanRepair": true,
+  "RepairCost": 300,
+  "SpecialRepairCost": 1500,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "小手镯",
+      "MonsterName": "稻草人",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "小手镯",
+      "MonsterName": "海蟹",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "小手镯",
+      "MonsterName": "鹿",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "小手镯",
+      "MonsterName": "钉耙猫",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "小手镯",
+      "MonsterName": "羊",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

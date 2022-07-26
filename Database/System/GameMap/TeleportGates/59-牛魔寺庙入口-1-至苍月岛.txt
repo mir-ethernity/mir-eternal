@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 59,
+  "ToMapId": 50,
+  "TeleportGateName": "至苍月岛",
+  "FromMapName": "牛魔寺庙入口",
+  "ToMapName": "苍月岛",
+  "FromMapFile": "MirDg15",
+  "ToMapFile": "MirPb04",
+  "FromCoords": "1040, 104",
+  "ToCoords": "814, 441"
+}

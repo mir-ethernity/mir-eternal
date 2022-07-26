@@ -1,0 +1,7 @@
+{
+  "Stat": "PhysicallyAccurate",
+  "Value": 1,
+  "StatId": 21001,
+  "CombatBonus": 10,
+  "StatDescription": "物理准确+1"
+}

@@ -1,0 +1,6 @@
+{
+  "Name": "金家铁匠",
+  "GuardNumber": 6126,
+  "Level": 99,
+  "RangeHate": 8
+}

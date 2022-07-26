@@ -1,0 +1,6 @@
+{
+  "Name": "小莹",
+  "GuardNumber": 6359,
+  "Level": 99,
+  "RangeHate": 8
+}

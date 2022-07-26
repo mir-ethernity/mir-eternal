@@ -1,0 +1,65 @@
+{
+  "SkillName": "狂飙突刺-1-积雷印-主体技能",
+  "Race": "龙枪",
+  "OwnSkillId": 1204,
+  "Id": 1,
+  "GroupId": 10,
+  "BindingLevelId": 1204,
+  "CalculateTriggerProbability": 1,
+  "CheckBusyGreen": true,
+  "CheckOccupationalWeapons": true,
+  "CheckSkillCount": true,
+  "NeedConsumeMagic": [
+    11,
+    14,
+    17,
+    20
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "MaxDistance": 1,
+      "技能最近距离": 1
+    },
+    "1": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 10000,
+      "角色忙绿时间": 500
+    },
+    "2": {
+      "$type": "C_03_计算对象位移, Assembly-CSharp",
+      "角色ItSelf位移": true,
+      "允许超出锚点": true,
+      "位移增加经验": true,
+      "ItSelf位移耗时": 1,
+      "ItSelf硬直时间": 60,
+      "ItSelf位移次数": "AQEBAQ==",
+      "ItSelf位移距离": "BAQEBA==",
+      "目标位移距离": "AAAAAA=="
+    },
+    "124": {
+      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "计算当前位置": true,
+      "计算当前方向": true,
+      "MaxDistance": 1,
+      "技能最近距离": 1
+    },
+    "125": {
+      "$type": "A_00_触发SubSkills, Assembly-CSharp",
+      "技能触发方式": "锚点位置绝对触发",
+      "触发SkillName": "狂飙突刺-1-积雷印-突刺伤害"
+    },
+    "500": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 1000,
+      "禁止行走时间": 850,
+      "禁止奔跑时间": 650
+    },
+    "1000": {
+      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+    }
+  }
+}

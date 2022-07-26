@@ -1,0 +1,94 @@
+{
+  "Name": "古铜戒指",
+  "Id": 99930001,
+  "ItemLast": 5,
+  "Weight": 1,
+  "Level": 5,
+  "NeedLevel": 3,
+  "SalePrice": 250,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "戒指",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "BasicPowerCombat": 10,
+  "MaxAttack": 1,
+  "CanRepair": true,
+  "RepairCost": 150,
+  "SpecialRepairCost": 750,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "古铜戒指",
+      "MonsterName": "稻草人",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古铜戒指",
+      "MonsterName": "海蟹",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古铜戒指",
+      "MonsterName": "钉耙猫",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古铜戒指",
+      "MonsterName": "半兽人",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古铜戒指",
+      "MonsterName": "野狼",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古铜戒指",
+      "MonsterName": "树妖",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古铜戒指",
+      "MonsterName": "毒蜘蛛",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古铜戒指",
+      "MonsterName": "盔甲虫",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古铜戒指",
+      "MonsterName": "多角虫",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古铜戒指",
+      "MonsterName": "腐蚀虫",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "SkillName": "困魔咒术-1-邪咒印-被动触发",
+  "Race": "道士",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 3011,
+  "BindingLevelId": 3011,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "解除技能陷阱": true
+    }
+  }
+}

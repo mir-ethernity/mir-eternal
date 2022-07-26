@@ -1,0 +1,35 @@
+{
+  "SkillName": "精准之术-3-续战印",
+  "Race": "刺客",
+  "SkillId": 1534,
+  "Id": 3,
+  "PassiveSkill": true,
+  "Quality": 3,
+  "Probability": 60,
+  "MinPlayerLevel": "CQwSGQ==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "StatsBonus": [
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 2,
+      "Level1": 4,
+      "Level2": 6,
+      "Level3": 8
+    }
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [],
+  "SwitchSkills": []
+}

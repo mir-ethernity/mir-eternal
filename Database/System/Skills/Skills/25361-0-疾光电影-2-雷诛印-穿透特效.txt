@@ -1,0 +1,23 @@
+{
+  "SkillName": "疾光电影-2-雷诛印-穿透特效",
+  "Race": "法师",
+  "OwnSkillId": 25361,
+  "BindingLevelId": 2536,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "1": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

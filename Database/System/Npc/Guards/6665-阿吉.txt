@@ -1,0 +1,8 @@
+{
+  "Name": "阿吉",
+  "GuardNumber": 6665,
+  "Level": 99,
+  "RangeHate": 8,
+  "BasicAttackSkills": "",
+  "InterfaceCode": "Warehouse"
+}

@@ -1,0 +1,660 @@
+{
+  "MonsterName": "红野猪",
+  "Id": 1032,
+  "Level": 32,
+  "Race": "PigMonster",
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CanBeSeducedBySkills": true,
+  "MoveInterval": 400,
+  "RoamInterval": 20000,
+  "CorpsePreservationDuration": 10000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 20000,
+  "NormalAttackSkills": "电脑-Red Boar的BasicAttackSkills",
+  "ProbabilityTriggerSkills": "",
+  "EnterCombatSkills": "",
+  "ExitCombatSkills": "",
+  "瞬移释放技能": "",
+  "复活释放技能": "",
+  "DeathReleaseSkill": "",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 330
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 5
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 13
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 14
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Value": 18
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 25
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef"
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 1
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Value": 6
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Value": 10
+    }
+  ],
+  "Grows": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Level0": 330,
+      "Level1": 370,
+      "Level2": 410,
+      "Level3": 455,
+      "Level4": 500,
+      "Level5": 550,
+      "Level6": 600,
+      "Level7": 655
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 6,
+      "Level4": 6,
+      "Level5": 7,
+      "Level6": 7,
+      "Level7": 7
+    },
+    {
+      "Stat": "行走速度",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 10,
+      "Level4": 10,
+      "Level5": 10,
+      "Level6": 10,
+      "Level7": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 5,
+      "Level6": 5,
+      "Level7": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 13,
+      "Level1": 13,
+      "Level2": 13,
+      "Level3": 14,
+      "Level4": 14,
+      "Level5": 15,
+      "Level6": 15,
+      "Level7": 15
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 14,
+      "Level1": 14,
+      "Level2": 14,
+      "Level3": 15,
+      "Level4": 15,
+      "Level5": 16,
+      "Level6": 16,
+      "Level7": 16
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Level0": 18,
+      "Level1": 18,
+      "Level2": 18,
+      "Level3": 18,
+      "Level4": 18,
+      "Level5": 18,
+      "Level6": 18,
+      "Level7": 18
+    },
+    {
+      "Stat": "MaxAttack",
+      "Level0": 25,
+      "Level1": 26,
+      "Level2": 27,
+      "Level3": 28,
+      "Level4": 29,
+      "Level5": 30,
+      "Level6": 31,
+      "Level7": 32
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef"
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 1,
+      "Level1": 2,
+      "Level2": 3,
+      "Level3": 4,
+      "Level4": 5,
+      "Level5": 6,
+      "Level6": 7,
+      "Level7": 8
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Level0": 6,
+      "Level1": 6,
+      "Level2": 6,
+      "Level3": 6,
+      "Level4": 6,
+      "Level5": 6,
+      "Level6": 6,
+      "Level7": 6
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Level0": 10,
+      "Level1": 11,
+      "Level2": 12,
+      "Level3": 13,
+      "Level4": 14,
+      "Level5": 15,
+      "Level6": 16,
+      "Level7": 17
+    }
+  ],
+  "ProvideExperience": 320,
+  "Drops": [
+    {
+      "Name": "重盔甲(男)",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(男)",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(男)",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(男)",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(男)",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(男)",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "重盔甲(女)",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(女)",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(女)",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(女)",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(女)",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(女)",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽皮腰带",
+      "MonsterName": "红野猪",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布鞋",
+      "MonsterName": "红野猪",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "白金项链",
+      "MonsterName": "红野猪",
+      "掉落概率": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "琥珀项链",
+      "MonsterName": "红野猪",
+      "掉落概率": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔鬼项链",
+      "MonsterName": "红野猪",
+      "掉落概率": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "软玉项链",
+      "MonsterName": "红野猪",
+      "掉落概率": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤项链",
+      "MonsterName": "红野猪",
+      "掉落概率": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "红野猪",
+      "掉落概率": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "躲避项链",
+      "MonsterName": "红野猪",
+      "掉落概率": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝翡翠项链",
+      "MonsterName": "红野猪",
+      "掉落概率": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "竹笛",
+      "MonsterName": "红野猪",
+      "掉落概率": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "放大镜",
+      "MonsterName": "红野猪",
+      "掉落概率": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "十方项链",
+      "MonsterName": "红野猪",
+      "掉落概率": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狞猫项链",
+      "MonsterName": "红野猪",
+      "掉落概率": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道德戒指",
+      "MonsterName": "红野猪",
+      "掉落概率": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魅力戒指",
+      "MonsterName": "红野猪",
+      "掉落概率": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅戒指",
+      "MonsterName": "红野猪",
+      "掉落概率": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "翡翠戒指",
+      "MonsterName": "红野猪",
+      "掉落概率": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "扣弦扳指",
+      "MonsterName": "红野猪",
+      "掉落概率": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金戒指",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珊瑚戒指",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫玉戒指",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁皮指环",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "降妖除魔戒指",
+      "MonsterName": "红野猪",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法手镯",
+      "MonsterName": "红野猪",
+      "掉落概率": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔力手镯",
+      "MonsterName": "红野猪",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "坚固手套",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士手镯",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑檀手镯",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "夏普儿手镯",
+      "MonsterName": "红野猪",
+      "掉落概率": 3000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "辟邪手镯",
+      "MonsterName": "红野猪",
+      "掉落概率": 5000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金手镯",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "桃木手镯",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤手镯",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "红野猪",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "破魂",
+      "MonsterName": "红野猪",
+      "掉落概率": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "罗刹",
+      "MonsterName": "红野猪",
+      "掉落概率": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "偃月",
+      "MonsterName": "红野猪",
+      "掉落概率": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "降魔",
+      "MonsterName": "红野猪",
+      "掉落概率": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "斩马刀",
+      "MonsterName": "红野猪",
+      "掉落概率": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "冰月戟",
+      "MonsterName": "红野猪",
+      "掉落概率": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁胎弓",
+      "MonsterName": "红野猪",
+      "掉落概率": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "百炼枪",
+      "MonsterName": "红野猪",
+      "掉落概率": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "修罗",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凝霜",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅头盔",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士头盔",
+      "MonsterName": "红野猪",
+      "掉落概率": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "红野猪",
+      "掉落概率": 5,
+      "MinAmount": 500,
+      "MaxAmount": 600
+    },
+    {
+      "Name": "强效金创药",
+      "MonsterName": "红野猪",
+      "掉落概率": 8,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "红野猪",
+      "掉落概率": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效太阳水",
+      "MonsterName": "红野猪",
+      "掉落概率": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

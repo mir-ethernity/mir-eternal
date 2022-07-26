@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 2,
+  "FromMapId": 115,
+  "ToMapId": 116,
+  "TeleportGateName": "至冰川地脉",
+  "FromMapName": "龙栖峰",
+  "ToMapName": "冰川地脉",
+  "FromMapFile": "MirDg26_2",
+  "ToMapFile": "MirDg27_1",
+  "FromCoords": "910, 477",
+  "ToCoords": "1104, 380"
+}

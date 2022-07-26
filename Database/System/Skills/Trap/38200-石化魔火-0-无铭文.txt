@@ -1,0 +1,8 @@
+{
+  "Name": "石化魔火-0-无铭文",
+  "Id": 38200,
+  "GroupId": 38200,
+  "AllowStacking": true,
+  "Duration": 1500,
+  "LimitMoveSteps": 255
+}

@@ -1,0 +1,85 @@
+{
+  "SkillName": "基础射击-2-清心印-子类技能",
+  "Race": "弓手",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 2041,
+  "Id": 2,
+  "BindingLevelId": 2041,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "MaxDistance": 8,
+      "技能最近距离": 1
+    },
+    "1": {
+      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定目标",
+      "技能闪避方式": "可被物理闪避",
+      "技能命中反馈": "后仰",
+      "技能命中通知": true,
+      "计算飞行耗时": true,
+      "单格飞行耗时": 30,
+      "限定命中数量": 1,
+      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
+      "限定目标关系": "Hostility",
+      "清除状态列表": []
+    },
+    "2": {
+      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Archery",
+      "技能伤害基数": [
+        6,
+        8,
+        10,
+        12
+      ],
+      "技能伤害系数": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "增加技能经验": true,
+      "经验SkillId": 2041,
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    },
+    "3": {
+      "$type": "A_00_触发SubSkills, Assembly-CSharp",
+      "技能触发方式": "目标命中绝对触发",
+      "触发SkillName": "精准打击-0-全铭文-触发判定"
+    },
+    "4": {
+      "$type": "A_00_触发SubSkills, Assembly-CSharp",
+      "技能触发方式": "目标命中绝对触发",
+      "触发SkillName": "强袭之箭-4-空灵印-冷却减少",
+      "CalculateTriggerProbability": true,
+      "技能触发概率": 0.35,
+      "验证铭文技能": true,
+      "所需Id": 20484
+    },
+    "5": {
+      "$type": "A_00_触发SubSkills, Assembly-CSharp",
+      "技能触发方式": "目标闪避绝对触发",
+      "触发SkillName": "精准打击-2-射戟印-闪避触发",
+      "验证铭文技能": true,
+      "所需Id": 20422
+    },
+    "6": {
+      "$type": "A_00_触发SubSkills, Assembly-CSharp",
+      "技能触发方式": "目标命中绝对触发",
+      "触发SkillName": "战术标记-2-汲灵印-吸血触发",
+      "验证铭文技能": true,
+      "所需Id": 20442
+    }
+  }
+}

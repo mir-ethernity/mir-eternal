@@ -1,0 +1,54 @@
+{
+  "SkillName": "困魔咒术-1-邪咒印-主体技能",
+  "Race": "道士",
+  "OwnSkillId": 3011,
+  "Id": 1,
+  "GroupId": 1,
+  "BindingLevelId": 3011,
+  "CalculateTriggerProbability": 1,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    14,
+    20,
+    26,
+    30
+  ],
+  "NeedConsumeItems": [
+    40103,
+    40101,
+    40102
+  ],
+  "NeedConsumeItemsQuantity": 1,
+  "GearDeductionPoints": 1,
+  "Nodes": {
+    "0": {
+      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "MaxDistance": 8
+    },
+    "1": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 1375,
+      "分组Cooldown": 1000,
+      "角色忙绿时间": 625
+    },
+    "624": {
+      "$type": "A_02_TriggerTrapSkills, Assembly-CSharp",
+      "TriggerTrapSkills": "TrapOctagon术-1-邪咒印",
+      "增加技能经验": true,
+      "经验SkillId": 3011
+    },
+    "625": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "725": {
+      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+    }
+  }
+}

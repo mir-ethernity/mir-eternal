@@ -1,0 +1,14 @@
+{
+  "Name": "银矿3",
+  "Id": 117003,
+  "ItemLast": 3,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 55,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}

@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6664,
+  "FromMapId": 171,
+  "FromMapName": "祖玛阁",
+  "FromCoords": "1017, 70",
+  "Direction": "右方",
+  "RegionName": "祖玛阁-醉爷(1017,70)"
+}

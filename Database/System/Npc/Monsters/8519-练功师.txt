@@ -1,0 +1,22 @@
+{
+  "MonsterName": "练功师",
+  "Id": 8519,
+  "Category": "Normal",
+  "ForbbidenMove": true,
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CorpsePreservationDuration": 10000,
+  "RangeHate": 3,
+  "HateTime": 30000,
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 9999
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 99
+    }
+  ],
+  "Drops": []
+}

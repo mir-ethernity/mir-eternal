@@ -1,0 +1,29 @@
+{
+  "SkillName": "疾光电影-3-雷咒印",
+  "Race": "法师",
+  "SkillId": 2536,
+  "Id": 3,
+  "Quality": 8,
+  "Probability": 1,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "Gh0gIw==",
+  "MinSkillExp": [
+    300,
+    600,
+    1200,
+    0
+  ],
+  "SkillCombatBonus": [
+    5,
+    7,
+    10,
+    13
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "疾光电影-3-雷咒印-镜像主体",
+    "疾光电影-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

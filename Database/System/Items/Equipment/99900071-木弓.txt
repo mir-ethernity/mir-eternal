@@ -1,0 +1,64 @@
+{
+  "Name": "木弓",
+  "Id": 99900071,
+  "ItemLast": 4,
+  "Weight": 9,
+  "Level": 1,
+  "NeedLevel": 1,
+  "SalePrice": 25,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "武器",
+  "NeedRace": "弓手",
+  "PersistType": "装备",
+  "StoreType": "武器",
+  "BasicPowerCombat": 22,
+  "MinAttack": 2,
+  "MaxAttack": 4,
+  "MinBow": 2,
+  "MaxBow": 4,
+  "CanRepair": true,
+  "RepairCost": 150,
+  "SpecialRepairCost": 750,
+  "灵魂绑点": 9,
+  "圣伤上限": 10,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "木弓",
+      "MonsterName": "稻草人",
+      "Probability": 100,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "木弓",
+      "MonsterName": "海蟹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "木弓",
+      "MonsterName": "鹿",
+      "Probability": 100,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "木弓",
+      "MonsterName": "钉耙猫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "木弓",
+      "MonsterName": "羊",
+      "Probability": 100,
+      "MinAmount": 1,
+      "最大数量": 1
+    }
+  ]
+}

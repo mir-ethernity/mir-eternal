@@ -1,0 +1,23 @@
+{
+  "Name": "隐身戒指",
+  "Id": 99930030,
+  "ItemLast": 4,
+  "Weight": 1,
+  "Level": 20,
+  "NeedLevel": 12,
+  "SalePrice": 12500,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "戒指",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "BasicPowerCombat": 44,
+  "CanRepair": true,
+  "RepairCost": 7500,
+  "SpecialRepairCost": 37500,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "神秘装备"
+}

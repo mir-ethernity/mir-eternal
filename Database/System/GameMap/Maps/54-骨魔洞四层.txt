@@ -1,0 +1,8 @@
+{
+  "MapId": 54,
+  "MapName": "骨魔洞四层",
+  "MapFile": "MirDg13_4",
+  "TerrainFile": "0054-BoneDemonCave4th",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

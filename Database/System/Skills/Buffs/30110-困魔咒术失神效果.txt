@@ -1,0 +1,64 @@
+{
+  "Name": "困魔咒术失神效果",
+  "Id": 30110,
+  "GroupId": 3011,
+  "ActionType": "Debuff",
+  "OverlayType": "SimilarReplacement",
+  "Effect": "StatusFlag, StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 3011,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 2500,
+  "ProcessDelay": 2500,
+  "Duration": 2500,
+  "RequireBuff": [],
+  "PlayerState": "Absence",
+  "StatsIncOrDec": [
+    {
+      "Stat": "MagicDodge",
+      "Level0": 100000,
+      "Level1": 100000,
+      "Level2": 100000,
+      "Level3": 100000
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 100000,
+      "Level1": 100000,
+      "Level2": 100000,
+      "Level3": 100000
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

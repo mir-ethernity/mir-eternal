@@ -1,0 +1,7 @@
+{
+  "Stat": "MaxMagic2",
+  "Value": 5,
+  "StatId": 12005,
+  "CombatBonus": 5,
+  "StatDescription": "最大魔力+5"
+}

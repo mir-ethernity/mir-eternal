@@ -1,0 +1,7 @@
+{
+  "Name": "金九月",
+  "GuardNumber": 6188,
+  "Level": 99,
+  "RangeHate": 8,
+  "InterfaceCode": "WeaponRune"
+}

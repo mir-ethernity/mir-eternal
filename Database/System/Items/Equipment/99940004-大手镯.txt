@@ -1,0 +1,109 @@
+{
+  "Name": "大手镯",
+  "Id": 99940004,
+  "ItemLast": 10,
+  "Weight": 2,
+  "Level": 12,
+  "NeedLevel": 9,
+  "SalePrice": 2500,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "手镯",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "BasicPowerCombat": 18,
+  "MinDef": 1,
+  "MaxDef": 1,
+  "CanRepair": true,
+  "RepairCost": 1500,
+  "SpecialRepairCost": 7500,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "大手镯",
+      "MonsterName": "半兽人",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "大手镯",
+      "MonsterName": "野狼",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "大手镯",
+      "MonsterName": "树妖",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "大手镯",
+      "MonsterName": "毒蜘蛛",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "大手镯",
+      "MonsterName": "盔甲虫",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "大手镯",
+      "MonsterName": "多角虫",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "大手镯",
+      "MonsterName": "腐蚀虫",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "大手镯",
+      "MonsterName": "游熊",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "大手镯",
+      "MonsterName": "鬼尸僵尸",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "大手镯",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "大手镯",
+      "MonsterName": "山洞蝙蝠",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "大手镯",
+      "MonsterName": "半兽人战士",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

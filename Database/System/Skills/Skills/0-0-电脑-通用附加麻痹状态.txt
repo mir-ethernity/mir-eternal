@@ -1,0 +1,23 @@
+{
+  "SkillName": "电脑-通用附加麻痹状态",
+  "Race": "电脑",
+  "SkillType": "SubSkills",
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "技能锁定方式": "锁定目标",
+      "放空结束技能": true,
+      "限定命中数量": 1,
+      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
+      "限定目标关系": "Hostility"
+    },
+    "1": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "触发Id": 49160,
+      "Buff触发概率": 1,
+      "所需Buff层数": 1
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "SkillName": "逐日剑法-0-无铭文-技能开关",
+  "OwnSkillId": 1038,
+  "GroupId": 3,
+  "BindingLevelId": 1038,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [
+    7,
+    7,
+    7,
+    7
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 10000,
+      "分组Cooldown": 10000
+    },
+    "1": {
+      "$type": "B_00_技能切换通知, Assembly-CSharp",
+      "SkillTagId": 10380
+    },
+    "2": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

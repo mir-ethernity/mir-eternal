@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6664,
+  "FromMapId": 53,
+  "FromMapName": "骨魔洞三层",
+  "FromCoords": "1128, 341",
+  "Direction": "下方",
+  "RegionName": "骨魔洞三层-醉爷(1128,341)"
+}

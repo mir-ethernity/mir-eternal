@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6693,
+  "FromMapId": 143,
+  "FromMapName": "比奇省",
+  "FromCoords": "1121, 642",
+  "Direction": "左下",
+  "RegionName": "比奇省-奇云公(1121,642)"
+}

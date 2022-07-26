@@ -1,0 +1,14 @@
+{
+  "Name": "铜矿16",
+  "Id": 115016,
+  "ItemLast": 16,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 36,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}

@@ -1,0 +1,7 @@
+{
+  "Stat": "MinNeedle",
+  "Value": 4,
+  "StatId": 44031,
+  "CombatBonus": 40,
+  "StatDescription": "最小刺术+4"
+}

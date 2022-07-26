@@ -1,0 +1,49 @@
+{
+  "SkillName": "精准之术-2-混沌印",
+  "Race": "刺客",
+  "SkillId": 1534,
+  "Id": 2,
+  "PassiveSkill": true,
+  "Quality": 6,
+  "Probability": 6,
+  "MinPlayerLevel": "CQwSGQ==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "StatsBonus": [
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 2,
+      "Level1": 4,
+      "Level2": 6,
+      "Level3": 8
+    },
+    {
+      "Stat": "MinNeedle",
+      "Level0": -4,
+      "Level1": -5,
+      "Level2": -6,
+      "Level3": -7
+    },
+    {
+      "Stat": "MaxNeedle",
+      "Level0": 5,
+      "Level1": 6,
+      "Level2": 7,
+      "Level3": 8
+    }
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [],
+  "SwitchSkills": []
+}

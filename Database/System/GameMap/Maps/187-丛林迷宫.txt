@@ -1,0 +1,9 @@
+{
+  "MapId": 187,
+  "MapName": "丛林迷宫",
+  "MapFile": "MirDg10",
+  "TerrainFile": "0187-JungleMaze",
+  "LimitPlayers": 9999,
+  "MinLevel": 40,
+  "LimitInstances": 1
+}

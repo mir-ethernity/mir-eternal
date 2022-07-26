@@ -1,0 +1,46 @@
+{
+  "SkillName": "大火球术-1-连环印-主体技能",
+  "Race": "法师",
+  "OwnSkillId": 2549,
+  "Id": 1,
+  "GroupId": 1,
+  "BindingLevelId": 2549,
+  "CalculateTriggerProbability": 1,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    9,
+    10,
+    11,
+    12
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "MaxDistance": 8
+    },
+    "1": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 1500,
+      "分组Cooldown": 1000,
+      "角色忙绿时间": 625
+    },
+    "250": {
+      "$type": "A_00_触发SubSkills, Assembly-CSharp",
+      "技能触发方式": "锚点位置绝对触发",
+      "触发SkillName": "大火球术-1-连环印-连环火球"
+    },
+    "600": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "725": {
+      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "MonsterName": "沙巴克城门",
+  "Id": 8621,
+  "Level": 99,
+  "Size": "Solid3x3",
+  "Category": "Normal",
+  "ForbbidenMove": true,
+  "CorpsePreservationDuration": 1100,
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 9999
+    },
+    {
+      "Stat": "MagicDodge",
+      "Value": 10000
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Value": 99999
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Value": 99999
+    },
+    {
+      "Stat": "中毒躲避",
+      "Value": 99999
+    }
+  ],
+  "Drops": []
+}

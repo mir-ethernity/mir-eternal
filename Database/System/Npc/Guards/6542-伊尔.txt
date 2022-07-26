@@ -1,0 +1,8 @@
+{
+  "Name": "伊尔",
+  "GuardNumber": 6542,
+  "Level": 99,
+  "RangeHate": 8,
+  "StoreId": 6542,
+  "InterfaceCode": "Shop"
+}

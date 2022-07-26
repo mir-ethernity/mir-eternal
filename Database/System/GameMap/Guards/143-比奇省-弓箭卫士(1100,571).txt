@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6724,
+  "FromMapId": 143,
+  "FromMapName": "比奇省",
+  "FromCoords": "1100, 571",
+  "Direction": "右下",
+  "RegionName": "比奇省-弓箭卫士(1100,571)"
+}

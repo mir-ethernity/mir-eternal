@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 3,
+  "FromMapId": 191,
+  "ToMapId": 190,
+  "TeleportGateName": "赤月峡谷东",
+  "FromMapName": "赤月峡谷广场",
+  "ToMapName": "赤月峡谷东入口",
+  "FromMapFile": "MirDg11_3",
+  "ToMapFile": "MirDg11_2",
+  "FromCoords": "994, 272",
+  "ToCoords": "1153, 226"
+}

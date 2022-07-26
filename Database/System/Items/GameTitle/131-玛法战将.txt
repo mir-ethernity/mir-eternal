@@ -1,0 +1,16 @@
+{
+  "Name": "玛法战将",
+  "Id": 131,
+  "Combat": 50,
+  "EffectiveTime": 2592000,
+  "Attributes": {
+    "MaxAttack": 1,
+    "MaxMagic": 1,
+    "GreatestTaoism": 1,
+    "MaxNeedle": 1,
+    "MaxBow": 1,
+    "MaxPhysicalStrength": 10,
+    "MaxDef": 1,
+    "MaxMagicDef": 1
+  }
+}

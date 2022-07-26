@@ -1,0 +1,34 @@
+{
+  "FromMapId": 80,
+  "FromMapName": "屠魔大厅",
+  "FromCoords": "911, 330",
+  "RegionName": "屠魔大厅-01波怪物",
+  "AreaRadius": 1,
+  "Spawns": [
+    {
+      "MonsterName": "爬行僵尸",
+      "SpawnCount": 5,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "佝偻僵尸",
+      "SpawnCount": 5,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "直立僵尸",
+      "SpawnCount": 5,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "和尚僵尸",
+      "SpawnCount": 5,
+      "RevivalInterval": 1
+    }
+  ],
+  "RangeCoords": [
+    "979, 276",
+    "980, 275",
+    "980, 276"
+  ]
+}

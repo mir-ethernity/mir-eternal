@@ -1,0 +1,72 @@
+{
+  "SkillName": "诱惑之光-6-邪光印-主体技能",
+  "Race": "法师",
+  "OwnSkillId": 2541,
+  "Id": 6,
+  "GroupId": 1,
+  "BindingLevelId": 2541,
+  "CalculateTriggerProbability": 1,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    4,
+    5,
+    5,
+    6
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 1375,
+      "分组Cooldown": 1000,
+      "角色忙绿时间": 625
+    },
+    "125": {
+      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "MaxDistance": 8
+    },
+    "126": {
+      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定目标",
+      "技能命中反馈": "特效",
+      "限定命中数量": 1,
+      "限定目标类型": "宠物, 怪物",
+      "限定目标关系": "Hostility",
+      "增加技能经验": true,
+      "经验SkillId": 2541,
+      "清除状态列表": []
+    },
+    "127": {
+      "$type": "C_04_计算目标诱惑, Assembly-CSharp",
+      "检查铭文技能": true,
+      "检查Id": 25416,
+      "瘫痪状态编号": 25410,
+      "狂暴状态编号": 25411,
+      "基础诱惑数量": "AQIDBQ==",
+      "初始宠物等级": "AAAAAA==",
+      "特定诱惑列表": [
+        "红野猪",
+        "黑野猪"
+      ],
+      "特定诱惑概率": 0.2
+    },
+    "128": {
+      "$type": "A_00_触发SubSkills, Assembly-CSharp",
+      "技能触发方式": "锚点位置绝对触发",
+      "触发SkillName": "诱惑之光-0-无铭文-金色特效"
+    },
+    "625": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "725": {
+      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+    }
+  }
+}

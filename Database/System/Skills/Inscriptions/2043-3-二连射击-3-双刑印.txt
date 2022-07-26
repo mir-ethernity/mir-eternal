@@ -1,0 +1,26 @@
+{
+  "SkillName": "二连射击-3-双刑印",
+  "Race": "弓手",
+  "SkillId": 2043,
+  "Id": 3,
+  "PassiveSkill": true,
+  "Quality": 2,
+  "Probability": 80,
+  "MinPlayerLevel": "EBMWGQ==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [],
+  "SwitchSkills": []
+}

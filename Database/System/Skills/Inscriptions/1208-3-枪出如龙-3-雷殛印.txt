@@ -1,0 +1,33 @@
+{
+  "SkillName": "枪出如龙-3-雷殛印",
+  "Race": "龙枪",
+  "SkillId": 1208,
+  "Id": 3,
+  "Quality": 8,
+  "Probability": 1,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "IyYpLA==",
+  "MinSkillExp": [
+    600,
+    1200,
+    1800,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1602
+  ],
+  "MainSkills": [
+    "枪出如龙-3-雷殛印-范围主体",
+    "枪出如龙-3-雷殛印-主体技能"
+  ],
+  "SwitchSkills": [
+    "枪出如龙-0-无铭文-技能开关"
+  ]
+}

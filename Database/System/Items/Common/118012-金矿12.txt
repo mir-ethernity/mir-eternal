@@ -1,0 +1,14 @@
+{
+  "Name": "金矿12",
+  "Id": 118012,
+  "ItemLast": 12,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 370,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "武器"
+}

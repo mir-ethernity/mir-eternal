@@ -1,0 +1,30 @@
+{
+  "FromMapId": 80,
+  "FromMapName": "屠魔大厅",
+  "FromCoords": "938, 330",
+  "RegionName": "屠魔大厅-28波怪物",
+  "AreaRadius": 1,
+  "Spawns": [
+    {
+      "MonsterName": "魔龙射手",
+      "SpawnCount": 6,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "魔龙刀兵",
+      "SpawnCount": 12,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "魔龙破甲兵",
+      "SpawnCount": 12,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "魔龙教主",
+      "SpawnCount": 1,
+      "RevivalInterval": 1
+    }
+  ],
+  "RangeCoords": []
+}

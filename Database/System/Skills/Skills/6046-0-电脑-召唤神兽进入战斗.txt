@@ -1,0 +1,27 @@
+{
+  "SkillName": "电脑-召唤神兽进入战斗",
+  "Race": "电脑",
+  "OwnSkillId": 6046,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "1": {
+      "$type": "B_00_技能切换通知, Assembly-CSharp",
+      "SkillTagId": 60460,
+      "允许移除标记": true
+    },
+    "2": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

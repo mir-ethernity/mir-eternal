@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6665,
+  "FromMapId": 143,
+  "FromMapName": "比奇省",
+  "FromCoords": "1166, 627",
+  "Direction": "左下",
+  "RegionName": "比奇省-阿吉(1166,627)"
+}

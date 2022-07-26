@@ -1,0 +1,10 @@
+{
+  "Name": "赤月恶魔毒云陷阱",
+  "Id": 59110,
+  "GroupId": 59110,
+  "Size": "Solid5x5",
+  "Duration": 4010,
+  "LimitMoveSteps": 255,
+  "ActivelyTriggerSkills": "电脑-Red Moon Demon毒云伤害",
+  "ActivelyTriggerInterval": 1000
+}

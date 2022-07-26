@@ -1,0 +1,22 @@
+{
+  "Name": "穿云戒",
+  "Id": 99930041,
+  "ItemLast": 8,
+  "Weight": 1,
+  "Level": 20,
+  "NeedLevel": 30,
+  "SalePrice": 50000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "戒指",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "BasicPowerCombat": 44,
+  "CanRepair": true,
+  "RepairCost": 80000000,
+  "SpecialRepairCost": 80000000,
+  "铭文职业": "通用",
+  "打孔职业": "通用"
+}

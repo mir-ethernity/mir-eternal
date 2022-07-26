@@ -1,0 +1,14 @@
+{
+  "Name": "银矿10",
+  "Id": 117010,
+  "ItemLast": 10,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 132,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}

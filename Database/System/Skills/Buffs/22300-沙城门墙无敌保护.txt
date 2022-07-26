@@ -1,0 +1,40 @@
+{
+  "Name": "沙城门墙无敌保护",
+  "Id": 22300,
+  "GroupId": 22300,
+  "Effect": "StatusFlag",
+  "SyncClient": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 2000000000,
+  "ProcessDelay": 2000000000,
+  "Duration": 2000000000,
+  "RequireBuff": [],
+  "PlayerState": "Invencible",
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

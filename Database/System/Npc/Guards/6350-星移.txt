@@ -1,0 +1,6 @@
+{
+  "Name": "星移",
+  "GuardNumber": 6350,
+  "Level": 99,
+  "RangeHate": 8
+}

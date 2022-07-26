@@ -1,0 +1,62 @@
+{
+  "Name": "青铜剑",
+  "Id": 99900004,
+  "ItemLast": 6,
+  "Weight": 9,
+  "Level": 5,
+  "NeedLevel": 5,
+  "SalePrice": 450,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "武器",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "武器",
+  "BasicPowerCombat": 32,
+  "MinAttack": 3,
+  "MaxAttack": 7,
+  "CanRepair": true,
+  "RepairCost": 270,
+  "SpecialRepairCost": 1350,
+  "灵魂绑点": 9,
+  "圣伤上限": 20,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "青铜剑",
+      "MonsterName": "稻草人",
+      "Probability": 250,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "青铜剑",
+      "MonsterName": "海蟹",
+      "Probability": 250,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "青铜剑",
+      "MonsterName": "鹿",
+      "Probability": 250,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "青铜剑",
+      "MonsterName": "钉耙猫",
+      "Probability": 250,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "青铜剑",
+      "MonsterName": "羊",
+      "Probability": 250,
+      "最小数量": 1,
+      "最大数量": 1
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "StoreId": 1203,
+  "Name": "项链商店",
+  "RecyclingType": "首饰",
+  "Products": [
+    {
+      "Id": 99920001,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 500
+    },
+    {
+      "Id": 99920004,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1200
+    },
+    {
+      "Id": 99920003,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1200
+    },
+    {
+      "Id": 99920005,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1500
+    },
+    {
+      "Id": 99920009,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 3000
+    },
+    {
+      "Id": 99920007,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 3000
+    },
+    {
+      "Id": 99920006,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 2000
+    },
+    {
+      "Id": 99920002,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1000
+    },
+    {
+      "Id": 99920011,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 2500
+    },
+    {
+      "Id": 99920012,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 2000
+    },
+    {
+      "Id": 99920010,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 2000
+    },
+    {
+      "Id": 99920042,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 2500
+    },
+    {
+      "Id": 99920071,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 2500
+    }
+  ]
+}

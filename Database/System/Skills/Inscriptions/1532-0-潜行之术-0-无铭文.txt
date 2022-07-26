@@ -1,0 +1,26 @@
+{
+  "SkillName": "潜行之术-0-无铭文",
+  "Race": "刺客",
+  "SkillId": 1532,
+  "MinPlayerLevel": "FhkcHw==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "潜行之术-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": [
+    "潜行之术-0-无铭文-主体技能"
+  ]
+}

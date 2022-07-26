@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6734,
+  "FromMapId": 143,
+  "FromMapName": "比奇省",
+  "FromCoords": "1113, 700",
+  "Direction": "右下",
+  "RegionName": "比奇省-大刀守卫(1113,700)"
+}

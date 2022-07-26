@@ -1,0 +1,8 @@
+{
+  "Name": "武馆教头",
+  "GuardNumber": 6733,
+  "Level": 99,
+  "RangeHate": 8,
+  "StoreId": 1901,
+  "InterfaceCode": "Shop"
+}

@@ -1,0 +1,34 @@
+{
+  "SkillName": "基本剑术-1-旋风印",
+  "SkillId": 1031,
+  "Id": 1,
+  "PassiveSkill": true,
+  "Quality": 3,
+  "Probability": 60,
+  "MinPlayerLevel": "BwsQFA==",
+  "MinSkillExp": [
+    100,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "StatsBonus": [
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 3,
+      "Level1": 4,
+      "Level2": 5,
+      "Level3": 6
+    }
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [],
+  "SwitchSkills": []
+}

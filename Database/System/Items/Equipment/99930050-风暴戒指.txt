@@ -1,0 +1,143 @@
+{
+  "Name": "风暴戒指",
+  "Id": 99930050,
+  "ItemLast": 7,
+  "Weight": 2,
+  "Level": 55,
+  "SalePrice": 35000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "戒指",
+  "NeedRace": "刺客",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "NeedAcupuncture": 39,
+  "BasicPowerCombat": 190,
+  "MinNeedle": 1,
+  "MaxNeedle": 5,
+  "MinMagicDef": 1,
+  "MaxMagicDef": 1,
+  "CanRepair": true,
+  "RepairCost": 21000,
+  "SpecialRepairCost": 105000,
+  "勇者试炼": true,
+  "试炼币数": 600,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "赤月装备",
+  "物品掉落列表": [
+    {
+      "Name": "风暴戒指",
+      "MonsterName": "双头金刚",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴戒指",
+      "MonsterName": "双头血魔",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴戒指",
+      "MonsterName": "魔龙鬼射",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴戒指",
+      "MonsterName": "魔龙力士",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴戒指",
+      "MonsterName": "金甲鱼人",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴戒指",
+      "MonsterName": "冥海魔神",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴戒指",
+      "MonsterName": "巨型兽人僵尸",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴戒指",
+      "MonsterName": "狂暴兽魂",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴戒指",
+      "MonsterName": "幽冥大使",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴戒指",
+      "MonsterName": "秘密信使",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴戒指",
+      "MonsterName": "血手",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴戒指",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴戒指",
+      "MonsterName": "牛魔王",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴戒指",
+      "MonsterName": "魔龙教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴戒指",
+      "MonsterName": "赤月恶魔",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴戒指",
+      "MonsterName": "烈焰恶魔",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

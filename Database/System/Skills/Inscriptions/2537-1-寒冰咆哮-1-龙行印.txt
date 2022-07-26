@@ -1,0 +1,28 @@
+{
+  "SkillName": "寒冰咆哮-1-龙行印",
+  "Race": "法师",
+  "SkillId": 2537,
+  "Id": 1,
+  "Quality": 7,
+  "Probability": 2,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "IyUoKg==",
+  "MinSkillExp": [
+    400,
+    800,
+    1200,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "寒冰咆哮-1-龙行印-主体技能"
+  ],
+  "SwitchSkills": []
+}

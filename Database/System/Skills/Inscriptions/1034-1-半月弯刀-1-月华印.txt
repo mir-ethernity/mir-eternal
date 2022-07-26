@@ -1,0 +1,32 @@
+{
+  "SkillName": "半月弯刀-1-月华印",
+  "SkillId": 1034,
+  "Id": 1,
+  "Quality": 7,
+  "Probability": 2,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "HB8iJQ==",
+  "MinSkillExp": [
+    800,
+    1600,
+    2400,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1432
+  ],
+  "MainSkills": [
+    "半月弯刀-1-月华印-主体技能",
+    "半月弯刀-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": [
+    "半月弯刀-0-无铭文-技能开关"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 233,
+  "ToMapId": 237,
+  "TeleportGateName": "至西林间胜地",
+  "FromMapName": "魔龙西郊",
+  "ToMapName": "西林间胜地",
+  "FromMapFile": "MirDg12_2",
+  "ToMapFile": "MirDg12_6",
+  "FromCoords": "846, 445",
+  "ToCoords": "1233, 431"
+}

@@ -1,0 +1,24 @@
+{
+  "SkillName": "战术标记-0-无铭文",
+  "Race": "弓手",
+  "SkillId": 2044,
+  "MinPlayerLevel": "FRgbHg==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "战术标记-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

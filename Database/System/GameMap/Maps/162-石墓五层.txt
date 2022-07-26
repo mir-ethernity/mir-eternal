@@ -1,0 +1,9 @@
+{
+  "MapId": 162,
+  "MapName": "石墓五层",
+  "MapFile": "Mir_Dg02_4",
+  "TerrainFile": "0162-StoneTomb5th",
+  "LimitPlayers": 9999,
+  "MinLevel": 25,
+  "LimitInstances": 1
+}

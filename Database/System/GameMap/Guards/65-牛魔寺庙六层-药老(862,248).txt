@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6663,
+  "FromMapId": 65,
+  "FromMapName": "牛魔寺庙六层",
+  "FromCoords": "862, 248",
+  "Direction": "上方",
+  "RegionName": "牛魔寺庙六层-药老(862,248)"
+}

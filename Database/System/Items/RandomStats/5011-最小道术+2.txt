@@ -1,0 +1,7 @@
+{
+  "Stat": "Minimalist",
+  "Value": 2,
+  "StatId": 5011,
+  "CombatBonus": 20,
+  "StatDescription": "最小道术+2"
+}

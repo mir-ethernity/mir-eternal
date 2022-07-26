@@ -1,0 +1,27 @@
+{
+  "SkillName": "爆裂火焰-1-疾火印",
+  "Race": "法师",
+  "SkillId": 2545,
+  "Id": 1,
+  "Quality": 2,
+  "Probability": 80,
+  "MinPlayerLevel": "FhsfPA==",
+  "MinSkillExp": [
+    300,
+    600,
+    1800,
+    0
+  ],
+  "SkillCombatBonus": [
+    5,
+    7,
+    10,
+    13
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "爆裂火焰-1-疾火印-主体技能"
+  ],
+  "SwitchSkills": []
+}

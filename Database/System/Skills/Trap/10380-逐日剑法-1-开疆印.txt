@@ -1,0 +1,15 @@
+{
+  "Name": "逐日剑法-1-开疆印",
+  "Id": 10380,
+  "GroupId": 1038,
+  "BindingLevel": 1038,
+  "Duration": 2500,
+  "LimitMoveSteps": 255,
+  "AllowStacking": true,
+  "PassiveTriggerSkill": "Sunrise Swordplay-1-开疆印-被动伤害",
+  "PassiveObjectType": "玩家, 宠物, 怪物, Npcc",
+  "PassiveType": "Hostility",
+  "ActivelyTriggerSkills": "Sunrise Swordplay-1-开疆印-主动伤害",
+  "ActivelyTriggerInterval": 800,
+  "ActivelyTriggerDelay": 650
+}

@@ -1,0 +1,27 @@
+{
+  "SkillName": "小火球术-1-火锥印",
+  "Race": "法师",
+  "SkillId": 2531,
+  "Id": 1,
+  "Quality": 1,
+  "Probability": 100,
+  "MinPlayerLevel": "BwsQFA==",
+  "MinSkillExp": [
+    50,
+    150,
+    300,
+    0
+  ],
+  "SkillCombatBonus": [
+    5,
+    7,
+    10,
+    13
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "小火球术-1-火锥印-主体技能"
+  ],
+  "SwitchSkills": []
+}

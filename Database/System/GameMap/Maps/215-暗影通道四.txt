@@ -1,0 +1,9 @@
+{
+  "MapId": 215,
+  "MapName": "暗影通道四",
+  "MapFile": "Mir_Dg05_7",
+  "TerrainFile": "0215-ShadowPassage4th",
+  "LimitPlayers": 9999,
+  "MinLevel": 25,
+  "LimitInstances": 1
+}

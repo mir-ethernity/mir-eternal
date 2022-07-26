@@ -1,0 +1,64 @@
+{
+  "Name": "玄冰战甲(男)",
+  "Id": 99980753,
+  "ItemLast": 35,
+  "Weight": 35,
+  "Level": 50,
+  "NeedLevel": 44,
+  "SalePrice": 80000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "衣服",
+  "NeedRace": "弓手",
+  "NeedGender": "男性",
+  "PersistType": "装备",
+  "StoreType": "服装",
+  "BasicPowerCombat": 389,
+  "MinBow": 2,
+  "MaxBow": 3,
+  "MinDef": 7,
+  "MaxDef": 9,
+  "MinMagicDef": 5,
+  "MaxMagicDef": 6,
+  "CanRepair": true,
+  "RepairCost": 48000,
+  "SpecialRepairCost": 240000,
+  "能否打孔": true,
+  "PunchUpperLimit": 2,
+  "CostPerHole": 30,
+  "TwoHoleCost": 60,
+  "铭文职业": "通用",
+  "打孔职业": "弓手",
+  "EquipSet": "魔龙装备",
+  "物品掉落列表": [
+    {
+      "Name": "玄冰战甲(男)",
+      "MonsterName": "血手",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玄冰战甲(男)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玄冰战甲(男)",
+      "MonsterName": "牛魔王",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玄冰战甲(男)",
+      "MonsterName": "魔龙教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

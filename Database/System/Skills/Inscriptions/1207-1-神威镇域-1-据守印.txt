@@ -1,0 +1,28 @@
+{
+  "SkillName": "神威镇域-1-据守印",
+  "Race": "龙枪",
+  "SkillId": 1207,
+  "Id": 1,
+  "Quality": 8,
+  "Probability": 1,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "ISQnKg==",
+  "MinSkillExp": [
+    200,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "神威镇域-1-据守印-主体技能"
+  ],
+  "SwitchSkills": []
+}

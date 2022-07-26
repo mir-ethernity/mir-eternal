@@ -1,0 +1,8 @@
+{
+  "MapId": 233,
+  "MapName": "魔龙西郊",
+  "MapFile": "MirDg12_2",
+  "TerrainFile": "0233-WesternSuburbofMagicDragon",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

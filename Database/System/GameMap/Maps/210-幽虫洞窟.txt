@@ -1,0 +1,9 @@
+{
+  "MapId": 210,
+  "MapName": "幽虫洞窟",
+  "MapFile": "MirDg01_8",
+  "TerrainFile": "0210-CaveOfWorms",
+  "LimitPlayers": 9999,
+  "MinLevel": 20,
+  "LimitInstances": 1
+}

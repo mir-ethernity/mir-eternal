@@ -1,0 +1,8 @@
+{
+  "Name": "博文",
+  "GuardNumber": 6434,
+  "Level": 99,
+  "RangeHate": 8,
+  "StoreId": 6434,
+  "InterfaceCode": "Shop"
+}

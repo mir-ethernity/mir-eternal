@@ -1,0 +1,7 @@
+{
+  "Stat": "MinMagic",
+  "Value": 4,
+  "StatId": 3031,
+  "CombatBonus": 40,
+  "StatDescription": "最小魔法+4"
+}

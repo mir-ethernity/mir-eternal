@@ -1,0 +1,29 @@
+{
+  "SkillName": "狂飙突刺-1-积雷印",
+  "Race": "龙枪",
+  "SkillId": 1204,
+  "Id": 1,
+  "SkillCount": 3,
+  "PeriodCount": 9999,
+  "Quality": 4,
+  "Probability": 25,
+  "MinPlayerLevel": "GBseIQ==",
+  "MinSkillExp": [
+    400,
+    800,
+    1200,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "狂飙突刺-1-积雷印-主体技能"
+  ],
+  "SwitchSkills": []
+}

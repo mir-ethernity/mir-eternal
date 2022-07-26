@@ -1,0 +1,7 @@
+{
+  "Stat": "MaxBow",
+  "Value": 3,
+  "StatId": 47021,
+  "CombatBonus": 30,
+  "StatDescription": "最大弓术+3"
+}

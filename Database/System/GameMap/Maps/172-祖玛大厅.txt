@@ -1,0 +1,11 @@
+{
+  "MapId": 172,
+  "MapName": "祖玛大厅",
+  "MapFile": "MirDg07_7",
+  "TerrainFile": "0172-Zuma Lobby",
+  "LimitPlayers": 9999,
+  "MinLevel": 30,
+  "LimitInstances": 1,
+  "NoReconnect": true,
+  "NoReconnectMapId": 170
+}

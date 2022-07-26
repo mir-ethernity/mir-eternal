@@ -1,0 +1,7 @@
+{
+  "Stat": "MinBow",
+  "Value": 4,
+  "StatId": 46031,
+  "CombatBonus": 40,
+  "StatDescription": "最小弓术+4"
+}

@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 110,
+  "ToMapId": 112,
+  "TeleportGateName": "兽人陵墓深层",
+  "FromMapName": "远古禁域",
+  "ToMapName": "陵墓深层",
+  "FromMapFile": "MirDg23",
+  "ToMapFile": "MirDg23_2",
+  "FromCoords": "1023, 42",
+  "ToCoords": "1014, 234"
+}

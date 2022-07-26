@@ -1,0 +1,42 @@
+{
+  "Name": "致残毒药流血效果",
+  "Id": 15339,
+  "GroupId": 15339,
+  "ActionType": "Debuff",
+  "OverlayType": "SimilarReplacement",
+  "Effect": "CausesSomeDamages",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 1533,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 2000,
+  "Duration": 10000,
+  "RequireBuff": [],
+  "DamageType": "Toxicity",
+  "DamageBase": [
+    6,
+    7,
+    8,
+    9
+  ],
+  "DamageFactor": [],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

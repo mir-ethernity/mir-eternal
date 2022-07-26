@@ -1,0 +1,10 @@
+{
+  "MapId": 183,
+  "MapName": "经验武斗场",
+  "MapFile": "MirAct01",
+  "TerrainFile": "0183-MartialArtsArena",
+  "LimitPlayers": 9999,
+  "MinLevel": 25,
+  "LimitInstances": 1,
+  "NoReconnect": true
+}

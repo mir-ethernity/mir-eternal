@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 8,
+  "FromMapId": 178,
+  "ToMapId": 178,
+  "TeleportGateName": "不归路",
+  "FromMapName": "秘密通道",
+  "ToMapName": "秘密通道",
+  "FromMapFile": "MirDg08",
+  "ToMapFile": "MirDg08",
+  "FromCoords": "1076, 221",
+  "ToCoords": "984, 152"
+}

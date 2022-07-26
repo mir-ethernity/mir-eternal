@@ -1,0 +1,15 @@
+{
+  "Name": "沙巴克回城卷",
+  "Id": 80008,
+  "ItemLast": 1,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "Cooldown": 500,
+  "SalePrice": 400,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

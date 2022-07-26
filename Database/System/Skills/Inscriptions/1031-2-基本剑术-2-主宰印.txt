@@ -1,0 +1,49 @@
+{
+  "SkillName": "基本剑术-2-主宰印",
+  "SkillId": 1031,
+  "Id": 2,
+  "PassiveSkill": true,
+  "Quality": 7,
+  "Probability": 2,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "BwsQFA==",
+  "MinSkillExp": [
+    100,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "StatsBonus": [
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 3,
+      "Level1": 4,
+      "Level2": 5,
+      "Level3": 6
+    },
+    {
+      "Stat": "怪物伤害",
+      "Level0": 9,
+      "Level1": 11,
+      "Level2": 13,
+      "Level3": 15
+    },
+    {
+      "Stat": "怪物闪避",
+      "Level0": 1500,
+      "Level1": 2000,
+      "Level2": 2500,
+      "Level3": 3000
+    }
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [],
+  "SwitchSkills": []
+}

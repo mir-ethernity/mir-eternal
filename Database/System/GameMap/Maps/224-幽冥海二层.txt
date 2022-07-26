@@ -1,0 +1,11 @@
+{
+  "MapId": 224,
+  "MapName": "幽冥海二层",
+  "MapFile": "MirAct05_2",
+  "TerrainFile": "0224-SeaOfGhosts2nd",
+  "LimitPlayers": 9999,
+  "MinLevel": 33,
+  "LimitInstances": 1,
+  "NoReconnect": true,
+  "NoReconnectMapId": 147
+}

@@ -42,7 +42,6 @@ namespace GameServer.Data
 
         public byte[] 角色列表描述()
         {
-            // TODO: Method to send characters
             byte[] result;
             using (MemoryStream memoryStream = new MemoryStream())
             {

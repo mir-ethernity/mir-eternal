@@ -1,0 +1,27 @@
+{
+  "SkillName": "大火球术-1-连环印",
+  "Race": "法师",
+  "SkillId": 2549,
+  "Id": 1,
+  "Quality": 3,
+  "Probability": 60,
+  "MinPlayerLevel": "ExcZHQ==",
+  "MinSkillExp": [
+    800,
+    1400,
+    2000,
+    0
+  ],
+  "SkillCombatBonus": [
+    5,
+    7,
+    10,
+    13
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "大火球术-1-连环印-主体技能"
+  ],
+  "SwitchSkills": []
+}

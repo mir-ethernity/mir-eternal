@@ -1,0 +1,385 @@
+{
+  "MonsterName": "魔龙邪眼红",
+  "Id": 1132,
+  "Level": 55,
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "MoveInterval": 300,
+  "RoamInterval": 15000,
+  "CorpsePreservationDuration": 15000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 20000,
+  "NormalAttackSkills": "电脑-魔龙邪眼BasicAttackSkills",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 1450
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 20
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 8
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 15
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 18
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Value": 36
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 65
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 18
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 32
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Value": 33
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Value": 45
+    }
+  ],
+  "ProvideExperience": 1650,
+  "Drops": [
+    {
+      "Name": "重盔甲(男)",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(男)",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(男)",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(男)",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(男)",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(男)",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "重盔甲(女)",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(女)",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(女)",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(女)",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(女)",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(女)",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽皮腰带",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁腰带",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "鹿皮靴",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵项链",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生命项链",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天珠项链",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影项链",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "降妖除魔戒指",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铂金戒指",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "红宝石戒指",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙之戒指",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影戒指",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼首戒指",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "死神手套",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "思贝儿手镯",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "心灵手镯",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵手套",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影手镯",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狮纹手镯",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔杖",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "炼狱",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "银蛇",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "追魂",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "双环战弓",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蛇牙枪",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅头盔",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士头盔",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 5,
+      "MinAmount": 1800,
+      "MaxAmount": 3250
+    },
+    {
+      "Name": "强效金创药",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 6,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "疗伤药",
+      "MonsterName": "魔龙邪眼红",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

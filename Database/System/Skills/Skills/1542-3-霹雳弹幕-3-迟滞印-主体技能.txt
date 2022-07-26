@@ -1,0 +1,47 @@
+{
+  "SkillName": "霹雳弹幕-3-迟滞印-主体技能",
+  "Race": "刺客",
+  "OwnSkillId": 1542,
+  "Id": 3,
+  "GroupId": 6,
+  "BindingLevelId": 1542,
+  "CalculateTriggerProbability": 1,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    5,
+    10,
+    20,
+    30
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "MaxDistance": 8
+    },
+    "1": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 10000,
+      "分组Cooldown": 10000,
+      "角色忙绿时间": 625
+    },
+    "400": {
+      "$type": "A_02_TriggerTrapSkills, Assembly-CSharp",
+      "TriggerTrapSkills": "Percussion幕-3-迟滞印",
+      "增加技能经验": true,
+      "经验SkillId": 1542
+    },
+    "625": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 1000,
+      "禁止行走时间": 875,
+      "禁止奔跑时间": 625
+    },
+    "1000": {
+      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 7119,
+  "FromMapId": 152,
+  "FromMapName": "沙巴克",
+  "FromCoords": "1090, 511",
+  "Direction": "左上",
+  "RegionName": "沙巴克-玛法通驿(1090,511)"
+}

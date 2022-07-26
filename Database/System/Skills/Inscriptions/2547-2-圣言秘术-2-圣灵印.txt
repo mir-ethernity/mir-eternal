@@ -1,0 +1,27 @@
+{
+  "SkillName": "圣言秘术-2-圣灵印",
+  "Race": "法师",
+  "SkillId": 2547,
+  "Id": 2,
+  "Quality": 2,
+  "Probability": 80,
+  "MinPlayerLevel": "ICMnKg==",
+  "MinSkillExp": [
+    400,
+    800,
+    1200,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "圣言秘术-2-圣灵印-主体技能"
+  ],
+  "SwitchSkills": []
+}

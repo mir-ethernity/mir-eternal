@@ -1,0 +1,14 @@
+{
+  "FromMapId": 231,
+  "FromMapName": "魔龙城",
+  "FromCoords": "466, 425",
+  "RegionName": "魔龙城-随机区域",
+  "AreaRadius": 259,
+  "AreaType": "随机区域",
+  "RangeCoords": [
+    "467, 426",
+    "398, 524",
+    "335, 531",
+    "255, 322"
+  ]
+}

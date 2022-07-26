@@ -1,0 +1,7 @@
+{
+  "Stat": "PhysicalAgility",
+  "Value": 1,
+  "StatId": 22001,
+  "CombatBonus": 10,
+  "StatDescription": "物理敏捷+1"
+}

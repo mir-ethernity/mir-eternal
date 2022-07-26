@@ -1,0 +1,49 @@
+{
+  "SkillName": "瞬息移动-1-无铭文-主体技能",
+  "Race": "法师",
+  "OwnSkillId": 2538,
+  "Id": 1,
+  "GroupId": 1,
+  "BindingLevelId": 2538,
+  "CalculateTriggerProbability": 1,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    10,
+    13,
+    16,
+    18
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 1375,
+      "分组Cooldown": 1000,
+      "角色忙绿时间": 625
+    },
+    "624": {
+      "$type": "C_07_计算目标瞬移, Assembly-CSharp",
+      "每级成功概率": [
+        0.1,
+        0.3,
+        0.6,
+        0.9
+      ],
+      "瞬移失败提示": 25380,
+      "失败添加Buff": 25381,
+      "增加技能经验": true,
+      "经验SkillId": 2538
+    },
+    "625": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "725": {
+      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+    }
+  }
+}

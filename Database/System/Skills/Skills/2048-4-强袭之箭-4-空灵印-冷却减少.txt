@@ -1,0 +1,37 @@
+{
+  "SkillName": "强袭之箭-4-空灵印-冷却减少",
+  "Race": "弓手",
+  "OwnSkillId": 2048,
+  "Id": 4,
+  "GroupId": 4,
+  "BindingLevelId": 2048,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "技能锁定方式": "锁定目标",
+      "限定命中数量": 1,
+      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
+      "限定目标关系": "Hostility",
+      "清除状态列表": []
+    },
+    "1": {
+      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Archery",
+      "技能伤害基数": [],
+      "技能伤害系数": [],
+      "命中减少冷却": true,
+      "冷却减少技能": 2048,
+      "冷却减少分组": 4,
+      "冷却减少时间": 1000,
+      "清除状态列表": []
+    }
+  }
+}

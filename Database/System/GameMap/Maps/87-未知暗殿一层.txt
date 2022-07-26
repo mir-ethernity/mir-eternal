@@ -1,0 +1,8 @@
+{
+  "MapId": 87,
+  "MapName": "未知暗殿一层",
+  "MapFile": "MirAct25",
+  "TerrainFile": "0087-UnknownDarkHall1st",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

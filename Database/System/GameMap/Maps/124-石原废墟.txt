@@ -1,0 +1,9 @@
+{
+  "MapId": 124,
+  "MapName": "石原废墟",
+  "MapFile": "MirDg24_2",
+  "TerrainFile": "0124-IshiharaRuins",
+  "LimitPlayers": 9999,
+  "MinLevel": 45,
+  "LimitInstances": 1
+}

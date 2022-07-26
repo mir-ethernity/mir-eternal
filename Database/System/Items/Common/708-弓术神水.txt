@@ -1,0 +1,15 @@
+{
+  "Name": "弓术神水",
+  "Id": 708,
+  "ItemLast": 100,
+  "Weight": 2,
+  "NeedLevel": 1,
+  "SalePrice": 500,
+  "AdditionalSkill": 4608,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用药剂",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "药品"
+}

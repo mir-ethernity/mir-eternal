@@ -1,0 +1,13 @@
+{
+  "Name": "沙城奖杯",
+  "Id": 90222,
+  "ItemLast": 1000,
+  "Weight": 1,
+  "Level": 10,
+  "NeedLevel": 1,
+  "SalePrice": 100,
+  "ValuableObjects": true,
+  "Type": "宝图宝物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠"
+}

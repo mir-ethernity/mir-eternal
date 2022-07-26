@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6804,
+  "FromMapId": 50,
+  "FromMapName": "苍月岛",
+  "FromCoords": "1208, 446",
+  "Direction": "右下",
+  "RegionName": "苍月岛-老吉(1208,446)"
+}

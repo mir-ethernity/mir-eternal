@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 2,
+  "FromMapId": 212,
+  "ToMapId": 213,
+  "TeleportGateName": "暗影通道三",
+  "FromMapName": "暗影通道一",
+  "ToMapName": "暗影通道二",
+  "FromMapFile": "Mir_Dg05_4",
+  "ToMapFile": "Mir_Dg05_5",
+  "FromCoords": "993, 154",
+  "ToCoords": "946, 753"
+}

@@ -1,0 +1,72 @@
+{
+  "MonsterName": "爆裂蜘蛛",
+  "Id": 1100,
+  "Level": 45,
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "MoveInterval": 100,
+  "RoamInterval": 16000,
+  "CorpsePreservationDuration": 16000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 6,
+  "HateTime": 16000,
+  "NormalAttackSkills": "电脑-爆裂蜘蛛自爆技能",
+  "DeathReleaseSkill": "电脑-爆裂蜘蛛自爆伤害",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 100
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 1
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 8
+    },
+    {
+      "Stat": "AttackSpeed"
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 18
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 15
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack"
+    },
+    {
+      "Stat": "MaxAttack"
+    },
+    {
+      "Stat": "MinMagic",
+      "Value": 33
+    },
+    {
+      "Stat": "MaxMagic",
+      "Value": 50
+    },
+    {
+      "Stat": "MinDef"
+    },
+    {
+      "Stat": "MaxDef"
+    },
+    {
+      "Stat": "MinMagicDef"
+    },
+    {
+      "Stat": "MaxMagicDef"
+    }
+  ],
+  "ProvideExperience": 7,
+  "Drops": []
+}

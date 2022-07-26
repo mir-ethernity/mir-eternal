@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6663,
+  "FromMapId": 225,
+  "FromMapName": "幽冥海三层",
+  "FromCoords": "902, 554",
+  "Direction": "左下",
+  "RegionName": "幽冥海三层-药老(902,554)"
+}

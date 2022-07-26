@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 196,
+  "ToMapId": 198,
+  "TeleportGateName": "恶魔祭坛",
+  "FromMapName": "山谷秘道",
+  "ToMapName": "恶魔祭坛",
+  "FromMapFile": "MirDg11_8",
+  "ToMapFile": "MirDg11_10",
+  "FromCoords": "1038, 268",
+  "ToCoords": "1038, 131"
+}

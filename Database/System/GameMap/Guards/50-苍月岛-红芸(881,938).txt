@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6719,
+  "FromMapId": 50,
+  "FromMapName": "苍月岛",
+  "FromCoords": "881, 938",
+  "Direction": "右下",
+  "RegionName": "苍月岛-红芸(881,938)"
+}

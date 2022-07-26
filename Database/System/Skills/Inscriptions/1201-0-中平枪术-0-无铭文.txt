@@ -1,0 +1,32 @@
+{
+  "SkillName": "中平枪术-0-无铭文",
+  "Race": "龙枪",
+  "SkillId": 1201,
+  "PassiveSkill": true,
+  "MinPlayerLevel": "BwoNEA==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "StatsBonus": [
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 2,
+      "Level1": 4,
+      "Level2": 6,
+      "Level3": 8
+    }
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [],
+  "SwitchSkills": []
+}

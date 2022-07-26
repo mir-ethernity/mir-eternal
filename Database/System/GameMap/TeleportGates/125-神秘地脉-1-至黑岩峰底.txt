@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 125,
+  "ToMapId": 114,
+  "TeleportGateName": "至黑岩峰底",
+  "FromMapName": "神秘地脉",
+  "ToMapName": "黑岩峰底",
+  "FromMapFile": "MirDg27_5",
+  "ToMapFile": "MirDg26_1",
+  "FromCoords": "1025, 204",
+  "ToCoords": "977, 525"
+}

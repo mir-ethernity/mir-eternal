@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 7119,
+  "FromMapId": 231,
+  "FromMapName": "魔龙城",
+  "FromCoords": "1052, 487",
+  "Direction": "右下",
+  "RegionName": "魔龙城-玛法通驿(1052, 487)"
+}

@@ -1,0 +1,34 @@
+{
+  "FromMapId": 80,
+  "FromMapName": "屠魔大厅",
+  "FromCoords": "917, 330",
+  "RegionName": "屠魔大厅-07波怪物",
+  "AreaRadius": 1,
+  "Spawns": [
+    {
+      "MonsterName": "巨型多角虫",
+      "SpawnCount": 8,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "魔化巨虫",
+      "SpawnCount": 8,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "暗黑战士",
+      "SpawnCount": 8,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "沃玛卫士",
+      "SpawnCount": 2,
+      "RevivalInterval": 1
+    }
+  ],
+  "RangeCoords": [
+    "988, 285",
+    "989, 284",
+    "989, 285"
+  ]
+}

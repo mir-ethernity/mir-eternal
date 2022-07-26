@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 225,
+  "ToMapId": 226,
+  "TeleportGateName": "幽冥海四层",
+  "FromMapName": "幽冥海三层",
+  "ToMapName": "幽冥海四层",
+  "FromMapFile": "MirAct05_3",
+  "ToMapFile": "MirAct05_4",
+  "FromCoords": "1074, 543",
+  "ToCoords": "948, 209"
+}

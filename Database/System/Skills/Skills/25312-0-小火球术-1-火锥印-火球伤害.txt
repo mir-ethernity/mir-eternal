@@ -1,0 +1,68 @@
+{
+  "SkillName": "小火球术-1-火锥印-火球伤害",
+  "Race": "法师",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 25312,
+  "BindingLevelId": 2531,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "1": {
+      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "技能锁定方式": "锁定目标",
+      "技能闪避方式": "可被MagicDodge",
+      "技能命中反馈": "后仰",
+      "技能命中通知": true,
+      "计算飞行耗时": true,
+      "单格飞行耗时": 50,
+      "限定命中数量": 1,
+      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
+      "限定目标关系": "Hostility",
+      "清除状态列表": []
+    },
+    "2": {
+      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Magic",
+      "技能伤害基数": [
+        11,
+        13,
+        14,
+        15
+      ],
+      "技能伤害系数": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "技能增伤类型": "WomaMonster",
+      "技能增伤基数": 20,
+      "技能增伤系数": 0.2,
+      "增加技能经验": true,
+      "经验SkillId": 2531,
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    },
+    "3": {
+      "$type": "C_03_计算对象位移, Assembly-CSharp",
+      "ItSelf位移次数": "AAAAAA==",
+      "ItSelf位移距离": "AAAAAA==",
+      "推动目标位移": true,
+      "推动目标概率": 0.5,
+      "推动目标类型": "LowLevelMonster",
+      "目标位移耗时": 2,
+      "目标位移距离": "AgICAg==",
+      "目标硬直时间": 1000
+    }
+  }
+}

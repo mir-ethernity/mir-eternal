@@ -1,0 +1,24 @@
+{
+  "SkillName": "灵魂火符-0-无铭文",
+  "Race": "道士",
+  "SkillId": 3005,
+  "MinPlayerLevel": "EhUYGw==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "灵魂火符-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

@@ -1,0 +1,529 @@
+{
+  "MonsterName": "魔龙血蛙",
+  "Id": 1135,
+  "Level": 50,
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CanBeSeducedBySkills": true,
+  "MoveInterval": 250,
+  "RoamInterval": 15000,
+  "CorpsePreservationDuration": 15000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 20000,
+  "NormalAttackSkills": "电脑-魔龙血蛙BasicAttackSkills",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 1150
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 15
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 8
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 17
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 17
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Value": 28
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 47
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 14
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 28
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Value": 27
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Value": 39
+    }
+  ],
+  "Grows": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Level0": 1150,
+      "Level1": 1150,
+      "Level2": 1150,
+      "Level3": 1150,
+      "Level4": 1150,
+      "Level5": 1150,
+      "Level6": 1150,
+      "Level7": 1150
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 15,
+      "Level1": 15,
+      "Level2": 15,
+      "Level3": 15,
+      "Level4": 15,
+      "Level5": 15,
+      "Level6": 15,
+      "Level7": 15
+    },
+    {
+      "Stat": "行走速度",
+      "Level0": 8,
+      "Level1": 8,
+      "Level2": 8,
+      "Level3": 8,
+      "Level4": 8,
+      "Level5": 8,
+      "Level6": 8,
+      "Level7": 8
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 5,
+      "Level6": 5,
+      "Level7": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 17,
+      "Level1": 17,
+      "Level2": 17,
+      "Level3": 17,
+      "Level4": 17,
+      "Level5": 17,
+      "Level6": 17,
+      "Level7": 17
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 17,
+      "Level1": 17,
+      "Level2": 17,
+      "Level3": 17,
+      "Level4": 17,
+      "Level5": 17,
+      "Level6": 17,
+      "Level7": 17
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Level0": 28,
+      "Level1": 28,
+      "Level2": 28,
+      "Level3": 28,
+      "Level4": 28,
+      "Level5": 28,
+      "Level6": 28,
+      "Level7": 28
+    },
+    {
+      "Stat": "MaxAttack",
+      "Level0": 47,
+      "Level1": 47,
+      "Level2": 47,
+      "Level3": 47,
+      "Level4": 47,
+      "Level5": 47,
+      "Level6": 47,
+      "Level7": 47
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Level0": 14,
+      "Level1": 14,
+      "Level2": 14,
+      "Level3": 14,
+      "Level4": 14,
+      "Level5": 14,
+      "Level6": 14,
+      "Level7": 14
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 28,
+      "Level1": 28,
+      "Level2": 28,
+      "Level3": 28,
+      "Level4": 28,
+      "Level5": 28,
+      "Level6": 28,
+      "Level7": 28
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Level0": 27,
+      "Level1": 27,
+      "Level2": 27,
+      "Level3": 27,
+      "Level4": 27,
+      "Level5": 27,
+      "Level6": 27,
+      "Level7": 27
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Level0": 39,
+      "Level1": 39,
+      "Level2": 39,
+      "Level3": 39,
+      "Level4": 39,
+      "Level5": 39,
+      "Level6": 39,
+      "Level7": 39
+    }
+  ],
+  "ProvideExperience": 1375,
+  "Drops": [
+    {
+      "Name": "重盔甲(男)",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(男)",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(男)",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(男)",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(男)",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(男)",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "重盔甲(女)",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(女)",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(女)",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(女)",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(女)",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(女)",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽皮腰带",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁腰带",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "鹿皮靴",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵项链",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生命项链",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天珠项链",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影项链",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "降妖除魔戒指",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铂金戒指",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "红宝石戒指",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙之戒指",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影戒指",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼首戒指",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "死神手套",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "思贝儿手镯",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "心灵手镯",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵手套",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影手镯",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狮纹手镯",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔杖",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "炼狱",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "银蛇",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "追魂",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "双环战弓",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蛇牙枪",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅头盔",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士头盔",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 5,
+      "MinAmount": 1500,
+      "MaxAmount": 2800
+    },
+    {
+      "Name": "强效金创药",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 6,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "疗伤药",
+      "MonsterName": "魔龙血蛙",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

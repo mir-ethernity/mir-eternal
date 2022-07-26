@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6663,
+  "FromMapId": 162,
+  "FromMapName": "石墓五层",
+  "FromCoords": "987, 276",
+  "Direction": "右上",
+  "RegionName": "石墓五层-药老(987,276)"
+}

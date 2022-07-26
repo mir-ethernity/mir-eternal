@@ -1,0 +1,59 @@
+{
+  "Name": "传统项链",
+  "Id": 99920002,
+  "ItemLast": 8,
+  "Weight": 1,
+  "Level": 5,
+  "NeedLevel": 3,
+  "SalePrice": 500,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "项链",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "BasicPowerCombat": 13,
+  "PhysicallyAccurate": 1,
+  "CanRepair": true,
+  "RepairCost": 300,
+  "SpecialRepairCost": 1500,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "传统项链",
+      "MonsterName": "稻草人",
+      "Probability": 75,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "传统项链",
+      "MonsterName": "海蟹",
+      "Probability": 75,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "传统项链",
+      "MonsterName": "鹿",
+      "Probability": 75,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "传统项链",
+      "MonsterName": "钉耙猫",
+      "Probability": 75,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "传统项链",
+      "MonsterName": "羊",
+      "Probability": 75,
+      "MinAmount": 1,
+      "最大数量": 1
+    }
+  ]
+}

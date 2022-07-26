@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 3,
+  "FromMapId": 145,
+  "ToMapId": 145,
+  "TeleportGateName": "堕落坟场",
+  "FromMapName": "沃玛森林",
+  "ToMapName": "沃玛森林",
+  "FromMapFile": "Mir_Dg04",
+  "ToMapFile": "Mir_Dg04",
+  "FromCoords": "1029, 640",
+  "ToCoords": "926, 827"
+}

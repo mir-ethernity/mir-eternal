@@ -1,0 +1,53 @@
+{
+  "Name": "诱惑之光瘫痪效果",
+  "Id": 25410,
+  "GroupId": 25410,
+  "ActionType": "Debuff",
+  "OverlayType": "HomogeneousStacking",
+  "Effect": "StatusFlag",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 2541,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 2,
+  "AllowsSynthesis": true,
+  "BuffSynthesisLayer": 2,
+  "BuffSynthesisId": 25411,
+  "ProcessInterval": 20000,
+  "ProcessDelay": 20000,
+  "Duration": 10000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "SkillLevelDelay": true,
+  "ExtendedTimePerLevel": 2000,
+  "PlayerState": "Absence",
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

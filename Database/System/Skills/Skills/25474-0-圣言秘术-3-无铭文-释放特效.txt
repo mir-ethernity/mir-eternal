@@ -1,0 +1,24 @@
+{
+  "SkillName": "圣言秘术-3-无铭文-释放特效",
+  "Race": "法师",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 25474,
+  "BindingLevelId": 2547,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "1": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

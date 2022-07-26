@@ -1,0 +1,35 @@
+{
+  "SkillName": "攻杀剑术-0-无铭文",
+  "SkillId": 1032,
+  "PassiveSkill": true,
+  "MinPlayerLevel": "ExYYGw==",
+  "MinSkillExp": [
+    400,
+    800,
+    1600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "StatsBonus": [
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 1,
+      "Level1": 2,
+      "Level2": 3,
+      "Level3": 4
+    }
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1430
+  ],
+  "MainSkills": [
+    "攻杀剑术-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

@@ -1,0 +1,74 @@
+{
+  "Name": "乾坤斗气游龙强化",
+  "Id": 12064,
+  "GroupId": 12063,
+  "OverlayType": "SimilarReplacement",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "OnChangeWeaponRemove": true,
+  "BindingSkillLevel": 1206,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 7200000,
+  "ProcessDelay": 7200000,
+  "Duration": 7200000,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "MinDef",
+      "Level0": 1,
+      "Level1": 2,
+      "Level2": 3,
+      "Level3": 4
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 1,
+      "Level1": 2,
+      "Level2": 3,
+      "Level3": 4
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Level0": 1,
+      "Level1": 2,
+      "Level2": 3,
+      "Level3": 4
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Level0": 1,
+      "Level1": 2,
+      "Level2": 3,
+      "Level3": 4
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

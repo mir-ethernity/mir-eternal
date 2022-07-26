@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 8,
+  "FromMapId": 172,
+  "ToMapId": 173,
+  "TeleportGateName": "祖玛教主之家",
+  "FromMapName": "祖玛大厅",
+  "ToMapName": "祖玛教主之家",
+  "FromMapFile": "MirDg07_7",
+  "ToMapFile": "MirDg07_8",
+  "FromCoords": "774, 531",
+  "ToCoords": "1029, 30"
+}

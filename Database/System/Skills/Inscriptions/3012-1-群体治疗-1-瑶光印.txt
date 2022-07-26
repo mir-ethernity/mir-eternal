@@ -1,0 +1,27 @@
+{
+  "SkillName": "群体治疗-1-瑶光印",
+  "Race": "道士",
+  "SkillId": 3012,
+  "Id": 1,
+  "Quality": 4,
+  "Probability": 25,
+  "MinPlayerLevel": "ISMmKA==",
+  "MinSkillExp": [
+    400,
+    800,
+    1200,
+    0
+  ],
+  "SkillCombatBonus": [
+    12,
+    18,
+    24,
+    30
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "群体治疗-1-瑶光印-主体技能"
+  ],
+  "SwitchSkills": []
+}

@@ -1,0 +1,109 @@
+{
+  "SkillName": "战术标记-0-全铭文-被动触发",
+  "Race": "弓手",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 2044,
+  "BindingLevelId": 2044,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 20430,
+      "Buff触发概率": 1,
+      "验证铭文技能": true,
+      "所需Id": 20440,
+      "同组铭文无效": true,
+      "所需Buff层数": 1,
+      "增加技能经验": true,
+      "经验SkillId": 2044
+    },
+    "1": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 20431,
+      "Buff触发概率": 1,
+      "验证铭文技能": true,
+      "所需Id": 20441,
+      "同组铭文无效": true,
+      "所需Buff层数": 1,
+      "增加技能经验": true,
+      "经验SkillId": 2044
+    },
+    "2": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 20432,
+      "Buff触发概率": 1,
+      "验证铭文技能": true,
+      "所需Id": 20442,
+      "同组铭文无效": true,
+      "所需Buff层数": 1,
+      "增加技能经验": true,
+      "经验SkillId": 2044
+    },
+    "3": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 20433,
+      "Buff触发概率": 1,
+      "验证铭文技能": true,
+      "所需Id": 20443,
+      "同组铭文无效": true,
+      "所需Buff层数": 1,
+      "增加技能经验": true,
+      "经验SkillId": 2044
+    },
+    "99": {
+      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "技能锁定方式": "锁定目标",
+      "放空结束技能": true,
+      "限定命中数量": 1,
+      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
+      "限定目标关系": "Hostility",
+      "清除状态列表": []
+    },
+    "100": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "触发Id": 20440,
+      "Buff触发概率": 1,
+      "验证铭文技能": true,
+      "所需Id": 20440,
+      "同组铭文无效": true,
+      "所需Buff层数": 1
+    },
+    "101": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "触发Id": 20441,
+      "Buff触发概率": 1,
+      "验证铭文技能": true,
+      "所需Id": 20441,
+      "同组铭文无效": true,
+      "所需Buff层数": 1
+    },
+    "102": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "触发Id": 20442,
+      "Buff触发概率": 1,
+      "验证铭文技能": true,
+      "所需Id": 20442,
+      "同组铭文无效": true,
+      "所需Buff层数": 1
+    },
+    "103": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "触发Id": 20443,
+      "Buff触发概率": 1,
+      "验证铭文技能": true,
+      "所需Id": 20443,
+      "同组铭文无效": true,
+      "所需Buff层数": 1
+    }
+  }
+}

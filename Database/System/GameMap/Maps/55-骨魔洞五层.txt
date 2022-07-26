@@ -1,0 +1,8 @@
+{
+  "MapId": 55,
+  "MapName": "骨魔洞五层",
+  "MapFile": "MirDg13_5",
+  "TerrainFile": "0055-BoneDemonCave5th",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

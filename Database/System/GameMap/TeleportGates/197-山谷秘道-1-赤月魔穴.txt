@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 197,
+  "ToMapId": 199,
+  "TeleportGateName": "赤月魔穴",
+  "FromMapName": "山谷秘道",
+  "ToMapName": "赤月魔穴",
+  "FromMapFile": "MirDg11_9",
+  "ToMapFile": "MirDg11_11",
+  "FromCoords": "1109, 273",
+  "ToCoords": "1029, 114"
+}

@@ -1,0 +1,14 @@
+{
+  "Name": "黑铁矿石6",
+  "Id": 114006,
+  "ItemLast": 6,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 32,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "武器锻造",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "武器"
+}

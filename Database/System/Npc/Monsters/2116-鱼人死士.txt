@@ -1,0 +1,70 @@
+{
+  "MonsterName": "鱼人死士",
+  "Id": 2116,
+  "Level": 65,
+  "Category": "Normal",
+  "VisibleStealthTargets": true,
+  "RoamInterval": 20000,
+  "CorpsePreservationDuration": 20000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 8,
+  "HateTime": 5000,
+  "NormalAttackSkills": "电脑-鱼人死士BasicAttackSkills",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 125
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 1
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 5
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 18
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 16
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack"
+    },
+    {
+      "Stat": "MaxAttack"
+    },
+    {
+      "Stat": "MinMagic",
+      "Value": 38
+    },
+    {
+      "Stat": "MaxMagic",
+      "Value": 63
+    },
+    {
+      "Stat": "MinDef"
+    },
+    {
+      "Stat": "MaxDef"
+    },
+    {
+      "Stat": "MinMagicDef"
+    },
+    {
+      "Stat": "MaxMagicDef"
+    }
+  ],
+  "ProvideExperience": 8,
+  "Drops": []
+}

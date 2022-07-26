@@ -1,0 +1,42 @@
+{
+  "Name": "战术标记失神标记",
+  "Id": 20443,
+  "GroupId": 20440,
+  "OverlayType": "SimilarReplacement",
+  "Effect": "StatusFlag, DamageIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BindingSkillLevel": 2044,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 12000,
+  "ProcessDelay": 12000,
+  "Duration": 12000,
+  "RequireBuff": [],
+  "PlayerState": "Exposed",
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "HowJudgeEffect": "PassiveInjuryIncrease",
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [],
+  "DamageIncOrDecFactor": [
+    0.11,
+    0.14,
+    0.17,
+    0.2
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

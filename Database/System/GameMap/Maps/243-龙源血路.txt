@@ -1,0 +1,8 @@
+{
+  "MapId": 243,
+  "MapName": "龙源血路",
+  "MapFile": "MirDg12_12",
+  "TerrainFile": "0243-Dragon'sBloodRoad",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

@@ -1,0 +1,13 @@
+{
+  "Name": "玛法名俊",
+  "Id": 61,
+  "Combat": 30,
+  "EffectiveTime": 2592000,
+  "Attributes": {
+    "MaxAttack": 1,
+    "MaxMagic": 1,
+    "GreatestTaoism": 1,
+    "MaxNeedle": 1,
+    "MaxBow": 1
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "StoreId": 6,
+  "Name": "红名商店",
+  "Products": [
+    {
+      "Id": 301,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 60
+    },
+    {
+      "Id": 302,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 165
+    },
+    {
+      "Id": 303,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 435
+    },
+    {
+      "Id": 321,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 60
+    },
+    {
+      "Id": 322,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 165
+    },
+    {
+      "Id": 323,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 435
+    },
+    {
+      "Id": 351,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 750
+    },
+    {
+      "Id": 352,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1875
+    },
+    {
+      "Id": 361,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 480
+    },
+    {
+      "Id": 362,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1260
+    },
+    {
+      "Id": 371,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 480
+    },
+    {
+      "Id": 372,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1260
+    },
+    {
+      "Id": 381,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 5250
+    },
+    {
+      "Id": 382,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 12750
+    },
+    {
+      "Id": 40001,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 7500
+    },
+    {
+      "Id": 40002,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 16500
+    },
+    {
+      "Id": 40003,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 27000
+    },
+    {
+      "Id": 40004,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 150000
+    },
+    {
+      "Id": 80007,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1200
+    },
+    {
+      "Id": 80005,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 150
+    },
+    {
+      "Id": 80107,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 11100
+    },
+    {
+      "Id": 80105,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1200
+    },
+    {
+      "Id": 99900001,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 75
+    },
+    {
+      "Id": 99900002,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 750
+    },
+    {
+      "Id": 99900051,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 750
+    },
+    {
+      "Id": 99900003,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 6000
+    },
+    {
+      "Id": 99980113,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 180
+    },
+    {
+      "Id": 99990113,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 180
+    },
+    {
+      "Id": 99930001,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 750
+    },
+    {
+      "Id": 99930003,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1200
+    },
+    {
+      "Id": 99930002,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1200
+    },
+    {
+      "Id": 99930045,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1500
+    },
+    {
+      "Id": 99940002,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1500
+    },
+    {
+      "Id": 99940003,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 2250
+    },
+    {
+      "Id": 99940001,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1200
+    },
+    {
+      "Id": 99920001,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 750
+    },
+    {
+      "Id": 99920004,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1800
+    },
+    {
+      "Id": 99920003,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1800
+    },
+    {
+      "Id": 99920005,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 2250
+    },
+    {
+      "Id": 99920042,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 4500
+    }
+  ]
+}

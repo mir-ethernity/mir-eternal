@@ -1,0 +1,60 @@
+{
+  "Name": "倚天剑",
+  "Id": 99900044,
+  "ItemLast": 25,
+  "Weight": 44,
+  "Level": 43,
+  "NeedLevel": 35,
+  "SalePrice": 70000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "武器",
+  "NeedRace": "道士",
+  "PersistType": "装备",
+  "StoreType": "武器",
+  "BasicPowerCombat": 402,
+  "MinAttack": 7,
+  "MaxAttack": 18,
+  "Minimalist": 5,
+  "GreatestTaoism": 12,
+  "CanRepair": true,
+  "RepairCost": 42000,
+  "SpecialRepairCost": 210000,
+  "灵魂绑点": 9,
+  "圣伤上限": 60,
+  "铭文传承": true,
+  "铭文职业": "道士",
+  "打孔职业": "通用",
+  "EquipSet": "魔龙装备",
+  "物品掉落列表": [
+    {
+      "Name": "倚天剑",
+      "MonsterName": "血手",
+      "Probability": 500,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "倚天剑",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "倚天剑",
+      "MonsterName": "牛魔王",
+      "Probability": 500,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "倚天剑",
+      "MonsterName": "魔龙教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "最大数量": 1
+    }
+  ]
+}

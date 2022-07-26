@@ -1,0 +1,7 @@
+{
+  "Stat": "幸运等级",
+  "Value": 1,
+  "StatId": 32001,
+  "CombatBonus": 40,
+  "StatDescription": "幸运等级+1"
+}

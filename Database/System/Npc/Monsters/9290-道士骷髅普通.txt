@@ -1,0 +1,197 @@
+{
+  "MonsterName": "道士骷髅普通",
+  "Id": 9290,
+  "Level": 16,
+  "Race": "Undead",
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "可被技能召唤": true,
+  "MoveInterval": 250,
+  "RoamInterval": 10000,
+  "CorpsePreservationDuration": 10000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 15000,
+  "NormalAttackSkills": "电脑-骷髅普通BasicAttackSkills",
+  "ProbabilityTriggerSkills": "",
+  "EnterCombatSkills": "",
+  "ExitCombatSkills": "",
+  "瞬移释放技能": "",
+  "复活释放技能": "",
+  "DeathReleaseSkill": "",
+  "Stats": [],
+  "Grows": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Level0": 60,
+      "Level1": 84,
+      "Level2": 120,
+      "Level3": 168,
+      "Level4": 228,
+      "Level5": 300,
+      "Level6": 384,
+      "Level7": 480
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 6,
+      "Level4": 7,
+      "Level5": 8,
+      "Level6": 9,
+      "Level7": 10
+    },
+    {
+      "Stat": "行走速度",
+      "Level0": 11,
+      "Level1": 10,
+      "Level2": 9,
+      "Level3": 8,
+      "Level4": 8,
+      "Level5": 8,
+      "Level6": 8,
+      "Level7": 8
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 4,
+      "Level1": 5,
+      "Level2": 6,
+      "Level3": 7,
+      "Level4": 7,
+      "Level5": 7,
+      "Level6": 7,
+      "Level7": 7
+    },
+    {
+      "Stat": "MinAttack",
+      "Level0": 5,
+      "Level1": 6,
+      "Level2": 7,
+      "Level3": 8,
+      "Level4": 9,
+      "Level5": 10,
+      "Level6": 11,
+      "Level7": 12
+    },
+    {
+      "Stat": "MaxAttack",
+      "Level0": 10,
+      "Level1": 11,
+      "Level2": 12,
+      "Level3": 13,
+      "Level4": 14,
+      "Level5": 15,
+      "Level6": 16,
+      "Level7": 17
+    },
+    {
+      "Stat": "MinDef",
+      "Level0": 1,
+      "Level1": 1,
+      "Level2": 1,
+      "Level3": 2,
+      "Level4": 2,
+      "Level5": 3,
+      "Level6": 3,
+      "Level7": 3
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 6,
+      "Level4": 6,
+      "Level5": 7,
+      "Level6": 7,
+      "Level7": 7
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Level0": 2,
+      "Level1": 2,
+      "Level2": 2,
+      "Level3": 3,
+      "Level4": 3,
+      "Level5": 4,
+      "Level6": 4,
+      "Level7": 4
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Level0": 6,
+      "Level1": 6,
+      "Level2": 6,
+      "Level3": 7,
+      "Level4": 7,
+      "Level5": 8,
+      "Level6": 8,
+      "Level7": 8
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level3": 1,
+      "Level4": 1,
+      "Level5": 2,
+      "Level6": 2,
+      "Level7": 2
+    }
+  ],
+  "InheritsStats": [
+    {
+      "InheritsStats": "GreatestTaoism",
+      "Ratio": 0.2,
+      "ConvertStat": "MinAttack"
+    },
+    {
+      "InheritsStats": "GreatestTaoism",
+      "Ratio": 0.4,
+      "ConvertStat": "MaxAttack"
+    },
+    {
+      "InheritsStats": "GreatestTaoism",
+      "Ratio": 0.15,
+      "ConvertStat": "MinDef"
+    },
+    {
+      "InheritsStats": "GreatestTaoism",
+      "Ratio": 0.3,
+      "ConvertStat": "MaxDef"
+    },
+    {
+      "InheritsStats": "GreatestTaoism",
+      "Ratio": 0.15,
+      "ConvertStat": "MinMagicDef"
+    },
+    {
+      "InheritsStats": "GreatestTaoism",
+      "Ratio": 0.3,
+      "ConvertStat": "MaxMagicDef"
+    },
+    {
+      "InheritsStats": "PhysicalAgility",
+      "Ratio": 1,
+      "ConvertStat": "PhysicalAgility"
+    },
+    {
+      "InheritsStats": "PhysicallyAccurate",
+      "Ratio": 1,
+      "ConvertStat": "PhysicallyAccurate"
+    },
+    {
+      "InheritsStats": "MagicDodge",
+      "Ratio": 1,
+      "ConvertStat": "MagicDodge"
+    },
+    {
+      "InheritsStats": "幸运等级",
+      "Ratio": 1,
+      "ConvertStat": "幸运等级"
+    }
+  ],
+  "Drops": []
+}

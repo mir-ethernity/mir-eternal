@@ -1,0 +1,133 @@
+{
+  "StoreId": 5,
+  "Name": "杂货商店",
+  "RecyclingType": "杂货",
+  "Products": [
+    {
+      "Id": 80001,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 800
+    },
+    {
+      "Id": 80101,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 7400
+    },
+    {
+      "Id": 80007,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 800
+    },
+    {
+      "Id": 80107,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 7400
+    },
+    {
+      "Id": 80005,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 100
+    },
+    {
+      "Id": 80105,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 800
+    },
+    {
+      "Id": 80008,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 800
+    },
+    {
+      "Id": 80108,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 7400
+    },
+    {
+      "Id": 40101,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 500
+    },
+    {
+      "Id": 40102,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1100
+    },
+    {
+      "Id": 40103,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 5000
+    },
+    {
+      "Id": 40201,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 800
+    },
+    {
+      "Id": 40202,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 5000
+    },
+    {
+      "Id": 91208,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 50000
+    },
+    {
+      "Id": 91115,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 100000
+    },
+    {
+      "Id": 99999100,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 300000
+    },
+    {
+      "Id": 99999102,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 300000
+    },
+    {
+      "Id": 99999104,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 300000
+    },
+    {
+      "Id": 99999106,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 300000
+    },
+    {
+      "Id": 99999108,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 300000
+    },
+    {
+      "Id": 99999110,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 300000
+    }
+  ]
+}

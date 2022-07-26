@@ -1,0 +1,62 @@
+{
+  "Name": "匕首",
+  "Id": 99900002,
+  "ItemLast": 10,
+  "Weight": 5,
+  "Level": 3,
+  "NeedLevel": 1,
+  "SalePrice": 250,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "武器",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "武器",
+  "BasicPowerCombat": 22,
+  "MinAttack": 4,
+  "MaxAttack": 5,
+  "CanRepair": true,
+  "RepairCost": 150,
+  "SpecialRepairCost": 750,
+  "灵魂绑点": 9,
+  "圣伤上限": 20,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "匕首",
+      "MonsterName": "稻草人",
+      "掉落概率": 150,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "匕首",
+      "MonsterName": "海蟹",
+      "掉落概率": 150,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "匕首",
+      "MonsterName": "鹿",
+      "掉落概率": 150,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "匕首",
+      "MonsterName": "钉耙猫",
+      "掉落概率": 150,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "匕首",
+      "MonsterName": "羊",
+      "掉落概率": 150,
+      "MinAmount": 1,
+      "最大数量": 1
+    }
+  ]
+}

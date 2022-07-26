@@ -1,0 +1,108 @@
+{
+  "Name": "铁手镯",
+  "Id": 99940001,
+  "ItemLast": 4,
+  "Weight": 1,
+  "Level": 7,
+  "NeedLevel": 3,
+  "SalePrice": 400,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "手镯",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "BasicPowerCombat": 10,
+  "PhysicallyAccurate": 1,
+  "CanRepair": true,
+  "RepairCost": 240,
+  "SpecialRepairCost": 1200,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "铁手镯",
+      "MonsterName": "半兽人",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁手镯",
+      "MonsterName": "野狼",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁手镯",
+      "MonsterName": "树妖",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁手镯",
+      "MonsterName": "毒蜘蛛",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁手镯",
+      "MonsterName": "盔甲虫",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁手镯",
+      "MonsterName": "多角虫",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁手镯",
+      "MonsterName": "腐蚀虫",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁手镯",
+      "MonsterName": "游熊",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁手镯",
+      "MonsterName": "鬼尸僵尸",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁手镯",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁手镯",
+      "MonsterName": "山洞蝙蝠",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁手镯",
+      "MonsterName": "半兽人战士",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

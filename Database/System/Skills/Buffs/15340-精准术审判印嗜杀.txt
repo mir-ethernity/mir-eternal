@@ -1,0 +1,44 @@
+{
+  "Name": "精准术审判印嗜杀",
+  "Id": 15340,
+  "GroupId": 15340,
+  "ActionType": "Debuff",
+  "OverlayType": "SimilarReplacement",
+  "Effect": "DamageIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 1000,
+  "ProcessDelay": 1000,
+  "Duration": 1000,
+  "RequireBuff": [],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "EffectRemoved": true,
+  "HowJudgeEffect": "PassiveInjuryIncrease",
+  "EffectJudgeType": "SourceSkillDamage",
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    15,
+    17,
+    19,
+    21
+  ],
+  "DamageIncOrDecFactor": [],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

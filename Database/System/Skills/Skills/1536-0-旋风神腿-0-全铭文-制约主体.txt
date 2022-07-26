@@ -1,0 +1,29 @@
+{
+  "SkillName": "旋风神腿-0-全铭文-制约主体",
+  "Race": "刺客",
+  "OwnSkillId": 1536,
+  "BindingLevelId": 1536,
+  "CalculateTriggerProbability": 1,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "CheckSkillMarks": true,
+  "SkillTagId": 15336,
+  "NeedConsumeMagic": [],
+  "PlayerBuffLayer": 1,
+  "Nodes": {
+    "0": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "ItSelfCooldown": 6000
+    },
+    "1": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 15337,
+      "Buff触发概率": 1,
+      "所需Buff层数": 1
+    },
+    "2": {
+      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "Name": "随机传送石(大)",
+  "Id": 80206,
+  "ItemLast": 200,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "Cooldown": 500,
+  "SalePrice": 100000,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "消耗",
+  "StoreType": "杂货"
+}

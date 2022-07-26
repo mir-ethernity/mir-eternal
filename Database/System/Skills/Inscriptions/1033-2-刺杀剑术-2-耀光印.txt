@@ -1,0 +1,30 @@
+{
+  "SkillName": "刺杀剑术-2-耀光印",
+  "SkillId": 1033,
+  "Id": 2,
+  "Quality": 5,
+  "Probability": 15,
+  "MinPlayerLevel": "GRsdHw==",
+  "MinSkillExp": [
+    600,
+    1200,
+    1800,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1431
+  ],
+  "MainSkills": [
+    "刺杀剑术-2-耀光印-主体技能"
+  ],
+  "SwitchSkills": [
+    "刺杀剑术-0-无铭文-技能开关"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "Name": "万年雪霜包",
+  "Id": 384,
+  "ItemLast": 1,
+  "Weight": 7,
+  "NeedLevel": 1,
+  "SalePrice": 1500,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "药品"
+}

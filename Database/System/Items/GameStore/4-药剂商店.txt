@@ -1,0 +1,133 @@
+{
+  "StoreId": 4,
+  "Name": "药剂商店",
+  "RecyclingType": "药品",
+  "Products": [
+    {
+      "Id": 301,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 40
+    },
+    {
+      "Id": 302,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 110
+    },
+    {
+      "Id": 303,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 290
+    },
+    {
+      "Id": 321,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 40
+    },
+    {
+      "Id": 322,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 110
+    },
+    {
+      "Id": 323,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 290
+    },
+    {
+      "Id": 351,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 500
+    },
+    {
+      "Id": 352,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1250
+    },
+    {
+      "Id": 361,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 320
+    },
+    {
+      "Id": 362,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 840
+    },
+    {
+      "Id": 363,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 2430
+    },
+    {
+      "Id": 371,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 320
+    },
+    {
+      "Id": 372,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 840
+    },
+    {
+      "Id": 373,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 2430
+    },
+    {
+      "Id": 40001,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 5000
+    },
+    {
+      "Id": 40002,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 11000
+    },
+    {
+      "Id": 40003,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 18000
+    },
+    {
+      "Id": 40004,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 100000
+    },
+    {
+      "Id": 381,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 3000
+    },
+    {
+      "Id": 382,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 8500
+    },
+    {
+      "Id": 383,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 70000
+    }
+  ]
+}

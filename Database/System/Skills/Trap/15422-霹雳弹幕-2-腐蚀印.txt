@@ -1,0 +1,11 @@
+{
+  "Name": "霹雳弹幕-2-腐蚀印",
+  "Id": 15422,
+  "GroupId": 1542,
+  "BindingLevel": 1542,
+  "Duration": 10000,
+  "LimitMoveSteps": 255,
+  "PassiveTriggerSkill": "",
+  "ActivelyTriggerSkills": "Percussion幕-2-腐蚀印-主动触发",
+  "ActivelyTriggerInterval": 1000
+}

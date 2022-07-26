@@ -1,0 +1,29 @@
+{
+  "SkillName": "致残毒药-3-制约印",
+  "Race": "刺客",
+  "SkillId": 1533,
+  "Id": 3,
+  "Quality": 4,
+  "Probability": 25,
+  "MinPlayerLevel": "FxodIA==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "致残毒药-3-制约印-主体技能"
+  ],
+  "SwitchSkills": [
+    "致残毒药-3-制约印-主体技能"
+  ]
+}

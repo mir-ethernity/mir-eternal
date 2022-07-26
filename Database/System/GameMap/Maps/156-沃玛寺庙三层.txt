@@ -1,0 +1,11 @@
+{
+  "MapId": 156,
+  "MapName": "沃玛寺庙三层",
+  "MapFile": "Mir_Dg05_2",
+  "TerrainFile": "0156-Temple Of Warma 3rd Floor",
+  "LimitPlayers": 9999,
+  "MinLevel": 25,
+  "LimitInstances": 1,
+  "NoReconnect": true,
+  "NoReconnectMapId": 155
+}

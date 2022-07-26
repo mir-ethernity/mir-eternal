@@ -1,0 +1,48 @@
+{
+  "Name": "钩镰枪法普通撕裂",
+  "Id": 12050,
+  "GroupId": 1205,
+  "ActionType": "Debuff",
+  "OverlayType": "HomogeneousStacking",
+  "Effect": "CausesSomeDamages",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BindingSkillLevel": 1205,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 5,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 1000,
+  "ProcessDelay": 1000,
+  "Duration": 6000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "HasSpecificInscriptionDelay": true,
+  "SpecificInscriptionSkills": 12053,
+  "InscriptionExtendedTime": 3000,
+  "DamageType": "Tear",
+  "DamageBase": [
+    2,
+    2,
+    2,
+    2
+  ],
+  "DamageFactor": [],
+  "StrengthenInscriptionId": 12052,
+  "StrengthenInscriptionBase": 2,
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

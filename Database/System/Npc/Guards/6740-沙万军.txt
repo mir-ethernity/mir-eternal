@@ -1,0 +1,6 @@
+{
+  "Name": "沙万军",
+  "GuardNumber": 6740,
+  "Level": 99,
+  "RangeHate": 8
+}

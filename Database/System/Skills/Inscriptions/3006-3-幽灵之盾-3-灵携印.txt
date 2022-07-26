@@ -1,0 +1,27 @@
+{
+  "SkillName": "幽灵之盾-3-灵携印",
+  "Race": "道士",
+  "SkillId": 3006,
+  "Id": 3,
+  "Quality": 1,
+  "Probability": 100,
+  "MinPlayerLevel": "FhgaHA==",
+  "MinSkillExp": [
+    500,
+    1000,
+    1500,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "幽灵之盾-3-灵携印-主体技能"
+  ],
+  "SwitchSkills": []
+}

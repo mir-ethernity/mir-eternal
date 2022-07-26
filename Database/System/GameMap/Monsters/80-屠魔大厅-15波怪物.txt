@@ -1,0 +1,34 @@
+{
+  "FromMapId": 80,
+  "FromMapName": "屠魔大厅",
+  "FromCoords": "925, 330",
+  "RegionName": "屠魔大厅-15波怪物",
+  "AreaRadius": 1,
+  "Spawns": [
+    {
+      "MonsterName": "天狼蜘蛛",
+      "SpawnCount": 9,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "钢牙蜘蛛",
+      "SpawnCount": 9,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "暴牙蜘蛛",
+      "SpawnCount": 9,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "花吻蜘蛛",
+      "SpawnCount": 9,
+      "RevivalInterval": 1
+    }
+  ],
+  "RangeCoords": [
+    "999, 296",
+    "1000, 295",
+    "1000, 296"
+  ]
+}

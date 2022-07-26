@@ -1,0 +1,6 @@
+{
+  "Name": "七仔",
+  "GuardNumber": 6705,
+  "Level": 99,
+  "RangeHate": 8
+}

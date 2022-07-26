@@ -1,0 +1,62 @@
+{
+  "Name": "霹雳弹幕强化躲闪",
+  "Id": 15420,
+  "GroupId": 15420,
+  "OverlayType": "SimilarReplacement",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 1542,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 1500,
+  "ProcessDelay": 1500,
+  "Duration": 1500,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "怪物闪避",
+      "Level0": 2000,
+      "Level1": 2500,
+      "Level2": 3000,
+      "Level3": 3500
+    },
+    {
+      "Stat": "怪物伤害",
+      "Level0": 3,
+      "Level1": 5,
+      "Level2": 7,
+      "Level3": 9
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

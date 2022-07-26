@@ -1,0 +1,62 @@
+{
+  "Name": "施毒之术红毒效果",
+  "Id": 30041,
+  "ActionType": "Debuff",
+  "OverlayType": "SimilarReplacement",
+  "Effect": "StatsIncOrDec, DamageIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BindingSkillLevel": 3004,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 30000,
+  "Duration": 30000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "SkillLevelDelay": true,
+  "ExtendedTimePerLevel": 5000,
+  "PlayerStatDelay": true,
+  "BoundPlayerStat": "GreatestTaoism",
+  "StatDelayFactor": 1000,
+  "StatsIncOrDec": [
+    {
+      "Stat": "MaxDef",
+      "Level0": -4,
+      "Level1": -6,
+      "Level2": -8,
+      "Level3": -10
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Level0": -4,
+      "Level1": -6,
+      "Level2": -8,
+      "Level3": -10
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "HowJudgeEffect": "PassiveInjuryIncrease",
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [],
+  "DamageIncOrDecFactor": [
+    0.09,
+    0.11,
+    0.13,
+    0.15
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

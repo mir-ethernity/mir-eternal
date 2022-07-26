@@ -1,0 +1,51 @@
+{
+  "Name": "法师魔法盾逢生印",
+  "Id": 25354,
+  "GroupId": 25354,
+  "Effect": "DamageIncOrDec",
+  "SyncClient": true,
+  "OnChangeWeaponRemove": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 2535,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 1000000,
+  "ProcessDelay": 1000000,
+  "Duration": 1000000,
+  "FollowedById": 25355,
+  "AssociatedId": 25350,
+  "RequireBuff": [],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "EffectRemoved": true,
+  "HowJudgeEffect": "PassiveInjuryReduction",
+  "LimitedDamage": true,
+  "LimitedDamageValue": 60,
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

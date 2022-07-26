@@ -1,0 +1,36 @@
+{
+  "Name": "圣魔手镯",
+  "Id": 99940034,
+  "ItemLast": 6,
+  "Weight": 1,
+  "Level": 55,
+  "SalePrice": 60000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "手镯",
+  "NeedRace": "法师",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "NeedMagic": 32,
+  "BasicPowerCombat": 142,
+  "MinMagic": 1,
+  "MaxMagic": 5,
+  "MaxDef": 2,
+  "MaxMagicDef": 2,
+  "CanRepair": true,
+  "RepairCost": 36000,
+  "SpecialRepairCost": 180000,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "苍月装备",
+  "物品掉落列表": [
+    {
+      "Name": "圣魔手镯",
+      "MonsterName": "牛魔王",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

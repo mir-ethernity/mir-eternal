@@ -1,0 +1,8 @@
+{
+  "MapId": 56,
+  "MapName": "尸魔洞一层",
+  "MapFile": "MirDg14_1",
+  "TerrainFile": "0056-CaveOfDead",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

@@ -1,0 +1,7 @@
+{
+  "GuardNumber": 6664,
+  "FromMapId": 65,
+  "FromMapName": "牛魔寺庙六层",
+  "FromCoords": "855, 254",
+  "RegionName": "牛魔寺庙六层-醉爷(855,254)"
+}

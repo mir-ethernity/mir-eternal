@@ -1,0 +1,37 @@
+{
+  "Name": "晶爪项链",
+  "Id": 99920077,
+  "ItemLast": 8,
+  "Weight": 3,
+  "Level": 53,
+  "SalePrice": 60000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "项链",
+  "NeedRace": "弓手",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "NeedArchery": 42,
+  "BasicPowerCombat": 224,
+  "MinBow": 1,
+  "MaxBow": 8,
+  "MaxDef": 1,
+  "MaxMagicDef": 1,
+  "CanRepair": true,
+  "RepairCost": 36000,
+  "SpecialRepairCost": 180000,
+  "铭文刻印": true,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "苍月装备",
+  "物品掉落列表": [
+    {
+      "Name": "晶爪项链",
+      "MonsterName": "牛魔王",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

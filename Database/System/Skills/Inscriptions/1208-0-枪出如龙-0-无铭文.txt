@@ -1,0 +1,28 @@
+{
+  "SkillName": "枪出如龙-0-无铭文",
+  "Race": "龙枪",
+  "SkillId": 1208,
+  "MinPlayerLevel": "IyYpLA==",
+  "MinSkillExp": [
+    600,
+    1200,
+    1800,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1602
+  ],
+  "MainSkills": [
+    "枪出如龙-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": [
+    "枪出如龙-0-无铭文-技能开关"
+  ]
+}

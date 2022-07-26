@@ -1,0 +1,27 @@
+{
+  "SkillName": "施毒之术-0-无铭文",
+  "Race": "道士",
+  "SkillId": 3004,
+  "MinPlayerLevel": "DhEUFw==",
+  "MinSkillExp": [
+    100,
+    200,
+    400,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    3400
+  ],
+  "MainSkills": [
+    "施毒之术-0-无铭文-红毒主体",
+    "施毒之术-0-无铭文-绿毒主体"
+  ],
+  "SwitchSkills": []
+}

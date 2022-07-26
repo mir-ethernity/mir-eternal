@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6719,
+  "FromMapId": 143,
+  "FromMapName": "比奇省",
+  "FromCoords": "808, 260",
+  "Direction": "右下",
+  "RegionName": "比奇省-红芸(808,260)"
+}

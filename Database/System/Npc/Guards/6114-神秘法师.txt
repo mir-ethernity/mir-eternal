@@ -1,0 +1,6 @@
+{
+  "Name": "神秘法师",
+  "GuardNumber": 6114,
+  "Level": 99,
+  "RangeHate": 8
+}

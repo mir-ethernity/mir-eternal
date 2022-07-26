@@ -1,0 +1,622 @@
+{
+  "MonsterName": "暗黑战士",
+  "Id": 941,
+  "Level": 26,
+  "Race": "WomaMonster",
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CanBeSeducedBySkills": true,
+  "BaseTemptationProbability": 0.2,
+  "MoveInterval": 500,
+  "RoamInterval": 21000,
+  "CorpsePreservationDuration": 12000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 5,
+  "HateTime": 15000,
+  "NormalAttackSkills": "电脑-Dark WarriorBasicAttackSkills",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 165
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 2
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 13
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 14
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 13
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Value": 9
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 16
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 1
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 3
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Value": 1
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Value": 2
+    }
+  ],
+  "Grows": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Level0": 165,
+      "Level1": 190,
+      "Level2": 215,
+      "Level3": 245,
+      "Level4": 275,
+      "Level5": 310,
+      "Level6": 345,
+      "Level7": 385
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 2,
+      "Level1": 3,
+      "Level2": 4,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 6,
+      "Level6": 6,
+      "Level7": 6
+    },
+    {
+      "Stat": "行走速度",
+      "Level0": 13,
+      "Level1": 13,
+      "Level2": 13,
+      "Level3": 13,
+      "Level4": 13,
+      "Level5": 13,
+      "Level6": 13,
+      "Level7": 13
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 5,
+      "Level6": 5,
+      "Level7": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 14,
+      "Level1": 14,
+      "Level2": 14,
+      "Level3": 15,
+      "Level4": 15,
+      "Level5": 16,
+      "Level6": 16,
+      "Level7": 16
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 13,
+      "Level1": 13,
+      "Level2": 13,
+      "Level3": 14,
+      "Level4": 14,
+      "Level5": 15,
+      "Level6": 15,
+      "Level7": 15
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Level0": 9,
+      "Level1": 9,
+      "Level2": 9,
+      "Level3": 9,
+      "Level4": 9,
+      "Level5": 9,
+      "Level6": 9,
+      "Level7": 9
+    },
+    {
+      "Stat": "MaxAttack",
+      "Level0": 16,
+      "Level1": 17,
+      "Level2": 18,
+      "Level3": 19,
+      "Level4": 20,
+      "Level5": 21,
+      "Level6": 22,
+      "Level7": 23
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Level0": 1,
+      "Level1": 1,
+      "Level2": 1,
+      "Level3": 1,
+      "Level4": 1,
+      "Level5": 1,
+      "Level6": 1,
+      "Level7": 1
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 3,
+      "Level1": 4,
+      "Level2": 5,
+      "Level3": 6,
+      "Level4": 7,
+      "Level5": 8,
+      "Level6": 9,
+      "Level7": 10
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Level0": 1,
+      "Level1": 1,
+      "Level2": 1,
+      "Level3": 1,
+      "Level4": 1,
+      "Level5": 1,
+      "Level6": 1,
+      "Level7": 1
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Level0": 2,
+      "Level1": 3,
+      "Level2": 4,
+      "Level3": 5,
+      "Level4": 6,
+      "Level5": 7,
+      "Level6": 8,
+      "Level7": 9
+    }
+  ],
+  "ProvideExperience": 200,
+  "Drops": [
+    {
+      "Name": "布鞋",
+      "MonsterName": "暗黑战士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "白金项链",
+      "MonsterName": "暗黑战士",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "琥珀项链",
+      "MonsterName": "暗黑战士",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔鬼项链",
+      "MonsterName": "暗黑战士",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "软玉项链",
+      "MonsterName": "暗黑战士",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤项链",
+      "MonsterName": "暗黑战士",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凤凰明珠",
+      "MonsterName": "暗黑战士",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "躲避项链",
+      "MonsterName": "暗黑战士",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝翡翠项链",
+      "MonsterName": "暗黑战士",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "竹笛",
+      "MonsterName": "暗黑战士",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "放大镜",
+      "MonsterName": "暗黑战士",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "十方项链",
+      "MonsterName": "暗黑战士",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狞猫项链",
+      "MonsterName": "暗黑战士",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色水晶戒指",
+      "MonsterName": "暗黑战士",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "暗黑战士",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珍珠戒指",
+      "MonsterName": "暗黑战士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑色水晶戒指",
+      "MonsterName": "暗黑战士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蛇眼戒指",
+      "MonsterName": "暗黑战士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜戒指",
+      "MonsterName": "暗黑战士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤戒指",
+      "MonsterName": "暗黑战士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道德戒指",
+      "MonsterName": "暗黑战士",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魅力戒指",
+      "MonsterName": "暗黑战士",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅戒指",
+      "MonsterName": "暗黑战士",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "翡翠戒指",
+      "MonsterName": "暗黑战士",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "扣弦扳指",
+      "MonsterName": "暗黑战士",
+      "Probability": 700,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金戒指",
+      "MonsterName": "暗黑战士",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珊瑚戒指",
+      "MonsterName": "暗黑战士",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫玉戒指",
+      "MonsterName": "暗黑战士",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁皮指环",
+      "MonsterName": "暗黑战士",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法手镯",
+      "MonsterName": "暗黑战士",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔力手镯",
+      "MonsterName": "暗黑战士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "坚固手套",
+      "MonsterName": "暗黑战士",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士手镯",
+      "MonsterName": "暗黑战士",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑檀手镯",
+      "MonsterName": "暗黑战士",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "夏普儿手镯",
+      "MonsterName": "暗黑战士",
+      "Probability": 3000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "辟邪手镯",
+      "MonsterName": "暗黑战士",
+      "Probability": 5000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金手镯",
+      "MonsterName": "暗黑战士",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "桃木手镯",
+      "MonsterName": "暗黑战士",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤手镯",
+      "MonsterName": "暗黑战士",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "海魂",
+      "MonsterName": "暗黑战士",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "八荒",
+      "MonsterName": "暗黑战士",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "半月",
+      "MonsterName": "暗黑战士",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "暗黑战士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "破魂",
+      "MonsterName": "暗黑战士",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "罗刹",
+      "MonsterName": "暗黑战士",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "偃月",
+      "MonsterName": "暗黑战士",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "降魔",
+      "MonsterName": "暗黑战士",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "斩马刀",
+      "MonsterName": "暗黑战士",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "冰月戟",
+      "MonsterName": "暗黑战士",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁胎弓",
+      "MonsterName": "暗黑战士",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "百炼枪",
+      "MonsterName": "暗黑战士",
+      "Probability": 800,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "修罗",
+      "MonsterName": "暗黑战士",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凝霜",
+      "MonsterName": "暗黑战士",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "暗黑战士",
+      "Probability": 5,
+      "MinAmount": 400,
+      "MaxAmount": 500
+    },
+    {
+      "Name": "金创药(中量)",
+      "MonsterName": "暗黑战士",
+      "Probability": 6,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(中量)",
+      "MonsterName": "暗黑战士",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "太阳水",
+      "MonsterName": "暗黑战士",
+      "Probability": 20,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

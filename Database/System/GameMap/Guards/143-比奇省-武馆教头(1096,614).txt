@@ -1,0 +1,7 @@
+{
+  "GuardNumber": 6733,
+  "FromMapId": 143,
+  "FromMapName": "比奇省",
+  "FromCoords": "1096, 614",
+  "RegionName": "比奇省-武馆教头(1096,614)"
+}

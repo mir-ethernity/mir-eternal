@@ -1,0 +1,109 @@
+{
+  "StoreId": 1201,
+  "Name": "戒指商店",
+  "RecyclingType": "首饰",
+  "Products": [
+    {
+      "Id": 99930001,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 500
+    },
+    {
+      "Id": 99930003,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 800
+    },
+    {
+      "Id": 99930002,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 800
+    },
+    {
+      "Id": 99930004,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1000
+    },
+    {
+      "Id": 99930005,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1500
+    },
+    {
+      "Id": 99930006,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 3000
+    },
+    {
+      "Id": 99930010,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 8000
+    },
+    {
+      "Id": 99930012,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 4000
+    },
+    {
+      "Id": 99930011,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 4000
+    },
+    {
+      "Id": 99930008,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 2000
+    },
+    {
+      "Id": 99930009,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 2000
+    },
+    {
+      "Id": 99930007,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 2000
+    },
+    {
+      "Id": 99930015,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 5000
+    },
+    {
+      "Id": 99930045,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 2000
+    },
+    {
+      "Id": 99930046,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 5000
+    },
+    {
+      "Id": 99930071,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 2000
+    },
+    {
+      "Id": 99930072,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 5000
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "SkillName": "精准之术-1-审判印",
+  "Race": "刺客",
+  "SkillId": 1534,
+  "Id": 1,
+  "PassiveSkill": true,
+  "Quality": 1,
+  "Probability": 100,
+  "MinPlayerLevel": "CQwSGQ==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "StatsBonus": [
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 2,
+      "Level1": 4,
+      "Level2": 6,
+      "Level3": 8
+    }
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [],
+  "SwitchSkills": []
+}

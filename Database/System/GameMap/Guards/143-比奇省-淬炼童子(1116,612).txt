@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6426,
+  "FromMapId": 143,
+  "FromMapName": "比奇省",
+  "FromCoords": "1116, 612",
+  "Direction": "右方",
+  "RegionName": "比奇省-淬炼童子(1116,612)"
+}

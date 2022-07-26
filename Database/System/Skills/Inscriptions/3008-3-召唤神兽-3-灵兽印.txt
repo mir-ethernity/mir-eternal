@@ -1,0 +1,28 @@
+{
+  "SkillName": "召唤神兽-3-灵兽印",
+  "Race": "道士",
+  "SkillId": 3008,
+  "Id": 3,
+  "Quality": 8,
+  "Probability": 2,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "IyUoKg==",
+  "MinSkillExp": [
+    200,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "召唤神兽-3-灵兽印-主体技能"
+  ],
+  "SwitchSkills": []
+}

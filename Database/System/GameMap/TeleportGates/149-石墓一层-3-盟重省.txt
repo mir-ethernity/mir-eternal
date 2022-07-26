@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 3,
+  "FromMapId": 149,
+  "ToMapId": 147,
+  "TeleportGateName": "盟重省",
+  "FromMapName": "石墓一层",
+  "ToMapName": "盟重省",
+  "FromMapFile": "Mir_Dg02",
+  "ToMapFile": "MirPb01",
+  "FromCoords": "1232, 414",
+  "ToCoords": "967, 527"
+}

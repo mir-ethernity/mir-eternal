@@ -1,0 +1,11 @@
+{
+  "Name": "屠魔守卫",
+  "GuardNumber": 6782,
+  "Level": 99,
+  "CanBeInjured": true,
+  "CorpsePreservation": 10000,
+  "RevivalInterval": 30000,
+  "ActiveAttack": true,
+  "RangeHate": 8,
+  "BasicAttackSkills": "电脑-弓箭守卫BasicAttackSkills"
+}

@@ -1,0 +1,14 @@
+{
+  "Name": "铜矿4",
+  "Id": 115004,
+  "ItemLast": 4,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 12,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}

@@ -1,0 +1,14 @@
+{
+  "Name": "随机传送卷包",
+  "Id": 80105,
+  "ItemLast": 1,
+  "Weight": 7,
+  "NeedLevel": 1,
+  "SalePrice": 400,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

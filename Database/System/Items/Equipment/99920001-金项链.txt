@@ -1,0 +1,60 @@
+{
+  "Name": "金项链",
+  "Id": 99920001,
+  "ItemLast": 8,
+  "Weight": 1,
+  "Level": 6,
+  "NeedLevel": 2,
+  "SalePrice": 250,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "项链",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "BasicPowerCombat": 15,
+  "MaxAttack": 1,
+  "PhysicalAgility": 1,
+  "CanRepair": true,
+  "RepairCost": 150,
+  "SpecialRepairCost": 750,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "金项链",
+      "MonsterName": "稻草人",
+      "Probability": 100,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "金项链",
+      "MonsterName": "海蟹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "金项链",
+      "MonsterName": "鹿",
+      "Probability": 100,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "金项链",
+      "MonsterName": "钉耙猫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "金项链",
+      "MonsterName": "羊",
+      "Probability": 100,
+      "MinAmount": 1,
+      "最大数量": 1
+    }
+  ]
+}

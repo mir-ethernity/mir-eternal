@@ -1,0 +1,27 @@
+{
+  "SkillName": "疾光电影-2-雷诛印",
+  "Race": "法师",
+  "SkillId": 2536,
+  "Id": 2,
+  "Quality": 3,
+  "Probability": 60,
+  "MinPlayerLevel": "Gh0gIw==",
+  "MinSkillExp": [
+    300,
+    600,
+    1200,
+    0
+  ],
+  "SkillCombatBonus": [
+    5,
+    7,
+    10,
+    13
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "疾光电影-2-雷诛印-主体技能"
+  ],
+  "SwitchSkills": []
+}

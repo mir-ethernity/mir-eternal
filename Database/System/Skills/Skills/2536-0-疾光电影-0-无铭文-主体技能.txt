@@ -1,0 +1,73 @@
+{
+  "SkillName": "疾光电影-0-无铭文-主体技能",
+  "Race": "法师",
+  "OwnSkillId": 2536,
+  "GroupId": 1,
+  "BindingLevelId": 2536,
+  "CalculateTriggerProbability": 1,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    38,
+    45,
+    52,
+    60
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "MaxDistance": 1,
+      "技能最近距离": 1
+    },
+    "1": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 1500,
+      "分组Cooldown": 1000,
+      "角色忙绿时间": 625
+    },
+    "623": {
+      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "技能命中反馈": "后仰",
+      "技能范围类型": "LineType1x8",
+      "技能命中通知": true,
+      "限定命中数量": 10,
+      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
+      "限定目标关系": "Hostility",
+      "清除状态列表": []
+    },
+    "624": {
+      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Magic",
+      "技能伤害基数": [
+        20,
+        26,
+        31,
+        38
+      ],
+      "技能伤害系数": [
+        1.2,
+        1.3,
+        1.4,
+        1.5
+      ],
+      "增加技能经验": true,
+      "经验SkillId": 2536,
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    },
+    "625": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "725": {
+      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+    }
+  }
+}

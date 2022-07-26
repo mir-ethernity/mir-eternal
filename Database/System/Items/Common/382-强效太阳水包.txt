@@ -1,0 +1,14 @@
+{
+  "Name": "强效太阳水包",
+  "Id": 382,
+  "ItemLast": 1,
+  "Weight": 7,
+  "NeedLevel": 1,
+  "SalePrice": 850,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "药品"
+}

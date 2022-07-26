@@ -1,0 +1,223 @@
+{
+  "StoreId": 1011,
+  "Name": "武器商店",
+  "RecyclingType": "武器",
+  "Products": [
+    {
+      "Id": 99900001,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 50
+    },
+    {
+      "Id": 89900002,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 50
+    },
+    {
+      "Id": 99900071,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 50
+    },
+    {
+      "Id": 99900100,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 50
+    },
+    {
+      "Id": 99900002,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 500
+    },
+    {
+      "Id": 99900051,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 500
+    },
+    {
+      "Id": 99900003,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 4000
+    },
+    {
+      "Id": 99900004,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 900
+    },
+    {
+      "Id": 99900005,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1000
+    },
+    {
+      "Id": 99900006,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1200
+    },
+    {
+      "Id": 99900008,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1500
+    },
+    {
+      "Id": 99900072,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1500
+    },
+    {
+      "Id": 99900101,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1500
+    },
+    {
+      "Id": 99900052,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 1500
+    },
+    {
+      "Id": 99900009,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 3000
+    },
+    {
+      "Id": 99900012,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 5000
+    },
+    {
+      "Id": 99900014,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 5000
+    },
+    {
+      "Id": 99900010,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 5000
+    },
+    {
+      "Id": 99900011,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 4000
+    },
+    {
+      "Id": 99900015,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 10000
+    },
+    {
+      "Id": 99900016,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 6000
+    },
+    {
+      "Id": 99900073,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 6000
+    },
+    {
+      "Id": 99900102,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 6000
+    },
+    {
+      "Id": 99900053,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 6000
+    },
+    {
+      "Id": 99900013,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 10000
+    },
+    {
+      "Id": 99900017,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 10000
+    },
+    {
+      "Id": 99900020,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 8000
+    },
+    {
+      "Id": 114024,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 10000
+    },
+    {
+      "Id": 114025,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 29999
+    },
+    {
+      "Id": 114026,
+      "Units": 1,
+      "CurrencyType": 1,
+      "Price": 99999
+    },
+    {
+      "Id": 99900030,
+      "Units": 1,
+      "CurrencyType": 91156,
+      "Price": 1
+    },
+    {
+      "Id": 99900046,
+      "Units": 1,
+      "CurrencyType": 91156,
+      "Price": 1
+    },
+    {
+      "Id": 99900047,
+      "Units": 1,
+      "CurrencyType": 91156,
+      "Price": 1
+    },
+    {
+      "Id": 99900061,
+      "Units": 1,
+      "CurrencyType": 91156,
+      "Price": 1
+    },
+    {
+      "Id": 99900074,
+      "Units": 1,
+      "CurrencyType": 91156,
+      "Price": 1
+    },
+    {
+      "Id": 99900104,
+      "Units": 1,
+      "CurrencyType": 91156,
+      "Price": 1
+    }
+  ]
+}

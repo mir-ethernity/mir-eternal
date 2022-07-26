@@ -1,0 +1,14 @@
+{
+  "Name": "施毒药粉(少量)",
+  "Id": 40001,
+  "ItemLast": 50,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "SalePrice": 2500,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用药粉",
+  "NeedRace": "通用",
+  "PersistType": "消耗",
+  "StoreType": "药品"
+}

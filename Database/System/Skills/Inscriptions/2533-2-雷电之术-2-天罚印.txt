@@ -1,0 +1,27 @@
+{
+  "SkillName": "雷电之术-2-天罚印",
+  "Race": "法师",
+  "SkillId": 2533,
+  "Id": 2,
+  "Quality": 6,
+  "Probability": 6,
+  "MinPlayerLevel": "ERQXGg==",
+  "MinSkillExp": [
+    120,
+    300,
+    500,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "雷电之术-2-天罚印-主体技能"
+  ],
+  "SwitchSkills": []
+}

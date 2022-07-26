@@ -1,0 +1,52 @@
+{
+  "SkillName": "隐身之术-1-空相印-主体技能",
+  "Race": "道士",
+  "OwnSkillId": 3009,
+  "Id": 1,
+  "GroupId": 1,
+  "BindingLevelId": 3009,
+  "CalculateTriggerProbability": 1,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    2,
+    4,
+    8,
+    10
+  ],
+  "NeedConsumeItems": [
+    40103,
+    40101,
+    40102
+  ],
+  "NeedConsumeItemsQuantity": 1,
+  "GearDeductionPoints": 1,
+  "Nodes": {
+    "0": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 1500,
+      "分组Cooldown": 1500,
+      "角色忙绿时间": 625
+    },
+    "225": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 30091,
+      "Buff触发概率": 1,
+      "所需Buff层数": 1,
+      "增加技能经验": true,
+      "经验SkillId": 3009
+    },
+    "625": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "1000": {
+      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+    }
+  }
+}

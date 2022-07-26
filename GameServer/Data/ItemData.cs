@@ -14,7 +14,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.对应模板.V;
+				return 对应模板.V;
 			}
 		}
 
@@ -24,7 +24,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.物品模板.StoreType;
+				return 物品模板.StoreType;
 			}
 		}
 
@@ -34,7 +34,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.物品模板.Type;
+				return 物品模板.Type;
 			}
 		}
 
@@ -44,7 +44,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.物品模板.PersistType;
+				return 物品模板.PersistType;
 			}
 		}
 
@@ -54,7 +54,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.物品模板.NeedRace;
+				return 物品模板.NeedRace;
 			}
 		}
 
@@ -64,7 +64,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.物品模板.NeedGender;
+				return 物品模板.NeedGender;
 			}
 		}
 
@@ -74,7 +74,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.物品模板.Name;
+				return 物品模板.Name;
 			}
 		}
 
@@ -84,7 +84,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.物品模板.NeedLevel;
+				return 物品模板.NeedLevel;
 			}
 		}
 
@@ -94,7 +94,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.对应模板.V.Id;
+				return 对应模板.V.Id;
 			}
 		}
 
@@ -104,11 +104,11 @@ namespace GameServer.Data
 		{
 			get
 			{
-				if (this.PersistType != PersistentItemType.堆叠)
+				if (PersistType != PersistentItemType.堆叠)
 				{
-					return this.物品模板.Weight;
+					return 物品模板.Weight;
 				}
-				return this.当前持久.V * this.物品模板.Weight;
+				return 当前持久.V * 物品模板.Weight;
 			}
 		}
 
@@ -369,7 +369,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.对应模板.V.ItemLast;
+				return 对应模板.V.ItemLast;
 			}
 		}
 
@@ -379,11 +379,11 @@ namespace GameServer.Data
 		{
 			get
 			{
-				if (this.PersistType != PersistentItemType.装备)
+				if (PersistType != PersistentItemType.装备)
 				{
-					return this.对应模板.V.ItemLast;
+					return 对应模板.V.ItemLast;
 				}
-				return this.对应模板.V.ItemLast * 1000;
+				return 对应模板.V.ItemLast * 1000;
 			}
 		}
 
@@ -394,11 +394,11 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.物品位置.V;
+				return 物品位置.V;
 			}
 			set
 			{
-				this.物品位置.V = value;
+				物品位置.V = value;
 			}
 		}
 
@@ -408,7 +408,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.物品模板.IsBound;
+				return 物品模板.IsBound;
 			}
 		}
 
@@ -418,7 +418,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.对应模板.V.Resource;
+				return 对应模板.V.Resource;
 			}
 		}
 
@@ -428,7 +428,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.物品模板.CanSold;
+				return 物品模板.CanSold;
 			}
 		}
 
@@ -438,7 +438,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.对应模板.V.PersistType == PersistentItemType.堆叠;
+				return 对应模板.V.PersistType == PersistentItemType.堆叠;
 			}
 		}
 
@@ -448,7 +448,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.物品模板.CanDrop;
+				return 物品模板.CanDrop;
 			}
 		}
 
@@ -458,7 +458,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.物品模板.AdditionalSkill;
+				return 物品模板.AdditionalSkill;
 			}
 		}
 
@@ -468,7 +468,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.物品模板.Group;
+				return 物品模板.Group;
 			}
 		}
 
@@ -478,7 +478,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.物品模板.GroupCooling;
+				return 物品模板.GroupCooling;
 			}
 		}
 
@@ -488,7 +488,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.物品模板.Cooldown;
+				return 物品模板.Cooldown;
 			}
 		}
 
@@ -504,20 +504,20 @@ namespace GameServer.Data
 		{
 			
 			
-			this.对应模板.V = 模板;
-			this.生成来源.V = 来源;
-			this.物品容器.V = 容器;
-			this.物品位置.V = 位置;
-			this.生成时间.V = MainProcess.CurrentTime;
-			this.最大持久.V = this.物品模板.ItemLast;
-			this.当前持久.V = Math.Min(持久, this.最大持久.V);
+			对应模板.V = 模板;
+			生成来源.V = 来源;
+			物品容器.V = 容器;
+			物品位置.V = 位置;
+			生成时间.V = MainProcess.CurrentTime;
+			最大持久.V = 物品模板.ItemLast;
+			当前持久.V = Math.Min(持久, 最大持久.V);
 			GameDataGateway.ItemData表.AddData(this, true);
 		}
 
 		
 		public override string ToString()
 		{
-			return this.Name;
+			return Name;
 		}
 
 		
@@ -528,17 +528,17 @@ namespace GameServer.Data
 			{
 				using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
 				{
-					binaryWriter.Write(ItemData.数据版本);
+					binaryWriter.Write(数据版本);
 					BinaryWriter binaryWriter2 = binaryWriter;
-					CharacterData v = this.生成来源.V;
+					CharacterData v = 生成来源.V;
 					binaryWriter2.Write((v != null) ? v.数据索引.V : 0);
-					binaryWriter.Write(ComputingClass.TimeShift(this.生成时间.V));
-					binaryWriter.Write(this.对应模板.V.Id);
-					binaryWriter.Write(this.物品容器.V);
-					binaryWriter.Write(this.物品位置.V);
-					binaryWriter.Write(this.当前持久.V);
-					binaryWriter.Write(this.最大持久.V);
-					binaryWriter.Write((byte)(this.IsBound ? 10 : 0));
+					binaryWriter.Write(ComputingClass.TimeShift(生成时间.V));
+					binaryWriter.Write(对应模板.V.Id);
+					binaryWriter.Write(物品容器.V);
+					binaryWriter.Write(物品位置.V);
+					binaryWriter.Write(当前持久.V);
+					binaryWriter.Write(最大持久.V);
+					binaryWriter.Write((byte)(IsBound ? 10 : 0));
 					binaryWriter.Write((ushort)0);
 					binaryWriter.Write(0);
 					result = memoryStream.ToArray();
@@ -555,17 +555,17 @@ namespace GameServer.Data
 			{
 				using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
 				{
-					binaryWriter.Write(ItemData.数据版本);
+					binaryWriter.Write(数据版本);
 					BinaryWriter binaryWriter2 = binaryWriter;
-					CharacterData v = this.生成来源.V;
+					CharacterData v = 生成来源.V;
 					binaryWriter2.Write((v != null) ? v.数据索引.V : 0);
-					binaryWriter.Write(ComputingClass.TimeShift(this.生成时间.V));
-					binaryWriter.Write(this.对应模板.V.Id);
-					binaryWriter.Write(this.物品容器.V);
-					binaryWriter.Write(this.物品位置.V);
+					binaryWriter.Write(ComputingClass.TimeShift(生成时间.V));
+					binaryWriter.Write(对应模板.V.Id);
+					binaryWriter.Write(物品容器.V);
+					binaryWriter.Write(物品位置.V);
 					binaryWriter.Write(数量);
-					binaryWriter.Write(this.最大持久.V);
-					binaryWriter.Write((byte)(this.IsBound ? 10 : 0));
+					binaryWriter.Write(最大持久.V);
+					binaryWriter.Write((byte)(IsBound ? 10 : 0));
 					binaryWriter.Write((ushort)0);
 					binaryWriter.Write(0);
 					result = memoryStream.ToArray();
@@ -578,7 +578,7 @@ namespace GameServer.Data
 		static ItemData()
 		{
 			
-			ItemData.数据版本 = 14;
+			数据版本 = 14;
 		}
 
 		

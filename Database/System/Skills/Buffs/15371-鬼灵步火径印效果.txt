@@ -1,0 +1,46 @@
+{
+  "Name": "鬼灵步火径印效果",
+  "Id": 15371,
+  "GroupId": 15371,
+  "OverlayType": "SimilarReplacement",
+  "Effect": "CreateTrap",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 1537,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 8000,
+  "ProcessDelay": 8000,
+  "Duration": 8000,
+  "RequireBuff": [],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "鬼灵瞬步-4-火径印",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

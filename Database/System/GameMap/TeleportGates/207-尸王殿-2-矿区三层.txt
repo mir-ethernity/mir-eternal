@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 2,
+  "FromMapId": 207,
+  "ToMapId": 154,
+  "TeleportGateName": "矿区三层",
+  "FromMapName": "尸王殿",
+  "ToMapName": "比奇矿区三层",
+  "FromMapFile": "Mir_Dg03_3",
+  "ToMapFile": "Mir_Dg03_2",
+  "FromCoords": "1361, 552",
+  "ToCoords": "914, 390"
+}

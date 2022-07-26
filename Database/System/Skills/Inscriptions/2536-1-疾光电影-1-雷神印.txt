@@ -1,0 +1,27 @@
+{
+  "SkillName": "疾光电影-1-雷神印",
+  "Race": "法师",
+  "SkillId": 2536,
+  "Id": 1,
+  "Quality": 4,
+  "Probability": 25,
+  "MinPlayerLevel": "Gh0gIw==",
+  "MinSkillExp": [
+    300,
+    600,
+    1200,
+    0
+  ],
+  "SkillCombatBonus": [
+    5,
+    7,
+    10,
+    13
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "疾光电影-1-雷神印-主体技能"
+  ],
+  "SwitchSkills": []
+}

@@ -1,0 +1,27 @@
+{
+  "SkillName": "回避射击-1-闪灵印",
+  "Race": "弓手",
+  "SkillId": 2056,
+  "Id": 1,
+  "Quality": 3,
+  "Probability": 60,
+  "MinPlayerLevel": "ISQnKg==",
+  "MinSkillExp": [
+    400,
+    800,
+    1600,
+    0
+  ],
+  "SkillCombatBonus": [
+    30,
+    40,
+    50,
+    60
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "回避射击-1-闪灵印-主体技能"
+  ],
+  "SwitchSkills": []
+}

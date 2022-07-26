@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 4796,
+  "FromMapId": 183,
+  "FromMapName": "经验武斗场",
+  "FromCoords": "1023, 81",
+  "Direction": "左下",
+  "RegionName": "经验武斗场-神秘剑客(1023,81)"
+}

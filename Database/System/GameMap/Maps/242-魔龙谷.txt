@@ -1,0 +1,8 @@
+{
+  "MapId": 242,
+  "MapName": "魔龙谷",
+  "MapFile": "MirDg12_11",
+  "TerrainFile": "0242-MagicDragonValley",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

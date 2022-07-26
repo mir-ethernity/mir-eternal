@@ -1,0 +1,11 @@
+{
+  "MapId": 223,
+  "MapName": "幽冥海一层",
+  "MapFile": "MirAct05_1",
+  "TerrainFile": "0223-SeaOfGhosts1st",
+  "LimitPlayers": 9999,
+  "MinLevel": 30,
+  "LimitInstances": 1,
+  "NoReconnect": true,
+  "NoReconnectMapId": 147
+}

@@ -1,0 +1,54 @@
+{
+  "Name": "回避射击敏捷增加",
+  "Id": 20560,
+  "GroupId": 20560,
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 2056,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 2000,
+  "ProcessDelay": 2000,
+  "Duration": 2000,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 10,
+      "Level1": 13,
+      "Level2": 16,
+      "Level3": 20
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

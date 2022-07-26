@@ -1,0 +1,8 @@
+{
+  "MapId": 59,
+  "MapName": "牛魔寺庙入口",
+  "MapFile": "MirDg15",
+  "TerrainFile": "0059-BullDemonTempleEnt",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

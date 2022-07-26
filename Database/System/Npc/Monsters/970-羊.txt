@@ -1,0 +1,304 @@
+{
+  "MonsterName": "羊",
+  "Id": 970,
+  "Level": 2,
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CanBeSeducedBySkills": true,
+  "BaseTemptationProbability": 0.25,
+  "MoveInterval": 1000,
+  "RoamInterval": 15000,
+  "CorpsePreservationDuration": 15000,
+  "RangeHate": 3,
+  "HateTime": 10000,
+  "NormalAttackSkills": "电脑-小羊NormalAttackSkills",
+  "ProbabilityTriggerSkills": "",
+  "EnterCombatSkills": "",
+  "ExitCombatSkills": "",
+  "瞬移释放技能": "",
+  "复活释放技能": "",
+  "DeathReleaseSkill": "",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 20
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 1
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 4
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 4
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Value": 1
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 3
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef"
+    },
+    {
+      "Stat": "MaxDef"
+    },
+    {
+      "Stat": "MinMagicDef"
+    },
+    {
+      "Stat": "MaxMagicDef"
+    }
+  ],
+  "Grows": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Level0": 25,
+      "Level1": 31,
+      "Level2": 38,
+      "Level3": 43,
+      "Level4": 51,
+      "Level5": 60,
+      "Level6": 68,
+      "Level7": 75
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 1,
+      "Level1": 1,
+      "Level2": 1,
+      "Level3": 1,
+      "Level4": 1,
+      "Level5": 1,
+      "Level6": 1,
+      "Level7": 1
+    },
+    {
+      "Stat": "行走速度",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 10,
+      "Level4": 10,
+      "Level5": 10,
+      "Level6": 10,
+      "Level7": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 5,
+      "Level6": 5,
+      "Level7": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 8,
+      "Level1": 8,
+      "Level2": 8,
+      "Level3": 8,
+      "Level4": 8,
+      "Level5": 8,
+      "Level6": 8,
+      "Level7": 8
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 8,
+      "Level1": 8,
+      "Level2": 8,
+      "Level3": 8,
+      "Level4": 8,
+      "Level5": 8,
+      "Level6": 8,
+      "Level7": 8
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Level0": 1,
+      "Level1": 2,
+      "Level2": 3,
+      "Level3": 4,
+      "Level4": 5,
+      "Level5": 6,
+      "Level6": 7,
+      "Level7": 8
+    },
+    {
+      "Stat": "MaxAttack",
+      "Level0": 2,
+      "Level1": 3,
+      "Level2": 4,
+      "Level3": 5,
+      "Level4": 6,
+      "Level5": 7,
+      "Level6": 8,
+      "Level7": 9
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef"
+    },
+    {
+      "Stat": "MaxDef"
+    },
+    {
+      "Stat": "MinMagicDef"
+    },
+    {
+      "Stat": "MaxMagicDef"
+    }
+  ],
+  "InheritsStats": [],
+  "ProvideExperience": 30,
+  "Drops": [
+    {
+      "Name": "布衣(男)",
+      "MonsterName": "羊",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布衣(女)",
+      "MonsterName": "羊",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传统项链",
+      "MonsterName": "羊",
+      "Probability": 75,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金项链",
+      "MonsterName": "羊",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "小手镯",
+      "MonsterName": "羊",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "柴刀",
+      "MonsterName": "羊",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "木剑",
+      "MonsterName": "羊",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "木弓",
+      "MonsterName": "羊",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "木枪",
+      "MonsterName": "羊",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "匕首",
+      "MonsterName": "羊",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁柴刀",
+      "MonsterName": "羊",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜剑",
+      "MonsterName": "羊",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "乌木剑",
+      "MonsterName": "羊",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜头盔",
+      "MonsterName": "羊",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金创药(小量)",
+      "MonsterName": "羊",
+      "Probability": 6,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(小量)",
+      "MonsterName": "羊",
+      "Probability": 8,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

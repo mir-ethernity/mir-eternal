@@ -1,0 +1,9 @@
+{
+  "MapId": 195,
+  "MapName": "抉择之地",
+  "MapFile": "MirDg11_7",
+  "TerrainFile": "0195-PlaceOfChoice",
+  "LimitPlayers": 9999,
+  "MinLevel": 40,
+  "LimitInstances": 1
+}

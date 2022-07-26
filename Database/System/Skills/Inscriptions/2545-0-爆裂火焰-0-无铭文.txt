@@ -1,0 +1,24 @@
+{
+  "SkillName": "爆裂火焰-0-无铭文",
+  "Race": "法师",
+  "SkillId": 2545,
+  "MinPlayerLevel": "FhsfPA==",
+  "MinSkillExp": [
+    300,
+    600,
+    1800,
+    0
+  ],
+  "SkillCombatBonus": [
+    5,
+    7,
+    10,
+    13
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "爆裂火焰-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

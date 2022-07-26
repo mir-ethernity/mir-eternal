@@ -1,0 +1,45 @@
+{
+  "Name": "烈火斩月灼烧伤害",
+  "Id": 10361,
+  "ActionType": "Debuff",
+  "Effect": "CausesSomeDamages, CreateTrap",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 1036,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 1000,
+  "Duration": 6000,
+  "RequireBuff": [],
+  "DamageType": "Burn",
+  "DamageBase": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

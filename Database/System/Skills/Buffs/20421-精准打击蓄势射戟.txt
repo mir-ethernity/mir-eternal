@@ -1,0 +1,45 @@
+{
+  "Name": "精准打击蓄势射戟",
+  "Id": 20421,
+  "GroupId": 20421,
+  "OverlayType": "HomogeneousStacking",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 2042,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 2,
+  "AllowsSynthesis": true,
+  "BuffSynthesisLayer": 2,
+  "BuffSynthesisId": 20422,
+  "ProcessInterval": 6000,
+  "ProcessDelay": 6000,
+  "Duration": 6000,
+  "RequireBuff": [],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

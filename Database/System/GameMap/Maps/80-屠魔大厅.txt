@@ -1,0 +1,11 @@
+{
+  "MapId": 80,
+  "MapName": "屠魔大厅",
+  "MapFile": "MirAct17",
+  "TerrainFile": "0080-DemonSlayingHall",
+  "LimitPlayers": 9999,
+  "MinLevel": 25,
+  "LimitInstances": 1,
+  "NoReconnect": true,
+  "CopyMap": true
+}

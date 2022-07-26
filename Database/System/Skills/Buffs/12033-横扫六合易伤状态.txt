@@ -1,0 +1,46 @@
+{
+  "Name": "横扫六合易伤状态",
+  "Id": 12033,
+  "GroupId": 12033,
+  "OverlayType": "SimilarReplacement",
+  "Effect": "DamageIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BindingSkillLevel": 1203,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 5000,
+  "ProcessDelay": 5000,
+  "Duration": 5000,
+  "RequireBuff": [],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "HowJudgeEffect": "PassiveInjuryIncrease",
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "DamageIncOrDecFactor": [
+    0.1,
+    0.1,
+    0.1,
+    0.1
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

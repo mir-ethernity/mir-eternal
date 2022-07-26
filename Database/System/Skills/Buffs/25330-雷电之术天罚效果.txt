@@ -1,0 +1,49 @@
+{
+  "Name": "雷电之术天罚效果",
+  "Id": 25330,
+  "ActionType": "Debuff",
+  "OverlayType": "HomogeneousStacking",
+  "Effect": "DamageIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 2533,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 5,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 5000,
+  "Duration": 5000,
+  "RequireBuff": [],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "HowJudgeEffect": "PassiveInjuryIncrease",
+  "EffectJudgeType": "AllSpecificInjuries",
+  "SpecificSkillId": [
+    2533
+  ],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.1,
+    0.1,
+    0.1,
+    0.1
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

@@ -1,0 +1,9 @@
+{
+  "Name": "王铁匠",
+  "GuardNumber": 6672,
+  "Level": 99,
+  "RangeHate": 8,
+  "BasicAttackSkills": "",
+  "StoreId": 1011,
+  "InterfaceCode": "Shop"
+}

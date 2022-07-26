@@ -1,0 +1,14 @@
+{
+  "Name": "沙巴克回城卷包",
+  "Id": 80108,
+  "ItemLast": 1,
+  "Weight": 7,
+  "NeedLevel": 1,
+  "SalePrice": 3700,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

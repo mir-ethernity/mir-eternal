@@ -1,0 +1,55 @@
+{
+  "Name": "精准打击准确提升",
+  "Id": 20422,
+  "GroupId": 20422,
+  "OverlayType": "SimilarDelay",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 2042,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 8000,
+  "ProcessDelay": 8000,
+  "Duration": 8000,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 4,
+      "Level1": 6,
+      "Level2": 8,
+      "Level3": 10
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

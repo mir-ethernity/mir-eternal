@@ -1,0 +1,11 @@
+{
+  "MapId": 207,
+  "MapName": "尸王殿",
+  "MapFile": "Mir_Dg03_3",
+  "TerrainFile": "0207-Corpse King Temple",
+  "LimitPlayers": 9999,
+  "MinLevel": 15,
+  "LimitInstances": 1,
+  "NoReconnect": true,
+  "NoReconnectMapId": 154
+}

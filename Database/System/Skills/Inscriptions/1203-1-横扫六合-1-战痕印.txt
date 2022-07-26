@@ -1,0 +1,33 @@
+{
+  "SkillName": "横扫六合-1-战痕印",
+  "Race": "龙枪",
+  "SkillId": 1203,
+  "Id": 1,
+  "Quality": 3,
+  "Probability": 60,
+  "MinPlayerLevel": "ERQXGg==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1600,
+    1601
+  ],
+  "MainSkills": [
+    "横扫六合-1-战痕印-主体二段",
+    "横扫六合-1-战痕印-主体一段"
+  ],
+  "SwitchSkills": [
+    "横扫六合-0-全铭文-技能开关"
+  ]
+}

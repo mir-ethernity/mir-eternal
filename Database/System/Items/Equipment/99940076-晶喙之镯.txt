@@ -1,0 +1,36 @@
+{
+  "Name": "晶喙之镯",
+  "Id": 99940076,
+  "ItemLast": 8,
+  "Weight": 3,
+  "Level": 55,
+  "SalePrice": 60000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "手镯",
+  "NeedRace": "弓手",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "NeedArchery": 33,
+  "BasicPowerCombat": 142,
+  "MinBow": 1,
+  "MaxBow": 5,
+  "MinDef": 1,
+  "MaxDef": 1,
+  "CanRepair": true,
+  "RepairCost": 36000,
+  "SpecialRepairCost": 180000,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "苍月装备",
+  "物品掉落列表": [
+    {
+      "Name": "晶喙之镯",
+      "MonsterName": "牛魔王",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

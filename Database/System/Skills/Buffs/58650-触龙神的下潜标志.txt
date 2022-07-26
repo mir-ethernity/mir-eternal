@@ -1,0 +1,50 @@
+{
+  "Name": "触龙神的下潜标志",
+  "Id": 58650,
+  "GroupId": 58650,
+  "Effect": "StatusFlag, StatsIncOrDec",
+  "SyncClient": true,
+  "OnPlayerDiesRemove": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 3600000,
+  "ProcessDelay": 3600000,
+  "Duration": 3600000,
+  "RequireBuff": [],
+  "PlayerState": "Invencible",
+  "StatsIncOrDec": [
+    {
+      "Stat": "体力恢复",
+      "Level0": 100,
+      "Level1": 100,
+      "Level2": 100,
+      "Level3": 100
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

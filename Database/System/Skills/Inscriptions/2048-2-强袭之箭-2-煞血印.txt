@@ -1,0 +1,28 @@
+{
+  "SkillName": "强袭之箭-2-煞血印",
+  "Race": "弓手",
+  "SkillId": 2048,
+  "Id": 2,
+  "Quality": 7,
+  "Probability": 2,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "IyYpLA==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "强袭之箭-2-煞血印-主体技能"
+  ],
+  "SwitchSkills": []
+}

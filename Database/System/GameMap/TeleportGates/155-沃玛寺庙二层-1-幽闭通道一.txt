@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 155,
+  "ToMapId": 219,
+  "TeleportGateName": "幽闭通道一",
+  "FromMapName": "沃玛寺庙二层",
+  "ToMapName": "幽闭通道一",
+  "FromMapFile": "Mir_Dg05_1",
+  "ToMapFile": "Mir_Dg05_11",
+  "FromCoords": "801, 765",
+  "ToCoords": "1078, 206"
+}

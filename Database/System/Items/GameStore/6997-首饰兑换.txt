@@ -1,0 +1,270 @@
+{
+  "StoreId": 6997,
+  "Name": "首饰兑换",
+  "Products": [
+    {
+      "Id": 99971001,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 20
+    },
+    {
+      "Id": 99971002,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 20
+    },
+    {
+      "Id": 99971003,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 20
+    },
+    {
+      "Id": 99971004,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 20
+    },
+    {
+      "Id": 99971005,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 20
+    },
+    {
+      "Id": 99971006,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 20
+    },
+    {
+      "Id": 99971101,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 100
+    },
+    {
+      "Id": 99971102,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 100
+    },
+    {
+      "Id": 99971103,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 100
+    },
+    {
+      "Id": 99971104,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 100
+    },
+    {
+      "Id": 99971105,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 100
+    },
+    {
+      "Id": 99971106,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 100
+    },
+    {
+      "Id": 99971201,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 500
+    },
+    {
+      "Id": 99971202,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 500
+    },
+    {
+      "Id": 99971203,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 500
+    },
+    {
+      "Id": 99971204,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 500
+    },
+    {
+      "Id": 99971205,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 500
+    },
+    {
+      "Id": 99971206,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 500
+    },
+    {
+      "Id": 99971301,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 1500
+    },
+    {
+      "Id": 99971302,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 1500
+    },
+    {
+      "Id": 99971303,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 1500
+    },
+    {
+      "Id": 99971304,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 1500
+    },
+    {
+      "Id": 99971305,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 1500
+    },
+    {
+      "Id": 99971306,
+      "Units": 1,
+      "CurrencyType": 111062,
+      "Price": 1500
+    },
+    {
+      "Id": 99961001,
+      "Units": 1,
+      "CurrencyType": 111061,
+      "Price": 10
+    },
+    {
+      "Id": 99961101,
+      "Units": 1,
+      "CurrencyType": 111061,
+      "Price": 20
+    },
+    {
+      "Id": 99961201,
+      "Units": 1,
+      "CurrencyType": 111061,
+      "Price": 100
+    },
+    {
+      "Id": 99961202,
+      "Units": 1,
+      "CurrencyType": 111061,
+      "Price": 100
+    },
+    {
+      "Id": 99961203,
+      "Units": 1,
+      "CurrencyType": 111061,
+      "Price": 100
+    },
+    {
+      "Id": 99961204,
+      "Units": 1,
+      "CurrencyType": 111061,
+      "Price": 100
+    },
+    {
+      "Id": 99961205,
+      "Units": 1,
+      "CurrencyType": 111061,
+      "Price": 100
+    },
+    {
+      "Id": 99961206,
+      "Units": 1,
+      "CurrencyType": 111061,
+      "Price": 100
+    },
+    {
+      "Id": 99961301,
+      "Units": 1,
+      "CurrencyType": 111061,
+      "Price": 500
+    },
+    {
+      "Id": 99961302,
+      "Units": 1,
+      "CurrencyType": 111061,
+      "Price": 500
+    },
+    {
+      "Id": 99961303,
+      "Units": 1,
+      "CurrencyType": 111061,
+      "Price": 500
+    },
+    {
+      "Id": 99961304,
+      "Units": 1,
+      "CurrencyType": 111061,
+      "Price": 500
+    },
+    {
+      "Id": 99961305,
+      "Units": 1,
+      "CurrencyType": 111061,
+      "Price": 500
+    },
+    {
+      "Id": 99961306,
+      "Units": 1,
+      "CurrencyType": 111061,
+      "Price": 500
+    },
+    {
+      "Id": 99961401,
+      "Units": 1,
+      "CurrencyType": 111061,
+      "Price": 1500
+    },
+    {
+      "Id": 99961402,
+      "Units": 1,
+      "CurrencyType": 111061,
+      "Price": 1500
+    },
+    {
+      "Id": 99961403,
+      "Units": 1,
+      "CurrencyType": 111061,
+      "Price": 1500
+    },
+    {
+      "Id": 99961404,
+      "Units": 1,
+      "CurrencyType": 111061,
+      "Price": 1500
+    },
+    {
+      "Id": 99961405,
+      "Units": 1,
+      "CurrencyType": 111061,
+      "Price": 1500
+    },
+    {
+      "Id": 99961406,
+      "Units": 1,
+      "CurrencyType": 111061,
+      "Price": 1500
+    }
+  ]
+}

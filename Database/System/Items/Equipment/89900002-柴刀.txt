@@ -1,0 +1,62 @@
+{
+  "Name": "柴刀",
+  "Id": 89900002,
+  "ItemLast": 4,
+  "Weight": 7,
+  "Level": 1,
+  "NeedLevel": 1,
+  "SalePrice": 25,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "武器",
+  "NeedRace": "刺客",
+  "PersistType": "装备",
+  "StoreType": "武器",
+  "BasicPowerCombat": 15,
+  "MinNeedle": 2,
+  "MaxNeedle": 4,
+  "CanRepair": true,
+  "RepairCost": 15,
+  "SpecialRepairCost": 75,
+  "灵魂绑点": 9,
+  "圣伤上限": 10,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "柴刀",
+      "MonsterName": "稻草人",
+      "掉落概率": 100,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "柴刀",
+      "MonsterName": "海蟹",
+      "掉落概率": 100,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "柴刀",
+      "MonsterName": "鹿",
+      "掉落概率": 100,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "柴刀",
+      "MonsterName": "钉耙猫",
+      "掉落概率": 100,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "柴刀",
+      "MonsterName": "羊",
+      "掉落概率": 100,
+      "最小数量": 1,
+      "最大数量": 1
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 117,
+  "ToMapId": 118,
+  "TeleportGateName": "至龙血地脉",
+  "FromMapName": "霜火地脉",
+  "ToMapName": "龙血地脉",
+  "FromMapFile": "MirDg27_2",
+  "ToMapFile": "MirDg27_3",
+  "FromCoords": "1041, 157",
+  "ToCoords": "1157, 412"
+}

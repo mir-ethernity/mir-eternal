@@ -1,0 +1,41 @@
+{
+  "Name": "横扫六合流血状态",
+  "Id": 12032,
+  "GroupId": 12032,
+  "ActionType": "Debuff",
+  "OverlayType": "SimilarReplacement",
+  "Effect": "CausesSomeDamages",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BindingSkillLevel": 1203,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 1000,
+  "Duration": 5000,
+  "RequireBuff": [],
+  "DamageType": "Tear",
+  "DamageBase": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "DamageFactor": [],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

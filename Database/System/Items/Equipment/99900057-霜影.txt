@@ -1,0 +1,117 @@
+{
+  "Name": "霜影",
+  "Id": 99900057,
+  "ItemLast": 35,
+  "Weight": 21,
+  "Level": 40,
+  "SalePrice": 50000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "武器",
+  "NeedRace": "刺客",
+  "PersistType": "装备",
+  "StoreType": "武器",
+  "NeedAcupuncture": 40,
+  "BasicPowerCombat": 362,
+  "MinNeedle": 3,
+  "MaxNeedle": 31,
+  "PhysicallyAccurate": 1,
+  "CanRepair": true,
+  "RepairCost": 30000,
+  "SpecialRepairCost": 150000,
+  "勇者试炼": true,
+  "试炼币数": 2000,
+  "灵魂绑点": 9,
+  "圣伤上限": 40,
+  "铭文传承": true,
+  "铭文职业": "刺客",
+  "打孔职业": "通用",
+  "EquipSet": "赤月装备",
+  "物品掉落列表": [
+    {
+      "Name": "霜影",
+      "MonsterName": "魔龙鬼射",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "霜影",
+      "MonsterName": "魔龙力士",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "霜影",
+      "MonsterName": "巨型兽人僵尸",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "霜影",
+      "MonsterName": "狂暴兽魂",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "霜影",
+      "MonsterName": "幽冥大使",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "霜影",
+      "MonsterName": "秘密信使",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "霜影",
+      "MonsterName": "血手",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "霜影",
+      "MonsterName": "黄泉教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "霜影",
+      "MonsterName": "牛魔王",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "霜影",
+      "MonsterName": "魔龙教主",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "霜影",
+      "MonsterName": "赤月恶魔",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "霜影",
+      "MonsterName": "烈焰恶魔",
+      "Probability": 200,
+      "MinAmount": 1,
+      "最大数量": 1
+    }
+  ]
+}

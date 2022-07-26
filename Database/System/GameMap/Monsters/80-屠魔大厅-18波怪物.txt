@@ -1,0 +1,33 @@
+{
+  "FromMapId": 80,
+  "FromMapName": "屠魔大厅",
+  "FromCoords": "928, 330",
+  "RegionName": "屠魔大厅-18波怪物",
+  "AreaRadius": 1,
+  "Spawns": [
+    {
+      "MonsterName": "血巨人",
+      "SpawnCount": 10,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "血僵尸",
+      "SpawnCount": 10,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "猎魔蜘蛛",
+      "SpawnCount": 10,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "祖玛教主",
+      "SpawnCount": 1,
+      "RevivalInterval": 1
+    }
+  ],
+  "RangeCoords": [
+    "1003, 300",
+    "1004, 299"
+  ]
+}

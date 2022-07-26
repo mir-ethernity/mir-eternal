@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 222,
+  "ToMapId": 216,
+  "TeleportGateName": "祭祀回廊",
+  "FromMapName": "幽闭通道四",
+  "ToMapName": "祭祀回廊",
+  "FromMapFile": "Mir_Dg05_14",
+  "ToMapFile": "Mir_Dg05_8",
+  "FromCoords": "1022, 234",
+  "ToCoords": "1081, 199"
+}

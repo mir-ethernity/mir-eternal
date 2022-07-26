@@ -1,0 +1,30 @@
+{
+  "FromMapId": 80,
+  "FromMapName": "屠魔大厅",
+  "FromCoords": "947, 330",
+  "RegionName": "屠魔大厅-37波怪物",
+  "AreaRadius": 1,
+  "Spawns": [
+    {
+      "MonsterName": "尸王",
+      "SpawnCount": 2,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "尸王",
+      "SpawnCount": 2,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "尸王",
+      "SpawnCount": 2,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "尸王",
+      "SpawnCount": 2,
+      "RevivalInterval": 1
+    }
+  ],
+  "RangeCoords": []
+}

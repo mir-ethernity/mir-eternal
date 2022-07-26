@@ -1,0 +1,23 @@
+{
+  "Name": "传送戒指",
+  "Id": 99930023,
+  "ItemLast": 5,
+  "Weight": 1,
+  "Level": 20,
+  "NeedLevel": 16,
+  "SalePrice": 25000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "戒指",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "BasicPowerCombat": 44,
+  "CanRepair": true,
+  "RepairCost": 15000,
+  "SpecialRepairCost": 75000,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "神秘装备"
+}

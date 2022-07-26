@@ -1,0 +1,6 @@
+{
+  "Name": "沙城供奉",
+  "GuardNumber": 6274,
+  "Level": 99,
+  "RangeHate": 8
+}

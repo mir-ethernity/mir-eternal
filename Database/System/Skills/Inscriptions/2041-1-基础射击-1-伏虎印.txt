@@ -1,0 +1,28 @@
+{
+  "SkillName": "基础射击-1-伏虎印",
+  "Race": "弓手",
+  "SkillId": 2041,
+  "Id": 1,
+  "Quality": 1,
+  "Probability": 100,
+  "MinPlayerLevel": "BwoNEA==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "基础射击-1-伏虎印-飞蝗主体",
+    "基础射击-1-伏虎印-主体技能"
+  ],
+  "SwitchSkills": []
+}

@@ -1,0 +1,29 @@
+{
+  "SkillName": "三发散射-1-四泾印",
+  "Race": "弓手",
+  "SkillId": 2045,
+  "Id": 1,
+  "Quality": 8,
+  "Probability": 5,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "GRwfIg==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "三发散射-1-四泾印-主体技能",
+    "三发散射-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

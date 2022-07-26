@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6665,
+  "FromMapId": 50,
+  "FromMapName": "苍月岛",
+  "FromCoords": "1203, 445",
+  "Direction": "右下",
+  "RegionName": "苍月岛-阿吉(1203,445)"
+}

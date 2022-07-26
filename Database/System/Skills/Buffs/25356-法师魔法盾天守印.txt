@@ -1,0 +1,56 @@
+{
+  "Name": "法师魔法盾天守印",
+  "Id": 25356,
+  "GroupId": 25356,
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "OnChangeWeaponRemove": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 2535,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 1000000,
+  "ProcessDelay": 1000000,
+  "Duration": 1000000,
+  "AssociatedId": 25350,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "怪物闪避",
+      "Level0": 500,
+      "Level1": 1000,
+      "Level2": 1500,
+      "Level3": 2000
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "HowJudgeEffect": "PassiveInjuryReduction",
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

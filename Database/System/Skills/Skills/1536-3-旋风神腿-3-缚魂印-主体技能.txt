@@ -1,0 +1,91 @@
+{
+  "SkillName": "旋风神腿-3-缚魂印-主体技能",
+  "Race": "刺客",
+  "OwnSkillId": 1536,
+  "Id": 3,
+  "BindingLevelId": 1536,
+  "CalculateTriggerProbability": 1,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    7,
+    12,
+    17,
+    22
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "MaxDistance": 1,
+      "技能最近距离": 1
+    },
+    "1": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 3000,
+      "角色忙绿时间": 625
+    },
+    "125": {
+      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "技能锁定方式": "锁定锚点坐标",
+      "技能命中反馈": "后仰",
+      "技能范围类型": "Front3x1",
+      "技能扩展通知": true,
+      "限定命中数量": 3,
+      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
+      "限定目标关系": "Hostility",
+      "清除状态列表": []
+    },
+    "126": {
+      "$type": "C_03_计算对象位移, Assembly-CSharp",
+      "ItSelf位移次数": "AAAAAA==",
+      "ItSelf位移距离": "AAAAAA==",
+      "推动目标位移": true,
+      "推动增加经验": true,
+      "推动目标概率": 1,
+      "目标位移耗时": 3,
+      "目标位移距离": "AQIDBA==",
+      "目标硬直时间": 1000
+    },
+    "127": {
+      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Needle",
+      "技能伤害基数": [],
+      "技能伤害系数": [
+        0.2,
+        0.3,
+        0.4,
+        0.5
+      ],
+      "清除状态列表": []
+    },
+    "128": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "触发Id": 15331,
+      "Buff触发概率": 0.5,
+      "所需Buff层数": 1,
+      "VerifyTargetType": true,
+      "所需目标类型": "AllPlayers"
+    },
+    "129": {
+      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "触发Id": 65520,
+      "Buff触发概率": 0.5,
+      "所需Buff层数": 1,
+      "VerifyTargetType": true,
+      "所需目标类型": "Normal"
+    },
+    "625": {
+      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 750,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "750": {
+      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "Name": "强袭之箭灼烧效果",
+  "Id": 20481,
+  "GroupId": 20481,
+  "ActionType": "Debuff",
+  "Effect": "CausesSomeDamages",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BindingSkillLevel": 2048,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 2000,
+  "ProcessDelay": 2000,
+  "Duration": 10000,
+  "RequireBuff": [],
+  "DamageType": "Burn",
+  "DamageBase": [
+    5,
+    6,
+    7,
+    8
+  ],
+  "DamageFactor": [],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

@@ -1,0 +1,9 @@
+{
+  "MapId": 117,
+  "MapName": "霜火地脉",
+  "MapFile": "MirDg27_2",
+  "TerrainFile": "0117-FrostAndFireVeins",
+  "LimitPlayers": 9999,
+  "MinLevel": 45,
+  "LimitInstances": 1
+}

@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6113,
+  "FromMapId": 223,
+  "FromMapName": "幽冥海一层",
+  "FromCoords": "1076, 214",
+  "Direction": "左下",
+  "RegionName": "幽冥海一层-晓虹(1076,214)"
+}

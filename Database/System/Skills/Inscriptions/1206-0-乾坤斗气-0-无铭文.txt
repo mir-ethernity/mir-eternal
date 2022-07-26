@@ -1,0 +1,27 @@
+{
+  "SkillName": "乾坤斗气-0-无铭文",
+  "Race": "龙枪",
+  "SkillId": 1206,
+  "MinPlayerLevel": "HiEkJw==",
+  "MinSkillExp": [
+    200,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1606
+  ],
+  "MainSkills": [
+    "乾坤游龙-0-无铭文-主体技能",
+    "乾坤狂龙-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

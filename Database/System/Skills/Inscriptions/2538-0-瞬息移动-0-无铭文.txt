@@ -1,0 +1,24 @@
+{
+  "SkillName": "瞬息移动-0-无铭文",
+  "Race": "法师",
+  "SkillId": 2538,
+  "MinPlayerLevel": "ExYZHA==",
+  "MinSkillExp": [
+    100,
+    200,
+    400,
+    0
+  ],
+  "SkillCombatBonus": [
+    5,
+    7,
+    10,
+    13
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "瞬息移动-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

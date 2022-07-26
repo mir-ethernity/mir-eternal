@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 2,
+  "FromMapId": 93,
+  "ToMapId": 102,
+  "TeleportGateName": "白日门城",
+  "FromMapName": "白日门海岸",
+  "ToMapName": "白日门城",
+  "FromMapFile": "MirDg19",
+  "ToMapFile": "MirPb05",
+  "FromCoords": "1060, 445",
+  "ToCoords": "831, 467"
+}

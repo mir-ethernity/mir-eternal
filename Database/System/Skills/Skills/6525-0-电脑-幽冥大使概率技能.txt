@@ -1,0 +1,23 @@
+{
+  "SkillName": "电脑-幽冥大使概率技能",
+  "Race": "电脑",
+  "OwnSkillId": 6525,
+  "MaxDistance": 2,
+  "CalculateTriggerProbability": 0.2,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "角色忙绿时间": 1500
+    },
+    "650": {
+      "$type": "C_06_计算宠物召唤, Assembly-CSharp",
+      "召唤宠物名字": "Spectral Shield Crab",
+      "怪物召唤同伴": true,
+      "召唤宠物数量": "AAAAAA==",
+      "宠物等级上限": "AAAAAA=="
+    }
+  }
+}

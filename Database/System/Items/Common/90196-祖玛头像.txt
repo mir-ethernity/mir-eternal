@@ -1,0 +1,25 @@
+{
+  "Name": "祖玛头像",
+  "Id": 90196,
+  "ItemLast": 99,
+  "Weight": 1,
+  "Level": 1,
+  "NeedLevel": 10,
+  "SalePrice": 10000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "普通杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货",
+  "物品掉落列表": [
+    {
+      "Name": "祖玛头像",
+      "MonsterName": "祖玛教主",
+      "掉落概率": 1,
+      "最小数量": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

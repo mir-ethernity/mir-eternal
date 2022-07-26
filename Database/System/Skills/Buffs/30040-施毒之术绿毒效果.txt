@@ -1,0 +1,54 @@
+{
+  "Name": "施毒之术绿毒效果",
+  "Id": 30040,
+  "GroupId": 3004,
+  "ActionType": "Debuff",
+  "OverlayType": "SimilarReplacement",
+  "Effect": "StatusFlag, CausesSomeDamages",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BindingSkillLevel": 3004,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 3000,
+  "ProcessDelay": 3000,
+  "Duration": 30000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "SkillLevelDelay": true,
+  "ExtendedTimePerLevel": 5000,
+  "PlayerStatDelay": true,
+  "BoundPlayerStat": "GreatestTaoism",
+  "StatDelayFactor": 1000,
+  "PlayerState": "Poisoned",
+  "DamageType": "Toxicity",
+  "DamageBase": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "DamageFactor": [
+    0.0625,
+    0.0625,
+    0.0625,
+    0.0625
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

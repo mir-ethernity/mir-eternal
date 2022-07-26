@@ -1,0 +1,61 @@
+{
+  "Name": "鬼灵步脱兔印加速",
+  "Id": 15370,
+  "GroupId": 15370,
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 1537,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 6000,
+  "ProcessDelay": 6000,
+  "Duration": 6000,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "行走速度",
+      "Level0": -2,
+      "Level1": -2,
+      "Level2": -2,
+      "Level3": -2
+    },
+    {
+      "Stat": "奔跑速度",
+      "Level0": -3,
+      "Level1": -3,
+      "Level2": -3,
+      "Level3": -3
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

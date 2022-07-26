@@ -1,0 +1,30 @@
+{
+  "SkillName": "暴击之术-3-鹰眼印",
+  "Race": "刺客",
+  "SkillId": 1531,
+  "Id": 3,
+  "PassiveSkill": true,
+  "Quality": 6,
+  "Probability": 6,
+  "MinPlayerLevel": "BwoNEA==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1930
+  ],
+  "MainSkills": [
+    "暴击之术-3-鹰眼印-主体技能"
+  ],
+  "SwitchSkills": []
+}

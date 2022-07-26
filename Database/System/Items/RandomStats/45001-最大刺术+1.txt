@@ -1,0 +1,7 @@
+{
+  "Stat": "MaxNeedle",
+  "Value": 1,
+  "StatId": 45001,
+  "CombatBonus": 10,
+  "StatDescription": "最大刺术+1"
+}

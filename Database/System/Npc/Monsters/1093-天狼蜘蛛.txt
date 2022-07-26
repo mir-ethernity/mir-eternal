@@ -1,0 +1,522 @@
+{
+  "MonsterName": "天狼蜘蛛",
+  "Id": 1093,
+  "Level": 45,
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CanBeSeducedBySkills": true,
+  "BaseTemptationProbability": 0.15,
+  "MoveInterval": 400,
+  "RoamInterval": 16000,
+  "CorpsePreservationDuration": 16000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 16000,
+  "NormalAttackSkills": "电脑-Wolf SpiderBasicAttackSkills",
+  "Stats": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Value": 500
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 10
+    },
+    {
+      "Stat": "行走速度",
+      "Value": 8
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 15
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 15
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Value": 22
+    },
+    {
+      "Stat": "MaxAttack",
+      "Value": 30
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 6
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 11
+    },
+    {
+      "Stat": "MinMagicDef",
+      "Value": 16
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Value": 23
+    }
+  ],
+  "Grows": [
+    {
+      "Stat": "MaxPhysicalStrength",
+      "Level0": 310,
+      "Level1": 310,
+      "Level2": 310,
+      "Level3": 310,
+      "Level4": 310,
+      "Level5": 310,
+      "Level6": 310,
+      "Level7": 310
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 5,
+      "Level6": 5,
+      "Level7": 5
+    },
+    {
+      "Stat": "行走速度",
+      "Level0": 8,
+      "Level1": 8,
+      "Level2": 8,
+      "Level3": 8,
+      "Level4": 8,
+      "Level5": 8,
+      "Level6": 8,
+      "Level7": 8
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 5,
+      "Level6": 5,
+      "Level7": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 13,
+      "Level1": 13,
+      "Level2": 13,
+      "Level3": 13,
+      "Level4": 13,
+      "Level5": 13,
+      "Level6": 13,
+      "Level7": 13
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 11,
+      "Level1": 11,
+      "Level2": 11,
+      "Level3": 11,
+      "Level4": 11,
+      "Level5": 11,
+      "Level6": 11,
+      "Level7": 11
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinAttack",
+      "Level0": 20,
+      "Level1": 20,
+      "Level2": 20,
+      "Level3": 20,
+      "Level4": 20,
+      "Level5": 20,
+      "Level6": 20,
+      "Level7": 20
+    },
+    {
+      "Stat": "MaxAttack",
+      "Level0": 26,
+      "Level1": 26,
+      "Level2": 26,
+      "Level3": 26,
+      "Level4": 26,
+      "Level5": 26,
+      "Level6": 26,
+      "Level7": 26
+    },
+    {
+      "Stat": "MinMagic"
+    },
+    {
+      "Stat": "MaxMagic"
+    },
+    {
+      "Stat": "MinDef",
+      "Level0": 4,
+      "Level1": 4,
+      "Level2": 4,
+      "Level3": 4,
+      "Level4": 4,
+      "Level5": 4,
+      "Level6": 4,
+      "Level7": 4
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 10,
+      "Level4": 10,
+      "Level5": 10,
+      "Level6": 10,
+      "Level7": 10
+    },
+    {
+      "Stat": "MinMagicDef"
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Level0": 1,
+      "Level1": 1,
+      "Level2": 1,
+      "Level3": 1,
+      "Level4": 1,
+      "Level5": 1,
+      "Level6": 1,
+      "Level7": 1
+    }
+  ],
+  "ProvideExperience": 575,
+  "Drops": [
+    {
+      "Name": "重盔甲(男)",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(男)",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(男)",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(男)",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(男)",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(男)",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "重盔甲(女)",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(女)",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(女)",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(女)",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(女)",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(女)",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽皮腰带",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁腰带",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 1600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "鹿皮靴",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 1600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵项链",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生命项链",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天珠项链",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影项链",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "降妖除魔戒指",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铂金戒指",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "红宝石戒指",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙之戒指",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影戒指",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼首戒指",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "死神手套",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "思贝儿手镯",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "心灵手镯",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵手套",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影手镯",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狮纹手镯",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔杖",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "炼狱",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "银蛇",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "追魂",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "双环战弓",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蛇牙枪",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 2000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅头盔",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士头盔",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 5,
+      "MinAmount": 800,
+      "MaxAmount": 2000
+    },
+    {
+      "Name": "强效金创药",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 6,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效太阳水",
+      "MonsterName": "天狼蜘蛛",
+      "Probability": 60,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

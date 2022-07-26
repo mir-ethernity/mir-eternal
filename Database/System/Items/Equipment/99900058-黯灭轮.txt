@@ -1,0 +1,59 @@
+{
+  "Name": "黯灭轮",
+  "Id": 99900058,
+  "ItemLast": 33,
+  "Weight": 23,
+  "Level": 43,
+  "NeedLevel": 35,
+  "SalePrice": 70000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "武器",
+  "NeedRace": "刺客",
+  "PersistType": "装备",
+  "StoreType": "武器",
+  "BasicPowerCombat": 402,
+  "MinNeedle": 4,
+  "MaxNeedle": 34,
+  "PhysicallyAccurate": 1,
+  "CanRepair": true,
+  "RepairCost": 42000,
+  "SpecialRepairCost": 210000,
+  "灵魂绑点": 9,
+  "圣伤上限": 60,
+  "铭文传承": true,
+  "铭文职业": "刺客",
+  "打孔职业": "通用",
+  "EquipSet": "魔龙装备",
+  "物品掉落列表": [
+    {
+      "Name": "黯灭轮",
+      "MonsterName": "血手",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黯灭轮",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黯灭轮",
+      "MonsterName": "牛魔王",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黯灭轮",
+      "MonsterName": "魔龙教主",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

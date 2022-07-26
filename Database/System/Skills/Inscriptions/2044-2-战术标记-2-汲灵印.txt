@@ -1,0 +1,27 @@
+{
+  "SkillName": "战术标记-2-汲灵印",
+  "Race": "弓手",
+  "SkillId": 2044,
+  "Id": 2,
+  "Quality": 4,
+  "Probability": 25,
+  "MinPlayerLevel": "FRgbHg==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "战术标记-2-汲灵印-主体技能"
+  ],
+  "SwitchSkills": []
+}

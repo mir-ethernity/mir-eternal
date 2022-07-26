@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 1,
+  "FromMapId": 195,
+  "ToMapId": 197,
+  "TeleportGateName": "山谷秘道",
+  "FromMapName": "抉择之地",
+  "ToMapName": "山谷秘道",
+  "FromMapFile": "MirDg11_7",
+  "ToMapFile": "MirDg11_9",
+  "FromCoords": "1047, 326",
+  "ToCoords": "940, 230"
+}

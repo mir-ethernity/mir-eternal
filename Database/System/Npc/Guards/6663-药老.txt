@@ -1,0 +1,9 @@
+{
+  "Name": "药老",
+  "GuardNumber": 6663,
+  "Level": 99,
+  "RangeHate": 8,
+  "BasicAttackSkills": "",
+  "StoreId": 4,
+  "InterfaceCode": "Shop"
+}

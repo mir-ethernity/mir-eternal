@@ -1,0 +1,94 @@
+{
+  "Name": "玻璃戒指",
+  "Id": 99930002,
+  "ItemLast": 3,
+  "Weight": 1,
+  "Level": 7,
+  "NeedLevel": 7,
+  "SalePrice": 400,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "戒指",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "BasicPowerCombat": 13,
+  "GreatestTaoism": 1,
+  "CanRepair": true,
+  "RepairCost": 240,
+  "SpecialRepairCost": 1200,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "玻璃戒指",
+      "MonsterName": "稻草人",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玻璃戒指",
+      "MonsterName": "海蟹",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玻璃戒指",
+      "MonsterName": "钉耙猫",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玻璃戒指",
+      "MonsterName": "半兽人",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玻璃戒指",
+      "MonsterName": "野狼",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玻璃戒指",
+      "MonsterName": "树妖",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玻璃戒指",
+      "MonsterName": "毒蜘蛛",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玻璃戒指",
+      "MonsterName": "盔甲虫",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玻璃戒指",
+      "MonsterName": "多角虫",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玻璃戒指",
+      "MonsterName": "腐蚀虫",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

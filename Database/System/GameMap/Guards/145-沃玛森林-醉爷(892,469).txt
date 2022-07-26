@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6664,
+  "FromMapId": 145,
+  "FromMapName": "沃玛森林",
+  "FromCoords": "892, 469",
+  "Direction": "左上",
+  "RegionName": "沃玛森林-醉爷(892,469)"
+}

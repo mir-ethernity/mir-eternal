@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6664,
+  "FromMapId": 226,
+  "FromMapName": "幽冥海四层",
+  "FromCoords": "1149, 254",
+  "Direction": "上方",
+  "RegionName": "幽冥海四层-醉爷(1149,254)"
+}

@@ -1,0 +1,27 @@
+{
+  "SkillName": "召唤骷髅-2-迦兰印",
+  "Race": "道士",
+  "SkillId": 3003,
+  "Id": 2,
+  "Quality": 5,
+  "Probability": 15,
+  "MinPlayerLevel": "ExcaHg==",
+  "MinSkillExp": [
+    200,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "召唤骷髅-2-迦兰印-主体技能"
+  ],
+  "SwitchSkills": []
+}

@@ -1,0 +1,9 @@
+{
+  "MapId": 206,
+  "MapName": "香石墓穴三层",
+  "MapFile": "MirDg08_3",
+  "TerrainFile": "0206-FragantStoneCrypt3rd",
+  "LimitPlayers": 9999,
+  "MinLevel": 25,
+  "LimitInstances": 1
+}

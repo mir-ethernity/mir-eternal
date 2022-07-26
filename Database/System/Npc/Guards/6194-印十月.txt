@@ -1,0 +1,6 @@
+{
+  "Name": "印十月",
+  "GuardNumber": 6194,
+  "Level": 99,
+  "RangeHate": 8
+}

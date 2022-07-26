@@ -1,0 +1,8 @@
+{
+  "MapId": 142,
+  "MapName": "边界村",
+  "MapFile": "Mir_Pb03 ",
+  "TerrainFile": "0142-BorderVillage",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

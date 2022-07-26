@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 3,
+  "FromMapId": 123,
+  "ToMapId": 102,
+  "TeleportGateName": "白日门城",
+  "FromMapName": "石原荒漠",
+  "ToMapName": "白日门城",
+  "FromMapFile": "MirDg24_1",
+  "ToMapFile": "MirPb05",
+  "FromCoords": "1186, 209",
+  "ToCoords": "1176, 532"
+}

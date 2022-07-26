@@ -1,0 +1,11 @@
+{
+  "Name": "霹雳弹幕-1-窒息印",
+  "Id": 15421,
+  "GroupId": 1542,
+  "BindingLevel": 1542,
+  "Duration": 10000,
+  "LimitMoveSteps": 255,
+  "PassiveTriggerSkill": "",
+  "ActivelyTriggerSkills": "Percussion幕-1-窒息印-主动触发",
+  "ActivelyTriggerInterval": 1000
+}

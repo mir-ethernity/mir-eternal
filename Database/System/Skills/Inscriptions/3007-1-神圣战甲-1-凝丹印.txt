@@ -1,0 +1,27 @@
+{
+  "SkillName": "神圣战甲-1-凝丹印",
+  "Race": "道士",
+  "SkillId": 3007,
+  "Id": 1,
+  "Quality": 4,
+  "Probability": 25,
+  "MinPlayerLevel": "GRsdHw==",
+  "MinSkillExp": [
+    500,
+    1000,
+    1500,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "神圣战甲-1-凝丹印-主体技能"
+  ],
+  "SwitchSkills": []
+}

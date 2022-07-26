@@ -1,0 +1,6 @@
+{
+  "Name": "乐声",
+  "GuardNumber": 6361,
+  "Level": 99,
+  "RangeHate": 8
+}

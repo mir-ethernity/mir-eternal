@@ -1,0 +1,74 @@
+{
+  "Name": "骷髅战将变身效果",
+  "Id": 60571,
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 3003,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 2147483647,
+  "ProcessDelay": 2147483647,
+  "Duration": 2147483647,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "MinAttack",
+      "Level0": 4,
+      "Level1": 6,
+      "Level2": 8,
+      "Level3": 10
+    },
+    {
+      "Stat": "MaxAttack",
+      "Level0": 4,
+      "Level1": 6,
+      "Level2": 8,
+      "Level3": 10
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 4,
+      "Level1": 6,
+      "Level2": 8,
+      "Level3": 10
+    },
+    {
+      "Stat": "MaxMagicDef",
+      "Level0": 4,
+      "Level1": 6,
+      "Level2": 8,
+      "Level3": 10
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

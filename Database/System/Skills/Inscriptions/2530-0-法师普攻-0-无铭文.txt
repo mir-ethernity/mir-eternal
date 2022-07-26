@@ -1,0 +1,27 @@
+{
+  "SkillName": "法师普攻-0-无铭文",
+  "Race": "法师",
+  "SkillId": 2530,
+  "PassiveSkill": true,
+  "MinPlayerLevel": "AAAAAA==",
+  "MinSkillExp": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SkillCombatBonus": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    2530
+  ],
+  "MainSkills": [
+    "法师普攻-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

@@ -1,0 +1,6 @@
+{
+  "Name": "哨探",
+  "GuardNumber": 6242,
+  "Level": 99,
+  "RangeHate": 8
+}

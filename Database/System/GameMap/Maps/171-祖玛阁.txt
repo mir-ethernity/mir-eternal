@@ -1,0 +1,11 @@
+{
+  "MapId": 171,
+  "MapName": "祖玛阁",
+  "MapFile": "MirDg07_6",
+  "TerrainFile": "0171-Zuma Gallery",
+  "LimitPlayers": 9999,
+  "MinLevel": 30,
+  "LimitInstances": 1,
+  "NoReconnect": true,
+  "NoReconnectMapId": 170
+}

@@ -1,0 +1,7 @@
+{
+  "Name": "紫容",
+  "GuardNumber": 6714,
+  "Level": 99,
+  "RangeHate": 8,
+  "InterfaceCode": "SoulEmbed"
+}

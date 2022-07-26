@@ -1,0 +1,47 @@
+{
+  "Name": "攻杀剑术血杀流血",
+  "Id": 10042,
+  "ActionType": "Debuff",
+  "OverlayType": "HomogeneousStacking",
+  "Effect": "CausesSomeDamages, CreateTrap",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BindingSkillLevel": 1032,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 5,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 1000,
+  "ProcessDelay": 1000,
+  "Duration": 8000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "DamageType": "Tear",
+  "DamageBase": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageIncOrDecFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

@@ -1,0 +1,30 @@
+{
+  "SkillName": "横扫六合-0-无铭文",
+  "Race": "龙枪",
+  "SkillId": 1203,
+  "MinPlayerLevel": "ERQXGg==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1600,
+    1601
+  ],
+  "MainSkills": [
+    "横扫六合-0-无铭文-主体二段",
+    "横扫六合-0-无铭文-主体一段"
+  ],
+  "SwitchSkills": [
+    "横扫六合-0-全铭文-技能开关"
+  ]
+}

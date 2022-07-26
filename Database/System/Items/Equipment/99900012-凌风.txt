@@ -1,0 +1,328 @@
+{
+  "Name": "凌风",
+  "Id": 99900012,
+  "ItemLast": 18,
+  "Weight": 20,
+  "Level": 19,
+  "NeedLevel": 19,
+  "SalePrice": 2500,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "武器",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "武器",
+  "BasicPowerCombat": 127,
+  "MinAttack": 6,
+  "MaxAttack": 12,
+  "CanRepair": true,
+  "RepairCost": 1500,
+  "SpecialRepairCost": 7500,
+  "灵魂绑点": 9,
+  "圣伤上限": 20,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "凌风",
+      "MonsterName": "半兽人战士",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "爬行僵尸",
+      "Probability": 1000,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "佝偻僵尸",
+      "Probability": 1000,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "直立僵尸",
+      "Probability": 1000,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "和尚僵尸",
+      "Probability": 1000,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "腐血僵尸",
+      "Probability": 1000,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "利爪僵尸",
+      "Probability": 1000,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "蜈蚣",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "巨型蠕虫",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "跳跳蜂",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "毒虫",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "道士僵尸",
+      "Probability": 900,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "暗黑战士",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "巨型多角虫",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "巨型多角虫变异",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "魔化巨虫",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "黑色恶蛆",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "半兽勇士",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "半兽勇士变异",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "沃玛斥候",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "鹰卫",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "鹰卫变异",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "虎卫",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "虎卫变异",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "沃玛战士",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "沃玛勇士",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "沃玛战将",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "沃玛卫兵",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "沃玛将领",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "钳虫",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "火焰沃玛",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "红野猪",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "红野猪精英",
+      "Probability": 300,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "楔蛾",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "黑野猪",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "黑野猪精英",
+      "Probability": 300,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "祖玛老鼠",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "祖玛弓箭手",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "祖玛弓箭手精英",
+      "Probability": 300,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "祖玛雕像",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "祖玛雕像精英",
+      "Probability": 300,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "祖玛卫士",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "祖玛卫士精英",
+      "Probability": 300,
+      "最小数量": 1,
+      "最大数量": 1
+    }
+  ]
+}

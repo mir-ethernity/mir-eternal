@@ -1,0 +1,8 @@
+{
+  "MapId": 102,
+  "MapName": "白日门城",
+  "MapFile": "MirPb05",
+  "TerrainFile": "0102-WhiteSunCity",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

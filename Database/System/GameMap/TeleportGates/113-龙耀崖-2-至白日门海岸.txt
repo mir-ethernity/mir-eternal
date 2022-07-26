@@ -1,0 +1,12 @@
+{
+  "TeleportGateNumber": 2,
+  "FromMapId": 113,
+  "ToMapId": 93,
+  "TeleportGateName": "至白日门海岸",
+  "FromMapName": "龙耀崖",
+  "ToMapName": "白日门海岸",
+  "FromMapFile": "MirDg26",
+  "ToMapFile": "MirDg19",
+  "FromCoords": "1146, 589",
+  "ToCoords": "914, 260"
+}

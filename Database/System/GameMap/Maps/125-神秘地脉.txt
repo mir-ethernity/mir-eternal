@@ -1,0 +1,9 @@
+{
+  "MapId": 125,
+  "MapName": "神秘地脉",
+  "MapFile": "MirDg27_5",
+  "TerrainFile": "0125-MysteriousVeins",
+  "LimitPlayers": 9999,
+  "MinLevel": 45,
+  "LimitInstances": 1
+}

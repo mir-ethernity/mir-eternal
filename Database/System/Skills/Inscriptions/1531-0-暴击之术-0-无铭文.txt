@@ -1,0 +1,27 @@
+{
+  "SkillName": "暴击之术-0-无铭文",
+  "Race": "刺客",
+  "SkillId": 1531,
+  "PassiveSkill": true,
+  "MinPlayerLevel": "BwoNEA==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1930
+  ],
+  "MainSkills": [
+    "暴击之术-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

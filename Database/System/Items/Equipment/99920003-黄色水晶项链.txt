@@ -1,0 +1,108 @@
+{
+  "Name": "黄色水晶项链",
+  "Id": 99920003,
+  "ItemLast": 8,
+  "Weight": 1,
+  "Level": 8,
+  "NeedLevel": 13,
+  "SalePrice": 600,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "项链",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "BasicPowerCombat": 20,
+  "Minimalist": 1,
+  "CanRepair": true,
+  "RepairCost": 360,
+  "SpecialRepairCost": 1800,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "黄色水晶项链",
+      "MonsterName": "半兽人",
+      "Probability": 250,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "黄色水晶项链",
+      "MonsterName": "野狼",
+      "Probability": 250,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "黄色水晶项链",
+      "MonsterName": "树妖",
+      "Probability": 250,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "黄色水晶项链",
+      "MonsterName": "毒蜘蛛",
+      "Probability": 250,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "黄色水晶项链",
+      "MonsterName": "盔甲虫",
+      "Probability": 250,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "黄色水晶项链",
+      "MonsterName": "多角虫",
+      "Probability": 250,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "黄色水晶项链",
+      "MonsterName": "腐蚀虫",
+      "Probability": 250,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "黄色水晶项链",
+      "MonsterName": "游熊",
+      "Probability": 250,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "黄色水晶项链",
+      "MonsterName": "鬼尸僵尸",
+      "Probability": 250,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "黄色水晶项链",
+      "MonsterName": "妖尸僵尸",
+      "Probability": 250,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "黄色水晶项链",
+      "MonsterName": "山洞蝙蝠",
+      "Probability": 250,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "黄色水晶项链",
+      "MonsterName": "半兽人战士",
+      "Probability": 250,
+      "MinAmount": 1,
+      "最大数量": 1
+    }
+  ]
+}

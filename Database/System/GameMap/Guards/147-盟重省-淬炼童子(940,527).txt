@@ -1,0 +1,8 @@
+{
+  "GuardNumber": 6426,
+  "FromMapId": 147,
+  "FromMapName": "盟重省",
+  "FromCoords": "940, 527",
+  "Direction": "右下",
+  "RegionName": "盟重省-淬炼童子(940,527)"
+}

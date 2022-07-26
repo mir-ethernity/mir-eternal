@@ -1,0 +1,150 @@
+{
+  "StoreId": 6542,
+  "Name": "武器兑换",
+  "Products": [
+    {
+      "Id": 99900019,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 1
+    },
+    {
+      "Id": 99900018,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 1
+    },
+    {
+      "Id": 99900021,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 1
+    },
+    {
+      "Id": 99900054,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 1
+    },
+    {
+      "Id": 99900075,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 1
+    },
+    {
+      "Id": 99900103,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 1
+    },
+    {
+      "Id": 99900022,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 6
+    },
+    {
+      "Id": 99900023,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 6
+    },
+    {
+      "Id": 99900024,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 6
+    },
+    {
+      "Id": 99900055,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 6
+    },
+    {
+      "Id": 99900076,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 6
+    },
+    {
+      "Id": 99900105,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 6
+    },
+    {
+      "Id": 99900025,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 45
+    },
+    {
+      "Id": 99900028,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 45
+    },
+    {
+      "Id": 99900027,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 45
+    },
+    {
+      "Id": 99900056,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 45
+    },
+    {
+      "Id": 99900077,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 45
+    },
+    {
+      "Id": 99900106,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 45
+    },
+    {
+      "Id": 99900026,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 375
+    },
+    {
+      "Id": 99900029,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 375
+    },
+    {
+      "Id": 99900044,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 375
+    },
+    {
+      "Id": 99900058,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 375
+    },
+    {
+      "Id": 99900079,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 375
+    },
+    {
+      "Id": 99900108,
+      "Units": 1,
+      "CurrencyType": 90222,
+      "Price": 375
+    }
+  ]
+}
