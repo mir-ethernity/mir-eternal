@@ -12,7 +12,7 @@ namespace GameServer
 		private static void Main()
 		{
 			bool flag;
-			Program.myMutex = new Mutex(false, "CY_GameServer_Mutex", out flag);
+			var myMutex = new Mutex(false, "LOMCN_GameServer_Mutex", out flag);
 			if (flag)
 			{
 				Application.EnableVisualStyles();
@@ -24,8 +24,5 @@ namespace GameServer
 			MessageBox.Show("The server is already up and running");
 			Environment.Exit(0);
 		}
-
-		
-		private static Mutex myMutex;
 	}
 }

@@ -58,8 +58,8 @@ namespace GameServer.Templates
                         binaryWriter.Write((int)store.RecyclingType);
                         binaryWriter.Write(0);
                         binaryWriter.Write(0);
-                        binaryWriter.Write(0);
-                        binaryWriter.Write(0);
+                        binaryWriter.Write((byte)0);
+                        binaryWriter.Write((byte)0);
                         StoreItemsCounts++;
                     }
                 }
