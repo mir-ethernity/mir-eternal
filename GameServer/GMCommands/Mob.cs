@@ -32,16 +32,16 @@ namespace GameServer.GMCommands
             new MonsterObject(monster, mapInstance, 0, new System.Drawing.Point[] { new System.Drawing.Point(MapX, MapY) }, true, true);
         }
 
-        [FieldAttribute(0, 排序 = 0)]
+        [FieldAttribute(0, Position = 0)]
         public string MobName;
 
-        [FieldAttribute(0, 排序 = 1)]
+        [FieldAttribute(0, Position = 1)]
         public byte MapId;
 
-        [FieldAttribute(0, 排序 = 2)]
+        [FieldAttribute(0, Position = 2)]
         public int MapX;
 
-        [FieldAttribute(0, 排序 = 3)]
+        [FieldAttribute(0, Position = 3)]
         public int MapY;
     }
 }

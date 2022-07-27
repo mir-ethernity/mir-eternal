@@ -42,17 +42,17 @@ namespace GameServer.GMCommands
             player.玩家切换地图(MapGatewayProcess.分配地图(map.MapId), AreaType.未知区域, new System.Drawing.Point(MapX, MapY));
         }
 
-        [FieldAttribute(0, 排序 = 0)]
+        [FieldAttribute(0, Position = 0)]
         public string Character;
 
 
-        [FieldAttribute(0, 排序 = 1)]
+        [FieldAttribute(0, Position = 1)]
         public byte MapId;
 
-        [FieldAttribute(0, 排序 = 2)]
+        [FieldAttribute(0, Position = 2)]
         public int MapX;
 
-        [FieldAttribute(0, 排序 = 3)]
+        [FieldAttribute(0, Position = 3)]
         public int MapY;
     }
 }

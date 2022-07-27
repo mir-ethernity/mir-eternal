@@ -41,7 +41,7 @@ namespace GameServer
 		}
 
 		
-		[FieldAttribute(0, 排序 = 0)]
+		[FieldAttribute(0, Position = 0)]
 		public string CharName;
 	}
 }

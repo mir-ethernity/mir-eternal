@@ -37,11 +37,11 @@ namespace GameServer
 		}
 
 		
-		[FieldAttribute(0, 排序 = 0)]
+		[FieldAttribute(0, Position = 0)]
 		public string 物理地址;
 
 		
-		[FieldAttribute(0, 排序 = 1)]
+		[FieldAttribute(0, Position = 1)]
 		public float 封禁天数;
 	}
 }

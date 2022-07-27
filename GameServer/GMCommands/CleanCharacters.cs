@@ -51,11 +51,11 @@ namespace GameServer
 		}
 
 		
-		[FieldAttribute(0, 排序 = 0)]
+		[FieldAttribute(0, Position = 0)]
 		public int MinLevel;
 
 		
-		[FieldAttribute(0, 排序 = 1)]
+		[FieldAttribute(0, Position = 1)]
 		public int 限制天数;
 	}
 }
