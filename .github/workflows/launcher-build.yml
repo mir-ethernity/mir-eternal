@@ -2,7 +2,7 @@ name: Launcher Build
 
 on:
   push:
-    branches: [ "main", "feat/upgrade-net6" ]
+    branches: [ "main" ]
     paths:
       - Launcher/**
       - .github/workflows/launcher-build.yml

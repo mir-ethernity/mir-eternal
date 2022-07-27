@@ -2,7 +2,7 @@ name: GameServer Build
 
 on:
   push:
-    branches: [ "main", "feat/upgrade-net6" ]
+    branches: [ "main" ]
     paths:
       - GameServer/**
       - .github/workflows/gameserver-build.yml

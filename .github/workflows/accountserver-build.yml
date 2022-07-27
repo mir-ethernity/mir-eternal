@@ -2,7 +2,7 @@ name: AccountServer Build
 
 on:
   push:
-    branches: [ "main", "feat/upgrade-net6" ]
+    branches: [ "main" ]
     paths:
       - AccountServer/**
       - .github/workflows/accountserver-build.yml
