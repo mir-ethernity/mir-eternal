@@ -14,39 +14,39 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 4)]
 		public int 对象编号;
 
 		
-		[WrappingFieldAttribute(下标 = 6, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 6, Length = 2)]
 		public ushort SkillId;
 
 		
-		[WrappingFieldAttribute(下标 = 8, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 8, Length = 1)]
 		public byte 技能等级;
 
 		
-		[WrappingFieldAttribute(下标 = 9, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 9, Length = 1)]
 		public byte 技能铭文;
 
 		
-		[WrappingFieldAttribute(下标 = 10, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 10, Length = 1)]
 		public byte 动作编号;
 
 		
-		[WrappingFieldAttribute(下标 = 13, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 13, Length = 4)]
 		public int 目标编号;
 
 		
-		[WrappingFieldAttribute(下标 = 17, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 17, Length = 4)]
 		public int 技能伤害;
 
 		
-		[WrappingFieldAttribute(下标 = 21, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 21, Length = 2)]
 		public ushort 招架伤害;
 
 		
-		[WrappingFieldAttribute(下标 = 25, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 25, Length = 2)]
 		public ushort 技能反馈;
 	}
 }

@@ -15,39 +15,39 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 4, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 4, Length = 4)]
 		public int MapId;
 
 		
-		[WrappingFieldAttribute(下标 = 8, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 8, Length = 4)]
 		public int 来源编号;
 
 		
-		[WrappingFieldAttribute(下标 = 12, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 12, Length = 2)]
 		public ushort Id;
 
 		
-		[WrappingFieldAttribute(下标 = 14, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 14, Length = 4)]
 		public Point 陷阱坐标;
 
 		
-		[WrappingFieldAttribute(下标 = 18, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 18, Length = 2)]
 		public ushort 陷阱高度;
 
 		
-		[WrappingFieldAttribute(下标 = 20, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 20, Length = 2)]
 		public ushort 持续时间;
 
 		
-		[WrappingFieldAttribute(下标 = 22, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 22, Length = 2)]
 		public ushort 未知参数;
 
 		
-		[WrappingFieldAttribute(下标 = 24, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 24, Length = 4)]
 		public Point 未知坐标;
 
 		
-		[WrappingFieldAttribute(下标 = 28, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 28, Length = 2)]
 		public ushort 未知高度;
 	}
 }

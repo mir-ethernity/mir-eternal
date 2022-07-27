@@ -14,15 +14,15 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 4)]
 		public int StoreId;
 
 		
-		[WrappingFieldAttribute(下标 = 6, 长度 = 6)]
+		[WrappingFieldAttribute(SubScript = 6, Length = 6)]
 		public int 物品位置;
 
 		
-		[WrappingFieldAttribute(下标 = 10, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 10, Length = 2)]
 		public ushort 购入数量;
 	}
 }

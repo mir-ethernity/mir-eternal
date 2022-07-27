@@ -14,11 +14,11 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 4)]
 		public int 成员上限;
 
 		
-		[WrappingFieldAttribute(下标 = 8, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 8, Length = 4)]
 		public int 队长编号;
 	}
 }

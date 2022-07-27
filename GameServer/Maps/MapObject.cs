@@ -391,13 +391,13 @@ namespace GameServer.Maps
         
         public int 网格距离(Point 坐标)
         {
-            return ComputingClass.网格距离(this.当前坐标, 坐标);
+            return ComputingClass.GridDistance(this.当前坐标, 坐标);
         }
 
         
         public int 网格距离(MapObject 对象)
         {
-            return ComputingClass.网格距离(this.当前坐标, 对象.当前坐标);
+            return ComputingClass.GridDistance(this.当前坐标, 对象.当前坐标);
         }
 
         

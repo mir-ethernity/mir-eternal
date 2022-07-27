@@ -14,7 +14,7 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 0)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 0)]
 		public byte[] 行会公告;
 	}
 }

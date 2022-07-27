@@ -854,7 +854,7 @@ namespace GameServer
             this.S_数据备份目录.Text = (Config.数据备份目录 = Settings.Default.数据备份目录);
             this.S_GSPort.Value = (Config.GSPort = Settings.Default.GSPort);
             this.S_TSPort.Value = (Config.TSPort = Settings.Default.TSPort);
-            this.S_封包限定数量.Value = (Config.封包限定数量 = Settings.Default.封包限定数量);
+            this.S_封包限定数量.Value = (Config.MaxPacketCount = Settings.Default.封包限定数量);
             this.S_异常屏蔽时间.Value = (Config.异常屏蔽时间 = Settings.Default.异常屏蔽时间);
             this.S_掉线判定时间.Value = (Config.掉线判定时间 = Settings.Default.掉线判定时间);
             this.S_游戏OpenLevelCommand.Value = (Config.游戏OpenLevelCommand = Settings.Default.游戏OpenLevelCommand);
@@ -1180,7 +1180,7 @@ namespace GameServer
                         Config.物品清理时间 = (ushort)(Settings.Default.物品清理时间 = (byte)numericUpDown.Value);
                         break;
                     case "S_封包限定数量":
-                        Config.封包限定数量 = (Settings.Default.封包限定数量 = (ushort)numericUpDown.Value);
+                        Config.MaxPacketCount = (Settings.Default.封包限定数量 = (ushort)numericUpDown.Value);
                         break;
                     case "S_GSPort":
                         Config.GSPort = (Settings.Default.GSPort = (ushort)numericUpDown.Value);

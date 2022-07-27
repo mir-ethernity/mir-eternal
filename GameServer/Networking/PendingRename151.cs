@@ -14,19 +14,19 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 4)]
 		public int 对象编号;
 
 		
-		[WrappingFieldAttribute(下标 = 7, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 7, Length = 1)]
 		public byte ItemType;
 
 		
-		[WrappingFieldAttribute(下标 = 8, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 8, Length = 4)]
 		public int 装备编号;
 
 		
-		[WrappingFieldAttribute(下标 = 12, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 12, Length = 1)]
 		public byte 升级次数;
 	}
 }

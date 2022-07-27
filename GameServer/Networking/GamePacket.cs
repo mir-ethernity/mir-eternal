@@ -14,161 +14,170 @@ namespace GameServer.Networking
         {
             GamePacket.EncryptionKey = 129;
             GamePacket.PacketMethods = new Dictionary<Type, MethodInfo>();
-            Dictionary<Type, Func<BinaryReader, WrappingFieldAttribute, object>> dictionary = new Dictionary<Type, Func<BinaryReader, WrappingFieldAttribute, object>>();
-            Type typeFromHandle = typeof(bool);
-            dictionary[typeFromHandle] = delegate (BinaryReader 读取流, WrappingFieldAttribute 描述符)
+
+            #region Reader
+
+            Dictionary<Type, Func<BinaryReader, WrappingFieldAttribute, object>> ReaderDictionary = new Dictionary<Type, Func<BinaryReader, WrappingFieldAttribute, object>>();
+            
+            ReaderDictionary[typeof(bool)] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
             {
-                读取流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                return Convert.ToBoolean(读取流.ReadByte());
+                br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                return Convert.ToBoolean(br.ReadByte());
             };
-            Type typeFromHandle2 = typeof(byte);
-            dictionary[typeFromHandle2] = delegate (BinaryReader 读取流, WrappingFieldAttribute 描述符)
+
+            ReaderDictionary[typeof(byte)] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
             {
-                读取流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                return 读取流.ReadByte();
+                br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                return br.ReadByte();
             };
-            Type typeFromHandle3 = typeof(sbyte);
-            dictionary[typeFromHandle3] = delegate (BinaryReader 读取流, WrappingFieldAttribute 描述符)
+            
+            ReaderDictionary[typeof(sbyte)] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
             {
-                读取流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                return 读取流.ReadSByte();
+                br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                return br.ReadSByte();
             };
-            Type typeFromHandle4 = typeof(byte[]);
-            dictionary[typeFromHandle4] = delegate (BinaryReader 读取流, WrappingFieldAttribute 描述符)
+            
+            ReaderDictionary[typeof(byte[])] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
             {
-                读取流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                int num = (int)((描述符.长度 != 0) ? 描述符.长度 : (读取流.ReadUInt16() - 4));
+                br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                int num = (int)((wfa.Length != 0) ? wfa.Length : (br.ReadUInt16() - 4));
                 if (num > 0)
                 {
-                    return 读取流.ReadBytes(num);
+                    return br.ReadBytes(num);
                 }
                 return new byte[0];
             };
-            Type typeFromHandle5 = typeof(short);
-            dictionary[typeFromHandle5] = delegate (BinaryReader 读取流, WrappingFieldAttribute 描述符)
+            
+            ReaderDictionary[typeof(short)] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
             {
-                读取流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                return 读取流.ReadInt16();
+                br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                return br.ReadInt16();
             };
-            Type typeFromHandle6 = typeof(ushort);
-            dictionary[typeFromHandle6] = delegate (BinaryReader 读取流, WrappingFieldAttribute 描述符)
+            
+            ReaderDictionary[typeof(ushort)] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
             {
-                读取流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                return 读取流.ReadUInt16();
+                br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                return br.ReadUInt16();
             };
-            Type typeFromHandle7 = typeof(int);
-            dictionary[typeFromHandle7] = delegate (BinaryReader 读取流, WrappingFieldAttribute 描述符)
+            
+            ReaderDictionary[typeof(int)] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
             {
-                读取流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                return 读取流.ReadInt32();
+                br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                return br.ReadInt32();
             };
-            Type typeFromHandle8 = typeof(uint);
-            dictionary[typeFromHandle8] = delegate (BinaryReader 读取流, WrappingFieldAttribute 描述符)
+            
+            ReaderDictionary[typeof(uint)] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
             {
-                读取流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                return 读取流.ReadUInt32();
+                br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                return br.ReadUInt32();
             };
-            Type typeFromHandle9 = typeof(string);
-            dictionary[typeFromHandle9] = delegate (BinaryReader 读取流, WrappingFieldAttribute 描述符)
+            
+            ReaderDictionary[typeof(string)] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
             {
-                读取流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                byte[] bytes = 读取流.ReadBytes((int)描述符.长度);
+                br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                byte[] bytes = br.ReadBytes((int)wfa.Length);
                 return Encoding.UTF8.GetString(bytes).Split(new char[1], StringSplitOptions.RemoveEmptyEntries)[0];
             };
-            Type typeFromHandle10 = typeof(Point);
-            dictionary[typeFromHandle10] = delegate (BinaryReader 读取流, WrappingFieldAttribute 描述符)
+            
+            ReaderDictionary[typeof(Point)] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
             {
-                读取流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                Point point = new Point((int)读取流.ReadUInt16(), (int)读取流.ReadUInt16());
-                return ComputingClass.协议坐标转点阵坐标(描述符.反向 ? new Point(point.Y, point.X) : point);
+                br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                Point point = new Point((int)br.ReadUInt16(), (int)br.ReadUInt16());
+                return ComputingClass.协议坐标转点阵坐标(wfa.Reverse ? new Point(point.Y, point.X) : point);
             };
-            GamePacket.封包字段读取表 = dictionary;
-            Dictionary<Type, Action<BinaryWriter, WrappingFieldAttribute, object>> dictionary2 = new Dictionary<Type, Action<BinaryWriter, WrappingFieldAttribute, object>>();
-            typeFromHandle10 = typeof(bool);
-            dictionary2[typeFromHandle10] = delegate (BinaryWriter 写入流, WrappingFieldAttribute 描述符, object 对象)
+            GamePacket.TypeRead = ReaderDictionary;
+            #endregion
+
+            #region Writer
+
+            Dictionary<Type, Action<BinaryWriter, WrappingFieldAttribute, object>> WriterDictionary = new Dictionary<Type, Action<BinaryWriter, WrappingFieldAttribute, object>>();
+            
+            WriterDictionary[typeof(bool)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
-                写入流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                写入流.Write((bool)对象);
+                bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                bw.Write((bool)obj);
             };
-            typeFromHandle9 = typeof(byte);
-            dictionary2[typeFromHandle9] = delegate (BinaryWriter 写入流, WrappingFieldAttribute 描述符, object 对象)
+            
+            WriterDictionary[typeof(byte)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
-                写入流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                写入流.Write((byte)对象);
+                bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                bw.Write((byte)obj);
             };
-            typeFromHandle8 = typeof(sbyte);
-            dictionary2[typeFromHandle8] = delegate (BinaryWriter 写入流, WrappingFieldAttribute 描述符, object 对象)
+            
+            WriterDictionary[typeof(sbyte)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
-                写入流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                写入流.Write((sbyte)对象);
+                bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                bw.Write((sbyte)obj);
             };
-            typeFromHandle7 = typeof(byte[]);
-            dictionary2[typeFromHandle7] = delegate (BinaryWriter 写入流, WrappingFieldAttribute 描述符, object 对象)
+            
+            WriterDictionary[typeof(byte[])] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
-                写入流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                写入流.Write(对象 as byte[]);
+                bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                bw.Write(obj as byte[]);
             };
-            typeFromHandle6 = typeof(short);
-            dictionary2[typeFromHandle6] = delegate (BinaryWriter 写入流, WrappingFieldAttribute 描述符, object 对象)
+            
+            WriterDictionary[typeof(short)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
-                写入流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                写入流.Write((short)对象);
+                bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                bw.Write((short)obj);
             };
-            typeFromHandle5 = typeof(ushort);
-            dictionary2[typeFromHandle5] = delegate (BinaryWriter 写入流, WrappingFieldAttribute 描述符, object 对象)
+            
+            WriterDictionary[typeof(ushort)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
-                写入流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                写入流.Write((ushort)对象);
+                bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                bw.Write((ushort)obj);
             };
-            typeFromHandle4 = typeof(int);
-            dictionary2[typeFromHandle4] = delegate (BinaryWriter 写入流, WrappingFieldAttribute 描述符, object 对象)
+            
+            WriterDictionary[typeof(int)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
-                写入流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                写入流.Write((int)对象);
+                bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                bw.Write((int)obj);
             };
-            typeFromHandle3 = typeof(uint);
-            dictionary2[typeFromHandle3] = delegate (BinaryWriter 写入流, WrappingFieldAttribute 描述符, object 对象)
+            
+            WriterDictionary[typeof(uint)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
-                写入流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                写入流.Write((uint)对象);
+                bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                bw.Write((uint)obj);
             };
-            typeFromHandle2 = typeof(string);
-            dictionary2[typeFromHandle2] = delegate (BinaryWriter 写入流, WrappingFieldAttribute 描述符, object 对象)
+            
+            WriterDictionary[typeof(string)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
-                string text3 = 对象 as string;
+                string text3 = obj as string;
                 if (text3 != null)
                 {
-                    写入流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                    写入流.Write(Encoding.UTF8.GetBytes(text3));
+                    bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                    bw.Write(Encoding.UTF8.GetBytes(text3));
                 }
             };
-            typeFromHandle = typeof(Point);
-            dictionary2[typeFromHandle] = delegate (BinaryWriter 写入流, WrappingFieldAttribute 描述符, object 对象)
+            
+            WriterDictionary[typeof(Point)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
-                Point point = ComputingClass.点阵坐标转协议坐标((Point)对象);
-                写入流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                if (描述符.反向)
+                Point point = ComputingClass.点阵坐标转协议坐标((Point)obj);
+                bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                if (wfa.Reverse)
                 {
-                    写入流.Write((ushort)point.Y);
-                    写入流.Write((ushort)point.X);
+                    bw.Write((ushort)point.Y);
+                    bw.Write((ushort)point.X);
                     return;
                 }
-                写入流.Write((ushort)point.X);
-                写入流.Write((ushort)point.Y);
+                bw.Write((ushort)point.X);
+                bw.Write((ushort)point.Y);
             };
-            Type typeFromHandle11 = typeof(DateTime);
-            dictionary2[typeFromHandle11] = delegate (BinaryWriter 写入流, WrappingFieldAttribute 描述符, object 对象)
+            
+            WriterDictionary[typeof(DateTime)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
-                写入流.BaseStream.Seek((long)((ulong)描述符.下标), SeekOrigin.Begin);
-                写入流.Write(ComputingClass.TimeShift((DateTime)对象));
+                bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                bw.Write(ComputingClass.TimeShift((DateTime)obj));
             };
-            GamePacket.封包字段写入表 = dictionary2;
+            GamePacket.TypeWrite = WriterDictionary;
+            #endregion
+
             GamePacket.ServerPackets = new Dictionary<ushort, Type>();
-            GamePacket.服务器封包编号表 = new Dictionary<Type, ushort>();
-            GamePacket.服务器封包长度表 = new Dictionary<ushort, ushort>();
+            GamePacket.ServerPacketNumberTable = new Dictionary<Type, ushort>();
+            GamePacket.ServerPacketLengthTable = new Dictionary<ushort, ushort>();
             GamePacket.ClientPackets = new Dictionary<ushort, Type>();
-            GamePacket.客户端封包编号表 = new Dictionary<Type, ushort>();
-            GamePacket.客户端封包长度表 = new Dictionary<ushort, ushort>();
+            GamePacket.ClientPacketNumberTable = new Dictionary<Type, ushort>();
+            GamePacket.ClientPacketLengthTable = new Dictionary<ushort, ushort>();
             foreach (Type type in Assembly.GetExecutingAssembly().GetTypes())
             {
                 if (type.IsSubclassOf(typeof(GamePacket)))
@@ -179,8 +188,8 @@ namespace GameServer.Networking
                         if (customAttribute.来源 == PacketSource.客户端)
                         {
                             GamePacket.ClientPackets[customAttribute.编号] = type;
-                            GamePacket.客户端封包编号表[type] = customAttribute.编号;
-                            GamePacket.客户端封包长度表[customAttribute.编号] = customAttribute.长度;
+                            GamePacket.ClientPacketNumberTable[type] = customAttribute.编号;
+                            GamePacket.ClientPacketLengthTable[customAttribute.编号] = customAttribute.长度;
                             GamePacket.PacketMethods[type] = typeof(SConnection).GetMethod("处理封包", new Type[]
                             {
                                 type
@@ -189,8 +198,8 @@ namespace GameServer.Networking
                         else
                         {
                             GamePacket.ServerPackets[customAttribute.编号] = type;
-                            GamePacket.服务器封包编号表[type] = customAttribute.编号;
-                            GamePacket.服务器封包长度表[customAttribute.编号] = customAttribute.长度;
+                            GamePacket.ServerPacketNumberTable[type] = customAttribute.编号;
+                            GamePacket.ServerPacketLengthTable[customAttribute.编号] = customAttribute.长度;
                         }
                     }
                 }
@@ -198,12 +207,12 @@ namespace GameServer.Networking
             string text = "";
             foreach (KeyValuePair<ushort, Type> keyValuePair in GamePacket.ServerPackets)
             {
-                text += string.Format("{0}\t{1}\t{2}\r\n", keyValuePair.Value.Name, keyValuePair.Key, GamePacket.服务器封包长度表[keyValuePair.Key]);
+                text += string.Format("{0}\t{1}\t{2}\r\n", keyValuePair.Value.Name, keyValuePair.Key, GamePacket.ServerPacketLengthTable[keyValuePair.Key]);
             }
             string text2 = "";
             foreach (KeyValuePair<ushort, Type> keyValuePair2 in GamePacket.ClientPackets)
             {
-                text2 += string.Format("{0}\t{1}\t{2}\r\n", keyValuePair2.Value.Name, keyValuePair2.Key, GamePacket.客户端封包长度表[keyValuePair2.Key]);
+                text2 += string.Format("{0}\t{1}\t{2}\r\n", keyValuePair2.Value.Name, keyValuePair2.Key, GamePacket.ClientPacketLengthTable[keyValuePair2.Key]);
             }
             File.WriteAllText("./ServerPackRule.txt", text);
             File.WriteAllText("./ClientPackRule.txt", text2);
@@ -223,19 +232,19 @@ namespace GameServer.Networking
             this.PacketType = base.GetType();
             if (this.PacketType.GetCustomAttribute<PacketInfoAttribute>().来源 == PacketSource.服务器)
             {
-                this.封包编号 = GamePacket.服务器封包编号表[this.PacketType];
-                this.封包长度 = GamePacket.服务器封包长度表[this.封包编号];
+                this.PacketID = GamePacket.ServerPacketNumberTable[this.PacketType];
+                this.PacketLength = GamePacket.ServerPacketLengthTable[this.PacketID];
                 return;
             }
-            this.封包编号 = GamePacket.客户端封包编号表[this.PacketType];
-            this.封包长度 = GamePacket.客户端封包长度表[this.封包编号];
+            this.PacketID = GamePacket.ClientPacketNumberTable[this.PacketType];
+            this.PacketLength = GamePacket.ClientPacketLengthTable[this.PacketID];
         }
 
 
         public byte[] 取字节()
         {
             byte[] result;
-            using (MemoryStream memoryStream = (this.封包长度 == 0) ? new MemoryStream() : new MemoryStream(new byte[(int)this.封包长度]))
+            using (MemoryStream memoryStream = (this.PacketLength == 0) ? new MemoryStream() : new MemoryStream(new byte[(int)this.PacketLength]))
             {
                 using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
                 {
@@ -247,15 +256,15 @@ namespace GameServer.Networking
                             Type fieldType = fieldInfo.FieldType;
                             object value = fieldInfo.GetValue(this);
                             Action<BinaryWriter, WrappingFieldAttribute, object> action;
-                            if (GamePacket.封包字段写入表.TryGetValue(fieldType, out action))
+                            if (GamePacket.TypeWrite.TryGetValue(fieldType, out action))
                             {
                                 action(binaryWriter, customAttribute, value);
                             }
                         }
                     }
                     binaryWriter.Seek(0, SeekOrigin.Begin);
-                    binaryWriter.Write(this.封包编号);
-                    if (this.封包长度 == 0)
+                    binaryWriter.Write(this.PacketID);
+                    if (this.PacketLength == 0)
                     {
                         binaryWriter.Write((ushort)memoryStream.Length);
                     }
@@ -274,9 +283,9 @@ namespace GameServer.Networking
         }
 
 
-        private void 填封包(byte[] 原始数据)
+        private void 填封包(byte[] data)
         {
-            using (MemoryStream memoryStream = new MemoryStream(原始数据))
+            using (MemoryStream memoryStream = new MemoryStream(data))
             {
                 using (BinaryReader binaryReader = new BinaryReader(memoryStream))
                 {
@@ -287,7 +296,7 @@ namespace GameServer.Networking
                         {
                             Type fieldType = fieldInfo.FieldType;
                             Func<BinaryReader, WrappingFieldAttribute, object> func;
-                            if (GamePacket.封包字段读取表.TryGetValue(fieldType, out func))
+                            if (GamePacket.TypeRead.TryGetValue(fieldType, out func))
                             {
                                 fieldInfo.SetValue(this, func(binaryReader, customAttribute));
                             }
@@ -298,44 +307,44 @@ namespace GameServer.Networking
         }
 
 
-        public static GamePacket GetPacket(SConnection 网络连接, byte[] 原始数据, out byte[] 剩余数据)
+        public static GamePacket GetPacket(SConnection con, byte[] inData, out byte[] restOfBytes)
         {
-            剩余数据 = 原始数据;
-            if (原始数据.Length < 2)
+            restOfBytes = inData;
+            if (inData.Length < 2)
             {
                 return null;
             }
-            ushort num = BitConverter.ToUInt16(原始数据, 0);
+            ushort packetID = BitConverter.ToUInt16(inData, 0);
             Type type;
 
-            if (!ClientPackets.TryGetValue(num, out type))
+            if (!ClientPackets.TryGetValue(packetID, out type))
             {
-                网络连接.CallExceptionEventHandler(new Exception(string.Format("封包组包失败! 封包编号:{0:X4}", num)));
+                con.CallExceptionEventHandler(new Exception(string.Format("封包组包失败! 封包编号:{0:X4}", packetID)));
                 return null;
             }
             ushort num2;
-            if (!客户端封包长度表.TryGetValue(num, out num2))
+            if (!ClientPacketLengthTable.TryGetValue(packetID, out num2))
             {
-                网络连接.CallExceptionEventHandler(new Exception(string.Format("获取封包长度失败! 封包编号:{0:X4}", num)));
+                con.CallExceptionEventHandler(new Exception(string.Format("获取封包长度失败! 封包编号:{0:X4}", packetID)));
                 return null;
             }
-            if (num2 == 0 && 原始数据.Length < 4)
+            if (num2 == 0 && inData.Length < 4)
             {
                 return null;
             }
-            num2 = ((num2 == 0) ? BitConverter.ToUInt16(原始数据, 2) : num2);
-            if (原始数据.Length < (int)num2)
+            num2 = ((num2 == 0) ? BitConverter.ToUInt16(inData, 2) : num2);
+            if (inData.Length < (int)num2)
             {
                 return null;
             }
             GamePacket GamePacket = (GamePacket)Activator.CreateInstance(type);
-            byte[] 原始数据2 = 原始数据.Take((int)num2).ToArray<byte>();
+            byte[] dataPacket = inData.Take((int)num2).ToArray<byte>();
             if (GamePacket.是否加密)
             {
-                GamePacket.EncodeData(原始数据2);
+                GamePacket.EncodeData(dataPacket);
             }
-            GamePacket.填封包(原始数据2);
-            剩余数据 = 原始数据.Skip((int)num2).ToArray<byte>();
+            GamePacket.填封包(dataPacket);
+            restOfBytes = inData.Skip((int)num2).ToArray<byte>();
             return GamePacket;
         }
 
@@ -362,31 +371,31 @@ namespace GameServer.Networking
         public static Dictionary<ushort, Type> ClientPackets;
 
 
-        public static Dictionary<Type, ushort> 服务器封包编号表;
+        public static Dictionary<Type, ushort> ServerPacketNumberTable;
 
 
-        public static Dictionary<Type, ushort> 客户端封包编号表;
+        public static Dictionary<Type, ushort> ClientPacketNumberTable;
 
 
-        public static Dictionary<ushort, ushort> 服务器封包长度表;
+        public static Dictionary<ushort, ushort> ServerPacketLengthTable;
 
 
-        public static Dictionary<ushort, ushort> 客户端封包长度表;
+        public static Dictionary<ushort, ushort> ClientPacketLengthTable;
 
 
-        public static Dictionary<Type, Func<BinaryReader, WrappingFieldAttribute, object>> 封包字段读取表;
+        public static Dictionary<Type, Func<BinaryReader, WrappingFieldAttribute, object>> TypeRead;
 
 
-        public static Dictionary<Type, Action<BinaryWriter, WrappingFieldAttribute, object>> 封包字段写入表;
+        public static Dictionary<Type, Action<BinaryWriter, WrappingFieldAttribute, object>> TypeWrite;
 
 
         public readonly Type PacketType;
 
 
-        private readonly ushort 封包编号;
+        private readonly ushort PacketID;
 
 
-        private readonly ushort 封包长度;
+        private readonly ushort PacketLength;
 
         public override string ToString()
         {

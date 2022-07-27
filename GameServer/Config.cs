@@ -16,7 +16,7 @@ namespace GameServer
         public static string 数据备份目录;
         public static ushort GSPort;
         public static ushort TSPort;
-        public static ushort 封包限定数量;
+        public static ushort MaxPacketCount;
         public static ushort 异常屏蔽时间;
         public static ushort 掉线判定时间;
         public static byte 游戏OpenLevelCommand;

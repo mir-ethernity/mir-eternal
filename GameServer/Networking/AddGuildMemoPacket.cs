@@ -14,27 +14,27 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 1)]
 		public byte MemorandumType;
 
 		
-		[WrappingFieldAttribute(下标 = 3, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 3, Length = 4)]
 		public int 第一参数;
 
 		
-		[WrappingFieldAttribute(下标 = 7, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 7, Length = 4)]
 		public int 第二参数;
 
 		
-		[WrappingFieldAttribute(下标 = 11, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 11, Length = 4)]
 		public int 第三参数;
 
 		
-		[WrappingFieldAttribute(下标 = 15, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 15, Length = 4)]
 		public int 第四参数;
 
 		
-		[WrappingFieldAttribute(下标 = 19, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 19, Length = 4)]
 		public int 事记时间;
 	}
 }

@@ -16,7 +16,7 @@ namespace GameServer.Networking
         public SConnection(TcpClient tcpClient)
         {
 
-            this.剩余数据 = new byte[0];
+            this.ReceivedData = new byte[0];
             this.ReceivedPackets = new ConcurrentQueue<GamePacket>();
             this.SendPackets = new ConcurrentQueue<GamePacket>();
 
@@ -45,7 +45,7 @@ namespace GameServer.Networking
                     }
                     else
                     {
-                        this.处理已收封包();
+                        this.ProcessReceivedPackets();
                         this.发送全部封包();
                     }
                 }
@@ -70,7 +70,7 @@ namespace GameServer.Networking
                 }
                 else
                 {
-                    this.处理已收封包();
+                    this.ProcessReceivedPackets();
                     this.发送全部封包();
                 }
             }
@@ -167,11 +167,11 @@ namespace GameServer.Networking
         }
 
 
-        private void 处理已收封包()
+        private void ProcessReceivedPackets()
         {
             while (!this.ReceivedPackets.IsEmpty)
             {
-                if (this.ReceivedPackets.Count > (int)Config.封包限定数量)
+                if (this.ReceivedPackets.Count > (int)Config.MaxPacketCount)
                 {
                     this.ReceivedPackets = new ConcurrentQueue<GamePacket>();
                     NetworkServiceGateway.屏蔽网络(this.网络地址);
@@ -228,7 +228,7 @@ namespace GameServer.Networking
                 if (!this.ConnectionErrored && !NetworkServiceGateway.网络服务停止)
                 {
                     byte[] array = new byte[8192];
-                    this.Connection.Client.BeginReceive(array, 0, array.Length, SocketFlags.None, new AsyncCallback(this.接收完成回调), array);
+                    this.Connection.Client.BeginReceive(array, 0, array.Length, SocketFlags.None, new AsyncCallback(this.AsyncBeginReceive), array);
                 }
             }
             catch (Exception ex)
@@ -238,26 +238,26 @@ namespace GameServer.Networking
         }
 
 
-        private void 接收完成回调(IAsyncResult 异步参数)
+        private void AsyncBeginReceive(IAsyncResult result)
         {
             try
             {
                 if (!this.ConnectionErrored && !NetworkServiceGateway.网络服务停止 && this.Connection.Client != null)
                 {
                     Socket client = this.Connection.Client;
-                    int num = (client != null) ? client.EndReceive(异步参数) : 0;
+                    int num = (client != null) ? client.EndReceive(result) : 0;
                     if (num > 0)
                     {
                         this.接收总数 += num;
                         NetworkServiceGateway.ReceivedBytes += (long)num;
-                        Array src = 异步参数.AsyncState as byte[];
-                        byte[] dst = new byte[this.剩余数据.Length + num];
-                        Buffer.BlockCopy(this.剩余数据, 0, dst, 0, this.剩余数据.Length);
-                        Buffer.BlockCopy(src, 0, dst, this.剩余数据.Length, num);
-                        this.剩余数据 = dst;
+                        Array src = result.AsyncState as byte[];
+                        byte[] dst = new byte[this.ReceivedData.Length + num];
+                        Buffer.BlockCopy(this.ReceivedData, 0, dst, 0, this.ReceivedData.Length);
+                        Buffer.BlockCopy(src, 0, dst, this.ReceivedData.Length, num);
+                        this.ReceivedData = dst;
                         for (; ; )
                         {
-                            GamePacket GamePacket = GamePacket.GetPacket(this, this.剩余数据, out this.剩余数据);
+                            GamePacket GamePacket = GamePacket.GetPacket(this, this.ReceivedData, out this.ReceivedData);
                             if (GamePacket == null)
                             {
                                 break;
@@ -2454,7 +2454,7 @@ namespace GameServer.Networking
         private bool 正在发送;
 
 
-        private byte[] 剩余数据;
+        private byte[] ReceivedData;
 
 
         private readonly EventHandler<Exception> ErrorEventhandler;

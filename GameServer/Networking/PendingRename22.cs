@@ -15,11 +15,11 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 4, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 4, Length = 4)]
 		public Point 坐标;
 
 		
-		[WrappingFieldAttribute(下标 = 8, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 8, Length = 2)]
 		public ushort 高度;
 	}
 }

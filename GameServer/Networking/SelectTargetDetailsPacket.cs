@@ -14,27 +14,27 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 4, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 4, Length = 4)]
 		public int 对象编号;
 
 		
-		[WrappingFieldAttribute(下标 = 8, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 8, Length = 4)]
 		public int 当前体力;
 
 		
-		[WrappingFieldAttribute(下标 = 12, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 12, Length = 4)]
 		public int 当前魔力;
 
 		
-		[WrappingFieldAttribute(下标 = 16, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 16, Length = 4)]
 		public int MaxPhysicalStrength;
 
 		
-		[WrappingFieldAttribute(下标 = 20, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 20, Length = 4)]
 		public int MaxMagic2;
 
 		
-		[WrappingFieldAttribute(下标 = 24, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 24, Length = 1)]
 		public byte[] Buff描述;
 	}
 }

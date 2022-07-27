@@ -104,7 +104,7 @@ namespace GameServer.Maps
 			}
 			set
 			{
-				value = ComputingClass.Value限制(0, value, this[GameObjectStats.MaxPhysicalStrength]);
+				value = ComputingClass.ValueLimit(0, value, this[GameObjectStats.MaxPhysicalStrength]);
 				if (base.当前体力 != value)
 				{
 					base.当前体力 = value;
@@ -926,7 +926,7 @@ namespace GameServer.Maps
 							base.ItSelf移动时处理(point);
 							return;
 						}
-						GameDirection = ComputingClass.旋转方向(GameDirection, (MainProcess.RandomNumber.Next(2) == 0) ? -1 : 1);
+						GameDirection = ComputingClass.TurnAround(GameDirection, (MainProcess.RandomNumber.Next(2) == 0) ? -1 : 1);
 					}
 					return;
 				}
@@ -956,7 +956,7 @@ namespace GameServer.Maps
 							}
 							return;
 						}
-						GameDirection2 = ComputingClass.旋转方向(GameDirection2, (MainProcess.RandomNumber.Next(2) == 0) ? -1 : 1);
+						GameDirection2 = ComputingClass.TurnAround(GameDirection2, (MainProcess.RandomNumber.Next(2) == 0) ? -1 : 1);
 					}
 					return;
 				}
@@ -970,7 +970,7 @@ namespace GameServer.Maps
 					byte 动作编号 = base.动作编号;
 					base.动作编号 = (byte)(动作编号 + 1);
 					new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, this.HateObject.当前目标, this.HateObject.当前目标.当前坐标, null, null, false);
-					this.Attack时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.Value限制(0, 10 - this[GameObjectStats.AttackSpeed], 10) * 500));
+					this.Attack时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.ValueLimit(0, 10 - this[GameObjectStats.AttackSpeed], 10) * 500));
 					return;
 				}
 				if (!this.ForbbidenMove && this.能否转动())

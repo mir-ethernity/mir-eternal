@@ -14,19 +14,19 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 1)]
 		public byte 击杀方式;
 
 		
-		[WrappingFieldAttribute(下标 = 3, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 3, Length = 4)]
 		public int 胜方编号;
 
 		
-		[WrappingFieldAttribute(下标 = 7, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 7, Length = 4)]
 		public int 败方编号;
 
 		
-		[WrappingFieldAttribute(下标 = 11, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 11, Length = 2)]
 		public ushort PK值惩罚;
 	}
 }

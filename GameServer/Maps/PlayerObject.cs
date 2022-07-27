@@ -2758,7 +2758,7 @@ namespace GameServer.Maps
                     num8 += (int)BuffData.Buff模板.TemptationIncreaseLevel;
                 }
             }
-            float num9 = (float)Math.Pow((this.当前等级 >= 诱惑目标.当前等级) ? 1.2 : 0.8, (double)ComputingClass.Value限制(0, Math.Abs((int)(诱惑目标.当前等级 - this.当前等级)), 2));
+            float num9 = (float)Math.Pow((this.当前等级 >= 诱惑目标.当前等级) ? 1.2 : 0.8, (double)ComputingClass.ValueLimit(0, Math.Abs((int)(诱惑目标.当前等级 - this.当前等级)), 2));
             if (ComputingClass.计算概率(num2 * num9 * (1f + 额外诱惑概率 + num6)))
             {
                 if (诱惑目标.Buff列表.ContainsKey(参数.狂暴状态编号))
@@ -7687,8 +7687,8 @@ namespace GameServer.Maps
             {
                 if (背包类型 == 2)
                 {
-                    int num = ComputingClass.扩展仓库((int)(this.仓库大小 - 16), 0, 1, 0);
-                    int num2 = ComputingClass.扩展仓库((int)(this.仓库大小 + 扩展大小 - 16), 0, 1, 0) - num;
+                    int num = ComputingClass.ExtendedWarehouse((int)(this.仓库大小 - 16), 0, 1, 0);
+                    int num2 = ComputingClass.ExtendedWarehouse((int)(this.仓库大小 + 扩展大小 - 16), 0, 1, 0) - num;
                     if (this.NumberGoldCoins < num2)
                     {
                         SConnection 网络连接 = this.GetCurrentConnection;
@@ -7720,8 +7720,8 @@ namespace GameServer.Maps
                 }
                 return;
             }
-            int num3 = ComputingClass.扩展背包((int)(this.背包大小 - 32), 0, 1, 0);
-            int num4 = ComputingClass.扩展背包((int)(this.背包大小 + 扩展大小 - 32), 0, 1, 0) - num3;
+            int num3 = ComputingClass.Extendedbackpack((int)(this.背包大小 - 32), 0, 1, 0);
+            int num4 = ComputingClass.Extendedbackpack((int)(this.背包大小 + 扩展大小 - 32), 0, 1, 0) - num3;
             if (this.NumberGoldCoins < num4)
             {
                 SConnection 网络连接3 = this.GetCurrentConnection;
@@ -8442,7 +8442,7 @@ namespace GameServer.Maps
                     });
                     return;
                 }
-                else if (ComputingClass.日期同周(this.CharacterData.补给日期.V, MainProcess.CurrentTime))
+                else if (ComputingClass.DateIsOnSameWeek(this.CharacterData.补给日期.V, MainProcess.CurrentTime))
                 {
                     SConnection 网络连接2 = this.GetCurrentConnection;
                     if (网络连接2 == null)
@@ -8523,7 +8523,7 @@ namespace GameServer.Maps
                     });
                     return;
                 }
-                else if (ComputingClass.日期同周(this.CharacterData.战备日期.V, MainProcess.CurrentTime))
+                else if (ComputingClass.DateIsOnSameWeek(this.CharacterData.战备日期.V, MainProcess.CurrentTime))
                 {
                     SConnection 网络连接7 = this.GetCurrentConnection;
                     if (网络连接7 == null)

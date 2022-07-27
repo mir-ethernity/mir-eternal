@@ -14,7 +14,7 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 1)]
 		public byte AttackMode;
 	}
 }

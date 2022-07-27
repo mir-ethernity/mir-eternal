@@ -14,15 +14,15 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 4)]
 		public int 对象编号;
 
 		
-		[WrappingFieldAttribute(下标 = 6, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 6, Length = 1)]
 		public byte 物品位置;
 
 		
-		[WrappingFieldAttribute(下标 = 7, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 7, Length = 4)]
 		public int 剩余数量;
 	}
 }

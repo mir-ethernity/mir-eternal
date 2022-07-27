@@ -471,7 +471,7 @@ namespace GameServer.Maps
 		
 		public bool 地形遮挡(Point 起点, Point 终点)
 		{
-			int num = ComputingClass.网格距离(起点, 终点);
+			int num = ComputingClass.GridDistance(起点, 终点);
 			for (int i = 1; i < num; i++)
 			{
 				if (this.地形阻塞(ComputingClass.前方坐标(起点, 终点, i)))

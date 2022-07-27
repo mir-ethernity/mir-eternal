@@ -10,102 +10,102 @@ namespace GameServer
 	public static class ComputingClass
 	{
 		
-		public static int 扩展背包(int 扩展次数, int 当前消耗 = 0, int 当前位置 = 1, int 累计消耗 = 0)
+		public static int Extendedbackpack(int ExpansionTimes, int CurrentConsumption = 0, int CurrentPosition = 1, int CumulativeConsumption = 0)
 		{
-			if (当前位置 > 扩展次数)
+			if (CurrentPosition > ExpansionTimes)
 			{
-				return 累计消耗;
+				return CumulativeConsumption;
 			}
-			if (当前位置 <= 1)
+			if (CurrentPosition <= 1)
 			{
-				int num = 累计消耗;
+				int num = CumulativeConsumption;
 				int num2 = 2000;
-				当前消耗 = 2000;
-				累计消耗 = num + num2;
+				CurrentConsumption = 2000;
+				CumulativeConsumption = num + num2;
 			}
-			else if (当前位置 <= 16)
+			else if (CurrentPosition <= 16)
 			{
-				累计消耗 += (当前消耗 += 1000);
+				CumulativeConsumption += (CurrentConsumption += 1000);
 			}
-			else if (当前位置 == 17)
+			else if (CurrentPosition == 17)
 			{
-				int num3 = 累计消耗;
+				int num3 = CumulativeConsumption;
 				int num4 = 20000;
-				当前消耗 = 20000;
-				累计消耗 = num3 + num4;
+				CurrentConsumption = 20000;
+				CumulativeConsumption = num3 + num4;
 			}
 			else
 			{
-				累计消耗 += (当前消耗 += 10000);
+				CumulativeConsumption += (CurrentConsumption += 10000);
 			}
-			return ComputingClass.扩展背包(扩展次数, 当前消耗, 当前位置 + 1, 累计消耗);
+			return ComputingClass.Extendedbackpack(ExpansionTimes, CurrentConsumption, CurrentPosition + 1, CumulativeConsumption);
 		}
 
 		
-		public static int 扩展仓库(int 扩展次数, int 当前消耗 = 0, int 当前位置 = 1, int 累计消耗 = 0)
+		public static int ExtendedWarehouse(int ExpansionTimes, int CurrentConsumption = 0, int CurrentPosition = 1, int CumulativeConsumption = 0)
 		{
-			if (当前位置 > 扩展次数)
+			if (CurrentPosition > ExpansionTimes)
 			{
-				return 累计消耗;
+				return CumulativeConsumption;
 			}
-			if (当前位置 <= 1)
+			if (CurrentPosition <= 1)
 			{
-				int num = 累计消耗;
+				int num = CumulativeConsumption;
 				int num2 = 2000;
-				当前消耗 = 2000;
-				累计消耗 = num + num2;
+				CurrentConsumption = 2000;
+				CumulativeConsumption = num + num2;
 			}
-			else if (当前位置 <= 24)
+			else if (CurrentPosition <= 24)
 			{
-				累计消耗 += (当前消耗 += 1000);
+				CumulativeConsumption += (CurrentConsumption += 1000);
 			}
-			else if (当前位置 == 25)
+			else if (CurrentPosition == 25)
 			{
-				int num3 = 累计消耗;
+				int num3 = CumulativeConsumption;
 				int num4 = 30000;
-				当前消耗 = 30000;
-				累计消耗 = num3 + num4;
+				CurrentConsumption = 30000;
+				CumulativeConsumption = num3 + num4;
 			}
 			else
 			{
-				累计消耗 += (当前消耗 += 10000);
+				CumulativeConsumption += (CurrentConsumption += 10000);
 			}
-			return ComputingClass.扩展仓库(扩展次数, 当前消耗, 当前位置 + 1, 累计消耗);
+			return ComputingClass.ExtendedWarehouse(ExpansionTimes, CurrentConsumption, CurrentPosition + 1, CumulativeConsumption);
 		}
 
 		
-		public static int Value限制(int 下限, int Value, int 上限)
+		public static int ValueLimit(int LowerLimit, int Value, int UpperLimit)
 		{
-			if (Value > 上限)
+			if (Value > UpperLimit)
 			{
-				return 上限;
+				return UpperLimit;
 			}
-			if (Value < 下限)
+			if (Value < LowerLimit)
 			{
-				return 下限;
+				return LowerLimit;
 			}
 			return Value;
 		}
 
 		
-		public static int 网格距离(Point 原点, Point 终点)
+		public static int GridDistance(Point startLocation, Point endLocation)
 		{
-			int val = Math.Abs(终点.X - 原点.X);
-			int val2 = Math.Abs(终点.Y - 原点.Y);
+			int val = Math.Abs(endLocation.X - startLocation.X);
+			int val2 = Math.Abs(endLocation.Y - startLocation.Y);
 			return Math.Max(val, val2);
 		}
 
 		
-		public static int TimeShift(DateTime 时间)
+		public static int TimeShift(DateTime time)
 		{
-			return (int)(时间 - ComputingClass.系统相对时间).TotalSeconds;
+			return (int)(time - ComputingClass.SystemRelativeTime).TotalSeconds;
 		}
 
 		
-		public static bool 日期同周(DateTime 日期一, DateTime 日期二)
+		public static bool DateIsOnSameWeek(DateTime dateOne, DateTime dateTwo)
 		{
-			DateTime d = (日期二 > 日期一) ? 日期二 : 日期一;
-			DateTime d2 = (日期二 > 日期一) ? 日期一 : 日期二;
+			DateTime d = (dateTwo > dateOne) ? dateTwo : dateOne;
+			DateTime d2 = (dateTwo > dateOne) ? dateOne : dateTwo;
 			if ((d - d2).TotalDays > 7.0)
 			{
 				return false;
@@ -168,7 +168,7 @@ namespace GameServer
 			{
 				return 原点;
 			}
-			float num = (float)步数 / (float)ComputingClass.网格距离(原点, 终点);
+			float num = (float)步数 / (float)ComputingClass.GridDistance(原点, 终点);
 			int num2 = (int)Math.Round((double)((float)(终点.X - 原点.X) * num));
 			int num3 = (int)Math.Round((double)((float)(终点.Y - 原点.Y) * num));
 			return new Point(原点.X + num2, 原点.Y + num3);
@@ -244,25 +244,25 @@ namespace GameServer
 		}
 
 		
-		public static GameDirection 旋转方向(GameDirection 当前方向, int 旋转向量)
+		public static GameDirection TurnAround(GameDirection 当前方向, int RotationVector)
 		{
-			return 当前方向 + 旋转向量 % 8 * 1024 + 8192 % 8192;
+			return 当前方向 + RotationVector % 8 * 1024 + 8192 % 8192;
 		}
 
 		
-		public static Point 点阵坐标转协议坐标(Point 点阵坐标)
+		public static Point 点阵坐标转协议坐标(Point location)
 		{
-			return new Point(点阵坐标.X * 32 - 16, 点阵坐标.Y * 32 - 16);
+			return new Point(location.X * 32 - 16, location.Y * 32 - 16);
 		}
 
 		
-		public static Point 协议坐标转点阵坐标(Point 协议坐标)
+		public static Point 协议坐标转点阵坐标(Point location)
 		{
-			return new Point((int)Math.Round((double)(((float)协议坐标.X + 16f) / 32f)), (int)Math.Round((double)(((float)协议坐标.Y + 16f) / 32f)));
+			return new Point((int)Math.Round((double)(((float)location.X + 16f) / 32f)), (int)Math.Round((double)(((float)location.Y + 16f) / 32f)));
 		}
 
 		
-		public static Point 游戏坐标转点阵坐标(PointF 游戏坐标)
+		public static Point 游戏坐标转location(PointF 游戏坐标)
 		{
 			PointF pointF = default(PointF);
 			pointF.Y = (游戏坐标.X + 游戏坐标.Y) / 0.707107f / 0.000976562f / 2f / 4096f;
@@ -271,9 +271,9 @@ namespace GameServer
 		}
 
 		
-		public static PointF 点阵坐标转游戏坐标(Point 点阵坐标)
+		public static PointF location转游戏坐标(Point location)
 		{
-			PointF pointF = new PointF(((float)点阵坐标.X - 0.5f) * 32f, ((float)点阵坐标.Y - 0.5f) * 32f);
+			PointF pointF = new PointF(((float)location.X - 0.5f) * 32f, ((float)location.Y - 0.5f) * 32f);
 			return new PointF
 			{
 				X = ((pointF.Y + pointF.X) * 4096f - 134217730f) * 0.707107f * 0.000976562f,
@@ -282,9 +282,9 @@ namespace GameServer
 		}
 
 		
-		public static int 计算攻速(int 攻速)
+		public static int CalcAttackSpeed(int 攻速)
 		{
-			return ComputingClass.Value限制(-5, 攻速, 5) * 50;
+			return ComputingClass.ValueLimit(-5, 攻速, 5) * 50;
 		}
 
 		
@@ -2026,10 +2026,10 @@ namespace GameServer
 		static ComputingClass()
 		{
 			
-			ComputingClass.系统相对时间 = Convert.ToDateTime("1970-01-01 08:00:00");
+			ComputingClass.SystemRelativeTime = Convert.ToDateTime("1970-01-01 08:00:00");
 		}
 
 		
-		public static readonly DateTime 系统相对时间;
+		public static readonly DateTime SystemRelativeTime;
 	}
 }

@@ -184,7 +184,7 @@ namespace GameServer.Maps
 			}
 			set
 			{
-				value = ComputingClass.Value限制(0, value, this[GameObjectStats.MaxPhysicalStrength]);
+				value = ComputingClass.ValueLimit(0, value, this[GameObjectStats.MaxPhysicalStrength]);
 				if (this.PetData.当前体力.V != value)
 				{
 					this.PetData.当前体力.V = value;
@@ -853,7 +853,7 @@ namespace GameServer.Maps
 			}
 			if (this.邻居列表.Contains(this.宠物主人))
 			{
-				Point point = ComputingClass.前方坐标(this.宠物主人.当前坐标, ComputingClass.旋转方向(this.宠物主人.当前方向, 4), 2);
+				Point point = ComputingClass.前方坐标(this.宠物主人.当前坐标, ComputingClass.TurnAround(this.宠物主人.当前方向, 4), 2);
 				if (base.网格距离(this.宠物主人) > 2 || base.网格距离(point) > 2)
 				{
 					GameDirection GameDirection = ComputingClass.计算方向(this.当前坐标, point);
@@ -874,7 +874,7 @@ namespace GameServer.Maps
 							});
 							return;
 						}
-						GameDirection = ComputingClass.旋转方向(GameDirection, (MainProcess.RandomNumber.Next(2) == 0) ? -1 : 1);
+						GameDirection = ComputingClass.TurnAround(GameDirection, (MainProcess.RandomNumber.Next(2) == 0) ? -1 : 1);
 					}
 					return;
 				}
@@ -936,7 +936,7 @@ namespace GameServer.Maps
 						Point point = ComputingClass.前方坐标(this.当前坐标, GameDirection, 1);
 						if (!this.当前地图.能否通行(point))
 						{
-							GameDirection = ComputingClass.旋转方向(GameDirection, (MainProcess.RandomNumber.Next(2) == 0) ? -1 : 1);
+							GameDirection = ComputingClass.TurnAround(GameDirection, (MainProcess.RandomNumber.Next(2) == 0) ? -1 : 1);
 							i++;
 						}
 						else
@@ -973,7 +973,7 @@ namespace GameServer.Maps
 					byte 动作编号 = base.动作编号;
 					base.动作编号 = (byte)(动作编号 + 1);
 					new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, this.HateObject.当前目标, this.HateObject.当前目标.当前坐标, null, null, false);
-					this.Attack时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.Value限制(0, 10 - this[GameObjectStats.AttackSpeed], 10) * 500));
+					this.Attack时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.ValueLimit(0, 10 - this[GameObjectStats.AttackSpeed], 10) * 500));
 					return;
 				}
 				if (this.能否转动())

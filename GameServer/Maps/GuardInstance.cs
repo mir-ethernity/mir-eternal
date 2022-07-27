@@ -89,7 +89,7 @@ namespace GameServer.Maps
 			}
 			set
 			{
-				value = ComputingClass.Value限制(0, value, this[GameObjectStats.MaxPhysicalStrength]);
+				value = ComputingClass.ValueLimit(0, value, this[GameObjectStats.MaxPhysicalStrength]);
 				if (base.当前体力 != value)
 				{
 					base.当前体力 = value;

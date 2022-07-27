@@ -694,7 +694,7 @@ namespace GameServer.Templates
 									}
 									if (b_02_技能命中通知.计算飞行耗时)
 									{
-										this.飞行耗时 = ComputingClass.网格距离(this.释放位置, this.技能锚点) * b_02_技能命中通知.单格飞行耗时;
+										this.飞行耗时 = ComputingClass.GridDistance(this.释放位置, this.技能锚点) * b_02_技能命中通知.单格飞行耗时;
 									}
 								}
 								else
@@ -704,7 +704,7 @@ namespace GameServer.Templates
 									{
 										if (b_03_前摇结束通知.计算攻速缩减)
 										{
-											this.攻速缩减 = ComputingClass.Value限制(ComputingClass.计算攻速(-5), this.攻速缩减 + ComputingClass.计算攻速(this.技能来源[GameObjectStats.AttackSpeed]), ComputingClass.计算攻速(5));
+											this.攻速缩减 = ComputingClass.ValueLimit(ComputingClass.CalcAttackSpeed(-5), this.攻速缩减 + ComputingClass.CalcAttackSpeed(this.技能来源[GameObjectStats.AttackSpeed]), ComputingClass.CalcAttackSpeed(5));
 											if (this.攻速缩减 != 0)
 											{
 												foreach (KeyValuePair<int, SkillTask> keyValuePair10 in this.Nodes)
@@ -787,12 +787,12 @@ namespace GameServer.Templates
 														this.技能锚点 = ComputingClass.前方坐标(this.技能来源.当前坐标, this.技能锚点, c_00_计算技能锚点.技能最近距离);
 													}
 												}
-												else if (ComputingClass.网格距离(this.释放位置, this.技能锚点) > c_00_计算技能锚点.MaxDistance)
+												else if (ComputingClass.GridDistance(this.释放位置, this.技能锚点) > c_00_计算技能锚点.MaxDistance)
 												{
 													this.技能目标 = null;
 													this.技能锚点 = ComputingClass.前方坐标(this.释放位置, this.技能锚点, c_00_计算技能锚点.MaxDistance);
 												}
-												else if (ComputingClass.网格距离(this.释放位置, this.技能锚点) < c_00_计算技能锚点.技能最近距离)
+												else if (ComputingClass.GridDistance(this.释放位置, this.技能锚点) < c_00_计算技能锚点.技能最近距离)
 												{
 													this.技能目标 = null;
 													if (this.释放位置 == this.技能锚点)
@@ -909,7 +909,7 @@ namespace GameServer.Templates
 													}
 													if (this.命中列表.Count != 0 && c_01_计算命中目标.攻速提升类型 != SpecifyTargetType.None && this.命中列表[0].技能目标.特定类型(this.技能来源, c_01_计算命中目标.攻速提升类型))
 													{
-														this.攻速缩减 = ComputingClass.Value限制(ComputingClass.计算攻速(-5), this.攻速缩减 + ComputingClass.计算攻速(c_01_计算命中目标.攻速提升幅度), ComputingClass.计算攻速(5));
+														this.攻速缩减 = ComputingClass.ValueLimit(ComputingClass.CalcAttackSpeed(-5), this.攻速缩减 + ComputingClass.CalcAttackSpeed(c_01_计算命中目标.攻速提升幅度), ComputingClass.CalcAttackSpeed(5));
 													}
 													if (c_01_计算命中目标.清除目标状态 && c_01_计算命中目标.清除状态列表.Count != 0)
 													{
@@ -934,7 +934,7 @@ namespace GameServer.Templates
 													}
 													if (c_01_计算命中目标.计算飞行耗时 && c_01_计算命中目标.单格飞行耗时 != 0)
 													{
-														this.飞行耗时 = ComputingClass.网格距离(this.释放位置, this.技能锚点) * c_01_计算命中目标.单格飞行耗时;
+														this.飞行耗时 = ComputingClass.GridDistance(this.释放位置, this.技能锚点) * c_01_计算命中目标.单格飞行耗时;
 													}
 													if (c_01_计算命中目标.技能命中通知)
 													{
@@ -1010,7 +1010,7 @@ namespace GameServer.Templates
 																	{
 																		int Value = (int)(this.技能来源.当前等级 - keyValuePair13.Value.技能目标.当前等级) - c_02_计算目标伤害.减回复等级差;
 																		int num12 = c_02_计算目标伤害.零回复等级差 - c_02_计算目标伤害.减回复等级差;
-																		float num13 = (float)ComputingClass.Value限制(0, Value, num12) / (float)num12;
+																		float num13 = (float)ComputingClass.ValueLimit(0, Value, num12) / (float)num12;
 																		num11 = (int)((float)num11 - (float)num11 * num13);
 																	}
 																	if (num11 > 0)
@@ -1171,7 +1171,7 @@ namespace GameServer.Templates
 																int 数量 = (int)(c_03_计算对象位移.推动目标位移 ? c_03_计算对象位移.连续推动数量 : 0);
 																byte[] ItSelf位移距离 = c_03_计算对象位移.ItSelf位移距离;
 																int num16 = (int)((((ItSelf位移距离 != null) ? ItSelf位移距离.Length : 0) > (int)this.技能等级) ? c_03_计算对象位移.ItSelf位移距离[(int)this.技能等级] : 0);
-																int num17 = (c_03_计算对象位移.允许超出锚点 || c_03_计算对象位移.锚点反向位移) ? num16 : Math.Min(num16, ComputingClass.网格距离(this.释放位置, this.技能锚点));
+																int num17 = (c_03_计算对象位移.允许超出锚点 || c_03_计算对象位移.锚点反向位移) ? num16 : Math.Min(num16, ComputingClass.GridDistance(this.释放位置, this.技能锚点));
 																Point 锚点 = c_03_计算对象位移.锚点反向位移 ? ComputingClass.前方坐标(this.技能来源.当前坐标, ComputingClass.计算方向(this.技能锚点, this.技能来源.当前坐标), num17) : this.技能锚点;
 																Point point;
 																MapObject[] array2;
@@ -1280,7 +1280,7 @@ namespace GameServer.Templates
 																		{
 																			byte[] 目标位移距离 = c_03_计算对象位移.目标位移距离;
 																			int val = (int)((((目标位移距离 != null) ? 目标位移距离.Length : 0) > (int)this.技能等级) ? c_03_计算对象位移.目标位移距离[(int)this.技能等级] : 0);
-																			int num20 = ComputingClass.网格距离(this.技能来源.当前坐标, keyValuePair18.Value.技能目标.当前坐标);
+																			int num20 = ComputingClass.GridDistance(this.技能来源.当前坐标, keyValuePair18.Value.技能目标.当前坐标);
 																			int num21 = Math.Max(0, Math.Min(8 - num20, val));
 																			if (num21 != 0)
 																			{
@@ -1299,7 +1299,7 @@ namespace GameServer.Templates
 																						keyValuePair18.Value.技能目标.添加Buff时处理(c_03_计算对象位移.目标附加编号, this.技能来源);
 																					}
 																					keyValuePair18.Value.技能目标.当前方向 = ComputingClass.计算方向(keyValuePair18.Value.技能目标.当前坐标, this.技能来源.当前坐标);
-																					ushort num22 = (ushort)(ComputingClass.网格距离(keyValuePair18.Value.技能目标.当前坐标, point3) * (int)c_03_计算对象位移.目标位移耗时);
+																					ushort num22 = (ushort)(ComputingClass.GridDistance(keyValuePair18.Value.技能目标.当前坐标, point3) * (int)c_03_计算对象位移.目标位移耗时);
 																					keyValuePair18.Value.技能目标.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)(num22 * 60));
 																					keyValuePair18.Value.技能目标.硬直时间 = MainProcess.CurrentTime.AddMilliseconds((double)(num22 * 60 + c_03_计算对象位移.目标硬直时间));
 																					keyValuePair18.Value.技能目标.发送封包(new ObjectPassiveDisplacementPacket
