@@ -63,6 +63,10 @@ namespace GameServer
                         {
                             CharacterData.角色背包[b] = new ItemData(游戏物品, CharacterData, 1, b, 游戏物品.MaxDura);
                         }
+
+                        if(Quantity > 1)
+                            CharacterData.角色背包[b].当前持久.V = Quantity;
+
                         SConnection 网络连接 = CharacterData.ActiveConnection;
                         if (网络连接 != null)
                         {
@@ -88,11 +92,14 @@ namespace GameServer
         }
 
 
-        [FieldAttribute(0, 排序 = 0)]
+        [Field(0)]
         public string CharName;
 
 
-        [FieldAttribute(0, 排序 = 1)]
+        [Field(1)]
         public string Name;
+
+        [Field(2, IsOptional = true)]
+        public short Quantity = 1;
     }
 }
