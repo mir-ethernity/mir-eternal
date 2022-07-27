@@ -5,135 +5,127 @@ using System.Reflection;
 
 namespace GameServer
 {
-	
-	public abstract class GMCommand
-	{
-		
-		static GMCommand()
-		{
-			
-			GMCommand.命令字典 = new Dictionary<string, Type>();
-			GMCommand.命令格式 = new Dictionary<string, string>();
-			GMCommand.字段列表 = new Dictionary<string, FieldInfo[]>();
-			Type[] types = Assembly.GetExecutingAssembly().GetTypes();
-			for (int i = 0; i < types.Length; i++)
-			{
-				Type type = types[i];
-				if (type.IsSubclassOf(typeof(GMCommand)))
-				{
-					Dictionary<FieldInfo, int> 字段集合 = new Dictionary<FieldInfo, int>();
-					foreach (FieldInfo fieldInfo in type.GetFields(BindingFlags.Instance | BindingFlags.Public))
-					{
-						FieldAttribute customAttribute = fieldInfo.GetCustomAttribute<FieldAttribute>();
-						if (customAttribute != null)
-						{
-							字段集合.Add(fieldInfo, customAttribute.排序);
-						}
-					}
-					GMCommand.命令字典[type.Name] = type;
-					GMCommand.字段列表[type.Name] = (from x in 字段集合.Keys
-					orderby 字段集合[x]
-					select x).ToArray<FieldInfo>();
-					GMCommand.命令格式[type.Name] = "@" + type.Name;
-					foreach (FieldInfo fieldInfo2 in GMCommand.字段列表[type.Name])
-					{
-						Dictionary<string, string> dictionary = GMCommand.命令格式;
-						string name = type.Name;
-						dictionary[name] = dictionary[name] + " " + fieldInfo2.Name;
-					}
-				}
-			}
-			Dictionary<Type, Func<string, object>> dictionary2 = new Dictionary<Type, Func<string, object>>();
-			Type typeFromHandle = typeof(string);
-			dictionary2[typeFromHandle] = ((string s) => s);
-			Type typeFromHandle2 = typeof(int);
-			dictionary2[typeFromHandle2] = ((string s) => Convert.ToInt32(s));
-			Type typeFromHandle3 = typeof(uint);
-			dictionary2[typeFromHandle3] = ((string s) => Convert.ToUInt32(s));
-			Type typeFromHandle4 = typeof(byte);
-			dictionary2[typeFromHandle4] = ((string s) => Convert.ToByte(s));
-			Type typeFromHandle5 = typeof(bool);
-			dictionary2[typeFromHandle5] = ((string s) => Convert.ToBoolean(s));
-			Type typeFromHandle6 = typeof(float);
-			dictionary2[typeFromHandle6] = ((string s) => Convert.ToSingle(s));
-			Type typeFromHandle7 = typeof(decimal);
-			dictionary2[typeFromHandle7] = ((string s) => Convert.ToDecimal(s));
-			GMCommand.字段写入方法表 = dictionary2;
-		}
 
-		
-		public static bool 解析命令(string 文本, out GMCommand 命令)
-		{
-			string[] array = 文本.Trim(new char[]
-			{
-				'@'
-			}).Split(new char[]
-			{
-				' '
-			}, StringSplitOptions.RemoveEmptyEntries);
-			Type type;
-			FieldInfo[] array2;
-			if (!GMCommand.命令字典.TryGetValue(array[0], out type) || !GMCommand.字段列表.TryGetValue(array[0], out array2))
-			{
-				MainForm.添加命令日志("<= @" + array[0] + " is not a valid GM command, use @View");
-				命令 = null;
-				return false;
-			}
-			if (array.Length <= GMCommand.字段列表[array[0]].Length)
-			{
-				MainForm.添加命令日志("<= Parameter length error, please see format: " + GMCommand.命令格式[array[0]]);
-				命令 = null;
-				return false;
-			}
-			GMCommand command = Activator.CreateInstance(type) as GMCommand;
-			for (int i = 0; i < array2.Length; i++)
-			{
-				try
-				{
-					array2[i].SetValue(command, GMCommand.字段写入方法表[array2[i].FieldType](array[i + 1]));
-				}
-				catch
-				{
-					MainForm.添加命令日志(string.Concat(new string[]
-					{
-						"<= Parameter conversion error. The string cannot be converted to '",
-						array[i + 1],
-						"' Convert to parameters '",
-						array2[i].Name,
-						"' Data type required"
-					}));
-					命令 = null;
-					return false;
-				}
-			}
-			命令 = command;
-			return true;
-		}
+    public abstract class GMCommand
+    {
 
-		
-		public abstract void Execute();
+        static GMCommand()
+        {
 
-		
-		// (get) Token: 0x06000005 RID: 5
-		public abstract ExecutionWay ExecutionWay { get; }
+            命令字典 = new Dictionary<string, Type>();
+            命令格式 = new Dictionary<string, string>();
+            字段列表 = new Dictionary<string, FieldInfo[]>();
+            Type[] types = Assembly.GetExecutingAssembly().GetTypes();
+            for (int i = 0; i < types.Length; i++)
+            {
+                Type type = types[i];
+                if (type.IsSubclassOf(typeof(GMCommand)))
+                {
+                    Dictionary<FieldInfo, int> 字段集合 = new Dictionary<FieldInfo, int>();
+                    foreach (FieldInfo fieldInfo in type.GetFields(BindingFlags.Instance | BindingFlags.Public))
+                    {
+                        FieldAttribute customAttribute = fieldInfo.GetCustomAttribute<FieldAttribute>();
+                        if (customAttribute != null)
+                        {
+                            字段集合.Add(fieldInfo, customAttribute.Position);
+                        }
+                    }
+                    命令字典[type.Name] = type;
+                    字段列表[type.Name] = (from x in 字段集合.Keys
+                                       orderby 字段集合[x]
+                                       select x).ToArray<FieldInfo>();
+                    命令格式[type.Name] = "@" + type.Name;
+                    foreach (FieldInfo fieldInfo2 in 字段列表[type.Name])
+                    {
+                        Dictionary<string, string> dictionary = 命令格式;
+                        string name = type.Name;
+                        dictionary[name] = dictionary[name] + " " + fieldInfo2.Name;
+                    }
+                }
+            }
 
-		
-		protected GMCommand()
-		{
-			
-			
-		}
+            字段写入方法表 = new Dictionary<Type, Func<string, object>>
+            {
+                [typeof(string)] = (string s) => s,
+                [typeof(int)] = (string s) => Convert.ToInt32(s),
+                [typeof(uint)] = (string s) => Convert.ToUInt32(s),
+                [typeof(byte)] = (string s) => Convert.ToByte(s),
+                [typeof(bool)] = (string s) => Convert.ToBoolean(s),
+                [typeof(float)] = (string s) => Convert.ToSingle(s),
+                [typeof(decimal)] = (string s) => Convert.ToDecimal(s),
+                [typeof(short)] = (string s) => Convert.ToInt16(s),
+                [typeof(ushort)] = (string s) => Convert.ToUInt16(s),
+            };
+        }
 
-		
-		private static readonly Dictionary<string, Type> 命令字典;
 
-		
-		private static readonly Dictionary<string, FieldInfo[]> 字段列表;
+        public static bool 解析命令(string 文本, out GMCommand cmd)
+        {
+            string[] array = 文本.Trim('@').Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
-		
-		private static readonly Dictionary<Type, Func<string, object>> 字段写入方法表;
+            if (!命令字典.TryGetValue(array[0], out Type type) || !字段列表.TryGetValue(array[0], out FieldInfo[] fields))
+            {
+                MainForm.添加命令日志("<= @" + array[0] + " is not a valid GM command, use @View");
+                cmd = null;
+                return false;
+            }
 
-		
-		public static readonly Dictionary<string, string> 命令格式;
-	}
+            int expectedLength = fields.Length;
+
+            if (fields[fields.Length - 1].GetCustomAttribute<FieldAttribute>()?.IsOptional ?? false)
+                expectedLength--;
+
+            if (array.Length <= expectedLength)
+            {
+                MainForm.添加命令日志("<= Parameter length error, please see format: " + 命令格式[array[0]]);
+                cmd = null;
+                return false;
+            }
+
+            cmd = Activator.CreateInstance(type) as GMCommand;
+
+            for (int i = 0; i < fields.Length; i++)
+            {
+                if (array.Length <= i + 1) continue;
+
+                try
+                {
+                    fields[i].SetValue(cmd, 字段写入方法表[fields[i].FieldType](array[i + 1]));
+                }
+                catch
+                {
+                    MainForm.添加命令日志($"<= Parameter conversion error. The string cannot be converted to '{array[i + 1]}' Convert to parameters '{fields[i].Name}' Data type required");
+                    cmd = null;
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
+        public abstract void Execute();
+
+
+        // (get) Token: 0x06000005 RID: 5
+        public abstract ExecutionWay ExecutionWay { get; }
+
+
+        protected GMCommand()
+        {
+
+
+        }
+
+
+        private static readonly Dictionary<string, Type> 命令字典;
+
+
+        private static readonly Dictionary<string, FieldInfo[]> 字段列表;
+
+
+        private static readonly Dictionary<Type, Func<string, object>> 字段写入方法表;
+
+
+        public static readonly Dictionary<string, string> 命令格式;
+    }
 }
