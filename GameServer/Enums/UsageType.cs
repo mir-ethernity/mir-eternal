@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace GameServer.Enums
 {
-    public enum ItemProperty
+    public enum UsageType
     {
-        RecoveryBase,
-        RecoverySteps,
-        RecoveryTime,
-        UsageType,
-        IncreaseHP,
-        IncreaseMP
+        RecoveryHP = 0,
+        RecoveryMP = 1,
+        Medicine = 2
     }
 }

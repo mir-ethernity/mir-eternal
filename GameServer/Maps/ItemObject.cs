@@ -109,7 +109,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.物品模板.MaxDurability;
+				return this.物品模板.MaxDura;
 			}
 		}
 

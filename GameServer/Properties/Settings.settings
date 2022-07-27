@@ -50,14 +50,14 @@
     <Setting Name="数据备份目录" Type="System.String" Scope="User">
       <Value Profile="(Default)">.\Backup</Value>
     </Setting>
-    <Setting Name="系统公告内容" Type="System.String" Scope="User">
-      <Value Profile="(Default)">1	1	Welcome to Mir3D Eternal, Translated by ElAmO, DjDarkBoyZ, CraZyEriK</Value>
-    </Setting>
     <Setting Name="NoobSupportCommand等级" Type="System.Byte" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="软件注册代码" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="系统公告内容" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1	1	Welcome to the world of Legends Eternal, Legends Eternal is more exciting with you! </Value>
     </Setting>
   </Settings>
 </SettingsFile>

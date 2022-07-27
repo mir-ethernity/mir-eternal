@@ -763,7 +763,7 @@ namespace GameServer.Maps
 								int num14 = MainProcess.RandomNumber.Next(怪物掉落.MinAmount, 怪物掉落.MaxAmount + 1);
 								if (num14 != 0)
 								{
-									if (游戏物品.MaxDurability == 0)
+									if (游戏物品.MaxDura == 0)
 									{
 										new ItemObject(游戏物品, null, this.当前地图, this.当前坐标, 物品归属, num14, false);
 										if (游戏物品.Id == 1)

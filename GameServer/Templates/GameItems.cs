@@ -12,7 +12,7 @@ namespace GameServer.Templates
 
 		public string Name;
 		public int Id;
-		public int MaxDurability;
+		public int MaxDura;
 		public int Weight;
 		public int Level;
 		public int NeedLevel;

@@ -217,18 +217,6 @@ namespace GameServer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1\t1\t欢迎来到传奇永恒的世界，传奇永恒有你更精彩！")]
-        public string 系统公告内容 {
-            get {
-                return ((string)(this["系统公告内容"]));
-            }
-            set {
-                this["系统公告内容"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public byte NoobSupportCommand等级 {
             get {
@@ -248,6 +236,19 @@ namespace GameServer.Properties {
             }
             set {
                 this["软件注册代码"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1\t1\tWelcome to the world of Legends Eternal, Legends Eternal is more exciting wit" +
+            "h you! ")]
+        public string 系统公告内容 {
+            get {
+                return ((string)(this["系统公告内容"]));
+            }
+            set {
+                this["系统公告内容"] = value;
             }
         }
     }

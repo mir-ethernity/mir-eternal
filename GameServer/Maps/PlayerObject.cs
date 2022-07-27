@@ -8306,7 +8306,7 @@ namespace GameServer.Maps
                 {
                     if (GameItems.PersistType == PersistentItemType.堆叠)
                     {
-                        num = Math.Min(购入数量, GameItems.MaxDurability);
+                        num = Math.Min(购入数量, GameItems.MaxDura);
                         goto IL_42;
                     }
                 }
@@ -8319,7 +8319,7 @@ namespace GameServer.Maps
                 while (b < this.背包大小)
                 {
                     ItemData ItemData;
-                    if (this.角色背包.TryGetValue(b, out ItemData) && (GameItems.PersistType != PersistentItemType.堆叠 || GameItems.Id != ItemData.Id || ItemData.当前持久.V + 购入数量 > GameItems.MaxDurability))
+                    if (this.角色背包.TryGetValue(b, out ItemData) && (GameItems.PersistType != PersistentItemType.堆叠 || GameItems.Id != ItemData.Id || ItemData.当前持久.V + 购入数量 > GameItems.MaxDura))
                     {
                         b += 1;
                     }
@@ -8376,7 +8376,7 @@ namespace GameServer.Maps
                                         {
                                             case PersistentItemType.消耗:
                                             case PersistentItemType.纯度:
-                                                持久 = GameItems.MaxDurability;
+                                                持久 = GameItems.MaxDura;
                                                 break;
                                             case PersistentItemType.堆叠:
                                                 持久 = num2;
@@ -10645,9 +10645,23 @@ namespace GameServer.Maps
                             });
                         }
                         ConsumeBackpackItem(1, v);
+                        var usageType = (UsageType)v.GetProp(ItemProperty.UsageType);
                         药品回血 = MainProcess.CurrentTime.AddSeconds(v.GetProp(ItemProperty.RecoveryTime, 1));
-                        回血基数 = v.GetProp(ItemProperty.RecoveryBase, 15);
-                        回血次数 = v.GetProp(ItemProperty.RecoverySteps, 6);
+                        switch (usageType)
+                        {
+                            case UsageType.RecoveryHP:
+                                回血基数 = v.GetProp(ItemProperty.RecoveryBase, 15);
+                                回血次数 = v.GetProp(ItemProperty.RecoverySteps, 6);
+                                break;
+                            case UsageType.RecoveryMP:
+                                回魔基数 = v.GetProp(ItemProperty.RecoveryBase, 15);
+                                回魔次数 = v.GetProp(ItemProperty.RecoverySteps, 6);
+                                break;
+                            case UsageType.Medicine:
+                                当前体力 += (int)Math.Max(v.GetProp(ItemProperty.IncreaseHP, 30) * (1f + (float)this[GameObjectStats.药品回血] / 10000f), 0f);
+                                当前魔力 += (int)Math.Max(v.GetProp(ItemProperty.IncreaseMP, 40) * (1f + (float)this[GameObjectStats.药品回魔] / 10000f), 0f);
+                                break;
+                        }
                         break;
                     case ItemType.可用杂物:
                         if (背包大小 - 角色背包.Count < 5)
@@ -10661,7 +10675,7 @@ namespace GameServer.Maps
                         {
                             var drugItem = v.物品模板;
 
-                            if(v.PersistType == PersistentItemType.堆叠)
+                            if (v.PersistType == PersistentItemType.堆叠)
                             {
                                 if (v.UnpackItemId == null || !GameItems.DataSheet.TryGetValue(v.UnpackItemId.Value, out drugItem))
                                     break;
@@ -11887,7 +11901,7 @@ namespace GameServer.Maps
                     {
                         if (GameItems.PersistType == PersistentItemType.堆叠)
                         {
-                            num = Math.Min((int)购入数量, GameItems.MaxDurability);
+                            num = Math.Min((int)购入数量, GameItems.MaxDura);
                             goto IL_DD;
                         }
                     }
@@ -11900,7 +11914,7 @@ namespace GameServer.Maps
                     while (b < this.背包大小)
                     {
                         ItemData ItemData;
-                        if (this.角色背包.TryGetValue(b, out ItemData) && (GameItems.PersistType != PersistentItemType.堆叠 || GameItems.Id != ItemData.Id || ItemData.当前持久.V + (int)购入数量 > GameItems.MaxDurability))
+                        if (this.角色背包.TryGetValue(b, out ItemData) && (GameItems.PersistType != PersistentItemType.堆叠 || GameItems.Id != ItemData.Id || ItemData.当前持久.V + (int)购入数量 > GameItems.MaxDura))
                         {
                             b += 1;
                         }
@@ -12056,7 +12070,7 @@ namespace GameServer.Maps
                                         {
                                             case PersistentItemType.消耗:
                                             case PersistentItemType.纯度:
-                                                持久 = GameItems.MaxDurability;
+                                                持久 = GameItems.MaxDura;
                                                 break;
                                             case PersistentItemType.堆叠:
                                                 持久 = num2;

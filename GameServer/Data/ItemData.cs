@@ -138,7 +138,7 @@ namespace GameServer.Data
                             EquipmentData EquipmentData2 = this as EquipmentData;
                             EquipmentItem obj = 对应模板.V as EquipmentItem;
                             int v3 = EquipmentData2.当前持久.V;
-                            int num2 = obj.MaxDurability * 1000;
+                            int num2 = obj.MaxDura * 1000;
                             int num3 = obj.SalePrice;
                             int num4 = Math.Max((sbyte)0, EquipmentData2.幸运等级.V);
                             int num5 = EquipmentData2.升级Attack.V * 100 + EquipmentData2.升级Magic.V * 100 + EquipmentData2.升级Taoism.V * 100 + EquipmentData2.升级Needle.V * 100 + EquipmentData2.升级Archery.V * 100;
@@ -353,7 +353,7 @@ namespace GameServer.Data
                     case PersistentItemType.消耗:
                         {
                             int v2 = 当前持久.V;
-                            int MaxDurability = 对应模板.V.MaxDurability;
+                            int MaxDurability = 对应模板.V.MaxDura;
                             int num = 对应模板.V.SalePrice;
                             return (int)((decimal)v2 / (decimal)MaxDurability * (decimal)num);
                         }
@@ -378,7 +378,7 @@ namespace GameServer.Data
         {
             get
             {
-                return 对应模板.V.MaxDurability;
+                return 对应模板.V.MaxDura;
             }
         }
 
@@ -390,9 +390,9 @@ namespace GameServer.Data
             {
                 if (PersistType != PersistentItemType.装备)
                 {
-                    return 对应模板.V.MaxDurability;
+                    return 对应模板.V.MaxDura;
                 }
-                return 对应模板.V.MaxDurability * 1000;
+                return 对应模板.V.MaxDura * 1000;
             }
         }
 
@@ -510,7 +510,7 @@ namespace GameServer.Data
             物品容器.V = 容器;
             物品位置.V = position;
             生成时间.V = MainProcess.CurrentTime;
-            最大持久.V = 物品模板.MaxDurability;
+            最大持久.V = 物品模板.MaxDura;
             当前持久.V = Math.Min(durability, 最大持久.V);
             GameDataGateway.ItemData表.AddData(this, true);
         }
