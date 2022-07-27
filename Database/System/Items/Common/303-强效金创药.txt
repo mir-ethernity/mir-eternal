@@ -14,6 +14,11 @@
   "NeedRace": "通用",
   "PersistType": "堆叠",
   "StoreType": "药品",
+  "Props": {
+    "RecoveryTime": 1,
+    "RecoveryBase": 20,
+    "RecoverySteps": 4
+  },
   "物品掉落列表": [
     {
       "Name": "强效金创药",
