@@ -30,10 +30,10 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Build Applications
-      run: dotnet publish -c release -r $env:Configuration --self-contained -o ../publish/$env:Configuration/$env:Project $env:Project
+      run: dotnet publish -c release -r $env:Target --self-contained -o ../publish/$env:Target/$env:Project $env:Project
       env:
-        Configuration: ${{ matrix.configuration }}
-        Project: ${{ matrix.project }}
+        Target: ${{ matrix.targets }}
+        Project: ${{ matrix.projects }}
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
