@@ -1,19 +1,16 @@
-name: Build Server Apps
+name: AccountServer Build
 
 on:
   push:
     branches: [ "main", "feat/upgrade-net6" ]
     paths:
       - AccountServer/**
-      - GameServer/**
-      - Launcher/**
-      - .github/workflows/server-apps.yml
+      - .github/workflows/accountserver-build.yml
 
 jobs:
   build:
     strategy:
       matrix:
-        projects: [GameServer, AccountServer, Launcher]
         targets: [win10-x86,win10-x64]
 
     runs-on: windows-latest
@@ -33,14 +30,15 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Build Applications
-      run: dotnet publish -c release -r $env:Target --self-contained -o ./publish/$env:Target/$env:Project $env:Project
+      run: dotnet publish -c release -r $env:Target --self-contained -o ./publish/$env:Target AccountServer
       env:
         Target: ${{ matrix.targets }}
-        Project: ${{ matrix.projects }}
 
-    - name: Upload build artifacts
+    - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: MirEternal
-        path: ./publish/
+        name: AccountServer-${{Target}}
+        path: ./publish/${{Target}}
+      env:
+        Target: ${{ matrix.targets }}
 
