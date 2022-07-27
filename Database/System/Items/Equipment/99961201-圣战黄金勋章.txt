@@ -1,7 +1,7 @@
 {
   "Name": "圣战黄金勋章",
   "Id": 99961201,
-  "MaxDurability": 9,
+  "MaxDura": 9,
   "Weight": 1,
   "Level": 17,
   "NeedLevel": 10,

@@ -1,7 +1,7 @@
 {
   "Name": "极速神水",
   "Id": 704,
-  "MaxDurability": 100,
+  "MaxDura": 100,
   "Weight": 2,
   "NeedLevel": 1,
   "SalePrice": 500,

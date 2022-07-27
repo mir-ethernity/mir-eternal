@@ -1,7 +1,7 @@
 {
   "Name": "银蛇",
   "Id": 99900021,
-  "MaxDurability": 24,
+  "MaxDura": 24,
   "Weight": 26,
   "Level": 28,
   "NeedLevel": 26,

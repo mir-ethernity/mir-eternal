@@ -1,7 +1,7 @@
 {
   "Name": "海魂",
   "Id": 99900009,
-  "MaxDurability": 12,
+  "MaxDura": 12,
   "Weight": 12,
   "Level": 15,
   "NeedLevel": 15,

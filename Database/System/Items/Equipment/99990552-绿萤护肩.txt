@@ -1,7 +1,7 @@
 {
   "Name": "绿萤护肩",
   "Id": 99990552,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 4,
   "Level": 33,
   "NeedLevel": 30,

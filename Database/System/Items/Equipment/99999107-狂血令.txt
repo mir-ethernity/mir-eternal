@@ -1,7 +1,7 @@
 {
   "Name": "狂血令",
   "Id": 99999107,
-  "MaxDurability": 16000,
+  "MaxDura": 16000,
   "Weight": 1,
   "Level": 20,
   "NeedLevel": 20,

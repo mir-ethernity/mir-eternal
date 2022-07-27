@@ -1,0 +1,7 @@
+{
+  "Id": 1,
+  "ItemId": 361,
+  "BackpackType": 0,
+  "Quantity": 2,
+  "Backpack": "人物背包"
+}

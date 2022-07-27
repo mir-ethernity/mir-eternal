@@ -1,7 +1,7 @@
 {
   "Name": "凰天魔衣",
   "Id": 99990813,
-  "MaxDurability": 50,
+  "MaxDura": 50,
   "Weight": 23,
   "Level": 53,
   "NeedLevel": 45,

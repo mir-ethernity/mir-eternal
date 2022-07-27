@@ -1,7 +1,7 @@
 {
   "Name": "二连射",
   "Id": 35003,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 1,
   "NeedLevel": 16,
   "SalePrice": 250,

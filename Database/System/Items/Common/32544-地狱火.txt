@@ -1,7 +1,7 @@
 {
   "Name": "地狱火",
   "Id": 32544,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 1,
   "NeedLevel": 16,
   "SalePrice": 250,

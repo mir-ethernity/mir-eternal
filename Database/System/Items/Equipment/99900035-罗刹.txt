@@ -1,7 +1,7 @@
 {
   "Name": "罗刹",
   "Id": 99900035,
-  "MaxDurability": 25,
+  "MaxDura": 25,
   "Weight": 30,
   "Level": 21,
   "NeedLevel": 15,

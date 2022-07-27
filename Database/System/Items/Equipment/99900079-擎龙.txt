@@ -1,7 +1,7 @@
 {
   "Name": "擎龙",
   "Id": 99900079,
-  "MaxDurability": 33,
+  "MaxDura": 33,
   "Weight": 23,
   "Level": 43,
   "NeedLevel": 35,

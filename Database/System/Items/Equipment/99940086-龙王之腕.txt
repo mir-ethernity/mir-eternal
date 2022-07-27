@@ -1,7 +1,7 @@
 {
   "Name": "龙王之腕",
   "Id": 99940086,
-  "MaxDurability": 8,
+  "MaxDura": 8,
   "Weight": 3,
   "Level": 55,
   "SalePrice": 60000,

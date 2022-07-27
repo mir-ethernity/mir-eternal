@@ -1,7 +1,7 @@
 {
   "Name": "黑檀项链",
   "Id": 99920004,
-  "MaxDurability": 8,
+  "MaxDura": 8,
   "Weight": 1,
   "Level": 8,
   "NeedLevel": 13,

@@ -1,7 +1,7 @@
 {
   "Name": "风暴头盔",
   "Id": 99990641,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 3,
   "Level": 42,
   "SalePrice": 35000,

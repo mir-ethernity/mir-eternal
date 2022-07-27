@@ -1,7 +1,7 @@
 {
   "Name": "龙晶石",
   "Id": 99999111,
-  "MaxDurability": 90000,
+  "MaxDura": 90000,
   "Weight": 1,
   "Level": 20,
   "NeedLevel": 20,

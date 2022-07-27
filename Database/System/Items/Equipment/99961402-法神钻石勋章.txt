@@ -1,7 +1,7 @@
 {
   "Name": "法神钻石勋章",
   "Id": 99961402,
-  "MaxDurability": 9,
+  "MaxDura": 9,
   "Weight": 1,
   "Level": 34,
   "NeedLevel": 10,

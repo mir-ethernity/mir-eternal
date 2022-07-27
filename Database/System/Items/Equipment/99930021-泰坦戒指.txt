@@ -1,7 +1,7 @@
 {
   "Name": "泰坦戒指",
   "Id": 99930021,
-  "MaxDurability": 5,
+  "MaxDura": 5,
   "Weight": 3,
   "Level": 37,
   "SalePrice": 15000,

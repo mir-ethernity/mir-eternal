@@ -1,7 +1,7 @@
 {
   "Name": "沙城奖杯",
   "Id": 90222,
-  "MaxDurability": 1000,
+  "MaxDura": 1000,
   "Weight": 1,
   "Level": 10,
   "NeedLevel": 1,

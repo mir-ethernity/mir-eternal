@@ -1,7 +1,7 @@
 {
   "Name": "麻织护腕",
   "Id": 99990336,
-  "MaxDurability": 6,
+  "MaxDura": 6,
   "Weight": 1,
   "Level": 16,
   "NeedLevel": 15,

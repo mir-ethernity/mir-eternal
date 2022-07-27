@@ -1,7 +1,7 @@
 {
   "Name": "玄天",
   "Id": 99900038,
-  "MaxDurability": 25,
+  "MaxDura": 25,
   "Weight": 44,
   "Level": 50,
   "NeedLevel": 43,

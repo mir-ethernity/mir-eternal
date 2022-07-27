@@ -1,7 +1,7 @@
 {
   "Name": "无极棍",
   "Id": 99900024,
-  "MaxDurability": 25,
+  "MaxDura": 25,
   "Weight": 15,
   "Level": 32,
   "SalePrice": 25000,

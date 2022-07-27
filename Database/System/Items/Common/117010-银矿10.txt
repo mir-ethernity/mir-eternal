@@ -1,7 +1,7 @@
 {
   "Name": "银矿10",
   "Id": 117010,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 4,
   "NeedLevel": 1,
   "SalePrice": 132,

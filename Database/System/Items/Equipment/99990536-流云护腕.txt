@@ -1,7 +1,7 @@
 {
   "Name": "流云护腕",
   "Id": 99990536,
-  "MaxDurability": 8,
+  "MaxDura": 8,
   "Weight": 1,
   "Level": 33,
   "NeedLevel": 30,

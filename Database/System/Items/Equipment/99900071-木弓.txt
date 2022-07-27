@@ -1,7 +1,7 @@
 {
   "Name": "木弓",
   "Id": 99900071,
-  "MaxDurability": 4,
+  "MaxDura": 4,
   "Weight": 9,
   "Level": 1,
   "NeedLevel": 1,

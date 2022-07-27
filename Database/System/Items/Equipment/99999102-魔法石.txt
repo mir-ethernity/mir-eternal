@@ -1,7 +1,7 @@
 {
   "Name": "魔法石",
   "Id": 99999102,
-  "MaxDurability": 50000,
+  "MaxDura": 50000,
   "Weight": 1,
   "Level": 10,
   "NeedLevel": 10,

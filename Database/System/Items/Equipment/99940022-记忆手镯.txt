@@ -1,7 +1,7 @@
 {
   "Name": "记忆手镯",
   "Id": 99940022,
-  "MaxDurability": 6,
+  "MaxDura": 6,
   "Weight": 1,
   "Level": 35,
   "NeedLevel": 26,

@@ -1,7 +1,7 @@
 {
   "Name": "风行护腕",
   "Id": 99940040,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 3,
   "Level": 52,
   "SalePrice": 50000,

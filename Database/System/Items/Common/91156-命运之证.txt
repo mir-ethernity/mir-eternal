@@ -1,7 +1,7 @@
 {
   "Name": "命运之证",
   "Id": 91156,
-  "MaxDurability": 1,
+  "MaxDura": 1,
   "Level": 10,
   "NeedLevel": 10,
   "IsBound": true,

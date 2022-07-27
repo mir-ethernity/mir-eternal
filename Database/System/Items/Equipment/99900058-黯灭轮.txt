@@ -1,7 +1,7 @@
 {
   "Name": "黯灭轮",
   "Id": 99900058,
-  "MaxDurability": 33,
+  "MaxDura": 33,
   "Weight": 23,
   "Level": 43,
   "NeedLevel": 35,

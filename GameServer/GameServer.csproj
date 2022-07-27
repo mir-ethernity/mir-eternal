@@ -168,6 +168,7 @@
     <Compile Include="Templates\Skills\PendingRename26.cs" />
     <Compile Include="Templates\Skills\PendingRename27.cs" />
     <Compile Include="Templates\Skills\PendingRename28.cs" />
+    <Compile Include="Templates\InscriptionItems.cs" />
     <Compile Include="Templates\StatsDetail.cs" />
     <Compile Include="Templates\TeleportGates.cs" />
     <Compile Include="Templates\MonsterSpawnInfo.cs" />
@@ -213,7 +214,7 @@
     <Compile Include="Templates\SystemDataService.cs" />
     <Compile Include="Templates\EquipmentStats.cs" />
     <Compile Include="Templates\PendingRename30.cs" />
-    <Compile Include="Templates\InscriptionStat.cs" />
+    <Compile Include="Enums\InscriptionStat.cs" />
     <Compile Include="Templates\InscriptionSkill.cs" />
     <Compile Include="Templates\RandomStats.cs" />
     <Compile Include="GMCommands\AddIngots.cs" />

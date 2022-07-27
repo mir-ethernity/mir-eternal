@@ -1,7 +1,7 @@
 {
   "Name": "圣战手镯",
   "Id": 99940024,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 2,
   "Level": 45,
   "SalePrice": 17500,

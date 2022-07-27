@@ -1,7 +1,7 @@
 {
   "Name": "灯笼项链",
   "Id": 99920009,
-  "MaxDurability": 8,
+  "MaxDura": 8,
   "Weight": 1,
   "Level": 14,
   "NeedLevel": 18,

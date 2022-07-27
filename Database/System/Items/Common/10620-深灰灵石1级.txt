@@ -1,7 +1,7 @@
 {
   "Name": "深灰灵石1级",
   "Id": 10620,
-  "MaxDurability": 100,
+  "MaxDura": 100,
   "Weight": 1,
   "NeedLevel": 1,
   "SalePrice": 5000,

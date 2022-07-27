@@ -1,7 +1,7 @@
 {
   "Name": "天尊手镯",
   "Id": 99940026,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 1,
   "Level": 45,
   "SalePrice": 17500,

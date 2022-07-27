@@ -1,0 +1,6 @@
+{
+  "Id": 4,
+  "NeedGender": "男性",
+  "ItemId": 99980113,
+  "Backpack": "人物穿戴"
+}

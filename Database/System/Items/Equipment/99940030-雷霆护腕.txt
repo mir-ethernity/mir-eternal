@@ -1,7 +1,7 @@
 {
   "Name": "雷霆护腕",
   "Id": 99940030,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 1,
   "Level": 52,
   "SalePrice": 50000,

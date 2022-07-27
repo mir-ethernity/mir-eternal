@@ -1,7 +1,7 @@
 {
   "Name": "天尊项链",
   "Id": 99920029,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 1,
   "Level": 45,
   "SalePrice": 35000,

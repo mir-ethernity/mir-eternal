@@ -1,7 +1,7 @@
 {
   "Name": "太阳水包",
   "Id": 381,
-  "MaxDurability": 1,
+  "MaxDura": 1,
   "Weight": 7,
   "NeedLevel": 1,
   "SalePrice": 350,

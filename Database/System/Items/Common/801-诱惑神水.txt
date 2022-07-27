@@ -1,7 +1,7 @@
 {
   "Name": "诱惑神水",
   "Id": 801,
-  "MaxDurability": 1,
+  "MaxDura": 1,
   "Weight": 2,
   "NeedLevel": 13,
   "Cooldown": 1800000,

@@ -1,7 +1,7 @@
 {
   "Name": "命运之弓",
   "Id": 99900074,
-  "MaxDurability": 32,
+  "MaxDura": 32,
   "Weight": 16,
   "Level": 31,
   "NeedLevel": 35,

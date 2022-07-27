@@ -1,7 +1,7 @@
 {
   "Name": "打孔石",
   "Id": 91115,
-  "MaxDurability": 999,
+  "MaxDura": 999,
   "Level": 10,
   "NeedLevel": 1,
   "SalePrice": 500,

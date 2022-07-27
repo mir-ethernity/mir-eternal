@@ -1,7 +1,7 @@
 {
   "Name": "鬼灵步",
   "Id": 34007,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 1,
   "NeedLevel": 28,
   "SalePrice": 4000,

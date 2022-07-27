@@ -1,7 +1,7 @@
 {
   "Name": "凝霜",
   "Id": 99900020,
-  "MaxDurability": 20,
+  "MaxDura": 20,
   "Weight": 20,
   "Level": 25,
   "NeedLevel": 25,

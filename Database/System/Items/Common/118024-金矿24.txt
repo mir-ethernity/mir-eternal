@@ -1,7 +1,7 @@
 {
   "Name": "金矿24",
   "Id": 118024,
-  "MaxDurability": 24,
+  "MaxDura": 24,
   "Weight": 4,
   "NeedLevel": 1,
   "SalePrice": 898,

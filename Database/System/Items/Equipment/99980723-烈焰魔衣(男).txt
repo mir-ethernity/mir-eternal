@@ -1,7 +1,7 @@
 {
   "Name": "烈焰魔衣(男)",
   "Id": 99980723,
-  "MaxDurability": 40,
+  "MaxDura": 40,
   "Weight": 20,
   "Level": 50,
   "NeedLevel": 44,

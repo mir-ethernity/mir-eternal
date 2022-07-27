@@ -1,7 +1,7 @@
 {
   "Name": "炼狱",
   "Id": 99900019,
-  "MaxDurability": 28,
+  "MaxDura": 28,
   "Weight": 60,
   "Level": 28,
   "NeedLevel": 26,

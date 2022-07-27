@@ -1,7 +1,7 @@
 {
   "Name": "钢铁腰带",
   "Id": 99990615,
-  "MaxDurability": 8,
+  "MaxDura": 8,
   "Weight": 2,
   "Level": 40,
   "NeedLevel": 35,

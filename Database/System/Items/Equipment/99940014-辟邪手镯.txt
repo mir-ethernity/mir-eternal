@@ -1,7 +1,7 @@
 {
   "Name": "辟邪手镯",
   "Id": 99940014,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 1,
   "Level": 21,
   "NeedLevel": 19,

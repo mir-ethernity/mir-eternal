@@ -1,7 +1,7 @@
 {
   "Name": "芒星手镯",
   "Id": 99940038,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 2,
   "Level": 37,
   "SalePrice": 15000,

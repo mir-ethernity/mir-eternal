@@ -1,7 +1,7 @@
 {
   "Name": "惊天",
   "Id": 99900110,
-  "MaxDurability": 32,
+  "MaxDura": 32,
   "Weight": 16,
   "Level": 50,
   "NeedLevel": 43,

@@ -1,7 +1,7 @@
 {
   "Name": "精工护肩",
   "Id": 99990432,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 3,
   "Level": 25,
   "NeedLevel": 22,

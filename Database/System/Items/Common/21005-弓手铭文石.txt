@@ -1,7 +1,7 @@
 {
   "Name": "弓手铭文石",
   "Id": 21005,
-  "MaxDurability": 500,
+  "MaxDura": 500,
   "NeedLevel": 10,
   "SalePrice": 500,
   "CanDrop": true,

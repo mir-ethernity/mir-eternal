@@ -1,7 +1,7 @@
 {
   "Name": "蛇牙枪",
   "Id": 99900103,
-  "MaxDurability": 28,
+  "MaxDura": 28,
   "Weight": 15,
   "Level": 28,
   "NeedLevel": 26,

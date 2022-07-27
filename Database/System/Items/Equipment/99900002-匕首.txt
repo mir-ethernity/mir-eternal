@@ -1,7 +1,7 @@
 {
   "Name": "匕首",
   "Id": 99900002,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 5,
   "Level": 3,
   "NeedLevel": 1,

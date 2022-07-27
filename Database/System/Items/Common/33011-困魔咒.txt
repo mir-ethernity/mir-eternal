@@ -1,7 +1,7 @@
 {
   "Name": "困魔咒",
   "Id": 33011,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 1,
   "NeedLevel": 28,
   "SalePrice": 4000,

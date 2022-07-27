@@ -1,7 +1,7 @@
 {
   "Name": "箭灵钻石勋章",
   "Id": 99961405,
-  "MaxDurability": 9,
+  "MaxDura": 9,
   "Weight": 1,
   "Level": 34,
   "NeedLevel": 10,

@@ -1,7 +1,7 @@
 {
   "Name": "芒星项链",
   "Id": 99920045,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 1,
   "Level": 37,
   "SalePrice": 20000,

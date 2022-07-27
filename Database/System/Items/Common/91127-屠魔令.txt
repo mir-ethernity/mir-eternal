@@ -1,7 +1,7 @@
 {
   "Name": "屠魔令",
   "Id": 91127,
-  "MaxDurability": 1000,
+  "MaxDura": 1000,
   "Level": 1,
   "NeedLevel": 1,
   "SalePrice": 100,

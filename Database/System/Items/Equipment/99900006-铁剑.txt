@@ -1,7 +1,7 @@
 {
   "Name": "铁剑",
   "Id": 99900006,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 10,
   "Level": 10,
   "NeedLevel": 10,

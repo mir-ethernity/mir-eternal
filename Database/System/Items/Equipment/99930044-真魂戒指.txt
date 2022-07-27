@@ -1,7 +1,7 @@
 {
   "Name": "真魂戒指",
   "Id": 99930044,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 1,
   "Level": 60,
   "SalePrice": 60000,

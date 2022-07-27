@@ -48,6 +48,14 @@ namespace GameServer.Data
 			}
 		}
 
+		public int? UnpackItemId
+        {
+            get
+            {
+				return 物品模板.UnpackItemId;
+
+			}
+        }
 		
 		// (get) Token: 0x0600056D RID: 1389 RVA: 0x000051B4 File Offset: 0x000033B4
 		public GameObjectRace NeedRace
@@ -492,14 +500,8 @@ namespace GameServer.Data
 			}
 		}
 
-		
-		public ItemData()
-		{
-			
-			
-		}
+		public ItemData() { }
 
-		
 		public ItemData(GameItems item, CharacterData character, byte 容器, byte position, int durability)
 		{
 			对应模板.V = item;

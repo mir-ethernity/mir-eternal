@@ -1,7 +1,7 @@
 {
   "Name": "斩马刀",
   "Id": 99900016,
-  "MaxDurability": 19,
+  "MaxDura": 19,
   "Weight": 27,
   "Level": 22,
   "NeedLevel": 20,

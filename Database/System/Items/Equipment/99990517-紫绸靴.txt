@@ -1,7 +1,7 @@
 {
   "Name": "紫绸靴",
   "Id": 99990517,
-  "MaxDurability": 8,
+  "MaxDura": 8,
   "Weight": 1,
   "Level": 33,
   "NeedLevel": 30,

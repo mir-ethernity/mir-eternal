@@ -1,7 +1,7 @@
 {
   "Name": "刺术神水",
   "Id": 707,
-  "MaxDurability": 100,
+  "MaxDura": 100,
   "Weight": 2,
   "NeedLevel": 1,
   "SalePrice": 500,

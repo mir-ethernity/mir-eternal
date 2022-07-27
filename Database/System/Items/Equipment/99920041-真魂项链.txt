@@ -1,7 +1,7 @@
 {
   "Name": "真魂项链",
   "Id": 99920041,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 2,
   "Level": 53,
   "SalePrice": 60000,

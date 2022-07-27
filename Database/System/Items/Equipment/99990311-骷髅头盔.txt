@@ -1,7 +1,7 @@
 {
   "Name": "骷髅头盔",
   "Id": 99990311,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 5,
   "Level": 18,
   "SalePrice": 4000,

@@ -1,7 +1,7 @@
 {
   "Name": "铜矿23",
   "Id": 115023,
-  "MaxDurability": 23,
+  "MaxDura": 23,
   "Weight": 4,
   "NeedLevel": 1,
   "SalePrice": 64,

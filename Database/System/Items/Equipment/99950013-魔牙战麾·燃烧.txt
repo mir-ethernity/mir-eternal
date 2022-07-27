@@ -1,7 +1,7 @@
 {
   "Name": "魔牙战麾·燃烧",
   "Id": 99950013,
-  "MaxDurability": 12,
+  "MaxDura": 12,
   "Weight": 1,
   "Level": 25,
   "NeedLevel": 20,

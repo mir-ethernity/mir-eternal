@@ -1,7 +1,7 @@
 {
   "Name": "紫碧螺",
   "Id": 99930020,
-  "MaxDurability": 5,
+  "MaxDura": 5,
   "Weight": 2,
   "Level": 37,
   "SalePrice": 15000,

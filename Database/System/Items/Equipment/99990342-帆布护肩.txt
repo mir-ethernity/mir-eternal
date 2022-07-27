@@ -1,7 +1,7 @@
 {
   "Name": "帆布护肩",
   "Id": 99990342,
-  "MaxDurability": 8,
+  "MaxDura": 8,
   "Weight": 2,
   "Level": 18,
   "NeedLevel": 15,

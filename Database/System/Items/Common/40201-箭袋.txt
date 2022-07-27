@@ -1,7 +1,7 @@
 {
   "Name": "箭袋",
   "Id": 40201,
-  "MaxDurability": 300,
+  "MaxDura": 300,
   "Weight": 1,
   "NeedLevel": 1,
   "SalePrice": 250,

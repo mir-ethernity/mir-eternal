@@ -1,7 +1,7 @@
 {
   "Name": "霜影护肩",
   "Id": 99990542,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 4,
   "Level": 33,
   "NeedLevel": 30,

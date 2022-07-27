@@ -1,7 +1,7 @@
 {
   "Name": "精修玉佩·褐岩",
   "Id": 99971206,
-  "MaxDurability": 9,
+  "MaxDura": 9,
   "Weight": 1,
   "Level": 34,
   "NeedLevel": 10,

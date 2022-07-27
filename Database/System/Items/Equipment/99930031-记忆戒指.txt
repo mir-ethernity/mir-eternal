@@ -1,7 +1,7 @@
 {
   "Name": "记忆戒指",
   "Id": 99930031,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 1,
   "Level": 28,
   "NeedLevel": 26,

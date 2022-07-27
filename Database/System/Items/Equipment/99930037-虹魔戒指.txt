@@ -1,7 +1,7 @@
 {
   "Name": "虹魔戒指",
   "Id": 99930037,
-  "MaxDurability": 4,
+  "MaxDura": 4,
   "Weight": 2,
   "Level": 40,
   "NeedLevel": 33,

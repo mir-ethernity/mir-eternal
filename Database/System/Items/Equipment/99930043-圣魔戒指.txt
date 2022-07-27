@@ -1,7 +1,7 @@
 {
   "Name": "圣魔戒指",
   "Id": 99930043,
-  "MaxDurability": 6,
+  "MaxDura": 6,
   "Weight": 1,
   "Level": 60,
   "SalePrice": 60000,

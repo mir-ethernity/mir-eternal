@@ -1,7 +1,7 @@
 {
   "Name": "铁矿9",
   "Id": 116009,
-  "MaxDurability": 9,
+  "MaxDura": 9,
   "Weight": 4,
   "NeedLevel": 1,
   "SalePrice": 49,

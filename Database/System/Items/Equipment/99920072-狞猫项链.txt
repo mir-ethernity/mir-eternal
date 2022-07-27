@@ -1,7 +1,7 @@
 {
   "Name": "狞猫项链",
   "Id": 99920072,
-  "MaxDurability": 6,
+  "MaxDura": 6,
   "Weight": 1,
   "Level": 24,
   "NeedLevel": 17,

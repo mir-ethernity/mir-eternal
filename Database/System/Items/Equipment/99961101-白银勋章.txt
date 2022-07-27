@@ -1,7 +1,7 @@
 {
   "Name": "白银勋章",
   "Id": 99961101,
-  "MaxDurability": 9,
+  "MaxDura": 9,
   "Weight": 1,
   "Level": 10,
   "NeedLevel": 10,

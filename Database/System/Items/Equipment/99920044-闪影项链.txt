@@ -1,7 +1,7 @@
 {
   "Name": "闪影项链",
   "Id": 99920044,
-  "MaxDurability": 6,
+  "MaxDura": 6,
   "Weight": 1,
   "Level": 30,
   "NeedLevel": 24,

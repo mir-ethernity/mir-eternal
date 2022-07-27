@@ -1,7 +1,7 @@
 {
   "Name": "风行暗戒",
   "Id": 99930051,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 3,
   "Level": 58,
   "SalePrice": 50000,

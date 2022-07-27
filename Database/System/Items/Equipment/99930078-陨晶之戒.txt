@@ -1,7 +1,7 @@
 {
   "Name": "陨晶之戒",
   "Id": 99930078,
-  "MaxDurability": 8,
+  "MaxDura": 8,
   "Weight": 3,
   "Level": 60,
   "SalePrice": 60000,

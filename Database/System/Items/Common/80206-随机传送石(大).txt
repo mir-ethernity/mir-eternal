@@ -1,7 +1,7 @@
 {
   "Name": "随机传送石(大)",
   "Id": 80206,
-  "MaxDurability": 200,
+  "MaxDura": 200,
   "Weight": 1,
   "NeedLevel": 1,
   "Cooldown": 500,

@@ -1,7 +1,7 @@
 {
   "Name": "灵魂战衣(男)",
   "Id": 99980433,
-  "MaxDurability": 25,
+  "MaxDura": 25,
   "Weight": 15,
   "Level": 25,
   "NeedLevel": 22,

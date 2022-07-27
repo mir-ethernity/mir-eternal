@@ -1,7 +1,7 @@
 {
   "Name": "铁矿5",
   "Id": 116005,
-  "MaxDurability": 5,
+  "MaxDura": 5,
   "Weight": 4,
   "NeedLevel": 1,
   "SalePrice": 31,

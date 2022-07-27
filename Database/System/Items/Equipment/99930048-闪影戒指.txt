@@ -1,7 +1,7 @@
 {
   "Name": "闪影戒指",
   "Id": 99930048,
-  "MaxDurability": 5,
+  "MaxDura": 5,
   "Weight": 1,
   "Level": 30,
   "NeedLevel": 23,

@@ -1,7 +1,7 @@
 {
   "Name": "影之虚空·耀眼",
   "Id": 99950007,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 1,
   "Level": 17,
   "NeedLevel": 15,

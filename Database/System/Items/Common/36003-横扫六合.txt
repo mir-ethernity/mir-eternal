@@ -1,7 +1,7 @@
 {
   "Name": "横扫六合",
   "Id": 36003,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 1,
   "NeedLevel": 17,
   "SalePrice": 250,

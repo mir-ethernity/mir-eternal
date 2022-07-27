@@ -1,7 +1,7 @@
 {
   "Name": "幽灵项链",
   "Id": 99920016,
-  "MaxDurability": 6,
+  "MaxDura": 6,
   "Weight": 1,
   "Level": 30,
   "NeedLevel": 24,

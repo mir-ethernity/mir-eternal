@@ -42,5 +42,22 @@ namespace GameServer.Templates
 		public int NumberSpiritStones;
 		public int NumberGoldCoins;
 		public GameEquipmentSet EquipSet;
+
+		public byte Location
+		{
+			get
+			{
+				switch (Type)
+				{
+					case ItemType.武器:
+						return 0;
+					case ItemType.衣服:
+						return 1;
+
+				}
+				return byte.MaxValue;
+			}
+		}
+
 	}
 }

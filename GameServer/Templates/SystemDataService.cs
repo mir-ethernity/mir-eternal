@@ -30,7 +30,8 @@ namespace GameServer.Templates
                 typeof(InscriptionSkill),
                 typeof(GameSkills),
                 typeof(SkillTraps),
-                typeof(GameBuffs)
+                typeof(GameBuffs),
+                typeof(InscriptionItems)
             };
 
             Task.Run(delegate ()
@@ -57,7 +58,7 @@ namespace GameServer.Templates
                     }
 
                     object obj = field.GetValue(null);
-                    if(obj == null)
+                    if (obj == null)
                     {
                         MessageBox.Show(type.Name + " Failed to load content, Check data directory");
                         continue;

@@ -1,7 +1,7 @@
 {
   "Name": "治愈术",
   "Id": 33002,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 1,
   "NeedLevel": 7,
   "SalePrice": 10,

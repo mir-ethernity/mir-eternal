@@ -1,7 +1,7 @@
 {
   "Name": "风行腰带",
   "Id": 99990745,
-  "MaxDurability": 6,
+  "MaxDura": 6,
   "Weight": 1,
   "Level": 50,
   "SalePrice": 30000,

@@ -1,7 +1,7 @@
 {
   "Name": "镇魔古城回城卷包",
   "Id": 80110,
-  "MaxDurability": 1,
+  "MaxDura": 1,
   "Weight": 7,
   "NeedLevel": 1,
   "SalePrice": 3700,

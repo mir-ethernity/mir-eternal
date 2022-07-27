@@ -1,7 +1,7 @@
 {
   "Name": "蛇眼戒指",
   "Id": 99930009,
-  "MaxDurability": 5,
+  "MaxDura": 5,
   "Weight": 1,
   "Level": 18,
   "NeedLevel": 20,

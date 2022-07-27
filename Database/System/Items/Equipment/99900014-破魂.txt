@@ -1,7 +1,7 @@
 {
   "Name": "破魂",
   "Id": 99900014,
-  "MaxDurability": 11,
+  "MaxDura": 11,
   "Weight": 8,
   "Level": 20,
   "NeedLevel": 20,

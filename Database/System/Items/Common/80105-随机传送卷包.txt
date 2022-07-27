@@ -1,7 +1,7 @@
 {
   "Name": "随机传送卷包",
   "Id": 80105,
-  "MaxDurability": 1,
+  "MaxDura": 1,
   "Weight": 7,
   "NeedLevel": 1,
   "SalePrice": 400,

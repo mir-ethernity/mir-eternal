@@ -1,7 +1,7 @@
 {
   "Name": "黑铁矿石5",
   "Id": 114005,
-  "MaxDurability": 5,
+  "MaxDura": 5,
   "Weight": 4,
   "NeedLevel": 1,
   "SalePrice": 28,

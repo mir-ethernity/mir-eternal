@@ -1,7 +1,7 @@
 {
   "Name": "传说头盔(法神)",
   "Id": 99999002,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 2,
   "Level": 52,
   "NeedLevel": 45,

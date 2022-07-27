@@ -1,7 +1,7 @@
 {
   "Name": "超级施毒药粉",
   "Id": 40004,
-  "MaxDurability": 600,
+  "MaxDura": 600,
   "Weight": 4,
   "NeedLevel": 1,
   "SalePrice": 50000,

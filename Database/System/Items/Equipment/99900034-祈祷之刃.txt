@@ -1,7 +1,7 @@
 {
   "Name": "祈祷之刃",
   "Id": 99900034,
-  "MaxDurability": 20,
+  "MaxDura": 20,
   "Weight": 10,
   "Level": 28,
   "NeedLevel": 20,

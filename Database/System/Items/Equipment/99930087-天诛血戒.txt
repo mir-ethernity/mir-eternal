@@ -1,7 +1,7 @@
 {
   "Name": "天诛血戒",
   "Id": 99930087,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 3,
   "Level": 58,
   "SalePrice": 50000,

@@ -1,7 +1,7 @@
 {
   "Name": "命运之幡",
   "Id": 99900047,
-  "MaxDurability": 22,
+  "MaxDura": 22,
   "Weight": 28,
   "Level": 31,
   "NeedLevel": 35,

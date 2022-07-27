@@ -1,7 +1,7 @@
 {
   "Name": "金创药(小)包",
   "Id": 361,
-  "MaxDurability": 1,
+  "MaxDura": 1,
   "Weight": 7,
   "NeedLevel": 1,
   "SalePrice": 1,
@@ -10,5 +10,6 @@
   "Type": "可用杂物",
   "NeedRace": "通用",
   "PersistType": "堆叠",
+  "UnpackItemId": 301,
   "StoreType": "药品"
 }

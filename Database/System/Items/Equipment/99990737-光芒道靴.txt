@@ -1,7 +1,7 @@
 {
   "Name": "光芒道靴",
   "Id": 99990737,
-  "MaxDurability": 6,
+  "MaxDura": 6,
   "Weight": 1,
   "Level": 50,
   "SalePrice": 30000,

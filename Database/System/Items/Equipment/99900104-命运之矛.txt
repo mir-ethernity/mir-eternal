@@ -1,7 +1,7 @@
 {
   "Name": "命运之矛",
   "Id": 99900104,
-  "MaxDurability": 30,
+  "MaxDura": 30,
   "Weight": 17,
   "Level": 31,
   "NeedLevel": 35,

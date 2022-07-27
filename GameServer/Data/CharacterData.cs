@@ -318,6 +318,20 @@ namespace GameServer.Data
             return 网络 != null;
         }
 
+        public bool TryGetFreeSpaceAtInventory(out byte location)
+        {
+            for (byte b = 0; b < 背包大小.V; b += 1)
+            {
+                if (!角色背包.ContainsKey(b))
+                {
+                    location = b;
+                    return true;
+                }
+            }
+            location = byte.MaxValue;
+            return false;
+        }
+
 
         public CharacterData()
         {
@@ -328,8 +342,6 @@ namespace GameServer.Data
 
         public CharacterData(AccountData 账号, string 名字, GameObjectRace 职业, GameObjectGender 性别, ObjectHairType 发型, ObjectHairColorType 发色, ObjectFaceType 脸型)
         {
-
-
             this.当前等级.V = 1;
             this.背包大小.V = 32;
             this.仓库大小.V = 16;
@@ -347,38 +359,14 @@ namespace GameServer.Data
             this.当前地图.V = 142;
             this.重生地图.V = 142;
             this.当前坐标.V = MapGatewayProcess.分配地图(142).复活区域.RandomCoords;
+
             for (int i = 0; i <= 19; i++)
-            {
-                this.角色货币[(GameCurrency)i] = 0;
-            }
+                角色货币[(GameCurrency)i] = 0;
+
             this.玩家设置.SetValue(new uint[128].ToList<uint>());
-            GameItems 游戏物品;
-            GameItems 模板;
-            // 金创药(小)包
-            if (GameItems.DataSheetByName.TryGetValue("GoldBag(S)", out 模板))
-            {
-                this.角色背包[0] = new ItemData(模板, this, 1, 0, 1);
-                this.角色背包[1] = new ItemData(模板, this, 1, 1, 1);
-            }
-            // Shibori 柴刀 Wooden Sword 木剑
-            if (GameItems.DataSheetByName.TryGetValue((职业 == GameObjectRace.刺客) ? "Shibori" : "Wooden Sword", out 游戏物品))
-            {
-                EquipmentItem 游戏装备 = 游戏物品 as EquipmentItem;
-                if (游戏装备 != null)
-                {
-                    this.角色装备[0] = new EquipmentData(游戏装备, this, 0, 0, false);
-                }
-            }
-            GameItems 游戏物品2;
-            // Cloth(M) 布衣(男) Cloth(F) 布衣(女)
-            if (GameItems.DataSheetByName.TryGetValue((性别 == GameObjectGender.男性) ? "Cloth(M)" : "Cloth(F)", out 游戏物品2))
-            {
-                EquipmentItem 游戏装备2 = 游戏物品2 as EquipmentItem;
-                if (游戏装备2 != null)
-                {
-                    this.角色装备[1] = new EquipmentData(游戏装备2, this, 0, 1, false);
-                }
-            }
+
+            AddStarterItems();
+
             InscriptionSkill 铭文技能;
             if (InscriptionSkill.DataSheet.TryGetValue((ushort)((职业 == GameObjectRace.战士) ? 10300 : ((职业 == GameObjectRace.法师) ? 25300 : ((职业 == GameObjectRace.道士) ? 30000 : ((职业 == GameObjectRace.刺客) ? 15300 : ((职业 == GameObjectRace.弓手) ? 20400 : 12000))))), out 铭文技能))
             {
@@ -403,6 +391,65 @@ namespace GameServer.Data
             return DataMonitor.V;
         }
 
+        public void AddStarterItems()
+        {
+            foreach (var inscriptionItem in InscriptionItems.AllInscriptionItems)
+            {
+                if (inscriptionItem.NeedGender != null && inscriptionItem.NeedGender != 角色性别.V)
+                    continue;
+
+                if (inscriptionItem.NeedRace?.Length > 0 && !inscriptionItem.NeedRace.Contains(角色职业.V))
+                    continue;
+
+                if (!GameItems.DataSheet.TryGetValue(inscriptionItem.ItemId, out GameItems item))
+                    continue;
+
+                if (inscriptionItem.Backpack == ItemBackPack.人物穿戴 && item is not EquipmentItem)
+                    continue;
+
+                switch (inscriptionItem.Backpack)
+                {
+                    case ItemBackPack.人物背包:
+                        for (var i = 0; i < (inscriptionItem.Quantity ?? 1); i++)
+                            if (TryGetFreeSpaceAtInventory(out byte inventoryPosition))
+                                角色背包[inventoryPosition] = new ItemData(item, this, 1, inventoryPosition, 1);
+                        break;
+                    case ItemBackPack.人物穿戴:
+                        var equipment = (EquipmentItem)item;
+                        角色装备[equipment.Location] = new EquipmentData(equipment, this, 0, equipment.Location, false);
+                        break;
+                }
+            }
+
+            //GameItems 游戏物品;
+            //GameItems 模板;
+
+            //// 金创药(小)包
+            //if (GameItems.DataSheetByName.TryGetValue("GoldBag(S)", out 模板))
+            //{
+            //    this.角色背包[0] = new ItemData(模板, this, 1, 0, 1);
+            //    this.角色背包[1] = new ItemData(模板, this, 1, 1, 1);
+            //}
+            //// Shibori 柴刀 Wooden Sword 木剑
+            //if (GameItems.DataSheetByName.TryGetValue((角色职业.V == GameObjectRace.刺客) ? "Shibori" : "Wooden Sword", out 游戏物品))
+            //{
+            //    EquipmentItem 游戏装备 = 游戏物品 as EquipmentItem;
+            //    if (游戏装备 != null)
+            //    {
+            //        this.角色装备[0] = new EquipmentData(游戏装备, this, 0, 0, false);
+            //    }
+            //}
+            //GameItems 游戏物品2;
+            //// Cloth(M) 布衣(男) Cloth(F) 布衣(女)
+            //if (GameItems.DataSheetByName.TryGetValue((角色性别.V == GameObjectGender.男性) ? "Cloth(M)" : "Cloth(F)", out 游戏物品2))
+            //{
+            //    EquipmentItem 游戏装备2 = 游戏物品2 as EquipmentItem;
+            //    if (游戏装备2 != null)
+            //    {
+            //        this.角色装备[1] = new EquipmentData(游戏装备2, this, 0, 1, false);
+            //    }
+            //}
+        }
 
         public void AttachToEvents()
         {

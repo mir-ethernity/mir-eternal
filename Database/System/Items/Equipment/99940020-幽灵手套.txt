@@ -1,7 +1,7 @@
 {
   "Name": "幽灵手套",
   "Id": 99940020,
-  "MaxDurability": 8,
+  "MaxDura": 8,
   "Weight": 5,
   "Level": 30,
   "NeedLevel": 25,

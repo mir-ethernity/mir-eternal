@@ -1,7 +1,7 @@
 {
   "Name": "强效魔法药",
   "Id": 323,
-  "MaxDurability": 1,
+  "MaxDura": 1,
   "Weight": 1,
   "NeedLevel": 1,
   "Group": 102,

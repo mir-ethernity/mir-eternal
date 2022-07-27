@@ -1,7 +1,7 @@
 {
   "Name": "青铜斧",
   "Id": 99900008,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 10,
   "Level": 13,
   "NeedLevel": 13,

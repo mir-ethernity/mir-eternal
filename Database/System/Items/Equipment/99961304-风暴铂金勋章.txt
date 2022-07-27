@@ -1,7 +1,7 @@
 {
   "Name": "风暴铂金勋章",
   "Id": 99961304,
-  "MaxDurability": 9,
+  "MaxDura": 9,
   "Weight": 1,
   "Level": 25,
   "NeedLevel": 10,

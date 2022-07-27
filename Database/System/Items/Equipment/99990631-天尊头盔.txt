@@ -1,7 +1,7 @@
 {
   "Name": "天尊头盔",
   "Id": 99990631,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 3,
   "Level": 42,
   "SalePrice": 30000,

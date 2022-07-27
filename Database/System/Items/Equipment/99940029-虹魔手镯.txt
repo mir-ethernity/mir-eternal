@@ -1,7 +1,7 @@
 {
   "Name": "虹魔手镯",
   "Id": 99940029,
-  "MaxDurability": 4,
+  "MaxDura": 4,
   "Weight": 2,
   "Level": 40,
   "NeedLevel": 33,

@@ -1,7 +1,7 @@
 {
   "Name": "法神头盔",
   "Id": 99990621,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 2,
   "Level": 42,
   "SalePrice": 30000,

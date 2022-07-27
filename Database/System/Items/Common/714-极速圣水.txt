@@ -1,7 +1,7 @@
 {
   "Name": "极速圣水",
   "Id": 714,
-  "MaxDurability": 1,
+  "MaxDura": 1,
   "Weight": 2,
   "NeedLevel": 1,
   "Cooldown": 12100,

@@ -1,7 +1,7 @@
 {
   "Name": "祈祷手镯",
   "Id": 99940023,
-  "MaxDurability": 5,
+  "MaxDura": 5,
   "Weight": 1,
   "Level": 22,
   "NeedLevel": 15,

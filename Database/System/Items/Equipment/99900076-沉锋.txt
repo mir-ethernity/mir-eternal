@@ -1,7 +1,7 @@
 {
   "Name": "沉锋",
   "Id": 99900076,
-  "MaxDurability": 30,
+  "MaxDura": 30,
   "Weight": 17,
   "Level": 32,
   "NeedLevel": 28,

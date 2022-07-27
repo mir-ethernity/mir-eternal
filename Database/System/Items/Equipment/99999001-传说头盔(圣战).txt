@@ -1,7 +1,7 @@
 {
   "Name": "传说头盔(圣战)",
   "Id": 99999001,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 20,
   "Level": 52,
   "NeedLevel": 45,

@@ -1,7 +1,7 @@
 {
   "Name": "小手镯",
   "Id": 99940002,
-  "MaxDurability": 5,
+  "MaxDura": 5,
   "Weight": 1,
   "Level": 5,
   "NeedLevel": 5,

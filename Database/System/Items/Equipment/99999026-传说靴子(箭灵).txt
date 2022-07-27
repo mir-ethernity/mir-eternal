@@ -1,7 +1,7 @@
 {
   "Name": "传说靴子(箭灵)",
   "Id": 99999026,
-  "MaxDurability": 6,
+  "MaxDura": 6,
   "Weight": 1,
   "Level": 52,
   "NeedLevel": 45,

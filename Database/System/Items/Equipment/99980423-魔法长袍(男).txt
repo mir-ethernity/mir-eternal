@@ -1,7 +1,7 @@
 {
   "Name": "魔法长袍(男)",
   "Id": 99980423,
-  "MaxDurability": 25,
+  "MaxDura": 25,
   "Weight": 12,
   "Level": 25,
   "NeedLevel": 22,

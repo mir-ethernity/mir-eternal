@@ -1,7 +1,7 @@
 {
   "Name": "施毒药粉(大量)",
   "Id": 40003,
-  "MaxDurability": 150,
+  "MaxDura": 150,
   "Weight": 3,
   "NeedLevel": 1,
   "SalePrice": 9000,

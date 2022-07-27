@@ -1,7 +1,7 @@
 {
   "Name": "短剑",
   "Id": 99900005,
-  "MaxDurability": 8,
+  "MaxDura": 8,
   "Weight": 9,
   "Level": 10,
   "NeedLevel": 10,

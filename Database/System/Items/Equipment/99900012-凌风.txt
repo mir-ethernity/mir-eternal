@@ -1,7 +1,7 @@
 {
   "Name": "凌风",
   "Id": 99900012,
-  "MaxDurability": 18,
+  "MaxDura": 18,
   "Weight": 20,
   "Level": 19,
   "NeedLevel": 19,

@@ -1,7 +1,7 @@
 {
   "Name": "矿渣",
   "Id": 114000,
-  "MaxDurability": 99,
+  "MaxDura": 99,
   "Weight": 1,
   "NeedLevel": 1,
   "SalePrice": 10,

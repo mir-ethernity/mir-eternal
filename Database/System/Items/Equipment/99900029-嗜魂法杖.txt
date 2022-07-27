@@ -1,7 +1,7 @@
 {
   "Name": "嗜魂法杖",
   "Id": 99900029,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 26,
   "Level": 43,
   "NeedLevel": 35,

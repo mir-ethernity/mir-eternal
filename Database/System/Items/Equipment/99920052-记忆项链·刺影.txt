@@ -1,7 +1,7 @@
 {
   "Name": "记忆项链·刺影",
   "Id": 99920052,
-  "MaxDurability": 8,
+  "MaxDura": 8,
   "Weight": 1,
   "Level": 31,
   "NeedLevel": 26,

@@ -1,7 +1,7 @@
 {
   "Name": "霜焰披风·华美",
   "Id": 99950031,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 1,
   "Level": 20,
   "NeedLevel": 10,

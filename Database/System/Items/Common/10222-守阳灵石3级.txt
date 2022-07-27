@@ -1,7 +1,7 @@
 {
   "Name": "守阳灵石3级",
   "Id": 10222,
-  "MaxDurability": 100,
+  "MaxDura": 100,
   "Weight": 1,
   "NeedLevel": 1,
   "SalePrice": 20000,

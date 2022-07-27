@@ -1,7 +1,7 @@
 {
   "Name": "精神圣水",
   "Id": 713,
-  "MaxDurability": 1,
+  "MaxDura": 1,
   "Weight": 2,
   "NeedLevel": 1,
   "Cooldown": 12100,

@@ -1,7 +1,7 @@
 {
   "Name": "命运之刃",
   "Id": 99900030,
-  "MaxDurability": 32,
+  "MaxDura": 32,
   "Weight": 48,
   "Level": 31,
   "NeedLevel": 35,

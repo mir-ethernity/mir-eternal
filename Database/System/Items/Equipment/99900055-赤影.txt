@@ -1,7 +1,7 @@
 {
   "Name": "赤影",
   "Id": 99900055,
-  "MaxDurability": 30,
+  "MaxDura": 30,
   "Weight": 17,
   "Level": 32,
   "NeedLevel": 28,

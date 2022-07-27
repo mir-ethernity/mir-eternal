@@ -1,7 +1,7 @@
 {
   "Name": "伏波荡寇",
   "Id": 36002,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 1,
   "NeedLevel": 12,
   "SalePrice": 100,

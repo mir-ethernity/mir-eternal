@@ -1,7 +1,7 @@
 {
   "Name": "气血石",
   "Id": 99999100,
-  "MaxDurability": 36000,
+  "MaxDura": 36000,
   "Weight": 1,
   "Level": 10,
   "NeedLevel": 10,

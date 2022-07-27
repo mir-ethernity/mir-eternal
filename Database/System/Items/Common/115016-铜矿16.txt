@@ -1,7 +1,7 @@
 {
   "Name": "铜矿16",
   "Id": 115016,
-  "MaxDurability": 16,
+  "MaxDura": 16,
   "Weight": 4,
   "NeedLevel": 1,
   "SalePrice": 36,

@@ -1,7 +1,7 @@
 {
   "Name": "极品玉佩·金雷",
   "Id": 99971305,
-  "MaxDurability": 9,
+  "MaxDura": 9,
   "Weight": 1,
   "Level": 50,
   "NeedLevel": 10,

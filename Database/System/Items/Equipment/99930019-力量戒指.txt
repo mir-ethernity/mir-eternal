@@ -1,7 +1,7 @@
 {
   "Name": "力量戒指",
   "Id": 99930019,
-  "MaxDurability": 6,
+  "MaxDura": 6,
   "Weight": 3,
   "Level": 37,
   "SalePrice": 20000,

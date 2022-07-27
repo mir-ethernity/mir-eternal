@@ -1,7 +1,7 @@
 {
   "Name": "白色虎齿项链3",
   "Id": 99920037,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 1,
   "Level": 16,
   "SalePrice": 1500,

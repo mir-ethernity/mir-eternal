@@ -1,7 +1,7 @@
 {
   "Name": "骨玉权杖",
   "Id": 99900028,
-  "MaxDurability": 18,
+  "MaxDura": 18,
   "Weight": 20,
   "Level": 37,
   "NeedLevel": 35,

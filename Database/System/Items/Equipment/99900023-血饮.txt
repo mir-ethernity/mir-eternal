@@ -1,7 +1,7 @@
 {
   "Name": "血饮",
   "Id": 99900023,
-  "MaxDurability": 20,
+  "MaxDura": 20,
   "Weight": 12,
   "Level": 32,
   "SalePrice": 25000,

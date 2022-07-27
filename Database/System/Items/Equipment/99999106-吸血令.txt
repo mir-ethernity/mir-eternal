@@ -1,7 +1,7 @@
 {
   "Name": "吸血令",
   "Id": 99999106,
-  "MaxDurability": 4500,
+  "MaxDura": 4500,
   "Weight": 1,
   "Level": 10,
   "NeedLevel": 10,

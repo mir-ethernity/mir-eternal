@@ -1,7 +1,7 @@
 {
   "Name": "逍遥扇",
   "Id": 99900031,
-  "MaxDurability": 25,
+  "MaxDura": 25,
   "Weight": 44,
   "Level": 40,
   "NeedLevel": 35,

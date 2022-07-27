@@ -1,7 +1,7 @@
 {
   "Name": "铜矿10",
   "Id": 115010,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 4,
   "NeedLevel": 1,
   "SalePrice": 24,

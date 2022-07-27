@@ -1,7 +1,7 @@
 {
   "Name": "镔铁盔甲(男)",
   "Id": 99980463,
-  "MaxDurability": 25,
+  "MaxDura": 25,
   "Weight": 15,
   "Level": 25,
   "NeedLevel": 22,

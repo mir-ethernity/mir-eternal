@@ -1,7 +1,7 @@
 {
   "Name": "龙王之戒",
   "Id": 99930088,
-  "MaxDurability": 8,
+  "MaxDura": 8,
   "Weight": 3,
   "Level": 60,
   "SalePrice": 60000,

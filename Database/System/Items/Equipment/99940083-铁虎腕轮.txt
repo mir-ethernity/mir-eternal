@@ -1,7 +1,7 @@
 {
   "Name": "铁虎腕轮",
   "Id": 99940083,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 2,
   "Level": 37,
   "SalePrice": 15000,

@@ -1,7 +1,7 @@
 {
   "Name": "屠龙",
   "Id": 99900026,
-  "MaxDurability": 33,
+  "MaxDura": 33,
   "Weight": 99,
   "Level": 43,
   "NeedLevel": 34,

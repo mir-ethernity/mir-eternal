@@ -26,6 +26,8 @@ namespace GameServer.Templates
 		public bool CanSold;
 		public bool ValuableObjects;
 		public bool Resource;
+		public int? UnpackItemId;
+
 		public ItemType Type;
 		public GameObjectRace NeedRace;
 		public GameObjectGender NeedGender;

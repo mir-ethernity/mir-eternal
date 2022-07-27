@@ -1,7 +1,7 @@
 {
   "Name": "玄冰指环",
   "Id": 99930077,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 3,
   "Level": 58,
   "SalePrice": 50000,

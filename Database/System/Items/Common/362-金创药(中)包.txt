@@ -1,7 +1,7 @@
 {
   "Name": "金创药(中)包",
   "Id": 362,
-  "MaxDurability": 1,
+  "MaxDura": 1,
   "Weight": 7,
   "NeedLevel": 1,
   "SalePrice": 80,

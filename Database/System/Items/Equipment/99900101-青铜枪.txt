@@ -1,7 +1,7 @@
 {
   "Name": "青铜枪",
   "Id": 99900101,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 11,
   "Level": 13,
   "NeedLevel": 12,

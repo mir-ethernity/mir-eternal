@@ -1,7 +1,7 @@
 {
   "Name": "玉佩·碧血",
   "Id": 99971003,
-  "MaxDurability": 9,
+  "MaxDura": 9,
   "Weight": 1,
   "Level": 17,
   "NeedLevel": 10,

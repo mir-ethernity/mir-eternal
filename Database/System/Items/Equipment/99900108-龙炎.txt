@@ -1,7 +1,7 @@
 {
   "Name": "龙炎",
   "Id": 99900108,
-  "MaxDurability": 35,
+  "MaxDura": 35,
   "Weight": 25,
   "Level": 43,
   "NeedLevel": 35,

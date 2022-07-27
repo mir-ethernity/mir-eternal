@@ -1,7 +1,7 @@
 {
   "Name": "祖玛头像",
   "Id": 90196,
-  "MaxDurability": 99,
+  "MaxDura": 99,
   "Weight": 1,
   "Level": 1,
   "NeedLevel": 10,

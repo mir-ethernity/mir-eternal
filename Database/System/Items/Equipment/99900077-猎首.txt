@@ -1,7 +1,7 @@
 {
   "Name": "猎首",
   "Id": 99900077,
-  "MaxDurability": 32,
+  "MaxDura": 32,
   "Weight": 19,
   "Level": 37,
   "SalePrice": 40000,

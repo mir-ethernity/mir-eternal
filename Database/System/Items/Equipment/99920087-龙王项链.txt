@@ -1,7 +1,7 @@
 {
   "Name": "龙王项链",
   "Id": 99920087,
-  "MaxDurability": 8,
+  "MaxDura": 8,
   "Weight": 3,
   "Level": 53,
   "SalePrice": 60000,

@@ -1,7 +1,7 @@
 {
   "Name": "护身符(大)",
   "Id": 40102,
-  "MaxDurability": 200,
+  "MaxDura": 200,
   "Weight": 3,
   "NeedLevel": 1,
   "SalePrice": 550,

@@ -1,7 +1,7 @@
 {
   "Name": "圣战头盔",
   "Id": 99990611,
-  "MaxDurability": 7,
+  "MaxDura": 7,
   "Weight": 20,
   "Level": 42,
   "SalePrice": 35000,

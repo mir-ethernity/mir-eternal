@@ -1,7 +1,7 @@
 {
   "Name": "木枪",
   "Id": 99900100,
-  "MaxDurability": 4,
+  "MaxDura": 4,
   "Weight": 9,
   "Level": 1,
   "NeedLevel": 1,

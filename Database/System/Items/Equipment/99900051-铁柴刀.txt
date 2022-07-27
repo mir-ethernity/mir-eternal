@@ -1,7 +1,7 @@
 {
   "Name": "铁柴刀",
   "Id": 99900051,
-  "MaxDurability": 4,
+  "MaxDura": 4,
   "Weight": 9,
   "Level": 3,
   "NeedLevel": 1,

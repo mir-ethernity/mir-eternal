@@ -1,7 +1,7 @@
 {
   "Name": "黑铁矿石24",
   "Id": 114024,
-  "MaxDurability": 24,
+  "MaxDura": 24,
   "Weight": 4,
   "NeedLevel": 1,
   "SalePrice": 136,

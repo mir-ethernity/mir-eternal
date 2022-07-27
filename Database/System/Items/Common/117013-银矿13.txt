@@ -1,7 +1,7 @@
 {
   "Name": "银矿13",
   "Id": 117013,
-  "MaxDurability": 13,
+  "MaxDura": 13,
   "Weight": 4,
   "NeedLevel": 1,
   "SalePrice": 165,

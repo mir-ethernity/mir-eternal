@@ -1,7 +1,7 @@
 {
   "Name": "霜影",
   "Id": 99900057,
-  "MaxDurability": 35,
+  "MaxDura": 35,
   "Weight": 21,
   "Level": 40,
   "SalePrice": 50000,

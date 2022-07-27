@@ -1,7 +1,7 @@
 {
   "Name": "霜焰披风·耀眼",
   "Id": 99950032,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 1,
   "Level": 20,
   "NeedLevel": 10,

@@ -10658,6 +10658,14 @@ namespace GameServer.Maps
                         }
                         else
                         {
+                            var drugItem = v.物品模板;
+
+                            if(v.PersistType == PersistentItemType.堆叠)
+                            {
+                                if (v.UnpackItemId == null || !GameItems.DataSheet.TryGetValue(v.UnpackItemId.Value, out drugItem))
+                                    break;
+                            }
+
                             if (v.GroupId > 0 && v.GroupCooling > 0)
                             {
                                 冷却记录[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
@@ -10676,14 +10684,16 @@ namespace GameServer.Maps
                                     Cooldown = v.Cooldown
                                 });
                             }
+
                             ConsumeBackpackItem(1, v);
+
                             byte b21 = 0;
                             byte b22 = 0;
                             while (b21 < 背包大小 && b22 < 6)
                             {
                                 if (!角色背包.ContainsKey(b21))
                                 {
-                                    角色背包[b21] = new ItemData(v.物品模板, CharacterData, 1, b21, 1);
+                                    角色背包[b21] = new ItemData(drugItem, CharacterData, 1, b21, 1);
                                     网络连接?.发送封包(new 玩家物品变动
                                     {
                                         物品描述 = 角色背包[b21].字节描述()

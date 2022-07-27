@@ -1,7 +1,7 @@
 {
   "Name": "横江",
   "Id": 99900107,
-  "MaxDurability": 33,
+  "MaxDura": 33,
   "Weight": 23,
   "Level": 40,
   "SalePrice": 50000,

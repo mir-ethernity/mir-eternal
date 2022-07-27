@@ -1,7 +1,7 @@
 {
   "Name": "战神盔甲(女)",
   "Id": 99990513,
-  "MaxDurability": 30,
+  "MaxDura": 30,
   "Weight": 45,
   "Level": 34,
   "SalePrice": 25000,

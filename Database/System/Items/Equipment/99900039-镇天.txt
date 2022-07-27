@@ -1,7 +1,7 @@
 {
   "Name": "镇天",
   "Id": 99900039,
-  "MaxDurability": 20,
+  "MaxDura": 20,
   "Weight": 26,
   "Level": 50,
   "NeedLevel": 43,

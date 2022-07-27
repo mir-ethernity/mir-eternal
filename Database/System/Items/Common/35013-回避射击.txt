@@ -1,7 +1,7 @@
 {
   "Name": "回避射击",
   "Id": 35013,
-  "MaxDurability": 10,
+  "MaxDura": 10,
   "Weight": 1,
   "NeedLevel": 33,
   "SalePrice": 1500,

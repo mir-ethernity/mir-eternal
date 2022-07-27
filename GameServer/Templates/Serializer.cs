@@ -59,6 +59,30 @@ namespace GameServer.Templates
 			}
 			return concurrentQueue.ToArray();
 		}
+
+		public static TItem[] Deserialize<TItem>(string folder) where TItem : class, new()
+        {
+			List<TItem> output = new List<TItem>();
+			if (Directory.Exists(folder))
+			{
+				FileInfo[] files = new DirectoryInfo(folder).GetFiles();
+				for (int i = 0; i < files.Length; i++)
+				{
+					string text = File.ReadAllText(files[i].FullName);
+					foreach (KeyValuePair<string, string> keyValuePair in TypesOfSkill)
+					{
+						text = text.Replace(keyValuePair.Key, keyValuePair.Value);
+					}
+					var obj = JsonConvert.DeserializeObject<TItem>(text, JsonOptions);
+
+					if (obj != null)
+					{
+						output.Add(obj);
+					}
+				}
+			}
+			return output.ToArray();
+		}
 		
 		public static byte[] Decompress(byte[] data)
 		{

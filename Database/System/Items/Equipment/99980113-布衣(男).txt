@@ -1,7 +1,7 @@
 {
   "Name": "布衣(男)",
   "Id": 99980113,
-  "MaxDurability": 5,
+  "MaxDura": 5,
   "Weight": 5,
   "Level": 5,
   "NeedLevel": 1,

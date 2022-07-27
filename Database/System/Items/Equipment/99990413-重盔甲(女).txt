@@ -1,7 +1,7 @@
 {
   "Name": "重盔甲(女)",
   "Id": 99990413,
-  "MaxDurability": 25,
+  "MaxDura": 25,
   "Weight": 23,
   "Level": 25,
   "NeedLevel": 22,
