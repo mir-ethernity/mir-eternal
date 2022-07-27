@@ -13,7 +13,6 @@ namespace AccountServer
     {
         public static UdpClient LocalServer;
         public static ConcurrentQueue<PacketData> IncomingQueue;
-
         public static bool Start()
         {
             bool result;
@@ -55,7 +54,7 @@ namespace AccountServer
 
                 Task.Run(delegate ()
                 {
-                    MainForm.AddLog("Starting to process client requests.");
+                    MainForm.AddLog("--- [ Ready to Process Client Requests ] ---");
                     while (LocalServer != null)
                     {
                         try
@@ -73,7 +72,7 @@ namespace AccountServer
                             int num;
                             if (array.Length <= 3 || !int.TryParse(array[0], out num))
                             {
-                                MainForm.AddLog(string.Format("Bad packet received Address: {0}, Length: {1}", packet.ClientAddress, packet.ReceivedData.Length));
+                                MainForm.AddLog(string.Format("Bad Packet Received, Address: {0}, Length: {1}", packet.ClientAddress, packet.ReceivedData.Length));
                             }
                             else
                             {
@@ -114,7 +113,7 @@ namespace AccountServer
                                                             " ",
                                                             text
                                                     })));
-                                                    MainForm.AddLog("Successfully generated tickets! Account: " + array[2] + " - " + text);
+                                                    MainForm.AddLog("Successfully Generated Tickets! Account: " + array[2] + " - " + text);
                                                     MainForm.TotalTickets += 1U;
                                                     MainForm.UpdateTotalTickets();
                                                 }
@@ -151,7 +150,7 @@ namespace AccountServer
                                                         " ",
                                                         array[2]
                                                 })));
-                                                MainForm.AddLog("Password changed successfully! Account: " + array[1]);
+                                                MainForm.AddLog("Password Changed on Account: " + array[1]);
                                             }
                                         }
                                     }
@@ -196,9 +195,9 @@ namespace AccountServer
                                                     " ",
                                                     array[3]
                                             })));
-                                            MainForm.AddLog("Account registration is successful! Account: " + array[2]);
+                                            MainForm.AddLog("New Account Created: " + array[2]);
                                             MainForm.TotalNewAccounts += 1U;
-                                            MainForm.UpdateTotalNewAccounts();
+                                            MainForm.UpdateRegisteredAccounts();
                                         }
                                     }
                                 }
@@ -231,7 +230,7 @@ namespace AccountServer
                             MainForm.AddLog("Packet processing error: " + ex2.Message);
                         }
                     }
-                    MainForm.AddLog("Stop processing client requests.");
+                    MainForm.AddLog("Stopped Processing Client Requests.");
                 });
                 result = true;
             }
@@ -248,7 +247,6 @@ namespace AccountServer
             }
             return result;
         }
-
         public static void Stop()
         {
             UdpClient udpClient = LocalServer;
@@ -258,7 +256,6 @@ namespace AccountServer
             }
             LocalServer = null;
         }
-
         public static void SendData(IPEndPoint address, byte[] data)
         {
             MainForm.TotalBytesSended += (long)data.Length;
@@ -276,7 +273,6 @@ namespace AccountServer
                 }
             }
         }
-
         public static void SendTicket(IPEndPoint address, string packet, string account)
         {
             MainForm.TotalTickets += 1U;
