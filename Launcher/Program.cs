@@ -21,6 +21,7 @@ namespace Launcher
       if (createdNew)
       {
         Application.EnableVisualStyles();
+        Application.SetHighDpiMode(HighDpiMode.SystemAware);
         Application.SetCompatibleTextRenderingDefault(false);
         Application.Run((Form) new MainForm());
       }
