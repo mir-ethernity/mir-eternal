@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameServer.Enums;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -33,6 +34,8 @@ namespace GameServer.Templates
 		public GameObjectGender NeedGender;
 		public PersistentItemType PersistType;
 		public ItemsForSale StoreType;
+		
+		public IDictionary<ItemProperty, int> Props;
 
 		public static GameItems GetItem(int id)
 		{

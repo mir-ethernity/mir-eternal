@@ -7,6 +7,7 @@ using System.Text;
 using GameServer.Data;
 using GameServer.Templates;
 using GameServer.Networking;
+using GameServer.Enums;
 
 namespace GameServer.Maps
 {
@@ -10644,9 +10645,9 @@ namespace GameServer.Maps
                             });
                         }
                         ConsumeBackpackItem(1, v);
-                        药品回血 = MainProcess.CurrentTime.AddSeconds(1.0); // TODO: Pending get from item database 
-                        回血基数 = 15; // TODO: (health recovery amount) Pending get from item database 
-                        回血次数 = 6; // TODO: (health recovery steps) Pending get from item database 
+                        药品回血 = MainProcess.CurrentTime.AddSeconds(v.GetProp(ItemProperty.RecoveryTime, 1));
+                        回血基数 = v.GetProp(ItemProperty.RecoveryBase, 15);
+                        回血次数 = v.GetProp(ItemProperty.RecoverySteps, 6);
                         break;
                     case ItemType.可用杂物:
                         if (背包大小 - 角色背包.Count < 5)

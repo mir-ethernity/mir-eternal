@@ -59,6 +59,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\ItemProperty.cs" />
     <Compile Include="GMCommands\GMCommand.cs" />
     <Compile Include="GMCommands\Mob.cs" />
     <Compile Include="GMCommands\Move.cs" />

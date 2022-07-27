@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using GameServer.Enums;
 using GameServer.Templates;
 
 namespace GameServer.Data
@@ -607,5 +608,12 @@ namespace GameServer.Data
 
 		
 		public int PurchaseId;
-	}
+
+        public int GetProp(ItemProperty property, int defaultValue = 0)
+        {
+			if (物品模板.Props.ContainsKey(property))
+				return 物品模板.Props[property];
+			return defaultValue;
+		}
+    }
 }
