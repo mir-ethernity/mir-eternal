@@ -12,8 +12,8 @@ namespace GameServer.Networking
     {
         static GamePacket()
         {
-            GamePacket.加密字节 = 129;
-            GamePacket.封包处理方法表 = new Dictionary<Type, MethodInfo>();
+            GamePacket.EncryptionKey = 129;
+            GamePacket.PacketMethods = new Dictionary<Type, MethodInfo>();
             Dictionary<Type, Func<BinaryReader, WrappingFieldAttribute, object>> dictionary = new Dictionary<Type, Func<BinaryReader, WrappingFieldAttribute, object>>();
             Type typeFromHandle = typeof(bool);
             dictionary[typeFromHandle] = delegate (BinaryReader 读取流, WrappingFieldAttribute 描述符)
@@ -163,10 +163,10 @@ namespace GameServer.Networking
                 写入流.Write(ComputingClass.TimeShift((DateTime)对象));
             };
             GamePacket.封包字段写入表 = dictionary2;
-            GamePacket.服务器封包类型表 = new Dictionary<ushort, Type>();
+            GamePacket.ServerPackets = new Dictionary<ushort, Type>();
             GamePacket.服务器封包编号表 = new Dictionary<Type, ushort>();
             GamePacket.服务器封包长度表 = new Dictionary<ushort, ushort>();
-            GamePacket.客户端封包类型表 = new Dictionary<ushort, Type>();
+            GamePacket.ClientPackets = new Dictionary<ushort, Type>();
             GamePacket.客户端封包编号表 = new Dictionary<Type, ushort>();
             GamePacket.客户端封包长度表 = new Dictionary<ushort, ushort>();
             foreach (Type type in Assembly.GetExecutingAssembly().GetTypes())
@@ -178,17 +178,17 @@ namespace GameServer.Networking
                     {
                         if (customAttribute.来源 == PacketSource.客户端)
                         {
-                            GamePacket.客户端封包类型表[customAttribute.编号] = type;
+                            GamePacket.ClientPackets[customAttribute.编号] = type;
                             GamePacket.客户端封包编号表[type] = customAttribute.编号;
                             GamePacket.客户端封包长度表[customAttribute.编号] = customAttribute.长度;
-                            GamePacket.封包处理方法表[type] = typeof(客户网络).GetMethod("处理封包", new Type[]
+                            GamePacket.PacketMethods[type] = typeof(SConnection).GetMethod("处理封包", new Type[]
                             {
                                 type
                             });
                         }
                         else
                         {
-                            GamePacket.服务器封包类型表[customAttribute.编号] = type;
+                            GamePacket.ServerPackets[customAttribute.编号] = type;
                             GamePacket.服务器封包编号表[type] = customAttribute.编号;
                             GamePacket.服务器封包长度表[customAttribute.编号] = customAttribute.长度;
                         }
@@ -196,12 +196,12 @@ namespace GameServer.Networking
                 }
             }
             string text = "";
-            foreach (KeyValuePair<ushort, Type> keyValuePair in GamePacket.服务器封包类型表)
+            foreach (KeyValuePair<ushort, Type> keyValuePair in GamePacket.ServerPackets)
             {
                 text += string.Format("{0}\t{1}\t{2}\r\n", keyValuePair.Value.Name, keyValuePair.Key, GamePacket.服务器封包长度表[keyValuePair.Key]);
             }
             string text2 = "";
-            foreach (KeyValuePair<ushort, Type> keyValuePair2 in GamePacket.客户端封包类型表)
+            foreach (KeyValuePair<ushort, Type> keyValuePair2 in GamePacket.ClientPackets)
             {
                 text2 += string.Format("{0}\t{1}\t{2}\r\n", keyValuePair2.Value.Name, keyValuePair2.Key, GamePacket.客户端封包长度表[keyValuePair2.Key]);
             }
@@ -220,14 +220,14 @@ namespace GameServer.Networking
 
             this.是否加密 = true;
 
-            this.封包类型 = base.GetType();
-            if (this.封包类型.GetCustomAttribute<PacketInfoAttribute>().来源 == PacketSource.服务器)
+            this.PacketType = base.GetType();
+            if (this.PacketType.GetCustomAttribute<PacketInfoAttribute>().来源 == PacketSource.服务器)
             {
-                this.封包编号 = GamePacket.服务器封包编号表[this.封包类型];
+                this.封包编号 = GamePacket.服务器封包编号表[this.PacketType];
                 this.封包长度 = GamePacket.服务器封包长度表[this.封包编号];
                 return;
             }
-            this.封包编号 = GamePacket.客户端封包编号表[this.封包类型];
+            this.封包编号 = GamePacket.客户端封包编号表[this.PacketType];
             this.封包长度 = GamePacket.客户端封包长度表[this.封包编号];
         }
 
@@ -239,7 +239,7 @@ namespace GameServer.Networking
             {
                 using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
                 {
-                    foreach (FieldInfo fieldInfo in this.封包类型.GetFields())
+                    foreach (FieldInfo fieldInfo in this.PacketType.GetFields())
                     {
                         WrappingFieldAttribute customAttribute = fieldInfo.GetCustomAttribute<WrappingFieldAttribute>();
                         if (customAttribute != null)
@@ -262,7 +262,7 @@ namespace GameServer.Networking
                     byte[] array = memoryStream.ToArray();
                     if (this.是否加密)
                     {
-                        result = GamePacket.加解密(array);
+                        result = GamePacket.EncodeData(array);
                     }
                     else
                     {
@@ -280,7 +280,7 @@ namespace GameServer.Networking
             {
                 using (BinaryReader binaryReader = new BinaryReader(memoryStream))
                 {
-                    foreach (FieldInfo fieldInfo in this.封包类型.GetFields())
+                    foreach (FieldInfo fieldInfo in this.PacketType.GetFields())
                     {
                         WrappingFieldAttribute customAttribute = fieldInfo.GetCustomAttribute<WrappingFieldAttribute>();
                         if (customAttribute != null)
@@ -298,7 +298,7 @@ namespace GameServer.Networking
         }
 
 
-        public static GamePacket GetPacket(客户网络 网络连接, byte[] 原始数据, out byte[] 剩余数据)
+        public static GamePacket GetPacket(SConnection 网络连接, byte[] 原始数据, out byte[] 剩余数据)
         {
             剩余数据 = 原始数据;
             if (原始数据.Length < 2)
@@ -308,15 +308,15 @@ namespace GameServer.Networking
             ushort num = BitConverter.ToUInt16(原始数据, 0);
             Type type;
 
-            if (!客户端封包类型表.TryGetValue(num, out type))
+            if (!ClientPackets.TryGetValue(num, out type))
             {
-                网络连接.尝试断开连接(new Exception(string.Format("封包组包失败! 封包编号:{0:X4}", num)));
+                网络连接.CallExceptionEventHandler(new Exception(string.Format("封包组包失败! 封包编号:{0:X4}", num)));
                 return null;
             }
             ushort num2;
             if (!客户端封包长度表.TryGetValue(num, out num2))
             {
-                网络连接.尝试断开连接(new Exception(string.Format("获取封包长度失败! 封包编号:{0:X4}", num)));
+                网络连接.CallExceptionEventHandler(new Exception(string.Format("获取封包长度失败! 封包编号:{0:X4}", num)));
                 return null;
             }
             if (num2 == 0 && 原始数据.Length < 4)
@@ -332,7 +332,7 @@ namespace GameServer.Networking
             byte[] 原始数据2 = 原始数据.Take((int)num2).ToArray<byte>();
             if (GamePacket.是否加密)
             {
-                GamePacket.加解密(原始数据2);
+                GamePacket.EncodeData(原始数据2);
             }
             GamePacket.填封包(原始数据2);
             剩余数据 = 原始数据.Skip((int)num2).ToArray<byte>();
@@ -340,26 +340,26 @@ namespace GameServer.Networking
         }
 
 
-        private static byte[] 加解密(byte[] 原始数据)
+        private static byte[] EncodeData(byte[] data)
         {
-            for (int i = 4; i < 原始数据.Length; i++)
+            for (int i = 4; i < data.Length; i++)
             {
-                原始数据[i] ^= GamePacket.加密字节;
+                data[i] ^= GamePacket.EncryptionKey;
             }
-            return (byte[])原始数据;
+            return (byte[])data;
         }
 
 
-        public static byte 加密字节;
+        public static byte EncryptionKey;
 
 
-        public static Dictionary<Type, MethodInfo> 封包处理方法表;
+        public static Dictionary<Type, MethodInfo> PacketMethods;
 
 
-        public static Dictionary<ushort, Type> 服务器封包类型表;
+        public static Dictionary<ushort, Type> ServerPackets;
 
 
-        public static Dictionary<ushort, Type> 客户端封包类型表;
+        public static Dictionary<ushort, Type> ClientPackets;
 
 
         public static Dictionary<Type, ushort> 服务器封包编号表;
@@ -380,7 +380,7 @@ namespace GameServer.Networking
         public static Dictionary<Type, Action<BinaryWriter, WrappingFieldAttribute, object>> 封包字段写入表;
 
 
-        public readonly Type 封包类型;
+        public readonly Type PacketType;
 
 
         private readonly ushort 封包编号;
@@ -390,12 +390,12 @@ namespace GameServer.Networking
 
         public override string ToString()
         {
-            var fields = 封包类型.GetFields(BindingFlags.Public);
+            var fields = PacketType.GetFields(BindingFlags.Public);
             var validFieldTypes = new string[] { "string", "int", "uint", "ushort", "short" };
 
             var sb = new StringBuilder();
 
-            sb.Append($"[{封包类型.Name}] {{");
+            sb.Append($"[{PacketType.Name}] {{");
 
             foreach (var field in fields)
             {

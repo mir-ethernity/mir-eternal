@@ -598,7 +598,7 @@ namespace GameServer.Templates
 											{
 												this.技能来源.冷却记录[(int)this.SkillId | 16777216] = this.释放时间.AddMilliseconds((this.SkillData.计数时间 - MainProcess.CurrentTime).TotalMilliseconds);
 											}
-											PlayerObject6.网络连接.发送封包(new SyncSkillCountPacket
+											PlayerObject6.GetCurrentConnection.发送封包(new SyncSkillCountPacket
 											{
 												SkillId = this.SkillData.SkillId.V,
 												SkillCount = this.SkillData.剩余次数.V,
@@ -1380,12 +1380,12 @@ namespace GameServer.Templates
 																		i = (int)this.技能等级;
 																		byte 等级上限 = (byte)((num23.GetValueOrDefault() > i & num23 != null) ? c_06_计算宠物召唤.宠物等级上限[(int)this.技能等级] : 0);
 																		PetObject PetObject = new PetObject(PlayerObject11, 召唤宠物, this.技能等级, 等级上限, c_06_计算宠物召唤.宠物绑定武器);
-																		PlayerObject11.网络连接.发送封包(new SyncPetLevelPacket
+																		PlayerObject11.GetCurrentConnection.发送封包(new SyncPetLevelPacket
 																		{
 																			宠物编号 = PetObject.MapId,
 																			宠物等级 = PetObject.宠物等级
 																		});
-																		PlayerObject11.网络连接.发送封包(new GameErrorMessagePacket
+																		PlayerObject11.GetCurrentConnection.发送封包(new GameErrorMessagePacket
 																		{
 																			错误代码 = 9473,
 																			第一参数 = (int)PlayerObject11.PetMode

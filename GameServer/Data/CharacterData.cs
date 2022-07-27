@@ -254,7 +254,7 @@ namespace GameServer.Data
 
         // (get) Token: 0x060005E5 RID: 1509 RVA: 0x000057B3 File Offset: 0x000039B3
         // (set) Token: 0x060005E6 RID: 1510 RVA: 0x000057BB File Offset: 0x000039BB
-        public 客户网络 ActiveConnection { get; set; }
+        public SConnection ActiveConnection { get; set; }
 
 
         public void 获得经验(int 经验值)
@@ -284,7 +284,7 @@ namespace GameServer.Data
         }
 
 
-        public void 角色上线(客户网络 网络)
+        public void 角色上线(SConnection 网络)
         {
             this.ActiveConnection = 网络;
             NetworkServiceGateway.ConnectionsOnline += 1U;
@@ -300,7 +300,7 @@ namespace GameServer.Data
             邮件.收件地址.V = this;
             this.角色邮件.Add(邮件);
             this.未读邮件.Add(邮件);
-            客户网络 网络连接 = this.ActiveConnection;
+            SConnection 网络连接 = this.ActiveConnection;
             if (网络连接 == null)
             {
                 return;
@@ -312,7 +312,7 @@ namespace GameServer.Data
         }
 
 
-        public bool 角色在线(out 客户网络 网络)
+        public bool 角色在线(out SConnection 网络)
         {
             网络 = this.ActiveConnection;
             return 网络 != null;

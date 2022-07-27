@@ -17,9 +17,9 @@ namespace GameServer.Networking
 		public static void Start()
 		{
 			网络服务停止 = false;
-			Connections = new HashSet<客户网络>();
-			等待添加表 = new ConcurrentQueue<客户网络>();
-			等待移除表 = new ConcurrentQueue<客户网络>();
+			Connections = new HashSet<SConnection>();
+			等待添加表 = new ConcurrentQueue<SConnection>();
+			等待移除表 = new ConcurrentQueue<SConnection>();
 			全服公告表 = new ConcurrentQueue<GamePacket>();
 			网络监听器 = new TcpListener(IPAddress.Any, (int)Config.GSPort);
 			网络监听器.Start();
@@ -77,14 +77,14 @@ namespace GameServer.Networking
 			{
 				MainProcess.AddSystemLog("接收登录门票时发生错误. " + ex.Message);
 			}
-			using (HashSet<客户网络>.Enumerator enumerator = Connections.GetEnumerator())
+			using (HashSet<SConnection>.Enumerator enumerator = Connections.GetEnumerator())
 			{
 				while (enumerator.MoveNext())
 				{
-					客户网络 客户网络 = enumerator.Current;
-					if (!客户网络.正在断开 && 客户网络.绑定账号 == null && MainProcess.CurrentTime.Subtract(客户网络.接入时间).TotalSeconds > 30.0)
+					SConnection 客户网络 = enumerator.Current;
+					if (!客户网络.ConnectionErrored && 客户网络.Account == null && MainProcess.CurrentTime.Subtract(客户网络.接入时间).TotalSeconds > 30.0)
 					{
-						客户网络.尝试断开连接(new Exception("登录超时, 断开连接!"));
+						客户网络.CallExceptionEventHandler(new Exception("登录超时, 断开连接!"));
 					}
 					else
 					{
@@ -94,7 +94,7 @@ namespace GameServer.Networking
 				goto IL_13E;
 			}
 			IL_123:
-			客户网络 item;
+			SConnection item;
 			if (等待移除表.TryDequeue(out item))
 			{
 				Connections.Remove(item);
@@ -104,7 +104,7 @@ namespace GameServer.Networking
 			{
 				while (!等待添加表.IsEmpty)
 				{
-                    if (等待添加表.TryDequeue(out 客户网络 item2))
+                    if (等待添加表.TryDequeue(out SConnection item2))
                     {
                         Connections.Add(item2);
                     }
@@ -113,7 +113,7 @@ namespace GameServer.Networking
 				{
                     if (全服公告表.TryDequeue(out GamePacket 封包))
                     {
-                        foreach (客户网络 客户网络2 in Connections)
+                        foreach (SConnection 客户网络2 in Connections)
                         {
                             if (客户网络2.Player != null)
                             {
@@ -147,10 +147,10 @@ namespace GameServer.Networking
 				}
 				else if (Connections.Count < 10000)
 				{
-					ConcurrentQueue<客户网络> concurrentQueue = 等待添加表;
+					ConcurrentQueue<SConnection> concurrentQueue = 等待添加表;
 					if (concurrentQueue != null)
 					{
-						concurrentQueue.Enqueue(new 客户网络(tcpClient));
+						concurrentQueue.Enqueue(new SConnection(tcpClient));
 					}
 				}
 				goto IL_CA;
@@ -181,11 +181,11 @@ namespace GameServer.Networking
 		
 		public static void 断网回调(object sender, Exception e)
 		{
-			客户网络 客户网络 = sender as 客户网络;
+			SConnection 客户网络 = sender as SConnection;
 			string text = "IP: " + 客户网络.网络地址;
-			if (客户网络.绑定账号 != null)
+			if (客户网络.Account != null)
 			{
-				text = text + " Account: " + 客户网络.绑定账号.Account.V;
+				text = text + " Account: " + 客户网络.Account.Account.V;
 			}
 			if (客户网络.Player != null)
 			{
@@ -235,7 +235,7 @@ namespace GameServer.Networking
 		}
 
 		
-		public static void 添加网络(客户网络 网络)
+		public static void 添加网络(SConnection 网络)
 		{
 			if (网络 != null)
 			{
@@ -244,7 +244,7 @@ namespace GameServer.Networking
 		}
 
 		
-		public static void 移除网络(客户网络 网络)
+		public static void 移除网络(SConnection 网络)
 		{
 			if (网络 != null)
 			{
@@ -280,13 +280,13 @@ namespace GameServer.Networking
 		public static long ReceivedBytes;
 
 		
-		public static HashSet<客户网络> Connections;
+		public static HashSet<SConnection> Connections;
 
 		
-		public static ConcurrentQueue<客户网络> 等待移除表;
+		public static ConcurrentQueue<SConnection> 等待移除表;
 
 		
-		public static ConcurrentQueue<客户网络> 等待添加表;
+		public static ConcurrentQueue<SConnection> 等待添加表;
 
 		
 		public static ConcurrentQueue<GamePacket> 全服公告表;

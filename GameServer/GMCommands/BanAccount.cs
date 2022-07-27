@@ -27,10 +27,10 @@ namespace GameServer
 				if (AccountData != null)
 				{
 					AccountData.封禁日期.V = DateTime.Now.AddDays((double)this.封禁天数);
-					客户网络 网络连接 = AccountData.网络连接;
+					SConnection 网络连接 = AccountData.网络连接;
 					if (网络连接 != null)
 					{
-						网络连接.尝试断开连接(new Exception("账号被封禁, 强制下线"));
+						网络连接.CallExceptionEventHandler(new Exception("账号被封禁, 强制下线"));
 					}
 					MainForm.添加命令日志(string.Format("<= @{0} command executed, blocking expiry time: {1}", base.GetType().Name, AccountData.封禁日期));
 					return;

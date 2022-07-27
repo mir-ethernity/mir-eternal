@@ -88,13 +88,13 @@ namespace GameServer.Data
 
         public void 账号下线()
         {
-            this.网络连接.绑定账号 = null;
+            this.网络连接.Account = null;
             this.网络连接 = null;
             NetworkServiceGateway.ActiveConnections -= 1U;
         }
 
 
-        public void 账号登录(客户网络 当前网络, string 物理地址)
+        public void 账号登录(SConnection 当前网络, string 物理地址)
         {
             当前网络.发送封包(new AccountLoginSuccessPacket
             {
@@ -105,21 +105,21 @@ namespace GameServer.Data
             {
                 列表描述 = this.角色列表描述()
             });
-            当前网络.绑定账号 = this;
-            当前网络.当前阶段 = GameStage.选择角色;
+            当前网络.Account = this;
+            当前网络.当前阶段 = GameStage.SelectingCharacterScene;
             this.网络连接 = 当前网络;
             this.网络连接.物理地址 = 物理地址;
             NetworkServiceGateway.ActiveConnections += 1U;
         }
 
 
-        public void 返回登录(客户网络 当前网络)
+        public void 返回登录(SConnection 当前网络)
         {
-            当前网络.尝试断开连接(new Exception("客户端返回登录."));
+            当前网络.CallExceptionEventHandler(new Exception("客户端返回登录."));
         }
 
 
-        public void 创建角色(客户网络 当前网络, 客户创建角色 P)
+        public void 创建角色(SConnection 当前网络, 客户创建角色 P)
         {
             if (GameDataGateway.CharacterDataTable.DataSheet.Count >= 1000000)
             {
@@ -205,7 +205,7 @@ namespace GameServer.Data
         }
 
 
-        public void 删除角色(客户网络 当前网络, 客户删除角色 P)
+        public void 删除角色(SConnection 当前网络, 客户删除角色 P)
         {
             GameData GameData;
             if (GameDataGateway.CharacterDataTable.DataSheet.TryGetValue(P.角色编号, out GameData))
@@ -231,7 +231,7 @@ namespace GameServer.Data
                     }
                     if (this.冻结列表.Count >= 5)
                     {
-                        当前网络.尝试断开连接(new Exception("删除角色时找回列表已满, 断开连接."));
+                        当前网络.CallExceptionEventHandler(new Exception("删除角色时找回列表已满, 断开连接."));
                         return;
                     }
                     CharacterData.FreezeDate.V = MainProcess.CurrentTime;
@@ -251,7 +251,7 @@ namespace GameServer.Data
         }
 
 
-        public void 永久删除(客户网络 当前网络, 彻底删除角色 P)
+        public void 永久删除(SConnection 当前网络, 彻底删除角色 P)
         {
             GameData GameData;
             if (GameDataGateway.CharacterDataTable.DataSheet.TryGetValue(P.角色编号, out GameData))
@@ -292,7 +292,7 @@ namespace GameServer.Data
         }
 
 
-        public void GetBackCharacter(客户网络 当前网络, 客户GetBackCharacterPacket P)
+        public void GetBackCharacter(SConnection 当前网络, 客户GetBackCharacterPacket P)
         {
             GameData GameData;
             if (GameDataGateway.CharacterDataTable.DataSheet.TryGetValue(P.角色编号, out GameData))
@@ -302,7 +302,7 @@ namespace GameServer.Data
                 {
                     if (this.角色列表.Count >= 4)
                     {
-                        当前网络.尝试断开连接(new Exception("GetBackCharacter时角色列表已满, 断开连接."));
+                        当前网络.CallExceptionEventHandler(new Exception("GetBackCharacter时角色列表已满, 断开连接."));
                         return;
                     }
                     CharacterData.FreezeDate.V = default(DateTime);
@@ -322,7 +322,7 @@ namespace GameServer.Data
         }
 
 
-        public void 进入游戏(客户网络 conn, 客户进入游戏 P)
+        public void 进入游戏(SConnection conn, 客户进入游戏 P)
         {
             GameData GameData;
             if (GameDataGateway.CharacterDataTable.DataSheet.TryGetValue(P.角色编号, out GameData))
@@ -353,7 +353,7 @@ namespace GameServer.Data
                         角色编号 = CharacterData.角色编号
                     });
                     conn.Player = new PlayerObject(CharacterData, conn);
-                    conn.当前阶段 = GameStage.场景加载;
+                    conn.当前阶段 = GameStage.LoadingScene;
                     return;
                 }
             }
@@ -364,7 +364,7 @@ namespace GameServer.Data
         }
 
 
-        public void 更换角色(客户网络 当前网络)
+        public void 更换角色(SConnection 当前网络)
         {
             当前网络.发送封包(new 更换角色计时
             {
@@ -383,7 +383,7 @@ namespace GameServer.Data
         }
 
 
-        public 客户网络 网络连接;
+        public SConnection 网络连接;
 
 
         public readonly DataMonitor<string> Account;

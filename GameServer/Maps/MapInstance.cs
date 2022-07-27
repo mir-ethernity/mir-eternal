@@ -327,7 +327,7 @@ namespace GameServer.Maps
 					byte[] 字节描述 = memoryStream.ToArray();
 					foreach (PlayerObject PlayerObject in this.玩家列表)
 					{
-						客户网络 网络连接 = PlayerObject.网络连接;
+						SConnection 网络连接 = PlayerObject.GetCurrentConnection;
 						if (网络连接 != null)
 						{
 							网络连接.发送封包(new ReceiveChatMessagesPacket

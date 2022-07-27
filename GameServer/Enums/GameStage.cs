@@ -6,12 +6,12 @@ namespace GameServer
 	public enum GameStage
 	{
 		
-		正在登录,
+		StartingSessionScene,
 		
-		选择角色,
+		SelectingCharacterScene,
 		
-		场景加载,
+		LoadingScene,
 		
-		正在游戏
+		PlayingScene
 	}
 }

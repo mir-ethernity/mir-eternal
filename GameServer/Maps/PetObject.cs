@@ -826,7 +826,7 @@ namespace GameServer.Maps
 				PlayerObject PlayerObject5 = this.宠物主人;
 				if (PlayerObject5 != null)
 				{
-					PlayerObject5.网络连接.发送封包(new GameErrorMessagePacket
+					PlayerObject5.GetCurrentConnection.发送封包(new GameErrorMessagePacket
 					{
 						错误代码 = 9473
 					});

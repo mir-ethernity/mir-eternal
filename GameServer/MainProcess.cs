@@ -107,11 +107,11 @@ namespace GameServer
 
         private static void ClearConnections()
         {
-            foreach (客户网络 connection in NetworkServiceGateway.Connections)
+            foreach (SConnection connection in NetworkServiceGateway.Connections)
             {
                 try
                 {
-                    TcpClient tcpClient = connection.当前连接;
+                    TcpClient tcpClient = connection.Connection;
                     if (tcpClient != null)
                     {
                         Socket client = tcpClient.Client;

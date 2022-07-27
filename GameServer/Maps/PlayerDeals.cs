@@ -37,7 +37,7 @@ namespace GameServer.Maps
 		
 		public void 结束交易()
 		{
-			客户网络 网络连接 = this.交易申请方.网络连接;
+			SConnection 网络连接 = this.交易申请方.GetCurrentConnection;
 			if (网络连接 != null)
 			{
 				网络连接.发送封包(new TransactionStatusChangePacket
@@ -47,7 +47,7 @@ namespace GameServer.Maps
 					对象等级 = (int)this.交易申请方.当前等级
 				});
 			}
-			客户网络 网络连接2 = this.交易接收方.网络连接;
+			SConnection 网络连接2 = this.交易接收方.GetCurrentConnection;
 			if (网络连接2 != null)
 			{
 				网络连接2.发送封包(new TransactionStatusChangePacket
@@ -84,7 +84,7 @@ namespace GameServer.Maps
 					this.交易接收方.CharacterData.转出金币.V += 5000000L;
 				}
 				this.交易接收方.角色背包.Remove(ItemData.物品位置.V);
-				客户网络 网络连接 = this.交易接收方.网络连接;
+				SConnection 网络连接 = this.交易接收方.GetCurrentConnection;
 				if (网络连接 != null)
 				{
 					网络连接.发送封包(new 删除玩家物品
@@ -105,7 +105,7 @@ namespace GameServer.Maps
 					this.交易申请方.CharacterData.转出金币.V += 5000000L;
 				}
 				this.交易申请方.角色背包.Remove(ItemData2.物品位置.V);
-				客户网络 网络连接2 = this.交易申请方.网络连接;
+				SConnection 网络连接2 = this.交易申请方.GetCurrentConnection;
 				if (网络连接2 != null)
 				{
 					网络连接2.发送封包(new 删除玩家物品
@@ -129,7 +129,7 @@ namespace GameServer.Maps
 						this.交易接收方.角色背包.Add(b, ItemData3);
 						ItemData3.物品容器.V = 1;
 						ItemData3.物品位置.V = b;
-						客户网络 网络连接3 = this.交易接收方.网络连接;
+						SConnection 网络连接3 = this.交易接收方.GetCurrentConnection;
 						if (网络连接3 == null)
 						{
 							break;
@@ -156,7 +156,7 @@ namespace GameServer.Maps
 						this.交易申请方.角色背包.Add(b2, ItemData4);
 						ItemData4.物品容器.V = 1;
 						ItemData4.物品位置.V = b2;
-						客户网络 网络连接4 = this.交易申请方.网络连接;
+						SConnection 网络连接4 = this.交易申请方.GetCurrentConnection;
 						if (网络连接4 == null)
 						{
 							break;
@@ -347,12 +347,12 @@ namespace GameServer.Maps
 		
 		public void 发送封包(GamePacket 封包)
 		{
-			客户网络 网络连接 = this.交易接收方.网络连接;
+			SConnection 网络连接 = this.交易接收方.GetCurrentConnection;
 			if (网络连接 != null)
 			{
 				网络连接.发送封包(封包);
 			}
-			客户网络 网络连接2 = this.交易申请方.网络连接;
+			SConnection 网络连接2 = this.交易申请方.GetCurrentConnection;
 			if (网络连接2 == null)
 			{
 				return;

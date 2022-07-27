@@ -140,7 +140,7 @@ namespace GameServer.Data
 		{
 			foreach (CharacterData CharacterData in this.师门成员)
 			{
-				客户网络 网络连接 = CharacterData.ActiveConnection;
+				SConnection 网络连接 = CharacterData.ActiveConnection;
 				if (网络连接 != null)
 				{
 					网络连接.发送封包(P);
