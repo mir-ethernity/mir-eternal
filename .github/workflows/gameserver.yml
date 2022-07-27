@@ -2,7 +2,7 @@ name: Game Server
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "feat/upgrade-net6" ]
   pull_request:
     branches: [ "main" ]
 
