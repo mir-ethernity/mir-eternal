@@ -1,7 +1,7 @@
 {
   "Name": "魔法手镯",
   "Id": 99940006,
-  "ItemLast": 7,
+  "MaxDurability": 7,
   "Weight": 1,
   "Level": 15,
   "NeedLevel": 18,

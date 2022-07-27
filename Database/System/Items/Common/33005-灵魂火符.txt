@@ -1,7 +1,7 @@
 {
   "Name": "灵魂火符",
   "Id": 33005,
-  "ItemLast": 10,
+  "MaxDurability": 10,
   "Weight": 1,
   "NeedLevel": 18,
   "SalePrice": 250,

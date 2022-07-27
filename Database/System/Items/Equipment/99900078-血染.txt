@@ -1,7 +1,7 @@
 {
   "Name": "血染",
   "Id": 99900078,
-  "ItemLast": 35,
+  "MaxDurability": 35,
   "Weight": 21,
   "Level": 40,
   "SalePrice": 50000,

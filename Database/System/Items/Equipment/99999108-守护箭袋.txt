@@ -1,7 +1,7 @@
 {
   "Name": "守护箭袋",
   "Id": 99999108,
-  "ItemLast": 3500,
+  "MaxDurability": 3500,
   "Weight": 1,
   "Level": 10,
   "NeedLevel": 10,

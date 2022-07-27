@@ -1,7 +1,7 @@
 {
   "Name": "苍月锦",
   "Id": 111005,
-  "ItemLast": 9999,
+  "MaxDurability": 9999,
   "NeedLevel": 1,
   "SalePrice": 500,
   "CanSold": true,

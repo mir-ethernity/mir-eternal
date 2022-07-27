@@ -1,7 +1,7 @@
 {
   "Name": "勋章之心",
   "Id": 111061,
-  "ItemLast": 9999,
+  "MaxDurability": 9999,
   "NeedLevel": 1,
   "SalePrice": 500,
   "CanDrop": true,

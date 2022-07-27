@@ -1,7 +1,7 @@
 {
   "Name": "雕色石",
   "Id": 91116,
-  "ItemLast": 999,
+  "MaxDurability": 999,
   "Level": 10,
   "NeedLevel": 1,
   "SalePrice": 500,

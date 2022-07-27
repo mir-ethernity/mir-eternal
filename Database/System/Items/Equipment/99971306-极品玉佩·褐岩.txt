@@ -1,7 +1,7 @@
 {
   "Name": "极品玉佩·褐岩",
   "Id": 99971306,
-  "ItemLast": 9,
+  "MaxDurability": 9,
   "Weight": 1,
   "Level": 50,
   "NeedLevel": 10,

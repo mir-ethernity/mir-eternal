@@ -1,7 +1,7 @@
 {
   "Name": "法神戒指",
   "Id": 99930034,
-  "ItemLast": 7,
+  "MaxDurability": 7,
   "Weight": 1,
   "Level": 55,
   "SalePrice": 35000,

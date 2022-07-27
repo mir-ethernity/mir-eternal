@@ -1,7 +1,7 @@
 {
   "Name": "比奇回城石",
   "Id": 80201,
-  "ItemLast": 20,
+  "MaxDurability": 20,
   "Weight": 1,
   "NeedLevel": 1,
   "Cooldown": 500,

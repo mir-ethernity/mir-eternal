@@ -1,7 +1,7 @@
 {
   "Name": "黑铁矿石23",
   "Id": 114023,
-  "ItemLast": 23,
+  "MaxDurability": 23,
   "Weight": 4,
   "NeedLevel": 1,
   "SalePrice": 128,

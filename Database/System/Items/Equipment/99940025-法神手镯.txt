@@ -1,7 +1,7 @@
 {
   "Name": "法神手镯",
   "Id": 99940025,
-  "ItemLast": 7,
+  "MaxDurability": 7,
   "Weight": 1,
   "Level": 45,
   "SalePrice": 17500,

@@ -1,7 +1,7 @@
 {
   "Name": "炎龙波",
   "Id": 34005,
-  "ItemLast": 10,
+  "MaxDurability": 10,
   "Weight": 1,
   "NeedLevel": 30,
   "SalePrice": 4000,

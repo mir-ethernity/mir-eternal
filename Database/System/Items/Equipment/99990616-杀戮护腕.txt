@@ -1,7 +1,7 @@
 {
   "Name": "杀戮护腕",
   "Id": 99990616,
-  "ItemLast": 12,
+  "MaxDurability": 12,
   "Weight": 2,
   "Level": 40,
   "NeedLevel": 42,

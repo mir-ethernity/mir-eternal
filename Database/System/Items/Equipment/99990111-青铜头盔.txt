@@ -1,7 +1,7 @@
 {
   "Name": "青铜头盔",
   "Id": 99990111,
-  "ItemLast": 8,
+  "MaxDurability": 8,
   "Weight": 4,
   "Level": 5,
   "NeedLevel": 1,

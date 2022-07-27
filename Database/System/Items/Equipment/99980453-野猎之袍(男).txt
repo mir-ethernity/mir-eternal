@@ -1,7 +1,7 @@
 {
   "Name": "野猎之袍(男)",
   "Id": 99980453,
-  "ItemLast": 25,
+  "MaxDurability": 25,
   "Weight": 15,
   "Level": 25,
   "NeedLevel": 22,

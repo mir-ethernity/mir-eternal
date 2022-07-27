@@ -1,7 +1,7 @@
 {
   "Name": "兽骨猎袍(女)",
   "Id": 99990553,
-  "ItemLast": 30,
+  "MaxDurability": 30,
   "Weight": 26,
   "Level": 34,
   "SalePrice": 25000,

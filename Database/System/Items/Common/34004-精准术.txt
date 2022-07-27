@@ -1,7 +1,7 @@
 {
   "Name": "精准术",
   "Id": 34004,
-  "ItemLast": 10,
+  "MaxDurability": 10,
   "Weight": 1,
   "NeedLevel": 9,
   "SalePrice": 500,

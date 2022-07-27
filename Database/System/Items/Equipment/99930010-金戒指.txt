@@ -1,7 +1,7 @@
 {
   "Name": "金戒指",
   "Id": 99930010,
-  "ItemLast": 5,
+  "MaxDurability": 5,
   "Weight": 1,
   "Level": 25,
   "NeedLevel": 22,

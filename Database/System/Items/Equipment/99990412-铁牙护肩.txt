@@ -1,7 +1,7 @@
 {
   "Name": "铁牙护肩",
   "Id": 99990412,
-  "ItemLast": 10,
+  "MaxDurability": 10,
   "Weight": 3,
   "Level": 25,
   "NeedLevel": 22,

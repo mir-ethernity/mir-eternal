@@ -1,7 +1,7 @@
 {
   "Name": "血精石",
   "Id": 99999110,
-  "ItemLast": 28000,
+  "MaxDurability": 28000,
   "Weight": 1,
   "Level": 10,
   "NeedLevel": 10,

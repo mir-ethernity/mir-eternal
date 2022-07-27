@@ -1,7 +1,7 @@
 {
   "Name": "烈焰项链",
   "Id": 99920033,
-  "ItemLast": 5,
+  "MaxDurability": 5,
   "Weight": 1,
   "Level": 50,
   "SalePrice": 50000,

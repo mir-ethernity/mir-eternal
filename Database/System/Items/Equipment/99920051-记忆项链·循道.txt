@@ -1,7 +1,7 @@
 {
   "Name": "记忆项链·循道",
   "Id": 99920051,
-  "ItemLast": 8,
+  "MaxDurability": 8,
   "Weight": 1,
   "Level": 31,
   "NeedLevel": 26,

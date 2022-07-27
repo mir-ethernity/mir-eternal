@@ -1,7 +1,7 @@
 {
   "Name": "魔法药(中)包",
   "Id": 372,
-  "ItemLast": 1,
+  "MaxDurability": 1,
   "Weight": 7,
   "NeedLevel": 1,
   "SalePrice": 80,

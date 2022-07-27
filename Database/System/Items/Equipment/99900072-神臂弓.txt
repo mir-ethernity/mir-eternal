@@ -1,7 +1,7 @@
 {
   "Name": "神臂弓",
   "Id": 99900072,
-  "ItemLast": 10,
+  "MaxDurability": 10,
   "Weight": 11,
   "Level": 13,
   "NeedLevel": 13,

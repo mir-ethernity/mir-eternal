@@ -1,7 +1,7 @@
 {
   "Name": "偃月",
   "Id": 99900013,
-  "ItemLast": 12,
+  "MaxDurability": 12,
   "Weight": 13,
   "Level": 22,
   "NeedLevel": 20,

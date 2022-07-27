@@ -1,7 +1,7 @@
 {
   "Name": "龙牙",
   "Id": 99900033,
-  "ItemLast": 28,
+  "MaxDurability": 28,
   "Weight": 25,
   "Level": 40,
   "SalePrice": 50000,

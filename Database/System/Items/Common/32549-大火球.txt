@@ -1,7 +1,7 @@
 {
   "Name": "大火球",
   "Id": 32549,
-  "ItemLast": 10,
+  "MaxDurability": 10,
   "Weight": 1,
   "NeedLevel": 19,
   "SalePrice": 500,

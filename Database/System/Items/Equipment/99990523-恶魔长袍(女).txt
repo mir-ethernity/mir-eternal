@@ -1,7 +1,7 @@
 {
   "Name": "恶魔长袍(女)",
   "Id": 99990523,
-  "ItemLast": 30,
+  "MaxDurability": 30,
   "Weight": 19,
   "Level": 34,
   "SalePrice": 22000,

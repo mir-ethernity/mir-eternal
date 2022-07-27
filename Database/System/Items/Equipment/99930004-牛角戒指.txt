@@ -1,7 +1,7 @@
 {
   "Name": "牛角戒指",
   "Id": 99930004,
-  "ItemLast": 6,
+  "MaxDurability": 6,
   "Weight": 1,
   "Level": 9,
   "NeedLevel": 9,

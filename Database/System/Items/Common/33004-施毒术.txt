@@ -1,7 +1,7 @@
 {
   "Name": "施毒术",
   "Id": 33004,
-  "ItemLast": 10,
+  "MaxDurability": 10,
   "Weight": 1,
   "NeedLevel": 14,
   "SalePrice": 250,

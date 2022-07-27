@@ -1,7 +1,7 @@
 {
   "Name": "金手镯",
   "Id": 99940009,
-  "ItemLast": 7,
+  "MaxDurability": 7,
   "Weight": 1,
   "Level": 23,
   "NeedLevel": 23,

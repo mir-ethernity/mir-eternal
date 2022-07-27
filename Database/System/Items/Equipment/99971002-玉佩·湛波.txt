@@ -1,7 +1,7 @@
 {
   "Name": "玉佩·湛波",
   "Id": 99971002,
-  "ItemLast": 9,
+  "MaxDurability": 9,
   "Weight": 1,
   "Level": 17,
   "NeedLevel": 10,

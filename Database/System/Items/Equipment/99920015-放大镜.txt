@@ -1,7 +1,7 @@
 {
   "Name": "放大镜",
   "Id": 99920015,
-  "ItemLast": 6,
+  "MaxDurability": 6,
   "Weight": 1,
   "Level": 24,
   "NeedLevel": 24,

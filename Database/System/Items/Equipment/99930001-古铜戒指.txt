@@ -1,7 +1,7 @@
 {
   "Name": "古铜戒指",
   "Id": 99930001,
-  "ItemLast": 5,
+  "MaxDurability": 5,
   "Weight": 1,
   "Level": 5,
   "NeedLevel": 3,

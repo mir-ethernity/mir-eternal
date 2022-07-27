@@ -1,7 +1,7 @@
 {
   "Name": "黑铁矿石9",
   "Id": 114009,
-  "ItemLast": 9,
+  "MaxDurability": 9,
   "Weight": 4,
   "NeedLevel": 1,
   "SalePrice": 44,

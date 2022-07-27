@@ -1,7 +1,7 @@
 {
   "Name": "轻型盔甲(女)",
   "Id": 99990213,
-  "ItemLast": 8,
+  "MaxDurability": 8,
   "Weight": 8,
   "Level": 12,
   "NeedLevel": 11,

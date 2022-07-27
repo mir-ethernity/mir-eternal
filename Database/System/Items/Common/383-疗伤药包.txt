@@ -1,7 +1,7 @@
 {
   "Name": "疗伤药包",
   "Id": 383,
-  "ItemLast": 1,
+  "MaxDurability": 1,
   "Weight": 7,
   "NeedLevel": 1,
   "SalePrice": 1700,

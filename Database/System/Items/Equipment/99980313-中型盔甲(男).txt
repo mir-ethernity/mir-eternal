@@ -1,7 +1,7 @@
 {
   "Name": "中型盔甲(男)",
   "Id": 99980313,
-  "ItemLast": 12,
+  "MaxDurability": 12,
   "Weight": 12,
   "Level": 18,
   "NeedLevel": 16,

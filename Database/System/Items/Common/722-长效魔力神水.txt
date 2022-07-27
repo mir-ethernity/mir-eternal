@@ -1,7 +1,7 @@
 {
   "Name": "长效魔力神水",
   "Id": 722,
-  "ItemLast": 100,
+  "MaxDurability": 100,
   "Weight": 2,
   "NeedLevel": 1,
   "Cooldown": 900000,

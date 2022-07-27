@@ -1,7 +1,7 @@
 {
   "Name": "强效诱惑圣水",
   "Id": 720,
-  "ItemLast": 99,
+  "MaxDurability": 99,
   "Weight": 2,
   "NeedLevel": 13,
   "Cooldown": 10000,

@@ -1,7 +1,7 @@
 {
   "Name": "神锋斗篷·燃烧",
   "Id": 99950083,
-  "ItemLast": 12,
+  "MaxDurability": 12,
   "Weight": 1,
   "Level": 25,
   "NeedLevel": 20,

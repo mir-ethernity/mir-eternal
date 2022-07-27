@@ -1,7 +1,7 @@
 {
   "Name": "龙纹剑",
   "Id": 99900027,
-  "ItemLast": 22,
+  "MaxDurability": 22,
   "Weight": 40,
   "Level": 37,
   "NeedLevel": 35,

@@ -1,7 +1,7 @@
 {
   "Name": "古藤手镯",
   "Id": 99940071,
-  "ItemLast": 6,
+  "MaxDurability": 6,
   "Weight": 1,
   "Level": 23,
   "NeedLevel": 17,

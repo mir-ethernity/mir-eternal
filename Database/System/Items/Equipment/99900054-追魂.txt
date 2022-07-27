@@ -1,7 +1,7 @@
 {
   "Name": "追魂",
   "Id": 99900054,
-  "ItemLast": 28,
+  "MaxDurability": 28,
   "Weight": 15,
   "Level": 28,
   "NeedLevel": 26,

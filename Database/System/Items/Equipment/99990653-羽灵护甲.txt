@@ -1,7 +1,7 @@
 {
   "Name": "羽灵护甲",
   "Id": 99990653,
-  "ItemLast": 35,
+  "MaxDurability": 35,
   "Weight": 37,
   "Level": 42,
   "NeedLevel": 40,

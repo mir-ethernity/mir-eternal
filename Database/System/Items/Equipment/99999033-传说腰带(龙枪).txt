@@ -1,7 +1,7 @@
 {
   "Name": "传说腰带(龙枪)",
   "Id": 99999033,
-  "ItemLast": 6,
+  "MaxDurability": 6,
   "Weight": 1,
   "Level": 52,
   "NeedLevel": 45,

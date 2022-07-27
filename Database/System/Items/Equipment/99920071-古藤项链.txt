@@ -1,7 +1,7 @@
 {
   "Name": "古藤项链",
   "Id": 99920071,
-  "ItemLast": 6,
+  "MaxDurability": 6,
   "Weight": 1,
   "Level": 17,
   "NeedLevel": 13,

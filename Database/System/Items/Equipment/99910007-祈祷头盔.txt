@@ -1,7 +1,7 @@
 {
   "Name": "祈祷头盔",
   "Id": 99910007,
-  "ItemLast": 5,
+  "MaxDurability": 5,
   "Weight": 2,
   "Level": 28,
   "NeedLevel": 18,

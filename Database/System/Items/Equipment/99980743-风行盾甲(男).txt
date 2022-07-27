@@ -1,7 +1,7 @@
 {
   "Name": "风行盾甲(男)",
   "Id": 99980743,
-  "ItemLast": 35,
+  "MaxDurability": 35,
   "Weight": 35,
   "Level": 50,
   "NeedLevel": 44,

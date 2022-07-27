@@ -1,7 +1,7 @@
 {
   "Name": "降魔",
   "Id": 99900015,
-  "ItemLast": 17,
+  "MaxDurability": 17,
   "Weight": 20,
   "Level": 22,
   "NeedLevel": 20,

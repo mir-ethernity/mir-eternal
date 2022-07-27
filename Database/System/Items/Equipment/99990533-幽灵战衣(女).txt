@@ -1,7 +1,7 @@
 {
   "Name": "幽灵战衣(女)",
   "Id": 99990533,
-  "ItemLast": 30,
+  "MaxDurability": 30,
   "Weight": 26,
   "Level": 34,
   "SalePrice": 22000,

@@ -1,7 +1,7 @@
 {
   "Name": "青虹",
   "Id": 99900105,
-  "ItemLast": 32,
+  "MaxDurability": 32,
   "Weight": 19,
   "Level": 32,
   "NeedLevel": 28,

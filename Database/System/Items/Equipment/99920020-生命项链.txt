@@ -1,7 +1,7 @@
 {
   "Name": "生命项链",
   "Id": 99920020,
-  "ItemLast": 8,
+  "MaxDurability": 8,
   "Weight": 1,
   "Level": 30,
   "SalePrice": 10000,

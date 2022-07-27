@@ -1,7 +1,7 @@
 {
   "Name": "箭灵头盔",
   "Id": 99990651,
-  "ItemLast": 7,
+  "MaxDurability": 7,
   "Weight": 3,
   "Level": 42,
   "SalePrice": 35000,

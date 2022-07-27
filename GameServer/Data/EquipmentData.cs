@@ -311,7 +311,7 @@ namespace GameServer.Data
 			{
 				int value = this.最大持久.V - this.当前持久.V;
 				decimal d = ((EquipmentItem)this.对应模板.V).RepairCost;
-				decimal d2 = ((EquipmentItem)this.对应模板.V).ItemLast * 1000m;
+				decimal d2 = ((EquipmentItem)this.对应模板.V).MaxDurability * 1000m;
 				return (int)(d / d2 * value);
 			}
 		}
@@ -324,7 +324,7 @@ namespace GameServer.Data
 			{
 				decimal d = this.最大持久.V - this.当前持久.V;
 				decimal d2 = ((EquipmentItem)this.对应模板.V).SpecialRepairCost;
-				decimal d3 = ((EquipmentItem)this.对应模板.V).ItemLast * 1000m;
+				decimal d3 = ((EquipmentItem)this.对应模板.V).MaxDurability * 1000m;
 				return (int)(d2 / d3 * d * Config.装备特修折扣 * 1.15m);
 			}
 		}
@@ -1086,7 +1086,7 @@ namespace GameServer.Data
 			this.物品位置.V = 位置;
 			this.生成时间.V = MainProcess.CurrentTime;
 			this.物品状态.V = 1;
-			this.最大持久.V = ((模板.PersistType == PersistentItemType.装备) ? (模板.ItemLast * 1000) : 模板.ItemLast);
+			this.最大持久.V = ((模板.PersistType == PersistentItemType.装备) ? (模板.MaxDurability * 1000) : 模板.MaxDurability);
 			DataMonitor<int> 当前持久 = this.当前持久;
 			int v;
 			if (随机生成)

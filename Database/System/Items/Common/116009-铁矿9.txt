@@ -1,7 +1,7 @@
 {
   "Name": "铁矿9",
   "Id": 116009,
-  "ItemLast": 9,
+  "MaxDurability": 9,
   "Weight": 4,
   "NeedLevel": 1,
   "SalePrice": 49,

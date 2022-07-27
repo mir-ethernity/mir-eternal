@@ -1,7 +1,7 @@
 {
   "Name": "强效太阳水包",
   "Id": 382,
-  "ItemLast": 1,
+  "MaxDurability": 1,
   "Weight": 7,
   "NeedLevel": 1,
   "SalePrice": 850,

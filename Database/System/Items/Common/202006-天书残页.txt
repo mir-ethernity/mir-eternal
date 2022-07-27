@@ -1,7 +1,7 @@
 {
   "Name": "天书残页",
   "Id": 202006,
-  "ItemLast": 999,
+  "MaxDurability": 999,
   "NeedLevel": 1,
   "SalePrice": 10000,
   "CanDrop": true,

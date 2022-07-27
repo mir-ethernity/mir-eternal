@@ -1,7 +1,7 @@
 {
   "Name": "修罗",
   "Id": 99900017,
-  "ItemLast": 25,
+  "MaxDurability": 25,
   "Weight": 40,
   "Level": 23,
   "NeedLevel": 22,

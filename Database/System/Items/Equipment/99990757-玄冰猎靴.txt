@@ -1,7 +1,7 @@
 {
   "Name": "玄冰猎靴",
   "Id": 99990757,
-  "ItemLast": 6,
+  "MaxDurability": 6,
   "Weight": 1,
   "Level": 50,
   "SalePrice": 30000,

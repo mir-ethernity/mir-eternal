@@ -1,7 +1,7 @@
 {
   "Name": "火墙",
   "Id": 32534,
-  "ItemLast": 10,
+  "MaxDurability": 10,
   "Weight": 1,
   "NeedLevel": 24,
   "SalePrice": 1500,

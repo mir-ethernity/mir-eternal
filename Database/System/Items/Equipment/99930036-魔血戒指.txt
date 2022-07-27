@@ -1,7 +1,7 @@
 {
   "Name": "魔血戒指",
   "Id": 99930036,
-  "ItemLast": 4,
+  "MaxDurability": 4,
   "Weight": 2,
   "Level": 40,
   "NeedLevel": 35,

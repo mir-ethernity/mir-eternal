@@ -1,7 +1,7 @@
 {
   "Name": "黑檀手镯",
   "Id": 99940008,
-  "ItemLast": 6,
+  "MaxDurability": 6,
   "Weight": 1,
   "Level": 19,
   "NeedLevel": 19,

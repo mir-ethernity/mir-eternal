@@ -1,7 +1,7 @@
 {
   "Name": "圣战铂金勋章",
   "Id": 99961301,
-  "ItemLast": 9,
+  "MaxDurability": 9,
   "Weight": 1,
   "Level": 25,
   "NeedLevel": 10,

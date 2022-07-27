@@ -1,7 +1,7 @@
 {
   "Name": "凤天魔甲",
   "Id": 99980813,
-  "ItemLast": 50,
+  "MaxDurability": 50,
   "Weight": 23,
   "Level": 53,
   "NeedLevel": 45,

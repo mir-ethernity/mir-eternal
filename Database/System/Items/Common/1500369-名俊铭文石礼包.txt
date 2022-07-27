@@ -1,7 +1,7 @@
 {
   "Name": "名俊铭文石礼包",
   "Id": 1500369,
-  "ItemLast": 1,
+  "MaxDurability": 1,
   "Weight": 1,
   "Level": 1,
   "NeedLevel": 1,

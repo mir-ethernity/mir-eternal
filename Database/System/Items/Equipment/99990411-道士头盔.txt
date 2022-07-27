@@ -1,7 +1,7 @@
 {
   "Name": "道士头盔",
   "Id": 99990411,
-  "ItemLast": 8,
+  "MaxDurability": 8,
   "Weight": 3,
   "Level": 25,
   "NeedLevel": 24,

@@ -1,7 +1,7 @@
 {
   "Name": "兽皮腰带",
   "Id": 99990315,
-  "ItemLast": 6,
+  "MaxDurability": 6,
   "Weight": 1,
   "Level": 18,
   "NeedLevel": 15,

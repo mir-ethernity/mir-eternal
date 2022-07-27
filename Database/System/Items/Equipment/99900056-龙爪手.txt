@@ -1,7 +1,7 @@
 {
   "Name": "龙爪手",
   "Id": 99900056,
-  "ItemLast": 32,
+  "MaxDurability": 32,
   "Weight": 19,
   "Level": 37,
   "SalePrice": 40000,

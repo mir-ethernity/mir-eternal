@@ -1,7 +1,7 @@
 {
   "Name": "百炼枪",
   "Id": 99900102,
-  "ItemLast": 19,
+  "MaxDurability": 19,
   "Weight": 13,
   "Level": 22,
   "NeedLevel": 20,

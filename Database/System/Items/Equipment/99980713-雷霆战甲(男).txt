@@ -1,7 +1,7 @@
 {
   "Name": "雷霆战甲(男)",
   "Id": 99980713,
-  "ItemLast": 60,
+  "MaxDurability": 60,
   "Weight": 60,
   "Level": 50,
   "NeedLevel": 44,

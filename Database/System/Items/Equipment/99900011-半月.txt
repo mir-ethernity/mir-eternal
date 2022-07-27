@@ -1,7 +1,7 @@
 {
   "Name": "半月",
   "Id": 99900011,
-  "ItemLast": 14,
+  "MaxDurability": 14,
   "Weight": 16,
   "Level": 15,
   "NeedLevel": 15,

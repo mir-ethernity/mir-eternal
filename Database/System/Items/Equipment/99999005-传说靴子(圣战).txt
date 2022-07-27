@@ -1,7 +1,7 @@
 {
   "Name": "传说靴子(圣战)",
   "Id": 99999005,
-  "ItemLast": 7,
+  "MaxDurability": 7,
   "Weight": 1,
   "Level": 52,
   "NeedLevel": 45,

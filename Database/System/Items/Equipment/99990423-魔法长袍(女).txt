@@ -1,7 +1,7 @@
 {
   "Name": "魔法长袍(女)",
   "Id": 99990423,
-  "ItemLast": 25,
+  "MaxDurability": 25,
   "Weight": 12,
   "Level": 25,
   "NeedLevel": 22,

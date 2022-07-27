@@ -1,7 +1,7 @@
 {
   "Name": "青铜剑",
   "Id": 99900004,
-  "ItemLast": 6,
+  "MaxDurability": 6,
   "Weight": 9,
   "Level": 5,
   "NeedLevel": 5,

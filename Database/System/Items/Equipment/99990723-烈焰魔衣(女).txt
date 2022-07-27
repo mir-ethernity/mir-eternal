@@ -1,7 +1,7 @@
 {
   "Name": "烈焰魔衣(女)",
   "Id": 99990723,
-  "ItemLast": 40,
+  "MaxDurability": 40,
   "Weight": 20,
   "Level": 50,
   "NeedLevel": 44,

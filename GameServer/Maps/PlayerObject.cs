@@ -8305,7 +8305,7 @@ namespace GameServer.Maps
                 {
                     if (GameItems.PersistType == PersistentItemType.堆叠)
                     {
-                        num = Math.Min(购入数量, GameItems.ItemLast);
+                        num = Math.Min(购入数量, GameItems.MaxDurability);
                         goto IL_42;
                     }
                 }
@@ -8318,7 +8318,7 @@ namespace GameServer.Maps
                 while (b < this.背包大小)
                 {
                     ItemData ItemData;
-                    if (this.角色背包.TryGetValue(b, out ItemData) && (GameItems.PersistType != PersistentItemType.堆叠 || GameItems.Id != ItemData.Id || ItemData.当前持久.V + 购入数量 > GameItems.ItemLast))
+                    if (this.角色背包.TryGetValue(b, out ItemData) && (GameItems.PersistType != PersistentItemType.堆叠 || GameItems.Id != ItemData.Id || ItemData.当前持久.V + 购入数量 > GameItems.MaxDurability))
                     {
                         b += 1;
                     }
@@ -8375,7 +8375,7 @@ namespace GameServer.Maps
                                         {
                                             case PersistentItemType.消耗:
                                             case PersistentItemType.纯度:
-                                                持久 = GameItems.ItemLast;
+                                                持久 = GameItems.MaxDurability;
                                                 break;
                                             case PersistentItemType.堆叠:
                                                 持久 = num2;
@@ -11876,7 +11876,7 @@ namespace GameServer.Maps
                     {
                         if (GameItems.PersistType == PersistentItemType.堆叠)
                         {
-                            num = Math.Min((int)购入数量, GameItems.ItemLast);
+                            num = Math.Min((int)购入数量, GameItems.MaxDurability);
                             goto IL_DD;
                         }
                     }
@@ -11889,7 +11889,7 @@ namespace GameServer.Maps
                     while (b < this.背包大小)
                     {
                         ItemData ItemData;
-                        if (this.角色背包.TryGetValue(b, out ItemData) && (GameItems.PersistType != PersistentItemType.堆叠 || GameItems.Id != ItemData.Id || ItemData.当前持久.V + (int)购入数量 > GameItems.ItemLast))
+                        if (this.角色背包.TryGetValue(b, out ItemData) && (GameItems.PersistType != PersistentItemType.堆叠 || GameItems.Id != ItemData.Id || ItemData.当前持久.V + (int)购入数量 > GameItems.MaxDurability))
                         {
                             b += 1;
                         }
@@ -12045,7 +12045,7 @@ namespace GameServer.Maps
                                         {
                                             case PersistentItemType.消耗:
                                             case PersistentItemType.纯度:
-                                                持久 = GameItems.ItemLast;
+                                                持久 = GameItems.MaxDurability;
                                                 break;
                                             case PersistentItemType.堆叠:
                                                 持久 = num2;

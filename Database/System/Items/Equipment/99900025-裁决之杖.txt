@@ -1,7 +1,7 @@
 {
   "Name": "裁决之杖",
   "Id": 99900025,
-  "ItemLast": 32,
+  "MaxDurability": 32,
   "Weight": 80,
   "Level": 37,
   "NeedLevel": 30,

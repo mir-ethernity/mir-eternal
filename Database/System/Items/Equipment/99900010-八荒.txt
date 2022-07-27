@@ -1,7 +1,7 @@
 {
   "Name": "八荒",
   "Id": 99900010,
-  "ItemLast": 18,
+  "MaxDurability": 18,
   "Weight": 25,
   "Level": 15,
   "NeedLevel": 15,

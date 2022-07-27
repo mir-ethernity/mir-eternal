@@ -1,7 +1,7 @@
 {
   "Name": "龙枪钻石勋章",
   "Id": 99961406,
-  "ItemLast": 9,
+  "MaxDurability": 9,
   "Weight": 1,
   "Level": 34,
   "NeedLevel": 10,

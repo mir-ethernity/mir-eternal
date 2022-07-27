@@ -1,7 +1,7 @@
 {
   "Name": "疗伤圣水",
   "Id": 718,
-  "ItemLast": 1,
+  "MaxDurability": 1,
   "Weight": 2,
   "NeedLevel": 1,
   "Cooldown": 14100,

@@ -1,7 +1,7 @@
 {
   "Name": "橙色灵气",
   "Id": 112003,
-  "ItemLast": 9999,
+  "MaxDurability": 9999,
   "NeedLevel": 1,
   "SalePrice": 1000,
   "CanDrop": true,

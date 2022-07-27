@@ -38,7 +38,7 @@ namespace GameServer
 						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, character's bag is full");
 						return;
 					}
-					if (游戏物品.ItemLast == 0)
+					if (游戏物品.MaxDurability == 0)
 					{
 						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, cannot AddItemsCommand");
 						return;
@@ -65,7 +65,7 @@ namespace GameServer
 							}
 							else
 							{
-								CharacterData.角色背包[b] = new ItemData(游戏物品, CharacterData, 1, b, 游戏物品.ItemLast);
+								CharacterData.角色背包[b] = new ItemData(游戏物品, CharacterData, 1, b, 游戏物品.MaxDurability);
 							}
 							客户网络 网络连接 = CharacterData.ActiveConnection;
 							if (网络连接 != null)

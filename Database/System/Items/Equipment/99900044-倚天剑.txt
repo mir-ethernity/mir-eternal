@@ -1,7 +1,7 @@
 {
   "Name": "倚天剑",
   "Id": 99900044,
-  "ItemLast": 25,
+  "MaxDurability": 25,
   "Weight": 44,
   "Level": 43,
   "NeedLevel": 35,

@@ -1,7 +1,7 @@
 {
   "Name": "轻型盔甲",
   "Id": 99980213,
-  "ItemLast": 8,
+  "MaxDurability": 8,
   "Weight": 8,
   "Level": 12,
   "NeedLevel": 11,

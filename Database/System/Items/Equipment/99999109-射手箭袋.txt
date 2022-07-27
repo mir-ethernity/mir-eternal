@@ -1,7 +1,7 @@
 {
   "Name": "射手箭袋",
   "Id": 99999109,
-  "ItemLast": 13000,
+  "MaxDurability": 13000,
   "Weight": 1,
   "Level": 20,
   "NeedLevel": 20,

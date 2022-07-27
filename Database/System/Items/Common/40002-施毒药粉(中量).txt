@@ -1,7 +1,7 @@
 {
   "Name": "施毒药粉(中量)",
   "Id": 40002,
-  "ItemLast": 100,
+  "MaxDurability": 100,
   "Weight": 2,
   "NeedLevel": 1,
   "SalePrice": 5500,

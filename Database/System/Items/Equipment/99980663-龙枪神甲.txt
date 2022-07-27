@@ -1,7 +1,7 @@
 {
   "Name": "龙枪神甲",
   "Id": 99980663,
-  "ItemLast": 35,
+  "MaxDurability": 35,
   "Weight": 37,
   "Level": 42,
   "NeedLevel": 40,

@@ -1,7 +1,7 @@
 {
   "Name": "麻痹戒指",
   "Id": 99930026,
-  "ItemLast": 5,
+  "MaxDurability": 5,
   "Weight": 1,
   "Level": 40,
   "NeedLevel": 16,

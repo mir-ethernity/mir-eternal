@@ -1,7 +1,7 @@
 {
   "Name": "闪影手镯",
   "Id": 99940037,
-  "ItemLast": 6,
+  "MaxDurability": 6,
   "Weight": 1,
   "Level": 30,
   "NeedLevel": 22,

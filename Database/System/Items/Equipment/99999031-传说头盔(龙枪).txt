@@ -1,7 +1,7 @@
 {
   "Name": "传说头盔(龙枪)",
   "Id": 99999031,
-  "ItemLast": 7,
+  "MaxDurability": 7,
   "Weight": 3,
   "Level": 52,
   "NeedLevel": 45,

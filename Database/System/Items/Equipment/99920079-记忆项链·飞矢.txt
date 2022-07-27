@@ -1,7 +1,7 @@
 {
   "Name": "记忆项链·飞矢",
   "Id": 99920079,
-  "ItemLast": 8,
+  "MaxDurability": 8,
   "Weight": 1,
   "Level": 31,
   "NeedLevel": 26,

@@ -1,7 +1,7 @@
 {
   "Name": "魔杖",
   "Id": 99900018,
-  "ItemLast": 15,
+  "MaxDurability": 15,
   "Weight": 10,
   "Level": 28,
   "NeedLevel": 26,

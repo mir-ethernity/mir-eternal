@@ -1,7 +1,7 @@
 {
   "Name": "超负载戒指",
   "Id": 99930027,
-  "ItemLast": 5,
+  "MaxDurability": 5,
   "Weight": 1,
   "Level": 20,
   "NeedLevel": 16,

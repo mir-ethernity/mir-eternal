@@ -1,7 +1,7 @@
 {
   "Name": "精神神水",
   "Id": 703,
-  "ItemLast": 100,
+  "MaxDurability": 100,
   "Weight": 2,
   "NeedLevel": 1,
   "SalePrice": 500,

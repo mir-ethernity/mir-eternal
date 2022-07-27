@@ -1,7 +1,7 @@
 {
   "Name": "幽灵盾",
   "Id": 33006,
-  "ItemLast": 10,
+  "MaxDurability": 10,
   "Weight": 1,
   "NeedLevel": 22,
   "SalePrice": 2500,

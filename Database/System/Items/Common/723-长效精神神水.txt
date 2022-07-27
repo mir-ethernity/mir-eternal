@@ -1,7 +1,7 @@
 {
   "Name": "长效精神神水",
   "Id": 723,
-  "ItemLast": 100,
+  "MaxDurability": 100,
   "Weight": 2,
   "NeedLevel": 1,
   "Cooldown": 900000,

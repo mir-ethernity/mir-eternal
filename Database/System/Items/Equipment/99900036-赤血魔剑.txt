@@ -1,7 +1,7 @@
 {
   "Name": "赤血魔剑",
   "Id": 99900036,
-  "ItemLast": 23,
+  "MaxDurability": 23,
   "Weight": 22,
   "Level": 30,
   "SalePrice": 10000,

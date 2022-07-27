@@ -1,7 +1,7 @@
 {
   "Name": "双环战弓",
   "Id": 99900075,
-  "ItemLast": 28,
+  "MaxDurability": 28,
   "Weight": 15,
   "Level": 28,
   "NeedLevel": 26,

@@ -1,7 +1,7 @@
 {
   "Name": "思贝儿手镯",
   "Id": 99940011,
-  "ItemLast": 6,
+  "MaxDurability": 6,
   "Weight": 1,
   "Level": 30,
   "SalePrice": 5000,

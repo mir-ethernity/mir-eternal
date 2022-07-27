@@ -1,7 +1,7 @@
 {
   "Name": "霜焰披风·奔雷",
   "Id": 99950034,
-  "ItemLast": 12,
+  "MaxDurability": 12,
   "Weight": 1,
   "Level": 30,
   "NeedLevel": 30,

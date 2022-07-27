@@ -1,7 +1,7 @@
 {
   "Name": "高级祝福油",
   "Id": 80021,
-  "ItemLast": 100,
+  "MaxDurability": 100,
   "NeedLevel": 1,
   "SalePrice": 5000,
   "CanDrop": true,

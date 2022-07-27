@@ -1,7 +1,7 @@
 {
   "Name": "金矿14",
   "Id": 118014,
-  "ItemLast": 14,
+  "MaxDurability": 14,
   "Weight": 4,
   "NeedLevel": 1,
   "SalePrice": 423,

@@ -1,7 +1,7 @@
 {
   "Name": "井中月",
   "Id": 99900022,
-  "ItemLast": 30,
+  "MaxDurability": 30,
   "Weight": 58,
   "Level": 32,
   "NeedLevel": 28,

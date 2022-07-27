@@ -1,7 +1,7 @@
 {
   "Name": "金砖",
   "Id": 80209,
-  "ItemLast": 1,
+  "MaxDurability": 1,
   "Weight": 10,
   "Level": 10,
   "NeedLevel": 1,

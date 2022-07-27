@@ -1,7 +1,7 @@
 {
   "Name": "半月弯刀",
   "Id": 31034,
-  "ItemLast": 10,
+  "MaxDurability": 10,
   "Weight": 1,
   "NeedLevel": 28,
   "SalePrice": 4000,

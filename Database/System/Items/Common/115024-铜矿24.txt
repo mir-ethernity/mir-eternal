@@ -1,7 +1,7 @@
 {
   "Name": "铜矿24",
   "Id": 115024,
-  "ItemLast": 24,
+  "MaxDurability": 24,
   "Weight": 4,
   "NeedLevel": 1,
   "SalePrice": 68,

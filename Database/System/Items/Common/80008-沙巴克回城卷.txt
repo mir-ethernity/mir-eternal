@@ -1,7 +1,7 @@
 {
   "Name": "沙巴克回城卷",
   "Id": 80008,
-  "ItemLast": 1,
+  "MaxDurability": 1,
   "Weight": 1,
   "NeedLevel": 1,
   "Cooldown": 500,

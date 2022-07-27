@@ -1,7 +1,7 @@
 {
   "Name": "战术标记",
   "Id": 35004,
-  "ItemLast": 10,
+  "MaxDurability": 10,
   "Weight": 1,
   "NeedLevel": 21,
   "SalePrice": 500,

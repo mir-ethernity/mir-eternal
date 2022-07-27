@@ -1,7 +1,7 @@
 {
   "Name": "记忆项链·疾风",
   "Id": 99920089,
-  "ItemLast": 8,
+  "MaxDurability": 8,
   "Weight": 1,
   "Level": 31,
   "NeedLevel": 26,

@@ -1,7 +1,7 @@
 {
   "Name": "龙枪铭文石",
   "Id": 21006,
-  "ItemLast": 500,
+  "MaxDurability": 500,
   "NeedLevel": 10,
   "SalePrice": 500,
   "CanDrop": true,

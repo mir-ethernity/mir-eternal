@@ -1,7 +1,7 @@
 {
   "Name": "修复油",
   "Id": 110012,
-  "ItemLast": 999,
+  "MaxDurability": 999,
   "NeedLevel": 1,
   "SalePrice": 50,
   "CanDrop": true,

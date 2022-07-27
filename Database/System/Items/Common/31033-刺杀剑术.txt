@@ -1,7 +1,7 @@
 {
   "Name": "刺杀剑术",
   "Id": 31033,
-  "ItemLast": 10,
+  "MaxDurability": 10,
   "Weight": 1,
   "NeedLevel": 25,
   "SalePrice": 2500,

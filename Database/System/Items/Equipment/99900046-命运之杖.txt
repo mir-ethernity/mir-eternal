@@ -1,7 +1,7 @@
 {
   "Name": "命运之杖",
   "Id": 99900046,
-  "ItemLast": 18,
+  "MaxDurability": 18,
   "Weight": 16,
   "Level": 31,
   "NeedLevel": 35,

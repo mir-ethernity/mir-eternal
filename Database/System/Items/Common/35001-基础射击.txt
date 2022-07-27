@@ -1,7 +1,7 @@
 {
   "Name": "基础射击",
   "Id": 35001,
-  "ItemLast": 10,
+  "MaxDurability": 10,
   "Weight": 1,
   "NeedLevel": 7,
   "SalePrice": 10,

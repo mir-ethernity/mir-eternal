@@ -1,7 +1,7 @@
 {
   "Name": "魔牙战麾·奔雷",
   "Id": 99950014,
-  "ItemLast": 12,
+  "MaxDurability": 12,
   "Weight": 1,
   "Level": 30,
   "NeedLevel": 30,

@@ -1,7 +1,7 @@
 {
   "Name": "圣灵符",
   "Id": 99999105,
-  "ItemLast": 11000,
+  "MaxDurability": 11000,
   "Weight": 1,
   "Level": 20,
   "NeedLevel": 20,

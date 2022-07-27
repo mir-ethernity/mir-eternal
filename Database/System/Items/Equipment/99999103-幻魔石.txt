@@ -1,7 +1,7 @@
 {
   "Name": "幻魔石",
   "Id": 99999103,
-  "ItemLast": 180000,
+  "MaxDurability": 180000,
   "Weight": 1,
   "Level": 20,
   "NeedLevel": 20,

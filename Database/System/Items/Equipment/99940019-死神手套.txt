@@ -1,7 +1,7 @@
 {
   "Name": "死神手套",
   "Id": 99940019,
-  "ItemLast": 8,
+  "MaxDurability": 8,
   "Weight": 2,
   "Level": 27,
   "NeedLevel": 22,

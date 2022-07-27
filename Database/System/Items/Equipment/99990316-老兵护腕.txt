@@ -1,7 +1,7 @@
 {
   "Name": "老兵护腕",
   "Id": 99990316,
-  "ItemLast": 6,
+  "MaxDurability": 6,
   "Weight": 1,
   "Level": 16,
   "NeedLevel": 15,

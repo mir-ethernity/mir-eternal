@@ -1,7 +1,7 @@
 {
   "Name": "元宝袋(大)",
   "Id": 1501003,
-  "ItemLast": 99,
+  "MaxDurability": 99,
   "Level": 1,
   "NeedLevel": 1,
   "ValuableObjects": true,

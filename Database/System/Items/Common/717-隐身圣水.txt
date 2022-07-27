@@ -1,7 +1,7 @@
 {
   "Name": "隐身圣水",
   "Id": 717,
-  "ItemLast": 1,
+  "MaxDurability": 1,
   "Weight": 2,
   "NeedLevel": 1,
   "Cooldown": 1000,

@@ -1,7 +1,7 @@
 {
   "Name": "刺客铭文石",
   "Id": 21004,
-  "ItemLast": 500,
+  "MaxDurability": 500,
   "NeedLevel": 10,
   "SalePrice": 500,
   "CanDrop": true,

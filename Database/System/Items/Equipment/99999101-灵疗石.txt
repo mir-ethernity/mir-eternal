@@ -1,7 +1,7 @@
 {
   "Name": "灵疗石",
   "Id": 99999101,
-  "ItemLast": 120000,
+  "MaxDurability": 120000,
   "Weight": 1,
   "Level": 20,
   "NeedLevel": 20,

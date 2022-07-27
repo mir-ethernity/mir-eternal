@@ -129,7 +129,7 @@ namespace GameServer.Data
 							EquipmentData EquipmentData2 = this as EquipmentData;
 							EquipmentItem obj = 对应模板.V as EquipmentItem;
 							int v3 = EquipmentData2.当前持久.V;
-							int num2 = obj.ItemLast * 1000;
+							int num2 = obj.MaxDurability * 1000;
 							int num3 = obj.SalePrice;
 							int num4 = Math.Max((sbyte)0, EquipmentData2.幸运等级.V);
 							int num5 = EquipmentData2.升级Attack.V * 100 + EquipmentData2.升级Magic.V * 100 + EquipmentData2.升级Taoism.V * 100 + EquipmentData2.升级Needle.V * 100 + EquipmentData2.升级Archery.V * 100;
@@ -344,9 +344,9 @@ namespace GameServer.Data
 					case PersistentItemType.消耗:
 						{
 							int v2 = 当前持久.V;
-							int ItemLast = 对应模板.V.ItemLast;
+							int MaxDurability = 对应模板.V.MaxDurability;
 							int num = 对应模板.V.SalePrice;
-							return (int)((decimal)v2 / (decimal)ItemLast * (decimal)num);
+							return (int)((decimal)v2 / (decimal)MaxDurability * (decimal)num);
 						}
 					case PersistentItemType.堆叠:
 						{
@@ -369,7 +369,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return 对应模板.V.ItemLast;
+				return 对应模板.V.MaxDurability;
 			}
 		}
 
@@ -381,9 +381,9 @@ namespace GameServer.Data
 			{
 				if (PersistType != PersistentItemType.装备)
 				{
-					return 对应模板.V.ItemLast;
+					return 对应模板.V.MaxDurability;
 				}
-				return 对应模板.V.ItemLast * 1000;
+				return 对应模板.V.MaxDurability * 1000;
 			}
 		}
 
@@ -500,17 +500,15 @@ namespace GameServer.Data
 		}
 
 		
-		public ItemData(GameItems 模板, CharacterData 来源, byte 容器, byte 位置, int 持久)
+		public ItemData(GameItems item, CharacterData character, byte 容器, byte position, int durability)
 		{
-			
-			
-			对应模板.V = 模板;
-			生成来源.V = 来源;
+			对应模板.V = item;
+			生成来源.V = character;
 			物品容器.V = 容器;
-			物品位置.V = 位置;
+			物品位置.V = position;
 			生成时间.V = MainProcess.CurrentTime;
-			最大持久.V = 物品模板.ItemLast;
-			当前持久.V = Math.Min(持久, 最大持久.V);
+			最大持久.V = 物品模板.MaxDurability;
+			当前持久.V = Math.Min(durability, 最大持久.V);
 			GameDataGateway.ItemData表.AddData(this, true);
 		}
 

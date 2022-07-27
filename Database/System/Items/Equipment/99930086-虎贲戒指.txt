@@ -1,7 +1,7 @@
 {
   "Name": "虎贲戒指",
   "Id": 99930086,
-  "ItemLast": 7,
+  "MaxDurability": 7,
   "Weight": 2,
   "Level": 55,
   "SalePrice": 35000,

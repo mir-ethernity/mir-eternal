@@ -1,7 +1,7 @@
 {
   "Name": "风侠羽衣·奔雷",
   "Id": 99950074,
-  "ItemLast": 12,
+  "MaxDurability": 12,
   "Weight": 1,
   "Level": 30,
   "NeedLevel": 30,

@@ -1,7 +1,7 @@
 {
   "Name": "金矿5",
   "Id": 118005,
-  "ItemLast": 5,
+  "MaxDurability": 5,
   "Weight": 4,
   "NeedLevel": 1,
   "SalePrice": 185,

@@ -1,7 +1,7 @@
 {
   "Name": "柴刀",
   "Id": 89900002,
-  "ItemLast": 4,
+  "MaxDurability": 4,
   "Weight": 7,
   "Level": 1,
   "NeedLevel": 1,

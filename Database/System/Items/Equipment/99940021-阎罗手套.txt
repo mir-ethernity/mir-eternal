@@ -1,7 +1,7 @@
 {
   "Name": "阎罗手套",
   "Id": 99940021,
-  "ItemLast": 8,
+  "MaxDurability": 8,
   "Weight": 10,
   "Level": 37,
   "NeedLevel": 30,

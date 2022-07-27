@@ -1,7 +1,7 @@
 {
   "Name": "金创药(小)包",
   "Id": 361,
-  "ItemLast": 1,
+  "MaxDurability": 1,
   "Weight": 7,
   "NeedLevel": 1,
   "SalePrice": 1,

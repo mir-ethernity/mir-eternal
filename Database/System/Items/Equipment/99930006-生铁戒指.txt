@@ -1,7 +1,7 @@
 {
   "Name": "生铁戒指",
   "Id": 99930006,
-  "ItemLast": 5,
+  "MaxDurability": 5,
   "Weight": 1,
   "Level": 14,
   "SalePrice": 1500,

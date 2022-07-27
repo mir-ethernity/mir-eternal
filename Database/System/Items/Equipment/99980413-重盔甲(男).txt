@@ -1,7 +1,7 @@
 {
   "Name": "重盔甲(男)",
   "Id": 99980413,
-  "ItemLast": 25,
+  "MaxDurability": 25,
   "Weight": 23,
   "Level": 25,
   "NeedLevel": 22,

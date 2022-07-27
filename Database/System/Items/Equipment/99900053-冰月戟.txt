@@ -1,7 +1,7 @@
 {
   "Name": "冰月戟",
   "Id": 99900053,
-  "ItemLast": 19,
+  "MaxDurability": 19,
   "Weight": 13,
   "Level": 22,
   "NeedLevel": 20,

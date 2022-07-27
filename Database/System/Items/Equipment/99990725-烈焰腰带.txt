@@ -1,7 +1,7 @@
 {
   "Name": "烈焰腰带",
   "Id": 99990725,
-  "ItemLast": 5,
+  "MaxDurability": 5,
   "Weight": 1,
   "Level": 50,
   "SalePrice": 30000,

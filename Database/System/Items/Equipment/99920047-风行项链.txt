@@ -1,7 +1,7 @@
 {
   "Name": "风行项链",
   "Id": 99920047,
-  "ItemLast": 7,
+  "MaxDurability": 7,
   "Weight": 2,
   "Level": 50,
   "SalePrice": 50000,

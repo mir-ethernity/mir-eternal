@@ -1,7 +1,7 @@
 {
   "Name": "魔法盾",
   "Id": 32535,
-  "ItemLast": 10,
+  "MaxDurability": 10,
   "Weight": 1,
   "NeedLevel": 31,
   "SalePrice": 5000,

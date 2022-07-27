@@ -1,7 +1,7 @@
 {
   "Name": "风侠短袍(女)",
   "Id": 99990543,
-  "ItemLast": 30,
+  "MaxDurability": 30,
   "Weight": 26,
   "Level": 34,
   "SalePrice": 25000,

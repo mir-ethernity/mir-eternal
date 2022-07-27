@@ -1,7 +1,7 @@
 {
   "Name": "铜矿12",
   "Id": 115012,
-  "ItemLast": 12,
+  "MaxDurability": 12,
   "Weight": 4,
   "NeedLevel": 1,
   "SalePrice": 28,

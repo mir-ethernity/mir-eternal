@@ -1,7 +1,7 @@
 {
   "Name": "随机传送卷",
   "Id": 80005,
-  "ItemLast": 1,
+  "MaxDurability": 1,
   "Weight": 1,
   "NeedLevel": 1,
   "Cooldown": 500,

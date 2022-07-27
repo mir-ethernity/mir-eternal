@@ -1,7 +1,7 @@
 {
   "Name": "超级护身符",
   "Id": 40103,
-  "ItemLast": 600,
+  "MaxDurability": 600,
   "Weight": 5,
   "NeedLevel": 1,
   "SalePrice": 2500,

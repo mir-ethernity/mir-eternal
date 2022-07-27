@@ -1,7 +1,7 @@
 {
   "Name": "抗拒火环",
   "Id": 32532,
-  "ItemLast": 10,
+  "MaxDurability": 10,
   "Weight": 1,
   "NeedLevel": 12,
   "SalePrice": 100,

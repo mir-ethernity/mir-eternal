@@ -1,7 +1,7 @@
 {
   "Name": "冷淬玉佩·赤霞",
   "Id": 99971101,
-  "ItemLast": 9,
+  "MaxDurability": 9,
   "Weight": 1,
   "Level": 23,
   "NeedLevel": 10,

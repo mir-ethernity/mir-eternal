@@ -1,7 +1,7 @@
 {
   "Name": "沙城每日宝箱",
   "Id": 1504001,
-  "ItemLast": 99,
+  "MaxDurability": 99,
   "Level": 30,
   "NeedLevel": 30,
   "SalePrice": 100,

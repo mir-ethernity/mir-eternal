@@ -1,7 +1,7 @@
 {
   "Name": "金矿22",
   "Id": 118022,
-  "ItemLast": 22,
+  "MaxDurability": 22,
   "Weight": 4,
   "NeedLevel": 1,
   "SalePrice": 792,

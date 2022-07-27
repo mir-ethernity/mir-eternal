@@ -1,7 +1,7 @@
 {
   "Name": "晶爪项链",
   "Id": 99920077,
-  "ItemLast": 8,
+  "MaxDurability": 8,
   "Weight": 3,
   "Level": 53,
   "SalePrice": 60000,

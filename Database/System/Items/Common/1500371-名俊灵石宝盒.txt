@@ -1,7 +1,7 @@
 {
   "Name": "名俊灵石宝盒",
   "Id": 1500371,
-  "ItemLast": 1,
+  "MaxDurability": 1,
   "Weight": 1,
   "Level": 1,
   "NeedLevel": 1,

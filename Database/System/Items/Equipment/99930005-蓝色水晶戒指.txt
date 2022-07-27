@@ -1,7 +1,7 @@
 {
   "Name": "蓝色水晶戒指",
   "Id": 99930005,
-  "ItemLast": 5,
+  "MaxDurability": 5,
   "Weight": 1,
   "Level": 13,
   "NeedLevel": 16,

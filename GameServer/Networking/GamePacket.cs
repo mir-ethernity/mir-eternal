@@ -8,13 +8,10 @@ using System.Text;
 
 namespace GameServer.Networking
 {
-
     public abstract class GamePacket
     {
-
         static GamePacket()
         {
-
             GamePacket.加密字节 = 129;
             GamePacket.封包处理方法表 = new Dictionary<Type, MethodInfo>();
             Dictionary<Type, Func<BinaryReader, WrappingFieldAttribute, object>> dictionary = new Dictionary<Type, Func<BinaryReader, WrappingFieldAttribute, object>>();

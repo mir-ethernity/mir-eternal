@@ -1,7 +1,7 @@
 {
   "Name": "铁手镯",
   "Id": 99940001,
-  "ItemLast": 4,
+  "MaxDurability": 4,
   "Weight": 1,
   "Level": 7,
   "NeedLevel": 3,

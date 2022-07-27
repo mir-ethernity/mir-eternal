@@ -1,7 +1,7 @@
 {
   "Name": "攻击神水",
   "Id": 701,
-  "ItemLast": 100,
+  "MaxDurability": 100,
   "Weight": 2,
   "NeedLevel": 1,
   "SalePrice": 500,

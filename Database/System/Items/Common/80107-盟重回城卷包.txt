@@ -1,7 +1,7 @@
 {
   "Name": "盟重回城卷包",
   "Id": 80107,
-  "ItemLast": 1,
+  "MaxDurability": 1,
   "Weight": 7,
   "NeedLevel": 1,
   "SalePrice": 3700,

@@ -1,7 +1,7 @@
 {
   "Name": "传统项链",
   "Id": 99920002,
-  "ItemLast": 8,
+  "MaxDurability": 8,
   "Weight": 1,
   "Level": 5,
   "NeedLevel": 3,

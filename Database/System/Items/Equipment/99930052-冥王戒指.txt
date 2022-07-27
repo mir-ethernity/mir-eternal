@@ -1,7 +1,7 @@
 {
   "Name": "冥王戒指",
   "Id": 99930052,
-  "ItemLast": 8,
+  "MaxDurability": 8,
   "Weight": 3,
   "Level": 60,
   "SalePrice": 60000,

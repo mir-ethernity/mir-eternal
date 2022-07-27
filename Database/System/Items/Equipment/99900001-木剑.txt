@@ -1,7 +1,7 @@
 {
   "Name": "木剑",
   "Id": 99900001,
-  "ItemLast": 4,
+  "MaxDurability": 4,
   "Weight": 7,
   "Level": 1,
   "NeedLevel": 1,

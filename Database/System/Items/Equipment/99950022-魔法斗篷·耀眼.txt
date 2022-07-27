@@ -1,7 +1,7 @@
 {
   "Name": "魔法斗篷·耀眼",
   "Id": 99950022,
-  "ItemLast": 10,
+  "MaxDurability": 10,
   "Weight": 1,
   "Level": 20,
   "NeedLevel": 10,

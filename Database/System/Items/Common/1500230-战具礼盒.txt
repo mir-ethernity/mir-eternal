@@ -1,7 +1,7 @@
 {
   "Name": "战具礼盒",
   "Id": 1500230,
-  "ItemLast": 100,
+  "MaxDurability": 100,
   "Weight": 1,
   "Level": 1,
   "NeedLevel": 10,
