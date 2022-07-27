@@ -541,6 +541,7 @@
             this.技能浏览表.AllowUserToAddRows = false;
             this.技能浏览表.AllowUserToDeleteRows = false;
             this.技能浏览表.AllowUserToResizeRows = false;
+            this.技能浏览表.ShowCellToolTips = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.技能浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.技能浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -595,6 +596,7 @@
             this.装备浏览表.AllowUserToAddRows = false;
             this.装备浏览表.AllowUserToDeleteRows = false;
             this.装备浏览表.AllowUserToResizeRows = false;
+            this.装备浏览表.ShowCellToolTips = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.装备浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.装备浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -648,6 +650,7 @@
             this.背包浏览表.AllowUserToAddRows = false;
             this.背包浏览表.AllowUserToDeleteRows = false;
             this.背包浏览表.AllowUserToResizeRows = false;
+            this.背包浏览表.ShowCellToolTips = false;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.背包浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.背包浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -701,6 +704,7 @@
             this.仓库浏览表.AllowUserToAddRows = false;
             this.仓库浏览表.AllowUserToDeleteRows = false;
             this.仓库浏览表.AllowUserToResizeRows = false;
+            this.仓库浏览表.ShowCellToolTips = false;
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.仓库浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.仓库浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -743,6 +747,7 @@
             this.dgvCharacters.AllowUserToAddRows = false;
             this.dgvCharacters.AllowUserToDeleteRows = false;
             this.dgvCharacters.AllowUserToResizeRows = false;
+            this.dgvCharacters.ShowCellToolTips = false;
             dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvCharacters.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvCharacters.BackgroundColor = System.Drawing.Color.LightGray;
@@ -838,6 +843,7 @@
             this.dgvMaps.AllowUserToAddRows = false;
             this.dgvMaps.AllowUserToDeleteRows = false;
             this.dgvMaps.AllowUserToResizeRows = false;
+            this.dgvMaps.ShowCellToolTips = false;
             dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvMaps.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvMaps.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -894,6 +900,7 @@
             this.掉落浏览表.AllowUserToAddRows = false;
             this.掉落浏览表.AllowUserToDeleteRows = false;
             this.掉落浏览表.AllowUserToResizeRows = false;
+            this.掉落浏览表.ShowCellToolTips = false;
             dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.掉落浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.掉落浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -936,6 +943,7 @@
             this.怪物浏览表.AllowUserToAddRows = false;
             this.怪物浏览表.AllowUserToDeleteRows = false;
             this.怪物浏览表.AllowUserToResizeRows = false;
+            this.怪物浏览表.ShowCellToolTips = false;
             dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.怪物浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
             this.怪物浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -990,6 +998,7 @@
             this.封禁浏览表.AllowUserToAddRows = false;
             this.封禁浏览表.AllowUserToDeleteRows = false;
             this.封禁浏览表.AllowUserToResizeRows = false;
+            this.封禁浏览表.ShowCellToolTips = false;
             dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.封禁浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
             this.封禁浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -1099,6 +1108,7 @@
             this.公告浏览表.AllowUserToDeleteRows = false;
             this.公告浏览表.AllowUserToResizeColumns = false;
             this.公告浏览表.AllowUserToResizeRows = false;
+            this.公告浏览表.ShowCellToolTips = false;
             this.公告浏览表.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control;
