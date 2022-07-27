@@ -37,8 +37,8 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: GameServer-${{Target}}
-        path: ./publish/${{Target}}
+        name: GameServer-${{env.Target}}
+        path: ./publish/${{env.Target}}
       env:
         Target: ${{ matrix.targets }}
 
