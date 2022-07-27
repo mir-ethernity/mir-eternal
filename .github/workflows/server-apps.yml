@@ -1,10 +1,13 @@
-name: Game Server
+name: Build Server Apps
 
 on:
   push:
     branches: [ "main", "feat/upgrade-net6" ]
-  pull_request:
-    branches: [ "main" ]
+    paths:
+      - AccountServer/**
+      - GameServer/**
+      - Launcher/**
+      - .github/workflows/server-apps.yml
 
 jobs:
   build:
@@ -30,7 +33,7 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Build Applications
-      run: dotnet publish -c release -r $env:Target --self-contained -o ../publish/$env:Target/$env:Project $env:Project
+      run: dotnet publish -c release -r $env:Target --self-contained -o ./publish/$env:Target/$env:Project $env:Project
       env:
         Target: ${{ matrix.targets }}
         Project: ${{ matrix.projects }}
@@ -39,5 +42,5 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: MirEternal
-        path: ../publish/
+        path: ./publish/
 
