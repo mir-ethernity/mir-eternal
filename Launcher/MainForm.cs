@@ -460,5 +460,16 @@ namespace Launcher
             else
                 this.start_selected_zone.Text = this.GameServerList.Items[this.GameServerList.SelectedIndex].ToString();
         }
+
+        private void Login_PasswordKeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(AccountPasswordTextBox.Text)) return;
+
+            if (e.KeyChar != (char)13) return;
+
+            LoginAccountLabel_Click(sender, null);
+
+        }
     }
 }

@@ -147,7 +147,7 @@ namespace Launcher
             this.LoginAccountLabel.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.LoginAccountLabel.Size = new System.Drawing.Size(335, 31);
             this.LoginAccountLabel.Style = Sunny.UI.UIStyle.Red;
-            this.LoginAccountLabel.TabIndex = 13;
+            this.LoginAccountLabel.TabIndex = 2;
             this.LoginAccountLabel.TabStop = false;
             this.LoginAccountLabel.Text = "Login";
             this.LoginAccountLabel.TipsFont = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -194,10 +194,11 @@ namespace Launcher
             this.AccountPasswordTextBox.Style = Sunny.UI.UIStyle.Red;
             this.AccountPasswordTextBox.Symbol = 61475;
             this.AccountPasswordTextBox.SymbolSize = 22;
-            this.AccountPasswordTextBox.TabIndex = 2;
+            this.AccountPasswordTextBox.TabIndex = 1;
             this.AccountPasswordTextBox.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.AccountPasswordTextBox.Watermark = "Please enter password";
             this.AccountPasswordTextBox.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.AccountPasswordTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Login_PasswordKeyPress);
             // 
             // RegisterAccountLabel
             // 
@@ -219,7 +220,7 @@ namespace Launcher
             this.RegisterAccountLabel.Size = new System.Drawing.Size(335, 31);
             this.RegisterAccountLabel.Style = Sunny.UI.UIStyle.Red;
             this.RegisterAccountLabel.Symbol = 62004;
-            this.RegisterAccountLabel.TabIndex = 14;
+            this.RegisterAccountLabel.TabIndex = 3;
             this.RegisterAccountLabel.TabStop = false;
             this.RegisterAccountLabel.Text = "Register";
             this.RegisterAccountLabel.TipsColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
@@ -263,7 +264,7 @@ namespace Launcher
             this.AccountTextBox.Style = Sunny.UI.UIStyle.Red;
             this.AccountTextBox.Symbol = 61447;
             this.AccountTextBox.SymbolSize = 22;
-            this.AccountTextBox.TabIndex = 1;
+            this.AccountTextBox.TabIndex = 0;
             this.AccountTextBox.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.AccountTextBox.Watermark = "Please enter a account name";
             this.AccountTextBox.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
