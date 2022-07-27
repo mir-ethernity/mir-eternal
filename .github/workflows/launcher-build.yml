@@ -1,0 +1,44 @@
+name: Launcher Build
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - Launcher/**
+      - .github/workflows/launcher-build.yml
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        targets: [win10-x86,win10-x64]
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: Build Applications
+      run: dotnet publish -c release -r $env:Target --self-contained -o ./publish/$env:Target Launcher
+      env:
+        Target: ${{ matrix.targets }}
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: Launcher-${{env.Target}}
+        path: ./publish/${{env.Target}}
+      env:
+        Target: ${{ matrix.targets }}
+
