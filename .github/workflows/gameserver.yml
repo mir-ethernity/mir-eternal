@@ -10,14 +10,10 @@ jobs:
   build:
     strategy:
       matrix:
-        configuration: [Release]
+        projects: [GameServer, AccountServer, Launcher]
+        targets: [win10-x86,win10-x64]
 
     runs-on: windows-latest
-
-    env:
-      Solution_Name: Mir3D.sln             
-      Wap_Project_Directory: GameServer    
-      Wap_Project_Path: GameServer\GameServer.csproj
 
     steps:
     - name: Checkout
@@ -33,21 +29,15 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v1.0.2
 
-    - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
+    - name: Build Applications
+      run: dotnet publish -c release -r $env:Configuration --self-contained -o ../publish/$env:Configuration/$env:Project $env:Project
       env:
         Configuration: ${{ matrix.configuration }}
-
-    - name: Create the app package
-      run: msbuild $env:Wap_Project_Path /p:Configuration=$env:Configuration /p:UapAppxPackageBuildMode=$env:Appx_Package_Build_Mode /p:AppxBundle=$env:Appx_Bundle
-      env:
-        Appx_Bundle: Always
-        Appx_Bundle_Platforms: x86|x64
-        Appx_Package_Build_Mode: StoreUpload
-        Configuration: ${{ matrix.configuration }}
+        Project: ${{ matrix.project }}
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: MSIX Package
-        path: ${{ env.Wap_Project_Directory }}\AppPackages
+        name: MirEternal
+        path: ../publish/
+
