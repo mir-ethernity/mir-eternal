@@ -1,4 +1,4 @@
 {
   "Id": 670502000,
-  "Content": "规矩都知道吧?可以开始了吗?<#UI:UpgradeCurEquippedWepn>确认升级<#UI/><#SO:1>让我再考虑考虑<#SO/>"
+  "Content": "Do you know the rules? Can we start?<#UI:UpgradeCurEquippedWepn>Confirm Upgrade<#UI/><#SO:1>Not Yet<#SO/>"
 }

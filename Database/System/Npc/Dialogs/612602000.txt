@@ -1,4 +1,4 @@
 {
   "Id": 612602000,
-  "Content": "你想重铸哪个部位呢?<#SO:1>左戒指<#SO/><#SO:2>右戒指<#SO/><#SO:3>左手镯<#SO/><#SO:4>右手镯<#SO/><#SO:5>项链<#SO/><#SO:6>玉佩<#SO/><#SO:7>勋章<#SO/>"
+  "Content": "Which part do you want to reforge?<#SO:1>Left Ring<#SO/><#SO:2>Right Ring<#SO/><#SO:3>Left Bracelet<#SO/><#SO:4>Right Bracelet<#SO/><#SO:5>Necklace<#SO/><#SO:6>Pendant<#SO/><#SO:7>Medal<#SO/>"
 }

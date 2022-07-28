@@ -1,4 +1,4 @@
 {
   "Id": 670509000,
-  "Content": "修复油确实很稀有,少侠再去找找吧!"
+  "Content": "Repair oil is indeed very rare, young man, let's look for it!"
 }

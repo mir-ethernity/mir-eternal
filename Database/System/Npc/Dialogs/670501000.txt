@@ -1,4 +1,4 @@
 {
   "Id": 670501000,
-  "Content": "好装备就得精雕细琢,还是一件一件来吧."
+  "Content": "Good equipment has to be carefully crafted."
 }

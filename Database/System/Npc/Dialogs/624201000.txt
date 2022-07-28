@@ -1,4 +1,4 @@
 {
   "Id": 624201000,
-  "Content": "屠魔大厅太过凶险,请组队后再进入"
+  "Content": "Please form a team before entering, it is too dangerous!"
 }

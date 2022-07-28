@@ -1,4 +1,4 @@
 {
   "Id": 670505000,
-  "Content": "这样的神兵难道要我丢在地上吗?清理一下背包再来找我吧!"
+  "Content": "Do you want me to throw such a magical weapon on the ground? Clean up your bag and come back to me!"
 }

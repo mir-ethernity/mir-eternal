@@ -1,4 +1,4 @@
 {
   "Id": 670506000,
-  "Content": "没钱还是老实等着吧!"
+  "Content": "If you have no money, just wait!"
 }

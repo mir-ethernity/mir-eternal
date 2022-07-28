@@ -1,4 +1,4 @@
 {
   "Id": 624202000,
-  "Content": "只有队长才能开启地图"
+  "Content": "Only team leader can open the portal!"
 }

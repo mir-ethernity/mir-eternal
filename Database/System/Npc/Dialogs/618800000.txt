@@ -1,4 +1,4 @@
 {
   "Id": 618800000,
-  "Content": "需要我为你做什么吗?<#UI:WeaponSkillSwitch>铭文位切换<#UI/><#UI:WeaponSkillNhrt>双铭文传承<#UI/>"
+  "Content": "Need me to do something for you?<#UI:WeaponSkillSwitch>Inscription Switch<#UI/><#UI:WeaponSkillNhrt>Double Inscription<#UI/>"
 }

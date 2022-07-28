@@ -1,4 +1,4 @@
 {
   "Id": 625200000,
-  "Content": "击杀实力强大的妖兽能够获得一种特殊的令牌, 可以帮助习武之人快速提升修为. 少侠不妨去试试?<#SO:1>上交屠魔令<#SO/>"
+  "Content": "Killing powerful monsters can get you a special token, which can quickly improve their cultivation. Young heroes, why not try it?<#SO:1>Turn In Slaughter Order<#SO/>"
 }

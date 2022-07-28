@@ -1,4 +1,4 @@
 {
   "Id": 624204000,
-  "Content": "每人需交纳[`~]万金币,队伍中有成员没有足够的传送费用"
+  "Content": "Cost per person[`~] 10,000 Gold coins, there are members in the team who do not have enough."
 }

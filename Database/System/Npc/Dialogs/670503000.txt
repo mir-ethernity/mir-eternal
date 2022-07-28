@@ -1,4 +1,4 @@
 {
   "Id": 670503000,
-  "Content": "走开走开,这里没有你的武器!"
+  "Content": "Go away, go away, there are no weapons for you here!"
 }

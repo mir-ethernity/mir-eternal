@@ -1,4 +1,4 @@
 {
   "Id": 624200000,
-  "Content": "镇守屠魔大厅的守卫被突然出现的妖兽大军层层包围急需救援,你能伸出援手吗?<#SO:1>进入屠魔大厅<#SO/>"
+  "Content": "The guards guarding the Demon Slaying Hall are surrounded by a sudden army of monsters and are in urgent need of rescue. Can you lend a helping hand?<#SO:1>Enter Slaughter Hall<#SO/>"
 }

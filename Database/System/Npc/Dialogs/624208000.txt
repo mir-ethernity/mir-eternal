@@ -1,4 +1,4 @@
 {
   "Id": 624208000,
-  "Content": "队伍中有成员已经死亡"
+  "Content": "A member of the team has died"
 }

@@ -1,4 +1,4 @@
 {
   "Id": 619202500,
-  "Content": "当前装备的颜色为[`~]<br>继续雕色将覆盖当前颜色,需要继续吗?<#SO:1>继续雕色<#SO/><#SO:2>不了谢谢<#SO/>"
+  "Content": "The color of the current equipment is[`~]<br>Continue engraving will overwrite the current color, do you need to continue?<#SO:1>Continue Engraving<#SO/><#SO:2>Leave<#SO/>"
 }

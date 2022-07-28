@@ -1,4 +1,4 @@
 {
   "Id": 624203000,
-  "Content": "请确保所有队员都在附近"
+  "Content": "Make sure all team members are nearby"
 }

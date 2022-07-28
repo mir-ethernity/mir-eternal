@@ -1,4 +1,4 @@
 {
   "Id": 669200000,
-  "Content": "身为城主最重要的职责是守护比奇,而非荣华富贵.<#UI:GuildCreate>创建公会<#UI/><#UI:GuildView>公会查看<#UI/>"
+  "Content": "The most important duty as a city lord is to protect the town.<#UI:GuildCreate>Create a Guild<#UI/><#UI:GuildView>View Guild<#UI/>"
 }

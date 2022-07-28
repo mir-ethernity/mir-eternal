@@ -1,4 +1,4 @@
 {
   "Id": 627403000,
-  "Content": "只有沙巴克攻城战结束之前加入行会的成员才可以领取"
+  "Content": "Only members who joined the guild before the end of the last Sabuk Siege can claim it"
 }
