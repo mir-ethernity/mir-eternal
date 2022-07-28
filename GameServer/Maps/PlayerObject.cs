@@ -3805,9 +3805,9 @@ namespace GameServer.Maps
                     {
                         break;
                     }
-                    if (!value2.CheckBusyGreen || !(MainProcess.CurrentTime < 忙碌时间))
+                    if (!value2.CheckBusyGreen || !(忙碌时间 > MainProcess.CurrentTime))
                     {
-                        if (value2.CheckStiff && MainProcess.CurrentTime < 硬直时间)
+                        if (value2.CheckStiff && 硬直时间 > MainProcess.CurrentTime)
                         {
                             ActiveConnection?.发送封包(new AddedSkillCooldownPacket
                             {
