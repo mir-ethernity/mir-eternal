@@ -46,6 +46,8 @@ namespace GameServer.GMCommands
                 ? new Point(MapX.Value, MapY.Value)
                 : mapArea.RandomCoords;
 
+            if (location.IsEmpty) location = new Point(100, 100);
+
             player.玩家切换地图(mapInstance, mapArea.AreaType, location);
         }
 
