@@ -226,9 +226,9 @@ namespace GameServer.Maps
 			}
 			else
 			{
-				foreach (技能实例 技能实例 in this.技能任务.ToList<技能实例>())
+				foreach (SkillInstance 技能实例 in this.技能任务.ToList<SkillInstance>())
 				{
-					技能实例.处理任务();
+					技能实例.Process();
 				}
 				if (this.ActivelyTriggerSkills != null && MainProcess.CurrentTime > this.触发时间)
 				{
@@ -273,7 +273,7 @@ namespace GameServer.Maps
 			}
 			if (this.PassiveTriggerSkill != null && !对象.Died && (对象.对象类型 & this.陷阱模板.PassiveObjectType) != (GameObjectType)0 && 对象.特定类型(this.陷阱来源, this.陷阱模板.PassiveTargetType) && (this.陷阱来源.对象关系(对象) & this.陷阱模板.PassiveType) != (GameObjectRelationship)0 && (!this.陷阱模板.RetriggeringIsProhibited || this.被动触发列表.Add(对象)))
 			{
-				new 技能实例(this, this.PassiveTriggerSkill, null, 0, this.当前地图, this.当前坐标, 对象, 对象.当前坐标, null, null, false);
+				new SkillInstance(this, this.PassiveTriggerSkill, null, 0, this.当前地图, this.当前坐标, 对象, 对象.当前坐标, null, null, false);
 			}
 		}
 
@@ -284,7 +284,7 @@ namespace GameServer.Maps
 			{
 				return;
 			}
-			new 技能实例(this, this.ActivelyTriggerSkills, null, 0, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false);
+			new SkillInstance(this, this.ActivelyTriggerSkills, null, 0, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false);
 			this.触发时间 += TimeSpan.FromMilliseconds((double)this.ActivelyTriggerInterval);
 		}
 

@@ -8,10 +8,8 @@ using GameServer.Networking;
 
 namespace GameServer.Templates
 {
-	
-	public class 技能实例
+	public class SkillInstance
 	{
-		
 		// (get) Token: 0x060006B0 RID: 1712 RVA: 0x00005F0E File Offset: 0x0000410E
 		public int 来源编号
 		{
@@ -92,7 +90,7 @@ namespace GameServer.Templates
 		}
 
 		
-		public 技能实例(MapObject 技能来源, GameSkills 技能模板, SkillData SkillData, byte 动作编号, MapInstance 释放地图, Point 释放位置, MapObject 技能目标, Point 技能锚点, 技能实例 父类技能, Dictionary<int, 命中详情> 命中列表 = null, bool 目标借位 = false)
+		public SkillInstance(MapObject 技能来源, GameSkills 技能模板, SkillData SkillData, byte 动作编号, MapInstance 释放地图, Point 释放位置, MapObject 技能目标, Point 技能锚点, SkillInstance 父类技能, Dictionary<int, 命中详情> 命中列表 = null, bool 目标借位 = false)
 		{
 			
 			
@@ -117,7 +115,7 @@ namespace GameServer.Templates
 		}
 
 		
-		public void 处理任务()
+		public void Process()
 		{
 			if ((this.预约时间 - this.处理计时).TotalMilliseconds > 5.0 && MainProcess.CurrentTime < this.预约时间)
 			{
@@ -189,13 +187,13 @@ namespace GameServer.Templates
 					switch (a_00_触发SubSkills.技能触发方式)
 					{
 					case 技能触发方式.原点位置绝对触发:
-						new 技能实例(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, this.释放位置, this.技能目标, this.释放位置, this, null, false);
+						new SkillInstance(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, this.释放位置, this.技能目标, this.释放位置, this, null, false);
 						goto IL_33E1;
 					case 技能触发方式.锚点位置绝对触发:
-						new 技能实例(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, this.释放位置, this.技能目标, this.技能锚点, this, null, false);
+						new SkillInstance(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, this.释放位置, this.技能目标, this.技能锚点, this, null, false);
 						goto IL_33E1;
 					case 技能触发方式.刺杀位置绝对触发:
-						new 技能实例(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, this.释放位置, this.技能目标, ComputingClass.前方坐标(this.释放位置, this.技能锚点, 2), this, null, false);
+						new SkillInstance(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, this.释放位置, this.技能目标, ComputingClass.前方坐标(this.释放位置, this.技能锚点, 2), this, null, false);
 						goto IL_33E1;
 					case 技能触发方式.目标命中绝对触发:
 						using (Dictionary<int, 命中详情>.Enumerator enumerator = this.命中列表.GetEnumerator())
@@ -205,7 +203,7 @@ namespace GameServer.Templates
 								KeyValuePair<int, 命中详情> keyValuePair2 = enumerator.Current;
 								if ((keyValuePair2.Value.技能反馈 & 技能命中反馈.闪避) == 技能命中反馈.正常 && (keyValuePair2.Value.技能反馈 & 技能命中反馈.丢失) == 技能命中反馈.正常)
 								{
-									new 技能实例(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, (this.父类技能 == null) ? this.释放位置 : this.技能锚点, keyValuePair2.Value.技能目标, keyValuePair2.Value.技能目标.当前坐标, this, null, false);
+									new SkillInstance(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, (this.父类技能 == null) ? this.释放位置 : this.技能锚点, keyValuePair2.Value.技能目标, keyValuePair2.Value.技能目标.当前坐标, this, null, false);
 								}
 							}
 							goto IL_33E1;
@@ -227,7 +225,7 @@ namespace GameServer.Templates
 							while (enumerator.MoveNext())
 							{
 								KeyValuePair<int, 命中详情> keyValuePair3 = enumerator.Current;
-								new 技能实例(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, this.释放位置, keyValuePair3.Value.技能目标, keyValuePair3.Value.技能目标.当前坐标, this, null, false);
+								new SkillInstance(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, this.释放位置, keyValuePair3.Value.技能目标, keyValuePair3.Value.技能目标.当前坐标, this, null, false);
 							}
 							goto IL_33E1;
 						}
@@ -242,7 +240,7 @@ namespace GameServer.Templates
 								KeyValuePair<int, 命中详情> keyValuePair4 = enumerator.Current;
 								if ((keyValuePair4.Value.技能反馈 & 技能命中反馈.死亡) != 技能命中反馈.正常)
 								{
-									new 技能实例(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, this.释放位置, null, keyValuePair4.Value.技能目标.当前坐标, this, null, false);
+									new SkillInstance(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, this.释放位置, null, keyValuePair4.Value.技能目标.当前坐标, this, null, false);
 								}
 							}
 							goto IL_33E1;
@@ -260,7 +258,7 @@ namespace GameServer.Templates
 							KeyValuePair<int, 命中详情> keyValuePair5 = enumerator.Current;
 							if (keyValuePair5.Value.技能目标 is MonsterObject && (keyValuePair5.Value.技能反馈 & 技能命中反馈.死亡) != 技能命中反馈.正常)
 							{
-								new 技能实例(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, this.释放位置, null, keyValuePair5.Value.技能目标.当前坐标, this, null, false);
+								new SkillInstance(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, this.释放位置, null, keyValuePair5.Value.技能目标.当前坐标, this, null, false);
 							}
 						}
 						goto IL_33E1;
@@ -279,7 +277,7 @@ namespace GameServer.Templates
 								MapObject MapObject2 = keyValuePair6.Value.技能目标;
 								byte b = MapObject2.动作编号;
 								MapObject2.动作编号 = (byte)(b + 1);
-								new 技能实例(MapObject, 游戏技能2, SkillData2, b, this.释放地图, keyValuePair6.Value.技能目标.当前坐标, keyValuePair6.Value.技能目标, keyValuePair6.Value.技能目标.当前坐标, this, null, true);
+								new SkillInstance(MapObject, 游戏技能2, SkillData2, b, this.释放地图, keyValuePair6.Value.技能目标.当前坐标, keyValuePair6.Value.技能目标, keyValuePair6.Value.技能目标.当前坐标, this, null, true);
 							}
 						}
 						goto IL_33E1;
@@ -292,7 +290,7 @@ namespace GameServer.Templates
 							KeyValuePair<int, 命中详情> keyValuePair7 = enumerator.Current;
 							if (keyValuePair7.Value.技能目标 is MonsterObject && (keyValuePair7.Value.技能反馈 & 技能命中反馈.丢失) == 技能命中反馈.正常)
 							{
-								new 技能实例(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, (this.父类技能 == null) ? this.释放位置 : this.技能锚点, keyValuePair7.Value.技能目标, keyValuePair7.Value.技能目标.当前坐标, this, null, false);
+								new SkillInstance(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, (this.父类技能 == null) ? this.释放位置 : this.技能锚点, keyValuePair7.Value.技能目标, keyValuePair7.Value.技能目标.当前坐标, this, null, false);
 							}
 						}
 						goto IL_33E1;
@@ -305,16 +303,16 @@ namespace GameServer.Templates
 							goto IL_33E1;
 						}
 					}
-					new 技能实例(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, this.释放位置, null, this.技能锚点, this, null, false);
+					new SkillInstance(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, this.释放位置, null, this.技能锚点, this, null, false);
 					goto IL_33E1;
 					IL_698:
 					GameSkills 游戏技能3;
 					if (ComputingClass.计算概率(0.5f) && GameSkills.DataSheet.TryGetValue(a_00_触发SubSkills.反手SkillName, out 游戏技能3))
 					{
-						new 技能实例(this.技能来源, 游戏技能3, this.SkillData, this.动作编号, this.释放地图, this.释放位置, null, this.技能锚点, this, null, false);
+						new SkillInstance(this.技能来源, 游戏技能3, this.SkillData, this.动作编号, this.释放地图, this.释放位置, null, this.技能锚点, this, null, false);
 						goto IL_33E1;
 					}
-					new 技能实例(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, this.释放位置, null, this.技能锚点, this, null, false);
+					new SkillInstance(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, this.释放位置, null, this.技能锚点, this, null, false);
 					goto IL_33E1;
 					IL_7A7:
 					using (Dictionary<int, 命中详情>.Enumerator enumerator = this.命中列表.GetEnumerator())
@@ -324,7 +322,7 @@ namespace GameServer.Templates
 							KeyValuePair<int, 命中详情> keyValuePair8 = enumerator.Current;
 							if ((keyValuePair8.Value.技能反馈 & 技能命中反馈.闪避) != 技能命中反馈.正常)
 							{
-								new 技能实例(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, this.释放位置, null, keyValuePair8.Value.技能目标.当前坐标, this, null, false);
+								new SkillInstance(this.技能来源, 游戏技能, this.SkillData, this.动作编号, this.释放地图, this.释放位置, null, keyValuePair8.Value.技能目标.当前坐标, this, null, false);
 							}
 						}
 						goto IL_33E1;
@@ -1441,7 +1439,7 @@ namespace GameServer.Templates
 				return;
 			}
 			this.预约时间 = this.释放时间.AddMilliseconds((double)(this.飞行耗时 + this.Nodes.First<KeyValuePair<int, SkillTask>>().Key));
-			this.处理任务();
+			this.Process();
 		}
 
 		
@@ -1490,7 +1488,7 @@ namespace GameServer.Templates
 		public DateTime 释放时间;
 
 		
-		public 技能实例 父类技能;
+		public SkillInstance 父类技能;
 
 		
 		public bool 目标借位;

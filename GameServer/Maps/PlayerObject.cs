@@ -494,9 +494,9 @@ namespace GameServer.Maps
                             }
                         }
                     }
-                    foreach (技能实例 技能实例 in this.技能任务.ToList<技能实例>())
+                    foreach (SkillInstance 技能实例 in this.技能任务.ToList<SkillInstance>())
                     {
-                        技能实例.处理任务();
+                        技能实例.Process();
                     }
                     foreach (KeyValuePair<ushort, BuffData> keyValuePair in this.Buff列表.ToList<KeyValuePair<ushort, BuffData>>())
                     {
@@ -2707,7 +2707,7 @@ namespace GameServer.Maps
         }
 
 
-        public void 玩家诱惑目标(技能实例 技能, C_04_计算目标诱惑 参数, MapObject 诱惑目标)
+        public void 玩家诱惑目标(SkillInstance 技能, C_04_计算目标诱惑 参数, MapObject 诱惑目标)
         {
             if (诱惑目标 == null || 诱惑目标.Died || this.当前等级 + 2 < 诱惑目标.当前等级)
             {
@@ -2800,7 +2800,7 @@ namespace GameServer.Maps
         }
 
 
-        public void 玩家瞬间移动(技能实例 技能, C_07_计算目标瞬移 参数)
+        public void 玩家瞬间移动(SkillInstance 技能, C_07_计算目标瞬移 参数)
         {
             if (ComputingClass.计算概率(参数.每级成功概率[(int)技能.技能等级]) && !(this.当前地图.随机传送(this.当前坐标) == default(Point)))
             {
@@ -3331,7 +3331,7 @@ namespace GameServer.Maps
             GameSkills 技能模板;
             if (GameSkills.DataSheet.TryGetValue("通用-玩家取出武器", out 技能模板))
             {
-                new 技能实例(this, 技能模板, null, base.动作编号, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false);
+                new SkillInstance(this, 技能模板, null, base.动作编号, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false);
             }
             if (this.宠物列表.Count != this.PetData.Count)
             {
@@ -3733,7 +3733,7 @@ namespace GameServer.Maps
                                 this.当前魔力 -= 游戏技能.NeedConsumeMagic[(int)SkillData2.技能等级.V];
                             }
                         }
-                        new 技能实例(this, 游戏技能, SkillData, 0, this.当前地图, this.当前坐标, this, this.当前坐标, null, null, false);
+                        new SkillInstance(this, 游戏技能, SkillData, 0, this.当前地图, this.当前坐标, this, this.当前坐标, null, null, false);
                         break;
                     }
                 }
@@ -3906,7 +3906,7 @@ namespace GameServer.Maps
                         {
                             this[GameObjectStats.SkillSign] = 0;
                         }
-                        new 技能实例(this, value2, skill, 动作编号, 当前地图, 当前坐标, targetObj, targetLocation, null);
+                        new SkillInstance(this, value2, skill, 动作编号, 当前地图, 当前坐标, targetObj, targetLocation, null);
                         break;
                     }
                     ActiveConnection?.发送封包(new AddedSkillCooldownPacket
@@ -20673,7 +20673,7 @@ namespace GameServer.Maps
                         binaryWriter.Write(keyValuePair.Key);
                         BinaryWriter binaryWriter2 = binaryWriter;
                         SkillData value = keyValuePair.Value;
-                        binaryWriter2.Write((value != null) ? value.SkillId.V : 0);
+                        binaryWriter2.Write(value?.SkillId.V ?? 0);
                         binaryWriter.Write(false);
                     }
                     result = memoryStream.ToArray();

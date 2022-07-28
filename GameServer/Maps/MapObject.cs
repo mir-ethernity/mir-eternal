@@ -347,7 +347,7 @@ namespace GameServer.Maps
 
 
             this.处理计时 = MainProcess.CurrentTime;
-            this.技能任务 = new HashSet<技能实例>();
+            this.技能任务 = new HashSet<SkillInstance>();
             this.陷阱列表 = new HashSet<TrapObject>();
             this.重要邻居 = new HashSet<MapObject>();
             this.潜行邻居 = new HashSet<MapObject>();
@@ -1678,7 +1678,7 @@ namespace GameServer.Maps
         }
 
         
-        public void 被技能命中处理(技能实例 技能, C_01_计算命中目标 参数)
+        public void 被技能命中处理(SkillInstance 技能, C_01_计算命中目标 参数)
         {
             TrapObject TrapObject = 技能.技能来源 as TrapObject;
             MapObject MapObject = (TrapObject != null) ? TrapObject.陷阱来源 : 技能.技能来源;
@@ -1790,7 +1790,7 @@ namespace GameServer.Maps
         }
 
         
-        public void 被动受伤时处理(技能实例 技能, C_02_计算目标伤害 参数, 命中详情 详情, float 伤害系数)
+        public void 被动受伤时处理(SkillInstance 技能, C_02_计算目标伤害 参数, 命中详情 详情, float 伤害系数)
         {
             TrapObject TrapObject = 技能.技能来源 as TrapObject;
             MapObject MapObject = (TrapObject != null) ? TrapObject.陷阱来源 : 技能.技能来源;
@@ -2317,7 +2317,7 @@ namespace GameServer.Maps
         }
 
         
-        public void 被动回复时处理(技能实例 技能, C_05_计算目标回复 参数)
+        public void 被动回复时处理(SkillInstance 技能, C_05_计算目标回复 参数)
         {
             if (!this.Died)
             {
@@ -3311,7 +3311,7 @@ namespace GameServer.Maps
         public HashSet<MapObject> 邻居列表;
 
         
-        public HashSet<技能实例> 技能任务;
+        public HashSet<SkillInstance> 技能任务;
 
         
         public HashSet<TrapObject> 陷阱列表;

@@ -732,9 +732,9 @@ namespace GameServer.Maps
 				{
 					base.轮询Buff时处理(keyValuePair.Value);
 				}
-				foreach (技能实例 技能实例 in this.技能任务.ToList<技能实例>())
+				foreach (SkillInstance 技能实例 in this.技能任务.ToList<SkillInstance>())
 				{
-					技能实例.处理任务();
+					技能实例.Process();
 				}
 				if (MainProcess.CurrentTime > base.恢复时间)
 				{
@@ -757,7 +757,7 @@ namespace GameServer.Maps
 					SkillData SkillData = null;
 					byte 动作编号 = base.动作编号;
 					base.动作编号 = (byte)(动作编号 + 1);
-					new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false);
+					new SkillInstance(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false);
 					base.战斗姿态 = true;
 					base.脱战时间 = MainProcess.CurrentTime.AddSeconds(10.0);
 				}
@@ -767,7 +767,7 @@ namespace GameServer.Maps
 					SkillData SkillData2 = null;
 					byte 动作编号 = base.动作编号;
 					base.动作编号 = (byte)(动作编号 + 1);
-					new 技能实例(this, 技能模板2, SkillData2, 动作编号, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false);
+					new SkillInstance(this, 技能模板2, SkillData2, 动作编号, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false);
 					base.战斗姿态 = false;
 				}
 				else if (this.宠物主人.PetMode == PetMode.Attack && MainProcess.CurrentTime > this.忙碌时间 && MainProcess.CurrentTime > this.硬直时间)
@@ -798,7 +798,7 @@ namespace GameServer.Maps
 				SkillData SkillData = null;
 				byte 动作编号 = base.动作编号;
 				base.动作编号 = (byte)(动作编号 + 1);
-				new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false).处理任务();
+				new SkillInstance(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false).Process();
 			}
 			base.ItSelf死亡处理(对象, 技能击杀);
 			this.消失时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.CorpsePreservation);
@@ -972,7 +972,7 @@ namespace GameServer.Maps
 					SkillData SkillData = null;
 					byte 动作编号 = base.动作编号;
 					base.动作编号 = (byte)(动作编号 + 1);
-					new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, this.HateObject.当前目标, this.HateObject.当前目标.当前坐标, null, null, false);
+					new SkillInstance(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, this.HateObject.当前目标, this.HateObject.当前目标.当前坐标, null, null, false);
 					this.Attack时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.ValueLimit(0, 10 - this[GameObjectStats.AttackSpeed], 10) * 500));
 					return;
 				}

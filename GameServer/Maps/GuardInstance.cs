@@ -336,9 +336,9 @@ namespace GameServer.Maps
 				{
 					base.轮询Buff时处理(keyValuePair.Value);
 				}
-				foreach (技能实例 技能实例 in this.技能任务.ToList<技能实例>())
+				foreach (SkillInstance 技能实例 in this.技能任务.ToList<SkillInstance>())
 				{
-					技能实例.处理任务();
+					技能实例.Process();
 				}
 				if (MainProcess.CurrentTime > base.恢复时间)
 				{
@@ -432,7 +432,7 @@ namespace GameServer.Maps
 			SkillData SkillData = null;
 			byte 动作编号 = base.动作编号;
 			base.动作编号 = (byte)(动作编号 + 1);
-			new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, this.HateObject.当前目标, this.HateObject.当前目标.当前坐标, null, null, false);
+			new SkillInstance(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, this.HateObject.当前目标, this.HateObject.当前目标.当前坐标, null, null, false);
 		}
 
 		
