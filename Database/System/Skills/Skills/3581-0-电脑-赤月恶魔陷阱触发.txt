@@ -14,7 +14,7 @@
     },
     "1": {
       "$type": "A_02_TriggerTrapSkills, Assembly-CSharp",
-      "TriggerTrapSkills": "Red Moon Demon毒云陷阱"
+      "TriggerTrapSkills": "赤月恶魔毒云陷阱"
     }
   }
 }

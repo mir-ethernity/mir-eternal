@@ -36,7 +36,7 @@
     },
     "624": {
       "$type": "A_02_TriggerTrapSkills, Assembly-CSharp",
-      "TriggerTrapSkills": "TrapOctagon术-1-邪咒印",
+      "TriggerTrapSkills": "困魔咒术-1-邪咒印",
       "增加技能经验": true,
       "经验SkillId": 3011
     },

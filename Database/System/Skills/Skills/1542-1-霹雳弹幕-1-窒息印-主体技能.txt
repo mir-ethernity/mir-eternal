@@ -29,7 +29,7 @@
     },
     "400": {
       "$type": "A_02_TriggerTrapSkills, Assembly-CSharp",
-      "TriggerTrapSkills": "Percussion幕-1-窒息印",
+      "TriggerTrapSkills": "霹雳弹幕-1-窒息印",
       "增加技能经验": true,
       "经验SkillId": 1542
     },

@@ -69,7 +69,7 @@
     },
     "850": {
       "$type": "A_02_TriggerTrapSkills, Assembly-CSharp",
-      "TriggerTrapSkills": "Sunrise Swordplay-1-开疆印",
+      "TriggerTrapSkills": "逐日剑法-1-开疆印",
       "NumberTrapsTriggered": "Solid3x3",
       "增加技能经验": true,
       "经验SkillId": 2534

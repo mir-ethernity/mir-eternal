@@ -30,7 +30,7 @@
     },
     "425": {
       "$type": "A_02_TriggerTrapSkills, Assembly-CSharp",
-      "TriggerTrapSkills": "寒IceRoar-1-龙行印"
+      "TriggerTrapSkills": "寒冰咆哮-1-龙行印"
     },
     "625": {
       "$type": "C_01_计算命中目标, Assembly-CSharp",

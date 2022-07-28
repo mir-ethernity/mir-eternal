@@ -29,7 +29,7 @@
     },
     "225": {
       "$type": "A_02_TriggerTrapSkills, Assembly-CSharp",
-      "TriggerTrapSkills": "法师Firewall-0-无铭文",
+      "TriggerTrapSkills": "法师火墙-0-无铭文",
       "NumberTrapsTriggered": "Diamond3x3",
       "增加技能经验": true,
       "经验SkillId": 2534
