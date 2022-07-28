@@ -493,7 +493,7 @@ namespace GameServer.Templates
 						PlayerObject PlayerObject4 = this.技能来源 as PlayerObject;
 						if (PlayerObject4 != null)
 						{
-							PlayerObject4.技能增加经验(触发Buff.经验SkillId);
+							PlayerObject4.SkillGainExp(触发Buff.经验SkillId);
 						}
 					}
 				}
@@ -538,7 +538,7 @@ namespace GameServer.Templates
 								PlayerObject PlayerObject5 = this.技能来源 as PlayerObject;
 								if (PlayerObject5 != null)
 								{
-									PlayerObject5.技能增加经验(a_02_TriggerTrapSkills.经验SkillId);
+									PlayerObject5.SkillGainExp(a_02_TriggerTrapSkills.经验SkillId);
 								}
 							}
 						}
@@ -598,7 +598,7 @@ namespace GameServer.Templates
 											{
 												this.技能来源.冷却记录[(int)this.SkillId | 16777216] = this.释放时间.AddMilliseconds((this.SkillData.计数时间 - MainProcess.CurrentTime).TotalMilliseconds);
 											}
-											PlayerObject6.GetCurrentConnection.发送封包(new SyncSkillCountPacket
+											PlayerObject6.ActiveConnection.发送封包(new SyncSkillCountPacket
 											{
 												SkillId = this.SkillData.SkillId.V,
 												SkillCount = this.SkillData.剩余次数.V,
@@ -930,7 +930,7 @@ namespace GameServer.Templates
 													}
 													if (c_01_计算命中目标.增加技能经验 && this.命中列表.Count != 0)
 													{
-														(this.技能来源 as PlayerObject).技能增加经验(c_01_计算命中目标.经验SkillId);
+														(this.技能来源 as PlayerObject).SkillGainExp(c_01_计算命中目标.经验SkillId);
 													}
 													if (c_01_计算命中目标.计算飞行耗时 && c_01_计算命中目标.单格飞行耗时 != 0)
 													{
@@ -1134,7 +1134,7 @@ namespace GameServer.Templates
 														}
 														if (c_02_计算目标伤害.增加技能经验 && this.命中列表.Count != 0)
 														{
-															(this.技能来源 as PlayerObject).技能增加经验(c_02_计算目标伤害.经验SkillId);
+															(this.技能来源 as PlayerObject).SkillGainExp(c_02_计算目标伤害.经验SkillId);
 														}
 														if (c_02_计算目标伤害.扣除武器持久 && this.命中列表.Count != 0)
 														{
@@ -1201,7 +1201,7 @@ namespace GameServer.Templates
 																		MapObject13.ItSelf移动时处理(point2);
 																		if (c_03_计算对象位移.推动增加经验 && !this.经验增加)
 																		{
-																			(this.技能来源 as PlayerObject).技能增加经验(this.SkillId);
+																			(this.技能来源 as PlayerObject).SkillGainExp(this.SkillId);
 																			this.经验增加 = true;
 																		}
 																	}
@@ -1223,7 +1223,7 @@ namespace GameServer.Templates
 																	PlayerObject PlayerObject10 = this.技能来源 as PlayerObject;
 																	if (PlayerObject10 != null && c_03_计算对象位移.位移增加经验 && !this.经验增加)
 																	{
-																		PlayerObject10.技能增加经验(this.SkillId);
+																		PlayerObject10.SkillGainExp(this.SkillId);
 																		this.经验增加 = true;
 																	}
 																	if (c_03_计算对象位移.多段位移通知)
@@ -1312,7 +1312,7 @@ namespace GameServer.Templates
 																					keyValuePair18.Value.技能目标.ItSelf移动时处理(point3);
 																					if (c_03_计算对象位移.推动增加经验 && !this.经验增加)
 																					{
-																						(this.技能来源 as PlayerObject).技能增加经验(this.SkillId);
+																						(this.技能来源 as PlayerObject).SkillGainExp(this.SkillId);
 																						this.经验增加 = true;
 																					}
 																				}
@@ -1380,12 +1380,12 @@ namespace GameServer.Templates
 																		i = (int)this.技能等级;
 																		byte 等级上限 = (byte)((num23.GetValueOrDefault() > i & num23 != null) ? c_06_计算宠物召唤.宠物等级上限[(int)this.技能等级] : 0);
 																		PetObject PetObject = new PetObject(PlayerObject11, 召唤宠物, this.技能等级, 等级上限, c_06_计算宠物召唤.宠物绑定武器);
-																		PlayerObject11.GetCurrentConnection.发送封包(new SyncPetLevelPacket
+																		PlayerObject11.ActiveConnection.发送封包(new SyncPetLevelPacket
 																		{
 																			宠物编号 = PetObject.MapId,
 																			宠物等级 = PetObject.宠物等级
 																		});
-																		PlayerObject11.GetCurrentConnection.发送封包(new GameErrorMessagePacket
+																		PlayerObject11.ActiveConnection.发送封包(new GameErrorMessagePacket
 																		{
 																			错误代码 = 9473,
 																			第一参数 = (int)PlayerObject11.PetMode
@@ -1394,7 +1394,7 @@ namespace GameServer.Templates
 																		PlayerObject11.宠物列表.Add(PetObject);
 																		if (c_06_计算宠物召唤.增加技能经验)
 																		{
-																			PlayerObject11.技能增加经验(c_06_计算宠物召唤.经验SkillId);
+																			PlayerObject11.SkillGainExp(c_06_计算宠物召唤.经验SkillId);
 																		}
 																	}
 																}
@@ -1411,7 +1411,7 @@ namespace GameServer.Templates
 																}
 																if (c_05_计算目标回复.增加技能经验 && this.命中列表.Count != 0)
 																{
-																	(this.技能来源 as PlayerObject).技能增加经验(c_05_计算目标回复.经验SkillId);
+																	(this.技能来源 as PlayerObject).SkillGainExp(c_05_计算目标回复.经验SkillId);
 																}
 															}
 															else

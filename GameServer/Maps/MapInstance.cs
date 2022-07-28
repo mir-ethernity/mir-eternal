@@ -159,7 +159,7 @@ namespace GameServer.Maps
 				}
 				else if ((int)this.副本节点 <= 5 + this.怪物波数.Count)
 				{
-					if (this.副本守卫.对象死亡)
+					if (this.副本守卫.Died)
 					{
 						this.副本节点 = 100;
 						this.节点计时 = MainProcess.CurrentTime;
@@ -203,7 +203,7 @@ namespace GameServer.Maps
 				}
 				else if ((int)this.副本节点 == 6 + this.怪物波数.Count)
 				{
-					if (this.副本守卫.对象死亡)
+					if (this.副本守卫.Died)
 					{
 						this.副本节点 = 100;
 						this.节点计时 = MainProcess.CurrentTime;
@@ -231,7 +231,7 @@ namespace GameServer.Maps
 				{
 					foreach (PlayerObject PlayerObject in this.玩家列表.ToList<PlayerObject>())
 					{
-						if (PlayerObject.对象死亡)
+						if (PlayerObject.Died)
 						{
 							PlayerObject.玩家请求复活();
 						}
@@ -242,7 +242,7 @@ namespace GameServer.Maps
 					}
 					foreach (PetObject PetObject in this.宠物列表.ToList<PetObject>())
 					{
-						if (PetObject.对象死亡)
+						if (PetObject.Died)
 						{
 							PetObject.删除对象();
 						}
@@ -327,7 +327,7 @@ namespace GameServer.Maps
 					byte[] 字节描述 = memoryStream.ToArray();
 					foreach (PlayerObject PlayerObject in this.玩家列表)
 					{
-						SConnection 网络连接 = PlayerObject.GetCurrentConnection;
+						SConnection 网络连接 = PlayerObject.ActiveConnection;
 						if (网络连接 != null)
 						{
 							网络连接.发送封包(new ReceiveChatMessagesPacket

@@ -271,7 +271,7 @@ namespace GameServer.Maps
 			{
 				return;
 			}
-			if (this.PassiveTriggerSkill != null && !对象.对象死亡 && (对象.对象类型 & this.陷阱模板.PassiveObjectType) != (GameObjectType)0 && 对象.特定类型(this.陷阱来源, this.陷阱模板.PassiveTargetType) && (this.陷阱来源.对象关系(对象) & this.陷阱模板.PassiveType) != (GameObjectRelationship)0 && (!this.陷阱模板.RetriggeringIsProhibited || this.被动触发列表.Add(对象)))
+			if (this.PassiveTriggerSkill != null && !对象.Died && (对象.对象类型 & this.陷阱模板.PassiveObjectType) != (GameObjectType)0 && 对象.特定类型(this.陷阱来源, this.陷阱模板.PassiveTargetType) && (this.陷阱来源.对象关系(对象) & this.陷阱模板.PassiveType) != (GameObjectRelationship)0 && (!this.陷阱模板.RetriggeringIsProhibited || this.被动触发列表.Add(对象)))
 			{
 				new 技能实例(this, this.PassiveTriggerSkill, null, 0, this.当前地图, this.当前坐标, 对象, 对象.当前坐标, null, null, false);
 			}

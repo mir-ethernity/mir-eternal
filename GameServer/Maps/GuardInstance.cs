@@ -167,7 +167,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.CanBeInjured && !this.对象死亡;
+				return this.CanBeInjured && !this.Died;
 			}
 		}
 
@@ -315,7 +315,7 @@ namespace GameServer.Maps
 			{
 				return;
 			}
-			if (this.对象死亡)
+			if (this.Died)
 			{
 				if (!this.尸体消失 && MainProcess.CurrentTime >= this.消失时间)
 				{
@@ -440,7 +440,7 @@ namespace GameServer.Maps
 		{
 			this.更新对象Stat();
 			this.次要对象 = false;
-			this.对象死亡 = false;
+			this.Died = false;
 			this.阻塞网格 = !this.对象模板.Nothingness;
 			this.当前地图 = this.出生地图;
 			this.当前方向 = this.出生方向;
@@ -463,7 +463,7 @@ namespace GameServer.Maps
 			{
 				return this.HateObject.切换仇恨(this);
 			}
-			if (this.HateObject.当前目标.对象死亡)
+			if (this.HateObject.当前目标.Died)
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}

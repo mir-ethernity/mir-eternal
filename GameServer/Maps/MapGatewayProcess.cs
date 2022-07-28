@@ -83,7 +83,7 @@ namespace GameServer.Maps
 			IL_2D4:
 			foreach (MapObject MapObject in MapGatewayProcess.沙城地图[MapGatewayProcess.皇宫下门坐标].ToList<MapObject>())
 			{
-				if (!MapObject.对象死亡)
+				if (!MapObject.Died)
 				{
 					PlayerObject PlayerObject = MapObject as PlayerObject;
 					if (PlayerObject != null && MainProcess.CurrentTime > PlayerObject.忙碌时间)
@@ -94,7 +94,7 @@ namespace GameServer.Maps
 			}
 			foreach (MapObject MapObject2 in MapGatewayProcess.沙城地图[MapGatewayProcess.皇宫上门坐标].ToList<MapObject>())
 			{
-				if (!MapObject2.对象死亡)
+				if (!MapObject2.Died)
 				{
 					PlayerObject PlayerObject2 = MapObject2 as PlayerObject;
 					if (PlayerObject2 != null && MainProcess.CurrentTime > PlayerObject2.忙碌时间)
@@ -105,7 +105,7 @@ namespace GameServer.Maps
 			}
 			foreach (MapObject MapObject3 in MapGatewayProcess.沙城地图[MapGatewayProcess.皇宫左门坐标].ToList<MapObject>())
 			{
-				if (!MapObject3.对象死亡)
+				if (!MapObject3.Died)
 				{
 					PlayerObject PlayerObject3 = MapObject3 as PlayerObject;
 					if (PlayerObject3 != null && MainProcess.CurrentTime > PlayerObject3.忙碌时间)
@@ -116,7 +116,7 @@ namespace GameServer.Maps
 			}
 			foreach (MapObject MapObject4 in MapGatewayProcess.沙城地图[MapGatewayProcess.皇宫出口点一].ToList<MapObject>())
 			{
-				if (!MapObject4.对象死亡)
+				if (!MapObject4.Died)
 				{
 					PlayerObject PlayerObject4 = MapObject4 as PlayerObject;
 					if (PlayerObject4 != null && MainProcess.CurrentTime > PlayerObject4.忙碌时间)
@@ -127,7 +127,7 @@ namespace GameServer.Maps
 			}
 			foreach (MapObject MapObject5 in MapGatewayProcess.沙城地图[MapGatewayProcess.皇宫出口点二].ToList<MapObject>())
 			{
-				if (!MapObject5.对象死亡)
+				if (!MapObject5.Died)
 				{
 					PlayerObject PlayerObject5 = MapObject5 as PlayerObject;
 					if (PlayerObject5 != null && MainProcess.CurrentTime > PlayerObject5.忙碌时间)
@@ -138,7 +138,7 @@ namespace GameServer.Maps
 			}
 			foreach (MapObject MapObject6 in MapGatewayProcess.沙城地图[MapGatewayProcess.皇宫入口点左].ToList<MapObject>())
 			{
-				if (!MapObject6.对象死亡)
+				if (!MapObject6.Died)
 				{
 					PlayerObject PlayerObject6 = MapObject6 as PlayerObject;
 					if (PlayerObject6 != null && MainProcess.CurrentTime > PlayerObject6.忙碌时间 && PlayerObject6.所属行会 != null && PlayerObject6.所属行会 == SystemData.数据.占领行会.V)
@@ -149,7 +149,7 @@ namespace GameServer.Maps
 			}
 			foreach (MapObject MapObject7 in MapGatewayProcess.沙城地图[MapGatewayProcess.皇宫入口点中].ToList<MapObject>())
 			{
-				if (!MapObject7.对象死亡)
+				if (!MapObject7.Died)
 				{
 					PlayerObject PlayerObject7 = MapObject7 as PlayerObject;
 					if (PlayerObject7 != null && MainProcess.CurrentTime > PlayerObject7.忙碌时间 && PlayerObject7.所属行会 != null && PlayerObject7.所属行会 == SystemData.数据.占领行会.V)
@@ -160,7 +160,7 @@ namespace GameServer.Maps
 			}
 			foreach (MapObject MapObject8 in MapGatewayProcess.沙城地图[MapGatewayProcess.皇宫入口点右].ToList<MapObject>())
 			{
-				if (!MapObject8.对象死亡)
+				if (!MapObject8.Died)
 				{
 					PlayerObject PlayerObject8 = MapObject8 as PlayerObject;
 					if (PlayerObject8 != null && MainProcess.CurrentTime > PlayerObject8.忙碌时间 && PlayerObject8.所属行会 != null && PlayerObject8.所属行会 == SystemData.数据.占领行会.V)
@@ -314,7 +314,7 @@ namespace GameServer.Maps
 			}
 			else if (MapGatewayProcess.沙城节点 == 2)
 			{
-				if (MapGatewayProcess.沙城城门.对象死亡 && MapGatewayProcess.沙城城门.出生地图 != null)
+				if (MapGatewayProcess.沙城城门.Died && MapGatewayProcess.沙城城门.出生地图 != null)
 				{
 					NetworkServiceGateway.发送公告("Shabak City Gate has been breached", true);
 					MapGatewayProcess.沙城城门.出生地图 = null;
@@ -323,27 +323,27 @@ namespace GameServer.Maps
 				{
 					GuildData GuildData2 = null;
 					bool flag = true;
-					if (MapGatewayProcess.沙城地图[MapGatewayProcess.八卦坛坐标上].FirstOrDefault((MapObject O) => !O.对象死亡 && O is PlayerObject) == null)
+					if (MapGatewayProcess.沙城地图[MapGatewayProcess.八卦坛坐标上].FirstOrDefault((MapObject O) => !O.Died && O is PlayerObject) == null)
 					{
 						flag = false;
 					}
 					if (flag)
 					{
-						if (MapGatewayProcess.沙城地图[MapGatewayProcess.八卦坛坐标下].FirstOrDefault((MapObject O) => !O.对象死亡 && O is PlayerObject) == null)
+						if (MapGatewayProcess.沙城地图[MapGatewayProcess.八卦坛坐标下].FirstOrDefault((MapObject O) => !O.Died && O is PlayerObject) == null)
 						{
 							flag = false;
 						}
 					}
 					if (flag)
 					{
-						if (MapGatewayProcess.沙城地图[MapGatewayProcess.八卦坛坐标左].FirstOrDefault((MapObject O) => !O.对象死亡 && O is PlayerObject) == null)
+						if (MapGatewayProcess.沙城地图[MapGatewayProcess.八卦坛坐标左].FirstOrDefault((MapObject O) => !O.Died && O is PlayerObject) == null)
 						{
 							flag = false;
 						}
 					}
 					if (flag)
 					{
-						if (MapGatewayProcess.沙城地图[MapGatewayProcess.八卦坛坐标右].FirstOrDefault((MapObject O) => !O.对象死亡 && O is PlayerObject) == null)
+						if (MapGatewayProcess.沙城地图[MapGatewayProcess.八卦坛坐标右].FirstOrDefault((MapObject O) => !O.Died && O is PlayerObject) == null)
 						{
 							flag = false;
 						}
@@ -352,7 +352,7 @@ namespace GameServer.Maps
 					{
 						foreach (MapObject MapObject9 in MapGatewayProcess.沙城地图[MapGatewayProcess.八卦坛坐标上])
 						{
-							if (!MapObject9.对象死亡)
+							if (!MapObject9.Died)
 							{
 								PlayerObject PlayerObject11 = MapObject9 as PlayerObject;
 								if (PlayerObject11 != null)
@@ -384,7 +384,7 @@ namespace GameServer.Maps
 					{
 						foreach (MapObject MapObject10 in MapGatewayProcess.沙城地图[MapGatewayProcess.八卦坛坐标下])
 						{
-							if (!MapObject10.对象死亡)
+							if (!MapObject10.Died)
 							{
 								PlayerObject PlayerObject12 = MapObject10 as PlayerObject;
 								if (PlayerObject12 != null)
@@ -406,7 +406,7 @@ namespace GameServer.Maps
 					{
 						foreach (MapObject MapObject11 in MapGatewayProcess.沙城地图[MapGatewayProcess.八卦坛坐标左])
 						{
-							if (!MapObject11.对象死亡)
+							if (!MapObject11.Died)
 							{
 								PlayerObject PlayerObject13 = MapObject11 as PlayerObject;
 								if (PlayerObject13 != null)
@@ -428,7 +428,7 @@ namespace GameServer.Maps
 					{
 						foreach (MapObject MapObject12 in MapGatewayProcess.沙城地图[MapGatewayProcess.八卦坛坐标右])
 						{
-							if (!MapObject12.对象死亡)
+							if (!MapObject12.Died)
 							{
 								PlayerObject PlayerObject14 = MapObject12 as PlayerObject;
 								if (PlayerObject14 != null)
@@ -470,7 +470,7 @@ namespace GameServer.Maps
 				{
 					foreach (MapObject MapObject13 in MapGatewayProcess.沙城地图[坐标])
 					{
-						if (!MapObject13.对象死亡)
+						if (!MapObject13.Died)
 						{
 							PlayerObject PlayerObject15 = MapObject13 as PlayerObject;
 							if (PlayerObject15 != null)

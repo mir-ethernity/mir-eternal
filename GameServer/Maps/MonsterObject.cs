@@ -460,7 +460,7 @@ namespace GameServer.Maps
 			}
 			对应宠物.ItSelf死亡处理(null, false);
 			对应宠物.删除对象();
-			this.对象死亡 = false;
+			this.Died = false;
 			base.战斗姿态 = false;
 			this.阻塞网格 = true;
 			base.绑定网格();
@@ -528,7 +528,7 @@ namespace GameServer.Maps
 			this.复活时间 = MainProcess.CurrentTime.AddMilliseconds((double)RevivalInterval);
 			this.阻塞网格 = false;
 			this.尸体消失 = true;
-			this.对象死亡 = true;
+			this.Died = true;
 			this.次要对象 = true;
 			MapGatewayProcess.添加次要对象(this);
 		}
@@ -544,7 +544,7 @@ namespace GameServer.Maps
 			{
 				base.删除对象();
 			}
-			else if (this.对象死亡)
+			else if (this.Died)
 			{
 				if (!this.尸体消失 && MainProcess.CurrentTime >= this.消失时间)
 				{
@@ -867,7 +867,7 @@ namespace GameServer.Maps
 						this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.行走耗时 + this.移动间隔));
 						this.当前方向 = ComputingClass.计算方向(this.当前坐标, point);
 						base.ItSelf移动时处理(point);
-						if (!this.对象死亡)
+						if (!this.Died)
 						{
 							base.发送封包(new ObjectCharacterWalkPacket
 							{
@@ -945,7 +945,7 @@ namespace GameServer.Maps
 							this.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.行走耗时);
 							this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.行走耗时 + this.移动间隔));
 							base.ItSelf移动时处理(point2);
-							if (!this.对象死亡)
+							if (!this.Died)
 							{
 								base.发送封包(new ObjectCharacterWalkPacket
 								{
@@ -1010,7 +1010,7 @@ namespace GameServer.Maps
 					this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(MainProcess.RandomNumber.Next(5000) + this.漫游间隔));
 					this.HateObject = new HateObject();
 					this.次要对象 = false;
-					this.对象死亡 = false;
+					this.Died = false;
 					base.战斗姿态 = false;
 					this.阻塞网格 = true;
 					base.绑定网格();
@@ -1041,7 +1041,7 @@ namespace GameServer.Maps
 		{
 			this.Buff列表.Clear();
 			this.尸体消失 = true;
-			this.对象死亡 = true;
+			this.Died = true;
 			this.阻塞网格 = false;
 			if (this.禁止复活)
 			{
@@ -1101,7 +1101,7 @@ namespace GameServer.Maps
 			{
 				this.HateObject.切换时间 = default(DateTime);
 			}
-			else if (this.HateObject.当前目标.对象死亡)
+			else if (this.HateObject.当前目标.Died)
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}
@@ -1139,7 +1139,7 @@ namespace GameServer.Maps
 			{
 				this.HateObject.切换时间 = default(DateTime);
 			}
-			else if (this.HateObject.当前目标.对象死亡)
+			else if (this.HateObject.当前目标.Died)
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}

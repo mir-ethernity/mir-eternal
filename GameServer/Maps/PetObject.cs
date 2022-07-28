@@ -715,7 +715,7 @@ namespace GameServer.Maps
 			{
 				return;
 			}
-			if (this.对象死亡)
+			if (this.Died)
 			{
 				if (!this.尸体消失 && MainProcess.CurrentTime >= this.消失时间)
 				{
@@ -826,7 +826,7 @@ namespace GameServer.Maps
 				PlayerObject PlayerObject5 = this.宠物主人;
 				if (PlayerObject5 != null)
 				{
-					PlayerObject5.GetCurrentConnection.发送封包(new GameErrorMessagePacket
+					PlayerObject5.ActiveConnection.发送封包(new GameErrorMessagePacket
 					{
 						错误代码 = 9473
 					});
@@ -1050,7 +1050,7 @@ namespace GameServer.Maps
 		{
 			this.技能任务.Clear();
 			this.Buff列表.Clear();
-			this.对象死亡 = true;
+			this.Died = true;
 			base.删除对象();
 		}
 
@@ -1065,7 +1065,7 @@ namespace GameServer.Maps
 			{
 				this.HateObject.切换时间 = default(DateTime);
 			}
-			else if (this.HateObject.当前目标.对象死亡)
+			else if (this.HateObject.当前目标.Died)
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}

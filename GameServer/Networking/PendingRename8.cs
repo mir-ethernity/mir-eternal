@@ -539,7 +539,7 @@ namespace GameServer.Networking
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
                 return;
             }
-            this.Player.玩家释放技能(P.SkillId, P.动作编号, P.目标编号, P.锚点坐标);
+            this.Player.UseSkill(P.SkillId, P.动作编号, P.目标编号, P.锚点坐标);
         }
 
 

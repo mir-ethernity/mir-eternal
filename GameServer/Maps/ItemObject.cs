@@ -45,7 +45,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x0600082F RID: 2095 RVA: 0x00002855 File Offset: 0x00000A55
-		public override bool 对象死亡
+		public override bool Died
 		{
 			get
 			{
@@ -174,7 +174,7 @@ namespace GameServer.Maps
 				{
 					foreach (MapObject MapObject in 掉落地图[point])
 					{
-						if (!MapObject.对象死亡)
+						if (!MapObject.Died)
 						{
 							GameObjectType 对象类型 = MapObject.对象类型;
 							switch (对象类型)

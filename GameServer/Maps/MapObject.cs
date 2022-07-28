@@ -138,7 +138,7 @@ namespace GameServer.Maps
         
         // (get) Token: 0x06000782 RID: 1922 RVA: 0x00006600 File Offset: 0x00004800
         // (set) Token: 0x06000783 RID: 1923 RVA: 0x00006608 File Offset: 0x00004808
-        public virtual bool 对象死亡 { get; set; }
+        public virtual bool Died { get; set; }
 
         
         // (get) Token: 0x06000784 RID: 1924 RVA: 0x00006611 File Offset: 0x00004811
@@ -151,7 +151,7 @@ namespace GameServer.Maps
         {
             get
             {
-                return !this.对象死亡;
+                return !this.Died;
             }
         }
 
@@ -333,7 +333,7 @@ namespace GameServer.Maps
                 对象编号 = this.MapId
             });
             this.技能任务.Clear();
-            this.对象死亡 = true;
+            this.Died = true;
             this.阻塞网格 = false;
             foreach (MapObject MapObject in this.邻居列表.ToList<MapObject>())
             {
@@ -441,7 +441,7 @@ namespace GameServer.Maps
             PlayerObject PlayerObject2 = this as PlayerObject;
             if (PlayerObject2 != null)
             {
-                SConnection 网络连接 = PlayerObject2.GetCurrentConnection;
+                SConnection 网络连接 = PlayerObject2.ActiveConnection;
                 if (网络连接 == null)
                 {
                     return;
@@ -457,7 +457,7 @@ namespace GameServer.Maps
                 PlayerObject PlayerObject = obj as PlayerObject;
                 if (PlayerObject != null && !PlayerObject.潜行邻居.Contains(this) && PlayerObject != null)
                 {
-                    PlayerObject.GetCurrentConnection.发送封包(packet);
+                    PlayerObject.ActiveConnection.发送封包(packet);
                 }
             }
         }
@@ -471,7 +471,7 @@ namespace GameServer.Maps
         
         public bool ActiveAttack(MapObject 对象)
         {
-            if (对象.对象死亡)
+            if (对象.Died)
             {
                 return false;
             }
@@ -1245,19 +1245,19 @@ namespace GameServer.Maps
         
         public virtual bool 能否走动()
         {
-            return !this.对象死亡 && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.行走时间) && !this.检查状态(GameObjectState.BusyGreen | GameObjectState.Inmobilized | GameObjectState.Paralyzed | GameObjectState.Absence);
+            return !this.Died && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.行走时间) && !this.检查状态(GameObjectState.BusyGreen | GameObjectState.Inmobilized | GameObjectState.Paralyzed | GameObjectState.Absence);
         }
 
         
         public virtual bool 能否跑动()
         {
-            return !this.对象死亡 && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.奔跑时间) && !this.检查状态(GameObjectState.BusyGreen | GameObjectState.Disabled | GameObjectState.Inmobilized | GameObjectState.Paralyzed | GameObjectState.Absence);
+            return !this.Died && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.奔跑时间) && !this.检查状态(GameObjectState.BusyGreen | GameObjectState.Disabled | GameObjectState.Inmobilized | GameObjectState.Paralyzed | GameObjectState.Absence);
         }
 
         
         public virtual bool 能否转动()
         {
-            return !this.对象死亡 && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.行走时间) && !this.检查状态(GameObjectState.BusyGreen | GameObjectState.Paralyzed | GameObjectState.Absence);
+            return !this.Died && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.行走时间) && !this.检查状态(GameObjectState.BusyGreen | GameObjectState.Paralyzed | GameObjectState.Absence);
         }
 
         
@@ -1794,7 +1794,7 @@ namespace GameServer.Maps
         {
             TrapObject TrapObject = 技能.技能来源 as TrapObject;
             MapObject MapObject = (TrapObject != null) ? TrapObject.陷阱来源 : 技能.技能来源;
-            if (this.对象死亡)
+            if (this.Died)
             {
                 详情.技能反馈 = 技能命中反馈.丢失;
             }
@@ -2269,7 +2269,7 @@ namespace GameServer.Maps
                         }
                     }
                     EquipmentData EquipmentData;
-                    if (MainProcess.CurrentTime > PlayerObject4.战具计时 && !PlayerObject4.对象死亡 && PlayerObject4.当前体力 < PlayerObject4[GameObjectStats.MaxPhysicalStrength] && PlayerObject4.角色装备.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0 && (EquipmentData.Id == 99999106 || EquipmentData.Id == 99999107))
+                    if (MainProcess.CurrentTime > PlayerObject4.战具计时 && !PlayerObject4.Died && PlayerObject4.当前体力 < PlayerObject4[GameObjectStats.MaxPhysicalStrength] && PlayerObject4.角色装备.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0 && (EquipmentData.Id == 99999106 || EquipmentData.Id == 99999107))
                     {
                         PlayerObject4.当前体力 += ((this is MonsterObject) ? 20 : 10);
                         PlayerObject4.战具损失持久(1);
@@ -2319,7 +2319,7 @@ namespace GameServer.Maps
         
         public void 被动回复时处理(技能实例 技能, C_05_计算目标回复 参数)
         {
-            if (!this.对象死亡)
+            if (!this.Died)
             {
                 if (this.当前地图 == 技能.技能来源.当前地图)
                 {
@@ -2741,29 +2741,29 @@ namespace GameServer.Maps
                                 case GameObjectType.怪物:
                                     break;
                                 case GameObjectType.宠物:
-                                    PlayerObject.GetCurrentConnection.发送封包(new ObjectCharacterStopPacket
+                                    PlayerObject.ActiveConnection.发送封包(new ObjectCharacterStopPacket
                                     {
                                         对象编号 = 对象.MapId,
                                         对象坐标 = 对象.当前坐标,
                                         对象高度 = 对象.当前高度
                                     });
-                                    PlayerObject.GetCurrentConnection.发送封包(new ObjectComesIntoViewPacket
+                                    PlayerObject.ActiveConnection.发送封包(new ObjectComesIntoViewPacket
                                     {
                                         出现方式 = 1,
                                         对象编号 = 对象.MapId,
                                         现身坐标 = 对象.当前坐标,
                                         现身高度 = 对象.当前高度,
                                         现身方向 = (ushort)对象.当前方向,
-                                        现身姿态 = ((byte)(对象.对象死亡 ? 13 : 1)),
+                                        现身姿态 = ((byte)(对象.Died ? 13 : 1)),
                                         体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectStats.MaxPhysicalStrength])
                                     });
-                                    PlayerObject.GetCurrentConnection.发送封包(new 同步对象体力
+                                    PlayerObject.ActiveConnection.发送封包(new 同步对象体力
                                     {
                                         对象编号 = 对象.MapId,
                                         当前体力 = 对象.当前体力,
                                         体力上限 = 对象[GameObjectStats.MaxPhysicalStrength]
                                     });
-                                    PlayerObject.GetCurrentConnection.发送封包(new ObjectTransformTypePacket
+                                    PlayerObject.ActiveConnection.发送封包(new ObjectTransformTypePacket
                                     {
                                         改变类型 = 2,
                                         对象编号 = 对象.MapId
@@ -2778,25 +2778,25 @@ namespace GameServer.Maps
                                     }
                                     break;
                             }
-                            PlayerObject.GetCurrentConnection.发送封包(new ObjectCharacterStopPacket
+                            PlayerObject.ActiveConnection.发送封包(new ObjectCharacterStopPacket
                             {
                                 对象编号 = 对象.MapId,
                                 对象坐标 = 对象.当前坐标,
                                 对象高度 = 对象.当前高度
                             });
-                            SConnection 网络连接 = PlayerObject.GetCurrentConnection;
+                            SConnection 网络连接 = PlayerObject.ActiveConnection;
                             ObjectComesIntoViewPacket ObjectComesIntoViewPacket = new ObjectComesIntoViewPacket();
                             ObjectComesIntoViewPacket.出现方式 = 1;
                             ObjectComesIntoViewPacket.对象编号 = 对象.MapId;
                             ObjectComesIntoViewPacket.现身坐标 = 对象.当前坐标;
                             ObjectComesIntoViewPacket.现身高度 = 对象.当前高度;
                             ObjectComesIntoViewPacket.现身方向 = (ushort)对象.当前方向;
-                            ObjectComesIntoViewPacket.现身姿态 = ((byte)(对象.对象死亡 ? 13 : 1));
+                            ObjectComesIntoViewPacket.现身姿态 = ((byte)(对象.Died ? 13 : 1));
                             ObjectComesIntoViewPacket.体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectStats.MaxPhysicalStrength]);
                             PlayerObject PlayerObject2 = 对象 as PlayerObject;
                             ObjectComesIntoViewPacket.AdditionalParam = ((byte)((PlayerObject2 == null || !PlayerObject2.灰名玩家) ? 0 : 2));
                             网络连接.发送封包(ObjectComesIntoViewPacket);
-                            PlayerObject.GetCurrentConnection.发送封包(new 同步对象体力
+                            PlayerObject.ActiveConnection.发送封包(new 同步对象体力
                             {
                                 对象编号 = 对象.MapId,
                                 当前体力 = 对象.当前体力,
@@ -2807,7 +2807,7 @@ namespace GameServer.Maps
                         {
                             if (对象类型 == GameObjectType.陷阱)
                             {
-                                PlayerObject.GetCurrentConnection.发送封包(new TrapComesIntoViewPacket
+                                PlayerObject.ActiveConnection.发送封包(new TrapComesIntoViewPacket
                                 {
                                     MapId = 对象.MapId,
                                     陷阱坐标 = 对象.当前坐标,
@@ -2820,7 +2820,7 @@ namespace GameServer.Maps
                         }
                         else
                         {
-                            PlayerObject.GetCurrentConnection.发送封包(new ObjectDropItemsPacket
+                            PlayerObject.ActiveConnection.发送封包(new ObjectDropItemsPacket
                             {
                                 对象编号 = 对象.MapId,
                                 MapId = 对象.MapId,
@@ -2833,7 +2833,7 @@ namespace GameServer.Maps
                     IL_356:
                         if (对象.Buff列表.Count > 0)
                         {
-                            PlayerObject.GetCurrentConnection.发送封包(new 同步对象Buff
+                            PlayerObject.ActiveConnection.发送封包(new 同步对象Buff
                             {
                                 字节描述 = 对象.对象Buff简述()
                             });
@@ -2910,29 +2910,29 @@ namespace GameServer.Maps
                                 case GameObjectType.怪物:
                                     break;
                                 case GameObjectType.宠物:
-                                    PlayerObject3.GetCurrentConnection.发送封包(new ObjectCharacterStopPacket
+                                    PlayerObject3.ActiveConnection.发送封包(new ObjectCharacterStopPacket
                                     {
                                         对象编号 = 对象.MapId,
                                         对象坐标 = 对象.当前坐标,
                                         对象高度 = 对象.当前高度
                                     });
-                                    PlayerObject3.GetCurrentConnection.发送封包(new ObjectComesIntoViewPacket
+                                    PlayerObject3.ActiveConnection.发送封包(new ObjectComesIntoViewPacket
                                     {
                                         出现方式 = 1,
                                         对象编号 = 对象.MapId,
                                         现身坐标 = 对象.当前坐标,
                                         现身高度 = 对象.当前高度,
                                         现身方向 = (ushort)对象.当前方向,
-                                        现身姿态 = ((byte)(对象.对象死亡 ? 13 : 1)),
+                                        现身姿态 = ((byte)(对象.Died ? 13 : 1)),
                                         体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectStats.MaxPhysicalStrength])
                                     });
-                                    PlayerObject3.GetCurrentConnection.发送封包(new 同步对象体力
+                                    PlayerObject3.ActiveConnection.发送封包(new 同步对象体力
                                     {
                                         对象编号 = 对象.MapId,
                                         当前体力 = 对象.当前体力,
                                         体力上限 = 对象[GameObjectStats.MaxPhysicalStrength]
                                     });
-                                    PlayerObject3.GetCurrentConnection.发送封包(new ObjectTransformTypePacket
+                                    PlayerObject3.ActiveConnection.发送封包(new ObjectTransformTypePacket
                                     {
                                         改变类型 = 2,
                                         对象编号 = 对象.MapId
@@ -2947,25 +2947,25 @@ namespace GameServer.Maps
                                     }
                                     break;
                             }
-                            PlayerObject3.GetCurrentConnection.发送封包(new ObjectCharacterStopPacket
+                            PlayerObject3.ActiveConnection.发送封包(new ObjectCharacterStopPacket
                             {
                                 对象编号 = 对象.MapId,
                                 对象坐标 = 对象.当前坐标,
                                 对象高度 = 对象.当前高度
                             });
-                            SConnection 网络连接2 = PlayerObject3.GetCurrentConnection;
+                            SConnection 网络连接2 = PlayerObject3.ActiveConnection;
                             ObjectComesIntoViewPacket ObjectComesIntoViewPacket2 = new ObjectComesIntoViewPacket();
                             ObjectComesIntoViewPacket2.出现方式 = 1;
                             ObjectComesIntoViewPacket2.对象编号 = 对象.MapId;
                             ObjectComesIntoViewPacket2.现身坐标 = 对象.当前坐标;
                             ObjectComesIntoViewPacket2.现身高度 = 对象.当前高度;
                             ObjectComesIntoViewPacket2.现身方向 = (ushort)对象.当前方向;
-                            ObjectComesIntoViewPacket2.现身姿态 = ((byte)(对象.对象死亡 ? 13 : 1));
+                            ObjectComesIntoViewPacket2.现身姿态 = ((byte)(对象.Died ? 13 : 1));
                             ObjectComesIntoViewPacket2.体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectStats.MaxPhysicalStrength]);
                             PlayerObject PlayerObject4 = 对象 as PlayerObject;
                             ObjectComesIntoViewPacket2.AdditionalParam = ((byte)((PlayerObject4 == null || !PlayerObject4.灰名玩家) ? 0 : 2));
                             网络连接2.发送封包(ObjectComesIntoViewPacket2);
-                            PlayerObject3.GetCurrentConnection.发送封包(new 同步对象体力
+                            PlayerObject3.ActiveConnection.发送封包(new 同步对象体力
                             {
                                 对象编号 = 对象.MapId,
                                 当前体力 = 对象.当前体力,
@@ -2976,7 +2976,7 @@ namespace GameServer.Maps
                         {
                             if (对象类型 == GameObjectType.陷阱)
                             {
-                                PlayerObject3.GetCurrentConnection.发送封包(new TrapComesIntoViewPacket
+                                PlayerObject3.ActiveConnection.发送封包(new TrapComesIntoViewPacket
                                 {
                                     MapId = 对象.MapId,
                                     陷阱坐标 = 对象.当前坐标,
@@ -2989,7 +2989,7 @@ namespace GameServer.Maps
                         }
                         else
                         {
-                            PlayerObject3.GetCurrentConnection.发送封包(new ObjectDropItemsPacket
+                            PlayerObject3.ActiveConnection.发送封包(new ObjectDropItemsPacket
                             {
                                 对象编号 = 对象.MapId,
                                 MapId = 对象.MapId,
@@ -3002,7 +3002,7 @@ namespace GameServer.Maps
                     IL_866:
                         if (对象.Buff列表.Count > 0)
                         {
-                            PlayerObject3.GetCurrentConnection.发送封包(new 同步对象Buff
+                            PlayerObject3.ActiveConnection.发送封包(new 同步对象Buff
                             {
                                 字节描述 = 对象.对象Buff简述()
                             });
@@ -3023,7 +3023,7 @@ namespace GameServer.Maps
                         else
                         {
                             PetObject PetObject2 = this as PetObject;
-                            if (PetObject2 != null && !this.对象死亡)
+                            if (PetObject2 != null && !this.Died)
                             {
                                 if (this.网格距离(对象) <= PetObject2.RangeHate && PetObject2.ActiveAttack(对象) && !对象.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus))
                                 {
@@ -3040,7 +3040,7 @@ namespace GameServer.Maps
                             else
                             {
                                 MonsterObject MonsterObject2 = this as MonsterObject;
-                                if (MonsterObject2 != null && !this.对象死亡)
+                                if (MonsterObject2 != null && !this.Died)
                                 {
                                     HateObject.仇恨详情 仇恨详情4;
                                     if (this.网格距离(对象) <= MonsterObject2.RangeHate && MonsterObject2.ActiveAttack(对象) && (MonsterObject2.VisibleStealthTargets || !对象.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus)))
@@ -3060,7 +3060,7 @@ namespace GameServer.Maps
                                 else
                                 {
                                     GuardInstance GuardInstance = this as GuardInstance;
-                                    if (GuardInstance != null && !this.对象死亡)
+                                    if (GuardInstance != null && !this.Died)
                                     {
                                         if (GuardInstance.ActiveAttack(对象) && this.网格距离(对象) <= GuardInstance.RangeHate)
                                         {
@@ -3095,7 +3095,7 @@ namespace GameServer.Maps
                     PlayerObject PlayerObject = this as PlayerObject;
                     if (PlayerObject != null)
                     {
-                        PlayerObject.GetCurrentConnection.发送封包(new ObjectOutOfViewPacket
+                        PlayerObject.ActiveConnection.发送封包(new ObjectOutOfViewPacket
                         {
                             对象编号 = 对象.MapId
                         });
@@ -3110,7 +3110,7 @@ namespace GameServer.Maps
                     MonsterObject MonsterObject = this as MonsterObject;
                     if (MonsterObject != null)
                     {
-                        if (!this.对象死亡)
+                        if (!this.Died)
                         {
                             MonsterObject.HateObject.移除仇恨(对象);
                             if (MonsterObject.重要邻居.Count == 0)
@@ -3123,7 +3123,7 @@ namespace GameServer.Maps
                     else
                     {
                         GuardInstance GuardInstance = this as GuardInstance;
-                        if (GuardInstance != null && !this.对象死亡)
+                        if (GuardInstance != null && !this.Died)
                         {
                             GuardInstance.HateObject.移除仇恨(对象);
                             if (GuardInstance.重要邻居.Count == 0)
@@ -3199,7 +3199,7 @@ namespace GameServer.Maps
             if (PlayerObject != null && (this.对象关系(对象) == GameObjectRelationship.Hostility || 对象.对象关系(this) == GameObjectRelationship.Hostility))
             {
                 this.潜行邻居.Add(对象);
-                PlayerObject.GetCurrentConnection.发送封包(new ObjectOutOfViewPacket
+                PlayerObject.ActiveConnection.发送封包(new ObjectOutOfViewPacket
                 {
                     对象编号 = 对象.MapId
                 });
