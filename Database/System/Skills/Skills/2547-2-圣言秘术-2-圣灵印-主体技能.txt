@@ -28,13 +28,13 @@
       "MaxDistance": 8
     },
     "2": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能能否穿墙": true,
       "技能锁定方式": "锁定目标",
-      "限定命中数量": 9,
-      "限定特定类型": "Undead, WomaMonster, PigMonster, ZumaMonster, AllPets, DragonMonster",
-      "限定目标类型": "宠物, 怪物",
-      "限定目标关系": "Hostility",
+      "HitsLimit": 9,
+      "QualifySpecificType": "Undead, WomaMonster, PigMonster, ZumaMonster, AllPets, DragonMonster",
+      "LimitedTargetType": "宠物, 怪物",
+      "LimitedTargetRelationship": "Hostility",
       "增加技能经验": true,
       "经验SkillId": 2547,
       "清除状态列表": []

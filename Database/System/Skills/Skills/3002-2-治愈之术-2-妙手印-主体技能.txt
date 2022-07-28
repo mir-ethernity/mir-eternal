@@ -28,12 +28,12 @@
       "角色忙绿时间": 625
     },
     "2": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能能否穿墙": true,
       "技能锁定方式": "放空锁定ItSelf",
-      "限定命中数量": 1,
-      "限定目标类型": "玩家, 宠物",
-      "限定目标关系": "ItSelf, Friendly",
+      "HitsLimit": 1,
+      "LimitedTargetType": "玩家, 宠物",
+      "LimitedTargetRelationship": "ItSelf, Friendly",
       "清除状态列表": []
     },
     "423": {

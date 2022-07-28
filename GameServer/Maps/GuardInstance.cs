@@ -106,23 +106,23 @@ namespace GameServer.Maps
 		
 		// (get) Token: 0x0600070D RID: 1805 RVA: 0x00006167 File Offset: 0x00004367
 		// (set) Token: 0x0600070E RID: 1806 RVA: 0x0000616F File Offset: 0x0000436F
-		public override MapInstance 当前地图
+		public override MapInstance CurrentMap
 		{
 			get
 			{
-				return base.当前地图;
+				return base.CurrentMap;
 			}
 			set
 			{
-				if (this.当前地图 != value)
+				if (this.CurrentMap != value)
 				{
-					MapInstance 当前地图 = base.当前地图;
+					MapInstance 当前地图 = base.CurrentMap;
 					if (当前地图 != null)
 					{
 						当前地图.移除对象(this);
 					}
-					base.当前地图 = value;
-					base.当前地图.添加对象(this);
+					base.CurrentMap = value;
+					base.CurrentMap.添加对象(this);
 				}
 			}
 		}
@@ -163,7 +163,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000712 RID: 1810 RVA: 0x000061ED File Offset: 0x000043ED
-		public override bool 能被命中
+		public override bool CanBeHit
 		{
 			get
 			{
@@ -183,7 +183,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000714 RID: 1812 RVA: 0x0000620F File Offset: 0x0000440F
-		public override GameObjectType 对象类型
+		public override GameObjectType ObjectType
 		{
 			get
 			{
@@ -291,7 +291,7 @@ namespace GameServer.Maps
 			
 			this.对象模板 = 对应模板;
 			this.出生地图 = 出生地图;
-			this.当前地图 = 出生地图;
+			this.CurrentMap = 出生地图;
 			this.出生方向 = 出生方向;
 			this.出生坐标 = 出生坐标;
 			this.MapId = ++MapGatewayProcess.对象编号;
@@ -342,7 +342,7 @@ namespace GameServer.Maps
 				}
 				if (MainProcess.CurrentTime > base.恢复时间)
 				{
-					if (!this.检查状态(GameObjectState.Poisoned))
+					if (!this.CheckStatus(GameObjectState.Poisoned))
 					{
 						this.当前体力 += 5;
 					}
@@ -359,11 +359,11 @@ namespace GameServer.Maps
 						this.当前方向 = this.出生方向;
 					}
 				}
-				if (this.模板编号 == 6121 && this.当前地图.MapId == 183 && MainProcess.CurrentTime > this.转移计时)
+				if (this.模板编号 == 6121 && this.CurrentMap.MapId == 183 && MainProcess.CurrentTime > this.转移计时)
 				{
 					base.清空邻居时处理();
 					base.解绑网格();
-					this.当前坐标 = this.当前地图.传送区域.RandomCoords;
+					this.CurrentCoords = this.CurrentMap.传送区域.RandomCoords;
 					base.绑定网格();
 					base.更新邻居时处理();
 					this.转移计时 = MainProcess.CurrentTime.AddMinutes(2.5);
@@ -377,7 +377,7 @@ namespace GameServer.Maps
 		{
 			base.ItSelf死亡处理(对象, 技能击杀);
 			this.消失时间 = MainProcess.CurrentTime.AddMilliseconds(10000.0);
-			this.复活时间 = MainProcess.CurrentTime.AddMilliseconds((double)((this.当前地图.MapId == 80) ? int.MaxValue : 60000));
+			this.复活时间 = MainProcess.CurrentTime.AddMilliseconds((double)((this.CurrentMap.MapId == 80) ? int.MaxValue : 60000));
 			this.Buff列表.Clear();
 			this.次要对象 = true;
 			MapGatewayProcess.添加次要对象(this);
@@ -415,7 +415,7 @@ namespace GameServer.Maps
 		
 		public void 守卫智能Attack()
 		{
-			if (this.检查状态(GameObjectState.Paralyzed | GameObjectState.Absence))
+			if (this.CheckStatus(GameObjectState.Paralyzed | GameObjectState.Absence))
 			{
 				return;
 			}
@@ -432,7 +432,7 @@ namespace GameServer.Maps
 			SkillData SkillData = null;
 			byte 动作编号 = base.动作编号;
 			base.动作编号 = (byte)(动作编号 + 1);
-			new SkillInstance(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, this.HateObject.当前目标, this.HateObject.当前目标.当前坐标, null, null, false);
+			new SkillInstance(this, 技能模板, SkillData, 动作编号, this.CurrentMap, this.CurrentCoords, this.HateObject.当前目标, this.HateObject.当前目标.CurrentCoords, null, null, false);
 		}
 
 		
@@ -442,9 +442,9 @@ namespace GameServer.Maps
 			this.次要对象 = false;
 			this.Died = false;
 			this.阻塞网格 = !this.对象模板.Nothingness;
-			this.当前地图 = this.出生地图;
+			this.CurrentMap = this.出生地图;
 			this.当前方向 = this.出生方向;
-			this.当前坐标 = this.出生坐标;
+			this.CurrentCoords = this.出生坐标;
 			this.当前体力 = this[GameObjectStats.MaxPhysicalStrength];
 			base.恢复时间 = MainProcess.CurrentTime.AddMilliseconds((double)MainProcess.RandomNumber.Next(5000));
 			this.HateObject = new HateObject();
@@ -467,7 +467,7 @@ namespace GameServer.Maps
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}
-			else if (!this.邻居列表.Contains(this.HateObject.当前目标))
+			else if (!this.Neighbors.Contains(this.HateObject.当前目标))
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}

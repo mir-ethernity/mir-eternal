@@ -53,11 +53,11 @@
             this.清空命令日志 = new System.Windows.Forms.Button();
             this.对象统计 = new System.Windows.Forms.Label();
             this.日志选项卡 = new System.Windows.Forms.TabControl();
-            this.系统日志页面 = new System.Windows.Forms.TabPage();
+            this.tabSystem = new System.Windows.Forms.TabPage();
             this.系统日志 = new System.Windows.Forms.RichTextBox();
-            this.聊天日志页面 = new System.Windows.Forms.TabPage();
+            this.tabChat = new System.Windows.Forms.TabPage();
             this.聊天日志 = new System.Windows.Forms.RichTextBox();
-            this.命令日志页面 = new System.Windows.Forms.TabPage();
+            this.tabCommands = new System.Windows.Forms.TabPage();
             this.命令日志 = new System.Windows.Forms.RichTextBox();
             this.清空聊天日志 = new System.Windows.Forms.Button();
             this.保存聊天日志 = new System.Windows.Forms.Button();
@@ -169,12 +169,14 @@
             this.停止按钮 = new System.Windows.Forms.Button();
             this.保存数据提醒 = new System.Windows.Forms.Timer(this.components);
             this.定时发送公告 = new System.Windows.Forms.Timer(this.components);
+            this.tabPackets = new System.Windows.Forms.TabPage();
+            this.rtbPacketsLogs = new System.Windows.Forms.RichTextBox();
             this.主选项卡.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.日志选项卡.SuspendLayout();
-            this.系统日志页面.SuspendLayout();
-            this.聊天日志页面.SuspendLayout();
-            this.命令日志页面.SuspendLayout();
+            this.tabSystem.SuspendLayout();
+            this.tabChat.SuspendLayout();
+            this.tabCommands.SuspendLayout();
             this.tabCharacters.SuspendLayout();
             this.角色详情选项卡.SuspendLayout();
             this.CharacterData_技能.SuspendLayout();
@@ -217,6 +219,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.S_TSPort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.S_GSPort)).BeginInit();
             this.下方控件页.SuspendLayout();
+            this.tabPackets.SuspendLayout();
             this.SuspendLayout();
             // 
             // 主选项卡
@@ -229,13 +232,13 @@
             this.主选项卡.Controls.Add(this.tabBans);
             this.主选项卡.Controls.Add(this.tabAnnouncements);
             this.主选项卡.Controls.Add(this.tabConfig);
-            this.主选项卡.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.主选项卡.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.主选项卡.ItemSize = new System.Drawing.Size(170, 30);
-            this.主选项卡.Location = new System.Drawing.Point(4, 4);
-            this.主选项卡.Margin = new System.Windows.Forms.Padding(4);
+            this.主选项卡.Location = new System.Drawing.Point(4, 5);
+            this.主选项卡.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.主选项卡.Name = "主选项卡";
             this.主选项卡.SelectedIndex = 0;
-            this.主选项卡.Size = new System.Drawing.Size(1990, 805);
+            this.主选项卡.Size = new System.Drawing.Size(1990, 1006);
             this.主选项卡.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.主选项卡.TabIndex = 5;
             this.主选项卡.TabStop = false;
@@ -258,10 +261,10 @@
             this.tabMain.Controls.Add(this.保存系统日志);
             this.tabMain.Controls.Add(this.帧数统计);
             this.tabMain.Location = new System.Drawing.Point(4, 34);
-            this.tabMain.Margin = new System.Windows.Forms.Padding(4);
+            this.tabMain.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabMain.Name = "tabMain";
-            this.tabMain.Padding = new System.Windows.Forms.Padding(4);
-            this.tabMain.Size = new System.Drawing.Size(1982, 767);
+            this.tabMain.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabMain.Size = new System.Drawing.Size(1982, 968);
             this.tabMain.TabIndex = 0;
             this.tabMain.Text = "Main";
             // 
@@ -269,10 +272,10 @@
             // 
             this.清空命令日志.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.清空命令日志.Enabled = false;
-            this.清空命令日志.Location = new System.Drawing.Point(1220, 525);
-            this.清空命令日志.Margin = new System.Windows.Forms.Padding(4);
+            this.清空命令日志.Location = new System.Drawing.Point(1220, 656);
+            this.清空命令日志.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.清空命令日志.Name = "清空命令日志";
-            this.清空命令日志.Size = new System.Drawing.Size(344, 53);
+            this.清空命令日志.Size = new System.Drawing.Size(344, 66);
             this.清空命令日志.TabIndex = 18;
             this.清空命令日志.Text = "Clear commands log";
             this.清空命令日志.UseVisualStyleBackColor = false;
@@ -282,7 +285,7 @@
             // 
             this.对象统计.AutoSize = true;
             this.对象统计.ForeColor = System.Drawing.Color.Maroon;
-            this.对象统计.Location = new System.Drawing.Point(1220, 211);
+            this.对象统计.Location = new System.Drawing.Point(1220, 264);
             this.对象统计.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.对象统计.Name = "对象统计";
             this.对象统计.Size = new System.Drawing.Size(145, 19);
@@ -291,87 +294,88 @@
             // 
             // 日志选项卡
             // 
-            this.日志选项卡.Controls.Add(this.系统日志页面);
-            this.日志选项卡.Controls.Add(this.聊天日志页面);
-            this.日志选项卡.Controls.Add(this.命令日志页面);
-            this.日志选项卡.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.日志选项卡.Controls.Add(this.tabSystem);
+            this.日志选项卡.Controls.Add(this.tabChat);
+            this.日志选项卡.Controls.Add(this.tabCommands);
+            this.日志选项卡.Controls.Add(this.tabPackets);
+            this.日志选项卡.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.日志选项卡.ItemSize = new System.Drawing.Size(294, 20);
-            this.日志选项卡.Location = new System.Drawing.Point(3, 3);
-            this.日志选项卡.Margin = new System.Windows.Forms.Padding(4);
+            this.日志选项卡.Location = new System.Drawing.Point(3, 4);
+            this.日志选项卡.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.日志选项卡.Name = "日志选项卡";
             this.日志选项卡.SelectedIndex = 0;
-            this.日志选项卡.Size = new System.Drawing.Size(1181, 584);
+            this.日志选项卡.Size = new System.Drawing.Size(1181, 730);
             this.日志选项卡.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.日志选项卡.TabIndex = 16;
             // 
-            // 系统日志页面
+            // tabSystem
             // 
-            this.系统日志页面.BackColor = System.Drawing.Color.Gainsboro;
-            this.系统日志页面.Controls.Add(this.系统日志);
-            this.系统日志页面.Location = new System.Drawing.Point(4, 24);
-            this.系统日志页面.Margin = new System.Windows.Forms.Padding(4);
-            this.系统日志页面.Name = "系统日志页面";
-            this.系统日志页面.Padding = new System.Windows.Forms.Padding(4);
-            this.系统日志页面.Size = new System.Drawing.Size(1173, 556);
-            this.系统日志页面.TabIndex = 0;
-            this.系统日志页面.Text = "System logs";
+            this.tabSystem.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabSystem.Controls.Add(this.系统日志);
+            this.tabSystem.Location = new System.Drawing.Point(4, 24);
+            this.tabSystem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabSystem.Name = "tabSystem";
+            this.tabSystem.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabSystem.Size = new System.Drawing.Size(1173, 702);
+            this.tabSystem.TabIndex = 0;
+            this.tabSystem.Text = "System logs";
             // 
             // 系统日志
             // 
             this.系统日志.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.系统日志.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.系统日志.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.系统日志.Location = new System.Drawing.Point(0, 0);
-            this.系统日志.Margin = new System.Windows.Forms.Padding(4);
+            this.系统日志.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.系统日志.Name = "系统日志";
             this.系统日志.ReadOnly = true;
-            this.系统日志.Size = new System.Drawing.Size(1165, 539);
+            this.系统日志.Size = new System.Drawing.Size(1165, 673);
             this.系统日志.TabIndex = 0;
             this.系统日志.Text = "";
             // 
-            // 聊天日志页面
+            // tabChat
             // 
-            this.聊天日志页面.BackColor = System.Drawing.Color.Gainsboro;
-            this.聊天日志页面.Controls.Add(this.聊天日志);
-            this.聊天日志页面.Location = new System.Drawing.Point(4, 24);
-            this.聊天日志页面.Margin = new System.Windows.Forms.Padding(4);
-            this.聊天日志页面.Name = "聊天日志页面";
-            this.聊天日志页面.Padding = new System.Windows.Forms.Padding(4);
-            this.聊天日志页面.Size = new System.Drawing.Size(1173, 556);
-            this.聊天日志页面.TabIndex = 1;
-            this.聊天日志页面.Text = "Chat Logs";
+            this.tabChat.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabChat.Controls.Add(this.聊天日志);
+            this.tabChat.Location = new System.Drawing.Point(4, 24);
+            this.tabChat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabChat.Name = "tabChat";
+            this.tabChat.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabChat.Size = new System.Drawing.Size(1173, 702);
+            this.tabChat.TabIndex = 1;
+            this.tabChat.Text = "Chat Logs";
             // 
             // 聊天日志
             // 
             this.聊天日志.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.聊天日志.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.聊天日志.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.聊天日志.Location = new System.Drawing.Point(0, 0);
-            this.聊天日志.Margin = new System.Windows.Forms.Padding(4);
+            this.聊天日志.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.聊天日志.Name = "聊天日志";
             this.聊天日志.ReadOnly = true;
-            this.聊天日志.Size = new System.Drawing.Size(1165, 539);
+            this.聊天日志.Size = new System.Drawing.Size(1165, 673);
             this.聊天日志.TabIndex = 1;
             this.聊天日志.Text = "";
             // 
-            // 命令日志页面
+            // tabCommands
             // 
-            this.命令日志页面.BackColor = System.Drawing.Color.Gainsboro;
-            this.命令日志页面.Controls.Add(this.命令日志);
-            this.命令日志页面.Location = new System.Drawing.Point(4, 24);
-            this.命令日志页面.Margin = new System.Windows.Forms.Padding(4);
-            this.命令日志页面.Name = "命令日志页面";
-            this.命令日志页面.Size = new System.Drawing.Size(1173, 556);
-            this.命令日志页面.TabIndex = 2;
-            this.命令日志页面.Text = "Commands logs";
+            this.tabCommands.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabCommands.Controls.Add(this.命令日志);
+            this.tabCommands.Location = new System.Drawing.Point(4, 24);
+            this.tabCommands.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabCommands.Name = "tabCommands";
+            this.tabCommands.Size = new System.Drawing.Size(1173, 702);
+            this.tabCommands.TabIndex = 2;
+            this.tabCommands.Text = "Commands logs";
             // 
             // 命令日志
             // 
             this.命令日志.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.命令日志.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.命令日志.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.命令日志.Location = new System.Drawing.Point(0, 0);
-            this.命令日志.Margin = new System.Windows.Forms.Padding(4);
+            this.命令日志.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.命令日志.Name = "命令日志";
             this.命令日志.ReadOnly = true;
-            this.命令日志.Size = new System.Drawing.Size(1165, 539);
+            this.命令日志.Size = new System.Drawing.Size(1165, 673);
             this.命令日志.TabIndex = 2;
             this.命令日志.Text = "";
             // 
@@ -379,10 +383,10 @@
             // 
             this.清空聊天日志.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.清空聊天日志.Enabled = false;
-            this.清空聊天日志.Location = new System.Drawing.Point(1220, 456);
-            this.清空聊天日志.Margin = new System.Windows.Forms.Padding(4);
+            this.清空聊天日志.Location = new System.Drawing.Point(1220, 570);
+            this.清空聊天日志.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.清空聊天日志.Name = "清空聊天日志";
-            this.清空聊天日志.Size = new System.Drawing.Size(344, 53);
+            this.清空聊天日志.Size = new System.Drawing.Size(344, 66);
             this.清空聊天日志.TabIndex = 15;
             this.清空聊天日志.Text = "Empty chat logs";
             this.清空聊天日志.UseVisualStyleBackColor = false;
@@ -392,10 +396,10 @@
             // 
             this.保存聊天日志.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.保存聊天日志.Enabled = false;
-            this.保存聊天日志.Location = new System.Drawing.Point(1220, 317);
-            this.保存聊天日志.Margin = new System.Windows.Forms.Padding(4);
+            this.保存聊天日志.Location = new System.Drawing.Point(1220, 396);
+            this.保存聊天日志.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.保存聊天日志.Name = "保存聊天日志";
-            this.保存聊天日志.Size = new System.Drawing.Size(344, 53);
+            this.保存聊天日志.Size = new System.Drawing.Size(344, 66);
             this.保存聊天日志.TabIndex = 14;
             this.保存聊天日志.Text = "Save chat logs";
             this.保存聊天日志.UseVisualStyleBackColor = false;
@@ -405,7 +409,7 @@
             // 
             this.已经登录统计.AutoSize = true;
             this.已经登录统计.ForeColor = System.Drawing.Color.Purple;
-            this.已经登录统计.Location = new System.Drawing.Point(1220, 64);
+            this.已经登录统计.Location = new System.Drawing.Point(1220, 80);
             this.已经登录统计.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.已经登录统计.Name = "已经登录统计";
             this.已经登录统计.Size = new System.Drawing.Size(132, 19);
@@ -416,7 +420,7 @@
             // 
             this.已经上线统计.AutoSize = true;
             this.已经上线统计.ForeColor = System.Drawing.Color.Purple;
-            this.已经上线统计.Location = new System.Drawing.Point(1220, 93);
+            this.已经上线统计.Location = new System.Drawing.Point(1220, 116);
             this.已经上线统计.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.已经上线统计.Name = "已经上线统计";
             this.已经上线统计.Size = new System.Drawing.Size(102, 19);
@@ -427,7 +431,7 @@
             // 
             this.连接总数统计.AutoSize = true;
             this.连接总数统计.ForeColor = System.Drawing.Color.Purple;
-            this.连接总数统计.Location = new System.Drawing.Point(1220, 35);
+            this.连接总数统计.Location = new System.Drawing.Point(1220, 44);
             this.连接总数统计.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.连接总数统计.Name = "连接总数统计";
             this.连接总数统计.Size = new System.Drawing.Size(154, 19);
@@ -438,7 +442,7 @@
             // 
             this.发送统计.AutoSize = true;
             this.发送统计.ForeColor = System.Drawing.Color.Teal;
-            this.发送统计.Location = new System.Drawing.Point(1220, 181);
+            this.发送统计.Location = new System.Drawing.Point(1220, 226);
             this.发送统计.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.发送统计.Name = "发送统计";
             this.发送统计.Size = new System.Drawing.Size(90, 19);
@@ -449,7 +453,7 @@
             // 
             this.接收统计.AutoSize = true;
             this.接收统计.ForeColor = System.Drawing.Color.Teal;
-            this.接收统计.Location = new System.Drawing.Point(1220, 152);
+            this.接收统计.Location = new System.Drawing.Point(1220, 190);
             this.接收统计.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.接收统计.Name = "接收统计";
             this.接收统计.Size = new System.Drawing.Size(88, 19);
@@ -460,10 +464,10 @@
             // 
             this.清空系统日志.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.清空系统日志.Enabled = false;
-            this.清空系统日志.Location = new System.Drawing.Point(1220, 387);
-            this.清空系统日志.Margin = new System.Windows.Forms.Padding(4);
+            this.清空系统日志.Location = new System.Drawing.Point(1220, 484);
+            this.清空系统日志.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.清空系统日志.Name = "清空系统日志";
-            this.清空系统日志.Size = new System.Drawing.Size(344, 53);
+            this.清空系统日志.Size = new System.Drawing.Size(344, 66);
             this.清空系统日志.TabIndex = 8;
             this.清空系统日志.Text = "Empty the system logs";
             this.清空系统日志.UseVisualStyleBackColor = false;
@@ -473,10 +477,10 @@
             // 
             this.保存系统日志.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.保存系统日志.Enabled = false;
-            this.保存系统日志.Location = new System.Drawing.Point(1220, 248);
-            this.保存系统日志.Margin = new System.Windows.Forms.Padding(4);
+            this.保存系统日志.Location = new System.Drawing.Point(1220, 310);
+            this.保存系统日志.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.保存系统日志.Name = "保存系统日志";
-            this.保存系统日志.Size = new System.Drawing.Size(344, 53);
+            this.保存系统日志.Size = new System.Drawing.Size(344, 66);
             this.保存系统日志.TabIndex = 7;
             this.保存系统日志.Text = "Save system logs";
             this.保存系统日志.UseVisualStyleBackColor = false;
@@ -486,7 +490,7 @@
             // 
             this.帧数统计.AutoSize = true;
             this.帧数统计.ForeColor = System.Drawing.Color.Blue;
-            this.帧数统计.Location = new System.Drawing.Point(1220, 123);
+            this.帧数统计.Location = new System.Drawing.Point(1220, 154);
             this.帧数统计.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.帧数统计.Name = "帧数统计";
             this.帧数统计.Size = new System.Drawing.Size(104, 19);
@@ -499,12 +503,12 @@
             this.tabCharacters.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabCharacters.Controls.Add(this.角色详情选项卡);
             this.tabCharacters.Controls.Add(this.dgvCharacters);
-            this.tabCharacters.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabCharacters.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabCharacters.Location = new System.Drawing.Point(4, 34);
-            this.tabCharacters.Margin = new System.Windows.Forms.Padding(4);
+            this.tabCharacters.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabCharacters.Name = "tabCharacters";
-            this.tabCharacters.Padding = new System.Windows.Forms.Padding(4);
-            this.tabCharacters.Size = new System.Drawing.Size(1982, 767);
+            this.tabCharacters.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabCharacters.Size = new System.Drawing.Size(1982, 968);
             this.tabCharacters.TabIndex = 4;
             this.tabCharacters.Text = "Characters";
             // 
@@ -514,13 +518,13 @@
             this.角色详情选项卡.Controls.Add(this.CharacterData_装备);
             this.角色详情选项卡.Controls.Add(this.CharacterData_背包);
             this.角色详情选项卡.Controls.Add(this.CharacterData_仓库);
-            this.角色详情选项卡.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.角色详情选项卡.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.角色详情选项卡.ItemSize = new System.Drawing.Size(85, 20);
-            this.角色详情选项卡.Location = new System.Drawing.Point(1121, 4);
-            this.角色详情选项卡.Margin = new System.Windows.Forms.Padding(4);
+            this.角色详情选项卡.Location = new System.Drawing.Point(1121, 5);
+            this.角色详情选项卡.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.角色详情选项卡.Name = "角色详情选项卡";
             this.角色详情选项卡.SelectedIndex = 0;
-            this.角色详情选项卡.Size = new System.Drawing.Size(460, 579);
+            this.角色详情选项卡.Size = new System.Drawing.Size(460, 724);
             this.角色详情选项卡.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.角色详情选项卡.TabIndex = 2;
             // 
@@ -529,10 +533,10 @@
             this.CharacterData_技能.BackColor = System.Drawing.Color.Gainsboro;
             this.CharacterData_技能.Controls.Add(this.技能浏览表);
             this.CharacterData_技能.Location = new System.Drawing.Point(4, 24);
-            this.CharacterData_技能.Margin = new System.Windows.Forms.Padding(4);
+            this.CharacterData_技能.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CharacterData_技能.Name = "CharacterData_技能";
-            this.CharacterData_技能.Padding = new System.Windows.Forms.Padding(4);
-            this.CharacterData_技能.Size = new System.Drawing.Size(452, 551);
+            this.CharacterData_技能.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CharacterData_技能.Size = new System.Drawing.Size(452, 696);
             this.CharacterData_技能.TabIndex = 0;
             this.CharacterData_技能.Text = "Skills";
             // 
@@ -541,7 +545,6 @@
             this.技能浏览表.AllowUserToAddRows = false;
             this.技能浏览表.AllowUserToDeleteRows = false;
             this.技能浏览表.AllowUserToResizeRows = false;
-            this.技能浏览表.ShowCellToolTips = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.技能浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.技能浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -550,7 +553,7 @@
             this.技能浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -560,7 +563,7 @@
             this.技能浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -568,7 +571,7 @@
             this.技能浏览表.DefaultCellStyle = dataGridViewCellStyle3;
             this.技能浏览表.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.技能浏览表.Location = new System.Drawing.Point(0, 0);
-            this.技能浏览表.Margin = new System.Windows.Forms.Padding(4);
+            this.技能浏览表.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.技能浏览表.MultiSelect = false;
             this.技能浏览表.Name = "技能浏览表";
             this.技能浏览表.ReadOnly = true;
@@ -576,7 +579,8 @@
             this.技能浏览表.RowHeadersWidth = 51;
             this.技能浏览表.RowTemplate.Height = 23;
             this.技能浏览表.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.技能浏览表.Size = new System.Drawing.Size(441, 537);
+            this.技能浏览表.ShowCellToolTips = false;
+            this.技能浏览表.Size = new System.Drawing.Size(441, 671);
             this.技能浏览表.TabIndex = 3;
             // 
             // CharacterData_装备
@@ -584,10 +588,10 @@
             this.CharacterData_装备.BackColor = System.Drawing.Color.Gainsboro;
             this.CharacterData_装备.Controls.Add(this.装备浏览表);
             this.CharacterData_装备.Location = new System.Drawing.Point(4, 24);
-            this.CharacterData_装备.Margin = new System.Windows.Forms.Padding(4);
+            this.CharacterData_装备.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CharacterData_装备.Name = "CharacterData_装备";
-            this.CharacterData_装备.Padding = new System.Windows.Forms.Padding(4);
-            this.CharacterData_装备.Size = new System.Drawing.Size(452, 551);
+            this.CharacterData_装备.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CharacterData_装备.Size = new System.Drawing.Size(452, 696);
             this.CharacterData_装备.TabIndex = 1;
             this.CharacterData_装备.Text = "Equipment";
             // 
@@ -596,7 +600,6 @@
             this.装备浏览表.AllowUserToAddRows = false;
             this.装备浏览表.AllowUserToDeleteRows = false;
             this.装备浏览表.AllowUserToResizeRows = false;
-            this.装备浏览表.ShowCellToolTips = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.装备浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.装备浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -605,7 +608,7 @@
             this.装备浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -615,7 +618,7 @@
             this.装备浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -623,7 +626,7 @@
             this.装备浏览表.DefaultCellStyle = dataGridViewCellStyle6;
             this.装备浏览表.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.装备浏览表.Location = new System.Drawing.Point(0, 0);
-            this.装备浏览表.Margin = new System.Windows.Forms.Padding(4);
+            this.装备浏览表.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.装备浏览表.MultiSelect = false;
             this.装备浏览表.Name = "装备浏览表";
             this.装备浏览表.ReadOnly = true;
@@ -631,7 +634,8 @@
             this.装备浏览表.RowHeadersWidth = 51;
             this.装备浏览表.RowTemplate.Height = 23;
             this.装备浏览表.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.装备浏览表.Size = new System.Drawing.Size(441, 537);
+            this.装备浏览表.ShowCellToolTips = false;
+            this.装备浏览表.Size = new System.Drawing.Size(441, 671);
             this.装备浏览表.TabIndex = 4;
             // 
             // CharacterData_背包
@@ -639,9 +643,9 @@
             this.CharacterData_背包.BackColor = System.Drawing.Color.Gainsboro;
             this.CharacterData_背包.Controls.Add(this.背包浏览表);
             this.CharacterData_背包.Location = new System.Drawing.Point(4, 24);
-            this.CharacterData_背包.Margin = new System.Windows.Forms.Padding(4);
+            this.CharacterData_背包.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CharacterData_背包.Name = "CharacterData_背包";
-            this.CharacterData_背包.Size = new System.Drawing.Size(452, 551);
+            this.CharacterData_背包.Size = new System.Drawing.Size(452, 696);
             this.CharacterData_背包.TabIndex = 2;
             this.CharacterData_背包.Text = "Bag";
             // 
@@ -650,7 +654,6 @@
             this.背包浏览表.AllowUserToAddRows = false;
             this.背包浏览表.AllowUserToDeleteRows = false;
             this.背包浏览表.AllowUserToResizeRows = false;
-            this.背包浏览表.ShowCellToolTips = false;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.背包浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.背包浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -659,7 +662,7 @@
             this.背包浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -669,7 +672,7 @@
             this.背包浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -677,7 +680,7 @@
             this.背包浏览表.DefaultCellStyle = dataGridViewCellStyle9;
             this.背包浏览表.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.背包浏览表.Location = new System.Drawing.Point(0, 0);
-            this.背包浏览表.Margin = new System.Windows.Forms.Padding(4);
+            this.背包浏览表.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.背包浏览表.MultiSelect = false;
             this.背包浏览表.Name = "背包浏览表";
             this.背包浏览表.ReadOnly = true;
@@ -685,7 +688,8 @@
             this.背包浏览表.RowHeadersWidth = 51;
             this.背包浏览表.RowTemplate.Height = 23;
             this.背包浏览表.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.背包浏览表.Size = new System.Drawing.Size(441, 537);
+            this.背包浏览表.ShowCellToolTips = false;
+            this.背包浏览表.Size = new System.Drawing.Size(441, 671);
             this.背包浏览表.TabIndex = 4;
             // 
             // CharacterData_仓库
@@ -693,9 +697,9 @@
             this.CharacterData_仓库.BackColor = System.Drawing.Color.Gainsboro;
             this.CharacterData_仓库.Controls.Add(this.仓库浏览表);
             this.CharacterData_仓库.Location = new System.Drawing.Point(4, 24);
-            this.CharacterData_仓库.Margin = new System.Windows.Forms.Padding(4);
+            this.CharacterData_仓库.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CharacterData_仓库.Name = "CharacterData_仓库";
-            this.CharacterData_仓库.Size = new System.Drawing.Size(452, 551);
+            this.CharacterData_仓库.Size = new System.Drawing.Size(452, 696);
             this.CharacterData_仓库.TabIndex = 3;
             this.CharacterData_仓库.Text = "Store";
             // 
@@ -704,7 +708,6 @@
             this.仓库浏览表.AllowUserToAddRows = false;
             this.仓库浏览表.AllowUserToDeleteRows = false;
             this.仓库浏览表.AllowUserToResizeRows = false;
-            this.仓库浏览表.ShowCellToolTips = false;
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.仓库浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.仓库浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -713,7 +716,7 @@
             this.仓库浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -723,7 +726,7 @@
             this.仓库浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
             dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -731,7 +734,7 @@
             this.仓库浏览表.DefaultCellStyle = dataGridViewCellStyle12;
             this.仓库浏览表.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.仓库浏览表.Location = new System.Drawing.Point(0, 0);
-            this.仓库浏览表.Margin = new System.Windows.Forms.Padding(4);
+            this.仓库浏览表.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.仓库浏览表.MultiSelect = false;
             this.仓库浏览表.Name = "仓库浏览表";
             this.仓库浏览表.ReadOnly = true;
@@ -739,7 +742,8 @@
             this.仓库浏览表.RowHeadersWidth = 51;
             this.仓库浏览表.RowTemplate.Height = 23;
             this.仓库浏览表.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.仓库浏览表.Size = new System.Drawing.Size(441, 537);
+            this.仓库浏览表.ShowCellToolTips = false;
+            this.仓库浏览表.Size = new System.Drawing.Size(441, 671);
             this.仓库浏览表.TabIndex = 5;
             // 
             // dgvCharacters
@@ -747,7 +751,6 @@
             this.dgvCharacters.AllowUserToAddRows = false;
             this.dgvCharacters.AllowUserToDeleteRows = false;
             this.dgvCharacters.AllowUserToResizeRows = false;
-            this.dgvCharacters.ShowCellToolTips = false;
             dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvCharacters.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvCharacters.BackgroundColor = System.Drawing.Color.LightGray;
@@ -755,7 +758,7 @@
             this.dgvCharacters.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -766,15 +769,15 @@
             this.dgvCharacters.ContextMenuStrip = this.角色右键菜单;
             dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
             dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvCharacters.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvCharacters.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvCharacters.Location = new System.Drawing.Point(0, 4);
-            this.dgvCharacters.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvCharacters.Location = new System.Drawing.Point(0, 5);
+            this.dgvCharacters.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvCharacters.MultiSelect = false;
             this.dgvCharacters.Name = "dgvCharacters";
             this.dgvCharacters.ReadOnly = true;
@@ -782,7 +785,8 @@
             this.dgvCharacters.RowHeadersWidth = 51;
             this.dgvCharacters.RowTemplate.Height = 23;
             this.dgvCharacters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCharacters.Size = new System.Drawing.Size(1119, 579);
+            this.dgvCharacters.ShowCellToolTips = false;
+            this.dgvCharacters.Size = new System.Drawing.Size(1119, 724);
             this.dgvCharacters.TabIndex = 1;
             // 
             // 角色右键菜单
@@ -829,12 +833,12 @@
             this.tabMaps.BackColor = System.Drawing.Color.Gainsboro;
             this.tabMaps.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabMaps.Controls.Add(this.dgvMaps);
-            this.tabMaps.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabMaps.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabMaps.Location = new System.Drawing.Point(4, 34);
-            this.tabMaps.Margin = new System.Windows.Forms.Padding(4);
+            this.tabMaps.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabMaps.Name = "tabMaps";
-            this.tabMaps.Padding = new System.Windows.Forms.Padding(4);
-            this.tabMaps.Size = new System.Drawing.Size(1982, 767);
+            this.tabMaps.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabMaps.Size = new System.Drawing.Size(1982, 968);
             this.tabMaps.TabIndex = 1;
             this.tabMaps.Text = "Maps";
             // 
@@ -843,7 +847,6 @@
             this.dgvMaps.AllowUserToAddRows = false;
             this.dgvMaps.AllowUserToDeleteRows = false;
             this.dgvMaps.AllowUserToResizeRows = false;
-            this.dgvMaps.ShowCellToolTips = false;
             dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgvMaps.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvMaps.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -852,7 +855,7 @@
             this.dgvMaps.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -862,15 +865,15 @@
             this.dgvMaps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
             dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvMaps.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgvMaps.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvMaps.Location = new System.Drawing.Point(0, 4);
-            this.dgvMaps.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvMaps.Location = new System.Drawing.Point(0, 5);
+            this.dgvMaps.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvMaps.MultiSelect = false;
             this.dgvMaps.Name = "dgvMaps";
             this.dgvMaps.ReadOnly = true;
@@ -878,7 +881,8 @@
             this.dgvMaps.RowHeadersWidth = 51;
             this.dgvMaps.RowTemplate.Height = 23;
             this.dgvMaps.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMaps.Size = new System.Drawing.Size(1583, 579);
+            this.dgvMaps.ShowCellToolTips = false;
+            this.dgvMaps.Size = new System.Drawing.Size(1583, 724);
             this.dgvMaps.TabIndex = 2;
             // 
             // tabMonsters
@@ -887,11 +891,11 @@
             this.tabMonsters.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabMonsters.Controls.Add(this.掉落浏览表);
             this.tabMonsters.Controls.Add(this.怪物浏览表);
-            this.tabMonsters.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabMonsters.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabMonsters.Location = new System.Drawing.Point(4, 34);
-            this.tabMonsters.Margin = new System.Windows.Forms.Padding(4);
+            this.tabMonsters.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabMonsters.Name = "tabMonsters";
-            this.tabMonsters.Size = new System.Drawing.Size(1982, 767);
+            this.tabMonsters.Size = new System.Drawing.Size(1982, 968);
             this.tabMonsters.TabIndex = 2;
             this.tabMonsters.Text = "Monsters";
             // 
@@ -900,7 +904,6 @@
             this.掉落浏览表.AllowUserToAddRows = false;
             this.掉落浏览表.AllowUserToDeleteRows = false;
             this.掉落浏览表.AllowUserToResizeRows = false;
-            this.掉落浏览表.ShowCellToolTips = false;
             dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.掉落浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.掉落浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -909,7 +912,7 @@
             this.掉落浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -919,15 +922,15 @@
             this.掉落浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
             dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.掉落浏览表.DefaultCellStyle = dataGridViewCellStyle21;
             this.掉落浏览表.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.掉落浏览表.Location = new System.Drawing.Point(1203, 4);
-            this.掉落浏览表.Margin = new System.Windows.Forms.Padding(4);
+            this.掉落浏览表.Location = new System.Drawing.Point(1203, 5);
+            this.掉落浏览表.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.掉落浏览表.MultiSelect = false;
             this.掉落浏览表.Name = "掉落浏览表";
             this.掉落浏览表.ReadOnly = true;
@@ -935,7 +938,8 @@
             this.掉落浏览表.RowHeadersWidth = 51;
             this.掉落浏览表.RowTemplate.Height = 23;
             this.掉落浏览表.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.掉落浏览表.Size = new System.Drawing.Size(380, 579);
+            this.掉落浏览表.ShowCellToolTips = false;
+            this.掉落浏览表.Size = new System.Drawing.Size(380, 724);
             this.掉落浏览表.TabIndex = 5;
             // 
             // 怪物浏览表
@@ -943,7 +947,6 @@
             this.怪物浏览表.AllowUserToAddRows = false;
             this.怪物浏览表.AllowUserToDeleteRows = false;
             this.怪物浏览表.AllowUserToResizeRows = false;
-            this.怪物浏览表.ShowCellToolTips = false;
             dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.怪物浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
             this.怪物浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -952,7 +955,7 @@
             this.怪物浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -962,15 +965,15 @@
             this.怪物浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
             dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.怪物浏览表.DefaultCellStyle = dataGridViewCellStyle24;
             this.怪物浏览表.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.怪物浏览表.Location = new System.Drawing.Point(0, 4);
-            this.怪物浏览表.Margin = new System.Windows.Forms.Padding(4);
+            this.怪物浏览表.Location = new System.Drawing.Point(0, 5);
+            this.怪物浏览表.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.怪物浏览表.MultiSelect = false;
             this.怪物浏览表.Name = "怪物浏览表";
             this.怪物浏览表.ReadOnly = true;
@@ -978,18 +981,19 @@
             this.怪物浏览表.RowHeadersWidth = 51;
             this.怪物浏览表.RowTemplate.Height = 23;
             this.怪物浏览表.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.怪物浏览表.Size = new System.Drawing.Size(1195, 579);
+            this.怪物浏览表.ShowCellToolTips = false;
+            this.怪物浏览表.Size = new System.Drawing.Size(1195, 724);
             this.怪物浏览表.TabIndex = 3;
             // 
             // tabBans
             // 
             this.tabBans.BackColor = System.Drawing.Color.Gainsboro;
             this.tabBans.Controls.Add(this.封禁浏览表);
-            this.tabBans.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabBans.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabBans.Location = new System.Drawing.Point(4, 34);
-            this.tabBans.Margin = new System.Windows.Forms.Padding(4);
+            this.tabBans.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabBans.Name = "tabBans";
-            this.tabBans.Size = new System.Drawing.Size(1982, 767);
+            this.tabBans.Size = new System.Drawing.Size(1982, 968);
             this.tabBans.TabIndex = 12;
             this.tabBans.Text = "Bans";
             // 
@@ -998,7 +1002,6 @@
             this.封禁浏览表.AllowUserToAddRows = false;
             this.封禁浏览表.AllowUserToDeleteRows = false;
             this.封禁浏览表.AllowUserToResizeRows = false;
-            this.封禁浏览表.ShowCellToolTips = false;
             dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.封禁浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
             this.封禁浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -1007,7 +1010,7 @@
             this.封禁浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -1017,15 +1020,15 @@
             this.封禁浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
             dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.封禁浏览表.DefaultCellStyle = dataGridViewCellStyle27;
             this.封禁浏览表.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.封禁浏览表.Location = new System.Drawing.Point(168, 4);
-            this.封禁浏览表.Margin = new System.Windows.Forms.Padding(4);
+            this.封禁浏览表.Location = new System.Drawing.Point(168, 5);
+            this.封禁浏览表.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.封禁浏览表.MultiSelect = false;
             this.封禁浏览表.Name = "封禁浏览表";
             this.封禁浏览表.ReadOnly = true;
@@ -1033,7 +1036,8 @@
             this.封禁浏览表.RowHeadersWidth = 51;
             this.封禁浏览表.RowTemplate.Height = 23;
             this.封禁浏览表.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.封禁浏览表.Size = new System.Drawing.Size(1143, 579);
+            this.封禁浏览表.ShowCellToolTips = false;
+            this.封禁浏览表.Size = new System.Drawing.Size(1143, 724);
             this.封禁浏览表.TabIndex = 6;
             // 
             // tabAnnouncements
@@ -1044,22 +1048,22 @@
             this.tabAnnouncements.Controls.Add(this.删除公告按钮);
             this.tabAnnouncements.Controls.Add(this.添加公告按钮);
             this.tabAnnouncements.Controls.Add(this.公告浏览表);
-            this.tabAnnouncements.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabAnnouncements.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabAnnouncements.Location = new System.Drawing.Point(4, 34);
-            this.tabAnnouncements.Margin = new System.Windows.Forms.Padding(4);
+            this.tabAnnouncements.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabAnnouncements.Name = "tabAnnouncements";
-            this.tabAnnouncements.Size = new System.Drawing.Size(1982, 767);
+            this.tabAnnouncements.Size = new System.Drawing.Size(1982, 968);
             this.tabAnnouncements.TabIndex = 13;
             this.tabAnnouncements.Text = "Announcements";
             // 
             // 开始公告按钮
             // 
             this.开始公告按钮.Enabled = false;
-            this.开始公告按钮.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.开始公告按钮.Location = new System.Drawing.Point(7, 529);
-            this.开始公告按钮.Margin = new System.Windows.Forms.Padding(4);
+            this.开始公告按钮.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.开始公告按钮.Location = new System.Drawing.Point(7, 661);
+            this.开始公告按钮.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.开始公告按钮.Name = "开始公告按钮";
-            this.开始公告按钮.Size = new System.Drawing.Size(392, 40);
+            this.开始公告按钮.Size = new System.Drawing.Size(392, 50);
             this.开始公告按钮.TabIndex = 7;
             this.开始公告按钮.Text = "Start selected announces";
             this.开始公告按钮.UseVisualStyleBackColor = true;
@@ -1068,11 +1072,11 @@
             // 停止公告按钮
             // 
             this.停止公告按钮.Enabled = false;
-            this.停止公告按钮.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.停止公告按钮.Location = new System.Drawing.Point(399, 529);
-            this.停止公告按钮.Margin = new System.Windows.Forms.Padding(4);
+            this.停止公告按钮.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.停止公告按钮.Location = new System.Drawing.Point(399, 661);
+            this.停止公告按钮.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.停止公告按钮.Name = "停止公告按钮";
-            this.停止公告按钮.Size = new System.Drawing.Size(392, 40);
+            this.停止公告按钮.Size = new System.Drawing.Size(392, 50);
             this.停止公告按钮.TabIndex = 6;
             this.停止公告按钮.Text = "Stop announcements";
             this.停止公告按钮.UseVisualStyleBackColor = true;
@@ -1080,11 +1084,11 @@
             // 
             // 删除公告按钮
             // 
-            this.删除公告按钮.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.删除公告按钮.Location = new System.Drawing.Point(1183, 529);
-            this.删除公告按钮.Margin = new System.Windows.Forms.Padding(4);
+            this.删除公告按钮.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.删除公告按钮.Location = new System.Drawing.Point(1183, 661);
+            this.删除公告按钮.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.删除公告按钮.Name = "删除公告按钮";
-            this.删除公告按钮.Size = new System.Drawing.Size(392, 40);
+            this.删除公告按钮.Size = new System.Drawing.Size(392, 50);
             this.删除公告按钮.TabIndex = 5;
             this.删除公告按钮.Text = "Delete selected announcement";
             this.删除公告按钮.UseVisualStyleBackColor = true;
@@ -1092,11 +1096,11 @@
             // 
             // 添加公告按钮
             // 
-            this.添加公告按钮.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.添加公告按钮.Location = new System.Drawing.Point(791, 529);
-            this.添加公告按钮.Margin = new System.Windows.Forms.Padding(4);
+            this.添加公告按钮.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.添加公告按钮.Location = new System.Drawing.Point(791, 661);
+            this.添加公告按钮.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.添加公告按钮.Name = "添加公告按钮";
-            this.添加公告按钮.Size = new System.Drawing.Size(392, 40);
+            this.添加公告按钮.Size = new System.Drawing.Size(392, 50);
             this.添加公告按钮.TabIndex = 4;
             this.添加公告按钮.Text = "Add new announcement";
             this.添加公告按钮.UseVisualStyleBackColor = true;
@@ -1108,11 +1112,10 @@
             this.公告浏览表.AllowUserToDeleteRows = false;
             this.公告浏览表.AllowUserToResizeColumns = false;
             this.公告浏览表.AllowUserToResizeRows = false;
-            this.公告浏览表.ShowCellToolTips = false;
             this.公告浏览表.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -1129,20 +1132,20 @@
             this.公告内容});
             dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle29.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.ActiveBorder;
             dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.公告浏览表.DefaultCellStyle = dataGridViewCellStyle29;
             this.公告浏览表.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.公告浏览表.Location = new System.Drawing.Point(7, 4);
-            this.公告浏览表.Margin = new System.Windows.Forms.Padding(4);
+            this.公告浏览表.Location = new System.Drawing.Point(7, 5);
+            this.公告浏览表.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.公告浏览表.MultiSelect = false;
             this.公告浏览表.Name = "公告浏览表";
             dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
             dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -1153,7 +1156,8 @@
             this.公告浏览表.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.公告浏览表.RowTemplate.Height = 23;
             this.公告浏览表.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.公告浏览表.Size = new System.Drawing.Size(1571, 501);
+            this.公告浏览表.ShowCellToolTips = false;
+            this.公告浏览表.Size = new System.Drawing.Size(1571, 626);
             this.公告浏览表.TabIndex = 3;
             this.公告浏览表.TabStop = false;
             this.公告浏览表.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.公告浏览表_CellEndEdit);
@@ -1221,30 +1225,30 @@
             this.tabConfig.Controls.Add(this.S_GameData分组);
             this.tabConfig.Controls.Add(this.S_游戏设置分组);
             this.tabConfig.Controls.Add(this.S_网络设置分组);
-            this.tabConfig.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabConfig.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabConfig.Location = new System.Drawing.Point(4, 34);
-            this.tabConfig.Margin = new System.Windows.Forms.Padding(4);
+            this.tabConfig.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabConfig.Name = "tabConfig";
-            this.tabConfig.Size = new System.Drawing.Size(1982, 767);
+            this.tabConfig.Size = new System.Drawing.Size(1982, 968);
             this.tabConfig.TabIndex = 11;
             this.tabConfig.Text = "Config";
             // 
             // S_软件授权分组
             // 
             this.S_软件授权分组.Controls.Add(this.S_软件注册代码);
-            this.S_软件授权分组.Location = new System.Drawing.Point(20, 493);
-            this.S_软件授权分组.Margin = new System.Windows.Forms.Padding(4);
+            this.S_软件授权分组.Location = new System.Drawing.Point(20, 616);
+            this.S_软件授权分组.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_软件授权分组.Name = "S_软件授权分组";
-            this.S_软件授权分组.Padding = new System.Windows.Forms.Padding(4);
-            this.S_软件授权分组.Size = new System.Drawing.Size(788, 73);
+            this.S_软件授权分组.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.S_软件授权分组.Size = new System.Drawing.Size(788, 91);
             this.S_软件授权分组.TabIndex = 11;
             this.S_软件授权分组.TabStop = false;
             this.S_软件授权分组.Text = "Registration code";
             // 
             // S_软件注册代码
             // 
-            this.S_软件注册代码.Location = new System.Drawing.Point(8, 28);
-            this.S_软件注册代码.Margin = new System.Windows.Forms.Padding(4);
+            this.S_软件注册代码.Location = new System.Drawing.Point(8, 35);
+            this.S_软件注册代码.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_软件注册代码.Name = "S_软件注册代码";
             this.S_软件注册代码.Size = new System.Drawing.Size(771, 25);
             this.S_软件注册代码.TabIndex = 11;
@@ -1272,12 +1276,12 @@
             this.S_GameData分组.Controls.Add(this.S_GameData目录);
             this.S_GameData分组.Controls.Add(this.S_备份目录标签);
             this.S_GameData分组.Controls.Add(this.S_数据目录标签);
-            this.S_GameData分组.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S_GameData分组.Location = new System.Drawing.Point(847, 16);
-            this.S_GameData分组.Margin = new System.Windows.Forms.Padding(4);
+            this.S_GameData分组.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.S_GameData分组.Location = new System.Drawing.Point(847, 20);
+            this.S_GameData分组.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_GameData分组.Name = "S_GameData分组";
-            this.S_GameData分组.Padding = new System.Windows.Forms.Padding(4);
-            this.S_GameData分组.Size = new System.Drawing.Size(636, 551);
+            this.S_GameData分组.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.S_GameData分组.Size = new System.Drawing.Size(636, 689);
             this.S_GameData分组.TabIndex = 10;
             this.S_GameData分组.TabStop = false;
             this.S_GameData分组.Text = "GameData";
@@ -1285,9 +1289,9 @@
             // S_注意事项标签8
             // 
             this.S_注意事项标签8.AutoSize = true;
-            this.S_注意事项标签8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.S_注意事项标签8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.S_注意事项标签8.ForeColor = System.Drawing.Color.Blue;
-            this.S_注意事项标签8.Location = new System.Drawing.Point(53, 495);
+            this.S_注意事项标签8.Location = new System.Drawing.Point(53, 619);
             this.S_注意事项标签8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_注意事项标签8.Name = "S_注意事项标签8";
             this.S_注意事项标签8.Size = new System.Drawing.Size(426, 17);
@@ -1297,9 +1301,9 @@
             // S_注意事项标签7
             // 
             this.S_注意事项标签7.AutoSize = true;
-            this.S_注意事项标签7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.S_注意事项标签7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.S_注意事项标签7.ForeColor = System.Drawing.Color.Blue;
-            this.S_注意事项标签7.Location = new System.Drawing.Point(53, 468);
+            this.S_注意事项标签7.Location = new System.Drawing.Point(53, 585);
             this.S_注意事项标签7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_注意事项标签7.Name = "S_注意事项标签7";
             this.S_注意事项标签7.Size = new System.Drawing.Size(504, 17);
@@ -1309,9 +1313,9 @@
             // S_注意事项标签6
             // 
             this.S_注意事项标签6.AutoSize = true;
-            this.S_注意事项标签6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.S_注意事项标签6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.S_注意事项标签6.ForeColor = System.Drawing.Color.Blue;
-            this.S_注意事项标签6.Location = new System.Drawing.Point(53, 441);
+            this.S_注意事项标签6.Location = new System.Drawing.Point(53, 551);
             this.S_注意事项标签6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_注意事项标签6.Name = "S_注意事项标签6";
             this.S_注意事项标签6.Size = new System.Drawing.Size(472, 17);
@@ -1321,9 +1325,9 @@
             // S_注意事项标签5
             // 
             this.S_注意事项标签5.AutoSize = true;
-            this.S_注意事项标签5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.S_注意事项标签5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.S_注意事项标签5.ForeColor = System.Drawing.Color.Blue;
-            this.S_注意事项标签5.Location = new System.Drawing.Point(53, 415);
+            this.S_注意事项标签5.Location = new System.Drawing.Point(53, 519);
             this.S_注意事项标签5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_注意事项标签5.Name = "S_注意事项标签5";
             this.S_注意事项标签5.Size = new System.Drawing.Size(441, 17);
@@ -1333,9 +1337,9 @@
             // S_注意事项标签4
             // 
             this.S_注意事项标签4.AutoSize = true;
-            this.S_注意事项标签4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.S_注意事项标签4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.S_注意事项标签4.ForeColor = System.Drawing.Color.Blue;
-            this.S_注意事项标签4.Location = new System.Drawing.Point(53, 388);
+            this.S_注意事项标签4.Location = new System.Drawing.Point(53, 485);
             this.S_注意事项标签4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_注意事项标签4.Name = "S_注意事项标签4";
             this.S_注意事项标签4.Size = new System.Drawing.Size(464, 17);
@@ -1345,9 +1349,9 @@
             // S_注意事项标签3
             // 
             this.S_注意事项标签3.AutoSize = true;
-            this.S_注意事项标签3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.S_注意事项标签3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.S_注意事项标签3.ForeColor = System.Drawing.Color.Blue;
-            this.S_注意事项标签3.Location = new System.Drawing.Point(53, 361);
+            this.S_注意事项标签3.Location = new System.Drawing.Point(53, 451);
             this.S_注意事项标签3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_注意事项标签3.Name = "S_注意事项标签3";
             this.S_注意事项标签3.Size = new System.Drawing.Size(442, 17);
@@ -1357,9 +1361,9 @@
             // S_注意事项标签2
             // 
             this.S_注意事项标签2.AutoSize = true;
-            this.S_注意事项标签2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.S_注意事项标签2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.S_注意事项标签2.ForeColor = System.Drawing.Color.Blue;
-            this.S_注意事项标签2.Location = new System.Drawing.Point(53, 335);
+            this.S_注意事项标签2.Location = new System.Drawing.Point(53, 419);
             this.S_注意事项标签2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_注意事项标签2.Name = "S_注意事项标签2";
             this.S_注意事项标签2.Size = new System.Drawing.Size(296, 17);
@@ -1369,9 +1373,9 @@
             // S_注意事项标签1
             // 
             this.S_注意事项标签1.AutoSize = true;
-            this.S_注意事项标签1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.S_注意事项标签1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.S_注意事项标签1.ForeColor = System.Drawing.Color.Blue;
-            this.S_注意事项标签1.Location = new System.Drawing.Point(23, 308);
+            this.S_注意事项标签1.Location = new System.Drawing.Point(23, 385);
             this.S_注意事项标签1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_注意事项标签1.Name = "S_注意事项标签1";
             this.S_注意事项标签1.Size = new System.Drawing.Size(262, 17);
@@ -1380,10 +1384,10 @@
             // 
             // S_重载客户数据
             // 
-            this.S_重载客户数据.Location = new System.Drawing.Point(23, 153);
-            this.S_重载客户数据.Margin = new System.Windows.Forms.Padding(4);
+            this.S_重载客户数据.Location = new System.Drawing.Point(23, 191);
+            this.S_重载客户数据.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_重载客户数据.Name = "S_重载客户数据";
-            this.S_重载客户数据.Size = new System.Drawing.Size(592, 31);
+            this.S_重载客户数据.Size = new System.Drawing.Size(592, 39);
             this.S_重载客户数据.TabIndex = 13;
             this.S_重载客户数据.Text = "Reload users database";
             this.S_重载客户数据.UseVisualStyleBackColor = true;
@@ -1391,10 +1395,10 @@
             // 
             // S_重载SystemData
             // 
-            this.S_重载SystemData.Location = new System.Drawing.Point(23, 115);
-            this.S_重载SystemData.Margin = new System.Windows.Forms.Padding(4);
+            this.S_重载SystemData.Location = new System.Drawing.Point(23, 144);
+            this.S_重载SystemData.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_重载SystemData.Name = "S_重载SystemData";
-            this.S_重载SystemData.Size = new System.Drawing.Size(592, 31);
+            this.S_重载SystemData.Size = new System.Drawing.Size(592, 39);
             this.S_重载SystemData.TabIndex = 12;
             this.S_重载SystemData.Text = "Reload system data";
             this.S_重载SystemData.UseVisualStyleBackColor = true;
@@ -1402,10 +1406,10 @@
             // 
             // S_浏览合并目录
             // 
-            this.S_浏览合并目录.Location = new System.Drawing.Point(584, 221);
-            this.S_浏览合并目录.Margin = new System.Windows.Forms.Padding(4);
+            this.S_浏览合并目录.Location = new System.Drawing.Point(584, 276);
+            this.S_浏览合并目录.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_浏览合并目录.Name = "S_浏览合并目录";
-            this.S_浏览合并目录.Size = new System.Drawing.Size(31, 31);
+            this.S_浏览合并目录.Size = new System.Drawing.Size(31, 39);
             this.S_浏览合并目录.TabIndex = 11;
             this.S_浏览合并目录.Text = "S";
             this.S_浏览合并目录.UseVisualStyleBackColor = true;
@@ -1413,10 +1417,10 @@
             // 
             // S_浏览备份目录
             // 
-            this.S_浏览备份目录.Location = new System.Drawing.Point(584, 73);
-            this.S_浏览备份目录.Margin = new System.Windows.Forms.Padding(4);
+            this.S_浏览备份目录.Location = new System.Drawing.Point(584, 91);
+            this.S_浏览备份目录.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_浏览备份目录.Name = "S_浏览备份目录";
-            this.S_浏览备份目录.Size = new System.Drawing.Size(31, 31);
+            this.S_浏览备份目录.Size = new System.Drawing.Size(31, 39);
             this.S_浏览备份目录.TabIndex = 10;
             this.S_浏览备份目录.Text = "S";
             this.S_浏览备份目录.UseVisualStyleBackColor = true;
@@ -1424,10 +1428,10 @@
             // 
             // S_浏览数据目录
             // 
-            this.S_浏览数据目录.Location = new System.Drawing.Point(584, 33);
-            this.S_浏览数据目录.Margin = new System.Windows.Forms.Padding(4);
+            this.S_浏览数据目录.Location = new System.Drawing.Point(584, 41);
+            this.S_浏览数据目录.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_浏览数据目录.Name = "S_浏览数据目录";
-            this.S_浏览数据目录.Size = new System.Drawing.Size(31, 31);
+            this.S_浏览数据目录.Size = new System.Drawing.Size(31, 39);
             this.S_浏览数据目录.TabIndex = 9;
             this.S_浏览数据目录.Text = "S";
             this.S_浏览数据目录.UseVisualStyleBackColor = true;
@@ -1435,10 +1439,10 @@
             // 
             // S_合并客户数据
             // 
-            this.S_合并客户数据.Location = new System.Drawing.Point(23, 263);
-            this.S_合并客户数据.Margin = new System.Windows.Forms.Padding(4);
+            this.S_合并客户数据.Location = new System.Drawing.Point(23, 329);
+            this.S_合并客户数据.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_合并客户数据.Name = "S_合并客户数据";
-            this.S_合并客户数据.Size = new System.Drawing.Size(592, 31);
+            this.S_合并客户数据.Size = new System.Drawing.Size(592, 39);
             this.S_合并客户数据.TabIndex = 8;
             this.S_合并客户数据.Text = "Save users data";
             this.S_合并客户数据.UseVisualStyleBackColor = true;
@@ -1446,9 +1450,9 @@
             // 
             // S_合并数据目录
             // 
-            this.S_合并数据目录.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S_合并数据目录.Location = new System.Drawing.Point(152, 224);
-            this.S_合并数据目录.Margin = new System.Windows.Forms.Padding(4);
+            this.S_合并数据目录.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.S_合并数据目录.Location = new System.Drawing.Point(152, 280);
+            this.S_合并数据目录.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_合并数据目录.Name = "S_合并数据目录";
             this.S_合并数据目录.Size = new System.Drawing.Size(436, 25);
             this.S_合并数据目录.TabIndex = 7;
@@ -1456,7 +1460,7 @@
             // S_合并目录标签
             // 
             this.S_合并目录标签.AutoSize = true;
-            this.S_合并目录标签.Location = new System.Drawing.Point(23, 231);
+            this.S_合并目录标签.Location = new System.Drawing.Point(23, 289);
             this.S_合并目录标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_合并目录标签.Name = "S_合并目录标签";
             this.S_合并目录标签.Size = new System.Drawing.Size(99, 17);
@@ -1465,9 +1469,9 @@
             // 
             // S_数据备份目录
             // 
-            this.S_数据备份目录.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S_数据备份目录.Location = new System.Drawing.Point(152, 75);
-            this.S_数据备份目录.Margin = new System.Windows.Forms.Padding(4);
+            this.S_数据备份目录.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.S_数据备份目录.Location = new System.Drawing.Point(152, 94);
+            this.S_数据备份目录.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_数据备份目录.Name = "S_数据备份目录";
             this.S_数据备份目录.ReadOnly = true;
             this.S_数据备份目录.Size = new System.Drawing.Size(436, 25);
@@ -1476,9 +1480,9 @@
             // 
             // S_GameData目录
             // 
-            this.S_GameData目录.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S_GameData目录.Location = new System.Drawing.Point(152, 36);
-            this.S_GameData目录.Margin = new System.Windows.Forms.Padding(4);
+            this.S_GameData目录.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.S_GameData目录.Location = new System.Drawing.Point(152, 45);
+            this.S_GameData目录.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_GameData目录.Name = "S_GameData目录";
             this.S_GameData目录.ReadOnly = true;
             this.S_GameData目录.Size = new System.Drawing.Size(436, 25);
@@ -1488,7 +1492,7 @@
             // S_备份目录标签
             // 
             this.S_备份目录标签.AutoSize = true;
-            this.S_备份目录标签.Location = new System.Drawing.Point(23, 81);
+            this.S_备份目录标签.Location = new System.Drawing.Point(23, 101);
             this.S_备份目录标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_备份目录标签.Name = "S_备份目录标签";
             this.S_备份目录标签.Size = new System.Drawing.Size(97, 17);
@@ -1498,7 +1502,7 @@
             // S_数据目录标签
             // 
             this.S_数据目录标签.AutoSize = true;
-            this.S_数据目录标签.Location = new System.Drawing.Point(23, 43);
+            this.S_数据目录标签.Location = new System.Drawing.Point(23, 54);
             this.S_数据目录标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_数据目录标签.Name = "S_数据目录标签";
             this.S_数据目录标签.Size = new System.Drawing.Size(121, 17);
@@ -1528,12 +1532,12 @@
             this.S_游戏设置分组.Controls.Add(this.S_怪物额外爆率);
             this.S_游戏设置分组.Controls.Add(this.S_OpenLevelCommand标签);
             this.S_游戏设置分组.Controls.Add(this.S_游戏OpenLevelCommand);
-            this.S_游戏设置分组.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S_游戏设置分组.Location = new System.Drawing.Point(432, 16);
-            this.S_游戏设置分组.Margin = new System.Windows.Forms.Padding(4);
+            this.S_游戏设置分组.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.S_游戏设置分组.Location = new System.Drawing.Point(432, 20);
+            this.S_游戏设置分组.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_游戏设置分组.Name = "S_游戏设置分组";
-            this.S_游戏设置分组.Padding = new System.Windows.Forms.Padding(4);
-            this.S_游戏设置分组.Size = new System.Drawing.Size(376, 448);
+            this.S_游戏设置分组.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.S_游戏设置分组.Size = new System.Drawing.Size(376, 560);
             this.S_游戏设置分组.TabIndex = 8;
             this.S_游戏设置分组.TabStop = false;
             this.S_游戏设置分组.Text = "Game Settings";
@@ -1541,7 +1545,7 @@
             // S_NoobSupportCommand标签
             // 
             this.S_NoobSupportCommand标签.AutoSize = true;
-            this.S_NoobSupportCommand标签.Location = new System.Drawing.Point(37, 81);
+            this.S_NoobSupportCommand标签.Location = new System.Drawing.Point(37, 101);
             this.S_NoobSupportCommand标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_NoobSupportCommand标签.Name = "S_NoobSupportCommand标签";
             this.S_NoobSupportCommand标签.Size = new System.Drawing.Size(190, 17);
@@ -1550,9 +1554,9 @@
             // 
             // S_NoobSupportCommand等级
             // 
-            this.S_NoobSupportCommand等级.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S_NoobSupportCommand等级.Location = new System.Drawing.Point(167, 76);
-            this.S_NoobSupportCommand等级.Margin = new System.Windows.Forms.Padding(4);
+            this.S_NoobSupportCommand等级.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.S_NoobSupportCommand等级.Location = new System.Drawing.Point(167, 95);
+            this.S_NoobSupportCommand等级.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_NoobSupportCommand等级.Maximum = new decimal(new int[] {
             60,
             0,
@@ -1566,7 +1570,7 @@
             // S_物品归属标签
             // 
             this.S_物品归属标签.AutoSize = true;
-            this.S_物品归属标签.Location = new System.Drawing.Point(37, 391);
+            this.S_物品归属标签.Location = new System.Drawing.Point(37, 489);
             this.S_物品归属标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_物品归属标签.Name = "S_物品归属标签";
             this.S_物品归属标签.Size = new System.Drawing.Size(93, 17);
@@ -1575,9 +1579,9 @@
             // 
             // S_物品归属时间
             // 
-            this.S_物品归属时间.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S_物品归属时间.Location = new System.Drawing.Point(167, 385);
-            this.S_物品归属时间.Margin = new System.Windows.Forms.Padding(4);
+            this.S_物品归属时间.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.S_物品归属时间.Location = new System.Drawing.Point(167, 481);
+            this.S_物品归属时间.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_物品归属时间.Maximum = new decimal(new int[] {
             10,
             0,
@@ -1592,7 +1596,7 @@
             // S_物品清理标签
             // 
             this.S_物品清理标签.AutoSize = true;
-            this.S_物品清理标签.Location = new System.Drawing.Point(37, 352);
+            this.S_物品清理标签.Location = new System.Drawing.Point(37, 440);
             this.S_物品清理标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_物品清理标签.Name = "S_物品清理标签";
             this.S_物品清理标签.Size = new System.Drawing.Size(104, 17);
@@ -1601,9 +1605,9 @@
             // 
             // S_物品清理时间
             // 
-            this.S_物品清理时间.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S_物品清理时间.Location = new System.Drawing.Point(167, 347);
-            this.S_物品清理时间.Margin = new System.Windows.Forms.Padding(4);
+            this.S_物品清理时间.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.S_物品清理时间.Location = new System.Drawing.Point(167, 434);
+            this.S_物品清理时间.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_物品清理时间.Maximum = new decimal(new int[] {
             10,
             0,
@@ -1618,7 +1622,7 @@
             // S_诱惑时长标签
             // 
             this.S_诱惑时长标签.AutoSize = true;
-            this.S_诱惑时长标签.Location = new System.Drawing.Point(37, 313);
+            this.S_诱惑时长标签.Location = new System.Drawing.Point(37, 391);
             this.S_诱惑时长标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_诱惑时长标签.Name = "S_诱惑时长标签";
             this.S_诱惑时长标签.Size = new System.Drawing.Size(157, 17);
@@ -1627,9 +1631,9 @@
             // 
             // S_怪物诱惑时长
             // 
-            this.S_怪物诱惑时长.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S_怪物诱惑时长.Location = new System.Drawing.Point(167, 308);
-            this.S_怪物诱惑时长.Margin = new System.Windows.Forms.Padding(4);
+            this.S_怪物诱惑时长.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.S_怪物诱惑时长.Location = new System.Drawing.Point(167, 385);
+            this.S_怪物诱惑时长.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_怪物诱惑时长.Maximum = new decimal(new int[] {
             1200,
             0,
@@ -1644,7 +1648,7 @@
             // S_收益衰减标签
             // 
             this.S_收益衰减标签.AutoSize = true;
-            this.S_收益衰减标签.Location = new System.Drawing.Point(37, 275);
+            this.S_收益衰减标签.Location = new System.Drawing.Point(37, 344);
             this.S_收益衰减标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_收益衰减标签.Name = "S_收益衰减标签";
             this.S_收益衰减标签.Size = new System.Drawing.Size(85, 17);
@@ -1654,9 +1658,9 @@
             // S_收益减少比率
             // 
             this.S_收益减少比率.DecimalPlaces = 2;
-            this.S_收益减少比率.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S_收益减少比率.Location = new System.Drawing.Point(167, 269);
-            this.S_收益减少比率.Margin = new System.Windows.Forms.Padding(4);
+            this.S_收益减少比率.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.S_收益减少比率.Location = new System.Drawing.Point(167, 336);
+            this.S_收益减少比率.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_收益减少比率.Maximum = new decimal(new int[] {
             1,
             0,
@@ -1676,7 +1680,7 @@
             // S_收益等级标签
             // 
             this.S_收益等级标签.AutoSize = true;
-            this.S_收益等级标签.Location = new System.Drawing.Point(37, 236);
+            this.S_收益等级标签.Location = new System.Drawing.Point(37, 295);
             this.S_收益等级标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_收益等级标签.Name = "S_收益等级标签";
             this.S_收益等级标签.Size = new System.Drawing.Size(75, 17);
@@ -1685,9 +1689,9 @@
             // 
             // S_减收益等级差
             // 
-            this.S_减收益等级差.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S_减收益等级差.Location = new System.Drawing.Point(167, 231);
-            this.S_减收益等级差.Margin = new System.Windows.Forms.Padding(4);
+            this.S_减收益等级差.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.S_减收益等级差.Location = new System.Drawing.Point(167, 289);
+            this.S_减收益等级差.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_减收益等级差.Maximum = new decimal(new int[] {
             30,
             0,
@@ -1702,7 +1706,7 @@
             // S_经验倍率标签
             // 
             this.S_经验倍率标签.AutoSize = true;
-            this.S_经验倍率标签.Location = new System.Drawing.Point(37, 197);
+            this.S_经验倍率标签.Location = new System.Drawing.Point(37, 246);
             this.S_经验倍率标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_经验倍率标签.Name = "S_经验倍率标签";
             this.S_经验倍率标签.Size = new System.Drawing.Size(68, 17);
@@ -1712,14 +1716,14 @@
             // S_怪物经验倍率
             // 
             this.S_怪物经验倍率.DecimalPlaces = 2;
-            this.S_怪物经验倍率.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.S_怪物经验倍率.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.S_怪物经验倍率.Increment = new decimal(new int[] {
             5,
             0,
             0,
             65536});
-            this.S_怪物经验倍率.Location = new System.Drawing.Point(167, 192);
-            this.S_怪物经验倍率.Margin = new System.Windows.Forms.Padding(4);
+            this.S_怪物经验倍率.Location = new System.Drawing.Point(167, 240);
+            this.S_怪物经验倍率.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_怪物经验倍率.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -1734,7 +1738,7 @@
             // S_特修折扣标签
             // 
             this.S_特修折扣标签.AutoSize = true;
-            this.S_特修折扣标签.Location = new System.Drawing.Point(37, 120);
+            this.S_特修折扣标签.Location = new System.Drawing.Point(37, 150);
             this.S_特修折扣标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_特修折扣标签.Name = "S_特修折扣标签";
             this.S_特修折扣标签.Size = new System.Drawing.Size(104, 17);
@@ -1744,14 +1748,14 @@
             // S_装备特修折扣
             // 
             this.S_装备特修折扣.DecimalPlaces = 2;
-            this.S_装备特修折扣.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.S_装备特修折扣.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.S_装备特修折扣.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.S_装备特修折扣.Location = new System.Drawing.Point(167, 115);
-            this.S_装备特修折扣.Margin = new System.Windows.Forms.Padding(4);
+            this.S_装备特修折扣.Location = new System.Drawing.Point(167, 144);
+            this.S_装备特修折扣.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_装备特修折扣.Maximum = new decimal(new int[] {
             1,
             0,
@@ -1766,7 +1770,7 @@
             // S_怪物爆率标签
             // 
             this.S_怪物爆率标签.AutoSize = true;
-            this.S_怪物爆率标签.Location = new System.Drawing.Point(37, 159);
+            this.S_怪物爆率标签.Location = new System.Drawing.Point(37, 199);
             this.S_怪物爆率标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_怪物爆率标签.Name = "S_怪物爆率标签";
             this.S_怪物爆率标签.Size = new System.Drawing.Size(153, 17);
@@ -1776,14 +1780,14 @@
             // S_怪物额外爆率
             // 
             this.S_怪物额外爆率.DecimalPlaces = 2;
-            this.S_怪物额外爆率.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.S_怪物额外爆率.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.S_怪物额外爆率.Increment = new decimal(new int[] {
             5,
             0,
             0,
             131072});
-            this.S_怪物额外爆率.Location = new System.Drawing.Point(167, 153);
-            this.S_怪物额外爆率.Margin = new System.Windows.Forms.Padding(4);
+            this.S_怪物额外爆率.Location = new System.Drawing.Point(167, 191);
+            this.S_怪物额外爆率.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_怪物额外爆率.Maximum = new decimal(new int[] {
             1,
             0,
@@ -1798,7 +1802,7 @@
             // S_OpenLevelCommand标签
             // 
             this.S_OpenLevelCommand标签.AutoSize = true;
-            this.S_OpenLevelCommand标签.Location = new System.Drawing.Point(37, 43);
+            this.S_OpenLevelCommand标签.Location = new System.Drawing.Point(37, 54);
             this.S_OpenLevelCommand标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_OpenLevelCommand标签.Name = "S_OpenLevelCommand标签";
             this.S_OpenLevelCommand标签.Size = new System.Drawing.Size(175, 17);
@@ -1807,9 +1811,9 @@
             // 
             // S_游戏OpenLevelCommand
             // 
-            this.S_游戏OpenLevelCommand.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S_游戏OpenLevelCommand.Location = new System.Drawing.Point(167, 37);
-            this.S_游戏OpenLevelCommand.Margin = new System.Windows.Forms.Padding(4);
+            this.S_游戏OpenLevelCommand.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.S_游戏OpenLevelCommand.Location = new System.Drawing.Point(167, 46);
+            this.S_游戏OpenLevelCommand.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_游戏OpenLevelCommand.Maximum = new decimal(new int[] {
             255,
             0,
@@ -1833,12 +1837,12 @@
             this.S_网络设置分组.Controls.Add(this.S_TSPort);
             this.S_网络设置分组.Controls.Add(this.S_监听端口标签);
             this.S_网络设置分组.Controls.Add(this.S_GSPort);
-            this.S_网络设置分组.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S_网络设置分组.Location = new System.Drawing.Point(20, 16);
-            this.S_网络设置分组.Margin = new System.Windows.Forms.Padding(4);
+            this.S_网络设置分组.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.S_网络设置分组.Location = new System.Drawing.Point(20, 20);
+            this.S_网络设置分组.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_网络设置分组.Name = "S_网络设置分组";
-            this.S_网络设置分组.Padding = new System.Windows.Forms.Padding(4);
-            this.S_网络设置分组.Size = new System.Drawing.Size(376, 448);
+            this.S_网络设置分组.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.S_网络设置分组.Size = new System.Drawing.Size(376, 560);
             this.S_网络设置分组.TabIndex = 0;
             this.S_网络设置分组.TabStop = false;
             this.S_网络设置分组.Text = "Network Settings";
@@ -1846,7 +1850,7 @@
             // S_掉线判定标签
             // 
             this.S_掉线判定标签.AutoSize = true;
-            this.S_掉线判定标签.Location = new System.Drawing.Point(36, 197);
+            this.S_掉线判定标签.Location = new System.Drawing.Point(36, 246);
             this.S_掉线判定标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_掉线判定标签.Name = "S_掉线判定标签";
             this.S_掉线判定标签.Size = new System.Drawing.Size(72, 17);
@@ -1855,9 +1859,9 @@
             // 
             // S_掉线判定时间
             // 
-            this.S_掉线判定时间.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S_掉线判定时间.Location = new System.Drawing.Point(165, 192);
-            this.S_掉线判定时间.Margin = new System.Windows.Forms.Padding(4);
+            this.S_掉线判定时间.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.S_掉线判定时间.Location = new System.Drawing.Point(165, 240);
+            this.S_掉线判定时间.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_掉线判定时间.Maximum = new decimal(new int[] {
             10,
             0,
@@ -1872,7 +1876,7 @@
             // S_限定封包标签
             // 
             this.S_限定封包标签.AutoSize = true;
-            this.S_限定封包标签.Location = new System.Drawing.Point(36, 120);
+            this.S_限定封包标签.Location = new System.Drawing.Point(36, 150);
             this.S_限定封包标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_限定封包标签.Name = "S_限定封包标签";
             this.S_限定封包标签.Size = new System.Drawing.Size(83, 17);
@@ -1881,9 +1885,9 @@
             // 
             // S_封包限定数量
             // 
-            this.S_封包限定数量.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S_封包限定数量.Location = new System.Drawing.Point(165, 115);
-            this.S_封包限定数量.Margin = new System.Windows.Forms.Padding(4);
+            this.S_封包限定数量.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.S_封包限定数量.Location = new System.Drawing.Point(165, 144);
+            this.S_封包限定数量.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_封包限定数量.Maximum = new decimal(new int[] {
             500,
             0,
@@ -1898,7 +1902,7 @@
             // S_屏蔽时间标签
             // 
             this.S_屏蔽时间标签.AutoSize = true;
-            this.S_屏蔽时间标签.Location = new System.Drawing.Point(36, 159);
+            this.S_屏蔽时间标签.Location = new System.Drawing.Point(36, 199);
             this.S_屏蔽时间标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_屏蔽时间标签.Name = "S_屏蔽时间标签";
             this.S_屏蔽时间标签.Size = new System.Drawing.Size(76, 17);
@@ -1907,9 +1911,9 @@
             // 
             // S_异常屏蔽时间
             // 
-            this.S_异常屏蔽时间.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S_异常屏蔽时间.Location = new System.Drawing.Point(165, 153);
-            this.S_异常屏蔽时间.Margin = new System.Windows.Forms.Padding(4);
+            this.S_异常屏蔽时间.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.S_异常屏蔽时间.Location = new System.Drawing.Point(165, 191);
+            this.S_异常屏蔽时间.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_异常屏蔽时间.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -1924,7 +1928,7 @@
             // S_接收端口标签
             // 
             this.S_接收端口标签.AutoSize = true;
-            this.S_接收端口标签.Location = new System.Drawing.Point(36, 81);
+            this.S_接收端口标签.Location = new System.Drawing.Point(36, 101);
             this.S_接收端口标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_接收端口标签.Name = "S_接收端口标签";
             this.S_接收端口标签.Size = new System.Drawing.Size(58, 17);
@@ -1933,9 +1937,9 @@
             // 
             // S_TSPort
             // 
-            this.S_TSPort.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S_TSPort.Location = new System.Drawing.Point(165, 76);
-            this.S_TSPort.Margin = new System.Windows.Forms.Padding(4);
+            this.S_TSPort.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.S_TSPort.Location = new System.Drawing.Point(165, 95);
+            this.S_TSPort.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_TSPort.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -1950,7 +1954,7 @@
             // S_监听端口标签
             // 
             this.S_监听端口标签.AutoSize = true;
-            this.S_监听端口标签.Location = new System.Drawing.Point(36, 43);
+            this.S_监听端口标签.Location = new System.Drawing.Point(36, 54);
             this.S_监听端口标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_监听端口标签.Name = "S_监听端口标签";
             this.S_监听端口标签.Size = new System.Drawing.Size(82, 17);
@@ -1959,9 +1963,9 @@
             // 
             // S_GSPort
             // 
-            this.S_GSPort.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.S_GSPort.Location = new System.Drawing.Point(165, 37);
-            this.S_GSPort.Margin = new System.Windows.Forms.Padding(4);
+            this.S_GSPort.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.S_GSPort.Location = new System.Drawing.Point(165, 46);
+            this.S_GSPort.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.S_GSPort.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -1985,24 +1989,24 @@
             this.下方控件页.Controls.Add(this.GMCommand标签);
             this.下方控件页.Controls.Add(this.启动按钮);
             this.下方控件页.Controls.Add(this.停止按钮);
-            this.下方控件页.Location = new System.Drawing.Point(4, 640);
-            this.下方控件页.Margin = new System.Windows.Forms.Padding(4);
+            this.下方控件页.Location = new System.Drawing.Point(4, 800);
+            this.下方控件页.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.下方控件页.Name = "下方控件页";
-            this.下方控件页.Size = new System.Drawing.Size(1597, 80);
+            this.下方控件页.Size = new System.Drawing.Size(1597, 100);
             this.下方控件页.TabIndex = 6;
             // 
             // 保存按钮
             // 
             this.保存按钮.BackColor = System.Drawing.Color.LightSteelBlue;
             this.保存按钮.Enabled = false;
-            this.保存按钮.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.保存按钮.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.保存按钮.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.保存按钮.Image = global::GameServer.Properties.Resources.Save_Image;
             this.保存按钮.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.保存按钮.Location = new System.Drawing.Point(1049, 9);
-            this.保存按钮.Margin = new System.Windows.Forms.Padding(4);
+            this.保存按钮.Location = new System.Drawing.Point(1049, 11);
+            this.保存按钮.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.保存按钮.Name = "保存按钮";
-            this.保存按钮.Size = new System.Drawing.Size(175, 51);
+            this.保存按钮.Size = new System.Drawing.Size(175, 64);
             this.保存按钮.TabIndex = 17;
             this.保存按钮.Text = "Save Data";
             this.保存按钮.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2012,18 +2016,18 @@
             // GMCommand文本
             // 
             this.GMCommand文本.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.GMCommand文本.Location = new System.Drawing.Point(109, 21);
-            this.GMCommand文本.Margin = new System.Windows.Forms.Padding(4);
+            this.GMCommand文本.Location = new System.Drawing.Point(109, 26);
+            this.GMCommand文本.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.GMCommand文本.Name = "GMCommand文本";
-            this.GMCommand文本.Size = new System.Drawing.Size(931, 22);
+            this.GMCommand文本.Size = new System.Drawing.Size(931, 27);
             this.GMCommand文本.TabIndex = 16;
             this.GMCommand文本.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.执行GMCommand行_Press);
             // 
             // GMCommand标签
             // 
             this.GMCommand标签.AutoSize = true;
-            this.GMCommand标签.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GMCommand标签.Location = new System.Drawing.Point(24, 28);
+            this.GMCommand标签.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.GMCommand标签.Location = new System.Drawing.Point(24, 35);
             this.GMCommand标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GMCommand标签.Name = "GMCommand标签";
             this.GMCommand标签.Size = new System.Drawing.Size(136, 21);
@@ -2035,14 +2039,14 @@
             // 
             this.启动按钮.BackColor = System.Drawing.Color.LightSteelBlue;
             this.启动按钮.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.启动按钮.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.启动按钮.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.启动按钮.ForeColor = System.Drawing.Color.Green;
             this.启动按钮.Image = global::GameServer.Properties.Resources.Start_Image;
             this.启动按钮.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.启动按钮.Location = new System.Drawing.Point(1232, 9);
-            this.启动按钮.Margin = new System.Windows.Forms.Padding(4);
+            this.启动按钮.Location = new System.Drawing.Point(1232, 11);
+            this.启动按钮.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.启动按钮.Name = "启动按钮";
-            this.启动按钮.Size = new System.Drawing.Size(175, 51);
+            this.启动按钮.Size = new System.Drawing.Size(175, 64);
             this.启动按钮.TabIndex = 12;
             this.启动按钮.Text = "Start";
             this.启动按钮.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2053,14 +2057,14 @@
             // 
             this.停止按钮.BackColor = System.Drawing.Color.LightSteelBlue;
             this.停止按钮.Enabled = false;
-            this.停止按钮.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.停止按钮.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.停止按钮.ForeColor = System.Drawing.Color.Brown;
             this.停止按钮.Image = global::GameServer.Properties.Resources.Stop_Image;
             this.停止按钮.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.停止按钮.Location = new System.Drawing.Point(1415, 9);
-            this.停止按钮.Margin = new System.Windows.Forms.Padding(4);
+            this.停止按钮.Location = new System.Drawing.Point(1415, 11);
+            this.停止按钮.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.停止按钮.Name = "停止按钮";
-            this.停止按钮.Size = new System.Drawing.Size(175, 51);
+            this.停止按钮.Size = new System.Drawing.Size(175, 64);
             this.停止按钮.TabIndex = 11;
             this.停止按钮.Text = "Stop";
             this.停止按钮.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2077,16 +2081,40 @@
             // 
             this.定时发送公告.Tick += new System.EventHandler(this.定时发送公告_Tick);
             // 
+            // tabPackets
+            // 
+            this.tabPackets.Controls.Add(this.rtbPacketsLogs);
+            this.tabPackets.Location = new System.Drawing.Point(4, 24);
+            this.tabPackets.Name = "tabPackets";
+            this.tabPackets.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPackets.Size = new System.Drawing.Size(1173, 702);
+            this.tabPackets.TabIndex = 3;
+            this.tabPackets.Text = "Packets";
+            this.tabPackets.UseVisualStyleBackColor = true;
+            // 
+            // rtbPacketsLogs
+            // 
+            this.rtbPacketsLogs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.rtbPacketsLogs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbPacketsLogs.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rtbPacketsLogs.Location = new System.Drawing.Point(3, 3);
+            this.rtbPacketsLogs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rtbPacketsLogs.Name = "rtbPacketsLogs";
+            this.rtbPacketsLogs.ReadOnly = true;
+            this.rtbPacketsLogs.Size = new System.Drawing.Size(1167, 696);
+            this.rtbPacketsLogs.TabIndex = 2;
+            this.rtbPacketsLogs.Text = "";
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1597, 705);
+            this.ClientSize = new System.Drawing.Size(1597, 881);
             this.Controls.Add(this.下方控件页);
             this.Controls.Add(this.主选项卡);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -2096,9 +2124,9 @@
             this.tabMain.ResumeLayout(false);
             this.tabMain.PerformLayout();
             this.日志选项卡.ResumeLayout(false);
-            this.系统日志页面.ResumeLayout(false);
-            this.聊天日志页面.ResumeLayout(false);
-            this.命令日志页面.ResumeLayout(false);
+            this.tabSystem.ResumeLayout(false);
+            this.tabChat.ResumeLayout(false);
+            this.tabCommands.ResumeLayout(false);
             this.tabCharacters.ResumeLayout(false);
             this.角色详情选项卡.ResumeLayout(false);
             this.CharacterData_技能.ResumeLayout(false);
@@ -2146,6 +2174,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.S_GSPort)).EndInit();
             this.下方控件页.ResumeLayout(false);
             this.下方控件页.PerformLayout();
+            this.tabPackets.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
@@ -2223,10 +2252,10 @@
 		private global::System.Windows.Forms.Timer 界面定时更新;
 
 		
-		private global::System.Windows.Forms.TabPage 系统日志页面;
+		private global::System.Windows.Forms.TabPage tabSystem;
 
 		
-		private global::System.Windows.Forms.TabPage 聊天日志页面;
+		private global::System.Windows.Forms.TabPage tabChat;
 
 		
 		private global::System.Windows.Forms.RichTextBox 聊天日志;
@@ -2403,7 +2432,7 @@
 		private global::System.Windows.Forms.Label S_注意事项标签7;
 
 		
-		private global::System.Windows.Forms.TabPage 命令日志页面;
+		private global::System.Windows.Forms.TabPage tabCommands;
 
 		
 		private global::System.Windows.Forms.RichTextBox 命令日志;
@@ -2515,5 +2544,7 @@
 
 		
 		private global::System.Windows.Forms.TextBox S_软件注册代码;
-	}
+        private System.Windows.Forms.TabPage tabPackets;
+        private System.Windows.Forms.RichTextBox rtbPacketsLogs;
+    }
 }

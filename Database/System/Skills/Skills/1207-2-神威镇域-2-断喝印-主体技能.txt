@@ -37,15 +37,15 @@
       "经验SkillId": 1207
     },
     "253": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "清空命中列表": true,
       "技能能否穿墙": true,
       "技能锁定方式": "锁定ItSelf坐标",
       "技能范围类型": "Solid5x5",
-      "限定命中数量": 20,
-      "限定特定类型": "LowLevelMonster",
-      "限定目标类型": "怪物",
-      "限定目标关系": "Hostility",
+      "HitsLimit": 20,
+      "QualifySpecificType": "LowLevelMonster",
+      "LimitedTargetType": "怪物",
+      "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
     "254": {

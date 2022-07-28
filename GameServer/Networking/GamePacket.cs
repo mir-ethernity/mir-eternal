@@ -230,7 +230,9 @@ namespace GameServer.Networking
             this.是否加密 = true;
 
             this.PacketType = base.GetType();
-            if (this.PacketType.GetCustomAttribute<PacketInfoAttribute>().来源 == PacketSource.服务器)
+            this.PacketInfo = this.PacketType.GetCustomAttribute<PacketInfoAttribute>();
+
+            if (this.PacketInfo.来源 == PacketSource.服务器)
             {
                 this.PacketID = GamePacket.ServerPacketNumberTable[this.PacketType];
                 this.PacketLength = GamePacket.ServerPacketLengthTable[this.PacketID];
@@ -391,6 +393,7 @@ namespace GameServer.Networking
 
         public readonly Type PacketType;
 
+        public readonly PacketInfoAttribute PacketInfo;
 
         private readonly ushort PacketID;
 
@@ -408,11 +411,11 @@ namespace GameServer.Networking
 
             foreach (var field in fields)
             {
-                if (new string[] { }.Contains(field.FieldType.Name))
+                if (validFieldTypes.Contains(field.FieldType.Name))
                     sb.Append($"{field.Name}:{field.GetValue(this)}");
             }
 
-            sb.Append("}");
+            sb.Append('}');
 
             return sb.ToString();
         }

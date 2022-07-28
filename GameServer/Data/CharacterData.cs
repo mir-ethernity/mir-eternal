@@ -55,7 +55,7 @@ namespace GameServer.Data
                     return;
                 }
                 this.当前等级.V = value;
-                SystemData.数据.更新等级(this);
+                SystemData.Data.更新等级(this);
             }
         }
 
@@ -75,7 +75,7 @@ namespace GameServer.Data
                     return;
                 }
                 this.当前战力.V = value;
-                SystemData.数据.更新战力(this);
+                SystemData.Data.更新战力(this);
             }
         }
 
@@ -95,7 +95,7 @@ namespace GameServer.Data
                     return;
                 }
                 this.当前PK值.V = value;
-                SystemData.数据.更新PK值(this);
+                SystemData.Data.更新PK值(this);
             }
         }
 

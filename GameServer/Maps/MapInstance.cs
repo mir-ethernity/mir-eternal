@@ -267,7 +267,7 @@ namespace GameServer.Maps
 		
 		public void 添加对象(MapObject 对象)
 		{
-			GameObjectType 对象类型 = 对象.对象类型;
+			GameObjectType 对象类型 = 对象.ObjectType;
 			if (对象类型 == GameObjectType.玩家)
 			{
 				this.玩家列表.Add(对象 as PlayerObject);
@@ -289,7 +289,7 @@ namespace GameServer.Maps
 		
 		public void 移除对象(MapObject 对象)
 		{
-			GameObjectType 对象类型 = 对象.对象类型;
+			GameObjectType 对象类型 = 对象.ObjectType;
 			if (对象类型 == GameObjectType.玩家)
 			{
 				this.玩家列表.Remove(对象 as PlayerObject);
@@ -412,7 +412,7 @@ namespace GameServer.Maps
 		
 		public bool 空间阻塞(Point 坐标)
 		{
-			if (this.安全区内(坐标))
+			if (this.IsSafeZone(坐标))
 			{
 				return false;
 			}
@@ -489,7 +489,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public bool 安全区内(Point 坐标)
+		public bool IsSafeZone(Point 坐标)
 		{
 			return !this.坐标越界(坐标) && ((this.地形数据[坐标] & 262144U) == 262144U || (this.地形数据[坐标] & 1048576U) == 1048576U);
 		}

@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.客户端, 编号 = 1007, 长度 = 6, 注释 = "帧同步, 请求Ping")]
+	[PacketInfoAttribute(来源 = PacketSource.客户端, 编号 = 1007, 长度 = 6, 注释 = "帧同步, 请求Ping", NoDebug = true)]
 	public sealed class 测试网关网速 : GamePacket
 	{
 		

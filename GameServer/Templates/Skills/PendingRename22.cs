@@ -4,10 +4,10 @@ using System.Collections.Generic;
 namespace GameServer.Templates
 {
 	
-	public sealed class C_01_计算命中目标 : SkillTask
+	public sealed class C_01_CalculateHitTarget : SkillTask
 	{
 		
-		public C_01_计算命中目标()
+		public C_01_CalculateHitTarget()
 		{
 			
 			
@@ -26,10 +26,10 @@ namespace GameServer.Templates
 		public 技能锁定类型 技能锁定方式;
 
 		
-		public 技能闪避类型 技能闪避方式;
+		public SkillEvasionType SkillEvasion;
 
 		
-		public 技能命中反馈 技能命中反馈;
+		public SkillHitFeedback SkillHitFeedback;
 
 		
 		public MonsterSize 技能范围类型;
@@ -56,16 +56,16 @@ namespace GameServer.Templates
 		public int 单格飞行耗时;
 
 		
-		public int 限定命中数量;
+		public int HitsLimit;
 
 		
-		public GameObjectType 限定目标类型;
+		public GameObjectType LimitedTargetType;
 
 		
-		public GameObjectRelationship 限定目标关系;
+		public GameObjectRelationship LimitedTargetRelationship;
 
 		
-		public SpecifyTargetType 限定特定类型;
+		public SpecifyTargetType QualifySpecificType;
 
 		
 		public SpecifyTargetType 攻速提升类型;

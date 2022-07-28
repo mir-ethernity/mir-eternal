@@ -13,15 +13,15 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能能否穿墙": true,
       "技能锁定方式": "锁定锚点坐标",
       "技能范围类型": "Solid3x3",
       "放空结束技能": true,
-      "限定命中数量": 9,
-      "限定特定类型": "LowLevelMonster",
-      "限定目标类型": "怪物",
-      "限定目标关系": "Hostility",
+      "HitsLimit": 9,
+      "QualifySpecificType": "LowLevelMonster",
+      "LimitedTargetType": "怪物",
+      "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
     "1": {

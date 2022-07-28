@@ -349,7 +349,7 @@ namespace GameServer
 		}
 
 		
-		public static bool 计算命中(float 命中基数, float 闪避基数, float 命中系数, float 闪避系数)
+		public static bool IsHit(float 命中基数, float 闪避基数, float 命中系数, float 闪避系数)
 		{
 			float 概率 = (闪避基数 == 0f) ? 1f : (命中基数 / 闪避基数);
 			float num = 命中系数 - 闪避系数;

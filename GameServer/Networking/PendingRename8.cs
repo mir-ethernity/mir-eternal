@@ -180,10 +180,7 @@ namespace GameServer.Networking
                 }
                 if (this.ReceivedPackets.TryDequeue(out GamePacket packet))
                 {
-                    if (Config.DebugPackets)
-                    {
-                        MainForm.AddSystemLog($"[Packet-Rcv] {packet}");
-                    }
+                    MainForm.AddPacketLog(packet, true);
                     if (!GamePacket.PacketMethods.TryGetValue(packet.PacketType, out MethodInfo methodInfo))
                     {
                         this.CallExceptionEventHandler(new Exception("No packet handling found, disconnect. Packet type: " + packet.PacketType.FullName));
@@ -203,9 +200,10 @@ namespace GameServer.Networking
             List<byte> list = new();
             while (!this.SendPackets.IsEmpty)
             {
-                if (this.SendPackets.TryDequeue(out GamePacket GamePacket))
+                if (this.SendPackets.TryDequeue(out GamePacket packet))
                 {
-                    list.AddRange(GamePacket.取字节());
+                    MainForm.AddPacketLog(packet, false);
+                    list.AddRange(packet.取字节());
                 }
             }
             if (list.Count != 0)
@@ -2348,7 +2346,7 @@ namespace GameServer.Networking
             {
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
             }
-            else if (SystemData.数据.网卡封禁.TryGetValue(P.物理地址, out DateTime t) && t > MainProcess.CurrentTime)
+            else if (SystemData.Data.网卡封禁.TryGetValue(P.物理地址, out DateTime t) && t > MainProcess.CurrentTime)
             {
                 this.CallExceptionEventHandler(new Exception("网卡封禁, 限制登录"));
             }

@@ -3,44 +3,40 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.服务器, 编号 = 96, 长度 = 0, 注释 = "触发技能正常(技能信息,目标,反馈,耗时)")]
-	public sealed class 触发技能正常 : GamePacket
+	[PacketInfo(来源 = PacketSource.服务器, 编号 = 96, 长度 = 0, 注释 = "触发技能正常(技能信息,目标,反馈,耗时)")]
+	public sealed class SkillHitNormal : GamePacket
 	{
-		
-		public 触发技能正常()
+		public SkillHitNormal()
 		{
-			
-			this.技能分段 = 1;
-			this.命中描述 = new byte[1];
-			
+			SkillSegment = 1;
+			HitDescription = new byte[1];
 		}
 
-		
-		[WrappingFieldAttribute(SubScript = 4, Length = 4)]
-		public int 对象编号;
+		[WrappingField(SubScript = 4, Length = 4)]
+		public int ObjectId;
 
 		
-		[WrappingFieldAttribute(SubScript = 8, Length = 2)]
+		[WrappingField(SubScript = 8, Length = 2)]
 		public ushort SkillId;
 
 		
-		[WrappingFieldAttribute(SubScript = 10, Length = 1)]
-		public byte 技能等级;
+		[WrappingField(SubScript = 10, Length = 1)]
+		public byte SkillLevel;
 
 		
-		[WrappingFieldAttribute(SubScript = 11, Length = 1)]
-		public byte 技能铭文;
+		[WrappingField(SubScript = 11, Length = 1)]
+		public byte SkillInscription;
 
 		
-		[WrappingFieldAttribute(SubScript = 12, Length = 1)]
-		public byte 动作编号;
+		[WrappingField(SubScript = 12, Length = 1)]
+		public byte ActionId;
 
 		
-		[WrappingFieldAttribute(SubScript = 13, Length = 1)]
-		public byte 技能分段;
+		[WrappingField(SubScript = 13, Length = 1)]
+		public byte SkillSegment;
 
 		
-		[WrappingFieldAttribute(SubScript = 14, Length = 0)]
-		public byte[] 命中描述;
+		[WrappingField(SubScript = 14, Length = 0)]
+		public byte[] HitDescription;
 	}
 }

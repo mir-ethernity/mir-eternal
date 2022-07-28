@@ -163,7 +163,7 @@ namespace GameServer.Data
 			{
 				keyValuePair2.Value.OnLoadCompleted();
 			}
-			SystemData.数据.OnLoadCompleted();
+			SystemData.Data.OnLoadCompleted();
 		}
 
 		
