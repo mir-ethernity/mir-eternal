@@ -11,7 +11,6 @@ namespace GameServer
 
         static GMCommand()
         {
-
             命令字典 = new Dictionary<string, Type>();
             命令格式 = new Dictionary<string, string>();
             字段列表 = new Dictionary<string, FieldInfo[]>();
@@ -37,9 +36,10 @@ namespace GameServer
                     命令格式[type.Name] = "@" + type.Name;
                     foreach (FieldInfo fieldInfo2 in 字段列表[type.Name])
                     {
+                        var fieldCommand = fieldInfo2.GetCustomAttribute<FieldAttribute>();
                         Dictionary<string, string> dictionary = 命令格式;
                         string name = type.Name;
-                        dictionary[name] = dictionary[name] + " " + fieldInfo2.Name;
+                        dictionary[name] = dictionary[name] + " " + ((fieldCommand?.IsOptional ?? false) ? $"[{fieldInfo2.Name}]" : fieldInfo2.Name);
                     }
                 }
             }
@@ -72,8 +72,13 @@ namespace GameServer
 
             int expectedLength = fields.Length;
 
-            if (fields[fields.Length - 1].GetCustomAttribute<FieldAttribute>()?.IsOptional ?? false)
+            for(var i = fields.Length - 1; i >= 0; i--)
+            {
+                var field = fields[i];
+                var attr = field.GetCustomAttribute<FieldAttribute>();
+                if (attr == null || !attr.IsOptional) break;
                 expectedLength--;
+            }
 
             if (array.Length <= expectedLength)
             {
