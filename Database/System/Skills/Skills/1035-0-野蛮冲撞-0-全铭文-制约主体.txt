@@ -10,7 +10,7 @@
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
-      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "移除技能标记": true,
       "ItSelfCooldown": 6000
     },

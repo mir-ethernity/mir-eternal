@@ -22,7 +22,7 @@
   "GearDeductionPoints": 1,
   "Nodes": {
     "0": {
-      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "ItSelfCooldown": 1750,
       "分组Cooldown": 1750,
@@ -37,7 +37,7 @@
       "经验SkillId": 3003
     },
     "625": {
-      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "角色硬直时间": 725,
       "禁止行走时间": 650,

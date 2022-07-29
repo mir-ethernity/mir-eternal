@@ -32,7 +32,7 @@
       "触发SkillName": "回避射击-2-明心印-翻滚射击"
     },
     "2": {
-      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "ItSelfCooldown": 8000,
@@ -47,7 +47,7 @@
       "所需Buff层数": 1
     },
     "499": {
-      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "角色硬直时间": 1000,
       "禁止行走时间": 875,
       "禁止奔跑时间": 650

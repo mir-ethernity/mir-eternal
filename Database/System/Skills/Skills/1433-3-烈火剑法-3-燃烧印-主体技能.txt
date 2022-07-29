@@ -26,7 +26,7 @@
       "触发SkillName": "烈火剑法-0-无铭文-烈火特效"
     },
     "2": {
-      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "移除技能标记": true,
       "调整角色朝向": true,
@@ -73,7 +73,7 @@
       "所需Buff层数": 1
     },
     "500": {
-      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "计算攻速缩减": true,
       "角色硬直时间": 1000,

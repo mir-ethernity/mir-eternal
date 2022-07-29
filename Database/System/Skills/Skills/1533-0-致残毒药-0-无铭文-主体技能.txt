@@ -12,7 +12,7 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "ItSelfCooldown": 2000
     },
@@ -26,7 +26,7 @@
       "经验SkillId": 1532
     },
     "2": {
-      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true
     },
     "3": {

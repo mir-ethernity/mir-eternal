@@ -23,7 +23,7 @@
       "触发SkillName": "攻杀剑术-2-银光印-银光特效"
     },
     "2": {
-      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "角色忙绿时间": 500
@@ -73,7 +73,7 @@
       "清除状态列表": []
     },
     "500": {
-      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "计算攻速缩减": true,
       "角色硬直时间": 1000,

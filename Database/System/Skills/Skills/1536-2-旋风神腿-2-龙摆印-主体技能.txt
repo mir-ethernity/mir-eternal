@@ -20,7 +20,7 @@
       "技能最近距离": 1
     },
     "1": {
-      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "ItSelfCooldown": 3000,
@@ -69,7 +69,7 @@
       "清除状态列表": []
     },
     "625": {
-      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "角色硬直时间": 750,
       "禁止行走时间": 650,

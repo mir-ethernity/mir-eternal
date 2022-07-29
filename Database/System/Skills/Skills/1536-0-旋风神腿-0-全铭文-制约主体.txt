@@ -12,7 +12,7 @@
   "PlayerBuffLayer": 1,
   "Nodes": {
     "0": {
-      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "ItSelfCooldown": 6000
     },
     "1": {

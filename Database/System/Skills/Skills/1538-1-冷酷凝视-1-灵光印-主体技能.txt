@@ -14,7 +14,7 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "ItSelfCooldown": 15000,
       "分组Cooldown": 15000
@@ -38,7 +38,7 @@
       "所需Buff层数": 1
     },
     "3": {
-      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true
     },
     "4": {

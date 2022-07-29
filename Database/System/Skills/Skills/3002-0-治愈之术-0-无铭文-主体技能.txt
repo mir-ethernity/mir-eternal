@@ -19,7 +19,7 @@
       "MaxDistance": 8
     },
     "1": {
-      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "自身Cooldown": 1500,
@@ -67,7 +67,7 @@
       "触发SkillName": "治愈之术-0-无铭文-命中特效"
     },
     "625": {
-      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "角色硬直时间": 725,
       "禁止行走时间": 625,
       "禁止奔跑时间": 625

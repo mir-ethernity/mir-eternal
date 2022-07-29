@@ -26,7 +26,7 @@
       "MaxDistance": 8
     },
     "1": {
-      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "ItSelfCooldown": 1250,
@@ -38,7 +38,7 @@
       "触发SkillName": "灵魂火符-4-弹射印-火符特效"
     },
     "500": {
-      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "角色硬直时间": 725,
       "禁止行走时间": 650,
       "禁止奔跑时间": 650

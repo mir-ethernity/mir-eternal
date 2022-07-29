@@ -19,7 +19,7 @@
       "技能最近距离": 1
     },
     "1": {
-      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "移除技能标记": true,
       "调整角色朝向": true,
@@ -31,7 +31,7 @@
       "触发SkillName": "枪出如龙-3-雷殛印-范围伤害"
     },
     "500": {
-      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "计算攻速缩减": true,
       "角色硬直时间": 1000,

@@ -26,7 +26,7 @@
       "MaxDistance": 7
     },
     "1": {
-      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "ItSelfCooldown": 20000,
@@ -34,7 +34,7 @@
       "角色忙绿时间": 500
     },
     "499": {
-      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "角色硬直时间": 1000,
       "禁止行走时间": 875,
       "禁止奔跑时间": 650

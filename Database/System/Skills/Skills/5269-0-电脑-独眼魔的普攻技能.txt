@@ -8,7 +8,7 @@
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
-      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "调整角色朝向": true,
       "角色忙绿时间": 1000
     },
@@ -31,7 +31,7 @@
       "清除状态列表": []
     },
     "124": {
-      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "角色忙绿时间": 1000
     },
@@ -72,7 +72,7 @@
       "清除状态列表": []
     },
     "999": {
-      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "角色忙绿时间": 2000
     },
     "1000": {
@@ -112,7 +112,7 @@
       "清除状态列表": []
     },
     "1999": {
-      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "角色忙绿时间": 3000
     },
     "2000": {
@@ -152,7 +152,7 @@
       "清除状态列表": []
     },
     "2999": {
-      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "角色忙绿时间": 4000
     },
     "3000": {
@@ -192,7 +192,7 @@
       "清除状态列表": []
     },
     "3999": {
-      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "角色忙绿时间": 5000
     },
     "4000": {

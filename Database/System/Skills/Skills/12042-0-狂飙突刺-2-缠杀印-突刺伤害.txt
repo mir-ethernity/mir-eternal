@@ -13,7 +13,7 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true
     },
     "1": {
@@ -55,7 +55,7 @@
       "触发SkillName": "钩镰枪法-0-全铭文-触发判定"
     },
     "5": {
-      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true
     }
   }
