@@ -7,7 +7,7 @@
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "角色忙绿时间": 1000
@@ -26,7 +26,7 @@
       "清除状态列表": []
     },
     "876": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害类型": "Magic",
       "技能伤害基数": [
@@ -44,7 +44,7 @@
       "清除状态列表": []
     },
     "877": {
-      "$type": "B_04_后摇结束通知, Assembly-CSharp",
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp",
       "后摇结束死亡": true
     }
   }

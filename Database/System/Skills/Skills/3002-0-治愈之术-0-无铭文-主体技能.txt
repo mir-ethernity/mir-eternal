@@ -15,11 +15,11 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
       "MaxDistance": 8
     },
     "1": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "自身Cooldown": 1500,
@@ -36,7 +36,7 @@
       "清除状态列表": []
     },
     "623": {
-      "$type": "C_05_计算目标回复, Assembly-CSharp",
+      "$type": "C_05_CalculateTargetReply, Assembly-CSharp",
       "体力回复次数": [
         3,
         4,
@@ -62,18 +62,18 @@
       "经验SkillId": 3002
     },
     "624": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "目标命中绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
       "触发SkillName": "治愈之术-0-无铭文-命中特效"
     },
     "625": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
       "角色硬直时间": 725,
       "禁止行走时间": 625,
       "禁止奔跑时间": 625
     },
     "1000": {
-      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }
 }

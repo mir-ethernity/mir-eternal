@@ -21,11 +21,11 @@
   "GearDeductionPoints": 1,
   "Nodes": {
     "0": {
-      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
       "MaxDistance": 8
     },
     "1": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "ItSelfCooldown": 1500,
       "分组Cooldown": 1500,
@@ -46,7 +46,7 @@
       ]
     },
     "624": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 30070,
       "Buff触发概率": 1,
       "所需Buff层数": 1,
@@ -54,14 +54,14 @@
       "经验SkillId": 3007
     },
     "625": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "角色硬直时间": 725,
       "禁止行走时间": 650,
       "禁止奔跑时间": 650
     },
     "1000": {
-      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }
 }

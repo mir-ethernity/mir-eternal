@@ -12,12 +12,12 @@
   "VerficationSkillInscription": 1,
   "Nodes": {
     "0": {
-      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
       "MaxDistance": 1,
       "技能最近距离": 1
     },
     "1": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "角色忙绿时间": 500
@@ -36,12 +36,12 @@
       "清除状态列表": []
     },
     "250": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "目标命中绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
       "触发SkillName": "道士普攻-1-灵爆印-范围伤害"
     },
     "500": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "计算攻速缩减": true,
       "角色硬直时间": 850,
@@ -49,7 +49,7 @@
       "禁止奔跑时间": 500
     },
     "1000": {
-      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }
 }

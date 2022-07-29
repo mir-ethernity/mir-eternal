@@ -14,14 +14,14 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "ItSelfCooldown": 1375,
       "分组Cooldown": 1000,
       "角色忙绿时间": 625
     },
     "250": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 25352,
       "Buff触发概率": 1,
@@ -30,14 +30,14 @@
       "经验SkillId": 2535
     },
     "625": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "角色硬直时间": 725,
       "禁止行走时间": 650,
       "禁止奔跑时间": 650
     },
     "725": {
-      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }
 }

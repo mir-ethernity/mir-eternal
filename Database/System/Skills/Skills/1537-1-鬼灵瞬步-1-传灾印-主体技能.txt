@@ -16,7 +16,7 @@
   ],
   "Nodes": {
     "1": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "ItSelfCooldown": 30000,
@@ -24,7 +24,7 @@
       "角色忙绿时间": 250
     },
     "2": {
-      "$type": "C_03_计算对象位移, Assembly-CSharp",
+      "$type": "C_03_CalculateObjectDisplacement, Assembly-CSharp",
       "角色ItSelf位移": true,
       "位移增加经验": true,
       "能否穿越障碍": true,
@@ -33,7 +33,7 @@
       "目标位移距离": "AAAAAA=="
     },
     "3": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true
     },
     "4": {
@@ -50,7 +50,7 @@
       "清除状态列表": []
     },
     "5": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害类型": "Needle",
       "技能伤害基数": [
@@ -69,12 +69,12 @@
       "清除状态列表": []
     },
     "249": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "锚点位置绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "AnchorAbsolutePosition",
       "触发SkillName": "鬼灵瞬步-1-传灾印-范围特效"
     },
     "250": {
-      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }
 }

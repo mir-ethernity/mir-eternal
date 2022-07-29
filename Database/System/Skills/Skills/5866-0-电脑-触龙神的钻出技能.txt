@@ -6,7 +6,7 @@
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "角色忙绿时间": 4750
     },

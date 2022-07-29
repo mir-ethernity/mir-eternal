@@ -8,12 +8,12 @@
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "调整角色朝向": true,
       "角色忙绿时间": 1000
     },
     "1": {
-      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
       "MaxDistance": 1,
       "技能最近距离": 1
     },
@@ -31,7 +31,7 @@
       "清除状态列表": []
     },
     "124": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "角色忙绿时间": 1000
     },
@@ -52,7 +52,7 @@
       "清除状态列表": []
     },
     "126": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害类型": "Magic",
       "技能伤害基数": [
@@ -72,7 +72,7 @@
       "清除状态列表": []
     },
     "999": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "角色忙绿时间": 2000
     },
     "1000": {
@@ -92,7 +92,7 @@
       "清除状态列表": []
     },
     "1001": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害类型": "Magic",
       "技能伤害基数": [
@@ -112,7 +112,7 @@
       "清除状态列表": []
     },
     "1999": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "角色忙绿时间": 3000
     },
     "2000": {
@@ -132,7 +132,7 @@
       "清除状态列表": []
     },
     "2001": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害类型": "Magic",
       "技能伤害基数": [
@@ -152,7 +152,7 @@
       "清除状态列表": []
     },
     "2999": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "角色忙绿时间": 4000
     },
     "3000": {
@@ -172,7 +172,7 @@
       "清除状态列表": []
     },
     "3001": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害类型": "Magic",
       "技能伤害基数": [
@@ -192,7 +192,7 @@
       "清除状态列表": []
     },
     "3999": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "角色忙绿时间": 5000
     },
     "4000": {
@@ -212,7 +212,7 @@
       "清除状态列表": []
     },
     "4001": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害类型": "Magic",
       "技能伤害基数": [

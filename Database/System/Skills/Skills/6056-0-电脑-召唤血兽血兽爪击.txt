@@ -13,15 +13,15 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "ItSelfCooldown": 850,
       "角色忙绿时间": 1000
     },
     "1": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "锚点位置绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "AnchorAbsolutePosition",
       "触发SkillName": "电脑-召唤血兽爪击特效"
     },
     "324": {
@@ -37,7 +37,7 @@
       "清除状态列表": []
     },
     "325": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害类型": "Taoism",
       "技能伤害基数": [

@@ -6,7 +6,7 @@
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "ItSelfCooldown": 1500,
@@ -26,7 +26,7 @@
       "清除状态列表": []
     },
     "2": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害基数": [
         0,
@@ -43,7 +43,7 @@
       "清除状态列表": []
     },
     "3": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "角色硬直时间": 1500
     }

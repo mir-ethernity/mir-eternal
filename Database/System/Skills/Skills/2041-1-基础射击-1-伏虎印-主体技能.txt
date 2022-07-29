@@ -17,25 +17,25 @@
   "GearDeductionPoints": 1,
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "ItSelfCooldown": 1400,
       "角色忙绿时间": 500
     },
     "500": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
       "角色硬直时间": 1400,
       "禁止行走时间": 875,
       "禁止奔跑时间": 650
     },
     "600": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "锚点位置绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "AnchorAbsolutePosition",
       "触发SkillName": "基础射击-1-伏虎印-子类技能"
     },
     "688": {
-      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
       "MaxDistance": 8,
       "技能最近距离": 1
     },
@@ -49,8 +49,8 @@
       "清除状态列表": []
     },
     "700": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "目标命中绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
       "触发SkillName": "二连射击-0-无铭文-主体技能",
       "CalculateTriggerProbability": true,
       "技能触发概率": 0.2,
@@ -61,8 +61,8 @@
       "同组铭文无效": true
     },
     "701": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "目标命中绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
       "触发SkillName": "二连射击-1-冰羽印-主体技能",
       "CalculateTriggerProbability": true,
       "技能触发概率": 0.2,
@@ -73,8 +73,8 @@
       "同组铭文无效": true
     },
     "702": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "目标命中绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
       "触发SkillName": "二连射击-2-驱魔印-主体技能",
       "CalculateTriggerProbability": true,
       "技能触发概率": 0.3,
@@ -85,8 +85,8 @@
       "同组铭文无效": true
     },
     "703": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "目标命中绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
       "触发SkillName": "二连射击-3-双刑印-主体技能",
       "CalculateTriggerProbability": true,
       "技能触发概率": 0.2,
@@ -97,7 +97,7 @@
       "同组铭文无效": true
     },
     "1400": {
-      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }
 }

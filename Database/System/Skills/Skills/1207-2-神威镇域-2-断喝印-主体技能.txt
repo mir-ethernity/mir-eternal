@@ -17,18 +17,18 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "ItSelfCooldown": 30000,
       "分组Cooldown": 30000,
       "角色忙绿时间": 625
     },
     "1": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
       "触发SkillName": "神威镇域-2-断喝印-镇字特效"
     },
     "250": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 60631,
       "Buff触发概率": 1,
@@ -49,20 +49,20 @@
       "清除状态列表": []
     },
     "254": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 49160,
       "Buff触发概率": 1,
       "所需Buff层数": 1
     },
     "625": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "角色硬直时间": 1000,
       "禁止行走时间": 875,
       "禁止奔跑时间": 625
     },
     "1000": {
-      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }
 }

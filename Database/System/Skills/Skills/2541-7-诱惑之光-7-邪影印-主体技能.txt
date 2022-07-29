@@ -16,7 +16,7 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "ItSelfCooldown": 1375,
@@ -24,7 +24,7 @@
       "角色忙绿时间": 625
     },
     "125": {
-      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
       "MaxDistance": 8
     },
     "126": {
@@ -40,7 +40,7 @@
       "清除状态列表": []
     },
     "127": {
-      "$type": "C_04_计算目标诱惑, Assembly-CSharp",
+      "$type": "C_04_CalculateTargetTemptation, Assembly-CSharp",
       "检查铭文技能": true,
       "检查Id": 25417,
       "瘫痪状态编号": 25410,
@@ -53,19 +53,19 @@
       "特定诱惑概率": 0.2
     },
     "128": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "锚点位置绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "AnchorAbsolutePosition",
       "触发SkillName": "诱惑之光-0-无铭文-蓝色特效"
     },
     "625": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "角色硬直时间": 725,
       "禁止行走时间": 650,
       "禁止奔跑时间": 650
     },
     "725": {
-      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }
 }

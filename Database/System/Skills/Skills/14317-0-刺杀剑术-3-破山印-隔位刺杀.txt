@@ -20,7 +20,7 @@
       "清除状态列表": []
     },
     "1": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害基数": [
         18,

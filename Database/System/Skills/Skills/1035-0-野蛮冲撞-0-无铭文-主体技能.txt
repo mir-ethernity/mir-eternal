@@ -13,12 +13,12 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
       "MaxDistance": 1,
       "技能最近距离": 1
     },
     "1": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "ItSelfCooldown": 3000,
       "Buff增加冷却": true,
@@ -27,7 +27,7 @@
       "角色忙绿时间": 100
     },
     "2": {
-      "$type": "C_03_计算对象位移, Assembly-CSharp",
+      "$type": "C_03_CalculateObjectDisplacement, Assembly-CSharp",
       "角色ItSelf位移": true,
       "多段位移通知": true,
       "ItSelf位移耗时": 5,

@@ -13,7 +13,7 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 20430,
       "Buff触发概率": 1,
@@ -25,7 +25,7 @@
       "经验SkillId": 2044
     },
     "1": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 20431,
       "Buff触发概率": 1,
@@ -37,7 +37,7 @@
       "经验SkillId": 2044
     },
     "2": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 20432,
       "Buff触发概率": 1,
@@ -49,7 +49,7 @@
       "经验SkillId": 2044
     },
     "3": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 20433,
       "Buff触发概率": 1,
@@ -70,7 +70,7 @@
       "清除状态列表": []
     },
     "100": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 20440,
       "Buff触发概率": 1,
       "验证铭文技能": true,
@@ -79,7 +79,7 @@
       "所需Buff层数": 1
     },
     "101": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 20441,
       "Buff触发概率": 1,
       "验证铭文技能": true,
@@ -88,7 +88,7 @@
       "所需Buff层数": 1
     },
     "102": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 20442,
       "Buff触发概率": 1,
       "验证铭文技能": true,
@@ -97,7 +97,7 @@
       "所需Buff层数": 1
     },
     "103": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 20443,
       "Buff触发概率": 1,
       "验证铭文技能": true,

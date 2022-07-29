@@ -22,8 +22,8 @@
       "清除状态列表": []
     },
     "1": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "目标命中绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
       "触发SkillName": "灵魂火符-4-弹射印-弹射特效"
     }
   }

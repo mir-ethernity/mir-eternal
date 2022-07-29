@@ -21,17 +21,17 @@
   "GearDeductionPoints": 1,
   "Nodes": {
     "0": {
-      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
       "MaxDistance": 8,
       "技能最近距离": 1
     },
     "1": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "锚点位置绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "AnchorAbsolutePosition",
       "触发SkillName": "回避射击-0-无铭文-翻滚射击"
     },
     "2": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "ItSelfCooldown": 16000,
@@ -39,18 +39,18 @@
       "角色忙绿时间": 625
     },
     "499": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
       "角色硬直时间": 1000,
       "禁止行走时间": 875,
       "禁止奔跑时间": 650
     },
     "500": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "锚点位置绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "AnchorAbsolutePosition",
       "触发SkillName": "回避射击-0-无铭文-子类技能"
     },
     "1000": {
-      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }
 }

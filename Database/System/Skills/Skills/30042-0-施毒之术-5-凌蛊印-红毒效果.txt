@@ -12,7 +12,7 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true
     },
     "1": {
@@ -30,13 +30,13 @@
       "清除状态列表": []
     },
     "2": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 30041,
       "Buff触发概率": 1,
       "所需Buff层数": 1
     },
     "3": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害类型": "Toxicity",
       "技能伤害基数": [

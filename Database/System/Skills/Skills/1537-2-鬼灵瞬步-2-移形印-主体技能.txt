@@ -16,7 +16,7 @@
   ],
   "Nodes": {
     "1": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "ItSelfCooldown": 30000,
@@ -24,7 +24,7 @@
       "角色忙绿时间": 250
     },
     "2": {
-      "$type": "C_03_计算对象位移, Assembly-CSharp",
+      "$type": "C_03_CalculateObjectDisplacement, Assembly-CSharp",
       "角色ItSelf位移": true,
       "位移增加经验": true,
       "能否穿越障碍": true,
@@ -33,11 +33,11 @@
       "目标位移距离": "AAAAAA=="
     },
     "3": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true
     },
     "250": {
-      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }
 }

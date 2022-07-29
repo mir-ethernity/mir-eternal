@@ -14,7 +14,7 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
       "MaxDistance": 8,
       "技能最近距离": 1
     },
@@ -33,7 +33,7 @@
       "清除状态列表": []
     },
     "2": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害类型": "Archery",
       "技能伤害基数": [
@@ -54,13 +54,13 @@
       "清除状态列表": []
     },
     "3": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "目标命中绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
       "触发SkillName": "精准打击-0-全铭文-触发判定"
     },
     "4": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "目标命中绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
       "触发SkillName": "强袭之箭-4-空灵印-冷却减少",
       "CalculateTriggerProbability": true,
       "技能触发概率": 0.35,
@@ -68,15 +68,15 @@
       "所需Id": 20484
     },
     "5": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "目标闪避绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetMissDefinitely",
       "触发SkillName": "精准打击-2-射戟印-闪避触发",
       "验证铭文技能": true,
       "所需Id": 20422
     },
     "6": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "目标命中绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
       "触发SkillName": "战术标记-2-汲灵印-吸血触发",
       "验证铭文技能": true,
       "所需Id": 20442

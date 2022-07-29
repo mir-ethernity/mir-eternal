@@ -14,12 +14,12 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
       "MaxDistance": 1,
       "技能最近距离": 1
     },
     "1": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "ItSelfCooldown": 3000,
@@ -37,7 +37,7 @@
       "清除状态列表": []
     },
     "126": {
-      "$type": "C_03_计算对象位移, Assembly-CSharp",
+      "$type": "C_03_CalculateObjectDisplacement, Assembly-CSharp",
       "ItSelf位移次数": "AAAAAA==",
       "ItSelf位移距离": "AAAAAA==",
       "推动目标位移": true,
@@ -48,7 +48,7 @@
       "目标硬直时间": 1000
     },
     "127": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害类型": "Needle",
       "技能伤害基数": [],
@@ -61,14 +61,14 @@
       "清除状态列表": []
     },
     "625": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "b_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "角色硬直时间": 750,
       "禁止行走时间": 650,
       "禁止奔跑时间": 650
     },
     "750": {
-      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }
 }

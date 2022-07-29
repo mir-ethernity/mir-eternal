@@ -7,12 +7,12 @@
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "b_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "角色忙绿时间": 5000
     },
     "1": {
-      "$type": "C_00_计算技能锚点, Assembly-CSharp"
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp"
     },
     "875": {
       "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
@@ -24,8 +24,8 @@
       "LimitedTargetRelationship": "Hostility"
     },
     "876": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "目标命中绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
       "触发SkillName": "电脑-赤月恶魔陷阱触发"
     }
   }

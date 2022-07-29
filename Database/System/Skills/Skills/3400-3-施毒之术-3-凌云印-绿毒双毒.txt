@@ -28,7 +28,7 @@
       "清除状态列表": []
     },
     "2": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害类型": "Toxicity",
       "技能伤害基数": [
@@ -49,13 +49,13 @@
       "清除状态列表": []
     },
     "3": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 30040,
       "Buff触发概率": 1,
       "所需Buff层数": 1
     },
     "4": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 30041,
       "Buff触发概率": 1,
       "所需Buff层数": 1

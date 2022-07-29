@@ -25,7 +25,7 @@
       "清除状态列表": []
     },
     "1": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 30111,
       "Buff触发概率": 1,
       "所需Buff层数": 1

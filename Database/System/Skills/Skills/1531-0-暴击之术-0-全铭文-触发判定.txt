@@ -13,7 +13,7 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 15310,
       "Buff触发概率": 0.15,
@@ -22,7 +22,7 @@
       "所需Buff层数": 1
     },
     "1": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 15310,
       "Buff触发概率": 0.1,
