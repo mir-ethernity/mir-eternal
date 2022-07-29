@@ -4,10 +4,10 @@ using System.Collections.Generic;
 namespace GameServer.Templates
 {
 	
-	public sealed class C_04_计算目标诱惑 : SkillTask
+	public sealed class C_04_CalculateTargetTemptation : SkillTask
 	{
 		
-		public C_04_计算目标诱惑()
+		public C_04_CalculateTargetTemptation()
 		{
 			
 			

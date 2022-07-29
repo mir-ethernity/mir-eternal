@@ -732,7 +732,7 @@ namespace GameServer.Maps
 				{
 					base.轮询Buff时处理(keyValuePair.Value);
 				}
-				foreach (SkillInstance 技能实例 in this.技能任务.ToList<SkillInstance>())
+				foreach (SkillInstance 技能实例 in this.SkillTasks.ToList<SkillInstance>())
 				{
 					技能实例.Process();
 				}
@@ -1048,7 +1048,7 @@ namespace GameServer.Maps
 		
 		public void 宠物沉睡处理()
 		{
-			this.技能任务.Clear();
+			this.SkillTasks.Clear();
 			this.Buff列表.Clear();
 			this.Died = true;
 			base.删除对象();

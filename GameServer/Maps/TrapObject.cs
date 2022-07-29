@@ -226,7 +226,7 @@ namespace GameServer.Maps
 			}
 			else
 			{
-				foreach (SkillInstance 技能实例 in this.技能任务.ToList<SkillInstance>())
+				foreach (SkillInstance 技能实例 in this.SkillTasks.ToList<SkillInstance>())
 				{
 					技能实例.Process();
 				}

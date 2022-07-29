@@ -336,7 +336,7 @@ namespace GameServer.Maps
 				{
 					base.轮询Buff时处理(keyValuePair.Value);
 				}
-				foreach (SkillInstance 技能实例 in this.技能任务.ToList<SkillInstance>())
+				foreach (SkillInstance 技能实例 in this.SkillTasks.ToList<SkillInstance>())
 				{
 					技能实例.Process();
 				}
@@ -394,7 +394,7 @@ namespace GameServer.Maps
 			if (this.激活对象)
 			{
 				this.激活对象 = false;
-				this.技能任务.Clear();
+				this.SkillTasks.Clear();
 				MapGatewayProcess.移除激活对象(this);
 			}
 		}

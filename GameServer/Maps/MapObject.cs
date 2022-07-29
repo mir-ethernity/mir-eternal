@@ -332,7 +332,7 @@ namespace GameServer.Maps
             {
                 对象编号 = this.MapId
             });
-            this.技能任务.Clear();
+            this.SkillTasks.Clear();
             this.Died = true;
             this.阻塞网格 = false;
             foreach (MapObject MapObject in this.Neighbors.ToList<MapObject>())
@@ -347,7 +347,7 @@ namespace GameServer.Maps
 
 
             this.处理计时 = MainProcess.CurrentTime;
-            this.技能任务 = new HashSet<SkillInstance>();
+            this.SkillTasks = new HashSet<SkillInstance>();
             this.陷阱列表 = new HashSet<TrapObject>();
             this.重要邻居 = new HashSet<MapObject>();
             this.潜行邻居 = new HashSet<MapObject>();
@@ -1766,7 +1766,7 @@ namespace GameServer.Maps
         }
 
 
-        public void 被动受伤时处理(SkillInstance 技能, C_02_计算目标伤害 参数, HitDetail 详情, float 伤害系数)
+        public void 被动受伤时处理(SkillInstance 技能, C_02_CalculateTargetDamage 参数, HitDetail 详情, float 伤害系数)
         {
             TrapObject TrapObject = 技能.CasterObject as TrapObject;
             MapObject MapObject = (TrapObject != null) ? TrapObject.陷阱来源 : 技能.CasterObject;
@@ -1802,12 +1802,12 @@ namespace GameServer.Maps
                     {
                         int[] 技能伤害基数 = 参数.技能伤害基数;
                         int? num = (技能伤害基数 != null) ? new int?(技能伤害基数.Length) : null;
-                        int num2 = (int)技能.技能等级;
-                        int num3 = (num.GetValueOrDefault() > num2 & num != null) ? 参数.技能伤害基数[(int)技能.技能等级] : 0;
+                        int num2 = (int)技能.SkillLevel;
+                        int num3 = (num.GetValueOrDefault() > num2 & num != null) ? 参数.技能伤害基数[(int)技能.SkillLevel] : 0;
                         float[] 技能伤害系数 = 参数.技能伤害系数;
                         num = ((技能伤害系数 != null) ? new int?(技能伤害系数.Length) : null);
-                        num2 = (int)技能.技能等级;
-                        float num4 = (num.GetValueOrDefault() > num2 & num != null) ? 参数.技能伤害系数[(int)技能.技能等级] : 0f;
+                        num2 = (int)技能.SkillLevel;
+                        float num4 = (num.GetValueOrDefault() > num2 & num != null) ? 参数.技能伤害系数[(int)技能.SkillLevel] : 0f;
                         if (this is MonsterObject)
                         {
                             num3 += MapObject[GameObjectStats.怪物伤害];
@@ -2293,7 +2293,7 @@ namespace GameServer.Maps
         }
 
 
-        public void 被动回复时处理(SkillInstance 技能, C_05_计算目标回复 参数)
+        public void 被动回复时处理(SkillInstance 技能, C_05_CalculateTargetReply 参数)
         {
             if (!this.Died)
             {
@@ -2307,29 +2307,29 @@ namespace GameServer.Maps
                     MapObject MapObject = (TrapObject != null) ? TrapObject.陷阱来源 : 技能.CasterObject;
                     int[] 体力回复次数 = 参数.体力回复次数;
                     int? num = (体力回复次数 != null) ? new int?(体力回复次数.Length) : null;
-                    int 技能等级 = (int)技能.技能等级;
-                    int num2 = (num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.体力回复次数[(int)技能.技能等级] : 0;
+                    int 技能等级 = (int)技能.SkillLevel;
+                    int num2 = (num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.体力回复次数[(int)技能.SkillLevel] : 0;
                     byte[] PhysicalRecoveryBase = 参数.PhysicalRecoveryBase;
                     num = ((PhysicalRecoveryBase != null) ? new int?(PhysicalRecoveryBase.Length) : null);
-                    技能等级 = (int)技能.技能等级;
-                    int num3 = (int)((num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.PhysicalRecoveryBase[(int)技能.技能等级] : 0);
+                    技能等级 = (int)技能.SkillLevel;
+                    int num3 = (int)((num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.PhysicalRecoveryBase[(int)技能.SkillLevel] : 0);
                     float[] Taoism叠加次数 = 参数.Taoism叠加次数;
                     num = ((Taoism叠加次数 != null) ? new int?(Taoism叠加次数.Length) : null);
-                    技能等级 = (int)技能.技能等级;
-                    float num4 = (num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.Taoism叠加次数[(int)技能.技能等级] : 0f;
+                    技能等级 = (int)技能.SkillLevel;
+                    float num4 = (num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.Taoism叠加次数[(int)技能.SkillLevel] : 0f;
                     float[] Taoism叠加基数 = 参数.Taoism叠加基数;
                     num = ((Taoism叠加基数 != null) ? new int?(Taoism叠加基数.Length) : null);
-                    技能等级 = (int)技能.技能等级;
-                    float num5 = (num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.Taoism叠加基数[(int)技能.技能等级] : 0f;
+                    技能等级 = (int)技能.SkillLevel;
+                    float num5 = (num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.Taoism叠加基数[(int)技能.SkillLevel] : 0f;
                     int[] 立即回复基数 = 参数.立即回复基数;
                     num = ((立即回复基数 != null) ? new int?(立即回复基数.Length) : null);
-                    技能等级 = (int)技能.技能等级;
+                    技能等级 = (int)技能.SkillLevel;
                     int num6;
                     if (num.GetValueOrDefault() > 技能等级 & num != null)
                     {
                         if (MapObject == this)
                         {
-                            num6 = 参数.立即回复基数[(int)技能.技能等级];
+                            num6 = 参数.立即回复基数[(int)技能.SkillLevel];
                             goto IL_1F1;
                         }
                     }
@@ -2338,13 +2338,13 @@ namespace GameServer.Maps
                     int num7 = num6;
                     float[] 立即回复系数 = 参数.立即回复系数;
                     num = ((立即回复系数 != null) ? new int?(立即回复系数.Length) : null);
-                    技能等级 = (int)技能.技能等级;
+                    技能等级 = (int)技能.SkillLevel;
                     float num8;
                     if (num.GetValueOrDefault() > 技能等级 & num != null)
                     {
                         if (MapObject == this)
                         {
-                            num8 = 参数.立即回复系数[(int)技能.技能等级];
+                            num8 = 参数.立即回复系数[(int)技能.SkillLevel];
                             goto IL_249;
                         }
                     }
@@ -3287,7 +3287,7 @@ namespace GameServer.Maps
         public HashSet<MapObject> Neighbors;
 
 
-        public HashSet<SkillInstance> 技能任务;
+        public HashSet<SkillInstance> SkillTasks;
 
 
         public HashSet<TrapObject> 陷阱列表;

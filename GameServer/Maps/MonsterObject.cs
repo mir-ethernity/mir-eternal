@@ -572,7 +572,7 @@ namespace GameServer.Maps
 				{
 					base.轮询Buff时处理(keyValuePair.Value);
 				}
-				foreach (SkillInstance 技能实例 in this.技能任务.ToList<SkillInstance>())
+				foreach (SkillInstance 技能实例 in this.SkillTasks.ToList<SkillInstance>())
 				{
 					技能实例.Process();
 				}
@@ -639,9 +639,9 @@ namespace GameServer.Maps
 		
 		public override void ItSelf死亡处理(MapObject 对象, bool 技能击杀)
 		{
-			foreach (SkillInstance 技能实例 in this.技能任务)
+			foreach (SkillInstance 技能实例 in this.SkillTasks)
 			{
-				技能实例.技能中断();
+				技能实例.SkillAbort();
 			}
 			base.ItSelf死亡处理(对象, 技能击杀);
 			if (this.DeathReleaseSkill != null && 对象 != null)
@@ -1063,13 +1063,13 @@ namespace GameServer.Maps
 			if (this.激活对象)
 			{
 				this.激活对象 = false;
-				this.技能任务.Clear();
+				this.SkillTasks.Clear();
 				MapGatewayProcess.移除激活对象(this);
 			}
 			if (this.禁止复活 && !this.次要对象)
 			{
 				this.次要对象 = true;
-				this.技能任务.Clear();
+				this.SkillTasks.Clear();
 				MapGatewayProcess.添加次要对象(this);
 			}
 		}

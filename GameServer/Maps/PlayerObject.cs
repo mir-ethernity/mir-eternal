@@ -494,7 +494,7 @@ namespace GameServer.Maps
                             }
                         }
                     }
-                    foreach (SkillInstance 技能实例 in this.技能任务.ToList<SkillInstance>())
+                    foreach (SkillInstance 技能实例 in this.SkillTasks.ToList<SkillInstance>())
                     {
                         技能实例.Process();
                     }
@@ -2707,7 +2707,7 @@ namespace GameServer.Maps
         }
 
 
-        public void 玩家诱惑目标(SkillInstance 技能, C_04_计算目标诱惑 参数, MapObject 诱惑目标)
+        public void 玩家诱惑目标(SkillInstance 技能, C_04_CalculateTargetTemptation 参数, MapObject 诱惑目标)
         {
             if (诱惑目标 == null || 诱惑目标.Died || this.当前等级 + 2 < 诱惑目标.当前等级)
             {
@@ -2717,7 +2717,7 @@ namespace GameServer.Maps
             {
                 return;
             }
-            if (诱惑目标 is PetObject && (技能.技能等级 < 3 || this == (诱惑目标 as PetObject).PlayerOwner))
+            if (诱惑目标 is PetObject && (技能.SkillLevel < 3 || this == (诱惑目标 as PetObject).PlayerOwner))
             {
                 return;
             }
@@ -2736,12 +2736,12 @@ namespace GameServer.Maps
             }
             byte[] 基础诱惑数量 = 参数.基础诱惑数量;
             int? num3 = (基础诱惑数量 != null) ? new int?(基础诱惑数量.Length) : null;
-            int 技能等级 = (int)技能.技能等级;
-            int num4 = (int)((num3.GetValueOrDefault() > 技能等级 & num3 != null) ? 参数.基础诱惑数量[(int)技能.技能等级] : 0);
+            int 技能等级 = (int)技能.SkillLevel;
+            int num4 = (int)((num3.GetValueOrDefault() > 技能等级 & num3 != null) ? 参数.基础诱惑数量[(int)技能.SkillLevel] : 0);
             byte[] 初始宠物等级 = 参数.初始宠物等级;
             num3 = ((初始宠物等级 != null) ? new int?(初始宠物等级.Length) : null);
-            技能等级 = (int)技能.技能等级;
-            int num5 = (int)((num3.GetValueOrDefault() > 技能等级 & num3 != null) ? 参数.初始宠物等级[(int)技能.技能等级] : 0);
+            技能等级 = (int)技能.SkillLevel;
+            int num5 = (int)((num3.GetValueOrDefault() > 技能等级 & num3 != null) ? 参数.初始宠物等级[(int)技能.SkillLevel] : 0);
             byte 额外诱惑数量 = 参数.额外诱惑数量;
             float 额外诱惑概率 = 参数.额外诱惑概率;
             int 额外诱惑时长 = 参数.额外诱惑时长;
@@ -2800,9 +2800,9 @@ namespace GameServer.Maps
         }
 
 
-        public void 玩家瞬间移动(SkillInstance 技能, C_07_计算目标瞬移 参数)
+        public void 玩家瞬间移动(SkillInstance 技能, C_07_CalculateTargetTeleportation 参数)
         {
-            if (ComputingClass.计算概率(参数.每级成功概率[(int)技能.技能等级]) && !(this.CurrentMap.随机传送(this.CurrentCoords) == default(Point)))
+            if (ComputingClass.计算概率(参数.每级成功概率[(int)技能.SkillLevel]) && !(this.CurrentMap.随机传送(this.CurrentCoords) == default(Point)))
             {
                 this.玩家切换地图(this.复活地图, AreaType.随机区域, default(Point));
             }

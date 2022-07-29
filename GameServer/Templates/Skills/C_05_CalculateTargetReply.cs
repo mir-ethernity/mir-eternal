@@ -3,10 +3,10 @@
 namespace GameServer.Templates
 {
 	
-	public sealed class C_05_计算目标回复 : SkillTask
+	public sealed class C_05_CalculateTargetReply : SkillTask
 	{
 		
-		public C_05_计算目标回复()
+		public C_05_CalculateTargetReply()
 		{
 			
 			

@@ -3,10 +3,10 @@
 namespace GameServer.Templates
 {
 	
-	public sealed class C_03_计算对象位移 : SkillTask
+	public sealed class C_03_CalculateObjectDisplacement : SkillTask
 	{
 		
-		public C_03_计算对象位移()
+		public C_03_CalculateObjectDisplacement()
 		{
 			
 			
