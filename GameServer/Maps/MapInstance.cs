@@ -92,7 +92,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000746 RID: 1862 RVA: 0x000063E8 File Offset: 0x000045E8
-		public Point 地图起点
+		public Point StartPoint
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000747 RID: 1863 RVA: 0x000063F5 File Offset: 0x000045F5
-		public Point 地图终点
+		public Point EndPoint
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000748 RID: 1864 RVA: 0x00006402 File Offset: 0x00004602
-		public Point 地图大小
+		public Point MapSize
 		{
 			get
 			{
@@ -355,11 +355,11 @@ namespace GameServer.Maps
 				{
 					return new HashSet<MapObject>();
 				}
-				if (this.MapObject[坐标.X - this.地图起点.X, 坐标.Y - this.地图起点.Y] == null)
+				if (this.MapObject[坐标.X - this.StartPoint.X, 坐标.Y - this.StartPoint.Y] == null)
 				{
-					return this.MapObject[坐标.X - this.地图起点.X, 坐标.Y - this.地图起点.Y] = new HashSet<MapObject>();
+					return this.MapObject[坐标.X - this.StartPoint.X, 坐标.Y - this.StartPoint.Y] = new HashSet<MapObject>();
 				}
-				return this.MapObject[坐标.X - this.地图起点.X, 坐标.Y - this.地图起点.Y];
+				return this.MapObject[坐标.X - this.StartPoint.X, 坐标.Y - this.StartPoint.Y];
 			}
 		}
 
@@ -406,7 +406,7 @@ namespace GameServer.Maps
 		
 		public bool 坐标越界(Point 坐标)
 		{
-			return 坐标.X < this.地图起点.X || 坐标.Y < this.地图起点.Y || 坐标.X >= this.地图终点.X || 坐标.Y >= this.地图终点.Y;
+			return 坐标.X < this.StartPoint.X || 坐标.Y < this.StartPoint.Y || 坐标.X >= this.EndPoint.X || 坐标.Y >= this.EndPoint.Y;
 		}
 
 		

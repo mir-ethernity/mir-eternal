@@ -40,15 +40,24 @@ namespace GameServer.GMCommands
             }
 
             var mapInstance = MapGatewayProcess.分配地图(map.MapId);
-            var mapArea = mapInstance.传送区域 ?? mapInstance.地图区域.First();
+            var mapArea = mapInstance.传送区域 ?? mapInstance.地图区域.FirstOrDefault();
 
             var location = MapX != null && MapY != null
                 ? new Point(MapX.Value, MapY.Value)
-                : mapArea.RandomCoords;
+                : mapArea?.RandomCoords ?? Point.Empty;
 
-            if (location.IsEmpty) location = new Point(100, 100);
+            if (location.IsEmpty)
+            {
+                for (var x = 1; x < mapInstance.MapSize.X; x++)
+                    for (var y = 1; y < mapInstance.MapSize.Y; y++)
+                        if (mapInstance.能否通行(new Point(x, y)))
+                        {
+                            location = new Point(x, y);
+                            break;
+                        }
+            }
 
-            player.玩家切换地图(mapInstance, mapArea.AreaType, location);
+            player.玩家切换地图(mapInstance, mapArea?.AreaType ?? AreaType.未知区域, location);
         }
 
         [Field(0)]

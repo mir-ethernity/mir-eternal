@@ -719,10 +719,10 @@ namespace GameServer.Maps
 					if (MapInstance.MapId == (int)地形数据.MapId)
 					{
 						MapInstance.地形数据 = 地形数据;
-						MapInstance.MapObject = new HashSet<MapObject>[MapInstance.地图大小.X, MapInstance.地图大小.Y];
-						for (int i = 0; i < MapInstance.地图大小.X; i++)
+						MapInstance.MapObject = new HashSet<MapObject>[MapInstance.MapSize.X, MapInstance.MapSize.Y];
+						for (int i = 0; i < MapInstance.MapSize.X; i++)
 						{
-							for (int j = 0; j < MapInstance.地图大小.Y; j++)
+							for (int j = 0; j < MapInstance.MapSize.Y; j++)
 							{
 								MapInstance.MapObject[i, j] = new HashSet<MapObject>();
 							}
