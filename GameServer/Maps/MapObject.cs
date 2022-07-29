@@ -2245,7 +2245,7 @@ namespace GameServer.Maps
                         }
                     }
                     EquipmentData EquipmentData;
-                    if (MainProcess.CurrentTime > PlayerObject4.战具计时 && !PlayerObject4.Died && PlayerObject4.当前体力 < PlayerObject4[GameObjectStats.MaxPhysicalStrength] && PlayerObject4.角色装备.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0 && (EquipmentData.Id == 99999106 || EquipmentData.Id == 99999107))
+                    if (MainProcess.CurrentTime > PlayerObject4.战具计时 && !PlayerObject4.Died && PlayerObject4.当前体力 < PlayerObject4[GameObjectStats.MaxPhysicalStrength] && PlayerObject4.Equipment.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0 && (EquipmentData.Id == 99999106 || EquipmentData.Id == 99999107))
                     {
                         PlayerObject4.当前体力 += ((this is MonsterObject) ? 20 : 10);
                         PlayerObject4.战具损失持久(1);

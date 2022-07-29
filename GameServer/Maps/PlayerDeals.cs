@@ -83,7 +83,7 @@ namespace GameServer.Maps
 				{
 					this.交易接收方.CharacterData.转出金币.V += 5000000L;
 				}
-				this.交易接收方.角色背包.Remove(ItemData.物品位置.V);
+				this.交易接收方.Backpack.Remove(ItemData.物品位置.V);
 				SConnection 网络连接 = this.交易接收方.ActiveConnection;
 				if (网络连接 != null)
 				{
@@ -104,7 +104,7 @@ namespace GameServer.Maps
 				{
 					this.交易申请方.CharacterData.转出金币.V += 5000000L;
 				}
-				this.交易申请方.角色背包.Remove(ItemData2.物品位置.V);
+				this.交易申请方.Backpack.Remove(ItemData2.物品位置.V);
 				SConnection 网络连接2 = this.交易申请方.ActiveConnection;
 				if (网络连接2 != null)
 				{
@@ -118,15 +118,15 @@ namespace GameServer.Maps
 			foreach (ItemData ItemData3 in this.申请方物品.Values)
 			{
 				byte b = 0;
-				while (b < this.交易接收方.背包大小)
+				while (b < this.交易接收方.BackpackSize)
 				{
-					if (this.交易接收方.角色背包.ContainsKey(b))
+					if (this.交易接收方.Backpack.ContainsKey(b))
 					{
 						b += 1;
 					}
 					else
 					{
-						this.交易接收方.角色背包.Add(b, ItemData3);
+						this.交易接收方.Backpack.Add(b, ItemData3);
 						ItemData3.物品容器.V = 1;
 						ItemData3.物品位置.V = b;
 						SConnection 网络连接3 = this.交易接收方.ActiveConnection;
@@ -145,15 +145,15 @@ namespace GameServer.Maps
 			foreach (ItemData ItemData4 in this.接收方物品.Values)
 			{
 				byte b2 = 0;
-				while (b2 < this.交易申请方.背包大小)
+				while (b2 < this.交易申请方.BackpackSize)
 				{
-					if (this.交易申请方.角色背包.ContainsKey(b2))
+					if (this.交易申请方.Backpack.ContainsKey(b2))
 					{
 						b2 += 1;
 					}
 					else
 					{
-						this.交易申请方.角色背包.Add(b2, ItemData4);
+						this.交易申请方.Backpack.Add(b2, ItemData4);
 						ItemData4.物品容器.V = 1;
 						ItemData4.物品位置.V = b2;
 						SConnection 网络连接4 = this.交易申请方.ActiveConnection;
@@ -287,12 +287,12 @@ namespace GameServer.Maps
 		public bool 背包已满(out PlayerObject 玩家)
 		{
 			玩家 = null;
-			if ((int)this.交易申请方.背包剩余 < this.接收方物品.Count)
+			if ((int)this.交易申请方.BackpackSizeAvailable < this.接收方物品.Count)
 			{
 				玩家 = this.交易申请方;
 				return true;
 			}
-			if ((int)this.交易接收方.背包剩余 < this.申请方物品.Count)
+			if ((int)this.交易接收方.BackpackSizeAvailable < this.申请方物品.Count)
 			{
 				玩家 = this.交易接收方;
 				return true;

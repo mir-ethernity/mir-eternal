@@ -471,8 +471,8 @@ namespace GameServer
                     dataRow["消耗元宝"] = 角色.消耗元宝;
                     dataRow["NumberGoldCoins"] = 角色.NumberGoldCoins;
                     dataRow["转出金币"] = 角色.转出金币;
-                    dataRow["背包大小"] = 角色.背包大小;
-                    dataRow["仓库大小"] = 角色.仓库大小;
+                    dataRow["背包大小"] = 角色.BackpackSize;
+                    dataRow["仓库大小"] = 角色.WarehouseSize;
                     dataRow["师门声望"] = 角色.师门声望;
                     dataRow["本期特权"] = 角色.本期特权;
                     dataRow["本期日期"] = 角色.本期日期;
@@ -867,7 +867,7 @@ namespace GameServer
             this.dgvCharacters.ColumnHeadersDefaultCellStyle.Font = (this.dgvMaps.ColumnHeadersDefaultCellStyle.Font = (this.怪物浏览表.ColumnHeadersDefaultCellStyle.Font = (this.掉落浏览表.ColumnHeadersDefaultCellStyle.Font = (this.封禁浏览表.ColumnHeadersDefaultCellStyle.Font = (this.dgvCharacters.DefaultCellStyle.Font = (this.dgvMaps.DefaultCellStyle.Font = (this.怪物浏览表.DefaultCellStyle.Font = (this.封禁浏览表.DefaultCellStyle.Font = (this.掉落浏览表.DefaultCellStyle.Font = new Font("宋体", 9f))))))))));
             this.S_软件注册代码.Text = (Config.软件注册代码 = Settings.Default.软件注册代码);
             this.S_GameData目录.Text = (Config.GameDataPath = Settings.Default.GameData目录);
-            this.S_数据备份目录.Text = (Config.数据备份目录 = Settings.Default.数据备份目录);
+            this.S_数据备份目录.Text = (Config.BackupFolder = Settings.Default.数据备份目录);
             this.S_GSPort.Value = (Config.GSPort = Settings.Default.GSPort);
             this.S_TSPort.Value = (Config.TSPort = Settings.Default.TSPort);
             this.S_封包限定数量.Value = (Config.MaxPacketCount = Settings.Default.封包限定数量);
@@ -920,7 +920,7 @@ namespace GameServer
                 MainForm.AddSystemLog("Saving customer data...");
                 GameDataGateway.SaveData();
                 GameDataGateway.CleanUp();
-                MainForm.AddSystemLog("Saving customer data...");
+                MainForm.AddSystemLog("Saved customer data...");
                 base.BeginInvoke(new MethodInvoker(delegate ()
                 {
                     this.启动按钮.Enabled = true;
@@ -1135,7 +1135,7 @@ namespace GameServer
                 }
                 if (sender == this.S_浏览备份目录)
                 {
-                    Config.数据备份目录 = (Settings.Default.数据备份目录 = (this.S_数据备份目录.Text = folderBrowserDialog.SelectedPath));
+                    Config.BackupFolder = (Settings.Default.数据备份目录 = (this.S_数据备份目录.Text = folderBrowserDialog.SelectedPath));
                     Settings.Default.Save();
                     return;
                 }

@@ -33,7 +33,7 @@ namespace GameServer
                         MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, item does not exist");
                         return;
                     }
-                    if (CharacterData.角色背包.Count >= (int)CharacterData.背包大小.V)
+                    if (CharacterData.Backpack.Count >= (int)CharacterData.BackpackSize.V)
                     {
                         MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, character's bag is full");
                         return;
@@ -49,30 +49,30 @@ namespace GameServer
                         EquipmentItem 游戏装备 = 游戏物品 as EquipmentItem;
                         if (游戏装备 != null)
                         {
-                            CharacterData.角色背包[b] = new EquipmentData(游戏装备, CharacterData, 1, b, true);
+                            CharacterData.Backpack[b] = new EquipmentData(游戏装备, CharacterData, 1, b, true);
                         }
                         else if (游戏物品.PersistType == PersistentItemType.容器)
                         {
-                            CharacterData.角色背包[b] = new ItemData(游戏物品, CharacterData, 1, b, 0);
+                            CharacterData.Backpack[b] = new ItemData(游戏物品, CharacterData, 1, b, 0);
                         }
                         else if (游戏物品.PersistType == PersistentItemType.堆叠)
                         {
-                            CharacterData.角色背包[b] = new ItemData(游戏物品, CharacterData, 1, b, 1);
+                            CharacterData.Backpack[b] = new ItemData(游戏物品, CharacterData, 1, b, 1);
                         }
                         else
                         {
-                            CharacterData.角色背包[b] = new ItemData(游戏物品, CharacterData, 1, b, 游戏物品.MaxDura);
+                            CharacterData.Backpack[b] = new ItemData(游戏物品, CharacterData, 1, b, 游戏物品.MaxDura);
                         }
 
                         if(Quantity > 1)
-                            CharacterData.角色背包[b].当前持久.V = Quantity;
+                            CharacterData.Backpack[b].当前持久.V = Quantity;
 
                         SConnection 网络连接 = CharacterData.ActiveConnection;
                         if (网络连接 != null)
                         {
                             网络连接.发送封包(new 玩家物品变动
                             {
-                                物品描述 = CharacterData.角色背包[b].字节描述()
+                                物品描述 = CharacterData.Backpack[b].字节描述()
                             });
                         }
                         MainForm.添加命令日志("<= @" + base.GetType().Name + " The command has been executed and the item has been added to the character's bag");

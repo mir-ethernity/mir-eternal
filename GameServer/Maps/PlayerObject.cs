@@ -91,7 +91,7 @@ namespace GameServer.Maps
             this.拾取时间 = MainProcess.CurrentTime.AddSeconds(1.0);
             base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
             this.特权时间 = ((this.本期特权 > 0) ? this.本期日期.AddDays(30.0) : DateTime.MaxValue);
-            foreach (EquipmentData EquipmentData in this.角色装备.Values)
+            foreach (EquipmentData EquipmentData in this.Equipment.Values)
             {
                 this.CombatBonus[EquipmentData] = EquipmentData.装备战力;
                 if (EquipmentData.当前持久.V > 0)
@@ -238,8 +238,9 @@ namespace GameServer.Maps
             {
                 网络连接.发送封包(new SyncBackpackSizePacket
                 {
-                    背包大小 = this.背包大小,
-                    仓库大小 = this.仓库大小
+                    背包大小 = BackpackSize,
+                    仓库大小 = WarehouseSize,
+                    ExtraBackpackSize = ExtraBackpackSize
                 });
             }
             if (网络连接 != null)
@@ -609,7 +610,7 @@ namespace GameServer.Maps
                             base.恢复时间 = base.恢复时间.AddSeconds(30.0);
                         }
                         EquipmentData EquipmentData;
-                        if (MainProcess.CurrentTime > this.战具计时 && this.角色装备.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0)
+                        if (MainProcess.CurrentTime > this.战具计时 && this.Equipment.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0)
                         {
                             if (EquipmentData.Id != 99999100)
                             {
@@ -797,12 +798,12 @@ namespace GameServer.Maps
             }
             if (PlayerObject != null && this.CurrentMap.掉落装备(this.CurrentCoords, this.红名玩家))
             {
-                foreach (EquipmentData EquipmentData in this.角色装备.Values.ToList<EquipmentData>())
+                foreach (EquipmentData EquipmentData in this.Equipment.Values.ToList<EquipmentData>())
                 {
                     if (EquipmentData.CanDrop && ComputingClass.计算概率(0.05f))
                     {
                         new ItemObject(EquipmentData.物品模板, EquipmentData, this.CurrentMap, this.CurrentCoords, new HashSet<CharacterData>(), 0, false);
-                        this.角色装备.Remove(EquipmentData.当前位置);
+                        this.Equipment.Remove(EquipmentData.当前位置);
                         this.玩家穿卸装备((EquipmentWearingParts)EquipmentData.当前位置, EquipmentData, null);
                         SConnection 网络连接5 = this.ActiveConnection;
                         if (网络连接5 != null)
@@ -823,7 +824,7 @@ namespace GameServer.Maps
                         }
                     }
                 }
-                foreach (ItemData ItemData in this.角色背包.Values.ToList<ItemData>())
+                foreach (ItemData ItemData in this.Backpack.Values.ToList<ItemData>())
                 {
                     if (ItemData.CanDrop && ComputingClass.计算概率(0.1f))
                     {
@@ -851,7 +852,7 @@ namespace GameServer.Maps
                         else
                         {
                             new ItemObject(ItemData.物品模板, ItemData, this.CurrentMap, this.CurrentCoords, new HashSet<CharacterData>(), 0, false);
-                            this.角色背包.Remove(ItemData.当前位置);
+                            this.Backpack.Remove(ItemData.当前位置);
                             SConnection 网络连接9 = this.ActiveConnection;
                             if (网络连接9 != null)
                             {
@@ -1273,7 +1274,7 @@ namespace GameServer.Maps
             get
             {
                 int num = 0;
-                foreach (ItemData ItemData in this.角色背包.Values.ToList<ItemData>())
+                foreach (ItemData ItemData in this.Backpack.Values.ToList<ItemData>())
                 {
                     num += ((ItemData != null) ? ItemData.Weight : 0);
                 }
@@ -1288,7 +1289,7 @@ namespace GameServer.Maps
             get
             {
                 int num = 0;
-                foreach (EquipmentData EquipmentData in this.角色装备.Values.ToList<EquipmentData>())
+                foreach (EquipmentData EquipmentData in this.Equipment.Values.ToList<EquipmentData>())
                 {
                     num += ((EquipmentData == null || EquipmentData.物品类型 == ItemType.武器) ? 0 : EquipmentData.Weight);
                 }
@@ -1535,43 +1536,55 @@ namespace GameServer.Maps
 
         // (get) Token: 0x060008C0 RID: 2240 RVA: 0x000071B8 File Offset: 0x000053B8
         // (set) Token: 0x060008C1 RID: 2241 RVA: 0x000071CA File Offset: 0x000053CA
-        public byte 背包大小
+        public byte BackpackSize
         {
             get
             {
-                return this.CharacterData.背包大小.V;
+                return this.CharacterData.BackpackSize.V;
             }
             set
             {
-                this.CharacterData.背包大小.V = value;
+                this.CharacterData.BackpackSize.V = value;
             }
         }
 
 
         // (get) Token: 0x060008C2 RID: 2242 RVA: 0x000071DD File Offset: 0x000053DD
-        public byte 背包剩余
+        public byte BackpackSizeAvailable
         {
             get
             {
-                return (byte)((int)this.背包大小 - this.角色背包.Count);
+                return (byte)((int)this.BackpackSize - this.Backpack.Count);
             }
         }
 
 
         // (get) Token: 0x060008C3 RID: 2243 RVA: 0x000071F2 File Offset: 0x000053F2
         // (set) Token: 0x060008C4 RID: 2244 RVA: 0x00007204 File Offset: 0x00005404
-        public byte 仓库大小
+        public byte WarehouseSize
         {
             get
             {
-                return this.CharacterData.仓库大小.V;
+                return this.CharacterData.WarehouseSize.V;
             }
             set
             {
-                this.CharacterData.仓库大小.V = value;
+                this.CharacterData.WarehouseSize.V = value;
             }
         }
 
+        public byte ExtraBackpackSize
+
+        {
+            get
+            {
+                return this.CharacterData.ExtraBackpackSize.V;
+            }
+            set
+            {
+                this.CharacterData.ExtraBackpackSize.V = value;
+            }
+        }
 
         // (get) Token: 0x060008C5 RID: 2245 RVA: 0x00007217 File Offset: 0x00005417
         // (set) Token: 0x060008C6 RID: 2246 RVA: 0x0000721F File Offset: 0x0000541F
@@ -2166,34 +2179,10 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x060008FD RID: 2301 RVA: 0x00007677 File Offset: 0x00005877
-        public MonitorDictionary<byte, ItemData> 角色背包
-        {
-            get
-            {
-                return this.CharacterData.角色背包;
-            }
-        }
-
-
-        // (get) Token: 0x060008FE RID: 2302 RVA: 0x00007684 File Offset: 0x00005884
-        public MonitorDictionary<byte, ItemData> 角色仓库
-        {
-            get
-            {
-                return this.CharacterData.角色仓库;
-            }
-        }
-
-
-        // (get) Token: 0x060008FF RID: 2303 RVA: 0x00007691 File Offset: 0x00005891
-        public MonitorDictionary<byte, EquipmentData> 角色装备
-        {
-            get
-            {
-                return this.CharacterData.角色装备;
-            }
-        }
+        public MonitorDictionary<byte, ItemData> Backpack => CharacterData.Backpack;
+        public MonitorDictionary<byte, ItemData> Warehouse => CharacterData.Warehouse;
+        public MonitorDictionary<byte, ItemData> ExtraBackpack => CharacterData.ExtraBackPack;
+        public MonitorDictionary<byte, EquipmentData> Equipment => CharacterData.Equipment;
 
 
         // (get) Token: 0x06000900 RID: 2304 RVA: 0x0000769E File Offset: 0x0000589E
@@ -2437,7 +2426,7 @@ namespace GameServer.Maps
                 return;
             }
             EquipmentData EquipmentData;
-            if (this.角色装备.TryGetValue(8, out EquipmentData) && EquipmentData.装备名字 == "技巧项链")
+            if (this.Equipment.TryGetValue(8, out EquipmentData) && EquipmentData.装备名字 == "技巧项链")
             {
                 num += num;
             }
@@ -2517,7 +2506,7 @@ namespace GameServer.Maps
                 }
             }
             EquipmentData EquipmentData;
-            if (this.角色装备.TryGetValue(0, out EquipmentData))
+            if (this.Equipment.TryGetValue(0, out EquipmentData))
             {
                 InscriptionSkill 第一铭文 = EquipmentData.第一铭文;
                 ushort? num = (第一铭文 != null) ? new ushort?(第一铭文.SkillId) : null;
@@ -2848,7 +2837,7 @@ namespace GameServer.Maps
         public void 武器损失持久()
         {
             EquipmentData EquipmentData;
-            if (this.角色装备.TryGetValue(0, out EquipmentData) && EquipmentData.当前持久.V > 0)
+            if (this.Equipment.TryGetValue(0, out EquipmentData) && EquipmentData.当前持久.V > 0)
             {
                 if (EquipmentData.当前持久.V <= 0)
                 {
@@ -2884,7 +2873,7 @@ namespace GameServer.Maps
         public void 武器幸运损失()
         {
             EquipmentData EquipmentData;
-            if (this.角色装备.TryGetValue(0, out EquipmentData) && EquipmentData.幸运等级.V > -9 && ComputingClass.计算概率(0.1f))
+            if (this.Equipment.TryGetValue(0, out EquipmentData) && EquipmentData.幸运等级.V > -9 && ComputingClass.计算概率(0.1f))
             {
                 DataMonitor<sbyte> 幸运等级 = EquipmentData.幸运等级;
                 幸运等级.V -= 1;
@@ -2899,7 +2888,7 @@ namespace GameServer.Maps
         public void 战具损失持久(int 损失持久)
         {
             EquipmentData EquipmentData;
-            if (this.角色装备.TryGetValue(15, out EquipmentData))
+            if (this.Equipment.TryGetValue(15, out EquipmentData))
             {
                 if ((EquipmentData.当前持久.V -= 损失持久) <= 0)
                 {
@@ -2913,7 +2902,7 @@ namespace GameServer.Maps
                         });
                     }
                     this.玩家穿卸装备(EquipmentWearingParts.战具, EquipmentData, null);
-                    this.角色装备.Remove(EquipmentData.物品位置.V);
+                    this.Equipment.Remove(EquipmentData.物品位置.V);
                     EquipmentData.Delete();
                     return;
                 }
@@ -2935,7 +2924,7 @@ namespace GameServer.Maps
         public void 装备损失持久(int 损失持久)
         {
             损失持久 = Math.Min(10, 损失持久);
-            foreach (EquipmentData EquipmentData in this.角色装备.Values)
+            foreach (EquipmentData EquipmentData in this.Equipment.Values)
             {
                 if (EquipmentData.当前持久.V > 0 && (this.本期特权 != 5 || !EquipmentData.CanRepair) && (this.本期特权 != 4 || !ComputingClass.计算概率(0.5f)) && EquipmentData.PersistType == PersistentItemType.装备 && ComputingClass.计算概率((EquipmentData.物品类型 == ItemType.衣服) ? 1f : 0.1f))
                 {
@@ -3070,9 +3059,9 @@ namespace GameServer.Maps
 
         public bool 查找背包物品(int Id, out ItemData 物品)
         {
-            for (byte b = 0; b < this.背包大小; b += 1)
+            for (byte b = 0; b < this.BackpackSize; b += 1)
             {
-                if (this.角色背包.TryGetValue(b, out 物品) && 物品.Id == Id)
+                if (this.Backpack.TryGetValue(b, out 物品) && 物品.Id == Id)
                 {
                     return true;
                 }
@@ -3085,10 +3074,10 @@ namespace GameServer.Maps
         public bool 查找背包物品(int 所需总数, int Id, out List<ItemData> 物品列表)
         {
             物品列表 = new List<ItemData>();
-            for (byte b = 0; b < this.背包大小; b += 1)
+            for (byte b = 0; b < this.BackpackSize; b += 1)
             {
                 ItemData ItemData;
-                if (this.角色背包.TryGetValue(b, out ItemData) && ItemData.Id == Id)
+                if (this.Backpack.TryGetValue(b, out ItemData) && ItemData.Id == Id)
                 {
                     物品列表.Add(ItemData);
                     if ((所需总数 -= ItemData.当前持久.V) <= 0)
@@ -3104,10 +3093,10 @@ namespace GameServer.Maps
         public bool 查找背包物品(int 所需总数, HashSet<int> Id, out List<ItemData> 物品列表)
         {
             物品列表 = new List<ItemData>();
-            for (byte b = 0; b < this.背包大小; b += 1)
+            for (byte b = 0; b < this.BackpackSize; b += 1)
             {
                 ItemData ItemData;
-                if (this.角色背包.TryGetValue(b, out ItemData) && Id.Contains(ItemData.Id))
+                if (this.Backpack.TryGetValue(b, out ItemData) && Id.Contains(ItemData.Id))
                 {
                     物品列表.Add(ItemData);
                     if ((所需总数 -= ItemData.当前持久.V) <= 0)
@@ -3133,7 +3122,7 @@ namespace GameServer.Maps
                         物品位置 = 当前物品.物品位置.V
                     });
                 }
-                this.角色背包.Remove(当前物品.物品位置.V);
+                this.Backpack.Remove(当前物品.物品位置.V);
                 当前物品.Delete();
                 return;
             }
@@ -3795,7 +3784,7 @@ namespace GameServer.Maps
 
                 if (value2.GroupId == 0 || !Coolings.TryGetValue(value2.GroupId | 0, out var v3) || !(MainProcess.CurrentTime < v3))
                 {
-                    if (value2.CheckOccupationalWeapons && (!角色装备.TryGetValue(0, out var v4) || v4.NeedRace != 角色职业))
+                    if (value2.CheckOccupationalWeapons && (!Equipment.TryGetValue(0, out var v4) || v4.NeedRace != 角色职业))
                         break;
 
                     if (value2.CheckSkillMarks && !Buff列表.ContainsKey(value2.SkillTagId))
@@ -3874,7 +3863,7 @@ namespace GameServer.Maps
 
                         if (需要消耗物品 != null && 需要消耗物品.Count != 0)
                         {
-                            if (!角色装备.TryGetValue(15, out var v9) || v9.当前持久.V < value2.GearDeductionPoints)
+                            if (!Equipment.TryGetValue(15, out var v9) || v9.当前持久.V < value2.GearDeductionPoints)
                             {
                                 if (!查找背包物品(value2.NeedConsumeItemsQuantity, value2.NeedConsumeItems, out list))
                                 {
@@ -4304,7 +4293,7 @@ namespace GameServer.Maps
                                 if (选项编号 == 1)
                                 {
                                     EquipmentData EquipmentData;
-                                    if (!this.角色装备.TryGetValue(0, out EquipmentData))
+                                    if (!this.Equipment.TryGetValue(0, out EquipmentData))
                                     {
                                         this.对话页面 = 612603000;
                                         SConnection 网络连接9 = this.ActiveConnection;
@@ -4384,7 +4373,7 @@ namespace GameServer.Maps
                                 if (选项编号 == 1)
                                 {
                                     EquipmentData EquipmentData2;
-                                    if (!this.角色装备.TryGetValue(this.重铸部位, out EquipmentData2))
+                                    if (!this.Equipment.TryGetValue(this.重铸部位, out EquipmentData2))
                                     {
                                         this.对话页面 = 612603000;
                                         SConnection 网络连接13 = this.ActiveConnection;
@@ -4469,7 +4458,7 @@ namespace GameServer.Maps
                             else if (选项编号 == 1)
                             {
                                 EquipmentData EquipmentData3;
-                                if (!this.角色装备.TryGetValue(9, out EquipmentData3))
+                                if (!this.Equipment.TryGetValue(9, out EquipmentData3))
                                 {
                                     this.对话页面 = 612603000;
                                     SConnection 网络连接18 = this.ActiveConnection;
@@ -4504,7 +4493,7 @@ namespace GameServer.Maps
                             else if (选项编号 == 2)
                             {
                                 EquipmentData EquipmentData4;
-                                if (!this.角色装备.TryGetValue(10, out EquipmentData4))
+                                if (!this.Equipment.TryGetValue(10, out EquipmentData4))
                                 {
                                     this.对话页面 = 612603000;
                                     SConnection 网络连接20 = this.ActiveConnection;
@@ -4539,7 +4528,7 @@ namespace GameServer.Maps
                             else if (选项编号 == 3)
                             {
                                 EquipmentData EquipmentData5;
-                                if (!this.角色装备.TryGetValue(11, out EquipmentData5))
+                                if (!this.Equipment.TryGetValue(11, out EquipmentData5))
                                 {
                                     this.对话页面 = 612603000;
                                     SConnection 网络连接22 = this.ActiveConnection;
@@ -4574,7 +4563,7 @@ namespace GameServer.Maps
                             else if (选项编号 == 4)
                             {
                                 EquipmentData EquipmentData6;
-                                if (!this.角色装备.TryGetValue(12, out EquipmentData6))
+                                if (!this.Equipment.TryGetValue(12, out EquipmentData6))
                                 {
                                     this.对话页面 = 612603000;
                                     SConnection 网络连接24 = this.ActiveConnection;
@@ -4609,7 +4598,7 @@ namespace GameServer.Maps
                             else if (选项编号 == 5)
                             {
                                 EquipmentData EquipmentData7;
-                                if (!this.角色装备.TryGetValue(8, out EquipmentData7))
+                                if (!this.Equipment.TryGetValue(8, out EquipmentData7))
                                 {
                                     this.对话页面 = 612603000;
                                     SConnection 网络连接26 = this.ActiveConnection;
@@ -4644,7 +4633,7 @@ namespace GameServer.Maps
                             else if (选项编号 == 6)
                             {
                                 EquipmentData EquipmentData8;
-                                if (!this.角色装备.TryGetValue(14, out EquipmentData8))
+                                if (!this.Equipment.TryGetValue(14, out EquipmentData8))
                                 {
                                     this.对话页面 = 612603000;
                                     SConnection 网络连接28 = this.ActiveConnection;
@@ -4679,7 +4668,7 @@ namespace GameServer.Maps
                             else if (选项编号 == 7)
                             {
                                 EquipmentData EquipmentData9;
-                                if (!this.角色装备.TryGetValue(13, out EquipmentData9))
+                                if (!this.Equipment.TryGetValue(13, out EquipmentData9))
                                 {
                                     this.对话页面 = 612603000;
                                     SConnection 网络连接30 = this.ActiveConnection;
@@ -4715,7 +4704,7 @@ namespace GameServer.Maps
                         else if (选项编号 == 1)
                         {
                             EquipmentData EquipmentData10;
-                            if (!this.角色装备.TryGetValue(1, out EquipmentData10))
+                            if (!this.Equipment.TryGetValue(1, out EquipmentData10))
                             {
                                 this.对话页面 = 612603000;
                                 SConnection 网络连接32 = this.ActiveConnection;
@@ -4750,7 +4739,7 @@ namespace GameServer.Maps
                         else if (选项编号 == 2)
                         {
                             EquipmentData EquipmentData11;
-                            if (!this.角色装备.TryGetValue(3, out EquipmentData11))
+                            if (!this.Equipment.TryGetValue(3, out EquipmentData11))
                             {
                                 this.对话页面 = 612603000;
                                 SConnection 网络连接34 = this.ActiveConnection;
@@ -4785,7 +4774,7 @@ namespace GameServer.Maps
                         else if (选项编号 == 3)
                         {
                             EquipmentData EquipmentData12;
-                            if (!this.角色装备.TryGetValue(6, out EquipmentData12))
+                            if (!this.Equipment.TryGetValue(6, out EquipmentData12))
                             {
                                 this.对话页面 = 612603000;
                                 SConnection 网络连接36 = this.ActiveConnection;
@@ -4820,7 +4809,7 @@ namespace GameServer.Maps
                         else if (选项编号 == 4)
                         {
                             EquipmentData EquipmentData13;
-                            if (!this.角色装备.TryGetValue(7, out EquipmentData13))
+                            if (!this.Equipment.TryGetValue(7, out EquipmentData13))
                             {
                                 this.对话页面 = 612603000;
                                 SConnection 网络连接38 = this.ActiveConnection;
@@ -4855,7 +4844,7 @@ namespace GameServer.Maps
                         else if (选项编号 == 5)
                         {
                             EquipmentData EquipmentData14;
-                            if (!this.角色装备.TryGetValue(4, out EquipmentData14))
+                            if (!this.Equipment.TryGetValue(4, out EquipmentData14))
                             {
                                 this.对话页面 = 612603000;
                                 SConnection 网络连接40 = this.ActiveConnection;
@@ -4890,7 +4879,7 @@ namespace GameServer.Maps
                         else if (选项编号 == 6)
                         {
                             EquipmentData EquipmentData15;
-                            if (!this.角色装备.TryGetValue(5, out EquipmentData15))
+                            if (!this.Equipment.TryGetValue(5, out EquipmentData15))
                             {
                                 this.对话页面 = 612603000;
                                 SConnection 网络连接42 = this.ActiveConnection;
@@ -4925,7 +4914,7 @@ namespace GameServer.Maps
                         else if (选项编号 == 7)
                         {
                             EquipmentData EquipmentData16;
-                            if (!this.角色装备.TryGetValue(2, out EquipmentData16))
+                            if (!this.Equipment.TryGetValue(2, out EquipmentData16))
                             {
                                 this.对话页面 = 612603000;
                                 SConnection 网络连接44 = this.ActiveConnection;
@@ -5021,31 +5010,31 @@ namespace GameServer.Maps
                                     EquipmentData EquipmentData17 = null;
                                     if (this.雕色部位 == 1)
                                     {
-                                        this.角色装备.TryGetValue(3, out EquipmentData17);
+                                        this.Equipment.TryGetValue(3, out EquipmentData17);
                                     }
                                     else if (this.雕色部位 == 2)
                                     {
-                                        this.角色装备.TryGetValue(1, out EquipmentData17);
+                                        this.Equipment.TryGetValue(1, out EquipmentData17);
                                     }
                                     else if (this.雕色部位 == 3)
                                     {
-                                        this.角色装备.TryGetValue(7, out EquipmentData17);
+                                        this.Equipment.TryGetValue(7, out EquipmentData17);
                                     }
                                     else if (this.雕色部位 == 4)
                                     {
-                                        this.角色装备.TryGetValue(5, out EquipmentData17);
+                                        this.Equipment.TryGetValue(5, out EquipmentData17);
                                     }
                                     else if (this.雕色部位 == 5)
                                     {
-                                        this.角色装备.TryGetValue(6, out EquipmentData17);
+                                        this.Equipment.TryGetValue(6, out EquipmentData17);
                                     }
                                     else if (this.雕色部位 == 6)
                                     {
-                                        this.角色装备.TryGetValue(4, out EquipmentData17);
+                                        this.Equipment.TryGetValue(4, out EquipmentData17);
                                     }
                                     else if (this.雕色部位 == 7)
                                     {
-                                        this.角色装备.TryGetValue(2, out EquipmentData17);
+                                        this.Equipment.TryGetValue(2, out EquipmentData17);
                                     }
                                     else
                                     {
@@ -5053,7 +5042,7 @@ namespace GameServer.Maps
                                         {
                                             return;
                                         }
-                                        this.角色装备.TryGetValue(14, out EquipmentData17);
+                                        this.Equipment.TryGetValue(14, out EquipmentData17);
                                     }
                                     if (EquipmentData17 == null)
                                     {
@@ -5187,31 +5176,31 @@ namespace GameServer.Maps
                                 EquipmentData EquipmentData18 = null;
                                 if (选项编号 == 1)
                                 {
-                                    this.角色装备.TryGetValue(3, out EquipmentData18);
+                                    this.Equipment.TryGetValue(3, out EquipmentData18);
                                 }
                                 else if (选项编号 == 2)
                                 {
-                                    this.角色装备.TryGetValue(1, out EquipmentData18);
+                                    this.Equipment.TryGetValue(1, out EquipmentData18);
                                 }
                                 else if (选项编号 == 3)
                                 {
-                                    this.角色装备.TryGetValue(7, out EquipmentData18);
+                                    this.Equipment.TryGetValue(7, out EquipmentData18);
                                 }
                                 else if (选项编号 == 4)
                                 {
-                                    this.角色装备.TryGetValue(5, out EquipmentData18);
+                                    this.Equipment.TryGetValue(5, out EquipmentData18);
                                 }
                                 else if (选项编号 == 5)
                                 {
-                                    this.角色装备.TryGetValue(6, out EquipmentData18);
+                                    this.Equipment.TryGetValue(6, out EquipmentData18);
                                 }
                                 else if (选项编号 == 6)
                                 {
-                                    this.角色装备.TryGetValue(4, out EquipmentData18);
+                                    this.Equipment.TryGetValue(4, out EquipmentData18);
                                 }
                                 else if (选项编号 == 7)
                                 {
-                                    this.角色装备.TryGetValue(2, out EquipmentData18);
+                                    this.Equipment.TryGetValue(2, out EquipmentData18);
                                 }
                                 else
                                 {
@@ -5219,7 +5208,7 @@ namespace GameServer.Maps
                                     {
                                         return;
                                     }
-                                    this.角色装备.TryGetValue(14, out EquipmentData18);
+                                    this.Equipment.TryGetValue(14, out EquipmentData18);
                                 }
                                 if (EquipmentData18 == null)
                                 {
@@ -5307,31 +5296,31 @@ namespace GameServer.Maps
                             EquipmentData EquipmentData19 = null;
                             if (选项编号 == 1)
                             {
-                                this.角色装备.TryGetValue(3, out EquipmentData19);
+                                this.Equipment.TryGetValue(3, out EquipmentData19);
                             }
                             else if (选项编号 == 2)
                             {
-                                this.角色装备.TryGetValue(1, out EquipmentData19);
+                                this.Equipment.TryGetValue(1, out EquipmentData19);
                             }
                             else if (选项编号 == 3)
                             {
-                                this.角色装备.TryGetValue(7, out EquipmentData19);
+                                this.Equipment.TryGetValue(7, out EquipmentData19);
                             }
                             else if (选项编号 == 4)
                             {
-                                this.角色装备.TryGetValue(5, out EquipmentData19);
+                                this.Equipment.TryGetValue(5, out EquipmentData19);
                             }
                             else if (选项编号 == 5)
                             {
-                                this.角色装备.TryGetValue(6, out EquipmentData19);
+                                this.Equipment.TryGetValue(6, out EquipmentData19);
                             }
                             else if (选项编号 == 6)
                             {
-                                this.角色装备.TryGetValue(4, out EquipmentData19);
+                                this.Equipment.TryGetValue(4, out EquipmentData19);
                             }
                             else if (选项编号 == 7)
                             {
-                                this.角色装备.TryGetValue(2, out EquipmentData19);
+                                this.Equipment.TryGetValue(2, out EquipmentData19);
                             }
                             else
                             {
@@ -5339,7 +5328,7 @@ namespace GameServer.Maps
                                 {
                                     return;
                                 }
-                                this.角色装备.TryGetValue(14, out EquipmentData19);
+                                this.Equipment.TryGetValue(14, out EquipmentData19);
                             }
                             if (EquipmentData19 == null)
                             {
@@ -5542,31 +5531,31 @@ namespace GameServer.Maps
                             EquipmentData EquipmentData20 = null;
                             if (this.雕色部位 == 1)
                             {
-                                this.角色装备.TryGetValue(3, out EquipmentData20);
+                                this.Equipment.TryGetValue(3, out EquipmentData20);
                             }
                             else if (this.雕色部位 == 2)
                             {
-                                this.角色装备.TryGetValue(1, out EquipmentData20);
+                                this.Equipment.TryGetValue(1, out EquipmentData20);
                             }
                             else if (this.雕色部位 == 3)
                             {
-                                this.角色装备.TryGetValue(7, out EquipmentData20);
+                                this.Equipment.TryGetValue(7, out EquipmentData20);
                             }
                             else if (this.雕色部位 == 4)
                             {
-                                this.角色装备.TryGetValue(5, out EquipmentData20);
+                                this.Equipment.TryGetValue(5, out EquipmentData20);
                             }
                             else if (this.雕色部位 == 5)
                             {
-                                this.角色装备.TryGetValue(6, out EquipmentData20);
+                                this.Equipment.TryGetValue(6, out EquipmentData20);
                             }
                             else if (this.雕色部位 == 6)
                             {
-                                this.角色装备.TryGetValue(4, out EquipmentData20);
+                                this.Equipment.TryGetValue(4, out EquipmentData20);
                             }
                             else if (this.雕色部位 == 7)
                             {
-                                this.角色装备.TryGetValue(2, out EquipmentData20);
+                                this.Equipment.TryGetValue(2, out EquipmentData20);
                             }
                             else
                             {
@@ -5574,7 +5563,7 @@ namespace GameServer.Maps
                                 {
                                     return;
                                 }
-                                this.角色装备.TryGetValue(14, out EquipmentData20);
+                                this.Equipment.TryGetValue(14, out EquipmentData20);
                             }
                             if (EquipmentData20 == null)
                             {
@@ -5725,7 +5714,7 @@ namespace GameServer.Maps
                                 }
                                 num16 = 10111;
                             }
-                            if (this.背包剩余 <= 0)
+                            if (this.BackpackSizeAvailable <= 0)
                             {
                                 this.对话页面 = 619400200;
                                 SConnection 网络连接81 = this.ActiveConnection;
@@ -5746,22 +5735,22 @@ namespace GameServer.Maps
                                 if (this.查找背包物品(num15, num16, out 物品列表5))
                                 {
                                     byte b = 0;
-                                    while (b < this.背包大小)
+                                    while (b < this.BackpackSize)
                                     {
-                                        if (this.角色背包.ContainsKey(b))
+                                        if (this.Backpack.ContainsKey(b))
                                         {
                                             b += 1;
                                         }
                                         else
                                         {
                                             this.消耗背包物品(num15, 物品列表5);
-                                            this.角色背包[b] = new ItemData(GameItems.DataSheet[num16 + 1], this.CharacterData, 1, b, 1);
+                                            this.Backpack[b] = new ItemData(GameItems.DataSheet[num16 + 1], this.CharacterData, 1, b, 1);
                                             SConnection 网络连接82 = this.ActiveConnection;
                                             if (网络连接82 != null)
                                             {
                                                 网络连接82.发送封包(new 玩家物品变动
                                                 {
-                                                    物品描述 = this.角色背包[b].字节描述()
+                                                    物品描述 = this.Backpack[b].字节描述()
                                                 });
                                             }
                                             SConnection 网络连接83 = this.ActiveConnection;
@@ -5807,7 +5796,7 @@ namespace GameServer.Maps
                                 }
                                 num18 = 10321;
                             }
-                            if (this.背包剩余 <= 0)
+                            if (this.BackpackSizeAvailable <= 0)
                             {
                                 this.对话页面 = 619400200;
                                 SConnection 网络连接85 = this.ActiveConnection;
@@ -5828,22 +5817,22 @@ namespace GameServer.Maps
                                 if (this.查找背包物品(num17, num18, out 物品列表6))
                                 {
                                     byte b2 = 0;
-                                    while (b2 < this.背包大小)
+                                    while (b2 < this.BackpackSize)
                                     {
-                                        if (this.角色背包.ContainsKey(b2))
+                                        if (this.Backpack.ContainsKey(b2))
                                         {
                                             b2 += 1;
                                         }
                                         else
                                         {
                                             this.消耗背包物品(num17, 物品列表6);
-                                            this.角色背包[b2] = new ItemData(GameItems.DataSheet[num18 + 1], this.CharacterData, 1, b2, 1);
+                                            this.Backpack[b2] = new ItemData(GameItems.DataSheet[num18 + 1], this.CharacterData, 1, b2, 1);
                                             SConnection 网络连接86 = this.ActiveConnection;
                                             if (网络连接86 != null)
                                             {
                                                 网络连接86.发送封包(new 玩家物品变动
                                                 {
-                                                    物品描述 = this.角色背包[b2].字节描述()
+                                                    物品描述 = this.Backpack[b2].字节描述()
                                                 });
                                             }
                                             SConnection 网络连接87 = this.ActiveConnection;
@@ -5890,7 +5879,7 @@ namespace GameServer.Maps
                             }
                             num20 = 10421;
                         }
-                        if (this.背包剩余 <= 0)
+                        if (this.BackpackSizeAvailable <= 0)
                         {
                             this.对话页面 = 619400200;
                             SConnection 网络连接89 = this.ActiveConnection;
@@ -5911,22 +5900,22 @@ namespace GameServer.Maps
                             if (this.查找背包物品(num19, num20, out 物品列表7))
                             {
                                 byte b3 = 0;
-                                while (b3 < this.背包大小)
+                                while (b3 < this.BackpackSize)
                                 {
-                                    if (this.角色背包.ContainsKey(b3))
+                                    if (this.Backpack.ContainsKey(b3))
                                     {
                                         b3 += 1;
                                     }
                                     else
                                     {
                                         this.消耗背包物品(num19, 物品列表7);
-                                        this.角色背包[b3] = new ItemData(GameItems.DataSheet[num20 + 1], this.CharacterData, 1, b3, 1);
+                                        this.Backpack[b3] = new ItemData(GameItems.DataSheet[num20 + 1], this.CharacterData, 1, b3, 1);
                                         SConnection 网络连接90 = this.ActiveConnection;
                                         if (网络连接90 != null)
                                         {
                                             网络连接90.发送封包(new 玩家物品变动
                                             {
-                                                物品描述 = this.角色背包[b3].字节描述()
+                                                物品描述 = this.Backpack[b3].字节描述()
                                             });
                                         }
                                         SConnection 网络连接91 = this.ActiveConnection;
@@ -5983,7 +5972,7 @@ namespace GameServer.Maps
                                     }
                                     num22 = 10721;
                                 }
-                                if (this.背包剩余 <= 0)
+                                if (this.BackpackSizeAvailable <= 0)
                                 {
                                     this.对话页面 = 619400200;
                                     SConnection 网络连接93 = this.ActiveConnection;
@@ -6004,22 +5993,22 @@ namespace GameServer.Maps
                                     if (this.查找背包物品(num21, num22, out 物品列表8))
                                     {
                                         byte b4 = 0;
-                                        while (b4 < this.背包大小)
+                                        while (b4 < this.BackpackSize)
                                         {
-                                            if (this.角色背包.ContainsKey(b4))
+                                            if (this.Backpack.ContainsKey(b4))
                                             {
                                                 b4 += 1;
                                             }
                                             else
                                             {
                                                 this.消耗背包物品(num21, 物品列表8);
-                                                this.角色背包[b4] = new ItemData(GameItems.DataSheet[num22 + 1], this.CharacterData, 1, b4, 1);
+                                                this.Backpack[b4] = new ItemData(GameItems.DataSheet[num22 + 1], this.CharacterData, 1, b4, 1);
                                                 SConnection 网络连接94 = this.ActiveConnection;
                                                 if (网络连接94 != null)
                                                 {
                                                     网络连接94.发送封包(new 玩家物品变动
                                                     {
-                                                        物品描述 = this.角色背包[b4].字节描述()
+                                                        物品描述 = this.Backpack[b4].字节描述()
                                                     });
                                                 }
                                                 SConnection 网络连接95 = this.ActiveConnection;
@@ -6065,7 +6054,7 @@ namespace GameServer.Maps
                                     }
                                     num24 = 10621;
                                 }
-                                if (this.背包剩余 <= 0)
+                                if (this.BackpackSizeAvailable <= 0)
                                 {
                                     this.对话页面 = 619400200;
                                     SConnection 网络连接97 = this.ActiveConnection;
@@ -6086,22 +6075,22 @@ namespace GameServer.Maps
                                     if (this.查找背包物品(num23, num24, out 物品列表9))
                                     {
                                         byte b5 = 0;
-                                        while (b5 < this.背包大小)
+                                        while (b5 < this.BackpackSize)
                                         {
-                                            if (this.角色背包.ContainsKey(b5))
+                                            if (this.Backpack.ContainsKey(b5))
                                             {
                                                 b5 += 1;
                                             }
                                             else
                                             {
                                                 this.消耗背包物品(num23, 物品列表9);
-                                                this.角色背包[b5] = new ItemData(GameItems.DataSheet[num24 + 1], this.CharacterData, 1, b5, 1);
+                                                this.Backpack[b5] = new ItemData(GameItems.DataSheet[num24 + 1], this.CharacterData, 1, b5, 1);
                                                 SConnection 网络连接98 = this.ActiveConnection;
                                                 if (网络连接98 != null)
                                                 {
                                                     网络连接98.发送封包(new 玩家物品变动
                                                     {
-                                                        物品描述 = this.角色背包[b5].字节描述()
+                                                        物品描述 = this.Backpack[b5].字节描述()
                                                     });
                                                 }
                                                 SConnection 网络连接99 = this.ActiveConnection;
@@ -6154,7 +6143,7 @@ namespace GameServer.Maps
                                     }
                                     num26 = 10521;
                                 }
-                                if (this.背包剩余 <= 0)
+                                if (this.BackpackSizeAvailable <= 0)
                                 {
                                     this.对话页面 = 619400200;
                                     SConnection 网络连接101 = this.ActiveConnection;
@@ -6175,22 +6164,22 @@ namespace GameServer.Maps
                                     if (this.查找背包物品(num25, num26, out 物品列表10))
                                     {
                                         byte b6 = 0;
-                                        while (b6 < this.背包大小)
+                                        while (b6 < this.BackpackSize)
                                         {
-                                            if (this.角色背包.ContainsKey(b6))
+                                            if (this.Backpack.ContainsKey(b6))
                                             {
                                                 b6 += 1;
                                             }
                                             else
                                             {
                                                 this.消耗背包物品(num25, 物品列表10);
-                                                this.角色背包[b6] = new ItemData(GameItems.DataSheet[num26 + 1], this.CharacterData, 1, b6, 1);
+                                                this.Backpack[b6] = new ItemData(GameItems.DataSheet[num26 + 1], this.CharacterData, 1, b6, 1);
                                                 SConnection 网络连接102 = this.ActiveConnection;
                                                 if (网络连接102 != null)
                                                 {
                                                     网络连接102.发送封包(new 玩家物品变动
                                                     {
-                                                        物品描述 = this.角色背包[b6].字节描述()
+                                                        物品描述 = this.Backpack[b6].字节描述()
                                                     });
                                                 }
                                                 SConnection 网络连接103 = this.ActiveConnection;
@@ -6236,7 +6225,7 @@ namespace GameServer.Maps
                                     }
                                     num28 = 10221;
                                 }
-                                if (this.背包剩余 <= 0)
+                                if (this.BackpackSizeAvailable <= 0)
                                 {
                                     this.对话页面 = 619400200;
                                     SConnection 网络连接105 = this.ActiveConnection;
@@ -6257,22 +6246,22 @@ namespace GameServer.Maps
                                     if (this.查找背包物品(num27, num28, out 物品列表11))
                                     {
                                         byte b7 = 0;
-                                        while (b7 < this.背包大小)
+                                        while (b7 < this.BackpackSize)
                                         {
-                                            if (this.角色背包.ContainsKey(b7))
+                                            if (this.Backpack.ContainsKey(b7))
                                             {
                                                 b7 += 1;
                                             }
                                             else
                                             {
                                                 this.消耗背包物品(num27, 物品列表11);
-                                                this.角色背包[b7] = new ItemData(GameItems.DataSheet[num28 + 1], this.CharacterData, 1, b7, 1);
+                                                this.Backpack[b7] = new ItemData(GameItems.DataSheet[num28 + 1], this.CharacterData, 1, b7, 1);
                                                 SConnection 网络连接106 = this.ActiveConnection;
                                                 if (网络连接106 != null)
                                                 {
                                                     网络连接106.发送封包(new 玩家物品变动
                                                     {
-                                                        物品描述 = this.角色背包[b7].字节描述()
+                                                        物品描述 = this.Backpack[b7].字节描述()
                                                     });
                                                 }
                                                 SConnection 网络连接107 = this.ActiveConnection;
@@ -6319,7 +6308,7 @@ namespace GameServer.Maps
                                 }
                                 num30 = 10121;
                             }
-                            if (this.背包剩余 <= 0)
+                            if (this.BackpackSizeAvailable <= 0)
                             {
                                 this.对话页面 = 619400200;
                                 SConnection 网络连接109 = this.ActiveConnection;
@@ -6340,22 +6329,22 @@ namespace GameServer.Maps
                                 if (this.查找背包物品(num29, num30, out 物品列表12))
                                 {
                                     byte b8 = 0;
-                                    while (b8 < this.背包大小)
+                                    while (b8 < this.BackpackSize)
                                     {
-                                        if (this.角色背包.ContainsKey(b8))
+                                        if (this.Backpack.ContainsKey(b8))
                                         {
                                             b8 += 1;
                                         }
                                         else
                                         {
                                             this.消耗背包物品(num29, 物品列表12);
-                                            this.角色背包[b8] = new ItemData(GameItems.DataSheet[num30 + 1], this.CharacterData, 1, b8, 1);
+                                            this.Backpack[b8] = new ItemData(GameItems.DataSheet[num30 + 1], this.CharacterData, 1, b8, 1);
                                             SConnection 网络连接110 = this.ActiveConnection;
                                             if (网络连接110 != null)
                                             {
                                                 网络连接110.发送封包(new 玩家物品变动
                                                 {
-                                                    物品描述 = this.角色背包[b8].字节描述()
+                                                    物品描述 = this.Backpack[b8].字节描述()
                                                 });
                                             }
                                             SConnection 网络连接111 = this.ActiveConnection;
@@ -6684,9 +6673,9 @@ namespace GameServer.Maps
                                     if (!(this.CharacterData.领奖日期.V.Date == MainProcess.CurrentTime.Date))
                                     {
                                         byte b9 = 0;
-                                        while (b9 < this.背包大小)
+                                        while (b9 < this.BackpackSize)
                                         {
-                                            if (this.角色背包.ContainsKey(b9))
+                                            if (this.Backpack.ContainsKey(b9))
                                             {
                                                 b9 += 1;
                                             }
@@ -6723,7 +6712,7 @@ namespace GameServer.Maps
                                                 else
                                                 {
                                                     this.CharacterData.领奖日期.V = MainProcess.CurrentTime;
-                                                    this.角色背包[b10] = new ItemData(模板, this.CharacterData, 1, b10, 1);
+                                                    this.Backpack[b10] = new ItemData(模板, this.CharacterData, 1, b10, 1);
                                                     SConnection 网络连接127 = this.ActiveConnection;
                                                     if (网络连接127 == null)
                                                     {
@@ -6731,7 +6720,7 @@ namespace GameServer.Maps
                                                     }
                                                     网络连接127.发送封包(new 玩家物品变动
                                                     {
-                                                        物品描述 = this.角色背包[b10].字节描述()
+                                                        物品描述 = this.Backpack[b10].字节描述()
                                                     });
                                                     return;
                                                 }
@@ -6838,7 +6827,7 @@ namespace GameServer.Maps
                             }
                             if (选项编号 == 1)
                             {
-                                if (this.背包剩余 <= 0)
+                                if (this.BackpackSizeAvailable <= 0)
                                 {
                                     this.对话页面 = 670505000;
                                     SConnection 网络连接132 = this.ActiveConnection;
@@ -6878,9 +6867,9 @@ namespace GameServer.Maps
                                         if (this.查找背包物品(num35, 110012, out 物品列表14))
                                         {
                                             byte b11 = 0;
-                                            while (b11 < this.背包大小)
+                                            while (b11 < this.BackpackSize)
                                             {
-                                                if (this.角色背包.ContainsKey(b11))
+                                                if (this.Backpack.ContainsKey(b11))
                                                 {
                                                     b11 += 1;
                                                 }
@@ -6906,16 +6895,16 @@ namespace GameServer.Maps
                                                     {
                                                         this.NumberGoldCoins -= num34;
                                                         this.消耗背包物品(num35, 物品列表14);
-                                                        this.角色背包[b12] = this.CharacterData.升级装备.V;
+                                                        this.Backpack[b12] = this.CharacterData.升级装备.V;
                                                         this.CharacterData.升级装备.V = null;
-                                                        this.角色背包[b12].物品容器.V = 1;
-                                                        this.角色背包[b12].物品位置.V = b12;
+                                                        this.Backpack[b12].物品容器.V = 1;
+                                                        this.Backpack[b12].物品位置.V = b12;
                                                         SConnection 网络连接135 = this.ActiveConnection;
                                                         if (网络连接135 != null)
                                                         {
                                                             网络连接135.发送封包(new 玩家物品变动
                                                             {
-                                                                物品描述 = this.角色背包[b12].字节描述()
+                                                                物品描述 = this.Backpack[b12].字节描述()
                                                             });
                                                         }
                                                         SConnection 网络连接136 = this.ActiveConnection;
@@ -7028,7 +7017,7 @@ namespace GameServer.Maps
                             });
                             return;
                         }
-                        else if (this.背包剩余 <= 0)
+                        else if (this.BackpackSizeAvailable <= 0)
                         {
                             this.对话页面 = 670505000;
                             SConnection 网络连接143 = this.ActiveConnection;
@@ -7106,7 +7095,7 @@ namespace GameServer.Maps
                             });
                             return;
                         }
-                        else if (this.背包剩余 <= 0)
+                        else if (this.BackpackSizeAvailable <= 0)
                         {
                             this.对话页面 = 670505000;
                             SConnection 网络连接148 = this.ActiveConnection;
@@ -7591,91 +7580,114 @@ namespace GameServer.Maps
         {
         }
 
-
-        public void 玩家扩展背包(byte 背包类型, byte 扩展大小)
+        private void ExpandBackpack(byte position)
         {
-            if (扩展大小 == 0)
+            if (BackpackSize + position > 64)
             {
-                this.ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Player expanded backpack.  Error: Wrong expansion parameter."));
+                ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Player expanded backpack.  Error: Backpack exceeds limit."));
                 return;
             }
-            if (背包类型 == 1 && this.背包大小 + 扩展大小 > 64)
-            {
-                this.ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Player expanded backpack.  Error: Backpack exceeds limit."));
-                return;
-            }
-            if (背包类型 == 2 && this.仓库大小 + 扩展大小 > 72)
-            {
-                this.ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Player expanded backpack.  Error: Warehouse exceeded limit."));
-                return;
-            }
-            if (背包类型 != 1)
-            {
-                if (背包类型 == 2)
-                {
-                    int num = ComputingClass.ExtendedWarehouse((int)(this.仓库大小 - 16), 0, 1, 0);
-                    int num2 = ComputingClass.ExtendedWarehouse((int)(this.仓库大小 + 扩展大小 - 16), 0, 1, 0) - num;
-                    if (this.NumberGoldCoins < num2)
-                    {
-                        SConnection 网络连接 = this.ActiveConnection;
-                        if (网络连接 == null)
-                        {
-                            return;
-                        }
-                        网络连接.发送封包(new GameErrorMessagePacket
-                        {
-                            错误代码 = 1821
-                        });
-                        return;
-                    }
-                    else
-                    {
-                        this.NumberGoldCoins -= num2;
-                        this.仓库大小 += 扩展大小;
-                        SConnection 网络连接2 = this.ActiveConnection;
-                        if (网络连接2 == null)
-                        {
-                            return;
-                        }
-                        网络连接2.发送封包(new 背包容量改变
-                        {
-                            背包类型 = 2,
-                            背包容量 = this.仓库大小
-                        });
-                    }
-                }
-                return;
-            }
-            int num3 = ComputingClass.Extendedbackpack((int)(this.背包大小 - 32), 0, 1, 0);
-            int num4 = ComputingClass.Extendedbackpack((int)(this.背包大小 + 扩展大小 - 32), 0, 1, 0) - num3;
+
+            int num3 = ComputingClass.Extendedbackpack((int)(BackpackSize - 32), 0, 1, 0);
+            int num4 = ComputingClass.Extendedbackpack((int)(BackpackSize + position - 32), 0, 1, 0) - num3;
             if (this.NumberGoldCoins < num4)
             {
-                SConnection 网络连接3 = this.ActiveConnection;
-                if (网络连接3 == null)
-                {
-                    return;
-                }
-                网络连接3.发送封包(new GameErrorMessagePacket
+                ActiveConnection?.发送封包(new GameErrorMessagePacket
                 {
                     错误代码 = 1821
                 });
-                return;
             }
             else
             {
-                this.NumberGoldCoins -= num4;
-                this.背包大小 += 扩展大小;
-                SConnection 网络连接4 = this.ActiveConnection;
-                if (网络连接4 == null)
-                {
-                    return;
-                }
-                网络连接4.发送封包(new 背包容量改变
+                NumberGoldCoins -= num4;
+                BackpackSize += position;
+                ActiveConnection?.发送封包(new 背包容量改变
                 {
                     背包类型 = 1,
-                    背包容量 = this.背包大小
+                    背包容量 = BackpackSize
                 });
+            }
+        }
+
+        private void ExpandWarehouse(byte position)
+        {
+            if (WarehouseSize + position > (72 * 2))
+            {
+                ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Player expanded backpack.  Error: Warehouse exceeded limit."));
                 return;
+            }
+
+            int num = ComputingClass.ExtendedWarehouse((int)(this.WarehouseSize - 16), 0, 1, 0);
+            int num2 = ComputingClass.ExtendedWarehouse((int)(this.WarehouseSize + position - 16), 0, 1, 0) - num;
+
+            if (this.NumberGoldCoins < num2)
+            {
+                ActiveConnection?.发送封包(new GameErrorMessagePacket
+                {
+                    错误代码 = 1821
+                });
+            }
+            else
+            {
+                NumberGoldCoins -= num2;
+                WarehouseSize += position;
+                ActiveConnection?.发送封包(new 背包容量改变
+                {
+                    背包类型 = 2,
+                    背包容量 = WarehouseSize
+                });
+            }
+        }
+
+        private void ExpandExtraBackpack(byte position)
+        {
+            if (WarehouseSize + position > (72 * 3))
+            {
+                ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Player expanded backpack.  Error: Warehouse exceeded limit."));
+                return;
+            }
+
+            int cost = position - ExtraBackpackSize;
+
+            if (this.NumberGoldCoins < cost)
+            {
+                ActiveConnection?.发送封包(new GameErrorMessagePacket
+                {
+                    错误代码 = 1821
+                });
+            }
+            else
+            {
+                NumberGoldCoins -= cost;
+                ExtraBackpackSize += position;
+                ActiveConnection?.发送封包(new 背包容量改变
+                {
+                    背包类型 = 7,
+                    背包容量 = ExtraBackpackSize
+                });
+            }
+        }
+
+        public void ExpandStorage(byte storageType, byte position)
+        {
+            if (position == 0)
+            {
+                ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Player expand storage. Error: Wrong storage type."));
+                return;
+            }
+
+            switch
+                (storageType)
+            {
+                case 1:
+                    ExpandBackpack(position);
+                    break;
+                case 2:
+                    ExpandWarehouse(position);
+                    break;
+                case 7:
+                    ExpandExtraBackpack(position);
+                    break;
             }
         }
 
@@ -7712,7 +7724,7 @@ namespace GameServer.Maps
                 if (背包类型 == 0)
                 {
                     EquipmentData EquipmentData;
-                    if (!this.角色装备.TryGetValue(装备位置, out EquipmentData))
+                    if (!this.Equipment.TryGetValue(装备位置, out EquipmentData))
                     {
                         SConnection 网络连接 = this.ActiveConnection;
                         if (网络连接 == null)
@@ -7780,7 +7792,7 @@ namespace GameServer.Maps
                 return;
             }
             ItemData ItemData;
-            if (!this.角色背包.TryGetValue(装备位置, out ItemData))
+            if (!this.Backpack.TryGetValue(装备位置, out ItemData))
             {
                 SConnection 网络连接6 = this.ActiveConnection;
                 if (网络连接6 == null)
@@ -7876,7 +7888,7 @@ namespace GameServer.Maps
                 this.ActiveConnection.CallExceptionEventHandler(new Exception("Bug: Shop repair single piece.  Bug: Character is too far away."));
                 return;
             }
-            if (this.NumberGoldCoins < this.角色装备.Values.Sum(delegate (EquipmentData O)
+            if (this.NumberGoldCoins < this.Equipment.Values.Sum(delegate (EquipmentData O)
             {
                 if (!O.CanRepair)
                 {
@@ -7898,7 +7910,7 @@ namespace GameServer.Maps
             }
             else
             {
-                foreach (EquipmentData EquipmentData in this.角色装备.Values)
+                foreach (EquipmentData EquipmentData in this.Equipment.Values)
                 {
                     if (EquipmentData.CanRepair)
                     {
@@ -7947,7 +7959,7 @@ namespace GameServer.Maps
                 if (背包类型 == 0)
                 {
                     EquipmentData EquipmentData;
-                    if (!this.角色装备.TryGetValue(装备位置, out EquipmentData))
+                    if (!this.Equipment.TryGetValue(装备位置, out EquipmentData))
                     {
                         SConnection 网络连接 = this.ActiveConnection;
                         if (网络连接 == null)
@@ -8004,7 +8016,7 @@ namespace GameServer.Maps
                 return;
             }
             ItemData ItemData;
-            if (!this.角色背包.TryGetValue(装备位置, out ItemData))
+            if (!this.Backpack.TryGetValue(装备位置, out ItemData))
             {
                 SConnection 网络连接5 = this.ActiveConnection;
                 if (网络连接5 == null)
@@ -8094,7 +8106,7 @@ namespace GameServer.Maps
             {
                 return;
             }
-            if (this.NumberGoldCoins < this.角色装备.Values.Sum(delegate (EquipmentData O)
+            if (this.NumberGoldCoins < this.Equipment.Values.Sum(delegate (EquipmentData O)
             {
                 if (!O.CanRepair)
                 {
@@ -8116,7 +8128,7 @@ namespace GameServer.Maps
             }
             else
             {
-                foreach (EquipmentData EquipmentData in this.角色装备.Values)
+                foreach (EquipmentData EquipmentData in this.Equipment.Values)
                 {
                     if (EquipmentData.CanRepair)
                     {
@@ -8242,10 +8254,10 @@ namespace GameServer.Maps
                 int num3 = 珍宝商品.CurrentPrice * num2;
                 int num4 = -1;
                 byte b = 0;
-                while (b < this.背包大小)
+                while (b < this.BackpackSize)
                 {
                     ItemData ItemData;
-                    if (this.角色背包.TryGetValue(b, out ItemData) && (GameItems.PersistType != PersistentItemType.堆叠 || GameItems.Id != ItemData.Id || ItemData.当前持久.V + 购入数量 > GameItems.MaxDura))
+                    if (this.Backpack.TryGetValue(b, out ItemData) && (GameItems.PersistType != PersistentItemType.堆叠 || GameItems.Id != ItemData.Id || ItemData.当前持久.V + 购入数量 > GameItems.MaxDura))
                     {
                         b += 1;
                     }
@@ -8276,7 +8288,7 @@ namespace GameServer.Maps
                                     this.CharacterData.消耗元宝.V += (long)num3;
                                 }
                                 ItemData ItemData2;
-                                if (this.角色背包.TryGetValue((byte)num4, out ItemData2))
+                                if (this.Backpack.TryGetValue((byte)num4, out ItemData2))
                                 {
                                     ItemData2.当前持久.V += num2;
                                     SConnection 网络连接2 = this.ActiveConnection;
@@ -8293,7 +8305,7 @@ namespace GameServer.Maps
                                     EquipmentItem EquipmentItem = GameItems as EquipmentItem;
                                     if (EquipmentItem != null)
                                     {
-                                        this.角色背包[(byte)num4] = new EquipmentData(EquipmentItem, this.CharacterData, 1, (byte)num4, false);
+                                        this.Backpack[(byte)num4] = new EquipmentData(EquipmentItem, this.CharacterData, 1, (byte)num4, false);
                                     }
                                     else
                                     {
@@ -8311,14 +8323,14 @@ namespace GameServer.Maps
                                                 持久 = 0;
                                                 break;
                                         }
-                                        this.角色背包[(byte)num4] = new ItemData(GameItems, this.CharacterData, 1, (byte)num4, 持久);
+                                        this.Backpack[(byte)num4] = new ItemData(GameItems, this.CharacterData, 1, (byte)num4, 持久);
                                     }
                                     SConnection 网络连接3 = this.ActiveConnection;
                                     if (网络连接3 != null)
                                     {
                                         网络连接3.发送封包(new 玩家物品变动
                                         {
-                                            物品描述 = this.角色背包[(byte)num4].字节描述()
+                                            物品描述 = this.Backpack[(byte)num4].字节描述()
                                         });
                                     }
                                 }
@@ -8381,7 +8393,7 @@ namespace GameServer.Maps
                     });
                     return;
                 }
-                else if (this.背包剩余 <= 0)
+                else if (this.BackpackSizeAvailable <= 0)
                 {
                     SConnection 网络连接3 = this.ActiveConnection;
                     if (网络连接3 == null)
@@ -8396,21 +8408,21 @@ namespace GameServer.Maps
                 }
                 else if (GameItems.DataSheetByName.TryGetValue("战具礼盒", out 模板))
                 {
-                    for (byte b = 0; b < this.背包大小; b += 1)
+                    for (byte b = 0; b < this.BackpackSize; b += 1)
                     {
-                        if (!this.角色背包.ContainsKey(b))
+                        if (!this.Backpack.ContainsKey(b))
                         {
                             this.元宝数量 -= 600;
                             this.NumberGoldCoins += 165000;
                             this.双倍经验 += 500000;
                             this.CharacterData.消耗元宝.V += 600L;
-                            this.角色背包[b] = new ItemData(模板, this.CharacterData, 1, b, 1);
+                            this.Backpack[b] = new ItemData(模板, this.CharacterData, 1, b, 1);
                             SConnection 网络连接4 = this.ActiveConnection;
                             if (网络连接4 != null)
                             {
                                 网络连接4.发送封包(new 玩家物品变动
                                 {
-                                    物品描述 = this.角色背包[b].字节描述()
+                                    物品描述 = this.Backpack[b].字节描述()
                                 });
                             }
                             this.CharacterData.补给日期.V = MainProcess.CurrentTime;
@@ -8468,9 +8480,9 @@ namespace GameServer.Maps
                     {
                         byte b2 = byte.MaxValue;
                         byte b3 = 0;
-                        while (b3 < this.背包大小)
+                        while (b3 < this.BackpackSize)
                         {
-                            if (this.角色背包.ContainsKey(b3))
+                            if (this.Backpack.ContainsKey(b3))
                             {
                                 b3 += 1;
                             }
@@ -8484,13 +8496,13 @@ namespace GameServer.Maps
                                     this.NumberGoldCoins += 875000;
                                     this.双倍经验 += 2750000;
                                     this.CharacterData.消耗元宝.V += 3000L;
-                                    this.角色背包[b2] = new ItemData(模板2, this.CharacterData, 1, b2, 1);
+                                    this.Backpack[b2] = new ItemData(模板2, this.CharacterData, 1, b2, 1);
                                     SConnection 网络连接8 = this.ActiveConnection;
                                     if (网络连接8 != null)
                                     {
                                         网络连接8.发送封包(new 玩家物品变动
                                         {
-                                            物品描述 = this.角色背包[b2].字节描述()
+                                            物品描述 = this.Backpack[b2].字节描述()
                                         });
                                     }
                                     this.CharacterData.战备日期.V = MainProcess.CurrentTime;
@@ -8524,9 +8536,9 @@ namespace GameServer.Maps
                     }
                     byte b4 = byte.MaxValue;
                     byte b5 = byte.MaxValue;
-                    for (byte b6 = 0; b6 < this.背包大小; b6 += 1)
+                    for (byte b6 = 0; b6 < this.BackpackSize; b6 += 1)
                     {
-                        if (!this.角色背包.ContainsKey(b6))
+                        if (!this.Backpack.ContainsKey(b6))
                         {
                             if (b4 == 255)
                             {
@@ -8548,22 +8560,22 @@ namespace GameServer.Maps
                         this.NumberGoldCoins += 875000;
                         this.双倍经验 += 2750000;
                         this.CharacterData.消耗元宝.V += 3000L;
-                        this.角色背包[b4] = new ItemData(模板2, this.CharacterData, 1, b4, 1);
+                        this.Backpack[b4] = new ItemData(模板2, this.CharacterData, 1, b4, 1);
                         SConnection 网络连接11 = this.ActiveConnection;
                         if (网络连接11 != null)
                         {
                             网络连接11.发送封包(new 玩家物品变动
                             {
-                                物品描述 = this.角色背包[b4].字节描述()
+                                物品描述 = this.Backpack[b4].字节描述()
                             });
                         }
-                        this.角色背包[b5] = new ItemData(模板3, this.CharacterData, 1, b5, 1);
+                        this.Backpack[b5] = new ItemData(模板3, this.CharacterData, 1, b5, 1);
                         SConnection 网络连接12 = this.ActiveConnection;
                         if (网络连接12 != null)
                         {
                             网络连接12.发送封包(new 玩家物品变动
                             {
-                                物品描述 = this.角色背包[b5].字节描述()
+                                物品描述 = this.Backpack[b5].字节描述()
                             });
                         }
                         this.CharacterData.战备日期.V = MainProcess.CurrentTime;
@@ -8797,9 +8809,9 @@ namespace GameServer.Maps
                     {
                         byte b = byte.MaxValue;
                         byte b2 = 0;
-                        while (b2 < this.背包大小)
+                        while (b2 < this.BackpackSize)
                         {
-                            if (this.角色背包.ContainsKey(b2))
+                            if (this.Backpack.ContainsKey(b2))
                             {
                                 b2 += 1;
                             }
@@ -8836,7 +8848,7 @@ namespace GameServer.Maps
                                             字节数组 = this.玛法特权描述()
                                         });
                                     }
-                                    this.角色背包[b] = new ItemData(模板, this.CharacterData, 1, b, 1);
+                                    this.Backpack[b] = new ItemData(模板, this.CharacterData, 1, b, 1);
                                     SConnection 网络连接7 = this.ActiveConnection;
                                     if (网络连接7 == null)
                                     {
@@ -8844,7 +8856,7 @@ namespace GameServer.Maps
                                     }
                                     网络连接7.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = this.角色背包[b].字节描述()
+                                        物品描述 = this.Backpack[b].字节描述()
                                     });
                                     return;
                                 }
@@ -8856,9 +8868,9 @@ namespace GameServer.Maps
                     {
                         byte b3 = byte.MaxValue;
                         byte b4 = 0;
-                        while (b4 < this.背包大小)
+                        while (b4 < this.BackpackSize)
                         {
-                            if (this.角色背包.ContainsKey(b4))
+                            if (this.Backpack.ContainsKey(b4))
                             {
                                 b4 += 1;
                             }
@@ -8895,7 +8907,7 @@ namespace GameServer.Maps
                                             字节数组 = this.玛法特权描述()
                                         });
                                     }
-                                    this.角色背包[b3] = new ItemData(模板2, this.CharacterData, 1, b3, 50);
+                                    this.Backpack[b3] = new ItemData(模板2, this.CharacterData, 1, b3, 50);
                                     SConnection 网络连接10 = this.ActiveConnection;
                                     if (网络连接10 == null)
                                     {
@@ -8903,7 +8915,7 @@ namespace GameServer.Maps
                                     }
                                     网络连接10.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = this.角色背包[b3].字节描述()
+                                        物品描述 = this.Backpack[b3].字节描述()
                                     });
                                     return;
                                 }
@@ -8915,9 +8927,9 @@ namespace GameServer.Maps
                     {
                         byte b5 = byte.MaxValue;
                         byte b6 = 0;
-                        while (b6 < this.背包大小)
+                        while (b6 < this.BackpackSize)
                         {
-                            if (this.角色背包.ContainsKey(b6))
+                            if (this.Backpack.ContainsKey(b6))
                             {
                                 b6 += 1;
                             }
@@ -8954,7 +8966,7 @@ namespace GameServer.Maps
                                             字节数组 = this.玛法特权描述()
                                         });
                                     }
-                                    this.角色背包[b5] = new ItemData(模板3, this.CharacterData, 1, b5, 1);
+                                    this.Backpack[b5] = new ItemData(模板3, this.CharacterData, 1, b5, 1);
                                     SConnection 网络连接13 = this.ActiveConnection;
                                     if (网络连接13 == null)
                                     {
@@ -8962,7 +8974,7 @@ namespace GameServer.Maps
                                     }
                                     网络连接13.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = this.角色背包[b5].字节描述()
+                                        物品描述 = this.Backpack[b5].字节描述()
                                     });
                                     return;
                                 }
@@ -8974,9 +8986,9 @@ namespace GameServer.Maps
                     {
                         byte b7 = byte.MaxValue;
                         byte b8 = 0;
-                        while (b8 < this.背包大小)
+                        while (b8 < this.BackpackSize)
                         {
-                            if (this.角色背包.ContainsKey(b8))
+                            if (this.Backpack.ContainsKey(b8))
                             {
                                 b8 += 1;
                             }
@@ -9013,7 +9025,7 @@ namespace GameServer.Maps
                                             字节数组 = this.玛法特权描述()
                                         });
                                     }
-                                    this.角色背包[b7] = new ItemData(模板4, this.CharacterData, 1, b7, (this.本期特权 == 3) ? 1 : 2);
+                                    this.Backpack[b7] = new ItemData(模板4, this.CharacterData, 1, b7, (this.本期特权 == 3) ? 1 : 2);
                                     SConnection 网络连接16 = this.ActiveConnection;
                                     if (网络连接16 == null)
                                     {
@@ -9021,7 +9033,7 @@ namespace GameServer.Maps
                                     }
                                     网络连接16.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = this.角色背包[b7].字节描述()
+                                        物品描述 = this.Backpack[b7].字节描述()
                                     });
                                     return;
                                 }
@@ -9033,9 +9045,9 @@ namespace GameServer.Maps
                     {
                         byte b9 = byte.MaxValue;
                         byte b10 = 0;
-                        while (b10 < this.背包大小)
+                        while (b10 < this.BackpackSize)
                         {
-                            if (this.角色背包.ContainsKey(b10))
+                            if (this.Backpack.ContainsKey(b10))
                             {
                                 b10 += 1;
                             }
@@ -9072,7 +9084,7 @@ namespace GameServer.Maps
                                             字节数组 = this.玛法特权描述()
                                         });
                                     }
-                                    this.角色背包[b9] = new ItemData(模板5, this.CharacterData, 1, b9, (this.本期特权 == 3) ? 1 : 2);
+                                    this.Backpack[b9] = new ItemData(模板5, this.CharacterData, 1, b9, (this.本期特权 == 3) ? 1 : 2);
                                     SConnection 网络连接19 = this.ActiveConnection;
                                     if (网络连接19 == null)
                                     {
@@ -9080,7 +9092,7 @@ namespace GameServer.Maps
                                     }
                                     网络连接19.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = this.角色背包[b9].字节描述()
+                                        物品描述 = this.Backpack[b9].字节描述()
                                     });
                                     return;
                                 }
@@ -9092,9 +9104,9 @@ namespace GameServer.Maps
                     {
                         byte b11 = byte.MaxValue;
                         byte b12 = 0;
-                        while (b12 < this.背包大小)
+                        while (b12 < this.BackpackSize)
                         {
-                            if (this.角色背包.ContainsKey(b12))
+                            if (this.Backpack.ContainsKey(b12))
                             {
                                 b12 += 1;
                             }
@@ -9131,7 +9143,7 @@ namespace GameServer.Maps
                                             字节数组 = this.玛法特权描述()
                                         });
                                     }
-                                    this.角色背包[b11] = new ItemData(模板6, this.CharacterData, 1, b11, (this.本期特权 == 3) ? 2 : 4);
+                                    this.Backpack[b11] = new ItemData(模板6, this.CharacterData, 1, b11, (this.本期特权 == 3) ? 2 : 4);
                                     SConnection 网络连接22 = this.ActiveConnection;
                                     if (网络连接22 == null)
                                     {
@@ -9139,7 +9151,7 @@ namespace GameServer.Maps
                                     }
                                     网络连接22.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = this.角色背包[b11].字节描述()
+                                        物品描述 = this.Backpack[b11].字节描述()
                                     });
                                     return;
                                 }
@@ -9198,9 +9210,9 @@ namespace GameServer.Maps
                     {
                         byte b13 = byte.MaxValue;
                         byte b14 = 0;
-                        while (b14 < this.背包大小)
+                        while (b14 < this.BackpackSize)
                         {
-                            if (this.角色背包.ContainsKey(b14))
+                            if (this.Backpack.ContainsKey(b14))
                             {
                                 b14 += 1;
                             }
@@ -9237,7 +9249,7 @@ namespace GameServer.Maps
                                             字节数组 = this.玛法特权描述()
                                         });
                                     }
-                                    this.角色背包[b13] = new ItemData(模板7, this.CharacterData, 1, b13, 1);
+                                    this.Backpack[b13] = new ItemData(模板7, this.CharacterData, 1, b13, 1);
                                     SConnection 网络连接28 = this.ActiveConnection;
                                     if (网络连接28 == null)
                                     {
@@ -9245,7 +9257,7 @@ namespace GameServer.Maps
                                     }
                                     网络连接28.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = this.角色背包[b13].字节描述()
+                                        物品描述 = this.Backpack[b13].字节描述()
                                     });
                                     return;
                                 }
@@ -9257,9 +9269,9 @@ namespace GameServer.Maps
                     {
                         byte b15 = byte.MaxValue;
                         byte b16 = 0;
-                        while (b16 < this.背包大小)
+                        while (b16 < this.BackpackSize)
                         {
-                            if (this.角色背包.ContainsKey(b16))
+                            if (this.Backpack.ContainsKey(b16))
                             {
                                 b16 += 1;
                             }
@@ -9296,7 +9308,7 @@ namespace GameServer.Maps
                                             字节数组 = this.玛法特权描述()
                                         });
                                     }
-                                    this.角色背包[b15] = new ItemData(模板8, this.CharacterData, 1, b15, 50);
+                                    this.Backpack[b15] = new ItemData(模板8, this.CharacterData, 1, b15, 50);
                                     SConnection 网络连接31 = this.ActiveConnection;
                                     if (网络连接31 == null)
                                     {
@@ -9304,7 +9316,7 @@ namespace GameServer.Maps
                                     }
                                     网络连接31.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = this.角色背包[b15].字节描述()
+                                        物品描述 = this.Backpack[b15].字节描述()
                                     });
                                     return;
                                 }
@@ -9316,9 +9328,9 @@ namespace GameServer.Maps
                     {
                         byte b17 = byte.MaxValue;
                         byte b18 = 0;
-                        while (b18 < this.背包大小)
+                        while (b18 < this.BackpackSize)
                         {
-                            if (this.角色背包.ContainsKey(b18))
+                            if (this.Backpack.ContainsKey(b18))
                             {
                                 b18 += 1;
                             }
@@ -9355,7 +9367,7 @@ namespace GameServer.Maps
                                             字节数组 = this.玛法特权描述()
                                         });
                                     }
-                                    this.角色背包[b17] = new ItemData(模板9, this.CharacterData, 1, b17, 1);
+                                    this.Backpack[b17] = new ItemData(模板9, this.CharacterData, 1, b17, 1);
                                     SConnection 网络连接34 = this.ActiveConnection;
                                     if (网络连接34 == null)
                                     {
@@ -9363,7 +9375,7 @@ namespace GameServer.Maps
                                     }
                                     网络连接34.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = this.角色背包[b17].字节描述()
+                                        物品描述 = this.Backpack[b17].字节描述()
                                     });
                                     return;
                                 }
@@ -9375,9 +9387,9 @@ namespace GameServer.Maps
                     {
                         byte b19 = byte.MaxValue;
                         byte b20 = 0;
-                        while (b20 < this.背包大小)
+                        while (b20 < this.BackpackSize)
                         {
-                            if (this.角色背包.ContainsKey(b20))
+                            if (this.Backpack.ContainsKey(b20))
                             {
                                 b20 += 1;
                             }
@@ -9414,7 +9426,7 @@ namespace GameServer.Maps
                                             字节数组 = this.玛法特权描述()
                                         });
                                     }
-                                    this.角色背包[b19] = new ItemData(模板10, this.CharacterData, 1, b19, (this.上期特权 == 3) ? 1 : 2);
+                                    this.Backpack[b19] = new ItemData(模板10, this.CharacterData, 1, b19, (this.上期特权 == 3) ? 1 : 2);
                                     SConnection 网络连接37 = this.ActiveConnection;
                                     if (网络连接37 == null)
                                     {
@@ -9422,7 +9434,7 @@ namespace GameServer.Maps
                                     }
                                     网络连接37.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = this.角色背包[b19].字节描述()
+                                        物品描述 = this.Backpack[b19].字节描述()
                                     });
                                     return;
                                 }
@@ -9434,9 +9446,9 @@ namespace GameServer.Maps
                     {
                         byte b21 = byte.MaxValue;
                         byte b22 = 0;
-                        while (b22 < this.背包大小)
+                        while (b22 < this.BackpackSize)
                         {
-                            if (this.角色背包.ContainsKey(b22))
+                            if (this.Backpack.ContainsKey(b22))
                             {
                                 b22 += 1;
                             }
@@ -9473,7 +9485,7 @@ namespace GameServer.Maps
                                             字节数组 = this.玛法特权描述()
                                         });
                                     }
-                                    this.角色背包[b21] = new ItemData(模板11, this.CharacterData, 1, b21, (this.上期特权 == 3) ? 1 : 2);
+                                    this.Backpack[b21] = new ItemData(模板11, this.CharacterData, 1, b21, (this.上期特权 == 3) ? 1 : 2);
                                     SConnection 网络连接40 = this.ActiveConnection;
                                     if (网络连接40 == null)
                                     {
@@ -9481,7 +9493,7 @@ namespace GameServer.Maps
                                     }
                                     网络连接40.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = this.角色背包[b21].字节描述()
+                                        物品描述 = this.Backpack[b21].字节描述()
                                     });
                                     return;
                                 }
@@ -9493,9 +9505,9 @@ namespace GameServer.Maps
                     {
                         byte b23 = byte.MaxValue;
                         byte b24 = 0;
-                        while (b24 < this.背包大小)
+                        while (b24 < this.BackpackSize)
                         {
-                            if (this.角色背包.ContainsKey(b24))
+                            if (this.Backpack.ContainsKey(b24))
                             {
                                 b24 += 1;
                             }
@@ -9532,7 +9544,7 @@ namespace GameServer.Maps
                                             字节数组 = this.玛法特权描述()
                                         });
                                     }
-                                    this.角色背包[b23] = new ItemData(模板12, this.CharacterData, 1, b23, (this.上期特权 == 3) ? 2 : 4);
+                                    this.Backpack[b23] = new ItemData(模板12, this.CharacterData, 1, b23, (this.上期特权 == 3) ? 2 : 4);
                                     SConnection 网络连接43 = this.ActiveConnection;
                                     if (网络连接43 == null)
                                     {
@@ -9540,7 +9552,7 @@ namespace GameServer.Maps
                                     }
                                     网络连接43.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = this.角色背包[b23].字节描述()
+                                        物品描述 = this.Backpack[b23].字节描述()
                                     });
                                     return;
                                 }
@@ -9667,7 +9679,7 @@ namespace GameServer.Maps
             {
                 if (背包类型 == 1)
                 {
-                    List<ItemData> list = this.角色背包.Values.ToList<ItemData>();
+                    List<ItemData> list = this.Backpack.Values.ToList<ItemData>();
                     list.Sort((ItemData a, ItemData b) => b.Id.CompareTo(a.Id));
                     byte b5 = 0;
                     while ((int)b5 < list.Count)
@@ -9695,12 +9707,12 @@ namespace GameServer.Maps
                         }
                         b5 += 1;
                     }
-                    this.角色背包.Clear();
+                    this.Backpack.Clear();
                     byte b2 = 0;
                     while ((int)b2 < list.Count)
                     {
-                        this.角色背包[b2] = list[(int)b2];
-                        this.角色背包[b2].当前位置 = b2;
+                        this.Backpack[b2] = list[(int)b2];
+                        this.Backpack[b2].当前位置 = b2;
                         b2 += 1;
                     }
                     SConnection 网络连接 = this.ActiveConnection;
@@ -9714,7 +9726,7 @@ namespace GameServer.Maps
                 }
                 if (背包类型 == 2)
                 {
-                    List<ItemData> list2 = this.角色仓库.Values.ToList<ItemData>();
+                    List<ItemData> list2 = this.Warehouse.Values.ToList<ItemData>();
                     list2.Sort((ItemData a, ItemData b) => b.Id.CompareTo(a.Id));
                     byte b3 = 0;
                     while ((int)b3 < list2.Count)
@@ -9742,12 +9754,12 @@ namespace GameServer.Maps
                         }
                         b3 += 1;
                     }
-                    this.角色仓库.Clear();
+                    this.Warehouse.Clear();
                     byte b4 = 0;
                     while ((int)b4 < list2.Count)
                     {
-                        this.角色仓库[b4] = list2[(int)b4];
-                        this.角色仓库[b4].当前位置 = b4;
+                        this.Warehouse[b4] = list2[(int)b4];
+                        this.Warehouse[b4].当前位置 = b4;
                         b4 += 1;
                     }
                     SConnection 网络连接2 = this.ActiveConnection;
@@ -9810,7 +9822,7 @@ namespace GameServer.Maps
                 });
                 return;
             }
-            else if (物品.默认持久 != 0 && this.背包剩余 <= 0)
+            else if (物品.默认持久 != 0 && this.BackpackSizeAvailable <= 0)
             {
                 SConnection 网络连接4 = this.ActiveConnection;
                 if (网络连接4 == null)
@@ -9839,13 +9851,13 @@ namespace GameServer.Maps
                     物品.物品转移处理();
                     return;
                 }
-                for (byte b = 0; b < this.背包大小; b += 1)
+                for (byte b = 0; b < this.BackpackSize; b += 1)
                 {
-                    if (!this.角色背包.ContainsKey(b))
+                    if (!this.Backpack.ContainsKey(b))
                     {
                         if (物品.ItemData != null)
                         {
-                            this.角色背包[b] = 物品.ItemData;
+                            this.Backpack[b] = 物品.ItemData;
                             物品.ItemData.物品位置.V = b;
                             物品.ItemData.物品容器.V = 1;
                         }
@@ -9854,19 +9866,19 @@ namespace GameServer.Maps
                             EquipmentItem EquipmentItem = 物品.物品模板 as EquipmentItem;
                             if (EquipmentItem != null)
                             {
-                                this.角色背包[b] = new EquipmentData(EquipmentItem, this.CharacterData, 1, b, true);
+                                this.Backpack[b] = new EquipmentData(EquipmentItem, this.CharacterData, 1, b, true);
                             }
                             else if (物品.PersistType == PersistentItemType.容器)
                             {
-                                this.角色背包[b] = new ItemData(物品.物品模板, this.CharacterData, 1, b, 0);
+                                this.Backpack[b] = new ItemData(物品.物品模板, this.CharacterData, 1, b, 0);
                             }
                             else if (物品.PersistType == PersistentItemType.堆叠)
                             {
-                                this.角色背包[b] = new ItemData(物品.物品模板, this.CharacterData, 1, b, 物品.堆叠数量);
+                                this.Backpack[b] = new ItemData(物品.物品模板, this.CharacterData, 1, b, 物品.堆叠数量);
                             }
                             else
                             {
-                                this.角色背包[b] = new ItemData(物品.物品模板, this.CharacterData, 1, b, 物品.默认持久);
+                                this.Backpack[b] = new ItemData(物品.物品模板, this.CharacterData, 1, b, 物品.默认持久);
                             }
                         }
                         SConnection 网络连接6 = this.ActiveConnection;
@@ -9874,7 +9886,7 @@ namespace GameServer.Maps
                         {
                             网络连接6.发送封包(new 玩家拾取物品
                             {
-                                物品描述 = this.角色背包[b].字节描述(),
+                                物品描述 = this.Backpack[b].字节描述(),
                                 角色编号 = this.MapId
                             });
                         }
@@ -9883,7 +9895,7 @@ namespace GameServer.Maps
                         {
                             网络连接7.发送封包(new 玩家物品变动
                             {
-                                物品描述 = this.角色背包[b].字节描述()
+                                物品描述 = this.Backpack[b].字节描述()
                             });
                         }
                         物品.物品转移处理();
@@ -9900,7 +9912,7 @@ namespace GameServer.Maps
             if (!this.Died && this.ParalysisState <= 0 && this.交易状态 < 3 && this.当前等级 > 7)
             {
                 ItemData ItemData;
-                if (背包类型 == 1 && this.角色背包.TryGetValue(物品位置, out ItemData))
+                if (背包类型 == 1 && this.Backpack.TryGetValue(物品位置, out ItemData))
                 {
                     if (ItemData.IsBound)
                     {
@@ -9913,7 +9925,7 @@ namespace GameServer.Maps
                     {
                         new ItemObject(ItemData.物品模板, ItemData, this.CurrentMap, this.CurrentCoords, new HashSet<CharacterData>(), 0, false);
                     }
-                    this.角色背包.Remove(ItemData.物品位置.V);
+                    this.Backpack.Remove(ItemData.物品位置.V);
                     SConnection 网络连接 = this.ActiveConnection;
                     if (网络连接 == null)
                     {
@@ -9936,7 +9948,7 @@ namespace GameServer.Maps
             {
                 ItemData ItemData;
                 ItemData ItemData2;
-                if (当前背包 == 1 && this.角色背包.TryGetValue(物品位置, out ItemData) && 目标背包 == 1 && 目标位置 < this.背包大小 && ItemData != null && ItemData.PersistType == PersistentItemType.堆叠 && ItemData.当前持久.V > (int)拆分数量 && !this.角色背包.TryGetValue(目标位置, out ItemData2))
+                if (当前背包 == 1 && this.Backpack.TryGetValue(物品位置, out ItemData) && 目标背包 == 1 && 目标位置 < this.BackpackSize && ItemData != null && ItemData.PersistType == PersistentItemType.堆叠 && ItemData.当前持久.V > (int)拆分数量 && !this.Backpack.TryGetValue(目标位置, out ItemData2))
                 {
                     ItemData.当前持久.V -= (int)拆分数量;
                     SConnection 网络连接 = this.ActiveConnection;
@@ -9947,7 +9959,7 @@ namespace GameServer.Maps
                             物品描述 = ItemData.字节描述()
                         });
                     }
-                    this.角色背包[目标位置] = new ItemData(ItemData.物品模板, this.CharacterData, 目标背包, 目标位置, (int)拆分数量);
+                    this.Backpack[目标位置] = new ItemData(ItemData.物品模板, this.CharacterData, 目标背包, 目标位置, (int)拆分数量);
                     SConnection 网络连接2 = this.ActiveConnection;
                     if (网络连接2 == null)
                     {
@@ -9955,7 +9967,7 @@ namespace GameServer.Maps
                     }
                     网络连接2.发送封包(new 玩家物品变动
                     {
-                        物品描述 = this.角色背包[目标位置].字节描述()
+                        物品描述 = this.Backpack[目标位置].字节描述()
                     });
                 }
                 return;
@@ -9973,7 +9985,7 @@ namespace GameServer.Maps
                     return;
                 }
                 ItemData ItemData;
-                if (this.角色背包.TryGetValue(物品位置, out ItemData))
+                if (this.Backpack.TryGetValue(物品位置, out ItemData))
                 {
                     EquipmentData EquipmentData = ItemData as EquipmentData;
                     if (EquipmentData != null && EquipmentData.CanSold)
@@ -9988,7 +10000,7 @@ namespace GameServer.Maps
                         this.NumberGoldCoins += Math.Max(1, SalePrice / 2);
                         this.双倍经验 += num;
                         this.CharacterData.分解经验.V += num;
-                        this.角色背包.Remove(EquipmentData.当前位置);
+                        this.Backpack.Remove(EquipmentData.当前位置);
                         EquipmentData.Delete();
                         SConnection 网络连接 = this.ActiveConnection;
                         if (网络连接 == null)
@@ -10030,467 +10042,391 @@ namespace GameServer.Maps
         }
 
 
-        public void 玩家转移物品(byte 当前背包, byte 当前位置, byte 目标背包, byte 目标位置)
+        public void TransferItem(byte fromStorageType, byte fromStoragePosition, byte toStorageType, byte toStoragePosition)
         {
             if (this.Died || this.ParalysisState > 0 || this.交易状态 >= 3)
-            {
                 return;
-            }
-            if (当前背包 == 0 && 当前位置 >= 16)
-            {
+
+            if (fromStorageType == 0 && fromStoragePosition >= 16)
                 return;
-            }
-            if (当前背包 == 1 && 当前位置 >= this.背包大小)
-            {
+
+            if (fromStorageType == 1 && fromStoragePosition >= BackpackSize)
                 return;
-            }
-            if (当前背包 == 2 && 当前位置 >= this.仓库大小)
-            {
+
+            if (fromStorageType == 2 && fromStoragePosition >= WarehouseSize)
                 return;
-            }
-            if (目标背包 == 0 && 目标位置 >= 16)
-            {
+
+            if (fromStorageType == 7 && fromStoragePosition >= ExtraBackpackSize)
                 return;
-            }
-            if (目标背包 == 1 && 目标位置 >= this.背包大小)
-            {
+
+            if (toStorageType == 0 && toStoragePosition >= 16)
                 return;
-            }
-            if (目标背包 == 2 && 目标位置 >= this.仓库大小)
-            {
+            if (toStorageType == 1 && toStoragePosition >= BackpackSize)
                 return;
-            }
-            ItemData ItemData = null;
-            if (当前背包 == 0)
-            {
-                EquipmentData EquipmentData;
-                ItemData = (this.角色装备.TryGetValue(当前位置, out EquipmentData) ? EquipmentData : null);
-            }
-            if (当前背包 == 1)
-            {
-                ItemData ItemData2;
-                ItemData = (this.角色背包.TryGetValue(当前位置, out ItemData2) ? ItemData2 : null);
-            }
-            if (当前背包 == 2)
-            {
-                ItemData ItemData3;
-                ItemData = (this.角色仓库.TryGetValue(当前位置, out ItemData3) ? ItemData3 : null);
-            }
-            ItemData ItemData4 = null;
-            if (目标背包 == 0)
-            {
-                EquipmentData EquipmentData2;
-                ItemData4 = (this.角色装备.TryGetValue(目标位置, out EquipmentData2) ? EquipmentData2 : null);
-            }
-            if (目标背包 == 1)
-            {
-                ItemData ItemData5;
-                ItemData4 = (this.角色背包.TryGetValue(目标位置, out ItemData5) ? ItemData5 : null);
-            }
-            if (目标背包 == 2)
-            {
-                ItemData ItemData6;
-                ItemData4 = (this.角色仓库.TryGetValue(目标位置, out ItemData6) ? ItemData6 : null);
-            }
-            if (ItemData == null && ItemData4 == null)
-            {
+
+            if (toStorageType == 2 && toStoragePosition >= WarehouseSize)
                 return;
-            }
-            if (当前背包 == 0 && 目标背包 == 0)
-            {
+
+            if (toStorageType == 7 && toStoragePosition >= ExtraBackpackSize)
                 return;
-            }
-            if (当前背包 == 0 && 目标背包 == 2)
-            {
+
+            ItemData sourceItem = null;
+            if (fromStorageType == 0)
+                sourceItem = Equipment.TryGetValue(fromStoragePosition, out var item) ? item : null;
+
+            if (fromStorageType == 1)
+                sourceItem = Backpack.TryGetValue(fromStoragePosition, out var item) ? item : null;
+
+            if (fromStorageType == 2)
+                sourceItem = Warehouse.TryGetValue(fromStoragePosition, out var item) ? item : null;
+
+            if (fromStorageType == 7)
+                sourceItem = ExtraBackpack.TryGetValue(fromStoragePosition, out var item) ? item : null;
+
+            ItemData destItem = null;
+            if (toStorageType == 0)
+                destItem = Equipment.TryGetValue(toStoragePosition, out var item) ? item : null;
+
+            if (toStorageType == 1)
+                destItem = Backpack.TryGetValue(toStoragePosition, out var item) ? item : null;
+
+            if (toStorageType == 2)
+                destItem = Warehouse.TryGetValue(toStoragePosition, out var item) ? item : null;
+
+            if (toStorageType == 7)
+                destItem = ExtraBackpack.TryGetValue(toStoragePosition, out var item) ? item : null;
+
+            if (sourceItem == null && destItem == null)
                 return;
-            }
-            if (当前背包 == 2 && 目标背包 == 0)
-            {
+
+            if (fromStorageType == 0 && toStorageType == 0)
                 return;
-            }
-            if (ItemData != null && 当前背包 == 0 && (ItemData as EquipmentData).DisableDismount)
-            {
+
+            if (fromStorageType == 0 && toStorageType == 2)
                 return;
-            }
-            if (ItemData4 != null && 目标背包 == 0 && (ItemData4 as EquipmentData).DisableDismount)
-            {
+
+            if (fromStorageType == 2 && toStorageType == 0)
                 return;
-            }
-            if (ItemData != null && 目标背包 == 0)
+
+            if (sourceItem != null && fromStorageType == 0 && (sourceItem as EquipmentData).DisableDismount)
+                return;
+
+            if (destItem != null && toStorageType == 0 && (destItem as EquipmentData).DisableDismount)
+                return;
+
+            if (sourceItem != null && toStorageType == 0)
             {
-                EquipmentData EquipmentData3 = ItemData as EquipmentData;
-                if (EquipmentData3 == null)
-                {
+                if (sourceItem is not EquipmentData equipmentItem)
                     return;
-                }
-                if (EquipmentData3.NeedLevel > (int)this.当前等级)
-                {
+
+                if (equipmentItem.NeedLevel > 当前等级)
                     return;
-                }
-                if (EquipmentData3.NeedGender != GameObjectGender.不限 && EquipmentData3.NeedGender != this.角色性别)
-                {
+
+                if (equipmentItem.NeedGender != GameObjectGender.不限 && equipmentItem.NeedGender != 角色性别)
                     return;
-                }
-                if (EquipmentData3.NeedRace != GameObjectRace.通用 && EquipmentData3.NeedRace != this.角色职业)
-                {
+
+                if (equipmentItem.NeedRace != GameObjectRace.通用 && equipmentItem.NeedRace != 角色职业)
                     return;
-                }
-                if (EquipmentData3.NeedAttack > this[GameObjectStats.MaxAttack])
-                {
+
+                if (equipmentItem.NeedAttack > this[GameObjectStats.MaxAttack])
                     return;
-                }
-                if (EquipmentData3.NeedMagic > this[GameObjectStats.MaxMagic])
-                {
+
+                if (equipmentItem.NeedMagic > this[GameObjectStats.MaxMagic])
                     return;
-                }
-                if (EquipmentData3.NeedTaoism > this[GameObjectStats.GreatestTaoism])
-                {
+
+                if (equipmentItem.NeedTaoism > this[GameObjectStats.GreatestTaoism])
                     return;
-                }
-                if (EquipmentData3.NeedAcupuncture > this[GameObjectStats.MaxNeedle])
-                {
+
+                if (equipmentItem.NeedAcupuncture > this[GameObjectStats.MaxNeedle])
                     return;
-                }
-                if (EquipmentData3.NeedArchery > this[GameObjectStats.MaxBow])
-                {
+
+                if (equipmentItem.NeedArchery > this[GameObjectStats.MaxBow])
                     return;
-                }
-                if (目标位置 == 0 && EquipmentData3.Weight > this.最大腕力)
-                {
+
+                if (toStoragePosition == 0 && equipmentItem.Weight > 最大腕力)
                     return;
-                }
-                if (目标位置 != 0)
+
+                if (toStoragePosition != 0)
                 {
-                    int? num = EquipmentData3.Weight - ((ItemData4 != null) ? new int?(ItemData4.Weight) : null);
+                    int? num = equipmentItem.Weight - ((destItem != null) ? new int?(destItem.Weight) : null);
+                    int num2 = 最大穿戴 - 装备重量;
+                    if (num.GetValueOrDefault() > num2 & num != null)
+                        return;
+                }
+                if (toStoragePosition == 0 && equipmentItem.物品类型 != ItemType.武器)
+                    return;
+
+                if (toStoragePosition == 1 && equipmentItem.物品类型 != ItemType.衣服)
+                    return;
+
+                if (toStoragePosition == 2 && equipmentItem.物品类型 != ItemType.披风)
+                    return;
+
+                if (toStoragePosition == 3 && equipmentItem.物品类型 != ItemType.头盔)
+                    return;
+
+                if (toStoragePosition == 4 && equipmentItem.物品类型 != ItemType.护肩)
+                    return;
+
+                if (toStoragePosition == 5 && equipmentItem.物品类型 != ItemType.护腕)
+                    return;
+
+                if (toStoragePosition == 6 && equipmentItem.物品类型 != ItemType.腰带)
+                    return;
+
+                if (toStoragePosition == 7 && equipmentItem.物品类型 != ItemType.鞋子)
+                    return;
+
+                if (toStoragePosition == 8 && equipmentItem.物品类型 != ItemType.项链)
+                    return;
+
+                if (toStoragePosition == 13 && equipmentItem.物品类型 != ItemType.勋章)
+                    return;
+
+                if (toStoragePosition == 14 && equipmentItem.物品类型 != ItemType.玉佩)
+                    return;
+
+                if (toStoragePosition == 15 && equipmentItem.物品类型 != ItemType.战具)
+                    return;
+
+                if (toStoragePosition == 9 && equipmentItem.物品类型 != ItemType.戒指)
+                    return;
+
+                if (toStoragePosition == 10 && equipmentItem.物品类型 != ItemType.戒指)
+                    return;
+
+                if (toStoragePosition == 11 && equipmentItem.物品类型 != ItemType.手镯)
+                    return;
+
+                if (toStoragePosition == 12 && equipmentItem.物品类型 != ItemType.手镯)
+                    return;
+            }
+
+            if (destItem != null && fromStorageType == 0)
+            {
+                if (destItem is not EquipmentData equipmentItem)
+                    return;
+
+                if (equipmentItem.NeedLevel > (int)this.当前等级)
+                    return;
+
+                if (equipmentItem.NeedGender != GameObjectGender.不限 && equipmentItem.NeedGender != this.角色性别)
+                    return;
+
+                if (equipmentItem.NeedRace != GameObjectRace.通用 && equipmentItem.NeedRace != this.角色职业)
+                    return;
+
+                if (equipmentItem.NeedAttack > this[GameObjectStats.MaxAttack])
+                    return;
+
+                if (equipmentItem.NeedMagic > this[GameObjectStats.MaxMagic])
+                    return;
+
+                if (equipmentItem.NeedTaoism > this[GameObjectStats.GreatestTaoism])
+                    return;
+
+                if (equipmentItem.NeedAcupuncture > this[GameObjectStats.MaxNeedle])
+                    return;
+
+                if (equipmentItem.NeedArchery > this[GameObjectStats.MaxBow])
+                    return;
+
+                if (fromStoragePosition == 0 && equipmentItem.Weight > this.最大腕力)
+                    return;
+
+                if (fromStoragePosition != 0)
+                {
+                    int? num = equipmentItem.Weight - ((sourceItem != null) ? new int?(sourceItem.Weight) : null);
                     int num2 = this.最大穿戴 - this.装备重量;
                     if (num.GetValueOrDefault() > num2 & num != null)
-                    {
                         return;
-                    }
                 }
-                if (目标位置 == 0 && EquipmentData3.物品类型 != ItemType.武器)
-                {
+                if (fromStoragePosition == 0 && equipmentItem.物品类型 != ItemType.武器)
                     return;
-                }
-                if (目标位置 == 1 && EquipmentData3.物品类型 != ItemType.衣服)
-                {
+
+                if (fromStoragePosition == 1 && equipmentItem.物品类型 != ItemType.衣服)
                     return;
-                }
-                if (目标位置 == 2 && EquipmentData3.物品类型 != ItemType.披风)
-                {
+
+                if (fromStoragePosition == 2 && equipmentItem.物品类型 != ItemType.披风)
                     return;
-                }
-                if (目标位置 == 3 && EquipmentData3.物品类型 != ItemType.头盔)
-                {
+
+                if (fromStoragePosition == 3 && equipmentItem.物品类型 != ItemType.头盔)
                     return;
-                }
-                if (目标位置 == 4 && EquipmentData3.物品类型 != ItemType.护肩)
-                {
+
+                if (fromStoragePosition == 4 && equipmentItem.物品类型 != ItemType.护肩)
                     return;
-                }
-                if (目标位置 == 5 && EquipmentData3.物品类型 != ItemType.护腕)
-                {
+
+                if (fromStoragePosition == 5 && equipmentItem.物品类型 != ItemType.护腕)
                     return;
-                }
-                if (目标位置 == 6 && EquipmentData3.物品类型 != ItemType.腰带)
-                {
+
+                if (fromStoragePosition == 6 && equipmentItem.物品类型 != ItemType.腰带)
                     return;
-                }
-                if (目标位置 == 7 && EquipmentData3.物品类型 != ItemType.鞋子)
-                {
+
+                if (fromStoragePosition == 7 && equipmentItem.物品类型 != ItemType.鞋子)
                     return;
-                }
-                if (目标位置 == 8 && EquipmentData3.物品类型 != ItemType.项链)
-                {
+
+                if (fromStoragePosition == 8 && equipmentItem.物品类型 != ItemType.项链)
                     return;
-                }
-                if (目标位置 == 13 && EquipmentData3.物品类型 != ItemType.勋章)
-                {
+
+                if (fromStoragePosition == 13 && equipmentItem.物品类型 != ItemType.勋章)
                     return;
-                }
-                if (目标位置 == 14 && EquipmentData3.物品类型 != ItemType.玉佩)
-                {
+
+                if (fromStoragePosition == 14 && equipmentItem.物品类型 != ItemType.玉佩)
                     return;
-                }
-                if (目标位置 == 15 && EquipmentData3.物品类型 != ItemType.战具)
-                {
+
+                if (fromStoragePosition == 15 && equipmentItem.物品类型 != ItemType.战具)
                     return;
-                }
-                if (目标位置 == 9 && EquipmentData3.物品类型 != ItemType.戒指)
-                {
+
+                if (fromStoragePosition == 9 && equipmentItem.物品类型 != ItemType.戒指)
                     return;
-                }
-                if (目标位置 == 10 && EquipmentData3.物品类型 != ItemType.戒指)
-                {
+
+                if (fromStoragePosition == 10 && equipmentItem.物品类型 != ItemType.戒指)
                     return;
-                }
-                if (目标位置 == 11 && EquipmentData3.物品类型 != ItemType.手镯)
-                {
+
+                if (fromStoragePosition == 11 && equipmentItem.物品类型 != ItemType.手镯)
                     return;
-                }
-                if (目标位置 == 12 && EquipmentData3.物品类型 != ItemType.手镯)
+
+                if (fromStoragePosition == 12 && equipmentItem.物品类型 != ItemType.手镯)
                 {
                     return;
                 }
             }
-            if (ItemData4 != null && 当前背包 == 0)
+
+            if (sourceItem != null && destItem != null && sourceItem.能否堆叠 && destItem.Id == sourceItem.Id && sourceItem.堆叠上限 > sourceItem.当前持久.V && destItem.堆叠上限 > destItem.当前持久.V)
             {
-                EquipmentData EquipmentData4 = ItemData4 as EquipmentData;
-                if (EquipmentData4 == null)
+                int num3 = Math.Min(sourceItem.当前持久.V, destItem.堆叠上限 - destItem.当前持久.V);
+                destItem.当前持久.V += num3;
+                sourceItem.当前持久.V -= num3;
+
+                ActiveConnection?.发送封包(new 玩家物品变动
                 {
-                    return;
-                }
-                if (EquipmentData4.NeedLevel > (int)this.当前等级)
+                    物品描述 = destItem.字节描述()
+                });
+
+                if (sourceItem.当前持久.V <= 0)
                 {
-                    return;
-                }
-                if (EquipmentData4.NeedGender != GameObjectGender.不限 && EquipmentData4.NeedGender != this.角色性别)
-                {
-                    return;
-                }
-                if (EquipmentData4.NeedRace != GameObjectRace.通用 && EquipmentData4.NeedRace != this.角色职业)
-                {
-                    return;
-                }
-                if (EquipmentData4.NeedAttack > this[GameObjectStats.MaxAttack])
-                {
-                    return;
-                }
-                if (EquipmentData4.NeedMagic > this[GameObjectStats.MaxMagic])
-                {
-                    return;
-                }
-                if (EquipmentData4.NeedTaoism > this[GameObjectStats.GreatestTaoism])
-                {
-                    return;
-                }
-                if (EquipmentData4.NeedAcupuncture > this[GameObjectStats.MaxNeedle])
-                {
-                    return;
-                }
-                if (EquipmentData4.NeedArchery > this[GameObjectStats.MaxBow])
-                {
-                    return;
-                }
-                if (当前位置 == 0 && EquipmentData4.Weight > this.最大腕力)
-                {
-                    return;
-                }
-                if (当前位置 != 0)
-                {
-                    int? num = EquipmentData4.Weight - ((ItemData != null) ? new int?(ItemData.Weight) : null);
-                    int num2 = this.最大穿戴 - this.装备重量;
-                    if (num.GetValueOrDefault() > num2 & num != null)
+                    sourceItem.Delete();
+                    switch (fromStorageType)
                     {
-                        return;
+                        case 1:
+                            Backpack.Remove(fromStoragePosition);
+                            break;
+                        case 2:
+                            Warehouse.Remove(fromStoragePosition);
+                            break;
+                        case 7:
+                            ExtraBackpack.Remove(fromStoragePosition);
+                            break;
                     }
-                }
-                if (当前位置 == 0 && EquipmentData4.物品类型 != ItemType.武器)
-                {
-                    return;
-                }
-                if (当前位置 == 1 && EquipmentData4.物品类型 != ItemType.衣服)
-                {
-                    return;
-                }
-                if (当前位置 == 2 && EquipmentData4.物品类型 != ItemType.披风)
-                {
-                    return;
-                }
-                if (当前位置 == 3 && EquipmentData4.物品类型 != ItemType.头盔)
-                {
-                    return;
-                }
-                if (当前位置 == 4 && EquipmentData4.物品类型 != ItemType.护肩)
-                {
-                    return;
-                }
-                if (当前位置 == 5 && EquipmentData4.物品类型 != ItemType.护腕)
-                {
-                    return;
-                }
-                if (当前位置 == 6 && EquipmentData4.物品类型 != ItemType.腰带)
-                {
-                    return;
-                }
-                if (当前位置 == 7 && EquipmentData4.物品类型 != ItemType.鞋子)
-                {
-                    return;
-                }
-                if (当前位置 == 8 && EquipmentData4.物品类型 != ItemType.项链)
-                {
-                    return;
-                }
-                if (当前位置 == 13 && EquipmentData4.物品类型 != ItemType.勋章)
-                {
-                    return;
-                }
-                if (当前位置 == 14 && EquipmentData4.物品类型 != ItemType.玉佩)
-                {
-                    return;
-                }
-                if (当前位置 == 15 && EquipmentData4.物品类型 != ItemType.战具)
-                {
-                    return;
-                }
-                if (当前位置 == 9 && EquipmentData4.物品类型 != ItemType.戒指)
-                {
-                    return;
-                }
-                if (当前位置 == 10 && EquipmentData4.物品类型 != ItemType.戒指)
-                {
-                    return;
-                }
-                if (当前位置 == 11 && EquipmentData4.物品类型 != ItemType.手镯)
-                {
-                    return;
-                }
-                if (当前位置 == 12 && EquipmentData4.物品类型 != ItemType.手镯)
-                {
-                    return;
-                }
-            }
-            if (ItemData != null && ItemData4 != null && ItemData.能否堆叠 && ItemData4.Id == ItemData.Id && ItemData.堆叠上限 > ItemData.当前持久.V && ItemData4.堆叠上限 > ItemData4.当前持久.V)
-            {
-                int num3 = Math.Min(ItemData.当前持久.V, ItemData4.堆叠上限 - ItemData4.当前持久.V);
-                ItemData4.当前持久.V += num3;
-                ItemData.当前持久.V -= num3;
-                SConnection 网络连接 = this.ActiveConnection;
-                if (网络连接 != null)
-                {
-                    网络连接.发送封包(new 玩家物品变动
+
+                    ActiveConnection?.发送封包(new 删除玩家物品
                     {
-                        物品描述 = ItemData4.字节描述()
+                        背包类型 = fromStorageType,
+                        物品位置 = fromStoragePosition
                     });
-                }
-                if (ItemData.当前持久.V <= 0)
-                {
-                    ItemData.Delete();
-                    if (当前背包 != 1)
-                    {
-                        if (当前背包 == 2)
-                        {
-                            this.角色仓库.Remove(当前位置);
-                        }
-                    }
-                    else
-                    {
-                        this.角色背包.Remove(当前位置);
-                    }
-                    SConnection 网络连接2 = this.ActiveConnection;
-                    if (网络连接2 == null)
-                    {
-                        return;
-                    }
-                    网络连接2.发送封包(new 删除玩家物品
-                    {
-                        背包类型 = 当前背包,
-                        物品位置 = 当前位置
-                    });
-                    return;
                 }
                 else
                 {
-                    SConnection 网络连接3 = this.ActiveConnection;
-                    if (网络连接3 == null)
+                    ActiveConnection?.发送封包(new 玩家物品变动
                     {
-                        return;
-                    }
-                    网络连接3.发送封包(new 玩家物品变动
-                    {
-                        物品描述 = ItemData.字节描述()
+                        物品描述 = sourceItem.字节描述()
                     });
-                    return;
                 }
             }
             else
             {
-                if (ItemData != null)
+                if (sourceItem != null)
                 {
-                    switch (当前背包)
+                    switch (fromStorageType)
                     {
                         case 0:
-                            this.角色装备.Remove(当前位置);
+                            Equipment.Remove(fromStoragePosition);
                             break;
                         case 1:
-                            this.角色背包.Remove(当前位置);
+                            Backpack.Remove(fromStoragePosition);
                             break;
                         case 2:
-                            this.角色仓库.Remove(当前位置);
+                            Warehouse.Remove(fromStoragePosition);
+                            break;
+                        case 7:
+                            ExtraBackpack.Remove(fromStoragePosition);
                             break;
                     }
-                    ItemData.物品容器.V = 目标背包;
-                    ItemData.物品位置.V = 目标位置;
+                    sourceItem.物品容器.V = toStorageType;
+                    sourceItem.物品位置.V = toStoragePosition;
                 }
-                if (ItemData4 != null)
+
+                if (destItem != null)
                 {
-                    switch (目标背包)
+                    switch (toStorageType)
                     {
                         case 0:
-                            this.角色装备.Remove(目标位置);
+                            Equipment.Remove(toStoragePosition);
                             break;
                         case 1:
-                            this.角色背包.Remove(目标位置);
+                            Backpack.Remove(toStoragePosition);
                             break;
                         case 2:
-                            this.角色仓库.Remove(目标位置);
+                            Warehouse.Remove(toStoragePosition);
+                            break;
+                        case 7:
+                            ExtraBackpack.Remove(toStoragePosition);
                             break;
                     }
-                    ItemData4.物品容器.V = 当前背包;
-                    ItemData4.物品位置.V = 当前位置;
+                    destItem.物品容器.V = fromStorageType;
+                    destItem.物品位置.V = fromStoragePosition;
                 }
-                if (ItemData != null)
+
+                if (sourceItem != null)
                 {
-                    switch (目标背包)
+                    switch (toStorageType)
                     {
                         case 0:
-                            this.角色装备[目标位置] = (ItemData as EquipmentData);
+                            Equipment[toStoragePosition] = (sourceItem as EquipmentData);
                             break;
                         case 1:
-                            this.角色背包[目标位置] = ItemData;
+                            Backpack[toStoragePosition] = sourceItem;
                             break;
                         case 2:
-                            this.角色仓库[目标位置] = ItemData;
+                            Warehouse[toStoragePosition] = sourceItem;
                             break;
-                    }
-                }
-                if (ItemData4 != null)
-                {
-                    switch (当前背包)
-                    {
-                        case 0:
-                            this.角色装备[当前位置] = (ItemData4 as EquipmentData);
-                            break;
-                        case 1:
-                            this.角色背包[当前位置] = ItemData4;
-                            break;
-                        case 2:
-                            this.角色仓库[当前位置] = ItemData4;
+                        case 7:
+                            ExtraBackpack[toStoragePosition] = sourceItem;
                             break;
                     }
                 }
-                SConnection 网络连接4 = this.ActiveConnection;
-                if (网络连接4 != null)
+
+                if (destItem != null)
                 {
-                    网络连接4.发送封包(new 玩家转移物品
+                    switch (fromStorageType)
                     {
-                        原有容器 = 当前背包,
-                        目标容器 = 目标背包,
-                        原有位置 = 当前位置,
-                        目标位置 = 目标位置
-                    });
+                        case 0:
+                            Equipment[fromStoragePosition] = (destItem as EquipmentData);
+                            break;
+                        case 1:
+                            Backpack[fromStoragePosition] = destItem;
+                            break;
+                        case 2:
+                            Warehouse[fromStoragePosition] = destItem;
+                            break;
+                        case 7:
+                            ExtraBackpack[fromStoragePosition] = destItem;
+                            break;
+                    }
                 }
-                if (目标背包 == 0)
+
+                ActiveConnection?.发送封包(new 玩家转移物品
                 {
-                    this.玩家穿卸装备((EquipmentWearingParts)目标位置, (EquipmentData)ItemData4, (EquipmentData)ItemData);
-                    return;
-                }
-                if (当前背包 == 0)
-                {
-                    this.玩家穿卸装备((EquipmentWearingParts)当前位置, (EquipmentData)ItemData, (EquipmentData)ItemData4);
-                    return;
-                }
-                return;
+                    原有容器 = fromStorageType,
+                    目标容器 = toStorageType,
+                    原有位置 = fromStoragePosition,
+                    目标位置 = toStoragePosition
+                });
+
+                if (toStorageType == 0)
+                    玩家穿卸装备((EquipmentWearingParts)toStoragePosition, (EquipmentData)destItem, (EquipmentData)sourceItem);
+                else if (fromStorageType == 0)
+                    玩家穿卸装备((EquipmentWearingParts)fromStoragePosition, (EquipmentData)sourceItem, (EquipmentData)destItem);
             }
         }
 
@@ -10503,7 +10439,7 @@ namespace GameServer.Maps
                     ActiveConnection.CallExceptionEventHandler(new Exception("错误操作: 玩家使用物品.  错误: 背包类型错误."));
                     return;
                 }
-                if (!角色背包.TryGetValue(itemPosition, out var v))
+                if (!Backpack.TryGetValue(itemPosition, out var v))
                 {
                     ActiveConnection?.发送封包(new GameErrorMessagePacket
                     {
@@ -10590,7 +10526,7 @@ namespace GameServer.Maps
                         }
                         break;
                     case ItemType.可用杂物:
-                        if (背包大小 - 角色背包.Count < 5)
+                        if (BackpackSize - Backpack.Count < 5)
                         {
                             ActiveConnection?.发送封包(new GameErrorMessagePacket
                             {
@@ -10630,14 +10566,14 @@ namespace GameServer.Maps
 
                             byte b21 = 0;
                             byte b22 = 0;
-                            while (b21 < 背包大小 && b22 < 6)
+                            while (b21 < BackpackSize && b22 < 6)
                             {
-                                if (!角色背包.ContainsKey(b21))
+                                if (!Backpack.ContainsKey(b21))
                                 {
-                                    角色背包[b21] = new ItemData(drugItem, CharacterData, 1, b21, 1);
+                                    Backpack[b21] = new ItemData(drugItem, CharacterData, 1, b21, 1);
                                     ActiveConnection?.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = 角色背包[b21].字节描述()
+                                        物品描述 = Backpack[b21].字节描述()
                                     });
                                     b22 = (byte)(b22 + 1);
                                 }
@@ -10653,9 +10589,9 @@ namespace GameServer.Maps
                         {
                             byte b41 = byte.MaxValue;
                             byte b42 = 0;
-                            while (b42 < 背包大小)
+                            while (b42 < BackpackSize)
                             {
-                                if (角色背包.ContainsKey(b42))
+                                if (Backpack.ContainsKey(b42))
                                 {
                                     b42 = (byte)(b42 + 1);
                                     continue;
@@ -10702,10 +10638,10 @@ namespace GameServer.Maps
                             if (value24 != null)
                             {
                                 ConsumeBackpackItem(1, v);
-                                角色背包[b41] = new ItemData(value24, CharacterData, backpackType, b41, 2);
+                                Backpack[b41] = new ItemData(value24, CharacterData, backpackType, b41, 2);
                                 ActiveConnection?.发送封包(new 玩家物品变动
                                 {
-                                    物品描述 = 角色背包[b41].字节描述()
+                                    物品描述 = Backpack[b41].字节描述()
                                 });
                             }
                             break;
@@ -10738,9 +10674,9 @@ namespace GameServer.Maps
                         {
                             byte b11 = byte.MaxValue;
                             byte b12 = 0;
-                            while (b12 < 背包大小)
+                            while (b12 < BackpackSize)
                             {
-                                if (角色背包.ContainsKey(b12))
+                                if (Backpack.ContainsKey(b12))
                                 {
                                     b12 = (byte)(b12 + 1);
                                     continue;
@@ -10784,10 +10720,10 @@ namespace GameServer.Maps
                             if (value6 != null && value6 is EquipmentItem 模板)
                             {
                                 ConsumeBackpackItem(1, v);
-                                角色背包[b11] = new EquipmentData(模板, CharacterData, backpackType, b11);
+                                Backpack[b11] = new EquipmentData(模板, CharacterData, backpackType, b11);
                                 ActiveConnection?.发送封包(new 玩家物品变动
                                 {
-                                    物品描述 = 角色背包[b11].字节描述()
+                                    物品描述 = Backpack[b11].字节描述()
                                 });
                             }
                             break;
@@ -10816,7 +10752,7 @@ namespace GameServer.Maps
                         当前魔力 += (int)Math.Max(100f * (1f + (float)this[GameObjectStats.药品回魔] / 10000f), 0f);
                         break;
                     case "魔龙城回城卷包":
-                        if (背包大小 - 角色背包.Count < 5)
+                        if (BackpackSize - Backpack.Count < 5)
                         {
                             ActiveConnection?.发送封包(new GameErrorMessagePacket
                             {
@@ -10850,14 +10786,14 @@ namespace GameServer.Maps
                             ConsumeBackpackItem(1, v);
                             byte b35 = 0;
                             byte b36 = 0;
-                            while (b35 < 背包大小 && b36 < 6)
+                            while (b35 < BackpackSize && b36 < 6)
                             {
-                                if (!角色背包.ContainsKey(b35))
+                                if (!Backpack.ContainsKey(b35))
                                 {
-                                    角色背包[b35] = new ItemData(value21, CharacterData, 1, b35, 1);
+                                    Backpack[b35] = new ItemData(value21, CharacterData, 1, b35, 1);
                                     ActiveConnection?.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = 角色背包[b35].字节描述()
+                                        物品描述 = Backpack[b35].字节描述()
                                     });
                                     b36 = (byte)(b36 + 1);
                                 }
@@ -10904,7 +10840,7 @@ namespace GameServer.Maps
                         break;
                     case "祝福油":
                         {
-                            if (!角色装备.TryGetValue(0, out var v5))
+                            if (!Equipment.TryGetValue(0, out var v5))
                             {
                                 ActiveConnection?.发送封包(new GameErrorMessagePacket
                                 {
@@ -11000,7 +10936,7 @@ namespace GameServer.Maps
                         回血次数 = 4;
                         break;
                     case "太阳水包":
-                        if (背包大小 - 角色背包.Count < 5)
+                        if (BackpackSize - Backpack.Count < 5)
                         {
                             ActiveConnection?.发送封包(new GameErrorMessagePacket
                             {
@@ -11034,14 +10970,14 @@ namespace GameServer.Maps
                             ConsumeBackpackItem(1, v);
                             byte b37 = 0;
                             byte b38 = 0;
-                            while (b37 < 背包大小 && b38 < 6)
+                            while (b37 < BackpackSize && b38 < 6)
                             {
-                                if (!角色背包.ContainsKey(b37))
+                                if (!Backpack.ContainsKey(b37))
                                 {
-                                    角色背包[b37] = new ItemData(value22, CharacterData, 1, b37, 1);
+                                    Backpack[b37] = new ItemData(value22, CharacterData, 1, b37, 1);
                                     ActiveConnection?.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = 角色背包[b37].字节描述()
+                                        物品描述 = Backpack[b37].字节描述()
                                     });
                                     b38 = (byte)(b38 + 1);
                                 }
@@ -11078,7 +11014,7 @@ namespace GameServer.Maps
                         break;
                     case "铭文位切换神符":
                         {
-                            if (!角色装备.TryGetValue(0, out var v4))
+                            if (!Equipment.TryGetValue(0, out var v4))
                             {
                                 ActiveConnection?.发送封包(new GameErrorMessagePacket
                                 {
@@ -11140,9 +11076,9 @@ namespace GameServer.Maps
                         {
                             byte b13 = byte.MaxValue;
                             byte b14 = 0;
-                            while (b14 < 背包大小)
+                            while (b14 < BackpackSize)
                             {
-                                if (角色背包.ContainsKey(b14))
+                                if (Backpack.ContainsKey(b14))
                                 {
                                     b14 = (byte)(b14 + 1);
                                     continue;
@@ -11186,10 +11122,10 @@ namespace GameServer.Maps
                             if (value7 != null && value7 is EquipmentItem 模板2)
                             {
                                 ConsumeBackpackItem(1, v);
-                                角色背包[b13] = new EquipmentData(模板2, CharacterData, backpackType, b13);
+                                Backpack[b13] = new EquipmentData(模板2, CharacterData, backpackType, b13);
                                 ActiveConnection?.发送封包(new 玩家物品变动
                                 {
-                                    物品描述 = 角色背包[b13].字节描述()
+                                    物品描述 = Backpack[b13].字节描述()
                                 });
                             }
                             break;
@@ -11286,9 +11222,9 @@ namespace GameServer.Maps
                         {
                             byte b29 = byte.MaxValue;
                             byte b30 = 0;
-                            while (b30 < 背包大小)
+                            while (b30 < BackpackSize)
                             {
-                                if (角色背包.ContainsKey(b30))
+                                if (Backpack.ContainsKey(b30))
                                 {
                                     b30 = (byte)(b30 + 1);
                                     continue;
@@ -11321,10 +11257,10 @@ namespace GameServer.Maps
                                 if (GameItems.DataSheetByName.TryGetValue("元宝袋(小)", out var value15))
                                 {
                                     ConsumeBackpackItem(1, v);
-                                    角色背包[b29] = new ItemData(value15, CharacterData, backpackType, b29, 5);
+                                    Backpack[b29] = new ItemData(value15, CharacterData, backpackType, b29, 5);
                                     ActiveConnection?.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = 角色背包[b29].字节描述()
+                                        物品描述 = Backpack[b29].字节描述()
                                     });
                                 }
                             }
@@ -11358,10 +11294,10 @@ namespace GameServer.Maps
                                 if (value16 != null)
                                 {
                                     ConsumeBackpackItem(1, v);
-                                    角色背包[b29] = new ItemData(value16, CharacterData, backpackType, b29, 3);
+                                    Backpack[b29] = new ItemData(value16, CharacterData, backpackType, b29, 3);
                                     ActiveConnection?.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = 角色背包[b29].字节描述()
+                                        物品描述 = Backpack[b29].字节描述()
                                     });
                                 }
                             }
@@ -11370,20 +11306,20 @@ namespace GameServer.Maps
                                 if (GameItems.DataSheetByName.TryGetValue("祝福油", out var value17))
                                 {
                                     ConsumeBackpackItem(1, v);
-                                    角色背包[b29] = new ItemData(value17, CharacterData, backpackType, b29, 2);
+                                    Backpack[b29] = new ItemData(value17, CharacterData, backpackType, b29, 2);
                                     ActiveConnection?.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = 角色背包[b29].字节描述()
+                                        物品描述 = Backpack[b29].字节描述()
                                     });
                                 }
                             }
                             else if (GameItems.DataSheetByName.TryGetValue("沙城奖杯", out value18))
                             {
                                 ConsumeBackpackItem(1, v);
-                                角色背包[b29] = new ItemData(value18, CharacterData, backpackType, b29, 1);
+                                Backpack[b29] = new ItemData(value18, CharacterData, backpackType, b29, 1);
                                 ActiveConnection?.发送封包(new 玩家物品变动
                                 {
-                                    物品描述 = 角色背包[b29].字节描述()
+                                    物品描述 = Backpack[b29].字节描述()
                                 });
                             }
                             break;
@@ -11396,9 +11332,9 @@ namespace GameServer.Maps
                         {
                             byte b17 = byte.MaxValue;
                             byte b18 = 0;
-                            while (b18 < 背包大小)
+                            while (b18 < BackpackSize)
                             {
-                                if (角色背包.ContainsKey(b18))
+                                if (Backpack.ContainsKey(b18))
                                 {
                                     b18 = (byte)(b18 + 1);
                                     continue;
@@ -11442,10 +11378,10 @@ namespace GameServer.Maps
                             if (value9 != null)
                             {
                                 ConsumeBackpackItem(1, v);
-                                角色背包[b17] = new ItemData(value9, CharacterData, backpackType, b17, 5);
+                                Backpack[b17] = new ItemData(value9, CharacterData, backpackType, b17, 5);
                                 ActiveConnection?.发送封包(new 玩家物品变动
                                 {
-                                    物品描述 = 角色背包[b17].字节描述()
+                                    物品描述 = Backpack[b17].字节描述()
                                 });
                             }
                             break;
@@ -11454,9 +11390,9 @@ namespace GameServer.Maps
                         {
                             byte b3 = byte.MaxValue;
                             byte b4 = 0;
-                            while (b4 < 背包大小)
+                            while (b4 < BackpackSize)
                             {
-                                if (角色背包.ContainsKey(b4))
+                                if (Backpack.ContainsKey(b4))
                                 {
                                     b4 = (byte)(b4 + 1);
                                     continue;
@@ -11503,10 +11439,10 @@ namespace GameServer.Maps
                             if (value2 != null)
                             {
                                 ConsumeBackpackItem(1, v);
-                                角色背包[b3] = new ItemData(value2, CharacterData, backpackType, b3, 1);
+                                Backpack[b3] = new ItemData(value2, CharacterData, backpackType, b3, 1);
                                 ActiveConnection?.发送封包(new 玩家物品变动
                                 {
-                                    物品描述 = 角色背包[b3].字节描述()
+                                    物品描述 = Backpack[b3].字节描述()
                                 });
                             }
                             break;
@@ -11569,9 +11505,9 @@ namespace GameServer.Maps
                         {
                             byte b = byte.MaxValue;
                             byte b2 = 0;
-                            while (b2 < 背包大小)
+                            while (b2 < BackpackSize)
                             {
-                                if (角色背包.ContainsKey(b2))
+                                if (Backpack.ContainsKey(b2))
                                 {
                                     b2 = (byte)(b2 + 1);
                                     continue;
@@ -11615,10 +11551,10 @@ namespace GameServer.Maps
                             if (value != null)
                             {
                                 ConsumeBackpackItem(1, v);
-                                角色背包[b] = new ItemData(value, CharacterData, backpackType, b, 10);
+                                Backpack[b] = new ItemData(value, CharacterData, backpackType, b, 10);
                                 ActiveConnection?.发送封包(new 玩家物品变动
                                 {
-                                    物品描述 = 角色背包[b].字节描述()
+                                    物品描述 = Backpack[b].字节描述()
                                 });
                             }
                             break;
@@ -11644,12 +11580,12 @@ namespace GameServer.Maps
             {
                 EquipmentData EquipmentData = null;
                 EquipmentData EquipmentData2;
-                if (背包类型 == 0 && this.角色装备.TryGetValue(物品位置, out EquipmentData2))
+                if (背包类型 == 0 && this.Equipment.TryGetValue(物品位置, out EquipmentData2))
                 {
                     EquipmentData = EquipmentData2;
                 }
                 ItemData ItemData;
-                if (背包类型 == 1 && this.角色背包.TryGetValue(物品位置, out ItemData))
+                if (背包类型 == 1 && this.Backpack.TryGetValue(物品位置, out ItemData))
                 {
                     EquipmentData EquipmentData3 = ItemData as EquipmentData;
                     if (EquipmentData3 != null)
@@ -11785,7 +11721,7 @@ namespace GameServer.Maps
                     ItemData ItemData = null;
                     if (背包类型 == 1)
                     {
-                        this.角色背包.TryGetValue(物品位置, out ItemData);
+                        this.Backpack.TryGetValue(物品位置, out ItemData);
                     }
                     if (ItemData == null || ItemData.IsBound || ItemData.出售类型 == ItemsForSale.禁售)
                     {
@@ -11795,7 +11731,7 @@ namespace GameServer.Maps
                     {
                         return;
                     }
-                    this.角色背包.Remove(物品位置);
+                    this.Backpack.Remove(物品位置);
                     游戏商店.SellItem(ItemData);
                     this.NumberGoldCoins += ItemData.SalePrice;
                     SConnection 网络连接 = this.ActiveConnection;
@@ -11837,10 +11773,10 @@ namespace GameServer.Maps
                     GameStoreItem 游戏商品 = 游戏商店.Products[物品位置];
                     int num3 = -1;
                     byte b = 0;
-                    while (b < this.背包大小)
+                    while (b < this.BackpackSize)
                     {
                         ItemData ItemData;
-                        if (this.角色背包.TryGetValue(b, out ItemData) && (GameItems.PersistType != PersistentItemType.堆叠 || GameItems.Id != ItemData.Id || ItemData.当前持久.V + (int)购入数量 > GameItems.MaxDura))
+                        if (this.Backpack.TryGetValue(b, out ItemData) && (GameItems.PersistType != PersistentItemType.堆叠 || GameItems.Id != ItemData.Id || ItemData.当前持久.V + (int)购入数量 > GameItems.MaxDura))
                         {
                             b += 1;
                         }
@@ -11968,7 +11904,7 @@ namespace GameServer.Maps
                                     this.消耗背包物品(num4, 物品列表);
                                 }
                                 ItemData ItemData2;
-                                if (this.角色背包.TryGetValue((byte)num3, out ItemData2))
+                                if (this.Backpack.TryGetValue((byte)num3, out ItemData2))
                                 {
                                     ItemData2.当前持久.V += num2;
                                     SConnection 网络连接7 = this.ActiveConnection;
@@ -11987,7 +11923,7 @@ namespace GameServer.Maps
                                     EquipmentItem EquipmentItem = GameItems as EquipmentItem;
                                     if (EquipmentItem != null)
                                     {
-                                        this.角色背包[(byte)num3] = new EquipmentData(EquipmentItem, this.CharacterData, 1, (byte)num3, false);
+                                        this.Backpack[(byte)num3] = new EquipmentData(EquipmentItem, this.CharacterData, 1, (byte)num3, false);
                                     }
                                     else
                                     {
@@ -12005,7 +11941,7 @@ namespace GameServer.Maps
                                                 持久 = 0;
                                                 break;
                                         }
-                                        this.角色背包[(byte)num3] = new ItemData(GameItems, this.CharacterData, 1, (byte)num3, 持久);
+                                        this.Backpack[(byte)num3] = new ItemData(GameItems, this.CharacterData, 1, (byte)num3, 持久);
                                     }
                                     SConnection 网络连接8 = this.ActiveConnection;
                                     if (网络连接8 == null)
@@ -12014,7 +11950,7 @@ namespace GameServer.Maps
                                     }
                                     网络连接8.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = this.角色背包[(byte)num3].字节描述()
+                                        物品描述 = this.Backpack[(byte)num3].字节描述()
                                     });
                                     return;
                                 }
@@ -12040,10 +11976,10 @@ namespace GameServer.Maps
                 ItemData ItemData = this.回购清单[(int)物品位置];
                 int num = -1;
                 byte b = 0;
-                while (b < this.背包大小)
+                while (b < this.BackpackSize)
                 {
                     ItemData ItemData2;
-                    if (this.角色背包.TryGetValue(b, out ItemData2) && (!ItemData.能否堆叠 || ItemData.Id != ItemData2.Id || ItemData2.当前持久.V + ItemData.当前持久.V > ItemData2.最大持久.V))
+                    if (this.Backpack.TryGetValue(b, out ItemData2) && (!ItemData.能否堆叠 || ItemData.Id != ItemData2.Id || ItemData2.当前持久.V + ItemData.当前持久.V > ItemData2.最大持久.V))
                     {
                         b += 1;
                     }
@@ -12081,7 +12017,7 @@ namespace GameServer.Maps
                         {
                             this.NumberGoldCoins -= ItemData.SalePrice;
                             ItemData ItemData3;
-                            if (this.角色背包.TryGetValue((byte)num, out ItemData3))
+                            if (this.Backpack.TryGetValue((byte)num, out ItemData3))
                             {
                                 ItemData3.当前持久.V += ItemData.当前持久.V;
                                 游戏商店.BuyItem(ItemData);
@@ -12099,7 +12035,7 @@ namespace GameServer.Maps
                             }
                             else
                             {
-                                this.角色背包[(byte)num] = ItemData;
+                                this.Backpack[(byte)num] = ItemData;
                                 ItemData.物品位置.V = (byte)num;
                                 ItemData.物品容器.V = 1;
                                 SConnection 网络连接4 = this.ActiveConnection;
@@ -12109,7 +12045,7 @@ namespace GameServer.Maps
                                 }
                                 网络连接4.发送封包(new 玩家物品变动
                                 {
-                                    物品描述 = this.角色背包[(byte)num].字节描述()
+                                    物品描述 = this.Backpack[(byte)num].字节描述()
                                 });
                                 return;
                             }
@@ -12183,13 +12119,13 @@ namespace GameServer.Maps
                 if (灵石类型 == 1)
                 {
                     ItemData ItemData;
-                    if (this.角色背包.TryGetValue(装备位置, out ItemData))
+                    if (this.Backpack.TryGetValue(装备位置, out ItemData))
                     {
                         EquipmentData EquipmentData = ItemData as EquipmentData;
                         if (EquipmentData != null)
                         {
                             ItemData ItemData2;
-                            if (!this.角色背包.TryGetValue(灵石位置, out ItemData2))
+                            if (!this.Backpack.TryGetValue(灵石位置, out ItemData2))
                             {
                                 this.ActiveConnection.CallExceptionEventHandler(new Exception("Error: The player set the spirit stone.  Error: No stone found"));
                                 return;
@@ -12256,10 +12192,10 @@ namespace GameServer.Maps
                 this.ActiveConnection.CallExceptionEventHandler(new Exception("Error: Player inlaid a spirit stone.  Error: Not in character backpack"));
                 return;
             }
-            if (this.背包剩余 > 0)
+            if (this.BackpackSizeAvailable > 0)
             {
                 ItemData ItemData;
-                if (this.角色背包.TryGetValue(装备位置, out ItemData))
+                if (this.Backpack.TryGetValue(装备位置, out ItemData))
                 {
                     EquipmentData EquipmentData = ItemData as EquipmentData;
                     if (EquipmentData != null)
@@ -12321,9 +12257,9 @@ namespace GameServer.Maps
                             }
                         }
                         byte b = 0;
-                        while (b < this.背包大小)
+                        while (b < this.BackpackSize)
                         {
-                            if (this.角色背包.ContainsKey(b))
+                            if (this.Backpack.ContainsKey(b))
                             {
                                 b += 1;
                             }
@@ -12339,13 +12275,13 @@ namespace GameServer.Maps
                                         物品描述 = EquipmentData.字节描述()
                                     });
                                 }
-                                this.角色背包[b] = new ItemData(GameItems, this.CharacterData, 1, b, 1);
+                                this.Backpack[b] = new ItemData(GameItems, this.CharacterData, 1, b, 1);
                                 SConnection 网络连接2 = this.ActiveConnection;
                                 if (网络连接2 != null)
                                 {
                                     网络连接2.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = this.角色背包[b].字节描述()
+                                        物品描述 = this.Backpack[b].字节描述()
                                     });
                                 }
                                 SConnection 网络连接3 = this.ActiveConnection;
@@ -12393,12 +12329,12 @@ namespace GameServer.Maps
         {
             EquipmentData EquipmentData = null;
             EquipmentData EquipmentData2;
-            if (装备类型 == 0 && this.角色装备.TryGetValue(装备位置, out EquipmentData2))
+            if (装备类型 == 0 && this.Equipment.TryGetValue(装备位置, out EquipmentData2))
             {
                 EquipmentData = EquipmentData2;
             }
             ItemData ItemData;
-            if (装备类型 == 1 && this.角色背包.TryGetValue(装备位置, out ItemData))
+            if (装备类型 == 1 && this.Backpack.TryGetValue(装备位置, out ItemData))
             {
                 EquipmentData EquipmentData3 = ItemData as EquipmentData;
                 if (EquipmentData3 != null)
@@ -12609,12 +12545,12 @@ namespace GameServer.Maps
         {
             EquipmentData EquipmentData = null;
             EquipmentData EquipmentData2;
-            if (装备类型 == 0 && this.角色装备.TryGetValue(装备位置, out EquipmentData2))
+            if (装备类型 == 0 && this.Equipment.TryGetValue(装备位置, out EquipmentData2))
             {
                 EquipmentData = EquipmentData2;
             }
             ItemData ItemData;
-            if (装备类型 == 1 && this.角色背包.TryGetValue(装备位置, out ItemData))
+            if (装备类型 == 1 && this.Backpack.TryGetValue(装备位置, out ItemData))
             {
                 EquipmentData EquipmentData3 = ItemData as EquipmentData;
                 if (EquipmentData3 != null)
@@ -12773,12 +12709,12 @@ namespace GameServer.Maps
             EquipmentData EquipmentData = null;
             int num = 10;
             EquipmentData EquipmentData2;
-            if (装备类型 == 0 && this.角色装备.TryGetValue(装备位置, out EquipmentData2))
+            if (装备类型 == 0 && this.Equipment.TryGetValue(装备位置, out EquipmentData2))
             {
                 EquipmentData = EquipmentData2;
             }
             ItemData ItemData;
-            if (装备类型 == 1 && this.角色背包.TryGetValue(装备位置, out ItemData))
+            if (装备类型 == 1 && this.Backpack.TryGetValue(装备位置, out ItemData))
             {
                 EquipmentData EquipmentData3 = ItemData as EquipmentData;
                 if (EquipmentData3 != null)
@@ -12920,12 +12856,12 @@ namespace GameServer.Maps
         {
             EquipmentData EquipmentData = null;
             EquipmentData EquipmentData2;
-            if (装备类型 == 0 && this.角色装备.TryGetValue(装备位置, out EquipmentData2))
+            if (装备类型 == 0 && this.Equipment.TryGetValue(装备位置, out EquipmentData2))
             {
                 EquipmentData = EquipmentData2;
             }
             ItemData ItemData;
-            if (装备类型 == 1 && this.角色背包.TryGetValue(装备位置, out ItemData))
+            if (装备类型 == 1 && this.Backpack.TryGetValue(装备位置, out ItemData))
             {
                 EquipmentData EquipmentData3 = ItemData as EquipmentData;
                 if (EquipmentData3 != null)
@@ -13003,12 +12939,12 @@ namespace GameServer.Maps
         {
             EquipmentData EquipmentData = null;
             EquipmentData EquipmentData2;
-            if (装备类型 == 0 && this.角色装备.TryGetValue(装备位置, out EquipmentData2))
+            if (装备类型 == 0 && this.Equipment.TryGetValue(装备位置, out EquipmentData2))
             {
                 EquipmentData = EquipmentData2;
             }
             ItemData ItemData;
-            if (装备类型 == 1 && this.角色背包.TryGetValue(装备位置, out ItemData))
+            if (装备类型 == 1 && this.Backpack.TryGetValue(装备位置, out ItemData))
             {
                 EquipmentData EquipmentData3 = ItemData as EquipmentData;
                 if (EquipmentData3 != null)
@@ -13111,7 +13047,7 @@ namespace GameServer.Maps
             if (装备类型 == 1)
             {
                 ItemData ItemData;
-                if (this.角色背包.TryGetValue(装备位置, out ItemData))
+                if (this.Backpack.TryGetValue(装备位置, out ItemData))
                 {
                     EquipmentData EquipmentData = ItemData as EquipmentData;
                     if (EquipmentData != null)
@@ -13208,7 +13144,7 @@ namespace GameServer.Maps
             if (装备类型 == 1)
             {
                 ItemData ItemData;
-                if (this.角色背包.TryGetValue(装备位置, out ItemData))
+                if (this.Backpack.TryGetValue(装备位置, out ItemData))
                 {
                     EquipmentData EquipmentData = ItemData as EquipmentData;
                     if (EquipmentData != null)
@@ -13296,11 +13232,11 @@ namespace GameServer.Maps
                 if (目标类型 == 1)
                 {
                     ItemData ItemData;
-                    if (this.角色背包.TryGetValue(来源位置, out ItemData))
+                    if (this.Backpack.TryGetValue(来源位置, out ItemData))
                     {
                         EquipmentData EquipmentData = ItemData as EquipmentData;
                         ItemData ItemData2;
-                        if (EquipmentData != null && this.角色背包.TryGetValue(目标位置, out ItemData2))
+                        if (EquipmentData != null && this.Backpack.TryGetValue(目标位置, out ItemData2))
                         {
                             EquipmentData EquipmentData2 = ItemData2 as EquipmentData;
                             if (EquipmentData2 != null)
@@ -13456,7 +13392,7 @@ namespace GameServer.Maps
                 });
                 return;
             }
-            else if (!this.角色装备.TryGetValue(0, out EquipmentData))
+            else if (!this.Equipment.TryGetValue(0, out EquipmentData))
             {
                 SConnection 网络连接3 = this.ActiveConnection;
                 if (网络连接3 == null)
@@ -13492,7 +13428,7 @@ namespace GameServer.Maps
                         if (b != 255)
                         {
                             ItemData ItemData;
-                            if (this.角色背包.TryGetValue(b, out ItemData))
+                            if (this.Backpack.TryGetValue(b, out ItemData))
                             {
                                 EquipmentData EquipmentData2 = ItemData as EquipmentData;
                                 if (EquipmentData2 != null)
@@ -13549,7 +13485,7 @@ namespace GameServer.Maps
                         if (b2 != 255)
                         {
                             ItemData ItemData2;
-                            if (this.角色背包.TryGetValue(b2, out ItemData2))
+                            if (this.Backpack.TryGetValue(b2, out ItemData2))
                             {
                                 if (ItemData2.物品类型 != ItemType.武器锻造)
                                 {
@@ -13602,8 +13538,8 @@ namespace GameServer.Maps
                     {
                         if (b3 != 255)
                         {
-                            this.角色背包[b3].Delete();
-                            this.角色背包.Remove(b3);
+                            this.Backpack[b3].Delete();
+                            this.Backpack.Remove(b3);
                             SConnection 网络连接11 = this.ActiveConnection;
                             if (网络连接11 != null)
                             {
@@ -13619,8 +13555,8 @@ namespace GameServer.Maps
                     {
                         if (b4 != 255)
                         {
-                            this.角色背包[b4].Delete();
-                            this.角色背包.Remove(b4);
+                            this.Backpack[b4].Delete();
+                            this.Backpack.Remove(b4);
                             SConnection 网络连接12 = this.ActiveConnection;
                             if (网络连接12 != null)
                             {
@@ -13632,7 +13568,7 @@ namespace GameServer.Maps
                             }
                         }
                     }
-                    this.角色装备.Remove(0);
+                    this.Equipment.Remove(0);
                     this.玩家穿卸装备(EquipmentWearingParts.武器, EquipmentData, null);
                     SConnection 网络连接13 = this.ActiveConnection;
                     if (网络连接13 != null)
@@ -13777,20 +13713,20 @@ namespace GameServer.Maps
             }
             if (this.CharacterData.升级成功.V)
             {
-                for (byte b = 0; b < this.背包大小; b += 1)
+                for (byte b = 0; b < this.BackpackSize; b += 1)
                 {
-                    if (!this.角色背包.ContainsKey(b))
+                    if (!this.Backpack.ContainsKey(b))
                     {
                         this.NumberGoldCoins -= DeductCoinsCommand;
-                        this.角色背包[b] = this.CharacterData.升级装备.V;
-                        this.角色背包[b].物品位置.V = b;
-                        this.角色背包[b].物品容器.V = 1;
+                        this.Backpack[b] = this.CharacterData.升级装备.V;
+                        this.Backpack[b].物品位置.V = b;
+                        this.Backpack[b].物品容器.V = 1;
                         SConnection 网络连接 = this.ActiveConnection;
                         if (网络连接 != null)
                         {
                             网络连接.发送封包(new 玩家物品变动
                             {
-                                物品描述 = this.角色背包[b].字节描述()
+                                物品描述 = this.Backpack[b].字节描述()
                             });
                         }
                         SConnection 网络连接2 = this.ActiveConnection;
@@ -14682,11 +14618,11 @@ namespace GameServer.Maps
                     SyncPlayerAppearancePacket.摆摊状态 = PlayerObject.ParalysisState;
                     SyncPlayerAppearancePacket.摊位名字 = PlayerObject.摊位名字;
                     EquipmentData EquipmentData;
-                    SyncPlayerAppearancePacket.武器等级 = ((byte)(PlayerObject.角色装备.TryGetValue(0, out EquipmentData) ? ((EquipmentData != null) ? EquipmentData.升级次数.V : 0) : 0));
+                    SyncPlayerAppearancePacket.武器等级 = ((byte)(PlayerObject.Equipment.TryGetValue(0, out EquipmentData) ? ((EquipmentData != null) ? EquipmentData.升级次数.V : 0) : 0));
                     SyncPlayerAppearancePacket.身上武器 = ((EquipmentData != null) ? EquipmentData.对应模板.V.Id : 0);
                     EquipmentData EquipmentData2;
                     int 身上衣服;
-                    if (!PlayerObject.角色装备.TryGetValue(1, out EquipmentData2))
+                    if (!PlayerObject.Equipment.TryGetValue(1, out EquipmentData2))
                     {
                         身上衣服 = 0;
                     }
@@ -14716,7 +14652,7 @@ namespace GameServer.Maps
                     SyncPlayerAppearancePacket.身上衣服 = 身上衣服;
                     EquipmentData EquipmentData3;
                     int 身上披风;
-                    if (!PlayerObject.角色装备.TryGetValue(2, out EquipmentData3))
+                    if (!PlayerObject.Equipment.TryGetValue(2, out EquipmentData3))
                     {
                         身上披风 = 0;
                     }
@@ -14949,7 +14885,7 @@ namespace GameServer.Maps
                         网络连接.发送封包(new 同步角色装备
                         {
                             对象编号 = PlayerObject.MapId,
-                            装备数量 = (byte)PlayerObject.角色装备.Count,
+                            装备数量 = (byte)PlayerObject.Equipment.Count,
                             字节描述 = PlayerObject.装备物品描述()
                         });
                     }
@@ -16195,13 +16131,13 @@ namespace GameServer.Maps
                     }
                     else
                     {
-                        if (this.背包剩余 > 0)
+                        if (this.BackpackSizeAvailable > 0)
                         {
                             int num = -1;
                             byte b = 0;
-                            while (b < this.背包大小)
+                            while (b < this.BackpackSize)
                             {
-                                if (this.角色背包.ContainsKey(b))
+                                if (this.Backpack.ContainsKey(b))
                                 {
                                     b += 1;
                                 }
@@ -16219,7 +16155,7 @@ namespace GameServer.Maps
                                                 邮件编号 = MailData.邮件编号
                                             });
                                         }
-                                        this.角色背包[(byte)num] = MailData.邮件附件.V;
+                                        this.Backpack[(byte)num] = MailData.邮件附件.V;
                                         MailData.邮件附件.V.物品位置.V = (byte)num;
                                         MailData.邮件附件.V.物品容器.V = 1;
                                         MailData.邮件附件.V = null;
@@ -19697,7 +19633,7 @@ namespace GameServer.Maps
                     return;
                 }
                 ItemData ItemData;
-                if (!this.角色背包.TryGetValue(物品位置, out ItemData))
+                if (!this.Backpack.TryGetValue(物品位置, out ItemData))
                 {
                     PlayerDeals PlayerDeals8 = this.当前交易;
                     if (PlayerDeals8 != null)
@@ -20171,7 +20107,7 @@ namespace GameServer.Maps
                     return;
                 }
                 ItemData ItemData;
-                if (!this.角色背包.TryGetValue(物品位置, out ItemData))
+                if (!this.Backpack.TryGetValue(物品位置, out ItemData))
                 {
                     this.ActiveConnection.CallExceptionEventHandler(new Exception("Error Action: PutItemsInBoothPacket, Error: Selected item is empty"));
                     return;
@@ -20389,9 +20325,9 @@ namespace GameServer.Maps
                 {
                     byte b = byte.MaxValue;
                     byte b2 = 0;
-                    while (b2 < this.背包大小)
+                    while (b2 < this.BackpackSize)
                     {
-                        if (this.角色背包.ContainsKey(b2))
+                        if (this.Backpack.ContainsKey(b2))
                         {
                             b2 += 1;
                         }
@@ -20409,7 +20345,7 @@ namespace GameServer.Maps
                                 ItemData key = ItemData;
                                 if ((物品数量[key] -= (int)购买数量) <= 0)
                                 {
-                                    PlayerObject.角色背包.Remove(ItemData.物品位置.V);
+                                    PlayerObject.Backpack.Remove(ItemData.物品位置.V);
                                     SConnection 网络连接5 = PlayerObject.ActiveConnection;
                                     if (网络连接5 != null)
                                     {
@@ -20434,20 +20370,20 @@ namespace GameServer.Maps
                                 }
                                 if (PlayerObject.当前摊位.物品数量[ItemData] <= 0)
                                 {
-                                    this.角色背包[b] = ItemData;
+                                    this.Backpack[b] = ItemData;
                                     ItemData.物品位置.V = b;
                                     ItemData.物品容器.V = 1;
                                 }
                                 else
                                 {
-                                    this.角色背包[b] = new ItemData(ItemData.物品模板, ItemData.生成来源.V, 1, b, (int)购买数量);
+                                    this.Backpack[b] = new ItemData(ItemData.物品模板, ItemData.生成来源.V, 1, b, (int)购买数量);
                                 }
                                 SConnection 网络连接7 = this.ActiveConnection;
                                 if (网络连接7 != null)
                                 {
                                     网络连接7.发送封包(new 玩家物品变动
                                     {
-                                        物品描述 = this.角色背包[b].字节描述()
+                                        物品描述 = this.Backpack[b].字节描述()
                                     });
                                 }
                                 SConnection 网络连接8 = this.ActiveConnection;
@@ -20476,7 +20412,7 @@ namespace GameServer.Maps
                                     this.当前等级,
                                     PlayerObject.对象名字,
                                     PlayerObject.当前等级,
-                                    this.角色背包[b],
+                                    this.Backpack[b],
                                     购买数量,
                                     num
                                 }));
@@ -20683,21 +20619,28 @@ namespace GameServer.Maps
             {
                 using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
                 {
-                    foreach (EquipmentData EquipmentData in this.角色装备.Values.ToList<EquipmentData>())
+                    foreach (EquipmentData EquipmentData in this.Equipment.Values.ToList<EquipmentData>())
                     {
                         if (EquipmentData != null)
                         {
                             binaryWriter.Write(EquipmentData.字节描述());
                         }
                     }
-                    foreach (ItemData ItemData in this.角色背包.Values.ToList<ItemData>())
+                    foreach (ItemData ItemData in this.Backpack.Values.ToList<ItemData>())
                     {
                         if (ItemData != null)
                         {
                             binaryWriter.Write(ItemData.字节描述());
                         }
                     }
-                    foreach (ItemData ItemData2 in this.角色仓库.Values.ToList<ItemData>())
+                    foreach (ItemData ItemData2 in this.Warehouse.Values.ToList<ItemData>())
+                    {
+                        if (ItemData2 != null)
+                        {
+                            binaryWriter.Write(ItemData2.字节描述());
+                        }
+                    }
+                    foreach (ItemData ItemData2 in this.ExtraBackpack.Values.ToList<ItemData>())
                     {
                         if (ItemData2 != null)
                         {
@@ -20737,7 +20680,7 @@ namespace GameServer.Maps
             {
                 using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
                 {
-                    foreach (ItemData ItemData in this.角色背包.Values.ToList<ItemData>())
+                    foreach (ItemData ItemData in this.Backpack.Values.ToList<ItemData>())
                     {
                         if (ItemData != null)
                         {
@@ -20758,7 +20701,7 @@ namespace GameServer.Maps
             {
                 using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
                 {
-                    foreach (ItemData ItemData in this.角色仓库.Values.ToList<ItemData>())
+                    foreach (ItemData ItemData in this.Warehouse.Values.ToList<ItemData>())
                     {
                         if (ItemData != null)
                         {
@@ -20779,7 +20722,7 @@ namespace GameServer.Maps
             {
                 using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
                 {
-                    foreach (EquipmentData EquipmentData in this.角色装备.Values.ToList<EquipmentData>())
+                    foreach (EquipmentData EquipmentData in this.Equipment.Values.ToList<EquipmentData>())
                     {
                         if (EquipmentData != null)
                         {

@@ -320,9 +320,9 @@ namespace GameServer.Data
 
         public bool TryGetFreeSpaceAtInventory(out byte location)
         {
-            for (byte b = 0; b < 背包大小.V; b += 1)
+            for (byte b = 0; b < BackpackSize.V; b += 1)
             {
-                if (!角色背包.ContainsKey(b))
+                if (!Backpack.ContainsKey(b))
                 {
                     location = b;
                     return true;
@@ -343,8 +343,8 @@ namespace GameServer.Data
         public CharacterData(AccountData 账号, string 名字, GameObjectRace 职业, GameObjectGender 性别, ObjectHairType 发型, ObjectHairColorType 发色, ObjectFaceType 脸型)
         {
             this.当前等级.V = 1;
-            this.背包大小.V = 32;
-            this.仓库大小.V = 16;
+            this.BackpackSize.V = 32;
+            this.WarehouseSize.V = 16;
             this.所属账号.V = 账号;
             this.CharName.V = 名字;
             this.角色职业.V = 职业;
@@ -412,11 +412,11 @@ namespace GameServer.Data
                     case ItemBackPack.人物背包:
                         for (var i = 0; i < (inscriptionItem.Quantity ?? 1); i++)
                             if (TryGetFreeSpaceAtInventory(out byte inventoryPosition))
-                                角色背包[inventoryPosition] = new ItemData(item, this, 1, inventoryPosition, 1);
+                                Backpack[inventoryPosition] = new ItemData(item, this, 1, inventoryPosition, 1);
                         break;
                     case ItemBackPack.人物穿戴:
                         var equipment = (EquipmentItem)item;
-                        角色装备[equipment.Location] = new EquipmentData(equipment, this, 0, equipment.Location, false);
+                        Equipment[equipment.Location] = new EquipmentData(equipment, this, 0, equipment.Location, false);
                         break;
                 }
             }
@@ -514,11 +514,11 @@ namespace GameServer.Data
             {
                 MainForm.更新CharacterData(this, "转出金币", O);
             };
-            this.背包大小.更改事件 += delegate (byte O)
+            this.BackpackSize.更改事件 += delegate (byte O)
             {
                 MainForm.更新CharacterData(this, "背包大小", O);
             };
-            this.仓库大小.更改事件 += delegate (byte O)
+            this.WarehouseSize.更改事件 += delegate (byte O)
             {
                 MainForm.更新CharacterData(this, "仓库大小", O);
             };
@@ -575,15 +575,15 @@ namespace GameServer.Data
             {
                 MainForm.UpdateCharactersSkills(this, O);
             };
-            this.角色装备.更改事件 += delegate (List<KeyValuePair<byte, EquipmentData>> O)
+            this.Equipment.更改事件 += delegate (List<KeyValuePair<byte, EquipmentData>> O)
             {
                 MainForm.UpdateCharactersEquipment(this, O);
             };
-            this.角色背包.更改事件 += delegate (List<KeyValuePair<byte, ItemData>> O)
+            this.Backpack.更改事件 += delegate (List<KeyValuePair<byte, ItemData>> O)
             {
                 MainForm.UpdateCharactersBackpack(this, O);
             };
-            this.角色仓库.更改事件 += delegate (List<KeyValuePair<byte, ItemData>> O)
+            this.Warehouse.更改事件 += delegate (List<KeyValuePair<byte, ItemData>> O)
             {
                 MainForm.更新角色仓库(this, O);
             };
@@ -595,9 +595,9 @@ namespace GameServer.Data
             AttachToEvents();
             MainForm.AddCharacterData(this);
             MainForm.UpdateCharactersSkills(this, this.SkillData.ToList<KeyValuePair<ushort, SkillData>>());
-            MainForm.UpdateCharactersEquipment(this, this.角色装备.ToList<KeyValuePair<byte, EquipmentData>>());
-            MainForm.UpdateCharactersBackpack(this, this.角色背包.ToList<KeyValuePair<byte, ItemData>>());
-            MainForm.更新角色仓库(this, this.角色仓库.ToList<KeyValuePair<byte, ItemData>>());
+            MainForm.UpdateCharactersEquipment(this, this.Equipment.ToList<KeyValuePair<byte, EquipmentData>>());
+            MainForm.UpdateCharactersBackpack(this, this.Backpack.ToList<KeyValuePair<byte, ItemData>>());
+            MainForm.更新角色仓库(this, this.Warehouse.ToList<KeyValuePair<byte, ItemData>>());
         }
 
 
@@ -619,15 +619,15 @@ namespace GameServer.Data
             {
                 MailData.Delete();
             }
-            foreach (KeyValuePair<byte, ItemData> keyValuePair in this.角色背包)
+            foreach (KeyValuePair<byte, ItemData> keyValuePair in this.Backpack)
             {
                 keyValuePair.Value.Delete();
             }
-            foreach (KeyValuePair<byte, EquipmentData> keyValuePair2 in this.角色装备)
+            foreach (KeyValuePair<byte, EquipmentData> keyValuePair2 in this.Equipment)
             {
                 keyValuePair2.Value.Delete();
             }
-            foreach (KeyValuePair<byte, ItemData> keyValuePair3 in this.角色仓库)
+            foreach (KeyValuePair<byte, ItemData> keyValuePair3 in this.Warehouse)
             {
                 keyValuePair3.Value.Delete();
             }
@@ -698,10 +698,10 @@ namespace GameServer.Data
             binaryWriter.Write((byte)0);
             binaryWriter.Write(角色等级);
             binaryWriter.Write(当前地图.V);
-            binaryWriter.Write(角色装备[0]?.升级次数.V ?? 0);
-            binaryWriter.Write((角色装备[0]?.对应模板.V?.Id).GetValueOrDefault());
-            binaryWriter.Write((角色装备[1]?.对应模板.V?.Id).GetValueOrDefault());
-            binaryWriter.Write((角色装备[2]?.对应模板.V?.Id).GetValueOrDefault());
+            binaryWriter.Write(Equipment[0]?.升级次数.V ?? 0);
+            binaryWriter.Write((Equipment[0]?.对应模板.V?.Id).GetValueOrDefault());
+            binaryWriter.Write((Equipment[1]?.对应模板.V?.Id).GetValueOrDefault());
+            binaryWriter.Write((Equipment[2]?.对应模板.V?.Id).GetValueOrDefault());
             binaryWriter.Write(ComputingClass.TimeShift(OfflineDate.V));
             binaryWriter.Write((!FreezeDate.V.Equals(default(DateTime))) ? ComputingClass.TimeShift(FreezeDate.V) : 0);
 
@@ -869,11 +869,9 @@ namespace GameServer.Data
         public readonly HashMonitor<PetData> PetData;
 
 
-        public readonly DataMonitor<byte> 背包大小;
-
-
-        public readonly DataMonitor<byte> 仓库大小;
-
+        public readonly DataMonitor<byte> BackpackSize;
+        public readonly DataMonitor<byte> WarehouseSize;
+        public readonly DataMonitor<byte> ExtraBackpackSize;
 
         public readonly DataMonitor<long> 消耗元宝;
 
@@ -908,13 +906,10 @@ namespace GameServer.Data
         public readonly MonitorDictionary<GameCurrency, int> 角色货币;
 
 
-        public readonly MonitorDictionary<byte, ItemData> 角色背包;
-
-
-        public readonly MonitorDictionary<byte, ItemData> 角色仓库;
-
-
-        public readonly MonitorDictionary<byte, EquipmentData> 角色装备;
+        public readonly MonitorDictionary<byte, ItemData> Backpack;
+        public readonly MonitorDictionary<byte, ItemData> Warehouse;
+        public readonly MonitorDictionary<byte, ItemData> ExtraBackPack;
+        public readonly MonitorDictionary<byte, EquipmentData> Equipment;
 
 
         public readonly MonitorDictionary<byte, SkillData> 快捷栏位;

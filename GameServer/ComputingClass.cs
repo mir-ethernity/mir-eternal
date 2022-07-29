@@ -70,10 +70,42 @@ namespace GameServer
 			{
 				CumulativeConsumption += (CurrentConsumption += 10000);
 			}
-			return ComputingClass.ExtendedWarehouse(ExpansionTimes, CurrentConsumption, CurrentPosition + 1, CumulativeConsumption);
+			return ExtendedWarehouse(ExpansionTimes, CurrentConsumption, CurrentPosition + 1, CumulativeConsumption);
 		}
 
-		
+		public static int ExtendedExtraBackpack(int expansionTimes, int currentConsumption = 0, int currentPosition = 1, int cumulativeConsumption = 0)
+		{
+			if (currentPosition > expansionTimes)
+			{
+				return cumulativeConsumption;
+			}
+			if (currentPosition <= 1)
+			{
+				int num = cumulativeConsumption;
+				int num2 = 2000;
+				currentConsumption = 2000;
+				cumulativeConsumption = num + num2;
+			}
+			else if (currentPosition <= 24)
+			{
+				cumulativeConsumption += (currentConsumption += 1000);
+			}
+			else if (currentPosition == 25)
+			{
+				int num3 = cumulativeConsumption;
+				int num4 = 30000;
+				currentConsumption = 30000;
+				cumulativeConsumption = num3 + num4;
+			}
+			else
+			{
+				cumulativeConsumption += (currentConsumption += 10000);
+			}
+
+			return ExtendedExtraBackpack(expansionTimes, currentConsumption, currentPosition + 1, cumulativeConsumption);
+		}
+
+
 		public static int ValueLimit(int LowerLimit, int Value, int UpperLimit)
 		{
 			if (Value > UpperLimit)

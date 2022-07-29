@@ -634,7 +634,7 @@ namespace GameServer.Networking
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
                 return;
             }
-            this.Player.玩家转移物品(P.当前背包, P.原有位置, P.目标背包, P.目标位置);
+            this.Player.TransferItem(P.当前背包, P.原有位置, P.目标背包, P.目标位置);
         }
 
 
@@ -667,7 +667,7 @@ namespace GameServer.Networking
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
                 return;
             }
-            this.Player.玩家扩展背包(P.背包类型, P.扩展大小);
+            this.Player.ExpandStorage(P.背包类型, P.扩展大小);
         }
 
 
