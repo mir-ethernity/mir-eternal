@@ -13,7 +13,7 @@ namespace GameServer
 
         public static string 软件注册代码;
         public static string GameDataPath;
-        public static string 数据备份目录;
+        public static string BackupFolder;
         public static ushort GSPort;
         public static ushort TSPort;
         public static ushort MaxPacketCount;

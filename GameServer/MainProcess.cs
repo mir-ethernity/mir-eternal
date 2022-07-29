@@ -13,6 +13,7 @@ namespace GameServer
     {
         public static DateTime CurrentTime;
         public static DateTime NextUpdateLoopCountsTime;
+        public static DateTime NextSaveDataTime;
         public static ConcurrentQueue<GMCommand> CommandsQueue;
         public static uint LoopCount;
         public static bool Running;
@@ -26,7 +27,7 @@ namespace GameServer
             NextUpdateLoopCountsTime = DateTime.Now.AddSeconds(1.0);
             RandomNumber = new Random();
         }
-       
+
         public static void Start()
         {
             if (!Running)
@@ -79,6 +80,7 @@ namespace GameServer
                 try
                 {
                     CurrentTime = DateTime.Now;
+                    ProcessSaveData();
                     ProcessServerStats();
                     ProcessGMCommands();
                     NetworkServiceGateway.Process();
@@ -138,7 +140,6 @@ namespace GameServer
         {
             if (CurrentTime > NextUpdateLoopCountsTime)
             {
-                GameDataGateway.SaveData();
                 MainForm.UpdateTotalConnections((uint)NetworkServiceGateway.Connections.Count);
                 MainForm.UpdateAlreadyLogged(NetworkServiceGateway.ActiveConnections);
                 MainForm.UpdateConnectionsOnline(NetworkServiceGateway.ConnectionsOnline);
@@ -153,6 +154,14 @@ namespace GameServer
             {
                 LoopCount += 1U;
             }
+        }
+
+        private static void ProcessSaveData()
+        {
+            if (NextSaveDataTime > CurrentTime) return;
+            GameDataGateway.SaveData();
+            GameDataGateway.PersistData();
+            NextSaveDataTime = CurrentTime.AddSeconds(60);
         }
     }
 }
