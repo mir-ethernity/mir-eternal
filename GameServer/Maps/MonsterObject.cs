@@ -595,22 +595,14 @@ namespace GameServer.Maps
 				{
 					if (this.EnterCombatSkills != null && !base.战斗姿态 && this.HateObject.仇恨列表.Count != 0)
 					{
-						GameSkills 技能模板 = this.EnterCombatSkills;
-						SkillData SkillData = null;
-						byte 动作编号 = base.动作编号;
-						base.动作编号 = (byte)(动作编号 + 1);
-						new SkillInstance(this, 技能模板, SkillData, 动作编号, this.CurrentMap, this.CurrentCoords, null, this.CurrentCoords, null, null, false);
+						new SkillInstance(this, EnterCombatSkills, null, 动作编号++, this.CurrentMap, this.CurrentCoords, null, this.CurrentCoords, null, null, false);
 						base.战斗姿态 = true;
 						base.脱战时间 = MainProcess.CurrentTime.AddSeconds(10.0);
 					}
 					else if (this.ExitCombatSkills != null && base.战斗姿态 && this.HateObject.仇恨列表.Count == 0 && MainProcess.CurrentTime > base.脱战时间)
 					{
-						GameSkills 技能模板2 = this.ExitCombatSkills;
-						SkillData SkillData2 = null;
-						byte 动作编号 = base.动作编号;
-						base.动作编号 = (byte)(动作编号 + 1);
-						new SkillInstance(this, 技能模板2, SkillData2, 动作编号, this.CurrentMap, this.CurrentCoords, null, this.CurrentCoords, null, null, false);
-						base.战斗姿态 = false;
+						new SkillInstance(this, ExitCombatSkills, null, 动作编号++, this.CurrentMap, this.CurrentCoords, null, this.CurrentCoords, null, null, false);
+						战斗姿态 = false;
 					}
 					else if (this.对象模板.OutWarAutomaticPetrochemical && !base.战斗姿态 && this.HateObject.仇恨列表.Count != 0)
 					{
@@ -646,11 +638,7 @@ namespace GameServer.Maps
 			base.ItSelf死亡处理(对象, 技能击杀);
 			if (this.DeathReleaseSkill != null && 对象 != null)
 			{
-				GameSkills 技能模板 = this.DeathReleaseSkill;
-				SkillData SkillData = null;
-				byte 动作编号 = base.动作编号;
-				base.动作编号 = (byte)(动作编号 + 1);
-				new SkillInstance(this, 技能模板, SkillData, 动作编号, this.CurrentMap, this.CurrentCoords, null, this.CurrentCoords, null, null, false).Process();
+				new SkillInstance(this, DeathReleaseSkill, null, 动作编号++, this.CurrentMap, this.CurrentCoords, null, this.CurrentCoords, null, null, false).Process();
 			}
 			if (this.CurrentMap.CopyMap || !this.禁止复活)
 			{
@@ -965,11 +953,7 @@ namespace GameServer.Maps
 			{
 				if (MainProcess.CurrentTime > this.Attack时间)
 				{
-					GameSkills 技能模板 = 游戏技能;
-					SkillData SkillData = null;
-					byte 动作编号 = base.动作编号;
-					base.动作编号 = (byte)(动作编号 + 1);
-					new SkillInstance(this, 技能模板, SkillData, 动作编号, this.CurrentMap, this.CurrentCoords, this.HateObject.当前目标, this.HateObject.当前目标.CurrentCoords, null, null, false);
+					new SkillInstance(this, 游戏技能, null, 动作编号++, this.CurrentMap, this.CurrentCoords, this.HateObject.当前目标, this.HateObject.当前目标.CurrentCoords, null, null, false);
 					this.Attack时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.ValueLimit(0, 10 - this[GameObjectStats.AttackSpeed], 10) * 500));
 					return;
 				}
@@ -1023,11 +1007,7 @@ namespace GameServer.Maps
 						}
 						if (this.ExitCombatSkills != null)
 						{
-							GameSkills 技能模板 = this.ExitCombatSkills;
-							SkillData SkillData = null;
-							byte 动作编号 = base.动作编号;
-							base.动作编号 = (byte)(动作编号 + 1);
-							new SkillInstance(this, 技能模板, SkillData, 动作编号, this.CurrentMap, this.CurrentCoords, null, this.CurrentCoords, null, null, false).Process();
+							new SkillInstance(this, ExitCombatSkills, null, 动作编号++, this.CurrentMap, this.CurrentCoords, null, this.CurrentCoords, null, null, false).Process();
 						}
 					}
 					return;

@@ -3750,13 +3750,13 @@ namespace GameServer.Maps
                 ActiveConnection?.发送封包(new 技能释放完成
                 {
                     SkillId = skillId,
-                    动作编号 = 动作编号
+                    动作编号 = actionId
                 });
                 ActiveConnection?.发送封包(new GameErrorMessagePacket
                 {
                     错误代码 = 1281,
                     第一参数 = skillId,
-                    第二参数 = 动作编号
+                    第二参数 = actionId
                 });
                 return;
             }
@@ -3806,7 +3806,7 @@ namespace GameServer.Maps
                             ActiveConnection?.发送封包(new 技能释放完成
                             {
                                 SkillId = skillId,
-                                动作编号 = 动作编号
+                                动作编号 = actionId
                             });
                             continue;
                         }
@@ -3893,7 +3893,7 @@ namespace GameServer.Maps
                         {
                             this[GameObjectStats.SkillSign] = 0;
                         }
-                        new SkillInstance(this, value2, skill, 动作编号, CurrentMap, CurrentCoords, targetObj, targetLocation, null);
+                        new SkillInstance(this, value2, skill, actionId, CurrentMap, CurrentCoords, targetObj, targetLocation, null);
                         break;
                     }
                     ActiveConnection?.发送封包(new AddedSkillCooldownPacket
@@ -3904,7 +3904,7 @@ namespace GameServer.Maps
                     ActiveConnection?.发送封包(new 技能释放完成
                     {
                         SkillId = skillId,
-                        动作编号 = 动作编号
+                        动作编号 = actionId
                     });
                     break;
                 }
@@ -3917,7 +3917,7 @@ namespace GameServer.Maps
                 ActiveConnection?.发送封包(new 技能释放完成
                 {
                     SkillId = skillId,
-                    动作编号 = 动作编号
+                    动作编号 = actionId
                 });
                 break;
             }

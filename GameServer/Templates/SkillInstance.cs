@@ -50,7 +50,7 @@ namespace GameServer.Templates
             }
         }
         public bool CheckCount => SkillInfo.CheckSkillCount;
-        
+
         public SkillInstance(MapObject casterObject, GameSkills skillInfo, SkillData skillData, byte actionId, MapInstance releaseMap, Point releaseLocation, MapObject skillTarget, Point skillPointer, SkillInstance parentSkill, Dictionary<int, HitDetail> hits = null, bool targetBorrow = false)
         {
             CasterObject = casterObject;
@@ -66,7 +66,7 @@ namespace GameServer.Templates
             TargetBorrow = targetBorrow;
             Hits = (hits ?? new Dictionary<int, HitDetail>());
             Nodes = new SortedDictionary<int, SkillTask>(skillInfo.Nodes);
-            
+
             if (Nodes.Count != 0)
             {
                 CasterObject.SkillTasks.Add(this);
