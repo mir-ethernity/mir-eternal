@@ -5,16 +5,12 @@ using Newtonsoft.Json;
 
 namespace AccountServer
 {
-	
 	public static class Serializer
-	{
-		
+	{		
 		public static string Serialize(object O)
 		{
 			return JsonConvert.SerializeObject(O, Serializer.GlobalSettings);
-		}
-
-		
+		}		
 		public static object[] Deserialize(string directoryPath, Type type)
 		{
 			List<object> list = new List<object>();
@@ -29,7 +25,6 @@ namespace AccountServer
 			}
 			return list.ToArray();
 		}
-
 		
 		private static readonly JsonSerializerSettings GlobalSettings = new JsonSerializerSettings
 		{

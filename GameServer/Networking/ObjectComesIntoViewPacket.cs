@@ -15,35 +15,35 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 1)]
 		public byte 出现方式;
 
 		
-		[WrappingFieldAttribute(下标 = 3, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 3, Length = 4)]
 		public int 对象编号;
 
 		
-		[WrappingFieldAttribute(下标 = 7, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 7, Length = 1)]
 		public byte 现身姿态;
 
 		
-		[WrappingFieldAttribute(下标 = 8, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 8, Length = 4)]
 		public Point 现身坐标;
 
 		
-		[WrappingFieldAttribute(下标 = 12, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 12, Length = 2)]
 		public ushort 现身高度;
 
 		
-		[WrappingFieldAttribute(下标 = 14, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 14, Length = 2)]
 		public ushort 现身方向;
 
 		
-		[WrappingFieldAttribute(下标 = 16, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 16, Length = 1)]
 		public byte 体力比例;
 
 		
-		[WrappingFieldAttribute(下标 = 18, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 18, Length = 1)]
 		public byte AdditionalParam;
 	}
 }

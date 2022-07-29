@@ -14,11 +14,11 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 4)]
 		public int 榜单类型;
 
 		
-		[WrappingFieldAttribute(下标 = 6, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 6, Length = 4)]
 		public int 起始位置;
 	}
 }

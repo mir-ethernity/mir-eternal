@@ -14,7 +14,7 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 33)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 33)]
 		public string 摊位名字;
 	}
 }

@@ -1,4 +1,4 @@
 {
   "Id": 611400000,
-  "Content": "幽冥海封印崩裂,上古魔怪倾巢而出.我受苍月圣女之托前往土城请求各方英豪出手相助,诛魔者必得重谢!你愿前往幽冥海吗?<#SO:1>确定进入<#SO/>\r"
+  "Content": "The seal of the Nether Sea is broken, and the ancient monsters are pouring out. Go to Tucheng to ask for the help of heroes from all over the world.<#SO:1>Enter<#SO/>\r"
 }

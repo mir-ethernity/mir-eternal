@@ -104,7 +104,7 @@ namespace GameServer.Maps
 			}
 			set
 			{
-				value = ComputingClass.Value限制(0, value, this[GameObjectStats.MaxPhysicalStrength]);
+				value = ComputingClass.ValueLimit(0, value, this[GameObjectStats.MaxPhysicalStrength]);
 				if (base.当前体力 != value)
 				{
 					base.当前体力 = value;
@@ -121,23 +121,23 @@ namespace GameServer.Maps
 		
 		// (get) Token: 0x06000852 RID: 2130 RVA: 0x00006167 File Offset: 0x00004367
 		// (set) Token: 0x06000853 RID: 2131 RVA: 0x0000616F File Offset: 0x0000436F
-		public override MapInstance 当前地图
+		public override MapInstance CurrentMap
 		{
 			get
 			{
-				return base.当前地图;
+				return base.CurrentMap;
 			}
 			set
 			{
-				if (this.当前地图 != value)
+				if (this.CurrentMap != value)
 				{
-					MapInstance 当前地图 = base.当前地图;
+					MapInstance 当前地图 = base.CurrentMap;
 					if (当前地图 != null)
 					{
 						当前地图.移除对象(this);
 					}
-					base.当前地图 = value;
-					base.当前地图.添加对象(this);
+					base.CurrentMap = value;
+					base.CurrentMap.添加对象(this);
 				}
 			}
 		}
@@ -188,7 +188,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000858 RID: 2136 RVA: 0x00006A23 File Offset: 0x00004C23
-		public override GameObjectType 对象类型
+		public override GameObjectType ObjectType
 		{
 			get
 			{
@@ -251,7 +251,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x0600085F RID: 2143 RVA: 0x00006CC3 File Offset: 0x00004EC3
-		public ushort 模板编号
+		public ushort MonsterId
 		{
 			get
 			{
@@ -275,7 +275,7 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				if (this.当前地图.MapId != 80)
+				if (this.CurrentMap.MapId != 80)
 				{
 					return (int)this.对象模板.RangeHate;
 				}
@@ -410,8 +410,8 @@ namespace GameServer.Maps
 			
 			this.MapId = ++MapGatewayProcess.对象编号;
 			this.对象模板 = 对应宠物.对象模板;
-			this.当前地图 = 对应宠物.当前地图;
-			this.当前坐标 = 对应宠物.当前坐标;
+			this.CurrentMap = 对应宠物.CurrentMap;
+			this.CurrentCoords = 对应宠物.CurrentCoords;
 			this.当前方向 = 对应宠物.当前方向;
 			this.宠物等级 = 对应宠物.宠物等级;
 			this.禁止复活 = true;
@@ -460,7 +460,7 @@ namespace GameServer.Maps
 			}
 			对应宠物.ItSelf死亡处理(null, false);
 			对应宠物.删除对象();
-			this.对象死亡 = false;
+			this.Died = false;
 			base.战斗姿态 = false;
 			this.阻塞网格 = true;
 			base.绑定网格();
@@ -473,7 +473,7 @@ namespace GameServer.Maps
 		{
 			this.对象模板 = 对应模板;
 			this.出生地图 = 出生地图;
-			this.当前地图 = 出生地图;
+			this.CurrentMap = 出生地图;
 			this.RevivalInterval = RevivalInterval;
 			this.出生范围 = 出生范围;
 			this.禁止复活 = 禁止复活;
@@ -517,8 +517,8 @@ namespace GameServer.Maps
 			MapGatewayProcess.添加MapObject(this);
 			if (!禁止复活)
 			{
-				this.当前地图.固定怪物总数 += 1U;
-				MainForm.更新地图数据(this.当前地图, "固定怪物总数", this.当前地图.固定怪物总数);
+				this.CurrentMap.固定怪物总数 += 1U;
+				MainForm.更新地图数据(this.CurrentMap, "固定怪物总数", this.CurrentMap.固定怪物总数);
 			}
 			if (立即刷新)
 			{
@@ -528,7 +528,7 @@ namespace GameServer.Maps
 			this.复活时间 = MainProcess.CurrentTime.AddMilliseconds((double)RevivalInterval);
 			this.阻塞网格 = false;
 			this.尸体消失 = true;
-			this.对象死亡 = true;
+			this.Died = true;
 			this.次要对象 = true;
 			MapGatewayProcess.添加次要对象(this);
 		}
@@ -544,7 +544,7 @@ namespace GameServer.Maps
 			{
 				base.删除对象();
 			}
-			else if (this.对象死亡)
+			else if (this.Died)
 			{
 				if (!this.尸体消失 && MainProcess.CurrentTime >= this.消失时间)
 				{
@@ -572,13 +572,13 @@ namespace GameServer.Maps
 				{
 					base.轮询Buff时处理(keyValuePair.Value);
 				}
-				foreach (技能实例 技能实例 in this.技能任务.ToList<技能实例>())
+				foreach (SkillInstance 技能实例 in this.SkillTasks.ToList<SkillInstance>())
 				{
-					技能实例.处理任务();
+					技能实例.Process();
 				}
 				if (MainProcess.CurrentTime > base.恢复时间)
 				{
-					if (!this.检查状态(GameObjectState.Poisoned))
+					if (!this.CheckStatus(GameObjectState.Poisoned))
 					{
 						this.当前体力 += this[GameObjectStats.体力恢复];
 					}
@@ -595,22 +595,14 @@ namespace GameServer.Maps
 				{
 					if (this.EnterCombatSkills != null && !base.战斗姿态 && this.HateObject.仇恨列表.Count != 0)
 					{
-						GameSkills 技能模板 = this.EnterCombatSkills;
-						SkillData SkillData = null;
-						byte 动作编号 = base.动作编号;
-						base.动作编号 = (byte)(动作编号 + 1);
-						new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false);
+						new SkillInstance(this, EnterCombatSkills, null, 动作编号++, this.CurrentMap, this.CurrentCoords, null, this.CurrentCoords, null, null, false);
 						base.战斗姿态 = true;
 						base.脱战时间 = MainProcess.CurrentTime.AddSeconds(10.0);
 					}
 					else if (this.ExitCombatSkills != null && base.战斗姿态 && this.HateObject.仇恨列表.Count == 0 && MainProcess.CurrentTime > base.脱战时间)
 					{
-						GameSkills 技能模板2 = this.ExitCombatSkills;
-						SkillData SkillData2 = null;
-						byte 动作编号 = base.动作编号;
-						base.动作编号 = (byte)(动作编号 + 1);
-						new 技能实例(this, 技能模板2, SkillData2, 动作编号, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false);
-						base.战斗姿态 = false;
+						new SkillInstance(this, ExitCombatSkills, null, 动作编号++, this.CurrentMap, this.CurrentCoords, null, this.CurrentCoords, null, null, false);
+						战斗姿态 = false;
 					}
 					else if (this.对象模板.OutWarAutomaticPetrochemical && !base.战斗姿态 && this.HateObject.仇恨列表.Count != 0)
 					{
@@ -639,23 +631,19 @@ namespace GameServer.Maps
 		
 		public override void ItSelf死亡处理(MapObject 对象, bool 技能击杀)
 		{
-			foreach (技能实例 技能实例 in this.技能任务)
+			foreach (SkillInstance 技能实例 in this.SkillTasks)
 			{
-				技能实例.技能中断();
+				技能实例.SkillAbort();
 			}
 			base.ItSelf死亡处理(对象, 技能击杀);
 			if (this.DeathReleaseSkill != null && 对象 != null)
 			{
-				GameSkills 技能模板 = this.DeathReleaseSkill;
-				SkillData SkillData = null;
-				byte 动作编号 = base.动作编号;
-				base.动作编号 = (byte)(动作编号 + 1);
-				new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false).处理任务();
+				new SkillInstance(this, DeathReleaseSkill, null, 动作编号++, this.CurrentMap, this.CurrentCoords, null, this.CurrentCoords, null, null, false).Process();
 			}
-			if (this.当前地图.CopyMap || !this.禁止复活)
+			if (this.CurrentMap.CopyMap || !this.禁止复活)
 			{
-				this.当前地图.存活怪物总数 -= 1U;
-				MainForm.更新地图数据(this.当前地图, "存活怪物总数", -1);
+				this.CurrentMap.存活怪物总数 -= 1U;
+				MainForm.更新地图数据(this.CurrentMap, "存活怪物总数", -1);
 			}
 			this.尸体消失 = false;
 			this.消失时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.CorpsePreservation);
@@ -668,7 +656,7 @@ namespace GameServer.Maps
 			PlayerObject PlayerObject;
 			if (this.更新怪物归属(out PlayerObject))
 			{
-				if (this.当前地图.MapId == 80)
+				if (this.CurrentMap.MapId == 80)
 				{
 					int num = 0;
 					GameItems 物品模板;
@@ -679,7 +667,7 @@ namespace GameServer.Maps
 						if (MainProcess.RandomNumber.Next(num3) == num3 / 2)
 						{
 							num++;
-							new ItemObject(物品模板, null, this.当前地图, this.当前坐标, new HashSet<CharacterData>(), 1, false);
+							new ItemObject(物品模板, null, this.CurrentMap, this.CurrentCoords, new HashSet<CharacterData>(), 1, false);
 						}
 					}
 					GameItems 物品模板2;
@@ -690,7 +678,7 @@ namespace GameServer.Maps
 						if (MainProcess.RandomNumber.Next(num5) == num5 / 2)
 						{
 							num++;
-							new ItemObject(物品模板2, null, this.当前地图, this.当前坐标, new HashSet<CharacterData>(), 1, false);
+							new ItemObject(物品模板2, null, this.CurrentMap, this.CurrentCoords, new HashSet<CharacterData>(), 1, false);
 						}
 					}
 					GameItems 物品模板3;
@@ -701,7 +689,7 @@ namespace GameServer.Maps
 						if (MainProcess.RandomNumber.Next(num7) == num7 / 2)
 						{
 							num++;
-							new ItemObject(物品模板3, null, this.当前地图, this.当前坐标, new HashSet<CharacterData>(), 1, false);
+							new ItemObject(物品模板3, null, this.CurrentMap, this.CurrentCoords, new HashSet<CharacterData>(), 1, false);
 						}
 					}
 					GameItems 物品模板4;
@@ -712,7 +700,7 @@ namespace GameServer.Maps
 						if (MainProcess.RandomNumber.Next(num9) == num9 / 2)
 						{
 							num++;
-							new ItemObject(物品模板4, null, this.当前地图, this.当前坐标, new HashSet<CharacterData>(), 1, false);
+							new ItemObject(物品模板4, null, this.CurrentMap, this.CurrentCoords, new HashSet<CharacterData>(), 1, false);
 							NetworkServiceGateway.发送公告(string.Concat(new string[]
 							{
 								"[",
@@ -725,9 +713,9 @@ namespace GameServer.Maps
 					}
 					if (num > 0)
 					{
-						MainForm.更新地图数据(this.当前地图, "怪物掉落次数", num);
+						MainForm.更新地图数据(this.CurrentMap, "怪物掉落次数", num);
 					}
-					using (HashSet<PlayerObject>.Enumerator enumerator2 = this.当前地图.玩家列表.GetEnumerator())
+					using (HashSet<PlayerObject>.Enumerator enumerator2 = this.CurrentMap.玩家列表.GetEnumerator())
 					{
 						while (enumerator2.MoveNext())
 						{
@@ -765,10 +753,10 @@ namespace GameServer.Maps
 								{
 									if (游戏物品.MaxDura == 0)
 									{
-										new ItemObject(游戏物品, null, this.当前地图, this.当前坐标, 物品归属, num14, false);
+										new ItemObject(游戏物品, null, this.CurrentMap, this.CurrentCoords, 物品归属, num14, false);
 										if (游戏物品.Id == 1)
 										{
-											this.当前地图.金币掉落总数 += (long)num14;
+											this.CurrentMap.金币掉落总数 += (long)num14;
 											num11 = num14;
 										}
 										this.对象模板.DropStats[游戏物品] = (this.对象模板.DropStats.ContainsKey(游戏物品) ? this.对象模板.DropStats[游戏物品] : 0L) + (long)num14;
@@ -777,9 +765,9 @@ namespace GameServer.Maps
 									{
 										for (int i = 0; i < num14; i++)
 										{
-											new ItemObject(游戏物品, null, this.当前地图, this.当前坐标, 物品归属, 1, false);
+											new ItemObject(游戏物品, null, this.CurrentMap, this.CurrentCoords, 物品归属, 1, false);
 										}
-										this.当前地图.怪物掉落次数 += (long)num14;
+										this.CurrentMap.怪物掉落次数 += (long)num14;
 										num12++;
 										this.对象模板.DropStats[游戏物品] = (this.对象模板.DropStats.ContainsKey(游戏物品) ? this.对象模板.DropStats[游戏物品] : 0L) + (long)num14;
 									}
@@ -803,11 +791,11 @@ namespace GameServer.Maps
 				}
 				if (num11 > 0)
 				{
-					MainForm.更新地图数据(this.当前地图, "金币掉落总数", num11);
+					MainForm.更新地图数据(this.CurrentMap, "金币掉落总数", num11);
 				}
 				if (num12 > 0)
 				{
-					MainForm.更新地图数据(this.当前地图, "怪物掉落次数", num12);
+					MainForm.更新地图数据(this.CurrentMap, "怪物掉落次数", num12);
 				}
 				if (num11 > 0 || num12 > 0)
 				{
@@ -860,19 +848,19 @@ namespace GameServer.Maps
 			{
 				if (this.能否走动())
 				{
-					Point point = ComputingClass.前方坐标(this.当前坐标, ComputingClass.随机方向(), 1);
-					if (this.当前地图.能否通行(point))
+					Point point = ComputingClass.前方坐标(this.CurrentCoords, ComputingClass.随机方向(), 1);
+					if (this.CurrentMap.能否通行(point))
 					{
 						this.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.行走耗时);
 						this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.行走耗时 + this.移动间隔));
-						this.当前方向 = ComputingClass.计算方向(this.当前坐标, point);
+						this.当前方向 = ComputingClass.计算方向(this.CurrentCoords, point);
 						base.ItSelf移动时处理(point);
-						if (!this.对象死亡)
+						if (!this.Died)
 						{
 							base.发送封包(new ObjectCharacterWalkPacket
 							{
 								对象编号 = this.MapId,
-								移动坐标 = this.当前坐标,
+								移动坐标 = this.CurrentCoords,
 								移动速度 = base.行走速度
 							});
 						}
@@ -888,19 +876,19 @@ namespace GameServer.Maps
 		{
 			base.脱战时间 = MainProcess.CurrentTime.AddSeconds(10.0);
 			GameSkills 游戏技能;
-			if (this.ProbabilityTriggerSkills != null && (!this.冷却记录.ContainsKey((int)this.ProbabilityTriggerSkills.OwnSkillId | 16777216) || MainProcess.CurrentTime > this.冷却记录[(int)this.ProbabilityTriggerSkills.OwnSkillId | 16777216]) && ComputingClass.计算概率(this.ProbabilityTriggerSkills.CalculateTriggerProbability))
+			if (this.ProbabilityTriggerSkills != null && (!this.Coolings.ContainsKey((int)this.ProbabilityTriggerSkills.OwnSkillId | 16777216) || MainProcess.CurrentTime > this.Coolings[(int)this.ProbabilityTriggerSkills.OwnSkillId | 16777216]) && ComputingClass.计算概率(this.ProbabilityTriggerSkills.CalculateTriggerProbability))
 			{
 				游戏技能 = this.ProbabilityTriggerSkills;
 			}
 			else
 			{
-				if (this.NormalAttackSkills == null || (this.冷却记录.ContainsKey((int)this.NormalAttackSkills.OwnSkillId | 16777216) && !(MainProcess.CurrentTime > this.冷却记录[(int)this.NormalAttackSkills.OwnSkillId | 16777216])))
+				if (this.NormalAttackSkills == null || (this.Coolings.ContainsKey((int)this.NormalAttackSkills.OwnSkillId | 16777216) && !(MainProcess.CurrentTime > this.Coolings[(int)this.NormalAttackSkills.OwnSkillId | 16777216])))
 				{
 					return;
 				}
 				游戏技能 = this.NormalAttackSkills;
 			}
-			if (this.检查状态(GameObjectState.BusyGreen | GameObjectState.Paralyzed | GameObjectState.Absence))
+			if (this.CheckStatus(GameObjectState.BusyGreen | GameObjectState.Paralyzed | GameObjectState.Absence))
 			{
 				return;
 			}
@@ -908,15 +896,15 @@ namespace GameServer.Maps
 			{
 				if (!this.ForbbidenMove && this.能否走动())
 				{
-					GameDirection GameDirection = ComputingClass.计算方向(this.当前坐标, this.HateObject.当前目标.当前坐标);
+					GameDirection GameDirection = ComputingClass.计算方向(this.CurrentCoords, this.HateObject.当前目标.CurrentCoords);
 					Point point = default(Point);
 					for (int i = 0; i < 8; i++)
 					{
-						if (this.当前地图.能否通行(point = ComputingClass.前方坐标(this.当前坐标, GameDirection, 1)))
+						if (this.CurrentMap.能否通行(point = ComputingClass.前方坐标(this.CurrentCoords, GameDirection, 1)))
 						{
 							this.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.行走耗时);
 							this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.行走耗时 + this.移动间隔));
-							this.当前方向 = ComputingClass.计算方向(this.当前坐标, point);
+							this.当前方向 = ComputingClass.计算方向(this.CurrentCoords, point);
 							base.发送封包(new ObjectCharacterWalkPacket
 							{
 								对象编号 = this.MapId,
@@ -926,26 +914,26 @@ namespace GameServer.Maps
 							base.ItSelf移动时处理(point);
 							return;
 						}
-						GameDirection = ComputingClass.旋转方向(GameDirection, (MainProcess.RandomNumber.Next(2) == 0) ? -1 : 1);
+						GameDirection = ComputingClass.TurnAround(GameDirection, (MainProcess.RandomNumber.Next(2) == 0) ? -1 : 1);
 					}
 					return;
 				}
 			}
-			else if (游戏技能.NeedMoveForward && !ComputingClass.直线方向(this.当前坐标, this.HateObject.当前目标.当前坐标))
+			else if (游戏技能.NeedMoveForward && !ComputingClass.直线方向(this.CurrentCoords, this.HateObject.当前目标.CurrentCoords))
 			{
 				if (!this.ForbbidenMove && this.能否走动())
 				{
-					GameDirection GameDirection2 = ComputingClass.正向方向(this.当前坐标, this.HateObject.当前目标.当前坐标);
+					GameDirection GameDirection2 = ComputingClass.正向方向(this.CurrentCoords, this.HateObject.当前目标.CurrentCoords);
 					Point point2 = default(Point);
 					for (int j = 0; j < 8; j++)
 					{
-						if (this.当前地图.能否通行(point2 = ComputingClass.前方坐标(this.当前坐标, GameDirection2, 1)))
+						if (this.CurrentMap.能否通行(point2 = ComputingClass.前方坐标(this.CurrentCoords, GameDirection2, 1)))
 						{
-							this.当前方向 = ComputingClass.计算方向(this.当前坐标, point2);
+							this.当前方向 = ComputingClass.计算方向(this.CurrentCoords, point2);
 							this.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.行走耗时);
 							this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.行走耗时 + this.移动间隔));
 							base.ItSelf移动时处理(point2);
-							if (!this.对象死亡)
+							if (!this.Died)
 							{
 								base.发送封包(new ObjectCharacterWalkPacket
 								{
@@ -956,7 +944,7 @@ namespace GameServer.Maps
 							}
 							return;
 						}
-						GameDirection2 = ComputingClass.旋转方向(GameDirection2, (MainProcess.RandomNumber.Next(2) == 0) ? -1 : 1);
+						GameDirection2 = ComputingClass.TurnAround(GameDirection2, (MainProcess.RandomNumber.Next(2) == 0) ? -1 : 1);
 					}
 					return;
 				}
@@ -965,17 +953,13 @@ namespace GameServer.Maps
 			{
 				if (MainProcess.CurrentTime > this.Attack时间)
 				{
-					GameSkills 技能模板 = 游戏技能;
-					SkillData SkillData = null;
-					byte 动作编号 = base.动作编号;
-					base.动作编号 = (byte)(动作编号 + 1);
-					new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, this.HateObject.当前目标, this.HateObject.当前目标.当前坐标, null, null, false);
-					this.Attack时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.Value限制(0, 10 - this[GameObjectStats.AttackSpeed], 10) * 500));
+					new SkillInstance(this, 游戏技能, null, 动作编号++, this.CurrentMap, this.CurrentCoords, this.HateObject.当前目标, this.HateObject.当前目标.CurrentCoords, null, null, false);
+					this.Attack时间 = MainProcess.CurrentTime.AddMilliseconds((double)(ComputingClass.ValueLimit(0, 10 - this[GameObjectStats.AttackSpeed], 10) * 500));
 					return;
 				}
 				if (!this.ForbbidenMove && this.能否转动())
 				{
-					this.当前方向 = ComputingClass.计算方向(this.当前坐标, this.HateObject.当前目标.当前坐标);
+					this.当前方向 = ComputingClass.计算方向(this.CurrentCoords, this.HateObject.当前目标.CurrentCoords);
 				}
 			}
 		}
@@ -983,34 +967,34 @@ namespace GameServer.Maps
 		
 		public void 怪物复活处理(bool 计算复活)
 		{
-			if (this.当前地图.CopyMap || !this.禁止复活)
+			if (this.CurrentMap.CopyMap || !this.禁止复活)
 			{
-				this.当前地图.存活怪物总数 += 1U;
-				MainForm.更新地图数据(this.当前地图, "存活怪物总数", 1);
+				this.CurrentMap.存活怪物总数 += 1U;
+				MainForm.更新地图数据(this.CurrentMap, "存活怪物总数", 1);
 				if (计算复活)
 				{
-					this.当前地图.怪物复活次数 += 1U;
-					MainForm.更新地图数据(this.当前地图, "怪物复活次数", 1);
+					this.CurrentMap.怪物复活次数 += 1U;
+					MainForm.更新地图数据(this.CurrentMap, "怪物复活次数", 1);
 				}
 			}
 			this.更新对象Stat();
-			this.当前地图 = this.出生地图;
+			this.CurrentMap = this.出生地图;
 			this.当前方向 = ComputingClass.随机方向();
 			this.当前体力 = this[GameObjectStats.MaxPhysicalStrength];
-			this.当前坐标 = this.出生范围[MainProcess.RandomNumber.Next(0, this.出生范围.Length)];
-			Point 当前坐标 = this.当前坐标;
+			this.CurrentCoords = this.出生范围[MainProcess.RandomNumber.Next(0, this.出生范围.Length)];
+			Point 当前坐标 = this.CurrentCoords;
 			for (int i = 0; i < 100; i++)
 			{
-				if (!this.当前地图.空间阻塞(当前坐标 = ComputingClass.螺旋坐标(this.当前坐标, i)))
+				if (!this.CurrentMap.空间阻塞(当前坐标 = ComputingClass.螺旋坐标(this.CurrentCoords, i)))
 				{
-					this.当前坐标 = 当前坐标;
+					this.CurrentCoords = 当前坐标;
 					IL_F1:
 					this.Attack时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 					base.恢复时间 = MainProcess.CurrentTime.AddMilliseconds((double)MainProcess.RandomNumber.Next(5000));
 					this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(MainProcess.RandomNumber.Next(5000) + this.漫游间隔));
 					this.HateObject = new HateObject();
 					this.次要对象 = false;
-					this.对象死亡 = false;
+					this.Died = false;
 					base.战斗姿态 = false;
 					this.阻塞网格 = true;
 					base.绑定网格();
@@ -1023,11 +1007,7 @@ namespace GameServer.Maps
 						}
 						if (this.ExitCombatSkills != null)
 						{
-							GameSkills 技能模板 = this.ExitCombatSkills;
-							SkillData SkillData = null;
-							byte 动作编号 = base.动作编号;
-							base.动作编号 = (byte)(动作编号 + 1);
-							new 技能实例(this, 技能模板, SkillData, 动作编号, this.当前地图, this.当前坐标, null, this.当前坐标, null, null, false).处理任务();
+							new SkillInstance(this, ExitCombatSkills, null, 动作编号++, this.CurrentMap, this.CurrentCoords, null, this.CurrentCoords, null, null, false).Process();
 						}
 					}
 					return;
@@ -1041,7 +1021,7 @@ namespace GameServer.Maps
 		{
 			this.Buff列表.Clear();
 			this.尸体消失 = true;
-			this.对象死亡 = true;
+			this.Died = true;
 			this.阻塞网格 = false;
 			if (this.禁止复活)
 			{
@@ -1063,13 +1043,13 @@ namespace GameServer.Maps
 			if (this.激活对象)
 			{
 				this.激活对象 = false;
-				this.技能任务.Clear();
+				this.SkillTasks.Clear();
 				MapGatewayProcess.移除激活对象(this);
 			}
 			if (this.禁止复活 && !this.次要对象)
 			{
 				this.次要对象 = true;
-				this.技能任务.Clear();
+				this.SkillTasks.Clear();
 				MapGatewayProcess.添加次要对象(this);
 			}
 		}
@@ -1101,11 +1081,11 @@ namespace GameServer.Maps
 			{
 				this.HateObject.切换时间 = default(DateTime);
 			}
-			else if (this.HateObject.当前目标.对象死亡)
+			else if (this.HateObject.当前目标.Died)
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}
-			else if (!this.邻居列表.Contains(this.HateObject.当前目标))
+			else if (!this.Neighbors.Contains(this.HateObject.当前目标))
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}
@@ -1139,11 +1119,11 @@ namespace GameServer.Maps
 			{
 				this.HateObject.切换时间 = default(DateTime);
 			}
-			else if (this.HateObject.当前目标.对象死亡)
+			else if (this.HateObject.当前目标.Died)
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}
-			else if (!this.邻居列表.Contains(this.HateObject.当前目标))
+			else if (!this.Neighbors.Contains(this.HateObject.当前目标))
 			{
 				this.HateObject.移除仇恨(this.HateObject.当前目标);
 			}
@@ -1183,7 +1163,7 @@ namespace GameServer.Maps
 				{
 					if (keyValuePair.Value.仇恨Value > 0)
 					{
-						this.HateObject.添加仇恨(PetObject.宠物主人, keyValuePair.Value.仇恨时间, keyValuePair.Value.仇恨Value);
+						this.HateObject.添加仇恨(PetObject.PlayerOwner, keyValuePair.Value.仇恨时间, keyValuePair.Value.仇恨Value);
 					}
 					this.HateObject.移除仇恨(keyValuePair.Key);
 				}

@@ -14,35 +14,35 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 1)]
 		public byte 分解数量;
 
 		
-		[WrappingFieldAttribute(下标 = 3, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 3, Length = 4)]
 		public int 分解物品;
 
 		
-		[WrappingFieldAttribute(下标 = 7, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 7, Length = 4)]
 		public int 分解物一;
 
 		
-		[WrappingFieldAttribute(下标 = 11, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 11, Length = 4)]
 		public int 分解物二;
 
 		
-		[WrappingFieldAttribute(下标 = 15, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 15, Length = 4)]
 		public int 分解物三;
 
 		
-		[WrappingFieldAttribute(下标 = 19, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 19, Length = 4)]
 		public int 物品数一;
 
 		
-		[WrappingFieldAttribute(下标 = 23, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 23, Length = 4)]
 		public int 物品数二;
 
 		
-		[WrappingFieldAttribute(下标 = 27, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 27, Length = 4)]
 		public int 物品数三;
 	}
 }

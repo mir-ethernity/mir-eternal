@@ -14,23 +14,23 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 1)]
 		public byte 放入位置;
 
 		
-		[WrappingFieldAttribute(下标 = 3, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 3, Length = 1)]
 		public byte 物品容器;
 
 		
-		[WrappingFieldAttribute(下标 = 4, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 4, Length = 1)]
 		public byte 物品位置;
 
 		
-		[WrappingFieldAttribute(下标 = 5, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 5, Length = 2)]
 		public ushort 物品数量;
 
 		
-		[WrappingFieldAttribute(下标 = 7, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 7, Length = 1)]
 		public int 物品价格;
 	}
 }

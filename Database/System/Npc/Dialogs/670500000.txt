@@ -1,4 +1,4 @@
 {
   "Id": 670500000,
-  "Content": "升级武器是有技巧的,呃,至于是何技巧……只可意会不可言传.<#SO:1>武器升级<#SO/><#SO:2>取回武器(等待2小时)<#SO/><#SO:3>快速取回(花费10万金)<#SO/>"
+  "Content": "Upgrading weapons is a skill, er, as for what skill... it can only be understood and cannot be described in words.<#SO:1>Weapon Upgrade<#SO/><#SO:2>Retrieve Weapon(Wait 2 Hours)<#SO/><#SO:3>Quick Retrieval(Cost 100,000 Gold)<#SO/>"
 }

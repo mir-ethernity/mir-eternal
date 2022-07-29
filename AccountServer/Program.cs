@@ -3,11 +3,9 @@ using System.Threading;
 using System.Windows.Forms;
 
 namespace AccountServer
-{
-	
+{	
 	internal static class Program
-	{
-		
+	{		
 		[STAThread]
 		private static void Main()
 		{
@@ -24,7 +22,6 @@ namespace AccountServer
 			MessageBox.Show("The server is already up and running");
 			Environment.Exit(0);
 		}
-
 		
 		private static Mutex myMutex;
 	}

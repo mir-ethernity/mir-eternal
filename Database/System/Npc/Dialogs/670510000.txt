@@ -1,4 +1,4 @@
 {
   "Id": 670510000,
-  "Content": "修复装备可是件麻烦事情,没有足够的的金币老夫可不会干哦!"
+  "Content": "Repairing equipment is a hassle, and the old man won't do it without enough gold coins!"
 }

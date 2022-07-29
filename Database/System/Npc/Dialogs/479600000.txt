@@ -1,4 +1,4 @@
 {
   "Id": 479600000,
-  "Content": "看来你已经到极限了，希望下次你可以战斗得更久一些。<#SO:1>离开武斗场<#SO/>"
+  "Content": "Looks like you have enter already, try again next time.<#SO:1>Leave Arena<#SO/>"
 }

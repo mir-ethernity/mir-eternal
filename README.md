@@ -1,6 +1,12 @@
 # Mir Eternal Files
 
+
+[![AccountServer Build](https://github.com/Suprcode/mir-eternal/actions/workflows/accountserver-build.yml/badge.svg?branch=main)](https://github.com/Suprcode/mir-eternal/actions/workflows/accountserver-build.yml)
+[![GameServer Build](https://github.com/Suprcode/mir-eternal/actions/workflows/gameserver-build.yml/badge.svg)](https://github.com/Suprcode/mir-eternal/actions/workflows/gameserver-build.yml)
+[![Launcher Build](https://github.com/Suprcode/mir-eternal/actions/workflows/launcher-build.yml/badge.svg)](https://github.com/Suprcode/mir-eternal/actions/workflows/launcher-build.yml)
+
 ## Info
+
 Originally, these sources were published on LOMCN in the following post:
 https://www.lomcn.org/forum/threads/legend-of-mir-3d-emu-source-code.108580/
 
@@ -9,6 +15,7 @@ In this repository, we have done a refactoring, translation and correction work 
 ## How to start
 
 ### Client & Launcher Configuration
+
 First, a compatible client will need to be downloaded, for example:
 https://cq.dorado.sdo.com/downloader/cqyh_10340_downloader.exe
 
@@ -34,11 +41,12 @@ It does not require changing the default config.
 
 To publish on the internet, you must open ports 7000 and 8701 on your router
 
-### Network Communication Diagram 
+### Network Communication Diagram
+
 ![Mir Network](docs/mir-network.png)
 
 # Special Thanks
+
 - CraZyEriK: For the constant help in correcting bugs & translate UI.
 - Wincha: For being a dark wizard. And find out what no one can!
 - Armifer (ElAmO): For the refactoring and translation of the code.
-

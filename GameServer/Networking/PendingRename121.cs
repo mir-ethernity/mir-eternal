@@ -14,15 +14,15 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 4)]
 		public int 对象编号;
 
 		
-		[WrappingFieldAttribute(下标 = 6, 长度 = 32)]
+		[WrappingFieldAttribute(SubScript = 6, Length = 32)]
 		public string 对象名字;
 
 		
-		[WrappingFieldAttribute(下标 = 38, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 38, Length = 1)]
 		public bool 是否好友;
 	}
 }

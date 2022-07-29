@@ -3,10 +3,10 @@
 namespace GameServer.Templates
 {
 	
-	public sealed class C_07_计算目标瞬移 : SkillTask
+	public sealed class C_07_CalculateTargetTeleportation : SkillTask
 	{
 		
-		public C_07_计算目标瞬移()
+		public C_07_CalculateTargetTeleportation()
 		{
 			
 			

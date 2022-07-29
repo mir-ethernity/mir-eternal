@@ -14,7 +14,7 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 25)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 25)]
 		public string 行会名字;
 	}
 }

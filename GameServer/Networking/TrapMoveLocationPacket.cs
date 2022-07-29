@@ -15,23 +15,23 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 4)]
 		public int Id;
 
 		
-		[WrappingFieldAttribute(下标 = 6, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 6, Length = 2)]
 		public ushort 移动速度;
 
 		
-		[WrappingFieldAttribute(下标 = 8, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 8, Length = 4)]
 		public int 未知参数;
 
 		
-		[WrappingFieldAttribute(下标 = 12, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 12, Length = 4)]
 		public Point 移动坐标;
 
 		
-		[WrappingFieldAttribute(下标 = 16, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 16, Length = 4)]
 		public ushort 移动高度;
 	}
 }

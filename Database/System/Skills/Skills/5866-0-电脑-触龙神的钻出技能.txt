@@ -6,15 +6,15 @@
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "角色忙绿时间": 4750
     },
     "1": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
-      "限定命中数量": 1,
-      "限定目标类型": "怪物",
-      "限定目标关系": "ItSelf",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "HitsLimit": 1,
+      "LimitedTargetType": "怪物",
+      "LimitedTargetRelationship": "ItSelf",
       "清除目标状态": true,
       "清除状态列表": [
         58650

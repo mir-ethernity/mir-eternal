@@ -309,9 +309,9 @@ namespace GameServer.Data
         {
             get
             {
-                int value = this.最大持久.V - this.当前持久.V;
-                decimal d = ((EquipmentItem)this.对应模板.V).RepairCost;
-                decimal d2 = ((EquipmentItem)this.对应模板.V).MaxDura * 1000m;
+                int value = 最大持久.V - 当前持久.V;
+                decimal d = ((EquipmentItem)对应模板.V).RepairCost;
+                decimal d2 = ((EquipmentItem)对应模板.V).MaxDura * 1000m;
                 return (int)(d / d2 * value);
             }
         }
@@ -322,9 +322,9 @@ namespace GameServer.Data
         {
             get
             {
-                decimal d = this.最大持久.V - this.当前持久.V;
-                decimal d2 = ((EquipmentItem)this.对应模板.V).SpecialRepairCost;
-                decimal d3 = ((EquipmentItem)this.对应模板.V).MaxDura * 1000m;
+                decimal d = 最大持久.V - 当前持久.V;
+                decimal d2 = ((EquipmentItem)对应模板.V).SpecialRepairCost;
+                decimal d3 = ((EquipmentItem)对应模板.V).MaxDura * 1000m;
                 return (int)(d2 / d3 * d * Config.装备特修折扣 * 1.15m);
             }
         }
@@ -395,7 +395,7 @@ namespace GameServer.Data
         {
             get
             {
-                return ((EquipmentItem)this.对应模板.V).DisableDismount;
+                return ((EquipmentItem)对应模板.V).DisableDismount;
             }
         }
 
@@ -526,7 +526,7 @@ namespace GameServer.Data
             {
                 string text = "";
                 Dictionary<GameObjectStats, int> dictionary = new Dictionary<GameObjectStats, int>();
-                foreach (RandomStats 随机Stat in this.随机Stat)
+                foreach (RandomStats 随机Stat in 随机Stat)
                 {
                     dictionary[随机Stat.Stat] = 随机Stat.Value;
                 }
@@ -618,20 +618,20 @@ namespace GameServer.Data
         {
             get
             {
-                if (this.当前铭栏.V == 0)
+                if (当前铭栏.V == 0)
                 {
-                    return this.铭文技能[0];
+                    return 铭文技能[0];
                 }
-                return this.铭文技能[2];
+                return 铭文技能[2];
             }
             set
             {
-                if (this.当前铭栏.V == 0)
+                if (当前铭栏.V == 0)
                 {
-                    this.铭文技能[0] = value;
+                    铭文技能[0] = value;
                     return;
                 }
-                this.铭文技能[2] = value;
+                铭文技能[2] = value;
             }
         }
 
@@ -642,20 +642,20 @@ namespace GameServer.Data
         {
             get
             {
-                if (this.当前铭栏.V == 0)
+                if (当前铭栏.V == 0)
                 {
-                    return this.铭文技能[1];
+                    return 铭文技能[1];
                 }
-                return this.铭文技能[3];
+                return 铭文技能[3];
             }
             set
             {
-                if (this.当前铭栏.V == 0)
+                if (当前铭栏.V == 0)
                 {
-                    this.铭文技能[1] = value;
+                    铭文技能[1] = value;
                     return;
                 }
-                this.铭文技能[3] = value;
+                铭文技能[3] = value;
             }
         }
 
@@ -666,43 +666,43 @@ namespace GameServer.Data
         {
             get
             {
-                if (this.当前铭栏.V == 0)
+                if (当前铭栏.V == 0)
                 {
-                    if (this.铭文技能[0].Quality < this.铭文技能[1].Quality)
+                    if (铭文技能[0].Quality < 铭文技能[1].Quality)
                     {
-                        return this.铭文技能[1];
+                        return 铭文技能[1];
                     }
-                    return this.铭文技能[0];
+                    return 铭文技能[0];
                 }
                 else
                 {
-                    if (this.铭文技能[2].Quality < this.铭文技能[3].Quality)
+                    if (铭文技能[2].Quality < 铭文技能[3].Quality)
                     {
-                        return this.铭文技能[3];
+                        return 铭文技能[3];
                     }
-                    return this.铭文技能[2];
+                    return 铭文技能[2];
                 }
             }
             set
             {
-                if (this.当前铭栏.V == 0)
+                if (当前铭栏.V == 0)
                 {
-                    if (this.铭文技能[0].Quality >= this.铭文技能[1].Quality)
+                    if (铭文技能[0].Quality >= 铭文技能[1].Quality)
                     {
-                        this.铭文技能[0] = value;
+                        铭文技能[0] = value;
                         return;
                     }
-                    this.铭文技能[1] = value;
+                    铭文技能[1] = value;
                     return;
                 }
                 else
                 {
-                    if (this.铭文技能[2].Quality >= this.铭文技能[3].Quality)
+                    if (铭文技能[2].Quality >= 铭文技能[3].Quality)
                     {
-                        this.铭文技能[2] = value;
+                        铭文技能[2] = value;
                         return;
                     }
-                    this.铭文技能[3] = value;
+                    铭文技能[3] = value;
                     return;
                 }
             }
@@ -715,43 +715,43 @@ namespace GameServer.Data
         {
             get
             {
-                if (this.当前铭栏.V == 0)
+                if (当前铭栏.V == 0)
                 {
-                    if (this.铭文技能[0].Quality >= this.铭文技能[1].Quality)
+                    if (铭文技能[0].Quality >= 铭文技能[1].Quality)
                     {
-                        return this.铭文技能[1];
+                        return 铭文技能[1];
                     }
-                    return this.铭文技能[0];
+                    return 铭文技能[0];
                 }
                 else
                 {
-                    if (this.铭文技能[2].Quality >= this.铭文技能[3].Quality)
+                    if (铭文技能[2].Quality >= 铭文技能[3].Quality)
                     {
-                        return this.铭文技能[3];
+                        return 铭文技能[3];
                     }
-                    return this.铭文技能[2];
+                    return 铭文技能[2];
                 }
             }
             set
             {
-                if (this.当前铭栏.V == 0)
+                if (当前铭栏.V == 0)
                 {
-                    if (this.铭文技能[0].Quality < this.铭文技能[1].Quality)
+                    if (铭文技能[0].Quality < 铭文技能[1].Quality)
                     {
-                        this.铭文技能[0] = value;
+                        铭文技能[0] = value;
                         return;
                     }
-                    this.铭文技能[1] = value;
+                    铭文技能[1] = value;
                     return;
                 }
                 else
                 {
-                    if (this.铭文技能[2].Quality < this.铭文技能[3].Quality)
+                    if (铭文技能[2].Quality < 铭文技能[3].Quality)
                     {
-                        this.铭文技能[2] = value;
+                        铭文技能[2] = value;
                         return;
                     }
-                    this.铭文技能[3] = value;
+                    铭文技能[3] = value;
                     return;
                 }
             }
@@ -764,20 +764,20 @@ namespace GameServer.Data
         {
             get
             {
-                if (this.当前铭栏.V == 0)
+                if (当前铭栏.V == 0)
                 {
-                    return this.洗练数一.V;
+                    return 洗练数一.V;
                 }
-                return this.洗练数二.V;
+                return 洗练数二.V;
             }
             set
             {
-                if (this.当前铭栏.V == 0)
+                if (当前铭栏.V == 0)
                 {
-                    this.洗练数一.V = value;
+                    洗练数一.V = value;
                     return;
                 }
-                this.洗练数二.V = value;
+                洗练数二.V = value;
             }
         }
 
@@ -788,115 +788,115 @@ namespace GameServer.Data
             get
             {
                 Dictionary<GameObjectStats, int> dictionary = new Dictionary<GameObjectStats, int>();
-                if (this.装备模板.MinAttack != 0)
+                if (装备模板.MinAttack != 0)
                 {
-                    dictionary[GameObjectStats.MinAttack] = this.装备模板.MinAttack;
+                    dictionary[GameObjectStats.MinAttack] = 装备模板.MinAttack;
                 }
-                if (this.装备模板.MaxAttack != 0)
+                if (装备模板.MaxAttack != 0)
                 {
-                    dictionary[GameObjectStats.MaxAttack] = this.装备模板.MaxAttack;
+                    dictionary[GameObjectStats.MaxAttack] = 装备模板.MaxAttack;
                 }
-                if (this.装备模板.MinMagic != 0)
+                if (装备模板.MinMagic != 0)
                 {
-                    dictionary[GameObjectStats.MinMagic] = this.装备模板.MinMagic;
+                    dictionary[GameObjectStats.MinMagic] = 装备模板.MinMagic;
                 }
-                if (this.装备模板.MaxMagic != 0)
+                if (装备模板.MaxMagic != 0)
                 {
-                    dictionary[GameObjectStats.MaxMagic] = this.装备模板.MaxMagic;
+                    dictionary[GameObjectStats.MaxMagic] = 装备模板.MaxMagic;
                 }
-                if (this.装备模板.Minimalist != 0)
+                if (装备模板.Minimalist != 0)
                 {
-                    dictionary[GameObjectStats.Minimalist] = this.装备模板.Minimalist;
+                    dictionary[GameObjectStats.Minimalist] = 装备模板.Minimalist;
                 }
-                if (this.装备模板.GreatestTaoism != 0)
+                if (装备模板.GreatestTaoism != 0)
                 {
-                    dictionary[GameObjectStats.GreatestTaoism] = this.装备模板.GreatestTaoism;
+                    dictionary[GameObjectStats.GreatestTaoism] = 装备模板.GreatestTaoism;
                 }
-                if (this.装备模板.MinNeedle != 0)
+                if (装备模板.MinNeedle != 0)
                 {
-                    dictionary[GameObjectStats.MinNeedle] = this.装备模板.MinNeedle;
+                    dictionary[GameObjectStats.MinNeedle] = 装备模板.MinNeedle;
                 }
-                if (this.装备模板.MaxNeedle != 0)
+                if (装备模板.MaxNeedle != 0)
                 {
-                    dictionary[GameObjectStats.MaxNeedle] = this.装备模板.MaxNeedle;
+                    dictionary[GameObjectStats.MaxNeedle] = 装备模板.MaxNeedle;
                 }
-                if (this.装备模板.MinBow != 0)
+                if (装备模板.MinBow != 0)
                 {
-                    dictionary[GameObjectStats.MinBow] = this.装备模板.MinBow;
+                    dictionary[GameObjectStats.MinBow] = 装备模板.MinBow;
                 }
-                if (this.装备模板.MaxBow != 0)
+                if (装备模板.MaxBow != 0)
                 {
-                    dictionary[GameObjectStats.MaxBow] = this.装备模板.MaxBow;
+                    dictionary[GameObjectStats.MaxBow] = 装备模板.MaxBow;
                 }
-                if (this.装备模板.MinDef != 0)
+                if (装备模板.MinDef != 0)
                 {
-                    dictionary[GameObjectStats.MinDef] = this.装备模板.MinDef;
+                    dictionary[GameObjectStats.MinDef] = 装备模板.MinDef;
                 }
-                if (this.装备模板.MaxDef != 0)
+                if (装备模板.MaxDef != 0)
                 {
-                    dictionary[GameObjectStats.MaxDef] = this.装备模板.MaxDef;
+                    dictionary[GameObjectStats.MaxDef] = 装备模板.MaxDef;
                 }
-                if (this.装备模板.MinMagicDef != 0)
+                if (装备模板.MinMagicDef != 0)
                 {
-                    dictionary[GameObjectStats.MinMagicDef] = this.装备模板.MinMagicDef;
+                    dictionary[GameObjectStats.MinMagicDef] = 装备模板.MinMagicDef;
                 }
-                if (this.装备模板.MaxMagicDef != 0)
+                if (装备模板.MaxMagicDef != 0)
                 {
-                    dictionary[GameObjectStats.MaxMagicDef] = this.装备模板.MaxMagicDef;
+                    dictionary[GameObjectStats.MaxMagicDef] = 装备模板.MaxMagicDef;
                 }
-                if (this.装备模板.MaxPhysicalStrength != 0)
+                if (装备模板.MaxPhysicalStrength != 0)
                 {
-                    dictionary[GameObjectStats.MaxPhysicalStrength] = this.装备模板.MaxPhysicalStrength;
+                    dictionary[GameObjectStats.MaxPhysicalStrength] = 装备模板.MaxPhysicalStrength;
                 }
-                if (this.装备模板.MaxMagic2 != 0)
+                if (装备模板.MaxMagic2 != 0)
                 {
-                    dictionary[GameObjectStats.MaxMagic2] = this.装备模板.MaxMagic2;
+                    dictionary[GameObjectStats.MaxMagic2] = 装备模板.MaxMagic2;
                 }
-                if (this.装备模板.AttackSpeed != 0)
+                if (装备模板.AttackSpeed != 0)
                 {
-                    dictionary[GameObjectStats.AttackSpeed] = this.装备模板.AttackSpeed;
+                    dictionary[GameObjectStats.AttackSpeed] = 装备模板.AttackSpeed;
                 }
-                if (this.装备模板.MagicDodge != 0)
+                if (装备模板.MagicDodge != 0)
                 {
-                    dictionary[GameObjectStats.MagicDodge] = this.装备模板.MagicDodge;
+                    dictionary[GameObjectStats.MagicDodge] = 装备模板.MagicDodge;
                 }
-                if (this.装备模板.PhysicallyAccurate != 0)
+                if (装备模板.PhysicallyAccurate != 0)
                 {
-                    dictionary[GameObjectStats.PhysicallyAccurate] = this.装备模板.PhysicallyAccurate;
+                    dictionary[GameObjectStats.PhysicallyAccurate] = 装备模板.PhysicallyAccurate;
                 }
-                if (this.装备模板.PhysicalAgility != 0)
+                if (装备模板.PhysicalAgility != 0)
                 {
-                    dictionary[GameObjectStats.PhysicalAgility] = this.装备模板.PhysicalAgility;
+                    dictionary[GameObjectStats.PhysicalAgility] = 装备模板.PhysicalAgility;
                 }
-                if (this.幸运等级.V != 0)
+                if (幸运等级.V != 0)
                 {
-                    dictionary[GameObjectStats.幸运等级] = (dictionary.ContainsKey(GameObjectStats.幸运等级) ? (dictionary[GameObjectStats.幸运等级] + (int)this.幸运等级.V) : ((int)this.幸运等级.V));
+                    dictionary[GameObjectStats.幸运等级] = (dictionary.ContainsKey(GameObjectStats.幸运等级) ? (dictionary[GameObjectStats.幸运等级] + (int)幸运等级.V) : ((int)幸运等级.V));
                 }
-                if (this.升级Attack.V != 0)
+                if (升级Attack.V != 0)
                 {
-                    dictionary[GameObjectStats.MaxAttack] = (dictionary.ContainsKey(GameObjectStats.MaxAttack) ? (dictionary[GameObjectStats.MaxAttack] + (int)this.升级Attack.V) : ((int)this.升级Attack.V));
+                    dictionary[GameObjectStats.MaxAttack] = (dictionary.ContainsKey(GameObjectStats.MaxAttack) ? (dictionary[GameObjectStats.MaxAttack] + (int)升级Attack.V) : ((int)升级Attack.V));
                 }
-                if (this.升级Magic.V != 0)
+                if (升级Magic.V != 0)
                 {
-                    dictionary[GameObjectStats.MaxMagic] = (dictionary.ContainsKey(GameObjectStats.MaxMagic) ? (dictionary[GameObjectStats.MaxMagic] + (int)this.升级Magic.V) : ((int)this.升级Magic.V));
+                    dictionary[GameObjectStats.MaxMagic] = (dictionary.ContainsKey(GameObjectStats.MaxMagic) ? (dictionary[GameObjectStats.MaxMagic] + (int)升级Magic.V) : ((int)升级Magic.V));
                 }
-                if (this.升级Taoism.V != 0)
+                if (升级Taoism.V != 0)
                 {
-                    dictionary[GameObjectStats.GreatestTaoism] = (dictionary.ContainsKey(GameObjectStats.GreatestTaoism) ? (dictionary[GameObjectStats.GreatestTaoism] + (int)this.升级Taoism.V) : ((int)this.升级Taoism.V));
+                    dictionary[GameObjectStats.GreatestTaoism] = (dictionary.ContainsKey(GameObjectStats.GreatestTaoism) ? (dictionary[GameObjectStats.GreatestTaoism] + (int)升级Taoism.V) : ((int)升级Taoism.V));
                 }
-                if (this.升级Needle.V != 0)
+                if (升级Needle.V != 0)
                 {
-                    dictionary[GameObjectStats.MaxNeedle] = (dictionary.ContainsKey(GameObjectStats.MaxNeedle) ? (dictionary[GameObjectStats.MaxNeedle] + (int)this.升级Needle.V) : ((int)this.升级Needle.V));
+                    dictionary[GameObjectStats.MaxNeedle] = (dictionary.ContainsKey(GameObjectStats.MaxNeedle) ? (dictionary[GameObjectStats.MaxNeedle] + (int)升级Needle.V) : ((int)升级Needle.V));
                 }
-                if (this.升级Archery.V != 0)
+                if (升级Archery.V != 0)
                 {
-                    dictionary[GameObjectStats.MaxBow] = (dictionary.ContainsKey(GameObjectStats.MaxBow) ? (dictionary[GameObjectStats.MaxBow] + (int)this.升级Archery.V) : ((int)this.升级Archery.V));
+                    dictionary[GameObjectStats.MaxBow] = (dictionary.ContainsKey(GameObjectStats.MaxBow) ? (dictionary[GameObjectStats.MaxBow] + (int)升级Archery.V) : ((int)升级Archery.V));
                 }
-                foreach (RandomStats 随机Stat in this.随机Stat.ToList<RandomStats>())
+                foreach (RandomStats 随机Stat in 随机Stat.ToList<RandomStats>())
                 {
                     dictionary[随机Stat.Stat] = (dictionary.ContainsKey(随机Stat.Stat) ? (dictionary[随机Stat.Stat] + 随机Stat.Value) : 随机Stat.Value);
                 }
-                foreach (GameItems GameItems in this.镶嵌灵石.Values)
+                foreach (GameItems GameItems in 镶嵌灵石.Values)
                 {
                     int Id = GameItems.Id;
                     if (Id <= 10324)
@@ -1072,29 +1072,29 @@ namespace GameServer.Data
 
         public EquipmentData(EquipmentItem item, CharacterData character, byte 容器, byte location, bool randomGenerated = false)
         {
-            this.对应模板.V = item;
-            this.生成来源.V = character;
-            this.物品容器.V = 容器;
-            this.物品位置.V = location;
-            this.生成时间.V = MainProcess.CurrentTime;
-            this.物品状态.V = 1;
-            this.最大持久.V = ((item.PersistType == PersistentItemType.装备) ? (item.MaxDura * 1000) : item.MaxDura);
+            对应模板.V = item;
+            生成来源.V = character;
+            物品容器.V = 容器;
+            物品位置.V = location;
+            生成时间.V = MainProcess.CurrentTime;
+            物品状态.V = 1;
+            最大持久.V = ((item.PersistType == PersistentItemType.装备) ? (item.MaxDura * 1000) : item.MaxDura);
             DataMonitor<int> 当前持久 = this.当前持久;
             int v;
             if (randomGenerated)
             {
                 if (item.PersistType == PersistentItemType.装备)
                 {
-                    v = MainProcess.RandomNumber.Next(0, this.最大持久.V);
+                    v = MainProcess.RandomNumber.Next(0, 最大持久.V);
                     goto IL_B8;
                 }
             }
-            v = this.最大持久.V;
+            v = 最大持久.V;
         IL_B8:
             当前持久.V = v;
             if (randomGenerated && item.PersistType == PersistentItemType.装备)
             {
-                this.随机Stat.SetValue(GameServer.Templates.EquipmentStats.GenerateStats(base.物品类型, false));
+                随机Stat.SetValue(GameServer.Templates.EquipmentStats.GenerateStats(base.物品类型, false));
             }
             GameDataGateway.EquipmentData表.AddData(this, true);
         }
@@ -1138,230 +1138,166 @@ namespace GameServer.Data
                 {
                     binaryWriter.Write(ItemData.数据版本);
                     BinaryWriter binaryWriter2 = binaryWriter;
-                    CharacterData v = this.生成来源.V;
-                    binaryWriter2.Write((v != null) ? v.数据索引.V : 0);
-                    binaryWriter.Write(ComputingClass.TimeShift(this.生成时间.V));
-                    binaryWriter.Write(this.对应模板.V.Id);
-                    binaryWriter.Write(this.物品容器.V);
-                    binaryWriter.Write(this.物品位置.V);
-                    binaryWriter.Write(this.当前持久.V);
-                    binaryWriter.Write(this.最大持久.V);
-                    binaryWriter.Write((byte)(base.IsBound ? 10 : 0));
-                    int num = 256 | (int)this.当前铭栏.V;
-                    if (this.双铭文栏.V)
-                    {
-                        num |= 512;
-                    }
+                    binaryWriter2.Write(生成来源.V?.数据索引.V ?? 0);
+                    binaryWriter.Write(ComputingClass.TimeShift(生成时间.V));
+                    binaryWriter.Write(对应模板.V.Id);
+                    binaryWriter.Write(物品容器.V);
+                    binaryWriter.Write(物品位置.V);
+                    binaryWriter.Write(当前持久.V);
+                    binaryWriter.Write(最大持久.V);
+                    binaryWriter.Write((byte)(IsBound ? 10 : 0));
+
+                    int num = 256;
+                    num = 0x100 | 当前铭栏.V;
+
+                    if (双铭文栏.V) num |= 0x200;
                     binaryWriter.Write((short)num);
+
                     int num2 = 0;
-                    if (this.物品状态.V != 1)
-                    {
-                        num2 |= 1;
-                    }
-                    else if (this.随机Stat.Count != 0)
-                    {
-                        num2 |= 1;
-                    }
-                    else if (this.Sacred伤害.V != 0)
-                    {
-                        num2 |= 1;
-                    }
-                    if (this.随机Stat.Count >= 1)
-                    {
-                        num2 |= 2;
-                    }
-                    if (this.随机Stat.Count >= 2)
-                    {
-                        num2 |= 4;
-                    }
-                    if (this.随机Stat.Count >= 3)
-                    {
-                        num2 |= 8;
-                    }
-                    if (this.随机Stat.Count >= 4)
-                    {
-                        num2 |= 16;
-                    }
-                    if (this.幸运等级.V != 0)
-                    {
-                        num2 |= 2048;
-                    }
-                    if (this.升级次数.V != 0)
-                    {
-                        num2 |= 4096;
-                    }
-                    if (this.孔洞颜色.Count != 0)
-                    {
-                        num2 |= 8192;
-                    }
-                    if (this.镶嵌灵石[0] != null)
-                    {
-                        num2 |= 16384;
-                    }
-                    if (this.镶嵌灵石[1] != null)
-                    {
-                        num2 |= 32768;
-                    }
-                    if (this.镶嵌灵石[2] != null)
-                    {
-                        num2 |= 65536;
-                    }
-                    if (this.镶嵌灵石[3] != null)
-                    {
-                        num2 |= 131072;
-                    }
-                    if (this.Sacred伤害.V != 0)
-                    {
-                        num2 |= 4194304;
-                    }
-                    else if (this.圣石数量.V != 0)
-                    {
-                        num2 |= 4194304;
-                    }
-                    if (this.祈祷次数.V != 0)
-                    {
-                        num2 |= 8388608;
-                    }
-                    if (this.装备神佑.V)
-                    {
-                        num2 |= 33554432;
-                    }
+                    if (物品状态.V != 1) num2 |= 1;
+                    else if (随机Stat.Count != 0) num2 |= 1;
+                    else if (Sacred伤害.V != 0) num2 |= 1;
+
+                    if (随机Stat.Count >= 1) num2 |= 2;
+
+                    if (随机Stat.Count >= 2) num2 |= 4;
+
+                    if (随机Stat.Count >= 3) num2 |= 8;
+
+                    if (随机Stat.Count >= 4) num2 |= 0x10;
+
+                    if (幸运等级.V != 0) num2 |= 0x800;
+
+                    if (升级次数.V != 0) num2 |= 0x1000;
+
+                    if (孔洞颜色.Count != 0) num2 |= 0x2000;
+
+                    if (镶嵌灵石[0] != null) num2 |= 0x4000;
+
+                    if (镶嵌灵石[1] != null) num2 |= 0x8000;
+
+                    if (镶嵌灵石[2] != null) num2 |= 0x10000;
+
+                    if (镶嵌灵石[3] != null) num2 |= 0x20000;
+
+                    if (Sacred伤害.V != 0) num2 |= 0x400000;
+
+                    else if (圣石数量.V != 0) num2 |= 0x400000;
+
+                    if (祈祷次数.V != 0) num2 |= 0x800000;
+
+                    if (装备神佑.V) num2 |= 0x2000000;
+
                     binaryWriter.Write(num2);
-                    if ((num2 & 1) != 0)
-                    {
-                        binaryWriter.Write(this.物品状态.V);
-                    }
-                    if ((num2 & 2) != 0)
-                    {
-                        binaryWriter.Write((ushort)this.随机Stat[0].StatId);
-                    }
-                    if ((num2 & 4) != 0)
-                    {
-                        binaryWriter.Write((ushort)this.随机Stat[1].StatId);
-                    }
-                    if ((num2 & 8) != 0)
-                    {
-                        binaryWriter.Write((ushort)this.随机Stat[2].StatId);
-                    }
-                    if ((num2 & 16) != 0)
-                    {
-                        binaryWriter.Write((ushort)this.随机Stat[3].StatId);
-                    }
-                    if ((num & 256) != 0)
+
+                    if (((uint)num2 & (true ? 1u : 0u)) != 0)
+                        binaryWriter.Write(物品状态.V);
+
+                    if (((uint)num2 & 2u) != 0)
+                        binaryWriter.Write((ushort)随机Stat[0].StatId);
+
+                    if (((uint)num2 & 4u) != 0)
+                        binaryWriter.Write((ushort)随机Stat[1].StatId);
+
+                    if (((uint)num2 & 8u) != 0)
+                        binaryWriter.Write((ushort)随机Stat[2].StatId);
+
+                    if (((uint)num2 & 0x10u) != 0)
+                        binaryWriter.Write((ushort)随机Stat[3].StatId);
+
+                    if (((uint)num & 0x100u) != 0)
                     {
                         int num3 = 0;
-                        if (this.铭文技能[0] != null)
-                        {
-                            num3 |= 1;
-                        }
-                        if (this.铭文技能[1] != null)
-                        {
-                            num3 |= 2;
-                        }
+                        if (铭文技能[0] != null) num3 |= 1;
+                        if (铭文技能[1] != null) num3 |= 2;
+
                         binaryWriter.Write((short)num3);
-                        binaryWriter.Write(this.洗练数一.V * 10000);
-                        if ((num3 & 1) != 0)
-                        {
-                            binaryWriter.Write(this.铭文技能[0].Index);
-                        }
-                        if ((num3 & 2) != 0)
-                        {
-                            binaryWriter.Write(this.铭文技能[1].Index);
-                        }
+                        binaryWriter.Write(洗练数一.V * 10000);
+
+                        if (((uint)num3 & (true ? 1u : 0u)) != 0)
+                            binaryWriter.Write(铭文技能[0].Index);
+
+                        if (((uint)num3 & 2u) != 0)
+                            binaryWriter.Write(铭文技能[1].Index);
                     }
-                    if ((num & 512) != 0)
+                    if (((uint)num & 0x200u) != 0)
                     {
                         int num4 = 0;
-                        if (this.铭文技能[2] != null)
-                        {
-                            num4 |= 1;
-                        }
-                        if (this.铭文技能[3] != null)
-                        {
-                            num4 |= 2;
-                        }
+                        if (铭文技能[2] != null) num4 |= 1;
+                        if (铭文技能[3] != null) num4 |= 2;
                         binaryWriter.Write((short)num4);
-                        binaryWriter.Write(this.洗练数二.V * 10000);
-                        if ((num4 & 1) != 0)
-                        {
-                            binaryWriter.Write(this.铭文技能[2].Index);
-                        }
-                        if ((num4 & 2) != 0)
-                        {
-                            binaryWriter.Write(this.铭文技能[3].Index);
-                        }
+                        binaryWriter.Write(洗练数二.V * 10000);
+                        
+                        if (((uint)num4 & (true ? 1u : 0u)) != 0)
+                            binaryWriter.Write(铭文技能[2].Index);
+
+                        if (((uint)num4 & 2u) != 0)
+                            binaryWriter.Write(铭文技能[3].Index);
                     }
-                    if ((num2 & 2048) != 0)
+
+                    if (((uint)num2 & 0x800u) != 0)
+                        binaryWriter.Write(幸运等级.V);
+
+                    if (((uint)num2 & 0x1000u) != 0)
                     {
-                        binaryWriter.Write(this.幸运等级.V);
-                    }
-                    if ((num2 & 4096) != 0)
-                    {
-                        binaryWriter.Write(this.升级次数.V);
+                        binaryWriter.Write(升级次数.V);
                         binaryWriter.Write((byte)0);
-                        binaryWriter.Write(this.升级Attack.V);
-                        binaryWriter.Write(this.升级Magic.V);
-                        binaryWriter.Write(this.升级Taoism.V);
-                        binaryWriter.Write(this.升级Needle.V);
-                        binaryWriter.Write(this.升级Archery.V);
+                        binaryWriter.Write(升级Attack.V);
+                        binaryWriter.Write(升级Magic.V);
+                        binaryWriter.Write(升级Taoism.V);
+                        binaryWriter.Write(升级Needle.V);
+                        binaryWriter.Write(升级Archery.V);
                         binaryWriter.Write(new byte[3]);
-                        binaryWriter.Write(this.灵魂绑定.V);
+                        binaryWriter.Write(灵魂绑定.V);
                     }
-                    if ((num2 & 8192) != 0)
+
+                    if (((uint)num2 & 0x2000u) != 0)
                     {
-                        binaryWriter.Write(new byte[]
+                        binaryWriter.Write(new byte[4]
                         {
-                            (byte)this.孔洞颜色[0],
-                            (byte)this.孔洞颜色[1],
-                            (byte)this.孔洞颜色[2],
-                            (byte)this.孔洞颜色[3]
+                            (byte)孔洞颜色[0],
+                            (byte)孔洞颜色[1],
+                            (byte)孔洞颜色[2],
+                            (byte)孔洞颜色[3]
                         });
                     }
-                    if ((num2 & 16384) != 0)
-                    {
-                        binaryWriter.Write(this.镶嵌灵石[0].Id);
-                    }
-                    if ((num2 & 32768) != 0)
-                    {
-                        binaryWriter.Write(this.镶嵌灵石[1].Id);
-                    }
-                    if ((num2 & 65536) != 0)
-                    {
-                        binaryWriter.Write(this.镶嵌灵石[2].Id);
-                    }
-                    if ((num2 & 131072) != 0)
-                    {
-                        binaryWriter.Write(this.镶嵌灵石[3].Id);
-                    }
-                    if ((num2 & 524288) != 0)
-                    {
+
+                    if (((uint)num2 & 0x4000u) != 0)
+                        binaryWriter.Write(镶嵌灵石[0].Id);
+
+                    if (((uint)num2 & 0x8000u) != 0)
+                        binaryWriter.Write(镶嵌灵石[1].Id);
+
+                    if (((uint)num2 & 0x10000u) != 0)
+                        binaryWriter.Write(镶嵌灵石[2].Id);
+
+                    if (((uint)num2 & 0x20000u) != 0)
+                        binaryWriter.Write(镶嵌灵石[3].Id);
+
+                    if (((uint)num2 & 0x80000u) != 0)
                         binaryWriter.Write(0);
-                    }
-                    if ((num2 & 1048576) != 0)
-                    {
+
+                    if (((uint)num2 & 0x100000u) != 0)
                         binaryWriter.Write(0);
-                    }
-                    if ((num2 & 2097152) != 0)
-                    {
+
+                    if (((uint)num2 & 0x200000u) != 0)
                         binaryWriter.Write(0);
-                    }
-                    if ((num2 & 4194304) != 0)
+
+                    if (((uint)num2 & 0x400000u) != 0)
                     {
-                        binaryWriter.Write(this.Sacred伤害.V);
-                        binaryWriter.Write(this.圣石数量.V);
+                        binaryWriter.Write(Sacred伤害.V);
+                        binaryWriter.Write(圣石数量.V);
                     }
-                    if ((num2 & 8388608) != 0)
-                    {
-                        binaryWriter.Write((int)this.祈祷次数.V);
-                    }
-                    if ((num2 & 33554432) != 0)
-                    {
-                        binaryWriter.Write(this.装备神佑.V);
-                    }
-                    if ((num2 & 67108864) != 0)
-                    {
+
+                    if (((uint)num2 & 0x800000u) != 0)
+                        binaryWriter.Write((int)祈祷次数.V);
+
+                    if (((uint)num2 & 0x2000000u) != 0)
+                        binaryWriter.Write(装备神佑.V);
+
+                    if (((uint)num2 & 0x4000000u) != 0)
                         binaryWriter.Write(0);
-                    }
+
                     result = memoryStream.ToArray();
                 }
             }

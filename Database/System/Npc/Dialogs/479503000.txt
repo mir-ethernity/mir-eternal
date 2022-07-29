@@ -1,4 +1,4 @@
 {
   "Id": 479503000,
-  "Content": "你的金币不足,进入武斗场需要消耗[`~]金币"
+  "Content": "You do not have enough Gold to enter.[`~] Gold."
 }

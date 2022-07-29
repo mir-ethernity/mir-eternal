@@ -8,51 +8,51 @@
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "调整角色朝向": true,
       "角色忙绿时间": 1000
     },
     "1": {
-      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
       "MaxDistance": 1,
       "技能最近距离": 1
     },
     "123": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "清空命中列表": true,
       "技能能否穿墙": true,
       "技能锁定方式": "锁定锚点坐标",
-      "技能命中反馈": "后仰",
+      "SkillHitFeedback": "后仰",
       "技能范围类型": "LineType1x6",
       "放空结束技能": true,
-      "限定命中数量": 1,
-      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
-      "限定目标关系": "Hostility",
+      "HitsLimit": 1,
+      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
     "124": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "角色忙绿时间": 1000
     },
     "125": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "清空命中列表": true,
       "技能能否穿墙": true,
       "技能锁定方式": "锁定锚点坐标",
-      "技能闪避方式": "可被物理闪避",
-      "技能命中反馈": "后仰",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
       "技能范围类型": "LineType1x6",
       "放空结束技能": true,
       "发送中断通知": true,
       "技能命中通知": true,
-      "限定命中数量": 1,
-      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
-      "限定目标关系": "Hostility",
+      "HitsLimit": 1,
+      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
     "126": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害类型": "Magic",
       "技能伤害基数": [
@@ -72,27 +72,27 @@
       "清除状态列表": []
     },
     "999": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "角色忙绿时间": 2000
     },
     "1000": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "清空命中列表": true,
       "技能能否穿墙": true,
       "技能锁定方式": "锁定锚点坐标",
-      "技能闪避方式": "可被物理闪避",
-      "技能命中反馈": "后仰",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
       "技能范围类型": "LineType1x6",
       "放空结束技能": true,
       "发送中断通知": true,
       "技能命中通知": true,
-      "限定命中数量": 1,
-      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
-      "限定目标关系": "Hostility",
+      "HitsLimit": 1,
+      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
     "1001": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害类型": "Magic",
       "技能伤害基数": [
@@ -112,27 +112,27 @@
       "清除状态列表": []
     },
     "1999": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "角色忙绿时间": 3000
     },
     "2000": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "清空命中列表": true,
       "技能能否穿墙": true,
       "技能锁定方式": "锁定锚点坐标",
-      "技能闪避方式": "可被物理闪避",
-      "技能命中反馈": "后仰",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
       "技能范围类型": "LineType1x6",
       "放空结束技能": true,
       "发送中断通知": true,
       "技能命中通知": true,
-      "限定命中数量": 1,
-      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
-      "限定目标关系": "Hostility",
+      "HitsLimit": 1,
+      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
     "2001": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害类型": "Magic",
       "技能伤害基数": [
@@ -152,27 +152,27 @@
       "清除状态列表": []
     },
     "2999": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "角色忙绿时间": 4000
     },
     "3000": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "清空命中列表": true,
       "技能能否穿墙": true,
       "技能锁定方式": "锁定锚点坐标",
-      "技能闪避方式": "可被物理闪避",
-      "技能命中反馈": "后仰",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
       "技能范围类型": "LineType1x6",
       "放空结束技能": true,
       "发送中断通知": true,
       "技能命中通知": true,
-      "限定命中数量": 1,
-      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
-      "限定目标关系": "Hostility",
+      "HitsLimit": 1,
+      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
     "3001": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害类型": "Magic",
       "技能伤害基数": [
@@ -192,27 +192,27 @@
       "清除状态列表": []
     },
     "3999": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "角色忙绿时间": 5000
     },
     "4000": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "清空命中列表": true,
       "技能能否穿墙": true,
       "技能锁定方式": "锁定锚点坐标",
-      "技能闪避方式": "可被物理闪避",
-      "技能命中反馈": "后仰",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
       "技能范围类型": "LineType1x6",
       "放空结束技能": true,
       "发送中断通知": true,
       "技能命中通知": true,
-      "限定命中数量": 1,
-      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
-      "限定目标关系": "Hostility",
+      "HitsLimit": 1,
+      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
     "4001": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害类型": "Magic",
       "技能伤害基数": [
@@ -232,13 +232,13 @@
       "清除状态列表": []
     },
     "4500": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "清空命中列表": true,
       "技能锁定方式": "锁定锚点坐标",
       "放空结束技能": true,
       "发送中断通知": true,
-      "限定目标类型": "玩家, 宠物",
-      "限定目标关系": "Hostility"
+      "LimitedTargetType": "玩家, 宠物",
+      "LimitedTargetRelationship": "Hostility"
     }
   }
 }

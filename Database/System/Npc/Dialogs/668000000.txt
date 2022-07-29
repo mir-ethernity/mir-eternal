@@ -1,4 +1,4 @@
 {
   "Id": 668000000,
-  "Content": "<#UI:Shop>戒指店<#UI/>"
+  "Content": "<#UI:Shop>Ring Shop<#UI/>"
 }

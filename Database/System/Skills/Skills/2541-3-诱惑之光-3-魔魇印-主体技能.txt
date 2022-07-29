@@ -16,7 +16,7 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "ItSelfCooldown": 1375,
@@ -24,23 +24,23 @@
       "角色忙绿时间": 625
     },
     "125": {
-      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
       "MaxDistance": 8
     },
     "126": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能能否穿墙": true,
       "技能锁定方式": "锁定目标",
-      "技能命中反馈": "特效",
-      "限定命中数量": 1,
-      "限定目标类型": "宠物, 怪物",
-      "限定目标关系": "Hostility",
+      "SkillHitFeedback": "特效",
+      "HitsLimit": 1,
+      "LimitedTargetType": "宠物, 怪物",
+      "LimitedTargetRelationship": "Hostility",
       "增加技能经验": true,
       "经验SkillId": 2541,
       "清除状态列表": []
     },
     "127": {
-      "$type": "C_04_计算目标诱惑, Assembly-CSharp",
+      "$type": "C_04_CalculateTargetTemptation, Assembly-CSharp",
       "检查铭文技能": true,
       "检查Id": 25413,
       "瘫痪状态编号": 25410,
@@ -51,19 +51,19 @@
       "特定诱惑列表": []
     },
     "128": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "锚点位置绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "AnchorAbsolutePosition",
       "触发SkillName": "诱惑之光-0-无铭文-绿色特效"
     },
     "625": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "角色硬直时间": 725,
       "禁止行走时间": 650,
       "禁止奔跑时间": 650
     },
     "725": {
-      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }
 }

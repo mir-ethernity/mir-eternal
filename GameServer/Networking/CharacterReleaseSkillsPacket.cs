@@ -15,23 +15,23 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 2)]
 		public ushort SkillId;
 
 		
-		[WrappingFieldAttribute(下标 = 4, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 4, Length = 1)]
 		public byte 动作编号;
 
 		
-		[WrappingFieldAttribute(下标 = 6, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 6, Length = 4)]
 		public int 目标编号;
 
 		
-		[WrappingFieldAttribute(下标 = 10, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 10, Length = 4)]
 		public Point 锚点坐标;
 
 		
-		[WrappingFieldAttribute(下标 = 14, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 14, Length = 2)]
 		public ushort 锚点高度;
 	}
 }

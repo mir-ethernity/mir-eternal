@@ -1,4 +1,4 @@
 {
   "Id": 619202400,
-  "Content": "别开玩笑好吗?你这件装备还没打孔呢!"
+  "Content": "You haven't punched a hole in your equipment yet!"
 }

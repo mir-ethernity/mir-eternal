@@ -14,15 +14,15 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 4)]
 		public int 错误编号;
 
 		
-		[WrappingFieldAttribute(下标 = 6, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 6, Length = 4)]
 		public int 参数一;
 
 		
-		[WrappingFieldAttribute(下标 = 10, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 10, Length = 4)]
 		public int 参数二;
 	}
 }

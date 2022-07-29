@@ -1,4 +1,4 @@
 {
   "Id": 636100000,
-  "Content": "你迷路了吗?<#SO:1>返回入口<#SO/>\r"
+  "Content": "Are you lost?<#SO:1>Back To Entrance<#SO/>\r"
 }

@@ -13,26 +13,26 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
       "MaxDistance": 8,
       "技能最近距离": 1
     },
     "1": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能能否穿墙": true,
       "技能锁定方式": "锁定目标",
-      "技能闪避方式": "可被物理闪避",
-      "技能命中反馈": "后仰",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
       "技能命中通知": true,
       "计算飞行耗时": true,
       "单格飞行耗时": 30,
-      "限定命中数量": 1,
-      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
-      "限定目标关系": "Hostility",
+      "HitsLimit": 1,
+      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
     "2": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害类型": "Archery",
       "技能伤害基数": [
@@ -53,15 +53,15 @@
       "清除状态列表": []
     },
     "4": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "目标闪避绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetMissDefinitely",
       "触发SkillName": "精准打击-2-射戟印-闪避触发",
       "验证铭文技能": true,
       "所需Id": 20422
     },
     "5": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "目标命中绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
       "触发SkillName": "战术标记-2-汲灵印-吸血触发",
       "验证铭文技能": true,
       "所需Id": 20442

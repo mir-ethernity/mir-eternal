@@ -1,4 +1,4 @@
 {
   "Id": 611300000,
-  "Content": "若不想继续留在此地诛杀邪魔,我可以将你送回盟重省<#SO:1>确定传送<#SO/>\r"
+  "Content": "You do not want to stay longer? I send you back.<#SO:1>Confirm<#SO/>\r"
 }

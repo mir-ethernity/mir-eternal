@@ -1,4 +1,4 @@
 {
   "Id": 680400000,
-  "Content": "<#UI:Shop>打捆商店<#UI/>"
+  "Content": "<#UI:Shop>Bundle Store<#UI/>"
 }

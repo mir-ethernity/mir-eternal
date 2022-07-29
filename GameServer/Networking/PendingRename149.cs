@@ -14,7 +14,7 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 6, 长度 = 0)]
+		[WrappingFieldAttribute(SubScript = 6, Length = 0)]
 		public byte[] StatDescription;
 	}
 }

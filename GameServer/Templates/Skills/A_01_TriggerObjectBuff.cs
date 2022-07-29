@@ -3,10 +3,10 @@
 namespace GameServer.Templates
 {
 	
-	public sealed class A_01_触发对象Buff : SkillTask
+	public sealed class A_01_TriggerObjectBuff : SkillTask
 	{
 		
-		public A_01_触发对象Buff()
+		public A_01_TriggerObjectBuff()
 		{
 			
 			

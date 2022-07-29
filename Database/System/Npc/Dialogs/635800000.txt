@@ -1,4 +1,4 @@
 {
   "Id": 635800000,
-  "Content": "这里实在太可怕了,离开是正确的选择<#SO:1>返回盟重<#SO/>\r"
+  "Content": "It's horrible here, leaving was the right choice <#SO:1>Return Home<#SO/>\r"
 }

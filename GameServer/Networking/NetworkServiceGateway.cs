@@ -141,7 +141,7 @@ namespace GameServer.Networking
 				{
 					':'
 				})[0];
-				if (SystemData.数据.网络封禁.ContainsKey(text) && !(SystemData.数据.网络封禁[text] < MainProcess.CurrentTime))
+				if (SystemData.Data.网络封禁.ContainsKey(text) && !(SystemData.Data.网络封禁[text] < MainProcess.CurrentTime))
 				{
 					tcpClient.Client.Close();
 				}
@@ -198,7 +198,7 @@ namespace GameServer.Networking
 		
 		public static void 屏蔽网络(string 地址)
 		{
-			SystemData.数据.BanIPCommand(地址, MainProcess.CurrentTime.AddMinutes((double)Config.异常屏蔽时间));
+			SystemData.Data.BanIPCommand(地址, MainProcess.CurrentTime.AddMinutes((double)Config.异常屏蔽时间));
 		}
 
 		

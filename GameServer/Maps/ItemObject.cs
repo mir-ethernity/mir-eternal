@@ -12,23 +12,23 @@ namespace GameServer.Maps
 		
 		// (get) Token: 0x0600082C RID: 2092 RVA: 0x00006167 File Offset: 0x00004367
 		// (set) Token: 0x0600082D RID: 2093 RVA: 0x0000616F File Offset: 0x0000436F
-		public override MapInstance 当前地图
+		public override MapInstance CurrentMap
 		{
 			get
 			{
-				return base.当前地图;
+				return base.CurrentMap;
 			}
 			set
 			{
-				if (this.当前地图 != value)
+				if (this.CurrentMap != value)
 				{
-					MapInstance 当前地图 = base.当前地图;
+					MapInstance 当前地图 = base.CurrentMap;
 					if (当前地图 != null)
 					{
 						当前地图.移除对象(this);
 					}
-					base.当前地图 = value;
-					base.当前地图.添加对象(this);
+					base.CurrentMap = value;
+					base.CurrentMap.添加对象(this);
 				}
 			}
 		}
@@ -45,7 +45,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x0600082F RID: 2095 RVA: 0x00002855 File Offset: 0x00000A55
-		public override bool 对象死亡
+		public override bool Died
 		{
 			get
 			{
@@ -65,7 +65,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000831 RID: 2097 RVA: 0x00002855 File Offset: 0x00000A55
-		public override bool 能被命中
+		public override bool CanBeHit
 		{
 			get
 			{
@@ -75,7 +75,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000832 RID: 2098 RVA: 0x00006B5C File Offset: 0x00004D5C
-		public override GameObjectType 对象类型
+		public override GameObjectType ObjectType
 		{
 			get
 			{
@@ -160,7 +160,7 @@ namespace GameServer.Maps
 			this.物品归属 = 物品归属;
 			this.物品模板 = 物品模板;
 			this.ItemData = ItemData;
-			this.当前地图 = 掉落地图;
+			this.CurrentMap = 掉落地图;
 			this.ItemData = ItemData;
 			this.堆叠数量 = 堆叠数量;
 			this.物品绑定 = (物品模板.IsBound || 物品绑定);
@@ -174,9 +174,9 @@ namespace GameServer.Maps
 				{
 					foreach (MapObject MapObject in 掉落地图[point])
 					{
-						if (!MapObject.对象死亡)
+						if (!MapObject.Died)
 						{
-							GameObjectType 对象类型 = MapObject.对象类型;
+							GameObjectType 对象类型 = MapObject.ObjectType;
 							switch (对象类型)
 							{
 							case GameObjectType.玩家:
@@ -206,7 +206,7 @@ namespace GameServer.Maps
 					{
 						当前坐标 = point;
 						IL_111:
-						this.当前坐标 = 当前坐标;
+						this.CurrentCoords = 当前坐标;
 						this.消失时间 = MainProcess.CurrentTime.AddMinutes((double)Config.物品清理时间);
 						this.归属时间 = MainProcess.CurrentTime.AddMinutes((double)Config.物品归属时间);
 						this.MapId = ++MapGatewayProcess.Id;

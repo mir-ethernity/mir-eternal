@@ -1,4 +1,4 @@
 {
   "Id": 711901000,
-  "Content": "你要去哪里呢?<#SO:1>边界村(1000金币)<#SO/><#SO:2>比奇省(1500金币)<#SO/><#SO:3>盟重省(2000金币)<#SO/><#SO:4>沙巴克(3000金币)<#SO/><#SO:5>白日门(5000金币)<#SO/><#SO:6>苍月岛(8000金币)<#SO/><#SO:7>魔龙城(10000金币)<#SO/>"
+  "Content": "Where would you like to go?<#SO:1>Border Village(1000 Gold)<#SO/><#SO:2>Bichon Province(1500 Gold)<#SO/><#SO:3>Western Region(2000 Gold)<#SO/><#SO:4>Mongchon Province(3000 Gold)<#SO/><#SO:5>Woomyon Woods(5000 Gold)<#SO/><#SO:6>Castle Gi-Ryoong(8000 Gold)<#SO/><#SO:7>Past Bichon(10000 Gold)<#SO/>"
 }

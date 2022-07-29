@@ -1,4 +1,4 @@
 {
   "Id": 479502000,
-  "Content": "经验武斗场每天只能进入一次, 死亡回城后不能再次进入"
+  "Content": "You can only enter battle experience arena once a day, cannot re-enter after death."
 }

@@ -1,4 +1,4 @@
 {
   "Id": 674000000,
-  "Content": "想要争夺沙巴克城主的公会会长可以在此报名,也可以查看已经报名的公会.成功报名后，可以参加一天后的攻城战.<#SO:1>报名沙巴克攻城战<#SO/><#SO:2>查看已报名公会<#SO/>"
+  "Content": "Guild presidents who want to compete for the city lord of Sabuk can sign up here, or view the guilds that have already signed up. After successful registration, they can participate in the siege battle one day later.<#SO:1>Sign up for Sabuk Siege<#SO/><#SO:2>View Registered Guilds<#SO/>"
 }

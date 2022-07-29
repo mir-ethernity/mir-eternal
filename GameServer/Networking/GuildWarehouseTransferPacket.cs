@@ -14,19 +14,19 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 1)]
 		public byte 原来容器;
 
 		
-		[WrappingFieldAttribute(下标 = 4, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 4, Length = 1)]
 		public byte 原来位置;
 
 		
-		[WrappingFieldAttribute(下标 = 6, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 6, Length = 1)]
 		public byte 仓库页面;
 
 		
-		[WrappingFieldAttribute(下标 = 7, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 7, Length = 1)]
 		public byte 仓库位置;
 	}
 }

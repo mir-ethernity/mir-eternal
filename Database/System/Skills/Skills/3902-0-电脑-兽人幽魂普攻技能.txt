@@ -7,27 +7,27 @@
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "角色忙绿时间": 1500
     },
     "350": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能能否穿墙": true,
       "技能锁定方式": "锁定目标",
-      "技能闪避方式": "可被物理闪避",
-      "技能命中反馈": "后仰",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
       "技能命中通知": true,
       "计算飞行耗时": true,
       "单格飞行耗时": 60,
-      "限定命中数量": 1,
-      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
-      "限定目标关系": "Hostility",
+      "HitsLimit": 1,
+      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
     "351": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害类型": "Magic",
       "技能伤害基数": [

@@ -1,4 +1,4 @@
 {
   "Id": 669300000,
-  "Content": "<#D>不少人抱怨说辛辛苦苦攒的钱全都花在了技能书上，骂我是黑心的书商。呵呵，你们要知道，在玛法大陆上能用钱解决的事都是最划算的。<#D/>\r"
+  "Content": "<#D>Many people complained that all the hard-earned money was spent on skill books, calling me a black-hearted bookseller. Hehe, you have to know that things that can be solved with money on Mafa Continent are the most cost-effective.<#D/>\r"
 }

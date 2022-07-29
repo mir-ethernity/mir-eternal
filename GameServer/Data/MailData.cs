@@ -127,17 +127,13 @@ namespace GameServer.Data
 				using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
 				{
 					binaryWriter.Write(0);
-					binaryWriter.Write(this.邮件时间);
-					binaryWriter.Write(this.系统邮件.V);
-					BinaryWriter binaryWriter2 = binaryWriter;
-					ItemData v = this.邮件附件.V;
-					binaryWriter2.Write((v != null) ? v.Id : -1);
-					binaryWriter.Write(this.物品数量);
+					binaryWriter.Write(邮件时间);
+					binaryWriter.Write(系统邮件.V);
+					binaryWriter.Write(邮件附件.V?.Id ?? -1);
+					binaryWriter.Write(物品数量);
 					byte[] array = new byte[32];
 					if (!this.系统邮件.V)
-					{
-						Encoding.UTF8.GetBytes(this.邮件作者.V.CharName.V + "\0").CopyTo(array, 0);
-					}
+						Encoding.UTF8.GetBytes(邮件作者.V.CharName.V + "\0").CopyTo(array, 0);
 					binaryWriter.Write(array);
 					byte[] array2 = new byte[61];
 					Encoding.UTF8.GetBytes(this.邮件标题.V + "\0").CopyTo(array2, 0);
@@ -145,7 +141,7 @@ namespace GameServer.Data
 					byte[] array3 = new byte[554];
 					Encoding.UTF8.GetBytes(this.邮件正文.V + "\0").CopyTo(array3, 0);
 					binaryWriter.Write(array3);
-					binaryWriter.Write(this.邮件编号);
+					binaryWriter.Write(邮件编号);
 					binaryWriter.Write(0);
 					result = memoryStream.ToArray();
 				}

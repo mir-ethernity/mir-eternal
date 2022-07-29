@@ -14,27 +14,27 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 4)]
 		public int 对象编号;
 
 		
-		[WrappingFieldAttribute(下标 = 6, 长度 = 32)]
+		[WrappingFieldAttribute(SubScript = 6, Length = 32)]
 		public string 对象名字;
 
 		
-		[WrappingFieldAttribute(下标 = 38, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 38, Length = 1)]
 		public byte 对象职业;
 
 		
-		[WrappingFieldAttribute(下标 = 39, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 39, Length = 1)]
 		public byte 对象性别;
 
 		
-		[WrappingFieldAttribute(下标 = 40, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 40, Length = 1)]
 		public byte 会员等级;
 
 		
-		[WrappingFieldAttribute(下标 = 41, 长度 = 25)]
+		[WrappingFieldAttribute(SubScript = 41, Length = 25)]
 		public string 行会名字;
 	}
 }

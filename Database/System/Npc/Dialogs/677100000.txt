@@ -1,4 +1,4 @@
 {
   "Id": 677100000,
-  "Content": "将古老的魔法镌刻在你的武器上，这是我最擅长的事.<#UI:OpenWeaponSkill>普通铭文洗炼<#UI/><#UI:WeaponSkillRplc>高级铭文洗炼<#UI/><#UI:OpenWeaponSkillRplcRarity>铭文替换洗练<#UI/>"
+  "Content": "Engraving ancient magic on your weapons is what I do best.<#UI:OpenWeaponSkill>Normal Inscription Refinement<#UI/><#UI:WeaponSkillRplc>Advanced Inscription Refinement<#UI/><#UI:OpenWeaponSkillRplcRarity>Inscription Replacement Refinement<#UI/>"
 }

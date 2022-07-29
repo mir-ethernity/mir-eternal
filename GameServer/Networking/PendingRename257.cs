@@ -14,15 +14,15 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 4)]
 		public int 队伍编号;
 
 		
-		[WrappingFieldAttribute(下标 = 6, 长度 = 32)]
+		[WrappingFieldAttribute(SubScript = 6, Length = 32)]
 		public string 队伍名字;
 
 		
-		[WrappingFieldAttribute(下标 = 39, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 39, Length = 4)]
 		public int 队长编号;
 	}
 }

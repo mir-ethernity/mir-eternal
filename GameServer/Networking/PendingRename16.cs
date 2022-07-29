@@ -14,27 +14,27 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 32)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 32)]
 		public string 名字;
 
 		
-		[WrappingFieldAttribute(下标 = 34, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 34, Length = 1)]
 		public byte 性别;
 
 		
-		[WrappingFieldAttribute(下标 = 35, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 35, Length = 1)]
 		public byte 职业;
 
 		
-		[WrappingFieldAttribute(下标 = 36, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 36, Length = 1)]
 		public byte 发型;
 
 		
-		[WrappingFieldAttribute(下标 = 37, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 37, Length = 1)]
 		public byte 发色;
 
 		
-		[WrappingFieldAttribute(下标 = 38, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 38, Length = 1)]
 		public byte 脸型;
 	}
 }

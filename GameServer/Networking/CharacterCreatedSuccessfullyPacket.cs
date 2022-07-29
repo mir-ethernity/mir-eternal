@@ -14,7 +14,7 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 94)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 94)]
 		public byte[] 角色描述;
 	}
 }

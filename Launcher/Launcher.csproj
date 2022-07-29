@@ -17,6 +17,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AssemblyName>Mir3DLauncher</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Design" />

@@ -13,7 +13,7 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "C_03_计算对象位移, Assembly-CSharp",
+      "$type": "C_03_CalculateObjectDisplacement, Assembly-CSharp",
       "角色ItSelf位移": true,
       "ItSelf位移耗时": 2,
       "ItSelf位移次数": "AQEBAQ==",

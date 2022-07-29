@@ -14,7 +14,7 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 4, 长度 = 0)]
+		[WrappingFieldAttribute(SubScript = 4, Length = 0)]
 		public byte[] 技能描述;
 	}
 }

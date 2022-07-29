@@ -9,73 +9,73 @@ using GameServer.Networking;
 
 namespace GameServer.Maps
 {
-    
+
     public abstract class MapObject
     {
-        
+
         public override string ToString()
         {
             return this.对象名字;
         }
 
-        
+
         // (get) Token: 0x06000761 RID: 1889 RVA: 0x000064EF File Offset: 0x000046EF
         // (set) Token: 0x06000762 RID: 1890 RVA: 0x000064F7 File Offset: 0x000046F7
         public DateTime 恢复时间 { get; set; }
 
-        
+
         // (get) Token: 0x06000763 RID: 1891 RVA: 0x00006500 File Offset: 0x00004700
         // (set) Token: 0x06000764 RID: 1892 RVA: 0x00006508 File Offset: 0x00004708
         public DateTime 治疗时间 { get; set; }
 
-        
+
         // (get) Token: 0x06000765 RID: 1893 RVA: 0x00006511 File Offset: 0x00004711
         // (set) Token: 0x06000766 RID: 1894 RVA: 0x00006519 File Offset: 0x00004719
         public DateTime 脱战时间 { get; set; }
 
-        
+
         // (get) Token: 0x06000767 RID: 1895 RVA: 0x00006522 File Offset: 0x00004722
         // (set) Token: 0x06000768 RID: 1896 RVA: 0x0000652A File Offset: 0x0000472A
         public DateTime 处理计时 { get; set; }
 
-        
+
         // (get) Token: 0x06000769 RID: 1897 RVA: 0x00006533 File Offset: 0x00004733
         // (set) Token: 0x0600076A RID: 1898 RVA: 0x0000653B File Offset: 0x0000473B
         public DateTime 预约时间 { get; set; }
 
-        
+
         // (get) Token: 0x0600076B RID: 1899 RVA: 0x00006544 File Offset: 0x00004744
         public virtual int 处理间隔 { get; }
 
-        
+
         // (get) Token: 0x0600076C RID: 1900 RVA: 0x0000654C File Offset: 0x0000474C
         // (set) Token: 0x0600076D RID: 1901 RVA: 0x00006554 File Offset: 0x00004754
         public int 治疗次数 { get; set; }
 
-        
+
         // (get) Token: 0x0600076E RID: 1902 RVA: 0x0000655D File Offset: 0x0000475D
         // (set) Token: 0x0600076F RID: 1903 RVA: 0x00006565 File Offset: 0x00004765
         public int 治疗基数 { get; set; }
 
-        
+
         // (get) Token: 0x06000770 RID: 1904 RVA: 0x0000656E File Offset: 0x0000476E
         // (set) Token: 0x06000771 RID: 1905 RVA: 0x00006576 File Offset: 0x00004776
         public byte 动作编号 { get; set; }
 
-        
+
         // (get) Token: 0x06000772 RID: 1906 RVA: 0x0000657F File Offset: 0x0000477F
         // (set) Token: 0x06000773 RID: 1907 RVA: 0x00006587 File Offset: 0x00004787
         public bool 战斗姿态 { get; set; }
 
-        
-        // (get) Token: 0x06000774 RID: 1908
-        public abstract GameObjectType 对象类型 { get; }
 
-        
+        // (get) Token: 0x06000774 RID: 1908
+        public abstract GameObjectType ObjectType { get; }
+
+
         // (get) Token: 0x06000775 RID: 1909
         public abstract MonsterSize 对象体型 { get; }
 
-        
+
         // (get) Token: 0x06000776 RID: 1910 RVA: 0x00006590 File Offset: 0x00004790
         public ushort 行走速度
         {
@@ -85,7 +85,7 @@ namespace GameServer.Maps
             }
         }
 
-        
+
         // (get) Token: 0x06000777 RID: 1911 RVA: 0x0000659B File Offset: 0x0000479B
         public ushort 奔跑速度
         {
@@ -95,7 +95,7 @@ namespace GameServer.Maps
             }
         }
 
-        
+
         // (get) Token: 0x06000778 RID: 1912 RVA: 0x000065A6 File Offset: 0x000047A6
         public virtual int 行走耗时
         {
@@ -105,7 +105,7 @@ namespace GameServer.Maps
             }
         }
 
-        
+
         // (get) Token: 0x06000779 RID: 1913 RVA: 0x000065B1 File Offset: 0x000047B1
         public virtual int 奔跑耗时
         {
@@ -115,97 +115,97 @@ namespace GameServer.Maps
             }
         }
 
-        
+
         // (get) Token: 0x0600077A RID: 1914 RVA: 0x000065BC File Offset: 0x000047BC
         // (set) Token: 0x0600077B RID: 1915 RVA: 0x000065C4 File Offset: 0x000047C4
         public virtual int MapId { get; set; }
 
-        
+
         // (get) Token: 0x0600077C RID: 1916 RVA: 0x000065CD File Offset: 0x000047CD
         // (set) Token: 0x0600077D RID: 1917 RVA: 0x000065D5 File Offset: 0x000047D5
         public virtual int 当前体力 { get; set; }
 
-        
+
         // (get) Token: 0x0600077E RID: 1918 RVA: 0x000065DE File Offset: 0x000047DE
         // (set) Token: 0x0600077F RID: 1919 RVA: 0x000065E6 File Offset: 0x000047E6
         public virtual int 当前魔力 { get; set; }
 
-        
+
         // (get) Token: 0x06000780 RID: 1920 RVA: 0x000065EF File Offset: 0x000047EF
         // (set) Token: 0x06000781 RID: 1921 RVA: 0x000065F7 File Offset: 0x000047F7
         public virtual byte 当前等级 { get; set; }
 
-        
+
         // (get) Token: 0x06000782 RID: 1922 RVA: 0x00006600 File Offset: 0x00004800
         // (set) Token: 0x06000783 RID: 1923 RVA: 0x00006608 File Offset: 0x00004808
-        public virtual bool 对象死亡 { get; set; }
+        public virtual bool Died { get; set; }
 
-        
+
         // (get) Token: 0x06000784 RID: 1924 RVA: 0x00006611 File Offset: 0x00004811
         // (set) Token: 0x06000785 RID: 1925 RVA: 0x00006619 File Offset: 0x00004819
         public virtual bool 阻塞网格 { get; set; }
 
-        
+
         // (get) Token: 0x06000786 RID: 1926 RVA: 0x00006622 File Offset: 0x00004822
-        public virtual bool 能被命中
+        public virtual bool CanBeHit
         {
             get
             {
-                return !this.对象死亡;
+                return !this.Died;
             }
         }
 
-        
+
         // (get) Token: 0x06000787 RID: 1927 RVA: 0x0000662D File Offset: 0x0000482D
         // (set) Token: 0x06000788 RID: 1928 RVA: 0x00006635 File Offset: 0x00004835
         public virtual string 对象名字 { get; set; }
 
-        
+
         // (get) Token: 0x06000789 RID: 1929 RVA: 0x0000663E File Offset: 0x0000483E
         // (set) Token: 0x0600078A RID: 1930 RVA: 0x00006646 File Offset: 0x00004846
         public virtual GameDirection 当前方向 { get; set; }
 
-        
+
         // (get) Token: 0x0600078B RID: 1931 RVA: 0x0000664F File Offset: 0x0000484F
         // (set) Token: 0x0600078C RID: 1932 RVA: 0x00006657 File Offset: 0x00004857
-        public virtual MapInstance 当前地图 { get; set; }
+        public virtual MapInstance CurrentMap { get; set; }
 
-        
+
         // (get) Token: 0x0600078D RID: 1933 RVA: 0x00006660 File Offset: 0x00004860
         // (set) Token: 0x0600078E RID: 1934 RVA: 0x00006668 File Offset: 0x00004868
-        public virtual Point 当前坐标 { get; set; }
+        public virtual Point CurrentCoords { get; set; }
 
-        
+
         // (get) Token: 0x0600078F RID: 1935 RVA: 0x00006671 File Offset: 0x00004871
         public virtual ushort 当前高度
         {
             get
             {
-                return this.当前地图.地形高度(this.当前坐标);
+                return this.CurrentMap.地形高度(this.CurrentCoords);
             }
         }
 
-        
+
         // (get) Token: 0x06000790 RID: 1936 RVA: 0x00006684 File Offset: 0x00004884
         // (set) Token: 0x06000791 RID: 1937 RVA: 0x0000668C File Offset: 0x0000488C
         public virtual DateTime 忙碌时间 { get; set; }
 
-        
+
         // (get) Token: 0x06000792 RID: 1938 RVA: 0x00006695 File Offset: 0x00004895
         // (set) Token: 0x06000793 RID: 1939 RVA: 0x0000669D File Offset: 0x0000489D
         public virtual DateTime 硬直时间 { get; set; }
 
-        
+
         // (get) Token: 0x06000794 RID: 1940 RVA: 0x000066A6 File Offset: 0x000048A6
         // (set) Token: 0x06000795 RID: 1941 RVA: 0x000066AE File Offset: 0x000048AE
         public virtual DateTime 行走时间 { get; set; }
 
-        
+
         // (get) Token: 0x06000796 RID: 1942 RVA: 0x000066B7 File Offset: 0x000048B7
         // (set) Token: 0x06000797 RID: 1943 RVA: 0x000066BF File Offset: 0x000048BF
         public virtual DateTime 奔跑时间 { get; set; }
 
-        
+
         public virtual int this[GameObjectStats Stat]
         {
             get
@@ -231,19 +231,19 @@ namespace GameServer.Maps
             }
         }
 
-        
+
         // (get) Token: 0x0600079A RID: 1946 RVA: 0x00006724 File Offset: 0x00004924
         public virtual Dictionary<GameObjectStats, int> 当前Stat { get; }
 
-        
-        // (get) Token: 0x0600079B RID: 1947 RVA: 0x0000672C File Offset: 0x0000492C
-        public virtual MonitorDictionary<int, DateTime> 冷却记录 { get; }
 
-        
+        // (get) Token: 0x0600079B RID: 1947 RVA: 0x0000672C File Offset: 0x0000492C
+        public virtual MonitorDictionary<int, DateTime> Coolings { get; }
+
+
         // (get) Token: 0x0600079C RID: 1948 RVA: 0x00006734 File Offset: 0x00004934
         public virtual MonitorDictionary<ushort, BuffData> Buff列表 { get; }
 
-        
+
         public virtual void 更新对象Stat()
         {
             int num = 0;
@@ -318,66 +318,66 @@ namespace GameServer.Maps
             }
         }
 
-        
+
         public virtual void 处理对象数据()
         {
             this.处理计时 = MainProcess.CurrentTime;
             this.预约时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.处理间隔);
         }
 
-        
+
         public virtual void ItSelf死亡处理(MapObject 对象, bool 技能击杀)
         {
             this.发送封包(new ObjectCharacterDiesPacket
             {
                 对象编号 = this.MapId
             });
-            this.技能任务.Clear();
-            this.对象死亡 = true;
+            this.SkillTasks.Clear();
+            this.Died = true;
             this.阻塞网格 = false;
-            foreach (MapObject MapObject in this.邻居列表.ToList<MapObject>())
+            foreach (MapObject MapObject in this.Neighbors.ToList<MapObject>())
             {
                 MapObject.对象死亡时处理(this);
             }
         }
 
-        
+
         public MapObject()
         {
 
 
             this.处理计时 = MainProcess.CurrentTime;
-            this.技能任务 = new HashSet<技能实例>();
+            this.SkillTasks = new HashSet<SkillInstance>();
             this.陷阱列表 = new HashSet<TrapObject>();
             this.重要邻居 = new HashSet<MapObject>();
             this.潜行邻居 = new HashSet<MapObject>();
-            this.邻居列表 = new HashSet<MapObject>();
+            this.Neighbors = new HashSet<MapObject>();
             this.当前Stat = new Dictionary<GameObjectStats, int>();
-            this.冷却记录 = new MonitorDictionary<int, DateTime>(null);
+            this.Coolings = new MonitorDictionary<int, DateTime>(null);
             this.Buff列表 = new MonitorDictionary<ushort, BuffData>(null);
             this.Stat加成 = new Dictionary<object, Dictionary<GameObjectStats, int>>();
             this.预约时间 = MainProcess.CurrentTime.AddMilliseconds((double)MainProcess.RandomNumber.Next(this.处理间隔));
         }
 
-        
+
         public void 解绑网格()
         {
-            foreach (Point 坐标 in ComputingClass.技能范围(this.当前坐标, this.当前方向, this.对象体型))
+            foreach (Point 坐标 in ComputingClass.技能范围(this.CurrentCoords, this.当前方向, this.对象体型))
             {
-                this.当前地图[坐标].Remove(this);
+                this.CurrentMap[坐标].Remove(this);
             }
         }
 
-        
+
         public void 绑定网格()
         {
-            foreach (Point 坐标 in ComputingClass.技能范围(this.当前坐标, this.当前方向, this.对象体型))
+            foreach (Point 坐标 in ComputingClass.技能范围(this.CurrentCoords, this.当前方向, this.对象体型))
             {
-                this.当前地图[坐标].Add(this);
+                this.CurrentMap[坐标].Add(this);
             }
         }
 
-        
+
         public void 删除对象()
         {
             this.清空邻居时处理();
@@ -388,19 +388,19 @@ namespace GameServer.Maps
             MapGatewayProcess.移除激活对象(this);
         }
 
-        
+
         public int 网格距离(Point 坐标)
         {
-            return ComputingClass.网格距离(this.当前坐标, 坐标);
+            return ComputingClass.GridDistance(this.CurrentCoords, 坐标);
         }
 
-        
+
         public int 网格距离(MapObject 对象)
         {
-            return ComputingClass.网格距离(this.当前坐标, 对象.当前坐标);
+            return ComputingClass.GridDistance(this.CurrentCoords, 对象.CurrentCoords);
         }
 
-        
+
         public void 发送封包(GamePacket 封包)
         {
             string name = 封包.PacketType.Name;
@@ -438,40 +438,32 @@ namespace GameServer.Maps
                     break;
             }
 
-            PlayerObject PlayerObject2 = this as PlayerObject;
-            if (PlayerObject2 != null)
-            {
-                SConnection 网络连接 = PlayerObject2.GetCurrentConnection;
-                if (网络连接 == null)
-                {
-                    return;
-                }
-                网络连接.发送封包(封包);
-            }
+            if (this is PlayerObject playerObj)
+                playerObj.ActiveConnection?.发送封包(封包);
         }
 
         private void BroadcastPacket(GamePacket packet)
         {
-            foreach (MapObject obj in this.邻居列表)
+            foreach (MapObject obj in this.Neighbors)
             {
                 PlayerObject PlayerObject = obj as PlayerObject;
                 if (PlayerObject != null && !PlayerObject.潜行邻居.Contains(this) && PlayerObject != null)
                 {
-                    PlayerObject.GetCurrentConnection.发送封包(packet);
+                    PlayerObject.ActiveConnection.发送封包(packet);
                 }
             }
         }
 
-        
+
         public bool 在视线内(MapObject 对象)
         {
-            return Math.Abs(this.当前坐标.X - 对象.当前坐标.X) <= 20 && Math.Abs(this.当前坐标.Y - 对象.当前坐标.Y) <= 20;
+            return Math.Abs(this.CurrentCoords.X - 对象.CurrentCoords.X) <= 20 && Math.Abs(this.CurrentCoords.Y - 对象.CurrentCoords.Y) <= 20;
         }
 
-        
+
         public bool ActiveAttack(MapObject 对象)
         {
-            if (对象.对象死亡)
+            if (对象.Died)
             {
                 return false;
             }
@@ -524,10 +516,10 @@ namespace GameServer.Maps
             return false;
         }
 
-        
+
         public bool 邻居类型(MapObject 对象)
         {
-            GameObjectType 对象类型 = this.对象类型;
+            GameObjectType 对象类型 = this.ObjectType;
             if (对象类型 <= GameObjectType.Npcc)
             {
                 switch (对象类型)
@@ -537,7 +529,7 @@ namespace GameServer.Maps
                     case GameObjectType.宠物:
                     case GameObjectType.怪物:
                         {
-                            GameObjectType 对象类型2 = 对象.对象类型;
+                            GameObjectType 对象类型2 = 对象.ObjectType;
                             if (对象类型2 <= GameObjectType.怪物)
                             {
                                 if (对象类型2 - GameObjectType.玩家 <= 1 || 对象类型2 == GameObjectType.怪物)
@@ -563,7 +555,7 @@ namespace GameServer.Maps
                     default:
                         if (对象类型 == GameObjectType.Npcc)
                         {
-                            GameObjectType 对象类型2 = 对象.对象类型;
+                            GameObjectType 对象类型2 = 对象.ObjectType;
                             if (对象类型2 - GameObjectType.玩家 > 1 && 对象类型2 != GameObjectType.怪物)
                             {
                                 if (对象类型2 != GameObjectType.陷阱)
@@ -580,11 +572,11 @@ namespace GameServer.Maps
             {
                 if (对象类型 == GameObjectType.物品)
                 {
-                    return 对象.对象类型 == GameObjectType.玩家;
+                    return 对象.ObjectType == GameObjectType.玩家;
                 }
                 if (对象类型 == GameObjectType.陷阱)
                 {
-                    GameObjectType 对象类型2 = 对象.对象类型;
+                    GameObjectType 对象类型2 = 对象.ObjectType;
                     if (对象类型2 - GameObjectType.玩家 > 1 && 对象类型2 != GameObjectType.怪物)
                     {
                         if (对象类型2 != GameObjectType.Npcc)
@@ -598,8 +590,8 @@ namespace GameServer.Maps
             return false;
         }
 
-        
-        public GameObjectRelationship 对象关系(MapObject 对象)
+
+        public GameObjectRelationship GetRelationship(MapObject 对象)
         {
             TrapObject TrapObject = 对象 as TrapObject;
             if (TrapObject != null)
@@ -632,7 +624,7 @@ namespace GameServer.Maps
                         {
                             if (PlayerObject.AttackMode == AttackMode.全体)
                             {
-                                if (this.当前地图.MapId != 80)
+                                if (this.CurrentMap.MapId != 80)
                                 {
                                     return GameObjectRelationship.Hostility;
                                 }
@@ -648,7 +640,7 @@ namespace GameServer.Maps
                             }
                             if (PlayerObject.AttackMode == AttackMode.行会)
                             {
-                                if (PlayerObject.所属行会 != null && PlayerObject2.所属行会 != null && (PlayerObject.所属行会 == PlayerObject2.所属行会 || PlayerObject.所属行会.结盟行会.ContainsKey(PlayerObject2.所属行会)))
+                                if (PlayerObject.Guild != null && PlayerObject2.Guild != null && (PlayerObject.Guild == PlayerObject2.Guild || PlayerObject.Guild.结盟行会.ContainsKey(PlayerObject2.Guild)))
                                 {
                                     return GameObjectRelationship.Friendly;
                                 }
@@ -681,7 +673,7 @@ namespace GameServer.Maps
                                 }
                                 else if (PlayerObject.AttackMode == AttackMode.Hostility)
                                 {
-                                    if (PlayerObject.所属行会 != null && PlayerObject2.所属行会 != null && PlayerObject.所属行会.Hostility行会.ContainsKey(PlayerObject2.所属行会))
+                                    if (PlayerObject.Guild != null && PlayerObject2.Guild != null && PlayerObject.Guild.Hostility行会.ContainsKey(PlayerObject2.Guild))
                                     {
                                         return GameObjectRelationship.Hostility;
                                     }
@@ -694,7 +686,7 @@ namespace GameServer.Maps
                             PetObject PetObject = 对象 as PetObject;
                             if (PetObject != null)
                             {
-                                if (PetObject.宠物主人 == PlayerObject)
+                                if (PetObject.PlayerOwner == PlayerObject)
                                 {
                                     if (PlayerObject.AttackMode != AttackMode.全体)
                                     {
@@ -710,7 +702,7 @@ namespace GameServer.Maps
                                     }
                                     if (PlayerObject.AttackMode == AttackMode.行会)
                                     {
-                                        if (PlayerObject.所属行会 != null && PetObject.宠物主人.所属行会 != null && (PlayerObject.所属行会 == PetObject.宠物主人.所属行会 || PlayerObject.所属行会.结盟行会.ContainsKey(PetObject.宠物主人.所属行会)))
+                                        if (PlayerObject.Guild != null && PetObject.PlayerOwner.Guild != null && (PlayerObject.Guild == PetObject.PlayerOwner.Guild || PlayerObject.Guild.结盟行会.ContainsKey(PetObject.PlayerOwner.Guild)))
                                         {
                                             return GameObjectRelationship.Friendly;
                                         }
@@ -720,9 +712,9 @@ namespace GameServer.Maps
                                     {
                                         if (PlayerObject.AttackMode == AttackMode.组队)
                                         {
-                                            if (PlayerObject.所属队伍 != null && PetObject.宠物主人.所属队伍 != null)
+                                            if (PlayerObject.所属队伍 != null && PetObject.PlayerOwner.所属队伍 != null)
                                             {
-                                                if (PlayerObject.所属队伍 == PetObject.宠物主人.所属队伍)
+                                                if (PlayerObject.所属队伍 == PetObject.PlayerOwner.所属队伍)
                                                 {
                                                     return GameObjectRelationship.Friendly;
                                                 }
@@ -735,7 +727,7 @@ namespace GameServer.Maps
                                         }
                                         if (PlayerObject.AttackMode == AttackMode.善恶)
                                         {
-                                            if (!PetObject.宠物主人.红名玩家 && !PetObject.宠物主人.灰名玩家)
+                                            if (!PetObject.PlayerOwner.红名玩家 && !PetObject.PlayerOwner.灰名玩家)
                                             {
                                                 return GameObjectRelationship.Friendly;
                                             }
@@ -743,7 +735,7 @@ namespace GameServer.Maps
                                         }
                                         else if (PlayerObject.AttackMode == AttackMode.Hostility)
                                         {
-                                            if (PlayerObject.所属行会 != null && PetObject.宠物主人.所属行会 != null && PlayerObject.所属行会.Hostility行会.ContainsKey(PetObject.宠物主人.所属行会))
+                                            if (PlayerObject.Guild != null && PetObject.PlayerOwner.Guild != null && PlayerObject.Guild.Hostility行会.ContainsKey(PetObject.PlayerOwner.Guild))
                                             {
                                                 return GameObjectRelationship.Hostility;
                                             }
@@ -759,9 +751,9 @@ namespace GameServer.Maps
                         PetObject PetObject2 = this as PetObject;
                         if (PetObject2 != null)
                         {
-                            if (PetObject2.宠物主人 != 对象)
+                            if (PetObject2.PlayerOwner != 对象)
                             {
-                                return PetObject2.宠物主人.对象关系(对象);
+                                return PetObject2.PlayerOwner.GetRelationship(对象);
                             }
                             return GameObjectRelationship.Friendly;
                         }
@@ -770,7 +762,7 @@ namespace GameServer.Maps
                             TrapObject TrapObject2 = this as TrapObject;
                             if (TrapObject2 != null)
                             {
-                                return TrapObject2.陷阱来源.对象关系(对象);
+                                return TrapObject2.陷阱来源.GetRelationship(对象);
                             }
                         }
                     }
@@ -784,8 +776,8 @@ namespace GameServer.Maps
             return GameObjectRelationship.Friendly;
         }
 
-        
-        public bool 特定类型(MapObject 来源, SpecifyTargetType 类型)
+
+        public bool IsSpecificType(MapObject 来源, SpecifyTargetType 类型)
         {
             TrapObject TrapObject = 来源 as TrapObject;
             MapObject MapObject = (TrapObject != null) ? TrapObject.陷阱来源 : 来源;
@@ -846,7 +838,7 @@ namespace GameServer.Maps
                 }
                 if ((类型 & SpecifyTargetType.Backstab) == SpecifyTargetType.Backstab)
                 {
-                    GameDirection GameDirection = ComputingClass.计算方向(来源.当前坐标, this.当前坐标);
+                    GameDirection GameDirection = ComputingClass.计算方向(来源.CurrentCoords, this.CurrentCoords);
                     GameDirection 当前方向 = this.当前方向;
                     if (当前方向 <= GameDirection.上方)
                     {
@@ -940,7 +932,7 @@ namespace GameServer.Maps
                 }
                 if ((类型 & SpecifyTargetType.Backstab) == SpecifyTargetType.Backstab)
                 {
-                    GameDirection GameDirection2 = ComputingClass.计算方向(来源.当前坐标, this.当前坐标);
+                    GameDirection GameDirection2 = ComputingClass.计算方向(来源.CurrentCoords, this.CurrentCoords);
                     GameDirection 当前方向 = this.当前方向;
                     if (当前方向 <= GameDirection.上方)
                     {
@@ -1049,7 +1041,7 @@ namespace GameServer.Maps
                     }
                     if ((类型 & SpecifyTargetType.Backstab) == SpecifyTargetType.Backstab)
                     {
-                        GameDirection GameDirection3 = ComputingClass.计算方向(来源.当前坐标, this.当前坐标);
+                        GameDirection GameDirection3 = ComputingClass.计算方向(来源.CurrentCoords, this.CurrentCoords);
                         GameDirection 当前方向 = this.当前方向;
                         if (当前方向 <= GameDirection.上方)
                         {
@@ -1150,7 +1142,7 @@ namespace GameServer.Maps
                         }
                         if ((类型 & SpecifyTargetType.Backstab) == SpecifyTargetType.Backstab)
                         {
-                            GameDirection GameDirection4 = ComputingClass.计算方向(来源.当前坐标, this.当前坐标);
+                            GameDirection GameDirection4 = ComputingClass.计算方向(来源.CurrentCoords, this.CurrentCoords);
                             GameDirection 当前方向 = this.当前方向;
                             if (当前方向 <= GameDirection.上方)
                             {
@@ -1242,25 +1234,25 @@ namespace GameServer.Maps
             return false;
         }
 
-        
+
         public virtual bool 能否走动()
         {
-            return !this.对象死亡 && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.行走时间) && !this.检查状态(GameObjectState.BusyGreen | GameObjectState.Inmobilized | GameObjectState.Paralyzed | GameObjectState.Absence);
+            return !this.Died && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.行走时间) && !this.CheckStatus(GameObjectState.BusyGreen | GameObjectState.Inmobilized | GameObjectState.Paralyzed | GameObjectState.Absence);
         }
 
-        
+
         public virtual bool 能否跑动()
         {
-            return !this.对象死亡 && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.奔跑时间) && !this.检查状态(GameObjectState.BusyGreen | GameObjectState.Disabled | GameObjectState.Inmobilized | GameObjectState.Paralyzed | GameObjectState.Absence);
+            return !this.Died && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.奔跑时间) && !this.CheckStatus(GameObjectState.BusyGreen | GameObjectState.Disabled | GameObjectState.Inmobilized | GameObjectState.Paralyzed | GameObjectState.Absence);
         }
 
-        
+
         public virtual bool 能否转动()
         {
-            return !this.对象死亡 && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.行走时间) && !this.检查状态(GameObjectState.BusyGreen | GameObjectState.Paralyzed | GameObjectState.Absence);
+            return !this.Died && !(MainProcess.CurrentTime < this.忙碌时间) && !(MainProcess.CurrentTime < this.行走时间) && !this.CheckStatus(GameObjectState.BusyGreen | GameObjectState.Paralyzed | GameObjectState.Absence);
         }
 
-        
+
         public virtual bool 能被推动(MapObject 来源)
         {
             if (this == 来源)
@@ -1276,41 +1268,41 @@ namespace GameServer.Maps
                 return false;
             }
             MonsterObject MonsterObject = this as MonsterObject;
-            return (MonsterObject == null || MonsterObject.CanBeDrivenBySkills) && 来源.对象关系(this) == GameObjectRelationship.Hostility;
+            return (MonsterObject == null || MonsterObject.CanBeDrivenBySkills) && 来源.GetRelationship(this) == GameObjectRelationship.Hostility;
         }
 
-        
+
         public virtual bool 能否位移(MapObject 来源, Point 锚点, int 距离, int 数量, bool 穿墙, out Point 终点, out MapObject[] 目标)
         {
-            终点 = this.当前坐标;
+            终点 = this.CurrentCoords;
             目标 = null;
-            if (!(this.当前坐标 == 锚点) && this.能被推动(来源))
+            if (!(this.CurrentCoords == 锚点) && this.能被推动(来源))
             {
                 List<MapObject> list = new List<MapObject>();
                 for (int i = 1; i <= 距离; i++)
                 {
                     if (穿墙)
                     {
-                        Point point = ComputingClass.前方坐标(this.当前坐标, 锚点, i);
-                        if (this.当前地图.能否通行(point))
+                        Point point = ComputingClass.前方坐标(this.CurrentCoords, 锚点, i);
+                        if (this.CurrentMap.能否通行(point))
                         {
                             终点 = point;
                         }
                     }
                     else
                     {
-                        GameDirection 方向 = ComputingClass.计算方向(this.当前坐标, 锚点);
-                        Point point2 = ComputingClass.前方坐标(this.当前坐标, 锚点, i);
-                        if (this.当前地图.地形阻塞(point2))
+                        GameDirection 方向 = ComputingClass.计算方向(this.CurrentCoords, 锚点);
+                        Point point2 = ComputingClass.前方坐标(this.CurrentCoords, 锚点, i);
+                        if (this.CurrentMap.地形阻塞(point2))
                         {
                             break;
                         }
                         bool flag = false;
-                        if (!this.当前地图.空间阻塞(point2))
+                        if (!this.CurrentMap.空间阻塞(point2))
                         {
                             goto IL_168;
                         }
-                        using (IEnumerator<MapObject> enumerator = (from O in this.当前地图[point2]
+                        using (IEnumerator<MapObject> enumerator = (from O in this.CurrentMap[point2]
                                                                     where O.阻塞网格
                                                                     select O).GetEnumerator())
                         {
@@ -1324,7 +1316,7 @@ namespace GameServer.Maps
                                 }
                                 Point point3;
                                 MapObject[] collection;
-                                if (!MapObject.能否位移(来源, ComputingClass.前方坐标(MapObject.当前坐标, 方向, 1), 1, 数量 - list.Count - 1, false, out point3, out collection))
+                                if (!MapObject.能否位移(来源, ComputingClass.前方坐标(MapObject.CurrentCoords, 方向, 1), 1, 数量 - list.Count - 1, false, out point3, out collection))
                                 {
                                     flag = true;
                                     break;
@@ -1347,13 +1339,13 @@ namespace GameServer.Maps
                 IL_15D:;
                 }
                 目标 = list.ToArray();
-                return 终点 != this.当前坐标;
+                return 终点 != this.CurrentCoords;
             }
             return false;
         }
 
-        
-        public virtual bool 检查状态(GameObjectState 待检状态)
+
+        public virtual bool CheckStatus(GameObjectState 待检状态)
         {
             foreach (BuffData BuffData in this.Buff列表.Values)
             {
@@ -1365,7 +1357,7 @@ namespace GameServer.Maps
             return false;
         }
 
-        
+
         public void 添加Buff时处理(ushort 编号, MapObject 来源)
         {
             if (!(this is ItemObject) && !(this is TrapObject))
@@ -1383,7 +1375,7 @@ namespace GameServer.Maps
                     {
                         if ((游戏Buff.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign)
                         {
-                            if (((游戏Buff.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal || (游戏Buff.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal) && this.检查状态(GameObjectState.Exposed))
+                            if (((游戏Buff.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal || (游戏Buff.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal) && this.CheckStatus(GameObjectState.Exposed))
                             {
                                 return;
                             }
@@ -1512,14 +1504,14 @@ namespace GameServer.Maps
                             {
                                 if ((游戏Buff.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal)
                                 {
-                                    foreach (MapObject MapObject in this.邻居列表.ToList<MapObject>())
+                                    foreach (MapObject MapObject in this.Neighbors.ToList<MapObject>())
                                     {
                                         MapObject.对象隐身时处理(this);
                                     }
                                 }
                                 if ((游戏Buff.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal)
                                 {
-                                    foreach (MapObject MapObject2 in this.邻居列表.ToList<MapObject>())
+                                    foreach (MapObject MapObject2 in this.Neighbors.ToList<MapObject>())
                                     {
                                         MapObject2.对象潜行时处理(this);
                                     }
@@ -1536,7 +1528,7 @@ namespace GameServer.Maps
             }
         }
 
-        
+
         public void 移除Buff时处理(ushort 编号)
         {
             BuffData BuffData;
@@ -1560,10 +1552,10 @@ namespace GameServer.Maps
                     if (PlayerObject != null && PlayerObject.MainSkills表.ContainsKey(BuffData.绑定技能))
                     {
                         DateTime dateTime = MainProcess.CurrentTime.AddMilliseconds((double)BuffData.Cooldown);
-                        DateTime t = this.冷却记录.ContainsKey((int)BuffData.绑定技能 | 16777216) ? this.冷却记录[(int)BuffData.绑定技能 | 16777216] : default(DateTime);
+                        DateTime t = this.Coolings.ContainsKey((int)BuffData.绑定技能 | 16777216) ? this.Coolings[(int)BuffData.绑定技能 | 16777216] : default(DateTime);
                         if (dateTime > t)
                         {
-                            this.冷却记录[(int)BuffData.绑定技能 | 16777216] = dateTime;
+                            this.Coolings[(int)BuffData.绑定技能 | 16777216] = dateTime;
                             this.发送封包(new AddedSkillCooldownPacket
                             {
                                 冷却编号 = ((int)BuffData.绑定技能 | 16777216),
@@ -1591,14 +1583,14 @@ namespace GameServer.Maps
                 {
                     if ((BuffData.Buff模板.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal)
                     {
-                        foreach (MapObject MapObject2 in this.邻居列表.ToList<MapObject>())
+                        foreach (MapObject MapObject2 in this.Neighbors.ToList<MapObject>())
                         {
                             MapObject2.对象显隐时处理(this);
                         }
                     }
                     if ((BuffData.Buff模板.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal)
                     {
-                        foreach (MapObject MapObject3 in this.邻居列表.ToList<MapObject>())
+                        foreach (MapObject MapObject3 in this.Neighbors.ToList<MapObject>())
                         {
                             MapObject3.对象显行时处理(this);
                         }
@@ -1607,7 +1599,7 @@ namespace GameServer.Maps
             }
         }
 
-        
+
         public void 删除Buff时处理(ushort 编号)
         {
             BuffData BuffData;
@@ -1639,14 +1631,14 @@ namespace GameServer.Maps
                 {
                     if ((BuffData.Buff模板.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal)
                     {
-                        foreach (MapObject MapObject in this.邻居列表.ToList<MapObject>())
+                        foreach (MapObject MapObject in this.Neighbors.ToList<MapObject>())
                         {
                             MapObject.对象显隐时处理(this);
                         }
                     }
                     if ((BuffData.Buff模板.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal)
                     {
-                        foreach (MapObject MapObject2 in this.邻居列表.ToList<MapObject>())
+                        foreach (MapObject MapObject2 in this.Neighbors.ToList<MapObject>())
                         {
                             MapObject2.对象显行时处理(this);
                         }
@@ -1655,7 +1647,7 @@ namespace GameServer.Maps
             }
         }
 
-        
+
         public void 轮询Buff时处理(BuffData 数据)
         {
             if (数据.到期消失 && (数据.剩余时间.V -= MainProcess.CurrentTime - this.处理计时) < TimeSpan.Zero)
@@ -1677,168 +1669,152 @@ namespace GameServer.Maps
             }
         }
 
-        
-        public void 被技能命中处理(技能实例 技能, C_01_计算命中目标 参数)
+
+        public void ProcessSkillHit(SkillInstance skill, C_01_CalculateHitTarget info)
         {
-            TrapObject TrapObject = 技能.技能来源 as TrapObject;
-            MapObject MapObject = (TrapObject != null) ? TrapObject.陷阱来源 : 技能.技能来源;
-            if (技能.命中列表.ContainsKey(this.MapId) || !this.能被命中)
-            {
+            MapObject obj = skill.CasterObject is TrapObject trap
+                ? trap.陷阱来源
+                : skill.CasterObject;
+
+            if (skill.Hits.ContainsKey(MapId) || !CanBeHit)
                 return;
-            }
-            if (this != MapObject && !this.邻居列表.Contains(MapObject))
-            {
+
+            if (this != obj && !Neighbors.Contains(obj))
                 return;
-            }
-            if (技能.命中列表.Count >= 参数.限定命中数量)
-            {
+
+            if (skill.Hits.Count >= info.HitsLimit)
                 return;
-            }
-            if ((参数.限定目标关系 & MapObject.对象关系(this)) == (GameObjectRelationship)0)
-            {
+
+            if ((info.LimitedTargetRelationship & obj.GetRelationship(this)) == 0)
                 return;
-            }
-            if ((参数.限定目标类型 & this.对象类型) == (GameObjectType)0)
-            {
+
+            if ((info.LimitedTargetType & ObjectType) == 0)
                 return;
-            }
-            if (!this.特定类型(技能.技能来源, 参数.限定特定类型))
-            {
+
+            if (!IsSpecificType(skill.CasterObject, info.QualifySpecificType))
                 return;
-            }
-            if ((参数.限定目标关系 & GameObjectRelationship.Hostility) != (GameObjectRelationship)0)
+
+            if ((info.LimitedTargetRelationship & GameObjectRelationship.Hostility) != 0)
             {
-                if (this.检查状态(GameObjectState.Invencible))
-                {
+                if (CheckStatus(GameObjectState.Invencible))
                     return;
-                }
-                if ((this is PlayerObject || this is PetObject) && (MapObject is PlayerObject || MapObject is PetObject) && (this.当前地图.安全区内(this.当前坐标) || MapObject.当前地图.安全区内(MapObject.当前坐标)))
-                {
+
+                if ((this is PlayerObject || this is PetObject) && (obj is PlayerObject || obj is PetObject) && (CurrentMap.IsSafeZone(CurrentCoords) || obj.CurrentMap.IsSafeZone(obj.CurrentCoords)))
                     return;
-                }
-                if (MapObject is MonsterObject && this.当前地图.安全区内(this.当前坐标))
-                {
+
+                if (obj is MonsterObject && CurrentMap.IsSafeZone(CurrentCoords))
                     return;
-                }
             }
-            MonsterObject MonsterObject = this as MonsterObject;
-            if (MonsterObject != null && (MonsterObject.模板编号 == 8618 || MonsterObject.模板编号 == 8621))
+
+            // TODO: Sabak Gates (move some flag to database to remove hardcoded MonsterId)
+            if (this is MonsterObject monsterObject && (monsterObject.MonsterId == 8618 || monsterObject.MonsterId == 8621))
             {
-                PlayerObject PlayerObject = MapObject as PlayerObject;
-                if (PlayerObject != null && PlayerObject.所属行会 != null && PlayerObject.所属行会 == SystemData.数据.占领行会.V)
-                {
+                if (obj is PlayerObject playerObject && playerObject.Guild != null && playerObject.Guild == SystemData.Data.OccupyGuild.V)
                     return;
-                }
-                PetObject PetObject = MapObject as PetObject;
-                if (PetObject != null && PetObject.宠物主人 != null && PetObject.宠物主人.所属行会 != null && PetObject.宠物主人.所属行会 == SystemData.数据.占领行会.V)
-                {
+
+                if (obj is PetObject petObject && petObject.PlayerOwner != null && petObject.PlayerOwner.Guild != null && petObject.PlayerOwner.Guild == SystemData.Data.OccupyGuild.V)
                     return;
-                }
             }
+
             int num = 0;
             float num2 = 0f;
             int num3 = 0;
             float num4 = 0f;
-            switch (参数.技能闪避方式)
+
+            switch (info.SkillEvasion)
             {
-                case 技能闪避类型.技能无法闪避:
+                case SkillEvasionType.SkillCannotBeEvaded:
                     num = 1;
                     break;
-                case 技能闪避类型.可被物理闪避:
+                case SkillEvasionType.CanBePhsyicallyEvaded:
                     num3 = this[GameObjectStats.PhysicalAgility];
-                    num = MapObject[GameObjectStats.PhysicallyAccurate];
+                    num = obj[GameObjectStats.PhysicallyAccurate];
                     if (this is MonsterObject)
                     {
-                        num2 += (float)MapObject[GameObjectStats.怪物命中] / 10000f;
-                    }
-                    if (MapObject is MonsterObject)
-                    {
-                        num4 += (float)this[GameObjectStats.怪物闪避] / 10000f;
+                        num2 += obj[GameObjectStats.怪物命中] / 10000f;
+                        num4 += this[GameObjectStats.怪物闪避] / 10000f;
                     }
                     break;
-                case 技能闪避类型.可被MagicDodge:
-                    num4 = (float)this[GameObjectStats.MagicDodge] / 10000f;
+                case SkillEvasionType.CanBeMagicEvaded:
+                    num4 = this[GameObjectStats.MagicDodge] / 10000f;
                     if (this is MonsterObject)
                     {
-                        num2 += (float)MapObject[GameObjectStats.怪物命中] / 10000f;
-                    }
-                    if (MapObject is MonsterObject)
-                    {
-                        num4 += (float)this[GameObjectStats.怪物闪避] / 10000f;
+                        num2 += obj[GameObjectStats.怪物命中] / 10000f;
+                        num4 += this[GameObjectStats.怪物闪避] / 10000f;
                     }
                     break;
-                case 技能闪避类型.可被中毒闪避:
-                    num4 = (float)this[GameObjectStats.中毒躲避] / 10000f;
+                case SkillEvasionType.CanBePoisonEvaded:
+                    num4 = this[GameObjectStats.中毒躲避] / 10000f;
                     break;
-                case 技能闪避类型.非怪物可闪避:
+                case SkillEvasionType.NonMonstersCanEvaded:
                     if (this is MonsterObject)
-                    {
                         num = 1;
-                    }
                     else
                     {
                         num3 = this[GameObjectStats.PhysicalAgility];
-                        num = MapObject[GameObjectStats.PhysicallyAccurate];
+                        num = obj[GameObjectStats.PhysicallyAccurate];
                     }
                     break;
             }
-            命中详情 value = new 命中详情(this)
+
+            var value = new HitDetail(this)
             {
-                技能反馈 = (ComputingClass.计算命中((float)num, (float)num3, num2, num4) ? 参数.技能命中反馈 : 技能命中反馈.闪避)
+                Feedback = ComputingClass.IsHit(num, num3, num2, num4) ? info.SkillHitFeedback : SkillHitFeedback.Miss
             };
-            技能.命中列表.Add(this.MapId, value);
+
+            skill.Hits.Add(this.MapId, value);
         }
 
-        
-        public void 被动受伤时处理(技能实例 技能, C_02_计算目标伤害 参数, 命中详情 详情, float 伤害系数)
+
+        public void 被动受伤时处理(SkillInstance 技能, C_02_CalculateTargetDamage 参数, HitDetail 详情, float 伤害系数)
         {
-            TrapObject TrapObject = 技能.技能来源 as TrapObject;
-            MapObject MapObject = (TrapObject != null) ? TrapObject.陷阱来源 : 技能.技能来源;
-            if (this.对象死亡)
+            TrapObject TrapObject = 技能.CasterObject as TrapObject;
+            MapObject MapObject = (TrapObject != null) ? TrapObject.陷阱来源 : 技能.CasterObject;
+            if (this.Died)
             {
-                详情.技能反馈 = 技能命中反馈.丢失;
+                详情.Feedback = SkillHitFeedback.丢失;
             }
-            else if (!this.邻居列表.Contains(MapObject))
+            else if (!this.Neighbors.Contains(MapObject))
             {
-                详情.技能反馈 = 技能命中反馈.丢失;
+                详情.Feedback = SkillHitFeedback.丢失;
             }
-            else if ((MapObject.对象关系(this) & GameObjectRelationship.Hostility) == (GameObjectRelationship)0)
+            else if ((MapObject.GetRelationship(this) & GameObjectRelationship.Hostility) == (GameObjectRelationship)0)
             {
-                详情.技能反馈 = 技能命中反馈.丢失;
+                详情.Feedback = SkillHitFeedback.丢失;
             }
             else
             {
                 MonsterObject MonsterObject = this as MonsterObject;
-                if (MonsterObject != null && (MonsterObject.模板编号 == 8618 || MonsterObject.模板编号 == 8621) && this.网格距离(MapObject) >= 4)
+                if (MonsterObject != null && (MonsterObject.MonsterId == 8618 || MonsterObject.MonsterId == 8621) && this.网格距离(MapObject) >= 4)
                 {
-                    详情.技能反馈 = 技能命中反馈.丢失;
+                    详情.Feedback = SkillHitFeedback.丢失;
                 }
             }
-            if ((详情.技能反馈 & 技能命中反馈.免疫) == 技能命中反馈.正常 && (详情.技能反馈 & 技能命中反馈.丢失) == 技能命中反馈.正常)
+            if ((详情.Feedback & SkillHitFeedback.免疫) == SkillHitFeedback.正常 && (详情.Feedback & SkillHitFeedback.丢失) == SkillHitFeedback.正常)
             {
-                if ((详情.技能反馈 & 技能命中反馈.闪避) == 技能命中反馈.正常)
+                if ((详情.Feedback & SkillHitFeedback.Miss) == SkillHitFeedback.正常)
                 {
-                    if (参数.技能斩杀类型 != SpecifyTargetType.None && ComputingClass.计算概率(参数.技能斩杀概率) && this.特定类型(MapObject, 参数.技能斩杀类型))
+                    if (参数.技能斩杀类型 != SpecifyTargetType.None && ComputingClass.计算概率(参数.技能斩杀概率) && this.IsSpecificType(MapObject, 参数.技能斩杀类型))
                     {
-                        详情.技能伤害 = this.当前体力;
+                        详情.Damage = this.当前体力;
                     }
                     else
                     {
                         int[] 技能伤害基数 = 参数.技能伤害基数;
                         int? num = (技能伤害基数 != null) ? new int?(技能伤害基数.Length) : null;
-                        int num2 = (int)技能.技能等级;
-                        int num3 = (num.GetValueOrDefault() > num2 & num != null) ? 参数.技能伤害基数[(int)技能.技能等级] : 0;
+                        int num2 = (int)技能.SkillLevel;
+                        int num3 = (num.GetValueOrDefault() > num2 & num != null) ? 参数.技能伤害基数[(int)技能.SkillLevel] : 0;
                         float[] 技能伤害系数 = 参数.技能伤害系数;
                         num = ((技能伤害系数 != null) ? new int?(技能伤害系数.Length) : null);
-                        num2 = (int)技能.技能等级;
-                        float num4 = (num.GetValueOrDefault() > num2 & num != null) ? 参数.技能伤害系数[(int)技能.技能等级] : 0f;
+                        num2 = (int)技能.SkillLevel;
+                        float num4 = (num.GetValueOrDefault() > num2 & num != null) ? 参数.技能伤害系数[(int)技能.SkillLevel] : 0f;
                         if (this is MonsterObject)
                         {
                             num3 += MapObject[GameObjectStats.怪物伤害];
                         }
                         int num5 = 0;
                         float num6 = 0f;
-                        if (参数.技能增伤类型 != SpecifyTargetType.None && this.特定类型(MapObject, 参数.技能增伤类型))
+                        if (参数.技能增伤类型 != SpecifyTargetType.None && this.IsSpecificType(MapObject, 参数.技能增伤类型))
                         {
                             num5 = 参数.技能增伤基数;
                             num6 = 参数.技能增伤系数;
@@ -2145,12 +2121,12 @@ namespace GameServer.Maps
                         float val = (float)(num10 - num7) - (float)num10 * num8;
                         float val2 = (num20 - Math.Max(0f, val)) * (1f + num12) * 伤害系数;
                         int 技能伤害 = (int)Math.Min((float)num13, Math.Max(0f, val2));
-                        详情.技能伤害 = 技能伤害;
+                        详情.Damage = 技能伤害;
                     }
                 }
                 this.脱战时间 = MainProcess.CurrentTime.AddSeconds(10.0);
                 MapObject.脱战时间 = MainProcess.CurrentTime.AddSeconds(10.0);
-                if ((详情.技能反馈 & 技能命中反馈.闪避) == 技能命中反馈.正常)
+                if ((详情.Feedback & SkillHitFeedback.Miss) == SkillHitFeedback.正常)
                 {
                     foreach (BuffData BuffData3 in this.Buff列表.Values.ToList<BuffData>())
                     {
@@ -2166,7 +2142,7 @@ namespace GameServer.Maps
                     MonsterObject2.硬直时间 = MainProcess.CurrentTime.AddMilliseconds((double)参数.目标硬直时间);
                     if (MapObject is PlayerObject || MapObject is PetObject)
                     {
-                        MonsterObject2.HateObject.添加仇恨(MapObject, MainProcess.CurrentTime.AddMilliseconds((double)MonsterObject2.仇恨时长), 详情.技能伤害);
+                        MonsterObject2.HateObject.添加仇恨(MapObject, MainProcess.CurrentTime.AddMilliseconds((double)MonsterObject2.仇恨时长), 详情.Damage);
                     }
                 }
                 else
@@ -2174,26 +2150,26 @@ namespace GameServer.Maps
                     PlayerObject PlayerObject = this as PlayerObject;
                     if (PlayerObject != null)
                     {
-                        if (详情.技能伤害 > 0)
+                        if (详情.Damage > 0)
                         {
-                            PlayerObject.装备损失持久(详情.技能伤害);
+                            PlayerObject.装备损失持久(详情.Damage);
                         }
-                        if (详情.技能伤害 > 0)
+                        if (详情.Damage > 0)
                         {
-                            PlayerObject.扣除护盾时间(详情.技能伤害);
+                            PlayerObject.扣除护盾时间(详情.Damage);
                         }
-                        if (PlayerObject.对象关系(MapObject) == GameObjectRelationship.Hostility)
+                        if (PlayerObject.GetRelationship(MapObject) == GameObjectRelationship.Hostility)
                         {
                             foreach (PetObject PetObject in PlayerObject.宠物列表.ToList<PetObject>())
                             {
-                                if (PetObject.邻居列表.Contains(MapObject) && !MapObject.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus))
+                                if (PetObject.Neighbors.Contains(MapObject) && !MapObject.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus))
                                 {
                                     PetObject.HateObject.添加仇恨(MapObject, MainProcess.CurrentTime.AddMilliseconds((double)PetObject.仇恨时长), 0);
                                 }
                             }
                         }
                         PlayerObject PlayerObject2 = MapObject as PlayerObject;
-                        if (PlayerObject2 != null && !this.当前地图.自由区内(this.当前坐标) && !PlayerObject.灰名玩家 && !PlayerObject.红名玩家)
+                        if (PlayerObject2 != null && !this.CurrentMap.自由区内(this.CurrentCoords) && !PlayerObject.灰名玩家 && !PlayerObject.红名玩家)
                         {
                             if (PlayerObject2.红名玩家)
                             {
@@ -2207,15 +2183,15 @@ namespace GameServer.Maps
                         else
                         {
                             PetObject PetObject2 = MapObject as PetObject;
-                            if (PetObject2 != null && !this.当前地图.自由区内(this.当前坐标) && !PlayerObject.灰名玩家 && !PlayerObject.红名玩家)
+                            if (PetObject2 != null && !this.CurrentMap.自由区内(this.CurrentCoords) && !PlayerObject.灰名玩家 && !PlayerObject.红名玩家)
                             {
-                                if (PetObject2.宠物主人.红名玩家)
+                                if (PetObject2.PlayerOwner.红名玩家)
                                 {
-                                    PetObject2.宠物主人.减PK时间 = TimeSpan.FromMinutes(1.0);
+                                    PetObject2.PlayerOwner.减PK时间 = TimeSpan.FromMinutes(1.0);
                                 }
                                 else
                                 {
-                                    PetObject2.宠物主人.灰名时间 = TimeSpan.FromMinutes(1.0);
+                                    PetObject2.PlayerOwner.灰名时间 = TimeSpan.FromMinutes(1.0);
                                 }
                             }
                         }
@@ -2225,21 +2201,21 @@ namespace GameServer.Maps
                         PetObject PetObject3 = this as PetObject;
                         if (PetObject3 != null)
                         {
-                            if (MapObject != PetObject3.宠物主人 && PetObject3.对象关系(MapObject) == GameObjectRelationship.Hostility)
+                            if (MapObject != PetObject3.PlayerOwner && PetObject3.GetRelationship(MapObject) == GameObjectRelationship.Hostility)
                             {
-                                PlayerObject 宠物主人 = PetObject3.宠物主人;
+                                PlayerObject 宠物主人 = PetObject3.PlayerOwner;
                                 foreach (PetObject PetObject4 in ((宠物主人 != null) ? 宠物主人.宠物列表.ToList<PetObject>() : null))
                                 {
-                                    if (PetObject4.邻居列表.Contains(MapObject) && !MapObject.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus))
+                                    if (PetObject4.Neighbors.Contains(MapObject) && !MapObject.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus))
                                     {
                                         PetObject4.HateObject.添加仇恨(MapObject, MainProcess.CurrentTime.AddMilliseconds((double)PetObject4.仇恨时长), 0);
                                     }
                                 }
                             }
-                            if (MapObject != PetObject3.宠物主人)
+                            if (MapObject != PetObject3.PlayerOwner)
                             {
                                 PlayerObject PlayerObject3 = MapObject as PlayerObject;
-                                if (PlayerObject3 != null && !this.当前地图.自由区内(this.当前坐标) && !PetObject3.宠物主人.灰名玩家 && !PetObject3.宠物主人.红名玩家)
+                                if (PlayerObject3 != null && !this.CurrentMap.自由区内(this.CurrentCoords) && !PetObject3.PlayerOwner.灰名玩家 && !PetObject3.PlayerOwner.红名玩家)
                                 {
                                     PlayerObject3.灰名时间 = TimeSpan.FromMinutes(1.0);
                                 }
@@ -2248,7 +2224,7 @@ namespace GameServer.Maps
                         else
                         {
                             GuardInstance GuardInstance = this as GuardInstance;
-                            if (GuardInstance != null && GuardInstance.对象关系(MapObject) == GameObjectRelationship.Hostility)
+                            if (GuardInstance != null && GuardInstance.GetRelationship(MapObject) == GameObjectRelationship.Hostility)
                             {
                                 GuardInstance.HateObject.添加仇恨(MapObject, default(DateTime), 0);
                             }
@@ -2258,34 +2234,34 @@ namespace GameServer.Maps
                 PlayerObject PlayerObject4 = MapObject as PlayerObject;
                 if (PlayerObject4 != null)
                 {
-                    if (PlayerObject4.对象关系(this) == GameObjectRelationship.Hostility && !this.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus))
+                    if (PlayerObject4.GetRelationship(this) == GameObjectRelationship.Hostility && !this.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus))
                     {
                         foreach (PetObject PetObject5 in PlayerObject4.宠物列表.ToList<PetObject>())
                         {
-                            if (PetObject5.邻居列表.Contains(this))
+                            if (PetObject5.Neighbors.Contains(this))
                             {
-                                PetObject5.HateObject.添加仇恨(this, MainProcess.CurrentTime.AddMilliseconds((double)PetObject5.仇恨时长), 参数.增加宠物仇恨 ? 详情.技能伤害 : 0);
+                                PetObject5.HateObject.添加仇恨(this, MainProcess.CurrentTime.AddMilliseconds((double)PetObject5.仇恨时长), 参数.增加宠物仇恨 ? 详情.Damage : 0);
                             }
                         }
                     }
                     EquipmentData EquipmentData;
-                    if (MainProcess.CurrentTime > PlayerObject4.战具计时 && !PlayerObject4.对象死亡 && PlayerObject4.当前体力 < PlayerObject4[GameObjectStats.MaxPhysicalStrength] && PlayerObject4.角色装备.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0 && (EquipmentData.Id == 99999106 || EquipmentData.Id == 99999107))
+                    if (MainProcess.CurrentTime > PlayerObject4.战具计时 && !PlayerObject4.Died && PlayerObject4.当前体力 < PlayerObject4[GameObjectStats.MaxPhysicalStrength] && PlayerObject4.Equipment.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0 && (EquipmentData.Id == 99999106 || EquipmentData.Id == 99999107))
                     {
                         PlayerObject4.当前体力 += ((this is MonsterObject) ? 20 : 10);
                         PlayerObject4.战具损失持久(1);
                         PlayerObject4.战具计时 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
                     }
                 }
-                if ((this.当前体力 = Math.Max(0, this.当前体力 - 详情.技能伤害)) == 0)
+                if ((this.当前体力 = Math.Max(0, this.当前体力 - 详情.Damage)) == 0)
                 {
-                    详情.技能反馈 |= 技能命中反馈.死亡;
+                    详情.Feedback |= SkillHitFeedback.死亡;
                     this.ItSelf死亡处理(MapObject, true);
                 }
                 return;
             }
         }
 
-        
+
         public void 被动受伤时处理(BuffData 数据)
         {
             int num = 0;
@@ -2316,44 +2292,44 @@ namespace GameServer.Maps
             }
         }
 
-        
-        public void 被动回复时处理(技能实例 技能, C_05_计算目标回复 参数)
+
+        public void 被动回复时处理(SkillInstance 技能, C_05_CalculateTargetReply 参数)
         {
-            if (!this.对象死亡)
+            if (!this.Died)
             {
-                if (this.当前地图 == 技能.技能来源.当前地图)
+                if (this.CurrentMap == 技能.CasterObject.CurrentMap)
                 {
-                    if (this != 技能.技能来源 && !this.邻居列表.Contains(技能.技能来源))
+                    if (this != 技能.CasterObject && !this.Neighbors.Contains(技能.CasterObject))
                     {
                         return;
                     }
-                    TrapObject TrapObject = 技能.技能来源 as TrapObject;
-                    MapObject MapObject = (TrapObject != null) ? TrapObject.陷阱来源 : 技能.技能来源;
+                    TrapObject TrapObject = 技能.CasterObject as TrapObject;
+                    MapObject MapObject = (TrapObject != null) ? TrapObject.陷阱来源 : 技能.CasterObject;
                     int[] 体力回复次数 = 参数.体力回复次数;
                     int? num = (体力回复次数 != null) ? new int?(体力回复次数.Length) : null;
-                    int 技能等级 = (int)技能.技能等级;
-                    int num2 = (num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.体力回复次数[(int)技能.技能等级] : 0;
+                    int 技能等级 = (int)技能.SkillLevel;
+                    int num2 = (num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.体力回复次数[(int)技能.SkillLevel] : 0;
                     byte[] PhysicalRecoveryBase = 参数.PhysicalRecoveryBase;
                     num = ((PhysicalRecoveryBase != null) ? new int?(PhysicalRecoveryBase.Length) : null);
-                    技能等级 = (int)技能.技能等级;
-                    int num3 = (int)((num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.PhysicalRecoveryBase[(int)技能.技能等级] : 0);
+                    技能等级 = (int)技能.SkillLevel;
+                    int num3 = (int)((num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.PhysicalRecoveryBase[(int)技能.SkillLevel] : 0);
                     float[] Taoism叠加次数 = 参数.Taoism叠加次数;
                     num = ((Taoism叠加次数 != null) ? new int?(Taoism叠加次数.Length) : null);
-                    技能等级 = (int)技能.技能等级;
-                    float num4 = (num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.Taoism叠加次数[(int)技能.技能等级] : 0f;
+                    技能等级 = (int)技能.SkillLevel;
+                    float num4 = (num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.Taoism叠加次数[(int)技能.SkillLevel] : 0f;
                     float[] Taoism叠加基数 = 参数.Taoism叠加基数;
                     num = ((Taoism叠加基数 != null) ? new int?(Taoism叠加基数.Length) : null);
-                    技能等级 = (int)技能.技能等级;
-                    float num5 = (num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.Taoism叠加基数[(int)技能.技能等级] : 0f;
+                    技能等级 = (int)技能.SkillLevel;
+                    float num5 = (num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.Taoism叠加基数[(int)技能.SkillLevel] : 0f;
                     int[] 立即回复基数 = 参数.立即回复基数;
                     num = ((立即回复基数 != null) ? new int?(立即回复基数.Length) : null);
-                    技能等级 = (int)技能.技能等级;
+                    技能等级 = (int)技能.SkillLevel;
                     int num6;
                     if (num.GetValueOrDefault() > 技能等级 & num != null)
                     {
                         if (MapObject == this)
                         {
-                            num6 = 参数.立即回复基数[(int)技能.技能等级];
+                            num6 = 参数.立即回复基数[(int)技能.SkillLevel];
                             goto IL_1F1;
                         }
                     }
@@ -2362,13 +2338,13 @@ namespace GameServer.Maps
                     int num7 = num6;
                     float[] 立即回复系数 = 参数.立即回复系数;
                     num = ((立即回复系数 != null) ? new int?(立即回复系数.Length) : null);
-                    技能等级 = (int)技能.技能等级;
+                    技能等级 = (int)技能.SkillLevel;
                     float num8;
                     if (num.GetValueOrDefault() > 技能等级 & num != null)
                     {
                         if (MapObject == this)
                         {
-                            num8 = 参数.立即回复系数[(int)技能.技能等级];
+                            num8 = 参数.立即回复系数[(int)技能.SkillLevel];
                             goto IL_249;
                         }
                     }
@@ -2402,7 +2378,7 @@ namespace GameServer.Maps
             }
         }
 
-        
+
         public void 被动回复时处理(BuffData 数据)
         {
             if (数据.Buff模板.PhysicalRecoveryBase == null)
@@ -2424,7 +2400,7 @@ namespace GameServer.Maps
             this.发送封包(触发状态效果);
         }
 
-        
+
         public void ItSelf移动时处理(Point 坐标)
         {
             PlayerObject PlayerObject = this as PlayerObject;
@@ -2447,16 +2423,16 @@ namespace GameServer.Maps
 
                             for (; ; )
                             {
-                                Point point = ComputingClass.前方坐标(this.当前坐标, 坐标, num);
+                                Point point = ComputingClass.前方坐标(this.CurrentCoords, 坐标, num);
                                 if (point == 坐标)
                                 {
                                     break;
                                 }
                                 foreach (Point 坐标2 in ComputingClass.技能范围(point, this.当前方向, BuffData.Buff模板.NumberTrapsTriggered))
                                 {
-                                    if (!this.当前地图.地形阻塞(坐标2))
+                                    if (!this.CurrentMap.地形阻塞(坐标2))
                                     {
-                                        IEnumerable<MapObject> source = this.当前地图[坐标2];
+                                        IEnumerable<MapObject> source = this.CurrentMap[坐标2];
                                         Func<MapObject, bool> predicate = null;
                                         if (predicate == null)
                                         {
@@ -2468,7 +2444,7 @@ namespace GameServer.Maps
                                         }
                                         if (source.FirstOrDefault(predicate) == null)
                                         {
-                                            this.陷阱列表.Add(new TrapObject(this, 陷阱模板, this.当前地图, 坐标2));
+                                            this.陷阱列表.Add(new TrapObject(this, 陷阱模板, this.CurrentMap, 坐标2));
                                         }
                                     }
                                 }
@@ -2494,16 +2470,16 @@ namespace GameServer.Maps
 
                         for (; ; )
                         {
-                            Point point2 = ComputingClass.前方坐标(this.当前坐标, 坐标, num2);
+                            Point point2 = ComputingClass.前方坐标(this.CurrentCoords, 坐标, num2);
                             if (point2 == 坐标)
                             {
                                 break;
                             }
                             foreach (Point 坐标3 in ComputingClass.技能范围(point2, this.当前方向, BuffData2.Buff模板.NumberTrapsTriggered))
                             {
-                                if (!this.当前地图.地形阻塞(坐标3))
+                                if (!this.CurrentMap.地形阻塞(坐标3))
                                 {
-                                    IEnumerable<MapObject> source2 = this.当前地图[坐标3];
+                                    IEnumerable<MapObject> source2 = this.CurrentMap[坐标3];
                                     Func<MapObject, bool> predicate2 = null;
                                     if (predicate2 == null)
                                     {
@@ -2515,7 +2491,7 @@ namespace GameServer.Maps
                                     }
                                     if (source2.FirstOrDefault(predicate2) == null)
                                     {
-                                        this.陷阱列表.Add(new TrapObject(this, 陷阱模板, this.当前地图, 坐标3));
+                                        this.陷阱列表.Add(new TrapObject(this, 陷阱模板, this.CurrentMap, 坐标3));
                                     }
                                 }
                             }
@@ -2530,33 +2506,33 @@ namespace GameServer.Maps
             }
         IL_30E:
             this.解绑网格();
-            this.当前坐标 = 坐标;
+            this.CurrentCoords = 坐标;
             this.绑定网格();
             this.更新邻居时处理();
-            foreach (MapObject MapObject in this.邻居列表.ToList<MapObject>())
+            foreach (MapObject MapObject in this.Neighbors.ToList<MapObject>())
             {
                 MapObject.对象移动时处理(this);
             }
         }
 
-        
+
         public void 清空邻居时处理()
         {
-            foreach (MapObject MapObject in this.邻居列表.ToList<MapObject>())
+            foreach (MapObject MapObject in this.Neighbors.ToList<MapObject>())
             {
                 MapObject.对象消失时处理(this);
             }
-            this.邻居列表.Clear();
+            this.Neighbors.Clear();
             this.重要邻居.Clear();
             this.潜行邻居.Clear();
         }
 
-        
+
         public void 更新邻居时处理()
         {
-            foreach (MapObject MapObject in this.邻居列表.ToList<MapObject>())
+            foreach (MapObject MapObject in this.Neighbors.ToList<MapObject>())
             {
-                if (this.当前地图 != MapObject.当前地图 || !this.在视线内(MapObject))
+                if (this.CurrentMap != MapObject.CurrentMap || !this.在视线内(MapObject))
                 {
                     MapObject.对象消失时处理(this);
                     this.对象消失时处理(MapObject);
@@ -2566,18 +2542,18 @@ namespace GameServer.Maps
             {
                 for (int j = -20; j <= 20; j++)
                 {
-                    this.当前地图[new Point(this.当前坐标.X + i, this.当前坐标.Y + j)].ToList<MapObject>();
+                    this.CurrentMap[new Point(this.CurrentCoords.X + i, this.CurrentCoords.Y + j)].ToList<MapObject>();
                     try
                     {
-                        foreach (MapObject MapObject2 in this.当前地图[new Point(this.当前坐标.X + i, this.当前坐标.Y + j)])
+                        foreach (MapObject MapObject2 in this.CurrentMap[new Point(this.CurrentCoords.X + i, this.CurrentCoords.Y + j)])
                         {
                             if (MapObject2 != this)
                             {
-                                if (!this.邻居列表.Contains(MapObject2) && this.邻居类型(MapObject2))
+                                if (!this.Neighbors.Contains(MapObject2) && this.邻居类型(MapObject2))
                                 {
                                     this.对象出现时处理(MapObject2);
                                 }
-                                if (!MapObject2.邻居列表.Contains(this) && MapObject2.邻居类型(this))
+                                if (!MapObject2.Neighbors.Contains(this) && MapObject2.邻居类型(this))
                                 {
                                     MapObject2.对象出现时处理(this);
                                 }
@@ -2595,7 +2571,7 @@ namespace GameServer.Maps
             }
         }
 
-        
+
         public void 对象移动时处理(MapObject 对象)
         {
             if (!(this is ItemObject))
@@ -2604,7 +2580,7 @@ namespace GameServer.Maps
                 if (PetObject != null)
                 {
                     HateObject.仇恨详情 仇恨详情;
-                    if (PetObject.ActiveAttack(对象) && this.网格距离(对象) <= PetObject.RangeHate && !对象.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus))
+                    if (PetObject.ActiveAttack(对象) && this.网格距离(对象) <= PetObject.RangeHate && !对象.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus))
                     {
                         PetObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                     }
@@ -2619,7 +2595,7 @@ namespace GameServer.Maps
                     if (MonsterObject != null)
                     {
                         HateObject.仇恨详情 仇恨详情2;
-                        if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.VisibleStealthTargets || !对象.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus)))
+                        if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.VisibleStealthTargets || !对象.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus)))
                         {
                             MonsterObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                         }
@@ -2633,7 +2609,7 @@ namespace GameServer.Maps
                         TrapObject TrapObject = this as TrapObject;
                         if (TrapObject != null)
                         {
-                            if (ComputingClass.技能范围(TrapObject.当前坐标, TrapObject.当前方向, TrapObject.对象体型).Contains(对象.当前坐标))
+                            if (ComputingClass.技能范围(TrapObject.CurrentCoords, TrapObject.当前方向, TrapObject.对象体型).Contains(对象.CurrentCoords))
                             {
                                 TrapObject.被动触发陷阱(对象);
                             }
@@ -2661,7 +2637,7 @@ namespace GameServer.Maps
                 PetObject PetObject2 = 对象 as PetObject;
                 if (PetObject2 != null)
                 {
-                    if (PetObject2.网格距离(this) <= PetObject2.RangeHate && PetObject2.ActiveAttack(this) && !this.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus))
+                    if (PetObject2.网格距离(this) <= PetObject2.RangeHate && PetObject2.ActiveAttack(this) && !this.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus))
                     {
                         PetObject2.HateObject.添加仇恨(this, default(DateTime), 0);
                         return;
@@ -2678,7 +2654,7 @@ namespace GameServer.Maps
                     MonsterObject MonsterObject2 = 对象 as MonsterObject;
                     if (MonsterObject2 != null)
                     {
-                        if (MonsterObject2.网格距离(this) <= MonsterObject2.RangeHate && MonsterObject2.ActiveAttack(this) && (MonsterObject2.VisibleStealthTargets || !this.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus)))
+                        if (MonsterObject2.网格距离(this) <= MonsterObject2.RangeHate && MonsterObject2.ActiveAttack(this) && (MonsterObject2.VisibleStealthTargets || !this.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus)))
                         {
                             MonsterObject2.HateObject.添加仇恨(this, default(DateTime), 0);
                             return;
@@ -2695,7 +2671,7 @@ namespace GameServer.Maps
                         TrapObject TrapObject2 = 对象 as TrapObject;
                         if (TrapObject2 != null)
                         {
-                            if (ComputingClass.技能范围(TrapObject2.当前坐标, TrapObject2.当前方向, TrapObject2.对象体型).Contains(this.当前坐标))
+                            if (ComputingClass.技能范围(TrapObject2.CurrentCoords, TrapObject2.当前方向, TrapObject2.对象体型).Contains(this.CurrentCoords))
                             {
                                 TrapObject2.被动触发陷阱(this);
                                 return;
@@ -2722,7 +2698,7 @@ namespace GameServer.Maps
             }
         }
 
-        
+
         public void 对象出现时处理(MapObject 对象)
         {
             if (this.潜行邻居.Remove(对象))
@@ -2732,7 +2708,7 @@ namespace GameServer.Maps
                     PlayerObject PlayerObject = this as PlayerObject;
                     if (PlayerObject != null)
                     {
-                        GameObjectType 对象类型 = 对象.对象类型;
+                        GameObjectType 对象类型 = 对象.ObjectType;
                         if (对象类型 <= GameObjectType.Npcc)
                         {
                             switch (对象类型)
@@ -2741,29 +2717,29 @@ namespace GameServer.Maps
                                 case GameObjectType.怪物:
                                     break;
                                 case GameObjectType.宠物:
-                                    PlayerObject.GetCurrentConnection.发送封包(new ObjectCharacterStopPacket
+                                    PlayerObject.ActiveConnection.发送封包(new ObjectCharacterStopPacket
                                     {
                                         对象编号 = 对象.MapId,
-                                        对象坐标 = 对象.当前坐标,
+                                        对象坐标 = 对象.CurrentCoords,
                                         对象高度 = 对象.当前高度
                                     });
-                                    PlayerObject.GetCurrentConnection.发送封包(new ObjectComesIntoViewPacket
+                                    PlayerObject.ActiveConnection.发送封包(new ObjectComesIntoViewPacket
                                     {
                                         出现方式 = 1,
                                         对象编号 = 对象.MapId,
-                                        现身坐标 = 对象.当前坐标,
+                                        现身坐标 = 对象.CurrentCoords,
                                         现身高度 = 对象.当前高度,
                                         现身方向 = (ushort)对象.当前方向,
-                                        现身姿态 = ((byte)(对象.对象死亡 ? 13 : 1)),
+                                        现身姿态 = ((byte)(对象.Died ? 13 : 1)),
                                         体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectStats.MaxPhysicalStrength])
                                     });
-                                    PlayerObject.GetCurrentConnection.发送封包(new 同步对象体力
+                                    PlayerObject.ActiveConnection.发送封包(new 同步对象体力
                                     {
                                         对象编号 = 对象.MapId,
                                         当前体力 = 对象.当前体力,
                                         体力上限 = 对象[GameObjectStats.MaxPhysicalStrength]
                                     });
-                                    PlayerObject.GetCurrentConnection.发送封包(new ObjectTransformTypePacket
+                                    PlayerObject.ActiveConnection.发送封包(new ObjectTransformTypePacket
                                     {
                                         改变类型 = 2,
                                         对象编号 = 对象.MapId
@@ -2778,25 +2754,25 @@ namespace GameServer.Maps
                                     }
                                     break;
                             }
-                            PlayerObject.GetCurrentConnection.发送封包(new ObjectCharacterStopPacket
+                            PlayerObject.ActiveConnection.发送封包(new ObjectCharacterStopPacket
                             {
                                 对象编号 = 对象.MapId,
-                                对象坐标 = 对象.当前坐标,
+                                对象坐标 = 对象.CurrentCoords,
                                 对象高度 = 对象.当前高度
                             });
-                            SConnection 网络连接 = PlayerObject.GetCurrentConnection;
+                            SConnection 网络连接 = PlayerObject.ActiveConnection;
                             ObjectComesIntoViewPacket ObjectComesIntoViewPacket = new ObjectComesIntoViewPacket();
                             ObjectComesIntoViewPacket.出现方式 = 1;
                             ObjectComesIntoViewPacket.对象编号 = 对象.MapId;
-                            ObjectComesIntoViewPacket.现身坐标 = 对象.当前坐标;
+                            ObjectComesIntoViewPacket.现身坐标 = 对象.CurrentCoords;
                             ObjectComesIntoViewPacket.现身高度 = 对象.当前高度;
                             ObjectComesIntoViewPacket.现身方向 = (ushort)对象.当前方向;
-                            ObjectComesIntoViewPacket.现身姿态 = ((byte)(对象.对象死亡 ? 13 : 1));
+                            ObjectComesIntoViewPacket.现身姿态 = ((byte)(对象.Died ? 13 : 1));
                             ObjectComesIntoViewPacket.体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectStats.MaxPhysicalStrength]);
                             PlayerObject PlayerObject2 = 对象 as PlayerObject;
                             ObjectComesIntoViewPacket.AdditionalParam = ((byte)((PlayerObject2 == null || !PlayerObject2.灰名玩家) ? 0 : 2));
                             网络连接.发送封包(ObjectComesIntoViewPacket);
-                            PlayerObject.GetCurrentConnection.发送封包(new 同步对象体力
+                            PlayerObject.ActiveConnection.发送封包(new 同步对象体力
                             {
                                 对象编号 = 对象.MapId,
                                 当前体力 = 对象.当前体力,
@@ -2807,10 +2783,10 @@ namespace GameServer.Maps
                         {
                             if (对象类型 == GameObjectType.陷阱)
                             {
-                                PlayerObject.GetCurrentConnection.发送封包(new TrapComesIntoViewPacket
+                                PlayerObject.ActiveConnection.发送封包(new TrapComesIntoViewPacket
                                 {
                                     MapId = 对象.MapId,
-                                    陷阱坐标 = 对象.当前坐标,
+                                    陷阱坐标 = 对象.CurrentCoords,
                                     陷阱高度 = 对象.当前高度,
                                     来源编号 = (对象 as TrapObject).陷阱来源.MapId,
                                     Id = (对象 as TrapObject).Id,
@@ -2820,11 +2796,11 @@ namespace GameServer.Maps
                         }
                         else
                         {
-                            PlayerObject.GetCurrentConnection.发送封包(new ObjectDropItemsPacket
+                            PlayerObject.ActiveConnection.发送封包(new ObjectDropItemsPacket
                             {
                                 对象编号 = 对象.MapId,
                                 MapId = 对象.MapId,
-                                掉落坐标 = 对象.当前坐标,
+                                掉落坐标 = 对象.CurrentCoords,
                                 掉落高度 = 对象.当前高度,
                                 Id = (对象 as ItemObject).Id,
                                 物品数量 = (对象 as ItemObject).堆叠数量
@@ -2833,7 +2809,7 @@ namespace GameServer.Maps
                     IL_356:
                         if (对象.Buff列表.Count > 0)
                         {
-                            PlayerObject.GetCurrentConnection.发送封包(new 同步对象Buff
+                            PlayerObject.ActiveConnection.发送封包(new 同步对象Buff
                             {
                                 字节描述 = 对象.对象Buff简述()
                             });
@@ -2845,7 +2821,7 @@ namespace GameServer.Maps
                         TrapObject TrapObject = this as TrapObject;
                         if (TrapObject != null)
                         {
-                            if (ComputingClass.技能范围(TrapObject.当前坐标, TrapObject.当前方向, TrapObject.对象体型).Contains(对象.当前坐标))
+                            if (ComputingClass.技能范围(TrapObject.CurrentCoords, TrapObject.当前方向, TrapObject.对象体型).Contains(对象.CurrentCoords))
                             {
                                 TrapObject.被动触发陷阱(对象);
                                 return;
@@ -2856,7 +2832,7 @@ namespace GameServer.Maps
                             PetObject PetObject = this as PetObject;
                             if (PetObject != null)
                             {
-                                if (this.网格距离(对象) <= PetObject.RangeHate && PetObject.ActiveAttack(对象) && !对象.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus))
+                                if (this.网格距离(对象) <= PetObject.RangeHate && PetObject.ActiveAttack(对象) && !对象.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus))
                                 {
                                     PetObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                                     return;
@@ -2873,7 +2849,7 @@ namespace GameServer.Maps
                                 MonsterObject MonsterObject = this as MonsterObject;
                                 if (MonsterObject != null)
                                 {
-                                    if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.VisibleStealthTargets || !对象.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus)))
+                                    if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.VisibleStealthTargets || !对象.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus)))
                                     {
                                         MonsterObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                                         return;
@@ -2890,7 +2866,7 @@ namespace GameServer.Maps
                     }
                 }
             }
-            else if (this.邻居列表.Add(对象))
+            else if (this.Neighbors.Add(对象))
             {
                 if (对象 is PlayerObject || 对象 is PetObject)
                 {
@@ -2901,7 +2877,7 @@ namespace GameServer.Maps
                     PlayerObject PlayerObject3 = this as PlayerObject;
                     if (PlayerObject3 != null)
                     {
-                        GameObjectType 对象类型 = 对象.对象类型;
+                        GameObjectType 对象类型 = 对象.ObjectType;
                         if (对象类型 <= GameObjectType.Npcc)
                         {
                             switch (对象类型)
@@ -2910,29 +2886,29 @@ namespace GameServer.Maps
                                 case GameObjectType.怪物:
                                     break;
                                 case GameObjectType.宠物:
-                                    PlayerObject3.GetCurrentConnection.发送封包(new ObjectCharacterStopPacket
+                                    PlayerObject3.ActiveConnection.发送封包(new ObjectCharacterStopPacket
                                     {
                                         对象编号 = 对象.MapId,
-                                        对象坐标 = 对象.当前坐标,
+                                        对象坐标 = 对象.CurrentCoords,
                                         对象高度 = 对象.当前高度
                                     });
-                                    PlayerObject3.GetCurrentConnection.发送封包(new ObjectComesIntoViewPacket
+                                    PlayerObject3.ActiveConnection.发送封包(new ObjectComesIntoViewPacket
                                     {
                                         出现方式 = 1,
                                         对象编号 = 对象.MapId,
-                                        现身坐标 = 对象.当前坐标,
+                                        现身坐标 = 对象.CurrentCoords,
                                         现身高度 = 对象.当前高度,
                                         现身方向 = (ushort)对象.当前方向,
-                                        现身姿态 = ((byte)(对象.对象死亡 ? 13 : 1)),
+                                        现身姿态 = ((byte)(对象.Died ? 13 : 1)),
                                         体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectStats.MaxPhysicalStrength])
                                     });
-                                    PlayerObject3.GetCurrentConnection.发送封包(new 同步对象体力
+                                    PlayerObject3.ActiveConnection.发送封包(new 同步对象体力
                                     {
                                         对象编号 = 对象.MapId,
                                         当前体力 = 对象.当前体力,
                                         体力上限 = 对象[GameObjectStats.MaxPhysicalStrength]
                                     });
-                                    PlayerObject3.GetCurrentConnection.发送封包(new ObjectTransformTypePacket
+                                    PlayerObject3.ActiveConnection.发送封包(new ObjectTransformTypePacket
                                     {
                                         改变类型 = 2,
                                         对象编号 = 对象.MapId
@@ -2947,25 +2923,25 @@ namespace GameServer.Maps
                                     }
                                     break;
                             }
-                            PlayerObject3.GetCurrentConnection.发送封包(new ObjectCharacterStopPacket
+                            PlayerObject3.ActiveConnection.发送封包(new ObjectCharacterStopPacket
                             {
                                 对象编号 = 对象.MapId,
-                                对象坐标 = 对象.当前坐标,
+                                对象坐标 = 对象.CurrentCoords,
                                 对象高度 = 对象.当前高度
                             });
-                            SConnection 网络连接2 = PlayerObject3.GetCurrentConnection;
+                            SConnection 网络连接2 = PlayerObject3.ActiveConnection;
                             ObjectComesIntoViewPacket ObjectComesIntoViewPacket2 = new ObjectComesIntoViewPacket();
                             ObjectComesIntoViewPacket2.出现方式 = 1;
                             ObjectComesIntoViewPacket2.对象编号 = 对象.MapId;
-                            ObjectComesIntoViewPacket2.现身坐标 = 对象.当前坐标;
+                            ObjectComesIntoViewPacket2.现身坐标 = 对象.CurrentCoords;
                             ObjectComesIntoViewPacket2.现身高度 = 对象.当前高度;
                             ObjectComesIntoViewPacket2.现身方向 = (ushort)对象.当前方向;
-                            ObjectComesIntoViewPacket2.现身姿态 = ((byte)(对象.对象死亡 ? 13 : 1));
+                            ObjectComesIntoViewPacket2.现身姿态 = ((byte)(对象.Died ? 13 : 1));
                             ObjectComesIntoViewPacket2.体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectStats.MaxPhysicalStrength]);
                             PlayerObject PlayerObject4 = 对象 as PlayerObject;
                             ObjectComesIntoViewPacket2.AdditionalParam = ((byte)((PlayerObject4 == null || !PlayerObject4.灰名玩家) ? 0 : 2));
                             网络连接2.发送封包(ObjectComesIntoViewPacket2);
-                            PlayerObject3.GetCurrentConnection.发送封包(new 同步对象体力
+                            PlayerObject3.ActiveConnection.发送封包(new 同步对象体力
                             {
                                 对象编号 = 对象.MapId,
                                 当前体力 = 对象.当前体力,
@@ -2976,10 +2952,10 @@ namespace GameServer.Maps
                         {
                             if (对象类型 == GameObjectType.陷阱)
                             {
-                                PlayerObject3.GetCurrentConnection.发送封包(new TrapComesIntoViewPacket
+                                PlayerObject3.ActiveConnection.发送封包(new TrapComesIntoViewPacket
                                 {
                                     MapId = 对象.MapId,
-                                    陷阱坐标 = 对象.当前坐标,
+                                    陷阱坐标 = 对象.CurrentCoords,
                                     陷阱高度 = 对象.当前高度,
                                     来源编号 = (对象 as TrapObject).陷阱来源.MapId,
                                     Id = (对象 as TrapObject).Id,
@@ -2989,11 +2965,11 @@ namespace GameServer.Maps
                         }
                         else
                         {
-                            PlayerObject3.GetCurrentConnection.发送封包(new ObjectDropItemsPacket
+                            PlayerObject3.ActiveConnection.发送封包(new ObjectDropItemsPacket
                             {
                                 对象编号 = 对象.MapId,
                                 MapId = 对象.MapId,
-                                掉落坐标 = 对象.当前坐标,
+                                掉落坐标 = 对象.CurrentCoords,
                                 掉落高度 = 对象.当前高度,
                                 Id = (对象 as ItemObject).Id,
                                 物品数量 = (对象 as ItemObject).堆叠数量
@@ -3002,7 +2978,7 @@ namespace GameServer.Maps
                     IL_866:
                         if (对象.Buff列表.Count > 0)
                         {
-                            PlayerObject3.GetCurrentConnection.发送封包(new 同步对象Buff
+                            PlayerObject3.ActiveConnection.发送封包(new 同步对象Buff
                             {
                                 字节描述 = 对象.对象Buff简述()
                             });
@@ -3014,7 +2990,7 @@ namespace GameServer.Maps
                         TrapObject TrapObject2 = this as TrapObject;
                         if (TrapObject2 != null)
                         {
-                            if (ComputingClass.技能范围(TrapObject2.当前坐标, TrapObject2.当前方向, TrapObject2.对象体型).Contains(对象.当前坐标))
+                            if (ComputingClass.技能范围(TrapObject2.CurrentCoords, TrapObject2.当前方向, TrapObject2.对象体型).Contains(对象.CurrentCoords))
                             {
                                 TrapObject2.被动触发陷阱(对象);
                                 return;
@@ -3023,9 +2999,9 @@ namespace GameServer.Maps
                         else
                         {
                             PetObject PetObject2 = this as PetObject;
-                            if (PetObject2 != null && !this.对象死亡)
+                            if (PetObject2 != null && !this.Died)
                             {
-                                if (this.网格距离(对象) <= PetObject2.RangeHate && PetObject2.ActiveAttack(对象) && !对象.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus))
+                                if (this.网格距离(对象) <= PetObject2.RangeHate && PetObject2.ActiveAttack(对象) && !对象.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus))
                                 {
                                     PetObject2.HateObject.添加仇恨(对象, default(DateTime), 0);
                                     return;
@@ -3040,10 +3016,10 @@ namespace GameServer.Maps
                             else
                             {
                                 MonsterObject MonsterObject2 = this as MonsterObject;
-                                if (MonsterObject2 != null && !this.对象死亡)
+                                if (MonsterObject2 != null && !this.Died)
                                 {
                                     HateObject.仇恨详情 仇恨详情4;
-                                    if (this.网格距离(对象) <= MonsterObject2.RangeHate && MonsterObject2.ActiveAttack(对象) && (MonsterObject2.VisibleStealthTargets || !对象.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus)))
+                                    if (this.网格距离(对象) <= MonsterObject2.RangeHate && MonsterObject2.ActiveAttack(对象) && (MonsterObject2.VisibleStealthTargets || !对象.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus)))
                                     {
                                         MonsterObject2.HateObject.添加仇恨(对象, default(DateTime), 0);
                                     }
@@ -3060,7 +3036,7 @@ namespace GameServer.Maps
                                 else
                                 {
                                     GuardInstance GuardInstance = this as GuardInstance;
-                                    if (GuardInstance != null && !this.对象死亡)
+                                    if (GuardInstance != null && !this.Died)
                                     {
                                         if (GuardInstance.ActiveAttack(对象) && this.网格距离(对象) <= GuardInstance.RangeHate)
                                         {
@@ -3083,10 +3059,10 @@ namespace GameServer.Maps
             }
         }
 
-        
+
         public void 对象消失时处理(MapObject 对象)
         {
-            if (this.邻居列表.Remove(对象))
+            if (this.Neighbors.Remove(对象))
             {
                 this.潜行邻居.Remove(对象);
                 this.重要邻居.Remove(对象);
@@ -3095,7 +3071,7 @@ namespace GameServer.Maps
                     PlayerObject PlayerObject = this as PlayerObject;
                     if (PlayerObject != null)
                     {
-                        PlayerObject.GetCurrentConnection.发送封包(new ObjectOutOfViewPacket
+                        PlayerObject.ActiveConnection.发送封包(new ObjectOutOfViewPacket
                         {
                             对象编号 = 对象.MapId
                         });
@@ -3110,7 +3086,7 @@ namespace GameServer.Maps
                     MonsterObject MonsterObject = this as MonsterObject;
                     if (MonsterObject != null)
                     {
-                        if (!this.对象死亡)
+                        if (!this.Died)
                         {
                             MonsterObject.HateObject.移除仇恨(对象);
                             if (MonsterObject.重要邻居.Count == 0)
@@ -3123,7 +3099,7 @@ namespace GameServer.Maps
                     else
                     {
                         GuardInstance GuardInstance = this as GuardInstance;
-                        if (GuardInstance != null && !this.对象死亡)
+                        if (GuardInstance != null && !this.Died)
                         {
                             GuardInstance.HateObject.移除仇恨(对象);
                             if (GuardInstance.重要邻居.Count == 0)
@@ -3136,7 +3112,7 @@ namespace GameServer.Maps
             }
         }
 
-        
+
         public void 对象死亡时处理(MapObject 对象)
         {
             MonsterObject MonsterObject = this as MonsterObject;
@@ -3159,7 +3135,7 @@ namespace GameServer.Maps
             }
         }
 
-        
+
         public void 对象隐身时处理(MapObject 对象)
         {
             PetObject PetObject = this as PetObject;
@@ -3174,7 +3150,7 @@ namespace GameServer.Maps
             }
         }
 
-        
+
         public void 对象潜行时处理(MapObject 对象)
         {
             PetObject PetObject = this as PetObject;
@@ -3196,24 +3172,24 @@ namespace GameServer.Maps
                 this.潜行邻居.Add(对象);
             }
             PlayerObject PlayerObject = this as PlayerObject;
-            if (PlayerObject != null && (this.对象关系(对象) == GameObjectRelationship.Hostility || 对象.对象关系(this) == GameObjectRelationship.Hostility))
+            if (PlayerObject != null && (this.GetRelationship(对象) == GameObjectRelationship.Hostility || 对象.GetRelationship(this) == GameObjectRelationship.Hostility))
             {
                 this.潜行邻居.Add(对象);
-                PlayerObject.GetCurrentConnection.发送封包(new ObjectOutOfViewPacket
+                PlayerObject.ActiveConnection.发送封包(new ObjectOutOfViewPacket
                 {
                     对象编号 = 对象.MapId
                 });
             }
         }
 
-        
+
         public void 对象显隐时处理(MapObject 对象)
         {
             PetObject PetObject = this as PetObject;
             if (PetObject != null)
             {
                 HateObject.仇恨详情 仇恨详情;
-                if (this.网格距离(对象) <= PetObject.RangeHate && PetObject.ActiveAttack(对象) && !对象.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus))
+                if (this.网格距离(对象) <= PetObject.RangeHate && PetObject.ActiveAttack(对象) && !对象.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus))
                 {
                     PetObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                 }
@@ -3225,7 +3201,7 @@ namespace GameServer.Maps
             MonsterObject MonsterObject = this as MonsterObject;
             if (MonsterObject != null)
             {
-                if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.VisibleStealthTargets || !对象.检查状态(GameObjectState.Invisibility | GameObjectState.StealthStatus)))
+                if (this.网格距离(对象) <= MonsterObject.RangeHate && MonsterObject.ActiveAttack(对象) && (MonsterObject.VisibleStealthTargets || !对象.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus)))
                 {
                     MonsterObject.HateObject.添加仇恨(对象, default(DateTime), 0);
                     return;
@@ -3238,7 +3214,7 @@ namespace GameServer.Maps
             }
         }
 
-        
+
         public void 对象显行时处理(MapObject 对象)
         {
             if (this.潜行邻居.Contains(对象))
@@ -3247,7 +3223,7 @@ namespace GameServer.Maps
             }
         }
 
-        
+
         public byte[] 对象Buff详述()
         {
             byte[] result;
@@ -3270,7 +3246,7 @@ namespace GameServer.Maps
             return result;
         }
 
-        
+
         public byte[] 对象Buff简述()
         {
             byte[] result;
@@ -3278,7 +3254,7 @@ namespace GameServer.Maps
             {
                 using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
                 {
-                    binaryWriter.Write(this.MapId);
+                    binaryWriter.Write(MapId);
                     int num = 0;
                     foreach (KeyValuePair<ushort, BuffData> keyValuePair in this.Buff列表)
                     {
@@ -3295,28 +3271,28 @@ namespace GameServer.Maps
             return result;
         }
 
-        
+
         public bool 次要对象;
 
-        
+
         public bool 激活对象;
 
-        
+
         public HashSet<MapObject> 重要邻居;
 
-        
+
         public HashSet<MapObject> 潜行邻居;
 
-        
-        public HashSet<MapObject> 邻居列表;
 
-        
-        public HashSet<技能实例> 技能任务;
+        public HashSet<MapObject> Neighbors;
 
-        
+
+        public HashSet<SkillInstance> SkillTasks;
+
+
         public HashSet<TrapObject> 陷阱列表;
 
-        
+
         public Dictionary<object, Dictionary<GameObjectStats, int>> Stat加成;
     }
 }

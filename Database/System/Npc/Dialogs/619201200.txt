@@ -1,4 +1,4 @@
 {
   "Id": 619201200,
-  "Content": "背包里没有足够数量的打孔石!带够[`~]个打孔石再来找我吧.\r"
+  "Content": "You do not have enough Punch stones in your bag![`~] come back to me when you have enough.\r"
 }

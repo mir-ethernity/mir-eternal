@@ -14,27 +14,27 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 4)]
 		public int 经验增加;
 
 		
-		[WrappingFieldAttribute(下标 = 6, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 6, Length = 4)]
 		public int 今日增加;
 
 		
-		[WrappingFieldAttribute(下标 = 10, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 10, Length = 4)]
 		public int 经验上限;
 
 		
-		[WrappingFieldAttribute(下标 = 14, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 14, Length = 4)]
 		public int 双倍经验;
 
 		
-		[WrappingFieldAttribute(下标 = 18, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 18, Length = 4)]
 		public int 当前经验;
 
 		
-		[WrappingFieldAttribute(下标 = 26, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 26, Length = 4)]
 		public int 升级所需;
 	}
 }

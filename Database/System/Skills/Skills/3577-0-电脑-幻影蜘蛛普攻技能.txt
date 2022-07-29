@@ -7,12 +7,12 @@
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "角色忙绿时间": 1500
     },
     "250": {
-      "$type": "C_06_计算宠物召唤, Assembly-CSharp",
+      "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
       "召唤宠物名字": "爆裂蜘蛛",
       "怪物召唤同伴": true,
       "召唤宠物数量": "AAAAAA==",

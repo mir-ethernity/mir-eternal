@@ -14,11 +14,11 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 4, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 4, Length = 4)]
 		public int 对象编号;
 
 		
-		[WrappingFieldAttribute(下标 = 8, 长度 = 0)]
+		[WrappingFieldAttribute(SubScript = 8, Length = 0)]
 		public byte[] 字节数据;
 	}
 }

@@ -4,10 +4,10 @@ using System.Collections.Generic;
 namespace GameServer.Templates
 {
 	
-	public sealed class C_02_计算目标伤害 : SkillTask
+	public sealed class C_02_CalculateTargetDamage : SkillTask
 	{
 		
-		public C_02_计算目标伤害()
+		public C_02_CalculateTargetDamage()
 		{
 			
 			

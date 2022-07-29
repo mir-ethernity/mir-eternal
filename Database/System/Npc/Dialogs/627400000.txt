@@ -1,4 +1,4 @@
 {
   "Id": 627400000,
-  "Content": "沙巴克行会成员每天都可以在我这里领取奖励,千万别忘记了<#SO:1>领取每日奖励<#SO/>"
+  "Content": "Sabuk Guild members can collect rewards from me every day, don't forget<#SO:1>Receive Daily Rewards<#SO/>"
 }

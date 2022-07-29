@@ -1,35 +1,29 @@
 ﻿using System;
 
 namespace AccountServer
-{
-	
+{	
 	public sealed class AccountData
-	{
-		
+	{		
 		public static string GenerateTickets()
 		{
 			string text = "ULS21-";
 			for (int i = 0; i < 32; i++)
 			{
-				text += AccountData.RandomChars[AccountData.随机数.Next(AccountData.RandomChars.Length)].ToString();
+				text += AccountData.RandomChars[AccountData.Random.Next(AccountData.RandomChars.Length)].ToString();
 			}
 			return text;
-		}
-
-		
-		public AccountData(string 账号, string 密码, string 问题, string 答案)
+		}		
+		public AccountData(string account, string password, string securityQuestion, string securityAnswer)
 		{
-			this.Account = 账号;
-			this.Password = 密码;
-			this.Question = 问题;
-			this.Answer = 答案;
+			this.Account = account;
+			this.Password = password;
+			this.Question = securityQuestion;
+			this.Answer = securityAnswer;
 			this.CreatedDate = DateTime.Now;
-		}
+		}		
 
-		
-		private static Random 随机数 = new Random();
+		private static Random Random = new Random();		
 
-		
 		private static char[] RandomChars = new char[]
 		{
 			'0',
@@ -95,19 +89,11 @@ namespace AccountServer
 			'y',
 			'z'
 		};
-
 		
-		public string Account;
-
-		
-		public string Password;
-
-		
-		public string Question;
-
-		
+		public string Account;		
+		public string Password;		
+		public string Question;		
 		public string Answer;
-
 		
 		public DateTime CreatedDate;
 	}

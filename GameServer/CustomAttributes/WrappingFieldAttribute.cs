@@ -14,12 +14,12 @@ namespace GameServer
 		}
 
 		
-		public ushort 下标;
+		public ushort SubScript;
 
 		
-		public ushort 长度;
+		public ushort Length;
 
 		
-		public bool 反向;
+		public bool Reverse;
 	}
 }

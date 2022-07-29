@@ -1,4 +1,4 @@
 {
   "Id": 627401000,
-  "Content": "你还不是沙巴克行会成员"
+  "Content": "You are not a member of the Sabuk guild"
 }

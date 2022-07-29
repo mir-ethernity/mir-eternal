@@ -3,10 +3,10 @@
 namespace GameServer.Templates
 {
 	
-	public sealed class B_01_技能释放通知 : SkillTask
+	public sealed class B_01_SkillReleaseNotification : SkillTask
 	{
 		
-		public B_01_技能释放通知()
+		public B_01_SkillReleaseNotification()
 		{
 			
 			

@@ -1,4 +1,4 @@
 {
   "Id": 619202600,
-  "Content": "继续雕色将覆盖当前颜色[`~]和[`~],确定继续吗?<#SO:1>继续雕色<#SO/><#SO:2>不了谢谢<#SO/>"
+  "Content": "Continuing to engrave will overwrite the current color[`~]和[`~], Are you sure you want to continue?<#SO:1>Continue Engraving<#SO/><#SO:2>Leave<#SO/>"
 }

@@ -122,7 +122,7 @@ namespace GameServer.Data
 			this.铁矿数量.V = 1000000;
 			this.CreatedDate.V = MainProcess.CurrentTime;
 			GameDataGateway.GuildData表.AddData(this, true);
-			SystemData.数据.更新行会(this);
+			SystemData.Data.更新行会(this);
 		}
 
 		
@@ -203,11 +203,11 @@ namespace GameServer.Data
 		
 		public void 解散行会()
 		{
-			foreach (KeyValuePair<DateTime, GuildData> keyValuePair in SystemData.数据.申请行会.ToList<KeyValuePair<DateTime, GuildData>>())
+			foreach (KeyValuePair<DateTime, GuildData> keyValuePair in SystemData.Data.申请行会.ToList<KeyValuePair<DateTime, GuildData>>())
 			{
 				if (keyValuePair.Value == this)
 				{
-					SystemData.数据.申请行会.Remove(keyValuePair.Key);
+					SystemData.Data.申请行会.Remove(keyValuePair.Key);
 				}
 			}
 			this.发送封包(new 脱离行会应答
@@ -228,10 +228,10 @@ namespace GameServer.Data
 			}
 			if (this.行会排名.V > 0)
 			{
-				SystemData.数据.行会人数排名.RemoveAt(this.行会排名.V - 1);
-				for (int i = this.行会排名.V - 1; i < SystemData.数据.行会人数排名.Count; i++)
+				SystemData.Data.行会人数排名.RemoveAt(this.行会排名.V - 1);
+				for (int i = this.行会排名.V - 1; i < SystemData.Data.行会人数排名.Count; i++)
 				{
-					SystemData.数据.行会人数排名[i].行会排名.V = i + 1;
+					SystemData.Data.行会人数排名[i].行会排名.V = i + 1;
 				}
 			}
 			this.行会成员.Clear();
@@ -297,7 +297,7 @@ namespace GameServer.Data
 					行会编号 = this.行会编号
 				});
 			}
-			SystemData.数据.更新行会(this);
+			SystemData.Data.更新行会(this);
 		}
 
 		
@@ -332,7 +332,7 @@ namespace GameServer.Data
 					对象编号 = 成员.角色编号
 				});
 			}
-			SystemData.数据.更新行会(this);
+			SystemData.Data.更新行会(this);
 		}
 
 		
@@ -369,7 +369,7 @@ namespace GameServer.Data
 						对象编号 = 成员.角色编号
 					});
 				}
-				SystemData.数据.更新行会(this);
+				SystemData.Data.更新行会(this);
 			}
 		}
 

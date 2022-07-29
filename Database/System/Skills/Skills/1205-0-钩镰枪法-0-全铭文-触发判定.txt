@@ -13,16 +13,16 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能锁定方式": "锁定目标",
       "放空结束技能": true,
-      "限定命中数量": 1,
-      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
-      "限定目标关系": "Hostility",
+      "HitsLimit": 1,
+      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
     "1": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 12050,
       "Buff触发概率": 0.25,
       "验证铭文技能": true,
@@ -33,7 +33,7 @@
       "经验SkillId": 1205
     },
     "2": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 12050,
       "Buff触发概率": 1,
       "验证铭文技能": true,
@@ -44,7 +44,7 @@
       "经验SkillId": 1205
     },
     "3": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 12051,
       "Buff触发概率": 0.25,
       "验证铭文技能": true,
@@ -55,7 +55,7 @@
       "经验SkillId": 1205
     },
     "4": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 12050,
       "Buff触发概率": 0.25,
       "验证铭文技能": true,
@@ -66,7 +66,7 @@
       "经验SkillId": 1205
     },
     "5": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 12050,
       "Buff触发概率": 0.25,
       "验证铭文技能": true,
@@ -77,7 +77,7 @@
       "经验SkillId": 1205
     },
     "6": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 12052,
       "Buff触发概率": 1,

@@ -14,15 +14,15 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 2)]
 		public ushort SkillId;
 
 		
-		[WrappingFieldAttribute(下标 = 4, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 4, Length = 1)]
 		public byte Id;
 
 		
-		[WrappingFieldAttribute(下标 = 5, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 5, Length = 1)]
 		public byte 技能等级;
 	}
 }

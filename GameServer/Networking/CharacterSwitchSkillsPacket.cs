@@ -14,7 +14,7 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 2)]
 		public ushort SkillId;
 	}
 }

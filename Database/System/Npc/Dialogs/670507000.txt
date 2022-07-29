@@ -1,4 +1,4 @@
 {
   "Id": 670507000,
-  "Content": "已经帮你试过刀了,少侠看看可还趁手?"
+  "Content": "I have already tried the knife for you, young man, can you still take advantage of it?"
 }
