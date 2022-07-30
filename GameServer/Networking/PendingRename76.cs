@@ -14,15 +14,15 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 1)]
 		public byte 外交类型;
 
 		
-		[WrappingFieldAttribute(下标 = 3, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 3, Length = 1)]
 		public byte 外交时间;
 
 		
-		[WrappingFieldAttribute(下标 = 4, 长度 = 25)]
+		[WrappingFieldAttribute(SubScript = 4, Length = 25)]
 		public string 行会名字;
 	}
 }

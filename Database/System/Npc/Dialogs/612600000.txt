@@ -1,4 +1,4 @@
 {
   "Id": 612600000,
-  "Content": "重铸装备能让你的装备拥有更加强大的战斗力!<#SO:1>重铸武器<#SO/><#SO:2>重铸防具<#SO/><#SO:3>重铸首饰<#SO/>"
+  "Content": "Reforging equipment can make your equipment more powerful in combat!<#SO:1>Reforge Weapons<#SO/><#SO:2>Reforge Armor<#SO/><#SO:3>Reforge Accessories<#SO/>"
 }

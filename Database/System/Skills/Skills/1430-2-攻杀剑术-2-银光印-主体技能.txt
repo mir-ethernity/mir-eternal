@@ -13,36 +13,36 @@
   "目标最远距离": 1,
   "Nodes": {
     "0": {
-      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
       "MaxDistance": 1,
       "技能最近距离": 1
     },
     "1": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
-      "技能触发方式": "锚点位置绝对触发",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "AnchorAbsolutePosition",
       "触发SkillName": "攻杀剑术-2-银光印-银光特效"
     },
     "2": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "角色忙绿时间": 500
     },
     "125": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能能否穿墙": true,
       "技能能否招架": true,
       "技能锁定方式": "锁定锚点坐标",
-      "技能闪避方式": "可被物理闪避",
-      "技能命中反馈": "后仰",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
       "技能扩展通知": true,
-      "限定命中数量": 1,
-      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
-      "限定目标关系": "Hostility",
+      "HitsLimit": 1,
+      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
     "250": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害基数": [
         12,
@@ -73,7 +73,7 @@
       "清除状态列表": []
     },
     "500": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "计算攻速缩减": true,
       "角色硬直时间": 1000,
@@ -81,7 +81,7 @@
       "禁止奔跑时间": 500
     },
     "1000": {
-      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }
 }

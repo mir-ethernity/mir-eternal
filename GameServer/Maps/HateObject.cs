@@ -27,7 +27,7 @@ namespace GameServer.Maps
 		
 		public void 添加仇恨(MapObject 对象, DateTime 时间, int 仇恨Value)
 		{
-			if (对象.对象死亡)
+			if (对象.Died)
 			{
 				return;
 			}

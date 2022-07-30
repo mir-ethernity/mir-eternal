@@ -14,11 +14,11 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 2)]
 		public short 转动方向;
 
 		
-		[WrappingFieldAttribute(下标 = 4, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 4, Length = 4)]
 		public uint 转动耗时;
 	}
 }

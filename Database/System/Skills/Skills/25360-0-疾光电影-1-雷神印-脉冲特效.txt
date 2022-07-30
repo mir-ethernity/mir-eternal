@@ -13,28 +13,28 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true
     },
     "1": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true
     },
     "1000": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "清空命中列表": true,
       "技能能否穿墙": true,
       "技能锁定方式": "锁定锚点坐标",
-      "技能命中反馈": "后仰",
+      "SkillHitFeedback": "后仰",
       "技能范围类型": "LineType1x8",
       "技能扩展通知": true,
-      "限定命中数量": 8,
-      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
-      "限定目标关系": "Hostility",
+      "HitsLimit": 8,
+      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
     "1001": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害基数": [
         6,
@@ -52,20 +52,20 @@
       "清除状态列表": []
     },
     "3000": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "清空命中列表": true,
       "技能能否穿墙": true,
       "技能锁定方式": "锁定锚点坐标",
-      "技能命中反馈": "后仰",
+      "SkillHitFeedback": "后仰",
       "技能范围类型": "LineType1x8",
       "技能扩展通知": true,
-      "限定命中数量": 8,
-      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
-      "限定目标关系": "Hostility",
+      "HitsLimit": 8,
+      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
     "3001": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害基数": [
         6,
@@ -83,20 +83,20 @@
       "清除状态列表": []
     },
     "5000": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "清空命中列表": true,
       "技能能否穿墙": true,
       "技能锁定方式": "锁定锚点坐标",
-      "技能命中反馈": "后仰",
+      "SkillHitFeedback": "后仰",
       "技能范围类型": "LineType1x8",
       "技能扩展通知": true,
-      "限定命中数量": 8,
-      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
-      "限定目标关系": "Hostility",
+      "HitsLimit": 8,
+      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
     "5001": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害基数": [
         6,

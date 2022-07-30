@@ -1,4 +1,4 @@
 {
   "Id": 670504000,
-  "Content": "不要着急,这可是个技术活,[`~]分钟后再来吧."
+  "Content": "Don't worry, this is a technical job,[`~] come back in a few minutes."
 }

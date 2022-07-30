@@ -16,11 +16,11 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
       "MaxDistance": 8
     },
     "1": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "ItSelfCooldown": 10000,
@@ -29,19 +29,19 @@
     },
     "400": {
       "$type": "A_02_TriggerTrapSkills, Assembly-CSharp",
-      "TriggerTrapSkills": "Percussion幕-2-腐蚀印",
+      "TriggerTrapSkills": "霹雳弹幕-2-腐蚀印",
       "增加技能经验": true,
       "经验SkillId": 1542
     },
     "625": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "角色硬直时间": 1000,
       "禁止行走时间": 875,
       "禁止奔跑时间": 625
     },
     "1000": {
-      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }
 }

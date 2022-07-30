@@ -14,55 +14,55 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 4)]
 		public int 队伍编号;
 
 		
-		[WrappingFieldAttribute(下标 = 6, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 6, Length = 4)]
 		public int 对象编号;
 
 		
-		[WrappingFieldAttribute(下标 = 10, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 10, Length = 4)]
 		public int 对象等级;
 
 		
-		[WrappingFieldAttribute(下标 = 14, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 14, Length = 4)]
 		public int MaxPhysicalStrength;
 
 		
-		[WrappingFieldAttribute(下标 = 18, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 18, Length = 4)]
 		public int MaxMagic2;
 
 		
-		[WrappingFieldAttribute(下标 = 22, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 22, Length = 4)]
 		public int 当前体力;
 
 		
-		[WrappingFieldAttribute(下标 = 26, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 26, Length = 4)]
 		public int 当前魔力;
 
 		
-		[WrappingFieldAttribute(下标 = 30, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 30, Length = 4)]
 		public int 当前地图;
 
 		
-		[WrappingFieldAttribute(下标 = 34, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 34, Length = 4)]
 		public int 当前线路;
 
 		
-		[WrappingFieldAttribute(下标 = 38, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 38, Length = 4)]
 		public int 横向坐标;
 
 		
-		[WrappingFieldAttribute(下标 = 42, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 42, Length = 4)]
 		public int 纵向坐标;
 
 		
-		[WrappingFieldAttribute(下标 = 46, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 46, Length = 4)]
 		public int 坐标高度;
 
 		
-		[WrappingFieldAttribute(下标 = 50, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 50, Length = 4)]
 		public byte AttackMode;
 	}
 }

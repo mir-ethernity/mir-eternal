@@ -8,10 +8,10 @@
   "SkillLevelDelay": true,
   "ExtendedTimePerLevel": 4000,
   "LimitMoveSteps": 255,
-  "PassiveTriggerSkill": "法师Firewall-0-无铭文-被动伤害",
+  "PassiveTriggerSkill": "法师火墙-0-无铭文-被动伤害",
   "PassiveObjectType": "玩家, 宠物, 怪物, Npcc",
   "PassiveType": "Hostility",
-  "ActivelyTriggerSkills": "法师Firewall-0-无铭文-主动伤害",
+  "ActivelyTriggerSkills": "法师火墙-0-无铭文-主动伤害",
   "ActivelyTriggerInterval": 2000,
   "ActivelyTriggerDelay": 2000
 }

@@ -21,24 +21,24 @@
   "GearDeductionPoints": 1,
   "Nodes": {
     "0": {
-      "$type": "C_00_计算技能锚点, Assembly-CSharp",
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
       "MaxDistance": 8
     },
     "1": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "ItSelfCooldown": 1500,
       "分组Cooldown": 1500,
       "角色忙绿时间": 625
     },
     "623": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能能否穿墙": true,
       "技能锁定方式": "锁定锚点坐标",
       "技能范围类型": "Solid5x5",
-      "限定命中数量": 20,
-      "限定目标类型": "玩家, 宠物",
-      "限定目标关系": "ItSelf, Friendly",
+      "HitsLimit": 20,
+      "LimitedTargetType": "玩家, 宠物",
+      "LimitedTargetRelationship": "ItSelf, Friendly",
       "清除目标状态": true,
       "清除状态列表": [
         30040,
@@ -46,7 +46,7 @@
       ]
     },
     "624": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 30070,
       "Buff触发概率": 1,
       "所需Buff层数": 1,
@@ -54,14 +54,14 @@
       "经验SkillId": 3007
     },
     "625": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "角色硬直时间": 725,
       "禁止行走时间": 650,
       "禁止奔跑时间": 650
     },
     "1000": {
-      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }
 }

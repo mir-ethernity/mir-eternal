@@ -15,19 +15,19 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 6, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 6, Length = 4)]
 		public int MapId;
 
 		
-		[WrappingFieldAttribute(下标 = 10, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 10, Length = 4)]
 		public int 路线编号;
 
 		
-		[WrappingFieldAttribute(下标 = 14, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 14, Length = 4)]
 		public Point 对象坐标;
 
 		
-		[WrappingFieldAttribute(下标 = 18, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 18, Length = 2)]
 		public ushort 对象高度;
 	}
 }

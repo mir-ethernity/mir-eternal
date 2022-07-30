@@ -13,49 +13,49 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能锁定方式": "锁定ItSelf坐标",
       "技能范围类型": "Solid5x5",
-      "限定命中数量": 1,
-      "限定目标类型": "玩家",
-      "限定目标关系": "ItSelf",
+      "HitsLimit": 1,
+      "LimitedTargetType": "玩家",
+      "LimitedTargetRelationship": "ItSelf",
       "清除状态列表": []
     },
     "1": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 15420,
       "Buff触发概率": 1,
       "所需Buff层数": 1
     },
     "2": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "清空命中列表": true,
       "技能锁定方式": "锁定ItSelf坐标",
       "技能范围类型": "Solid5x5",
-      "限定命中数量": 20,
-      "限定目标类型": "玩家, 宠物",
-      "限定目标关系": "Friendly",
+      "HitsLimit": 20,
+      "LimitedTargetType": "玩家, 宠物",
+      "LimitedTargetRelationship": "Friendly",
       "清除状态列表": []
     },
     "3": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 15422,
       "Buff触发概率": 1,
       "所需Buff层数": 1
     },
     "4": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "清空命中列表": true,
       "技能锁定方式": "锁定ItSelf坐标",
       "技能范围类型": "Solid5x5",
       "放空结束技能": true,
-      "限定命中数量": 20,
-      "限定目标类型": "玩家",
-      "限定目标关系": "Hostility",
+      "HitsLimit": 20,
+      "LimitedTargetType": "玩家",
+      "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
     "5": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 15426,
       "Buff触发概率": 1,
       "所需Buff层数": 1

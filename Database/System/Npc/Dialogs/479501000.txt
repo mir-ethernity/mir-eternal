@@ -1,4 +1,4 @@
 {
   "Id": 479501000,
-  "Content": "武斗场只在每天的`~:00和`~:00开放,到点再来找我吧"
+  "Content": "The arena is only open between ???, come back later."
 }

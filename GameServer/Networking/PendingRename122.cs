@@ -14,15 +14,15 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 2)]
 		public ushort 洗练结果;
 
 		
-		[WrappingFieldAttribute(下标 = 4, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 4, Length = 2)]
 		public ushort 铭文位一;
 
 		
-		[WrappingFieldAttribute(下标 = 6, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 6, Length = 2)]
 		public ushort 铭文位二;
 	}
 }

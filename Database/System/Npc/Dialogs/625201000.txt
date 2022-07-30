@@ -1,4 +1,4 @@
 {
   "Id": 625201000,
-  "Content": "击杀强大的妖兽就能获得屠魔令,少侠再去历练历练吧"
+  "Content": "Killing powerful monsters can get you the slaughtering order."
 }

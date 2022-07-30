@@ -4,6 +4,7 @@ using GameServer.Networking;
 using GameServer.Templates;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,21 +39,37 @@ namespace GameServer.GMCommands
                 return;
             }
 
+            var mapInstance = MapGatewayProcess.分配地图(map.MapId);
+            var mapArea = mapInstance.传送区域 ?? mapInstance.地图区域.FirstOrDefault();
 
-            player.玩家切换地图(MapGatewayProcess.分配地图(map.MapId), AreaType.未知区域, new System.Drawing.Point(MapX, MapY));
+            var location = MapX != null && MapY != null
+                ? new Point(MapX.Value, MapY.Value)
+                : mapArea?.RandomCoords ?? Point.Empty;
+
+            if (location.IsEmpty)
+            {
+                for (var x = 1; x < mapInstance.MapSize.X; x++)
+                    for (var y = 1; y < mapInstance.MapSize.Y; y++)
+                        if (mapInstance.能否通行(new Point(x, y)))
+                        {
+                            location = new Point(x, y);
+                            break;
+                        }
+            }
+
+            player.玩家切换地图(mapInstance, mapArea?.AreaType ?? AreaType.未知区域, location);
         }
 
-        [FieldAttribute(0, Position = 0)]
+        [Field(0)]
         public string Character;
 
-
-        [FieldAttribute(0, Position = 1)]
+        [Field(1)]
         public byte MapId;
 
-        [FieldAttribute(0, Position = 2)]
-        public int MapX;
+        [Field(2, IsOptional = true)]
+        public int? MapX;
 
-        [FieldAttribute(0, Position = 3)]
-        public int MapY;
+        [Field(3, IsOptional = true)]
+        public int? MapY;
     }
 }

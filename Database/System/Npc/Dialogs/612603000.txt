@@ -1,4 +1,4 @@
 {
   "Id": 612603000,
-  "Content": "只能重铸身上的装备噢!穿上装备再来找我吧!"
+  "Content": "You can only reforge the equipment that you have equiped!"
 }

@@ -12,20 +12,20 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能能否穿墙": true,
       "技能能否招架": true,
       "技能锁定方式": "锁定锚点坐标",
-      "技能命中反馈": "后仰",
+      "SkillHitFeedback": "后仰",
       "技能范围类型": "Zhanyue3x3",
       "技能扩展通知": true,
-      "限定命中数量": 10,
-      "限定目标类型": "玩家, 宠物, 怪物, Npcc",
-      "限定目标关系": "Hostility",
+      "HitsLimit": 10,
+      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
     "1": {
-      "$type": "C_02_计算目标伤害, Assembly-CSharp",
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆命中目标": true,
       "点爆标记编号": 10361,
       "点爆需要层数": 1,

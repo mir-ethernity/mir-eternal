@@ -1,4 +1,4 @@
 {
   "Id": 612606000,
-  "Content": "装备重铸成功! 装备获得了新的属性 `~<#SO:1>继续重铸<#SO/><#SO:2>我很满意<#SO/>"
+  "Content": "The equipment has been reforged successfully! The equipment has acquired new attributes `~<#SO:1>Continue Reforge<#SO/><#SO:2>Leave<#SO/>"
 }

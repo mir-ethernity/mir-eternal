@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.服务器, 编号 = 45, 长度 = 6, 注释 = "同步游戏ping")]
+	[PacketInfoAttribute(来源 = PacketSource.服务器, 编号 = 45, 长度 = 6, 注释 = "同步游戏ping", NoDebug = true)]
 	public sealed class InternetSpeedTestPacket : GamePacket
 	{
 		
@@ -14,7 +14,7 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 4)]
 		public int 当前时间;
 	}
 }

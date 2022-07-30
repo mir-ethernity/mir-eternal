@@ -1,4 +1,4 @@
 {
   "Id": 711900001,
-  "Content": "你的等级不足, 传送需要等级[`~]."
+  "Content": "You are not high enough to teleport to this location.[`~]."
 }

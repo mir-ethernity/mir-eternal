@@ -1,4 +1,4 @@
 {
   "Id": 671900000,
-  "Content": "<#UI:Shop>项链店<#UI/>"
+  "Content": "<#UI:Shop>Necklace Shop<#UI/>"
 }

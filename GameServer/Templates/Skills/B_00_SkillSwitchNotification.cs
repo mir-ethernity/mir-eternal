@@ -3,10 +3,10 @@
 namespace GameServer.Templates
 {
 	
-	public sealed class B_00_技能切换通知 : SkillTask
+	public sealed class B_00_SkillSwitchNotification : SkillTask
 	{
 		
-		public B_00_技能切换通知()
+		public B_00_SkillSwitchNotification()
 		{
 			
 			

@@ -3,17 +3,17 @@
 namespace GameServer.Templates
 {
 	
-	public sealed class A_00_触发SubSkills : SkillTask
+	public sealed class A_00_TriggerSubSkills : SkillTask
 	{
 		
-		public A_00_触发SubSkills()
+		public A_00_TriggerSubSkills()
 		{
 			
 			
 		}
 
 		
-		public 技能触发方式 技能触发方式;
+		public SkillTriggerMethod 技能触发方式;
 
 		
 		public string 触发SkillName;

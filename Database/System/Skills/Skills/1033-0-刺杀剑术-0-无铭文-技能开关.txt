@@ -6,16 +6,16 @@
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true
     },
     "1": {
-      "$type": "B_00_技能切换通知, Assembly-CSharp",
+      "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",
       "SkillTagId": 10330,
       "允许移除标记": true
     },
     "2": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true
     }
   }

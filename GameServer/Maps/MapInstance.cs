@@ -92,7 +92,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000746 RID: 1862 RVA: 0x000063E8 File Offset: 0x000045E8
-		public Point 地图起点
+		public Point StartPoint
 		{
 			get
 			{
@@ -102,7 +102,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000747 RID: 1863 RVA: 0x000063F5 File Offset: 0x000045F5
-		public Point 地图终点
+		public Point EndPoint
 		{
 			get
 			{
@@ -112,7 +112,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000748 RID: 1864 RVA: 0x00006402 File Offset: 0x00004602
-		public Point 地图大小
+		public Point MapSize
 		{
 			get
 			{
@@ -159,7 +159,7 @@ namespace GameServer.Maps
 				}
 				else if ((int)this.副本节点 <= 5 + this.怪物波数.Count)
 				{
-					if (this.副本守卫.对象死亡)
+					if (this.副本守卫.Died)
 					{
 						this.副本节点 = 100;
 						this.节点计时 = MainProcess.CurrentTime;
@@ -203,7 +203,7 @@ namespace GameServer.Maps
 				}
 				else if ((int)this.副本节点 == 6 + this.怪物波数.Count)
 				{
-					if (this.副本守卫.对象死亡)
+					if (this.副本守卫.Died)
 					{
 						this.副本节点 = 100;
 						this.节点计时 = MainProcess.CurrentTime;
@@ -231,7 +231,7 @@ namespace GameServer.Maps
 				{
 					foreach (PlayerObject PlayerObject in this.玩家列表.ToList<PlayerObject>())
 					{
-						if (PlayerObject.对象死亡)
+						if (PlayerObject.Died)
 						{
 							PlayerObject.玩家请求复活();
 						}
@@ -242,7 +242,7 @@ namespace GameServer.Maps
 					}
 					foreach (PetObject PetObject in this.宠物列表.ToList<PetObject>())
 					{
-						if (PetObject.对象死亡)
+						if (PetObject.Died)
 						{
 							PetObject.删除对象();
 						}
@@ -267,7 +267,7 @@ namespace GameServer.Maps
 		
 		public void 添加对象(MapObject 对象)
 		{
-			GameObjectType 对象类型 = 对象.对象类型;
+			GameObjectType 对象类型 = 对象.ObjectType;
 			if (对象类型 == GameObjectType.玩家)
 			{
 				this.玩家列表.Add(对象 as PlayerObject);
@@ -289,7 +289,7 @@ namespace GameServer.Maps
 		
 		public void 移除对象(MapObject 对象)
 		{
-			GameObjectType 对象类型 = 对象.对象类型;
+			GameObjectType 对象类型 = 对象.ObjectType;
 			if (对象类型 == GameObjectType.玩家)
 			{
 				this.玩家列表.Remove(对象 as PlayerObject);
@@ -327,7 +327,7 @@ namespace GameServer.Maps
 					byte[] 字节描述 = memoryStream.ToArray();
 					foreach (PlayerObject PlayerObject in this.玩家列表)
 					{
-						SConnection 网络连接 = PlayerObject.GetCurrentConnection;
+						SConnection 网络连接 = PlayerObject.ActiveConnection;
 						if (网络连接 != null)
 						{
 							网络连接.发送封包(new ReceiveChatMessagesPacket
@@ -355,11 +355,11 @@ namespace GameServer.Maps
 				{
 					return new HashSet<MapObject>();
 				}
-				if (this.MapObject[坐标.X - this.地图起点.X, 坐标.Y - this.地图起点.Y] == null)
+				if (this.MapObject[坐标.X - this.StartPoint.X, 坐标.Y - this.StartPoint.Y] == null)
 				{
-					return this.MapObject[坐标.X - this.地图起点.X, 坐标.Y - this.地图起点.Y] = new HashSet<MapObject>();
+					return this.MapObject[坐标.X - this.StartPoint.X, 坐标.Y - this.StartPoint.Y] = new HashSet<MapObject>();
 				}
-				return this.MapObject[坐标.X - this.地图起点.X, 坐标.Y - this.地图起点.Y];
+				return this.MapObject[坐标.X - this.StartPoint.X, 坐标.Y - this.StartPoint.Y];
 			}
 		}
 
@@ -406,13 +406,13 @@ namespace GameServer.Maps
 		
 		public bool 坐标越界(Point 坐标)
 		{
-			return 坐标.X < this.地图起点.X || 坐标.Y < this.地图起点.Y || 坐标.X >= this.地图终点.X || 坐标.Y >= this.地图终点.Y;
+			return 坐标.X < this.StartPoint.X || 坐标.Y < this.StartPoint.Y || 坐标.X >= this.EndPoint.X || 坐标.Y >= this.EndPoint.Y;
 		}
 
 		
 		public bool 空间阻塞(Point 坐标)
 		{
-			if (this.安全区内(坐标))
+			if (this.IsSafeZone(坐标))
 			{
 				return false;
 			}
@@ -471,7 +471,7 @@ namespace GameServer.Maps
 		
 		public bool 地形遮挡(Point 起点, Point 终点)
 		{
-			int num = ComputingClass.网格距离(起点, 终点);
+			int num = ComputingClass.GridDistance(起点, 终点);
 			for (int i = 1; i < num; i++)
 			{
 				if (this.地形阻塞(ComputingClass.前方坐标(起点, 终点, i)))
@@ -489,7 +489,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public bool 安全区内(Point 坐标)
+		public bool IsSafeZone(Point 坐标)
 		{
 			return !this.坐标越界(坐标) && ((this.地形数据[坐标] & 262144U) == 262144U || (this.地形数据[坐标] & 1048576U) == 1048576U);
 		}

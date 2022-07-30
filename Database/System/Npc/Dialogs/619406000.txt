@@ -1,4 +1,4 @@
 {
   "Id": 619406000,
-  "Content": "你想合成什么级别的灵石呢?<#SO:1>命朱灵石2级<#SO/><#SO:2>命朱灵石3级<#SO/>"
+  "Content": "What level of spirit stone do you want to synthesize?(ITEMS UNTRANSLATED)<#SO:1>命朱灵石2级<#SO/><#SO:2>命朱灵石3级<#SO/>"
 }

@@ -15,7 +15,7 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 4, 反向 = true)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 4, Reverse = true)]
 		public Point 坐标;
 	}
 }

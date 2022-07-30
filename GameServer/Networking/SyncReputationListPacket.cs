@@ -353,7 +353,7 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 336)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 336)]
 		public byte[] 字节数据;
 	}
 }

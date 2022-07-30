@@ -16,13 +16,13 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "ItSelfCooldown": 30000,
       "分组Cooldown": 30000
     },
     "1": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 15325,
       "Buff触发概率": 1,
@@ -31,14 +31,14 @@
       "经验SkillId": 1532
     },
     "2": {
-      "$type": "C_01_计算命中目标, Assembly-CSharp",
-      "限定命中数量": 1,
-      "限定目标类型": "玩家",
-      "限定目标关系": "ItSelf",
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "HitsLimit": 1,
+      "LimitedTargetType": "玩家",
+      "LimitedTargetRelationship": "ItSelf",
       "清除状态列表": []
     },
     "3": {
-      "$type": "C_05_计算目标回复, Assembly-CSharp",
+      "$type": "C_05_CalculateTargetReply, Assembly-CSharp",
       "体力回复次数": [],
       "Taoism叠加次数": [],
       "PhysicalRecoveryBase": "",
@@ -52,11 +52,11 @@
       ]
     },
     "4": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true
     },
     "5": {
-      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }
 }

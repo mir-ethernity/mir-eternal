@@ -1,4 +1,4 @@
 {
   "Id": 619400100,
-  "Content": "你的灵石不够噢,带够[`~]颗相同的灵石再来找我吧!"
+  "Content": "You don't have enough spirit stones, [`~]Come find me when you have more!"
 }

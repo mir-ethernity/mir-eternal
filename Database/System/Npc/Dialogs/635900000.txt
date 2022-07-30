@@ -1,4 +1,4 @@
 {
   "Id": 635900000,
-  "Content": "里面时不时会传来恶魔的咆哮声,简直太可怕了!<#SO:1>进入二层<#SO/>\r"
+  "Content": "The roar of the devil can be heard from time to time, which is simply too scary!<#SO:1>Enter Second Floor<#SO/>\r"
 }

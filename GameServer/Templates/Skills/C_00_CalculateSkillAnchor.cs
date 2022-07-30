@@ -3,10 +3,10 @@
 namespace GameServer.Templates
 {
 	
-	public sealed class C_00_计算技能锚点 : SkillTask
+	public sealed class C_00_CalculateSkillAnchor : SkillTask
 	{
 		
-		public C_00_计算技能锚点()
+		public C_00_CalculateSkillAnchor()
 		{
 			
 			

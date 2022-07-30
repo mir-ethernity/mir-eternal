@@ -13,7 +13,7 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "解除技能陷阱": true
     }
   }

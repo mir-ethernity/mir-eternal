@@ -15,27 +15,27 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 4)]
 		public int 对象编号;
 
 		
-		[WrappingFieldAttribute(下标 = 6, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 6, Length = 4)]
 		public int MapId;
 
 		
-		[WrappingFieldAttribute(下标 = 10, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 10, Length = 4)]
 		public Point 掉落坐标;
 
 		
-		[WrappingFieldAttribute(下标 = 14, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 14, Length = 2)]
 		public ushort 掉落高度;
 
 		
-		[WrappingFieldAttribute(下标 = 16, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 16, Length = 4)]
 		public int Id;
 
 		
-		[WrappingFieldAttribute(下标 = 20, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 20, Length = 4)]
 		public int 物品数量;
 	}
 }

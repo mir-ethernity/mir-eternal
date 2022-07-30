@@ -1,4 +1,4 @@
 {
   "Id": 670508000,
-  "Content": "明明刚才还好好的,怎么会突然就裂开了呢?这下可麻烦了!<br>要想修复至少得[`~]个[修复油]和[`~]万金币才行,赶紧快去准备吧!<#SO:1>正好我这里有<#SO/><#SO:2>我这就去收集<#SO/><#SO:3>算了我不要了<#SO/>"
+  "Content": "It was fine just now, why did it suddenly crack? Now it's troublesome!<br>Try To Repair[`~]个[RepairOil] and [`~] 10,000 Gold is enough, hurry up and prepare!Ten thousand gold coins is enough!<#SO:1>I have it here<#SO/><#SO:2>I'm going to collect<#SO/><#SO:3>Forget it, I don't want it<#SO/>"
 }

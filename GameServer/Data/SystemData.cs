@@ -25,7 +25,7 @@ namespace GameServer.Data
 
 		
 		// (get) Token: 0x06000460 RID: 1120 RVA: 0x0000456C File Offset: 0x0000276C
-		public static SystemData 数据
+		public static SystemData Data
 		{
 			get
 			{
@@ -398,7 +398,7 @@ namespace GameServer.Data
 		public readonly DataMonitor<DateTime> 占领时间;
 
 		
-		public readonly DataMonitor<GuildData> 占领行会;
+		public readonly DataMonitor<GuildData> OccupyGuild;
 
 		
 		public readonly MonitorDictionary<DateTime, GuildData> 申请行会;

@@ -1,4 +1,4 @@
 {
   "Id": 643400000,
-  "Content": "<#UI:Shop>武技兑换<#UI/>"
+  "Content": "<#UI:Shop>Martial Arts Exchange<#UI/>"
 }

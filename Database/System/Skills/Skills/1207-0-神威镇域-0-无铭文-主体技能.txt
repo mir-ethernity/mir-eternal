@@ -16,18 +16,18 @@
   ],
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "ItSelfCooldown": 30000,
       "分组Cooldown": 30000,
       "角色忙绿时间": 625
     },
     "1": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
       "触发SkillName": "神威镇域-0-无铭文-威字特效"
     },
     "250": {
-      "$type": "A_01_触发对象Buff, Assembly-CSharp",
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 60631,
       "Buff触发概率": 1,
@@ -36,14 +36,14 @@
       "经验SkillId": 1207
     },
     "625": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "角色硬直时间": 1000,
       "禁止行走时间": 875,
       "禁止奔跑时间": 625
     },
     "1000": {
-      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }
 }

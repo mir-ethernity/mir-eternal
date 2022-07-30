@@ -1,4 +1,4 @@
 {
   "Id": 674001000,
-  "Content": "报名需要扣除100万金币和1个祖玛头像,请确认是否报名?<#SO:1>确认报名<#SO/>"
+  "Content": "Registration needs to deduct 1 million Gold and 1 ZumaStone. Please confirm whether to register?<#SO:1>Register<#SO/>"
 }

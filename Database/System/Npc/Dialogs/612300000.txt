@@ -1,4 +1,4 @@
 {
   "Id": 612300000,
-  "Content": "八卦坛已经成功开启。<#SO:1>进入皇宫<#SO/>"
+  "Content": "The chat forum has been successfully opened.<#SO:1>Enter Palace<#SO/>"
 }

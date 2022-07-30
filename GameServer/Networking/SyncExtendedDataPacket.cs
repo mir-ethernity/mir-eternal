@@ -14,39 +14,39 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 2, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 2, Length = 4)]
 		public int 对象编号;
 
 		
-		[WrappingFieldAttribute(下标 = 6, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 6, Length = 2)]
 		public ushort 模板编号;
 
 		
-		[WrappingFieldAttribute(下标 = 10, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 10, Length = 1)]
 		public byte 对象质量;
 
 		
-		[WrappingFieldAttribute(下标 = 11, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 11, Length = 1)]
 		public byte 对象等级;
 
 		
-		[WrappingFieldAttribute(下标 = 12, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 12, Length = 4)]
 		public int MaxPhysicalStrength;
 
 		
-		[WrappingFieldAttribute(下标 = 16, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 16, Length = 1)]
 		public byte 对象类型;
 
 		
-		[WrappingFieldAttribute(下标 = 17, 长度 = 1)]
+		[WrappingFieldAttribute(SubScript = 17, Length = 1)]
 		public byte 当前等级;
 
 		
-		[WrappingFieldAttribute(下标 = 18, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 18, Length = 4)]
 		public int 主人编号;
 
 		
-		[WrappingFieldAttribute(下标 = 22, 长度 = 36)]
+		[WrappingFieldAttribute(SubScript = 22, Length = 36)]
 		public string 主人名字;
 	}
 }

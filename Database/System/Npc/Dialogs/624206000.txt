@@ -1,4 +1,4 @@
 {
   "Id": 624206000,
-  "Content": "需要等级达到[`~]级,队伍中有成员不满足等级要求"
+  "Content": "Level required [`~], there are members in the team who do not meet the level requirements"
 }

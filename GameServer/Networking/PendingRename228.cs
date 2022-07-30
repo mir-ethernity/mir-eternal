@@ -14,19 +14,19 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 6, 长度 = 2)]
+		[WrappingFieldAttribute(SubScript = 6, Length = 2)]
 		public ushort Id;
 
 		
-		[WrappingFieldAttribute(下标 = 8, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 8, Length = 4)]
 		public int Buff来源;
 
 		
-		[WrappingFieldAttribute(下标 = 12, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 12, Length = 4)]
 		public int Buff目标;
 
 		
-		[WrappingFieldAttribute(下标 = 16, 长度 = 4)]
+		[WrappingFieldAttribute(SubScript = 16, Length = 4)]
 		public int 血量变化;
 	}
 }

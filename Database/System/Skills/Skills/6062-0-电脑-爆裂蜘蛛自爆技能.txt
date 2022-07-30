@@ -7,13 +7,13 @@
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
       "角色忙绿时间": 1500
     },
     "875": {
-      "$type": "A_00_触发SubSkills, Assembly-CSharp",
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
       "触发SkillName": "电脑-爆裂蜘蛛自爆伤害"
     }
   }

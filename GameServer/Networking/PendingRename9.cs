@@ -19,11 +19,11 @@ namespace GameServer.Networking
 		}
 
 		
-		[WrappingFieldAttribute(下标 = 72, 长度 = 38)]
+		[WrappingFieldAttribute(SubScript = 72, Length = 38)]
 		public string 登录门票;
 
 		
-		[WrappingFieldAttribute(下标 = 136, 长度 = 17)]
+		[WrappingFieldAttribute(SubScript = 136, Length = 17)]
 		public string 物理地址;
 	}
 }

@@ -22,14 +22,14 @@
   "GearDeductionPoints": 5,
   "Nodes": {
     "0": {
-      "$type": "B_01_技能释放通知, Assembly-CSharp",
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "ItSelfCooldown": 1750,
       "分组Cooldown": 1750,
       "角色忙绿时间": 625
     },
     "624": {
-      "$type": "C_06_计算宠物召唤, Assembly-CSharp",
+      "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
       "召唤宠物名字": "DaoistSummonBeast",
       "召唤宠物数量": "AQEBAQ==",
       "宠物等级上限": "AQMFBw==",
@@ -37,14 +37,14 @@
       "经验SkillId": 3008
     },
     "625": {
-      "$type": "B_03_前摇结束通知, Assembly-CSharp",
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "角色硬直时间": 725,
       "禁止行走时间": 650,
       "禁止奔跑时间": 650
     },
     "1000": {
-      "$type": "B_04_后摇结束通知, Assembly-CSharp"
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }
 }

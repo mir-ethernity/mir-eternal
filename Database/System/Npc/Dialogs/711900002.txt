@@ -1,4 +1,4 @@
 {
   "Id": 711900002,
-  "Content": "你的金币不足, 传送需要金币[`~]."
+  "Content": "You do not have enough Gold.[`~]."
 }
