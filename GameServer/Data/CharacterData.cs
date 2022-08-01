@@ -259,11 +259,11 @@ namespace GameServer.Data
 
         public void 获得经验(int 经验值)
         {
-            if (this.角色等级 >= Config.游戏OpenLevelCommand && this.角色经验 >= this.所需经验)
+            if (this.角色等级 >= Config.MaxLevel && this.角色经验 >= this.所需经验)
             {
                 return;
             }
-            if ((this.角色经验 += 经验值) > this.所需经验 && this.角色等级 < Config.游戏OpenLevelCommand)
+            if ((this.角色经验 += 经验值) > this.所需经验 && this.角色等级 < Config.MaxLevel)
             {
                 while (this.角色经验 >= this.所需经验)
                 {
@@ -681,15 +681,23 @@ namespace GameServer.Data
             base.Delete();
         }
 
-
         public byte[] 角色描述()
         {
-            using var memoryStream = new MemoryStream(new byte[94]);
-            using var binaryWriter = new BinaryWriter(memoryStream);
+            using var ms = new MemoryStream(new byte[94]);
+            using var bw = new BinaryWriter(ms);
+            角色描述(bw);
+            return ms.ToArray();
+        }
+
+        public void 角色描述(BinaryWriter binaryWriter)
+        {
+            var name = 名字描述();
+            var pos = (int)binaryWriter.BaseStream.Position;
 
             binaryWriter.Write(数据索引.V);
-            binaryWriter.Write(名字描述());
-            binaryWriter.Seek(61, SeekOrigin.Begin);
+            binaryWriter.Write(name);
+            binaryWriter.Write((byte)0);
+            binaryWriter.Seek(pos + 61, SeekOrigin.Begin);
             binaryWriter.Write((byte)角色职业.V);
             binaryWriter.Write((byte)角色性别.V);
             binaryWriter.Write((byte)角色发型.V);
@@ -704,8 +712,8 @@ namespace GameServer.Data
             binaryWriter.Write((Equipment[2]?.对应模板.V?.Id).GetValueOrDefault());
             binaryWriter.Write(ComputingClass.TimeShift(OfflineDate.V));
             binaryWriter.Write((!FreezeDate.V.Equals(default(DateTime))) ? ComputingClass.TimeShift(FreezeDate.V) : 0);
-
-            return memoryStream.ToArray();
+            
+            binaryWriter.BaseStream.Seek(pos + 94, SeekOrigin.Begin);
         }
 
 

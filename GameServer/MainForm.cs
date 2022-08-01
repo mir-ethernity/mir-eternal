@@ -873,9 +873,9 @@ namespace GameServer
             this.S_封包限定数量.Value = (Config.MaxPacketCount = Settings.Default.封包限定数量);
             this.S_异常屏蔽时间.Value = (Config.异常屏蔽时间 = Settings.Default.异常屏蔽时间);
             this.S_掉线判定时间.Value = (Config.掉线判定时间 = Settings.Default.掉线判定时间);
-            this.S_游戏OpenLevelCommand.Value = (Config.游戏OpenLevelCommand = Settings.Default.游戏OpenLevelCommand);
+            this.S_游戏OpenLevelCommand.Value = (Config.MaxLevel = Settings.Default.游戏OpenLevelCommand);
             this.S_NoobSupportCommand等级.Value = (Config.NoobSupportCommand等级 = Settings.Default.NoobSupportCommand等级);
-            this.S_装备特修折扣.Value = (Config.装备特修折扣 = Settings.Default.装备特修折扣);
+            this.S_装备特修折扣.Value = (Config.EquipRepairDto = Settings.Default.装备特修折扣);
             this.S_怪物额外爆率.Value = (Config.怪物额外爆率 = Settings.Default.怪物额外爆率);
             this.S_怪物经验倍率.Value = (Config.怪物经验倍率 = Settings.Default.怪物经验倍率);
             this.S_减收益等级差.Value = (Config.减收益等级差 = (ushort)Settings.Default.减收益等级差);
@@ -1163,7 +1163,7 @@ namespace GameServer
                         Config.掉线判定时间 = (Settings.Default.掉线判定时间 = (ushort)numericUpDown.Value);
                         break;
                     case "S_游戏OpenLevelCommand":
-                        Config.游戏OpenLevelCommand = (Settings.Default.游戏OpenLevelCommand = (byte)numericUpDown.Value);
+                        Config.MaxLevel = (Settings.Default.游戏OpenLevelCommand = (byte)numericUpDown.Value);
                         break;
                     case "S_怪物诱惑时长":
                         Config.怪物诱惑时长 = (Settings.Default.怪物诱惑时长 = (ushort)numericUpDown.Value);
@@ -1190,7 +1190,7 @@ namespace GameServer
                         Config.NoobSupportCommand等级 = (Settings.Default.NoobSupportCommand等级 = (byte)numericUpDown.Value);
                         break;
                     case "S_装备特修折扣":
-                        Config.装备特修折扣 = (Settings.Default.装备特修折扣 = numericUpDown.Value);
+                        Config.EquipRepairDto = (Settings.Default.装备特修折扣 = numericUpDown.Value);
                         break;
                     case "S_物品清理时间":
                         Config.物品清理时间 = (ushort)(Settings.Default.物品清理时间 = (byte)numericUpDown.Value);

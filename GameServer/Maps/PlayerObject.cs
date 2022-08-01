@@ -195,27 +195,28 @@ namespace GameServer.Maps
             CharacterData.角色上线(网络连接);
             if (网络连接 != null)
             {
-                网络连接.发送封包(new 同步CharacterData
+                网络连接.发送封包(new SyncCharacterPacket
                 {
-                    对象编号 = this.ObjectId,
-                    对象坐标 = this.CurrentCoords,
-                    对象高度 = this.当前高度,
-                    当前经验 = this.当前经验,
+                    ObjectId = this.ObjectId,
+                    CurrentPosition = this.CurrentCoords,
+                    CurrentAltitude = this.当前高度,
+                    CurrentExp = this.当前经验,
                     双倍经验 = this.双倍经验,
-                    所需经验 = this.所需经验,
-                    PK值惩罚 = this.PK值惩罚,
-                    对象朝向 = (ushort)this.当前方向,
-                    当前地图 = this.CurrentMap.MapId,
-                    当前线路 = this.CurrentMap.路线编号,
-                    对象职业 = (byte)this.角色职业,
-                    对象性别 = (byte)this.角色性别,
-                    对象等级 = this.当前等级,
+                    RequiredExp = this.所需经验,
+                    PKLevel = this.PK值惩罚,
+                    Direction = (ushort)this.当前方向,
+                    CurrentMap = this.CurrentMap.MapId,
+                    RouteId = this.CurrentMap.路线编号,
+                    Race = (byte)this.角色职业,
+                    Gender = (byte)this.角色性别,
+                    CurrentLevel = this.当前等级,
                     AttackMode = (byte)this.AttackMode,
-                    当前时间 = ComputingClass.TimeShift(MainProcess.CurrentTime),
-                    OpenLevelCommand = (ushort)Config.游戏OpenLevelCommand,
-                    特修折扣 = (ushort)(Config.装备特修折扣 * 10000m)
+                    CurrentTime = ComputingClass.TimeShift(MainProcess.CurrentTime),
+                    MaxLevel = (ushort)Config.MaxLevel,
+                    EquipRepairDto = (ushort)(Config.EquipRepairDto * 10000m)
                 });
             }
+
             if (网络连接 != null)
             {
                 网络连接.发送封包(new SyncSupplementaryVariablesPacket
@@ -309,6 +310,7 @@ namespace GameServer.Maps
                     角色编号 = this.ObjectId
                 });
             }
+            
             if (网络连接 != null)
             {
                 网络连接.发送封包(new SyncTeacherInfoPacket
@@ -438,14 +440,14 @@ namespace GameServer.Maps
                 NetworkServiceGateway.发送公告("沙巴克城主 [" + this.对象名字 + "] 进入了游戏", false);
             }
             TeamData 所属队伍 = this.所属队伍;
-            if (所属队伍 == null)
+            if (所属队伍 != null)
             {
-                return;
+                所属队伍.发送封包(new 同步队员状态
+                {
+                    对象编号 = this.ObjectId
+                });
             }
-            所属队伍.发送封包(new 同步队员状态
-            {
-                对象编号 = this.ObjectId
-            });
+            this.玩家进入场景();
         }
 
 
@@ -2369,7 +2371,7 @@ namespace GameServer.Maps
 
         public void 玩家增加经验(MonsterObject 怪物, int 经验增加)
         {
-            if (经验增加 > 0 && (this.当前等级 < Config.游戏OpenLevelCommand || this.当前经验 < this.所需经验))
+            if (经验增加 > 0 && (this.当前等级 < Config.MaxLevel || this.当前经验 < this.所需经验))
             {
                 int num = 经验增加;
                 int num2 = 0;
@@ -2387,7 +2389,7 @@ namespace GameServer.Maps
                 this.双倍经验 -= num2;
                 if (num3 > 0)
                 {
-                    if ((this.当前经验 += num3) >= this.所需经验 && this.当前等级 < Config.游戏OpenLevelCommand)
+                    if ((this.当前经验 += num3) >= this.所需经验 && this.当前等级 < Config.MaxLevel)
                     {
                         while (this.当前经验 >= this.所需经验)
                         {

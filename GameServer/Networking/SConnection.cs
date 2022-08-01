@@ -203,13 +203,14 @@ namespace GameServer.Networking
                 if (this.SendPackets.TryDequeue(out GamePacket packet))
                 {
                     MainForm.AddPacketLog(packet, false);
-                    list.AddRange(packet.取字节());
+                    this.SendBuffer(packet.取字节());
+                    // list.AddRange(packet.取字节());
                 }
             }
-            if (list.Count != 0)
-            {
-                this.开始异步发送(list);
-            }
+            //if (list.Count != 0)
+            //{
+            //    this.开始异步发送(list);
+            //}
         }
 
 
@@ -277,6 +278,19 @@ namespace GameServer.Networking
             }
         }
 
+        private void SendBuffer(byte[] buffer)
+        {
+            try
+            {
+                this.Connection.Client.Send(buffer);
+            }
+            catch (Exception ex)
+            {
+                this.正在发送 = false;
+                this.SendPackets = new ConcurrentQueue<GamePacket>();
+                this.CallExceptionEventHandler(new Exception("Asynchronous sending error: " + ex.Message));
+            }
+        }
 
         private void 开始异步发送(List<byte> 数据)
         {
@@ -316,6 +330,15 @@ namespace GameServer.Networking
             }
         }
 
+        public void 处理封包(UnknownC1 P)
+        {
+
+        }
+
+        public void 处理封包(UnknownC2 P)
+        {
+
+        }
 
         public void 处理封包(ReservedPacketZeroOnePacket P)
         {
@@ -379,6 +402,7 @@ namespace GameServer.Networking
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
                 return;
             }
+
             this.Player.请求对象外观(P.对象编号, P.状态编号);
         }
 

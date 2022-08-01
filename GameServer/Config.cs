@@ -19,9 +19,9 @@ namespace GameServer
         public static ushort MaxPacketCount;
         public static ushort 异常屏蔽时间;
         public static ushort 掉线判定时间;
-        public static byte 游戏OpenLevelCommand;
+        public static byte MaxLevel;
         public static byte NoobSupportCommand等级;
-        public static decimal 装备特修折扣;
+        public static decimal EquipRepairDto;
         public static decimal 怪物额外爆率;
         public static decimal 怪物经验倍率;
         public static ushort 减收益等级差;

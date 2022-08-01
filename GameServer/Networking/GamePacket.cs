@@ -351,7 +351,7 @@ namespace GameServer.Networking
         }
 
 
-        private static byte[] EncodeData(byte[] data)
+        public static byte[] EncodeData(byte[] data)
         {
             for (int i = 4; i < data.Length; i++)
             {

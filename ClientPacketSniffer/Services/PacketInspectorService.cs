@@ -140,6 +140,12 @@ namespace ClientPacketSniffer
                     if (!packets.TryGetValue(packetId, out var packetType))
                         throw new ParseGamePacketException(rawPacket.Source, packetId, buffer);
 
+                    if(packetType.Length == 0 && buffer.Length < 4)
+                    {
+                        extraBuffers[rawPacket.Source] = buffer;
+                        break;
+                    }
+
                     var length = packetType.Length == 0
                         ? BitConverter.ToUInt16(buffer, 2)
                         : packetType.Length;

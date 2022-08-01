@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.服务器, 编号 = 1002, 长度 = 0, 注释 = "客户端登录成功,同步协议")]
+	[PacketInfoAttribute(来源 = PacketSource.服务器, 编号 = 1002, 长度 = 0, 注释 = "AccountLoginSuccessPacket")]
 	public sealed class AccountLoginSuccessPacket : GamePacket
 	{
 		
