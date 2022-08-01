@@ -9,7 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountServer", "AccountSer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Launcher", "Launcher\Launcher.csproj", "{F8D0DF4D-A630-425F-BF5F-879CA7D53743}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientPacketSniffer", "ClientPacketSniffer\ClientPacketSniffer.csproj", "{5D994929-3E07-41D6-B60A-917B62839BA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientPacketSniffer", "ClientPacketSniffer\ClientPacketSniffer.csproj", "{5D994929-3E07-41D6-B60A-917B62839BA6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{F4484F6F-A5D9-4B86-94CA-0C7291168D91}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{E4227746-579C-4EBB-B73A-708BB5FAB7F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{78E3F6BD-85AE-4B1F-8F8D-C94F42958B77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -72,6 +78,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D1A5826B-982C-40D1-BDD6-36895FECD110} = {F4484F6F-A5D9-4B86-94CA-0C7291168D91}
+		{5C218688-10F1-461A-B089-C51640916417} = {F4484F6F-A5D9-4B86-94CA-0C7291168D91}
+		{F8D0DF4D-A630-425F-BF5F-879CA7D53743} = {78E3F6BD-85AE-4B1F-8F8D-C94F42958B77}
+		{5D994929-3E07-41D6-B60A-917B62839BA6} = {E4227746-579C-4EBB-B73A-708BB5FAB7F9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F415BB40-4A6D-4829-A6C1-A0B0F2EDA775}
