@@ -12,51 +12,48 @@ namespace Launcher
     public static UdpClient UDPClient;
     public static IPEndPoint ASAddress;
     public static ConcurrentQueue<byte[]> Packets;
-
     public static void MainSocket()
     {
-      Network.UDPClient = new UdpClient(new IPEndPoint(IPAddress.Any, 0));
-      Network.Packets = new ConcurrentQueue<byte[]>();
-      Task.Run((Action) (() =>
+      UDPClient = new UdpClient(new IPEndPoint(IPAddress.Any, 0));
+      Packets = new ConcurrentQueue<byte[]>();
+      Task.Run(() =>
       {
-        while (Network.UDPClient != null)
+        while (UDPClient != null)
         {
           try
           {
             IPEndPoint remoteEP = (IPEndPoint) null;
-            byte[] numArray = Network.UDPClient.Receive(ref remoteEP);
-            Network.Packets.Enqueue(numArray);
+            byte[] numArray = UDPClient.Receive(ref remoteEP);
+            Packets.Enqueue(numArray);
           }
           catch (Exception ex)
           {
             if (ex is SocketException socketException2 && socketException2.ErrorCode == 10054)
             {
-              int num = (int) MessageBox.Show("Connection failed...");
+              MessageBox.Show("Connection Failed");
             }
             Environment.Exit(Environment.ExitCode);
           }
         }
-      }));
+      });
     }
-
     public static void CloseSocket()
     {
-      Network.UDPClient.Close();
-      Network.UDPClient = (UdpClient) null;
+      UDPClient.Close();
+      UDPClient = null;
     }
-
     public static bool SendPacket(byte[] data)
     {
-      if (Network.UDPClient == null)
+      if (UDPClient == null)
         return false;
       try
       {
-        Network.UDPClient.Send(data, data.Length, Network.ASAddress);
+        UDPClient.Send(data, data.Length, ASAddress);
         return true;
       }
       catch
       {
-        int num = (int) MessageBox.Show("Socket is not connected. Check firewall settings.");
+        MessageBox.Show("Socket is not connected. Check firewall settings.");
         return false;
       }
     }
