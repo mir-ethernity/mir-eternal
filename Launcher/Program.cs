@@ -27,7 +27,7 @@ namespace Launcher
       }
       else
       {
-        int num = (int) MessageBox.Show("The launcher is already running.");
+        int num = (int) MessageBox.Show("Launcher Already Running");
         Environment.Exit(0);
       }
     }
