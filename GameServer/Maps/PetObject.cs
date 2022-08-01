@@ -190,7 +190,7 @@ namespace GameServer.Maps
 					this.PetData.当前体力.V = value;
 					base.发送封包(new 同步对象体力
 					{
-						对象编号 = this.MapId,
+						对象编号 = this.ObjectId,
 						当前体力 = this.当前体力,
 						体力上限 = this[GameObjectStats.MaxPhysicalStrength]
 					});
@@ -239,7 +239,7 @@ namespace GameServer.Maps
 					base.发送封包(new ObjectRotationDirectionPacket
 					{
 						转向耗时 = 100,
-						对象编号 = this.MapId,
+						对象编号 = this.ObjectId,
 						对象朝向 = (ushort)this.当前方向
 					});
 				}
@@ -503,7 +503,7 @@ namespace GameServer.Maps
 			{
 				GameSkills.DataSheet.TryGetValue(this.对象模板.BirthReleaseSkill, out this.BirthReleaseSkill);
 			}
-			this.MapId = ++MapGatewayProcess.对象编号;
+			this.ObjectId = ++MapGatewayProcess.对象编号;
 			MapGatewayProcess.添加MapObject(this);
 			this.激活对象 = true;
 			MapGatewayProcess.添加激活对象(this);
@@ -522,7 +522,7 @@ namespace GameServer.Maps
 			this.CurrentCoords = 宠物主人.CurrentCoords;
 			this.CurrentMap = 宠物主人.CurrentMap;
 			this.当前方向 = ComputingClass.随机方向();
-			this.MapId = ++MapGatewayProcess.对象编号;
+			this.ObjectId = ++MapGatewayProcess.对象编号;
 			this.Stat加成[this] = this.基础Stat;
 			this.Stat加成[宠物主人.CharacterData] = new Dictionary<GameObjectStats, int>();
 			if (this.对象模板.InheritsStats != null)
@@ -635,7 +635,7 @@ namespace GameServer.Maps
 				GameSkills.DataSheet.TryGetValue(this.对象模板.BirthReleaseSkill, out this.BirthReleaseSkill);
 			}
 			诱惑怪物.怪物诱惑处理();
-			this.MapId = ++MapGatewayProcess.对象编号;
+			this.ObjectId = ++MapGatewayProcess.对象编号;
 			this.阻塞网格 = true;
 			base.绑定网格();
 			MapGatewayProcess.添加MapObject(this);
@@ -701,7 +701,7 @@ namespace GameServer.Maps
 			诱惑宠物.ItSelf死亡处理(null, false);
 			this.阻塞网格 = true;
 			base.绑定网格();
-			this.MapId = ++MapGatewayProcess.对象编号;
+			this.ObjectId = ++MapGatewayProcess.对象编号;
 			MapGatewayProcess.添加MapObject(this);
 			this.激活对象 = true;
 			MapGatewayProcess.添加激活对象(this);
@@ -856,7 +856,7 @@ namespace GameServer.Maps
 							base.ItSelf移动时处理(point2);
 							base.发送封包(new ObjectCharacterWalkPacket
 							{
-								对象编号 = this.MapId,
+								对象编号 = this.ObjectId,
 								移动坐标 = this.CurrentCoords,
 								移动速度 = base.行走速度
 							});
@@ -878,7 +878,7 @@ namespace GameServer.Maps
 						base.ItSelf移动时处理(point3);
 						base.发送封包(new ObjectCharacterWalkPacket
 						{
-							对象编号 = this.MapId,
+							对象编号 = this.ObjectId,
 							移动坐标 = this.CurrentCoords,
 							移动速度 = base.行走速度
 						});
@@ -935,7 +935,7 @@ namespace GameServer.Maps
 							base.ItSelf移动时处理(point);
 							base.发送封包(new ObjectCharacterWalkPacket
 							{
-								对象编号 = this.MapId,
+								对象编号 = this.ObjectId,
 								移动坐标 = point,
 								移动速度 = base.行走速度
 							});
@@ -984,11 +984,11 @@ namespace GameServer.Maps
 				base.发送封包(new ObjectTransformTypePacket
 				{
 					改变类型 = 2,
-					对象编号 = this.MapId
+					对象编号 = this.ObjectId
 				});
 				base.发送封包(new SyncPetLevelPacket
 				{
-					宠物编号 = this.MapId,
+					宠物编号 = this.ObjectId,
 					宠物等级 = this.宠物等级
 				});
 			}

@@ -22,13 +22,13 @@ namespace GameServer.Maps
 			this.接收方状态 = 2;
 			this.发送封包(new TransactionStatusChangePacket
 			{
-				对象编号 = this.交易申请方.MapId,
+				对象编号 = this.交易申请方.ObjectId,
 				交易状态 = this.申请方状态,
 				对象等级 = (int)this.交易申请方.当前等级
 			});
 			this.发送封包(new TransactionStatusChangePacket
 			{
-				对象编号 = this.交易接收方.MapId,
+				对象编号 = this.交易接收方.ObjectId,
 				交易状态 = this.接收方状态,
 				对象等级 = (int)this.交易接收方.当前等级
 			});
@@ -42,7 +42,7 @@ namespace GameServer.Maps
 			{
 				网络连接.发送封包(new TransactionStatusChangePacket
 				{
-					对象编号 = this.交易申请方.MapId,
+					对象编号 = this.交易申请方.ObjectId,
 					交易状态 = 0,
 					对象等级 = (int)this.交易申请方.当前等级
 				});
@@ -52,7 +52,7 @@ namespace GameServer.Maps
 			{
 				网络连接2.发送封包(new TransactionStatusChangePacket
 				{
-					对象编号 = this.交易接收方.MapId,
+					对象编号 = this.交易接收方.ObjectId,
 					交易状态 = 0,
 					对象等级 = (int)this.交易接收方.当前等级
 				});
@@ -190,13 +190,13 @@ namespace GameServer.Maps
 				this.申请方状态 = 状态;
 				this.发送封包(new TransactionStatusChangePacket
 				{
-					对象编号 = this.交易申请方.MapId,
+					对象编号 = this.交易申请方.ObjectId,
 					交易状态 = this.申请方状态,
 					对象等级 = (int)this.交易申请方.当前等级
 				});
 				this.发送封包(new TransactionStatusChangePacket
 				{
-					对象编号 = this.交易接收方.MapId,
+					对象编号 = this.交易接收方.ObjectId,
 					交易状态 = this.接收方状态,
 					对象等级 = (int)this.交易接收方.当前等级
 				});
@@ -207,7 +207,7 @@ namespace GameServer.Maps
 				this.申请方状态 = 状态;
 				this.发送封包(new TransactionStatusChangePacket
 				{
-					对象编号 = 玩家.MapId,
+					对象编号 = 玩家.ObjectId,
 					交易状态 = 玩家.交易状态,
 					对象等级 = (int)玩家.当前等级
 				});
@@ -218,7 +218,7 @@ namespace GameServer.Maps
 				this.接收方状态 = 状态;
 				this.发送封包(new TransactionStatusChangePacket
 				{
-					对象编号 = 玩家.MapId,
+					对象编号 = 玩家.ObjectId,
 					交易状态 = 玩家.交易状态,
 					对象等级 = (int)玩家.当前等级
 				});
@@ -235,7 +235,7 @@ namespace GameServer.Maps
 				this.申请方金币 = 数量;
 				this.发送封包(new PutInTradingCoins
 				{
-					对象编号 = 玩家.MapId,
+					对象编号 = 玩家.ObjectId,
 					NumberGoldCoins = 数量
 				});
 				return;
@@ -245,7 +245,7 @@ namespace GameServer.Maps
 				this.接收方金币 = 数量;
 				this.发送封包(new PutInTradingCoins
 				{
-					对象编号 = 玩家.MapId,
+					对象编号 = 玩家.ObjectId,
 					NumberGoldCoins = 数量
 				});
 				return;
@@ -261,7 +261,7 @@ namespace GameServer.Maps
 				this.申请方物品.Add(位置, 物品);
 				this.发送封包(new PutInTradeItemsPacket
 				{
-					对象编号 = 玩家.MapId,
+					对象编号 = 玩家.ObjectId,
 					放入位置 = 位置,
 					放入物品 = 1,
 					物品描述 = 物品.字节描述()
@@ -273,7 +273,7 @@ namespace GameServer.Maps
 				this.接收方物品.Add(位置, 物品);
 				this.发送封包(new PutInTradeItemsPacket
 				{
-					对象编号 = 玩家.MapId,
+					对象编号 = 玩家.ObjectId,
 					放入位置 = 位置,
 					放入物品 = 1,
 					物品描述 = 物品.字节描述()

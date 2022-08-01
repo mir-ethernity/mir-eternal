@@ -30,7 +30,7 @@ namespace GameServer.Templates
         public DateTime AppointmentTime;
         public SortedDictionary<int, SkillTask> Nodes;
 
-        public int MapId => CasterObject.MapId;
+        public int MapId => CasterObject.ObjectId;
         public byte GroupId => SkillInfo.GroupId;
         public byte Id => SkillInfo.Id;
         public ushort SkillId => SkillInfo.OwnSkillId;
@@ -322,7 +322,7 @@ namespace GameServer.Templates
                         if (dir == CasterObject.当前方向)
                             CasterObject.发送封包(new ObjectRotationDirectionPacket
                             {
-                                对象编号 = CasterObject.MapId,
+                                对象编号 = CasterObject.ObjectId,
                                 对象朝向 = (ushort)dir,
                                 转向耗时 = ((ushort)((CasterObject is PlayerObject) ? 0 : 1))
                             });
@@ -390,13 +390,13 @@ namespace GameServer.Templates
                     if (b_01.发送释放通知)
                         CasterObject.发送封包(new 开始释放技能
                         {
-                            对象编号 = !TargetBorrow || SkillTarget == null ? CasterObject.MapId : SkillTarget.MapId,
+                            对象编号 = !TargetBorrow || SkillTarget == null ? CasterObject.ObjectId : SkillTarget.ObjectId,
                             SkillId = SkillId,
                             技能等级 = SkillLevel,
                             技能铭文 = Id,
                             锚点坐标 = SkillLocation,
                             动作编号 = ActionId,
-                            目标编号 = SkillTarget?.MapId ?? 0,
+                            目标编号 = SkillTarget?.ObjectId ?? 0,
                             锚点高度 = ReleaseMap.地形高度(SkillLocation)
                         });
                 }
@@ -405,7 +405,7 @@ namespace GameServer.Templates
                     if (b_02.命中扩展通知)
                         CasterObject.发送封包(new 触发技能扩展
                         {
-                            对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.MapId : SkillTarget.MapId),
+                            对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                             SkillId = SkillId,
                             技能等级 = SkillLevel,
                             技能铭文 = Id,
@@ -415,7 +415,7 @@ namespace GameServer.Templates
                     else
                         CasterObject.发送封包(new SkillHitNormal
                         {
-                            ObjectId = ((!TargetBorrow || SkillTarget == null) ? CasterObject.MapId : SkillTarget.MapId),
+                            ObjectId = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                             SkillId = SkillId,
                             SkillLevel = SkillLevel,
                             SkillInscription = Id,
@@ -460,7 +460,7 @@ namespace GameServer.Templates
                     if (b_03.发送结束通知)
                         CasterObject.发送封包(new SkillHitNormal
                         {
-                            ObjectId = ((!TargetBorrow || SkillTarget == null) ? CasterObject.MapId : SkillTarget.MapId),
+                            ObjectId = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                             SkillId = SkillId,
                             SkillLevel = SkillLevel,
                             SkillInscription = Id,
@@ -562,7 +562,7 @@ namespace GameServer.Templates
                         if (c_01.发送中断通知)
                             CasterObject.发送封包(new 技能释放中断
                             {
-                                对象编号 = CasterObject.MapId,
+                                对象编号 = CasterObject.ObjectId,
                                 SkillId = SkillId,
                                 技能等级 = SkillLevel,
                                 技能铭文 = Id,
@@ -577,11 +577,11 @@ namespace GameServer.Templates
                     if (c_01.补发释放通知)
                         CasterObject.发送封包(new 开始释放技能
                         {
-                            对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.MapId : SkillTarget.MapId),
+                            对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                             SkillId = SkillId,
                             技能等级 = SkillLevel,
                             技能铭文 = Id,
-                            目标编号 = SkillTarget?.MapId ?? 0,
+                            目标编号 = SkillTarget?.ObjectId ?? 0,
                             锚点坐标 = SkillLocation,
                             锚点高度 = ReleaseMap.地形高度(SkillLocation),
                             动作编号 = ActionId
@@ -608,7 +608,7 @@ namespace GameServer.Templates
                     if (c_01.技能命中通知)
                         CasterObject.发送封包(new SkillHitNormal
                         {
-                            ObjectId = ((!TargetBorrow || SkillTarget == null) ? CasterObject.MapId : SkillTarget.MapId),
+                            ObjectId = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                             SkillId = SkillId,
                             SkillLevel = SkillLevel,
                             SkillInscription = Id,
@@ -619,7 +619,7 @@ namespace GameServer.Templates
                     if (c_01.技能扩展通知)
                         CasterObject.发送封包(new 触发技能扩展
                         {
-                            对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.MapId : SkillTarget.MapId),
+                            对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                             SkillId = SkillId,
                             技能等级 = SkillLevel,
                             技能铭文 = Id,
@@ -650,12 +650,12 @@ namespace GameServer.Templates
 
                             CasterObject.发送封包(new 触发命中特效
                             {
-                                对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.MapId : SkillTarget.MapId),
+                                对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                                 SkillId = SkillId,
                                 技能等级 = SkillLevel,
                                 技能铭文 = Id,
                                 动作编号 = ActionId,
-                                目标编号 = item.Value.Object.MapId,
+                                目标编号 = item.Value.Object.ObjectId,
                                 技能反馈 = (ushort)item.Value.Feedback,
                                 技能伤害 = -item.Value.Damage,
                                 招架伤害 = item.Value.MissDamage
@@ -683,7 +683,7 @@ namespace GameServer.Templates
                                     CasterObject.发送封包(new 体力变动飘字
                                     {
                                         血量变化 = num11,
-                                        对象编号 = CasterObject.MapId
+                                        对象编号 = CasterObject.ObjectId
                                     });
                                 }
                             }
@@ -791,7 +791,7 @@ namespace GameServer.Templates
                     {
                         CasterObject.发送封包(new 技能释放中断
                         {
-                            对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.MapId : SkillTarget.MapId),
+                            对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                             SkillId = SkillId,
                             技能等级 = SkillLevel,
                             技能铭文 = Id,
@@ -829,7 +829,7 @@ namespace GameServer.Templates
                                 mapObj.发送封包(new ObjectPassiveDisplacementPacket
                                 {
                                     位移坐标 = point2,
-                                    对象编号 = mapObj.MapId,
+                                    对象编号 = mapObj.ObjectId,
                                     位移朝向 = (ushort)mapObj.当前方向,
                                     位移速度 = c_03.目标位移耗时
                                 });
@@ -852,7 +852,7 @@ namespace GameServer.Templates
                             CasterObject.发送封包(new ObjectPassiveDisplacementPacket
                             {
                                 位移坐标 = point,
-                                对象编号 = CasterObject.MapId,
+                                对象编号 = CasterObject.ObjectId,
                                 位移朝向 = (ushort)CasterObject.当前方向,
                                 位移速度 = (ushort)num18
                             });
@@ -868,7 +868,7 @@ namespace GameServer.Templates
                             {
                                 CasterObject.发送封包(new SkillHitNormal
                                 {
-                                    ObjectId = ((!TargetBorrow || SkillTarget == null) ? CasterObject.MapId : SkillTarget.MapId),
+                                    ObjectId = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                                     SkillId = SkillId,
                                     SkillLevel = SkillLevel,
                                     SkillInscription = Id,
@@ -935,7 +935,7 @@ namespace GameServer.Templates
                             {
                                 位移坐标 = point3,
                                 位移速度 = num22,
-                                对象编号 = item.Value.Object.MapId,
+                                对象编号 = item.Value.Object.ObjectId,
                                 位移朝向 = (ushort)item.Value.Object.当前方向
                             });
                             item.Value.Object.ItSelf移动时处理(point3);
@@ -978,7 +978,7 @@ namespace GameServer.Templates
                             PetObject 宠物实例 = new PetObject(playerObj, value5, SkillLevel, 等级上限, c_06.宠物绑定武器);
                             playerObj.ActiveConnection.发送封包(new SyncPetLevelPacket
                             {
-                                宠物编号 = 宠物实例.MapId,
+                                宠物编号 = 宠物实例.ObjectId,
                                 宠物等级 = 宠物实例.宠物等级
                             });
                             playerObj.ActiveConnection.发送封包(new GameErrorMessagePacket
@@ -1020,7 +1020,7 @@ namespace GameServer.Templates
             Nodes.Clear();
             CasterObject.发送封包(new 技能释放中断
             {
-                对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.MapId : SkillTarget.MapId),
+                对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                 SkillId = SkillId,
                 技能等级 = SkillLevel,
                 技能铭文 = Id,

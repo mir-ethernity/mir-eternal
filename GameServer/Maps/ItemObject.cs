@@ -209,7 +209,7 @@ namespace GameServer.Maps
 						this.CurrentCoords = 当前坐标;
 						this.消失时间 = MainProcess.CurrentTime.AddMinutes((double)Config.物品清理时间);
 						this.归属时间 = MainProcess.CurrentTime.AddMinutes((double)Config.物品归属时间);
-						this.MapId = ++MapGatewayProcess.Id;
+						this.ObjectId = ++MapGatewayProcess.Id;
 						base.绑定网格();
 						base.更新邻居时处理();
 						MapGatewayProcess.添加MapObject(this);

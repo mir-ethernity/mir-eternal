@@ -16,7 +16,7 @@ namespace GameServer.Data
     {
 
         // (get) Token: 0x060005CE RID: 1486 RVA: 0x000054C0 File Offset: 0x000036C0
-        public int 角色编号
+        public int Id
         {
             get
             {
@@ -180,7 +180,7 @@ namespace GameServer.Data
             {
                 if (this.当前师门 != null)
                 {
-                    if (this.当前师门.师父编号 == this.角色编号)
+                    if (this.当前师门.师父编号 == this.Id)
                     {
                         return 2;
                     }

@@ -14,7 +14,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.师父数据.角色编号;
+				return this.师父数据.Id;
 			}
 		}
 
@@ -207,7 +207,7 @@ namespace GameServer.Data
 							while (enumerator.MoveNext())
 							{
 								CharacterData CharacterData = enumerator.Current;
-								binaryWriter.Write(CharacterData.角色编号);
+								binaryWriter.Write(CharacterData.Id);
 								binaryWriter.Write(this.徒弟提供经验(CharacterData));
 								binaryWriter.Write(this.徒弟提供声望(CharacterData));
 								binaryWriter.Write(this.徒弟提供金币(CharacterData));
@@ -238,7 +238,7 @@ namespace GameServer.Data
 					binaryWriter.Write((byte)this.师门成员.Count);
 					foreach (CharacterData CharacterData in this.师门成员)
 					{
-						binaryWriter.Write(CharacterData.角色编号);
+						binaryWriter.Write(CharacterData.Id);
 						binaryWriter.Write(CharacterData.角色等级);
 						binaryWriter.Write(CharacterData.角色等级);
 					}

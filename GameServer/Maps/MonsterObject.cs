@@ -110,7 +110,7 @@ namespace GameServer.Maps
 					base.当前体力 = value;
 					base.发送封包(new 同步对象体力
 					{
-						对象编号 = this.MapId,
+						对象编号 = this.ObjectId,
 						当前体力 = this.当前体力,
 						体力上限 = this[GameObjectStats.MaxPhysicalStrength]
 					});
@@ -159,7 +159,7 @@ namespace GameServer.Maps
 					base.发送封包(new ObjectRotationDirectionPacket
 					{
 						转向耗时 = 100,
-						对象编号 = this.MapId,
+						对象编号 = this.ObjectId,
 						对象朝向 = (ushort)value
 					});
 				}
@@ -408,7 +408,7 @@ namespace GameServer.Maps
 		{
 			
 			
-			this.MapId = ++MapGatewayProcess.对象编号;
+			this.ObjectId = ++MapGatewayProcess.对象编号;
 			this.对象模板 = 对应宠物.对象模板;
 			this.CurrentMap = 对应宠物.CurrentMap;
 			this.CurrentCoords = 对应宠物.CurrentCoords;
@@ -477,7 +477,7 @@ namespace GameServer.Maps
 			this.RevivalInterval = RevivalInterval;
 			this.出生范围 = 出生范围;
 			this.禁止复活 = 禁止复活;
-			this.MapId = ++MapGatewayProcess.对象编号;
+			this.ObjectId = ++MapGatewayProcess.对象编号;
 			this.Stat加成[this] = 对应模板.BasicStats;
 			string text = this.对象模板.NormalAttackSkills;
 			if (text != null && text.Length > 0)
@@ -859,7 +859,7 @@ namespace GameServer.Maps
 						{
 							base.发送封包(new ObjectCharacterWalkPacket
 							{
-								对象编号 = this.MapId,
+								对象编号 = this.ObjectId,
 								移动坐标 = this.CurrentCoords,
 								移动速度 = base.行走速度
 							});
@@ -907,7 +907,7 @@ namespace GameServer.Maps
 							this.当前方向 = ComputingClass.计算方向(this.CurrentCoords, point);
 							base.发送封包(new ObjectCharacterWalkPacket
 							{
-								对象编号 = this.MapId,
+								对象编号 = this.ObjectId,
 								移动坐标 = point,
 								移动速度 = base.行走速度
 							});
@@ -937,7 +937,7 @@ namespace GameServer.Maps
 							{
 								base.发送封包(new ObjectCharacterWalkPacket
 								{
-									对象编号 = this.MapId,
+									对象编号 = this.ObjectId,
 									移动坐标 = point2,
 									移动速度 = base.行走速度
 								});

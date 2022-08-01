@@ -205,7 +205,7 @@ namespace GameServer.Maps
 			}
 			this.ActivelyTriggerSkills = ((this.陷阱模板.ActivelyTriggerSkills == null || !GameSkills.DataSheet.ContainsKey(this.陷阱模板.ActivelyTriggerSkills)) ? null : GameSkills.DataSheet[this.陷阱模板.ActivelyTriggerSkills]);
 			this.PassiveTriggerSkill = ((this.陷阱模板.PassiveTriggerSkill == null || !GameSkills.DataSheet.ContainsKey(this.陷阱模板.PassiveTriggerSkill)) ? null : GameSkills.DataSheet[this.陷阱模板.PassiveTriggerSkill]);
-			this.MapId = ++MapGatewayProcess.Id;
+			this.ObjectId = ++MapGatewayProcess.Id;
 			base.绑定网格();
 			base.更新邻居时处理();
 			MapGatewayProcess.添加MapObject(this);
@@ -241,7 +241,7 @@ namespace GameServer.Maps
 						base.ItSelf移动时处理(ComputingClass.前方坐标(this.CurrentCoords, this.当前方向, 1));
 						base.发送封包(new TrapMoveLocationPacket
 						{
-							Id = this.MapId,
+							Id = this.ObjectId,
 							移动坐标 = this.CurrentCoords,
 							移动高度 = this.当前高度,
 							移动速度 = this.陷阱模板.MoveSpeed

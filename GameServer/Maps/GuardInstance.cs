@@ -95,7 +95,7 @@ namespace GameServer.Maps
                     base.当前体力 = value;
                     base.发送封包(new 同步对象体力
                     {
-                        对象编号 = this.MapId,
+                        对象编号 = this.ObjectId,
                         当前体力 = this.当前体力,
                         体力上限 = this[GameObjectStats.MaxPhysicalStrength]
                     });
@@ -144,7 +144,7 @@ namespace GameServer.Maps
                     base.发送封包(new ObjectRotationDirectionPacket
                     {
                         转向耗时 = 100,
-                        对象编号 = this.MapId,
+                        对象编号 = this.ObjectId,
                         对象朝向 = (ushort)value
                     });
                 }
@@ -294,7 +294,7 @@ namespace GameServer.Maps
             this.CurrentMap = 出生地图;
             this.出生方向 = 出生方向;
             this.出生坐标 = 出生坐标;
-            this.MapId = ++MapGatewayProcess.对象编号;
+            this.ObjectId = ++MapGatewayProcess.对象编号;
             Dictionary<object, Dictionary<GameObjectStats, int>> Stat加成 = this.Stat加成;
             Dictionary<GameObjectStats, int> dictionary = new Dictionary<GameObjectStats, int>();
             dictionary[GameObjectStats.MaxPhysicalStrength] = 9999;

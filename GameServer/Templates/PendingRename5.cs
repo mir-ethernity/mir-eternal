@@ -28,7 +28,7 @@ namespace GameServer.Templates
 			binaryWriter.Write((byte)hitList.Count);
             foreach (var item in hitList.ToList())
             {
-                binaryWriter.Write(item.Value.Object.MapId);
+                binaryWriter.Write(item.Value.Object.ObjectId);
                 binaryWriter.Write((ushort)item.Value.Feedback);
                 binaryWriter.Write((ushort)hitDelay);
             }

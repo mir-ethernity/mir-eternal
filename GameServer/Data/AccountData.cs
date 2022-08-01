@@ -280,7 +280,7 @@ namespace GameServer.Data
                     this.删除列表.Add(CharacterData);
                     当前网络.发送封包(new DeleteCharacterPacket
                     {
-                        角色编号 = CharacterData.角色编号
+                        角色编号 = CharacterData.Id
                     });
                     return;
                 }
@@ -310,7 +310,7 @@ namespace GameServer.Data
                     this.角色列表.Add(CharacterData);
                     当前网络.发送封包(new GetBackCharacterAnswersPacket
                     {
-                        角色编号 = CharacterData.角色编号
+                        角色编号 = CharacterData.Id
                     });
                     return;
                 }
@@ -350,7 +350,7 @@ namespace GameServer.Data
                     }
                     conn.发送封包(new EnterGameAnswerPacket
                     {
-                        角色编号 = CharacterData.角色编号
+                        角色编号 = CharacterData.Id
                     });
                     conn.Player = new PlayerObject(CharacterData, conn);
                     conn.当前阶段 = GameStage.LoadingScene;
@@ -373,7 +373,7 @@ namespace GameServer.Data
             当前网络.发送封包(new 更换角色应答());
             当前网络.发送封包(new ObjectOutOfViewPacket
             {
-                对象编号 = 当前网络.Player.MapId
+                对象编号 = 当前网络.Player.ObjectId
             });
             当前网络.Player.玩家角色下线();
             当前网络.发送封包(new BackCharacterListPacket
