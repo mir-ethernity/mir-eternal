@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="PacketDotNet" Version="1.4.6" />
+    <PackageReference Include="SharpPcap" Version="6.2.1" />
+  </ItemGroup>
+
 </Project>
