@@ -12,7 +12,6 @@ namespace GameServer.Networking
 
     public sealed class SConnection
     {
-
         public SConnection(TcpClient tcpClient)
         {
 
@@ -256,12 +255,20 @@ namespace GameServer.Networking
                         this.ReceivedData = dst;
                         for (; ; )
                         {
-                            GamePacket GamePacket = GamePacket.GetPacket(this, this.ReceivedData, out this.ReceivedData);
-                            if (GamePacket == null)
+                            try
                             {
+                                GamePacket GamePacket = GamePacket.GetPacket(this.ReceivedData, out this.ReceivedData);
+                                if (GamePacket == null)
+                                {
+                                    break;
+                                }
+                                this.ReceivedPackets.Enqueue(GamePacket);
+                            }
+                            catch(Exception ex)
+                            {
+                                this.CallExceptionEventHandler(ex);
                                 break;
                             }
-                            this.ReceivedPackets.Enqueue(GamePacket);
                         }
                         this.延迟掉线时间();
                         this.开始异步接收();

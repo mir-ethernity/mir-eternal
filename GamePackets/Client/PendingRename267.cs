@@ -1,0 +1,20 @@
+﻿using System;
+
+namespace GameServer.Networking
+{
+	
+	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 158, 长度 = 3, 注释 = "更改收徒推送")]
+	public sealed class 更改收徒推送 : GamePacket
+	{
+		
+		public 更改收徒推送()
+		{
+			
+			
+		}
+
+		
+		[WrappingFieldAttribute(SubScript = 2, Length = 1)]
+		public bool 收徒推送;
+	}
+}

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameServer.Networking;
+using System;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -18,6 +19,8 @@ namespace GameServer
                 Application.EnableVisualStyles();
                 Application.SetHighDpiMode(HighDpiMode.SystemAware);
                 Application.SetCompatibleTextRenderingDefault(false);
+
+                GamePacket.Config(typeof(SConnection));
 
                 Application.Run(new MainForm());
                 return;
