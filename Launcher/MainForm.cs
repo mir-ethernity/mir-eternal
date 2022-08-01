@@ -1,5 +1,4 @@
-﻿using Sunny.UI;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -10,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Launcher.Properties;
 using System.IO;
+using Sunny.UI;
 
 namespace Launcher
 {
@@ -21,43 +21,75 @@ namespace Launcher
         public static Process GameProgress;
         public static MainForm CurrentForm;
         public static Dictionary<string, IPEndPoint> IPList;
-
-
+        public bool Is64Bit
+        {
+            get
+            {
+                return uiCheckBox2.Checked;
+            }
+        }
+        public bool Is32Bit
+        {
+            get
+            {
+                return uiCheckBox1.Checked;
+            }
+        }
         public MainForm()
         {
-            this.InitializeComponent();
-            MainForm.CurrentForm = this;
+            InitializeComponent();
+            PreLaunchChecks();
+            CurrentForm = this;
             Network.MainSocket();
-            MainForm.IPList = new Dictionary<string, IPEndPoint>();
-            this.start_selected_zone.Text = Settings.Default.SaveArea;
-            this.AccountTextBox.Text = Settings.Default.SaveAccount;
-            if (!System.IO.File.Exists(".\\Binaries\\Win32\\MMOGame-Win32-Shipping.exe"))
+            IPList = new Dictionary<string, IPEndPoint>();
+            start_selected_zone.Text = Settings.Default.SaveArea;
+            AccountTextBox.Text = Settings.Default.SaveAccount;
+        }
+        public void PreLaunchChecks()
+        {
+            bool ClientFound32Bit = File.Exists(".\\Binaries\\Win32\\MMOGame-Win32-Shipping.exe");
+            bool ClientFound64Bit = File.Exists(".\\Binaries\\Win64\\MMOGame-Win64-Shipping.exe");
+            bool ServerCfgFound = File.Exists("./ServerCfg.txt");
+            if (!ClientFound32Bit && !ClientFound64Bit)
             {
-                int num = (int)MessageBox.Show("The game exe cannot be found.");
+                MessageBox.Show("Client Cannot Be Found!\r\nPlease Read The README.txt");
                 Environment.Exit(0);
             }
-            if (!System.IO.File.Exists("./ServerCfg.txt"))
+            if (!ServerCfgFound)
             {
-                int num = (int)MessageBox.Show("The file ./ServerCfg.txt dont exists or cant be loaded.");
+                MessageBox.Show("ServerCfg.txt Cannot Be Found!\r\nPlease Read The README.txt");
                 Environment.Exit(0);
             }
-            string[] strArray = System.IO.File.ReadAllText("./ServerCfg.txt").Trim('\r', '\n', '\t', ' ').Split(':');
+            string[] strArray = File.ReadAllText("./ServerCfg.txt").Trim('\r', '\n', '\t', ' ').Split(':');
             if (strArray.Length != 2)
             {
-                int num = (int)MessageBox.Show("Server information error.");
+                MessageBox.Show("ServerCfg.txt Configuration Error!\r\nPlease Read The README.txt");
                 Environment.Exit(0);
             }
             Network.ASAddress = new IPEndPoint(IPAddress.Parse(strArray[0]), Convert.ToInt32(strArray[1]));
-        }
 
+            if (Environment.Is64BitOperatingSystem)
+            {
+                uiCheckBox1.Enabled = false;
+                uiCheckBox1.Checked = false;
+                uiCheckBox2.Enabled = false;
+                uiCheckBox2.Checked = true;
+            }
+            else
+            {
+                uiCheckBox2.Enabled = false;
+                uiCheckBox2.Checked = false;
+                uiCheckBox1.Enabled = false;
+                uiCheckBox1.Checked = true;
+            }
+        }
         public void UILock()
         {
-            this.MainTab.Enabled = false;
-            this.login_error_label.Visible = false;
-            this.RegistrationErrorLabel.Visible = false;
-            this.Modify_ErrorLabel.Visible = false;
+            MainTab.Enabled = false;
+            login_error_label.Visible = false;
+            RegistrationErrorLabel.Visible = false;
+            Modify_ErrorLabel.Visible = false;
         }
-
         public void PacketProcess(object sender, EventArgs e)
         {
             if (Network.UDPClient == null || Network.Packets.IsEmpty || !Network.Packets.TryDequeue(out var result))
@@ -75,7 +107,7 @@ namespace Launcher
                     if (array.Length == 4)
                     {
                         UIUnlock(null, null);
-                        MessageBox.Show("Password reset complete!");
+                        MessageBox.Show("Password Reset Completed");
                     }
                     break;
                 case "5":
@@ -89,27 +121,31 @@ namespace Launcher
                 case "6":
                     if (array.Length == 5)
                     {
-                        IPEndPoint value;
-                        if (!File.Exists(".\\Binaries\\Win32\\MMOGame-Win32-Shipping.exe"))
-                        {
-                            MessageBox.Show("The game exe cannot be found.");
-                            InterfaceUpdateTimer.Enabled = false;
-                            UIUnlock(null, null);
-                        }
-                        else if (IPList.TryGetValue(start_selected_zone.Text, out value))
+                        IPEndPoint value;                        
+                        if (IPList.TryGetValue(start_selected_zone.Text, out value))
                         {
                             string arguments = "-wegame=" + $"1,1,{value.Address},{value.Port}," + $"1,1,{value.Address},{value.Port}," + start_selected_zone.Text + "  " + $"/ip:1,1,{value.Address} " + $"/port:{value.Port} " + "/ticket:" + array[4] + " /AreaName:" + start_selected_zone.Text;
                             Settings.Default.SaveArea = start_selected_zone.Text;
                             Settings.Default.Save();
                             GameProgress = new Process();
-                            GameProgress.StartInfo.FileName = ".\\Binaries\\Win32\\MMOGame-Win32-Shipping.exe";
+
+                            if (Is32Bit && Is64Bit || !Is32Bit && !Is64Bit)
+                            {
+                                MessageBox.Show("Error Getting OS Version");
+                                Environment.Exit(0);
+                            }
+                            else if (Is32Bit)
+                                GameProgress.StartInfo.FileName = ".\\Binaries\\Win32\\MMOGame-Win32-Shipping.exe";
+                            else if (Is64Bit)
+                                GameProgress.StartInfo.FileName = ".\\Binaries\\Win64\\MMOGame-Win64-Shipping.exe";
+
                             GameProgress.StartInfo.Arguments = arguments;
                             GameProgress.Start();
                             GameProcessTimer.Enabled = true;
                             TrayHideToTaskBar(null, null);
                             UILock();
                             InterfaceUpdateTimer.Enabled = false;
-                            minimizeToTray.ShowBalloonTip(1000, "", "Starting the Game, please wait...", ToolTipIcon.Info);
+                            minimizeToTray.ShowBalloonTip(1000, "", "Game Loading Please Wait. . .", ToolTipIcon.Info);
                         }
                     }
                     break;
@@ -117,7 +153,7 @@ namespace Launcher
                     if (array.Length == 3)
                     {
                         UIUnlock(null, null);
-                        MessageBox.Show("Failed to start the game! " + array[2]);
+                        MessageBox.Show("Failed To Start The Game" + array[2]);
                     }
                     break;
                 case "0":
@@ -136,7 +172,7 @@ namespace Launcher
                             string[] array3 = array2[i].Split(new char[2] { ',', '/' }, StringSplitOptions.RemoveEmptyEntries);
                             if (array3.Length != 3)
                             {
-                                MessageBox.Show("Server data parsing failed!");
+                                MessageBox.Show("Server Data Parsing Failed");
                                 Environment.Exit(0);
                             }
                             IPList[array3[2]] = new IPEndPoint(IPAddress.Parse(array3[0]), Convert.ToInt32(array3[1]));
@@ -159,7 +195,7 @@ namespace Launcher
                     if (array.Length == 4)
                     {
                         UIUnlock(null, null);
-                        MessageBox.Show("账号注册成功");
+                        MessageBox.Show("Account Created Successfully");
                     }
                     break;
                 case "3":
@@ -172,275 +208,257 @@ namespace Launcher
                     break;
             }
         }
-
         public void UIUnlock(object sender, EventArgs e)
         {
-            this.MainTab.Enabled = true;
-            this.InterfaceUpdateTimer.Enabled = false;
+            MainTab.Enabled = true;
+            InterfaceUpdateTimer.Enabled = false;
         }
-
         public void GameProgressCheck(object sender, EventArgs e)
         {
-            if (MainForm.GameProgress == null || !MainForm.GameProgress.HasExited)
+            if (GameProgress == null || !MainForm.GameProgress.HasExited)
                 return;
-            this.UIUnlock((object)null, (EventArgs)null);
-            this.TrayRestoreFromTaskBar((object)null, (MouseEventArgs)null);
-            this.GameProcessTimer.Enabled = false;
+            UIUnlock(null, null);
+            TrayRestoreFromTaskBar(null, null);
+            GameProcessTimer.Enabled = false;
         }
-
         private void LoginAccountLabel_Click(object sender, EventArgs e)
         {
-            if (this.AccountTextBox.Text.Length <= 0)
+            if (AccountTextBox.Text.Length <= 0)
             {
-                this.login_error_label.Text = "Username can not be empty";
-                this.login_error_label.Visible = true;
+                login_error_label.Text = "Account Name Cannot Be Empty";
+                login_error_label.Visible = true;
             }
-            else if (this.AccountTextBox.Text.IndexOf(' ') >= 0)
+            else if (AccountTextBox.Text.IndexOf(' ') >= 0)
             {
-                this.login_error_label.Text = "Username cannot contain spaces";
-                this.login_error_label.Visible = true;
+                login_error_label.Text = "Account Name Cannot Contain Spaces";
+                login_error_label.Visible = true;
             }
-            else if (this.AccountPasswordTextBox.Text.Length <= 0)
+            else if (AccountPasswordTextBox.Text.Length <= 0)
             {
-                this.login_error_label.Text = "Password can not be blank";
-                this.login_error_label.Visible = true;
+                login_error_label.Text = "Password Cannot Be Blank";
+                login_error_label.Visible = true;
             }
-            else if (this.AccountTextBox.Text.IndexOf(' ') >= 0)
+            else if (AccountTextBox.Text.IndexOf(' ') >= 0)
             {
-                this.login_error_label.Text = "Password cannot contain spaces";
-                this.login_error_label.Visible = true;
+                login_error_label.Text = "Password Cannot Contain Spaces";
+                login_error_label.Visible = true;
             }
             else
             {
-                if (Network.SendPacket(Encoding.UTF8.GetBytes(string.Format("{0} 0 ", (object)++MainForm.PacketNumber) + this.AccountTextBox.Text + " " + this.AccountPasswordTextBox.Text)))
-                    this.UILock();
-                this.AccountPasswordTextBox.Text = "";
-                this.InterfaceUpdateTimer.Enabled = true;
+                if (Network.SendPacket(Encoding.UTF8.GetBytes(string.Format("{0} 0 ", ++PacketNumber) + AccountTextBox.Text + " " + AccountPasswordTextBox.Text)))
+                    UILock();
+                AccountPasswordTextBox.Text = "";
+                InterfaceUpdateTimer.Enabled = true;
             }
         }
-
         private void Login_ForgotPassword_Click(object sender, EventArgs e) => this.MainTab.SelectedIndex = 2;
-
         private void Login_Registertab_Click(object sender, EventArgs e) => this.MainTab.SelectedIndex = 1;
-
         public void LoginSuccefully(string loginAccount, string password)
         {
-            this.InterfaceUpdateTimer.Enabled = false;
-            this.login_error_label.Visible = false;
-            this.LoginAccountLabel.Enabled = false;
-            MainForm.LoginAccount = loginAccount;
-            MainForm.LoginPassword = password;
-            this.activate_account.Text = loginAccount;
-            this.MainTab.SelectedIndex = 3;
+            InterfaceUpdateTimer.Enabled = false;
+            login_error_label.Visible = false;
+            LoginAccountLabel.Enabled = false;
+            LoginAccount = loginAccount;
+            LoginPassword = password;
+            activate_account.Text = loginAccount;
+            MainTab.SelectedIndex = 3;
         }
-
         public void LoginAccountFailed(string errorMsg)
         {
-            this.MainTab.SelectedIndex = 0;
-            this.InterfaceUpdateTimer.Enabled = false;
-            this.login_error_label.Visible = true;
-            this.login_error_label.Text = errorMsg;
-            this.LoginAccountLabel.Enabled = true;
+            MainTab.SelectedIndex = 0;
+            InterfaceUpdateTimer.Enabled = false;
+            login_error_label.Visible = true;
+            login_error_label.Text = errorMsg;
+            LoginAccountLabel.Enabled = true;
         }
-
         private void TrayHideToTaskBar(object sender, FormClosingEventArgs e)
         {
-            this.minimizeToTray.Visible = true;
-            this.Hide();
+            minimizeToTray.Visible = true;
+            Hide();
             if (e == null)
                 return;
             e.Cancel = true;
         }
-
         private void TrayRestoreFromTaskBar(object sender, MouseEventArgs e)
         {
             if (e != null && e.Button != MouseButtons.Left)
                 return;
-            this.Visible = true;
-            this.minimizeToTray.Visible = false;
+            Visible = true;
+            minimizeToTray.Visible = false;
         }
-
         private void Tray_Restore(object sender, EventArgs e)
         {
-            this.Visible = true;
-            this.minimizeToTray.Visible = false;
+            Visible = true;
+            minimizeToTray.Visible = false;
         }
-
         private void TrayCloseLauncher(object sender, EventArgs e)
         {
-            this.minimizeToTray.Visible = false;
+            minimizeToTray.Visible = false;
             Environment.Exit(Environment.ExitCode);
         }
-
         private void RegisterAccount_Click(object sender, EventArgs e)
         {
-            if (this.Register_AccountNameTextBox.Text.Length <= 0)
+            if (Register_AccountNameTextBox.Text.Length <= 0)
             {
-                this.RegistrationErrorLabel.Text = "Username cannot be empty";
-                this.RegistrationErrorLabel.Visible = true;
+                RegistrationErrorLabel.Text = "Account Name Cannot Be Empty";
+                RegistrationErrorLabel.Visible = true;
             }
-            else if (this.Register_AccountNameTextBox.Text.IndexOf(' ') >= 0)
+            else if (Register_AccountNameTextBox.Text.IndexOf(' ') >= 0)
             {
-                this.RegistrationErrorLabel.Text = "Username cannot contain spaces";
-                this.RegistrationErrorLabel.Visible = true;
+                RegistrationErrorLabel.Text = "Account Name Cannot Contain Spaces";
+                RegistrationErrorLabel.Visible = true;
             }
-            else if (this.Register_AccountNameTextBox.Text.Length <= 5 || this.Register_AccountNameTextBox.Text.Length > 12)
+            else if (Register_AccountNameTextBox.Text.Length <= 5 || Register_AccountNameTextBox.Text.Length > 12)
             {
-                this.RegistrationErrorLabel.Text = "Username can be from 6 to 12 characters of length";
-                this.RegistrationErrorLabel.Visible = true;
+                RegistrationErrorLabel.Text = "Account Name Must Be 6 to 12 Characters Long";
+                RegistrationErrorLabel.Visible = true;
             }
-            else if (!Regex.IsMatch(this.Register_AccountNameTextBox.Text, "^[a-zA-Z]+.*$"))
+            else if (!Regex.IsMatch(Register_AccountNameTextBox.Text, "^[a-zA-Z]+.*$"))
             {
-                this.RegistrationErrorLabel.Text = "Username can only start with a letter";
-                this.RegistrationErrorLabel.Visible = true;
+                RegistrationErrorLabel.Text = "Account Name Must Start With A Letter";
+                RegistrationErrorLabel.Visible = true;
             }
-            else if (!Regex.IsMatch(this.Register_AccountNameTextBox.Text, "^[a-zA-Z_][A-Za-z0-9_]*$"))
+            else if (!Regex.IsMatch(Register_AccountNameTextBox.Text, "^[a-zA-Z_][A-Za-z0-9_]*$"))
             {
-                this.RegistrationErrorLabel.Text = "Username can only contain alphanumerics and underscores";
-                this.RegistrationErrorLabel.Visible = true;
+                RegistrationErrorLabel.Text = "Account Name Can Only Contain Alphanumeric and Underscores";
+                RegistrationErrorLabel.Visible = true;
             }
-            else if (this.Register_PasswordTextBox.Text.Length <= 0)
+            else if (Register_PasswordTextBox.Text.Length <= 0)
             {
-                this.RegistrationErrorLabel.Text = "password can not be blank";
-                this.RegistrationErrorLabel.Visible = true;
+                RegistrationErrorLabel.Text = "Password Cannot Be Blank";
+                RegistrationErrorLabel.Visible = true;
             }
-            else if (this.Register_PasswordTextBox.Text.IndexOf(' ') >= 0)
+            else if (Register_PasswordTextBox.Text.IndexOf(' ') >= 0)
             {
-                this.RegistrationErrorLabel.Text = "Password cannot contain spaces";
-                this.RegistrationErrorLabel.Visible = true;
+                RegistrationErrorLabel.Text = "Password Cannot Contain Spaces";
+                RegistrationErrorLabel.Visible = true;
             }
-            else if (this.Register_PasswordTextBox.Text.Length <= 5 || this.Register_PasswordTextBox.Text.Length > 18)
+            else if (Register_PasswordTextBox.Text.Length <= 5 || Register_PasswordTextBox.Text.Length > 18)
             {
-                this.RegistrationErrorLabel.Text = "Password can be from 6 to 18 characters of length";
-                this.RegistrationErrorLabel.Visible = true;
+                RegistrationErrorLabel.Text = "Password Must Be 6 to 18 Characters Long";
+                RegistrationErrorLabel.Visible = true;
             }
-            else if (this.Register_QuestionTextBox.Text.Length <= 0)
+            else if (Register_QuestionTextBox.Text.Length <= 0)
             {
-                this.RegistrationErrorLabel.Text = "Security question cannot be empty";
-                this.RegistrationErrorLabel.Visible = true;
+                RegistrationErrorLabel.Text = "Security Question Cannot Be Empty";
+                RegistrationErrorLabel.Visible = true;
             }
-            else if (this.Register_QuestionTextBox.Text.IndexOf(' ') >= 0)
+            else if (Register_QuestionTextBox.Text.IndexOf(' ') >= 0)
             {
-                this.RegistrationErrorLabel.Text = "Security questions cannot contain spaces";
-                this.RegistrationErrorLabel.Visible = true;
+                RegistrationErrorLabel.Text = "Security Question Cannot Contain Spaces";
+                RegistrationErrorLabel.Visible = true;
             }
-            else if (this.Register_QuestionTextBox.Text.Length <= 1 || this.Register_QuestionTextBox.Text.Length > 18)
+            else if (Register_QuestionTextBox.Text.Length <= 1 || Register_QuestionTextBox.Text.Length > 18)
             {
-                this.RegistrationErrorLabel.Text = "The security question can only be 2-18 digits";
-                this.RegistrationErrorLabel.Visible = true;
+                RegistrationErrorLabel.Text = "Security Question Must Be 2 to 18 Characters Long";
+                RegistrationErrorLabel.Visible = true;
             }
-            else if (this.Register_SecretAnswerTextBox.Text.Length <= 0)
+            else if (Register_SecretAnswerTextBox.Text.Length <= 0)
             {
-                this.RegistrationErrorLabel.Text = "Secret answer cannot be empty";
-                this.RegistrationErrorLabel.Visible = true;
+                RegistrationErrorLabel.Text = "Security Answer Cannot Be Empty";
+                RegistrationErrorLabel.Visible = true;
             }
-            else if (this.Register_SecretAnswerTextBox.Text.IndexOf(' ') >= 0)
+            else if (Register_SecretAnswerTextBox.Text.IndexOf(' ') >= 0)
             {
-                this.RegistrationErrorLabel.Text = "The secret answer cannot contain spaces";
-                this.RegistrationErrorLabel.Visible = true;
+                RegistrationErrorLabel.Text = "Security Answer Cannot Contain Spaces";
+                RegistrationErrorLabel.Visible = true;
             }
-            else if (this.Register_SecretAnswerTextBox.Text.Length <= 1 || this.Register_SecretAnswerTextBox.Text.Length > 18)
+            else if (Register_SecretAnswerTextBox.Text.Length <= 1 || Register_SecretAnswerTextBox.Text.Length > 18)
             {
-                this.RegistrationErrorLabel.Text = "The security question can only be 2-18 digits";
-                this.RegistrationErrorLabel.Visible = true;
+                RegistrationErrorLabel.Text = "Security Answer Must Be 2 to 18 Characters Long";
+                RegistrationErrorLabel.Visible = true;
             }
             else
             {
-                if (Network.SendPacket(Encoding.UTF8.GetBytes(string.Format("{0} 1 ", (object)++MainForm.PacketNumber) + this.Register_AccountNameTextBox.Text + " " + this.Register_PasswordTextBox.Text + " " + this.Register_QuestionTextBox.Text + " " + this.Register_SecretAnswerTextBox.Text)))
-                    this.UILock();
-                this.Register_PasswordTextBox.Text = this.Register_SecretAnswerTextBox.Text = "";
-                this.InterfaceUpdateTimer.Enabled = true;
+                if (Network.SendPacket(Encoding.UTF8.GetBytes(string.Format("{0} 1 ", ++PacketNumber) + Register_AccountNameTextBox.Text + " " + Register_PasswordTextBox.Text + " " + Register_QuestionTextBox.Text + " " + Register_SecretAnswerTextBox.Text)))
+                    UILock();
+                Register_PasswordTextBox.Text = Register_SecretAnswerTextBox.Text = "";
+                InterfaceUpdateTimer.Enabled = true;
             }
         }
-
         private void RegisterBackToLogin_Click(object sender, EventArgs e) => this.MainTab.SelectedIndex = 0;
-
         private void Modify_ChangePassword_Click(object sender, EventArgs e)
         {
-            if (this.Modify_AccountNameTextBox.Text.Length <= 0)
+            if (Modify_AccountNameTextBox.Text.Length <= 0)
             {
-                this.Modify_ErrorLabel.Text = "Username can not be empty";
-                this.Modify_ErrorLabel.Visible = true;
+                Modify_ErrorLabel.Text = "Account Name Cannot Be Empty";
+                Modify_ErrorLabel.Visible = true;
             }
-            else if (this.Modify_AccountNameTextBox.Text.IndexOf(' ') >= 0)
+            else if (Modify_AccountNameTextBox.Text.IndexOf(' ') >= 0)
             {
-                this.Modify_ErrorLabel.Text = "Username cannot contain spaces";
-                this.Modify_ErrorLabel.Visible = true;
+                Modify_ErrorLabel.Text = "Account Name Cannot Contain Spaces";
+                Modify_ErrorLabel.Visible = true;
             }
-            else if (this.Modify_PasswordTextBox.Text.Length <= 0)
+            else if (Modify_PasswordTextBox.Text.Length <= 0)
             {
-                this.Modify_ErrorLabel.Text = "password can not be blank";
-                this.Modify_ErrorLabel.Visible = true;
+                Modify_ErrorLabel.Text = "Password Cannot Be Empty";
+                Modify_ErrorLabel.Visible = true;
             }
-            else if (this.Modify_PasswordTextBox.Text.IndexOf(' ') >= 0)
+            else if (Modify_PasswordTextBox.Text.IndexOf(' ') >= 0)
             {
-                this.Modify_ErrorLabel.Text = "Password cannot contain spaces";
-                this.Modify_ErrorLabel.Visible = true;
+                Modify_ErrorLabel.Text = "Password Cannot Contain Spaces";
+                Modify_ErrorLabel.Visible = true;
             }
-            else if (this.Modify_PasswordTextBox.Text.Length <= 5 || this.Modify_PasswordTextBox.Text.Length > 18)
+            else if (Modify_PasswordTextBox.Text.Length <= 5 || Modify_PasswordTextBox.Text.Length > 18)
             {
-                this.Modify_ErrorLabel.Text = "Password length can only be 6-18 characters";
-                this.Modify_ErrorLabel.Visible = true;
+                Modify_ErrorLabel.Text = "Password Must Be 6 to 18 Characters Long";
+                Modify_ErrorLabel.Visible = true;
             }
-            else if (this.Modify_QuestionTextBox.Text.Length <= 0)
+            else if (Modify_QuestionTextBox.Text.Length <= 0)
             {
-                this.Modify_ErrorLabel.Text = "Security question cannot be empty";
-                this.Modify_ErrorLabel.Visible = true;
+                Modify_ErrorLabel.Text = "Security Question Cannot Be Empty";
+                Modify_ErrorLabel.Visible = true;
             }
-            else if (this.Modify_QuestionTextBox.Text.IndexOf(' ') >= 0)
+            else if (Modify_QuestionTextBox.Text.IndexOf(' ') >= 0)
             {
-                this.Modify_ErrorLabel.Text = "Security questions cannot contain spaces";
-                this.Modify_ErrorLabel.Visible = true;
+                Modify_ErrorLabel.Text = "Security Question Cannot Contain Spaces";
+                Modify_ErrorLabel.Visible = true;
             }
-            else if (this.Modify_AnswerTextBox.Text.Length <= 0)
+            else if (Modify_AnswerTextBox.Text.Length <= 0)
             {
-                this.Modify_ErrorLabel.Text = "Secret answer cannot be empty";
-                this.Modify_ErrorLabel.Visible = true;
+                Modify_ErrorLabel.Text = "Security Answer Cannot Be Empty";
+                Modify_ErrorLabel.Visible = true;
             }
-            else if (this.Modify_AnswerTextBox.Text.IndexOf(' ') >= 0)
+            else if (Modify_AnswerTextBox.Text.IndexOf(' ') >= 0)
             {
-                this.Modify_ErrorLabel.Text = "The secret answer cannot contain spaces";
-                this.Modify_ErrorLabel.Visible = true;
+                Modify_ErrorLabel.Text = "Security Answer Cannot Contain Spaces";
+                Modify_ErrorLabel.Visible = true;
             }
             else
             {
-                if (Network.SendPacket(Encoding.UTF8.GetBytes(string.Format("{0} 2 ", (object)++MainForm.PacketNumber) + this.Modify_AccountNameTextBox.Text + " " + this.Modify_PasswordTextBox.Text + " " + this.Modify_QuestionTextBox.Text + " " + this.Modify_AnswerTextBox.Text)))
-                    this.UILock();
-                this.Modify_PasswordTextBox.Text = this.Modify_AnswerTextBox.Text = "";
-                this.InterfaceUpdateTimer.Enabled = true;
+                if (Network.SendPacket(Encoding.UTF8.GetBytes(string.Format("{0} 2 ", ++PacketNumber) + Modify_AccountNameTextBox.Text + " " + Modify_PasswordTextBox.Text + " " + Modify_QuestionTextBox.Text + " " + Modify_AnswerTextBox.Text)))
+                    UILock();
+                Modify_PasswordTextBox.Text = Modify_AnswerTextBox.Text = "";
+                InterfaceUpdateTimer.Enabled = true;
             }
         }
-
         private void Modify_BackToLogin_Click(object sender, EventArgs e) => this.MainTab.SelectedIndex = 0;
-
         private void Launch_EnterGame_Click(object sender, EventArgs e)
         {
-            if (MainForm.LoginAccount == null || MainForm.LoginAccount == "")
-                this.MainTab.SelectedIndex = 0;
-            else if (this.start_selected_zone.Text == null || this.start_selected_zone.Text == "")
+            if (LoginAccount == null || LoginAccount == "")
+                MainTab.SelectedIndex = 0;
+            else if (start_selected_zone.Text == null || start_selected_zone.Text == "")
             {
-                int num1 = (int)MessageBox.Show("Please choose the server");
+                MessageBox.Show("You Must Select A Server");
             }
-            else if (!MainForm.IPList.ContainsKey(this.start_selected_zone.Text))
+            else if (!IPList.ContainsKey(start_selected_zone.Text))
             {
-                int num2 = (int)MessageBox.Show("Server selection error");
+                MessageBox.Show("Server Selection Error");
             }
             else
             {
-                if (!Network.SendPacket(Encoding.UTF8.GetBytes(string.Format("{0} 3 ", (object)++MainForm.PacketNumber) + MainForm.LoginAccount + " " + MainForm.LoginPassword + " " + this.start_selected_zone.Text + " v1.0")))
+                if (!Network.SendPacket(Encoding.UTF8.GetBytes(string.Format("{0} 3 ", ++PacketNumber) + LoginAccount + " " + LoginPassword + " " + start_selected_zone.Text + " v1.0")))
                     return;
-                this.UILock();
-                this.InterfaceUpdateTimer.Enabled = true;
+                UILock();
+                InterfaceUpdateTimer.Enabled = true;
             }
         }
-
         private void LogoutTab_Click(object sender, EventArgs e)
         {
-            MainForm.LoginAccount = (string)null;
-            MainForm.LoginPassword = (string)null;
-            this.MainTab.SelectedIndex = 0;
+            LoginAccount = (string)null;
+            LoginPassword = (string)null;
+            MainTab.SelectedIndex = 0;
         }
-
         private void StartupChoosegameServer_DrawItem(object sender, DrawItemEventArgs e)
         {
             e.DrawBackground();
@@ -450,25 +468,44 @@ namespace Launcher
                 Alignment = StringAlignment.Center,
                 LineAlignment = StringAlignment.Center
             };
-            e.Graphics.DrawString(this.GameServerList.Items[e.Index].ToString(), e.Font, (Brush)new SolidBrush(e.ForeColor), (RectangleF)e.Bounds, format);
+            e.Graphics.DrawString(this.GameServerList.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), (RectangleF)e.Bounds, format);
         }
-
         private void StartupChooseGS_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.GameServerList.SelectedIndex < 0)
-                this.start_selected_zone.Text = "";
+            if (GameServerList.SelectedIndex < 0)
+                start_selected_zone.Text = "";
             else
-                this.start_selected_zone.Text = this.GameServerList.Items[this.GameServerList.SelectedIndex].ToString();
+                start_selected_zone.Text = GameServerList.Items[GameServerList.SelectedIndex].ToString();
         }
-
         private void Login_PasswordKeyPress(object sender, KeyPressEventArgs e)
         {
-
             if (string.IsNullOrWhiteSpace(AccountPasswordTextBox.Text)) return;
-
             if (e.KeyChar != (char)13) return;
-
             LoginAccountLabel_Click(sender, null);
+        }
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+        private void pictureBox3_MouseClick(object sender, MouseEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+        private void uiCheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiCheckBox2_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
     }
