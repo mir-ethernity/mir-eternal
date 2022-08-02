@@ -1,6 +1,6 @@
 {
   "MapId": 111,
-  "MapName": "陵墓浅表",
+  "MapName": "SurfaceOfTheTomb",
   "MapFile": "MirDg23_1",
   "TerrainFile": "0111-SurfaceOfTheTomb",
   "LimitPlayers": 9999,

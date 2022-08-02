@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6664,
   "FromMapId": 195,
-  "FromMapName": "抉择之地",
+  "FromMapName": "ChoicePlace",
   "FromCoords": "1030, 256",
   "Direction": "下方",
-  "RegionName": "抉择之地-醉爷(1030,256)"
+  "RegionName": "ChoicePlace-Drunken Master(1030,256)"
 }

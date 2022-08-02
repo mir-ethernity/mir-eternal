@@ -1,6 +1,6 @@
 {
   "MapId": 189,
-  "MapName": "赤月峡谷南入口",
+  "MapName": "RedMoonCanyonSouthEntrance",
   "MapFile": "MirDg11_1",
   "TerrainFile": "0189-RedMoonCanyonSouthEntrance",
   "LimitPlayers": 9999,

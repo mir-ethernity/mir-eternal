@@ -1,8 +1,8 @@
 {
   "FromMapId": 154,
-  "FromMapName": "比奇矿区三层",
+  "FromMapName": "BeechMines3rd",
   "FromCoords": "988, 301",
-  "RegionName": "比奇矿区三层-传送区域",
+  "RegionName": "BeechMines3rd-Teleport Area",
   "AreaRadius": 5,
   "AreaType": "传送区域",
   "RangeCoords": [

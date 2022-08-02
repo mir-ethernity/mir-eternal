@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6714,
   "FromMapId": 143,
-  "FromMapName": "比奇省",
+  "FromMapName": "BichyProvince",
   "FromCoords": "1145, 589",
   "Direction": "右下",
-  "RegionName": "比奇省-紫容(1145,589)"
+  "RegionName": "BichyProvince-Purple Face(1145,589)"
 }

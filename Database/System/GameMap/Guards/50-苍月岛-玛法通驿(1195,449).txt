@@ -1,8 +1,8 @@
 {
   "GuardNumber": 7119,
   "FromMapId": 50,
-  "FromMapName": "苍月岛",
+  "FromMapName": "PaleMoonIsland",
   "FromCoords": "1195, 449",
   "Direction": "右下",
-  "RegionName": "苍月岛-玛法通驿(1195,449)"
+  "RegionName": "PaleMoonIsland-Maffatone Post(1195,449)"
 }

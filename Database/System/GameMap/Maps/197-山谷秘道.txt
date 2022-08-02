@@ -1,6 +1,6 @@
 {
   "MapId": 197,
-  "MapName": "山谷秘道",
+  "MapName": "SecretValleyRoad",
   "MapFile": "MirDg11_9",
   "TerrainFile": "0197-SecretValleyRoad",
   "LimitPlayers": 9999,

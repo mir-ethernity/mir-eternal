@@ -1,8 +1,8 @@
 {
   "FromMapId": 58,
-  "FromMapName": "尸魔洞二层",
+  "FromMapName": "CorpseCave2nd",
   "FromCoords": "1010, 334",
-  "RegionName": "尸魔洞二层-随机区域",
+  "RegionName": "CorpseCave2nd-Random Area",
   "AreaRadius": 228,
   "AreaType": "随机区域",
   "RangeCoords": [

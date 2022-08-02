@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6663,
   "FromMapId": 142,
-  "FromMapName": "边界村",
+  "FromMapName": "BorderVillage",
   "FromCoords": "909, 494",
   "Direction": "右方",
-  "RegionName": "边界村-药老(909,494)"
+  "RegionName": "BorderVillage-Medicine Elder(909,494)"
 }

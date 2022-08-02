@@ -1,8 +1,8 @@
 {
   "FromMapId": 188,
-  "FromMapName": "赤月峡谷北入口",
+  "FromMapName": "RedMoonCanyonNorthEntrance",
   "FromCoords": "1014, 217",
-  "RegionName": "赤月峡谷北入口-随机区域",
+  "RegionName": "RedMoonCanyonNorthEntrance-Random Area",
   "AreaRadius": 127,
   "AreaType": "随机区域",
   "RangeCoords": [

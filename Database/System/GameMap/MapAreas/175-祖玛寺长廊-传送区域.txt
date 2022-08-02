@@ -1,8 +1,8 @@
 {
   "FromMapId": 175,
-  "FromMapName": "祖玛寺长廊",
+  "FromMapName": "ZumaTemplePromenade",
   "FromCoords": "1024, 32",
-  "RegionName": "祖玛寺长廊-传送区域",
+  "RegionName": "ZumaTemplePromenade-Teleport Area",
   "AreaRadius": 4,
   "AreaType": "传送区域",
   "RangeCoords": [

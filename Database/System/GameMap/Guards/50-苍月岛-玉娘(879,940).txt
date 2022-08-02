@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6680,
   "FromMapId": 50,
-  "FromMapName": "苍月岛",
+  "FromMapName": "PaleMoonIsland",
   "FromCoords": "879, 940",
   "Direction": "右下",
-  "RegionName": "苍月岛-玉娘(879,940)"
+  "RegionName": "PaleMoonIsland-Jade Lady(879,940)"
 }

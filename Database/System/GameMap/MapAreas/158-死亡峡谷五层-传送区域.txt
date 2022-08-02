@@ -1,8 +1,8 @@
 {
   "FromMapId": 158,
-  "FromMapName": "死亡峡谷五层",
+  "FromMapName": "DeathCanyon5th",
   "FromCoords": "1284, 515",
-  "RegionName": "死亡峡谷五层-传送区域",
+  "RegionName": "DeathCanyon5th-Teleport Area",
   "AreaRadius": 5,
   "AreaType": "传送区域",
   "RangeCoords": [

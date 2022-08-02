@@ -1,6 +1,6 @@
 {
   "MapId": 193,
-  "MapName": "左回廊",
+  "MapName": "LeftCloister",
   "MapFile": "MirDg11_5",
   "TerrainFile": "0193-LeftCloister",
   "LimitPlayers": 9999,

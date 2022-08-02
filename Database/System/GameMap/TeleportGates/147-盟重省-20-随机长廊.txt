@@ -3,7 +3,7 @@
   "FromMapId": 147,
   "ToMapId": 186,
   "TeleportGateName": "随机长廊",
-  "FromMapName": "盟重省",
+  "FromMapName": "AlliedProvince",
   "ToMapName": "随机长廊",
   "FromMapFile": "MirPb01",
   "ToMapFile": "MirAct04",

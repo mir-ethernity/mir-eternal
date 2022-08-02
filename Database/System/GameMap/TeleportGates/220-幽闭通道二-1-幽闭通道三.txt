@@ -3,7 +3,7 @@
   "FromMapId": 220,
   "ToMapId": 221,
   "TeleportGateName": "幽闭通道三",
-  "FromMapName": "幽闭通道二",
+  "FromMapName": "ClaustrophobicPassage2nd",
   "ToMapName": "幽闭通道三",
   "FromMapFile": "Mir_Dg05_12",
   "ToMapFile": "Mir_Dg05_13",

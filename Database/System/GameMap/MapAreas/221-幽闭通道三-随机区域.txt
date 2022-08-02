@@ -1,8 +1,8 @@
 {
   "FromMapId": 221,
-  "FromMapName": "幽闭通道三",
+  "FromMapName": "ClaustrophobicPassage3rd",
   "FromCoords": "1054, 225",
-  "RegionName": "幽闭通道三-随机区域",
+  "RegionName": "ClaustrophobicPassage3rd-Random Area",
   "AreaRadius": 45,
   "AreaType": "随机区域",
   "RangeCoords": [

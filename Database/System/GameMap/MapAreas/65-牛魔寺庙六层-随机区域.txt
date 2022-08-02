@@ -1,8 +1,8 @@
 {
   "FromMapId": 65,
-  "FromMapName": "牛魔寺庙六层",
+  "FromMapName": "BullDemonTemple6th",
   "FromCoords": "1024, 416",
-  "RegionName": "牛魔寺庙六层-随机区域",
+  "RegionName": "BullDemonTemple6th-Random Area",
   "AreaRadius": 269,
   "AreaType": "随机区域",
   "RangeCoords": [

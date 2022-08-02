@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6194,
   "FromMapId": 143,
-  "FromMapName": "比奇省",
+  "FromMapName": "BichyProvince",
   "FromCoords": "1147, 587",
   "Direction": "右下",
-  "RegionName": "比奇省-印十月(1147,587)"
+  "RegionName": "BichyProvince-Ind October(1147,587)"
 }

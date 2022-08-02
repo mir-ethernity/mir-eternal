@@ -1,8 +1,8 @@
 {
   "FromMapId": 203,
-  "FromMapName": "死亡峡谷六层",
+  "FromMapName": "DeathCanyon6th",
   "FromCoords": "783, 533",
-  "RegionName": "死亡峡谷六层-随机区域",
+  "RegionName": "DeathCanyon6th-Random Area",
   "AreaRadius": 86,
   "AreaType": "随机区域",
   "RangeCoords": [

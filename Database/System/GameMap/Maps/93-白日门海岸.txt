@@ -1,6 +1,6 @@
 {
   "MapId": 93,
-  "MapName": "白日门海岸",
+  "MapName": "BaijimonCoast",
   "MapFile": "MirDg19",
   "TerrainFile": "0093-BaijimonCoast",
   "LimitPlayers": 9999,

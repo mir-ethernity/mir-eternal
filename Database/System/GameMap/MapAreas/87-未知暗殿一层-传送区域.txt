@@ -1,8 +1,8 @@
 {
   "FromMapId": 87,
-  "FromMapName": "未知暗殿一层",
+  "FromMapName": "UnknownDarkHall",
   "FromCoords": "857, 377",
-  "RegionName": "未知暗殿一层-传送区域",
+  "RegionName": "UnknownDarkHallLevel-Teleport Area",
   "AreaRadius": 8,
   "AreaType": "传送区域",
   "RangeCoords": [

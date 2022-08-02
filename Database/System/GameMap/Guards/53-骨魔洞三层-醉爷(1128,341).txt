@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6664,
   "FromMapId": 53,
-  "FromMapName": "骨魔洞三层",
+  "FromMapName": "BoneDemonCave3rd",
   "FromCoords": "1128, 341",
   "Direction": "下方",
-  "RegionName": "骨魔洞三层-醉爷(1128,341)"
+  "RegionName": "BoneDemonCave3rd-Drunken Master(1128,341)"
 }

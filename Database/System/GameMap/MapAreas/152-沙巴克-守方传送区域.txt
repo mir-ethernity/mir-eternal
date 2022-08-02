@@ -1,8 +1,8 @@
 {
   "FromMapId": 152,
-  "FromMapName": "沙巴克",
+  "FromMapName": "Shabak",
   "FromCoords": "1096, 516",
-  "RegionName": "沙巴克-守方传送区域",
+  "RegionName": "Shabak-Safe Teleport",
   "AreaRadius": 5,
   "AreaType": "传送区域",
   "RangeCoords": [

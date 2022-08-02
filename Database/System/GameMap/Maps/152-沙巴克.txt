@@ -1,6 +1,6 @@
 {
   "MapId": 152,
-  "MapName": "沙巴克",
+  "MapName": "Shabak",
   "MapFile": "MirCt01",
   "TerrainFile": "0152-Shabak",
   "LimitPlayers": 9999,

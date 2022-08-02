@@ -1,6 +1,6 @@
 {
   "MapId": 154,
-  "MapName": "比奇矿区三层",
+  "MapName": "BeechMines 3rd Floor",
   "MapFile": "Mir_Dg03_2",
   "TerrainFile": "0154-BeechMines 3rd Floor",
   "LimitPlayers": 9999,

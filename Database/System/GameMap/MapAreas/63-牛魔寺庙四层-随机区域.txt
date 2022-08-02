@@ -1,8 +1,8 @@
 {
   "FromMapId": 63,
-  "FromMapName": "牛魔寺庙四层",
+  "FromMapName": "BullDemonTemple4th",
   "FromCoords": "1028, 607",
-  "RegionName": "牛魔寺庙四层-随机区域",
+  "RegionName": "BullDemonTemple4th-Random Area",
   "AreaRadius": 391,
   "AreaType": "随机区域",
   "RangeCoords": [

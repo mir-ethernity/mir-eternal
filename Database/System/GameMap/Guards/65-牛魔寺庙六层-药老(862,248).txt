@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6663,
   "FromMapId": 65,
-  "FromMapName": "牛魔寺庙六层",
+  "FromMapName": "DemonBullTemple6th",
   "FromCoords": "862, 248",
   "Direction": "上方",
-  "RegionName": "牛魔寺庙六层-药老(862,248)"
+  "RegionName": "DemonBullTemple6th-Medicine Elder(862,248)"
 }

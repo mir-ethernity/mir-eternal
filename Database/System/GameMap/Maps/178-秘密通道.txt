@@ -1,6 +1,6 @@
 {
   "MapId": 178,
-  "MapName": "秘密通道",
+  "MapName": "SecretPassage",
   "MapFile": "MirDg08",
   "TerrainFile": "0178-SecretPassage",
   "LimitPlayers": 9999,

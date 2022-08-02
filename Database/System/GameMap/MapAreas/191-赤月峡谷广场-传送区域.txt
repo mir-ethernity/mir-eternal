@@ -1,8 +1,8 @@
 {
   "FromMapId": 191,
-  "FromMapName": "赤月峡谷广场",
+  "FromMapName": "RedMoonCanyonPlaza",
   "FromCoords": "926, 176",
-  "RegionName": "赤月峡谷广场-传送区域",
+  "RegionName": "RedMoonCanyonPlaza-Teleport Area",
   "AreaRadius": 5,
   "AreaType": "传送区域",
   "RangeCoords": [

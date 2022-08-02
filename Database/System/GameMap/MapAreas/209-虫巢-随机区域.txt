@@ -1,8 +1,8 @@
 {
   "FromMapId": 209,
-  "FromMapName": "虫巢",
+  "FromMapName": "InsectNest",
   "FromCoords": "1002, 316",
-  "RegionName": "虫巢-随机区域",
+  "RegionName": "InsectNest-Random Area",
   "AreaRadius": 116,
   "AreaType": "随机区域",
   "RangeCoords": [

@@ -1,6 +1,6 @@
 {
   "MapId": 170,
-  "MapName": "祖玛寺庙五层",
+  "MapName": "ZumaTemple5th",
   "MapFile": "MirDg07_5",
   "TerrainFile": "0170-ZumaTemple5th",
   "LimitPlayers": 9999,

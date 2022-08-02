@@ -1,8 +1,8 @@
 {
   "FromMapId": 191,
-  "FromMapName": "赤月峡谷广场",
+  "FromMapName": "RedMoonCanyonPlaza",
   "FromCoords": "1015, 254",
-  "RegionName": "赤月峡谷广场-随机区域",
+  "RegionName": "RedMoonCanyonPlaza-Random Area",
   "AreaRadius": 153,
   "AreaType": "随机区域",
   "RangeCoords": [

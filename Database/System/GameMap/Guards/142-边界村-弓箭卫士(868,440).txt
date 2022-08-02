@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6724,
   "FromMapId": 142,
-  "FromMapName": "边界村",
+  "FromMapName": "BorderVillage",
   "FromCoords": "868, 440",
   "Direction": "左下",
-  "RegionName": "边界村-弓箭卫士(868,440)"
+  "RegionName": "BorderVillage-Arrow And Bow Guard(868,440)"
 }

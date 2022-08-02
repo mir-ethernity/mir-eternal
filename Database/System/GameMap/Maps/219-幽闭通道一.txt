@@ -1,6 +1,6 @@
 {
   "MapId": 219,
-  "MapName": "幽闭通道一",
+  "MapName": "ClaustrophobicPassage1st",
   "MapFile": "Mir_Dg05_11",
   "TerrainFile": "0219-ClaustrophobicPassage1st",
   "LimitPlayers": 9999,

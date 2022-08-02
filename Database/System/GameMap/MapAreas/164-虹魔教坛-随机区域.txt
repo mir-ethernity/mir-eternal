@@ -1,8 +1,8 @@
 {
   "FromMapId": 164,
-  "FromMapName": "虹魔教坛",
+  "FromMapName": "RainbowDemonTemple",
   "FromCoords": "1046, 340",
-  "RegionName": "虹魔教坛-随机区域",
+  "RegionName": "RainbowDemonTemple-Random Area",
   "AreaRadius": 134,
   "AreaType": "随机区域",
   "RangeCoords": [

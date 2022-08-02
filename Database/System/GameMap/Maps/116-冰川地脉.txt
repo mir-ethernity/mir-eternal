@@ -1,6 +1,6 @@
 {
   "MapId": 116,
-  "MapName": "龙耀崖",
+  "MapName": "LongYaoYai",
   "MapFile": "MirDg27_1",
   "TerrainFile": "0116-Glacial Veins",
   "LimitPlayers": 9999,

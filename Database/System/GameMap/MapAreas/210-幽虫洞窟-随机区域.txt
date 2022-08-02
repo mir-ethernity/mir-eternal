@@ -1,8 +1,8 @@
 {
   "FromMapId": 210,
-  "FromMapName": "幽虫洞窟",
+  "FromMapName": "CaveOfWorms",
   "FromCoords": "1019, 339",
-  "RegionName": "幽虫洞窟-随机区域",
+  "RegionName": "CaveOfWorms-Random Area",
   "AreaRadius": 139,
   "AreaType": "随机区域",
   "RangeCoords": [

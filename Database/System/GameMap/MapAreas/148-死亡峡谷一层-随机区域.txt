@@ -1,8 +1,8 @@
 {
   "FromMapId": 148,
-  "FromMapName": "死亡峡谷一层",
+  "FromMapName": "DeathCanyon1st",
   "FromCoords": "1242, 501",
-  "RegionName": "死亡峡谷一层-随机区域",
+  "RegionName": "DeathCanyon1st-Random Area",
   "AreaRadius": 105,
   "AreaType": "随机区域",
   "RangeCoords": [

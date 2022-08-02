@@ -1,6 +1,6 @@
 {
   "MapId": 113,
-  "MapName": "龙耀崖",
+  "MapName": "LongYaoYai",
   "MapFile": "MirDg26",
   "TerrainFile": "0113-LongYaoYai",
   "LimitPlayers": 9999,

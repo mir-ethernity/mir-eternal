@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6121,
   "FromMapId": 152,
-  "FromMapName": "沙巴克",
+  "FromMapName": "Shabak",
   "FromCoords": "1054, 591",
   "Direction": "右上",
-  "RegionName": "沙巴克-高经验点(1054,591)"
+  "RegionName": "Shabak-High exp points(1054,591)"
 }

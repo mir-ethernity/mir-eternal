@@ -1,6 +1,6 @@
 {
   "MapId": 114,
-  "MapName": "黑岩峰底",
+  "MapName": "BlackRockPeak",
   "MapFile": "MirDg26_1",
   "TerrainFile": "0114-BlackRockPeak",
   "LimitPlayers": 9999,

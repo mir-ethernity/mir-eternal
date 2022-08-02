@@ -1,8 +1,8 @@
 {
   "FromMapId": 154,
-  "FromMapName": "比奇矿区三层",
+  "FromMapName": "BeechMines3rd",
   "FromCoords": "1051, 345",
-  "RegionName": "比奇矿区三层-随机区域",
+  "RegionName": "BeechMines 3rd Floor-Random Area",
   "AreaRadius": 167,
   "AreaType": "随机区域",
   "RangeCoords": [

@@ -1,8 +1,8 @@
 {
   "FromMapId": 93,
-  "FromMapName": "白日门海岸",
+  "FromMapName": "BaijimonCoast",
   "FromCoords": "1059, 439",
-  "RegionName": "白日门海岸-传送区域",
+  "RegionName": "BaijimonCoast-Teleport Area",
   "AreaRadius": 5,
   "AreaType": "传送区域",
   "RangeCoords": [

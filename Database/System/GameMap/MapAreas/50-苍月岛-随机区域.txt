@@ -1,8 +1,8 @@
 {
   "FromMapId": 50,
-  "FromMapName": "苍月岛",
+  "FromMapName": "PaleMoonIsland",
   "FromCoords": "1020, 410",
-  "RegionName": "苍月岛-随机区域",
+  "RegionName": "PaleMoonIsland-Random Area",
   "AreaRadius": 259,
   "AreaType": "随机区域",
   "RangeCoords": [

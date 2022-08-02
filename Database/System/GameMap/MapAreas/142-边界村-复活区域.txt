@@ -1,8 +1,8 @@
 {
   "FromMapId": 142,
-  "FromMapName": "边界村",
+  "FromMapName": "BorderVillage",
   "FromCoords": "855, 459",
-  "RegionName": "边界村-复活区域",
+  "RegionName": "BorderVillage-Resurrection",
   "AreaRadius": 14,
   "AreaType": "复活区域",
   "RangeCoords": [

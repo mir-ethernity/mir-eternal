@@ -1,8 +1,8 @@
 {
   "FromMapId": 179,
-  "FromMapName": "监狱",
+  "FromMapName": "Prison",
   "FromCoords": "1019, 117",
-  "RegionName": "监狱-传送区域",
+  "RegionName": "Prison-Teleport Area",
   "AreaRadius": 25,
   "AreaType": "传送区域",
   "RangeCoords": [

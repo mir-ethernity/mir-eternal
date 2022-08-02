@@ -1,8 +1,8 @@
 {
   "FromMapId": 157,
-  "FromMapName": "死亡峡谷三层",
+  "FromMapName": "DeathCanyon3rd",
   "FromCoords": "1277, 508",
-  "RegionName": "死亡峡谷三层-随机区域",
+  "RegionName": "DeathCanyon3rd-Random Area",
   "AreaRadius": 127,
   "AreaType": "随机区域",
   "RangeCoords": [

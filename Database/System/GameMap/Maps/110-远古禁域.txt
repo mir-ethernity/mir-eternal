@@ -1,6 +1,6 @@
 {
   "MapId": 110,
-  "MapName": "远古禁域",
+  "MapName": "AncientForbiddenRealm",
   "MapFile": "MirDg23",
   "TerrainFile": "0110-AncientForbiddenRealm",
   "LimitPlayers": 9999,

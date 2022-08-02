@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6663,
   "FromMapId": 224,
-  "FromMapName": "幽冥海二层",
+  "FromMapName": "SeaGhost2nd",
   "FromCoords": "1088, 416",
   "Direction": "下方",
-  "RegionName": "幽冥海二层-药老(1088,416)"
+  "RegionName": "SeaGhost2nd-Medicine Elder(1088,416)"
 }

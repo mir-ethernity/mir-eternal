@@ -1,8 +1,8 @@
 {
   "FromMapId": 144,
-  "FromMapName": "比奇矿区",
+  "FromMapName": "BeechMines",
   "FromCoords": "1009, 127",
-  "RegionName": "比奇矿区-传送区域",
+  "RegionName": "BeechMines-Teleport Area",
   "AreaRadius": 5,
   "AreaType": "传送区域",
   "RangeCoords": [

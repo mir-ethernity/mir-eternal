@@ -1,8 +1,8 @@
 {
   "FromMapId": 152,
-  "FromMapName": "沙巴克",
+  "FromMapName": "Shabak",
   "FromCoords": "957, 371",
-  "RegionName": "沙巴克-外城复活区域",
+  "RegionName": "Shabak-Outer Resurrection Area",
   "AreaRadius": 10,
   "AreaType": "复活区域",
   "RangeCoords": [

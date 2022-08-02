@@ -1,6 +1,6 @@
 {
   "MapId": 132,
-  "MapName": "荒原秘境",
+  "MapName": "TheSecretWilderness",
   "MapFile": "MirDg22_2",
   "TerrainFile": "0132-TheSecretWilderness",
   "LimitPlayers": 9999,

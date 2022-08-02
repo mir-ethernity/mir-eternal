@@ -1,8 +1,8 @@
 {
   "FromMapId": 158,
-  "FromMapName": "死亡峡谷五层",
+  "FromMapName": "DeathCanyon5th",
   "FromCoords": "1337, 588",
-  "RegionName": "死亡峡谷五层-随机区域",
+  "RegionName": "DeathCanyon5th-Random Area",
   "AreaRadius": 106,
   "AreaType": "随机区域",
   "RangeCoords": [

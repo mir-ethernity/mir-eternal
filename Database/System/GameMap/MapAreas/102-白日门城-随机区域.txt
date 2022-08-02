@@ -1,8 +1,8 @@
 {
   "FromMapId": 102,
-  "FromMapName": "白日门城",
+  "FromMapName": "WhiteSunCity",
   "FromCoords": "1009, 487",
-  "RegionName": "白日门城-随机区域",
+  "RegionName": "WhiteSunCity-Random Area",
   "AreaRadius": 224,
   "AreaType": "随机区域",
   "RangeCoords": [

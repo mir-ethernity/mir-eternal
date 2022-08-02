@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6252,
   "FromMapId": 143,
-  "FromMapName": "比奇省",
+  "FromMapName": "BichyProvince",
   "FromCoords": "1109, 622",
   "Direction": "下方",
-  "RegionName": "比奇省-游吟诗人(1109,622)"
+  "RegionName": "BichyProvince-Troubadour(1109,622)"
 }

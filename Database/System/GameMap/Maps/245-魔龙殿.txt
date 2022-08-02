@@ -1,6 +1,6 @@
 {
   "MapId": 245,
-  "MapName": "魔龙殿",
+  "MapName": "TempleoftheMagicDragon",
   "MapFile": "MirDg12_14",
   "TerrainFile": "0245-TempleoftheMagicDragon",
   "LimitPlayers": 9999,

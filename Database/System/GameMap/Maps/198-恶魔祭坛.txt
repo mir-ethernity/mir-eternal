@@ -1,6 +1,6 @@
 {
   "MapId": 198,
-  "MapName": "恶魔祭坛",
+  "MapName": "The Devil's Altar",
   "MapFile": "MirDg11_10",
   "TerrainFile": "0198-The Devil's Altar",
   "LimitPlayers": 9999,

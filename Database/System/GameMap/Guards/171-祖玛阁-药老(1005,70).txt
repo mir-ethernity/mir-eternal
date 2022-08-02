@@ -1,7 +1,7 @@
 {
   "GuardNumber": 6663,
   "FromMapId": 171,
-  "FromMapName": "祖玛阁",
+  "FromMapName": "ZumaGallery",
   "FromCoords": "1005, 70",
-  "RegionName": "祖玛阁-药老(1005,70)"
+  "RegionName": "ZumaGallery-Medicine Elder(1005,70)"
 }

@@ -1,8 +1,8 @@
 {
   "FromMapId": 80,
-  "FromMapName": "屠魔大厅",
+  "FromMapName": "DemonSlayingHall",
   "FromCoords": "1005, 273",
-  "RegionName": "屠魔大厅-传送区域",
+  "RegionName": "DemonSlayingHall-Teleport Area",
   "AreaRadius": 4,
   "AreaType": "传送区域",
   "RangeCoords": [

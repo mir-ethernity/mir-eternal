@@ -1,6 +1,6 @@
 {
   "MapId": 112,
-  "MapName": "陵墓深层",
+  "MapName": "DeepInTheTomb",
   "MapFile": "MirDg23_2",
   "TerrainFile": "0112-DeepInTheTomb",
   "LimitPlayers": 9999,

@@ -1,6 +1,6 @@
 {
   "MapId": 167,
-  "MapName": "祖玛寺庙二层",
+  "MapName": "ZumaTemple1st",
   "MapFile": "MirDg07_2",
   "TerrainFile": "0167-ZumaTemple1st",
   "LimitPlayers": 9999,

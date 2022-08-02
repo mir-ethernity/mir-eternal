@@ -1,8 +1,8 @@
 {
   "MapId": 173,
-  "MapName": "祖玛教主之家",
+  "MapName": "Zuma King House",
   "MapFile": "MirDg07_8",
-  "TerrainFile": "0173-Zuma Cultist House",
+  "TerrainFile": "0173-Zuma King House",
   "LimitPlayers": 9999,
   "MinLevel": 30,
   "LimitInstances": 1,

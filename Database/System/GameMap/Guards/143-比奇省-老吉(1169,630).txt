@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6804,
   "FromMapId": 143,
-  "FromMapName": "比奇省",
+  "FromMapName": "BichyProvince",
   "FromCoords": "1169, 630",
   "Direction": "左下",
-  "RegionName": "比奇省-老吉(1169,630)"
+  "RegionName": "BichyProvince-Old Kat(1169,630)"
 }

@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6663,
   "FromMapId": 202,
-  "FromMapName": "死亡峡谷四层",
+  "FromMapName": "DeathCanyon4th",
   "FromCoords": "790, 544",
   "Direction": "右下",
-  "RegionName": "死亡峡谷四层-药老(790,544)"
+  "RegionName": "DeathCanyon4th-Medicine Elder(790,544)"
 }

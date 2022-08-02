@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6734,
   "FromMapId": 147,
-  "FromMapName": "盟重省",
+  "FromMapName": "AlliedProvince",
   "FromCoords": "897, 494",
   "Direction": "右下",
-  "RegionName": "盟重省-大刀守卫(897,494)"
+  "RegionName": "AlliedProvince-Greatsword Guard(897,494)"
 }

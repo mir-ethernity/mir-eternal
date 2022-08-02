@@ -1,8 +1,8 @@
 {
   "FromMapId": 153,
-  "FromMapName": "比奇矿区二层",
+  "FromMapName": "BeechMines1st",
   "FromCoords": "1020, 322",
-  "RegionName": "比奇矿区二层-随机区域",
+  "RegionName": "BeechMines1st-Random Area",
   "AreaRadius": 185,
   "AreaType": "随机区域",
   "RangeCoords": [

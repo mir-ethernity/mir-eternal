@@ -1,8 +1,8 @@
 {
   "FromMapId": 216,
-  "FromMapName": "祭祀回廊",
+  "FromMapName": "RitualCloister",
   "FromCoords": "1002, 305",
-  "RegionName": "祭祀回廊-随机区域",
+  "RegionName": "RitualCloister-Random Area",
   "AreaRadius": 141,
   "AreaType": "随机区域",
   "RangeCoords": [

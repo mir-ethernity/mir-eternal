@@ -1,8 +1,8 @@
 {
   "FromMapId": 65,
-  "FromMapName": "牛魔寺庙六层",
+  "FromMapName": "BullDemonTemple6th",
   "FromCoords": "1066, 458",
-  "RegionName": "牛魔寺庙六层-传送区域",
+  "RegionName": "BullDemonTemple6th-Teleport Area",
   "AreaRadius": 6,
   "AreaType": "传送区域",
   "RangeCoords": [

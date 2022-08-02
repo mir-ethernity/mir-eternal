@@ -1,8 +1,8 @@
 {
   "GuardNumber": 8463,
   "FromMapId": 50,
-  "FromMapName": "苍月岛",
+  "FromMapName": "PaleMoonIsland",
   "FromCoords": "873, 937",
   "Direction": "左上",
-  "RegionName": "苍月岛-夏二丫(873,937)"
+  "RegionName": "PaleMoonIsland-Erma Summer(873,937)"
 }

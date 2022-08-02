@@ -1,6 +1,6 @@
 {
   "MapId": 216,
-  "MapName": "祭祀回廊",
+  "MapName": "RitualCloister",
   "MapFile": "Mir_Dg05_8",
   "TerrainFile": "0216-RitualCloister",
   "LimitPlayers": 9999,

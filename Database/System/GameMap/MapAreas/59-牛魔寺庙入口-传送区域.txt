@@ -1,8 +1,8 @@
 {
   "FromMapId": 59,
-  "FromMapName": "牛魔寺庙入口",
+  "FromMapName": "BullDemonTempleEnt",
   "FromCoords": "1029, 94",
-  "RegionName": "牛魔寺庙入口-传送区域",
+  "RegionName": "BullDemonTempleEnt-Teleport Area",
   "AreaRadius": 9,
   "AreaType": "传送区域",
   "RangeCoords": [

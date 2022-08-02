@@ -1,6 +1,6 @@
 {
   "MapId": 172,
-  "MapName": "祖玛大厅",
+  "MapName": "Zuma Lobby",
   "MapFile": "MirDg07_7",
   "TerrainFile": "0172-Zuma Lobby",
   "LimitPlayers": 9999,

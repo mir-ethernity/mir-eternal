@@ -1,8 +1,8 @@
 {
   "FromMapId": 146,
-  "FromMapName": "沃玛寺庙一层",
+  "FromMapName": "WoomaTemple1st",
   "FromCoords": "1059, 537",
-  "RegionName": "沃玛寺庙一层-随机区域",
+  "RegionName": "WoomaTemple1st-Random Area",
   "AreaRadius": 169,
   "AreaType": "随机区域",
   "RangeCoords": [

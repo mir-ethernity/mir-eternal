@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6662,
   "FromMapId": 50,
-  "FromMapName": "苍月岛",
+  "FromMapName": "PaleMoonIsland",
   "FromCoords": "807, 873",
   "Direction": "左下",
-  "RegionName": "苍月岛-白玉兰(807,873)"
+  "RegionName": "PaleMoonIsland-White Magnolia(807,873)"
 }

@@ -1,8 +1,8 @@
 {
   "FromMapId": 147,
-  "FromMapName": "盟重省",
+  "FromMapName": "AlliedProvince",
   "FromCoords": "1036, 553",
-  "RegionName": "盟重省-随机区域",
+  "RegionName": "AlliedProvince-Random Area",
   "AreaRadius": 323,
   "AreaType": "随机区域",
   "RangeCoords": [

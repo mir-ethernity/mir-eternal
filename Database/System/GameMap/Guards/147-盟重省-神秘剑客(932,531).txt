@@ -1,8 +1,8 @@
 {
   "GuardNumber": 4795,
   "FromMapId": 147,
-  "FromMapName": "盟重省",
+  "FromMapName": "AlliedProvince",
   "FromCoords": "932, 531",
   "Direction": "左下",
-  "RegionName": "盟重省-神秘剑客(932,531)"
+  "RegionName": "AlliedProvince-Mystic Swordsman(932,531)"
 }

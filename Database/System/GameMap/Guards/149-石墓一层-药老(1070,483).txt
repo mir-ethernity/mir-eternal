@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6663,
   "FromMapId": 149,
-  "FromMapName": "石墓一层",
+  "FromMapName": "StoneTomb",
   "FromCoords": "1070, 483",
   "Direction": "右下",
-  "RegionName": "石墓一层-药老(1070,483)"
+  "RegionName": "StoneTomb-Medicine Elder(1070,483)"
 }

@@ -1,6 +1,6 @@
 {
   "MapId": 234,
-  "MapName": "东林间胜地",
+  "MapName": "EastWoodlandResort",
   "MapFile": "MirDg12_3",
   "TerrainFile": "0234-EastWoodlandResort",
   "LimitPlayers": 9999,

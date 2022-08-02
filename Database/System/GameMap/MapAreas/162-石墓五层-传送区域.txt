@@ -1,8 +1,8 @@
 {
   "FromMapId": 162,
-  "FromMapName": "石墓五层",
+  "FromMapName": "StoneTomb5th",
   "FromCoords": "929, 439",
-  "RegionName": "石墓五层-传送区域",
+  "RegionName": "StoneTomb5th-Teleport Area",
   "AreaRadius": 7,
   "AreaType": "传送区域",
   "RangeCoords": [

@@ -1,8 +1,8 @@
 {
   "FromMapId": 145,
-  "FromMapName": "沃玛森林",
+  "FromMapName": "WoomaForest",
   "FromCoords": "992, 468",
-  "RegionName": "沃玛森林-随机区域",
+  "RegionName": "WoomaForest-Random Area",
   "AreaRadius": 237,
   "AreaType": "随机区域",
   "RangeCoords": [

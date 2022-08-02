@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6672,
   "FromMapId": 50,
-  "FromMapName": "苍月岛",
+  "FromMapName": "PaleMoonIsland",
   "FromCoords": "778, 898",
   "Direction": "右下",
-  "RegionName": "苍月岛-王铁匠(778,898)"
+  "RegionName": "PaleMoonIsland-KingBlacksmith(778,898)"
 }

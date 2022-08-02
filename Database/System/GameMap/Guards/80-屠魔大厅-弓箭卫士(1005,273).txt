@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6724,
   "FromMapId": 80,
-  "FromMapName": "屠魔大厅",
+  "FromMapName": "DemonSlayerHall",
   "FromCoords": "1005, 273",
   "Direction": "左下",
-  "RegionName": "屠魔大厅-弓箭卫士(1005,273)"
+  "RegionName": "DemonSlayerHall-Arrow And Bow Guard(1005,273)"
 }

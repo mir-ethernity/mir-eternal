@@ -1,8 +1,8 @@
 {
   "FromMapId": 61,
-  "FromMapName": "牛魔寺庙二层",
+  "FromMapName": "BullDemonTemple2nd",
   "FromCoords": "1024, 352",
-  "RegionName": "牛魔寺庙二层-随机区域",
+  "RegionName": "BullDemonTemple2nd-Random Area",
   "AreaRadius": 206,
   "AreaType": "随机区域",
   "RangeCoords": [

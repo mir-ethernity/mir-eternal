@@ -1,8 +1,8 @@
 {
   "FromMapId": 143,
-  "FromMapName": "比奇省",
+  "FromMapName": "BichProvince",
   "FromCoords": "1041, 735",
-  "RegionName": "比奇省-随机区域",
+  "RegionName": "BichProvince-Random Area",
   "AreaRadius": 293,
   "AreaType": "随机区域",
   "RangeCoords": [

@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6663,
   "FromMapId": 145,
-  "FromMapName": "沃玛森林",
+  "FromMapName": "WoomaForest",
   "FromCoords": "898, 487",
   "Direction": "右下",
-  "RegionName": "沃玛森林-药老(898,487)"
+  "RegionName": "WoomaForest-Medicine Elder(898,487)"
 }

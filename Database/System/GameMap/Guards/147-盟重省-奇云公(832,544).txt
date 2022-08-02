@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6693,
   "FromMapId": 147,
-  "FromMapName": "盟重省",
+  "FromMapName": "AlliedProvince",
   "FromCoords": "832, 544",
   "Direction": "左下",
-  "RegionName": "盟重省-奇云公(832,544)"
+  "RegionName": "AlliedProvince-Qi Yun Gong(832,544)"
 }

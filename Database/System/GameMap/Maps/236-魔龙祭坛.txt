@@ -1,6 +1,6 @@
 {
   "MapId": 236,
-  "MapName": "魔龙祭坛",
+  "MapName": "MagicDragonAltar",
   "MapFile": "MirDg12_5",
   "TerrainFile": "0236-MagicDragonAltar",
   "LimitPlayers": 9999,
