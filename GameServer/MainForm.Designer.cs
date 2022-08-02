@@ -1550,7 +1550,7 @@
             this.S_NoobSupportCommand标签.Name = "S_NoobSupportCommand标签";
             this.S_NoobSupportCommand标签.Size = new System.Drawing.Size(190, 17);
             this.S_NoobSupportCommand标签.TabIndex = 21;
-            this.S_NoobSupportCommand标签.Text = "NoobSupportCommand等级";
+            this.S_NoobSupportCommand标签.Text = "Noob Exp";
             // 
             // S_NoobSupportCommand等级
             // 
@@ -1575,7 +1575,7 @@
             this.S_物品归属标签.Name = "S_物品归属标签";
             this.S_物品归属标签.Size = new System.Drawing.Size(93, 17);
             this.S_物品归属标签.TabIndex = 19;
-            this.S_物品归属标签.Text = "Item attr time";
+            this.S_物品归属标签.Text = "Drop Item";
             // 
             // S_物品归属时间
             // 
@@ -1601,7 +1601,7 @@
             this.S_物品清理标签.Name = "S_物品清理标签";
             this.S_物品清理标签.Size = new System.Drawing.Size(104, 17);
             this.S_物品清理标签.TabIndex = 17;
-            this.S_物品清理标签.Text = "Item clear time";
+            this.S_物品清理标签.Text = "Item disappear";
             // 
             // S_物品清理时间
             // 
@@ -1627,7 +1627,7 @@
             this.S_诱惑时长标签.Name = "S_诱惑时长标签";
             this.S_诱惑时长标签.Size = new System.Drawing.Size(157, 17);
             this.S_诱惑时长标签.TabIndex = 15;
-            this.S_诱惑时长标签.Text = "Monster tempt duration";
+            this.S_诱惑时长标签.Text = "Wiz Tame Skill";
             // 
             // S_怪物诱惑时长
             // 
@@ -1685,7 +1685,7 @@
             this.S_收益等级标签.Name = "S_收益等级标签";
             this.S_收益等级标签.Size = new System.Drawing.Size(75, 17);
             this.S_收益等级标签.TabIndex = 11;
-            this.S_收益等级标签.Text = "Drop Rate";
+            this.S_收益等级标签.Text = "EXP Diff LvlMobs";
             // 
             // S_减收益等级差
             // 
@@ -1743,7 +1743,7 @@
             this.S_特修折扣标签.Name = "S_特修折扣标签";
             this.S_特修折扣标签.Size = new System.Drawing.Size(104, 17);
             this.S_特修折扣标签.TabIndex = 7;
-            this.S_特修折扣标签.Text = "Equip discount";
+            this.S_特修折扣标签.Text = "Repair discount";
             // 
             // S_装备特修折扣
             // 
@@ -1775,7 +1775,7 @@
             this.S_怪物爆率标签.Name = "S_怪物爆率标签";
             this.S_怪物爆率标签.Size = new System.Drawing.Size(153, 17);
             this.S_怪物爆率标签.TabIndex = 5;
-            this.S_怪物爆率标签.Text = "Monster explosive rate";
+            this.S_怪物爆率标签.Text = "Drop Rate";
             // 
             // S_怪物额外爆率
             // 
@@ -1807,7 +1807,7 @@
             this.S_OpenLevelCommand标签.Name = "S_OpenLevelCommand标签";
             this.S_OpenLevelCommand标签.Size = new System.Drawing.Size(175, 17);
             this.S_OpenLevelCommand标签.TabIndex = 3;
-            this.S_OpenLevelCommand标签.Text = "游戏OpenLevelCommand";
+            this.S_OpenLevelCommand标签.Text = "Max Level";
             // 
             // S_游戏OpenLevelCommand
             // 
@@ -2032,8 +2032,8 @@
             this.GMCommand标签.Name = "GMCommand标签";
             this.GMCommand标签.Size = new System.Drawing.Size(136, 21);
             this.GMCommand标签.TabIndex = 13;
-            this.GMCommand标签.Text = "GMCommand:";
-            this.GMCommand标签.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.GMCommand标签.Text = "GM Box:";
+            this.GMCommand标签.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // 启动按钮
             // 
@@ -2118,7 +2118,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GameServer - LomCN";
+            this.Text = "GameServer - Mir3D LOMCN";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.关闭主界面_Click);
             this.主选项卡.ResumeLayout(false);
             this.tabMain.ResumeLayout(false);
