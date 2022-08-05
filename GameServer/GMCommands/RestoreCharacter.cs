@@ -27,17 +27,17 @@ namespace GameServer
 				{
 					if (CharacterData.删除日期.V == default(DateTime) || !CharacterData.所属账号.V.删除列表.Contains(CharacterData))
 					{
-						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, character not deleted");
+						MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, character not deleted");
 						return;
 					}
 					if (CharacterData.所属账号.V.角色列表.Count >= 4)
 					{
-						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, character list is full");
+						MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, character list is full");
 						return;
 					}
 					if (CharacterData.所属账号.V.网络连接 != null)
 					{
-						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, account must be offline");
+						MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, account must be offline");
 						return;
 					}
 					DataMonitor<DateTime> 删除日期 = CharacterData.删除日期;
@@ -47,11 +47,11 @@ namespace GameServer
 					删除日期.V = v;
 					CharacterData.所属账号.V.删除列表.Remove(CharacterData);
 					CharacterData.所属账号.V.角色列表.Add(CharacterData);
-					MainForm.添加命令日志("<= @" + base.GetType().Name + " Command executed, character restored successfully");
+					MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command executed, character restored successfully");
 					return;
 				}
 			}
-			MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, character does not exist");
+			MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, character does not exist");
 		}
 
 		

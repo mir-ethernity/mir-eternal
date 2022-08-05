@@ -22,7 +22,7 @@ namespace GameServer
 		{
 			if (this.最高等级 <= Config.MaxLevel)
 			{
-				MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, the level is lower than the current OpenLevelCommand");
+				MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, the level is lower than the current OpenLevelCommand");
 				return;
 			}
 			Settings.Default.游戏OpenLevelCommand = (Config.MaxLevel = this.最高等级);
@@ -31,7 +31,7 @@ namespace GameServer
 			{
 				MainForm.Singleton.S_游戏OpenLevelCommand.Value = this.最高等级;
 			}));
-			MainForm.添加命令日志(string.Format("<= @{0} The command has been executed, the current OpenLevelCommand: {1}", base.GetType().Name, Config.MaxLevel));
+			MainForm.AddCommandLog(string.Format("<= @{0} The command has been executed, the current OpenLevelCommand: {1}", base.GetType().Name, Config.MaxLevel));
 		}
 
 		

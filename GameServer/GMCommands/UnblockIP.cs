@@ -22,16 +22,16 @@ namespace GameServer
 			if (SystemData.Data.网络封禁.ContainsKey(this.对应地址))
 			{
 				SystemData.Data.解封网络(this.对应地址);
-				MainForm.添加命令日志("<= @" + base.GetType().Name + " The command has been executed, the address has been unblocked");
+				MainForm.AddCommandLog("<= @" + base.GetType().Name + " The command has been executed, the address has been unblocked");
 				return;
 			}
 			if (SystemData.Data.网卡封禁.ContainsKey(this.对应地址))
 			{
 				SystemData.Data.解封网卡(this.对应地址);
-				MainForm.添加命令日志("<= @" + base.GetType().Name + " The command has been executed, the address has been unblocked");
+				MainForm.AddCommandLog("<= @" + base.GetType().Name + " The command has been executed, the address has been unblocked");
 				return;
 			}
-			MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, the corresponding address is not blocked");
+			MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, the corresponding address is not blocked");
 		}
 
 		

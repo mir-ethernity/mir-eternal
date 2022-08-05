@@ -22,12 +22,12 @@ namespace GameServer
 		{
 			if (this.额外爆率 < 0m)
 			{
-				MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, extra burst rate too low");
+				MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, extra burst rate too low");
 				return;
 			}
 			if (this.额外爆率 >= 1m)
 			{
-				MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, extra burst rate too high");
+				MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, extra burst rate too high");
 				return;
 			}
 			Settings.Default.怪物额外爆率 = (Config.怪物额外爆率 = this.额外爆率);
@@ -36,7 +36,7 @@ namespace GameServer
 			{
 				MainForm.Singleton.S_怪物额外爆率.Value = this.额外爆率;
 			}));
-			MainForm.添加命令日志(string.Format("<= @{0} The command has been executed, with the current additional burst rate: {1}", base.GetType().Name, Config.怪物额外爆率));
+			MainForm.AddCommandLog(string.Format("<= @{0} The command has been executed, with the current additional burst rate: {1}", base.GetType().Name, Config.怪物额外爆率));
 		}
 
 		

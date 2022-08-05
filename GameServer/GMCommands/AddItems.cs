@@ -30,17 +30,17 @@ namespace GameServer
                     GameItems 游戏物品;
                     if (!GameItems.DataSheetByName.TryGetValue(this.Name, out 游戏物品))
                     {
-                        MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, item does not exist");
+                        MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, item does not exist");
                         return;
                     }
                     if (CharacterData.Backpack.Count >= (int)CharacterData.BackpackSize.V)
                     {
-                        MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, character's bag is full");
+                        MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, character's bag is full");
                         return;
                     }
                     if (游戏物品.MaxDura == 0)
                     {
-                        MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, cannot AddItemsCommand");
+                        MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, cannot AddItemsCommand");
                         return;
                     }
 
@@ -75,13 +75,13 @@ namespace GameServer
                                 物品描述 = CharacterData.Backpack[b].字节描述()
                             });
                         }
-                        MainForm.添加命令日志("<= @" + base.GetType().Name + " The command has been executed and the item has been added to the character's bag");
+                        MainForm.AddCommandLog("<= @" + base.GetType().Name + " The command has been executed and the item has been added to the character's bag");
                         return;
                     }
                     //goto IL_F4;
                 }
             }
-            MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, role does not exist");
+            MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, role does not exist");
         }
 
 

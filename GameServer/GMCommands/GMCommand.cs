@@ -65,7 +65,7 @@ namespace GameServer
 
             if (!命令字典.TryGetValue(array[0], out Type type) || !字段列表.TryGetValue(array[0], out FieldInfo[] fields))
             {
-                MainForm.添加命令日志("<= @" + array[0] + " is not a valid GM command, use @View");
+                MainForm.AddCommandLog("<= @" + array[0] + " is not a valid GM command, use @View");
                 cmd = null;
                 return false;
             }
@@ -82,7 +82,7 @@ namespace GameServer
 
             if (array.Length <= expectedLength)
             {
-                MainForm.添加命令日志("<= Parameter length error, please see format: " + 命令格式[array[0]]);
+                MainForm.AddCommandLog("<= Parameter length error, please see format: " + 命令格式[array[0]]);
                 cmd = null;
                 return false;
             }
@@ -99,7 +99,7 @@ namespace GameServer
                 }
                 catch
                 {
-                    MainForm.添加命令日志($"<= Parameter conversion error. The string cannot be converted to '{array[i + 1]}' Convert to parameters '{fields[i].Name}' Data type required");
+                    MainForm.AddCommandLog($"<= Parameter conversion error. The string cannot be converted to '{array[i + 1]}' Convert to parameters '{fields[i].Name}' Data type required");
                     cmd = null;
                     return false;
                 }

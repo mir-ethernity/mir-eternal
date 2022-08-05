@@ -23,7 +23,7 @@ namespace GameServer
 		{
 			if (MessageBox.Show(string.Format("We are about to permanently delete all CharacterData that are less than [{0}] level and have not logged in for [{1}] days \r\n\r\nThis operation is irreversible, please make a backup of your data \r\n\r\n sure you want to do this?", this.MinLevel, this.限制天数), "Dangerous operations", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
 			{
-				MainForm.添加命令日志("<= @" + base.GetType().Name + " Start the command, do not close the window during the execution");
+				MainForm.AddCommandLog("<= @" + base.GetType().Name + " Start the command, do not close the window during the execution");
 				MainForm.Singleton.BeginInvoke(new MethodInvoker(delegate()
 				{
 					Control 下方控件页 = MainForm.Singleton.下方控件页;

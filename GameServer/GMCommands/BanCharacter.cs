@@ -32,11 +32,11 @@ namespace GameServer
 					{
 						网络连接.CallExceptionEventHandler(new Exception("角色被封禁, 强制下线"));
 					}
-					MainForm.添加命令日志(string.Format("<= @{0} command executed, blocking expiry time: {1}", base.GetType().Name, CharacterData.封禁日期));
+					MainForm.AddCommandLog(string.Format("<= @{0} command executed, blocking expiry time: {1}", base.GetType().Name, CharacterData.封禁日期));
 					return;
 				}
 			}
-			MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, role does not exist");
+			MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, role does not exist");
 		}
 
 		

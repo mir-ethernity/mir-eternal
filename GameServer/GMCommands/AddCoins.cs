@@ -36,11 +36,11 @@ namespace GameServer
 							货币数量 = CharacterData.NumberGoldCoins
 						});
 					}
-					MainForm.添加命令日志(string.Format("<= @{0} command has been executed, current coin count: {1}", base.GetType().Name, CharacterData.NumberGoldCoins));
+					MainForm.AddCommandLog(string.Format("<= @{0} command has been executed, current coin count: {1}", base.GetType().Name, CharacterData.NumberGoldCoins));
 					return;
 				}
 			}
-			MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, role does not exist");
+			MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, role does not exist");
 		}
 
 		

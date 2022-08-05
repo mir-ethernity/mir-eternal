@@ -26,11 +26,11 @@ namespace GameServer
 				if (CharacterData != null)
 				{
 					CharacterData.封禁日期.V = default(DateTime);
-					MainForm.添加命令日志(string.Format("<= @{0} Command executed, blocking expiry time: {1}", base.GetType().Name, CharacterData.封禁日期));
+					MainForm.AddCommandLog(string.Format("<= @{0} Command executed, blocking expiry time: {1}", base.GetType().Name, CharacterData.封禁日期));
 					return;
 				}
 			}
-			MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, character does not exist");
+			MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, character does not exist");
 		}
 
 		

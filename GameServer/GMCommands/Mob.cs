@@ -17,13 +17,13 @@ namespace GameServer.GMCommands
         {
             if (!Monsters.DataSheet.TryGetValue(MobName, out Monsters monster))
             {
-                MainForm.添加命令日志($"<= @Mob Command execution failed, mob {MobName} does not exist");
+                MainForm.AddCommandLog($"<= @Mob Command execution failed, mob {MobName} does not exist");
                 return;
             }
 
             if (!GameMap.DataSheet.TryGetValue(MapId, out GameMap map))
             {
-                MainForm.添加命令日志($"<= @Move Command execution failed, map {MapId} does not exist");
+                MainForm.AddCommandLog($"<= @Move Command execution failed, map {MapId} does not exist");
                 return;
             }
 

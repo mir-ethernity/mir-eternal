@@ -24,10 +24,10 @@ namespace GameServer
 			if (IPAddress.TryParse(this.网络地址, out ipaddress))
 			{
 				SystemData.Data.BanIPCommand(this.网络地址, DateTime.Now.AddDays((double)this.封禁天数));
-				MainForm.添加命令日志(string.Format("<= @{0} command executed, blocking expiry time: {1}", base.GetType().Name, DateTime.Now.AddDays((double)this.封禁天数)));
+				MainForm.AddCommandLog(string.Format("<= @{0} command executed, blocking expiry time: {1}", base.GetType().Name, DateTime.Now.AddDays((double)this.封禁天数)));
 				return;
 			}
-			MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, address format error");
+			MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, address format error");
 		}
 
 		

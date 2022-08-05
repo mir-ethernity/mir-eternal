@@ -284,7 +284,15 @@ namespace GameServer
             MainForm.BeginInvoke(new MethodInvoker(delegate ()
             {
                 var isScrolled = Singleton.rtbPacketsLogs.SelectionStart == Singleton.rtbPacketsLogs.Text.Length;
-                var message = string.Format("[{0}]: {1} - {2}", DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), incoming ? "C->S" : "S->C", packet) + "\r\n";
+                var data = packet.取字节(forceNoEncrypt: true);
+                var message = string.Format(
+                    "[{0}]: {1} {2} ({3}) - {{{4}}}\r\n", 
+                    DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), 
+                    incoming ? "C->S" : "S->C", 
+                    packet.PacketInfo.编号, 
+                    packet.PacketType.Name, 
+                    string.Join(", ", data.Select(x => x.ToString()).ToArray())
+                );
                 Singleton.rtbPacketsLogs.AppendText(message, incoming ? Color.Blue : Color.Green);
                 if (isScrolled) Singleton.rtbPacketsLogs.ScrollToCaret();
             }));
@@ -309,7 +317,7 @@ namespace GameServer
         }
 
 
-        public static void 添加命令日志(string 内容)
+        public static void AddCommandLog(string 内容)
         {
             MainForm MainForm = MainForm.Singleton;
             if (MainForm == null)
@@ -1217,11 +1225,11 @@ namespace GameServer
             {
                 this.主选项卡.SelectedIndex = 0;
                 this.日志选项卡.SelectedIndex = 2;
-                MainForm.添加命令日志("=> " + this.GMCommand文本.Text);
+                MainForm.AddCommandLog("=> " + this.GMCommand文本.Text);
                 GMCommand GMCommand;
                 if (this.GMCommand文本.Text[0] != '@')
                 {
-                    MainForm.添加命令日志("<= Command error, GM commands must start with '@' at the start. '@View' to see all available commands");
+                    MainForm.AddCommandLog("<= Command error, GM commands must start with '@' at the start. '@View' to see all available commands");
                 }
                 else if (this.GMCommand文本.Text.Trim(new char[]
                 {
@@ -1229,7 +1237,7 @@ namespace GameServer
                     ' '
                 }).Length == 0)
                 {
-                    MainForm.添加命令日志("<= Command error, GM commands can not be empty. Type '@View' to see all available commands");
+                    MainForm.AddCommandLog("<= Command error, GM commands can not be empty. Type '@View' to see all available commands");
                 }
                 else if (GMCommand.解析命令(this.GMCommand文本.Text, out GMCommand))
                 {
@@ -1256,7 +1264,7 @@ namespace GameServer
                         }
                         else
                         {
-                            MainForm.添加命令日志("<= Command execution failed, the current command can only be executed when the server is running, please start the server first");
+                            MainForm.AddCommandLog("<= Command execution failed, the current command can only be executed when the server is running, please start the server first");
                         }
                     }
                     else if (GMCommand.ExecutionWay == ExecutionWay.只能空闲执行)
@@ -1267,7 +1275,7 @@ namespace GameServer
                         }
                         else
                         {
-                            MainForm.添加命令日志("<= Command execution failed, the current command can only be executed when the server is not running, please shut down the server first");
+                            MainForm.AddCommandLog("<= Command execution failed, the current command can only be executed when the server is not running, please shut down the server first");
                         }
                     }
                     e.Handled = true;

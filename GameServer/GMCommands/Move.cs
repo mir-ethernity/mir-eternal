@@ -19,13 +19,13 @@ namespace GameServer.GMCommands
         {
             if (!GameDataGateway.CharacterDataTable.Keyword.TryGetValue(Character, out GameData gd))
             {
-                MainForm.添加命令日志($"<= @Move Command execution failed, character {Character} does not exist");
+                MainForm.AddCommandLog($"<= @Move Command execution failed, character {Character} does not exist");
                 return;
             }
 
             if (!GameMap.DataSheet.TryGetValue(MapId, out GameMap map))
             {
-                MainForm.添加命令日志($"<= @Move Command execution failed, map {MapId} does not exist");
+                MainForm.AddCommandLog($"<= @Move Command execution failed, map {MapId} does not exist");
                 return;
             }
 
@@ -35,7 +35,7 @@ namespace GameServer.GMCommands
 
             if (player == null)
             {
-                MainForm.添加命令日志($"<= @Move Command execution failed, player {Character} not connected");
+                MainForm.AddCommandLog($"<= @Move Command execution failed, player {Character} not connected");
                 return;
             }
 

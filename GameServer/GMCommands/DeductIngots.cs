@@ -35,11 +35,11 @@ namespace GameServer
 							元宝数量 = CharacterData.元宝数量
 						});
 					}
-					MainForm.添加命令日志(string.Format("<= @{0} command has been executed, with the current amount of treasure: {1}", base.GetType().Name, CharacterData.元宝数量));
+					MainForm.AddCommandLog(string.Format("<= @{0} command has been executed, with the current amount of treasure: {1}", base.GetType().Name, CharacterData.元宝数量));
 					return;
 				}
 			}
-			MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, role does not exist");
+			MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, role does not exist");
 		}
 
 		
