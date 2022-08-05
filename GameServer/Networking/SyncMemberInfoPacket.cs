@@ -23,6 +23,6 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 10, Length = 1)]
-		public byte 当前等级;
+		public byte CurrentRank;
 	}
 }

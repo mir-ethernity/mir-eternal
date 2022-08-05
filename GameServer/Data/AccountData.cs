@@ -49,7 +49,7 @@ namespace GameServer.Data
                 {
                     binaryWriter.Write((byte)(Math.Min(4, this.角色列表.Count) + Math.Min(5, this.冻结列表.Count)));
                     List<CharacterData> list = (from O in this.角色列表
-                                                orderby O.当前等级.V descending
+                                                orderby O.CurrentRank.V descending
                                                 select O).ToList();
                     int num = 0;
                     while (num < 4 && num < list.Count)
@@ -58,7 +58,7 @@ namespace GameServer.Data
                         num++;
                     }
                     List<CharacterData> list2 = (from O in this.冻结列表
-                                                 orderby O.当前等级.V descending
+                                                 orderby O.CurrentRank.V descending
                                                  select O).ToList<CharacterData>();
                     int num2 = 0;
                     while (num2 < 5 && num2 < list2.Count)
@@ -94,7 +94,7 @@ namespace GameServer.Data
         }
 
 
-        public void 账号登录(SConnection 当前网络, string 物理地址)
+        public void 账号登录(SConnection 当前网络, string MacAddress)
         {
             当前网络.发送封包(new AccountLoginSuccessPacket
             {
@@ -108,14 +108,14 @@ namespace GameServer.Data
             当前网络.Account = this;
             当前网络.当前阶段 = GameStage.SelectingCharacterScene;
             this.网络连接 = 当前网络;
-            this.网络连接.物理地址 = 物理地址;
+            this.网络连接.MacAddress = MacAddress;
             NetworkServiceGateway.ActiveConnections += 1U;
         }
 
 
         public void 返回登录(SConnection 当前网络)
         {
-            当前网络.CallExceptionEventHandler(new Exception("客户端返回登录."));
+            当前网络.CallExceptionEventHandler(new Exception("Client returned to login screen"));
         }
 
 
@@ -213,7 +213,7 @@ namespace GameServer.Data
                 CharacterData CharacterData = GameData as CharacterData;
                 if (CharacterData != null && this.角色列表.Contains(CharacterData))
                 {
-                    if (CharacterData.所属行会.V != null)
+                    if (CharacterData.Affiliation.V != null)
                     {
                         当前网络.发送封包(new LoginErrorMessagePacket
                         {
@@ -231,7 +231,7 @@ namespace GameServer.Data
                     }
                     if (this.冻结列表.Count >= 5)
                     {
-                        当前网络.CallExceptionEventHandler(new Exception("删除角色时找回列表已满, 断开连接."));
+                        当前网络.CallExceptionEventHandler(new Exception("The retrieval list is full when you delete a character, disconnect."));
                         return;
                     }
                     CharacterData.FreezeDate.V = MainProcess.CurrentTime;
@@ -267,7 +267,7 @@ namespace GameServer.Data
                         });
                         return;
                     }
-                    if (this.删除日期.V.Date == MainProcess.CurrentTime.Date)
+                    if (this.DateDelete.V.Date == MainProcess.CurrentTime.Date)
                     {
                         当前网络.发送封包(new LoginErrorMessagePacket
                         {
@@ -275,7 +275,7 @@ namespace GameServer.Data
                         });
                         return;
                     }
-                    this.删除日期.V = (CharacterData.删除日期.V = MainProcess.CurrentTime);
+                    this.DateDelete.V = (CharacterData.DateDelete.V = MainProcess.CurrentTime);
                     this.冻结列表.Remove(CharacterData);
                     this.删除列表.Add(CharacterData);
                     当前网络.发送封包(new DeleteCharacterPacket
@@ -302,7 +302,7 @@ namespace GameServer.Data
                 {
                     if (this.角色列表.Count >= 4)
                     {
-                        当前网络.CallExceptionEventHandler(new Exception("GetBackCharacter时角色列表已满, 断开连接."));
+                        当前网络.CallExceptionEventHandler(new Exception("GetBackCharacter when the list of characters is full, disconnect."));
                         return;
                     }
                     CharacterData.FreezeDate.V = default(DateTime);
@@ -392,7 +392,7 @@ namespace GameServer.Data
         public readonly DataMonitor<DateTime> 封禁日期;
 
 
-        public readonly DataMonitor<DateTime> 删除日期;
+        public readonly DataMonitor<DateTime> DateDelete;
 
 
         public readonly HashMonitor<CharacterData> 角色列表;

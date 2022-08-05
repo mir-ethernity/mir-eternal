@@ -25,7 +25,7 @@ namespace GameServer
 				CharacterData CharacterData = GameData as CharacterData;
 				if (CharacterData != null)
 				{
-					if (!CharacterData.所属账号.V.角色列表.Contains(CharacterData))
+					if (!CharacterData.AccNumber.V.角色列表.Contains(CharacterData))
 					{
 						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, character is already deleted");
 						return;
@@ -35,7 +35,7 @@ namespace GameServer
 						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, character is on ban list");
 						return;
 					}
-					if (CharacterData.所属账号.V.封禁日期.V > DateTime.Now)
+					if (CharacterData.AccNumber.V.封禁日期.V > DateTime.Now)
 					{
 						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, the original account is on ban list");
 						return;
@@ -56,12 +56,12 @@ namespace GameServer
 								MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, the maximum number of characters transferred has been reached");
 								return;
 							}
-							if (CharacterData.所属账号.V.网络连接 == null && AccountData.网络连接 == null)
+							if (CharacterData.AccNumber.V.网络连接 == null && AccountData.网络连接 == null)
 							{
-								CharacterData.所属账号.V.角色列表.Remove(CharacterData);
-								CharacterData.所属账号.V = AccountData;
+								CharacterData.AccNumber.V.角色列表.Remove(CharacterData);
+								CharacterData.AccNumber.V = AccountData;
 								AccountData.角色列表.Add(CharacterData);
-								MainForm.添加命令日志(string.Format("<= @{0} The command has been executed, the character's current account:{1}", base.GetType().Name, CharacterData.所属账号));
+								MainForm.添加命令日志(string.Format("<= @{0} The command has been executed, the character's current account:{1}", base.GetType().Name, CharacterData.AccNumber));
 								return;
 							}
 							MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution fails, both accounts must be offline");

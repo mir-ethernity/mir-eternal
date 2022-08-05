@@ -174,8 +174,8 @@ namespace GameServer.Data
 					binaryWriter.Write(队友.数据索引.V);
 					binaryWriter.Write(队友.名字描述());
 					binaryWriter.Seek(36, SeekOrigin.Begin);
-					binaryWriter.Write((byte)队友.角色性别.V);
-					binaryWriter.Write((byte)队友.角色职业.V);
+					binaryWriter.Write((byte)队友.CharGender.V);
+					binaryWriter.Write((byte)队友.CharRole.V);
 					binaryWriter.Write((队友.ActiveConnection != null) ? (byte)0 : (byte)3);
 					result = memoryStream.ToArray();
 				}

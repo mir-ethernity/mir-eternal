@@ -35,6 +35,6 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 41, Length = 1)]
-		public byte 当前地图;
+		public byte CurrentMap;
 	}
 }

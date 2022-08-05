@@ -250,21 +250,21 @@
     },
     {
       "Name": "幽灵手套",
-      "MonsterName": "骷髅刀斧手",
+      "MonsterName": "Skeleton Blade Axeman",
       "Probability": 1500,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "幽灵手套",
-      "MonsterName": "骷髅长枪兵",
+      "MonsterName": "Skeleton Lanceman",
       "Probability": 1500,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "幽灵手套",
-      "MonsterName": "骷髅弓箭手",
+      "MonsterName": "Skeleton Archer",
       "Probability": 1500,
       "MinAmount": 1,
       "MaxAmount": 1

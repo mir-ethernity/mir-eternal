@@ -113,7 +113,7 @@ namespace GameServer.Templates
 		public bool 扣除武器持久;
 
 		
-		public bool 增加技能经验;
+		public bool 增加SkillExp;
 
 		
 		public ushort 经验SkillId;

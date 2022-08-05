@@ -22,7 +22,7 @@ namespace GameServer.Templates
 		public ushort 失败添加Buff;
 
 		
-		public bool 增加技能经验;
+		public bool 增加SkillExp;
 
 		
 		public ushort 经验SkillId;

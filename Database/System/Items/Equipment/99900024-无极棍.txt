@@ -53,21 +53,21 @@
     },
     {
       "Name": "无极棍",
-      "MonsterName": "骷髅刀斧手",
+      "MonsterName": "Skeleton Blade Axeman",
       "Probability": 10000,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "无极棍",
-      "MonsterName": "骷髅长枪兵",
+      "MonsterName": "Skeleton Lanceman",
       "Probability": 10000,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "无极棍",
-      "MonsterName": "骷髅弓箭手",
+      "MonsterName": "Skeleton Archer",
       "Probability": 10000,
       "最小数量": 1,
       "最大数量": 1

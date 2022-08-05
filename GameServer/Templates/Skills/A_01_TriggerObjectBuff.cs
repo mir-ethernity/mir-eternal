@@ -70,7 +70,7 @@ namespace GameServer.Templates
 		public SpecifyTargetType 所需目标类型;
 
 		
-		public bool 增加技能经验;
+		public bool 增加SkillExp;
 
 		
 		public ushort 经验SkillId;

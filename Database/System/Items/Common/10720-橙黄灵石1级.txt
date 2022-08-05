@@ -50,21 +50,21 @@
     },
     {
       "Name": "橙黄灵石1级",
-      "MonsterName": "骷髅刀斧手",
+      "MonsterName": "Skeleton Blade Axeman",
       "掉落概率": 10000,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "橙黄灵石1级",
-      "MonsterName": "骷髅长枪兵",
+      "MonsterName": "Skeleton Lanceman",
       "掉落概率": 10000,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "橙黄灵石1级",
-      "MonsterName": "骷髅弓箭手",
+      "MonsterName": "Skeleton Archer",
       "掉落概率": 10000,
       "最小数量": 1,
       "最大数量": 1

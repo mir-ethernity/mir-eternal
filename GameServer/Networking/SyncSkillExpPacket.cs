@@ -19,6 +19,6 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 4, Length = 2)]
-		public ushort 当前经验;
+		public ushort CurrentExp;
 	}
 }

@@ -26,7 +26,7 @@ namespace GameServer
 				CharacterData CharacterData = GameData as CharacterData;
 				if (CharacterData != null)
 				{
-					if (CharacterData.ActiveConnection != null || CharacterData.所属账号.V.网络连接 != null)
+					if (CharacterData.ActiveConnection != null || CharacterData.AccNumber.V.网络连接 != null)
 					{
 						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, account must be taken offline");
 						return;
