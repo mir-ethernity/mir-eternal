@@ -243,7 +243,7 @@ namespace GameServer.Networking
         }
 
 
-        public byte[] 取字节()
+        public byte[] 取字节(bool forceNoEncrypt = false)
         {
             byte[] result;
             using (MemoryStream memoryStream = (this.PacketLength == 0) ? new MemoryStream() : new MemoryStream(new byte[(int)this.PacketLength]))
@@ -271,7 +271,7 @@ namespace GameServer.Networking
                         binaryWriter.Write((ushort)memoryStream.Length);
                     }
                     byte[] array = memoryStream.ToArray();
-                    if (this.是否加密)
+                    if (this.是否加密 && !forceNoEncrypt)
                     {
                         result = GamePacket.EncodeData(array);
                     }
