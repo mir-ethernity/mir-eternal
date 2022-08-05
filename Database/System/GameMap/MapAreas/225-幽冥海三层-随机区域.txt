@@ -1,8 +1,8 @@
 {
   "FromMapId": 225,
-  "FromMapName": "幽冥海三层",
+  "FromMapName": "SeaOfGhosts3rd",
   "FromCoords": "976, 421",
-  "RegionName": "幽冥海三层-随机区域",
+  "RegionName": "SeaOfGhosts3rd-Random Area",
   "AreaRadius": 193,
   "AreaType": "随机区域",
   "RangeCoords": [

@@ -1,6 +1,6 @@
 {
   "MapId": 133,
-  "MapName": "巨兽大厅",
+  "MapName": "BehemothHall",
   "MapFile": "MirDg22_3",
   "TerrainFile": "0133-BehemothHall",
   "LimitPlayers": 9999,

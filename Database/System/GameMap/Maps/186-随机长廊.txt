@@ -1,6 +1,6 @@
 {
   "MapId": 186,
-  "MapName": "随机长廊",
+  "MapName": "Random Gallery",
   "MapFile": "MirAct04",
   "TerrainFile": "0186-随机长廊",
   "LimitPlayers": 9999,

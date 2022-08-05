@@ -1,8 +1,8 @@
 {
   "FromMapId": 183,
-  "FromMapName": "经验武斗场",
+  "FromMapName": "MartialArtsArena",
   "FromCoords": "1021, 83",
-  "RegionName": "经验武斗场-传送区域",
+  "RegionName": "MartialArtsArena-Teleport Area",
   "AreaRadius": 28,
   "AreaType": "传送区域",
   "RangeCoords": [

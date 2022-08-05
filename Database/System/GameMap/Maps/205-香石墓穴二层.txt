@@ -1,6 +1,6 @@
 {
   "MapId": 205,
-  "MapName": "香石墓穴二层",
+  "MapName": "FragantStoneCrypt2nd",
   "MapFile": "MirDg08_2",
   "TerrainFile": "0205-FragantStoneCrypt2nd",
   "LimitPlayers": 9999,

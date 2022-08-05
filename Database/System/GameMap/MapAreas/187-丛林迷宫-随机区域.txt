@@ -1,8 +1,8 @@
 {
   "FromMapId": 187,
-  "FromMapName": "丛林迷宫",
+  "FromMapName": "JungleMaze",
   "FromCoords": "1023, 736",
-  "RegionName": "丛林迷宫-随机区域",
+  "RegionName": "JungleMaze-Random Area",
   "AreaRadius": 381,
   "AreaType": "随机区域",
   "RangeCoords": [

@@ -1,8 +1,8 @@
 {
   "FromMapId": 142,
-  "FromMapName": "边界村",
+  "FromMapName": "BorderVillage",
   "FromCoords": "1106, 538",
-  "RegionName": "边界村-随机区域",
+  "RegionName": "BorderVillage-Random Area",
   "AreaRadius": 348,
   "AreaType": "随机区域",
   "RangeCoords": [

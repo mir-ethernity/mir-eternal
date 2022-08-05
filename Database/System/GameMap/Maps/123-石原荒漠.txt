@@ -1,6 +1,6 @@
 {
   "MapId": 123,
-  "MapName": "石原荒漠",
+  "MapName": "IshiharaDesert",
   "MapFile": "MirDg24_1",
   "TerrainFile": "0123-IshiharaDesert",
   "LimitPlayers": 9999,

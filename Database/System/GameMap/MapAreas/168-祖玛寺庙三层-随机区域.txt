@@ -1,8 +1,8 @@
 {
   "FromMapId": 168,
-  "FromMapName": "祖玛寺庙三层",
+  "FromMapName": "ZumaTemple3rd",
   "FromCoords": "1018, 306",
-  "RegionName": "祖玛寺庙三层-随机区域",
+  "RegionName": "ZumaTemple3rd-Random Area",
   "AreaRadius": 141,
   "AreaType": "随机区域",
   "RangeCoords": [

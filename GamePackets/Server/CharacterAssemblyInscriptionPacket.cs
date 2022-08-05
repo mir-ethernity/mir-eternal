@@ -23,6 +23,6 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 5, Length = 1)]
-		public byte 技能等级;
+		public byte SkillLevel;
 	}
 }

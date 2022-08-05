@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6274,
   "FromMapId": 143,
-  "FromMapName": "比奇省",
+  "FromMapName": "BichyProvince",
   "FromCoords": "1104, 603",
   "Direction": "上方",
-  "RegionName": "比奇省-沙城供奉(1104,603)"
+  "RegionName": "BichyProvince-Sand City Offering(1104,603)"
 }

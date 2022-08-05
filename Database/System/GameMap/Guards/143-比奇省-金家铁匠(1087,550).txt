@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6126,
   "FromMapId": 143,
-  "FromMapName": "比奇省",
+  "FromMapName": "BichyProvince",
   "FromCoords": "1087, 550",
   "Direction": "左下",
-  "RegionName": "比奇省-金家铁匠(1087,550)"
+  "RegionName": "BichyProvince-金家Blacksmith(1087,550)"
 }

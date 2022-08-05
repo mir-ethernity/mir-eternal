@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6663,
   "FromMapId": 88,
-  "FromMapName": "未知暗殿二层",
+  "FromMapName": "UnknownDarkHall2nd",
   "FromCoords": "1000, 213",
   "Direction": "右上",
-  "RegionName": "未知暗殿二层-药老(1000,213)"
+  "RegionName": "UnknownDarkHall2nd-Medicine Elder(1000,213)"
 }

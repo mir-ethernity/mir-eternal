@@ -123,7 +123,7 @@ namespace GameServer.Maps
 
         // (get) Token: 0x0600077C RID: 1916 RVA: 0x000065CD File Offset: 0x000047CD
         // (set) Token: 0x0600077D RID: 1917 RVA: 0x000065D5 File Offset: 0x000047D5
-        public virtual int 当前体力 { get; set; }
+        public virtual int CurrentStamina { get; set; }
 
 
         // (get) Token: 0x0600077E RID: 1918 RVA: 0x000065DE File Offset: 0x000047DE
@@ -133,7 +133,7 @@ namespace GameServer.Maps
 
         // (get) Token: 0x06000780 RID: 1920 RVA: 0x000065EF File Offset: 0x000047EF
         // (set) Token: 0x06000781 RID: 1921 RVA: 0x000065F7 File Offset: 0x000047F7
-        public virtual byte 当前等级 { get; set; }
+        public virtual byte CurrentRank { get; set; }
 
 
         // (get) Token: 0x06000782 RID: 1922 RVA: 0x00006600 File Offset: 0x00004800
@@ -221,7 +221,7 @@ namespace GameServer.Maps
                 this.当前Stat[Stat] = value;
                 if (Stat == GameObjectStats.MaxPhysicalStrength)
                 {
-                    this.当前体力 = Math.Min(this.当前体力, value);
+                    this.CurrentStamina = Math.Min(this.CurrentStamina, value);
                     return;
                 }
                 if (Stat == GameObjectStats.MaxMagic2)
@@ -504,7 +504,7 @@ namespace GameServer.Maps
                     }
                     if (对象 is PetObject)
                     {
-                        return GuardInstance2.模板编号 == 6734;
+                        return GuardInstance2.MobId == 6734;
                     }
                 }
                 else if (this is PetObject)
@@ -788,7 +788,7 @@ namespace GameServer.Maps
                 {
                     return true;
                 }
-                if ((类型 & SpecifyTargetType.LowLevelTarget) == SpecifyTargetType.LowLevelTarget && this.当前等级 < MapObject.当前等级)
+                if ((类型 & SpecifyTargetType.LowLevelTarget) == SpecifyTargetType.LowLevelTarget && this.CurrentRank < MapObject.CurrentRank)
                 {
                     return true;
                 }
@@ -796,11 +796,11 @@ namespace GameServer.Maps
                 {
                     return true;
                 }
-                if ((类型 & SpecifyTargetType.LowLevelMonster) == SpecifyTargetType.LowLevelMonster && this.当前等级 < MapObject.当前等级)
+                if ((类型 & SpecifyTargetType.LowLevelMonster) == SpecifyTargetType.LowLevelMonster && this.CurrentRank < MapObject.CurrentRank)
                 {
                     return true;
                 }
-                if ((类型 & SpecifyTargetType.LowBloodMonster) == SpecifyTargetType.LowBloodMonster && (float)this.当前体力 / (float)this[GameObjectStats.MaxPhysicalStrength] < 0.4f)
+                if ((类型 & SpecifyTargetType.LowBloodMonster) == SpecifyTargetType.LowBloodMonster && (float)this.CurrentStamina / (float)this[GameObjectStats.MaxPhysicalStrength] < 0.4f)
                 {
                     return true;
                 }
@@ -926,7 +926,7 @@ namespace GameServer.Maps
                 {
                     return true;
                 }
-                if ((类型 & SpecifyTargetType.LowLevelTarget) == SpecifyTargetType.LowLevelTarget && this.当前等级 < MapObject.当前等级)
+                if ((类型 & SpecifyTargetType.LowLevelTarget) == SpecifyTargetType.LowLevelTarget && this.CurrentRank < MapObject.CurrentRank)
                 {
                     return true;
                 }
@@ -1023,7 +1023,7 @@ namespace GameServer.Maps
                     {
                         return true;
                     }
-                    if ((类型 & SpecifyTargetType.LowLevelTarget) == SpecifyTargetType.LowLevelTarget && this.当前等级 < MapObject.当前等级)
+                    if ((类型 & SpecifyTargetType.LowLevelTarget) == SpecifyTargetType.LowLevelTarget && this.CurrentRank < MapObject.CurrentRank)
                     {
                         return true;
                     }
@@ -1132,11 +1132,11 @@ namespace GameServer.Maps
                         {
                             return true;
                         }
-                        if ((类型 & SpecifyTargetType.LowLevelTarget) == SpecifyTargetType.LowLevelTarget && this.当前等级 < MapObject.当前等级)
+                        if ((类型 & SpecifyTargetType.LowLevelTarget) == SpecifyTargetType.LowLevelTarget && this.CurrentRank < MapObject.CurrentRank)
                         {
                             return true;
                         }
-                        if ((类型 & SpecifyTargetType.ShieldMage) == SpecifyTargetType.ShieldMage && PlayerObject.角色职业 == GameObjectRace.法师 && PlayerObject.Buff列表.ContainsKey(25350))
+                        if ((类型 & SpecifyTargetType.ShieldMage) == SpecifyTargetType.ShieldMage && PlayerObject.CharRole == GameObjectRace.法师 && PlayerObject.Buff列表.ContainsKey(25350))
                         {
                             return true;
                         }
@@ -1263,7 +1263,7 @@ namespace GameServer.Maps
             {
                 return false;
             }
-            if (this.当前等级 >= 来源.当前等级)
+            if (this.CurrentRank >= 来源.CurrentRank)
             {
                 return false;
             }
@@ -1796,7 +1796,7 @@ namespace GameServer.Maps
                 {
                     if (参数.技能斩杀类型 != SpecifyTargetType.None && ComputingClass.计算概率(参数.技能斩杀概率) && this.IsSpecificType(MapObject, 参数.技能斩杀类型))
                     {
-                        详情.Damage = this.当前体力;
+                        详情.Damage = this.CurrentStamina;
                     }
                     else
                     {
@@ -2142,7 +2142,7 @@ namespace GameServer.Maps
                     MonsterObject2.硬直时间 = MainProcess.CurrentTime.AddMilliseconds((double)参数.目标硬直时间);
                     if (MapObject is PlayerObject || MapObject is PetObject)
                     {
-                        MonsterObject2.HateObject.添加仇恨(MapObject, MainProcess.CurrentTime.AddMilliseconds((double)MonsterObject2.仇恨时长), 详情.Damage);
+                        MonsterObject2.HateObject.添加仇恨(MapObject, MainProcess.CurrentTime.AddMilliseconds((double)MonsterObject2.HateTime), 详情.Damage);
                     }
                 }
                 else
@@ -2164,7 +2164,7 @@ namespace GameServer.Maps
                             {
                                 if (PetObject.Neighbors.Contains(MapObject) && !MapObject.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus))
                                 {
-                                    PetObject.HateObject.添加仇恨(MapObject, MainProcess.CurrentTime.AddMilliseconds((double)PetObject.仇恨时长), 0);
+                                    PetObject.HateObject.添加仇恨(MapObject, MainProcess.CurrentTime.AddMilliseconds((double)PetObject.HateTime), 0);
                                 }
                             }
                         }
@@ -2208,7 +2208,7 @@ namespace GameServer.Maps
                                 {
                                     if (PetObject4.Neighbors.Contains(MapObject) && !MapObject.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus))
                                     {
-                                        PetObject4.HateObject.添加仇恨(MapObject, MainProcess.CurrentTime.AddMilliseconds((double)PetObject4.仇恨时长), 0);
+                                        PetObject4.HateObject.添加仇恨(MapObject, MainProcess.CurrentTime.AddMilliseconds((double)PetObject4.HateTime), 0);
                                     }
                                 }
                             }
@@ -2240,19 +2240,19 @@ namespace GameServer.Maps
                         {
                             if (PetObject5.Neighbors.Contains(this))
                             {
-                                PetObject5.HateObject.添加仇恨(this, MainProcess.CurrentTime.AddMilliseconds((double)PetObject5.仇恨时长), 参数.增加宠物仇恨 ? 详情.Damage : 0);
+                                PetObject5.HateObject.添加仇恨(this, MainProcess.CurrentTime.AddMilliseconds((double)PetObject5.HateTime), 参数.增加宠物仇恨 ? 详情.Damage : 0);
                             }
                         }
                     }
                     EquipmentData EquipmentData;
-                    if (MainProcess.CurrentTime > PlayerObject4.战具计时 && !PlayerObject4.Died && PlayerObject4.当前体力 < PlayerObject4[GameObjectStats.MaxPhysicalStrength] && PlayerObject4.Equipment.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0 && (EquipmentData.Id == 99999106 || EquipmentData.Id == 99999107))
+                    if (MainProcess.CurrentTime > PlayerObject4.战具计时 && !PlayerObject4.Died && PlayerObject4.CurrentStamina < PlayerObject4[GameObjectStats.MaxPhysicalStrength] && PlayerObject4.Equipment.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0 && (EquipmentData.Id == 99999106 || EquipmentData.Id == 99999107))
                     {
-                        PlayerObject4.当前体力 += ((this is MonsterObject) ? 20 : 10);
+                        PlayerObject4.CurrentStamina += ((this is MonsterObject) ? 20 : 10);
                         PlayerObject4.战具损失持久(1);
                         PlayerObject4.战具计时 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
                     }
                 }
-                if ((this.当前体力 = Math.Max(0, this.当前体力 - 详情.Damage)) == 0)
+                if ((this.CurrentStamina = Math.Max(0, this.CurrentStamina - 详情.Damage)) == 0)
                 {
                     详情.Feedback |= SkillHitFeedback.死亡;
                     this.ItSelf死亡处理(MapObject, true);
@@ -2278,7 +2278,7 @@ namespace GameServer.Maps
                     break;
             }
             int num2 = Math.Max(0, 数据.伤害基数.V * (int)数据.当前层数.V - num);
-            this.当前体力 = Math.Max(0, this.当前体力 - num2);
+            this.CurrentStamina = Math.Max(0, this.CurrentStamina - num2);
             触发状态效果 触发状态效果 = new 触发状态效果();
             触发状态效果.Id = 数据.Id.V;
             MapObject buff来源 = 数据.Buff来源;
@@ -2286,7 +2286,7 @@ namespace GameServer.Maps
             触发状态效果.Buff目标 = this.ObjectId;
             触发状态效果.血量变化 = -num2;
             this.SendPacket(触发状态效果);
-            if (this.当前体力 == 0)
+            if (this.CurrentStamina == 0)
             {
                 this.ItSelf死亡处理(数据.Buff来源, false);
             }
@@ -2307,25 +2307,25 @@ namespace GameServer.Maps
                     MapObject MapObject = (TrapObject != null) ? TrapObject.陷阱来源 : 技能.CasterObject;
                     int[] 体力回复次数 = 参数.体力回复次数;
                     int? num = (体力回复次数 != null) ? new int?(体力回复次数.Length) : null;
-                    int 技能等级 = (int)技能.SkillLevel;
-                    int num2 = (num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.体力回复次数[(int)技能.SkillLevel] : 0;
+                    int SkillLevel = (int)技能.SkillLevel;
+                    int num2 = (num.GetValueOrDefault() > SkillLevel & num != null) ? 参数.体力回复次数[(int)技能.SkillLevel] : 0;
                     byte[] PhysicalRecoveryBase = 参数.PhysicalRecoveryBase;
                     num = ((PhysicalRecoveryBase != null) ? new int?(PhysicalRecoveryBase.Length) : null);
-                    技能等级 = (int)技能.SkillLevel;
-                    int num3 = (int)((num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.PhysicalRecoveryBase[(int)技能.SkillLevel] : 0);
+                    SkillLevel = (int)技能.SkillLevel;
+                    int num3 = (int)((num.GetValueOrDefault() > SkillLevel & num != null) ? 参数.PhysicalRecoveryBase[(int)技能.SkillLevel] : 0);
                     float[] Taoism叠加次数 = 参数.Taoism叠加次数;
                     num = ((Taoism叠加次数 != null) ? new int?(Taoism叠加次数.Length) : null);
-                    技能等级 = (int)技能.SkillLevel;
-                    float num4 = (num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.Taoism叠加次数[(int)技能.SkillLevel] : 0f;
+                    SkillLevel = (int)技能.SkillLevel;
+                    float num4 = (num.GetValueOrDefault() > SkillLevel & num != null) ? 参数.Taoism叠加次数[(int)技能.SkillLevel] : 0f;
                     float[] Taoism叠加基数 = 参数.Taoism叠加基数;
                     num = ((Taoism叠加基数 != null) ? new int?(Taoism叠加基数.Length) : null);
-                    技能等级 = (int)技能.SkillLevel;
-                    float num5 = (num.GetValueOrDefault() > 技能等级 & num != null) ? 参数.Taoism叠加基数[(int)技能.SkillLevel] : 0f;
+                    SkillLevel = (int)技能.SkillLevel;
+                    float num5 = (num.GetValueOrDefault() > SkillLevel & num != null) ? 参数.Taoism叠加基数[(int)技能.SkillLevel] : 0f;
                     int[] 立即回复基数 = 参数.立即回复基数;
                     num = ((立即回复基数 != null) ? new int?(立即回复基数.Length) : null);
-                    技能等级 = (int)技能.SkillLevel;
+                    SkillLevel = (int)技能.SkillLevel;
                     int num6;
-                    if (num.GetValueOrDefault() > 技能等级 & num != null)
+                    if (num.GetValueOrDefault() > SkillLevel & num != null)
                     {
                         if (MapObject == this)
                         {
@@ -2338,9 +2338,9 @@ namespace GameServer.Maps
                     int num7 = num6;
                     float[] 立即回复系数 = 参数.立即回复系数;
                     num = ((立即回复系数 != null) ? new int?(立即回复系数.Length) : null);
-                    技能等级 = (int)技能.SkillLevel;
+                    SkillLevel = (int)技能.SkillLevel;
                     float num8;
-                    if (num.GetValueOrDefault() > 技能等级 & num != null)
+                    if (num.GetValueOrDefault() > SkillLevel & num != null)
                     {
                         if (MapObject == this)
                         {
@@ -2361,11 +2361,11 @@ namespace GameServer.Maps
                     }
                     if (num7 > 0)
                     {
-                        this.当前体力 += num7;
+                        this.CurrentStamina += num7;
                     }
                     if (num9 > 0f)
                     {
-                        this.当前体力 += (int)((float)this[GameObjectStats.MaxPhysicalStrength] * num9);
+                        this.CurrentStamina += (int)((float)this[GameObjectStats.MaxPhysicalStrength] * num9);
                     }
                     if (num2 > this.治疗次数 && num3 > 0)
                     {
@@ -2390,7 +2390,7 @@ namespace GameServer.Maps
                 return;
             }
             byte b = 数据.Buff模板.PhysicalRecoveryBase[(int)数据.Buff等级.V];
-            this.当前体力 += (int)b;
+            this.CurrentStamina += (int)b;
             触发状态效果 触发状态效果 = new 触发状态效果();
             触发状态效果.Id = 数据.Id.V;
             MapObject buff来源 = 数据.Buff来源;
@@ -2731,12 +2731,12 @@ namespace GameServer.Maps
                                         现身高度 = 对象.当前高度,
                                         现身方向 = (ushort)对象.当前方向,
                                         现身姿态 = ((byte)(对象.Died ? 13 : 1)),
-                                        体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectStats.MaxPhysicalStrength])
+                                        体力比例 = (byte)(对象.CurrentStamina * 100 / 对象[GameObjectStats.MaxPhysicalStrength])
                                     });
                                     PlayerObject.ActiveConnection.发送封包(new SyncObjectHP
                                     {
                                         ObjectId = 对象.ObjectId,
-                                        CurrentHP = 对象.当前体力,
+                                        CurrentHP = 对象.CurrentStamina,
                                         MaxHP = 对象[GameObjectStats.MaxPhysicalStrength]
                                     });
                                     PlayerObject.ActiveConnection.发送封包(new ObjectTransformTypePacket
@@ -2768,14 +2768,14 @@ namespace GameServer.Maps
                             ObjectComesIntoViewPacket.现身高度 = 对象.当前高度;
                             ObjectComesIntoViewPacket.现身方向 = (ushort)对象.当前方向;
                             ObjectComesIntoViewPacket.现身姿态 = ((byte)(对象.Died ? 13 : 1));
-                            ObjectComesIntoViewPacket.体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectStats.MaxPhysicalStrength]);
+                            ObjectComesIntoViewPacket.体力比例 = (byte)(对象.CurrentStamina * 100 / 对象[GameObjectStats.MaxPhysicalStrength]);
                             PlayerObject PlayerObject2 = 对象 as PlayerObject;
                             ObjectComesIntoViewPacket.AdditionalParam = ((byte)((PlayerObject2 == null || !PlayerObject2.灰名玩家) ? 0 : 2));
                             网络连接.发送封包(ObjectComesIntoViewPacket);
                             PlayerObject.ActiveConnection.发送封包(new SyncObjectHP
                             {
                                 ObjectId = 对象.ObjectId,
-                                CurrentHP = 对象.当前体力,
+                                CurrentHP = 对象.CurrentStamina,
                                 MaxHP = 对象[GameObjectStats.MaxPhysicalStrength]
                             });
                         }
@@ -2900,12 +2900,12 @@ namespace GameServer.Maps
                                         现身高度 = 对象.当前高度,
                                         现身方向 = (ushort)对象.当前方向,
                                         现身姿态 = ((byte)(对象.Died ? 13 : 1)),
-                                        体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectStats.MaxPhysicalStrength])
+                                        体力比例 = (byte)(对象.CurrentStamina * 100 / 对象[GameObjectStats.MaxPhysicalStrength])
                                     });
                                     PlayerObject3.ActiveConnection.发送封包(new SyncObjectHP
                                     {
                                         ObjectId = 对象.ObjectId,
-                                        CurrentHP = 对象.当前体力,
+                                        CurrentHP = 对象.CurrentStamina,
                                         MaxHP = 对象[GameObjectStats.MaxPhysicalStrength]
                                     });
                                     PlayerObject3.ActiveConnection.发送封包(new ObjectTransformTypePacket
@@ -2937,14 +2937,14 @@ namespace GameServer.Maps
                             ObjectComesIntoViewPacket2.现身高度 = 对象.当前高度;
                             ObjectComesIntoViewPacket2.现身方向 = (ushort)对象.当前方向;
                             ObjectComesIntoViewPacket2.现身姿态 = ((byte)(对象.Died ? 13 : 1));
-                            ObjectComesIntoViewPacket2.体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectStats.MaxPhysicalStrength]);
+                            ObjectComesIntoViewPacket2.体力比例 = (byte)(对象.CurrentStamina * 100 / 对象[GameObjectStats.MaxPhysicalStrength]);
                             PlayerObject PlayerObject4 = 对象 as PlayerObject;
                             ObjectComesIntoViewPacket2.AdditionalParam = ((byte)((PlayerObject4 == null || !PlayerObject4.灰名玩家) ? 0 : 2));
                             网络连接2.发送封包(ObjectComesIntoViewPacket2);
                             PlayerObject3.ActiveConnection.发送封包(new SyncObjectHP
                             {
                                 ObjectId = 对象.ObjectId,
-                                CurrentHP = 对象.当前体力,
+                                CurrentHP = 对象.CurrentStamina,
                                 MaxHP = 对象[GameObjectStats.MaxPhysicalStrength]
                             });
                         }

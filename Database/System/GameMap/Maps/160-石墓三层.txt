@@ -1,6 +1,6 @@
 {
   "MapId": 160,
-  "MapName": "石墓三层",
+  "MapName": "StoneTomb3rd",
   "MapFile": "Mir_Dg02_2",
   "TerrainFile": "0160-StoneTomb3rd",
   "LimitPlayers": 9999,

@@ -1,8 +1,8 @@
 {
   "FromMapId": 205,
-  "FromMapName": "香石墓穴二层",
+  "FromMapName": "FragantStoneCrypt2nd",
   "FromCoords": "959, 527",
-  "RegionName": "香石墓穴二层-随机区域",
+  "RegionName": "FragantStoneCrypt2nd-Random Area",
   "AreaRadius": 49,
   "AreaType": "随机区域",
   "RangeCoords": [

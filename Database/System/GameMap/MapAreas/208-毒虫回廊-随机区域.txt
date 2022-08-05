@@ -1,8 +1,8 @@
 {
   "FromMapId": 208,
-  "FromMapName": "毒虫回廊",
+  "FromMapName": "PoisonousInsectCloister",
   "FromCoords": "1045, 262",
-  "RegionName": "毒虫回廊-随机区域",
+  "RegionName": "PoisonousInsectCloister-Random Area",
   "AreaRadius": 138,
   "AreaType": "随机区域",
   "RangeCoords": [

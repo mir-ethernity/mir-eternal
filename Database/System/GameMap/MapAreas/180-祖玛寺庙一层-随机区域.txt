@@ -1,8 +1,8 @@
 {
   "FromMapId": 180,
-  "FromMapName": "祖玛寺庙一层",
+  "FromMapName": "ZumaTemple1st",
   "FromCoords": "1016, 244",
-  "RegionName": "祖玛寺庙一层-随机区域",
+  "RegionName": "ZumaTemple1st-Random Area",
   "AreaRadius": 146,
   "AreaType": "随机区域",
   "RangeCoords": [

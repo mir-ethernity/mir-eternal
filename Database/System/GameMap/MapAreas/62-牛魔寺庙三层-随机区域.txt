@@ -1,8 +1,8 @@
 {
   "FromMapId": 62,
-  "FromMapName": "牛魔寺庙三层",
+  "FromMapName": "BullDemonTemple3rd",
   "FromCoords": "1019, 608",
-  "RegionName": "牛魔寺庙三层-随机区域",
+  "RegionName": "BullDemonTemple3rd-Random Area",
   "AreaRadius": 394,
   "AreaType": "随机区域",
   "RangeCoords": [

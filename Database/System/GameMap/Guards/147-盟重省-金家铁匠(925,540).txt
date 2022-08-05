@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6126,
   "FromMapId": 147,
-  "FromMapName": "盟重省",
+  "FromMapName": "AlliedProvince",
   "FromCoords": "925, 540",
   "Direction": "左下",
-  "RegionName": "盟重省-金家铁匠(925,540)"
+  "RegionName": "AlliedProvince-金家Blacksmith(925,540)"
 }

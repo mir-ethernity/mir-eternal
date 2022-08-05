@@ -1,8 +1,8 @@
 {
   "FromMapId": 196,
-  "FromMapName": "山谷秘道",
+  "FromMapName": "SecretValleyRoad",
   "FromCoords": "1025, 196",
-  "RegionName": "山谷秘道-随机区域",
+  "RegionName": "SecretValleyRoad-Random Area",
   "AreaRadius": 85,
   "AreaType": "随机区域",
   "RangeCoords": [

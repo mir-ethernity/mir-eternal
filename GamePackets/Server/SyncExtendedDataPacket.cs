@@ -19,7 +19,7 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 6, Length = 2)]
-		public ushort 模板编号;
+		public ushort MobId;
 
 		
 		[WrappingFieldAttribute(SubScript = 10, Length = 1)]
@@ -39,7 +39,7 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 17, Length = 1)]
-		public byte 当前等级;
+		public byte CurrentRank;
 
 		
 		[WrappingFieldAttribute(SubScript = 18, Length = 4)]

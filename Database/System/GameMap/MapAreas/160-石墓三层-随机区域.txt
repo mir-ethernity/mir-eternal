@@ -1,8 +1,8 @@
 {
   "FromMapId": 160,
-  "FromMapName": "石墓三层",
+  "FromMapName": "StoneTomb3rd",
   "FromCoords": "996, 453",
-  "RegionName": "石墓三层-随机区域",
+  "RegionName": "StoneTomb3rd-Random Area",
   "AreaRadius": 221,
   "AreaType": "随机区域",
   "RangeCoords": [

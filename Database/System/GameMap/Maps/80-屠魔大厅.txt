@@ -1,6 +1,6 @@
 {
   "MapId": 80,
-  "MapName": "屠魔大厅",
+  "MapName": "DemonSlayingHall",
   "MapFile": "MirAct17",
   "TerrainFile": "0080-DemonSlayingHall",
   "LimitPlayers": 9999,

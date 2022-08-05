@@ -1,6 +1,6 @@
 {
   "MapId": 199,
-  "MapName": "赤月魔穴",
+  "MapName": "Red Moon Demon Cave",
   "MapFile": "MirDg11_11",
   "TerrainFile": "0199-Red Moon Demon Cave",
   "LimitPlayers": 9999,

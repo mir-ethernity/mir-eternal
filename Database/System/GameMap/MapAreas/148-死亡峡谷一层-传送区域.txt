@@ -1,8 +1,8 @@
 {
   "FromMapId": 148,
-  "FromMapName": "死亡峡谷一层",
+  "FromMapName": "DeathCanyon1st",
   "FromCoords": "1319, 547",
-  "RegionName": "死亡峡谷一层-传送区域",
+  "RegionName": "DeathCanyon1st-Teleport Area",
   "AreaRadius": 5,
   "AreaType": "传送区域",
   "RangeCoords": [

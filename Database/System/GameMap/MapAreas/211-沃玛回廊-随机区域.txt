@@ -1,8 +1,8 @@
 {
   "FromMapId": 211,
-  "FromMapName": "沃玛回廊",
+  "FromMapName": "WoomaCloister",
   "FromCoords": "995, 281",
-  "RegionName": "沃玛回廊-随机区域",
+  "RegionName": "WoomaCloister-Random Area",
   "AreaRadius": 141,
   "AreaType": "随机区域",
   "RangeCoords": [

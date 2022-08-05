@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6740,
   "FromMapId": 143,
-  "FromMapName": "比奇省",
+  "FromMapName": "BichyProvince",
   "FromCoords": "1098, 699",
   "Direction": "左下",
-  "RegionName": "比奇省-沙万军(1098,699)"
+  "RegionName": "BichyProvince-Shan Wanjun(1098,699)"
 }

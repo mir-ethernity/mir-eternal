@@ -1,6 +1,6 @@
 {
   "MapId": 187,
-  "MapName": "丛林迷宫",
+  "MapName": "JungleMaze",
   "MapFile": "MirDg10",
   "TerrainFile": "0187-JungleMaze",
   "LimitPlayers": 9999,

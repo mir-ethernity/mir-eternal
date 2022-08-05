@@ -1,8 +1,8 @@
 {
   "FromMapId": 231,
-  "FromMapName": "魔龙城",
+  "FromMapName": "MagicDragonCity",
   "FromCoords": "1047, 492",
-  "RegionName": "魔龙城-传送区域",
+  "RegionName": "MagicDragonCity-Teleport Area",
   "AreaRadius": 5,
   "AreaType": "传送区域",
   "RangeCoords": [

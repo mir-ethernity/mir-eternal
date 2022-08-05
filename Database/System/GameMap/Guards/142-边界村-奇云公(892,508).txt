@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6693,
   "FromMapId": 142,
-  "FromMapName": "边界村",
+  "FromMapName": "BorderVillage",
   "FromCoords": "892, 508",
   "Direction": "下方",
-  "RegionName": "边界村-奇云公(892,508)"
+  "RegionName": "BorderVillage-Qi Yun Gong(892,508)"
 }

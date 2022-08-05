@@ -1,8 +1,8 @@
 {
   "FromMapId": 51,
-  "FromMapName": "骨魔洞一层",
+  "FromMapName": "BoneDemonCave1st",
   "FromCoords": "1053, 311",
-  "RegionName": "骨魔洞一层-随机区域",
+  "RegionName": "BoneDemonCave1st-Random Area",
   "AreaRadius": 170,
   "AreaType": "随机区域",
   "RangeCoords": [

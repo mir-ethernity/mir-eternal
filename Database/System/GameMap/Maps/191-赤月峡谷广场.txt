@@ -1,6 +1,6 @@
 {
   "MapId": 191,
-  "MapName": "赤月峡谷广场",
+  "MapName": "RedMoonCanyonPlaza",
   "MapFile": "MirDg11_3",
   "TerrainFile": "0191-RedMoonCanyonPlaza",
   "LimitPlayers": 9999,

@@ -1,8 +1,8 @@
 {
   "FromMapId": 162,
-  "FromMapName": "石墓五层",
+  "FromMapName": "StoneTomb5th",
   "FromCoords": "990, 451",
-  "RegionName": "石墓五层-随机区域",
+  "RegionName": "StoneTomb5th-Random Area",
   "AreaRadius": 221,
   "AreaType": "随机区域",
   "RangeCoords": [

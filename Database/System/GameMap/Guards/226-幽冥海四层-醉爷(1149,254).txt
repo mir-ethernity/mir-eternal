@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6664,
   "FromMapId": 226,
-  "FromMapName": "幽冥海四层",
+  "FromMapName": "SeaGhost4th",
   "FromCoords": "1149, 254",
   "Direction": "上方",
-  "RegionName": "幽冥海四层-醉爷(1149,254)"
+  "RegionName": "SeaGhost4th-Drunken Master(1149,254)"
 }

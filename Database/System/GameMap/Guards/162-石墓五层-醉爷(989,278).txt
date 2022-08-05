@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6664,
   "FromMapId": 162,
-  "FromMapName": "石墓五层",
+  "FromMapName": "StoneTomb5th",
   "FromCoords": "989, 278",
   "Direction": "右上",
-  "RegionName": "石墓五层-醉爷(989,278)"
+  "RegionName": "StoneTomb5th-Drunken Master(989,278)"
 }

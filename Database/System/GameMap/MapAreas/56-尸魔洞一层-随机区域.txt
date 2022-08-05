@@ -1,8 +1,8 @@
 {
   "FromMapId": 56,
-  "FromMapName": "尸魔洞一层",
+  "FromMapName": "CaveOfDead",
   "FromCoords": "1034, 265",
-  "RegionName": "尸魔洞一层-随机区域",
+  "RegionName": "CaveOfDead-Random Area",
   "AreaRadius": 139,
   "AreaType": "随机区域",
   "RangeCoords": [

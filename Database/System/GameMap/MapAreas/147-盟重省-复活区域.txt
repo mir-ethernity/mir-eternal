@@ -1,8 +1,8 @@
 {
   "FromMapId": 147,
-  "FromMapName": "盟重省",
+  "FromMapName": "AlliedProvince",
   "FromCoords": "937, 522",
-  "RegionName": "盟重省-复活区域",
+  "RegionName": "AlliedProvince-Resurrection",
   "AreaRadius": 17,
   "AreaType": "复活区域",
   "RangeCoords": [

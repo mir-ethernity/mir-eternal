@@ -1,8 +1,8 @@
 {
   "FromMapId": 178,
-  "FromMapName": "秘密通道",
+  "FromMapName": "SecretPassage",
   "FromCoords": "1000, 318",
-  "RegionName": "秘密通道-传送区域",
+  "RegionName": "SecretPassage-Teleport Area",
   "AreaRadius": 5,
   "AreaType": "传送区域",
   "RangeCoords": [

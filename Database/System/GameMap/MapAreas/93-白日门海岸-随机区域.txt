@@ -1,8 +1,8 @@
 {
   "FromMapId": 93,
-  "FromMapName": "白日门海岸",
+  "FromMapName": "BaijimonCoast",
   "FromCoords": "978, 361",
-  "RegionName": "白日门海岸-随机区域",
+  "RegionName": "BaijimonCoast-Random Area",
   "AreaRadius": 202,
   "AreaType": "随机区域",
   "RangeCoords": [

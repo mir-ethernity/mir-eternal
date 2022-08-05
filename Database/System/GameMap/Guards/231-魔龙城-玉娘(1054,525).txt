@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6680,
   "FromMapId": 231,
-  "FromMapName": "魔龙城",
+  "FromMapName": "MagicDragonCity",
   "FromCoords": "1054, 525",
   "Direction": "右下",
-  "RegionName": "苍月岛-玉娘(1054,525)"
+  "RegionName": "PaleMoonIsland-Jade Lady(1054,525)"
 }

@@ -1,7 +1,7 @@
 {
   "GuardNumber": 6121,
   "FromMapId": 183,
-  "FromMapName": "经验武斗场",
+  "FromMapName": "MartialArtsArena",
   "FromCoords": "1031, 73",
-  "RegionName": "经验武斗场-高经验点(1031,73)"
+  "RegionName": "MartialArtsArena-High exp points(1031,73)"
 }

@@ -3,11 +3,11 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 552, 长度 = 10, 注释 = "查询行会名字")]
-	public sealed class 查询行会名字 : GamePacket
+	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 552, 长度 = 10, 注释 = "查询GuildName")]
+	public sealed class 查询GuildName : GamePacket
 	{
 		
-		public 查询行会名字()
+		public 查询GuildName()
 		{
 			
 			

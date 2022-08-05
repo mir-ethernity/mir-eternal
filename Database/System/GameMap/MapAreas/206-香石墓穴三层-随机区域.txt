@@ -1,8 +1,8 @@
 {
   "FromMapId": 206,
-  "FromMapName": "香石墓穴三层",
+  "FromMapName": "FragantStoneCrypt3rd",
   "FromCoords": "822, 407",
-  "RegionName": "香石墓穴三层-随机区域",
+  "RegionName": "FragantStoneCrypt3rd-Random Area",
   "AreaRadius": 59,
   "AreaType": "随机区域",
   "RangeCoords": [

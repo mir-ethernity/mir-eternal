@@ -1,6 +1,6 @@
 {
   "MapId": 60,
-  "MapName": "牛魔寺庙一层",
+  "MapName": "OxmoorTemple1st",
   "MapFile": "MirDg15_1",
   "TerrainFile": "0060-OxmoorTemple1st",
   "LimitPlayers": 9999,

@@ -1,8 +1,8 @@
 {
   "FromMapId": 215,
-  "FromMapName": "暗影通道四",
+  "FromMapName": "ShadowPassage4th",
   "FromCoords": "1005, 133",
-  "RegionName": "暗影通道四-随机区域",
+  "RegionName": "ShadowPassage4th-Random Area",
   "AreaRadius": 41,
   "AreaType": "随机区域",
   "RangeCoords": [

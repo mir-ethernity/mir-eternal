@@ -1,8 +1,8 @@
 {
   "FromMapId": 212,
-  "FromMapName": "暗影通道一",
+  "FromMapName": "ShadowPassage1st",
   "FromCoords": "1014, 132",
-  "RegionName": "暗影通道一-随机区域",
+  "RegionName": "ShadowPassage1st-Random Area",
   "AreaRadius": 45,
   "AreaType": "随机区域",
   "RangeCoords": [

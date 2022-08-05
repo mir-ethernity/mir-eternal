@@ -1,6 +1,6 @@
 {
   "MapId": 232,
-  "MapName": "魔龙东郊",
+  "MapName": "MagicDragonEasternSuburb",
   "MapFile": "MirDg12_1",
   "TerrainFile": "0232-MagicDragonEasternSuburb",
   "LimitPlayers": 9999,

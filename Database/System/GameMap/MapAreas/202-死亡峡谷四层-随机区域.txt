@@ -1,8 +1,8 @@
 {
   "FromMapId": 202,
-  "FromMapName": "死亡峡谷四层",
+  "FromMapName": "DeathCanyon4th",
   "FromCoords": "779, 539",
-  "RegionName": "死亡峡谷四层-随机区域",
+  "RegionName": "DeathCanyon4th-Random Area",
   "AreaRadius": 23,
   "AreaType": "随机区域",
   "RangeCoords": [

@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6434,
   "FromMapId": 147,
-  "FromMapName": "盟重省",
+  "FromMapName": "AlliedProvince",
   "FromCoords": "943, 524",
   "Direction": "右下",
-  "RegionName": "盟重省-博文(943,524)"
+  "RegionName": "AlliedProvince-Blog Post(943,524)"
 }

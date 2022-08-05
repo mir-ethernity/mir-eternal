@@ -37,7 +37,7 @@ namespace GameServer.Data
 		public void 更新战力(CharacterData 角色)
 		{
 			SystemData.更新榜单(this.个人战力排名, 6, 角色, SystemData.战力计算器);
-			switch (角色.角色职业.V)
+			switch (角色.CharRole.V)
 			{
 			case GameObjectRace.战士:
 				SystemData.更新榜单(this.战士战力排名, 7, 角色, SystemData.战力计算器);
@@ -66,7 +66,7 @@ namespace GameServer.Data
 		public void 更新等级(CharacterData 角色)
 		{
 			SystemData.更新榜单(this.个人等级排名, 0, 角色, SystemData.等级计算器);
-			switch (角色.角色职业.V)
+			switch (角色.CharRole.V)
 			{
 			case GameObjectRace.战士:
 				SystemData.更新榜单(this.战士等级排名, 1, 角色, SystemData.等级计算器);
@@ -530,7 +530,7 @@ namespace GameServer.Data
 			
 			public int Compare(CharacterData x, CharacterData y)
 			{
-				return x.师门声望 - y.师门声望;
+				return x.MasterRep - y.MasterRep;
 			}
 
 			

@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6734,
   "FromMapId": 142,
-  "FromMapName": "边界村",
+  "FromMapName": "BorderVillage",
   "FromCoords": "935, 375",
   "Direction": "左下",
-  "RegionName": "边界村-大刀守卫(935,375)"
+  "RegionName": "BorderVillage-Greatsword Guard(935,375)"
 }

@@ -1,8 +1,8 @@
 {
   "FromMapId": 223,
-  "FromMapName": "幽冥海一层",
+  "FromMapName": "SeaOfGhosts1st",
   "FromCoords": "1015, 359",
-  "RegionName": "幽冥海一层-随机区域",
+  "RegionName": "SeaOfGhosts1st-Random Area",
   "AreaRadius": 204,
   "AreaType": "随机区域",
   "RangeCoords": [

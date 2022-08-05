@@ -1,8 +1,8 @@
 {
   "FromMapId": 193,
-  "FromMapName": "左回廊",
+  "FromMapName": "LeftCloister",
   "FromCoords": "991, 263",
-  "RegionName": "左回廊-随机区域",
+  "RegionName": "LeftCloister-Random Area",
   "AreaRadius": 169,
   "AreaType": "随机区域",
   "RangeCoords": [

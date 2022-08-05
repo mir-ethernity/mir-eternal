@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6664,
   "FromMapId": 224,
-  "FromMapName": "幽冥海二层",
+  "FromMapName": "SeaGhost2nd",
   "FromCoords": "1084, 416",
   "Direction": "下方",
-  "RegionName": "幽冥海二层-醉爷(1084,416)"
+  "RegionName": "SeaGhost2nd-Drunken Master(1084,416)"
 }

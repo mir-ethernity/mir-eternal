@@ -1,8 +1,8 @@
 {
   "FromMapId": 149,
-  "FromMapName": "石墓一层",
+  "FromMapName": "StoneTomb1st",
   "FromCoords": "1018, 477",
-  "RegionName": "石墓一层-随机区域",
+  "RegionName": "StoneTomb1st-Random Area",
   "AreaRadius": 221,
   "AreaType": "随机区域",
   "RangeCoords": [

@@ -64,10 +64,10 @@ namespace GameServer.Maps
 			{
 				if (this.CurrentMap != value)
 				{
-					MapInstance 当前地图 = base.CurrentMap;
-					if (当前地图 != null)
+					MapInstance CurrentMap = base.CurrentMap;
+					if (CurrentMap != null)
 					{
-						当前地图.移除对象(this);
+						CurrentMap.移除对象(this);
 					}
 					base.CurrentMap = value;
 					base.CurrentMap.添加对象(this);
@@ -88,15 +88,15 @@ namespace GameServer.Maps
 		
 		// (get) Token: 0x0600081E RID: 2078 RVA: 0x00006B06 File Offset: 0x00004D06
 		// (set) Token: 0x0600081F RID: 2079 RVA: 0x00006B13 File Offset: 0x00004D13
-		public override byte 当前等级
+		public override byte CurrentRank
 		{
 			get
 			{
-				return this.陷阱来源.当前等级;
+				return this.陷阱来源.CurrentRank;
 			}
 			set
 			{
-				this.陷阱来源.当前等级 = value;
+				this.陷阱来源.CurrentRank = value;
 			}
 		}
 
@@ -187,7 +187,7 @@ namespace GameServer.Maps
 				SkillData SkillData;
 				if (this.陷阱模板.BindingLevel != 0 && PlayerObject.MainSkills表.TryGetValue(this.陷阱模板.BindingLevel, out SkillData))
 				{
-					this.陷阱等级 = SkillData.技能等级.V;
+					this.陷阱等级 = SkillData.SkillLevel.V;
 				}
 				if (this.陷阱模板.ExtendedDuration && this.陷阱模板.SkillLevelDelay)
 				{

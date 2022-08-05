@@ -1,8 +1,8 @@
 {
   "FromMapId": 60,
-  "FromMapName": "牛魔寺庙一层",
+  "FromMapName": "OxmoorTemple1st",
   "FromCoords": "1033, 487",
-  "RegionName": "牛魔寺庙一层-随机区域",
+  "RegionName": "OxmoorTemple1st-Random Area",
   "AreaRadius": 301,
   "AreaType": "随机区域",
   "RangeCoords": [

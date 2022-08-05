@@ -1,6 +1,6 @@
 {
   "MapId": 202,
-  "MapName": "死亡峡谷四层",
+  "MapName": "DeathCanyon4th",
   "MapFile": "MirDg01_4",
   "TerrainFile": "0202-DeathCanyon4th",
   "LimitPlayers": 9999,

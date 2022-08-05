@@ -1,6 +1,6 @@
 {
   "MapId": 65,
-  "MapName": "牛魔寺庙六层",
+  "MapName": "BullDemonTemple6th",
   "MapFile": "MirDg15_6",
   "TerrainFile": "0065-BullDemonTemple6th",
   "LimitPlayers": 9999,

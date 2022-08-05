@@ -1,8 +1,8 @@
 {
   "FromMapId": 143,
-  "FromMapName": "比奇省",
+  "FromMapName": "BichProvince",
   "FromCoords": "1107, 613",
-  "RegionName": "比奇省-复活区域",
+  "RegionName": "BichProvince-Resurrection",
   "AreaRadius": 12,
   "AreaType": "复活区域",
   "RangeCoords": [

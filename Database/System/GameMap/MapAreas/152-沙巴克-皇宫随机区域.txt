@@ -1,8 +1,8 @@
 {
   "FromMapId": 152,
-  "FromMapName": "沙巴克",
+  "FromMapName": "Shabak",
   "FromCoords": "1263, 782",
-  "RegionName": "沙巴克-皇宫随机区域",
+  "RegionName": "Shabak-Random areas of the Palace",
   "AreaRadius": 12,
   "AreaType": "随机区域",
   "RangeCoords": [

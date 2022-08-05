@@ -1,7 +1,7 @@
 {
   "GuardNumber": 7119,
   "FromMapId": 143,
-  "FromMapName": "比奇省",
+  "FromMapName": "BichyProvince",
   "FromCoords": "1096, 610",
-  "RegionName": "比奇省-玛法通驿(1096,610)"
+  "RegionName": "BichyProvince-Maffatone Post(1096,610)"
 }

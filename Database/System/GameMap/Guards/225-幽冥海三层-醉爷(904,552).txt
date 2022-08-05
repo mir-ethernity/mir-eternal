@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6664,
   "FromMapId": 225,
-  "FromMapName": "幽冥海三层",
+  "FromMapName": "SeaGhost3rd",
   "FromCoords": "904, 552",
   "Direction": "右上",
-  "RegionName": "幽冥海三层-醉爷(904,552)"
+  "RegionName": "SeaGhost3rd-Drunken Master(904,552)"
 }

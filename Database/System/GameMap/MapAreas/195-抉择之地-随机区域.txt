@@ -1,8 +1,8 @@
 {
   "FromMapId": 195,
-  "FromMapName": "抉择之地",
+  "FromMapName": "PlaceOfChoice",
   "FromCoords": "1026, 262",
-  "RegionName": "抉择之地-随机区域",
+  "RegionName": "PlaceOfChoice-Random Area",
   "AreaRadius": 139,
   "AreaType": "随机区域",
   "RangeCoords": [

@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6542,
   "FromMapId": 143,
-  "FromMapName": "比奇省",
+  "FromMapName": "BichyProvince",
   "FromCoords": "1108, 603",
   "Direction": "上方",
-  "RegionName": "比奇省-伊尔(1108,603)"
+  "RegionName": "BichyProvince-Irvine(1108,603)"
 }

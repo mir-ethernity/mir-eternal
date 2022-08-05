@@ -1,8 +1,8 @@
 {
   "FromMapId": 161,
-  "FromMapName": "石墓四层",
+  "FromMapName": "StoneTomb4th",
   "FromCoords": "950, 470",
-  "RegionName": "石墓四层-随机区域",
+  "RegionName": "StoneTomb4th-Random Area",
   "AreaRadius": 206,
   "AreaType": "随机区域",
   "RangeCoords": [

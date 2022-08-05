@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6734,
   "FromMapId": 143,
-  "FromMapName": "比奇省",
+  "FromMapName": "BichyProvince",
   "FromCoords": "966, 748",
   "Direction": "右上",
-  "RegionName": "比奇省-大刀守卫(966,748)"
+  "RegionName": "BichyProvince-Greatsword Guard(966,748)"
 }

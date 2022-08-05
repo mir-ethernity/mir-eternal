@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6663,
   "FromMapId": 143,
-  "FromMapName": "比奇省",
+  "FromMapName": "BichyProvince",
   "FromCoords": "1105, 570",
   "Direction": "右下",
-  "RegionName": "比奇省-药老(1105,570)"
+  "RegionName": "BichyProvince-Medicine Elder(1105,570)"
 }

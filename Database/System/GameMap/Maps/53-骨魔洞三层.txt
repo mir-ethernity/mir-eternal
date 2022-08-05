@@ -1,6 +1,6 @@
 {
   "MapId": 53,
-  "MapName": "骨魔洞三层",
+  "MapName": "BoneDemonCave3rd",
   "MapFile": "MirDg13_3",
   "TerrainFile": "0053-BoneDemonCave3rd",
   "LimitPlayers": 9999,

@@ -1,8 +1,8 @@
 {
   "FromMapId": 223,
-  "FromMapName": "幽冥海一层",
+  "FromMapName": "SeaOfGhosts1st",
   "FromCoords": "1087, 210",
-  "RegionName": "幽冥海一层-传送区域",
+  "RegionName": "SeaOfGhosts1st-Teleport Area",
   "AreaRadius": 7,
   "AreaType": "传送区域",
   "RangeCoords": [

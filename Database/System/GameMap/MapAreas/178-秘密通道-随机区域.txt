@@ -1,8 +1,8 @@
 {
   "FromMapId": 178,
-  "FromMapName": "秘密通道",
+  "FromMapName": "SecretPassage",
   "FromCoords": "1037, 271",
-  "RegionName": "秘密通道-随机区域",
+  "RegionName": "SecretPassage-Random Area",
   "AreaRadius": 169,
   "AreaType": "随机区域",
   "RangeCoords": [

@@ -1,8 +1,8 @@
 {
   "FromMapId": 187,
-  "FromMapName": "丛林迷宫",
+  "FromMapName": "JungleMaze",
   "FromCoords": "779, 513",
-  "RegionName": "丛林迷宫-传送区域",
+  "RegionName": "JungleMaze-Teleport Area",
   "AreaRadius": 5,
   "AreaType": "传送区域",
   "RangeCoords": [

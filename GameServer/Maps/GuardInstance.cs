@@ -81,23 +81,23 @@ namespace GameServer.Maps
 
         // (get) Token: 0x0600070B RID: 1803 RVA: 0x0000615F File Offset: 0x0000435F
         // (set) Token: 0x0600070C RID: 1804 RVA: 0x0003646C File Offset: 0x0003466C
-        public override int 当前体力
+        public override int CurrentStamina
         {
             get
             {
-                return base.当前体力;
+                return base.CurrentStamina;
             }
             set
             {
                 value = ComputingClass.ValueLimit(0, value, this[GameObjectStats.MaxPhysicalStrength]);
-                if (base.当前体力 != value)
+                if (base.CurrentStamina != value)
                 {
-                    base.当前体力 = value;
-                    base.SendPacket(new SyncObjectHP
+                    base.CurrentStamina = value;
+                    base.SendPacket(new 同步对象体力
                     {
-                        ObjectId = this.ObjectId,
-                        CurrentHP = this.当前体力,
-                        MaxHP = this[GameObjectStats.MaxPhysicalStrength]
+                        对象编号 = this.ObjectId,
+                        CurrentStamina = this.CurrentStamina,
+                        体力上限 = this[GameObjectStats.MaxPhysicalStrength]
                     });
                 }
             }
@@ -116,10 +116,10 @@ namespace GameServer.Maps
             {
                 if (this.CurrentMap != value)
                 {
-                    MapInstance 当前地图 = base.CurrentMap;
-                    if (当前地图 != null)
+                    MapInstance CurrentMap = base.CurrentMap;
+                    if (CurrentMap != null)
                     {
-                        当前地图.移除对象(this);
+                        CurrentMap.移除对象(this);
                     }
                     base.CurrentMap = value;
                     base.CurrentMap.添加对象(this);
@@ -153,7 +153,7 @@ namespace GameServer.Maps
 
 
         // (get) Token: 0x06000711 RID: 1809 RVA: 0x000061E0 File Offset: 0x000043E0
-        public override byte 当前等级
+        public override byte CurrentRank
         {
             get
             {
@@ -226,7 +226,7 @@ namespace GameServer.Maps
 
 
         // (get) Token: 0x06000719 RID: 1817 RVA: 0x00006225 File Offset: 0x00004425
-        public ushort 模板编号
+        public ushort MobId
         {
             get
             {
@@ -344,7 +344,7 @@ namespace GameServer.Maps
                 {
                     if (!this.CheckStatus(GameObjectState.Poisoned))
                     {
-                        this.当前体力 += 5;
+                        this.CurrentStamina += 5;
                     }
                     base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
                 }
@@ -359,7 +359,7 @@ namespace GameServer.Maps
                         this.当前方向 = this.出生方向;
                     }
                 }
-                if (this.模板编号 == 6121 && this.CurrentMap.MapId == 183 && MainProcess.CurrentTime > this.转移计时)
+                if (this.MobId == 6121 && this.CurrentMap.MapId == 183 && MainProcess.CurrentTime > this.转移计时)
                 {
                     base.清空邻居时处理();
                     base.解绑网格();
@@ -407,7 +407,7 @@ namespace GameServer.Maps
                 this.激活对象 = true;
                 MapGatewayProcess.添加激活对象(this);
                 int num = (int)Math.Max(0.0, (MainProcess.CurrentTime - base.恢复时间).TotalSeconds / 5.0);
-                base.当前体力 = Math.Min(this[GameObjectStats.MaxPhysicalStrength], this.当前体力 + num * this[GameObjectStats.体力恢复]);
+                base.CurrentStamina = Math.Min(this[GameObjectStats.MaxPhysicalStrength], this.CurrentStamina + num * this[GameObjectStats.体力恢复]);
                 base.恢复时间 = base.恢复时间.AddSeconds(5.0);
             }
         }
@@ -439,7 +439,7 @@ namespace GameServer.Maps
             this.CurrentMap = this.出生地图;
             this.当前方向 = this.出生方向;
             this.CurrentCoords = this.出生坐标;
-            this.当前体力 = this[GameObjectStats.MaxPhysicalStrength];
+            this.CurrentStamina = this[GameObjectStats.MaxPhysicalStrength];
             base.恢复时间 = MainProcess.CurrentTime.AddMilliseconds((double)MainProcess.RandomNumber.Next(5000));
             this.HateObject = new HateObject();
             base.绑定网格();

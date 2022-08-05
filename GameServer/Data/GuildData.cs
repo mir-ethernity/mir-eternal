@@ -9,7 +9,7 @@ using GameServer.Networking;
 namespace GameServer.Data
 {
 	
-	[FastDataReturnAttribute(检索字段 = "行会名字")]
+	[FastDataReturnAttribute(检索字段 = "GuildName")]
 	public sealed class GuildData : GameData
 	{
 		
@@ -68,7 +68,7 @@ namespace GameServer.Data
 		
 		public override string ToString()
 		{
-			DataMonitor<string> DataMonitor = this.行会名字;
+			DataMonitor<string> DataMonitor = this.GuildName;
 			if (DataMonitor == null)
 			{
 				return null;
@@ -88,7 +88,7 @@ namespace GameServer.Data
 		}
 
 		
-		public GuildData(PlayerObject 创建玩家, string 行会名字, string 行会宣言)
+		public GuildData(PlayerObject 创建玩家, string GuildName, string 行会宣言)
 		{
 			
 			this.申请列表 = new Dictionary<CharacterData, DateTime>();
@@ -96,9 +96,9 @@ namespace GameServer.Data
 			this.结盟申请 = new Dictionary<GuildData, DiplomaticApp>();
 			this.解除申请 = new Dictionary<GuildData, DateTime>();
 			
-			this.行会名字.V = 行会名字;
+			this.GuildName.V = GuildName;
 			this.行会宣言.V = 行会宣言;
-			this.行会公告.V = "祝大家游戏愉快.";
+			this.行会公告.V = "Enjoy your game.";
 			this.行会会长.V = 创建玩家.CharacterData;
 			this.创建人名.V = 创建玩家.对象名字;
 			this.行会成员.Add(创建玩家.CharacterData, GuildJobs.会长);
@@ -263,8 +263,8 @@ namespace GameServer.Data
 				对象名字 = 成员.CharName.V,
 				对象职位 = 7,
 				对象等级 = 成员.角色等级,
-				对象职业 = (byte)成员.角色职业.V,
-				当前地图 = (byte)成员.当前地图.V
+				对象职业 = (byte)成员.CharRole.V,
+				CurrentMap = (byte)成员.CurrentMap.V
 			});
 			if (成员.ActiveConnection == null)
 			{
@@ -498,7 +498,7 @@ namespace GameServer.Data
 			{
 				外交类型 = 2,
 				行会编号 = 行会.行会编号,
-				行会名字 = 行会.行会名字.V,
+				GuildName = 行会.GuildName.V,
 				行会等级 = 行会.行会等级.V,
 				行会人数 = (byte)行会.行会成员.Count,
 				外交时间 = (int)(this.Hostility行会[行会] - MainProcess.CurrentTime).TotalSeconds
@@ -507,7 +507,7 @@ namespace GameServer.Data
 			{
 				外交类型 = 2,
 				行会编号 = this.行会编号,
-				行会名字 = this.行会名字.V,
+				GuildName = this.GuildName.V,
 				行会等级 = this.行会等级.V,
 				行会人数 = (byte)this.行会成员.Count,
 				外交时间 = (int)(行会.Hostility行会[this] - MainProcess.CurrentTime).TotalSeconds
@@ -535,7 +535,7 @@ namespace GameServer.Data
 			this.发送封包(new AddDiplomaticAnnouncementPacket
 			{
 				外交类型 = 1,
-				行会名字 = 行会.行会名字.V,
+				GuildName = 行会.GuildName.V,
 				行会编号 = 行会.行会编号,
 				行会等级 = 行会.行会等级.V,
 				行会人数 = (byte)行会.行会成员.Count,
@@ -544,7 +544,7 @@ namespace GameServer.Data
 			行会.发送封包(new AddDiplomaticAnnouncementPacket
 			{
 				外交类型 = 1,
-				行会名字 = this.行会名字.V,
+				GuildName = this.GuildName.V,
 				行会编号 = this.行会编号,
 				行会等级 = this.行会等级.V,
 				行会人数 = (byte)this.行会成员.Count,
@@ -724,7 +724,7 @@ namespace GameServer.Data
 				{
 					binaryWriter.Write(this.行会编号);
 					byte[] array = new byte[25];
-					Encoding.UTF8.GetBytes(this.行会名字.V).CopyTo(array, 0);
+					Encoding.UTF8.GetBytes(this.GuildName.V).CopyTo(array, 0);
 					binaryWriter.Write(array);
 					binaryWriter.Write(this.行会等级.V);
 					binaryWriter.Write((byte)this.行会成员.Count);
@@ -756,7 +756,7 @@ namespace GameServer.Data
 				using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
 				{
 					binaryWriter.Write(this.行会编号);
-					binaryWriter.Write(Encoding.UTF8.GetBytes(this.行会名字.V));
+					binaryWriter.Write(Encoding.UTF8.GetBytes(this.GuildName.V));
 					binaryWriter.Seek(29, SeekOrigin.Begin);
 					binaryWriter.Write(this.行会等级.V);
 					binaryWriter.Write((byte)this.行会成员.Count);
@@ -783,8 +783,8 @@ namespace GameServer.Data
 						binaryWriter.Write(array);
 						binaryWriter.Write((byte)keyValuePair.Value);
 						binaryWriter.Write(keyValuePair.Key.角色等级);
-						binaryWriter.Write((byte)keyValuePair.Key.角色职业.V);
-						binaryWriter.Write(keyValuePair.Key.当前地图.V);
+						binaryWriter.Write((byte)keyValuePair.Key.CharRole.V);
+						binaryWriter.Write(keyValuePair.Key.CurrentMap.V);
 						SConnection 客户网络;
 						binaryWriter.Write(keyValuePair.Key.角色在线(out 客户网络) ? 0 : ComputingClass.TimeShift(keyValuePair.Key.OfflineDate.V));
 						binaryWriter.Write(0);
@@ -813,7 +813,7 @@ namespace GameServer.Data
 						binaryWriter.Write(keyValuePair2.Key.行会等级.V);
 						binaryWriter.Write((byte)keyValuePair2.Key.行会成员.Count);
 						byte[] array2 = new byte[25];
-						Encoding.UTF8.GetBytes(keyValuePair2.Key.行会名字.V).CopyTo(array2, 0);
+						Encoding.UTF8.GetBytes(keyValuePair2.Key.GuildName.V).CopyTo(array2, 0);
 						binaryWriter.Write(array2);
 					}
 					binaryWriter.Seek(1953, SeekOrigin.Begin);
@@ -826,7 +826,7 @@ namespace GameServer.Data
 						binaryWriter.Write(keyValuePair3.Key.行会等级.V);
 						binaryWriter.Write((byte)keyValuePair3.Key.行会成员.Count);
 						byte[] array3 = new byte[25];
-						Encoding.UTF8.GetBytes(keyValuePair3.Key.行会名字.V).CopyTo(array3, 0);
+						Encoding.UTF8.GetBytes(keyValuePair3.Key.GuildName.V).CopyTo(array3, 0);
 						binaryWriter.Write(array3);
 					}
 					result = memoryStream.ToArray();
@@ -874,7 +874,7 @@ namespace GameServer.Data
 					{
 						binaryWriter.Write(keyValuePair.Key.行会编号);
 						byte[] array = new byte[25];
-						Encoding.UTF8.GetBytes(keyValuePair.Key.行会名字.V).CopyTo(array, 0);
+						Encoding.UTF8.GetBytes(keyValuePair.Key.GuildName.V).CopyTo(array, 0);
 						binaryWriter.Write(array);
 						binaryWriter.Write(keyValuePair.Key.行会等级.V);
 						binaryWriter.Write((byte)keyValuePair.Key.行会成员.Count);
@@ -938,7 +938,7 @@ namespace GameServer.Data
 		public readonly DataMonitor<DateTime> CreatedDate;
 
 		
-		public readonly DataMonitor<string> 行会名字;
+		public readonly DataMonitor<string> GuildName;
 
 		
 		public readonly DataMonitor<string> 创建人名;

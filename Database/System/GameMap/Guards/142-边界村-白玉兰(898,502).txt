@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6662,
   "FromMapId": 142,
-  "FromMapName": "边界村",
+  "FromMapName": "BorderVillage",
   "FromCoords": "898, 502",
   "Direction": "右下",
-  "RegionName": "边界村-白玉兰(898,502)"
+  "RegionName": "BorderVillage-White Magnolia(898,502)"
 }

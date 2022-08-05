@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6663,
   "FromMapId": 225,
-  "FromMapName": "幽冥海三层",
+  "FromMapName": "SeaGhost3rd",
   "FromCoords": "902, 554",
   "Direction": "左下",
-  "RegionName": "幽冥海三层-药老(902,554)"
+  "RegionName": "SeaGhost3rd-Medicine Elder(902,554)"
 }

@@ -1,6 +1,6 @@
 {
   "MapId": 175,
-  "MapName": "祖玛寺长廊",
+  "MapName": "ZumaTemplePromenade",
   "MapFile": "MirDg07",
   "TerrainFile": "0175-ZumaTemplePromenade",
   "LimitPlayers": 9999,

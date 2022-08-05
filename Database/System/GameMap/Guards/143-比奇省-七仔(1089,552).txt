@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6705,
   "FromMapId": 143,
-  "FromMapName": "比奇省",
+  "FromMapName": "BichyProvince",
   "FromCoords": "1089, 552",
   "Direction": "左下",
-  "RegionName": "比奇省-七仔(1089,552)"
+  "RegionName": "BichyProvince-Seventh(1089,552)"
 }

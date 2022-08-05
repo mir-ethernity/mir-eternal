@@ -1,6 +1,6 @@
 {
   "MapId": 118,
-  "MapName": "龙血地脉",
+  "MapName": "Dragon'sBloodEarthVein",
   "MapFile": "MirDg27_3",
   "TerrainFile": "0118-Dragon'sBloodEarthVein",
   "LimitPlayers": 9999,

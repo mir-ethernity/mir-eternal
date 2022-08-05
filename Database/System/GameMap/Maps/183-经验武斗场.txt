@@ -1,6 +1,6 @@
 {
   "MapId": 183,
-  "MapName": "经验武斗场",
+  "MapName": "MartialArtsArena",
   "MapFile": "MirAct01",
   "TerrainFile": "0183-MartialArtsArena",
   "LimitPlayers": 9999,

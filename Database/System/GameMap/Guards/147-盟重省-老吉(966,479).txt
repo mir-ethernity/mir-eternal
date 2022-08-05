@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6804,
   "FromMapId": 147,
-  "FromMapName": "盟重省",
+  "FromMapName": "AlliedProvince",
   "FromCoords": "966, 479",
   "Direction": "左下",
-  "RegionName": "盟重省-老吉(966,479)"
+  "RegionName": "AlliedProvince-Old Kat(966,479)"
 }

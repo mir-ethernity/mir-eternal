@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6434,
   "FromMapId": 143,
-  "FromMapName": "比奇省",
+  "FromMapName": "BichyProvince",
   "FromCoords": "1116, 615",
   "Direction": "右方",
-  "RegionName": "比奇省-博文(1116,615)"
+  "RegionName": "BichyProvince-Blog Post(1116,615)"
 }

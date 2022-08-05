@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6672,
   "FromMapId": 145,
-  "FromMapName": "沃玛森林",
+  "FromMapName": "WoomaForest",
   "FromCoords": "887, 489",
   "Direction": "左下",
-  "RegionName": "沃玛森林-王铁匠(887,489)"
+  "RegionName": "WoomaForest-KingBlacksmith(887,489)"
 }

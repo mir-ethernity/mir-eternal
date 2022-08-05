@@ -1,6 +1,6 @@
 {
   "MapId": 224,
-  "MapName": "幽冥海二层",
+  "MapName": "SeaOfGhosts2nd",
   "MapFile": "MirAct05_2",
   "TerrainFile": "0224-SeaOfGhosts2nd",
   "LimitPlayers": 9999,

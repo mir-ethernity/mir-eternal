@@ -1,8 +1,8 @@
 {
   "FromMapId": 170,
-  "FromMapName": "祖玛寺庙五层",
+  "FromMapName": "ZumaTemple5th",
   "FromCoords": "940, 204",
-  "RegionName": "祖玛寺庙五层-传送区域",
+  "RegionName": "ZumaTemple5th-Teleport Area",
   "AreaRadius": 5,
   "AreaType": "传送区域",
   "RangeCoords": [

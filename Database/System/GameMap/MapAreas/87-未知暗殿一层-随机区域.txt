@@ -1,8 +1,8 @@
 {
   "FromMapId": 87,
-  "FromMapName": "未知暗殿一层",
+  "FromMapName": "UnknownDarkHall1st",
   "FromCoords": "1026, 370",
-  "RegionName": "未知暗殿一层-随机区域",
+  "RegionName": "UnknownDarkHall1st-Random Area",
   "AreaRadius": 204,
   "AreaType": "随机区域",
   "RangeCoords": [

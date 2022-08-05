@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6662,
   "FromMapId": 145,
-  "FromMapName": "沃玛森林",
+  "FromMapName": "WoomaForest",
   "FromCoords": "885, 474",
   "Direction": "左上",
-  "RegionName": "沃玛森林-白玉兰(885,474)"
+  "RegionName": "WoomaForest-White Magnolia(885,474)"
 }

@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6664,
   "FromMapId": 143,
-  "FromMapName": "比奇省",
+  "FromMapName": "BichyProvince",
   "FromCoords": "1163, 624",
   "Direction": "左下",
-  "RegionName": "比奇省-醉爷(1163,624)"
+  "RegionName": "BichyProvince-Drunken Master(1163,624)"
 }

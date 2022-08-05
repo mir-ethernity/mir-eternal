@@ -1,8 +1,8 @@
 {
   "GuardNumber": 4795,
   "FromMapId": 143,
-  "FromMapName": "比奇省",
+  "FromMapName": "BichyProvince",
   "FromCoords": "1103, 622",
   "Direction": "下方",
-  "RegionName": "比奇省-神秘剑客(1103,622)"
+  "RegionName": "BichyProvince-Mystic Swordsman(1103,622)"
 }

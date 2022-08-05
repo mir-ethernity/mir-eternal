@@ -22,10 +22,10 @@ namespace GameServer.Maps
 			{
 				if (this.CurrentMap != value)
 				{
-					MapInstance 当前地图 = base.CurrentMap;
-					if (当前地图 != null)
+					MapInstance CurrentMap = base.CurrentMap;
+					if (CurrentMap != null)
 					{
-						当前地图.移除对象(this);
+						CurrentMap.移除对象(this);
 					}
 					base.CurrentMap = value;
 					base.CurrentMap.添加对象(this);
@@ -164,7 +164,7 @@ namespace GameServer.Maps
 			this.ItemData = ItemData;
 			this.堆叠数量 = 堆叠数量;
 			this.物品绑定 = (物品模板.IsBound || 物品绑定);
-			Point 当前坐标 = 掉落坐标;
+			Point CurrentCoords = 掉落坐标;
 			int num = int.MaxValue;
 			for (int i = 0; i <= 120; i++)
 			{
@@ -204,9 +204,9 @@ namespace GameServer.Maps
 					}
 					if (num2 == 0)
 					{
-						当前坐标 = point;
+						CurrentCoords = point;
 						IL_111:
-						this.CurrentCoords = 当前坐标;
+						this.CurrentCoords = CurrentCoords;
 						this.消失时间 = MainProcess.CurrentTime.AddMinutes((double)Config.物品清理时间);
 						this.归属时间 = MainProcess.CurrentTime.AddMinutes((double)Config.物品归属时间);
 						this.ObjectId = ++MapGatewayProcess.Id;
@@ -219,7 +219,7 @@ namespace GameServer.Maps
 					}
 					if (num2 < num)
 					{
-						当前坐标 = point;
+						CurrentCoords = point;
 						num = num2;
 					}
 				}

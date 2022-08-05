@@ -1,6 +1,6 @@
 {
   "MapId": 207,
-  "MapName": "尸王殿",
+  "MapName": "Corpse King Temple",
   "MapFile": "Mir_Dg03_3",
   "TerrainFile": "0207-Corpse King Temple",
   "LimitPlayers": 9999,

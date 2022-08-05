@@ -1,8 +1,8 @@
 {
   "FromMapId": 146,
-  "FromMapName": "沃玛寺庙一层",
+  "FromMapName": "WoomaTemple1st",
   "FromCoords": "910, 750",
-  "RegionName": "沃玛寺庙一层-传送区域",
+  "RegionName": "WoomaTemple1st-Teleport Area",
   "AreaRadius": 5,
   "AreaType": "传送区域",
   "RangeCoords": [

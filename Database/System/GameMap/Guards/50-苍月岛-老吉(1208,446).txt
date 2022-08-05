@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6804,
   "FromMapId": 50,
-  "FromMapName": "苍月岛",
+  "FromMapName": "PaleMoonIsland",
   "FromCoords": "1208, 446",
   "Direction": "右下",
-  "RegionName": "苍月岛-老吉(1208,446)"
+  "RegionName": "PaleMoonIsland-Old Kat(1208,446)"
 }

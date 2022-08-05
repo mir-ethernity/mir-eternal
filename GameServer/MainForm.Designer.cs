@@ -299,12 +299,12 @@
             this.日志选项卡.Controls.Add(this.tabCommands);
             this.日志选项卡.Controls.Add(this.tabPackets);
             this.日志选项卡.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.日志选项卡.ItemSize = new System.Drawing.Size(200, 20);
+            this.日志选项卡.ItemSize = new System.Drawing.Size(294, 20);
             this.日志选项卡.Location = new System.Drawing.Point(3, 3);
             this.日志选项卡.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.日志选项卡.Name = "日志选项卡";
             this.日志选项卡.SelectedIndex = 0;
-            this.日志选项卡.Size = new System.Drawing.Size(1057, 548);
+            this.日志选项卡.Size = new System.Drawing.Size(1033, 548);
             this.日志选项卡.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.日志选项卡.TabIndex = 16;
             // 
@@ -316,7 +316,7 @@
             this.tabSystem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabSystem.Name = "tabSystem";
             this.tabSystem.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabSystem.Size = new System.Drawing.Size(1049, 520);
+            this.tabSystem.Size = new System.Drawing.Size(1025, 520);
             this.tabSystem.TabIndex = 0;
             this.tabSystem.Text = "System logs";
             // 
@@ -325,11 +325,11 @@
             this.系统日志.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.系统日志.Dock = System.Windows.Forms.DockStyle.Fill;
             this.系统日志.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.系统日志.Location = new System.Drawing.Point(4, 4);
+            this.系统日志.Location = new System.Drawing.Point(0, 0);
             this.系统日志.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.系统日志.Name = "系统日志";
             this.系统日志.ReadOnly = true;
-            this.系统日志.Size = new System.Drawing.Size(1041, 512);
+            this.系统日志.Size = new System.Drawing.Size(1020, 506);
             this.系统日志.TabIndex = 0;
             this.系统日志.Text = "";
             // 
@@ -341,7 +341,7 @@
             this.tabChat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabChat.Name = "tabChat";
             this.tabChat.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabChat.Size = new System.Drawing.Size(1049, 520);
+            this.tabChat.Size = new System.Drawing.Size(1025, 520);
             this.tabChat.TabIndex = 1;
             this.tabChat.Text = "Chat Logs";
             // 
@@ -364,7 +364,7 @@
             this.tabCommands.Location = new System.Drawing.Point(4, 24);
             this.tabCommands.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabCommands.Name = "tabCommands";
-            this.tabCommands.Size = new System.Drawing.Size(1049, 520);
+            this.tabCommands.Size = new System.Drawing.Size(1025, 520);
             this.tabCommands.TabIndex = 2;
             this.tabCommands.Text = "Commands logs";
             // 
@@ -377,7 +377,7 @@
             this.命令日志.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.命令日志.Name = "命令日志";
             this.命令日志.ReadOnly = true;
-            this.命令日志.Size = new System.Drawing.Size(1049, 520);
+            this.命令日志.Size = new System.Drawing.Size(1020, 506);
             this.命令日志.TabIndex = 2;
             this.命令日志.Text = "";
             // 
@@ -388,7 +388,7 @@
             this.tabPackets.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPackets.Name = "tabPackets";
             this.tabPackets.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPackets.Size = new System.Drawing.Size(1049, 520);
+            this.tabPackets.Size = new System.Drawing.Size(1025, 520);
             this.tabPackets.TabIndex = 3;
             this.tabPackets.Text = "Packets";
             this.tabPackets.UseVisualStyleBackColor = true;
@@ -402,7 +402,7 @@
             this.rtbPacketsLogs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rtbPacketsLogs.Name = "rtbPacketsLogs";
             this.rtbPacketsLogs.ReadOnly = true;
-            this.rtbPacketsLogs.Size = new System.Drawing.Size(1043, 516);
+            this.rtbPacketsLogs.Size = new System.Drawing.Size(1019, 516);
             this.rtbPacketsLogs.TabIndex = 2;
             this.rtbPacketsLogs.Text = "";
             // 
@@ -1357,7 +1357,7 @@
             this.S_注意事项标签5.Location = new System.Drawing.Point(46, 389);
             this.S_注意事项标签5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_注意事项标签5.Name = "S_注意事项标签5";
-            this.S_注意事项标签5.Size = new System.Drawing.Size(376, 15);
+            this.S_注意事项标签5.Size = new System.Drawing.Size(379, 15);
             this.S_注意事项标签5.TabIndex = 24;
             this.S_注意事项标签5.Text = "数据目录内文件夹名字和结构固定, 请勿随意修改, 也不要放入无关文件";
             // 
@@ -1575,9 +1575,9 @@
             this.S_NoobSupportCommand标签.Location = new System.Drawing.Point(32, 76);
             this.S_NoobSupportCommand标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_NoobSupportCommand标签.Name = "S_NoobSupportCommand标签";
-            this.S_NoobSupportCommand标签.Size = new System.Drawing.Size(163, 15);
+            this.S_NoobSupportCommand标签.Size = new System.Drawing.Size(60, 15);
             this.S_NoobSupportCommand标签.TabIndex = 21;
-            this.S_NoobSupportCommand标签.Text = "NoobSupportCommand等级";
+            this.S_NoobSupportCommand标签.Text = "Noob Exp";
             // 
             // S_NoobSupportCommand等级
             // 
@@ -1597,12 +1597,12 @@
             // S_物品归属标签
             // 
             this.S_物品归属标签.AutoSize = true;
-            this.S_物品归属标签.Location = new System.Drawing.Point(32, 367);
+            this.S_物品归属标签.Location = new System.Drawing.Point(13, 364);
             this.S_物品归属标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_物品归属标签.Name = "S_物品归属标签";
-            this.S_物品归属标签.Size = new System.Drawing.Size(78, 15);
+            this.S_物品归属标签.Size = new System.Drawing.Size(125, 15);
             this.S_物品归属标签.TabIndex = 19;
-            this.S_物品归属标签.Text = "Item attr time";
+            this.S_物品归属标签.Text = "Item Ownership Time";
             // 
             // S_物品归属时间
             // 
@@ -1626,9 +1626,9 @@
             this.S_物品清理标签.Location = new System.Drawing.Point(32, 330);
             this.S_物品清理标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_物品清理标签.Name = "S_物品清理标签";
-            this.S_物品清理标签.Size = new System.Drawing.Size(88, 15);
+            this.S_物品清理标签.Size = new System.Drawing.Size(90, 15);
             this.S_物品清理标签.TabIndex = 17;
-            this.S_物品清理标签.Text = "Item clear time";
+            this.S_物品清理标签.Text = "Item disappear";
             // 
             // S_物品清理时间
             // 
@@ -1652,9 +1652,9 @@
             this.S_诱惑时长标签.Location = new System.Drawing.Point(32, 293);
             this.S_诱惑时长标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_诱惑时长标签.Name = "S_诱惑时长标签";
-            this.S_诱惑时长标签.Size = new System.Drawing.Size(133, 15);
+            this.S_诱惑时长标签.Size = new System.Drawing.Size(86, 15);
             this.S_诱惑时长标签.TabIndex = 15;
-            this.S_诱惑时长标签.Text = "Monster tempt duration";
+            this.S_诱惑时长标签.Text = "Wiz Tame Skill";
             // 
             // S_怪物诱惑时长
             // 
@@ -1678,9 +1678,9 @@
             this.S_收益衰减标签.Location = new System.Drawing.Point(32, 258);
             this.S_收益衰减标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_收益衰减标签.Name = "S_收益衰减标签";
-            this.S_收益衰减标签.Size = new System.Drawing.Size(71, 15);
+            this.S_收益衰减标签.Size = new System.Drawing.Size(91, 15);
             this.S_收益衰减标签.TabIndex = 13;
-            this.S_收益衰减标签.Text = "Money Rate";
+            this.S_收益衰减标签.Text = "Inc reduction %";
             // 
             // S_收益减少比率
             // 
@@ -1710,9 +1710,9 @@
             this.S_收益等级标签.Location = new System.Drawing.Point(32, 221);
             this.S_收益等级标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_收益等级标签.Name = "S_收益等级标签";
-            this.S_收益等级标签.Size = new System.Drawing.Size(63, 15);
+            this.S_收益等级标签.Size = new System.Drawing.Size(99, 15);
             this.S_收益等级标签.TabIndex = 11;
-            this.S_收益等级标签.Text = "Drop Rate";
+            this.S_收益等级标签.Text = "EXP Diff LvlMobs";
             // 
             // S_减收益等级差
             // 
@@ -1768,9 +1768,9 @@
             this.S_特修折扣标签.Location = new System.Drawing.Point(32, 112);
             this.S_特修折扣标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_特修折扣标签.Name = "S_特修折扣标签";
-            this.S_特修折扣标签.Size = new System.Drawing.Size(89, 15);
+            this.S_特修折扣标签.Size = new System.Drawing.Size(94, 15);
             this.S_特修折扣标签.TabIndex = 7;
-            this.S_特修折扣标签.Text = "Equip discount";
+            this.S_特修折扣标签.Text = "Repair discount";
             // 
             // S_装备特修折扣
             // 
@@ -1800,9 +1800,9 @@
             this.S_怪物爆率标签.Location = new System.Drawing.Point(32, 149);
             this.S_怪物爆率标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_怪物爆率标签.Name = "S_怪物爆率标签";
-            this.S_怪物爆率标签.Size = new System.Drawing.Size(129, 15);
+            this.S_怪物爆率标签.Size = new System.Drawing.Size(63, 15);
             this.S_怪物爆率标签.TabIndex = 5;
-            this.S_怪物爆率标签.Text = "Monster explosive rate";
+            this.S_怪物爆率标签.Text = "Drop Rate";
             // 
             // S_怪物额外爆率
             // 
@@ -1832,9 +1832,9 @@
             this.S_OpenLevelCommand标签.Location = new System.Drawing.Point(32, 40);
             this.S_OpenLevelCommand标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_OpenLevelCommand标签.Name = "S_OpenLevelCommand标签";
-            this.S_OpenLevelCommand标签.Size = new System.Drawing.Size(149, 15);
+            this.S_OpenLevelCommand标签.Size = new System.Drawing.Size(60, 15);
             this.S_OpenLevelCommand标签.TabIndex = 3;
-            this.S_OpenLevelCommand标签.Text = "游戏OpenLevelCommand";
+            this.S_OpenLevelCommand标签.Text = "Max Level";
             // 
             // S_游戏OpenLevelCommand
             // 
@@ -2057,10 +2057,10 @@
             this.GMCommand标签.Location = new System.Drawing.Point(21, 26);
             this.GMCommand标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GMCommand标签.Name = "GMCommand标签";
-            this.GMCommand标签.Size = new System.Drawing.Size(104, 16);
+            this.GMCommand标签.Size = new System.Drawing.Size(66, 16);
             this.GMCommand标签.TabIndex = 13;
-            this.GMCommand标签.Text = "GMCommand:";
-            this.GMCommand标签.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.GMCommand标签.Text = "GM Box:";
+            this.GMCommand标签.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // 启动按钮
             // 
@@ -2121,7 +2121,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GameServer - LomCN";
+            this.Text = "GameServer - Mir3D LOMCN";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.关闭主界面_Click);
             this.主选项卡.ResumeLayout(false);
             this.tabMain.ResumeLayout(false);

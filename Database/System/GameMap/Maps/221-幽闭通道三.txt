@@ -1,6 +1,6 @@
 {
   "MapId": 221,
-  "MapName": "幽闭通道三",
+  "MapName": "ClaustrophobicPassage3rd",
   "MapFile": "Mir_Dg05_13",
   "TerrainFile": "0221-ClaustrophobicPassage3rd",
   "LimitPlayers": 9999,

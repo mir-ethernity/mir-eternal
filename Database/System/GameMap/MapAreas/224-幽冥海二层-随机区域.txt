@@ -1,8 +1,8 @@
 {
   "FromMapId": 224,
-  "FromMapName": "幽冥海二层",
+  "FromMapName": "SeaOfGhosts2nd",
   "FromCoords": "991, 510",
-  "RegionName": "幽冥海二层-随机区域",
+  "RegionName": "SeaOfGhosts2nd-Random Area",
   "AreaRadius": 229,
   "AreaType": "随机区域",
   "RangeCoords": [

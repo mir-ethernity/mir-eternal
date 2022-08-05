@@ -1,6 +1,6 @@
 {
   "MapId": 155,
-  "MapName": "沃玛寺庙二层",
+  "MapName": "WoomaTemple1st",
   "MapFile": "Mir_Dg05_1",
   "TerrainFile": "0155-WoomaTemple1st",
   "LimitPlayers": 9999,

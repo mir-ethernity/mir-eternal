@@ -3,23 +3,15 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 582, 长度 = 48, 注释 = "查询行会名字")]
+	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 582, 长度 = 48, 注释 = "查询GuildName")]
 	public sealed class GuildNameAnswerPAcket : GamePacket
 	{
-		
-		public GuildNameAnswerPAcket()
-		{
-			
-			
-		}
-
-		
 		[WrappingFieldAttribute(SubScript = 2, Length = 4)]
 		public int 行会编号;
 
 		
 		[WrappingFieldAttribute(SubScript = 6, Length = 25)]
-		public string 行会名字;
+		public string GuildName;
 
 		
 		[WrappingFieldAttribute(SubScript = 31, Length = 4)]

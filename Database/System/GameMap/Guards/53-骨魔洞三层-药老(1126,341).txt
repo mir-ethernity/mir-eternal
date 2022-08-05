@@ -1,8 +1,8 @@
 {
   "GuardNumber": 6663,
   "FromMapId": 53,
-  "FromMapName": "骨魔洞三层",
+  "FromMapName": "BoneDemonCave3rd",
   "FromCoords": "1126, 341",
   "Direction": "下方",
-  "RegionName": "骨魔洞三层-药老(1126,341)"
+  "RegionName": "BoneDemonCave3rd-Medicine Elder(1126,341)"
 }
