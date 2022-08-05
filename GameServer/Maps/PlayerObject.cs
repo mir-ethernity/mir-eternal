@@ -250,7 +250,7 @@ namespace GameServer.Maps
                 CurrentPosition = this.CurrentCoords,
                 CurrentAltitude = this.当前高度,
                 CurrentExp = this.CurrentExp,
-                DoubleExp = this.DoubleExp
+                DoubleExp = this.DoubleExp,
                 RequiredExp = this.所需经验,
                 PKLevel = this.PK值惩罚,
                 Direction = (ushort)this.当前方向,

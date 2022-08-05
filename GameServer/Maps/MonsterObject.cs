@@ -107,7 +107,7 @@ namespace GameServer.Maps
 				value = ComputingClass.ValueLimit(0, value, this[GameObjectStats.MaxPhysicalStrength]);
 				if (base.CurrentStamina != value)
 				{
-					base.当前体力 = value;
+					base.CurrentStamina = value;
 					base.SendPacket(new SyncObjectHP
 					{
 						ObjectId = this.ObjectId,

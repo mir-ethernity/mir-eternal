@@ -93,11 +93,11 @@ namespace GameServer.Maps
                 if (base.CurrentStamina != value)
                 {
                     base.CurrentStamina = value;
-                    base.SendPacket(new 同步对象体力
+                    base.SendPacket(new SyncObjectHP
                     {
-                        对象编号 = this.ObjectId,
-                        CurrentStamina = this.CurrentStamina,
-                        体力上限 = this[GameObjectStats.MaxPhysicalStrength]
+                        ObjectId = this.ObjectId,
+                        CurrentHP = this.CurrentStamina,
+                        MaxHP = this[GameObjectStats.MaxPhysicalStrength]
                     });
                 }
             }
