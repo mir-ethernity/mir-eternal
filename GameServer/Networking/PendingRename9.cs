@@ -24,6 +24,6 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 136, Length = 17)]
-		public string MacAddress;
+		public string 物理地址;
 	}
 }

@@ -276,21 +276,21 @@
     },
     {
       "Name": "双环战弓",
-      "MonsterName": "Skeleton Blade Axeman",
+      "MonsterName": "骷髅刀斧手",
       "Probability": 1500,
       "MinAmount": 1,
       "最大数量": 1
     },
     {
       "Name": "双环战弓",
-      "MonsterName": "Skeleton Lanceman",
+      "MonsterName": "骷髅长枪兵",
       "Probability": 1500,
       "MinAmount": 1,
       "最大数量": 1
     },
     {
       "Name": "双环战弓",
-      "MonsterName": "Skeleton Archer",
+      "MonsterName": "骷髅弓箭手",
       "Probability": 1500,
       "MinAmount": 1,
       "最大数量": 1

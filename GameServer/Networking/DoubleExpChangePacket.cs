@@ -15,6 +15,6 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 2, Length = 4)]
-		public int DoubleExp;
+		public int 双倍经验;
 	}
 }

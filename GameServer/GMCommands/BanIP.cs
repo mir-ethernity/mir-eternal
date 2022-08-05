@@ -21,9 +21,9 @@ namespace GameServer
 		public override void Execute()
 		{
 			IPAddress ipaddress;
-			if (IPAddress.TryParse(this.NetAddress, out ipaddress))
+			if (IPAddress.TryParse(this.网络地址, out ipaddress))
 			{
-				SystemData.Data.BanIPCommand(this.NetAddress, DateTime.Now.AddDays((double)this.封禁天数));
+				SystemData.Data.BanIPCommand(this.网络地址, DateTime.Now.AddDays((double)this.封禁天数));
 				MainForm.添加命令日志(string.Format("<= @{0} command executed, blocking expiry time: {1}", base.GetType().Name, DateTime.Now.AddDays((double)this.封禁天数)));
 				return;
 			}
@@ -39,7 +39,7 @@ namespace GameServer
 
 		
 		[FieldAttribute(0, Position = 0)]
-		public string NetAddress;
+		public string 网络地址;
 
 		
 		[FieldAttribute(0, Position = 1)]

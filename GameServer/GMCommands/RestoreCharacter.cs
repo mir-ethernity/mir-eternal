@@ -25,28 +25,28 @@ namespace GameServer
 				CharacterData CharacterData = GameData as CharacterData;
 				if (CharacterData != null)
 				{
-					if (CharacterData.DateDelete.V == default(DateTime) || !CharacterData.AccNumber.V.删除列表.Contains(CharacterData))
+					if (CharacterData.删除日期.V == default(DateTime) || !CharacterData.所属账号.V.删除列表.Contains(CharacterData))
 					{
 						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, character not deleted");
 						return;
 					}
-					if (CharacterData.AccNumber.V.角色列表.Count >= 4)
+					if (CharacterData.所属账号.V.角色列表.Count >= 4)
 					{
 						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, character list is full");
 						return;
 					}
-					if (CharacterData.AccNumber.V.网络连接 != null)
+					if (CharacterData.所属账号.V.网络连接 != null)
 					{
 						MainForm.添加命令日志("<= @" + base.GetType().Name + " Command execution failed, account must be offline");
 						return;
 					}
-					DataMonitor<DateTime> DateDelete = CharacterData.DateDelete;
-					DataMonitor<DateTime> FreezeDate = CharacterData.FreezeDate;
+					DataMonitor<DateTime> 删除日期 = CharacterData.删除日期;
+					DataMonitor<DateTime> 冻结日期 = CharacterData.FreezeDate;
 					DateTime v = default(DateTime);
-					FreezeDate.V = v;
-					DateDelete.V = v;
-					CharacterData.AccNumber.V.删除列表.Remove(CharacterData);
-					CharacterData.AccNumber.V.角色列表.Add(CharacterData);
+					冻结日期.V = v;
+					删除日期.V = v;
+					CharacterData.所属账号.V.删除列表.Remove(CharacterData);
+					CharacterData.所属账号.V.角色列表.Add(CharacterData);
 					MainForm.添加命令日志("<= @" + base.GetType().Name + " Command executed, character restored successfully");
 					return;
 				}

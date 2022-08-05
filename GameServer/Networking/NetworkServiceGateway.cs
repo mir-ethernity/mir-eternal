@@ -182,7 +182,7 @@ namespace GameServer.Networking
 		public static void 断网回调(object sender, Exception e)
 		{
 			SConnection 客户网络 = sender as SConnection;
-			string text = "IP: " + 客户网络.NetAddress;
+			string text = "IP: " + 客户网络.网络地址;
 			if (客户网络.Account != null)
 			{
 				text = text + " Account: " + 客户网络.Account.Account.V;

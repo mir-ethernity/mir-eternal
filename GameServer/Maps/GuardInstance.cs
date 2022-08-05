@@ -81,22 +81,22 @@ namespace GameServer.Maps
 
         // (get) Token: 0x0600070B RID: 1803 RVA: 0x0000615F File Offset: 0x0000435F
         // (set) Token: 0x0600070C RID: 1804 RVA: 0x0003646C File Offset: 0x0003466C
-        public override int CurrentStamina
+        public override int 当前体力
         {
             get
             {
-                return base.CurrentStamina;
+                return base.当前体力;
             }
             set
             {
                 value = ComputingClass.ValueLimit(0, value, this[GameObjectStats.MaxPhysicalStrength]);
-                if (base.CurrentStamina != value)
+                if (base.当前体力 != value)
                 {
-                    base.CurrentStamina = value;
+                    base.当前体力 = value;
                     base.发送封包(new 同步对象体力
                     {
                         对象编号 = this.MapId,
-                        CurrentStamina = this.CurrentStamina,
+                        当前体力 = this.当前体力,
                         体力上限 = this[GameObjectStats.MaxPhysicalStrength]
                     });
                 }
@@ -116,10 +116,10 @@ namespace GameServer.Maps
             {
                 if (this.CurrentMap != value)
                 {
-                    MapInstance CurrentMap = base.CurrentMap;
-                    if (CurrentMap != null)
+                    MapInstance 当前地图 = base.CurrentMap;
+                    if (当前地图 != null)
                     {
-                        CurrentMap.移除对象(this);
+                        当前地图.移除对象(this);
                     }
                     base.CurrentMap = value;
                     base.CurrentMap.添加对象(this);
@@ -153,7 +153,7 @@ namespace GameServer.Maps
 
 
         // (get) Token: 0x06000711 RID: 1809 RVA: 0x000061E0 File Offset: 0x000043E0
-        public override byte CurrentRank
+        public override byte 当前等级
         {
             get
             {
@@ -226,7 +226,7 @@ namespace GameServer.Maps
 
 
         // (get) Token: 0x06000719 RID: 1817 RVA: 0x00006225 File Offset: 0x00004425
-        public ushort MobId
+        public ushort 模板编号
         {
             get
             {
@@ -344,7 +344,7 @@ namespace GameServer.Maps
                 {
                     if (!this.CheckStatus(GameObjectState.Poisoned))
                     {
-                        this.CurrentStamina += 5;
+                        this.当前体力 += 5;
                     }
                     base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
                 }
@@ -359,7 +359,7 @@ namespace GameServer.Maps
                         this.当前方向 = this.出生方向;
                     }
                 }
-                if (this.MobId == 6121 && this.CurrentMap.MapId == 183 && MainProcess.CurrentTime > this.转移计时)
+                if (this.模板编号 == 6121 && this.CurrentMap.MapId == 183 && MainProcess.CurrentTime > this.转移计时)
                 {
                     base.清空邻居时处理();
                     base.解绑网格();
@@ -407,7 +407,7 @@ namespace GameServer.Maps
                 this.激活对象 = true;
                 MapGatewayProcess.添加激活对象(this);
                 int num = (int)Math.Max(0.0, (MainProcess.CurrentTime - base.恢复时间).TotalSeconds / 5.0);
-                base.CurrentStamina = Math.Min(this[GameObjectStats.MaxPhysicalStrength], this.CurrentStamina + num * this[GameObjectStats.体力恢复]);
+                base.当前体力 = Math.Min(this[GameObjectStats.MaxPhysicalStrength], this.当前体力 + num * this[GameObjectStats.体力恢复]);
                 base.恢复时间 = base.恢复时间.AddSeconds(5.0);
             }
         }
@@ -439,7 +439,7 @@ namespace GameServer.Maps
             this.CurrentMap = this.出生地图;
             this.当前方向 = this.出生方向;
             this.CurrentCoords = this.出生坐标;
-            this.CurrentStamina = this[GameObjectStats.MaxPhysicalStrength];
+            this.当前体力 = this[GameObjectStats.MaxPhysicalStrength];
             base.恢复时间 = MainProcess.CurrentTime.AddMilliseconds((double)MainProcess.RandomNumber.Next(5000));
             this.HateObject = new HateObject();
             base.绑定网格();

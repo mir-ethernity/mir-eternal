@@ -28,7 +28,7 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 11, Length = 4)]
-		public Point CurrentCoords;
+		public Point 当前坐标;
 
 		
 		[WrappingFieldAttribute(SubScript = 15, Length = 2)]

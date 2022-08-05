@@ -51,21 +51,21 @@
     },
     {
       "Name": "青虹",
-      "MonsterName": "Skeleton Blade Axeman",
+      "MonsterName": "骷髅刀斧手",
       "Probability": 10000,
       "MinAmount": 1,
       "最大数量": 1
     },
     {
       "Name": "青虹",
-      "MonsterName": "Skeleton Lanceman",
+      "MonsterName": "骷髅长枪兵",
       "Probability": 10000,
       "MinAmount": 1,
       "最大数量": 1
     },
     {
       "Name": "青虹",
-      "MonsterName": "Skeleton Archer",
+      "MonsterName": "骷髅弓箭手",
       "Probability": 10000,
       "MinAmount": 1,
       "最大数量": 1

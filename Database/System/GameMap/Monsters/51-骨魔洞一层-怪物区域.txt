@@ -1,22 +1,22 @@
 {
   "FromMapId": 51,
-  "FromMapName": "Bone Demon Cave 1st",
+  "FromMapName": "骨魔洞一层",
   "FromCoords": "1050, 302",
   "RegionName": "骨魔洞一层-怪物区域",
   "AreaRadius": 181,
   "Spawns": [
     {
-      "MonsterName": "Skeleton Blade Axeman",
+      "MonsterName": "骷髅刀斧手",
       "SpawnCount": 450,
       "RevivalInterval": 10
     },
     {
-      "MonsterName": "Skeleton Lanceman",
+      "MonsterName": "骷髅长枪兵",
       "SpawnCount": 250,
       "RevivalInterval": 10
     },
     {
-      "MonsterName": "Skeleton Archer",
+      "MonsterName": "骷髅弓箭手",
       "SpawnCount": 100,
       "RevivalInterval": 10
     }

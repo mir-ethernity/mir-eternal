@@ -14,21 +14,21 @@
   "物品掉落列表": [
     {
       "Name": "橙色灵气",
-      "MonsterName": "Skeleton Blade Axeman",
+      "MonsterName": "骷髅刀斧手",
       "掉落概率": 1250,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "橙色灵气",
-      "MonsterName": "Skeleton Lanceman",
+      "MonsterName": "骷髅长枪兵",
       "掉落概率": 1250,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "橙色灵气",
-      "MonsterName": "Skeleton Archer",
+      "MonsterName": "骷髅弓箭手",
       "掉落概率": 1250,
       "最小数量": 1,
       "最大数量": 1

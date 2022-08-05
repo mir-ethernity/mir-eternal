@@ -19,10 +19,10 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 4, Length = 2)]
-		public ushort CurrentExp;
+		public ushort 当前经验;
 
 		
 		[WrappingFieldAttribute(SubScript = 6, Length = 1)]
-		public byte CurrentRank;
+		public byte 当前等级;
 	}
 }

@@ -13,7 +13,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return (int)(this.SkillId.V * 100 + (ushort)(this.Id * 10) + (ushort)this.SkillLevel.V);
+				return (int)(this.SkillId.V * 100 + (ushort)(this.Id * 10) + (ushort)this.技能等级.V);
 			}
 		}
 
@@ -29,9 +29,9 @@ namespace GameServer.Data
 		{
 			
 			
-			this.ShorcutField.V = 100;
+			this.快捷栏位.V = 100;
 			this.SkillId.V = 编号;
-			this.RemainingTimeLeft.V = this.SkillCount;
+			this.剩余次数.V = this.SkillCount;
 			GameDataGateway.SkillData表.AddData(this, true);
 		}
 
@@ -72,15 +72,15 @@ namespace GameServer.Data
 		{
 			get
 			{
-				if (this.铭文模板.MinPlayerLevel == null || this.铭文模板.MinPlayerLevel.Length <= (int)(this.SkillLevel.V + 1))
+				if (this.铭文模板.MinPlayerLevel == null || this.铭文模板.MinPlayerLevel.Length <= (int)(this.技能等级.V + 1))
 				{
 					return byte.MaxValue;
 				}
-				if (this.铭文模板.MinPlayerLevel[(int)this.SkillLevel.V] == 0)
+				if (this.铭文模板.MinPlayerLevel[(int)this.技能等级.V] == 0)
 				{
 					return byte.MaxValue;
 				}
-				return this.铭文模板.MinPlayerLevel[(int)this.SkillLevel.V];
+				return this.铭文模板.MinPlayerLevel[(int)this.技能等级.V];
 			}
 		}
 
@@ -110,9 +110,9 @@ namespace GameServer.Data
 		{
 			get
 			{
-				if (this.铭文模板.MinSkillExp != null && this.铭文模板.MinSkillExp.Length > (int)this.SkillLevel.V)
+				if (this.铭文模板.MinSkillExp != null && this.铭文模板.MinSkillExp.Length > (int)this.技能等级.V)
 				{
-					return this.铭文模板.MinSkillExp[(int)this.SkillLevel.V];
+					return this.铭文模板.MinSkillExp[(int)this.技能等级.V];
 				}
 				return 0;
 			}
@@ -134,7 +134,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.铭文模板.SkillCombatBonus[(int)this.SkillLevel.V];
+				return this.铭文模板.SkillCombatBonus[(int)this.技能等级.V];
 			}
 		}
 
@@ -164,9 +164,9 @@ namespace GameServer.Data
 		{
 			get
 			{
-				if (this.铭文模板.StatsBonusDictionary != null && this.铭文模板.StatsBonusDictionary.Length > (int)this.SkillLevel.V)
+				if (this.铭文模板.StatsBonusDictionary != null && this.铭文模板.StatsBonusDictionary.Length > (int)this.技能等级.V)
 				{
-					return this.铭文模板.StatsBonusDictionary[(int)this.SkillLevel.V];
+					return this.铭文模板.StatsBonusDictionary[(int)this.技能等级.V];
 				}
 				return null;
 			}
@@ -182,15 +182,15 @@ namespace GameServer.Data
 		public readonly DataMonitor<ushort> SkillId;
 
 		
-		public readonly DataMonitor<ushort> SkillExp;
+		public readonly DataMonitor<ushort> 技能经验;
 
 		
-		public readonly DataMonitor<byte> SkillLevel;
+		public readonly DataMonitor<byte> 技能等级;
 
 		
-		public readonly DataMonitor<byte> ShorcutField;
+		public readonly DataMonitor<byte> 快捷栏位;
 
 		
-		public readonly DataMonitor<byte> RemainingTimeLeft;
+		public readonly DataMonitor<byte> 剩余次数;
 	}
 }

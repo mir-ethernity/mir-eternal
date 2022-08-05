@@ -18,11 +18,11 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				if (this.NrPlayers.Count < 200)
+				if (this.玩家列表.Count < 200)
 				{
 					return 1;
 				}
-				if (this.NrPlayers.Count < 500)
+				if (this.玩家列表.Count < 500)
 				{
 					return 2;
 				}
@@ -127,7 +127,7 @@ namespace GameServer.Maps
 			this.地图区域 = new HashSet<MapAreas>();
 			this.怪物区域 = new HashSet<MonsterSpawns>();
 			this.守卫区域 = new HashSet<MapGuards>();
-			this.NrPlayers = new HashSet<PlayerObject>();
+			this.玩家列表 = new HashSet<PlayerObject>();
 			this.宠物列表 = new HashSet<PetObject>();
 			this.物品列表 = new HashSet<ItemObject>();
 			this.对象列表 = new HashSet<MapObject>();
@@ -142,7 +142,7 @@ namespace GameServer.Maps
 		{
 			if (this.MapId == 80)
 			{
-				if (this.NrPlayers.Count == 0)
+				if (this.玩家列表.Count == 0)
 				{
 					this.副本节点 = 110;
 					return;
@@ -209,7 +209,7 @@ namespace GameServer.Maps
 						this.节点计时 = MainProcess.CurrentTime;
 						return;
 					}
-					if (this.MobsAlive == 0U)
+					if (this.存活怪物总数 == 0U)
 					{
 						this.地图公告("All monsters have been repulsed, the hall will close in 30 seconds");
 						this.副本节点 = 110;
@@ -229,7 +229,7 @@ namespace GameServer.Maps
 				}
 				else if (this.副本节点 >= 110 && MainProcess.CurrentTime > this.节点计时)
 				{
-					foreach (PlayerObject PlayerObject in this.NrPlayers.ToList<PlayerObject>())
+					foreach (PlayerObject PlayerObject in this.玩家列表.ToList<PlayerObject>())
 					{
 						if (PlayerObject.Died)
 						{
@@ -270,7 +270,7 @@ namespace GameServer.Maps
 			GameObjectType 对象类型 = 对象.ObjectType;
 			if (对象类型 == GameObjectType.玩家)
 			{
-				this.NrPlayers.Add(对象 as PlayerObject);
+				this.玩家列表.Add(对象 as PlayerObject);
 				return;
 			}
 			if (对象类型 == GameObjectType.宠物)
@@ -292,7 +292,7 @@ namespace GameServer.Maps
 			GameObjectType 对象类型 = 对象.ObjectType;
 			if (对象类型 == GameObjectType.玩家)
 			{
-				this.NrPlayers.Remove(对象 as PlayerObject);
+				this.玩家列表.Remove(对象 as PlayerObject);
 				return;
 			}
 			if (对象类型 == GameObjectType.宠物)
@@ -311,7 +311,7 @@ namespace GameServer.Maps
 		
 		public void 地图公告(string 内容)
 		{
-			if (this.NrPlayers.Count == 0)
+			if (this.玩家列表.Count == 0)
 			{
 				return;
 			}
@@ -325,7 +325,7 @@ namespace GameServer.Maps
 					binaryWriter.Write(0);
 					binaryWriter.Write(Encoding.UTF8.GetBytes(内容 + "\0"));
 					byte[] 字节描述 = memoryStream.ToArray();
-					foreach (PlayerObject PlayerObject in this.NrPlayers)
+					foreach (PlayerObject PlayerObject in this.玩家列表)
 					{
 						SConnection 网络连接 = PlayerObject.ActiveConnection;
 						if (网络连接 != null)
@@ -513,19 +513,19 @@ namespace GameServer.Maps
 		public readonly GameMap 地图模板;
 
 		
-		public uint TotalMobs;
+		public uint 固定怪物总数;
 
 		
-		public uint MobsAlive;
+		public uint 存活怪物总数;
 
 		
-		public uint MobsRespawned;
+		public uint 怪物复活次数;
 
 		
-		public long MobsDrops;
+		public long 怪物掉落次数;
 
 		
-		public long MobGoldDrop;
+		public long 金币掉落总数;
 
 		
 		public bool 副本关闭;
@@ -570,7 +570,7 @@ namespace GameServer.Maps
 		public HashSet<MapGuards> 守卫区域;
 
 		
-		public HashSet<PlayerObject> NrPlayers;
+		public HashSet<PlayerObject> 玩家列表;
 
 		
 		public HashSet<PetObject> 宠物列表;

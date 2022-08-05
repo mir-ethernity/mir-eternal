@@ -43,13 +43,13 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.PetData.CurrentExp.V;
+				return this.PetData.当前经验.V;
 			}
 			set
 			{
-				if (this.PetData.CurrentExp.V != value)
+				if (this.PetData.当前经验.V != value)
 				{
-					this.PetData.CurrentExp.V = value;
+					this.PetData.当前经验.V = value;
 				}
 			}
 		}
@@ -61,13 +61,13 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.PetData.CurrentRank.V;
+				return this.PetData.当前等级.V;
 			}
 			set
 			{
-				if (this.PetData.CurrentRank.V != value)
+				if (this.PetData.当前等级.V != value)
 				{
-					this.PetData.CurrentRank.V = value;
+					this.PetData.当前等级.V = value;
 				}
 			}
 		}
@@ -75,17 +75,17 @@ namespace GameServer.Maps
 		
 		// (get) Token: 0x060007E6 RID: 2022 RVA: 0x000068FF File Offset: 0x00004AFF
 		// (set) Token: 0x060007E7 RID: 2023 RVA: 0x00006911 File Offset: 0x00004B11
-		public byte GradeCap
+		public byte 等级上限
 		{
 			get
 			{
-				return this.PetData.GradeCap.V;
+				return this.PetData.等级上限.V;
 			}
 			set
 			{
-				if (this.PetData.GradeCap.V != value)
+				if (this.PetData.等级上限.V != value)
 				{
-					this.PetData.GradeCap.V = value;
+					this.PetData.等级上限.V = value;
 				}
 			}
 		}
@@ -93,17 +93,17 @@ namespace GameServer.Maps
 		
 		// (get) Token: 0x060007E8 RID: 2024 RVA: 0x00006937 File Offset: 0x00004B37
 		// (set) Token: 0x060007E9 RID: 2025 RVA: 0x00006949 File Offset: 0x00004B49
-		public bool BoundWeapons
+		public bool 绑定武器
 		{
 			get
 			{
-				return this.PetData.BoundWeapons.V;
+				return this.PetData.绑定武器.V;
 			}
 			set
 			{
-				if (this.PetData.BoundWeapons.V != value)
+				if (this.PetData.绑定武器.V != value)
 				{
-					this.PetData.BoundWeapons.V = value;
+					this.PetData.绑定武器.V = value;
 				}
 			}
 		}
@@ -111,17 +111,17 @@ namespace GameServer.Maps
 		
 		// (get) Token: 0x060007EA RID: 2026 RVA: 0x0000696F File Offset: 0x00004B6F
 		// (set) Token: 0x060007EB RID: 2027 RVA: 0x00006981 File Offset: 0x00004B81
-		public DateTime MutinyTime
+		public DateTime 叛变时间
 		{
 			get
 			{
-				return this.PetData.MutinyTime.V;
+				return this.PetData.叛变时间.V;
 			}
 			set
 			{
-				if (this.PetData.MutinyTime.V != value)
+				if (this.PetData.叛变时间.V != value)
 				{
-					this.PetData.MutinyTime.V = value;
+					this.PetData.叛变时间.V = value;
 				}
 			}
 		}
@@ -176,22 +176,22 @@ namespace GameServer.Maps
 		
 		// (get) Token: 0x060007F1 RID: 2033 RVA: 0x000069AC File Offset: 0x00004BAC
 		// (set) Token: 0x060007F2 RID: 2034 RVA: 0x0003F694 File Offset: 0x0003D894
-		public override int CurrentStamina
+		public override int 当前体力
 		{
 			get
 			{
-				return this.PetData.CurrentStamina.V;
+				return this.PetData.当前体力.V;
 			}
 			set
 			{
 				value = ComputingClass.ValueLimit(0, value, this[GameObjectStats.MaxPhysicalStrength]);
-				if (this.PetData.CurrentStamina.V != value)
+				if (this.PetData.当前体力.V != value)
 				{
-					this.PetData.CurrentStamina.V = value;
+					this.PetData.当前体力.V = value;
 					base.发送封包(new 同步对象体力
 					{
 						对象编号 = this.MapId,
-						CurrentStamina = this.CurrentStamina,
+						当前体力 = this.当前体力,
 						体力上限 = this[GameObjectStats.MaxPhysicalStrength]
 					});
 				}
@@ -211,10 +211,10 @@ namespace GameServer.Maps
 			{
 				if (this.CurrentMap != value)
 				{
-					MapInstance CurrentMap = base.CurrentMap;
-					if (CurrentMap != null)
+					MapInstance 当前地图 = base.CurrentMap;
+					if (当前地图 != null)
 					{
-						CurrentMap.移除对象(this);
+						当前地图.移除对象(this);
 					}
 					base.CurrentMap = value;
 					base.CurrentMap.添加对象(this);
@@ -248,7 +248,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x060007F7 RID: 2039 RVA: 0x000069FC File Offset: 0x00004BFC
-		public override byte CurrentRank
+		public override byte 当前等级
 		{
 			get
 			{
@@ -311,7 +311,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x060007FE RID: 2046 RVA: 0x00006A26 File Offset: 0x00004C26
-		public int HateTime
+		public int 仇恨时长
 		{
 			get
 			{
@@ -331,7 +331,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000800 RID: 2048 RVA: 0x00006A34 File Offset: 0x00004C34
-		public ushort MobId
+		public ushort 模板编号
 		{
 			get
 			{
@@ -358,7 +358,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000802 RID: 2050 RVA: 0x00006A41 File Offset: 0x00004C41
-		public int MobInterval
+		public int 移动间隔
 		{
 			get
 			{
@@ -368,7 +368,7 @@ namespace GameServer.Maps
 
 		
 		// (get) Token: 0x06000803 RID: 2051 RVA: 0x00006A4E File Offset: 0x00004C4E
-		public int RoamingInterval
+		public int 漫游间隔
 		{
 			get
 			{
@@ -450,7 +450,7 @@ namespace GameServer.Maps
 			
 			this.PlayerOwner = 宠物主人;
 			this.PetData = 对象数据;
-			this.对象模板 = Monsters.DataSheet[对象数据.PetName.V];
+			this.对象模板 = Monsters.DataSheet[对象数据.宠物名字.V];
 			this.CurrentCoords = 宠物主人.CurrentCoords;
 			this.CurrentMap = 宠物主人.CurrentMap;
 			this.当前方向 = ComputingClass.随机方向();
@@ -466,7 +466,7 @@ namespace GameServer.Maps
 			this.更新对象Stat();
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 			this.Attack时间 = MainProcess.CurrentTime.AddSeconds(1.0);
-			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(MainProcess.RandomNumber.Next(5000) + this.RoamingInterval));
+			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(MainProcess.RandomNumber.Next(5000) + this.漫游间隔));
 			this.HateObject = new HateObject();
 			string text = this.对象模板.NormalAttackSkills;
 			if (text != null && text.Length > 0)
@@ -512,13 +512,13 @@ namespace GameServer.Maps
 		}
 
 		
-		public PetObject(PlayerObject 宠物主人, Monsters 召唤宠物, byte 初始等级, byte GradeCap, bool BoundWeapons)
+		public PetObject(PlayerObject 宠物主人, Monsters 召唤宠物, byte 初始等级, byte 等级上限, bool 绑定武器)
 		{
 			
 			
 			this.PlayerOwner = 宠物主人;
 			this.对象模板 = 召唤宠物;
-			this.PetData = new PetData(召唤宠物.MonsterName, 初始等级, GradeCap, BoundWeapons, DateTime.MaxValue);
+			this.PetData = new PetData(召唤宠物.MonsterName, 初始等级, 等级上限, 绑定武器, DateTime.MaxValue);
 			this.CurrentCoords = 宠物主人.CurrentCoords;
 			this.CurrentMap = 宠物主人.CurrentMap;
 			this.当前方向 = ComputingClass.随机方向();
@@ -533,10 +533,10 @@ namespace GameServer.Maps
 				}
 			}
 			this.更新对象Stat();
-			this.CurrentStamina = this[GameObjectStats.MaxPhysicalStrength];
+			this.当前体力 = this[GameObjectStats.MaxPhysicalStrength];
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 			this.Attack时间 = MainProcess.CurrentTime.AddSeconds(1.0);
-			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(MainProcess.RandomNumber.Next(5000) + this.RoamingInterval));
+			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(MainProcess.RandomNumber.Next(5000) + this.漫游间隔));
 			this.HateObject = new HateObject();
 			string text = this.对象模板.NormalAttackSkills;
 			if (text != null && text.Length > 0)
@@ -581,23 +581,23 @@ namespace GameServer.Maps
 		}
 
 		
-		public PetObject(PlayerObject 宠物主人, MonsterObject 诱惑怪物, byte 初始等级, bool BoundWeapons, int 宠物时长)
+		public PetObject(PlayerObject 宠物主人, MonsterObject 诱惑怪物, byte 初始等级, bool 绑定武器, int 宠物时长)
 		{
 			
 			
 			this.PlayerOwner = 宠物主人;
 			this.对象模板 = 诱惑怪物.对象模板;
-			this.PetData = new PetData(诱惑怪物.对象名字, 初始等级, 7, BoundWeapons, MainProcess.CurrentTime.AddMinutes((double)宠物时长));
+			this.PetData = new PetData(诱惑怪物.对象名字, 初始等级, 7, 绑定武器, MainProcess.CurrentTime.AddMinutes((double)宠物时长));
 			this.CurrentCoords = 诱惑怪物.CurrentCoords;
 			this.CurrentMap = 诱惑怪物.CurrentMap;
 			this.当前方向 = 诱惑怪物.当前方向;
 			this.Stat加成[this] = this.基础Stat;
 			this.更新对象Stat();
-			this.CurrentStamina = Math.Min(诱惑怪物.CurrentStamina, this[GameObjectStats.MaxPhysicalStrength]);
+			this.当前体力 = Math.Min(诱惑怪物.当前体力, this[GameObjectStats.MaxPhysicalStrength]);
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 			this.Attack时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.忙碌时间 = MainProcess.CurrentTime.AddSeconds(1.0);
-			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.RoamingInterval);
+			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.漫游间隔);
 			this.HateObject = new HateObject();
 			string text = this.对象模板.NormalAttackSkills;
 			if (text != null && text.Length > 0)
@@ -645,23 +645,23 @@ namespace GameServer.Maps
 		}
 
 		
-		public PetObject(PlayerObject 宠物主人, PetObject 诱惑宠物, byte 初始等级, bool BoundWeapons, int 宠物时长)
+		public PetObject(PlayerObject 宠物主人, PetObject 诱惑宠物, byte 初始等级, bool 绑定武器, int 宠物时长)
 		{
 			
 			
 			this.PlayerOwner = 宠物主人;
 			this.对象模板 = 诱惑宠物.对象模板;
-			this.PetData = new PetData(诱惑宠物.对象名字, 初始等级, 7, BoundWeapons, MainProcess.CurrentTime.AddMinutes((double)宠物时长));
+			this.PetData = new PetData(诱惑宠物.对象名字, 初始等级, 7, 绑定武器, MainProcess.CurrentTime.AddMinutes((double)宠物时长));
 			this.CurrentCoords = 诱惑宠物.CurrentCoords;
 			this.CurrentMap = 诱惑宠物.CurrentMap;
 			this.当前方向 = 诱惑宠物.当前方向;
 			this.Stat加成[this] = this.基础Stat;
 			this.更新对象Stat();
-			this.CurrentStamina = Math.Min(诱惑宠物.CurrentStamina, this[GameObjectStats.MaxPhysicalStrength]);
+			this.当前体力 = Math.Min(诱惑宠物.当前体力, this[GameObjectStats.MaxPhysicalStrength]);
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 			this.Attack时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.忙碌时间 = MainProcess.CurrentTime.AddSeconds(1.0);
-			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.RoamingInterval);
+			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.漫游间隔);
 			this.HateObject = new HateObject();
 			string text = this.对象模板.NormalAttackSkills;
 			if (text != null && text.Length > 0)
@@ -722,7 +722,7 @@ namespace GameServer.Maps
 					base.删除对象();
 				}
 			}
-			else if (this.MutinyTime != default(DateTime) && MainProcess.CurrentTime > this.MutinyTime)
+			else if (this.叛变时间 != default(DateTime) && MainProcess.CurrentTime > this.叛变时间)
 			{
 				new MonsterObject(this);
 			}
@@ -740,7 +740,7 @@ namespace GameServer.Maps
 				{
 					if (!this.CheckStatus(GameObjectState.Poisoned))
 					{
-						this.CurrentStamina += this[GameObjectStats.体力恢复];
+						this.当前体力 += this[GameObjectStats.体力恢复];
 					}
 					base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 				}
@@ -749,7 +749,7 @@ namespace GameServer.Maps
 					int 治疗次数 = base.治疗次数;
 					base.治疗次数 = 治疗次数 - 1;
 					base.治疗时间 = MainProcess.CurrentTime.AddMilliseconds(500.0);
-					this.CurrentStamina += base.治疗基数;
+					this.当前体力 += base.治疗基数;
 				}
 				if (this.EnterCombatSkills != null && !base.战斗姿态 && this.HateObject.仇恨列表.Count != 0)
 				{
@@ -851,7 +851,7 @@ namespace GameServer.Maps
 						if (this.CurrentMap.能否通行(point2))
 						{
 							this.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.行走耗时);
-							this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.行走耗时 + this.MobInterval));
+							this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.行走耗时 + this.移动间隔));
 							this.当前方向 = ComputingClass.计算方向(this.CurrentCoords, point2);
 							base.ItSelf移动时处理(point2);
 							base.发送封包(new ObjectCharacterWalkPacket
@@ -868,12 +868,12 @@ namespace GameServer.Maps
 				}
 				if (MainProcess.CurrentTime > this.漫游时间)
 				{
-					this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.RoamingInterval + MainProcess.RandomNumber.Next(5000)));
+					this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.漫游间隔 + MainProcess.RandomNumber.Next(5000)));
 					Point point3 = ComputingClass.前方坐标(this.CurrentCoords, ComputingClass.随机方向(), 1);
 					if (this.CurrentMap.能否通行(point3))
 					{
 						this.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.行走耗时);
-						this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.行走耗时 + this.MobInterval));
+						this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.行走耗时 + this.移动间隔));
 						this.当前方向 = ComputingClass.计算方向(this.CurrentCoords, point3);
 						base.ItSelf移动时处理(point3);
 						base.发送封包(new ObjectCharacterWalkPacket
@@ -930,7 +930,7 @@ namespace GameServer.Maps
 						else
 						{
 							this.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.行走耗时);
-							this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.行走耗时 + this.MobInterval));
+							this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.行走耗时 + this.移动间隔));
 							this.当前方向 = ComputingClass.计算方向(this.CurrentCoords, point);
 							base.ItSelf移动时处理(point);
 							base.发送封包(new ObjectCharacterWalkPacket
@@ -970,7 +970,7 @@ namespace GameServer.Maps
 		
 		public void 宠物经验增加()
 		{
-			if (this.宠物等级 >= this.GradeCap)
+			if (this.宠物等级 >= this.等级上限)
 			{
 				return;
 			}
@@ -980,7 +980,7 @@ namespace GameServer.Maps
 				this.宠物经验 = 0;
 				this.Stat加成[this] = this.基础Stat;
 				this.更新对象Stat();
-				this.CurrentStamina = this[GameObjectStats.MaxPhysicalStrength];
+				this.当前体力 = this[GameObjectStats.MaxPhysicalStrength];
 				base.发送封包(new ObjectTransformTypePacket
 				{
 					改变类型 = 2,
@@ -1010,17 +1010,17 @@ namespace GameServer.Maps
 					base.解绑网格();
 					this.CurrentCoords = point;
 					PlayerObject PlayerObject = this.PlayerOwner;
-					MapInstance CurrentMap;
+					MapInstance 当前地图;
 					if (PlayerObject != null)
 					{
-						if ((CurrentMap = PlayerObject.CurrentMap) != null)
+						if ((当前地图 = PlayerObject.CurrentMap) != null)
 						{
 							goto IL_69;
 						}
 					}
-					CurrentMap = null;
+					当前地图 = null;
 					IL_69:
-					this.CurrentMap = CurrentMap;
+					this.CurrentMap = 当前地图;
 					base.绑定网格();
 					base.更新邻居时处理();
 					return;
@@ -1071,7 +1071,7 @@ namespace GameServer.Maps
 			}
 			else if (base.网格距离(this.HateObject.当前目标) <= this.RangeHate)
 			{
-				this.HateObject.仇恨列表[this.HateObject.当前目标].仇恨时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.HateTime);
+				this.HateObject.仇恨列表[this.HateObject.当前目标].仇恨时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.仇恨时长);
 			}
 			if (this.HateObject.切换时间 < MainProcess.CurrentTime && this.HateObject.切换仇恨(this))
 			{

@@ -6,12 +6,12 @@
   "AreaRadius": 1,
   "Spawns": [
     {
-      "MonsterName": "Skeleton Blade Axeman",
+      "MonsterName": "骷髅刀斧手",
       "SpawnCount": 12,
       "RevivalInterval": 1
     },
     {
-      "MonsterName": "Skeleton Lanceman",
+      "MonsterName": "骷髅长枪兵",
       "SpawnCount": 12,
       "RevivalInterval": 1
     },
@@ -21,7 +21,7 @@
       "RevivalInterval": 1
     },
     {
-      "MonsterName": "Skeleton Archer",
+      "MonsterName": "骷髅弓箭手",
       "SpawnCount": 6,
       "RevivalInterval": 1
     }

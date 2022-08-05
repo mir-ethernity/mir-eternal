@@ -222,7 +222,7 @@ namespace GameServer.Maps
 					MapGatewayProcess.下方宫门.移除Buff时处理(22300);
 					MapGatewayProcess.上方宫门.移除Buff时处理(22300);
 					MapGatewayProcess.左方宫门.移除Buff时处理(22300);
-					foreach (PlayerObject PlayerObject9 in MapGatewayProcess.沙城地图.NrPlayers)
+					foreach (PlayerObject PlayerObject9 in MapGatewayProcess.沙城地图.玩家列表)
 					{
 						if (PlayerObject9.Guild == null || PlayerObject9.Guild != SystemData.Data.OccupyGuild.V)
 						{
@@ -232,7 +232,7 @@ namespace GameServer.Maps
 					MapInstance MapInstance;
 					if (MapGatewayProcess.MapInstance表.TryGetValue(2849, out MapInstance))
 					{
-						foreach (PlayerObject PlayerObject10 in MapInstance.NrPlayers.ToList<PlayerObject>())
+						foreach (PlayerObject PlayerObject10 in MapInstance.玩家列表.ToList<PlayerObject>())
 						{
 							if (PlayerObject10.Guild == null || PlayerObject10.Guild != SystemData.Data.OccupyGuild.V)
 							{
@@ -267,7 +267,7 @@ namespace GameServer.Maps
 								{
 									外交类型 = 2,
 									行会编号 = v.行会编号,
-									GuildName = v.GuildName.V,
+									行会名字 = v.行会名字.V,
 									行会等级 = v.行会等级.V,
 									行会人数 = (byte)v.行会成员.Count,
 									外交时间 = (int)(GuildData.Hostility行会[v] - MainProcess.CurrentTime).TotalSeconds
@@ -276,7 +276,7 @@ namespace GameServer.Maps
 								{
 									外交类型 = 2,
 									行会编号 = GuildData.行会编号,
-									GuildName = GuildData.GuildName.V,
+									行会名字 = GuildData.行会名字.V,
 									行会等级 = GuildData.行会等级.V,
 									行会人数 = (byte)GuildData.行会成员.Count,
 									外交时间 = (int)(v.Hostility行会[GuildData] - MainProcess.CurrentTime).TotalSeconds
@@ -290,7 +290,7 @@ namespace GameServer.Maps
 								{
 									外交类型 = 2,
 									行会编号 = v.行会编号,
-									GuildName = v.GuildName.V,
+									行会名字 = v.行会名字.V,
 									行会等级 = v.行会等级.V,
 									行会人数 = (byte)v.行会成员.Count,
 									外交时间 = (int)(GuildData.Hostility行会[v] - MainProcess.CurrentTime).TotalSeconds
@@ -299,7 +299,7 @@ namespace GameServer.Maps
 								{
 									外交类型 = 2,
 									行会编号 = GuildData.行会编号,
-									GuildName = GuildData.GuildName.V,
+									行会名字 = GuildData.行会名字.V,
 									行会等级 = GuildData.行会等级.V,
 									行会人数 = (byte)GuildData.行会成员.Count,
 									外交时间 = (int)(v.Hostility行会[GuildData] - MainProcess.CurrentTime).TotalSeconds
@@ -522,7 +522,7 @@ namespace GameServer.Maps
 					}
 					else
 					{
-						NetworkServiceGateway.发送公告(string.Format("The Shabak siege has ended, Shabak is still occupied by [{0}] guild", SystemData.Data.OccupyGuild.V.GuildName), true);
+						NetworkServiceGateway.发送公告(string.Format("The Shabak siege has ended, Shabak is still occupied by [{0}] guild", SystemData.Data.OccupyGuild.V.行会名字), true);
 					}
 					if (SystemData.Data.OccupyGuild.V == null)
 					{
@@ -827,7 +827,7 @@ namespace GameServer.Maps
 				MainForm.添加地图数据(MapInstance6);
 				continue;
 				IL_5AC:
-				MapInstance6.TotalMobs = (uint)MapInstance6.怪物区域.Sum((MonsterSpawns O) => O.Spawns.Sum((MonsterSpawnInfo X) => X.SpawnCount));
+				MapInstance6.固定怪物总数 = (uint)MapInstance6.怪物区域.Sum((MonsterSpawns O) => O.Spawns.Sum((MonsterSpawnInfo X) => X.SpawnCount));
 				goto IL_5DE;
 			}
 		}

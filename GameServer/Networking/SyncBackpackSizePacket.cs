@@ -19,11 +19,11 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 3, Length = 1)]
-		public byte BackpackSize;
+		public byte 背包大小;
 
 		
 		[WrappingFieldAttribute(SubScript = 4, Length = 1)]
-		public byte WarehouseSize;
+		public byte 仓库大小;
 
 		[WrappingFieldAttribute(SubScript = 9, Length = 1)]
 		public byte ExtraBackpackSize;

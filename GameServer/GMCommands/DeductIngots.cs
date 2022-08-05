@@ -26,16 +26,16 @@ namespace GameServer
 				CharacterData CharacterData = GameData as CharacterData;
 				if (CharacterData != null)
 				{
-					CharacterData.NumberDollars = Math.Max(0, CharacterData.NumberDollars - this.NumberDollars);
+					CharacterData.元宝数量 = Math.Max(0, CharacterData.元宝数量 - this.元宝数量);
 					SConnection 网络连接 = CharacterData.ActiveConnection;
 					if (网络连接 != null)
 					{
-						网络连接.发送封包(new 同步NumberDollars
+						网络连接.发送封包(new 同步元宝数量
 						{
-							NumberDollars = CharacterData.NumberDollars
+							元宝数量 = CharacterData.元宝数量
 						});
 					}
-					MainForm.添加命令日志(string.Format("<= @{0} command has been executed, with the current amount of treasure: {1}", base.GetType().Name, CharacterData.NumberDollars));
+					MainForm.添加命令日志(string.Format("<= @{0} command has been executed, with the current amount of treasure: {1}", base.GetType().Name, CharacterData.元宝数量));
 					return;
 				}
 			}
@@ -55,6 +55,6 @@ namespace GameServer
 
 		
 		[FieldAttribute(0, Position = 1)]
-		public int NumberDollars;
+		public int 元宝数量;
 	}
 }

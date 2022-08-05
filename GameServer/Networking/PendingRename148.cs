@@ -21,7 +21,7 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 6, Length = 4)]
-		public int CurrentMap;
+		public int 当前地图;
 
 		
 		[WrappingFieldAttribute(SubScript = 10, Length = 4)]
@@ -61,7 +61,7 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 87, Length = 4)]
-		public int DoubleExp;
+		public int 双倍经验;
 
 		
 		[WrappingFieldAttribute(SubScript = 95, Length = 4)]
@@ -81,7 +81,7 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 144, Length = 4)]
-		public int CurrentExp;
+		public int 当前经验;
 
 		
 		[WrappingFieldAttribute(SubScript = 169, Length = 2)]

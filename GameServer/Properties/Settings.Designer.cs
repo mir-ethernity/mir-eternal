@@ -243,12 +243,12 @@ namespace GameServer.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1\t1\tWelcome to the world of Legends Eternal, Legends Eternal is more exciting wit" +
             "h you! ")]
-        public string 系统AnnounceText {
+        public string 系统公告内容 {
             get {
-                return ((string)(this["系统AnnounceText"]));
+                return ((string)(this["系统公告内容"]));
             }
             set {
-                this["系统AnnounceText"] = value;
+                this["系统公告内容"] = value;
             }
         }
     }

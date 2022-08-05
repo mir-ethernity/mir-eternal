@@ -56,7 +56,7 @@
     <Setting Name="软件注册代码" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="系统AnnounceText" Type="System.String" Scope="User">
+    <Setting Name="系统公告内容" Type="System.String" Scope="User">
       <Value Profile="(Default)">1	1	Welcome to the world of Legends Eternal, Legends Eternal is more exciting with you! </Value>
     </Setting>
   </Settings>

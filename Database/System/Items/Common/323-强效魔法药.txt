@@ -429,21 +429,21 @@
     },
     {
       "Name": "强效魔法药",
-      "MonsterName": "Skeleton Blade Axeman",
+      "MonsterName": "骷髅刀斧手",
       "掉落概率": 10,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "强效魔法药",
-      "MonsterName": "Skeleton Lanceman",
+      "MonsterName": "骷髅长枪兵",
       "掉落概率": 10,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "强效魔法药",
-      "MonsterName": "Skeleton Archer",
+      "MonsterName": "骷髅弓箭手",
       "掉落概率": 10,
       "最小数量": 1,
       "MaxAmount": 1
