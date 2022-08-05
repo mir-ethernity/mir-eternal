@@ -140,7 +140,7 @@ namespace ClientPacketSniffer
                     if (!packets.TryGetValue(packetId, out var packetType))
                         throw new ParseGamePacketException(rawPacket.Source, packetId, buffer);
 
-                    if(packetType.Length == 0 && buffer.Length < 4)
+                    if (packetType.Length == 0 && buffer.Length < 4)
                     {
                         extraBuffers[rawPacket.Source] = buffer;
                         break;
@@ -184,6 +184,18 @@ namespace ClientPacketSniffer
             }
 
             fullReaded = extraBuffers.All(x => x.Value.Length == 0);
+
+            var sb = new StringBuilder();
+
+            foreach (var packet in output)
+            {
+                if (packet.PacketInfo.Source == 0) continue;
+                sb.AppendLine($"// Packet ID: {packet.PacketInfo.Id}, Name: {packet.PacketInfo.Name}");
+                // sb.AppendLine(string.Join(", ", BitConverter.GetBytes(packet.PacketInfo.Id).Select(x => x.ToString()).ToArray()) + ", " + string.Join(", ", packet.Data.Select(x => x.ToString()).ToArray()));
+                sb.AppendLine($"网络连接.SendRaw({packet.PacketInfo.Id}, {packet.PacketInfo.Length}, new byte[] {{{ string.Join(", ", packet.Data.Select(x => x.ToString()).ToArray()) }}});");
+            }
+
+            var raw = sb.ToString();
 
             return output.ToArray();
         }

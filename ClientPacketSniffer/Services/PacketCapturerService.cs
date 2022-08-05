@@ -11,7 +11,7 @@ namespace ClientPacketSniffer
 {
     public class PacketCapturerService
     {
-        private static LibPcapLiveDevice? _device = null;
+        private static PcapDevice? _device = null;
         private static Thread? _thread;
         private static Dictionary<byte, PacketInfo[]> _extraTmpPackets = new Dictionary<byte, PacketInfo[]>();
         public static bool Working { get; set; }
@@ -36,34 +36,50 @@ namespace ClientPacketSniffer
 
             _extraTmpPackets.Clear();
 
-            var devices = CaptureDeviceList.Instance
+            Console.WriteLine("What type of device do you want to use?");
+            Console.WriteLine("[0] Network device");
+            Console.WriteLine("[1] File device");
+            Console.Write("Write index: ");
+            var methodType = Console.ReadLine();
+
+            switch (methodType)
+            {
+                case "0":
+                    var devices = CaptureDeviceList.Instance
                 .OfType<LibPcapLiveDevice>()
                 .ToList();
 
-            if (devices.Count == 0)
-            {
-                Console.WriteLine($"No devices were found on this machine.");
-                Environment.Exit(1);
+                    if (devices.Count == 0)
+                    {
+                        Console.WriteLine($"No devices were found on this machine.");
+                        Environment.Exit(1);
+                    }
+
+                    Console.WriteLine($"Please, select interface: ");
+
+                    for (var i = 0; i < devices.Count; i++)
+                    {
+                        Console.WriteLine($" [{i}] {devices[i].Description} {string.Join(", ", devices[i].Addresses.Select(x => x.Addr.ipAddress))}");
+                    }
+
+                    Console.Write("Type device index: ");
+
+                    var deviceIndex = int.Parse(Console.ReadLine() ?? "0");
+
+                    if (deviceIndex < 0 || deviceIndex >= devices.Count)
+                    {
+                        Console.WriteLine("Device index out of range.");
+                        Environment.Exit(1);
+                    }
+
+                    _device = devices[deviceIndex];
+                    break;
+                case "1":
+                    _device = new CaptureFileReaderDevice(@"D:\Mir3D\caca.pcap");
+                    break;
+                default:
+                    throw new ApplicationException();
             }
-
-            Console.WriteLine($"Please, select interface: ");
-
-            for (var i = 0; i < devices.Count; i++)
-            {
-                Console.WriteLine($" [{i}] {devices[i].Description} {string.Join(", ", devices[i].Addresses.Select(x => x.Addr.ipAddress))}");
-            }
-
-            Console.Write("Type device index: ");
-
-            var deviceIndex = int.Parse(Console.ReadLine() ?? "0");
-
-            if (deviceIndex < 0 || deviceIndex >= devices.Count)
-            {
-                Console.WriteLine("Device index out of range.");
-                Environment.Exit(1);
-            }
-
-            _device = devices[deviceIndex];
 
             Console.WriteLine("Opening device...");
 
@@ -117,8 +133,8 @@ namespace ClientPacketSniffer
                     {
                         var status = _device.GetNextPacket(out PacketCapture packet);
                         if (!Working) break;
-
                         if (status != GetPacketStatus.PacketRead) continue;
+
                         var rawCapture = packet.GetPacket();
                         var p = Packet.ParsePacket(rawCapture.LinkLayerType, rawCapture.Data);
                         if (p.PayloadPacket is not IPv4Packet ipv4packet) continue;
