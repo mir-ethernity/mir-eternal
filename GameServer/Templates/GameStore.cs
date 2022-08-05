@@ -9,7 +9,7 @@ namespace GameServer.Templates
     public sealed class GameStore
     {
         public static byte[] StoreBuffer;
-        public static int StoreCount;
+        public static int StoreVersion;
         public static int StoreItemsCounts;
         public static int ItemsSort;
         public static Dictionary<int, GameStore> DataSheet;
@@ -60,15 +60,16 @@ namespace GameServer.Templates
                         binaryWriter.Write(0);
                         binaryWriter.Write((byte)0);
                         binaryWriter.Write((byte)0);
+                        binaryWriter.Write((byte)0);
                         StoreItemsCounts++;
                     }
                 }
 
                 StoreBuffer = Serializer.Decompress(memoryStream.ToArray());
-                StoreCount = 0;
+                StoreVersion = 0;
 
                 foreach (byte b in GameStore.StoreBuffer)
-                    StoreCount += (int)b;
+                    StoreVersion += (int)b;
             }
         }
 

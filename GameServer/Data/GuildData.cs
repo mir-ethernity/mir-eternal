@@ -291,7 +291,7 @@ namespace GameServer.Data
 			PlayerObject PlayerObject;
 			if (MapGatewayProcess.玩家对象表.TryGetValue(成员.Id, out PlayerObject))
 			{
-				PlayerObject.发送封包(new 同步对象行会
+				PlayerObject.SendPacket(new 同步对象行会
 				{
 					对象编号 = 成员.Id,
 					行会编号 = this.行会编号
@@ -327,7 +327,7 @@ namespace GameServer.Data
 			PlayerObject PlayerObject;
 			if (MapGatewayProcess.玩家对象表.TryGetValue(成员.Id, out PlayerObject))
 			{
-				PlayerObject.发送封包(new 同步对象行会
+				PlayerObject.SendPacket(new 同步对象行会
 				{
 					对象编号 = 成员.Id
 				});
@@ -364,7 +364,7 @@ namespace GameServer.Data
 				PlayerObject PlayerObject;
 				if (MapGatewayProcess.玩家对象表.TryGetValue(成员.Id, out PlayerObject))
 				{
-					PlayerObject.发送封包(new 同步对象行会
+					PlayerObject.SendPacket(new 同步对象行会
 					{
 						对象编号 = 成员.Id
 					});

@@ -328,15 +328,15 @@ namespace GameServer.Data
                 keyValuePair.Value.CurrentIndex = list.Count + num2;
                 num += num3;
                 keyValuePair.Value.DataSheet = keyValuePair.Value.DataSheet.ToDictionary((KeyValuePair<int, GameData> x) => x.Value.数据索引.V, (KeyValuePair<int, GameData> x) => x.Value);
-                MainForm.添加命令日志(string.Format("{0}已经整理完毕, 整理数量:{1}", keyValuePair.Key.Name, num3));
+                MainForm.AddCommandLog(string.Format("{0}已经整理完毕, 整理数量:{1}", keyValuePair.Key.Name, num3));
             }
-            MainForm.添加命令日志(string.Format("客户数据已经整理完毕, 整理总数:{0}", num));
+            MainForm.AddCommandLog(string.Format("客户数据已经整理完毕, 整理总数:{0}", num));
             if (num > 0 && 保存数据)
             {
-                MainForm.添加命令日志("正在重新保存整理后的客户数据, 可能花费较长时间, 请稍后...");
+                MainForm.AddCommandLog("正在重新保存整理后的客户数据, 可能花费较长时间, 请稍后...");
                 GameDataGateway.强制保存();
                 GameDataGateway.CleanUp();
-                MainForm.添加命令日志("数据已经保存到磁盘");
+                MainForm.AddCommandLog("数据已经保存到磁盘");
                 MessageBox.Show("客户数据已经整理完毕, 应用程序需要重启");
                 Environment.Exit(0);
             }
@@ -345,7 +345,7 @@ namespace GameServer.Data
 
         public static void CleanCharacters(int MinLevel, int 限制天数)
         {
-            MainForm.添加命令日志("开始CleanCharacters数据...");
+            MainForm.AddCommandLog("开始CleanCharacters数据...");
             DateTime t = DateTime.Now.AddDays((double)(-(double)限制天数));
             int num = 0;
             foreach (GameData GameData in GameDataGateway.CharacterDataTable.DataSheet.Values.ToList<GameData>())
@@ -355,22 +355,22 @@ namespace GameServer.Data
                 {
                     if (CharacterData.当前排名.Count > 0)
                     {
-                        MainForm.添加命令日志(string.Format("[{0}]({1}/{2}) 在排行榜单上, 已跳过清理", CharacterData, CharacterData.当前等级, (int)(DateTime.Now - CharacterData.OfflineDate.V).TotalDays));
+                        MainForm.AddCommandLog(string.Format("[{0}]({1}/{2}) 在排行榜单上, 已跳过清理", CharacterData, CharacterData.当前等级, (int)(DateTime.Now - CharacterData.OfflineDate.V).TotalDays));
                     }
                     else if (CharacterData.元宝数量 > 0)
                     {
-                        MainForm.添加命令日志(string.Format("[{0}]({1}/{2}) 有未消费元宝, 已跳过清理", CharacterData, CharacterData.当前等级, (int)(DateTime.Now - CharacterData.OfflineDate.V).TotalDays));
+                        MainForm.AddCommandLog(string.Format("[{0}]({1}/{2}) 有未消费元宝, 已跳过清理", CharacterData, CharacterData.当前等级, (int)(DateTime.Now - CharacterData.OfflineDate.V).TotalDays));
                     }
                     else
                     {
                         GuildData 当前行会 = CharacterData.当前行会;
                         if (((当前行会 != null) ? 当前行会.会长数据 : null) == CharacterData)
                         {
-                            MainForm.添加命令日志(string.Format("[{0}]({1}/{2}) 是行会的会长, 已跳过清理", CharacterData, CharacterData.当前等级, (int)(DateTime.Now - CharacterData.OfflineDate.V).TotalDays));
+                            MainForm.AddCommandLog(string.Format("[{0}]({1}/{2}) 是行会的会长, 已跳过清理", CharacterData, CharacterData.当前等级, (int)(DateTime.Now - CharacterData.OfflineDate.V).TotalDays));
                         }
                         else
                         {
-                            MainForm.添加命令日志(string.Format("开始清理[{0}]({1}/{2})...", CharacterData, CharacterData.当前等级, (int)(DateTime.Now - CharacterData.OfflineDate.V).TotalDays));
+                            MainForm.AddCommandLog(string.Format("开始清理[{0}]({1}/{2})...", CharacterData, CharacterData.当前等级, (int)(DateTime.Now - CharacterData.OfflineDate.V).TotalDays));
                             CharacterData.Delete();
                             num++;
                             MainForm.RemoveCharacter(CharacterData);
@@ -378,14 +378,14 @@ namespace GameServer.Data
                     }
                 }
             }
-            MainForm.添加命令日志(string.Format("CharacterData已经清理完成, 清理总数:{0}", num));
+            MainForm.AddCommandLog(string.Format("CharacterData已经清理完成, 清理总数:{0}", num));
             if (num > 0)
             {
-                MainForm.添加命令日志("正在重新保存清理后的客户数据, 可能花费较长时间, 请稍后...");
+                MainForm.AddCommandLog("正在重新保存清理后的客户数据, 可能花费较长时间, 请稍后...");
                 GameDataGateway.SaveData();
                 GameDataGateway.CleanUp();
                 GameDataGateway.加载数据();
-                MainForm.添加命令日志("数据已经保存到磁盘");
+                MainForm.AddCommandLog("数据已经保存到磁盘");
             }
         }
 
@@ -404,10 +404,10 @@ namespace GameServer.Data
                 设置页面.Enabled = false;
                 MainForm.Singleton.主选项卡.SelectedIndex = 0;
                 MainForm.Singleton.日志选项卡.SelectedIndex = 2;
-                MainForm.添加命令日志("开始整理当前客户数据...");
+                MainForm.AddCommandLog("开始整理当前客户数据...");
                 GameDataGateway.SortDataCommand(false);
                 Dictionary<Type, DataTableBase> dictionary = GameDataGateway.Data型表;
-                MainForm.添加命令日志("开始加载指定客户数据...");
+                MainForm.AddCommandLog("开始加载指定客户数据...");
                 GameDataGateway.Data型表 = new Dictionary<Type, DataTableBase>();
                 foreach (Type type in Assembly.GetExecutingAssembly().GetTypes())
                 {
@@ -464,7 +464,7 @@ namespace GameServer.Data
                         }
                     }
                 }
-                MainForm.添加命令日志("开始整理指定客户数据...");
+                MainForm.AddCommandLog("开始整理指定客户数据...");
                 DataLinkTable.处理任务();
                 GameDataGateway.SortDataCommand(false);
                 Dictionary<Type, DataTableBase> dictionary2 = GameDataGateway.Data型表;
@@ -597,7 +597,7 @@ namespace GameServer.Data
                 GameDataGateway.Data型表 = dictionary;
                 GameDataGateway.强制保存();
                 GameDataGateway.CleanUp();
-                MainForm.添加命令日志("客户数据已经合并完成");
+                MainForm.AddCommandLog("客户数据已经合并完成");
                 MessageBox.Show("客户数据已经合并完毕, 应用程序需要重启");
                 Environment.Exit(0);
             }));

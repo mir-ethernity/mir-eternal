@@ -15,7 +15,15 @@ namespace GameServer.Networking
     public class UnknownC2 : GamePacket
     {
     }
-    
+
+    [PacketInfo(来源 = PacketSource.Client, 编号 = 155, 长度 = 6, 注释 = "UnknownC1")]
+    public class UnknownC3 : GamePacket
+    {
+        [WrappingField(SubScript = 2, Length = 2)]
+        public ushort U1;
+        [WrappingField(SubScript = 4, Length = 2)]
+        public ushort U2;
+    }
 
     [PacketInfo(来源 = PacketSource.Server, 编号 = 691, 长度 = 16, 注释 = "UnknownS1")]
     public class UnknownS1 : GamePacket

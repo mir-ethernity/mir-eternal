@@ -117,7 +117,7 @@ namespace GameServer.Data
             get
             {
                 int result;
-                if (!this.角色货币.TryGetValue(GameCurrency.元宝, out result))
+                if (!this.Currencies.TryGetValue(GameCurrency.Ingots, out result))
                 {
                     return 0;
                 }
@@ -125,7 +125,7 @@ namespace GameServer.Data
             }
             set
             {
-                this.角色货币[GameCurrency.元宝] = value;
+                this.Currencies[GameCurrency.Ingots] = value;
                 MainForm.更新CharacterData(this, "元宝数量", value);
             }
         }
@@ -138,7 +138,7 @@ namespace GameServer.Data
             get
             {
                 int result;
-                if (!this.角色货币.TryGetValue(GameCurrency.金币, out result))
+                if (!this.Currencies.TryGetValue(GameCurrency.Gold, out result))
                 {
                     return 0;
                 }
@@ -146,7 +146,7 @@ namespace GameServer.Data
             }
             set
             {
-                this.角色货币[GameCurrency.金币] = value;
+                this.Currencies[GameCurrency.Gold] = value;
                 MainForm.更新CharacterData(this, "NumberGoldCoins", value);
             }
         }
@@ -159,7 +159,7 @@ namespace GameServer.Data
             get
             {
                 int result;
-                if (!this.角色货币.TryGetValue(GameCurrency.名师声望, out result))
+                if (!this.Currencies.TryGetValue(GameCurrency.FamousTeacherReputation, out result))
                 {
                     return 0;
                 }
@@ -167,7 +167,7 @@ namespace GameServer.Data
             }
             set
             {
-                this.角色货币[GameCurrency.名师声望] = value;
+                this.Currencies[GameCurrency.FamousTeacherReputation] = value;
                 MainForm.更新CharacterData(this, "师门声望", value);
             }
         }
@@ -345,6 +345,8 @@ namespace GameServer.Data
             this.当前等级.V = 1;
             this.BackpackSize.V = 32;
             this.WarehouseSize.V = 16;
+            this.ExtraBackpackSize.V = 32;
+
             this.所属账号.V = 账号;
             this.CharName.V = 名字;
             this.角色职业.V = 职业;
@@ -361,7 +363,7 @@ namespace GameServer.Data
             this.当前坐标.V = MapGatewayProcess.分配地图(142).复活区域.RandomCoords;
 
             for (int i = 0; i <= 19; i++)
-                角色货币[(GameCurrency)i] = 0;
+                Currencies[(GameCurrency)i] = 0;
 
             this.玩家设置.SetValue(new uint[128].ToList<uint>());
 
@@ -911,7 +913,7 @@ namespace GameServer.Data
         public readonly MonitorDictionary<byte, DateTime> 称号列表;
 
 
-        public readonly MonitorDictionary<GameCurrency, int> 角色货币;
+        public readonly MonitorDictionary<GameCurrency, int> Currencies;
 
 
         public readonly MonitorDictionary<byte, ItemData> Backpack;

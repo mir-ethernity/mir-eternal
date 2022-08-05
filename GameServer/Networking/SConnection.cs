@@ -141,15 +141,38 @@ namespace GameServer.Networking
             }
         }
 
-
         public void 发送封包(GamePacket 封包)
         {
             if (!this.ConnectionErrored && !NetworkServiceGateway.网络服务停止 && 封包 != null)
             {
-                this.SendPackets.Enqueue(封包);
+                MainForm.AddPacketLog(封包, false);
+                SendPackets.Enqueue(封包);
             }
         }
 
+        public void SendRaw(ushort type, ushort length, byte[] data, bool encoded = true)
+        {
+            byte[] output;
+            if (length == 0)
+            {
+                output = new byte[data.Length + 4];
+                Array.Copy(BitConverter.GetBytes((ushort)type), 0, output, 0, 2);
+                Array.Copy(BitConverter.GetBytes((ushort)data.Length + 4), 0, output, 2, 2);
+                Array.Copy(data, 0, output, 4, data.Length);
+            }
+            else
+            {
+                output = new byte[data.Length + 2];
+                Array.Copy(BitConverter.GetBytes((ushort)type), 0, output, 0, 2);
+                Array.Copy(data, 0, output, 2, data.Length);
+            }
+
+            if (encoded)
+                for (var i = 4; i < output.Length; i++)
+                    output[i] ^= GamePacket.EncryptionKey;
+
+            Connection.Client.Send(output);
+        }
 
         public void CallExceptionEventHandler(Exception e)
         {
@@ -197,19 +220,18 @@ namespace GameServer.Networking
         private void 发送全部封包()
         {
             List<byte> list = new();
-            while (!this.SendPackets.IsEmpty)
+            while (!SendPackets.IsEmpty)
             {
-                if (this.SendPackets.TryDequeue(out GamePacket packet))
+                if (SendPackets.TryDequeue(out GamePacket packet))
                 {
                     MainForm.AddPacketLog(packet, false);
-                    this.SendBuffer(packet.取字节());
-                    // list.AddRange(packet.取字节());
+                    list.AddRange(packet.取字节());
                 }
             }
-            //if (list.Count != 0)
-            //{
-            //    this.开始异步发送(list);
-            //}
+            if (list.Count != 0)
+            {
+                开始异步发送(list);
+            }
         }
 
 
@@ -264,7 +286,7 @@ namespace GameServer.Networking
                                 }
                                 this.ReceivedPackets.Enqueue(GamePacket);
                             }
-                            catch(Exception ex)
+                            catch (Exception ex)
                             {
                                 this.CallExceptionEventHandler(ex);
                                 break;
@@ -289,7 +311,7 @@ namespace GameServer.Networking
         {
             try
             {
-                this.Connection.Client.Send(buffer);
+                开始异步发送(buffer.ToList());
             }
             catch (Exception ex)
             {
@@ -343,6 +365,11 @@ namespace GameServer.Networking
         }
 
         public void 处理封包(UnknownC2 P)
+        {
+
+        }
+
+        public void 处理封包(UnknownC3 P)
         {
 
         }
@@ -416,12 +443,12 @@ namespace GameServer.Networking
 
         public void 处理封包(客户网速测试 P)
         {
-            if (this.当前阶段 != GameStage.PlayingScene)
+            if (当前阶段 != GameStage.PlayingScene)
             {
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
                 return;
             }
-            this.发送封包(new InternetSpeedTestPacket
+            发送封包(new InternetSpeedTestPacket
             {
                 当前时间 = P.客户时间
             });
@@ -435,7 +462,8 @@ namespace GameServer.Networking
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
                 return;
             }
-            this.发送封包(new LoginQueryResponsePacket
+
+            发送封包(new LoginQueryResponsePacket
             {
                 当前时间 = P.客户时间
             });
@@ -1005,7 +1033,7 @@ namespace GameServer.Networking
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
                 return;
             }
-            this.Player.玩家选中对象(P.对象编号);
+            this.Player.SelectObject(P.对象编号);
         }
 
 

@@ -320,7 +320,7 @@ namespace GameServer.Templates
                     {
                         var dir = ComputingClass.计算方向(ReleaseLocation, SkillLocation);
                         if (dir == CasterObject.当前方向)
-                            CasterObject.发送封包(new ObjectRotationDirectionPacket
+                            CasterObject.SendPacket(new ObjectRotationDirectionPacket
                             {
                                 对象编号 = CasterObject.ObjectId,
                                 对象朝向 = (ushort)dir,
@@ -363,7 +363,7 @@ namespace GameServer.Templates
                             if (num8 > 0 && dateTime > dateTime2)
                             {
                                 CasterObject.Coolings[SkillId | 0x1000000] = dateTime;
-                                CasterObject.发送封包(new AddedSkillCooldownPacket
+                                CasterObject.SendPacket(new AddedSkillCooldownPacket
                                 {
                                     冷却编号 = ((int)SkillId | 0x1000000),
                                     Cooldown = num8
@@ -377,7 +377,7 @@ namespace GameServer.Templates
                         DateTime dateTime2 = ReleaseTime.AddMilliseconds((double)b_01.分组Cooldown);
                         DateTime t2 = playerObj2.Coolings.ContainsKey((int)(GroupId | 0)) ? playerObj2.Coolings[(int)(GroupId | 0)] : default(DateTime);
                         if (dateTime2 > t2) playerObj2.Coolings[(int)(GroupId | 0)] = dateTime2;
-                        CasterObject.发送封包(new AddedSkillCooldownPacket
+                        CasterObject.SendPacket(new AddedSkillCooldownPacket
                         {
                             冷却编号 = (int)(GroupId | 0),
                             Cooldown = b_01.分组Cooldown
@@ -388,7 +388,7 @@ namespace GameServer.Templates
                         CasterObject.忙碌时间 = ReleaseTime.AddMilliseconds((double)b_01.角色忙绿时间);
 
                     if (b_01.发送释放通知)
-                        CasterObject.发送封包(new 开始释放技能
+                        CasterObject.SendPacket(new 开始释放技能
                         {
                             对象编号 = !TargetBorrow || SkillTarget == null ? CasterObject.ObjectId : SkillTarget.ObjectId,
                             SkillId = SkillId,
@@ -403,7 +403,7 @@ namespace GameServer.Templates
                 else if (task is B_02_SkillHitNotification b_02)
                 {
                     if (b_02.命中扩展通知)
-                        CasterObject.发送封包(new 触发技能扩展
+                        CasterObject.SendPacket(new 触发技能扩展
                         {
                             对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                             SkillId = SkillId,
@@ -413,7 +413,7 @@ namespace GameServer.Templates
                             命中描述 = HitDetail.GetHitDescription(Hits, FightTime)
                         });
                     else
-                        CasterObject.发送封包(new SkillHitNormal
+                        CasterObject.SendPacket(new SkillHitNormal
                         {
                             ObjectId = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                             SkillId = SkillId,
@@ -458,7 +458,7 @@ namespace GameServer.Templates
                         CasterObject.硬直时间 = ReleaseTime.AddMilliseconds((b_03.计算攻速缩减 ? (b_03.角色硬直时间 - AttackSpeedReduction) : b_03.角色硬直时间));
 
                     if (b_03.发送结束通知)
-                        CasterObject.发送封包(new SkillHitNormal
+                        CasterObject.SendPacket(new SkillHitNormal
                         {
                             ObjectId = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                             SkillId = SkillId,
@@ -472,7 +472,7 @@ namespace GameServer.Templates
                 }
                 else if (task is B_04_PostShakeEndNotification b_04)
                 {
-                    CasterObject.发送封包(new 技能释放完成
+                    CasterObject.SendPacket(new 技能释放完成
                     {
                         SkillId = SkillId,
                         动作编号 = ActionId
@@ -560,7 +560,7 @@ namespace GameServer.Templates
                     if (Hits.Count == 0 && c_01.放空结束技能)
                     {
                         if (c_01.发送中断通知)
-                            CasterObject.发送封包(new 技能释放中断
+                            CasterObject.SendPacket(new 技能释放中断
                             {
                                 对象编号 = CasterObject.ObjectId,
                                 SkillId = SkillId,
@@ -575,7 +575,7 @@ namespace GameServer.Templates
                     }
 
                     if (c_01.补发释放通知)
-                        CasterObject.发送封包(new 开始释放技能
+                        CasterObject.SendPacket(new 开始释放技能
                         {
                             对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                             SkillId = SkillId,
@@ -606,7 +606,7 @@ namespace GameServer.Templates
                         FightTime = ComputingClass.GridDistance(ReleaseLocation, SkillLocation) * c_01.单格飞行耗时;
 
                     if (c_01.技能命中通知)
-                        CasterObject.发送封包(new SkillHitNormal
+                        CasterObject.SendPacket(new SkillHitNormal
                         {
                             ObjectId = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                             SkillId = SkillId,
@@ -617,7 +617,7 @@ namespace GameServer.Templates
                         });
 
                     if (c_01.技能扩展通知)
-                        CasterObject.发送封包(new 触发技能扩展
+                        CasterObject.SendPacket(new 触发技能扩展
                         {
                             对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                             SkillId = SkillId,
@@ -648,7 +648,7 @@ namespace GameServer.Templates
                             if (c_02.数量衰减伤害)
                                 num9 = Math.Max(c_02.伤害衰减下限, num9 - c_02.伤害衰减系数);
 
-                            CasterObject.发送封包(new 触发命中特效
+                            CasterObject.SendPacket(new 触发命中特效
                             {
                                 对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                                 SkillId = SkillId,
@@ -680,7 +680,7 @@ namespace GameServer.Templates
                                 if (num11 > 0)
                                 {
                                     CasterObject.当前体力 += num11;
-                                    CasterObject.发送封包(new 体力变动飘字
+                                    CasterObject.SendPacket(new 体力变动飘字
                                     {
                                         血量变化 = num11,
                                         对象编号 = CasterObject.ObjectId
@@ -704,7 +704,7 @@ namespace GameServer.Templates
                             {
                                 dateTime3 -= TimeSpan.FromMilliseconds(num14);
                                 CasterObject.Coolings[c_02.冷却减少技能 | 0x1000000] = dateTime3;
-                                CasterObject.发送封包(new AddedSkillCooldownPacket
+                                CasterObject.SendPacket(new AddedSkillCooldownPacket
                                 {
                                     冷却编号 = (c_02.冷却减少技能 | 0x1000000),
                                     Cooldown = Math.Max(0, (int)(dateTime3 - MainProcess.CurrentTime).TotalMilliseconds)
@@ -715,7 +715,7 @@ namespace GameServer.Templates
                             {
                                 dateTime4 -= TimeSpan.FromMilliseconds(num14);
                                 PlayerObject8.Coolings[(c_02.冷却减少分组 | 0)] = dateTime4;
-                                CasterObject.发送封包(new AddedSkillCooldownPacket
+                                CasterObject.SendPacket(new AddedSkillCooldownPacket
                                 {
                                     冷却编号 = (c_02.冷却减少分组 | 0),
                                     Cooldown = Math.Max(0, (int)(dateTime4 - MainProcess.CurrentTime).TotalMilliseconds)
@@ -738,7 +738,7 @@ namespace GameServer.Templates
                             {
                                 dateTime5 -= TimeSpan.FromMilliseconds(num15);
                                 CasterObject.Coolings[c_02.冷却减少技能 | 0x1000000] = dateTime5;
-                                CasterObject.发送封包(new AddedSkillCooldownPacket
+                                CasterObject.SendPacket(new AddedSkillCooldownPacket
                                 {
                                     冷却编号 = (c_02.冷却减少技能 | 0x1000000),
                                     Cooldown = Math.Max(0, (int)(dateTime5 - MainProcess.CurrentTime).TotalMilliseconds)
@@ -751,7 +751,7 @@ namespace GameServer.Templates
                                 {
                                     dateTime6 -= TimeSpan.FromMilliseconds(num15);
                                     PlayerObject9.Coolings[(c_02.冷却减少分组 | 0)] = dateTime6;
-                                    CasterObject.发送封包(new AddedSkillCooldownPacket
+                                    CasterObject.SendPacket(new AddedSkillCooldownPacket
                                     {
                                         冷却编号 = (c_02.冷却减少分组 | 0),
                                         Cooldown = Math.Max(0, (int)(dateTime6 - MainProcess.CurrentTime).TotalMilliseconds)
@@ -789,7 +789,7 @@ namespace GameServer.Templates
 
                     if (c_03.角色ItSelf位移 && (ReleaseMap != CasterObject.CurrentMap || SegmentId >= b2))
                     {
-                        CasterObject.发送封包(new 技能释放中断
+                        CasterObject.SendPacket(new 技能释放中断
                         {
                             对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                             SkillId = SkillId,
@@ -798,7 +798,7 @@ namespace GameServer.Templates
                             动作编号 = ActionId,
                             技能分段 = SegmentId
                         });
-                        CasterObject.发送封包(new 技能释放完成
+                        CasterObject.SendPacket(new 技能释放完成
                         {
                             SkillId = SkillId,
                             动作编号 = ActionId
@@ -826,7 +826,7 @@ namespace GameServer.Templates
                                 mapObj.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((c_03.目标位移耗时 * 60));
                                 mapObj.硬直时间 = MainProcess.CurrentTime.AddMilliseconds((c_03.目标位移耗时 * 60 + c_03.目标硬直时间));
 
-                                mapObj.发送封包(new ObjectPassiveDisplacementPacket
+                                mapObj.SendPacket(new ObjectPassiveDisplacementPacket
                                 {
                                     位移坐标 = point2,
                                     对象编号 = mapObj.ObjectId,
@@ -849,7 +849,7 @@ namespace GameServer.Templates
                             CasterObject.当前方向 = ComputingClass.计算方向(CasterObject.CurrentCoords, point);
                             int num18 = c_03.ItSelf位移耗时 * CasterObject.网格距离(point);
                             CasterObject.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((num18 * 60));
-                            CasterObject.发送封包(new ObjectPassiveDisplacementPacket
+                            CasterObject.SendPacket(new ObjectPassiveDisplacementPacket
                             {
                                 位移坐标 = point,
                                 对象编号 = CasterObject.ObjectId,
@@ -866,7 +866,7 @@ namespace GameServer.Templates
 
                             if (c_03.多段位移通知)
                             {
-                                CasterObject.发送封包(new SkillHitNormal
+                                CasterObject.SendPacket(new SkillHitNormal
                                 {
                                     ObjectId = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                                     SkillId = SkillId,
@@ -931,7 +931,7 @@ namespace GameServer.Templates
                             ushort num22 = (ushort)(ComputingClass.GridDistance(item.Value.Object.CurrentCoords, point3) * c_03.目标位移耗时);
                             item.Value.Object.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((num22 * 60));
                             item.Value.Object.硬直时间 = MainProcess.CurrentTime.AddMilliseconds((num22 * 60 + c_03.目标硬直时间));
-                            item.Value.Object.发送封包(new ObjectPassiveDisplacementPacket
+                            item.Value.Object.SendPacket(new ObjectPassiveDisplacementPacket
                             {
                                 位移坐标 = point3,
                                 位移速度 = num22,
@@ -1018,7 +1018,7 @@ namespace GameServer.Templates
         public void SkillAbort()
         {
             Nodes.Clear();
-            CasterObject.发送封包(new 技能释放中断
+            CasterObject.SendPacket(new 技能释放中断
             {
                 对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                 SkillId = SkillId,

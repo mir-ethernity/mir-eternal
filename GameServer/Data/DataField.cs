@@ -1187,10 +1187,9 @@ namespace GameServer.Data
 		
 		public DataField(BinaryReader 读取流, Type Data型)
 		{
-			
-			
 			this.字段名字 = 读取流.ReadString();
-			this.字段类型 = Type.GetType(读取流.ReadString());
+			var typeName = 读取流.ReadString();
+			this.字段类型 = Type.GetType(typeName);
 			this.字段详情 = ((Data型 != null) ? Data型.GetField(this.字段名字) : null);
 		}
 

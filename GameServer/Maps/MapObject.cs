@@ -328,7 +328,7 @@ namespace GameServer.Maps
 
         public virtual void ItSelf死亡处理(MapObject 对象, bool 技能击杀)
         {
-            this.发送封包(new ObjectCharacterDiesPacket
+            this.SendPacket(new ObjectCharacterDiesPacket
             {
                 对象编号 = this.ObjectId
             });
@@ -401,7 +401,7 @@ namespace GameServer.Maps
         }
 
 
-        public void 发送封包(GamePacket 封包)
+        public void SendPacket(GamePacket 封包)
         {
             string name = 封包.PacketType.Name;
 
@@ -428,8 +428,8 @@ namespace GameServer.Maps
                 case "同步角色外形":
                 case "变更摊位名字":
                 case "触发命中特效":
-                case "同步对象体力":
-                case "触发技能正常":
+                case "SyncObjectHP":
+                case "SkillHitNormal":
                 case "同步对象行会":
                 case "技能释放中断":
                 case "触发状态效果":
@@ -1437,7 +1437,7 @@ namespace GameServer.Maps
                                             BuffData4.剩余时间.V = BuffData4.持续时间.V;
                                             if (BuffData4.Buff同步)
                                             {
-                                                this.发送封包(new ObjectStateChangePacket
+                                                this.SendPacket(new ObjectStateChangePacket
                                                 {
                                                     对象编号 = this.ObjectId,
                                                     Id = BuffData4.Id.V,
@@ -1463,7 +1463,7 @@ namespace GameServer.Maps
                                         BuffData5.剩余时间.V += BuffData5.持续时间.V;
                                         if (BuffData5.Buff同步)
                                         {
-                                            this.发送封包(new ObjectStateChangePacket
+                                            this.SendPacket(new ObjectStateChangePacket
                                             {
                                                 对象编号 = this.ObjectId,
                                                 Id = BuffData5.Id.V,
@@ -1485,7 +1485,7 @@ namespace GameServer.Maps
                         {
                             if (BuffData2.Buff同步)
                             {
-                                this.发送封包(new ObjectAddStatePacket
+                                this.SendPacket(new ObjectAddStatePacket
                                 {
                                     对象编号 = this.ObjectId,
                                     Buff来源 = 来源.ObjectId,
@@ -1556,7 +1556,7 @@ namespace GameServer.Maps
                         if (dateTime > t)
                         {
                             this.Coolings[(int)BuffData.绑定技能 | 16777216] = dateTime;
-                            this.发送封包(new AddedSkillCooldownPacket
+                            this.SendPacket(new AddedSkillCooldownPacket
                             {
                                 冷却编号 = ((int)BuffData.绑定技能 | 16777216),
                                 Cooldown = (int)BuffData.Cooldown
@@ -1568,7 +1568,7 @@ namespace GameServer.Maps
                 BuffData.Delete();
                 if (BuffData.Buff同步)
                 {
-                    this.发送封包(new ObjectRemovalStatusPacket
+                    this.SendPacket(new ObjectRemovalStatusPacket
                     {
                         对象编号 = this.ObjectId,
                         Buff索引 = (int)编号
@@ -1616,7 +1616,7 @@ namespace GameServer.Maps
                 BuffData.Delete();
                 if (BuffData.Buff同步)
                 {
-                    this.发送封包(new ObjectRemovalStatusPacket
+                    this.SendPacket(new ObjectRemovalStatusPacket
                     {
                         对象编号 = this.ObjectId,
                         Buff索引 = (int)编号
@@ -2285,7 +2285,7 @@ namespace GameServer.Maps
             触发状态效果.Buff来源 = ((buff来源 != null) ? buff来源.ObjectId : 0);
             触发状态效果.Buff目标 = this.ObjectId;
             触发状态效果.血量变化 = -num2;
-            this.发送封包(触发状态效果);
+            this.SendPacket(触发状态效果);
             if (this.当前体力 == 0)
             {
                 this.ItSelf死亡处理(数据.Buff来源, false);
@@ -2397,7 +2397,7 @@ namespace GameServer.Maps
             触发状态效果.Buff来源 = ((buff来源 != null) ? buff来源.ObjectId : 0);
             触发状态效果.Buff目标 = this.ObjectId;
             触发状态效果.血量变化 = (int)b;
-            this.发送封包(触发状态效果);
+            this.SendPacket(触发状态效果);
         }
 
 
@@ -2733,11 +2733,11 @@ namespace GameServer.Maps
                                         现身姿态 = ((byte)(对象.Died ? 13 : 1)),
                                         体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectStats.MaxPhysicalStrength])
                                     });
-                                    PlayerObject.ActiveConnection.发送封包(new 同步对象体力
+                                    PlayerObject.ActiveConnection.发送封包(new SyncObjectHP
                                     {
-                                        对象编号 = 对象.ObjectId,
-                                        当前体力 = 对象.当前体力,
-                                        体力上限 = 对象[GameObjectStats.MaxPhysicalStrength]
+                                        ObjectId = 对象.ObjectId,
+                                        CurrentHP = 对象.当前体力,
+                                        MaxHP = 对象[GameObjectStats.MaxPhysicalStrength]
                                     });
                                     PlayerObject.ActiveConnection.发送封包(new ObjectTransformTypePacket
                                     {
@@ -2772,11 +2772,11 @@ namespace GameServer.Maps
                             PlayerObject PlayerObject2 = 对象 as PlayerObject;
                             ObjectComesIntoViewPacket.AdditionalParam = ((byte)((PlayerObject2 == null || !PlayerObject2.灰名玩家) ? 0 : 2));
                             网络连接.发送封包(ObjectComesIntoViewPacket);
-                            PlayerObject.ActiveConnection.发送封包(new 同步对象体力
+                            PlayerObject.ActiveConnection.发送封包(new SyncObjectHP
                             {
-                                对象编号 = 对象.ObjectId,
-                                当前体力 = 对象.当前体力,
-                                体力上限 = 对象[GameObjectStats.MaxPhysicalStrength]
+                                ObjectId = 对象.ObjectId,
+                                CurrentHP = 对象.当前体力,
+                                MaxHP = 对象[GameObjectStats.MaxPhysicalStrength]
                             });
                         }
                         else if (对象类型 != GameObjectType.物品)
@@ -2902,11 +2902,11 @@ namespace GameServer.Maps
                                         现身姿态 = ((byte)(对象.Died ? 13 : 1)),
                                         体力比例 = (byte)(对象.当前体力 * 100 / 对象[GameObjectStats.MaxPhysicalStrength])
                                     });
-                                    PlayerObject3.ActiveConnection.发送封包(new 同步对象体力
+                                    PlayerObject3.ActiveConnection.发送封包(new SyncObjectHP
                                     {
-                                        对象编号 = 对象.ObjectId,
-                                        当前体力 = 对象.当前体力,
-                                        体力上限 = 对象[GameObjectStats.MaxPhysicalStrength]
+                                        ObjectId = 对象.ObjectId,
+                                        CurrentHP = 对象.当前体力,
+                                        MaxHP = 对象[GameObjectStats.MaxPhysicalStrength]
                                     });
                                     PlayerObject3.ActiveConnection.发送封包(new ObjectTransformTypePacket
                                     {
@@ -2941,11 +2941,11 @@ namespace GameServer.Maps
                             PlayerObject PlayerObject4 = 对象 as PlayerObject;
                             ObjectComesIntoViewPacket2.AdditionalParam = ((byte)((PlayerObject4 == null || !PlayerObject4.灰名玩家) ? 0 : 2));
                             网络连接2.发送封包(ObjectComesIntoViewPacket2);
-                            PlayerObject3.ActiveConnection.发送封包(new 同步对象体力
+                            PlayerObject3.ActiveConnection.发送封包(new SyncObjectHP
                             {
-                                对象编号 = 对象.ObjectId,
-                                当前体力 = 对象.当前体力,
-                                体力上限 = 对象[GameObjectStats.MaxPhysicalStrength]
+                                ObjectId = 对象.ObjectId,
+                                CurrentHP = 对象.当前体力,
+                                MaxHP = 对象[GameObjectStats.MaxPhysicalStrength]
                             });
                         }
                         else if (对象类型 != GameObjectType.物品)

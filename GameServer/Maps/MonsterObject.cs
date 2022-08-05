@@ -108,11 +108,11 @@ namespace GameServer.Maps
 				if (base.当前体力 != value)
 				{
 					base.当前体力 = value;
-					base.发送封包(new 同步对象体力
+					base.SendPacket(new SyncObjectHP
 					{
-						对象编号 = this.ObjectId,
-						当前体力 = this.当前体力,
-						体力上限 = this[GameObjectStats.MaxPhysicalStrength]
+						ObjectId = this.ObjectId,
+						CurrentHP = this.当前体力,
+						MaxHP = this[GameObjectStats.MaxPhysicalStrength]
 					});
 				}
 			}
@@ -156,7 +156,7 @@ namespace GameServer.Maps
 				if (this.当前方向 != value)
 				{
 					base.当前方向 = value;
-					base.发送封包(new ObjectRotationDirectionPacket
+					base.SendPacket(new ObjectRotationDirectionPacket
 					{
 						转向耗时 = 100,
 						对象编号 = this.ObjectId,
@@ -857,7 +857,7 @@ namespace GameServer.Maps
 						base.ItSelf移动时处理(point);
 						if (!this.Died)
 						{
-							base.发送封包(new ObjectCharacterWalkPacket
+							base.SendPacket(new ObjectCharacterWalkPacket
 							{
 								对象编号 = this.ObjectId,
 								移动坐标 = this.CurrentCoords,
@@ -905,7 +905,7 @@ namespace GameServer.Maps
 							this.忙碌时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.行走耗时);
 							this.行走时间 = MainProcess.CurrentTime.AddMilliseconds((double)(this.行走耗时 + this.移动间隔));
 							this.当前方向 = ComputingClass.计算方向(this.CurrentCoords, point);
-							base.发送封包(new ObjectCharacterWalkPacket
+							base.SendPacket(new ObjectCharacterWalkPacket
 							{
 								对象编号 = this.ObjectId,
 								移动坐标 = point,
@@ -935,7 +935,7 @@ namespace GameServer.Maps
 							base.ItSelf移动时处理(point2);
 							if (!this.Died)
 							{
-								base.发送封包(new ObjectCharacterWalkPacket
+								base.SendPacket(new ObjectCharacterWalkPacket
 								{
 									对象编号 = this.ObjectId,
 									移动坐标 = point2,

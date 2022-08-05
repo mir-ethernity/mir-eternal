@@ -25,7 +25,22 @@ namespace GameServer.Networking
 		[WrappingFieldAttribute(SubScript = 4, Length = 1)]
 		public byte 仓库大小;
 
+		[WrappingFieldAttribute(SubScript = 5, Length = 1)]
+		public byte u1;
+
+		[WrappingFieldAttribute(SubScript = 6, Length = 1)]
+		public byte u2;
+
+		[WrappingFieldAttribute(SubScript = 7, Length = 1)]
+		public byte u3;
+
+		[WrappingFieldAttribute(SubScript = 8, Length = 1)]
+		public byte u4;
+
 		[WrappingFieldAttribute(SubScript = 9, Length = 1)]
 		public byte ExtraBackpackSize;
+
+		[WrappingFieldAttribute(SubScript = 10, Length = 1)]
+		public byte u5;
 	}
 }

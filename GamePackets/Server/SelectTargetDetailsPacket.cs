@@ -33,8 +33,7 @@ namespace GameServer.Networking
 		[WrappingFieldAttribute(SubScript = 20, Length = 4)]
 		public int MaxMagic2;
 
-		
-		[WrappingFieldAttribute(SubScript = 24, Length = 1)]
+		[WrappingFieldAttribute(SubScript = 25, Length = 1)]
 		public byte[] Buff描述;
 	}
 }
