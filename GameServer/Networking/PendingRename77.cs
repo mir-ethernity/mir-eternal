@@ -19,6 +19,6 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 3, Length = 25)]
-		public string 行会名字;
+		public string GuildName;
 	}
 }

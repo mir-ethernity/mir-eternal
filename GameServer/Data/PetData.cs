@@ -13,37 +13,37 @@ namespace GameServer.Data
 		}
 
 		
-		public PetData(string 宠物名字, byte 当前等级, byte 等级上限, bool 绑定武器, DateTime 叛变时间)
+		public PetData(string PetName, byte CurrentRank, byte GradeCap, bool BoundWeapons, DateTime MutinyTime)
 		{
 			
 			
-			this.宠物名字.V = 宠物名字;
-			this.当前等级.V = 当前等级;
-			this.等级上限.V = 等级上限;
-			this.绑定武器.V = 绑定武器;
-			this.叛变时间.V = 叛变时间;
-			GameDataGateway.PetData表.AddData(this, true);
+			this.PetName.V = PetName;
+			this.CurrentRank.V = CurrentRank;
+			this.GradeCap.V = GradeCap;
+			this.BoundWeapons.V = BoundWeapons;
+			this.MutinyTime.V = MutinyTime;
+			GameDataGateway.PetDataTable.AddData(this, true);
 		}
 
 		
-		public readonly DataMonitor<string> 宠物名字;
+		public readonly DataMonitor<string> PetName;
 
 		
-		public readonly DataMonitor<int> 当前体力;
+		public readonly DataMonitor<int> CurrentStamina;
 
 		
-		public readonly DataMonitor<int> 当前经验;
+		public readonly DataMonitor<int> CurrentExp;
 
 		
-		public readonly DataMonitor<byte> 当前等级;
+		public readonly DataMonitor<byte> CurrentRank;
 
 		
-		public readonly DataMonitor<byte> 等级上限;
+		public readonly DataMonitor<byte> GradeCap;
 
 		
-		public readonly DataMonitor<bool> 绑定武器;
+		public readonly DataMonitor<bool> BoundWeapons;
 
 		
-		public readonly DataMonitor<DateTime> 叛变时间;
+		public readonly DataMonitor<DateTime> MutinyTime;
 	}
 }

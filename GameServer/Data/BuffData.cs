@@ -31,7 +31,7 @@ namespace GameServer.Data
 				SkillData SkillData;
 				if (this.Buff模板.BindingSkillLevel != 0 && PlayerObject.MainSkills表.TryGetValue(this.Buff模板.BindingSkillLevel, out SkillData))
 				{
-					this.Buff等级.V = SkillData.技能等级.V;
+					this.Buff等级.V = SkillData.SkillLevel.V;
 				}
 				if (this.Buff模板.ExtendedDuration && this.Buff模板.SkillLevelDelay)
 				{
@@ -55,7 +55,7 @@ namespace GameServer.Data
 					SkillData SkillData3;
 					if (this.Buff模板.BindingSkillLevel != 0 && PetObject.PlayerOwner.MainSkills表.TryGetValue(this.Buff模板.BindingSkillLevel, out SkillData3))
 					{
-						this.Buff等级.V = SkillData3.技能等级.V;
+						this.Buff等级.V = SkillData3.SkillLevel.V;
 					}
 					if (this.Buff模板.ExtendedDuration && this.Buff模板.SkillLevelDelay)
 					{
@@ -232,7 +232,7 @@ namespace GameServer.Data
 
 		
 		// (get) Token: 0x06000434 RID: 1076 RVA: 0x00004330 File Offset: 0x00002530
-		public bool 绑定武器
+		public bool BoundWeapons
 		{
 			get
 			{

@@ -44,7 +44,7 @@ namespace GameServer.Data
 			}
 			if (数据.数据索引.V == 0)
 			{
-				MessageBox.Show("数据表添加数据异常, 索引为零.");
+				MessageBox.Show("Data table add data exception, index is zero.");
 			}
 			数据.StorageDataTable = this;
 			this.DataSheet.Add(数据.数据索引.V, 数据);

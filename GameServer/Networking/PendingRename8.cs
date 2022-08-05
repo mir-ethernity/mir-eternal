@@ -25,7 +25,7 @@ namespace GameServer.Networking
             this.接入时间 = MainProcess.CurrentTime;
             this.断开时间 = MainProcess.CurrentTime.AddMinutes((double)Config.掉线判定时间);
             this.ErrorEventhandler = (EventHandler<Exception>)Delegate.Combine(this.ErrorEventhandler, new EventHandler<Exception>(NetworkServiceGateway.断网回调));
-            this.网络地址 = this.Connection.Client.RemoteEndPoint.ToString().Split(new char[]
+            this.NetAddress = this.Connection.Client.RemoteEndPoint.ToString().Split(new char[]
             {
                 ':'
             })[0];
@@ -107,10 +107,10 @@ namespace GameServer.Networking
                     text2 = "None";
                 IL_139:
                     array[num2] = text2;
-                    array[4] = "]\r\n网络地址:[";
-                    array[5] = this.网络地址;
-                    array[6] = "]\r\n物理地址:[";
-                    array[7] = this.物理地址;
+                    array[4] = "]\r\nNetAddress:[";
+                    array[5] = this.NetAddress;
+                    array[6] = "]\r\nMacAddress:[";
+                    array[7] = this.MacAddress;
                     array[8] = "]\r\n错误提示:";
                     array[9] = ex.Message;
                     MainProcess.AddSystemLog(string.Concat(array));
@@ -174,7 +174,7 @@ namespace GameServer.Networking
                 if (this.ReceivedPackets.Count > (int)Config.MaxPacketCount)
                 {
                     this.ReceivedPackets = new ConcurrentQueue<GamePacket>();
-                    NetworkServiceGateway.屏蔽网络(this.网络地址);
+                    NetworkServiceGateway.屏蔽网络(this.NetAddress);
                     this.CallExceptionEventHandler(new Exception("Too many packets, disconnect and restrict login."));
                     return;
                 }
@@ -1586,7 +1586,7 @@ namespace GameServer.Networking
         }
 
 
-        public void 处理封包(查询行会名字 P)
+        public void 处理封包(查询GuildName P)
         {
             if (this.当前阶段 != GameStage.LoadingScene && this.当前阶段 != GameStage.PlayingScene)
             {
@@ -1626,7 +1626,7 @@ namespace GameServer.Networking
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
                 return;
             }
-            this.Player.FindCorrespondingGuildPacket(P.行会编号, P.行会名字);
+            this.Player.FindCorrespondingGuildPacket(P.行会编号, P.GuildName);
         }
 
 
@@ -1637,7 +1637,7 @@ namespace GameServer.Networking
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
                 return;
             }
-            this.Player.申请加入行会(P.行会编号, P.行会名字);
+            this.Player.申请加入行会(P.行会编号, P.GuildName);
         }
 
 
@@ -1813,7 +1813,7 @@ namespace GameServer.Networking
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
                 return;
             }
-            this.Player.申请行会外交(P.外交类型, P.外交时间, P.行会名字);
+            this.Player.申请行会外交(P.外交类型, P.外交时间, P.GuildName);
         }
 
 
@@ -1824,7 +1824,7 @@ namespace GameServer.Networking
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
                 return;
             }
-            this.Player.申请行会Hostility(P.Hostility时间, P.行会名字);
+            this.Player.申请行会Hostility(P.Hostility时间, P.GuildName);
         }
 
 
@@ -2346,7 +2346,7 @@ namespace GameServer.Networking
             {
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
             }
-            else if (SystemData.Data.网卡封禁.TryGetValue(P.物理地址, out DateTime t) && t > MainProcess.CurrentTime)
+            else if (SystemData.Data.网卡封禁.TryGetValue(P.MacAddress, out DateTime t) && t > MainProcess.CurrentTime)
             {
                 this.CallExceptionEventHandler(new Exception("网卡封禁, 限制登录"));
             }
@@ -2384,7 +2384,7 @@ namespace GameServer.Networking
                 }
                 else
                 {
-                    AccountData3.账号登录(this, P.物理地址);
+                    AccountData3.账号登录(this, P.MacAddress);
                 }
             }
             NetworkServiceGateway.门票DataSheet.Remove(P.登录门票);
@@ -2482,10 +2482,10 @@ namespace GameServer.Networking
         public PlayerObject Player;
 
 
-        public string 网络地址;
+        public string NetAddress;
 
 
-        public string 物理地址;
+        public string MacAddress;
 
 
         public int 发送总数;

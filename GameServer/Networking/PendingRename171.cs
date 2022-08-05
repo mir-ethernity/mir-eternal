@@ -35,7 +35,7 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 22, Length = 4)]
-		public int 当前体力;
+		public int CurrentStamina;
 
 		
 		[WrappingFieldAttribute(SubScript = 26, Length = 4)]
@@ -43,7 +43,7 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 30, Length = 4)]
-		public int 当前地图;
+		public int CurrentMap;
 
 		
 		[WrappingFieldAttribute(SubScript = 34, Length = 4)]

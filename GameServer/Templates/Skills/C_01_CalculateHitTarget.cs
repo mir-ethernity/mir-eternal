@@ -80,7 +80,7 @@ namespace GameServer.Templates
 		public float 触发被动概率;
 
 		
-		public bool 增加技能经验;
+		public bool 增加SkillExp;
 
 		
 		public ushort 经验SkillId;

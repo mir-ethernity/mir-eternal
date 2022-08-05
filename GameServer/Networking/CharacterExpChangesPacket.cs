@@ -27,11 +27,11 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 14, Length = 4)]
-		public int 双倍经验;
+		public int DoubleExp;
 
 		
 		[WrappingFieldAttribute(SubScript = 18, Length = 4)]
-		public int 当前经验;
+		public int CurrentExp;
 
 		
 		[WrappingFieldAttribute(SubScript = 26, Length = 4)]

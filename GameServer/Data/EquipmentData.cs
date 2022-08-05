@@ -564,33 +564,33 @@ namespace GameServer.Data
                 {
                     int num11;
                     int num12;
-                    text += string.Format("\n防御{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinDef, out num11) ? num11 : 0, dictionary.TryGetValue(GameObjectStats.MaxDef, out num12) ? num12 : 0);
+                    text += string.Format("\nDefence{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinDef, out num11) ? num11 : 0, dictionary.TryGetValue(GameObjectStats.MaxDef, out num12) ? num12 : 0);
                 }
                 if (dictionary.ContainsKey(GameObjectStats.MinMagicDef) || dictionary.ContainsKey(GameObjectStats.MaxMagicDef))
                 {
                     int num13;
                     int num14;
-                    text += string.Format("\n魔防{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinMagicDef, out num13) ? num13 : 0, dictionary.TryGetValue(GameObjectStats.MaxMagicDef, out num14) ? num14 : 0);
+                    text += string.Format("\nMagic Defense{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinMagicDef, out num13) ? num13 : 0, dictionary.TryGetValue(GameObjectStats.MaxMagicDef, out num14) ? num14 : 0);
                 }
                 if (dictionary.ContainsKey(GameObjectStats.PhysicallyAccurate))
                 {
                     int num15;
-                    text += string.Format("\n准确度{0}", dictionary.TryGetValue(GameObjectStats.PhysicallyAccurate, out num15) ? num15 : 0);
+                    text += string.Format("\nAccuracy{0}", dictionary.TryGetValue(GameObjectStats.PhysicallyAccurate, out num15) ? num15 : 0);
                 }
                 if (dictionary.ContainsKey(GameObjectStats.PhysicalAgility))
                 {
                     int num16;
-                    text += string.Format("\n敏捷度{0}", dictionary.TryGetValue(GameObjectStats.PhysicalAgility, out num16) ? num16 : 0);
+                    text += string.Format("\nAgility{0}", dictionary.TryGetValue(GameObjectStats.PhysicalAgility, out num16) ? num16 : 0);
                 }
                 if (dictionary.ContainsKey(GameObjectStats.MaxPhysicalStrength))
                 {
                     int num17;
-                    text += string.Format("\n体力值{0}", dictionary.TryGetValue(GameObjectStats.MaxPhysicalStrength, out num17) ? num17 : 0);
+                    text += string.Format("\nStamina{0}", dictionary.TryGetValue(GameObjectStats.MaxPhysicalStrength, out num17) ? num17 : 0);
                 }
                 if (dictionary.ContainsKey(GameObjectStats.MaxMagic2))
                 {
                     int num18;
-                    text += string.Format("\n法力值{0}", dictionary.TryGetValue(GameObjectStats.MaxMagic2, out num18) ? num18 : 0);
+                    text += string.Format("\nMana{0}", dictionary.TryGetValue(GameObjectStats.MaxMagic2, out num18) ? num18 : 0);
                 }
                 if (dictionary.ContainsKey(GameObjectStats.MagicDodge))
                 {
@@ -600,12 +600,12 @@ namespace GameServer.Data
                 if (dictionary.ContainsKey(GameObjectStats.中毒躲避))
                 {
                     int num20;
-                    text += string.Format("\n中毒躲避{0}%", (dictionary.TryGetValue(GameObjectStats.中毒躲避, out num20) ? num20 : 0) / 100);
+                    text += string.Format("\nPoisoning evasion{0}%", (dictionary.TryGetValue(GameObjectStats.中毒躲避, out num20) ? num20 : 0) / 100);
                 }
                 if (dictionary.ContainsKey(GameObjectStats.幸运等级))
                 {
                     int num21;
-                    text += string.Format("\n幸运+{0}", dictionary.TryGetValue(GameObjectStats.幸运等级, out num21) ? num21 : 0);
+                    text += string.Format("\nLuck+{0}", dictionary.TryGetValue(GameObjectStats.幸运等级, out num21) ? num21 : 0);
                 }
                 return text;
             }

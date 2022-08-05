@@ -41,10 +41,10 @@ namespace GameServer.Templates
                 if (SkillInfo.BindingLevelId == 0) return 0;
 
                 if (CasterObject is PlayerObject playerObj && playerObj.MainSkills表.TryGetValue(SkillInfo.BindingLevelId, out var skillData))
-                    return skillData.技能等级.V;
+                    return skillData.SkillLevel.V;
 
                 if (CasterObject is TrapObject trapObj && trapObj.陷阱来源 is PlayerObject playerObj2 && playerObj2.MainSkills表.TryGetValue(SkillInfo.BindingLevelId, out var skillData2))
-                    return skillData2.技能等级.V;
+                    return skillData2.SkillLevel.V;
 
                 return 0;
             }
@@ -282,7 +282,7 @@ namespace GameServer.Templates
                         }
                     }
 
-                    if (flag2 && a_01.增加技能经验 && CasterObject is PlayerObject playerObj)
+                    if (flag2 && a_01.增加SkillExp && CasterObject is PlayerObject playerObj)
                         playerObj.SkillGainExp(a_01.经验SkillId);
                 }
                 else if (task is A_02_TriggerTrapSkills a_02)
@@ -337,13 +337,13 @@ namespace GameServer.Templates
                     {
                         if (CheckCount && CasterObject is PlayerObject playerObj)
                         {
-                            if ((SkillData.剩余次数.V -= 1) <= 0)
+                            if ((SkillData.RemainingTimeLeft.V -= 1) <= 0)
                                 CasterObject.Coolings[SkillId | 16777216] = ReleaseTime.AddMilliseconds((SkillData.计数时间 - MainProcess.CurrentTime).TotalMilliseconds);
 
                             playerObj.ActiveConnection.发送封包(new SyncSkillCountPacket
                             {
                                 SkillId = SkillData.SkillId.V,
-                                SkillCount = SkillData.剩余次数.V,
+                                SkillCount = SkillData.RemainingTimeLeft.V,
                                 技能冷却 = (int)(SkillData.计数时间 - MainProcess.CurrentTime).TotalMilliseconds
                             });
                         }
@@ -392,7 +392,7 @@ namespace GameServer.Templates
                         {
                             对象编号 = !TargetBorrow || SkillTarget == null ? CasterObject.MapId : SkillTarget.MapId,
                             SkillId = SkillId,
-                            技能等级 = SkillLevel,
+                            SkillLevel = SkillLevel,
                             技能铭文 = Id,
                             锚点坐标 = SkillLocation,
                             动作编号 = ActionId,
@@ -407,7 +407,7 @@ namespace GameServer.Templates
                         {
                             对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.MapId : SkillTarget.MapId),
                             SkillId = SkillId,
-                            技能等级 = SkillLevel,
+                            SkillLevel = SkillLevel,
                             技能铭文 = Id,
                             动作编号 = ActionId,
                             命中描述 = HitDetail.GetHitDescription(Hits, FightTime)
@@ -564,7 +564,7 @@ namespace GameServer.Templates
                             {
                                 对象编号 = CasterObject.MapId,
                                 SkillId = SkillId,
-                                技能等级 = SkillLevel,
+                                SkillLevel = SkillLevel,
                                 技能铭文 = Id,
                                 动作编号 = ActionId,
                                 技能分段 = SegmentId
@@ -579,7 +579,7 @@ namespace GameServer.Templates
                         {
                             对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.MapId : SkillTarget.MapId),
                             SkillId = SkillId,
-                            技能等级 = SkillLevel,
+                            SkillLevel = SkillLevel,
                             技能铭文 = Id,
                             目标编号 = SkillTarget?.MapId ?? 0,
                             锚点坐标 = SkillLocation,
@@ -599,7 +599,7 @@ namespace GameServer.Templates
                     if (c_01.触发PassiveSkill && Hits.Count != 0 && ComputingClass.计算概率(c_01.触发被动概率))
                         CasterObject[GameObjectStats.SkillSign] = 1;
 
-                    if (c_01.增加技能经验 && Hits.Count != 0 && CasterObject is PlayerObject playerObj)
+                    if (c_01.增加SkillExp && Hits.Count != 0 && CasterObject is PlayerObject playerObj)
                         playerObj.SkillGainExp(c_01.经验SkillId);
 
                     if (c_01.计算飞行耗时 && c_01.单格飞行耗时 != 0)
@@ -621,7 +621,7 @@ namespace GameServer.Templates
                         {
                             对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.MapId : SkillTarget.MapId),
                             SkillId = SkillId,
-                            技能等级 = SkillLevel,
+                            SkillLevel = SkillLevel,
                             技能铭文 = Id,
                             动作编号 = ActionId,
                             命中描述 = HitDetail.GetHitDescription(Hits, FightTime)
@@ -652,7 +652,7 @@ namespace GameServer.Templates
                             {
                                 对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.MapId : SkillTarget.MapId),
                                 SkillId = SkillId,
-                                技能等级 = SkillLevel,
+                                SkillLevel = SkillLevel,
                                 技能铭文 = Id,
                                 动作编号 = ActionId,
                                 目标编号 = item.Value.Object.MapId,
@@ -672,14 +672,14 @@ namespace GameServer.Templates
                                 int num11 = c_02.PhysicalRecoveryBase;
                                 if (c_02.等级差减回复)
                                 {
-                                    int Value = (CasterObject.当前等级 - item.Value.Object.当前等级) - c_02.减回复等级差;
+                                    int Value = (CasterObject.CurrentRank - item.Value.Object.CurrentRank) - c_02.减回复等级差;
                                     int num12 = c_02.零回复等级差 - c_02.减回复等级差;
                                     float num13 = ComputingClass.ValueLimit(0, Value, num12) / (float)num12;
                                     num11 = (int)((float)num11 - (float)num11 * num13);
                                 }
                                 if (num11 > 0)
                                 {
-                                    CasterObject.当前体力 += num11;
+                                    CasterObject.CurrentStamina += num11;
                                     CasterObject.发送封包(new 体力变动飘字
                                     {
                                         血量变化 = num11,
@@ -775,7 +775,7 @@ namespace GameServer.Templates
 
                     if (CasterObject is PlayerObject playerObj)
                     {
-                        if (c_02.增加技能经验 && Hits.Count != 0)
+                        if (c_02.增加SkillExp && Hits.Count != 0)
                             playerObj.SkillGainExp(c_02.经验SkillId);
 
                         if (c_02.扣除武器持久 && Hits.Count != 0)
@@ -793,7 +793,7 @@ namespace GameServer.Templates
                         {
                             对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.MapId : SkillTarget.MapId),
                             SkillId = SkillId,
-                            技能等级 = SkillLevel,
+                            SkillLevel = SkillLevel,
                             技能铭文 = Id,
                             动作编号 = ActionId,
                             技能分段 = SegmentId
@@ -957,10 +957,10 @@ namespace GameServer.Templates
                 {
                     if (c_06.怪物召唤同伴)
                     {
-                        if (c_06.召唤宠物名字 == null || c_06.召唤宠物名字.Length == 0)
+                        if (c_06.召唤PetName == null || c_06.召唤PetName.Length == 0)
                             return;
 
-                        if (Monsters.DataSheet.TryGetValue(c_06.召唤宠物名字, out var 对应模板))
+                        if (Monsters.DataSheet.TryGetValue(c_06.召唤PetName, out var 对应模板))
                             _ = new MonsterObject(对应模板, ReleaseMap, int.MaxValue, new Point[] { ReleaseLocation }, true, true) { 存活时间 = MainProcess.CurrentTime.AddMinutes(1.0) };
                     }
                     else if (CasterObject is PlayerObject playerObj)
@@ -968,14 +968,14 @@ namespace GameServer.Templates
                         if (c_06.检查技能铭文 && (!playerObj.MainSkills表.TryGetValue(SkillId, out var skill) || skill.Id != Id))
                             return;
 
-                        if (c_06.召唤宠物名字 == null || c_06.召唤宠物名字.Length == 0)
+                        if (c_06.召唤PetName == null || c_06.召唤PetName.Length == 0)
                             return;
 
                         int num21 = ((c_06.召唤宠物数量?.Length > SkillLevel) ? c_06.召唤宠物数量[SkillLevel] : 0);
-                        if (playerObj.宠物列表.Count < num21 && Monsters.DataSheet.TryGetValue(c_06.召唤宠物名字, out var value5))
+                        if (playerObj.宠物列表.Count < num21 && Monsters.DataSheet.TryGetValue(c_06.召唤PetName, out var value5))
                         {
-                            byte 等级上限 = (byte)((c_06.宠物等级上限?.Length > SkillLevel) ? c_06.宠物等级上限[SkillLevel] : 0);
-                            PetObject 宠物实例 = new PetObject(playerObj, value5, SkillLevel, 等级上限, c_06.宠物绑定武器);
+                            byte GradeCap = (byte)((c_06.宠物GradeCap?.Length > SkillLevel) ? c_06.宠物GradeCap[SkillLevel] : 0);
+                            PetObject 宠物实例 = new PetObject(playerObj, value5, SkillLevel, GradeCap, c_06.宠物BoundWeapons);
                             playerObj.ActiveConnection.发送封包(new SyncPetLevelPacket
                             {
                                 宠物编号 = 宠物实例.MapId,
@@ -989,7 +989,7 @@ namespace GameServer.Templates
                             playerObj.PetData.Add(宠物实例.PetData);
                             playerObj.宠物列表.Add(宠物实例);
 
-                            if (c_06.增加技能经验)
+                            if (c_06.增加SkillExp)
                                 playerObj.SkillGainExp(c_06.经验SkillId);
                         }
                     }
@@ -999,7 +999,7 @@ namespace GameServer.Templates
                     foreach (var keyValuePair20 in Hits)
                         keyValuePair20.Value.Object.被动回复时处理(this, c_05);
 
-                    if (c_05.增加技能经验 && Hits.Count != 0 && CasterObject is PlayerObject playerObj)
+                    if (c_05.增加SkillExp && Hits.Count != 0 && CasterObject is PlayerObject playerObj)
                         playerObj.SkillGainExp(c_05.经验SkillId);
                 }
                 else if (task is C_07_CalculateTargetTeleportation c_07 && CasterObject is PlayerObject playerObj)
@@ -1022,7 +1022,7 @@ namespace GameServer.Templates
             {
                 对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.MapId : SkillTarget.MapId),
                 SkillId = SkillId,
-                技能等级 = SkillLevel,
+                SkillLevel = SkillLevel,
                 技能铭文 = Id,
                 动作编号 = ActionId,
                 技能分段 = SegmentId
