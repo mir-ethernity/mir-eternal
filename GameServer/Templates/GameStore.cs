@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using GameServer.Data;
 
 namespace GameServer.Templates
@@ -43,8 +44,11 @@ namespace GameServer.Templates
                 {
                     foreach (GameStoreItem product in store.Products)
                     {
+                        var name = Encoding.UTF8.GetBytes(store.Name);
+
                         binaryWriter.Write(store.StoreId);
-                        binaryWriter.Write(new byte[64]);
+                        binaryWriter.Write(name);
+                        binaryWriter.Write(new byte[64 - name.Length]);
                         binaryWriter.Write(product.Id);
                         binaryWriter.Write(product.Units);
                         binaryWriter.Write(product.CurrencyType);
@@ -58,14 +62,17 @@ namespace GameServer.Templates
                         binaryWriter.Write((int)store.RecyclingType);
                         binaryWriter.Write(0);
                         binaryWriter.Write(0);
-                        binaryWriter.Write((byte)0);
-                        binaryWriter.Write((byte)0);
-                        binaryWriter.Write((byte)0);
+                        binaryWriter.Write((ushort)0);
+                        binaryWriter.Write(-1);
+                        binaryWriter.Write(-1);
                         StoreItemsCounts++;
                     }
                 }
 
-                StoreBuffer = Serializer.Decompress(memoryStream.ToArray());
+                var buffer = memoryStream.ToArray();
+
+                StoreBuffer = Serializer.Decompress(buffer);
+
                 StoreVersion = 0;
 
                 foreach (byte b in GameStore.StoreBuffer)

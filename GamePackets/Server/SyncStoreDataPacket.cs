@@ -12,7 +12,6 @@ namespace GameServer.Networking
 		
 		[WrappingField(SubScript = 8, Length = 4)]
 		public int ItemsCount;
-
 		
 		[WrappingField(SubScript = 12, Length = 0)]
 		public byte[] Data = Array.Empty<byte>();
