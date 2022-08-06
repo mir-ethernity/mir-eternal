@@ -35,7 +35,7 @@ namespace GameServer.Templates
 		public PersistentItemType PersistType;
 		public ItemsForSale StoreType;
 		
-		public IDictionary<ItemProperty, int> Props;
+		public IDictionary<ItemProperty, int> Props = new Dictionary<ItemProperty, int>();
 
 		public static GameItems GetItem(int id)
 		{
