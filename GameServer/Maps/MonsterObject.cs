@@ -667,7 +667,7 @@ namespace GameServer.Maps
 						if (MainProcess.RandomNumber.Next(num3) == num3 / 2)
 						{
 							num++;
-							new ItemObject(物品模板, null, this.CurrentMap, this.CurrentCoords, new HashSet<CharacterData>(), 1, false);
+							new ItemObject(物品模板, null, this.CurrentMap, this.CurrentCoords, new HashSet<CharacterData>(), 1, false, this);
 						}
 					}
 					GameItems 物品模板2;
@@ -678,7 +678,7 @@ namespace GameServer.Maps
 						if (MainProcess.RandomNumber.Next(num5) == num5 / 2)
 						{
 							num++;
-							new ItemObject(物品模板2, null, this.CurrentMap, this.CurrentCoords, new HashSet<CharacterData>(), 1, false);
+							new ItemObject(物品模板2, null, this.CurrentMap, this.CurrentCoords, new HashSet<CharacterData>(), 1, false, this);
 						}
 					}
 					GameItems 物品模板3;
@@ -689,7 +689,7 @@ namespace GameServer.Maps
 						if (MainProcess.RandomNumber.Next(num7) == num7 / 2)
 						{
 							num++;
-							new ItemObject(物品模板3, null, this.CurrentMap, this.CurrentCoords, new HashSet<CharacterData>(), 1, false);
+							new ItemObject(物品模板3, null, this.CurrentMap, this.CurrentCoords, new HashSet<CharacterData>(), 1, false, this);
 						}
 					}
 					GameItems 物品模板4;
@@ -700,7 +700,7 @@ namespace GameServer.Maps
 						if (MainProcess.RandomNumber.Next(num9) == num9 / 2)
 						{
 							num++;
-							new ItemObject(物品模板4, null, this.CurrentMap, this.CurrentCoords, new HashSet<CharacterData>(), 1, false);
+							new ItemObject(物品模板4, null, this.CurrentMap, this.CurrentCoords, new HashSet<CharacterData>(), 1, false, this);
 							NetworkServiceGateway.发送公告(string.Concat(new string[]
 							{
 								"[",
@@ -753,7 +753,7 @@ namespace GameServer.Maps
 								{
 									if (游戏物品.MaxDura == 0)
 									{
-										new ItemObject(游戏物品, null, this.CurrentMap, this.CurrentCoords, 物品归属, num14, false);
+										new ItemObject(游戏物品, null, this.CurrentMap, this.CurrentCoords, 物品归属, num14, false, this);
 										if (游戏物品.Id == 1)
 										{
 											this.CurrentMap.MobGoldDrop += (long)num14;
@@ -765,7 +765,7 @@ namespace GameServer.Maps
 									{
 										for (int i = 0; i < num14; i++)
 										{
-											new ItemObject(游戏物品, null, this.CurrentMap, this.CurrentCoords, 物品归属, 1, false);
+											new ItemObject(游戏物品, null, this.CurrentMap, this.CurrentCoords, 物品归属, 1, false, this);
 										}
 										this.CurrentMap.MobsDrops += (long)num14;
 										num12++;
