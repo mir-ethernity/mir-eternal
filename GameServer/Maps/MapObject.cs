@@ -403,40 +403,8 @@ namespace GameServer.Maps
 
         public void SendPacket(GamePacket 封包)
         {
-            string name = 封包.PacketType.Name;
-
-            switch (name)
-            {
-                case "ObjectCharacterWalkPacket":
-                case "ObjectCharacterRunPacket":
-                case "ObjectRotationDirectionPacket":
-                case "ObjectTransformTypePacket":
-                case "ObjectPassiveDisplacementPacket":
-                case "ObjectStateChangePacket":
-                case "CharacterLevelUpPacket":
-                case "ObjectRemovalStatusPacket":
-                case "TrapMoveLocationPacket":
-                case "ReceiveChatMessagesNearbyPacket":
-                case "SyncPetLevelPacket":
-                case "ObjectAddStatePacket":
-                case "ObjectCharacterDiesPacket":
-                case "同步对象惩罚":
-                case "同步装配称号":
-                case "摆摊状态改变":
-                case "玩家名字变灰":
-                case "开始释放技能":
-                case "同步角色外形":
-                case "变更摊位名字":
-                case "触发命中特效":
-                case "SyncObjectHP":
-                case "SkillHitNormal":
-                case "同步对象行会":
-                case "技能释放中断":
-                case "触发状态效果":
-                case "触发技能扩展":
-                    BroadcastPacket(封包);
-                    break;
-            }
+            if (封包.PacketInfo.Broadcast)
+                BroadcastPacket(封包);
 
             if (this is PlayerObject playerObj)
                 playerObj.ActiveConnection?.发送封包(封包);
@@ -2794,16 +2762,17 @@ namespace GameServer.Maps
                                 });
                             }
                         }
-                        else
+                        else if (对象 is ItemObject dropObject)
                         {
                             PlayerObject.ActiveConnection.发送封包(new ObjectDropItemsPacket
                             {
-                                对象编号 = 对象.ObjectId,
-                                MapId = 对象.ObjectId,
-                                掉落坐标 = 对象.CurrentCoords,
-                                掉落高度 = 对象.当前高度,
-                                Id = (对象 as ItemObject).Id,
-                                物品数量 = (对象 as ItemObject).堆叠数量
+                                DropperObjectId = dropObject.DropperObjectId,
+                                ItemObjectId = dropObject.ObjectId,
+                                掉落坐标 = dropObject.CurrentCoords,
+                                掉落高度 = dropObject.当前高度,
+                                ItemId = dropObject.Id,
+                                物品数量 = dropObject.堆叠数量,
+                                OwnerPlayerId = dropObject.GetOwnerPlayerIdForDrop(PlayerObject),
                             });
                         }
                     IL_356:
@@ -2963,16 +2932,17 @@ namespace GameServer.Maps
                                 });
                             }
                         }
-                        else
+                        else if (对象 is ItemObject dropObject)
                         {
                             PlayerObject3.ActiveConnection.发送封包(new ObjectDropItemsPacket
                             {
-                                对象编号 = 对象.ObjectId,
-                                MapId = 对象.ObjectId,
-                                掉落坐标 = 对象.CurrentCoords,
-                                掉落高度 = 对象.当前高度,
-                                Id = (对象 as ItemObject).Id,
-                                物品数量 = (对象 as ItemObject).堆叠数量
+                                DropperObjectId = dropObject.DropperObjectId,
+                                ItemObjectId = dropObject.ObjectId,
+                                掉落坐标 = dropObject.CurrentCoords,
+                                掉落高度 = dropObject.当前高度,
+                                ItemId = dropObject.Id,
+                                物品数量 = dropObject.堆叠数量,
+                                OwnerPlayerId = dropObject.GetOwnerPlayerIdForDrop(PlayerObject3),
                             });
                         }
                     IL_866:
