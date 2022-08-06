@@ -1,4 +1,5 @@
 ﻿using ClientPacketSniffer.Repositories;
+using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -196,6 +197,20 @@ namespace ClientPacketSniffer
             }
 
             var raw = sb.ToString();
+
+            var shopBuffer = output.Where(x => x.PacketInfo.Id == 142 && x.PacketInfo.Source == 1).First();
+
+            MemoryStream memoryStream = new MemoryStream();
+            DeflaterOutputStream deflaterOutputStream = new DeflaterOutputStream(memoryStream);
+            deflaterOutputStream.Write(shopBuffer.Data, 0, shopBuffer.Data.Length);
+            deflaterOutputStream.Close();
+
+            var decompressedData = memoryStream.ToArray();
+
+            var querico = string.Join(", ", decompressedData.Select(x => x.ToString()).ToArray());
+
+            var caca = output.Skip(3050).Take(100).ToArray();
+            var test = output.Select((x, i) => new { i = i, packet = x }).Where((x) => x.packet.PacketInfo.Id == 150).ToList();
 
             return output.ToArray();
         }

@@ -14,6 +14,8 @@ Console.CancelKeyPress += delegate
         Environment.Exit(1);
 };
 
+WiresharkArrayC.DynamicParse();
+
 void SelectServiceCommand()
 {
     Console.WriteLine("Select the service you want to run: ");
@@ -21,6 +23,7 @@ void SelectServiceCommand()
     Console.WriteLine(" [2] Inspector: Select a session sniffer and explore packets received");
     Console.WriteLine(" [3] Emulator: Starts a fake server emulator");
     Console.WriteLine(" [4] Manual decode packets");
+    Console.WriteLine(" [5] Decode from Array C extracted from Wireshark");
 
     Console.Write("Service: ");
     var idxStr = Console.ReadLine();
@@ -39,6 +42,9 @@ void SelectServiceCommand()
                 break;
             case 4:
                 ManualDecodePacketService.WaitEntry();
+                break;
+            case 5:
+                WiresharkArrayC.DynamicParse();
                 break;
             default:
                 Console.WriteLine("Invalid service value");
