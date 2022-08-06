@@ -124,11 +124,6 @@ namespace GameServer.Data
                 协议数据 = GenerateLoginAgreementDescription()
             });
             当前网络.发送封包(new 同步服务状态());
-            // Packet ID: 691, Name: UnknownS1
-            // 当前网络.SendRaw(691, 16, new byte[] { 100, 0, 130, 0, 160, 0, 190, 0, 220, 0, 250, 0, 250, 0 });
-
-            // Packet ID: 692, Name: UnknownS2
-            // 当前网络.SendRaw(692, 6, new byte[] { 0, 0, 0, 0 });
             
             当前网络.发送封包(new BackCharacterListPacket
             {
@@ -377,12 +372,14 @@ namespace GameServer.Data
                         });
                         return;
                     }
+
                     conn.发送封包(new EnterGameAnswerPacket
                     {
                         角色编号 = CharacterData.Id
                     });
+
                     conn.Player = new PlayerObject(CharacterData, conn);
-                    conn.当前阶段 = GameStage.PlayingScene;
+                    conn.当前阶段 = GameStage.LoadingScene;
                     return;
                 }
             }

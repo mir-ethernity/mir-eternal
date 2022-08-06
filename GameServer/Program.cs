@@ -1,4 +1,5 @@
 ﻿using GameServer.Networking;
+using GameServer.Properties;
 using System;
 using System.Threading;
 using System.Windows.Forms;
@@ -20,6 +21,7 @@ namespace GameServer
                 Application.SetHighDpiMode(HighDpiMode.SystemAware);
                 Application.SetCompatibleTextRenderingDefault(false);
 
+                Config.SendPacketsAsync = Settings.Default.SendPacketsAsync;
                 GamePacket.Config(typeof(SConnection));
 
                 Application.Run(new MainForm());

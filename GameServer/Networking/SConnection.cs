@@ -145,13 +145,23 @@ namespace GameServer.Networking
         {
             if (!this.ConnectionErrored && !NetworkServiceGateway.网络服务停止 && 封包 != null)
             {
-                MainForm.AddPacketLog(封包, false);
-                SendPackets.Enqueue(封包);
+                if (Config.SendPacketsAsync)
+                {
+                    SendPackets.Enqueue(封包);
+                }
+                else
+                {
+                    MainForm.AddPacketLog(封包, false);
+                    Connection.Client.Send(封包.取字节());
+                }
             }
         }
 
         public void SendRaw(ushort type, ushort length, byte[] data, bool encoded = true)
         {
+            if (Config.SendPacketsAsync)
+                throw new ApplicationException("To send raw packets it is necessary to disable the \"SendPacketsAsync\" setting");
+
             byte[] output;
             if (length == 0)
             {
@@ -361,7 +371,13 @@ namespace GameServer.Networking
 
         public void 处理封包(UnknownC1 P)
         {
-
+            if (this.当前阶段 != GameStage.LoadingScene && this.当前阶段 != GameStage.PlayingScene)
+            {
+                this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
+                return;
+            }
+            this.Player.玩家进入场景();
+            this.当前阶段 = GameStage.PlayingScene;
         }
 
         public void 处理封包(UnknownC2 P)
@@ -436,7 +452,6 @@ namespace GameServer.Networking
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
                 return;
             }
-
             this.Player.请求对象外观(P.对象编号, P.状态编号);
         }
 
@@ -621,7 +636,6 @@ namespace GameServer.Networking
             this.Account.更换角色(this);
             this.当前阶段 = GameStage.SelectingCharacterScene;
         }
-
 
         public void 处理封包(场景加载完成 P)
         {
