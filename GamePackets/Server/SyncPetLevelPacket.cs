@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 72, 长度 = 7, 注释 = "SyncPetLevelPacket")]
+	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 72, 长度 = 7, 注释 = "SyncPetLevelPacket", Broadcast = true)]
 	public sealed class SyncPetLevelPacket : GamePacket
 	{
 		

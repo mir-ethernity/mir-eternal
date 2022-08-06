@@ -178,6 +178,7 @@ namespace GameServer.Networking
             GamePacket.ClientPackets = new Dictionary<ushort, Type>();
             GamePacket.ClientPacketNumberTable = new Dictionary<Type, ushort>();
             GamePacket.ClientPacketLengthTable = new Dictionary<ushort, ushort>();
+
             foreach (Type type in Assembly.GetExecutingAssembly().GetTypes())
             {
                 if (type.IsSubclassOf(typeof(GamePacket)))

@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 97, 长度 = 28, 注释 = "触发命中特效(技能信息,目标,血量,反馈)")]
+	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 97, 长度 = 28, 注释 = "触发命中特效(技能信息,目标,血量,反馈)", Broadcast = true)]
 	public sealed class 触发命中特效 : GamePacket
 	{
 		

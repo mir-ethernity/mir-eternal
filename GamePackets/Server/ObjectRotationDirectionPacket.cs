@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 50, 长度 = 10, 注释 = "对象转动")]
+	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 50, 长度 = 10, 注释 = "对象转动", Broadcast = true)]
 	public sealed class ObjectRotationDirectionPacket : GamePacket
 	{
 		

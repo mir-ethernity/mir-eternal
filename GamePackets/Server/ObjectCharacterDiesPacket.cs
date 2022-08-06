@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 55, 长度 = 7, 注释 = "对象死亡")]
+	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 55, 长度 = 7, 注释 = "对象死亡", Broadcast = true)]
 	public sealed class ObjectCharacterDiesPacket : GamePacket
 	{
 		

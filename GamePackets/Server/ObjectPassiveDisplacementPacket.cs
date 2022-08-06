@@ -4,7 +4,7 @@ using System.Drawing;
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 49, 长度 = 17, 注释 = "被动位移")]
+	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 49, 长度 = 17, 注释 = "被动位移", Broadcast = true)]
 	public sealed class ObjectPassiveDisplacementPacket : GamePacket
 	{
 		

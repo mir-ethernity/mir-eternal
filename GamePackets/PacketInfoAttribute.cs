@@ -26,5 +26,7 @@ namespace GameServer
 		public string 注释;
 
 		public bool NoDebug;
+
+		public bool Broadcast;
 	}
 }

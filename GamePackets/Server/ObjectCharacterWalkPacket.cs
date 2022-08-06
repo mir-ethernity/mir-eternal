@@ -4,7 +4,7 @@ using System.Drawing;
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 46, 长度 = 12, 注释 = "角色走动")]
+	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 46, 长度 = 12, 注释 = "角色走动", Broadcast = true)]
 	public sealed class ObjectCharacterWalkPacket : GamePacket
 	{
 		

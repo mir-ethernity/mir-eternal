@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 119, 长度 = 22, 注释 = "Effect")]
+	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 119, 长度 = 22, 注释 = "Effect", Broadcast = true)]
 	public sealed class 触发状态效果 : GamePacket
 	{
 		

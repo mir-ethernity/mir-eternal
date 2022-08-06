@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 223, 长度 = 10, 注释 = "同步对象行会")]
+	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 223, 长度 = 10, 注释 = "同步对象行会", Broadcast = true)]
 	public sealed class 同步对象行会 : GamePacket
 	{
 		
