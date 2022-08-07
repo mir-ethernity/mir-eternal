@@ -35,7 +35,7 @@
       "HitsLimit": 1,
       "LimitedTargetType": "宠物, 怪物",
       "LimitedTargetRelationship": "Hostility",
-      "增加技能经验": true,
+      "GainSkillExp": true,
       "经验SkillId": 2541,
       "清除状态列表": []
     },

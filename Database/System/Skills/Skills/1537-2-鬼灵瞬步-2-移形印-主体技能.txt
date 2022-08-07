@@ -26,7 +26,7 @@
     "2": {
       "$type": "C_03_CalculateObjectDisplacement, Assembly-CSharp",
       "角色ItSelf位移": true,
-      "位移增加经验": true,
+      "DisplacementIncreaseExp": true,
       "能否穿越障碍": true,
       "ItSelf位移次数": "AQEBAQ==",
       "ItSelf位移距离": "BAUGBw==",

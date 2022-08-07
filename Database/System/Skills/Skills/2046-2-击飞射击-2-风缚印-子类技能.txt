@@ -43,7 +43,7 @@
         1.15,
         1.2
       ],
-      "增加技能经验": true,
+      "GainSkillExp": true,
       "经验SkillId": 2041,
       "目标硬直时间": 500,
       "清除状态列表": []
@@ -53,7 +53,7 @@
       "ItSelf位移次数": "AAAAAA==",
       "ItSelf位移距离": "AAAAAA==",
       "推动目标位移": true,
-      "推动增加经验": true,
+      "BoostSkillExp": true,
       "推动目标概率": 1,
       "目标位移耗时": 3,
       "目标位移距离": "AQIDBA==",

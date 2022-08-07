@@ -29,7 +29,7 @@
       "所需Id": 12050,
       "同组铭文无效": true,
       "所需Buff层数": 1,
-      "增加技能经验": true,
+      "GainSkillExp": true,
       "经验SkillId": 1205
     },
     "2": {
@@ -40,7 +40,7 @@
       "所需Id": 12051,
       "同组铭文无效": true,
       "所需Buff层数": 1,
-      "增加技能经验": true,
+      "GainSkillExp": true,
       "经验SkillId": 1205
     },
     "3": {
@@ -51,7 +51,7 @@
       "所需Id": 12052,
       "同组铭文无效": true,
       "所需Buff层数": 1,
-      "增加技能经验": true,
+      "GainSkillExp": true,
       "经验SkillId": 1205
     },
     "4": {
@@ -62,7 +62,7 @@
       "所需Id": 12053,
       "同组铭文无效": true,
       "所需Buff层数": 1,
-      "增加技能经验": true,
+      "GainSkillExp": true,
       "经验SkillId": 1205
     },
     "5": {
@@ -73,7 +73,7 @@
       "所需Id": 12054,
       "同组铭文无效": true,
       "所需Buff层数": 1,
-      "增加技能经验": true,
+      "GainSkillExp": true,
       "经验SkillId": 1205
     },
     "6": {

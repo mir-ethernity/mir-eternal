@@ -31,7 +31,7 @@
       "$type": "C_03_CalculateObjectDisplacement, Assembly-CSharp",
       "角色ItSelf位移": true,
       "允许超出锚点": true,
-      "位移增加经验": true,
+      "DisplacementIncreaseExp": true,
       "ItSelf位移耗时": 1,
       "ItSelf硬直时间": 60,
       "ItSelf位移次数": "AQEBAQ==",

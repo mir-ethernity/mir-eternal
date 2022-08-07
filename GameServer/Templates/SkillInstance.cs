@@ -282,7 +282,7 @@ namespace GameServer.Templates
                         }
                     }
 
-                    if (flag2 && a_01.增加SkillExp && CasterObject is PlayerObject playerObj)
+                    if (flag2 && a_01.GainSkillExp && CasterObject is PlayerObject playerObj)
                         playerObj.SkillGainExp(a_01.经验SkillId);
                 }
                 else if (task is A_02_TriggerTrapSkills a_02)
@@ -599,7 +599,7 @@ namespace GameServer.Templates
                     if (c_01.触发PassiveSkill && Hits.Count != 0 && ComputingClass.计算概率(c_01.触发被动概率))
                         CasterObject[GameObjectStats.SkillSign] = 1;
 
-                    if (c_01.增加SkillExp && Hits.Count != 0 && CasterObject is PlayerObject playerObj)
+                    if (c_01.GainSkillExp && Hits.Count != 0 && CasterObject is PlayerObject playerObj)
                         playerObj.SkillGainExp(c_01.经验SkillId);
 
                     if (c_01.计算飞行耗时 && c_01.单格飞行耗时 != 0)
@@ -775,7 +775,7 @@ namespace GameServer.Templates
 
                     if (CasterObject is PlayerObject playerObj)
                     {
-                        if (c_02.增加SkillExp && Hits.Count != 0)
+                        if (c_02.GainSkillExp && Hits.Count != 0)
                             playerObj.SkillGainExp(c_02.经验SkillId);
 
                         if (c_02.扣除武器持久 && Hits.Count != 0)
@@ -836,7 +836,7 @@ namespace GameServer.Templates
 
                                 mapObj.ItSelf移动时处理(point2);
 
-                                if (c_03.推动增加经验 && !GainExperience && CasterObject is PlayerObject playerObj)
+                                if (c_03.BoostSkillExp && !GainExperience && CasterObject is PlayerObject playerObj)
                                 {
                                     playerObj.SkillGainExp(SkillId);
                                     GainExperience = true;
@@ -858,7 +858,7 @@ namespace GameServer.Templates
                             });
                             CasterObject.ItSelf移动时处理(point);
 
-                            if (c_03.位移增加经验 && !GainExperience && CasterObject is PlayerObject playerObj2)
+                            if (c_03.DisplacementIncreaseExp && !GainExperience && CasterObject is PlayerObject playerObj2)
                             {
                                 playerObj2.SkillGainExp(SkillId);
                                 GainExperience = true;
@@ -939,7 +939,7 @@ namespace GameServer.Templates
                                 位移朝向 = (ushort)item.Value.Object.当前方向
                             });
                             item.Value.Object.ItSelf移动时处理(point3);
-                            if (c_03.推动增加经验 && !GainExperience && CasterObject is PlayerObject playerObj)
+                            if (c_03.BoostSkillExp && !GainExperience && CasterObject is PlayerObject playerObj)
                             {
                                 playerObj.SkillGainExp(SkillId);
                                 GainExperience = true;
@@ -989,7 +989,7 @@ namespace GameServer.Templates
                             playerObj.PetData.Add(宠物实例.PetData);
                             playerObj.宠物列表.Add(宠物实例);
 
-                            if (c_06.增加SkillExp)
+                            if (c_06.GainSkillExp)
                                 playerObj.SkillGainExp(c_06.经验SkillId);
                         }
                     }
@@ -999,7 +999,7 @@ namespace GameServer.Templates
                     foreach (var keyValuePair20 in Hits)
                         keyValuePair20.Value.Object.被动回复时处理(this, c_05);
 
-                    if (c_05.增加SkillExp && Hits.Count != 0 && CasterObject is PlayerObject playerObj)
+                    if (c_05.GainSkillExp && Hits.Count != 0 && CasterObject is PlayerObject playerObj)
                         playerObj.SkillGainExp(c_05.经验SkillId);
                 }
                 else if (task is C_07_CalculateTargetTeleportation c_07 && CasterObject is PlayerObject playerObj)

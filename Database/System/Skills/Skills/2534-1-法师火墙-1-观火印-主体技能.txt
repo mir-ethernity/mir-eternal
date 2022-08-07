@@ -31,7 +31,7 @@
       "$type": "A_02_TriggerTrapSkills, Assembly-CSharp",
       "TriggerTrapSkills": "法师火墙-1-观火印",
       "NumberTrapsTriggered": "Diamond3x3",
-      "增加技能经验": true,
+      "GainSkillExp": true,
       "经验SkillId": 2534
     },
     "625": {

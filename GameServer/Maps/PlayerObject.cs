@@ -2765,7 +2765,7 @@ namespace GameServer.Maps
                 base.添加Buff时处理(参数.瞬移失败提示, this);
                 base.添加Buff时处理(参数.失败添加Buff, this);
             }
-            if (参数.增加SkillExp)
+            if (参数.GainSkillExp)
             {
                 this.SkillGainExp(参数.经验SkillId);
             }

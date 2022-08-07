@@ -29,7 +29,7 @@
       "验证ItSelfBuff": true,
       "Id": 15330,
       "所需Buff层数": 1,
-      "增加技能经验": true,
+      "GainSkillExp": true,
       "经验SkillId": 1533
     },
     "2": {
@@ -40,7 +40,7 @@
       "验证ItSelfBuff": true,
       "Id": 15332,
       "所需Buff层数": 1,
-      "增加技能经验": true,
+      "GainSkillExp": true,
       "经验SkillId": 1533
     },
     "3": {
@@ -50,7 +50,7 @@
       "验证ItSelfBuff": true,
       "Id": 15334,
       "所需Buff层数": 1,
-      "增加技能经验": true,
+      "GainSkillExp": true,
       "经验SkillId": 1533
     },
     "4": {
@@ -60,7 +60,7 @@
       "验证ItSelfBuff": true,
       "Id": 15335,
       "所需Buff层数": 1,
-      "增加技能经验": true,
+      "GainSkillExp": true,
       "经验SkillId": 1533
     },
     "5": {
@@ -80,7 +80,7 @@
       "验证ItSelfBuff": true,
       "Id": 15338,
       "所需Buff层数": 1,
-      "增加技能经验": true,
+      "GainSkillExp": true,
       "经验SkillId": 1533
     },
     "7": {
@@ -90,7 +90,7 @@
       "验证ItSelfBuff": true,
       "Id": 15300,
       "所需Buff层数": 1,
-      "增加技能经验": true,
+      "GainSkillExp": true,
       "经验SkillId": 1533
     },
     "8": {

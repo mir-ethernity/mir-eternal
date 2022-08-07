@@ -34,7 +34,7 @@
       "召唤宠物名字": "道士骷髅将军",
       "召唤宠物数量": "AQEBAQ==",
       "宠物等级上限": "AQMFBw==",
-      "增加技能经验": true,
+      "GainSkillExp": true,
       "经验SkillId": 3003,
       "宠物绑定武器": true,
       "检查技能铭文": true

@@ -33,7 +33,7 @@
       "召唤宠物名字": "DaoistSummonBeast",
       "召唤宠物数量": "AQEBAQ==",
       "宠物等级上限": "AQMFBw==",
-      "增加技能经验": true,
+      "GainSkillExp": true,
       "经验SkillId": 3008
     },
     "625": {

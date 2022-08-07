@@ -54,7 +54,7 @@
       ],
       "技能增伤类型": "Undead, ZumaMonster",
       "技能增伤系数": 1,
-      "增加技能经验": true,
+      "GainSkillExp": true,
       "经验SkillId": 2546,
       "目标硬直时间": 1000,
       "清除状态列表": []

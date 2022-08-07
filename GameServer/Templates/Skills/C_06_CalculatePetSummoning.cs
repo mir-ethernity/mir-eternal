@@ -25,7 +25,7 @@ namespace GameServer.Templates
 		public byte[] 宠物GradeCap;
 
 		
-		public bool 增加SkillExp;
+		public bool GainSkillExp;
 
 		
 		public ushort 经验SkillId;

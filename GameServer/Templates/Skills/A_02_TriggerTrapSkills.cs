@@ -19,7 +19,7 @@ namespace GameServer.Templates
 		public MonsterSize NumberTrapsTriggered;
 
 		
-		public bool 增加SkillExp;
+		public bool GainSkillExp;
 
 		
 		public ushort 经验SkillId;

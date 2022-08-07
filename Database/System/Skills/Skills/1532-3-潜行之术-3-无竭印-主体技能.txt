@@ -27,7 +27,7 @@
       "触发Id": 15325,
       "Buff触发概率": 1,
       "所需Buff层数": 1,
-      "增加技能经验": true,
+      "GainSkillExp": true,
       "经验SkillId": 1532
     },
     "2": {

@@ -22,7 +22,7 @@ namespace GameServer.Templates
 		public bool 锚点反向位移;
 
 		
-		public bool 位移增加经验;
+		public bool DisplacementIncreaseExp;
 
 		
 		public bool 多段位移通知;
@@ -58,7 +58,7 @@ namespace GameServer.Templates
 		public bool 推动目标位移;
 
 		
-		public bool 推动增加经验;
+		public bool BoostSkillExp;
 
 		
 		public float 推动目标概率;

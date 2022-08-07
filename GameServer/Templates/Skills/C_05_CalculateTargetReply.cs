@@ -31,7 +31,7 @@ namespace GameServer.Templates
 		public float[] 立即回复系数;
 
 		
-		public bool 增加SkillExp;
+		public bool GainSkillExp;
 
 		
 		public ushort 经验SkillId;
