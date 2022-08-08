@@ -33,7 +33,7 @@ namespace GameServer
 			Settings.Default.Save();
 			MainForm.Singleton.BeginInvoke(new MethodInvoker(delegate()
 			{
-				MainForm.Singleton.S_怪物额外爆率.Value = this.额外爆率;
+				MainForm.Singleton.S_ExtraDropRate.Value = this.额外爆率;
 			}));
 			MainForm.AddCommandLog(string.Format("<= @{0} The command has been executed, with the current additional burst rate: {1}", base.GetType().Name, Config.ExtraDropRate));
 		}

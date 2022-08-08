@@ -33,7 +33,7 @@ namespace GameServer
 			Settings.Default.Save();
 			MainForm.Singleton.BeginInvoke(new MethodInvoker(delegate()
 			{
-				MainForm.Singleton.S_怪物经验倍率.Value = this.经验倍率;
+				MainForm.Singleton.S_ExpRate.Value = this.经验倍率;
 			}));
 			MainForm.AddCommandLog(string.Format("<= @{0} The command has been executed, current experience multiplier: {1}", base.GetType().Name, Config.ExpRate));
 		}

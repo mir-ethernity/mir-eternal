@@ -23,7 +23,7 @@ namespace GameServer
 			Settings.Default.Save();
 			MainForm.Singleton.BeginInvoke(new MethodInvoker(delegate()
 			{
-				MainForm.Singleton.S_NoobSupportCommand等级.Value = this.扶持等级;
+				MainForm.Singleton.S_NoobLevel.Value = this.扶持等级;
 			}));
 			MainForm.AddCommandLog(string.Format("<= @{0} command has been executed, current support level: {1}", base.GetType().Name, Config.NoobLevel));
 		}

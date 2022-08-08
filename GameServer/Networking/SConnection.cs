@@ -203,7 +203,7 @@ namespace GameServer.Networking
         {
             while (!this.ReceivedPackets.IsEmpty)
             {
-                if (this.ReceivedPackets.Count > (int)Config.MaxPacketCount)
+                if (this.ReceivedPackets.Count > (int)Config.PacketLimit)
                 {
                     this.ReceivedPackets = new ConcurrentQueue<GamePacket>();
                     NetworkServiceGateway.屏蔽网络(this.NetAddress);

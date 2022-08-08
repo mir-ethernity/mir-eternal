@@ -871,19 +871,19 @@ namespace GameServer
             this.S_数据备份目录.Text = (Config.BackupFolder = Settings.Default.GameDataDirectory);
             this.S_GSPort.Value = (Config.GSPort = Settings.Default.GSPort);
             this.S_TSPort.Value = (Config.TSPort = Settings.Default.TSPort);
-            this.S_封包限定数量.Value = (Config.MaxPacketCount = Settings.Default.PacketLimit);
-            this.S_异常屏蔽时间.Value = (Config.异常屏蔽时间 = Settings.Default.AbnormalBlockTime);
-            this.S_掉线判定时间.Value = (Config.掉线判定时间 = Settings.Default.DisconnectTime);
-            this.S_游戏OpenLevelCommand.Value = (Config.MaxLevel = Settings.Default.MaxLevel);
-            this.S_NoobSupportCommand等级.Value = (Config.NoobLevel = Settings.Default.NoobLevel);
-            this.S_装备特修折扣.Value = (Config.EquipRepairDto = Settings.Default.EquipRepairDto);
-            this.S_怪物额外爆率.Value = (Config.ExtraDropRate = Settings.Default.ExtraDropRate);
-            this.S_怪物经验倍率.Value = (Config.ExpRate = Settings.Default.ExpRate);
+            this.S_PacketLimit.Value = (Config.PacketLimit = Settings.Default.PacketLimit);
+            this.S_AbnormalBlockTime.Value = (Config.AbnormalBlockTime = Settings.Default.AbnormalBlockTime);
+            this.S_DisconnectTime.Value = (Config.掉线判定时间 = Settings.Default.DisconnectTime);
+            this.S_MaxLevel.Value = (Config.MaxLevel = Settings.Default.MaxLevel);
+            this.S_NoobLevel.Value = (Config.NoobLevel = Settings.Default.NoobLevel);
+            this.S_EquipRepairDto.Value = (Config.EquipRepairDto = Settings.Default.EquipRepairDto);
+            this.S_ExtraDropRate.Value = (Config.ExtraDropRate = Settings.Default.ExtraDropRate);
+            this.S_ExpRate.Value = (Config.ExpRate = Settings.Default.ExpRate);
             this.S_LessExpGrade.Value = (ComputingClass.LessExpGradeLevel = Config.LessExpGrade = (ushort)Settings.Default.LessExpGrade);
             this.S_LessExpGradeRate.Value = (ComputingClass.LessExpGradeRate = Config.LessExpGradeRate = Settings.Default.LessExpGradeRate);
-            this.S_怪物诱惑时长.Value = (Config.怪物诱惑时长 = Settings.Default.TemptationTime);
-            this.S_物品归属时间.Value = (Config.物品归属时间 = (ushort)Settings.Default.ItemOwnershipTime);
-            this.S_物品清理时间.Value = (Config.物品清理时间 = (ushort)Settings.Default.ItemCleaningTime);
+            this.S_TemptationTime.Value = (Config.怪物诱惑时长 = Settings.Default.TemptationTime);
+            this.S_ItemOwnershipTime.Value = (Config.ItemOwnershipTime = (ushort)Settings.Default.ItemOwnershipTime);
+            this.S_ItemCleaningTime.Value = (Config.ItemCleaningTime = (ushort)Settings.Default.ItemCleaningTime);
 
 
             Task.Run(delegate ()
@@ -1159,47 +1159,47 @@ namespace GameServer
 
                 switch (name)
                 {
-                    case "S_收益减少比率":
+                    case "S_LessExpGradeRate":
                         Config.LessExpGradeRate = (Settings.Default.LessExpGradeRate = numericUpDown.Value);
                         break;
-                    case "S_掉线判定时间":
+                    case "S_DisconnectTime":
                         Config.掉线判定时间 = (Settings.Default.DisconnectTime = (ushort)numericUpDown.Value);
                         break;
-                    case "S_游戏OpenLevelCommand":
+                    case "S_MaxLevel":
                         Config.MaxLevel = (Settings.Default.MaxLevel = (byte)numericUpDown.Value);
                         break;
-                    case "S_怪物诱惑时长":
+                    case "S_TemptationTime":
                         Config.怪物诱惑时长 = (Settings.Default.TemptationTime = (ushort)numericUpDown.Value);
                         break;
-                    case "S_怪物经验倍率":
+                    case "S_ExpRate":
                         Config.ExpRate = (Settings.Default.ExpRate = numericUpDown.Value);
                         break;
                     case "S_TSPort":
                         Config.TSPort = (Settings.Default.TSPort = (ushort)numericUpDown.Value);
                         break;
-                    case "S_异常屏蔽时间":
-                        Config.异常屏蔽时间 = (Settings.Default.AbnormalBlockTime = (ushort)numericUpDown.Value);
+                    case "S_AbnormalBlockTime":
+                        Config.AbnormalBlockTime = (Settings.Default.AbnormalBlockTime = (ushort)numericUpDown.Value);
                         break;
-                    case "S_减收益等级差":
+                    case "S_LessExpGrade":
                         Config.LessExpGrade = (ushort)(Settings.Default.LessExpGrade = (byte)numericUpDown.Value);
                         break;
-                    case "S_怪物额外爆率":
+                    case "S_ExtraDropRate":
                         Config.ExtraDropRate = (Settings.Default.ExtraDropRate = numericUpDown.Value);
                         break;
-                    case "S_物品归属时间":
-                        Config.物品归属时间 = (ushort)(Settings.Default.ItemOwnershipTime = (byte)numericUpDown.Value);
+                    case "S_ItemOwnershipTime":
+                        Config.ItemOwnershipTime = (ushort)(Settings.Default.ItemOwnershipTime = (byte)numericUpDown.Value);
                         break;
-                    case "S_NoobSupportCommand等级":
+                    case "S_NoobLevel":
                         Config.NoobLevel = (Settings.Default.NoobLevel = (byte)numericUpDown.Value);
                         break;
-                    case "S_装备特修折扣":
+                    case "S_EquipRepairDto":
                         Config.EquipRepairDto = (Settings.Default.EquipRepairDto = numericUpDown.Value);
                         break;
-                    case "S_物品清理时间":
-                        Config.物品清理时间 = (ushort)(Settings.Default.ItemCleaningTime = (byte)numericUpDown.Value);
+                    case "S_ItemCleaningTime":
+                        Config.ItemCleaningTime = (ushort)(Settings.Default.ItemCleaningTime = (byte)numericUpDown.Value);
                         break;
-                    case "S_封包限定数量":
-                        Config.MaxPacketCount = (Settings.Default.PacketLimit = (ushort)numericUpDown.Value);
+                    case "S_PacketLimit":
+                        Config.PacketLimit = (Settings.Default.PacketLimit = (ushort)numericUpDown.Value);
                         break;
                     case "S_GSPort":
                         Config.GSPort = (Settings.Default.GSPort = (ushort)numericUpDown.Value);

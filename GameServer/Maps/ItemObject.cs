@@ -201,8 +201,8 @@ namespace GameServer.Maps
                         CurrentPosition = point;
                     IL_111:
                         this.CurrentPosition = CurrentPosition;
-                        this.消失时间 = MainProcess.CurrentTime.AddMinutes((double)Config.物品清理时间);
-                        this.归属时间 = MainProcess.CurrentTime.AddMinutes((double)Config.物品归属时间);
+                        this.消失时间 = MainProcess.CurrentTime.AddMinutes((double)Config.ItemCleaningTime);
+                        this.归属时间 = MainProcess.CurrentTime.AddMinutes((double)Config.ItemOwnershipTime);
                         this.ObjectId = ++MapGatewayProcess.Id;
                         base.BindGrid();
                         base.更新邻居时处理();

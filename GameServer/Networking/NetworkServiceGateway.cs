@@ -198,7 +198,7 @@ namespace GameServer.Networking
 		
 		public static void 屏蔽网络(string 地址)
 		{
-			SystemData.Data.BanIPCommand(地址, MainProcess.CurrentTime.AddMinutes((double)Config.异常屏蔽时间));
+			SystemData.Data.BanIPCommand(地址, MainProcess.CurrentTime.AddMinutes((double)Config.AbnormalBlockTime));
 		}
 
 		

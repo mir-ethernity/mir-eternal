@@ -28,7 +28,7 @@ namespace GameServer
 			Settings.Default.Save();
 			MainForm.Singleton.BeginInvoke(new MethodInvoker(delegate()
 			{
-				MainForm.Singleton.S_游戏OpenLevelCommand.Value = this.最高等级;
+				MainForm.Singleton.S_MaxLevel.Value = this.最高等级;
 			}));
 			MainForm.AddCommandLog(string.Format("<= @{0} The command has been executed, the current OpenLevelCommand: {1}", base.GetType().Name, Config.MaxLevel));
 		}
