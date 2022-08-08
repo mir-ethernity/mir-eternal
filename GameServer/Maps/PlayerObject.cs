@@ -88,7 +88,7 @@ namespace GameServer.Maps
             Dictionary<object, int> dictionary = new Dictionary<object, int>();
             dictionary[this] = (int)(this.CurrentRank * 10);
             this.CombatBonus = dictionary;
-            this.称号时间 = DateTime.MaxValue;
+            this.TitleTime = DateTime.MaxValue;
             this.拾取时间 = MainProcess.CurrentTime.AddSeconds(1.0);
             base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
             this.特权时间 = ((this.CurrentPrivileges > 0) ? this.CurrentIssueDate.AddDays(30.0) : DateTime.MaxValue);
@@ -126,32 +126,31 @@ namespace GameServer.Maps
                     this.Stat加成.Add(BuffData, BuffData.Stat加成);
                 }
             }
-            foreach (KeyValuePair<byte, DateTime> keyValuePair in this.称号列表.ToList<KeyValuePair<byte, DateTime>>())
+            foreach (var title in AvailableTitles)
             {
-                if (MainProcess.CurrentTime >= keyValuePair.Value)
+                if (MainProcess.CurrentTime >= title.Value)
                 {
-                    if (this.称号列表.Remove(keyValuePair.Key) && this.当前称号 == keyValuePair.Key)
+                    if (AvailableTitles.Remove(title.Key) && CurrentTitle == title.Key)
                     {
-                        this.当前称号 = 0;
+                        CurrentTitle = 0;
                     }
                 }
-                else if (keyValuePair.Value < this.称号时间)
+                else if (title.Value < TitleTime)
                 {
-                    this.称号时间 = keyValuePair.Value;
+                    TitleTime = title.Value;
                 }
             }
-            GameTitle 游戏称号;
-            if (this.当前称号 > 0 && GameTitle.DataSheet.TryGetValue(this.当前称号, out 游戏称号))
+            if (CurrentTitle > 0 && GameTitle.DataSheet.TryGetValue(CurrentTitle, out var gameTitle))
             {
-                this.CombatBonus[this.当前称号] = 游戏称号.Combat;
-                this.Stat加成[this.当前称号] = 游戏称号.Attributes;
+                CombatBonus[CurrentTitle] = gameTitle.Combat;
+                Stat加成[CurrentTitle] = gameTitle.Attributes;
             }
-            if (this.CurrentStamina == 0)
+            if (CurrentStamina == 0)
             {
-                this.CurrentMap = MapGatewayProcess.分配地图(this.重生地图);
-                this.CurrentCoords = (this.红名玩家 ? this.CurrentMap.红名区域.RandomCoords : this.CurrentMap.复活区域.RandomCoords);
-                this.CurrentStamina = (int)((float)this[GameObjectStats.MaxPhysicalStrength] * 0.3f);
-                this.当前魔力 = (int)((float)this[GameObjectStats.MaxMagic2] * 0.3f);
+                CurrentMap = MapGatewayProcess.分配地图(this.重生地图);
+                CurrentCoords = (this.红名玩家 ? this.CurrentMap.红名区域.RandomCoords : this.CurrentMap.复活区域.RandomCoords);
+                CurrentStamina = (int)((float)this[GameObjectStats.MaxPhysicalStrength] * 0.3f);
+                当前魔力 = (int)((float)this[GameObjectStats.MaxMagic2] * 0.3f);
             }
             else if (GameMap.DataSheet[(byte)CharacterData.CurrentMap.V].NoReconnect)
             {
@@ -287,7 +286,7 @@ namespace GameServer.Maps
 
             网络连接.发送封包(new SyncTitleInfoPacket
             {
-                字节描述 = this.全部称号描述()
+                字节描述 = this.GetTitleBuffer()
             });
 
             网络连接.发送封包(new 玩家名字变灰
@@ -468,21 +467,21 @@ namespace GameServer.Maps
                     {
                         base.轮询Buff时处理(keyValuePair.Value);
                     }
-                    if (MainProcess.CurrentTime >= this.称号时间)
+                    if (MainProcess.CurrentTime >= this.TitleTime)
                     {
                         DateTime t = DateTime.MaxValue;
-                        foreach (KeyValuePair<byte, DateTime> keyValuePair2 in this.称号列表.ToList<KeyValuePair<byte, DateTime>>())
+                        foreach (var title in AvailableTitles)
                         {
-                            if (MainProcess.CurrentTime >= keyValuePair2.Value)
+                            if (MainProcess.CurrentTime >= title.Value)
                             {
-                                this.玩家称号到期(keyValuePair2.Key);
+                                ExpireTitle(title.Key);
                             }
-                            else if (keyValuePair2.Value < t)
+                            else if (title.Value < t)
                             {
-                                t = keyValuePair2.Value;
+                                t = title.Value;
                             }
                         }
-                        this.称号时间 = t;
+                        this.TitleTime = t;
                     }
                     if (MainProcess.CurrentTime >= this.特权时间)
                     {
@@ -1593,17 +1592,17 @@ namespace GameServer.Maps
 
         // (get) Token: 0x060008C9 RID: 2249 RVA: 0x00007264 File Offset: 0x00005464
         // (set) Token: 0x060008CA RID: 2250 RVA: 0x00007276 File Offset: 0x00005476
-        public byte 当前称号
+        public byte CurrentTitle
         {
             get
             {
-                return this.CharacterData.当前称号.V;
+                return CharacterData.CurrentTitle.V;
             }
             set
             {
-                if (this.CharacterData.当前称号.V != value)
+                if (CharacterData.CurrentTitle.V != value)
                 {
-                    this.CharacterData.当前称号.V = value;
+                    CharacterData.CurrentTitle.V = value;
                 }
             }
         }
@@ -2151,7 +2150,7 @@ namespace GameServer.Maps
 
 
         // (get) Token: 0x06000900 RID: 2304 RVA: 0x0000769E File Offset: 0x0000589E
-        public MonitorDictionary<byte, DateTime> 称号列表
+        public MonitorDictionary<byte, DateTime> AvailableTitles
         {
             get
             {
@@ -2916,15 +2915,15 @@ namespace GameServer.Maps
         {
             if (this.CurrentPrivileges == 3)
             {
-                this.玩家称号到期(61);
+                this.ExpireTitle(61);
             }
             else if (this.CurrentPrivileges == 4)
             {
-                this.玩家称号到期(124);
+                this.ExpireTitle(124);
             }
             else if (this.CurrentPrivileges == 5)
             {
-                this.玩家称号到期(131);
+                this.ExpireTitle(131);
             }
             this.PreviousPrivilege = this.CurrentPrivileges;
             this.上期记录 = this.本期记录;
@@ -2940,11 +2939,11 @@ namespace GameServer.Maps
         {
             if (特权类型 == 3)
             {
-                this.玩家获得称号(61);
+                this.ObtainTitle(61);
             }
             else if (特权类型 == 4)
             {
-                this.玩家获得称号(124);
+                this.ObtainTitle(124);
             }
             else
             {
@@ -2952,7 +2951,7 @@ namespace GameServer.Maps
                 {
                     return;
                 }
-                this.玩家获得称号(131);
+                this.ObtainTitle(131);
             }
             this.CurrentPrivileges = 特权类型;
             this.本期记录 = uint.MaxValue;
@@ -2961,13 +2960,13 @@ namespace GameServer.Maps
         }
 
 
-        public void 玩家称号到期(byte Id)
+        public void ExpireTitle(byte Id)
         {
-            if (this.称号列表.Remove(Id))
+            if (this.AvailableTitles.Remove(Id))
             {
-                if (this.当前称号 == Id)
+                if (this.CurrentTitle == Id)
                 {
-                    this.当前称号 = 0;
+                    this.CurrentTitle = 0;
                     this.CombatBonus.Remove(Id);
                     this.更新玩家战力();
                     this.Stat加成.Remove(Id);
@@ -2990,21 +2989,15 @@ namespace GameServer.Maps
         }
 
 
-        public void 玩家获得称号(byte Id)
+        public void ObtainTitle(byte Id)
         {
-            GameTitle 游戏称号;
-            if (GameTitle.DataSheet.TryGetValue(Id, out 游戏称号))
+            if (GameTitle.DataSheet.TryGetValue(Id, out var gameTitle))
             {
-                this.称号列表[Id] = MainProcess.CurrentTime.AddMinutes((double)游戏称号.EffectiveTime);
-                SConnection 网络连接 = this.ActiveConnection;
-                if (网络连接 == null)
-                {
-                    return;
-                }
-                网络连接.发送封包(new 玩家获得称号
+                AvailableTitles[Id] = MainProcess.CurrentTime.AddMinutes(gameTitle.EffectiveTime);
+                ActiveConnection?.发送封包(new ObtainTitlePacket
                 {
                     Id = Id,
-                    剩余时间 = (int)(this.称号列表[Id] - MainProcess.CurrentTime).TotalMinutes
+                    ExpireTime = (int)(this.AvailableTitles[Id] - MainProcess.CurrentTime).TotalMinutes
                 });
             }
         }
@@ -9487,7 +9480,7 @@ namespace GameServer.Maps
         public void 玩家使用称号(byte Id)
         {
             GameTitle 游戏称号;
-            if (!this.称号列表.ContainsKey(Id))
+            if (!this.AvailableTitles.ContainsKey(Id))
             {
                 SConnection 网络连接 = this.ActiveConnection;
                 if (网络连接 == null)
@@ -9515,14 +9508,14 @@ namespace GameServer.Maps
             }
             else
             {
-                if (this.当前称号 != Id)
+                if (this.CurrentTitle != Id)
                 {
-                    if (this.当前称号 != 0)
+                    if (this.CurrentTitle != 0)
                     {
-                        this.CombatBonus.Remove(this.当前称号);
-                        this.Stat加成.Remove(this.当前称号);
+                        this.CombatBonus.Remove(this.CurrentTitle);
+                        this.Stat加成.Remove(this.CurrentTitle);
                     }
-                    this.当前称号 = Id;
+                    this.CurrentTitle = Id;
                     this.CombatBonus[Id] = 游戏称号.Combat;
                     this.更新玩家战力();
                     this.Stat加成[Id] = 游戏称号.Attributes;
@@ -9560,19 +9553,19 @@ namespace GameServer.Maps
 
         public void 玩家卸下称号()
         {
-            if (this.当前称号 == 0)
+            if (this.CurrentTitle == 0)
             {
                 return;
             }
-            if (this.CombatBonus.Remove(this.当前称号))
+            if (this.CombatBonus.Remove(this.CurrentTitle))
             {
                 this.更新玩家战力();
             }
-            if (this.Stat加成.Remove(this.当前称号))
+            if (this.Stat加成.Remove(this.CurrentTitle))
             {
                 this.更新对象Stat();
             }
-            this.当前称号 = 0;
+            this.CurrentTitle = 0;
             base.SendPacket(new 同步装配称号
             {
                 对象编号 = this.ObjectId
@@ -20500,24 +20493,21 @@ namespace GameServer.Maps
         }
 
 
-        public byte[] 全部称号描述()
+        public byte[] GetTitleBuffer()
         {
-            byte[] result;
-            using (MemoryStream memoryStream = new MemoryStream())
+            using MemoryStream memoryStream = new MemoryStream();
+            using BinaryWriter binaryWriter = new BinaryWriter(memoryStream);
+            
+            binaryWriter.Write(CurrentTitle);
+            binaryWriter.Write((byte)AvailableTitles.Count);
+            
+            foreach (var item in AvailableTitles)
             {
-                using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
-                {
-                    binaryWriter.Write(当前称号);
-                    binaryWriter.Write((byte)称号列表.Count);
-                    foreach (KeyValuePair<byte, DateTime> keyValuePair in 称号列表)
-                    {
-                        binaryWriter.Write(keyValuePair.Key);
-                        binaryWriter.Write((keyValuePair.Value == DateTime.MaxValue) ? uint.MaxValue : ((uint)(keyValuePair.Value - MainProcess.CurrentTime).TotalMinutes));
-                    }
-                    result = memoryStream.ToArray();
-                }
+                binaryWriter.Write(item.Key);
+                binaryWriter.Write((item.Value == DateTime.MaxValue) ? uint.MaxValue : ((uint)(item.Value - MainProcess.CurrentTime).TotalMinutes));
             }
-            return result;
+
+            return memoryStream.ToArray();
         }
 
 
@@ -20791,7 +20781,7 @@ namespace GameServer.Maps
         public DateTime 药品回魔;
 
 
-        public DateTime 称号时间;
+        public DateTime TitleTime;
 
 
         public DateTime 特权时间;

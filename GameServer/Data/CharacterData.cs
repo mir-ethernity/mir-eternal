@@ -901,7 +901,7 @@ namespace GameServer.Data
         public readonly DataMonitor<bool> 升级成功;
 
 
-        public readonly DataMonitor<byte> 当前称号;
+        public readonly DataMonitor<byte> CurrentTitle;
 
 
         public readonly MonitorDictionary<byte, int> 历史排名;
