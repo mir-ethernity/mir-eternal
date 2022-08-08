@@ -28,14 +28,14 @@
       "Level3": 8
     },
     {
-      "Stat": "MinNeedle",
+      "Stat": "MinNC",
       "Level0": -4,
       "Level1": -5,
       "Level2": -6,
       "Level3": -7
     },
     {
-      "Stat": "MaxNeedle",
+      "Stat": "MaxNC",
       "Level0": 5,
       "Level1": 6,
       "Level2": 7,

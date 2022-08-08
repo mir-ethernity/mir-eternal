@@ -28,9 +28,9 @@ namespace GameServer
 		
 		MaxSC,
 		
-		MinNeedle,
+		MinNC,
 		
-		MaxNeedle,
+		MaxNC,
 		
 		MinBow,
 		

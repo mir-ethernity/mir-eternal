@@ -534,11 +534,11 @@ namespace GameServer.Data
                     int num6;
                     text += string.Format("\nTaoism{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinSC, out num5) ? num5 : 0, dictionary.TryGetValue(GameObjectStats.MaxSC, out num6) ? num6 : 0);
                 }
-                if (dictionary.ContainsKey(GameObjectStats.MinNeedle) || dictionary.ContainsKey(GameObjectStats.MaxNeedle))
+                if (dictionary.ContainsKey(GameObjectStats.MinNC) || dictionary.ContainsKey(GameObjectStats.MaxNC))
                 {
                     int num7;
                     int num8;
-                    text += string.Format("\nNeedle{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinNeedle, out num7) ? num7 : 0, dictionary.TryGetValue(GameObjectStats.MaxNeedle, out num8) ? num8 : 0);
+                    text += string.Format("\nNeedle{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinNC, out num7) ? num7 : 0, dictionary.TryGetValue(GameObjectStats.MaxNC, out num8) ? num8 : 0);
                 }
                 if (dictionary.ContainsKey(GameObjectStats.MinBow) || dictionary.ContainsKey(GameObjectStats.MaxBow))
                 {
@@ -787,13 +787,13 @@ namespace GameServer.Data
                 {
                     dictionary[GameObjectStats.MaxSC] = 装备模板.MaxSC;
                 }
-                if (装备模板.MinNeedle != 0)
+                if (装备模板.MinNC != 0)
                 {
-                    dictionary[GameObjectStats.MinNeedle] = 装备模板.MinNeedle;
+                    dictionary[GameObjectStats.MinNC] = 装备模板.MinNC;
                 }
-                if (装备模板.MaxNeedle != 0)
+                if (装备模板.MaxNC != 0)
                 {
-                    dictionary[GameObjectStats.MaxNeedle] = 装备模板.MaxNeedle;
+                    dictionary[GameObjectStats.MaxNC] = 装备模板.MaxNC;
                 }
                 if (装备模板.MinBow != 0)
                 {
@@ -861,7 +861,7 @@ namespace GameServer.Data
                 }
                 if (升级Needle.V != 0)
                 {
-                    dictionary[GameObjectStats.MaxNeedle] = (dictionary.ContainsKey(GameObjectStats.MaxNeedle) ? (dictionary[GameObjectStats.MaxNeedle] + (int)升级Needle.V) : ((int)升级Needle.V));
+                    dictionary[GameObjectStats.MaxNC] = (dictionary.ContainsKey(GameObjectStats.MaxNC) ? (dictionary[GameObjectStats.MaxNC] + (int)升级Needle.V) : ((int)升级Needle.V));
                 }
                 if (升级Archery.V != 0)
                 {
@@ -1002,19 +1002,19 @@ namespace GameServer.Data
                         switch (Id)
                         {
                             case 10620:
-                                dictionary[GameObjectStats.MaxNeedle] = (dictionary.ContainsKey(GameObjectStats.MaxNeedle) ? (dictionary[GameObjectStats.MaxNeedle] + 1) : 1);
+                                dictionary[GameObjectStats.MaxNC] = (dictionary.ContainsKey(GameObjectStats.MaxNC) ? (dictionary[GameObjectStats.MaxNC] + 1) : 1);
                                 break;
                             case 10621:
-                                dictionary[GameObjectStats.MaxNeedle] = (dictionary.ContainsKey(GameObjectStats.MaxNeedle) ? (dictionary[GameObjectStats.MaxNeedle] + 2) : 2);
+                                dictionary[GameObjectStats.MaxNC] = (dictionary.ContainsKey(GameObjectStats.MaxNC) ? (dictionary[GameObjectStats.MaxNC] + 2) : 2);
                                 break;
                             case 10622:
-                                dictionary[GameObjectStats.MaxNeedle] = (dictionary.ContainsKey(GameObjectStats.MaxNeedle) ? (dictionary[GameObjectStats.MaxNeedle] + 3) : 3);
+                                dictionary[GameObjectStats.MaxNC] = (dictionary.ContainsKey(GameObjectStats.MaxNC) ? (dictionary[GameObjectStats.MaxNC] + 3) : 3);
                                 break;
                             case 10623:
-                                dictionary[GameObjectStats.MaxNeedle] = (dictionary.ContainsKey(GameObjectStats.MaxNeedle) ? (dictionary[GameObjectStats.MaxNeedle] + 4) : 4);
+                                dictionary[GameObjectStats.MaxNC] = (dictionary.ContainsKey(GameObjectStats.MaxNC) ? (dictionary[GameObjectStats.MaxNC] + 4) : 4);
                                 break;
                             case 10624:
-                                dictionary[GameObjectStats.MaxNeedle] = (dictionary.ContainsKey(GameObjectStats.MaxNeedle) ? (dictionary[GameObjectStats.MaxNeedle] + 5) : 5);
+                                dictionary[GameObjectStats.MaxNC] = (dictionary.ContainsKey(GameObjectStats.MaxNC) ? (dictionary[GameObjectStats.MaxNC] + 5) : 5);
                                 break;
                             default:
                                 switch (Id)

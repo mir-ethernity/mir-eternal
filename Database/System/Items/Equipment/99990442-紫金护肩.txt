@@ -14,7 +14,7 @@
   "PersistType": "装备",
   "StoreType": "服装",
   "BasicPowerCombat": 43,
-  "MaxNeedle": 2,
+  "MaxNC": 2,
   "CanRepair": true,
   "RepairCost": 4800,
   "SpecialRepairCost": 24000,

@@ -15,7 +15,7 @@
   "StoreType": "首饰",
   "BasicPowerCombat": 116,
   "MaxDC": 4,
-  "MaxNeedle": 4,
+  "MaxNC": 4,
   "CanRepair": true,
   "RepairCost": 30000,
   "SpecialRepairCost": 150000,

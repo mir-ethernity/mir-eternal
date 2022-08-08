@@ -1754,7 +1754,7 @@ namespace GameServer.Maps
                                 break;
                             case SkillDamageType.Needle:
                                 num10 = ComputingClass.计算防御(this[GameObjectStats.MinDef], this[GameObjectStats.MaxDef]);
-                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinNeedle], MapObject[GameObjectStats.MaxNeedle], MapObject[GameObjectStats.Luck]);
+                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinNC], MapObject[GameObjectStats.MaxNC], MapObject[GameObjectStats.Luck]);
                                 break;
                             case SkillDamageType.Archery:
                                 num10 = ComputingClass.计算防御(this[GameObjectStats.MinDef], this[GameObjectStats.MaxDef]);

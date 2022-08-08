@@ -21,8 +21,8 @@ namespace GameServer.Templates
 		public int MaxMC;
 		public int MinSC;
 		public int MaxSC;
-		public int MinNeedle;
-		public int MaxNeedle;
+		public int MinNC;
+		public int MaxNC;
 		public int MinBow;
 		public int MaxBow;
 		public int MinDef;

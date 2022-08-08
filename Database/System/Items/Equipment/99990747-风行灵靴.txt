@@ -14,7 +14,7 @@
   "StoreType": "服装",
   "NeedAcupuncture": 42,
   "BasicPowerCombat": 102,
-  "MinNeedle": 1,
+  "MinNC": 1,
   "MaxDef": 3,
   "CanRepair": true,
   "RepairCost": 18000,

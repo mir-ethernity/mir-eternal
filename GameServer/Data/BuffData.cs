@@ -103,7 +103,7 @@ namespace GameServer.Data
 					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinSC], 来源[GameObjectStats.MaxSC], 来源[GameObjectStats.Luck]);
 					break;
 				case SkillDamageType.Needle:
-					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinNeedle], 来源[GameObjectStats.MaxNeedle], 来源[GameObjectStats.Luck]);
+					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinNC], 来源[GameObjectStats.MaxNC], 来源[GameObjectStats.Luck]);
 					break;
 				case SkillDamageType.Archery:
 					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinBow], 来源[GameObjectStats.MaxBow], 来源[GameObjectStats.Luck]);

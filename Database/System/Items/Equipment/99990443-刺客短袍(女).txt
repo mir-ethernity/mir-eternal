@@ -14,7 +14,7 @@
   "PersistType": "装备",
   "StoreType": "服装",
   "BasicPowerCombat": 138,
-  "MaxNeedle": 1,
+  "MaxNC": 1,
   "MinDef": 4,
   "MaxDef": 7,
   "MinMCDef": 2,

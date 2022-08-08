@@ -1,5 +1,5 @@
 {
-  "Stat": "MaxNeedle",
+  "Stat": "MaxNC",
   "Value": 3,
   "StatId": 45021,
   "CombatBonus": 30,

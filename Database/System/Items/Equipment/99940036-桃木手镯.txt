@@ -13,7 +13,7 @@
   "PersistType": "装备",
   "StoreType": "首饰",
   "BasicPowerCombat": 39,
-  "MaxNeedle": 1,
+  "MaxNC": 1,
   "MaxDef": 1,
   "MaxMCDef": 1,
   "CanRepair": true,

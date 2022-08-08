@@ -14,7 +14,7 @@
   "StoreType": "服装",
   "NeedAcupuncture": 37,
   "BasicPowerCombat": 202,
-  "MaxNeedle": 1,
+  "MaxNC": 1,
   "MinDef": 3,
   "MaxDef": 4,
   "MinMCDef": 5,

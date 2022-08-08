@@ -1,5 +1,5 @@
 {
-  "Stat": "MinNeedle",
+  "Stat": "MinNC",
   "Value": 1,
   "StatId": 44001,
   "CombatBonus": 10,

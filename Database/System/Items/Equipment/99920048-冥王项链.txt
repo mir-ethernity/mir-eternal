@@ -14,7 +14,7 @@
   "StoreType": "首饰",
   "NeedAcupuncture": 54,
   "BasicPowerCombat": 224,
-  "MaxNeedle": 8,
+  "MaxNC": 8,
   "MaxDef": 1,
   "MaxMCDef": 3,
   "PhysicallyAccurate": 1,
