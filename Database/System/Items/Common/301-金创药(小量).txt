@@ -24,84 +24,84 @@
     {
       "Name": "金创药(小量)",
       "MonsterName": "稻草人",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(小量)",
       "MonsterName": "海蟹",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(小量)",
       "MonsterName": "鹿",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(小量)",
       "MonsterName": "钉耙猫",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(小量)",
       "MonsterName": "羊",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(小量)",
       "MonsterName": "半兽人",
-      "掉落概率": 5,
+      "Probability": 5,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(小量)",
       "MonsterName": "野狼",
-      "掉落概率": 4,
+      "Probability": 4,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(小量)",
       "MonsterName": "树妖",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(小量)",
       "MonsterName": "毒蜘蛛",
-      "掉落概率": 5,
+      "Probability": 5,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(小量)",
       "MonsterName": "盔甲虫",
-      "掉落概率": 4,
+      "Probability": 4,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(小量)",
       "MonsterName": "多角虫",
-      "掉落概率": 4,
+      "Probability": 4,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(小量)",
       "MonsterName": "腐蚀虫",
-      "掉落概率": 4,
+      "Probability": 4,
       "最小数量": 1,
       "MaxAmount": 1
     }

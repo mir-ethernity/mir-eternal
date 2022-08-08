@@ -15,238 +15,238 @@
     {
       "Name": "紫色灵气",
       "MonsterName": "牛魔战士",
-      "掉落概率": 1250,
+      "Probability": 1250,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "牛魔侍卫",
-      "掉落概率": 1250,
+      "Probability": 1250,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "牛魔祭司",
-      "掉落概率": 1250,
+      "Probability": 1250,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "牛魔法师",
-      "掉落概率": 1250,
+      "Probability": 1250,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "牛魔将军",
-      "掉落概率": 1250,
+      "Probability": 1250,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "牛魔斗士",
-      "掉落概率": 1250,
+      "Probability": 1250,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "牛魔法师王",
-      "掉落概率": 1250,
+      "Probability": 1250,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "黑暗祭司",
-      "掉落概率": 1250,
+      "Probability": 1250,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "邪恶钳虫",
-      "掉落概率": 250,
+      "Probability": 250,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "白野猪",
-      "掉落概率": 200,
+      "Probability": 200,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "虹魔猪卫",
-      "掉落概率": 125,
+      "Probability": 125,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "虹魔蝎卫",
-      "掉落概率": 125,
+      "Probability": 125,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "双头金刚",
-      "掉落概率": 125,
+      "Probability": 125,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "双头血魔",
-      "掉落概率": 125,
+      "Probability": 125,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "魔龙鬼射",
-      "掉落概率": 125,
+      "Probability": 125,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "魔龙力士",
-      "掉落概率": 125,
+      "Probability": 125,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "金甲鱼人",
-      "掉落概率": 125,
+      "Probability": 125,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "冥海魔神",
-      "掉落概率": 125,
+      "Probability": 125,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "沃玛卫士",
-      "掉落概率": 250,
+      "Probability": 250,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "巨型兽人僵尸",
-      "掉落概率": 125,
+      "Probability": 125,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "狂暴兽魂",
-      "掉落概率": 125,
+      "Probability": 125,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "幽冥大使",
-      "掉落概率": 125,
+      "Probability": 125,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "秘密信使",
-      "掉落概率": 125,
+      "Probability": 125,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "血手",
-      "掉落概率": 25,
+      "Probability": 25,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "黄泉教主",
-      "掉落概率": 25,
+      "Probability": 25,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "牛魔王",
-      "掉落概率": 25,
+      "Probability": 25,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "尸王",
-      "掉落概率": 125,
+      "Probability": 125,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "沃玛教主",
-      "掉落概率": 25,
+      "Probability": 25,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "魔龙教主",
-      "掉落概率": 25,
+      "Probability": 25,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "触龙神",
-      "掉落概率": 25,
+      "Probability": 25,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "虹魔教主",
-      "掉落概率": 25,
+      "Probability": 25,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "祖玛教主",
-      "掉落概率": 25,
+      "Probability": 25,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "赤月恶魔",
-      "掉落概率": 25,
+      "Probability": 25,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "紫色灵气",
       "MonsterName": "烈焰恶魔",
-      "掉落概率": 25,
+      "Probability": 25,
       "最小数量": 1,
       "最大数量": 1
     }

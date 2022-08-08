@@ -26,35 +26,35 @@
     {
       "Name": "匕首",
       "MonsterName": "稻草人",
-      "掉落概率": 150,
+      "Probability": 150,
       "MinAmount": 1,
       "最大数量": 1
     },
     {
       "Name": "匕首",
       "MonsterName": "海蟹",
-      "掉落概率": 150,
+      "Probability": 150,
       "MinAmount": 1,
       "最大数量": 1
     },
     {
       "Name": "匕首",
       "MonsterName": "鹿",
-      "掉落概率": 150,
+      "Probability": 150,
       "MinAmount": 1,
       "最大数量": 1
     },
     {
       "Name": "匕首",
       "MonsterName": "钉耙猫",
-      "掉落概率": 150,
+      "Probability": 150,
       "MinAmount": 1,
       "最大数量": 1
     },
     {
       "Name": "匕首",
       "MonsterName": "羊",
-      "掉落概率": 150,
+      "Probability": 150,
       "MinAmount": 1,
       "最大数量": 1
     }

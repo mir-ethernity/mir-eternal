@@ -23,119 +23,119 @@
     {
       "Name": "金创药(中量)",
       "MonsterName": "游熊",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(中量)",
       "MonsterName": "鬼尸僵尸",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(中量)",
       "MonsterName": "妖尸僵尸",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(中量)",
       "MonsterName": "山洞蝙蝠",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(中量)",
       "MonsterName": "半兽人战士",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(中量)",
       "MonsterName": "爬行僵尸",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(中量)",
       "MonsterName": "佝偻僵尸",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(中量)",
       "MonsterName": "直立僵尸",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(中量)",
       "MonsterName": "和尚僵尸",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(中量)",
       "MonsterName": "腐血僵尸",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(中量)",
       "MonsterName": "利爪僵尸",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(中量)",
       "MonsterName": "蜈蚣",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(中量)",
       "MonsterName": "巨型蠕虫",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(中量)",
       "MonsterName": "跳跳蜂",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(中量)",
       "MonsterName": "毒虫",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(中量)",
       "MonsterName": "道士僵尸",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金创药(中量)",
       "MonsterName": "暗黑战士",
-      "掉落概率": 6,
+      "Probability": 6,
       "最小数量": 1,
       "MaxAmount": 1
     }

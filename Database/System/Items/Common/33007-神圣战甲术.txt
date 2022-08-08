@@ -16,49 +16,49 @@
     {
       "Name": "神圣战甲术",
       "MonsterName": "爬行僵尸",
-      "掉落概率": 1600,
+      "Probability": 1600,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "神圣战甲术",
       "MonsterName": "佝偻僵尸",
-      "掉落概率": 1600,
+      "Probability": 1600,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "神圣战甲术",
       "MonsterName": "直立僵尸",
-      "掉落概率": 1600,
+      "Probability": 1600,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "神圣战甲术",
       "MonsterName": "和尚僵尸",
-      "掉落概率": 1600,
+      "Probability": 1600,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "神圣战甲术",
       "MonsterName": "腐血僵尸",
-      "掉落概率": 1600,
+      "Probability": 1600,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "神圣战甲术",
       "MonsterName": "利爪僵尸",
-      "掉落概率": 1600,
+      "Probability": 1600,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "神圣战甲术",
       "MonsterName": "道士僵尸",
-      "掉落概率": 1600,
+      "Probability": 1600,
       "最小数量": 1,
       "MaxAmount": 1
     }

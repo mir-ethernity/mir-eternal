@@ -16,7 +16,7 @@
     {
       "Name": "沃玛号角",
       "MonsterName": "沃玛教主",
-      "掉落概率": 1,
+      "Probability": 1,
       "最小数量": 1,
       "MaxAmount": 1
     }

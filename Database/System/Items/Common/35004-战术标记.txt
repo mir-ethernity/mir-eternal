@@ -16,49 +16,49 @@
     {
       "Name": "战术标记",
       "MonsterName": "爬行僵尸",
-      "掉落概率": 150,
+      "Probability": 150,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "战术标记",
       "MonsterName": "佝偻僵尸",
-      "掉落概率": 150,
+      "Probability": 150,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "战术标记",
       "MonsterName": "直立僵尸",
-      "掉落概率": 150,
+      "Probability": 150,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "战术标记",
       "MonsterName": "和尚僵尸",
-      "掉落概率": 150,
+      "Probability": 150,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "战术标记",
       "MonsterName": "腐血僵尸",
-      "掉落概率": 150,
+      "Probability": 150,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "战术标记",
       "MonsterName": "利爪僵尸",
-      "掉落概率": 150,
+      "Probability": 150,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "战术标记",
       "MonsterName": "道士僵尸",
-      "掉落概率": 150,
+      "Probability": 150,
       "最小数量": 1,
       "MaxAmount": 1
     }

@@ -17,7 +17,7 @@
     {
       "Name": "祖玛头像",
       "MonsterName": "祖玛教主",
-      "掉落概率": 1,
+      "Probability": 1,
       "最小数量": 1,
       "MaxAmount": 1
     }

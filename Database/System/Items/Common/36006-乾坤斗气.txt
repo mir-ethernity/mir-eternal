@@ -16,70 +16,70 @@
     {
       "Name": "乾坤斗气",
       "MonsterName": "邪恶钳虫",
-      "掉落概率": 100,
+      "Probability": 100,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "乾坤斗气",
       "MonsterName": "白野猪",
-      "掉落概率": 100,
+      "Probability": 100,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "乾坤斗气",
       "MonsterName": "虹魔猪卫",
-      "掉落概率": 100,
+      "Probability": 100,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "乾坤斗气",
       "MonsterName": "虹魔蝎卫",
-      "掉落概率": 100,
+      "Probability": 100,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "乾坤斗气",
       "MonsterName": "沃玛卫士",
-      "掉落概率": 100,
+      "Probability": 100,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "乾坤斗气",
       "MonsterName": "尸王",
-      "掉落概率": 10,
+      "Probability": 10,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "乾坤斗气",
       "MonsterName": "沃玛教主",
-      "掉落概率": 25,
+      "Probability": 25,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "乾坤斗气",
       "MonsterName": "触龙神",
-      "掉落概率": 25,
+      "Probability": 25,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "乾坤斗气",
       "MonsterName": "虹魔教主",
-      "掉落概率": 25,
+      "Probability": 25,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "乾坤斗气",
       "MonsterName": "祖玛教主",
-      "掉落概率": 25,
+      "Probability": 25,
       "最小数量": 1,
       "MaxAmount": 1
     }

@@ -15,217 +15,217 @@
     {
       "Name": "天书残页",
       "MonsterName": "红野猪精英",
-      "掉落概率": 800,
+      "Probability": 800,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "黑野猪精英",
-      "掉落概率": 800,
+      "Probability": 800,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "祖玛卫士精英",
-      "掉落概率": 500,
+      "Probability": 500,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "祖玛雕像精英",
-      "掉落概率": 500,
+      "Probability": 500,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "祖玛弓箭手精英",
-      "掉落概率": 500,
+      "Probability": 500,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "邪恶钳虫",
-      "掉落概率": 65,
+      "Probability": 65,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "白野猪",
-      "掉落概率": 45,
+      "Probability": 45,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "虹魔猪卫",
-      "掉落概率": 10,
+      "Probability": 10,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "虹魔蝎卫",
-      "掉落概率": 10,
+      "Probability": 10,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "双头金刚",
-      "掉落概率": 10,
+      "Probability": 10,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "双头血魔",
-      "掉落概率": 10,
+      "Probability": 10,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "魔龙鬼射",
-      "掉落概率": 10,
+      "Probability": 10,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "魔龙力士",
-      "掉落概率": 10,
+      "Probability": 10,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "金甲鱼人",
-      "掉落概率": 10,
+      "Probability": 10,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "冥海魔神",
-      "掉落概率": 10,
+      "Probability": 10,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "沃玛卫士",
-      "掉落概率": 65,
+      "Probability": 65,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "巨型兽人僵尸",
-      "掉落概率": 10,
+      "Probability": 10,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "狂暴兽魂",
-      "掉落概率": 10,
+      "Probability": 10,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "幽冥大使",
-      "掉落概率": 10,
+      "Probability": 10,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "秘密信使",
-      "掉落概率": 10,
+      "Probability": 10,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "血手",
-      "掉落概率": 1,
+      "Probability": 1,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "黄泉教主",
-      "掉落概率": 1,
+      "Probability": 1,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "牛魔王",
-      "掉落概率": 1,
+      "Probability": 1,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "尸王",
-      "掉落概率": 1,
+      "Probability": 1,
       "最小数量": 1,
       "MaxAmount": 3
     },
     {
       "Name": "天书残页",
       "MonsterName": "沃玛教主",
-      "掉落概率": 1,
+      "Probability": 1,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "魔龙教主",
-      "掉落概率": 1,
+      "Probability": 1,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "触龙神",
-      "掉落概率": 1,
+      "Probability": 1,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "虹魔教主",
-      "掉落概率": 1,
+      "Probability": 1,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "祖玛教主",
-      "掉落概率": 1,
+      "Probability": 1,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "赤月恶魔",
-      "掉落概率": 1,
+      "Probability": 1,
       "最小数量": 1,
       "MaxAmount": 1
     },
     {
       "Name": "天书残页",
       "MonsterName": "烈焰恶魔",
-      "掉落概率": 1,
+      "Probability": 1,
       "最小数量": 1,
       "MaxAmount": 1
     }

@@ -29,35 +29,35 @@
     {
       "Name": "乌木剑",
       "MonsterName": "稻草人",
-      "掉落概率": 500,
+      "Probability": 500,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "乌木剑",
       "MonsterName": "海蟹",
-      "掉落概率": 500,
+      "Probability": 500,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "乌木剑",
       "MonsterName": "鹿",
-      "掉落概率": 500,
+      "Probability": 500,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "乌木剑",
       "MonsterName": "钉耙猫",
-      "掉落概率": 500,
+      "Probability": 500,
       "最小数量": 1,
       "最大数量": 1
     },
     {
       "Name": "乌木剑",
       "MonsterName": "羊",
-      "掉落概率": 500,
+      "Probability": 500,
       "最小数量": 1,
       "最大数量": 1
     }
