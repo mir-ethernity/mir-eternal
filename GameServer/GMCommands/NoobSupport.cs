@@ -19,7 +19,7 @@ namespace GameServer
 		
 		public override void Execute()
 		{
-			Settings.Default.NoobSupportCommand等级 = (Config.NoobLevel = this.扶持等级);
+			Settings.Default.NoobLevel = (Config.NoobLevel = this.扶持等级);
 			Settings.Default.Save();
 			MainForm.Singleton.BeginInvoke(new MethodInvoker(delegate()
 			{

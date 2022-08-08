@@ -39,7 +39,7 @@
       "技能范围类型": "HalfMoon3x2",
       "技能扩展通知": true,
       "HitsLimit": 7,
-      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },

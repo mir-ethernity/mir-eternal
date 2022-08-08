@@ -11,7 +11,7 @@
   "BoundPlayerStat": "MaxSC",
   "LimitMoveSteps": 255,
   "PassiveTriggerSkill": "TrapOctagon术-1-邪咒印-被动触发",
-  "PassiveObjectType": "玩家, 宠物",
+  "PassiveObjectType": "Player, Pet",
   "PassiveType": "ItSelf, Friendly, Hostility",
   "ActivelyTriggerSkills": "TrapOctagon术-1-邪咒印-主动触发",
   "ActivelyTriggerInterval": 2000,

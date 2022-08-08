@@ -50,84 +50,84 @@ namespace GameServer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("100")]
-        public ushort 封包限定数量 {
+        public ushort PacketLimit {
             get {
-                return ((ushort)(this["封包限定数量"]));
+                return ((ushort)(this["PacketLimit"]));
             }
             set {
-                this["封包限定数量"] = value;
+                this["PacketLimit"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("5")]
-        public ushort 异常屏蔽时间 {
+        public ushort AbnormalBlockTime {
             get {
-                return ((ushort)(this["异常屏蔽时间"]));
+                return ((ushort)(this["AbnormalBlockTime"]));
             }
             set {
-                this["异常屏蔽时间"] = value;
+                this["AbnormalBlockTime"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("5")]
-        public ushort 掉线判定时间 {
+        public ushort DisconnectTime {
             get {
-                return ((ushort)(this["掉线判定时间"]));
+                return ((ushort)(this["DisconnectTime"]));
             }
             set {
-                this["掉线判定时间"] = value;
+                this["DisconnectTime"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("40")]
-        public byte 游戏OpenLevelCommand {
+        public byte MaxLevel {
             get {
-                return ((byte)(this["游戏OpenLevelCommand"]));
+                return ((byte)(this["MaxLevel"]));
             }
             set {
-                this["游戏OpenLevelCommand"] = value;
+                this["MaxLevel"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public decimal 装备特修折扣 {
+        public decimal EquipRepairDto {
             get {
-                return ((decimal)(this["装备特修折扣"]));
+                return ((decimal)(this["EquipRepairDto"]));
             }
             set {
-                this["装备特修折扣"] = value;
+                this["EquipRepairDto"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public decimal 怪物额外爆率 {
+        public decimal ExtraDropRate {
             get {
-                return ((decimal)(this["怪物额外爆率"]));
+                return ((decimal)(this["ExtraDropRate"]));
             }
             set {
-                this["怪物额外爆率"] = value;
+                this["ExtraDropRate"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public decimal 怪物经验倍率 {
+        public decimal ExpRate {
             get {
-                return ((decimal)(this["怪物经验倍率"]));
+                return ((decimal)(this["ExpRate"]));
             }
             set {
-                this["怪物经验倍率"] = value;
+                this["ExpRate"] = value;
             }
         }
         
@@ -136,10 +136,10 @@ namespace GameServer.Properties {
         [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public byte LessExpGrade {
             get {
-                return ((byte)(this["减收益等级差"]));
+                return ((byte)(this["LessExpGrade"]));
             }
             set {
-                this["减收益等级差"] = value;
+                this["LessExpGrade"] = value;
             }
         }
         
@@ -148,46 +148,46 @@ namespace GameServer.Properties {
         [global::System.Configuration.DefaultSettingValueAttribute("0.1")]
         public decimal LessExpGradeRate {
             get {
-                return ((decimal)(this["收益减少比率"]));
+                return ((decimal)(this["LessExpGradeRate"]));
             }
             set {
-                this["收益减少比率"] = value;
+                this["LessExpGradeRate"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("120")]
-        public ushort 怪物诱惑时长 {
+        public ushort TemptationTime {
             get {
-                return ((ushort)(this["怪物诱惑时长"]));
+                return ((ushort)(this["TemptationTime"]));
             }
             set {
-                this["怪物诱惑时长"] = value;
+                this["TemptationTime"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("5")]
-        public byte 物品清理时间 {
+        public byte ItemCleaningTime {
             get {
-                return ((byte)(this["物品清理时间"]));
+                return ((byte)(this["ItemCleaningTime"]));
             }
             set {
-                this["物品清理时间"] = value;
+                this["ItemCleaningTime"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("3")]
-        public byte 物品归属时间 {
+        public byte ItemOwnershipTime {
             get {
-                return ((byte)(this["物品归属时间"]));
+                return ((byte)(this["ItemOwnershipTime"]));
             }
             set {
-                this["物品归属时间"] = value;
+                this["ItemOwnershipTime"] = value;
             }
         }
         
@@ -206,36 +206,36 @@ namespace GameServer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(".\\Backup")]
-        public string 数据备份目录 {
+        public string GameDataDirectory {
             get {
-                return ((string)(this["数据备份目录"]));
+                return ((string)(this["GameDataDirectory"]));
             }
             set {
-                this["数据备份目录"] = value;
+                this["GameDataDirectory"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public byte NoobSupportCommand等级 {
+        public byte NoobLevel {
             get {
-                return ((byte)(this["NoobSupportCommand等级"]));
+                return ((byte)(this["NoobLevel"]));
             }
             set {
-                this["NoobSupportCommand等级"] = value;
+                this["NoobLevel"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string 软件注册代码 {
+        public string SoftwareRegistrationCode {
             get {
-                return ((string)(this["软件注册代码"]));
+                return ((string)(this["SoftwareRegistrationCode"]));
             }
             set {
-                this["软件注册代码"] = value;
+                this["SoftwareRegistrationCode"] = value;
             }
         }
         
@@ -243,12 +243,12 @@ namespace GameServer.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1\t1\tWelcome to the world of Legends Eternal, Legends Eternal is more exciting wit" +
             "h you! ")]
-        public string 系统AnnounceText {
+        public string SystemAnnounceText {
             get {
-                return ((string)(this["系统AnnounceText"]));
+                return ((string)(this["SystemAnnounceText"]));
             }
             set {
-                this["系统AnnounceText"] = value;
+                this["SystemAnnounceText"] = value;
             }
         }
         

@@ -35,7 +35,7 @@
       "技能范围类型": "Solid3x3",
       "HitsLimit": 9,
       "QualifySpecificType": "Undead, WomaMonster, PigMonster, ZumaMonster, AllPets, DragonMonster",
-      "LimitedTargetType": "宠物, 怪物",
+      "LimitedTargetType": "Pet, Monster",
       "LimitedTargetRelationship": "Hostility",
       "GainSkillExp": true,
       "经验SkillId": 2547,

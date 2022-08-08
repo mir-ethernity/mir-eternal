@@ -37,7 +37,7 @@
       "技能范围类型": "Yanlong1x2",
       "技能扩展通知": true,
       "HitsLimit": 1,
-      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "触发PassiveSkill": true,
       "触发被动概率": 0.2,

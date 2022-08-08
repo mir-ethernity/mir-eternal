@@ -12,7 +12,7 @@
   "StatDelayFactor": 3000,
   "LimitMoveSteps": 255,
   "PassiveTriggerSkill": "法师火墙-2-真红印-被动伤害",
-  "PassiveObjectType": "玩家, 宠物, 怪物, Npcc",
+  "PassiveObjectType": "Player, Pet, Monster, NPC",
   "PassiveType": "Hostility",
   "ActivelyTriggerSkills": "法师火墙-2-真红印-主动伤害",
   "ActivelyTriggerInterval": 2000,

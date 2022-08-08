@@ -29,7 +29,7 @@ namespace GameServer
 				MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, experience multiplier too high");
 				return;
 			}
-			Settings.Default.怪物经验倍率 = (Config.ExpRate = this.经验倍率);
+			Settings.Default.ExpRate = (Config.ExpRate = this.经验倍率);
 			Settings.Default.Save();
 			MainForm.Singleton.BeginInvoke(new MethodInvoker(delegate()
 			{

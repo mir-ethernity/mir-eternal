@@ -9,7 +9,7 @@
       "技能锁定方式": "锁定目标",
       "计算飞行耗时": true,
       "单格飞行耗时": 45,
-      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility"
     },
     "1": {

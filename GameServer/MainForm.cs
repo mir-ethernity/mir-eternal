@@ -845,7 +845,7 @@ namespace GameServer
 
             this.InitializeComponent();
             MainForm.Singleton = this;
-            string 系统AnnounceText = Settings.Default.系统AnnounceText;
+            string 系统AnnounceText = Settings.Default.SystemAnnounceText;
             MainForm.公告DataSheet = new Dictionary<DataGridViewRow, DateTime>();
             string[] array = 系统AnnounceText.Split(new char[]
             {
@@ -866,24 +866,24 @@ namespace GameServer
 
             }
             this.dgvCharacters.ColumnHeadersDefaultCellStyle.Font = (this.dgvMaps.ColumnHeadersDefaultCellStyle.Font = (this.怪物浏览表.ColumnHeadersDefaultCellStyle.Font = (this.掉落浏览表.ColumnHeadersDefaultCellStyle.Font = (this.封禁浏览表.ColumnHeadersDefaultCellStyle.Font = (this.dgvCharacters.DefaultCellStyle.Font = (this.dgvMaps.DefaultCellStyle.Font = (this.怪物浏览表.DefaultCellStyle.Font = (this.封禁浏览表.DefaultCellStyle.Font = (this.掉落浏览表.DefaultCellStyle.Font = new Font("宋体", 9f))))))))));
-            this.S_软件注册代码.Text = (Config.软件注册代码 = Settings.Default.软件注册代码);
+            this.S_软件注册代码.Text = (Config.软件注册代码 = Settings.Default.SoftwareRegistrationCode);
             this.S_GameData目录.Text = (Config.GameDataPath = Settings.Default.GameData目录);
-            this.S_数据备份目录.Text = (Config.BackupFolder = Settings.Default.数据备份目录);
+            this.S_数据备份目录.Text = (Config.BackupFolder = Settings.Default.GameDataDirectory);
             this.S_GSPort.Value = (Config.GSPort = Settings.Default.GSPort);
             this.S_TSPort.Value = (Config.TSPort = Settings.Default.TSPort);
-            this.S_封包限定数量.Value = (Config.MaxPacketCount = Settings.Default.封包限定数量);
-            this.S_异常屏蔽时间.Value = (Config.异常屏蔽时间 = Settings.Default.异常屏蔽时间);
-            this.S_掉线判定时间.Value = (Config.掉线判定时间 = Settings.Default.掉线判定时间);
-            this.S_游戏OpenLevelCommand.Value = (Config.MaxLevel = Settings.Default.游戏OpenLevelCommand);
-            this.S_NoobSupportCommand等级.Value = (Config.NoobLevel = Settings.Default.NoobSupportCommand等级);
-            this.S_装备特修折扣.Value = (Config.EquipRepairDto = Settings.Default.装备特修折扣);
-            this.S_怪物额外爆率.Value = (Config.ExtraDropRate = Settings.Default.怪物额外爆率);
-            this.S_怪物经验倍率.Value = (Config.ExpRate = Settings.Default.怪物经验倍率);
+            this.S_封包限定数量.Value = (Config.MaxPacketCount = Settings.Default.PacketLimit);
+            this.S_异常屏蔽时间.Value = (Config.异常屏蔽时间 = Settings.Default.AbnormalBlockTime);
+            this.S_掉线判定时间.Value = (Config.掉线判定时间 = Settings.Default.DisconnectTime);
+            this.S_游戏OpenLevelCommand.Value = (Config.MaxLevel = Settings.Default.MaxLevel);
+            this.S_NoobSupportCommand等级.Value = (Config.NoobLevel = Settings.Default.NoobLevel);
+            this.S_装备特修折扣.Value = (Config.EquipRepairDto = Settings.Default.EquipRepairDto);
+            this.S_怪物额外爆率.Value = (Config.ExtraDropRate = Settings.Default.ExtraDropRate);
+            this.S_怪物经验倍率.Value = (Config.ExpRate = Settings.Default.ExpRate);
             this.S_LessExpGrade.Value = (ComputingClass.LessExpGradeLevel = Config.LessExpGrade = (ushort)Settings.Default.LessExpGrade);
             this.S_LessExpGradeRate.Value = (ComputingClass.LessExpGradeRate = Config.LessExpGradeRate = Settings.Default.LessExpGradeRate);
-            this.S_怪物诱惑时长.Value = (Config.怪物诱惑时长 = Settings.Default.怪物诱惑时长);
-            this.S_物品归属时间.Value = (Config.物品归属时间 = (ushort)Settings.Default.物品归属时间);
-            this.S_物品清理时间.Value = (Config.物品清理时间 = (ushort)Settings.Default.物品清理时间);
+            this.S_怪物诱惑时长.Value = (Config.怪物诱惑时长 = Settings.Default.TemptationTime);
+            this.S_物品归属时间.Value = (Config.物品归属时间 = (ushort)Settings.Default.ItemOwnershipTime);
+            this.S_物品清理时间.Value = (Config.物品清理时间 = (ushort)Settings.Default.ItemCleaningTime);
 
 
             Task.Run(delegate ()
@@ -935,7 +935,7 @@ namespace GameServer
         private void 启动服务器_Click(object sender, EventArgs e)
         {
             MainProcess.Start();
-            Config.软件注册代码 = (Settings.Default.软件注册代码 = this.S_软件注册代码.Text);
+            Config.软件注册代码 = (Settings.Default.SoftwareRegistrationCode = this.S_软件注册代码.Text);
             Settings.Default.Save();
             MainForm.MapsDataTable = new DataTable("地图数据表");
             MainForm.MapsDataRow = new Dictionary<GameMap, DataRow>();
@@ -1138,7 +1138,7 @@ namespace GameServer
                 }
                 if (sender == this.S_浏览备份目录)
                 {
-                    Config.BackupFolder = (Settings.Default.数据备份目录 = (this.S_数据备份目录.Text = folderBrowserDialog.SelectedPath));
+                    Config.BackupFolder = (Settings.Default.GameDataDirectory = (this.S_数据备份目录.Text = folderBrowserDialog.SelectedPath));
                     Settings.Default.Save();
                     return;
                 }
@@ -1163,43 +1163,43 @@ namespace GameServer
                         Config.LessExpGradeRate = (Settings.Default.LessExpGradeRate = numericUpDown.Value);
                         break;
                     case "S_掉线判定时间":
-                        Config.掉线判定时间 = (Settings.Default.掉线判定时间 = (ushort)numericUpDown.Value);
+                        Config.掉线判定时间 = (Settings.Default.DisconnectTime = (ushort)numericUpDown.Value);
                         break;
                     case "S_游戏OpenLevelCommand":
-                        Config.MaxLevel = (Settings.Default.游戏OpenLevelCommand = (byte)numericUpDown.Value);
+                        Config.MaxLevel = (Settings.Default.MaxLevel = (byte)numericUpDown.Value);
                         break;
                     case "S_怪物诱惑时长":
-                        Config.怪物诱惑时长 = (Settings.Default.怪物诱惑时长 = (ushort)numericUpDown.Value);
+                        Config.怪物诱惑时长 = (Settings.Default.TemptationTime = (ushort)numericUpDown.Value);
                         break;
                     case "S_怪物经验倍率":
-                        Config.ExpRate = (Settings.Default.怪物经验倍率 = numericUpDown.Value);
+                        Config.ExpRate = (Settings.Default.ExpRate = numericUpDown.Value);
                         break;
                     case "S_TSPort":
                         Config.TSPort = (Settings.Default.TSPort = (ushort)numericUpDown.Value);
                         break;
                     case "S_异常屏蔽时间":
-                        Config.异常屏蔽时间 = (Settings.Default.异常屏蔽时间 = (ushort)numericUpDown.Value);
+                        Config.异常屏蔽时间 = (Settings.Default.AbnormalBlockTime = (ushort)numericUpDown.Value);
                         break;
                     case "S_减收益等级差":
                         Config.LessExpGrade = (ushort)(Settings.Default.LessExpGrade = (byte)numericUpDown.Value);
                         break;
                     case "S_怪物额外爆率":
-                        Config.ExtraDropRate = (Settings.Default.怪物额外爆率 = numericUpDown.Value);
+                        Config.ExtraDropRate = (Settings.Default.ExtraDropRate = numericUpDown.Value);
                         break;
                     case "S_物品归属时间":
-                        Config.物品归属时间 = (ushort)(Settings.Default.物品归属时间 = (byte)numericUpDown.Value);
+                        Config.物品归属时间 = (ushort)(Settings.Default.ItemOwnershipTime = (byte)numericUpDown.Value);
                         break;
                     case "S_NoobSupportCommand等级":
-                        Config.NoobLevel = (Settings.Default.NoobSupportCommand等级 = (byte)numericUpDown.Value);
+                        Config.NoobLevel = (Settings.Default.NoobLevel = (byte)numericUpDown.Value);
                         break;
                     case "S_装备特修折扣":
-                        Config.EquipRepairDto = (Settings.Default.装备特修折扣 = numericUpDown.Value);
+                        Config.EquipRepairDto = (Settings.Default.EquipRepairDto = numericUpDown.Value);
                         break;
                     case "S_物品清理时间":
-                        Config.物品清理时间 = (ushort)(Settings.Default.物品清理时间 = (byte)numericUpDown.Value);
+                        Config.物品清理时间 = (ushort)(Settings.Default.ItemCleaningTime = (byte)numericUpDown.Value);
                         break;
                     case "S_封包限定数量":
-                        Config.MaxPacketCount = (Settings.Default.封包限定数量 = (ushort)numericUpDown.Value);
+                        Config.MaxPacketCount = (Settings.Default.PacketLimit = (ushort)numericUpDown.Value);
                         break;
                     case "S_GSPort":
                         Config.GSPort = (Settings.Default.GSPort = (ushort)numericUpDown.Value);
@@ -1404,7 +1404,7 @@ namespace GameServer
                 text2 = "";
                 goto IL_D4;
             }
-            Settings.Default.系统AnnounceText = text;
+            Settings.Default.SystemAnnounceText = text;
             Settings.Default.Save();
         }
 
@@ -1478,7 +1478,7 @@ namespace GameServer
                     text2 = "";
                     goto IL_C6;
                 }
-                Settings.Default.系统AnnounceText = text;
+                Settings.Default.SystemAnnounceText = text;
                 Settings.Default.Save();
                 return;
             }
@@ -1669,7 +1669,7 @@ namespace GameServer
                 text2 = "";
                 goto IL_43;
             }
-            Settings.Default.系统AnnounceText = text;
+            Settings.Default.SystemAnnounceText = text;
             Settings.Default.Save();
         }
 

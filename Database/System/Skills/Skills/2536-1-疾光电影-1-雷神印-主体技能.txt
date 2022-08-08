@@ -36,7 +36,7 @@
       "技能范围类型": "LineType1x8",
       "技能命中通知": true,
       "HitsLimit": 10,
-      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },

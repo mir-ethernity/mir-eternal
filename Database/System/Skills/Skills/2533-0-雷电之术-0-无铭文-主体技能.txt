@@ -36,7 +36,7 @@
       "技能范围类型": "Solid3x3",
       "技能扩展通知": true,
       "HitsLimit": 1,
-      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },

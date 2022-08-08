@@ -21,7 +21,7 @@
       "计算飞行耗时": true,
       "单格飞行耗时": 50,
       "HitsLimit": 1,
-      "LimitedTargetType": "玩家, 宠物, 怪物",
+      "LimitedTargetType": "Player, Pet, Monster",
       "LimitedTargetRelationship": "Hostility"
     },
     "1501": {

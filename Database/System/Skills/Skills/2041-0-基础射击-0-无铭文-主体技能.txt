@@ -43,7 +43,7 @@
       "技能能否穿墙": true,
       "技能锁定方式": "锁定目标",
       "HitsLimit": 1,
-      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },

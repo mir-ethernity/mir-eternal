@@ -39,7 +39,7 @@
       "技能锁定方式": "锁定锚点坐标",
       "技能范围类型": "Solid5x5",
       "HitsLimit": 20,
-      "LimitedTargetType": "玩家, 宠物",
+      "LimitedTargetType": "Player, Pet",
       "LimitedTargetRelationship": "ItSelf, Friendly",
       "清除目标状态": true,
       "清除状态列表": [

@@ -24,7 +24,7 @@ namespace GameServer
 				MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, the level is lower than the current OpenLevelCommand");
 				return;
 			}
-			Settings.Default.游戏OpenLevelCommand = (Config.MaxLevel = this.最高等级);
+			Settings.Default.MaxLevel = (Config.MaxLevel = this.最高等级);
 			Settings.Default.Save();
 			MainForm.Singleton.BeginInvoke(new MethodInvoker(delegate()
 			{

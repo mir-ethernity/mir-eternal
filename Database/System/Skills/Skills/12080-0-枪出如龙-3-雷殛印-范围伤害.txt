@@ -26,7 +26,7 @@
       "放空结束技能": true,
       "技能扩展通知": true,
       "HitsLimit": 8,
-      "LimitedTargetType": "玩家, 宠物, 怪物, Npcc",
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },

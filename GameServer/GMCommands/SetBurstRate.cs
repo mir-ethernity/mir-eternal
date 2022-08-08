@@ -29,7 +29,7 @@ namespace GameServer
 				MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, extra burst rate too high");
 				return;
 			}
-			Settings.Default.怪物额外爆率 = (Config.ExtraDropRate = this.额外爆率);
+			Settings.Default.ExtraDropRate = (Config.ExtraDropRate = this.额外爆率);
 			Settings.Default.Save();
 			MainForm.Singleton.BeginInvoke(new MethodInvoker(delegate()
 			{

@@ -33,7 +33,7 @@
       "技能锁定方式": "锁定目标",
       "SkillHitFeedback": "特效",
       "HitsLimit": 1,
-      "LimitedTargetType": "宠物, 怪物",
+      "LimitedTargetType": "Pet, Monster",
       "LimitedTargetRelationship": "Hostility",
       "GainSkillExp": true,
       "经验SkillId": 2541,
