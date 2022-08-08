@@ -194,6 +194,7 @@ namespace ClientPacketSniffer
                 sb.AppendLine($"// Packet ID: {packet.PacketInfo.Id}, Name: {packet.PacketInfo.Name}");
                 // sb.AppendLine(string.Join(", ", BitConverter.GetBytes(packet.PacketInfo.Id).Select(x => x.ToString()).ToArray()) + ", " + string.Join(", ", packet.Data.Select(x => x.ToString()).ToArray()));
                 sb.AppendLine($"网络连接.SendRaw({packet.PacketInfo.Id}, {packet.PacketInfo.Length}, new byte[] {{{ string.Join(", ", packet.Data.Select(x => x.ToString()).ToArray()) }}});");
+                sb.AppendLine($"@Buffer war {packet.PacketInfo.Id} {packet.PacketInfo.Length} {BitConverter.ToString(packet.Data).Replace("-", "").ToLowerInvariant()}");
             }
 
             var raw = sb.ToString();
@@ -241,9 +242,9 @@ namespace ClientPacketSniffer
                 var txt = Encoding.UTF8.GetString(buff);
 
                 if (
-                    u2 == -1 
-                    && u3 == 0 
-                    && u4 == -1 
+                    u2 == -1
+                    && u3 == 0
+                    && u4 == -1
                     && u5 == 0 && u6 == 0 && u7 == 0 && u8 == 0 && u9 == 0 && u10 == 0 && u11 == -1 && u12 == -1)
                     continue;
 
