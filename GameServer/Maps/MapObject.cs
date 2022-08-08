@@ -1764,7 +1764,7 @@ namespace GameServer.Maps
                                 num9 = MapObject[GameObjectStats.MaxSC];
                                 break;
                             case SkillDamageType.Sacred:
-                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.最小圣伤], MapObject[GameObjectStats.最大圣伤], 0);
+                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinHC], MapObject[GameObjectStats.MaxHC], 0);
                                 break;
                         }
                         if (this is MonsterObject)

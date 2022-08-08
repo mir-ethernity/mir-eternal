@@ -112,7 +112,7 @@ namespace GameServer.Data
 					num4 = 来源[GameObjectStats.MaxSC];
 					break;
 				case SkillDamageType.Sacred:
-					num4 = ComputingClass.计算Attack(来源[GameObjectStats.最小圣伤], 来源[GameObjectStats.最大圣伤], 0);
+					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinHC], 来源[GameObjectStats.MaxHC], 0);
 					break;
 				}
 				this.伤害基数.V = num2 + (int)((float)num4 * num3);

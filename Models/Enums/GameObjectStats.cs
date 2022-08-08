@@ -78,9 +78,9 @@ namespace GameServer
 		
 		攻杀标志,
 		
-		最小圣伤 = 67,
+		MinHC = 67,
 		
-		最大圣伤,
+		MaxHC,
 		
 		怪物伤害 = 112,
 		
