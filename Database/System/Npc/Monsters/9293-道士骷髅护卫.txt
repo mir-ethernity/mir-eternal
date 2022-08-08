@@ -146,32 +146,32 @@
   ],
   "InheritsStats": [
     {
-      "InheritsStats": "GreatestTaoism",
+      "InheritsStats": "MaxSC",
       "Ratio": 0.3,
       "ConvertStat": "MinDC"
     },
     {
-      "InheritsStats": "GreatestTaoism",
+      "InheritsStats": "MaxSC",
       "Ratio": 0.6,
       "ConvertStat": "MaxDC"
     },
     {
-      "InheritsStats": "GreatestTaoism",
+      "InheritsStats": "MaxSC",
       "Ratio": 0.15,
       "ConvertStat": "MinDef"
     },
     {
-      "InheritsStats": "GreatestTaoism",
+      "InheritsStats": "MaxSC",
       "Ratio": 0.3,
       "ConvertStat": "MaxDef"
     },
     {
-      "InheritsStats": "GreatestTaoism",
+      "InheritsStats": "MaxSC",
       "Ratio": 0.15,
       "ConvertStat": "MinMCDef"
     },
     {
-      "InheritsStats": "GreatestTaoism",
+      "InheritsStats": "MaxSC",
       "Ratio": 0.3,
       "ConvertStat": "MaxMCDef"
     },

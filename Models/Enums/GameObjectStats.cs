@@ -24,9 +24,9 @@ namespace GameServer
 		
 		MaxMC,
 		
-		Minimalist,
+		MinSC,
 		
-		GreatestTaoism,
+		MaxSC,
 		
 		MinNeedle,
 		

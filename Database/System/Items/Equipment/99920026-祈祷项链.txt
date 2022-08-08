@@ -15,7 +15,7 @@
   "StoreType": "首饰",
   "DestroyOnDeath": true,
   "BasicPowerCombat": 86,
-  "GreatestTaoism": 4,
+  "MaxSC": 4,
   "CanRepair": true,
   "RepairCost": 3000,
   "SpecialRepairCost": 15000,

@@ -528,11 +528,11 @@ namespace GameServer.Data
                     int num4;
                     text += string.Format("\nMagic{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinMC, out num3) ? num3 : 0, dictionary.TryGetValue(GameObjectStats.MaxMC, out num4) ? num4 : 0);
                 }
-                if (dictionary.ContainsKey(GameObjectStats.Minimalist) || dictionary.ContainsKey(GameObjectStats.GreatestTaoism))
+                if (dictionary.ContainsKey(GameObjectStats.MinSC) || dictionary.ContainsKey(GameObjectStats.MaxSC))
                 {
                     int num5;
                     int num6;
-                    text += string.Format("\nTaoism{0}-{1}", dictionary.TryGetValue(GameObjectStats.Minimalist, out num5) ? num5 : 0, dictionary.TryGetValue(GameObjectStats.GreatestTaoism, out num6) ? num6 : 0);
+                    text += string.Format("\nTaoism{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinSC, out num5) ? num5 : 0, dictionary.TryGetValue(GameObjectStats.MaxSC, out num6) ? num6 : 0);
                 }
                 if (dictionary.ContainsKey(GameObjectStats.MinNeedle) || dictionary.ContainsKey(GameObjectStats.MaxNeedle))
                 {
@@ -779,13 +779,13 @@ namespace GameServer.Data
                 {
                     dictionary[GameObjectStats.MaxMC] = 装备模板.MaxMC;
                 }
-                if (装备模板.Minimalist != 0)
+                if (装备模板.MinSC != 0)
                 {
-                    dictionary[GameObjectStats.Minimalist] = 装备模板.Minimalist;
+                    dictionary[GameObjectStats.MinSC] = 装备模板.MinSC;
                 }
-                if (装备模板.GreatestTaoism != 0)
+                if (装备模板.MaxSC != 0)
                 {
-                    dictionary[GameObjectStats.GreatestTaoism] = 装备模板.GreatestTaoism;
+                    dictionary[GameObjectStats.MaxSC] = 装备模板.MaxSC;
                 }
                 if (装备模板.MinNeedle != 0)
                 {
@@ -857,7 +857,7 @@ namespace GameServer.Data
                 }
                 if (升级Taoism.V != 0)
                 {
-                    dictionary[GameObjectStats.GreatestTaoism] = (dictionary.ContainsKey(GameObjectStats.GreatestTaoism) ? (dictionary[GameObjectStats.GreatestTaoism] + (int)升级Taoism.V) : ((int)升级Taoism.V));
+                    dictionary[GameObjectStats.MaxSC] = (dictionary.ContainsKey(GameObjectStats.MaxSC) ? (dictionary[GameObjectStats.MaxSC] + (int)升级Taoism.V) : ((int)升级Taoism.V));
                 }
                 if (升级Needle.V != 0)
                 {
@@ -879,19 +879,19 @@ namespace GameServer.Data
                         switch (Id)
                         {
                             case 10110:
-                                dictionary[GameObjectStats.GreatestTaoism] = (dictionary.ContainsKey(GameObjectStats.GreatestTaoism) ? (dictionary[GameObjectStats.GreatestTaoism] + 1) : 1);
+                                dictionary[GameObjectStats.MaxSC] = (dictionary.ContainsKey(GameObjectStats.MaxSC) ? (dictionary[GameObjectStats.MaxSC] + 1) : 1);
                                 break;
                             case 10111:
-                                dictionary[GameObjectStats.GreatestTaoism] = (dictionary.ContainsKey(GameObjectStats.GreatestTaoism) ? (dictionary[GameObjectStats.GreatestTaoism] + 2) : 2);
+                                dictionary[GameObjectStats.MaxSC] = (dictionary.ContainsKey(GameObjectStats.MaxSC) ? (dictionary[GameObjectStats.MaxSC] + 2) : 2);
                                 break;
                             case 10112:
-                                dictionary[GameObjectStats.GreatestTaoism] = (dictionary.ContainsKey(GameObjectStats.GreatestTaoism) ? (dictionary[GameObjectStats.GreatestTaoism] + 3) : 3);
+                                dictionary[GameObjectStats.MaxSC] = (dictionary.ContainsKey(GameObjectStats.MaxSC) ? (dictionary[GameObjectStats.MaxSC] + 3) : 3);
                                 break;
                             case 10113:
-                                dictionary[GameObjectStats.GreatestTaoism] = (dictionary.ContainsKey(GameObjectStats.GreatestTaoism) ? (dictionary[GameObjectStats.GreatestTaoism] + 4) : 4);
+                                dictionary[GameObjectStats.MaxSC] = (dictionary.ContainsKey(GameObjectStats.MaxSC) ? (dictionary[GameObjectStats.MaxSC] + 4) : 4);
                                 break;
                             case 10114:
-                                dictionary[GameObjectStats.GreatestTaoism] = (dictionary.ContainsKey(GameObjectStats.GreatestTaoism) ? (dictionary[GameObjectStats.GreatestTaoism] + 5) : 5);
+                                dictionary[GameObjectStats.MaxSC] = (dictionary.ContainsKey(GameObjectStats.MaxSC) ? (dictionary[GameObjectStats.MaxSC] + 5) : 5);
                                 break;
                             case 10115:
                             case 10116:

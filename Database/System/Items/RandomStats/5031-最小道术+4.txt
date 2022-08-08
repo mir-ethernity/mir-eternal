@@ -1,5 +1,5 @@
 {
-  "Stat": "Minimalist",
+  "Stat": "MinSC",
   "Value": 4,
   "StatId": 5031,
   "CombatBonus": 40,

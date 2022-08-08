@@ -9913,7 +9913,7 @@ namespace GameServer.Maps
                 if (equipmentItem.NeedMagic > this[GameObjectStats.MaxMC])
                     return;
 
-                if (equipmentItem.NeedTaoism > this[GameObjectStats.GreatestTaoism])
+                if (equipmentItem.NeedTaoism > this[GameObjectStats.MaxSC])
                     return;
 
                 if (equipmentItem.NeedAcupuncture > this[GameObjectStats.MaxNeedle])
@@ -10001,7 +10001,7 @@ namespace GameServer.Maps
                 if (equipmentItem.NeedMagic > this[GameObjectStats.MaxMC])
                     return;
 
-                if (equipmentItem.NeedTaoism > this[GameObjectStats.GreatestTaoism])
+                if (equipmentItem.NeedTaoism > this[GameObjectStats.MaxSC])
                     return;
 
                 if (equipmentItem.NeedAcupuncture > this[GameObjectStats.MaxNeedle])
@@ -13382,7 +13382,7 @@ namespace GameServer.Maps
                         {
                             dictionary4[1][EquipmentData3] = value;
                         }
-                        if ((value = (装备Stat.ContainsKey(GameObjectStats.Minimalist) ? 装备Stat[GameObjectStats.Minimalist] : 0) + (装备Stat.ContainsKey(GameObjectStats.GreatestTaoism) ? 装备Stat[GameObjectStats.GreatestTaoism] : 0)) > 0)
+                        if ((value = (装备Stat.ContainsKey(GameObjectStats.MinSC) ? 装备Stat[GameObjectStats.MinSC] : 0) + (装备Stat.ContainsKey(GameObjectStats.MaxSC) ? 装备Stat[GameObjectStats.MaxSC] : 0)) > 0)
                         {
                             dictionary4[2][EquipmentData3] = value;
                         }

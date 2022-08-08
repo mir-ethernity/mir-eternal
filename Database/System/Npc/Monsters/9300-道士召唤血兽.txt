@@ -66,7 +66,7 @@
       "Level7": 8
     },
     {
-      "Stat": "Minimalist",
+      "Stat": "MinSC",
       "Level0": 16,
       "Level1": 17,
       "Level2": 18,
@@ -77,7 +77,7 @@
       "Level7": 30
     },
     {
-      "Stat": "GreatestTaoism",
+      "Stat": "MaxSC",
       "Level0": 28,
       "Level1": 29,
       "Level2": 30,
@@ -145,32 +145,32 @@
   ],
   "InheritsStats": [
     {
-      "InheritsStats": "GreatestTaoism",
+      "InheritsStats": "MaxSC",
       "Ratio": 0.4,
-      "ConvertStat": "Minimalist"
+      "ConvertStat": "MinSC"
     },
     {
-      "InheritsStats": "GreatestTaoism",
+      "InheritsStats": "MaxSC",
       "Ratio": 0.7,
-      "ConvertStat": "GreatestTaoism"
+      "ConvertStat": "MaxSC"
     },
     {
-      "InheritsStats": "GreatestTaoism",
+      "InheritsStats": "MaxSC",
       "Ratio": 0.2,
       "ConvertStat": "MinDef"
     },
     {
-      "InheritsStats": "GreatestTaoism",
+      "InheritsStats": "MaxSC",
       "Ratio": 0.5,
       "ConvertStat": "MaxDef"
     },
     {
-      "InheritsStats": "GreatestTaoism",
+      "InheritsStats": "MaxSC",
       "Ratio": 0.2,
       "ConvertStat": "MinMCDef"
     },
     {
-      "InheritsStats": "GreatestTaoism",
+      "InheritsStats": "MaxSC",
       "Ratio": 0.5,
       "ConvertStat": "MaxMCDef"
     },

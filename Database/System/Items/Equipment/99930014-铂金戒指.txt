@@ -14,7 +14,7 @@
   "StoreType": "首饰",
   "NeedTaoism": 17,
   "BasicPowerCombat": 76,
-  "GreatestTaoism": 4,
+  "MaxSC": 4,
   "CanRepair": true,
   "RepairCost": 4500,
   "SpecialRepairCost": 22500,

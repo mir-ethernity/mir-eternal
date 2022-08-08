@@ -1750,7 +1750,7 @@ namespace GameServer.Maps
                                 break;
                             case SkillDamageType.Taoism:
                                 num10 = ComputingClass.计算防御(this[GameObjectStats.MinMCDef], this[GameObjectStats.MaxMCDef]);
-                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.Minimalist], MapObject[GameObjectStats.GreatestTaoism], MapObject[GameObjectStats.幸运等级]);
+                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinSC], MapObject[GameObjectStats.MaxSC], MapObject[GameObjectStats.幸运等级]);
                                 break;
                             case SkillDamageType.Needle:
                                 num10 = ComputingClass.计算防御(this[GameObjectStats.MinDef], this[GameObjectStats.MaxDef]);
@@ -1761,7 +1761,7 @@ namespace GameServer.Maps
                                 num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinBow], MapObject[GameObjectStats.MaxBow], MapObject[GameObjectStats.幸运等级]);
                                 break;
                             case SkillDamageType.Toxicity:
-                                num9 = MapObject[GameObjectStats.GreatestTaoism];
+                                num9 = MapObject[GameObjectStats.MaxSC];
                                 break;
                             case SkillDamageType.Sacred:
                                 num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.最小圣伤], MapObject[GameObjectStats.最大圣伤], 0);
@@ -2263,11 +2263,11 @@ namespace GameServer.Maps
                     float num9 = num8;
                     if (num4 > 0f)
                     {
-                        num2 += (int)(num4 * (float)ComputingClass.计算Attack(MapObject[GameObjectStats.Minimalist], MapObject[GameObjectStats.GreatestTaoism], MapObject[GameObjectStats.幸运等级]));
+                        num2 += (int)(num4 * (float)ComputingClass.计算Attack(MapObject[GameObjectStats.MinSC], MapObject[GameObjectStats.MaxSC], MapObject[GameObjectStats.幸运等级]));
                     }
                     if (num5 > 0f)
                     {
-                        num3 += (int)(num5 * (float)ComputingClass.计算Attack(MapObject[GameObjectStats.Minimalist], MapObject[GameObjectStats.GreatestTaoism], MapObject[GameObjectStats.幸运等级]));
+                        num3 += (int)(num5 * (float)ComputingClass.计算Attack(MapObject[GameObjectStats.MinSC], MapObject[GameObjectStats.MaxSC], MapObject[GameObjectStats.幸运等级]));
                     }
                     if (num7 > 0)
                     {

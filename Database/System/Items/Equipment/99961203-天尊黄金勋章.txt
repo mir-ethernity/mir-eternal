@@ -14,7 +14,7 @@
   "PersistType": "装备",
   "StoreType": "服装",
   "BasicPowerCombat": 35,
-  "GreatestTaoism": 1,
+  "MaxSC": 1,
   "MinDef": 1,
   "MaxDef": 1,
   "MinMCDef": 1,

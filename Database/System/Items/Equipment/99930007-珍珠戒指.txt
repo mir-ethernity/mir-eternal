@@ -13,7 +13,7 @@
   "PersistType": "装备",
   "StoreType": "首饰",
   "BasicPowerCombat": 38,
-  "GreatestTaoism": 2,
+  "MaxSC": 2,
   "CanRepair": true,
   "RepairCost": 600,
   "SpecialRepairCost": 3000,

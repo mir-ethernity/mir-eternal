@@ -14,7 +14,7 @@
   "PersistType": "装备",
   "StoreType": "服装",
   "BasicPowerCombat": 32,
-  "GreatestTaoism": 1,
+  "MaxSC": 1,
   "MaxHP": 22,
   "MaxMP": 28,
   "CanRepair": true,

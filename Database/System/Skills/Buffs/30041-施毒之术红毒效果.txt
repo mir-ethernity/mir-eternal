@@ -18,7 +18,7 @@
   "SkillLevelDelay": true,
   "ExtendedTimePerLevel": 5000,
   "PlayerStatDelay": true,
-  "BoundPlayerStat": "GreatestTaoism",
+  "BoundPlayerStat": "MaxSC",
   "StatDelayFactor": 1000,
   "StatsIncOrDec": [
     {

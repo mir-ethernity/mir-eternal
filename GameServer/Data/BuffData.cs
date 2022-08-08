@@ -100,7 +100,7 @@ namespace GameServer.Data
 					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinMC], 来源[GameObjectStats.MaxMC], 来源[GameObjectStats.幸运等级]);
 					break;
 				case SkillDamageType.Taoism:
-					num4 = ComputingClass.计算Attack(来源[GameObjectStats.Minimalist], 来源[GameObjectStats.GreatestTaoism], 来源[GameObjectStats.幸运等级]);
+					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinSC], 来源[GameObjectStats.MaxSC], 来源[GameObjectStats.幸运等级]);
 					break;
 				case SkillDamageType.Needle:
 					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinNeedle], 来源[GameObjectStats.MaxNeedle], 来源[GameObjectStats.幸运等级]);
@@ -109,7 +109,7 @@ namespace GameServer.Data
 					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinBow], 来源[GameObjectStats.MaxBow], 来源[GameObjectStats.幸运等级]);
 					break;
 				case SkillDamageType.Toxicity:
-					num4 = 来源[GameObjectStats.GreatestTaoism];
+					num4 = 来源[GameObjectStats.MaxSC];
 					break;
 				case SkillDamageType.Sacred:
 					num4 = ComputingClass.计算Attack(来源[GameObjectStats.最小圣伤], 来源[GameObjectStats.最大圣伤], 0);

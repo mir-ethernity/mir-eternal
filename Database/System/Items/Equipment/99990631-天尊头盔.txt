@@ -14,7 +14,7 @@
   "StoreType": "服装",
   "NeedTaoism": 25,
   "BasicPowerCombat": 202,
-  "GreatestTaoism": 1,
+  "MaxSC": 1,
   "MinDef": 4,
   "MaxDef": 4,
   "MinMCDef": 1,

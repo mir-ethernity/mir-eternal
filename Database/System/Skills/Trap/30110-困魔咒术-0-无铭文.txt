@@ -8,7 +8,7 @@
   "ExtendedDuration": true,
   "SkillLevelDelay": true,
   "ExtendedTimePerLevel": 5000,
-  "BoundPlayerStat": "GreatestTaoism",
+  "BoundPlayerStat": "MaxSC",
   "LimitMoveSteps": 255,
   "PassiveTriggerSkill": "TrapOctagon术-0-无铭文-被动触发",
   "PassiveObjectType": "玩家, 宠物",

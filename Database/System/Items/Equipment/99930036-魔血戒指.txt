@@ -16,7 +16,7 @@
   "BasicPowerCombat": 116,
   "MinDC": 1,
   "MaxDC": 3,
-  "Minimalist": 1,
+  "MinSC": 1,
   "CanRepair": true,
   "RepairCost": 30000,
   "SpecialRepairCost": 150000,

@@ -19,8 +19,8 @@ namespace GameServer.Templates
 		public int MaxDC;
 		public int MinMC;
 		public int MaxMC;
-		public int Minimalist;
-		public int GreatestTaoism;
+		public int MinSC;
+		public int MaxSC;
 		public int MinNeedle;
 		public int MaxNeedle;
 		public int MinBow;

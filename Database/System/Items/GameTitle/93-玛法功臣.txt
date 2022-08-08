@@ -5,7 +5,7 @@
   "Attributes": {
     "MaxDC": 1,
     "MaxMC": 1,
-    "GreatestTaoism": 1,
+    "MaxSC": 1,
     "MaxNeedle": 1,
     "MaxBow": 1,
     "MaxHP": 5

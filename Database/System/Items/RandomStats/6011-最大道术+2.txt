@@ -1,5 +1,5 @@
 {
-  "Stat": "GreatestTaoism",
+  "Stat": "MaxSC",
   "Value": 2,
   "StatId": 6011,
   "CombatBonus": 20,
