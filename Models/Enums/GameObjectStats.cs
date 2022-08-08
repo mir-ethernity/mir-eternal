@@ -58,7 +58,7 @@ namespace GameServer
 		
 		药品回魔,
 		
-		幸运等级,
+		Luck,
 		
 		AttackSpeed = 36,
 		

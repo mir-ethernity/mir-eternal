@@ -188,9 +188,9 @@
       "ConvertStat": "MagicDodge"
     },
     {
-      "InheritsStats": "幸运等级",
+      "InheritsStats": "Luck",
       "Ratio": 1,
-      "ConvertStat": "幸运等级"
+      "ConvertStat": "Luck"
     }
   ],
   "Drops": []

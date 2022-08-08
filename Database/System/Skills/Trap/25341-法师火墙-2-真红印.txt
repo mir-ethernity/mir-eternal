@@ -8,7 +8,7 @@
   "SkillLevelDelay": true,
   "ExtendedTimePerLevel": 4000,
   "PlayerStatDelay": true,
-  "BoundPlayerStat": "幸运等级",
+  "BoundPlayerStat": "Luck",
   "StatDelayFactor": 3000,
   "LimitMoveSteps": 255,
   "PassiveTriggerSkill": "法师火墙-2-真红印-被动伤害",

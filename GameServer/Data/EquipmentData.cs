@@ -25,7 +25,7 @@ namespace GameServer.Data
             {
                 if (装备模板.Type == ItemType.武器)
                 {
-                    int num = (int)(装备模板.BasicPowerCombat * (幸运等级.V + 20) * 1717986919L >> 32 >> 3);
+                    int num = (int)(装备模板.BasicPowerCombat * (Luck.V + 20) * 1717986919L >> 32 >> 3);
                     int num2 = Sacred伤害.V * 3 + 升级Attack.V * 5 + 升级Magic.V * 5 + 升级Taoism.V * 5 + 升级Needle.V * 5 + 升级Archery.V * 5;
                     int num3 = 随机Stat.Sum((RandomStats x) => x.CombatBonus);
                     return num + num2 + num3;
@@ -588,10 +588,10 @@ namespace GameServer.Data
                     int num20;
                     text += string.Format("\nPoisoning evasion{0}%", (dictionary.TryGetValue(GameObjectStats.中毒躲避, out num20) ? num20 : 0) / 100);
                 }
-                if (dictionary.ContainsKey(GameObjectStats.幸运等级))
+                if (dictionary.ContainsKey(GameObjectStats.Luck))
                 {
                     int num21;
-                    text += string.Format("\nLuck+{0}", dictionary.TryGetValue(GameObjectStats.幸运等级, out num21) ? num21 : 0);
+                    text += string.Format("\nLuck+{0}", dictionary.TryGetValue(GameObjectStats.Luck, out num21) ? num21 : 0);
                 }
                 return text;
             }
@@ -843,9 +843,9 @@ namespace GameServer.Data
                 {
                     dictionary[GameObjectStats.PhysicalAgility] = 装备模板.PhysicalAgility;
                 }
-                if (幸运等级.V != 0)
+                if (Luck.V != 0)
                 {
-                    dictionary[GameObjectStats.幸运等级] = (dictionary.ContainsKey(GameObjectStats.幸运等级) ? (dictionary[GameObjectStats.幸运等级] + (int)幸运等级.V) : ((int)幸运等级.V));
+                    dictionary[GameObjectStats.Luck] = (dictionary.ContainsKey(GameObjectStats.Luck) ? (dictionary[GameObjectStats.Luck] + (int)Luck.V) : ((int)Luck.V));
                 }
                 if (升级Attack.V != 0)
                 {
@@ -1140,7 +1140,7 @@ namespace GameServer.Data
 
                     if (随机Stat.Count >= 4) num2 |= 0x10;
 
-                    if (幸运等级.V != 0) num2 |= 0x800;
+                    if (Luck.V != 0) num2 |= 0x800;
 
                     if (升级次数.V != 0) num2 |= 0x1000;
 
@@ -1210,7 +1210,7 @@ namespace GameServer.Data
                     }
 
                     if (((uint)num2 & 0x800u) != 0)
-                        binaryWriter.Write(幸运等级.V);
+                        binaryWriter.Write(Luck.V);
 
                     if (((uint)num2 & 0x1000u) != 0)
                     {
@@ -1303,7 +1303,7 @@ namespace GameServer.Data
         public readonly DataMonitor<byte> 祈祷次数;
 
 
-        public readonly DataMonitor<sbyte> 幸运等级;
+        public readonly DataMonitor<sbyte> Luck;
 
 
         public readonly DataMonitor<bool> 装备神佑;

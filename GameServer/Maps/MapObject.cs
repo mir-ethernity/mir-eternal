@@ -232,7 +232,7 @@ namespace GameServer.Maps
                 {
                     this[GameObjectProperties] = Math.Max(1, num5 + num3 + num4);
                 }
-                else if (GameObjectProperties == GameObjectStats.幸运等级)
+                else if (GameObjectProperties == GameObjectStats.Luck)
                 {
                     this[GameObjectProperties] = num5;
                 }
@@ -1742,23 +1742,23 @@ namespace GameServer.Maps
                         {
                             case SkillDamageType.Attack:
                                 num10 = ComputingClass.计算防御(this[GameObjectStats.MinDef], this[GameObjectStats.MaxDef]);
-                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinDC], MapObject[GameObjectStats.MaxDC], MapObject[GameObjectStats.幸运等级]);
+                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinDC], MapObject[GameObjectStats.MaxDC], MapObject[GameObjectStats.Luck]);
                                 break;
                             case SkillDamageType.Magic:
                                 num10 = ComputingClass.计算防御(this[GameObjectStats.MinMCDef], this[GameObjectStats.MaxMCDef]);
-                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinMC], MapObject[GameObjectStats.MaxMC], MapObject[GameObjectStats.幸运等级]);
+                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinMC], MapObject[GameObjectStats.MaxMC], MapObject[GameObjectStats.Luck]);
                                 break;
                             case SkillDamageType.Taoism:
                                 num10 = ComputingClass.计算防御(this[GameObjectStats.MinMCDef], this[GameObjectStats.MaxMCDef]);
-                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinSC], MapObject[GameObjectStats.MaxSC], MapObject[GameObjectStats.幸运等级]);
+                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinSC], MapObject[GameObjectStats.MaxSC], MapObject[GameObjectStats.Luck]);
                                 break;
                             case SkillDamageType.Needle:
                                 num10 = ComputingClass.计算防御(this[GameObjectStats.MinDef], this[GameObjectStats.MaxDef]);
-                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinNeedle], MapObject[GameObjectStats.MaxNeedle], MapObject[GameObjectStats.幸运等级]);
+                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinNeedle], MapObject[GameObjectStats.MaxNeedle], MapObject[GameObjectStats.Luck]);
                                 break;
                             case SkillDamageType.Archery:
                                 num10 = ComputingClass.计算防御(this[GameObjectStats.MinDef], this[GameObjectStats.MaxDef]);
-                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinBow], MapObject[GameObjectStats.MaxBow], MapObject[GameObjectStats.幸运等级]);
+                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinBow], MapObject[GameObjectStats.MaxBow], MapObject[GameObjectStats.Luck]);
                                 break;
                             case SkillDamageType.Toxicity:
                                 num9 = MapObject[GameObjectStats.MaxSC];
@@ -2263,11 +2263,11 @@ namespace GameServer.Maps
                     float num9 = num8;
                     if (num4 > 0f)
                     {
-                        num2 += (int)(num4 * (float)ComputingClass.计算Attack(MapObject[GameObjectStats.MinSC], MapObject[GameObjectStats.MaxSC], MapObject[GameObjectStats.幸运等级]));
+                        num2 += (int)(num4 * (float)ComputingClass.计算Attack(MapObject[GameObjectStats.MinSC], MapObject[GameObjectStats.MaxSC], MapObject[GameObjectStats.Luck]));
                     }
                     if (num5 > 0f)
                     {
-                        num3 += (int)(num5 * (float)ComputingClass.计算Attack(MapObject[GameObjectStats.MinSC], MapObject[GameObjectStats.MaxSC], MapObject[GameObjectStats.幸运等级]));
+                        num3 += (int)(num5 * (float)ComputingClass.计算Attack(MapObject[GameObjectStats.MinSC], MapObject[GameObjectStats.MaxSC], MapObject[GameObjectStats.Luck]));
                     }
                     if (num7 > 0)
                     {

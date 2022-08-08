@@ -262,11 +262,11 @@
     },
     {
       "StatId": 32001,
-      "StatDescription": "幸运等级+1"
+      "StatDescription": "Luck+1"
     },
     {
       "StatId": 32041,
-      "StatDescription": "幸运等级+2"
+      "StatDescription": "Luck+2"
     },
     {
       "StatId": 34009,

@@ -2716,10 +2716,10 @@ namespace GameServer.Maps
         public void 武器幸运损失()
         {
             EquipmentData EquipmentData;
-            if (this.Equipment.TryGetValue(0, out EquipmentData) && EquipmentData.幸运等级.V > -9 && ComputingClass.计算概率(0.1f))
+            if (this.Equipment.TryGetValue(0, out EquipmentData) && EquipmentData.Luck.V > -9 && ComputingClass.计算概率(0.1f))
             {
-                DataMonitor<sbyte> 幸运等级 = EquipmentData.幸运等级;
-                幸运等级.V -= 1;
+                DataMonitor<sbyte> Luck = EquipmentData.Luck;
+                Luck.V -= 1;
                 this.ActiveConnection.发送封包(new 玩家物品变动
                 {
                     物品描述 = EquipmentData.字节描述()
@@ -3616,7 +3616,7 @@ namespace GameServer.Maps
                         {
                             if (value2.CalculateLuckyProbability)
                             {
-                                if (!ComputingClass.计算概率(ComputingClass.计算幸运(this[GameObjectStats.幸运等级])))
+                                if (!ComputingClass.计算概率(ComputingClass.计算幸运(this[GameObjectStats.Luck])))
                                 {
                                     continue;
                                 }
@@ -10627,7 +10627,7 @@ namespace GameServer.Maps
                                 });
                                 break;
                             }
-                            if (v5.幸运等级.V >= 7)
+                            if (v5.Luck.V >= 7)
                             {
                                 ActiveConnection?.发送封包(new GameErrorMessagePacket
                                 {
@@ -10637,7 +10637,7 @@ namespace GameServer.Maps
                             }
                             ConsumeBackpackItem(1, v);
                             int num2 = 0;
-                            num2 = v5.幸运等级.V switch
+                            num2 = v5.Luck.V switch
                             {
                                 0 => 80,
                                 1 => 10,
@@ -10651,7 +10651,7 @@ namespace GameServer.Maps
                             int num3 = MainProcess.RandomNumber.Next(100);
                             if (num3 < num2)
                             {
-                                v5.幸运等级.V++;
+                                v5.Luck.V++;
                                 ActiveConnection?.发送封包(new 玩家物品变动
                                 {
                                     物品描述 = v5.字节描述()
@@ -10662,14 +10662,14 @@ namespace GameServer.Maps
                                 });
                                 Stat加成[v5] = v5.装备Stat;
                                 更新对象Stat();
-                                if (v5.幸运等级.V >= 5)
+                                if (v5.Luck.V >= 5)
                                 {
-                                    NetworkServiceGateway.发送公告($"[{对象名字}] 成功将 [{v5.Name}] 升到幸运 {v5.幸运等级.V} 级.");
+                                    NetworkServiceGateway.发送公告($"[{对象名字}] 成功将 [{v5.Name}] 升到幸运 {v5.Luck.V} 级.");
                                 }
                             }
-                            else if (num3 >= 95 && v5.幸运等级.V > -9)
+                            else if (num3 >= 95 && v5.Luck.V > -9)
                             {
-                                v5.幸运等级.V--;
+                                v5.Luck.V--;
                                 ActiveConnection?.发送封包(new 玩家物品变动
                                 {
                                     物品描述 = v5.字节描述()

@@ -272,17 +272,17 @@
     {
       "StatId": 32001,
       "Probability": 50,
-      "StatDescription": "幸运等级+1"
+      "StatDescription": "Luck+1"
     },
     {
       "StatId": 32041,
       "Probability": 5,
-      "StatDescription": "幸运等级+2"
+      "StatDescription": "Luck+2"
     },
     {
       "StatId": 32042,
       "Probability": 1,
-      "StatDescription": "幸运等级+3"
+      "StatDescription": "Luck+3"
     },
     {
       "StatId": 34009,

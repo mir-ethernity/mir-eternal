@@ -98,7 +98,7 @@ namespace GameServer.Templates
                         {
                             flag = !a_00.CalculateLuckyProbability
                                 ? ComputingClass.计算概率(a_00.技能触发概率 + ((a_00.增加概率Buff == 0 || !CasterObject.Buff列表.ContainsKey(a_00.增加概率Buff)) ? 0f : a_00.Buff增加系数))
-                                : ComputingClass.计算概率(ComputingClass.计算幸运(CasterObject[GameObjectStats.幸运等级]));
+                                : ComputingClass.计算概率(ComputingClass.计算幸运(CasterObject[GameObjectStats.Luck]));
                         }
 
                         if (flag && a_00.验证ItSelfBuff)

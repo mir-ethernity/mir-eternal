@@ -129,7 +129,7 @@ namespace GameServer.Data
                             int v3 = EquipmentData2.当前持久.V;
                             int num2 = obj.MaxDura * 1000;
                             int num3 = obj.SalePrice;
-                            int num4 = Math.Max((sbyte)0, EquipmentData2.幸运等级.V);
+                            int num4 = Math.Max((sbyte)0, EquipmentData2.Luck.V);
                             int num5 = EquipmentData2.升级Attack.V * 100 + EquipmentData2.升级Magic.V * 100 + EquipmentData2.升级Taoism.V * 100 + EquipmentData2.升级Needle.V * 100 + EquipmentData2.升级Archery.V * 100;
                             int num6 = 0;
                             foreach (InscriptionSkill value in EquipmentData2.铭文技能.Values)

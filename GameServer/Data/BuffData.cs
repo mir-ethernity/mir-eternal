@@ -94,19 +94,19 @@ namespace GameServer.Data
 				switch (this.伤害类型)
 				{
 				case SkillDamageType.Attack:
-					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinDC], 来源[GameObjectStats.MaxDC], 来源[GameObjectStats.幸运等级]);
+					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinDC], 来源[GameObjectStats.MaxDC], 来源[GameObjectStats.Luck]);
 					break;
 				case SkillDamageType.Magic:
-					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinMC], 来源[GameObjectStats.MaxMC], 来源[GameObjectStats.幸运等级]);
+					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinMC], 来源[GameObjectStats.MaxMC], 来源[GameObjectStats.Luck]);
 					break;
 				case SkillDamageType.Taoism:
-					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinSC], 来源[GameObjectStats.MaxSC], 来源[GameObjectStats.幸运等级]);
+					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinSC], 来源[GameObjectStats.MaxSC], 来源[GameObjectStats.Luck]);
 					break;
 				case SkillDamageType.Needle:
-					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinNeedle], 来源[GameObjectStats.MaxNeedle], 来源[GameObjectStats.幸运等级]);
+					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinNeedle], 来源[GameObjectStats.MaxNeedle], 来源[GameObjectStats.Luck]);
 					break;
 				case SkillDamageType.Archery:
-					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinBow], 来源[GameObjectStats.MaxBow], 来源[GameObjectStats.幸运等级]);
+					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinBow], 来源[GameObjectStats.MaxBow], 来源[GameObjectStats.Luck]);
 					break;
 				case SkillDamageType.Toxicity:
 					num4 = 来源[GameObjectStats.MaxSC];
