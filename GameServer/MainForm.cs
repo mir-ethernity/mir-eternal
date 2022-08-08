@@ -720,7 +720,7 @@ namespace GameServer
                 {
                     if (field == "MobsAlive" || field == "MobsRespawned")
                     {
-                        dataRow[field] = (long)(Convert.ToUInt32(dataRow[field]) + (ulong)content);
+                        dataRow[field] = (uint)(Convert.ToUInt32(dataRow[field]) + (uint)content);
                         return;
                     }
                     if (field == "MobGoldDrop" || field == "MobsDrops")
