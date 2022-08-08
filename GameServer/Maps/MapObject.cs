@@ -1742,7 +1742,7 @@ namespace GameServer.Maps
                         {
                             case SkillDamageType.Attack:
                                 num10 = ComputingClass.计算防御(this[GameObjectStats.MinDef], this[GameObjectStats.MaxDef]);
-                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinAttack], MapObject[GameObjectStats.MaxAttack], MapObject[GameObjectStats.幸运等级]);
+                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinAC], MapObject[GameObjectStats.MaxAC], MapObject[GameObjectStats.幸运等级]);
                                 break;
                             case SkillDamageType.Magic:
                                 num10 = ComputingClass.计算防御(this[GameObjectStats.MinMagicDef], this[GameObjectStats.MaxMagicDef]);

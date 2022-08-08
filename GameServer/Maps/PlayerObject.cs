@@ -9907,7 +9907,7 @@ namespace GameServer.Maps
                 if (equipmentItem.NeedRace != GameObjectRace.通用 && equipmentItem.NeedRace != CharRole)
                     return;
 
-                if (equipmentItem.NeedAttack > this[GameObjectStats.MaxAttack])
+                if (equipmentItem.NeedAttack > this[GameObjectStats.MaxAC])
                     return;
 
                 if (equipmentItem.NeedMagic > this[GameObjectStats.MaxMagic])
@@ -9995,7 +9995,7 @@ namespace GameServer.Maps
                 if (equipmentItem.NeedRace != GameObjectRace.通用 && equipmentItem.NeedRace != this.CharRole)
                     return;
 
-                if (equipmentItem.NeedAttack > this[GameObjectStats.MaxAttack])
+                if (equipmentItem.NeedAttack > this[GameObjectStats.MaxAC])
                     return;
 
                 if (equipmentItem.NeedMagic > this[GameObjectStats.MaxMagic])
@@ -13374,7 +13374,7 @@ namespace GameServer.Maps
                     {
                         Dictionary<GameObjectStats, int> 装备Stat = EquipmentData3.装备Stat;
                         int value;
-                        if ((value = (装备Stat.ContainsKey(GameObjectStats.MinAttack) ? 装备Stat[GameObjectStats.MinAttack] : 0) + (装备Stat.ContainsKey(GameObjectStats.MaxAttack) ? 装备Stat[GameObjectStats.MaxAttack] : 0)) > 0)
+                        if ((value = (装备Stat.ContainsKey(GameObjectStats.MinAC) ? 装备Stat[GameObjectStats.MinAC] : 0) + (装备Stat.ContainsKey(GameObjectStats.MaxAC) ? 装备Stat[GameObjectStats.MaxAC] : 0)) > 0)
                         {
                             dictionary4[0][EquipmentData3] = value;
                         }

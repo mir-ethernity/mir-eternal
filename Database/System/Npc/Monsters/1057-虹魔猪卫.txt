@@ -42,11 +42,11 @@
       "Value": 2000
     },
     {
-      "Stat": "MinAttack",
+      "Stat": "MinAC",
       "Value": 45
     },
     {
-      "Stat": "MaxAttack",
+      "Stat": "MaxAC",
       "Value": 65
     },
     {

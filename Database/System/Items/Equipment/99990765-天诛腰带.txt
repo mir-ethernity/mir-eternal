@@ -14,7 +14,7 @@
   "StoreType": "服装",
   "NeedAttack": 42,
   "BasicPowerCombat": 102,
-  "MinAttack": 1,
+  "MinAC": 1,
   "MinDef": 2,
   "MaxDef": 2,
   "MinMagicDef": 1,

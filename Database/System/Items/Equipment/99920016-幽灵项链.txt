@@ -14,7 +14,7 @@
   "PersistType": "装备",
   "StoreType": "首饰",
   "BasicPowerCombat": 95,
-  "MaxAttack": 5,
+  "MaxAC": 5,
   "CanRepair": true,
   "RepairCost": 6000,
   "SpecialRepairCost": 30000,

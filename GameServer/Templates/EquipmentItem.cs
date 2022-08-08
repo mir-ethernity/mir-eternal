@@ -15,8 +15,8 @@ namespace GameServer.Templates
 		public int NeedAcupuncture;
 		public int NeedArchery;
 		public int BasicPowerCombat;
-		public int MinAttack;
-		public int MaxAttack;
+		public int MinAC;
+		public int MaxAC;
 		public int MinMagic;
 		public int MaxMagic;
 		public int Minimalist;

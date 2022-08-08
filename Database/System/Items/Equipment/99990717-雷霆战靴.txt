@@ -13,7 +13,7 @@
   "StoreType": "服装",
   "NeedAttack": 45,
   "BasicPowerCombat": 102,
-  "MinAttack": 1,
+  "MinAC": 1,
   "MaxDef": 3,
   "CanRepair": true,
   "RepairCost": 18000,

@@ -516,11 +516,11 @@ namespace GameServer.Data
                 {
                     dictionary[随机Stat.Stat] = 随机Stat.Value;
                 }
-                if (dictionary.ContainsKey(GameObjectStats.MinAttack) || dictionary.ContainsKey(GameObjectStats.MaxAttack))
+                if (dictionary.ContainsKey(GameObjectStats.MinAC) || dictionary.ContainsKey(GameObjectStats.MaxAC))
                 {
                     int num;
                     int num2;
-                    text += string.Format("\nAttack{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinAttack, out num) ? num : 0, dictionary.TryGetValue(GameObjectStats.MaxAttack, out num2) ? num2 : 0);
+                    text += string.Format("\nAttack{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinAC, out num) ? num : 0, dictionary.TryGetValue(GameObjectStats.MaxAC, out num2) ? num2 : 0);
                 }
                 if (dictionary.ContainsKey(GameObjectStats.MinMagic) || dictionary.ContainsKey(GameObjectStats.MaxMagic))
                 {
@@ -763,13 +763,13 @@ namespace GameServer.Data
             get
             {
                 Dictionary<GameObjectStats, int> dictionary = new Dictionary<GameObjectStats, int>();
-                if (装备模板.MinAttack != 0)
+                if (装备模板.MinAC != 0)
                 {
-                    dictionary[GameObjectStats.MinAttack] = 装备模板.MinAttack;
+                    dictionary[GameObjectStats.MinAC] = 装备模板.MinAC;
                 }
-                if (装备模板.MaxAttack != 0)
+                if (装备模板.MaxAC != 0)
                 {
-                    dictionary[GameObjectStats.MaxAttack] = 装备模板.MaxAttack;
+                    dictionary[GameObjectStats.MaxAC] = 装备模板.MaxAC;
                 }
                 if (装备模板.MinMagic != 0)
                 {
@@ -849,7 +849,7 @@ namespace GameServer.Data
                 }
                 if (升级Attack.V != 0)
                 {
-                    dictionary[GameObjectStats.MaxAttack] = (dictionary.ContainsKey(GameObjectStats.MaxAttack) ? (dictionary[GameObjectStats.MaxAttack] + (int)升级Attack.V) : ((int)升级Attack.V));
+                    dictionary[GameObjectStats.MaxAC] = (dictionary.ContainsKey(GameObjectStats.MaxAC) ? (dictionary[GameObjectStats.MaxAC] + (int)升级Attack.V) : ((int)升级Attack.V));
                 }
                 if (升级Magic.V != 0)
                 {
@@ -961,19 +961,19 @@ namespace GameServer.Data
                         switch (Id)
                         {
                             case 10420:
-                                dictionary[GameObjectStats.MaxAttack] = (dictionary.ContainsKey(GameObjectStats.MaxAttack) ? (dictionary[GameObjectStats.MaxAttack] + 1) : 1);
+                                dictionary[GameObjectStats.MaxAC] = (dictionary.ContainsKey(GameObjectStats.MaxAC) ? (dictionary[GameObjectStats.MaxAC] + 1) : 1);
                                 break;
                             case 10421:
-                                dictionary[GameObjectStats.MaxAttack] = (dictionary.ContainsKey(GameObjectStats.MaxAttack) ? (dictionary[GameObjectStats.MaxAttack] + 2) : 2);
+                                dictionary[GameObjectStats.MaxAC] = (dictionary.ContainsKey(GameObjectStats.MaxAC) ? (dictionary[GameObjectStats.MaxAC] + 2) : 2);
                                 break;
                             case 10422:
-                                dictionary[GameObjectStats.MaxAttack] = (dictionary.ContainsKey(GameObjectStats.MaxAttack) ? (dictionary[GameObjectStats.MaxAttack] + 3) : 3);
+                                dictionary[GameObjectStats.MaxAC] = (dictionary.ContainsKey(GameObjectStats.MaxAC) ? (dictionary[GameObjectStats.MaxAC] + 3) : 3);
                                 break;
                             case 10423:
-                                dictionary[GameObjectStats.MaxAttack] = (dictionary.ContainsKey(GameObjectStats.MaxAttack) ? (dictionary[GameObjectStats.MaxAttack] + 4) : 4);
+                                dictionary[GameObjectStats.MaxAC] = (dictionary.ContainsKey(GameObjectStats.MaxAC) ? (dictionary[GameObjectStats.MaxAC] + 4) : 4);
                                 break;
                             case 10424:
-                                dictionary[GameObjectStats.MaxAttack] = (dictionary.ContainsKey(GameObjectStats.MaxAttack) ? (dictionary[GameObjectStats.MaxAttack] + 5) : 5);
+                                dictionary[GameObjectStats.MaxAC] = (dictionary.ContainsKey(GameObjectStats.MaxAC) ? (dictionary[GameObjectStats.MaxAC] + 5) : 5);
                                 break;
                             default:
                                 switch (Id)

@@ -40,11 +40,11 @@
       "Stat": "MagicDodge"
     },
     {
-      "Stat": "MinAttack",
+      "Stat": "MinAC",
       "Value": 20
     },
     {
-      "Stat": "MaxAttack",
+      "Stat": "MaxAC",
       "Value": 26
     },
     {

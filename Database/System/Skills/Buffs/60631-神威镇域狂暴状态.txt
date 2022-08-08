@@ -43,7 +43,7 @@
       "Level3": 5
     },
     {
-      "Stat": "MaxAttack",
+      "Stat": "MaxAC",
       "Level0": 15,
       "Level1": 30,
       "Level2": 25,

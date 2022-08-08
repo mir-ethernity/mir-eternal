@@ -67,7 +67,7 @@
       "Level7": 7
     },
     {
-      "Stat": "MinAttack",
+      "Stat": "MinAC",
       "Level0": 5,
       "Level1": 6,
       "Level2": 7,
@@ -78,7 +78,7 @@
       "Level7": 12
     },
     {
-      "Stat": "MaxAttack",
+      "Stat": "MaxAC",
       "Level0": 10,
       "Level1": 11,
       "Level2": 12,
@@ -145,12 +145,12 @@
     {
       "InheritsStats": "GreatestTaoism",
       "Ratio": 0.2,
-      "ConvertStat": "MinAttack"
+      "ConvertStat": "MinAC"
     },
     {
       "InheritsStats": "GreatestTaoism",
       "Ratio": 0.4,
-      "ConvertStat": "MaxAttack"
+      "ConvertStat": "MaxAC"
     },
     {
       "InheritsStats": "GreatestTaoism",

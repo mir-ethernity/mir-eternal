@@ -1,5 +1,5 @@
 {
-  "Stat": "MaxAttack",
+  "Stat": "MaxAC",
   "Value": 2,
   "StatId": 2011,
   "CombatBonus": 20,

@@ -16,9 +16,9 @@ namespace GameServer
 		
 		MaxMagicDef,
 		
-		MinAttack,
+		MinAC,
 		
-		MaxAttack,
+		MaxAC,
 		
 		MinMagic,
 		

@@ -4,7 +4,7 @@
   "Combat": 50,
   "EffectiveTime": 2592000,
   "Attributes": {
-    "MaxAttack": 1,
+    "MaxAC": 1,
     "MaxMagic": 1,
     "GreatestTaoism": 1,
     "MaxNeedle": 1,

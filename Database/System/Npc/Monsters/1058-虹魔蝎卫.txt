@@ -42,10 +42,10 @@
       "Value": 2000
     },
     {
-      "Stat": "MinAttack"
+      "Stat": "MinAC"
     },
     {
-      "Stat": "MaxAttack"
+      "Stat": "MaxAC"
     },
     {
       "Stat": "MinMagic",

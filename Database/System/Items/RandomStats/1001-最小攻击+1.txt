@@ -1,5 +1,5 @@
 {
-  "Stat": "MinAttack",
+  "Stat": "MinAC",
   "Value": 1,
   "StatId": 1001,
   "CombatBonus": 10,

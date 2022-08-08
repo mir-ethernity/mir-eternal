@@ -44,11 +44,11 @@
       "Stat": "MagicDodge"
     },
     {
-      "Stat": "MinAttack",
+      "Stat": "MinAC",
       "Value": 12
     },
     {
-      "Stat": "MaxAttack",
+      "Stat": "MaxAC",
       "Value": 18
     },
     {
@@ -145,7 +145,7 @@
       "Stat": "MagicDodge"
     },
     {
-      "Stat": "MinAttack",
+      "Stat": "MinAC",
       "Level0": 12,
       "Level1": 12,
       "Level2": 12,
@@ -156,7 +156,7 @@
       "Level7": 12
     },
     {
-      "Stat": "MaxAttack",
+      "Stat": "MaxAC",
       "Level0": 18,
       "Level1": 19,
       "Level2": 20,

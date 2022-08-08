@@ -15,7 +15,7 @@
   "StoreType": "首饰",
   "DestroyOnDeath": true,
   "BasicPowerCombat": 37,
-  "MaxAttack": 2,
+  "MaxAC": 2,
   "CanRepair": true,
   "RepairCost": 3000,
   "SpecialRepairCost": 15000,
