@@ -15,7 +15,7 @@
   "NormalAttackSkills": "电脑-钢牙蜘蛛普攻技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 800
     },
     {
@@ -74,7 +74,7 @@
   ],
   "Grows": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Level0": 800,
       "Level1": 860,
       "Level2": 920,

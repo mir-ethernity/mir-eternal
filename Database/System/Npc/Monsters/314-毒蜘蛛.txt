@@ -16,7 +16,7 @@
   "NormalAttackSkills": "电脑-毒蜘蛛的普攻技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 30
     },
     {
@@ -73,7 +73,7 @@
   ],
   "Grows": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Level0": 30,
       "Level1": 40,
       "Level2": 50,

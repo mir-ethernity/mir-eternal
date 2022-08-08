@@ -164,7 +164,7 @@ namespace GameServer.Maps
             set
             {
                 this.当前Stat[Stat] = value;
-                if (Stat == GameObjectStats.MaxPhysicalStrength)
+                if (Stat == GameObjectStats.MaxHP)
                 {
                     this.CurrentStamina = Math.Min(this.CurrentStamina, value);
                     return;
@@ -710,7 +710,7 @@ namespace GameServer.Maps
                 {
                     return true;
                 }
-                if ((类型 & SpecifyTargetType.LowBloodMonster) == SpecifyTargetType.LowBloodMonster && (float)this.CurrentStamina / (float)this[GameObjectStats.MaxPhysicalStrength] < 0.4f)
+                if ((类型 & SpecifyTargetType.LowBloodMonster) == SpecifyTargetType.LowBloodMonster && (float)this.CurrentStamina / (float)this[GameObjectStats.MaxHP] < 0.4f)
                 {
                     return true;
                 }
@@ -2155,7 +2155,7 @@ namespace GameServer.Maps
                         }
                     }
                     EquipmentData EquipmentData;
-                    if (MainProcess.CurrentTime > PlayerObject4.战具计时 && !PlayerObject4.Died && PlayerObject4.CurrentStamina < PlayerObject4[GameObjectStats.MaxPhysicalStrength] && PlayerObject4.Equipment.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0 && (EquipmentData.Id == 99999106 || EquipmentData.Id == 99999107))
+                    if (MainProcess.CurrentTime > PlayerObject4.战具计时 && !PlayerObject4.Died && PlayerObject4.CurrentStamina < PlayerObject4[GameObjectStats.MaxHP] && PlayerObject4.Equipment.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0 && (EquipmentData.Id == 99999106 || EquipmentData.Id == 99999107))
                     {
                         PlayerObject4.CurrentStamina += ((this is MonsterObject) ? 20 : 10);
                         PlayerObject4.战具损失持久(1);
@@ -2275,7 +2275,7 @@ namespace GameServer.Maps
                     }
                     if (num9 > 0f)
                     {
-                        this.CurrentStamina += (int)((float)this[GameObjectStats.MaxPhysicalStrength] * num9);
+                        this.CurrentStamina += (int)((float)this[GameObjectStats.MaxHP] * num9);
                     }
                     if (num2 > this.治疗次数 && num3 > 0)
                     {
@@ -2641,13 +2641,13 @@ namespace GameServer.Maps
                                         现身高度 = 对象.当前高度,
                                         现身方向 = (ushort)对象.当前方向,
                                         现身姿态 = ((byte)(对象.Died ? 13 : 1)),
-                                        体力比例 = (byte)(对象.CurrentStamina * 100 / 对象[GameObjectStats.MaxPhysicalStrength])
+                                        体力比例 = (byte)(对象.CurrentStamina * 100 / 对象[GameObjectStats.MaxHP])
                                     });
                                     PlayerObject.ActiveConnection.发送封包(new SyncObjectHP
                                     {
                                         ObjectId = 对象.ObjectId,
                                         CurrentHP = 对象.CurrentStamina,
-                                        MaxHP = 对象[GameObjectStats.MaxPhysicalStrength]
+                                        MaxHP = 对象[GameObjectStats.MaxHP]
                                     });
                                     PlayerObject.ActiveConnection.发送封包(new ObjectTransformTypePacket
                                     {
@@ -2678,7 +2678,7 @@ namespace GameServer.Maps
                             ObjectComesIntoViewPacket.现身高度 = 对象.当前高度;
                             ObjectComesIntoViewPacket.现身方向 = (ushort)对象.当前方向;
                             ObjectComesIntoViewPacket.现身姿态 = ((byte)(对象.Died ? 13 : 1));
-                            ObjectComesIntoViewPacket.体力比例 = (byte)(对象.CurrentStamina * 100 / 对象[GameObjectStats.MaxPhysicalStrength]);
+                            ObjectComesIntoViewPacket.体力比例 = (byte)(对象.CurrentStamina * 100 / 对象[GameObjectStats.MaxHP]);
                             PlayerObject PlayerObject2 = 对象 as PlayerObject;
                             ObjectComesIntoViewPacket.AdditionalParam = ((byte)((PlayerObject2 == null || !PlayerObject2.灰名玩家) ? 0 : 2));
                             网络连接.发送封包(ObjectComesIntoViewPacket);
@@ -2686,7 +2686,7 @@ namespace GameServer.Maps
                             {
                                 ObjectId = 对象.ObjectId,
                                 CurrentHP = 对象.CurrentStamina,
-                                MaxHP = 对象[GameObjectStats.MaxPhysicalStrength]
+                                MaxHP = 对象[GameObjectStats.MaxHP]
                             });
                         }
                         else if (对象类型 != GameObjectType.物品)
@@ -2811,13 +2811,13 @@ namespace GameServer.Maps
                                         现身高度 = 对象.当前高度,
                                         现身方向 = (ushort)对象.当前方向,
                                         现身姿态 = ((byte)(对象.Died ? 13 : 1)),
-                                        体力比例 = (byte)(对象.CurrentStamina * 100 / 对象[GameObjectStats.MaxPhysicalStrength])
+                                        体力比例 = (byte)(对象.CurrentStamina * 100 / 对象[GameObjectStats.MaxHP])
                                     });
                                     PlayerObject3.ActiveConnection.发送封包(new SyncObjectHP
                                     {
                                         ObjectId = 对象.ObjectId,
                                         CurrentHP = 对象.CurrentStamina,
-                                        MaxHP = 对象[GameObjectStats.MaxPhysicalStrength]
+                                        MaxHP = 对象[GameObjectStats.MaxHP]
                                     });
                                     PlayerObject3.ActiveConnection.发送封包(new ObjectTransformTypePacket
                                     {
@@ -2848,7 +2848,7 @@ namespace GameServer.Maps
                             ObjectComesIntoViewPacket2.现身高度 = 对象.当前高度;
                             ObjectComesIntoViewPacket2.现身方向 = (ushort)对象.当前方向;
                             ObjectComesIntoViewPacket2.现身姿态 = ((byte)(对象.Died ? 13 : 1));
-                            ObjectComesIntoViewPacket2.体力比例 = (byte)(对象.CurrentStamina * 100 / 对象[GameObjectStats.MaxPhysicalStrength]);
+                            ObjectComesIntoViewPacket2.体力比例 = (byte)(对象.CurrentStamina * 100 / 对象[GameObjectStats.MaxHP]);
                             PlayerObject PlayerObject4 = 对象 as PlayerObject;
                             ObjectComesIntoViewPacket2.AdditionalParam = ((byte)((PlayerObject4 == null || !PlayerObject4.灰名玩家) ? 0 : 2));
                             网络连接2.发送封包(ObjectComesIntoViewPacket2);
@@ -2856,7 +2856,7 @@ namespace GameServer.Maps
                             {
                                 ObjectId = 对象.ObjectId,
                                 CurrentHP = 对象.CurrentStamina,
-                                MaxHP = 对象[GameObjectStats.MaxPhysicalStrength]
+                                MaxHP = 对象[GameObjectStats.MaxHP]
                             });
                         }
                         else if (对象类型 != GameObjectType.物品)

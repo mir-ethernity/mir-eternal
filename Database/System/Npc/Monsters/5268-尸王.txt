@@ -12,7 +12,7 @@
   "NormalAttackSkills": "电脑-尸王普通攻击技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 2500
     },
     {

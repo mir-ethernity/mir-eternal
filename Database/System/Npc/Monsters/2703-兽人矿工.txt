@@ -13,7 +13,7 @@
   "NormalAttackSkills": "电脑-兽人矿工普攻技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 1100
     },
     {

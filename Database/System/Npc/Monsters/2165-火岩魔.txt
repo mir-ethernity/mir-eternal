@@ -12,7 +12,7 @@
   "NormalAttackSkills": "电脑-火岩魔的普攻技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 1450
     },
     {

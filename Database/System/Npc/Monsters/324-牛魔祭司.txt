@@ -14,7 +14,7 @@
   "NormalAttackSkills": "电脑-牛魔祭司普攻技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 1820
     },
     {

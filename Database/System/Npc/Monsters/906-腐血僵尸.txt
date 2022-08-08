@@ -14,7 +14,7 @@
   "NormalAttackSkills": "电脑-爬行僵尸普攻技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 170
     },
     {

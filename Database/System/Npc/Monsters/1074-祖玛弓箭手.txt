@@ -15,7 +15,7 @@
   "NormalAttackSkills": "电脑-祖玛弓箭手的普攻",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 385
     },
     {

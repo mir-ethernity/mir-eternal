@@ -22,7 +22,7 @@
   "DeathReleaseSkill": "",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 300
     },
     {
@@ -79,7 +79,7 @@
   ],
   "Grows": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Level0": 300,
       "Level1": 330,
       "Level2": 360,

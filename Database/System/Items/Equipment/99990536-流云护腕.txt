@@ -15,7 +15,7 @@
   "StoreType": "服装",
   "BasicPowerCombat": 48,
   "GreatestTaoism": 2,
-  "MaxPhysicalStrength": 30,
+  "MaxHP": 30,
   "MaxMagic2": 38,
   "CanRepair": true,
   "RepairCost": 9000,

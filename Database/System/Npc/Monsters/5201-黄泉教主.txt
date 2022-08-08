@@ -13,7 +13,7 @@
   "ProbabilityTriggerSkills": "电脑-Lord Yellow Springs概率技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 12000
     },
     {

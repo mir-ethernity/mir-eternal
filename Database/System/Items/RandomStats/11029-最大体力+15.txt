@@ -1,5 +1,5 @@
 {
-  "Stat": "MaxPhysicalStrength",
+  "Stat": "MaxHP",
   "Value": 15,
   "StatId": 11029,
   "CombatBonus": 30,

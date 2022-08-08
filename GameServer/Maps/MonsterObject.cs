@@ -83,7 +83,7 @@ namespace GameServer.Maps
 			}
 			set
 			{
-				value = ComputingClass.ValueLimit(0, value, this[GameObjectStats.MaxPhysicalStrength]);
+				value = ComputingClass.ValueLimit(0, value, this[GameObjectStats.MaxHP]);
 				if (base.CurrentStamina != value)
 				{
 					base.CurrentStamina = value;
@@ -91,7 +91,7 @@ namespace GameServer.Maps
 					{
 						ObjectId = this.ObjectId,
 						CurrentHP = this.CurrentStamina,
-						MaxHP = this[GameObjectStats.MaxPhysicalStrength]
+						MaxHP = this[GameObjectStats.MaxHP]
 					});
 				}
 			}
@@ -375,7 +375,7 @@ namespace GameServer.Maps
 			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)this.RoamingInterval);
 			this.Stat加成[this] = 对应宠物.基础Stat;
 			this.更新对象Stat();
-			this.CurrentStamina = Math.Min(对应宠物.CurrentStamina, this[GameObjectStats.MaxPhysicalStrength]);
+			this.CurrentStamina = Math.Min(对应宠物.CurrentStamina, this[GameObjectStats.MaxHP]);
 			string text = this.对象模板.NormalAttackSkills;
 			if (text != null && text.Length > 0)
 			{
@@ -933,7 +933,7 @@ namespace GameServer.Maps
 			this.更新对象Stat();
 			this.CurrentMap = this.出生地图;
 			this.当前方向 = ComputingClass.随机方向();
-			this.CurrentStamina = this[GameObjectStats.MaxPhysicalStrength];
+			this.CurrentStamina = this[GameObjectStats.MaxHP];
 			this.CurrentCoords = this.出生范围[MainProcess.RandomNumber.Next(0, this.出生范围.Length)];
 			Point CurrentCoords = this.CurrentCoords;
 			for (int i = 0; i < 100; i++)
@@ -1016,7 +1016,7 @@ namespace GameServer.Maps
 				this.激活对象 = true;
 				MapGatewayProcess.添加激活对象(this);
 				int num = (int)Math.Max(0.0, (MainProcess.CurrentTime - base.恢复时间).TotalSeconds / 5.0);
-				base.CurrentStamina = Math.Min(this[GameObjectStats.MaxPhysicalStrength], this.CurrentStamina + num * this[GameObjectStats.体力恢复]);
+				base.CurrentStamina = Math.Min(this[GameObjectStats.MaxHP], this.CurrentStamina + num * this[GameObjectStats.体力恢复]);
 				base.恢复时间 = base.恢复时间.AddSeconds(5.0);
 				this.Attack时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 				this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(MainProcess.RandomNumber.Next(5000) + this.RoamingInterval));

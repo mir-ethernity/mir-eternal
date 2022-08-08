@@ -157,7 +157,7 @@ namespace GameServer.Maps
 			}
 			set
 			{
-				value = ComputingClass.ValueLimit(0, value, this[GameObjectStats.MaxPhysicalStrength]);
+				value = ComputingClass.ValueLimit(0, value, this[GameObjectStats.MaxHP]);
 				if (this.PetData.CurrentStamina.V != value)
 				{
 					this.PetData.CurrentStamina.V = value;
@@ -165,7 +165,7 @@ namespace GameServer.Maps
 					{
 						ObjectId = this.ObjectId,
 						CurrentHP = this.CurrentStamina,
-						MaxHP = this[GameObjectStats.MaxPhysicalStrength]
+						MaxHP = this[GameObjectStats.MaxHP]
 					});
 				}
 			}
@@ -485,7 +485,7 @@ namespace GameServer.Maps
 				}
 			}
 			this.更新对象Stat();
-			this.CurrentStamina = this[GameObjectStats.MaxPhysicalStrength];
+			this.CurrentStamina = this[GameObjectStats.MaxHP];
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 			this.Attack时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(MainProcess.RandomNumber.Next(5000) + this.RoamingInterval));
@@ -545,7 +545,7 @@ namespace GameServer.Maps
 			this.当前方向 = 诱惑怪物.当前方向;
 			this.Stat加成[this] = this.基础Stat;
 			this.更新对象Stat();
-			this.CurrentStamina = Math.Min(诱惑怪物.CurrentStamina, this[GameObjectStats.MaxPhysicalStrength]);
+			this.CurrentStamina = Math.Min(诱惑怪物.CurrentStamina, this[GameObjectStats.MaxHP]);
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 			this.Attack时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.忙碌时间 = MainProcess.CurrentTime.AddSeconds(1.0);
@@ -609,7 +609,7 @@ namespace GameServer.Maps
 			this.当前方向 = 诱惑宠物.当前方向;
 			this.Stat加成[this] = this.基础Stat;
 			this.更新对象Stat();
-			this.CurrentStamina = Math.Min(诱惑宠物.CurrentStamina, this[GameObjectStats.MaxPhysicalStrength]);
+			this.CurrentStamina = Math.Min(诱惑宠物.CurrentStamina, this[GameObjectStats.MaxHP]);
 			base.恢复时间 = MainProcess.CurrentTime.AddSeconds(5.0);
 			this.Attack时间 = MainProcess.CurrentTime.AddSeconds(1.0);
 			this.忙碌时间 = MainProcess.CurrentTime.AddSeconds(1.0);
@@ -932,7 +932,7 @@ namespace GameServer.Maps
 				this.宠物经验 = 0;
 				this.Stat加成[this] = this.基础Stat;
 				this.更新对象Stat();
-				this.CurrentStamina = this[GameObjectStats.MaxPhysicalStrength];
+				this.CurrentStamina = this[GameObjectStats.MaxHP];
 				base.SendPacket(new ObjectTransformTypePacket
 				{
 					改变类型 = 2,

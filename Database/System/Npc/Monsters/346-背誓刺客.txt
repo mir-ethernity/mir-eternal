@@ -15,7 +15,7 @@
   "NormalAttackSkills": "电脑-背誓刺客普攻技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 1100
     },
     {

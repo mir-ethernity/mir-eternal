@@ -13,7 +13,7 @@
   "NormalAttackSkills": "电脑-虎卫普通攻击技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 500
     },
     {
@@ -72,7 +72,7 @@
   ],
   "Grows": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Level0": 500,
       "Level1": 540,
       "Level2": 580,

@@ -13,7 +13,7 @@
   "NormalAttackSkills": "电脑-海妖法师普攻技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 1050
     },
     {

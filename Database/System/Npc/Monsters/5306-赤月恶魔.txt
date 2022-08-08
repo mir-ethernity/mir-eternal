@@ -11,7 +11,7 @@
   "NormalAttackSkills": "电脑-赤月恶魔普攻技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 6000
     },
     {

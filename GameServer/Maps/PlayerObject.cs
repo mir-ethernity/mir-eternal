@@ -144,7 +144,7 @@ namespace GameServer.Maps
             {
                 CurrentMap = MapGatewayProcess.分配地图(this.重生地图);
                 CurrentCoords = (this.红名玩家 ? this.CurrentMap.红名区域.RandomCoords : this.CurrentMap.复活区域.RandomCoords);
-                CurrentStamina = (int)((float)this[GameObjectStats.MaxPhysicalStrength] * 0.3f);
+                CurrentStamina = (int)((float)this[GameObjectStats.MaxHP] * 0.3f);
                 当前魔力 = (int)((float)this[GameObjectStats.MaxMagic2] * 0.3f);
             }
             else if (GameMap.DataSheet[(byte)CharacterData.CurrentMap.V].NoReconnect)
@@ -530,7 +530,7 @@ namespace GameServer.Maps
                                 队伍编号 = this.所属队伍.队伍编号,
                                 对象编号 = this.ObjectId,
                                 对象等级 = (int)this.CurrentRank,
-                                MaxPhysicalStrength = this[GameObjectStats.MaxPhysicalStrength],
+                                MaxHP = this[GameObjectStats.MaxHP],
                                 MaxMagic2 = this[GameObjectStats.MaxMagic2],
                                 CurrentStamina = this.CurrentStamina,
                                 当前魔力 = this.当前魔力,
@@ -581,7 +581,7 @@ namespace GameServer.Maps
                                         {
                                             if (EquipmentData.Id == 99999110 || EquipmentData.Id == 99999111)
                                             {
-                                                int num2 = Math.Min(10, Math.Min(EquipmentData.当前持久.V, this[GameObjectStats.MaxPhysicalStrength] - this.CurrentStamina));
+                                                int num2 = Math.Min(10, Math.Min(EquipmentData.当前持久.V, this[GameObjectStats.MaxHP] - this.CurrentStamina));
                                                 if (num2 > 0)
                                                 {
                                                     this.CurrentStamina += num2;
@@ -604,7 +604,7 @@ namespace GameServer.Maps
                                     goto IL_794;
                                 }
                             }
-                            int num4 = Math.Min(10, Math.Min(EquipmentData.当前持久.V, this[GameObjectStats.MaxPhysicalStrength] - this.CurrentStamina));
+                            int num4 = Math.Min(10, Math.Min(EquipmentData.当前持久.V, this[GameObjectStats.MaxHP] - this.CurrentStamina));
                             if (num4 > 0)
                             {
                                 this.CurrentStamina += num4;
@@ -862,7 +862,7 @@ namespace GameServer.Maps
             }
             set
             {
-                value = Math.Min(this[GameObjectStats.MaxPhysicalStrength], Math.Max(0, value));
+                value = Math.Min(this[GameObjectStats.MaxHP], Math.Max(0, value));
                 if (CurrentStamina != value)
                 {
                     CharacterData.当前血量.V = value;
@@ -870,7 +870,7 @@ namespace GameServer.Maps
                     {
                         ObjectId = ObjectId,
                         CurrentHP = CurrentStamina,
-                        MaxHP = this[GameObjectStats.MaxPhysicalStrength]
+                        MaxHP = this[GameObjectStats.MaxHP]
                     });
                 }
             }
@@ -2091,7 +2091,7 @@ namespace GameServer.Maps
             this.更新对象Stat();
             if (!this.Died)
             {
-                this.CurrentStamina = this[GameObjectStats.MaxPhysicalStrength];
+                this.CurrentStamina = this[GameObjectStats.MaxHP];
                 this.当前魔力 = this[GameObjectStats.MaxMagic2];
             }
             TeacherData 所属师门 = this.所属师门;
@@ -3090,14 +3090,14 @@ namespace GameServer.Maps
                 现身高度 = this.当前高度,
                 现身方向 = (ushort)this.当前方向,
                 现身姿态 = ((byte)(this.Died ? 13 : 1)),
-                体力比例 = (byte)(this.CurrentStamina * 100 / this[GameObjectStats.MaxPhysicalStrength])
+                体力比例 = (byte)(this.CurrentStamina * 100 / this[GameObjectStats.MaxHP])
             });
 
             ActiveConnection.发送封包(new SyncObjectHP
             {
                 ObjectId = this.ObjectId,
                 CurrentHP = this.CurrentStamina,
-                MaxHP = this[GameObjectStats.MaxPhysicalStrength]
+                MaxHP = this[GameObjectStats.MaxHP]
             });
 
             ActiveConnection.发送封包(new 同步对象魔力
@@ -3185,7 +3185,7 @@ namespace GameServer.Maps
                         复活方式 = 3
                     });
                 }
-                this.CurrentStamina = (int)((float)this[GameObjectStats.MaxPhysicalStrength] * 0.3f);
+                this.CurrentStamina = (int)((float)this[GameObjectStats.MaxHP] * 0.3f);
                 this.当前魔力 = (int)((float)this[GameObjectStats.MaxMagic2] * 0.3f);
                 this.Died = false;
                 this.阻塞网格 = true;
@@ -3818,7 +3818,7 @@ namespace GameServer.Maps
                     对象编号 = MapObject.ObjectId,
                     CurrentStamina = MapObject.CurrentStamina,
                     当前魔力 = MapObject.当前魔力,
-                    MaxPhysicalStrength = MapObject[GameObjectStats.MaxPhysicalStrength],
+                    MaxHP = MapObject[GameObjectStats.MaxHP],
                     MaxMagic2 = MapObject[GameObjectStats.MaxMagic2],
                     Buff描述 = MapObject.对象Buff详述()
                 });
@@ -14459,7 +14459,7 @@ namespace GameServer.Maps
                         身上披风 = num2.GetValueOrDefault();
                     }
                     SyncPlayerAppearancePacket.身上披风 = 身上披风;
-                    SyncPlayerAppearancePacket.CurrentStamina = PlayerObject[GameObjectStats.MaxPhysicalStrength];
+                    SyncPlayerAppearancePacket.CurrentStamina = PlayerObject[GameObjectStats.MaxHP];
                     SyncPlayerAppearancePacket.当前魔力 = PlayerObject[GameObjectStats.MaxMagic2];
                     SyncPlayerAppearancePacket.对象名字 = PlayerObject.对象名字;
                     GuildData 所属行会 = PlayerObject.Guild;
@@ -14491,7 +14491,7 @@ namespace GameServer.Maps
                                 MobId = MonsterObject.MonsterId,
                                 CurrentRank = MonsterObject.宠物等级,
                                 对象质量 = (byte)MonsterObject.Category,
-                                MaxPhysicalStrength = MonsterObject[GameObjectStats.MaxPhysicalStrength]
+                                MaxHP = MonsterObject[GameObjectStats.MaxHP]
                             });
                             return;
                         }
@@ -14508,7 +14508,7 @@ namespace GameServer.Maps
                             同步Npcc数据.对象质量 = (byte)MonsterObject.Category;
                             Monsters 对象模板 = MonsterObject.对象模板;
                             同步Npcc数据.对象模板 = ((ushort)((对象模板 != null) ? 对象模板.Id : 0));
-                            同步Npcc数据.体力上限 = MonsterObject[GameObjectStats.MaxPhysicalStrength];
+                            同步Npcc数据.体力上限 = MonsterObject[GameObjectStats.MaxHP];
                             网络连接4.发送封包(同步Npcc数据);
                             return;
                         }
@@ -14532,7 +14532,7 @@ namespace GameServer.Maps
                                 同步Npcc数据2.对象等级 = GuardInstance.CurrentRank;
                                 Guards 对象模板2 = GuardInstance.对象模板;
                                 同步Npcc数据2.对象模板 = ((ushort)((对象模板2 != null) ? 对象模板2.GuardNumber : 0));
-                                同步Npcc数据2.体力上限 = GuardInstance[GameObjectStats.MaxPhysicalStrength];
+                                同步Npcc数据2.体力上限 = GuardInstance[GameObjectStats.MaxHP];
                                 网络连接5.发送封包(同步Npcc数据2);
                             }
                             return;
@@ -14549,7 +14549,7 @@ namespace GameServer.Maps
                         SyncExtendedDataPacket.CurrentRank = PetObject.宠物等级;
                         SyncExtendedDataPacket.对象等级 = PetObject.CurrentRank;
                         SyncExtendedDataPacket.对象质量 = (byte)PetObject.宠物级别;
-                        SyncExtendedDataPacket.MaxPhysicalStrength = PetObject[GameObjectStats.MaxPhysicalStrength];
+                        SyncExtendedDataPacket.MaxHP = PetObject[GameObjectStats.MaxHP];
                         PlayerObject 宠物主人 = PetObject.PlayerOwner;
                         SyncExtendedDataPacket.主人编号 = ((宠物主人 != null) ? 宠物主人.ObjectId : 0);
                         PlayerObject 宠物主人2 = PetObject.PlayerOwner;

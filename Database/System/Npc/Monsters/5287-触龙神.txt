@@ -14,7 +14,7 @@
   "ExitCombatSkills": "电脑-Dragon God的钻入技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 4000
     },
     {

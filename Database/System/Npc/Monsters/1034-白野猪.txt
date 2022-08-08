@@ -14,7 +14,7 @@
   "NormalAttackSkills": "电脑-白野猪的普攻技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 1300
     },
     {

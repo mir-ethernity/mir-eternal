@@ -21,7 +21,7 @@
   "DeathReleaseSkill": "",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 23
     },
     {

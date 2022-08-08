@@ -15,7 +15,7 @@
   "ProbabilityTriggerSkills": "电脑-Blood HandProbabilityTriggerSkills",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 20000
     },
     {

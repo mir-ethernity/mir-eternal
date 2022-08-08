@@ -15,7 +15,7 @@
   "NormalAttackSkills": "电脑-巨型蠕虫普攻技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 200
     },
     {

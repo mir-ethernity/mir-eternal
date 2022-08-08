@@ -15,7 +15,7 @@
   "ProbabilityTriggerSkills": "电脑-Secret Messenger概率技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 5000
     },
     {

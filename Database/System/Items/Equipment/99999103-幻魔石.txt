@@ -14,7 +14,7 @@
   "PersistType": "消耗",
   "StoreType": "杂货",
   "BasicPowerCombat": 22,
-  "MaxPhysicalStrength": 30,
+  "MaxHP": 30,
   "RepairCost": 1,
   "SpecialRepairCost": 1,
   "铭文职业": "通用",

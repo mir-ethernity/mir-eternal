@@ -13,7 +13,7 @@
   "NormalAttackSkills": "电脑-僵尸剑客普攻技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 900
     },
     {

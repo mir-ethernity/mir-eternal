@@ -36,7 +36,7 @@ namespace GameServer
 		
 		MaxBow,
 		
-		MaxPhysicalStrength,
+		MaxHP,
 		
 		MaxMagic2,
 		

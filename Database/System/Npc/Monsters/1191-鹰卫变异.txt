@@ -14,7 +14,7 @@
   "NormalAttackSkills": "电脑-鹰卫普通攻击技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 750
     },
     {
@@ -73,7 +73,7 @@
   ],
   "Grows": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Level0": 750,
       "Level1": 805,
       "Level2": 860,

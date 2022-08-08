@@ -14,7 +14,7 @@
   "NormalAttackSkills": "电脑-骷髅刀斧手的普攻",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 1850
     },
     {

@@ -16,7 +16,7 @@
   "NormalAttackSkills": "电脑-天狼蜘蛛普攻技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 500
     },
     {
@@ -75,7 +75,7 @@
   ],
   "Grows": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Level0": 310,
       "Level1": 310,
       "Level2": 310,

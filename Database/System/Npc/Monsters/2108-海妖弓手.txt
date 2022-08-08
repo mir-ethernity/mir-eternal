@@ -14,7 +14,7 @@
   "ProbabilityTriggerSkills": "",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 750
     },
     {

@@ -8,7 +8,7 @@
   "CorpsePreservationDuration": 1100,
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 9999
     },
     {

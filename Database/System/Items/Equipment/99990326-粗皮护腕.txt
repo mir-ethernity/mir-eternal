@@ -14,7 +14,7 @@
   "PersistType": "装备",
   "StoreType": "服装",
   "BasicPowerCombat": 18,
-  "MaxPhysicalStrength": 7,
+  "MaxHP": 7,
   "MaxMagic2": 33,
   "CanRepair": true,
   "RepairCost": 3600,

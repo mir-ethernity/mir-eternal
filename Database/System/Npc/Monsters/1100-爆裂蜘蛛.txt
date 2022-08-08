@@ -15,7 +15,7 @@
   "DeathReleaseSkill": "电脑-爆裂蜘蛛自爆伤害",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 100
     },
     {

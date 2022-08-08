@@ -10,7 +10,7 @@
   "HateTime": 30000,
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 9999
     },
     {

@@ -31,7 +31,7 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 12, Length = 4)]
-		public int MaxPhysicalStrength;
+		public int MaxHP;
 
 		
 		[WrappingFieldAttribute(SubScript = 16, Length = 1)]

@@ -14,7 +14,7 @@
   "NormalAttackSkills": "电脑-双头金刚普攻技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 4000
     },
     {

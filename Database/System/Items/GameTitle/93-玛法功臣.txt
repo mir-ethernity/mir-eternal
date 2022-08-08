@@ -8,6 +8,6 @@
     "GreatestTaoism": 1,
     "MaxNeedle": 1,
     "MaxBow": 1,
-    "MaxPhysicalStrength": 5
+    "MaxHP": 5
   }
 }

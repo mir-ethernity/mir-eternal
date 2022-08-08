@@ -23,7 +23,7 @@
   "Stats": [],
   "Grows": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Level0": 78,
       "Level1": 124,
       "Level2": 172,

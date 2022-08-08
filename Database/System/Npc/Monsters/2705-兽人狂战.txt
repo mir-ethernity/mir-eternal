@@ -12,7 +12,7 @@
   "NormalAttackSkills": "电脑-兽人狂战普攻技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 1200
     },
     {

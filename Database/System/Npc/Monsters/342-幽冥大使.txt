@@ -15,7 +15,7 @@
   "ProbabilityTriggerSkills": "电脑-Ambassador Of The Underworld概率技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 4000
     },
     {

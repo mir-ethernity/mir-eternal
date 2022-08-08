@@ -15,7 +15,7 @@
   "StoreType": "服装",
   "BasicPowerCombat": 48,
   "MaxNeedle": 2,
-  "MaxPhysicalStrength": 46,
+  "MaxHP": 46,
   "MaxMagic2": 10,
   "CanRepair": true,
   "RepairCost": 9000,

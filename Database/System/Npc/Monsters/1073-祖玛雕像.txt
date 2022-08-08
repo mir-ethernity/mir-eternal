@@ -18,7 +18,7 @@
   "NormalAttackSkills": "电脑-祖玛雕像普攻技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 495
     },
     {
@@ -77,7 +77,7 @@
   ],
   "Grows": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Level0": 495,
       "Level1": 570,
       "Level2": 645,

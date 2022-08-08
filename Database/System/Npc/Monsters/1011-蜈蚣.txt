@@ -17,7 +17,7 @@
   "NormalAttackSkills": "电脑-蜈蚣普通攻击技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 230
     },
     {
@@ -76,7 +76,7 @@
   ],
   "Grows": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Level0": 230,
       "Level1": 245,
       "Level2": 260,

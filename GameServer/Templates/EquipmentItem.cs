@@ -29,7 +29,7 @@ namespace GameServer.Templates
 		public int MaxDef;
 		public int MinMagicDef;
 		public int MaxMagicDef;
-		public int MaxPhysicalStrength;
+		public int MaxHP;
 		public int MaxMagic2;
 		public int PhysicallyAccurate;
 		public int PhysicalAgility;

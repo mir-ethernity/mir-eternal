@@ -13,7 +13,7 @@
   "ProbabilityTriggerSkills": "电脑-Flaming Demon概率技能",
   "Stats": [
     {
-      "Stat": "MaxPhysicalStrength",
+      "Stat": "MaxHP",
       "Value": 7000
     },
     {

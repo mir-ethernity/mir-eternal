@@ -568,10 +568,10 @@ namespace GameServer.Data
                     int num16;
                     text += string.Format("\nAgility{0}", dictionary.TryGetValue(GameObjectStats.PhysicalAgility, out num16) ? num16 : 0);
                 }
-                if (dictionary.ContainsKey(GameObjectStats.MaxPhysicalStrength))
+                if (dictionary.ContainsKey(GameObjectStats.MaxHP))
                 {
                     int num17;
-                    text += string.Format("\nStamina{0}", dictionary.TryGetValue(GameObjectStats.MaxPhysicalStrength, out num17) ? num17 : 0);
+                    text += string.Format("\nStamina{0}", dictionary.TryGetValue(GameObjectStats.MaxHP, out num17) ? num17 : 0);
                 }
                 if (dictionary.ContainsKey(GameObjectStats.MaxMagic2))
                 {
@@ -819,9 +819,9 @@ namespace GameServer.Data
                 {
                     dictionary[GameObjectStats.MaxMagicDef] = 装备模板.MaxMagicDef;
                 }
-                if (装备模板.MaxPhysicalStrength != 0)
+                if (装备模板.MaxHP != 0)
                 {
-                    dictionary[GameObjectStats.MaxPhysicalStrength] = 装备模板.MaxPhysicalStrength;
+                    dictionary[GameObjectStats.MaxHP] = 装备模板.MaxHP;
                 }
                 if (装备模板.MaxMagic2 != 0)
                 {
@@ -900,19 +900,19 @@ namespace GameServer.Data
                             case 10119:
                                 break;
                             case 10120:
-                                dictionary[GameObjectStats.MaxPhysicalStrength] = (dictionary.ContainsKey(GameObjectStats.MaxPhysicalStrength) ? (dictionary[GameObjectStats.MaxPhysicalStrength] + 5) : 5);
+                                dictionary[GameObjectStats.MaxHP] = (dictionary.ContainsKey(GameObjectStats.MaxHP) ? (dictionary[GameObjectStats.MaxHP] + 5) : 5);
                                 break;
                             case 10121:
-                                dictionary[GameObjectStats.MaxPhysicalStrength] = (dictionary.ContainsKey(GameObjectStats.MaxPhysicalStrength) ? (dictionary[GameObjectStats.MaxPhysicalStrength] + 10) : 10);
+                                dictionary[GameObjectStats.MaxHP] = (dictionary.ContainsKey(GameObjectStats.MaxHP) ? (dictionary[GameObjectStats.MaxHP] + 10) : 10);
                                 break;
                             case 10122:
-                                dictionary[GameObjectStats.MaxPhysicalStrength] = (dictionary.ContainsKey(GameObjectStats.MaxPhysicalStrength) ? (dictionary[GameObjectStats.MaxPhysicalStrength] + 15) : 15);
+                                dictionary[GameObjectStats.MaxHP] = (dictionary.ContainsKey(GameObjectStats.MaxHP) ? (dictionary[GameObjectStats.MaxHP] + 15) : 15);
                                 break;
                             case 10123:
-                                dictionary[GameObjectStats.MaxPhysicalStrength] = (dictionary.ContainsKey(GameObjectStats.MaxPhysicalStrength) ? (dictionary[GameObjectStats.MaxPhysicalStrength] + 20) : 20);
+                                dictionary[GameObjectStats.MaxHP] = (dictionary.ContainsKey(GameObjectStats.MaxHP) ? (dictionary[GameObjectStats.MaxHP] + 20) : 20);
                                 break;
                             case 10124:
-                                dictionary[GameObjectStats.MaxPhysicalStrength] = (dictionary.ContainsKey(GameObjectStats.MaxPhysicalStrength) ? (dictionary[GameObjectStats.MaxPhysicalStrength] + 25) : 25);
+                                dictionary[GameObjectStats.MaxHP] = (dictionary.ContainsKey(GameObjectStats.MaxHP) ? (dictionary[GameObjectStats.MaxHP] + 25) : 25);
                                 break;
                             default:
                                 switch (Id)
