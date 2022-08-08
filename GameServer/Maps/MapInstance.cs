@@ -13,7 +13,6 @@ namespace GameServer.Maps
 	public sealed class MapInstance
 	{
 		
-		// (get) Token: 0x0600073F RID: 1855 RVA: 0x0000637C File Offset: 0x0000457C
 		public byte 地图状态
 		{
 			get
@@ -31,7 +30,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000740 RID: 1856 RVA: 0x000063A7 File Offset: 0x000045A7
 		public int MapId
 		{
 			get
@@ -41,7 +39,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000741 RID: 1857 RVA: 0x000063B4 File Offset: 0x000045B4
 		public byte MinLevel
 		{
 			get
@@ -51,7 +48,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000742 RID: 1858 RVA: 0x00002865 File Offset: 0x00000A65
 		public byte LimitInstances
 		{
 			get
@@ -61,7 +57,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000743 RID: 1859 RVA: 0x000063C1 File Offset: 0x000045C1
 		public bool NoReconnect
 		{
 			get
@@ -71,7 +66,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000744 RID: 1860 RVA: 0x000063CE File Offset: 0x000045CE
 		public byte NoReconnectMapId
 		{
 			get
@@ -81,7 +75,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000745 RID: 1861 RVA: 0x000063DB File Offset: 0x000045DB
 		public bool CopyMap
 		{
 			get
@@ -91,7 +84,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000746 RID: 1862 RVA: 0x000063E8 File Offset: 0x000045E8
 		public Point StartPoint
 		{
 			get
@@ -101,7 +93,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000747 RID: 1863 RVA: 0x000063F5 File Offset: 0x000045F5
 		public Point EndPoint
 		{
 			get
@@ -111,7 +102,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000748 RID: 1864 RVA: 0x00006402 File Offset: 0x00004602
 		public Point MapSize
 		{
 			get

@@ -10,7 +10,6 @@ namespace GameServer.Data
     public class ItemData : GameData
     {
 
-        // (get) Token: 0x06000569 RID: 1385 RVA: 0x00005180 File Offset: 0x00003380
         public GameItems 物品模板
         {
             get
@@ -20,7 +19,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x0600056A RID: 1386 RVA: 0x0000518D File Offset: 0x0000338D
         public ItemsForSale 出售类型
         {
             get
@@ -30,7 +28,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x0600056B RID: 1387 RVA: 0x0000519A File Offset: 0x0000339A
         public ItemType 物品类型
         {
             get
@@ -40,7 +37,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x0600056C RID: 1388 RVA: 0x000051A7 File Offset: 0x000033A7
         public PersistentItemType PersistType
         {
             get
@@ -58,7 +54,6 @@ namespace GameServer.Data
             }
         }
 
-        // (get) Token: 0x0600056D RID: 1389 RVA: 0x000051B4 File Offset: 0x000033B4
         public GameObjectRace NeedRace
         {
             get
@@ -68,7 +63,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x0600056E RID: 1390 RVA: 0x000051C1 File Offset: 0x000033C1
         public GameObjectGender NeedGender
         {
             get
@@ -78,7 +72,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x0600056F RID: 1391 RVA: 0x000051CE File Offset: 0x000033CE
         public string Name
         {
             get
@@ -88,7 +81,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000570 RID: 1392 RVA: 0x000051DB File Offset: 0x000033DB
         public int NeedLevel
         {
             get
@@ -98,7 +90,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000571 RID: 1393 RVA: 0x000051E8 File Offset: 0x000033E8
         public int Id
         {
             get
@@ -108,7 +99,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000572 RID: 1394 RVA: 0x000051FA File Offset: 0x000033FA
         public int Weight
         {
             get
@@ -122,7 +112,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000573 RID: 1395 RVA: 0x00025024 File Offset: 0x00023224
         public int SalePrice
         {
             get
@@ -373,7 +362,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000574 RID: 1396 RVA: 0x00005228 File Offset: 0x00003428
         public int 堆叠上限
         {
             get
@@ -383,7 +371,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000575 RID: 1397 RVA: 0x0000523A File Offset: 0x0000343A
         public int 默认持久
         {
             get
@@ -397,8 +384,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000576 RID: 1398 RVA: 0x0000526C File Offset: 0x0000346C
-        // (set) Token: 0x06000577 RID: 1399 RVA: 0x00005279 File Offset: 0x00003479
         public byte 当前位置
         {
             get
@@ -412,7 +397,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000578 RID: 1400 RVA: 0x00005287 File Offset: 0x00003487
         public bool IsBound
         {
             get
@@ -422,7 +406,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000579 RID: 1401 RVA: 0x00005294 File Offset: 0x00003494
         public bool Resource
         {
             get
@@ -432,7 +415,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x0600057A RID: 1402 RVA: 0x000052A6 File Offset: 0x000034A6
         public bool CanSold
         {
             get
@@ -442,7 +424,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x0600057B RID: 1403 RVA: 0x000052B3 File Offset: 0x000034B3
         public bool 能否堆叠
         {
             get
@@ -452,7 +433,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x0600057C RID: 1404 RVA: 0x000052C8 File Offset: 0x000034C8
         public bool CanDrop
         {
             get
@@ -462,7 +442,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x0600057D RID: 1405 RVA: 0x000052D5 File Offset: 0x000034D5
         public ushort SkillId
         {
             get
@@ -472,7 +451,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x0600057E RID: 1406 RVA: 0x000052E2 File Offset: 0x000034E2
         public byte GroupId
         {
             get
@@ -482,7 +460,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x0600057F RID: 1407 RVA: 0x000052EF File Offset: 0x000034EF
         public int GroupCooling
         {
             get
@@ -492,7 +469,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000580 RID: 1408 RVA: 0x000052FC File Offset: 0x000034FC
         public int Cooldown
         {
             get

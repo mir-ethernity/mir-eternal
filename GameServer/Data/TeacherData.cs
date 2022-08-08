@@ -9,7 +9,6 @@ namespace GameServer.Data
 	public sealed class TeacherData : GameData
 	{
 		
-		// (get) Token: 0x0600044D RID: 1101 RVA: 0x000044A0 File Offset: 0x000026A0
 		public int 师父编号
 		{
 			get
@@ -19,7 +18,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x0600044E RID: 1102 RVA: 0x000044AD File Offset: 0x000026AD
 		public int 徒弟数量
 		{
 			get
@@ -29,7 +27,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x0600044F RID: 1103 RVA: 0x000044BA File Offset: 0x000026BA
 		public CharacterData 师父数据
 		{
 			get

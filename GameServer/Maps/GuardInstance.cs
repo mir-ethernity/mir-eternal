@@ -12,27 +12,18 @@ namespace GameServer.Maps
     public sealed class GuardInstance : MapObject
     {
 
-        // (get) Token: 0x060006FE RID: 1790 RVA: 0x000060F0 File Offset: 0x000042F0
-        // (set) Token: 0x060006FF RID: 1791 RVA: 0x000060F8 File Offset: 0x000042F8
         public bool 尸体消失 { get; set; }
 
 
-        // (get) Token: 0x06000700 RID: 1792 RVA: 0x00006101 File Offset: 0x00004301
-        // (set) Token: 0x06000701 RID: 1793 RVA: 0x00006109 File Offset: 0x00004309
         public DateTime 复活时间 { get; set; }
 
 
-        // (get) Token: 0x06000702 RID: 1794 RVA: 0x00006112 File Offset: 0x00004312
-        // (set) Token: 0x06000703 RID: 1795 RVA: 0x0000611A File Offset: 0x0000431A
         public DateTime 消失时间 { get; set; }
 
 
-        // (get) Token: 0x06000704 RID: 1796 RVA: 0x00006123 File Offset: 0x00004323
-        // (set) Token: 0x06000705 RID: 1797 RVA: 0x0000612B File Offset: 0x0000432B
         public DateTime 转移计时 { get; set; }
 
 
-        // (get) Token: 0x06000706 RID: 1798 RVA: 0x00006134 File Offset: 0x00004334
         public override int 处理间隔
         {
             get
@@ -42,8 +33,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000707 RID: 1799 RVA: 0x00006138 File Offset: 0x00004338
-        // (set) Token: 0x06000708 RID: 1800 RVA: 0x00036440 File Offset: 0x00034640
         public override DateTime 忙碌时间
         {
             get
@@ -61,8 +50,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000709 RID: 1801 RVA: 0x00006140 File Offset: 0x00004340
-        // (set) Token: 0x0600070A RID: 1802 RVA: 0x00006148 File Offset: 0x00004348
         public override DateTime 硬直时间
         {
             get
@@ -79,8 +66,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x0600070B RID: 1803 RVA: 0x0000615F File Offset: 0x0000435F
-        // (set) Token: 0x0600070C RID: 1804 RVA: 0x0003646C File Offset: 0x0003466C
         public override int CurrentStamina
         {
             get
@@ -104,8 +89,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x0600070D RID: 1805 RVA: 0x00006167 File Offset: 0x00004367
-        // (set) Token: 0x0600070E RID: 1806 RVA: 0x0000616F File Offset: 0x0000436F
         public override MapInstance CurrentMap
         {
             get
@@ -128,8 +111,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x0600070F RID: 1807 RVA: 0x0000619F File Offset: 0x0000439F
-        // (set) Token: 0x06000710 RID: 1808 RVA: 0x000061A7 File Offset: 0x000043A7
         public override GameDirection 当前方向
         {
             get
@@ -152,7 +133,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000711 RID: 1809 RVA: 0x000061E0 File Offset: 0x000043E0
         public override byte CurrentRank
         {
             get
@@ -162,7 +142,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000712 RID: 1810 RVA: 0x000061ED File Offset: 0x000043ED
         public override bool CanBeHit
         {
             get
@@ -172,7 +151,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000713 RID: 1811 RVA: 0x00006202 File Offset: 0x00004402
         public override string 对象名字
         {
             get
@@ -182,7 +160,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000714 RID: 1812 RVA: 0x0000620F File Offset: 0x0000440F
         public override GameObjectType ObjectType
         {
             get
@@ -192,7 +169,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000715 RID: 1813 RVA: 0x00002855 File Offset: 0x00000A55
         public override MonsterSize 对象体型
         {
             get
@@ -215,7 +191,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000718 RID: 1816 RVA: 0x00006134 File Offset: 0x00004334
         public int RangeHate
         {
             get
@@ -225,7 +200,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000719 RID: 1817 RVA: 0x00006225 File Offset: 0x00004425
         public ushort MobId
         {
             get
@@ -235,7 +209,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x0600071A RID: 1818 RVA: 0x00006232 File Offset: 0x00004432
         public int RevivalInterval
         {
             get
@@ -245,7 +218,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x0600071B RID: 1819 RVA: 0x0000623F File Offset: 0x0000443F
         public int StoreId
         {
             get
@@ -255,7 +227,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x0600071C RID: 1820 RVA: 0x0000624C File Offset: 0x0000444C
         public string InterfaceCode
         {
             get
@@ -265,7 +236,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x0600071D RID: 1821 RVA: 0x00006259 File Offset: 0x00004459
         public bool CanBeInjured
         {
             get
@@ -275,7 +245,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x0600071E RID: 1822 RVA: 0x00006266 File Offset: 0x00004466
         public bool ActiveAttackTarget
         {
             get

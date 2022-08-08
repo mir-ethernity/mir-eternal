@@ -19,64 +19,42 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000761 RID: 1889 RVA: 0x000064EF File Offset: 0x000046EF
-        // (set) Token: 0x06000762 RID: 1890 RVA: 0x000064F7 File Offset: 0x000046F7
         public DateTime 恢复时间 { get; set; }
 
 
-        // (get) Token: 0x06000763 RID: 1891 RVA: 0x00006500 File Offset: 0x00004700
-        // (set) Token: 0x06000764 RID: 1892 RVA: 0x00006508 File Offset: 0x00004708
         public DateTime 治疗时间 { get; set; }
 
 
-        // (get) Token: 0x06000765 RID: 1893 RVA: 0x00006511 File Offset: 0x00004711
-        // (set) Token: 0x06000766 RID: 1894 RVA: 0x00006519 File Offset: 0x00004719
         public DateTime 脱战时间 { get; set; }
 
 
-        // (get) Token: 0x06000767 RID: 1895 RVA: 0x00006522 File Offset: 0x00004722
-        // (set) Token: 0x06000768 RID: 1896 RVA: 0x0000652A File Offset: 0x0000472A
         public DateTime 处理计时 { get; set; }
 
 
-        // (get) Token: 0x06000769 RID: 1897 RVA: 0x00006533 File Offset: 0x00004733
-        // (set) Token: 0x0600076A RID: 1898 RVA: 0x0000653B File Offset: 0x0000473B
         public DateTime 预约时间 { get; set; }
 
 
-        // (get) Token: 0x0600076B RID: 1899 RVA: 0x00006544 File Offset: 0x00004744
         public virtual int 处理间隔 { get; }
 
 
-        // (get) Token: 0x0600076C RID: 1900 RVA: 0x0000654C File Offset: 0x0000474C
-        // (set) Token: 0x0600076D RID: 1901 RVA: 0x00006554 File Offset: 0x00004754
         public int 治疗次数 { get; set; }
 
 
-        // (get) Token: 0x0600076E RID: 1902 RVA: 0x0000655D File Offset: 0x0000475D
-        // (set) Token: 0x0600076F RID: 1903 RVA: 0x00006565 File Offset: 0x00004765
         public int 治疗基数 { get; set; }
 
 
-        // (get) Token: 0x06000770 RID: 1904 RVA: 0x0000656E File Offset: 0x0000476E
-        // (set) Token: 0x06000771 RID: 1905 RVA: 0x00006576 File Offset: 0x00004776
         public byte 动作编号 { get; set; }
 
 
-        // (get) Token: 0x06000772 RID: 1906 RVA: 0x0000657F File Offset: 0x0000477F
-        // (set) Token: 0x06000773 RID: 1907 RVA: 0x00006587 File Offset: 0x00004787
         public bool 战斗姿态 { get; set; }
 
 
-        // (get) Token: 0x06000774 RID: 1908
         public abstract GameObjectType ObjectType { get; }
 
 
-        // (get) Token: 0x06000775 RID: 1909
         public abstract MonsterSize 对象体型 { get; }
 
 
-        // (get) Token: 0x06000776 RID: 1910 RVA: 0x00006590 File Offset: 0x00004790
         public ushort 行走速度
         {
             get
@@ -86,7 +64,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000777 RID: 1911 RVA: 0x0000659B File Offset: 0x0000479B
         public ushort 奔跑速度
         {
             get
@@ -96,7 +73,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000778 RID: 1912 RVA: 0x000065A6 File Offset: 0x000047A6
         public virtual int 行走耗时
         {
             get
@@ -106,7 +82,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000779 RID: 1913 RVA: 0x000065B1 File Offset: 0x000047B1
         public virtual int 奔跑耗时
         {
             get
@@ -116,37 +91,24 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x0600077A RID: 1914 RVA: 0x000065BC File Offset: 0x000047BC
-        // (set) Token: 0x0600077B RID: 1915 RVA: 0x000065C4 File Offset: 0x000047C4
         public virtual int ObjectId { get; set; }
 
 
-        // (get) Token: 0x0600077C RID: 1916 RVA: 0x000065CD File Offset: 0x000047CD
-        // (set) Token: 0x0600077D RID: 1917 RVA: 0x000065D5 File Offset: 0x000047D5
         public virtual int CurrentStamina { get; set; }
 
 
-        // (get) Token: 0x0600077E RID: 1918 RVA: 0x000065DE File Offset: 0x000047DE
-        // (set) Token: 0x0600077F RID: 1919 RVA: 0x000065E6 File Offset: 0x000047E6
         public virtual int 当前魔力 { get; set; }
 
 
-        // (get) Token: 0x06000780 RID: 1920 RVA: 0x000065EF File Offset: 0x000047EF
-        // (set) Token: 0x06000781 RID: 1921 RVA: 0x000065F7 File Offset: 0x000047F7
         public virtual byte CurrentRank { get; set; }
 
 
-        // (get) Token: 0x06000782 RID: 1922 RVA: 0x00006600 File Offset: 0x00004800
-        // (set) Token: 0x06000783 RID: 1923 RVA: 0x00006608 File Offset: 0x00004808
         public virtual bool Died { get; set; }
 
 
-        // (get) Token: 0x06000784 RID: 1924 RVA: 0x00006611 File Offset: 0x00004811
-        // (set) Token: 0x06000785 RID: 1925 RVA: 0x00006619 File Offset: 0x00004819
         public virtual bool 阻塞网格 { get; set; }
 
 
-        // (get) Token: 0x06000786 RID: 1926 RVA: 0x00006622 File Offset: 0x00004822
         public virtual bool CanBeHit
         {
             get
@@ -156,27 +118,18 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000787 RID: 1927 RVA: 0x0000662D File Offset: 0x0000482D
-        // (set) Token: 0x06000788 RID: 1928 RVA: 0x00006635 File Offset: 0x00004835
         public virtual string 对象名字 { get; set; }
 
 
-        // (get) Token: 0x06000789 RID: 1929 RVA: 0x0000663E File Offset: 0x0000483E
-        // (set) Token: 0x0600078A RID: 1930 RVA: 0x00006646 File Offset: 0x00004846
         public virtual GameDirection 当前方向 { get; set; }
 
 
-        // (get) Token: 0x0600078B RID: 1931 RVA: 0x0000664F File Offset: 0x0000484F
-        // (set) Token: 0x0600078C RID: 1932 RVA: 0x00006657 File Offset: 0x00004857
         public virtual MapInstance CurrentMap { get; set; }
 
 
-        // (get) Token: 0x0600078D RID: 1933 RVA: 0x00006660 File Offset: 0x00004860
-        // (set) Token: 0x0600078E RID: 1934 RVA: 0x00006668 File Offset: 0x00004868
         public virtual Point CurrentCoords { get; set; }
 
 
-        // (get) Token: 0x0600078F RID: 1935 RVA: 0x00006671 File Offset: 0x00004871
         public virtual ushort 当前高度
         {
             get
@@ -186,23 +139,15 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000790 RID: 1936 RVA: 0x00006684 File Offset: 0x00004884
-        // (set) Token: 0x06000791 RID: 1937 RVA: 0x0000668C File Offset: 0x0000488C
         public virtual DateTime 忙碌时间 { get; set; }
 
 
-        // (get) Token: 0x06000792 RID: 1938 RVA: 0x00006695 File Offset: 0x00004895
-        // (set) Token: 0x06000793 RID: 1939 RVA: 0x0000669D File Offset: 0x0000489D
         public virtual DateTime 硬直时间 { get; set; }
 
 
-        // (get) Token: 0x06000794 RID: 1940 RVA: 0x000066A6 File Offset: 0x000048A6
-        // (set) Token: 0x06000795 RID: 1941 RVA: 0x000066AE File Offset: 0x000048AE
         public virtual DateTime 行走时间 { get; set; }
 
 
-        // (get) Token: 0x06000796 RID: 1942 RVA: 0x000066B7 File Offset: 0x000048B7
-        // (set) Token: 0x06000797 RID: 1943 RVA: 0x000066BF File Offset: 0x000048BF
         public virtual DateTime 奔跑时间 { get; set; }
 
 
@@ -232,15 +177,12 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x0600079A RID: 1946 RVA: 0x00006724 File Offset: 0x00004924
         public virtual Dictionary<GameObjectStats, int> 当前Stat { get; }
 
 
-        // (get) Token: 0x0600079B RID: 1947 RVA: 0x0000672C File Offset: 0x0000492C
         public virtual MonitorDictionary<int, DateTime> Coolings { get; }
 
 
-        // (get) Token: 0x0600079C RID: 1948 RVA: 0x00006734 File Offset: 0x00004934
         public virtual MonitorDictionary<ushort, BuffData> Buff列表 { get; }
 
 

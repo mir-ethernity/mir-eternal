@@ -7,7 +7,6 @@ namespace GameServer
 	public sealed class UnblockCharacter : GMCommand
 	{
 		
-		// (get) Token: 0x0600003A RID: 58 RVA: 0x00002865 File Offset: 0x00000A65
 		public override ExecutionWay ExecutionWay
 		{
 			get

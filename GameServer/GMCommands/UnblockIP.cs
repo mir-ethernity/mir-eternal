@@ -7,7 +7,6 @@ namespace GameServer
 	public sealed class UnblockIP : GMCommand
 	{
 		
-		// (get) Token: 0x06000034 RID: 52 RVA: 0x00002865 File Offset: 0x00000A65
 		public override ExecutionWay ExecutionWay
 		{
 			get

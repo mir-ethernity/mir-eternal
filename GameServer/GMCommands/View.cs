@@ -7,7 +7,6 @@ namespace GameServer
 	public sealed class View : GMCommand
 	{
 		
-		// (get) Token: 0x06000012 RID: 18 RVA: 0x00002855 File Offset: 0x00000A55
 		public override ExecutionWay ExecutionWay
 		{
 			get

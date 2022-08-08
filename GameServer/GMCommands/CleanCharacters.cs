@@ -9,7 +9,6 @@ namespace GameServer
 	public sealed class CleanCharacters : GMCommand
 	{
 		
-		// (get) Token: 0x06000020 RID: 32 RVA: 0x00002868 File Offset: 0x00000A68
 		public override ExecutionWay ExecutionWay
 		{
 			get

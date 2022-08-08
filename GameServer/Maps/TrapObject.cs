@@ -12,7 +12,6 @@ namespace GameServer.Maps
 	public sealed class TrapObject : MapObject
 	{
 		
-		// (get) Token: 0x06000817 RID: 2071 RVA: 0x00006ADF File Offset: 0x00004CDF
 		public ushort 陷阱GroupId
 		{
 			get
@@ -22,7 +21,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000818 RID: 2072 RVA: 0x00006AEC File Offset: 0x00004CEC
 		public ushort ActivelyTriggerInterval
 		{
 			get
@@ -32,7 +30,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000819 RID: 2073 RVA: 0x00006AF9 File Offset: 0x00004CF9
 		public ushort ActivelyTriggerDelay
 		{
 			get
@@ -42,7 +39,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x0600081A RID: 2074 RVA: 0x00041084 File Offset: 0x0003F284
 		public ushort 陷阱剩余时间
 		{
 			get
@@ -52,8 +48,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x0600081B RID: 2075 RVA: 0x00006167 File Offset: 0x00004367
-		// (set) Token: 0x0600081C RID: 2076 RVA: 0x0000616F File Offset: 0x0000436F
 		public override MapInstance CurrentMap
 		{
 			get
@@ -76,7 +70,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x0600081D RID: 2077 RVA: 0x00006134 File Offset: 0x00004334
 		public override int 处理间隔
 		{
 			get
@@ -86,8 +79,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x0600081E RID: 2078 RVA: 0x00006B06 File Offset: 0x00004D06
-		// (set) Token: 0x0600081F RID: 2079 RVA: 0x00006B13 File Offset: 0x00004D13
 		public override byte CurrentRank
 		{
 			get
@@ -101,8 +92,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000820 RID: 2080 RVA: 0x00002855 File Offset: 0x00000A55
-		// (set) Token: 0x06000821 RID: 2081 RVA: 0x00006B21 File Offset: 0x00004D21
 		public override bool 阻塞网格
 		{
 			get
@@ -116,7 +105,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000822 RID: 2082 RVA: 0x00002855 File Offset: 0x00000A55
 		public override bool CanBeHit
 		{
 			get
@@ -126,7 +114,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000823 RID: 2083 RVA: 0x00006B2A File Offset: 0x00004D2A
 		public override string 对象名字
 		{
 			get
@@ -136,7 +123,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000824 RID: 2084 RVA: 0x00006B37 File Offset: 0x00004D37
 		public override GameObjectType ObjectType
 		{
 			get
@@ -146,7 +132,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000825 RID: 2085 RVA: 0x00006B3B File Offset: 0x00004D3B
 		public override MonsterSize 对象体型
 		{
 			get
@@ -156,7 +141,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000826 RID: 2086 RVA: 0x00006B48 File Offset: 0x00004D48
 		public override Dictionary<GameObjectStats, int> 当前Stat
 		{
 			get

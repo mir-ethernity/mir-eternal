@@ -13,8 +13,6 @@ namespace GameServer.Data
     public static class GameDataGateway
     {
 
-        // (get) Token: 0x06000662 RID: 1634 RVA: 0x00005CDF File Offset: 0x00003EDF
-        // (set) Token: 0x06000663 RID: 1635 RVA: 0x0002F3C8 File Offset: 0x0002D5C8
         public static bool 已经修改
         {
             get
@@ -35,7 +33,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000664 RID: 1636 RVA: 0x00005CE6 File Offset: 0x00003EE6
         public static string UserFolder
         {
             get
@@ -45,7 +42,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000665 RID: 1637 RVA: 0x00005CF7 File Offset: 0x00003EF7
         public static string 备份目录
         {
             get
@@ -55,7 +51,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000666 RID: 1638 RVA: 0x00005CFE File Offset: 0x00003EFE
         public static string UserPath
         {
             get
@@ -65,7 +60,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000667 RID: 1639 RVA: 0x00005D0F File Offset: 0x00003F0F
         public static string UserTempPath
         {
             get
@@ -75,7 +69,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000668 RID: 1640 RVA: 0x00005D20 File Offset: 0x00003F20
         public static string UserBackupPath
         {
             get

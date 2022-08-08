@@ -11,8 +11,6 @@ namespace GameServer.Maps
     public sealed class ItemObject : MapObject
     {
 
-        // (get) Token: 0x0600082C RID: 2092 RVA: 0x00006167 File Offset: 0x00004367
-        // (set) Token: 0x0600082D RID: 2093 RVA: 0x0000616F File Offset: 0x0000436F
         public override MapInstance CurrentMap
         {
             get
@@ -35,7 +33,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x0600082E RID: 2094 RVA: 0x00006B58 File Offset: 0x00004D58
         public override int 处理间隔
         {
             get
@@ -45,7 +42,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x0600082F RID: 2095 RVA: 0x00002855 File Offset: 0x00000A55
         public override bool Died
         {
             get
@@ -55,7 +51,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000830 RID: 2096 RVA: 0x00002855 File Offset: 0x00000A55
         public override bool 阻塞网格
         {
             get
@@ -65,7 +60,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000831 RID: 2097 RVA: 0x00002855 File Offset: 0x00000A55
         public override bool CanBeHit
         {
             get
@@ -75,7 +69,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000832 RID: 2098 RVA: 0x00006B5C File Offset: 0x00004D5C
         public override GameObjectType ObjectType
         {
             get
@@ -85,7 +78,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000833 RID: 2099 RVA: 0x00002855 File Offset: 0x00000A55
         public override MonsterSize 对象体型
         {
             get
@@ -95,7 +87,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000834 RID: 2100 RVA: 0x00006B60 File Offset: 0x00004D60
         public PersistentItemType PersistType
         {
             get
@@ -105,7 +96,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000835 RID: 2101 RVA: 0x00006B6D File Offset: 0x00004D6D
         public int 默认持久
         {
             get
@@ -115,7 +105,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000836 RID: 2102 RVA: 0x00006B7A File Offset: 0x00004D7A
         public int Id
         {
             get
@@ -130,7 +119,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000837 RID: 2103 RVA: 0x00006B8D File Offset: 0x00004D8D
         public int Weight
         {
             get
@@ -144,7 +132,6 @@ namespace GameServer.Maps
         }
 
 
-        // (get) Token: 0x06000838 RID: 2104 RVA: 0x00006BBB File Offset: 0x00004DBB
         public bool 允许堆叠
         {
             get

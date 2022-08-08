@@ -111,7 +111,6 @@ namespace GameServer
         public abstract void Execute();
 
 
-        // (get) Token: 0x06000005 RID: 5
         public abstract ExecutionWay ExecutionWay { get; }
 
 

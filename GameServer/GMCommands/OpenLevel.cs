@@ -8,7 +8,6 @@ namespace GameServer
 	public sealed class OpenLevel : GMCommand
 	{
 		
-		// (get) Token: 0x06000046 RID: 70 RVA: 0x00002940 File Offset: 0x00000B40
 		public override ExecutionWay ExecutionWay
 		{
 			get

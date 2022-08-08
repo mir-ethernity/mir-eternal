@@ -8,7 +8,6 @@ namespace GameServer
 	public sealed class SetUpExp : GMCommand
 	{
 		
-		// (get) Token: 0x06000041 RID: 65 RVA: 0x00002940 File Offset: 0x00000B40
 		public override ExecutionWay ExecutionWay
 		{
 			get

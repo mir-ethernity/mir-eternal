@@ -7,8 +7,6 @@ namespace GameServer.Networking
 	public sealed class 客户账号登录 : GamePacket
 	{
 		
-		// (get) Token: 0x06000205 RID: 517 RVA: 0x00003457 File Offset: 0x00001657
-		// (set) Token: 0x06000206 RID: 518 RVA: 0x0000345F File Offset: 0x0000165F
 		public override bool 是否加密 { get; set; }
 
 		

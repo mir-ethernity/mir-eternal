@@ -8,7 +8,6 @@ namespace GameServer.Data
 	public sealed class SkillData : GameData
 	{
 		
-		// (get) Token: 0x0600043E RID: 1086 RVA: 0x000043E3 File Offset: 0x000025E3
 		public int 技能索引
 		{
 			get
@@ -47,7 +46,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x06000442 RID: 1090 RVA: 0x0000441C File Offset: 0x0000261C
 		public InscriptionSkill 铭文模板
 		{
 			get
@@ -57,7 +55,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x06000443 RID: 1091 RVA: 0x0000442E File Offset: 0x0000262E
 		public bool 自动装配
 		{
 			get
@@ -67,7 +64,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x06000444 RID: 1092 RVA: 0x00020B5C File Offset: 0x0001ED5C
 		public byte 升级等级
 		{
 			get
@@ -85,7 +81,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x06000445 RID: 1093 RVA: 0x0000443B File Offset: 0x0000263B
 		public byte SkillCount
 		{
 			get
@@ -95,7 +90,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x06000446 RID: 1094 RVA: 0x00004448 File Offset: 0x00002648
 		public ushort PeriodCount
 		{
 			get
@@ -105,7 +99,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x06000447 RID: 1095 RVA: 0x00020BD0 File Offset: 0x0001EDD0
 		public ushort 升级经验
 		{
 			get
@@ -119,7 +112,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x06000448 RID: 1096 RVA: 0x00004455 File Offset: 0x00002655
 		public ushort Index
 		{
 			get
@@ -129,7 +121,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x06000449 RID: 1097 RVA: 0x0000446D File Offset: 0x0000266D
 		public int CombatBonus
 		{
 			get
@@ -139,7 +130,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x0600044A RID: 1098 RVA: 0x00004486 File Offset: 0x00002686
 		public List<ushort> 技能Buff
 		{
 			get
@@ -149,7 +139,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x0600044B RID: 1099 RVA: 0x00004493 File Offset: 0x00002693
 		public List<ushort> PassiveSkill
 		{
 			get
@@ -159,7 +148,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x0600044C RID: 1100 RVA: 0x00020C20 File Offset: 0x0001EE20
 		public Dictionary<GameObjectStats, int> Stat加成
 		{
 			get

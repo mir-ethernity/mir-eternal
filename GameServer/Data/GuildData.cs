@@ -13,7 +13,6 @@ namespace GameServer.Data
 	public sealed class GuildData : GameData
 	{
 		
-		// (get) Token: 0x060005A8 RID: 1448 RVA: 0x000054C0 File Offset: 0x000036C0
 		public int 行会编号
 		{
 			get
@@ -23,7 +22,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x060005A9 RID: 1449 RVA: 0x000054CD File Offset: 0x000036CD
 		public int 创建时间
 		{
 			get
@@ -33,7 +31,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x060005AA RID: 1450 RVA: 0x000054DF File Offset: 0x000036DF
 		public string 会长名字
 		{
 			get
@@ -43,8 +40,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x060005AB RID: 1451 RVA: 0x000054F6 File Offset: 0x000036F6
-		// (set) Token: 0x060005AC RID: 1452 RVA: 0x00005503 File Offset: 0x00003703
 		public CharacterData 会长数据
 		{
 			get
@@ -61,8 +56,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x060005AD RID: 1453 RVA: 0x0000551F File Offset: 0x0000371F
-		// (set) Token: 0x060005AE RID: 1454 RVA: 0x00005527 File Offset: 0x00003727
 		public DateTime 清理时间 { get; set; }
 
 		

@@ -15,7 +15,6 @@ namespace GameServer.Data
     public sealed class CharacterData : GameData
     {
 
-        // (get) Token: 0x060005CE RID: 1486 RVA: 0x000054C0 File Offset: 0x000036C0
         public int Id
         {
             get
@@ -25,8 +24,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x060005CF RID: 1487 RVA: 0x000055DE File Offset: 0x000037DE
-        // (set) Token: 0x060005D0 RID: 1488 RVA: 0x000055EB File Offset: 0x000037EB
         public int 角色经验
         {
             get
@@ -40,8 +37,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x060005D1 RID: 1489 RVA: 0x000055F9 File Offset: 0x000037F9
-        // (set) Token: 0x060005D2 RID: 1490 RVA: 0x00005606 File Offset: 0x00003806
         public byte 角色等级
         {
             get
@@ -60,8 +55,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x060005D3 RID: 1491 RVA: 0x0000562E File Offset: 0x0000382E
-        // (set) Token: 0x060005D4 RID: 1492 RVA: 0x0000563B File Offset: 0x0000383B
         public int 角色战力
         {
             get
@@ -80,8 +73,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x060005D5 RID: 1493 RVA: 0x00005663 File Offset: 0x00003863
-        // (set) Token: 0x060005D6 RID: 1494 RVA: 0x00005670 File Offset: 0x00003870
         public int 角色PK值
         {
             get
@@ -100,7 +91,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x060005D7 RID: 1495 RVA: 0x00005698 File Offset: 0x00003898
         public int 所需经验
         {
             get
@@ -110,8 +100,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x060005D8 RID: 1496 RVA: 0x0002C4DC File Offset: 0x0002A6DC
-        // (set) Token: 0x060005D9 RID: 1497 RVA: 0x000056AA File Offset: 0x000038AA
         public int NumberDollars
         {
             get
@@ -131,8 +119,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x060005DA RID: 1498 RVA: 0x0002C4FC File Offset: 0x0002A6FC
-        // (set) Token: 0x060005DB RID: 1499 RVA: 0x000056CA File Offset: 0x000038CA
         public int NumberGoldCoins
         {
             get
@@ -152,8 +138,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x060005DC RID: 1500 RVA: 0x0002C51C File Offset: 0x0002A71C
-        // (set) Token: 0x060005DD RID: 1501 RVA: 0x000056EA File Offset: 0x000038EA
         public int MasterRep
         {
             get
@@ -173,7 +157,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x060005DE RID: 1502 RVA: 0x0000570A File Offset: 0x0000390A
         public byte 师门参数
         {
             get
@@ -198,8 +181,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x060005DF RID: 1503 RVA: 0x00005738 File Offset: 0x00003938
-        // (set) Token: 0x060005E0 RID: 1504 RVA: 0x00005745 File Offset: 0x00003945
         public TeamData 当前队伍
         {
             get
@@ -216,8 +197,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x060005E1 RID: 1505 RVA: 0x00005761 File Offset: 0x00003961
-        // (set) Token: 0x060005E2 RID: 1506 RVA: 0x0000576E File Offset: 0x0000396E
         public TeacherData 当前师门
         {
             get
@@ -234,8 +213,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x060005E3 RID: 1507 RVA: 0x0000578A File Offset: 0x0000398A
-        // (set) Token: 0x060005E4 RID: 1508 RVA: 0x00005797 File Offset: 0x00003997
         public GuildData 当前行会
         {
             get
@@ -252,8 +229,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x060005E5 RID: 1509 RVA: 0x000057B3 File Offset: 0x000039B3
-        // (set) Token: 0x060005E6 RID: 1510 RVA: 0x000057BB File Offset: 0x000039BB
         public SConnection ActiveConnection { get; set; }
 
 

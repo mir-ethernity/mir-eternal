@@ -30,7 +30,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x0600063C RID: 1596 RVA: 0x000054C0 File Offset: 0x000036C0
 		public int 邮件编号
 		{
 			get
@@ -40,7 +39,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x0600063D RID: 1597 RVA: 0x00005B5E File Offset: 0x00003D5E
 		public int 邮件时间
 		{
 			get
@@ -50,7 +48,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x0600063E RID: 1598 RVA: 0x00005B70 File Offset: 0x00003D70
 		public int 物品数量
 		{
 			get

@@ -8,18 +8,12 @@ namespace GameServer.Data
 	public abstract class GameData
 	{
 		
-		// (get) Token: 0x0600055C RID: 1372 RVA: 0x000050EC File Offset: 0x000032EC
-		// (set) Token: 0x0600055D RID: 1373 RVA: 0x000050F4 File Offset: 0x000032F4
 		public byte[] RawData { get; set; }
 
 		
-		// (get) Token: 0x0600055E RID: 1374 RVA: 0x000050FD File Offset: 0x000032FD
-		// (set) Token: 0x0600055F RID: 1375 RVA: 0x00005105 File Offset: 0x00003305
 		public bool 已经修改 { get; set; }
 
 		
-		// (get) Token: 0x06000560 RID: 1376 RVA: 0x0000510E File Offset: 0x0000330E
-		// (set) Token: 0x06000561 RID: 1377 RVA: 0x00005116 File Offset: 0x00003316
 		public DataTableBase StorageDataTable { get; set; }
 
 		

@@ -9,7 +9,6 @@ namespace GameServer
 	public sealed class SortData : GMCommand
 	{
 		
-		// (get) Token: 0x06000018 RID: 24 RVA: 0x00002868 File Offset: 0x00000A68
 		public override ExecutionWay ExecutionWay
 		{
 			get

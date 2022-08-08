@@ -9,7 +9,6 @@ namespace GameServer
     public sealed class AddItems : GMCommand
     {
 
-        // (get) Token: 0x0600005D RID: 93 RVA: 0x00002865 File Offset: 0x00000A65
         public override ExecutionWay ExecutionWay
         {
             get

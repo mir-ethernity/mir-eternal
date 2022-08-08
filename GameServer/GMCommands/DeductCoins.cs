@@ -8,7 +8,6 @@ namespace GameServer
 	public sealed class DeductCoins : GMCommand
 	{
 		
-		// (get) Token: 0x06000063 RID: 99 RVA: 0x00002865 File Offset: 0x00000A65
 		public override ExecutionWay ExecutionWay
 		{
 			get

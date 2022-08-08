@@ -8,7 +8,6 @@ namespace GameServer
 	public sealed class RenameCharacter : GMCommand
 	{
 		
-		// (get) Token: 0x06000051 RID: 81 RVA: 0x00002865 File Offset: 0x00000A65
 		public override ExecutionWay ExecutionWay
 		{
 			get

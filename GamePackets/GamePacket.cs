@@ -220,8 +220,6 @@ namespace GameServer.Networking
         }
 
 
-        // (get) Token: 0x06000338 RID: 824 RVA: 0x0000357A File Offset: 0x0000177A
-        // (set) Token: 0x06000339 RID: 825 RVA: 0x00003582 File Offset: 0x00001782
         public virtual bool 是否加密 { get; set; }
 
 

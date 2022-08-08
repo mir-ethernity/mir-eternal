@@ -1167,15 +1167,12 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x0600047D RID: 1149 RVA: 0x00004692 File Offset: 0x00002892
 		public string 字段名字 { get; }
 
 		
-		// (get) Token: 0x0600047E RID: 1150 RVA: 0x0000469A File Offset: 0x0000289A
 		public Type 字段类型 { get; }
 
 		
-		// (get) Token: 0x0600047F RID: 1151 RVA: 0x000046A2 File Offset: 0x000028A2
 		public FieldInfo 字段详情 { get; }
 
 		

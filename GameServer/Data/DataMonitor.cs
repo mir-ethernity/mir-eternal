@@ -6,13 +6,9 @@ namespace GameServer.Data
 	public sealed class DataMonitor<T>
 	{
 		
-		// (add) Token: 0x06000507 RID: 1287 RVA: 0x00024900 File Offset: 0x00022B00
-		// (remove) Token: 0x06000508 RID: 1288 RVA: 0x00024938 File Offset: 0x00022B38
 		public event DataMonitor<T>.更改委托 更改事件;
 
 		
-		// (get) Token: 0x06000509 RID: 1289 RVA: 0x00004BB6 File Offset: 0x00002DB6
-		// (set) Token: 0x0600050A RID: 1290 RVA: 0x00004BBE File Offset: 0x00002DBE
 		public T V
 		{
 			get
@@ -72,7 +68,6 @@ namespace GameServer.Data
 		private readonly GameData 对应数据;
 
 		
-		// (Invoke) Token: 0x0600050F RID: 1295
 		public delegate void 更改委托(T 更改数据);
 	}
 }

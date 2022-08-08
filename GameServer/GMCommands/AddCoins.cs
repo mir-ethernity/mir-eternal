@@ -8,7 +8,6 @@ namespace GameServer
 	public sealed class AddCoins : GMCommand
 	{
 		
-		// (get) Token: 0x0600005A RID: 90 RVA: 0x00002865 File Offset: 0x00000A65
 		public override ExecutionWay ExecutionWay
 		{
 			get

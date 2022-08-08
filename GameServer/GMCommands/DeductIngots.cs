@@ -8,7 +8,6 @@ namespace GameServer
 	public sealed class DeductIngots : GMCommand
 	{
 		
-		// (get) Token: 0x06000060 RID: 96 RVA: 0x00002865 File Offset: 0x00000A65
 		public override ExecutionWay ExecutionWay
 		{
 			get

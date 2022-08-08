@@ -9,8 +9,6 @@ namespace GameServer.Data
 	public sealed class MonitorDictionary<TK, TV> : IEnumerable<KeyValuePair<TK, TV>>, IEnumerable
 	{
 		
-		// (add) Token: 0x0600053E RID: 1342 RVA: 0x00024B48 File Offset: 0x00022D48
-		// (remove) Token: 0x0600053F RID: 1343 RVA: 0x00024B80 File Offset: 0x00022D80
 		public event MonitorDictionary<TK, TV>.更改委托 更改事件;
 
 		
@@ -47,7 +45,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x06000543 RID: 1347 RVA: 0x00004F98 File Offset: 0x00003198
 		public ICollection<TK> Keys
 		{
 			get
@@ -57,7 +54,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x06000544 RID: 1348 RVA: 0x00004FA5 File Offset: 0x000031A5
 		public ICollection<TV> Values
 		{
 			get
@@ -67,7 +63,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x06000545 RID: 1349 RVA: 0x00004FB2 File Offset: 0x000031B2
 		public IDictionary IDictionary_0
 		{
 			get
@@ -77,7 +72,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x06000546 RID: 1350 RVA: 0x00004FBA File Offset: 0x000031BA
 		public int Count
 		{
 			get
@@ -193,7 +187,6 @@ namespace GameServer.Data
 		private readonly GameData 对应数据;
 
 		
-		// (Invoke) Token: 0x06000553 RID: 1363
 		public delegate void 更改委托(List<KeyValuePair<TK, TV>> 更改字典);
 	}
 }

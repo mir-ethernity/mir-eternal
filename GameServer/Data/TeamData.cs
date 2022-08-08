@@ -9,7 +9,6 @@ namespace GameServer.Data
 	public sealed class TeamData : GameData
 	{
 		
-		// (get) Token: 0x0600062C RID: 1580 RVA: 0x000054C0 File Offset: 0x000036C0
 		public int 队伍编号
 		{
 			get
@@ -19,7 +18,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x0600062D RID: 1581 RVA: 0x00005A9D File Offset: 0x00003C9D
 		public int 队长编号
 		{
 			get
@@ -29,7 +27,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x0600062E RID: 1582 RVA: 0x00005AB4 File Offset: 0x00003CB4
 		public int 队员数量
 		{
 			get
@@ -39,7 +36,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x0600062F RID: 1583 RVA: 0x00005AC1 File Offset: 0x00003CC1
 		public byte 拾取方式
 		{
 			get
@@ -49,7 +45,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x06000630 RID: 1584 RVA: 0x00005ACE File Offset: 0x00003CCE
 		public string 队长名字
 		{
 			get
@@ -59,8 +54,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x06000631 RID: 1585 RVA: 0x00005AE0 File Offset: 0x00003CE0
-		// (set) Token: 0x06000632 RID: 1586 RVA: 0x00005AED File Offset: 0x00003CED
 		public CharacterData 队长数据
 		{
 			get

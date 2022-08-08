@@ -20,7 +20,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x06000557 RID: 1367 RVA: 0x000050E4 File Offset: 0x000032E4
 		public List<DataField> FieldList { get; }
 
 		

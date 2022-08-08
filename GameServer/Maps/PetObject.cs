@@ -12,33 +12,21 @@ namespace GameServer.Maps
 	public sealed class PetObject : MapObject
 	{
 		
-		// (get) Token: 0x060007D8 RID: 2008 RVA: 0x0000683A File Offset: 0x00004A3A
-		// (set) Token: 0x060007D9 RID: 2009 RVA: 0x00006842 File Offset: 0x00004A42
 		public bool 尸体消失 { get; set; }
 
 		
-		// (get) Token: 0x060007DA RID: 2010 RVA: 0x0000684B File Offset: 0x00004A4B
-		// (set) Token: 0x060007DB RID: 2011 RVA: 0x00006853 File Offset: 0x00004A53
 		public DateTime Attack时间 { get; set; }
 
 		
-		// (get) Token: 0x060007DC RID: 2012 RVA: 0x0000685C File Offset: 0x00004A5C
-		// (set) Token: 0x060007DD RID: 2013 RVA: 0x00006864 File Offset: 0x00004A64
 		public DateTime 漫游时间 { get; set; }
 
 		
-		// (get) Token: 0x060007DE RID: 2014 RVA: 0x0000686D File Offset: 0x00004A6D
-		// (set) Token: 0x060007DF RID: 2015 RVA: 0x00006875 File Offset: 0x00004A75
 		public DateTime 复活时间 { get; set; }
 
 		
-		// (get) Token: 0x060007E0 RID: 2016 RVA: 0x0000687E File Offset: 0x00004A7E
-		// (set) Token: 0x060007E1 RID: 2017 RVA: 0x00006886 File Offset: 0x00004A86
 		public DateTime 消失时间 { get; set; }
 
 		
-		// (get) Token: 0x060007E2 RID: 2018 RVA: 0x0000688F File Offset: 0x00004A8F
-		// (set) Token: 0x060007E3 RID: 2019 RVA: 0x000068A1 File Offset: 0x00004AA1
 		public int 宠物经验
 		{
 			get
@@ -55,8 +43,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x060007E4 RID: 2020 RVA: 0x000068C7 File Offset: 0x00004AC7
-		// (set) Token: 0x060007E5 RID: 2021 RVA: 0x000068D9 File Offset: 0x00004AD9
 		public byte 宠物等级
 		{
 			get
@@ -73,8 +59,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x060007E6 RID: 2022 RVA: 0x000068FF File Offset: 0x00004AFF
-		// (set) Token: 0x060007E7 RID: 2023 RVA: 0x00006911 File Offset: 0x00004B11
 		public byte GradeCap
 		{
 			get
@@ -91,8 +75,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x060007E8 RID: 2024 RVA: 0x00006937 File Offset: 0x00004B37
-		// (set) Token: 0x060007E9 RID: 2025 RVA: 0x00006949 File Offset: 0x00004B49
 		public bool BoundWeapons
 		{
 			get
@@ -109,8 +91,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x060007EA RID: 2026 RVA: 0x0000696F File Offset: 0x00004B6F
-		// (set) Token: 0x060007EB RID: 2027 RVA: 0x00006981 File Offset: 0x00004B81
 		public DateTime MutinyTime
 		{
 			get
@@ -127,7 +107,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x060007EC RID: 2028 RVA: 0x00006134 File Offset: 0x00004334
 		public override int 处理间隔
 		{
 			get
@@ -137,8 +116,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x060007ED RID: 2029 RVA: 0x00006138 File Offset: 0x00004338
-		// (set) Token: 0x060007EE RID: 2030 RVA: 0x00036440 File Offset: 0x00034640
 		public override DateTime 忙碌时间
 		{
 			get
@@ -156,8 +133,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x060007EF RID: 2031 RVA: 0x00006140 File Offset: 0x00004340
-		// (set) Token: 0x060007F0 RID: 2032 RVA: 0x00006148 File Offset: 0x00004348
 		public override DateTime 硬直时间
 		{
 			get
@@ -174,8 +149,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x060007F1 RID: 2033 RVA: 0x000069AC File Offset: 0x00004BAC
-		// (set) Token: 0x060007F2 RID: 2034 RVA: 0x0003F694 File Offset: 0x0003D894
 		public override int CurrentStamina
 		{
 			get
@@ -199,8 +172,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x060007F3 RID: 2035 RVA: 0x00006167 File Offset: 0x00004367
-		// (set) Token: 0x060007F4 RID: 2036 RVA: 0x0000616F File Offset: 0x0000436F
 		public override MapInstance CurrentMap
 		{
 			get
@@ -223,8 +194,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x060007F5 RID: 2037 RVA: 0x0000619F File Offset: 0x0000439F
-		// (set) Token: 0x060007F6 RID: 2038 RVA: 0x000069BE File Offset: 0x00004BBE
 		public override GameDirection 当前方向
 		{
 			get
@@ -247,7 +216,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x060007F7 RID: 2039 RVA: 0x000069FC File Offset: 0x00004BFC
 		public override byte CurrentRank
 		{
 			get
@@ -257,7 +225,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x060007F8 RID: 2040 RVA: 0x00006A09 File Offset: 0x00004C09
 		public override string 对象名字
 		{
 			get
@@ -267,7 +234,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x060007F9 RID: 2041 RVA: 0x00002940 File Offset: 0x00000B40
 		public override GameObjectType ObjectType
 		{
 			get
@@ -277,7 +243,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x060007FA RID: 2042 RVA: 0x00006A16 File Offset: 0x00004C16
 		public override MonsterSize 对象体型
 		{
 			get
@@ -300,7 +265,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x060007FD RID: 2045 RVA: 0x00006A23 File Offset: 0x00004C23
 		public int RangeHate
 		{
 			get
@@ -310,7 +274,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x060007FE RID: 2046 RVA: 0x00006A26 File Offset: 0x00004C26
 		public int HateTime
 		{
 			get
@@ -320,7 +283,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x060007FF RID: 2047 RVA: 0x00006A2D File Offset: 0x00004C2D
 		public int 切换间隔
 		{
 			get
@@ -330,7 +292,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000800 RID: 2048 RVA: 0x00006A34 File Offset: 0x00004C34
 		public ushort MobId
 		{
 			get
@@ -340,7 +301,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000801 RID: 2049 RVA: 0x0003F708 File Offset: 0x0003D908
 		public ushort 升级经验
 		{
 			get
@@ -357,7 +317,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000802 RID: 2050 RVA: 0x00006A41 File Offset: 0x00004C41
 		public int MobInterval
 		{
 			get
@@ -367,7 +326,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000803 RID: 2051 RVA: 0x00006A4E File Offset: 0x00004C4E
 		public int RoamingInterval
 		{
 			get
@@ -377,7 +335,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000804 RID: 2052 RVA: 0x00006A5B File Offset: 0x00004C5B
 		public int CorpsePreservation
 		{
 			get
@@ -387,7 +344,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000805 RID: 2053 RVA: 0x00006A68 File Offset: 0x00004C68
 		public bool CanBeSeducedBySkills
 		{
 			get
@@ -397,7 +353,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000806 RID: 2054 RVA: 0x00006A75 File Offset: 0x00004C75
 		public float BaseTemptationProbability
 		{
 			get
@@ -407,7 +362,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000807 RID: 2055 RVA: 0x00006A82 File Offset: 0x00004C82
 		public MonsterRaceType 宠物种族
 		{
 			get
@@ -417,7 +371,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000808 RID: 2056 RVA: 0x00006A8F File Offset: 0x00004C8F
 		public MonsterLevelType 宠物级别
 		{
 			get
@@ -427,7 +380,6 @@ namespace GameServer.Maps
 		}
 
 		
-		// (get) Token: 0x06000809 RID: 2057 RVA: 0x0003F75C File Offset: 0x0003D95C
 		public Dictionary<GameObjectStats, int> 基础Stat
 		{
 			get

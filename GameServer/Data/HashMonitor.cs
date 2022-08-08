@@ -9,8 +9,6 @@ namespace GameServer.Data
 	public sealed class HashMonitor<T> : IEnumerable<T>, IEnumerable
 	{
 		
-		// (add) Token: 0x0600052B RID: 1323 RVA: 0x00024AB0 File Offset: 0x00022CB0
-		// (remove) Token: 0x0600052C RID: 1324 RVA: 0x00024AE8 File Offset: 0x00022CE8
 		public event HashMonitor<T>.更改委托 更改事件;
 
 		
@@ -62,7 +60,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x06000533 RID: 1331 RVA: 0x00004E6F File Offset: 0x0000306F
 		public int Count
 		{
 			get
@@ -72,7 +69,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x06000534 RID: 1332 RVA: 0x00004E7C File Offset: 0x0000307C
 		public ISet<T> ISet
 		{
 			get
@@ -147,7 +143,6 @@ namespace GameServer.Data
 		private readonly GameData 对应数据;
 
 		
-		// (Invoke) Token: 0x0600053B RID: 1339
 		public delegate void 更改委托(List<T> 更改列表);
 	}
 }

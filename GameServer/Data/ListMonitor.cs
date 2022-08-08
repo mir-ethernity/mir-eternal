@@ -9,8 +9,6 @@ namespace GameServer.Data
 	public sealed class ListMonitor<T> : IEnumerable<T>, IEnumerable
 	{
 		
-		// (add) Token: 0x06000512 RID: 1298 RVA: 0x000249B4 File Offset: 0x00022BB4
-		// (remove) Token: 0x06000513 RID: 1299 RVA: 0x000249EC File Offset: 0x00022BEC
 		public event ListMonitor<T>.更改委托 更改事件;
 
 		
@@ -62,7 +60,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x0600051A RID: 1306 RVA: 0x00024A4C File Offset: 0x00022C4C
 		public T Last
 		{
 			get
@@ -103,7 +100,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x0600051D RID: 1309 RVA: 0x00004CAA File Offset: 0x00002EAA
 		public IList IList
 		{
 			get
@@ -113,7 +109,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x0600051E RID: 1310 RVA: 0x00004CB2 File Offset: 0x00002EB2
 		public int Count
 		{
 			get
@@ -221,7 +216,6 @@ namespace GameServer.Data
 		private readonly GameData 对应数据;
 
 		
-		// (Invoke) Token: 0x06000528 RID: 1320
 		public delegate void 更改委托(List<T> 更改列表);
 	}
 }

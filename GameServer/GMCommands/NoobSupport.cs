@@ -8,7 +8,6 @@ namespace GameServer
 	public sealed class NoobSupport : GMCommand
 	{
 		
-		// (get) Token: 0x0600004A RID: 74 RVA: 0x00002940 File Offset: 0x00000B40
 		public override ExecutionWay ExecutionWay
 		{
 			get

@@ -10,7 +10,6 @@ namespace GameServer.Data
     public class EquipmentData : ItemData
     {
 
-        // (get) Token: 0x06000587 RID: 1415 RVA: 0x0000531F File Offset: 0x0000351F
         public EquipmentItem 装备模板
         {
             get
@@ -20,7 +19,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000588 RID: 1416 RVA: 0x00026D44 File Offset: 0x00024F44
         public int 装备战力
         {
             get
@@ -304,7 +302,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000589 RID: 1417 RVA: 0x000287D8 File Offset: 0x000269D8
         public int 修理费用
         {
             get
@@ -317,7 +314,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x0600058A RID: 1418 RVA: 0x00028858 File Offset: 0x00026A58
         public int 特修费用
         {
             get
@@ -330,7 +326,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x0600058B RID: 1419 RVA: 0x0000532C File Offset: 0x0000352C
         public int NeedAttack
         {
             get
@@ -340,7 +335,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x0600058C RID: 1420 RVA: 0x0000533E File Offset: 0x0000353E
         public int NeedMagic
         {
             get
@@ -350,7 +344,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x0600058D RID: 1421 RVA: 0x00005350 File Offset: 0x00003550
         public int NeedTaoism
         {
             get
@@ -360,7 +353,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x0600058E RID: 1422 RVA: 0x00005362 File Offset: 0x00003562
         public int NeedAcupuncture
         {
             get
@@ -370,7 +362,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x0600058F RID: 1423 RVA: 0x00005374 File Offset: 0x00003574
         public int NeedArchery
         {
             get
@@ -380,7 +371,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000590 RID: 1424 RVA: 0x000051CE File Offset: 0x000033CE
         public string 装备名字
         {
             get
@@ -390,7 +380,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000591 RID: 1425 RVA: 0x00005386 File Offset: 0x00003586
         public bool DisableDismount
         {
             get
@@ -400,7 +389,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000592 RID: 1426 RVA: 0x0000539D File Offset: 0x0000359D
         public bool CanRepair
         {
             get
@@ -410,7 +398,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000593 RID: 1427 RVA: 0x000288FC File Offset: 0x00026AFC
         public int 传承材料
         {
             get
@@ -519,7 +506,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000594 RID: 1428 RVA: 0x00028BAC File Offset: 0x00026DAC
         public string StatDescription
         {
             get
@@ -612,8 +598,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000595 RID: 1429 RVA: 0x000053A8 File Offset: 0x000035A8
-        // (set) Token: 0x06000596 RID: 1430 RVA: 0x000053D0 File Offset: 0x000035D0
         public InscriptionSkill 第一铭文
         {
             get
@@ -636,8 +620,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000597 RID: 1431 RVA: 0x000053FA File Offset: 0x000035FA
-        // (set) Token: 0x06000598 RID: 1432 RVA: 0x00005422 File Offset: 0x00003622
         public InscriptionSkill 第二铭文
         {
             get
@@ -660,8 +642,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x06000599 RID: 1433 RVA: 0x00028F9C File Offset: 0x0002719C
-        // (set) Token: 0x0600059A RID: 1434 RVA: 0x00029034 File Offset: 0x00027234
         public InscriptionSkill 最优铭文
         {
             get
@@ -709,8 +689,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x0600059B RID: 1435 RVA: 0x000290D0 File Offset: 0x000272D0
-        // (set) Token: 0x0600059C RID: 1436 RVA: 0x00029168 File Offset: 0x00027368
         public InscriptionSkill 最差铭文
         {
             get
@@ -758,8 +736,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x0600059D RID: 1437 RVA: 0x0000544C File Offset: 0x0000364C
-        // (set) Token: 0x0600059E RID: 1438 RVA: 0x00005472 File Offset: 0x00003672
         public int 双铭文点
         {
             get
@@ -782,7 +758,6 @@ namespace GameServer.Data
         }
 
 
-        // (get) Token: 0x0600059F RID: 1439 RVA: 0x00029204 File Offset: 0x00027404
         public Dictionary<GameObjectStats, int> 装备Stat
         {
             get
@@ -1099,7 +1074,6 @@ namespace GameServer.Data
             GameDataGateway.EquipmentData表.AddData(this, true);
         }
 
-        // (get) Token: 0x060005A2 RID: 1442 RVA: 0x00029E88 File Offset: 0x00028088
         public int 重铸所需灵气
         {
             get

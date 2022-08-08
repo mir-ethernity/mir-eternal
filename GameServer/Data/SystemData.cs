@@ -24,7 +24,6 @@ namespace GameServer.Data
 		}
 
 		
-		// (get) Token: 0x06000460 RID: 1120 RVA: 0x0000456C File Offset: 0x0000276C
 		public static SystemData Data
 		{
 			get
