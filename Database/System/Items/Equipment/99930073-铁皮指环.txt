@@ -13,7 +13,7 @@
   "PersistType": "装备",
   "StoreType": "首饰",
   "BasicPowerCombat": 61,
-  "MaxBow": 3,
+  "MaxBC": 3,
   "CanRepair": true,
   "RepairCost": 4500,
   "SpecialRepairCost": 22500,

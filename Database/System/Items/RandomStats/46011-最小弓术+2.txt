@@ -1,5 +1,5 @@
 {
-  "Stat": "MinBow",
+  "Stat": "MinBC",
   "Value": 2,
   "StatId": 46011,
   "CombatBonus": 20,

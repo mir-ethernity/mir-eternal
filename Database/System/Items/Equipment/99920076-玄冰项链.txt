@@ -14,7 +14,7 @@
   "StoreType": "首饰",
   "NeedArchery": 37,
   "BasicPowerCombat": 205,
-  "MaxBow": 7,
+  "MaxBC": 7,
   "MaxDef": 1,
   "MaxMCDef": 1,
   "CanRepair": true,

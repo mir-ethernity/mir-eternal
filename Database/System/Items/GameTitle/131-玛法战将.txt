@@ -8,7 +8,7 @@
     "MaxMC": 1,
     "MaxSC": 1,
     "MaxNC": 1,
-    "MaxBow": 1,
+    "MaxBC": 1,
     "MaxHP": 10,
     "MaxDef": 1,
     "MaxMCDef": 1

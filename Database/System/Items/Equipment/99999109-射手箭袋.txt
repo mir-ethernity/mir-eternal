@@ -14,7 +14,7 @@
   "PersistType": "消耗",
   "StoreType": "杂货",
   "BasicPowerCombat": 22,
-  "MaxBow": 2,
+  "MaxBC": 2,
   "RepairCost": 1,
   "SpecialRepairCost": 1,
   "铭文职业": "通用",

@@ -9919,7 +9919,7 @@ namespace GameServer.Maps
                 if (equipmentItem.NeedAcupuncture > this[GameObjectStats.MaxNC])
                     return;
 
-                if (equipmentItem.NeedArchery > this[GameObjectStats.MaxBow])
+                if (equipmentItem.NeedArchery > this[GameObjectStats.MaxBC])
                     return;
 
                 if (toStoragePosition == 0 && equipmentItem.Weight > 最大腕力)
@@ -10007,7 +10007,7 @@ namespace GameServer.Maps
                 if (equipmentItem.NeedAcupuncture > this[GameObjectStats.MaxNC])
                     return;
 
-                if (equipmentItem.NeedArchery > this[GameObjectStats.MaxBow])
+                if (equipmentItem.NeedArchery > this[GameObjectStats.MaxBC])
                     return;
 
                 if (fromStoragePosition == 0 && equipmentItem.Weight > this.最大腕力)
@@ -13390,7 +13390,7 @@ namespace GameServer.Maps
                         {
                             dictionary4[3][EquipmentData3] = value;
                         }
-                        if ((value = (装备Stat.ContainsKey(GameObjectStats.MinBow) ? 装备Stat[GameObjectStats.MinBow] : 0) + (装备Stat.ContainsKey(GameObjectStats.MaxBow) ? 装备Stat[GameObjectStats.MaxBow] : 0)) > 0)
+                        if ((value = (装备Stat.ContainsKey(GameObjectStats.MinBC) ? 装备Stat[GameObjectStats.MinBC] : 0) + (装备Stat.ContainsKey(GameObjectStats.MaxBC) ? 装备Stat[GameObjectStats.MaxBC] : 0)) > 0)
                         {
                             dictionary4[4][EquipmentData3] = value;
                         }

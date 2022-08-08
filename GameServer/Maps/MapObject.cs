@@ -1758,7 +1758,7 @@ namespace GameServer.Maps
                                 break;
                             case SkillDamageType.Archery:
                                 num10 = ComputingClass.计算防御(this[GameObjectStats.MinDef], this[GameObjectStats.MaxDef]);
-                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinBow], MapObject[GameObjectStats.MaxBow], MapObject[GameObjectStats.Luck]);
+                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinBC], MapObject[GameObjectStats.MaxBC], MapObject[GameObjectStats.Luck]);
                                 break;
                             case SkillDamageType.Toxicity:
                                 num9 = MapObject[GameObjectStats.MaxSC];

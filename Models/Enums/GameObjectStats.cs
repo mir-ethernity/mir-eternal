@@ -32,9 +32,9 @@ namespace GameServer
 		
 		MaxNC,
 		
-		MinBow,
+		MinBC,
 		
-		MaxBow,
+		MaxBC,
 		
 		MaxHP,
 		

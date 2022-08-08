@@ -14,7 +14,7 @@
   "StoreType": "服装",
   "NeedArchery": 30,
   "BasicPowerCombat": 102,
-  "MinBow": 1,
+  "MinBC": 1,
   "MinDef": 2,
   "MaxDef": 3,
   "MaxMCDef": 1,

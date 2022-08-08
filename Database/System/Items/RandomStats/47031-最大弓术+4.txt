@@ -1,5 +1,5 @@
 {
-  "Stat": "MaxBow",
+  "Stat": "MaxBC",
   "Value": 4,
   "StatId": 47031,
   "CombatBonus": 40,

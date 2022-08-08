@@ -540,11 +540,11 @@ namespace GameServer.Data
                     int num8;
                     text += string.Format("\nNeedle{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinNC, out num7) ? num7 : 0, dictionary.TryGetValue(GameObjectStats.MaxNC, out num8) ? num8 : 0);
                 }
-                if (dictionary.ContainsKey(GameObjectStats.MinBow) || dictionary.ContainsKey(GameObjectStats.MaxBow))
+                if (dictionary.ContainsKey(GameObjectStats.MinBC) || dictionary.ContainsKey(GameObjectStats.MaxBC))
                 {
                     int num9;
                     int num10;
-                    text += string.Format("\nArchery{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinBow, out num9) ? num9 : 0, dictionary.TryGetValue(GameObjectStats.MaxBow, out num10) ? num10 : 0);
+                    text += string.Format("\nArchery{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinBC, out num9) ? num9 : 0, dictionary.TryGetValue(GameObjectStats.MaxBC, out num10) ? num10 : 0);
                 }
                 if (dictionary.ContainsKey(GameObjectStats.MinDef) || dictionary.ContainsKey(GameObjectStats.MaxDef))
                 {
@@ -795,13 +795,13 @@ namespace GameServer.Data
                 {
                     dictionary[GameObjectStats.MaxNC] = 装备模板.MaxNC;
                 }
-                if (装备模板.MinBow != 0)
+                if (装备模板.MinBC != 0)
                 {
-                    dictionary[GameObjectStats.MinBow] = 装备模板.MinBow;
+                    dictionary[GameObjectStats.MinBC] = 装备模板.MinBC;
                 }
-                if (装备模板.MaxBow != 0)
+                if (装备模板.MaxBC != 0)
                 {
-                    dictionary[GameObjectStats.MaxBow] = 装备模板.MaxBow;
+                    dictionary[GameObjectStats.MaxBC] = 装备模板.MaxBC;
                 }
                 if (装备模板.MinDef != 0)
                 {
@@ -865,7 +865,7 @@ namespace GameServer.Data
                 }
                 if (升级Archery.V != 0)
                 {
-                    dictionary[GameObjectStats.MaxBow] = (dictionary.ContainsKey(GameObjectStats.MaxBow) ? (dictionary[GameObjectStats.MaxBow] + (int)升级Archery.V) : ((int)升级Archery.V));
+                    dictionary[GameObjectStats.MaxBC] = (dictionary.ContainsKey(GameObjectStats.MaxBC) ? (dictionary[GameObjectStats.MaxBC] + (int)升级Archery.V) : ((int)升级Archery.V));
                 }
                 foreach (RandomStats 随机Stat in 随机Stat.ToList<RandomStats>())
                 {
@@ -1020,19 +1020,19 @@ namespace GameServer.Data
                                 switch (Id)
                                 {
                                     case 10720:
-                                        dictionary[GameObjectStats.MaxBow] = (dictionary.ContainsKey(GameObjectStats.MaxBow) ? (dictionary[GameObjectStats.MaxBow] + 1) : 1);
+                                        dictionary[GameObjectStats.MaxBC] = (dictionary.ContainsKey(GameObjectStats.MaxBC) ? (dictionary[GameObjectStats.MaxBC] + 1) : 1);
                                         break;
                                     case 10721:
-                                        dictionary[GameObjectStats.MaxBow] = (dictionary.ContainsKey(GameObjectStats.MaxBow) ? (dictionary[GameObjectStats.MaxBow] + 2) : 2);
+                                        dictionary[GameObjectStats.MaxBC] = (dictionary.ContainsKey(GameObjectStats.MaxBC) ? (dictionary[GameObjectStats.MaxBC] + 2) : 2);
                                         break;
                                     case 10722:
-                                        dictionary[GameObjectStats.MaxBow] = (dictionary.ContainsKey(GameObjectStats.MaxBow) ? (dictionary[GameObjectStats.MaxBow] + 3) : 3);
+                                        dictionary[GameObjectStats.MaxBC] = (dictionary.ContainsKey(GameObjectStats.MaxBC) ? (dictionary[GameObjectStats.MaxBC] + 3) : 3);
                                         break;
                                     case 10723:
-                                        dictionary[GameObjectStats.MaxBow] = (dictionary.ContainsKey(GameObjectStats.MaxBow) ? (dictionary[GameObjectStats.MaxBow] + 4) : 4);
+                                        dictionary[GameObjectStats.MaxBC] = (dictionary.ContainsKey(GameObjectStats.MaxBC) ? (dictionary[GameObjectStats.MaxBC] + 4) : 4);
                                         break;
                                     case 10724:
-                                        dictionary[GameObjectStats.MaxBow] = (dictionary.ContainsKey(GameObjectStats.MaxBow) ? (dictionary[GameObjectStats.MaxBow] + 5) : 5);
+                                        dictionary[GameObjectStats.MaxBC] = (dictionary.ContainsKey(GameObjectStats.MaxBC) ? (dictionary[GameObjectStats.MaxBC] + 5) : 5);
                                         break;
                                 }
                                 break;
