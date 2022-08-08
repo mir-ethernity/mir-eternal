@@ -22,29 +22,29 @@ namespace GameServer.Data
 			
 			this.Buff来源 = 来源;
 			this.Id.V = 编号;
-			this.当前层数.V = this.Buff模板.BuffInitialLayer;
-			this.持续时间.V = TimeSpan.FromMilliseconds((double)this.Buff模板.Duration);
-			this.处理计时.V = TimeSpan.FromMilliseconds((double)this.Buff模板.ProcessDelay);
+			this.当前层数.V = this.Template.BuffInitialLayer;
+			this.持续时间.V = TimeSpan.FromMilliseconds((double)this.Template.Duration);
+			this.处理计时.V = TimeSpan.FromMilliseconds((double)this.Template.ProcessDelay);
 			PlayerObject PlayerObject = 来源 as PlayerObject;
 			if (PlayerObject != null)
 			{
 				SkillData SkillData;
-				if (this.Buff模板.BindingSkillLevel != 0 && PlayerObject.MainSkills表.TryGetValue(this.Buff模板.BindingSkillLevel, out SkillData))
+				if (this.Template.BindingSkillLevel != 0 && PlayerObject.MainSkills表.TryGetValue(this.Template.BindingSkillLevel, out SkillData))
 				{
 					this.Buff等级.V = SkillData.SkillLevel.V;
 				}
-				if (this.Buff模板.ExtendedDuration && this.Buff模板.SkillLevelDelay)
+				if (this.Template.ExtendedDuration && this.Template.SkillLevelDelay)
 				{
-					this.持续时间.V += TimeSpan.FromMilliseconds((double)((int)this.Buff等级.V * this.Buff模板.ExtendedTimePerLevel));
+					this.持续时间.V += TimeSpan.FromMilliseconds((double)((int)this.Buff等级.V * this.Template.ExtendedTimePerLevel));
 				}
-				if (this.Buff模板.ExtendedDuration && this.Buff模板.PlayerStatDelay)
+				if (this.Template.ExtendedDuration && this.Template.PlayerStatDelay)
 				{
-					this.持续时间.V += TimeSpan.FromMilliseconds((double)((float)PlayerObject[this.Buff模板.BoundPlayerStat] * this.Buff模板.StatDelayFactor));
+					this.持续时间.V += TimeSpan.FromMilliseconds((double)((float)PlayerObject[this.Template.BoundPlayerStat] * this.Template.StatDelayFactor));
 				}
 				SkillData SkillData2;
-				if (this.Buff模板.ExtendedDuration && this.Buff模板.HasSpecificInscriptionDelay && PlayerObject.MainSkills表.TryGetValue((ushort)(this.Buff模板.SpecificInscriptionSkills / 10), out SkillData2) && (int)SkillData2.Id == this.Buff模板.SpecificInscriptionSkills % 10)
+				if (this.Template.ExtendedDuration && this.Template.HasSpecificInscriptionDelay && PlayerObject.MainSkills表.TryGetValue((ushort)(this.Template.SpecificInscriptionSkills / 10), out SkillData2) && (int)SkillData2.Id == this.Template.SpecificInscriptionSkills % 10)
 				{
-					this.持续时间.V += TimeSpan.FromMilliseconds((double)this.Buff模板.InscriptionExtendedTime);
+					this.持续时间.V += TimeSpan.FromMilliseconds((double)this.Template.InscriptionExtendedTime);
 				}
 			}
 			else
@@ -53,42 +53,42 @@ namespace GameServer.Data
 				if (PetObject != null)
 				{
 					SkillData SkillData3;
-					if (this.Buff模板.BindingSkillLevel != 0 && PetObject.PlayerOwner.MainSkills表.TryGetValue(this.Buff模板.BindingSkillLevel, out SkillData3))
+					if (this.Template.BindingSkillLevel != 0 && PetObject.PlayerOwner.MainSkills表.TryGetValue(this.Template.BindingSkillLevel, out SkillData3))
 					{
 						this.Buff等级.V = SkillData3.SkillLevel.V;
 					}
-					if (this.Buff模板.ExtendedDuration && this.Buff模板.SkillLevelDelay)
+					if (this.Template.ExtendedDuration && this.Template.SkillLevelDelay)
 					{
-						this.持续时间.V += TimeSpan.FromMilliseconds((double)((int)this.Buff等级.V * this.Buff模板.ExtendedTimePerLevel));
+						this.持续时间.V += TimeSpan.FromMilliseconds((double)((int)this.Buff等级.V * this.Template.ExtendedTimePerLevel));
 					}
-					if (this.Buff模板.ExtendedDuration && this.Buff模板.PlayerStatDelay)
+					if (this.Template.ExtendedDuration && this.Template.PlayerStatDelay)
 					{
-						this.持续时间.V += TimeSpan.FromMilliseconds((double)((float)PetObject.PlayerOwner[this.Buff模板.BoundPlayerStat] * this.Buff模板.StatDelayFactor));
+						this.持续时间.V += TimeSpan.FromMilliseconds((double)((float)PetObject.PlayerOwner[this.Template.BoundPlayerStat] * this.Template.StatDelayFactor));
 					}
 					SkillData SkillData4;
-					if (this.Buff模板.ExtendedDuration && this.Buff模板.HasSpecificInscriptionDelay && PetObject.PlayerOwner.MainSkills表.TryGetValue((ushort)(this.Buff模板.SpecificInscriptionSkills / 10), out SkillData4) && (int)SkillData4.Id == this.Buff模板.SpecificInscriptionSkills % 10)
+					if (this.Template.ExtendedDuration && this.Template.HasSpecificInscriptionDelay && PetObject.PlayerOwner.MainSkills表.TryGetValue((ushort)(this.Template.SpecificInscriptionSkills / 10), out SkillData4) && (int)SkillData4.Id == this.Template.SpecificInscriptionSkills % 10)
 					{
-						this.持续时间.V += TimeSpan.FromMilliseconds((double)this.Buff模板.InscriptionExtendedTime);
+						this.持续时间.V += TimeSpan.FromMilliseconds((double)this.Template.InscriptionExtendedTime);
 					}
 				}
 			}
 			this.剩余时间.V = this.持续时间.V;
 			if ((this.Effect & BuffEffectType.CausesSomeDamages) != BuffEffectType.SkillSign)
 			{
-				int[] DamageBase = this.Buff模板.DamageBase;
+				int[] DamageBase = this.Template.DamageBase;
 				int? num = (DamageBase != null) ? new int?(DamageBase.Length) : null;
 				int v = (int)this.Buff等级.V;
-				int num2 = (num.GetValueOrDefault() > v & num != null) ? this.Buff模板.DamageBase[(int)this.Buff等级.V] : 0;
-				float[] DamageFactor = this.Buff模板.DamageFactor;
+				int num2 = (num.GetValueOrDefault() > v & num != null) ? this.Template.DamageBase[(int)this.Buff等级.V] : 0;
+				float[] DamageFactor = this.Template.DamageFactor;
 				num = ((DamageFactor != null) ? new int?(DamageFactor.Length) : null);
 				v = (int)this.Buff等级.V;
-				float num3 = (num.GetValueOrDefault() > v & num != null) ? this.Buff模板.DamageFactor[(int)this.Buff等级.V] : 0f;
+				float num3 = (num.GetValueOrDefault() > v & num != null) ? this.Template.DamageFactor[(int)this.Buff等级.V] : 0f;
 				PlayerObject PlayerObject2 = 来源 as PlayerObject;
 				SkillData SkillData5;
-				if (PlayerObject2 != null && this.Buff模板.StrengthenInscriptionId != 0 && PlayerObject2.MainSkills表.TryGetValue((ushort)(this.Buff模板.StrengthenInscriptionId / 10), out SkillData5) && (int)SkillData5.Id == this.Buff模板.StrengthenInscriptionId % 10)
+				if (PlayerObject2 != null && this.Template.StrengthenInscriptionId != 0 && PlayerObject2.MainSkills表.TryGetValue((ushort)(this.Template.StrengthenInscriptionId / 10), out SkillData5) && (int)SkillData5.Id == this.Template.StrengthenInscriptionId % 10)
 				{
-					num2 += this.Buff模板.StrengthenInscriptionBase;
-					num3 += this.Buff模板.StrengthenInscriptionFactor;
+					num2 += this.Template.StrengthenInscriptionBase;
+					num3 += this.Template.StrengthenInscriptionFactor;
 				}
 				int num4 = 0;
 				switch (this.伤害类型)
@@ -126,7 +126,7 @@ namespace GameServer.Data
 		
 		public override string ToString()
 		{
-			GameBuffs buff模板 = this.Buff模板;
+			GameBuffs buff模板 = this.Template;
 			if (buff模板 == null)
 			{
 				return null;
@@ -139,7 +139,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.Effect;
+				return this.Template.Effect;
 			}
 		}
 
@@ -148,12 +148,12 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.DamageType;
+				return this.Template.DamageType;
 			}
 		}
 
 		
-		public GameBuffs Buff模板
+		public GameBuffs Template
 		{
 			get
 			{
@@ -171,7 +171,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.ActionType == BuffActionType.Gain;
+				return this.Template.ActionType == BuffActionType.Gain;
 			}
 		}
 
@@ -180,7 +180,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.SyncClient;
+				return this.Template.SyncClient;
 			}
 		}
 
@@ -189,7 +189,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				GameBuffs buff模板 = this.Buff模板;
+				GameBuffs buff模板 = this.Template;
 				return buff模板 != null && buff模板.RemoveOnExpire;
 			}
 		}
@@ -199,7 +199,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.OnPlayerDisconnectRemove;
+				return this.Template.OnPlayerDisconnectRemove;
 			}
 		}
 
@@ -208,7 +208,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.OnPlayerDiesRemove;
+				return this.Template.OnPlayerDiesRemove;
 			}
 		}
 
@@ -217,7 +217,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.OnChangeMapRemove;
+				return this.Template.OnChangeMapRemove;
 			}
 		}
 
@@ -226,7 +226,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.OnChangeWeaponRemove;
+				return this.Template.OnChangeWeaponRemove;
 			}
 		}
 
@@ -235,7 +235,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.RemoveAddCooling;
+				return this.Template.RemoveAddCooling;
 			}
 		}
 
@@ -244,7 +244,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.BindingSkillLevel;
+				return this.Template.BindingSkillLevel;
 			}
 		}
 
@@ -253,7 +253,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.SkillCooldown;
+				return this.Template.SkillCooldown;
 			}
 		}
 
@@ -262,7 +262,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.ProcessDelay;
+				return this.Template.ProcessDelay;
 			}
 		}
 
@@ -271,7 +271,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.ProcessInterval;
+				return this.Template.ProcessInterval;
 			}
 		}
 
@@ -280,7 +280,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.MaxBuffCount;
+				return this.Template.MaxBuffCount;
 			}
 		}
 
@@ -289,11 +289,11 @@ namespace GameServer.Data
 		{
 			get
 			{
-				if (this.Buff模板.GroupId == 0)
+				if (this.Template.GroupId == 0)
 				{
 					return this.Id.V;
 				}
-				return this.Buff模板.GroupId;
+				return this.Template.GroupId;
 			}
 		}
 
@@ -302,7 +302,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.Buff模板.RequireBuff;
+				return this.Template.RequireBuff;
 			}
 		}
 
@@ -313,7 +313,7 @@ namespace GameServer.Data
 			{
 				if ((this.Effect & BuffEffectType.StatsIncOrDec) != BuffEffectType.SkillSign)
 				{
-					return this.Buff模板.基础StatsIncOrDec[(int)this.Buff等级.V];
+					return this.Template.基础StatsIncOrDec[(int)this.Buff等级.V];
 				}
 				return null;
 			}

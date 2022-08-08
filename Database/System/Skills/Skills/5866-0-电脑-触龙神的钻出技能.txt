@@ -13,7 +13,7 @@
     "1": {
       "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "HitsLimit": 1,
-      "LimitedTargetType": "怪物",
+      "LimitedTargetType": "Monster",
       "LimitedTargetRelationship": "ItSelf",
       "清除目标状态": true,
       "清除状态列表": [

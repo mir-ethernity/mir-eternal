@@ -33,7 +33,7 @@
     "2": {
       "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "HitsLimit": 1,
-      "LimitedTargetType": "玩家",
+      "LimitedTargetType": "Player",
       "LimitedTargetRelationship": "ItSelf",
       "清除状态列表": []
     },

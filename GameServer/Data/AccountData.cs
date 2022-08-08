@@ -119,13 +119,13 @@ namespace GameServer.Data
 
         public void 账号登录(SConnection 当前网络, string MacAddress)
         {
-            当前网络.发送封包(new AccountLoginSuccessPacket
+            当前网络.SendPacket(new AccountLoginSuccessPacket
             {
                 协议数据 = GenerateLoginAgreementDescription()
             });
-            当前网络.发送封包(new 同步服务状态());
+            当前网络.SendPacket(new 同步服务状态());
             
-            当前网络.发送封包(new BackCharacterListPacket
+            当前网络.SendPacket(new BackCharacterListPacket
             {
                 列表描述 = this.角色列表描述()
             });
@@ -147,7 +147,7 @@ namespace GameServer.Data
         {
             if (GameDataGateway.CharacterDataTable.DataSheet.Count >= 1000000)
             {
-                当前网络.发送封包(new LoginErrorMessagePacket
+                当前网络.SendPacket(new LoginErrorMessagePacket
                 {
                     错误代码 = 304U
                 });
@@ -155,7 +155,7 @@ namespace GameServer.Data
             }
             if (this.角色列表.Count >= 4)
             {
-                当前网络.发送封包(new LoginErrorMessagePacket
+                当前网络.SendPacket(new LoginErrorMessagePacket
                 {
                     错误代码 = 267U
                 });
@@ -163,7 +163,7 @@ namespace GameServer.Data
             }
             if (Encoding.UTF8.GetBytes(P.名字).Length > 24)
             {
-                当前网络.发送封包(new LoginErrorMessagePacket
+                当前网络.SendPacket(new LoginErrorMessagePacket
                 {
                     错误代码 = 270U
                 });
@@ -171,7 +171,7 @@ namespace GameServer.Data
             }
             if (GameDataGateway.CharacterDataTable[P.名字] != null)
             {
-                当前网络.发送封包(new LoginErrorMessagePacket
+                当前网络.SendPacket(new LoginErrorMessagePacket
                 {
                     错误代码 = 272U
                 });
@@ -180,7 +180,7 @@ namespace GameServer.Data
             GameObjectRace GameObjectProfession;
             if (!Enum.TryParse<GameObjectRace>(P.职业.ToString(), out GameObjectProfession) || !Enum.IsDefined(typeof(GameObjectRace), GameObjectProfession))
             {
-                当前网络.发送封包(new LoginErrorMessagePacket
+                当前网络.SendPacket(new LoginErrorMessagePacket
                 {
                     错误代码 = 258U
                 });
@@ -189,7 +189,7 @@ namespace GameServer.Data
             GameObjectGender GameObjectGender;
             if (!Enum.TryParse<GameObjectGender>(P.性别.ToString(), out GameObjectGender) || !Enum.IsDefined(typeof(GameObjectGender), GameObjectGender))
             {
-                当前网络.发送封包(new LoginErrorMessagePacket
+                当前网络.SendPacket(new LoginErrorMessagePacket
                 {
                     错误代码 = 258U
                 });
@@ -198,7 +198,7 @@ namespace GameServer.Data
             ObjectHairColorType ObjectHairColorType;
             if (!Enum.TryParse<ObjectHairColorType>(P.发色.ToString(), out ObjectHairColorType) || !Enum.IsDefined(typeof(ObjectHairColorType), ObjectHairColorType))
             {
-                当前网络.发送封包(new LoginErrorMessagePacket
+                当前网络.SendPacket(new LoginErrorMessagePacket
                 {
                     错误代码 = 258U
                 });
@@ -207,7 +207,7 @@ namespace GameServer.Data
             ObjectHairType ObjectHairType;
             if (!Enum.TryParse<ObjectHairType>(((int)P.职业 * 65536 + (int)P.性别 * 256 + (int)P.发型).ToString(), out ObjectHairType) || !Enum.IsDefined(typeof(ObjectHairType), ObjectHairType))
             {
-                当前网络.发送封包(new LoginErrorMessagePacket
+                当前网络.SendPacket(new LoginErrorMessagePacket
                 {
                     错误代码 = 258U
                 });
@@ -216,13 +216,13 @@ namespace GameServer.Data
             ObjectFaceType ObjectFaceType;
             if (Enum.TryParse<ObjectFaceType>(((int)P.职业 * 65536 + (int)P.性别 * 256 + (int)P.脸型).ToString(), out ObjectFaceType) && Enum.IsDefined(typeof(ObjectFaceType), ObjectFaceType))
             {
-                当前网络.发送封包(new CharacterCreatedSuccessfullyPacket
+                当前网络.SendPacket(new CharacterCreatedSuccessfullyPacket
                 {
                     角色描述 = new CharacterData(this, P.名字, GameObjectProfession, GameObjectGender, ObjectHairType, ObjectHairColorType, ObjectFaceType).角色描述()
                 });
                 return;
             }
-            当前网络.发送封包(new LoginErrorMessagePacket
+            当前网络.SendPacket(new LoginErrorMessagePacket
             {
                 错误代码 = 258U
             });
@@ -239,7 +239,7 @@ namespace GameServer.Data
                 {
                     if (CharacterData.Affiliation.V != null)
                     {
-                        当前网络.发送封包(new LoginErrorMessagePacket
+                        当前网络.SendPacket(new LoginErrorMessagePacket
                         {
                             错误代码 = 280U
                         });
@@ -247,7 +247,7 @@ namespace GameServer.Data
                     }
                     if (CharacterData.所属师门.V != null && (CharacterData.所属师门.V.师门成员.Contains(CharacterData) || CharacterData.所属师门.V.师门成员.Count != 0))
                     {
-                        当前网络.发送封包(new LoginErrorMessagePacket
+                        当前网络.SendPacket(new LoginErrorMessagePacket
                         {
                             错误代码 = 280U
                         });
@@ -261,14 +261,14 @@ namespace GameServer.Data
                     CharacterData.FreezeDate.V = MainProcess.CurrentTime;
                     this.角色列表.Remove(CharacterData);
                     this.冻结列表.Add(CharacterData);
-                    当前网络.发送封包(new 删除角色应答
+                    当前网络.SendPacket(new 删除角色应答
                     {
                         角色编号 = CharacterData.数据索引.V
                     });
                     return;
                 }
             }
-            当前网络.发送封包(new LoginErrorMessagePacket
+            当前网络.SendPacket(new LoginErrorMessagePacket
             {
                 错误代码 = 277U
             });
@@ -285,7 +285,7 @@ namespace GameServer.Data
                 {
                     if (CharacterData.角色等级 >= 40)
                     {
-                        当前网络.发送封包(new LoginErrorMessagePacket
+                        当前网络.SendPacket(new LoginErrorMessagePacket
                         {
                             错误代码 = 291U
                         });
@@ -293,7 +293,7 @@ namespace GameServer.Data
                     }
                     if (this.DateDelete.V.Date == MainProcess.CurrentTime.Date)
                     {
-                        当前网络.发送封包(new LoginErrorMessagePacket
+                        当前网络.SendPacket(new LoginErrorMessagePacket
                         {
                             错误代码 = 282U
                         });
@@ -302,14 +302,14 @@ namespace GameServer.Data
                     this.DateDelete.V = (CharacterData.DateDelete.V = MainProcess.CurrentTime);
                     this.冻结列表.Remove(CharacterData);
                     this.删除列表.Add(CharacterData);
-                    当前网络.发送封包(new DeleteCharacterPacket
+                    当前网络.SendPacket(new DeleteCharacterPacket
                     {
                         角色编号 = CharacterData.Id
                     });
                     return;
                 }
             }
-            当前网络.发送封包(new LoginErrorMessagePacket
+            当前网络.SendPacket(new LoginErrorMessagePacket
             {
                 错误代码 = 277U
             });
@@ -332,14 +332,14 @@ namespace GameServer.Data
                     CharacterData.FreezeDate.V = default(DateTime);
                     this.冻结列表.Remove(CharacterData);
                     this.角色列表.Add(CharacterData);
-                    当前网络.发送封包(new GetBackCharacterAnswersPacket
+                    当前网络.SendPacket(new GetBackCharacterAnswersPacket
                     {
                         角色编号 = CharacterData.Id
                     });
                     return;
                 }
             }
-            当前网络.发送封包(new LoginErrorMessagePacket
+            当前网络.SendPacket(new LoginErrorMessagePacket
             {
                 错误代码 = 277U
             });
@@ -356,7 +356,7 @@ namespace GameServer.Data
                 {
                     if (MainProcess.CurrentTime < this.封禁日期.V)
                     {
-                        conn.发送封包(new LoginErrorMessagePacket
+                        conn.SendPacket(new LoginErrorMessagePacket
                         {
                             错误代码 = 285U,
                             参数一 = ComputingClass.TimeShift(this.封禁日期.V)
@@ -365,7 +365,7 @@ namespace GameServer.Data
                     }
                     if (MainProcess.CurrentTime < CharacterData.封禁日期.V)
                     {
-                        conn.发送封包(new LoginErrorMessagePacket
+                        conn.SendPacket(new LoginErrorMessagePacket
                         {
                             错误代码 = 285U,
                             参数一 = ComputingClass.TimeShift(CharacterData.封禁日期.V)
@@ -373,7 +373,7 @@ namespace GameServer.Data
                         return;
                     }
 
-                    conn.发送封包(new EnterGameAnswerPacket
+                    conn.SendPacket(new EnterGameAnswerPacket
                     {
                         角色编号 = CharacterData.Id
                     });
@@ -383,7 +383,7 @@ namespace GameServer.Data
                     return;
                 }
             }
-            conn.发送封包(new LoginErrorMessagePacket
+            conn.SendPacket(new LoginErrorMessagePacket
             {
                 错误代码 = 284U
             });
@@ -392,17 +392,17 @@ namespace GameServer.Data
 
         public void 更换角色(SConnection 当前网络)
         {
-            当前网络.发送封包(new 更换角色计时
+            当前网络.SendPacket(new 更换角色计时
             {
                 成功 = true
             });
-            当前网络.发送封包(new 更换角色应答());
-            当前网络.发送封包(new ObjectOutOfViewPacket
+            当前网络.SendPacket(new 更换角色应答());
+            当前网络.SendPacket(new ObjectOutOfViewPacket
             {
                 对象编号 = 当前网络.Player.ObjectId
             });
             当前网络.Player.玩家角色下线();
-            当前网络.发送封包(new BackCharacterListPacket
+            当前网络.SendPacket(new BackCharacterListPacket
             {
                 列表描述 = this.角色列表描述()
             });

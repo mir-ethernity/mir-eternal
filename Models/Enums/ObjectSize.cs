@@ -2,7 +2,7 @@
 
 namespace GameServer.Templates
 {
-	public enum MonsterSize
+	public enum ObjectSize
 	{
 		Single1x1,
 		HalfMoon3x1,

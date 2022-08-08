@@ -17,7 +17,7 @@
       "技能锁定方式": "锁定ItSelf坐标",
       "技能范围类型": "Solid5x5",
       "HitsLimit": 1,
-      "LimitedTargetType": "玩家",
+      "LimitedTargetType": "Player",
       "LimitedTargetRelationship": "ItSelf",
       "清除状态列表": []
     },
@@ -50,7 +50,7 @@
       "技能范围类型": "Solid5x5",
       "放空结束技能": true,
       "HitsLimit": 20,
-      "LimitedTargetType": "玩家",
+      "LimitedTargetType": "Player",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },

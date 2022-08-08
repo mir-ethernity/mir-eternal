@@ -70,7 +70,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public override int 处理间隔
+		public override int ProcessInterval
 		{
 			get
 			{
@@ -83,16 +83,16 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return this.陷阱来源.CurrentRank;
+				return this.TrapSource.CurrentRank;
 			}
 			set
 			{
-				this.陷阱来源.CurrentRank = value;
+				this.TrapSource.CurrentRank = value;
 			}
 		}
 
 		
-		public override bool 阻塞网格
+		public override bool Blocking
 		{
 			get
 			{
@@ -100,7 +100,7 @@ namespace GameServer.Maps
 			}
 			set
 			{
-				base.阻塞网格 = value;
+				base.Blocking = value;
 			}
 		}
 
@@ -114,7 +114,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public override string 对象名字
+		public override string ObjectName
 		{
 			get
 			{
@@ -127,12 +127,12 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				return GameObjectType.陷阱;
+				return GameObjectType.Trap;
 			}
 		}
 
 		
-		public override MonsterSize 对象体型
+		public override ObjectSize ObjectSize
 		{
 			get
 			{
@@ -141,11 +141,11 @@ namespace GameServer.Maps
 		}
 
 		
-		public override Dictionary<GameObjectStats, int> 当前Stat
+		public override Dictionary<GameObjectStats, int> Stats
 		{
 			get
 			{
-				return base.当前Stat;
+				return base.Stats;
 			}
 		}
 
@@ -154,14 +154,14 @@ namespace GameServer.Maps
 		{
 			
 			
-			this.陷阱来源 = 来源;
+			this.TrapSource = 来源;
 			this.陷阱模板 = 模板;
 			this.CurrentMap = 地图;
-			this.CurrentCoords = 坐标;
-			this.行走时间 = MainProcess.CurrentTime;
+			this.CurrentPosition = 坐标;
+			this.WalkTime = MainProcess.CurrentTime;
 			this.放置时间 = MainProcess.CurrentTime;
 			this.Id = 模板.Id;
-			this.当前方向 = this.陷阱来源.当前方向;
+			this.CurrentDirection = this.TrapSource.CurrentDirection;
 			this.被动触发列表 = new HashSet<MapObject>();
 			this.消失时间 = this.放置时间 + TimeSpan.FromMilliseconds((double)this.陷阱模板.Duration);
 			this.触发时间 = this.放置时间 + TimeSpan.FromMilliseconds((double)this.陷阱模板.ActivelyTriggerDelay);
@@ -190,17 +190,17 @@ namespace GameServer.Maps
 			this.ActivelyTriggerSkills = ((this.陷阱模板.ActivelyTriggerSkills == null || !GameSkills.DataSheet.ContainsKey(this.陷阱模板.ActivelyTriggerSkills)) ? null : GameSkills.DataSheet[this.陷阱模板.ActivelyTriggerSkills]);
 			this.PassiveTriggerSkill = ((this.陷阱模板.PassiveTriggerSkill == null || !GameSkills.DataSheet.ContainsKey(this.陷阱模板.PassiveTriggerSkill)) ? null : GameSkills.DataSheet[this.陷阱模板.PassiveTriggerSkill]);
 			this.ObjectId = ++MapGatewayProcess.Id;
-			base.绑定网格();
+			base.BindGrid();
 			base.更新邻居时处理();
 			MapGatewayProcess.添加MapObject(this);
-			this.激活对象 = true;
+			this.ActiveObject = true;
 			MapGatewayProcess.添加激活对象(this);
 		}
 
 		
-		public override void 处理对象数据()
+		public override void Process()
 		{
-			if (MainProcess.CurrentTime < base.预约时间)
+			if (MainProcess.CurrentTime < base.ProcessTime)
 			{
 				return;
 			}
@@ -218,22 +218,22 @@ namespace GameServer.Maps
 				{
 					this.主动触发陷阱();
 				}
-				if (this.陷阱模板.CanMove && this.陷阱移动次数 < this.陷阱模板.LimitMoveSteps && MainProcess.CurrentTime > this.行走时间)
+				if (this.陷阱模板.CanMove && this.陷阱移动次数 < this.陷阱模板.LimitMoveSteps && MainProcess.CurrentTime > this.WalkTime)
 				{
 					if (this.陷阱模板.MoveInCurrentDirection)
 					{
-						base.ItSelf移动时处理(ComputingClass.前方坐标(this.CurrentCoords, this.当前方向, 1));
+						base.ItSelf移动时处理(ComputingClass.前方坐标(this.CurrentPosition, this.CurrentDirection, 1));
 						base.SendPacket(new TrapMoveLocationPacket
 						{
 							Id = this.ObjectId,
-							移动坐标 = this.CurrentCoords,
-							移动高度 = this.当前高度,
+							移动坐标 = this.CurrentPosition,
+							移动高度 = this.CurrentAltitude,
 							移动速度 = this.陷阱模板.MoveSpeed
 						});
 					}
 					if (this.PassiveTriggerSkill != null)
 					{
-						foreach (Point 坐标 in ComputingClass.技能范围(this.CurrentCoords, this.当前方向, this.对象体型))
+						foreach (Point 坐标 in ComputingClass.GetLocationRange(this.CurrentPosition, this.CurrentDirection, this.ObjectSize))
 						{
 							foreach (MapObject 对象 in this.CurrentMap[坐标].ToList<MapObject>())
 							{
@@ -242,10 +242,10 @@ namespace GameServer.Maps
 						}
 					}
 					this.陷阱移动次数 += 1;
-					this.行走时间 = this.行走时间.AddMilliseconds((double)(this.陷阱模板.MoveSpeed * 60));
+					this.WalkTime = this.WalkTime.AddMilliseconds((double)(this.陷阱模板.MoveSpeed * 60));
 				}
 			}
-			base.处理对象数据();
+			base.Process();
 		}
 
 		
@@ -255,9 +255,9 @@ namespace GameServer.Maps
 			{
 				return;
 			}
-			if (this.PassiveTriggerSkill != null && !对象.Died && (对象.ObjectType & this.陷阱模板.PassiveObjectType) != (GameObjectType)0 && 对象.IsSpecificType(this.陷阱来源, this.陷阱模板.PassiveTargetType) && (this.陷阱来源.GetRelationship(对象) & this.陷阱模板.PassiveType) != (GameObjectRelationship)0 && (!this.陷阱模板.RetriggeringIsProhibited || this.被动触发列表.Add(对象)))
+			if (this.PassiveTriggerSkill != null && !对象.Died && (对象.ObjectType & this.陷阱模板.PassiveObjectType) != (GameObjectType)0 && 对象.IsSpecificType(this.TrapSource, this.陷阱模板.PassiveTargetType) && (this.TrapSource.GetRelationship(对象) & this.陷阱模板.PassiveType) != (GameObjectRelationship)0 && (!this.陷阱模板.RetriggeringIsProhibited || this.被动触发列表.Add(对象)))
 			{
-				new SkillInstance(this, this.PassiveTriggerSkill, null, 0, this.CurrentMap, this.CurrentCoords, 对象, 对象.CurrentCoords, null, null, false);
+				new SkillInstance(this, this.PassiveTriggerSkill, null, 0, this.CurrentMap, this.CurrentPosition, 对象, 对象.CurrentPosition, null, null, false);
 			}
 		}
 
@@ -268,14 +268,14 @@ namespace GameServer.Maps
 			{
 				return;
 			}
-			new SkillInstance(this, this.ActivelyTriggerSkills, null, 0, this.CurrentMap, this.CurrentCoords, null, this.CurrentCoords, null, null, false);
+			new SkillInstance(this, this.ActivelyTriggerSkills, null, 0, this.CurrentMap, this.CurrentPosition, null, this.CurrentPosition, null, null, false);
 			this.触发时间 += TimeSpan.FromMilliseconds((double)this.ActivelyTriggerInterval);
 		}
 
 		
 		public void 陷阱消失处理()
 		{
-			base.删除对象();
+			base.Delete();
 		}
 
 		
@@ -294,7 +294,7 @@ namespace GameServer.Maps
 		public DateTime 触发时间;
 
 		
-		public MapObject 陷阱来源;
+		public MapObject TrapSource;
 
 		
 		public SkillTraps 陷阱模板;

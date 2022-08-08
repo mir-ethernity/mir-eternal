@@ -125,7 +125,7 @@ namespace GameServer.Data
 				SConnection 网络连接 = CharacterData.ActiveConnection;
 				if (网络连接 != null)
 				{
-					网络连接.发送封包(P);
+					网络连接.SendPacket(P);
 				}
 			}
 		}

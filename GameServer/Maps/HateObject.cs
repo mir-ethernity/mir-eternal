@@ -69,7 +69,7 @@ namespace GameServer.Maps
 			MapObject MapObject = null;
 			foreach (MapObject MapObject2 in list)
 			{
-				int num3 = 主人.网格距离(MapObject2);
+				int num3 = 主人.GetDistance(MapObject2);
 				if (num3 < num2)
 				{
 					num2 = num3;
@@ -91,7 +91,7 @@ namespace GameServer.Maps
 			List<KeyValuePair<MapObject, HateObject.仇恨详情>> list = new List<KeyValuePair<MapObject, HateObject.仇恨详情>>();
 			foreach (KeyValuePair<MapObject, HateObject.仇恨详情> item in this.仇恨列表)
 			{
-				int num2 = 主人.网格距离(item.Key);
+				int num2 = 主人.GetDistance(item.Key);
 				if (num2 < num)
 				{
 					num = num2;

@@ -35,11 +35,11 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 22, Length = 4)]
-		public int CurrentStamina;
+		public int CurrentHP;
 
 		
 		[WrappingFieldAttribute(SubScript = 26, Length = 4)]
-		public int 当前魔力;
+		public int CurrentMP;
 
 		
 		[WrappingFieldAttribute(SubScript = 30, Length = 4)]

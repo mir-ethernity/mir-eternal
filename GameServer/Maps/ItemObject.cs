@@ -33,7 +33,7 @@ namespace GameServer.Maps
         }
 
 
-        public override int 处理间隔
+        public override int ProcessInterval
         {
             get
             {
@@ -51,7 +51,7 @@ namespace GameServer.Maps
         }
 
 
-        public override bool 阻塞网格
+        public override bool Blocking
         {
             get
             {
@@ -73,16 +73,16 @@ namespace GameServer.Maps
         {
             get
             {
-                return GameObjectType.物品;
+                return GameObjectType.Item;
             }
         }
 
 
-        public override MonsterSize 对象体型
+        public override ObjectSize ObjectSize
         {
             get
             {
-                return MonsterSize.Single1x1;
+                return ObjectSize.Single1x1;
             }
         }
 
@@ -164,7 +164,7 @@ namespace GameServer.Maps
             {
                 int num2 = 0;
                 Point point = ComputingClass.螺旋坐标(掉落坐标, i);
-                if (!掉落地图.地形阻塞(point))
+                if (!掉落地图.IsBlocked(point))
                 {
                     foreach (MapObject MapObject in 掉落地图[point])
                     {
@@ -173,18 +173,18 @@ namespace GameServer.Maps
                             GameObjectType 对象类型 = MapObject.ObjectType;
                             switch (对象类型)
                             {
-                                case GameObjectType.玩家:
+                                case GameObjectType.Player:
                                     num2 += 10000;
                                     continue;
-                                case GameObjectType.宠物:
-                                case GameObjectType.怪物:
+                                case GameObjectType.Pet:
+                                case GameObjectType.Monster:
                                     break;
                                 case (GameObjectType)3:
                                     continue;
                                 default:
-                                    if (对象类型 != GameObjectType.Npcc)
+                                    if (对象类型 != GameObjectType.NPC)
                                     {
-                                        if (对象类型 != GameObjectType.物品)
+                                        if (对象类型 != GameObjectType.Item)
                                         {
                                             continue;
                                         }
@@ -198,22 +198,22 @@ namespace GameServer.Maps
                     }
                     if (num2 == 0)
                     {
-                        CurrentCoords = point;
+                        CurrentPosition = point;
                     IL_111:
-                        this.CurrentCoords = CurrentCoords;
+                        this.CurrentPosition = CurrentPosition;
                         this.消失时间 = MainProcess.CurrentTime.AddMinutes((double)Config.物品清理时间);
                         this.归属时间 = MainProcess.CurrentTime.AddMinutes((double)Config.物品归属时间);
                         this.ObjectId = ++MapGatewayProcess.Id;
-                        base.绑定网格();
+                        base.BindGrid();
                         base.更新邻居时处理();
                         MapGatewayProcess.添加MapObject(this);
-                        this.次要对象 = true;
+                        this.SecondaryObject = true;
                         MapGatewayProcess.添加次要对象(this);
                         return;
                     }
                     if (num2 < num)
                     {
-                        CurrentCoords = point;
+                        CurrentPosition = point;
                         num = num2;
                     }
                 }
@@ -229,7 +229,7 @@ namespace GameServer.Maps
 
         }
 
-        public override void 处理对象数据()
+        public override void Process()
         {
             if (MainProcess.CurrentTime > this.消失时间)
             {
@@ -245,13 +245,13 @@ namespace GameServer.Maps
             {
                 ItemData.Delete();
             }
-            base.删除对象();
+            base.Delete();
         }
 
 
         public void 物品转移处理()
         {
-            base.删除对象();
+            base.Delete();
         }
 
 

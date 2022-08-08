@@ -280,7 +280,7 @@ namespace GameServer.Data
             {
                 return;
             }
-            网络连接.发送封包(new 未读邮件提醒
+            网络连接.SendPacket(new 未读邮件提醒
             {
                 邮件数量 = this.未读邮件.Count
             });

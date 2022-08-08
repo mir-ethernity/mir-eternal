@@ -25,7 +25,7 @@
       "Value": 2
     },
     {
-      "Stat": "行走速度",
+      "Stat": "WalkSpeed",
       "Value": 13
     },
     {
@@ -98,7 +98,7 @@
       "Level7": 6
     },
     {
-      "Stat": "行走速度",
+      "Stat": "WalkSpeed",
       "Level0": 13,
       "Level1": 13,
       "Level2": 13,

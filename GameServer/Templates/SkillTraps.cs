@@ -11,7 +11,7 @@ namespace GameServer.Templates
 		public string Name;
 		public ushort Id;
 		public ushort GroupId;
-		public MonsterSize Size;
+		public ObjectSize Size;
 		public ushort BindingLevel;
 		public bool AllowStacking;
 		public int Duration;

@@ -40,9 +40,9 @@ namespace GameServer
 		
 		MaxMP,
 		
-		行走速度,
+		WalkSpeed,
 		
-		奔跑速度,
+		RunSpeed,
 		
 		PhysicallyAccurate,
 		

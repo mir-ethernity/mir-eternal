@@ -61,7 +61,7 @@
       "技能范围类型": "Solid5x5",
       "HitsLimit": 20,
       "QualifySpecificType": "Normal",
-      "LimitedTargetType": "怪物",
+      "LimitedTargetType": "Monster",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },

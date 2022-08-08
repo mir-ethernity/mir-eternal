@@ -40,7 +40,7 @@ namespace GameServer.Maps
 			SConnection 网络连接 = this.交易申请方.ActiveConnection;
 			if (网络连接 != null)
 			{
-				网络连接.发送封包(new TransactionStatusChangePacket
+				网络连接.SendPacket(new TransactionStatusChangePacket
 				{
 					对象编号 = this.交易申请方.ObjectId,
 					交易状态 = 0,
@@ -50,7 +50,7 @@ namespace GameServer.Maps
 			SConnection 网络连接2 = this.交易接收方.ActiveConnection;
 			if (网络连接2 != null)
 			{
-				网络连接2.发送封包(new TransactionStatusChangePacket
+				网络连接2.SendPacket(new TransactionStatusChangePacket
 				{
 					对象编号 = this.交易接收方.ObjectId,
 					交易状态 = 0,
@@ -87,7 +87,7 @@ namespace GameServer.Maps
 				SConnection 网络连接 = this.交易接收方.ActiveConnection;
 				if (网络连接 != null)
 				{
-					网络连接.发送封包(new 删除玩家物品
+					网络连接.SendPacket(new 删除玩家物品
 					{
 						背包类型 = 1,
 						物品位置 = ItemData.物品位置.V
@@ -108,7 +108,7 @@ namespace GameServer.Maps
 				SConnection 网络连接2 = this.交易申请方.ActiveConnection;
 				if (网络连接2 != null)
 				{
-					网络连接2.发送封包(new 删除玩家物品
+					网络连接2.SendPacket(new 删除玩家物品
 					{
 						背包类型 = 1,
 						物品位置 = ItemData2.物品位置.V
@@ -134,7 +134,7 @@ namespace GameServer.Maps
 						{
 							break;
 						}
-						网络连接3.发送封包(new 玩家物品变动
+						网络连接3.SendPacket(new 玩家物品变动
 						{
 							物品描述 = ItemData3.字节描述()
 						});
@@ -161,7 +161,7 @@ namespace GameServer.Maps
 						{
 							break;
 						}
-						网络连接4.发送封包(new 玩家物品变动
+						网络连接4.SendPacket(new 玩家物品变动
 						{
 							物品描述 = ItemData4.字节描述()
 						});
@@ -350,14 +350,14 @@ namespace GameServer.Maps
 			SConnection 网络连接 = this.交易接收方.ActiveConnection;
 			if (网络连接 != null)
 			{
-				网络连接.发送封包(封包);
+				网络连接.SendPacket(封包);
 			}
 			SConnection 网络连接2 = this.交易申请方.ActiveConnection;
 			if (网络连接2 == null)
 			{
 				return;
 			}
-			网络连接2.发送封包(封包);
+			网络连接2.SendPacket(封包);
 		}
 
 		

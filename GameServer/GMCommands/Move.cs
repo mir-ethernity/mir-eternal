@@ -50,7 +50,7 @@ namespace GameServer.GMCommands
             {
                 for (var x = 1; x < mapInstance.MapSize.X; x++)
                     for (var y = 1; y < mapInstance.MapSize.Y; y++)
-                        if (mapInstance.能否通行(new Point(x, y)))
+                        if (mapInstance.CanPass(new Point(x, y)))
                         {
                             location = new Point(x, y);
                             break;

@@ -29,7 +29,7 @@ namespace GameServer.Data
 		public readonly DataMonitor<string> PetName;
 
 		
-		public readonly DataMonitor<int> CurrentStamina;
+		public readonly DataMonitor<int> CurrentHP;
 
 		
 		public readonly DataMonitor<int> CurrentExp;

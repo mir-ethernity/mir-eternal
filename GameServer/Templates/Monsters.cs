@@ -11,7 +11,7 @@ namespace GameServer.Templates
 		public string MonsterName;
 		public ushort Id;
 		public byte Level;
-		public MonsterSize Size;
+		public ObjectSize Size;
 		public MonsterRaceType Race;
 		public MonsterLevelType Category;
 		public bool ForbbidenMove;

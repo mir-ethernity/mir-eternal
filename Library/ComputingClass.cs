@@ -194,7 +194,7 @@ namespace GameServer
 		}
 
 		
-		public static Point 前方坐标(Point 原点, Point 终点, int 步数)
+		public static Point GetFrontPosition(Point 原点, Point 终点, int 步数)
 		{
 			if (原点 == 终点)
 			{
@@ -256,7 +256,7 @@ namespace GameServer
 		}
 
 		
-		public static GameDirection 计算方向(Point 原点, Point 终点)
+		public static GameDirection GetDirection(Point 原点, Point 终点)
 		{
 			int num = 终点.X - 原点.X;
 			return (GameDirection)((Math.Round((Math.Atan2((double)(终点.Y - 原点.Y), (double)num) * 180.0 / 3.141592653589793 + 360.0) % 360.0 / 45.0) * 1024.0) % 8192);
@@ -269,10 +269,10 @@ namespace GameServer
 			{
 				return GameDirection.左方;
 			}
-			GameDirection 方向 = ComputingClass.计算方向(终点, 原点);
+			GameDirection 方向 = ComputingClass.GetDirection(终点, 原点);
 			int 步数 = Math.Max(Math.Abs(终点.X - 原点.X), Math.Abs(终点.Y - 原点.Y)) - 1;
 			Point 终点2 = ComputingClass.前方坐标(终点, 方向, 步数);
-			return ComputingClass.计算方向(原点, 终点2);
+			return ComputingClass.GetDirection(原点, 终点2);
 		}
 
 		
@@ -397,16 +397,16 @@ namespace GameServer
 		}
 
 
-		public static Point[] 技能范围(Point 锚点, GameDirection 方向, MonsterSize 范围)
+		public static Point[] GetLocationRange(Point 锚点, GameDirection 方向, ObjectSize 范围)
 		{
 			switch (范围)
 			{
-			case MonsterSize.Single1x1:
+			case ObjectSize.Single1x1:
 				return new Point[]
 				{
 					锚点
 				};
-			case MonsterSize.HalfMoon3x1:
+			case ObjectSize.HalfMoon3x1:
 				if (方向 <= GameDirection.上方)
 				{
 					if (方向 == GameDirection.左方)
@@ -501,7 +501,7 @@ namespace GameServer
 					new Point(锚点.X, 锚点.Y + 2),
 					new Point(锚点.X + 2, 锚点.Y)
 				};
-			case MonsterSize.HalfMoon3x2:
+			case ObjectSize.HalfMoon3x2:
 				if (方向 <= GameDirection.上方)
 				{
 					if (方向 == GameDirection.左方)
@@ -620,7 +620,7 @@ namespace GameServer
 					new Point(锚点.X - 1, 锚点.Y + 1),
 					new Point(锚点.X + 1, 锚点.Y - 1)
 				};
-			case MonsterSize.HalfMoon3x3:
+			case ObjectSize.HalfMoon3x3:
 				if (方向 <= GameDirection.上方)
 				{
 					if (方向 == GameDirection.左方)
@@ -771,7 +771,7 @@ namespace GameServer
 					new Point(锚点.X - 1, 锚点.Y + 2),
 					new Point(锚点.X + 2, 锚点.Y - 1)
 				};
-			case MonsterSize.Hollow3x3:
+			case ObjectSize.Hollow3x3:
 				return new Point[]
 				{
 					ComputingClass.前方坐标(锚点, GameDirection.上方, 1),
@@ -783,7 +783,7 @@ namespace GameServer
 					ComputingClass.前方坐标(锚点, GameDirection.右上, 1),
 					ComputingClass.前方坐标(锚点, GameDirection.右下, 1)
 				};
-			case MonsterSize.Solid3x3:
+			case ObjectSize.Solid3x3:
 				return new Point[]
 				{
 					锚点,
@@ -796,7 +796,7 @@ namespace GameServer
 					ComputingClass.前方坐标(锚点, GameDirection.右上, 1),
 					ComputingClass.前方坐标(锚点, GameDirection.右下, 1)
 				};
-			case MonsterSize.Solid5x5:
+			case ObjectSize.Solid5x5:
 				return new Point[]
 				{
 					锚点,
@@ -825,14 +825,14 @@ namespace GameServer
 					new Point(锚点.X + 2, 锚点.Y - 2),
 					new Point(锚点.X + 2, 锚点.Y - 1)
 				};
-			case MonsterSize.Zhanyue1x3:
+			case ObjectSize.Zhanyue1x3:
 				return new Point[]
 				{
 					锚点,
 					ComputingClass.前方坐标(锚点, 方向, 1),
 					ComputingClass.前方坐标(锚点, 方向, 2)
 				};
-			case MonsterSize.Zhanyue3x3:
+			case ObjectSize.Zhanyue3x3:
 				if (方向 <= GameDirection.上方)
 				{
 					if (方向 == GameDirection.左方)
@@ -959,7 +959,7 @@ namespace GameServer
 					new Point(锚点.X - 2, 锚点.Y - 1),
 					new Point(锚点.X - 1, 锚点.Y - 2)
 				};
-			case MonsterSize.LineType1x5:
+			case ObjectSize.LineType1x5:
 				return new Point[]
 				{
 					锚点,
@@ -968,7 +968,7 @@ namespace GameServer
 					ComputingClass.前方坐标(锚点, 方向, 3),
 					ComputingClass.前方坐标(锚点, 方向, 4)
 				};
-			case MonsterSize.LineType1x8:
+			case ObjectSize.LineType1x8:
 				return new Point[]
 				{
 					锚点,
@@ -980,7 +980,7 @@ namespace GameServer
 					ComputingClass.前方坐标(锚点, 方向, 6),
 					ComputingClass.前方坐标(锚点, 方向, 7)
 				};
-			case MonsterSize.LineType3x8:
+			case ObjectSize.LineType3x8:
 				if (方向 <= GameDirection.上方)
 				{
 					if (方向 == GameDirection.左方)
@@ -1227,7 +1227,7 @@ namespace GameServer
 					new Point(锚点.X - 7, 锚点.Y - 6),
 					new Point(锚点.X - 6, 锚点.Y - 7)
 				};
-			case MonsterSize.Diamond3x3:
+			case ObjectSize.Diamond3x3:
 				return new Point[]
 				{
 					锚点,
@@ -1236,7 +1236,7 @@ namespace GameServer
 					new Point(锚点.X + 1, 锚点.Y),
 					new Point(锚点.X - 1, 锚点.Y)
 				};
-			case MonsterSize.LineType3x7:
+			case ObjectSize.LineType3x7:
 				if (方向 <= GameDirection.上方)
 				{
 					if (方向 == GameDirection.左方)
@@ -1459,7 +1459,7 @@ namespace GameServer
 					new Point(锚点.X - 6, 锚点.Y - 5),
 					new Point(锚点.X - 5, 锚点.Y - 6)
 				};
-			case MonsterSize.Fork3x3:
+			case ObjectSize.Fork3x3:
 				return new Point[]
 				{
 					锚点,
@@ -1468,7 +1468,7 @@ namespace GameServer
 					new Point(锚点.X + 1, 锚点.Y - 1),
 					new Point(锚点.X - 1, 锚点.Y - 1)
 				};
-			case MonsterSize.Hollow5x5:
+			case ObjectSize.Hollow5x5:
 				return new Point[]
 				{
 					new Point(锚点.X + 1, 锚点.Y + 1),
@@ -1496,13 +1496,13 @@ namespace GameServer
 					new Point(锚点.X + 2, 锚点.Y - 2),
 					new Point(锚点.X + 2, 锚点.Y - 1)
 				};
-			case MonsterSize.LineType1x2:
+			case ObjectSize.LineType1x2:
 				return new Point[]
 				{
 					锚点,
 					ComputingClass.前方坐标(锚点, 方向, 1)
 				};
-			case MonsterSize.Front3x1:
+			case ObjectSize.Front3x1:
 				if (方向 <= GameDirection.上方)
 				{
 					if (方向 == GameDirection.左方)
@@ -1581,7 +1581,7 @@ namespace GameServer
 					new Point(锚点.X, 锚点.Y + 1),
 					new Point(锚点.X + 1, 锚点.Y)
 				};
-			case MonsterSize.Spiral7x7:
+			case ObjectSize.Spiral7x7:
 				return new Point[]
 				{
 					锚点,
@@ -1634,7 +1634,7 @@ namespace GameServer
 					new Point(锚点.X - 2, 锚点.Y + 3),
 					new Point(锚点.X - 3, 锚点.Y + 3)
 				};
-			case MonsterSize.Yanlong1x2:
+			case ObjectSize.Yanlong1x2:
 				if (方向 <= GameDirection.上方)
 				{
 					if (方向 == GameDirection.左方)
@@ -1729,7 +1729,7 @@ namespace GameServer
 					new Point(锚点.X - 1, 锚点.Y),
 					new Point(锚点.X, 锚点.Y - 1)
 				};
-			case MonsterSize.LineType1x7:
+			case ObjectSize.LineType1x7:
 				return new Point[]
 				{
 					锚点,
@@ -1740,7 +1740,7 @@ namespace GameServer
 					ComputingClass.前方坐标(锚点, 方向, 5),
 					ComputingClass.前方坐标(锚点, 方向, 6)
 				};
-			case MonsterSize.Spiral15x15:
+			case ObjectSize.Spiral15x15:
 				return new Point[]
 				{
 					new Point(锚点.X - 1, 锚点.Y),
@@ -2032,7 +2032,7 @@ namespace GameServer
 					new Point(锚点.X - 7, 锚点.Y + 8),
 					new Point(锚点.X - 8, 锚点.Y + 8)
 				};
-			case MonsterSize.LineType1x6:
+			case ObjectSize.LineType1x6:
 				return new Point[]
 				{
 					锚点,

@@ -29,7 +29,7 @@ namespace GameServer
 					SConnection 网络连接 = CharacterData.ActiveConnection;
 					if (网络连接 != null)
 					{
-						网络连接.发送封包(new 同步NumberDollars
+						网络连接.SendPacket(new 同步NumberDollars
 						{
 							NumberDollars = CharacterData.NumberDollars
 						});

@@ -20,7 +20,7 @@
       "放空结束技能": true,
       "HitsLimit": 9,
       "QualifySpecificType": "LowLevelMonster",
-      "LimitedTargetType": "怪物",
+      "LimitedTargetType": "Monster",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },

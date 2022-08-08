@@ -17,7 +17,7 @@
       "技能锁定方式": "锁定目标",
       "放空结束技能": true,
       "HitsLimit": 1,
-      "LimitedTargetType": "玩家",
+      "LimitedTargetType": "Player",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },

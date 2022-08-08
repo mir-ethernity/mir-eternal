@@ -16,7 +16,7 @@ namespace GameServer.Templates
 		public string TriggerTrapSkills;
 
 		
-		public MonsterSize NumberTrapsTriggered;
+		public ObjectSize NumberTrapsTriggered;
 
 		
 		public bool GainSkillExp;

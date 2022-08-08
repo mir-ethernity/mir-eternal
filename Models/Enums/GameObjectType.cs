@@ -5,17 +5,11 @@ namespace GameServer
 	
 	public enum GameObjectType
 	{
-		
-		玩家 = 1,
-		
-		宠物,
-		
-		怪物 = 4,
-		
-		Npcc = 8,
-		
-		物品 = 16,
-		
-		陷阱 = 32
+		Player = 1,
+		Pet,
+		Monster = 4,
+		NPC = 8,
+		Item = 16,
+		Trap = 32
 	}
 }

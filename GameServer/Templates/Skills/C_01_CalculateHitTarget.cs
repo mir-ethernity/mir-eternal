@@ -32,7 +32,7 @@ namespace GameServer.Templates
 		public SkillHitFeedback SkillHitFeedback;
 
 		
-		public MonsterSize 技能范围类型;
+		public ObjectSize 技能范围类型;
 
 		
 		public bool 放空结束技能;

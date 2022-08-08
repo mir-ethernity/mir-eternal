@@ -62,7 +62,7 @@ namespace GameServer.Templates
 		public int[] DamageIncOrDecBase;
 		public float[] DamageIncOrDecFactor;
 		public string TriggerTrapSkills;
-		public MonsterSize NumberTrapsTriggered;
+		public ObjectSize NumberTrapsTriggered;
 		public byte[] PhysicalRecoveryBase;
 		public int TemptationIncreaseDuration;
 		public float TemptationIncreaseRate;

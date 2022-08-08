@@ -140,7 +140,7 @@ namespace GameServer.Data
 				SConnection 网络连接 = CharacterData.ActiveConnection;
 				if (网络连接 != null)
 				{
-					网络连接.发送封包(P);
+					网络连接.SendPacket(P);
 				}
 			}
 		}
@@ -159,7 +159,7 @@ namespace GameServer.Data
 			{
 				if (CharacterData != null)
 				{
-					CharacterData.ActiveConnection.发送封包(new SyncGuildMemberPacket
+					CharacterData.ActiveConnection.SendPacket(new SyncGuildMemberPacket
 					{
 						字节数据 = this.成员数据()
 					});
@@ -180,7 +180,7 @@ namespace GameServer.Data
 			{
 				if (CharacterData != null)
 				{
-					CharacterData.ActiveConnection.发送封包(new SyncGuildMemberPacket
+					CharacterData.ActiveConnection.SendPacket(new SyncGuildMemberPacket
 					{
 						字节数据 = this.成员数据()
 					});

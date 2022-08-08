@@ -69,7 +69,7 @@ namespace GameServer
                         SConnection 网络连接 = CharacterData.ActiveConnection;
                         if (网络连接 != null)
                         {
-                            网络连接.发送封包(new 玩家物品变动
+                            网络连接.SendPacket(new 玩家物品变动
                             {
                                 物品描述 = CharacterData.Backpack[b].字节描述()
                             });

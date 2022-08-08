@@ -234,7 +234,7 @@ namespace GameServer.Maps
 					{
 						if (PetObject.Died)
 						{
-							PetObject.删除对象();
+							PetObject.Delete();
 						}
 						else
 						{
@@ -247,7 +247,7 @@ namespace GameServer.Maps
 					}
 					foreach (MapObject MapObject in this.对象列表)
 					{
-						MapObject.删除对象();
+						MapObject.Delete();
 					}
 					this.副本关闭 = true;
 				}
@@ -258,17 +258,17 @@ namespace GameServer.Maps
 		public void 添加对象(MapObject 对象)
 		{
 			GameObjectType 对象类型 = 对象.ObjectType;
-			if (对象类型 == GameObjectType.玩家)
+			if (对象类型 == GameObjectType.Player)
 			{
 				this.NrPlayers.Add(对象 as PlayerObject);
 				return;
 			}
-			if (对象类型 == GameObjectType.宠物)
+			if (对象类型 == GameObjectType.Pet)
 			{
 				this.宠物列表.Add(对象 as PetObject);
 				return;
 			}
-			if (对象类型 != GameObjectType.物品)
+			if (对象类型 != GameObjectType.Item)
 			{
 				this.对象列表.Add(对象);
 				return;
@@ -280,17 +280,17 @@ namespace GameServer.Maps
 		public void 移除对象(MapObject 对象)
 		{
 			GameObjectType 对象类型 = 对象.ObjectType;
-			if (对象类型 == GameObjectType.玩家)
+			if (对象类型 == GameObjectType.Player)
 			{
 				this.NrPlayers.Remove(对象 as PlayerObject);
 				return;
 			}
-			if (对象类型 == GameObjectType.宠物)
+			if (对象类型 == GameObjectType.Pet)
 			{
 				this.宠物列表.Remove(对象 as PetObject);
 				return;
 			}
-			if (对象类型 != GameObjectType.物品)
+			if (对象类型 != GameObjectType.Item)
 			{
 				this.对象列表.Remove(对象);
 				return;
@@ -320,7 +320,7 @@ namespace GameServer.Maps
 						SConnection 网络连接 = PlayerObject.ActiveConnection;
 						if (网络连接 != null)
 						{
-							网络连接.发送封包(new ReceiveChatMessagesPacket
+							网络连接.SendPacket(new ReceiveChatMessagesPacket
 							{
 								字节描述 = 字节描述
 							});
@@ -400,7 +400,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public bool 空间阻塞(Point 坐标)
+		public bool CellBlocked(Point 坐标)
 		{
 			if (this.IsSafeZone(坐标))
 			{
@@ -410,7 +410,7 @@ namespace GameServer.Maps
 			{
 				while (enumerator.MoveNext())
 				{
-					if (enumerator.Current.阻塞网格)
+					if (enumerator.Current.Blocking)
 					{
 						return true;
 					}
@@ -427,7 +427,7 @@ namespace GameServer.Maps
 			{
 				while (enumerator.MoveNext())
 				{
-					if (enumerator.Current.阻塞网格)
+					if (enumerator.Current.Blocking)
 					{
 						num++;
 					}
@@ -437,19 +437,19 @@ namespace GameServer.Maps
 		}
 
 		
-		public bool 地形阻塞(Point 坐标)
+		public bool IsBlocked(Point 坐标)
 		{
 			return this.坐标越界(坐标) || (this.地形数据[坐标] & 268435456U) != 268435456U;
 		}
 
 		
-		public bool 能否通行(Point 坐标)
+		public bool CanPass(Point 坐标)
 		{
-			return !this.地形阻塞(坐标) && !this.空间阻塞(坐标);
+			return !this.IsBlocked(坐标) && !this.CellBlocked(坐标);
 		}
 
 		
-		public ushort 地形高度(Point 坐标)
+		public ushort GetTerrainHeight(Point 坐标)
 		{
 			if (this.坐标越界(坐标))
 			{
@@ -464,7 +464,7 @@ namespace GameServer.Maps
 			int num = ComputingClass.GridDistance(起点, 终点);
 			for (int i = 1; i < num; i++)
 			{
-				if (this.地形阻塞(ComputingClass.前方坐标(起点, 终点, i)))
+				if (this.IsBlocked(ComputingClass.GetFrontPosition(起点, 终点, i)))
 				{
 					return true;
 				}
@@ -524,7 +524,7 @@ namespace GameServer.Maps
 		public byte 副本节点;
 
 		
-		public GuardInstance 副本守卫;
+		public GuardObject 副本守卫;
 
 		
 		public DateTime 节点计时;

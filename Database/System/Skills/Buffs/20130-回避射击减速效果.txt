@@ -17,14 +17,14 @@
   "RequireBuff": [],
   "StatsIncOrDec": [
     {
-      "Stat": "奔跑速度",
+      "Stat": "RunSpeed",
       "Level0": 5,
       "Level1": 5,
       "Level2": 5,
       "Level3": 5
     },
     {
-      "Stat": "行走速度",
+      "Stat": "WalkSpeed",
       "Level0": 2,
       "Level1": 2,
       "Level2": 2,

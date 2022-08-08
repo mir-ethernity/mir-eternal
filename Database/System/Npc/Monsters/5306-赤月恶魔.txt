@@ -19,7 +19,7 @@
       "Value": 55
     },
     {
-      "Stat": "行走速度",
+      "Stat": "WalkSpeed",
       "Value": 8
     },
     {

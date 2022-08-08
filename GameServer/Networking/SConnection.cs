@@ -98,7 +98,7 @@ namespace GameServer.Networking
                     string text2;
                     if (PlayerObject2 != null)
                     {
-                        if ((text2 = PlayerObject2.对象名字) != null)
+                        if ((text2 = PlayerObject2.ObjectName) != null)
                         {
                             goto IL_139;
                         }
@@ -141,7 +141,7 @@ namespace GameServer.Networking
             }
         }
 
-        public void 发送封包(GamePacket 封包)
+        public void SendPacket(GamePacket 封包)
         {
             if (!this.ConnectionErrored && !NetworkServiceGateway.网络服务停止 && 封包 != null)
             {
@@ -463,7 +463,7 @@ namespace GameServer.Networking
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
                 return;
             }
-            发送封包(new InternetSpeedTestPacket
+            SendPacket(new InternetSpeedTestPacket
             {
                 当前时间 = P.客户时间
             });
@@ -478,7 +478,7 @@ namespace GameServer.Networking
                 return;
             }
 
-            发送封包(new LoginQueryResponsePacket
+            SendPacket(new LoginQueryResponsePacket
             {
                 当前时间 = P.客户时间
             });
@@ -2278,7 +2278,7 @@ namespace GameServer.Networking
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
                 return;
             }
-            this.发送封包(new 社交错误提示
+            this.SendPacket(new 社交错误提示
             {
                 错误编号 = 12804
             });
@@ -2292,7 +2292,7 @@ namespace GameServer.Networking
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
                 return;
             }
-            this.发送封包(new 社交错误提示
+            this.SendPacket(new 社交错误提示
             {
                 错误编号 = 12804
             });
@@ -2306,7 +2306,7 @@ namespace GameServer.Networking
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
                 return;
             }
-            this.发送封包(new 社交错误提示
+            this.SendPacket(new 社交错误提示
             {
                 错误编号 = 12804
             });
@@ -2320,7 +2320,7 @@ namespace GameServer.Networking
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
                 return;
             }
-            this.发送封包(new 社交错误提示
+            this.SendPacket(new 社交错误提示
             {
                 错误编号 = 12804
             });
@@ -2448,7 +2448,7 @@ namespace GameServer.Networking
                 AccountData AccountData3 = AccountData2;
                 if (AccountData3.网络连接 != null)
                 {
-                    AccountData3.网络连接.发送封包(new LoginErrorMessagePacket
+                    AccountData3.网络连接.SendPacket(new LoginErrorMessagePacket
                     {
                         错误代码 = 260U
                     });

@@ -93,7 +93,7 @@ namespace GameServer.Data
 			this.行会宣言.V = 行会宣言;
 			this.行会公告.V = "Enjoy your game.";
 			this.行会会长.V = 创建玩家.CharacterData;
-			this.创建人名.V = 创建玩家.对象名字;
+			this.创建人名.V = 创建玩家.ObjectName;
 			this.行会成员.Add(创建玩家.CharacterData, GuildJobs.会长);
 			this.添加事记(new GuildEvents
 			{
@@ -213,7 +213,7 @@ namespace GameServer.Data
 				SConnection 网络连接 = CharacterData.ActiveConnection;
 				if (网络连接 != null)
 				{
-					网络连接.发送封包(new 同步对象行会
+					网络连接.SendPacket(new 同步对象行会
 					{
 						对象编号 = CharacterData.Id
 					});
@@ -240,7 +240,7 @@ namespace GameServer.Data
 				SConnection 网络连接 = CharacterData.ActiveConnection;
 				if (网络连接 != null)
 				{
-					网络连接.发送封包(封包);
+					网络连接.SendPacket(封包);
 				}
 			}
 		}
@@ -270,7 +270,7 @@ namespace GameServer.Data
 			SConnection 网络连接 = 成员.ActiveConnection;
 			if (网络连接 != null)
 			{
-				网络连接.发送封包(new GuildInfoAnnouncementPacket
+				网络连接.SendPacket(new GuildInfoAnnouncementPacket
 				{
 					字节数据 = this.行会信息描述()
 				});
@@ -302,7 +302,7 @@ namespace GameServer.Data
 			SConnection 网络连接 = 成员.ActiveConnection;
 			if (网络连接 != null)
 			{
-				网络连接.发送封包(new 脱离行会应答
+				网络连接.SendPacket(new 脱离行会应答
 				{
 					脱离方式 = 1
 				});
@@ -338,7 +338,7 @@ namespace GameServer.Data
 				SConnection 网络连接 = 成员.ActiveConnection;
 				if (网络连接 != null)
 				{
-					网络连接.发送封包(new 脱离行会应答
+					网络连接.SendPacket(new 脱离行会应答
 					{
 						脱离方式 = 2
 					});
@@ -396,7 +396,7 @@ namespace GameServer.Data
 			{
 				return;
 			}
-			网络连接.发送封包(new 社交错误提示
+			网络连接.SendPacket(new 社交错误提示
 			{
 				错误编号 = 6747
 			});
@@ -459,7 +459,7 @@ namespace GameServer.Data
 			{
 				return;
 			}
-			网络连接.发送封包(new 社交错误提示
+			网络连接.SendPacket(new 社交错误提示
 			{
 				错误编号 = 6680
 			});
@@ -468,7 +468,7 @@ namespace GameServer.Data
 		
 		public void 申请结盟(CharacterData 主事, GuildData 行会, byte 时间参数)
 		{
-			主事.ActiveConnection.发送封包(new 申请结盟应答
+			主事.ActiveConnection.SendPacket(new 申请结盟应答
 			{
 				行会编号 = 行会.行会编号
 			});
@@ -593,7 +593,7 @@ namespace GameServer.Data
 			{
 				return;
 			}
-			网络连接.发送封包(new 社交错误提示
+			网络连接.SendPacket(new 社交错误提示
 			{
 				错误编号 = 6812
 			});
@@ -602,7 +602,7 @@ namespace GameServer.Data
 		
 		public void 申请解敌(CharacterData 主事, GuildData Hostility行会)
 		{
-			主事.ActiveConnection.发送封包(new 社交错误提示
+			主事.ActiveConnection.SendPacket(new 社交错误提示
 			{
 				错误编号 = 6829
 			});
@@ -613,7 +613,7 @@ namespace GameServer.Data
 					SConnection 网络连接 = keyValuePair.Key.ActiveConnection;
 					if (网络连接 != null)
 					{
-						网络连接.发送封包(new DisarmHostileListPacket
+						网络连接.SendPacket(new DisarmHostileListPacket
 						{
 							申请类型 = 1,
 							行会编号 = this.行会编号
@@ -699,7 +699,7 @@ namespace GameServer.Data
 				SConnection 客户网络;
 				if (keyValuePair.Value <= 职位 && keyValuePair.Key.角色在线(out 客户网络))
 				{
-					客户网络.发送封包(new SendGuildNoticePacket
+					客户网络.SendPacket(new SendGuildNoticePacket
 					{
 						提醒类型 = 提醒类型
 					});
