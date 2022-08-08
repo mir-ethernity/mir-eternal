@@ -17,36 +17,36 @@
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.主选项卡 = new System.Windows.Forms.TabControl();
             this.tabMain = new System.Windows.Forms.TabPage();
@@ -135,11 +135,11 @@
             this.S_NoobLevel = new System.Windows.Forms.NumericUpDown();
             this.S_物品归属标签 = new System.Windows.Forms.Label();
             this.S_ItemOwnershipTime = new System.Windows.Forms.NumericUpDown();
+            this.S_收益衰减标签 = new System.Windows.Forms.Label();
             this.S_物品清理标签 = new System.Windows.Forms.Label();
             this.S_ItemCleaningTime = new System.Windows.Forms.NumericUpDown();
             this.S_诱惑时长标签 = new System.Windows.Forms.Label();
             this.S_TemptationTime = new System.Windows.Forms.NumericUpDown();
-            this.S_收益衰减标签 = new System.Windows.Forms.Label();
             this.S_LessExpGradeRate = new System.Windows.Forms.NumericUpDown();
             this.S_收益等级标签 = new System.Windows.Forms.Label();
             this.S_LessExpGrade = new System.Windows.Forms.NumericUpDown();
@@ -171,6 +171,7 @@
             this.停止按钮 = new System.Windows.Forms.Button();
             this.保存数据提醒 = new System.Windows.Forms.Timer(this.components);
             this.定时发送公告 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.主选项卡.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.日志选项卡.SuspendLayout();
@@ -572,30 +573,30 @@
             this.技能浏览表.AllowUserToAddRows = false;
             this.技能浏览表.AllowUserToDeleteRows = false;
             this.技能浏览表.AllowUserToResizeRows = false;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.技能浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.技能浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.技能浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.技能浏览表.BackgroundColor = System.Drawing.Color.LightGray;
             this.技能浏览表.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.技能浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.技能浏览表.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.技能浏览表.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.技能浏览表.ColumnHeadersHeight = 29;
             this.技能浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.技能浏览表.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.技能浏览表.DefaultCellStyle = dataGridViewCellStyle3;
             this.技能浏览表.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.技能浏览表.Location = new System.Drawing.Point(0, 0);
             this.技能浏览表.Margin = new System.Windows.Forms.Padding(4);
@@ -627,30 +628,30 @@
             this.装备浏览表.AllowUserToAddRows = false;
             this.装备浏览表.AllowUserToDeleteRows = false;
             this.装备浏览表.AllowUserToResizeRows = false;
-            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.装备浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.装备浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.装备浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.装备浏览表.BackgroundColor = System.Drawing.Color.LightGray;
             this.装备浏览表.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.装备浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.装备浏览表.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.装备浏览表.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.装备浏览表.ColumnHeadersHeight = 29;
             this.装备浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.装备浏览表.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.装备浏览表.DefaultCellStyle = dataGridViewCellStyle6;
             this.装备浏览表.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.装备浏览表.Location = new System.Drawing.Point(0, 0);
             this.装备浏览表.Margin = new System.Windows.Forms.Padding(4);
@@ -681,30 +682,30 @@
             this.背包浏览表.AllowUserToAddRows = false;
             this.背包浏览表.AllowUserToDeleteRows = false;
             this.背包浏览表.AllowUserToResizeRows = false;
-            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.背包浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.背包浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.背包浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.背包浏览表.BackgroundColor = System.Drawing.Color.LightGray;
             this.背包浏览表.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.背包浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.背包浏览表.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.背包浏览表.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.背包浏览表.ColumnHeadersHeight = 29;
             this.背包浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.背包浏览表.DefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.背包浏览表.DefaultCellStyle = dataGridViewCellStyle9;
             this.背包浏览表.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.背包浏览表.Location = new System.Drawing.Point(0, 0);
             this.背包浏览表.Margin = new System.Windows.Forms.Padding(4);
@@ -735,30 +736,30 @@
             this.仓库浏览表.AllowUserToAddRows = false;
             this.仓库浏览表.AllowUserToDeleteRows = false;
             this.仓库浏览表.AllowUserToResizeRows = false;
-            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.仓库浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.仓库浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.仓库浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.仓库浏览表.BackgroundColor = System.Drawing.Color.LightGray;
             this.仓库浏览表.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.仓库浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.仓库浏览表.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.仓库浏览表.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.仓库浏览表.ColumnHeadersHeight = 29;
             this.仓库浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.仓库浏览表.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.仓库浏览表.DefaultCellStyle = dataGridViewCellStyle12;
             this.仓库浏览表.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.仓库浏览表.Location = new System.Drawing.Point(0, 0);
             this.仓库浏览表.Margin = new System.Windows.Forms.Padding(4);
@@ -778,30 +779,30 @@
             this.dgvCharacters.AllowUserToAddRows = false;
             this.dgvCharacters.AllowUserToDeleteRows = false;
             this.dgvCharacters.AllowUserToResizeRows = false;
-            dataGridViewCellStyle43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvCharacters.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvCharacters.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvCharacters.BackgroundColor = System.Drawing.Color.LightGray;
             this.dgvCharacters.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvCharacters.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCharacters.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCharacters.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvCharacters.ColumnHeadersHeight = 29;
             this.dgvCharacters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvCharacters.ContextMenuStrip = this.角色右键菜单;
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle45.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle45.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
-            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCharacters.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCharacters.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvCharacters.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvCharacters.Location = new System.Drawing.Point(0, 4);
             this.dgvCharacters.Margin = new System.Windows.Forms.Padding(4);
@@ -874,30 +875,30 @@
             this.dgvMaps.AllowUserToAddRows = false;
             this.dgvMaps.AllowUserToDeleteRows = false;
             this.dgvMaps.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgvMaps.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvMaps.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvMaps.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMaps.BackgroundColor = System.Drawing.Color.LightGray;
             this.dgvMaps.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvMaps.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMaps.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMaps.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvMaps.ColumnHeadersHeight = 29;
             this.dgvMaps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMaps.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMaps.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgvMaps.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvMaps.Location = new System.Drawing.Point(0, 4);
             this.dgvMaps.Margin = new System.Windows.Forms.Padding(4);
@@ -931,30 +932,30 @@
             this.掉落浏览表.AllowUserToAddRows = false;
             this.掉落浏览表.AllowUserToDeleteRows = false;
             this.掉落浏览表.AllowUserToResizeRows = false;
-            dataGridViewCellStyle46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.掉落浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.掉落浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.掉落浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.掉落浏览表.BackgroundColor = System.Drawing.Color.LightGray;
             this.掉落浏览表.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.掉落浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle47.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle47.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.掉落浏览表.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.掉落浏览表.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.掉落浏览表.ColumnHeadersHeight = 29;
             this.掉落浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle48.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle48.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
-            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.掉落浏览表.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.掉落浏览表.DefaultCellStyle = dataGridViewCellStyle21;
             this.掉落浏览表.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.掉落浏览表.Location = new System.Drawing.Point(1053, 4);
             this.掉落浏览表.Margin = new System.Windows.Forms.Padding(4);
@@ -974,30 +975,30 @@
             this.怪物浏览表.AllowUserToAddRows = false;
             this.怪物浏览表.AllowUserToDeleteRows = false;
             this.怪物浏览表.AllowUserToResizeRows = false;
-            dataGridViewCellStyle49.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.怪物浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.怪物浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
             this.怪物浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.怪物浏览表.BackgroundColor = System.Drawing.Color.LightGray;
             this.怪物浏览表.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.怪物浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle50.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle50.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle50.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle50.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle50.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.怪物浏览表.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.怪物浏览表.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.怪物浏览表.ColumnHeadersHeight = 29;
             this.怪物浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle51.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle51.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle51.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle51.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
-            dataGridViewCellStyle51.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle51.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.怪物浏览表.DefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.怪物浏览表.DefaultCellStyle = dataGridViewCellStyle24;
             this.怪物浏览表.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.怪物浏览表.Location = new System.Drawing.Point(0, 4);
             this.怪物浏览表.Margin = new System.Windows.Forms.Padding(4);
@@ -1029,30 +1030,30 @@
             this.封禁浏览表.AllowUserToAddRows = false;
             this.封禁浏览表.AllowUserToDeleteRows = false;
             this.封禁浏览表.AllowUserToResizeRows = false;
-            dataGridViewCellStyle52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.封禁浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.封禁浏览表.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
             this.封禁浏览表.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.封禁浏览表.BackgroundColor = System.Drawing.Color.LightGray;
             this.封禁浏览表.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.封禁浏览表.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle53.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle53.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle53.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle53.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle53.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle53.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.封禁浏览表.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.封禁浏览表.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
             this.封禁浏览表.ColumnHeadersHeight = 29;
             this.封禁浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle54.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle54.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle54.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle54.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
-            dataGridViewCellStyle54.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle54.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.封禁浏览表.DefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.封禁浏览表.DefaultCellStyle = dataGridViewCellStyle27;
             this.封禁浏览表.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.封禁浏览表.Location = new System.Drawing.Point(147, 4);
             this.封禁浏览表.Margin = new System.Windows.Forms.Padding(4);
@@ -1140,14 +1141,14 @@
             this.公告浏览表.AllowUserToResizeColumns = false;
             this.公告浏览表.AllowUserToResizeRows = false;
             this.公告浏览表.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle55.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle55.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle55.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle55.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle55.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle55.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.公告浏览表.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.公告浏览表.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
             this.公告浏览表.ColumnHeadersHeight = 29;
             this.公告浏览表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.公告浏览表.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1157,27 +1158,27 @@
             this.剩余次数,
             this.公告计时,
             this.公告内容});
-            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle56.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle56.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle56.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle56.SelectionBackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle56.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle56.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.公告浏览表.DefaultCellStyle = dataGridViewCellStyle56;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.公告浏览表.DefaultCellStyle = dataGridViewCellStyle29;
             this.公告浏览表.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.公告浏览表.Location = new System.Drawing.Point(6, 4);
             this.公告浏览表.Margin = new System.Windows.Forms.Padding(4);
             this.公告浏览表.MultiSelect = false;
             this.公告浏览表.Name = "公告浏览表";
-            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle57.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle57.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle57.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle57.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle57.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle57.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.公告浏览表.RowHeadersDefaultCellStyle = dataGridViewCellStyle57;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.公告浏览表.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
             this.公告浏览表.RowHeadersVisible = false;
             this.公告浏览表.RowHeadersWidth = 51;
             this.公告浏览表.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -1283,6 +1284,7 @@
             // 
             // S_GameData分组
             // 
+            this.S_GameData分组.Controls.Add(this.label1);
             this.S_GameData分组.Controls.Add(this.S_注意事项标签8);
             this.S_GameData分组.Controls.Add(this.S_注意事项标签7);
             this.S_GameData分组.Controls.Add(this.S_注意事项标签6);
@@ -1308,7 +1310,7 @@
             this.S_GameData分组.Margin = new System.Windows.Forms.Padding(4);
             this.S_GameData分组.Name = "S_GameData分组";
             this.S_GameData分组.Padding = new System.Windows.Forms.Padding(4);
-            this.S_GameData分组.Size = new System.Drawing.Size(556, 517);
+            this.S_GameData分组.Size = new System.Drawing.Size(571, 517);
             this.S_GameData分组.TabIndex = 10;
             this.S_GameData分组.TabStop = false;
             this.S_GameData分组.Text = "GameData";
@@ -1318,84 +1320,91 @@
             this.S_注意事项标签8.AutoSize = true;
             this.S_注意事项标签8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.S_注意事项标签8.ForeColor = System.Drawing.Color.Blue;
-            this.S_注意事项标签8.Location = new System.Drawing.Point(46, 464);
+            this.S_注意事项标签8.Location = new System.Drawing.Point(24, 447);
             this.S_注意事项标签8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_注意事项标签8.Name = "S_注意事项标签8";
-            this.S_注意事项标签8.Size = new System.Drawing.Size(363, 15);
+            this.S_注意事项标签8.Size = new System.Drawing.Size(432, 15);
             this.S_注意事项标签8.TabIndex = 27;
-            this.S_注意事项标签8.Text = "被误判为网络Attack的玩家需要等异常屏蔽时间结束后才能正常登陆";
+            this.S_注意事项标签8.Text = "Max Lvl Exp defines the cap level for your exp reduction, after this, you will ge" +
+    "t 0";
+            this.S_注意事项标签8.Click += new System.EventHandler(this.S_注意事项标签8_Click);
             // 
             // S_注意事项标签7
             // 
             this.S_注意事项标签7.AutoSize = true;
             this.S_注意事项标签7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.S_注意事项标签7.ForeColor = System.Drawing.Color.Blue;
-            this.S_注意事项标签7.Location = new System.Drawing.Point(46, 439);
+            this.S_注意事项标签7.Location = new System.Drawing.Point(24, 422);
             this.S_注意事项标签7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_注意事项标签7.Name = "S_注意事项标签7";
-            this.S_注意事项标签7.Size = new System.Drawing.Size(429, 15);
+            this.S_注意事项标签7.Size = new System.Drawing.Size(188, 15);
             this.S_注意事项标签7.TabIndex = 26;
-            this.S_注意事项标签7.Text = "网络卡顿会造成大量封包堆积, 封包限定数量太小容易误判服务器遭受网络Attack";
+            this.S_注意事项标签7.Text = "Max Player it\'s cap level on server";
             // 
             // S_注意事项标签6
             // 
             this.S_注意事项标签6.AutoSize = true;
             this.S_注意事项标签6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.S_注意事项标签6.ForeColor = System.Drawing.Color.Blue;
-            this.S_注意事项标签6.Location = new System.Drawing.Point(46, 413);
+            this.S_注意事项标签6.Location = new System.Drawing.Point(24, 396);
             this.S_注意事项标签6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_注意事项标签6.Name = "S_注意事项标签6";
-            this.S_注意事项标签6.Size = new System.Drawing.Size(403, 15);
+            this.S_注意事项标签6.Size = new System.Drawing.Size(367, 15);
             this.S_注意事项标签6.TabIndex = 25;
-            this.S_注意事项标签6.Text = "玩家停留在角色选择界面时, 客户端不会发送心跳包, 掉线判定时间不宜太短";
+            this.S_注意事项标签6.Text = "Noob Level means get double exp % adquired until lvl on settings ";
+            this.S_注意事项标签6.Click += new System.EventHandler(this.S_注意事项标签6_Click);
             // 
             // S_注意事项标签5
             // 
             this.S_注意事项标签5.AutoSize = true;
             this.S_注意事项标签5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.S_注意事项标签5.ForeColor = System.Drawing.Color.Blue;
-            this.S_注意事项标签5.Location = new System.Drawing.Point(46, 389);
+            this.S_注意事项标签5.Location = new System.Drawing.Point(24, 370);
             this.S_注意事项标签5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_注意事项标签5.Name = "S_注意事项标签5";
-            this.S_注意事项标签5.Size = new System.Drawing.Size(376, 15);
+            this.S_注意事项标签5.Size = new System.Drawing.Size(354, 15);
             this.S_注意事项标签5.TabIndex = 24;
-            this.S_注意事项标签5.Text = "数据目录内文件夹名字和结构固定, 请勿随意修改, 也不要放入无关文件";
+            this.S_注意事项标签5.Text = "Wiz Tame defines the maximum time of a pet with ElectricShock";
+            this.S_注意事项标签5.Click += new System.EventHandler(this.S_注意事项标签5_Click);
             // 
             // S_注意事项标签4
             // 
             this.S_注意事项标签4.AutoSize = true;
             this.S_注意事项标签4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.S_注意事项标签4.ForeColor = System.Drawing.Color.Blue;
-            this.S_注意事项标签4.Location = new System.Drawing.Point(46, 364);
+            this.S_注意事项标签4.Location = new System.Drawing.Point(24, 348);
             this.S_注意事项标签4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_注意事项标签4.Name = "S_注意事项标签4";
-            this.S_注意事项标签4.Size = new System.Drawing.Size(397, 15);
+            this.S_注意事项标签4.Size = new System.Drawing.Size(551, 15);
             this.S_注意事项标签4.TabIndex = 23;
-            this.S_注意事项标签4.Text = "收益减少比率为超出等级差时, 每超出Level1时减少设定比率的经验和爆率";
+            this.S_注意事项标签4.Text = "The rate of gain reduction is a set rate of experience and rate reduction for eac" +
+    "h level beyond Level 1";
             // 
             // S_注意事项标签3
             // 
             this.S_注意事项标签3.AutoSize = true;
             this.S_注意事项标签3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.S_注意事项标签3.ForeColor = System.Drawing.Color.Blue;
-            this.S_注意事项标签3.Location = new System.Drawing.Point(46, 338);
+            this.S_注意事项标签3.Location = new System.Drawing.Point(24, 333);
             this.S_注意事项标签3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_注意事项标签3.Name = "S_注意事项标签3";
-            this.S_注意事项标签3.Size = new System.Drawing.Size(373, 15);
+            this.S_注意事项标签3.Size = new System.Drawing.Size(539, 15);
             this.S_注意事项标签3.TabIndex = 22;
-            this.S_注意事项标签3.Text = "怪物爆率计算公式:1/(X - X * 怪物额外爆率),X表示随机多少次掉落一次";
+            this.S_注意事项标签3.Text = "Extra Drop Formula: 1/(X - X * Extra Drop Rate), X means how many times randomly " +
+    "dropped once";
+            this.S_注意事项标签3.Click += new System.EventHandler(this.S_注意事项标签3_Click);
             // 
             // S_注意事项标签2
             // 
             this.S_注意事项标签2.AutoSize = true;
             this.S_注意事项标签2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.S_注意事项标签2.ForeColor = System.Drawing.Color.Blue;
-            this.S_注意事项标签2.Location = new System.Drawing.Point(46, 314);
+            this.S_注意事项标签2.Location = new System.Drawing.Point(24, 313);
             this.S_注意事项标签2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_注意事项标签2.Name = "S_注意事项标签2";
-            this.S_注意事项标签2.Size = new System.Drawing.Size(253, 15);
+            this.S_注意事项标签2.Size = new System.Drawing.Size(369, 15);
             this.S_注意事项标签2.TabIndex = 20;
-            this.S_注意事项标签2.Text = "本页所有时间设置项单位均为分钟, 请留意设置";
+            this.S_注意事项标签2.Text = "Item Ownership defines the time of an item from mobs on the floor";
             // 
             // S_注意事项标签1
             // 
@@ -1405,9 +1414,10 @@
             this.S_注意事项标签1.Location = new System.Drawing.Point(20, 289);
             this.S_注意事项标签1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_注意事项标签1.Name = "S_注意事项标签1";
-            this.S_注意事项标签1.Size = new System.Drawing.Size(223, 15);
+            this.S_注意事项标签1.Size = new System.Drawing.Size(458, 15);
             this.S_注意事项标签1.TabIndex = 21;
-            this.S_注意事项标签1.Text = "注: 合并客户数据为合区专用, 请谨慎使用";
+            this.S_注意事项标签1.Text = "Settings info: All time settings on this page are in minutes, please note the set" +
+    "tings";
             // 
             // S_重载客户数据
             // 
@@ -1543,11 +1553,11 @@
             this.S_游戏设置分组.Controls.Add(this.S_NoobLevel);
             this.S_游戏设置分组.Controls.Add(this.S_物品归属标签);
             this.S_游戏设置分组.Controls.Add(this.S_ItemOwnershipTime);
+            this.S_游戏设置分组.Controls.Add(this.S_收益衰减标签);
             this.S_游戏设置分组.Controls.Add(this.S_物品清理标签);
             this.S_游戏设置分组.Controls.Add(this.S_ItemCleaningTime);
             this.S_游戏设置分组.Controls.Add(this.S_诱惑时长标签);
             this.S_游戏设置分组.Controls.Add(this.S_TemptationTime);
-            this.S_游戏设置分组.Controls.Add(this.S_收益衰减标签);
             this.S_游戏设置分组.Controls.Add(this.S_LessExpGradeRate);
             this.S_游戏设置分组.Controls.Add(this.S_收益等级标签);
             this.S_游戏设置分组.Controls.Add(this.S_LessExpGrade);
@@ -1560,11 +1570,11 @@
             this.S_游戏设置分组.Controls.Add(this.S_OpenLevelCommand标签);
             this.S_游戏设置分组.Controls.Add(this.S_MaxLevel);
             this.S_游戏设置分组.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.S_游戏设置分组.Location = new System.Drawing.Point(378, 15);
+            this.S_游戏设置分组.Location = new System.Drawing.Point(350, 15);
             this.S_游戏设置分组.Margin = new System.Windows.Forms.Padding(4);
             this.S_游戏设置分组.Name = "S_游戏设置分组";
             this.S_游戏设置分组.Padding = new System.Windows.Forms.Padding(4);
-            this.S_游戏设置分组.Size = new System.Drawing.Size(329, 420);
+            this.S_游戏设置分组.Size = new System.Drawing.Size(357, 420);
             this.S_游戏设置分组.TabIndex = 8;
             this.S_游戏设置分组.TabStop = false;
             this.S_游戏设置分组.Text = "Game Settings";
@@ -1572,7 +1582,7 @@
             // L_NoobLevel
             // 
             this.L_NoobLevel.AutoSize = true;
-            this.L_NoobLevel.Location = new System.Drawing.Point(32, 76);
+            this.L_NoobLevel.Location = new System.Drawing.Point(70, 79);
             this.L_NoobLevel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.L_NoobLevel.Name = "L_NoobLevel";
             this.L_NoobLevel.Size = new System.Drawing.Size(69, 15);
@@ -1582,7 +1592,7 @@
             // S_NoobLevel
             // 
             this.S_NoobLevel.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.S_NoobLevel.Location = new System.Drawing.Point(146, 71);
+            this.S_NoobLevel.Location = new System.Drawing.Point(189, 71);
             this.S_NoobLevel.Margin = new System.Windows.Forms.Padding(4);
             this.S_NoobLevel.Maximum = new decimal(new int[] {
             60,
@@ -1597,7 +1607,7 @@
             // S_物品归属标签
             // 
             this.S_物品归属标签.AutoSize = true;
-            this.S_物品归属标签.Location = new System.Drawing.Point(13, 364);
+            this.S_物品归属标签.Location = new System.Drawing.Point(41, 370);
             this.S_物品归属标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_物品归属标签.Name = "S_物品归属标签";
             this.S_物品归属标签.Size = new System.Drawing.Size(125, 15);
@@ -1607,7 +1617,7 @@
             // S_ItemOwnershipTime
             // 
             this.S_ItemOwnershipTime.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.S_ItemOwnershipTime.Location = new System.Drawing.Point(146, 361);
+            this.S_ItemOwnershipTime.Location = new System.Drawing.Point(189, 361);
             this.S_ItemOwnershipTime.Margin = new System.Windows.Forms.Padding(4);
             this.S_ItemOwnershipTime.Maximum = new decimal(new int[] {
             10,
@@ -1620,10 +1630,20 @@
             this.S_ItemOwnershipTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.S_ItemOwnershipTime.ValueChanged += new System.EventHandler(this.更改设置Value_Value);
             // 
+            // S_收益衰减标签
+            // 
+            this.S_收益衰减标签.AutoSize = true;
+            this.S_收益衰减标签.Location = new System.Drawing.Point(15, 261);
+            this.S_收益衰减标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.S_收益衰减标签.Name = "S_收益衰减标签";
+            this.S_收益衰减标签.Size = new System.Drawing.Size(148, 15);
+            this.S_收益衰减标签.TabIndex = 13;
+            this.S_收益衰减标签.Text = "Incoming % exp reduction";
+            // 
             // S_物品清理标签
             // 
             this.S_物品清理标签.AutoSize = true;
-            this.S_物品清理标签.Location = new System.Drawing.Point(32, 330);
+            this.S_物品清理标签.Location = new System.Drawing.Point(70, 333);
             this.S_物品清理标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_物品清理标签.Name = "S_物品清理标签";
             this.S_物品清理标签.Size = new System.Drawing.Size(90, 15);
@@ -1633,7 +1653,7 @@
             // S_ItemCleaningTime
             // 
             this.S_ItemCleaningTime.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.S_ItemCleaningTime.Location = new System.Drawing.Point(146, 326);
+            this.S_ItemCleaningTime.Location = new System.Drawing.Point(189, 329);
             this.S_ItemCleaningTime.Margin = new System.Windows.Forms.Padding(4);
             this.S_ItemCleaningTime.Maximum = new decimal(new int[] {
             10,
@@ -1649,7 +1669,7 @@
             // S_诱惑时长标签
             // 
             this.S_诱惑时长标签.AutoSize = true;
-            this.S_诱惑时长标签.Location = new System.Drawing.Point(32, 293);
+            this.S_诱惑时长标签.Location = new System.Drawing.Point(70, 296);
             this.S_诱惑时长标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_诱惑时长标签.Name = "S_诱惑时长标签";
             this.S_诱惑时长标签.Size = new System.Drawing.Size(86, 15);
@@ -1659,7 +1679,7 @@
             // S_TemptationTime
             // 
             this.S_TemptationTime.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.S_TemptationTime.Location = new System.Drawing.Point(146, 289);
+            this.S_TemptationTime.Location = new System.Drawing.Point(189, 289);
             this.S_TemptationTime.Margin = new System.Windows.Forms.Padding(4);
             this.S_TemptationTime.Maximum = new decimal(new int[] {
             1200,
@@ -1672,21 +1692,11 @@
             this.S_TemptationTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.S_TemptationTime.ValueChanged += new System.EventHandler(this.更改设置Value_Value);
             // 
-            // S_收益衰减标签
-            // 
-            this.S_收益衰减标签.AutoSize = true;
-            this.S_收益衰减标签.Location = new System.Drawing.Point(32, 258);
-            this.S_收益衰减标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.S_收益衰减标签.Name = "S_收益衰减标签";
-            this.S_收益衰减标签.Size = new System.Drawing.Size(91, 15);
-            this.S_收益衰减标签.TabIndex = 13;
-            this.S_收益衰减标签.Text = "Inc reduction %";
-            // 
             // S_LessExpGradeRate
             // 
             this.S_LessExpGradeRate.DecimalPlaces = 2;
             this.S_LessExpGradeRate.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.S_LessExpGradeRate.Location = new System.Drawing.Point(146, 252);
+            this.S_LessExpGradeRate.Location = new System.Drawing.Point(189, 252);
             this.S_LessExpGradeRate.Margin = new System.Windows.Forms.Padding(4);
             this.S_LessExpGradeRate.Maximum = new decimal(new int[] {
             1,
@@ -1707,17 +1717,17 @@
             // S_收益等级标签
             // 
             this.S_收益等级标签.AutoSize = true;
-            this.S_收益等级标签.Location = new System.Drawing.Point(32, 221);
+            this.S_收益等级标签.Location = new System.Drawing.Point(0, 226);
             this.S_收益等级标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_收益等级标签.Name = "S_收益等级标签";
-            this.S_收益等级标签.Size = new System.Drawing.Size(99, 15);
+            this.S_收益等级标签.Size = new System.Drawing.Size(190, 15);
             this.S_收益等级标签.TabIndex = 11;
-            this.S_收益等级标签.Text = "EXP Diff LvlMobs";
+            this.S_收益等级标签.Text = "Max Lvl Exp Received From mobs";
             // 
             // S_LessExpGrade
             // 
             this.S_LessExpGrade.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.S_LessExpGrade.Location = new System.Drawing.Point(146, 217);
+            this.S_LessExpGrade.Location = new System.Drawing.Point(189, 217);
             this.S_LessExpGrade.Margin = new System.Windows.Forms.Padding(4);
             this.S_LessExpGrade.Maximum = new decimal(new int[] {
             30,
@@ -1733,7 +1743,7 @@
             // S_经验倍率标签
             // 
             this.S_经验倍率标签.AutoSize = true;
-            this.S_经验倍率标签.Location = new System.Drawing.Point(32, 184);
+            this.S_经验倍率标签.Location = new System.Drawing.Point(70, 187);
             this.S_经验倍率标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_经验倍率标签.Name = "S_经验倍率标签";
             this.S_经验倍率标签.Size = new System.Drawing.Size(56, 15);
@@ -1749,7 +1759,7 @@
             0,
             0,
             65536});
-            this.S_ExpRate.Location = new System.Drawing.Point(146, 180);
+            this.S_ExpRate.Location = new System.Drawing.Point(189, 178);
             this.S_ExpRate.Margin = new System.Windows.Forms.Padding(4);
             this.S_ExpRate.Maximum = new decimal(new int[] {
             1000000,
@@ -1765,7 +1775,7 @@
             // S_特修折扣标签
             // 
             this.S_特修折扣标签.AutoSize = true;
-            this.S_特修折扣标签.Location = new System.Drawing.Point(32, 112);
+            this.S_特修折扣标签.Location = new System.Drawing.Point(70, 115);
             this.S_特修折扣标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_特修折扣标签.Name = "S_特修折扣标签";
             this.S_特修折扣标签.Size = new System.Drawing.Size(94, 15);
@@ -1781,7 +1791,7 @@
             0,
             0,
             65536});
-            this.S_EquipRepairDto.Location = new System.Drawing.Point(146, 108);
+            this.S_EquipRepairDto.Location = new System.Drawing.Point(189, 106);
             this.S_EquipRepairDto.Margin = new System.Windows.Forms.Padding(4);
             this.S_EquipRepairDto.Maximum = new decimal(new int[] {
             1,
@@ -1797,7 +1807,7 @@
             // S_怪物爆率标签
             // 
             this.S_怪物爆率标签.AutoSize = true;
-            this.S_怪物爆率标签.Location = new System.Drawing.Point(32, 149);
+            this.S_怪物爆率标签.Location = new System.Drawing.Point(70, 152);
             this.S_怪物爆率标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_怪物爆率标签.Name = "S_怪物爆率标签";
             this.S_怪物爆率标签.Size = new System.Drawing.Size(93, 15);
@@ -1813,7 +1823,7 @@
             0,
             0,
             131072});
-            this.S_ExtraDropRate.Location = new System.Drawing.Point(146, 143);
+            this.S_ExtraDropRate.Location = new System.Drawing.Point(189, 143);
             this.S_ExtraDropRate.Margin = new System.Windows.Forms.Padding(4);
             this.S_ExtraDropRate.Maximum = new decimal(new int[] {
             1,
@@ -1829,17 +1839,17 @@
             // S_OpenLevelCommand标签
             // 
             this.S_OpenLevelCommand标签.AutoSize = true;
-            this.S_OpenLevelCommand标签.Location = new System.Drawing.Point(32, 40);
+            this.S_OpenLevelCommand标签.Location = new System.Drawing.Point(70, 43);
             this.S_OpenLevelCommand标签.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.S_OpenLevelCommand标签.Name = "S_OpenLevelCommand标签";
-            this.S_OpenLevelCommand标签.Size = new System.Drawing.Size(60, 15);
+            this.S_OpenLevelCommand标签.Size = new System.Drawing.Size(97, 15);
             this.S_OpenLevelCommand标签.TabIndex = 3;
-            this.S_OpenLevelCommand标签.Text = "Max Level";
+            this.S_OpenLevelCommand标签.Text = "Max Player Level";
             // 
             // S_MaxLevel
             // 
             this.S_MaxLevel.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.S_MaxLevel.Location = new System.Drawing.Point(146, 34);
+            this.S_MaxLevel.Location = new System.Drawing.Point(189, 34);
             this.S_MaxLevel.Margin = new System.Windows.Forms.Padding(4);
             this.S_MaxLevel.Maximum = new decimal(new int[] {
             255,
@@ -1869,7 +1879,7 @@
             this.S_网络设置分组.Margin = new System.Windows.Forms.Padding(4);
             this.S_网络设置分组.Name = "S_网络设置分组";
             this.S_网络设置分组.Padding = new System.Windows.Forms.Padding(4);
-            this.S_网络设置分组.Size = new System.Drawing.Size(329, 420);
+            this.S_网络设置分组.Size = new System.Drawing.Size(298, 420);
             this.S_网络设置分组.TabIndex = 0;
             this.S_网络设置分组.TabStop = false;
             this.S_网络设置分组.Text = "Network Settings";
@@ -2107,6 +2117,18 @@
             // 定时发送公告
             // 
             this.定时发送公告.Tick += new System.EventHandler(this.定时发送公告_Tick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.Blue;
+            this.label1.Location = new System.Drawing.Point(24, 473);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(425, 15);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Incoming % exp defines the amount of less exp received until max lvl exp cap";
             // 
             // MainForm
             // 
@@ -2549,5 +2571,6 @@
 		private global::System.Windows.Forms.TextBox S_软件注册代码;
         private System.Windows.Forms.TabPage tabPackets;
         private System.Windows.Forms.RichTextBox rtbPacketsLogs;
+        private System.Windows.Forms.Label label1;
     }
 }

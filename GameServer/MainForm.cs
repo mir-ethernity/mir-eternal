@@ -1738,5 +1738,25 @@ namespace GameServer
 
 
         private static Dictionary<Monsters, List<KeyValuePair<GameItems, long>>> 怪物掉落表;
+
+        private void S_注意事项标签3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void S_注意事项标签5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void S_注意事项标签6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void S_注意事项标签8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
