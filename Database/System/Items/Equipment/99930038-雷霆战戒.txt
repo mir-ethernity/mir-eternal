@@ -13,7 +13,7 @@
   "StoreType": "首饰",
   "NeedAttack": 45,
   "BasicPowerCombat": 208,
-  "MaxAC": 8,
+  "MaxDC": 8,
   "CanRepair": true,
   "RepairCost": 30000,
   "SpecialRepairCost": 150000,

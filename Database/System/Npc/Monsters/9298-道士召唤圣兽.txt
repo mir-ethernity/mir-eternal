@@ -110,7 +110,7 @@
       "Level7": 30
     },
     {
-      "Stat": "MinMagicDef",
+      "Stat": "MinMCDef",
       "Level0": 17,
       "Level1": 17,
       "Level2": 17,
@@ -121,7 +121,7 @@
       "Level7": 30
     },
     {
-      "Stat": "MaxMagicDef",
+      "Stat": "MaxMCDef",
       "Level0": 23,
       "Level1": 23,
       "Level2": 23,
@@ -167,12 +167,12 @@
     {
       "InheritsStats": "GreatestTaoism",
       "Ratio": 0.4,
-      "ConvertStat": "MinMagicDef"
+      "ConvertStat": "MinMCDef"
     },
     {
       "InheritsStats": "GreatestTaoism",
       "Ratio": 0.6,
-      "ConvertStat": "MaxMagicDef"
+      "ConvertStat": "MaxMCDef"
     },
     {
       "InheritsStats": "PhysicalAgility",

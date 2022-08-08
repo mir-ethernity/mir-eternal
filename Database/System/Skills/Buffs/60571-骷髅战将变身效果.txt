@@ -16,14 +16,14 @@
   "RequireBuff": [],
   "StatsIncOrDec": [
     {
-      "Stat": "MinAC",
+      "Stat": "MinDC",
       "Level0": 4,
       "Level1": 6,
       "Level2": 8,
       "Level3": 10
     },
     {
-      "Stat": "MaxAC",
+      "Stat": "MaxDC",
       "Level0": 4,
       "Level1": 6,
       "Level2": 8,
@@ -37,7 +37,7 @@
       "Level3": 10
     },
     {
-      "Stat": "MaxMagicDef",
+      "Stat": "MaxMCDef",
       "Level0": 4,
       "Level1": 6,
       "Level2": 8,

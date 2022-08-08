@@ -17,7 +17,7 @@
   "MinNeedle": 1,
   "MinDef": 2,
   "MaxDef": 3,
-  "MaxMagicDef": 1,
+  "MaxMCDef": 1,
   "CanRepair": true,
   "RepairCost": 18000,
   "SpecialRepairCost": 90000,

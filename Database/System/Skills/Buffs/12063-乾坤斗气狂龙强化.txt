@@ -16,7 +16,7 @@
   "RequireBuff": [],
   "StatsIncOrDec": [
     {
-      "Stat": "MaxAC",
+      "Stat": "MaxDC",
       "Level0": 1,
       "Level1": 2,
       "Level2": 3,

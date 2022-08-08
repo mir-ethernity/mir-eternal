@@ -9907,10 +9907,10 @@ namespace GameServer.Maps
                 if (equipmentItem.NeedRace != GameObjectRace.通用 && equipmentItem.NeedRace != CharRole)
                     return;
 
-                if (equipmentItem.NeedAttack > this[GameObjectStats.MaxAC])
+                if (equipmentItem.NeedAttack > this[GameObjectStats.MaxDC])
                     return;
 
-                if (equipmentItem.NeedMagic > this[GameObjectStats.MaxMagic])
+                if (equipmentItem.NeedMagic > this[GameObjectStats.MaxMC])
                     return;
 
                 if (equipmentItem.NeedTaoism > this[GameObjectStats.GreatestTaoism])
@@ -9995,10 +9995,10 @@ namespace GameServer.Maps
                 if (equipmentItem.NeedRace != GameObjectRace.通用 && equipmentItem.NeedRace != this.CharRole)
                     return;
 
-                if (equipmentItem.NeedAttack > this[GameObjectStats.MaxAC])
+                if (equipmentItem.NeedAttack > this[GameObjectStats.MaxDC])
                     return;
 
-                if (equipmentItem.NeedMagic > this[GameObjectStats.MaxMagic])
+                if (equipmentItem.NeedMagic > this[GameObjectStats.MaxMC])
                     return;
 
                 if (equipmentItem.NeedTaoism > this[GameObjectStats.GreatestTaoism])
@@ -13374,11 +13374,11 @@ namespace GameServer.Maps
                     {
                         Dictionary<GameObjectStats, int> 装备Stat = EquipmentData3.装备Stat;
                         int value;
-                        if ((value = (装备Stat.ContainsKey(GameObjectStats.MinAC) ? 装备Stat[GameObjectStats.MinAC] : 0) + (装备Stat.ContainsKey(GameObjectStats.MaxAC) ? 装备Stat[GameObjectStats.MaxAC] : 0)) > 0)
+                        if ((value = (装备Stat.ContainsKey(GameObjectStats.MinDC) ? 装备Stat[GameObjectStats.MinDC] : 0) + (装备Stat.ContainsKey(GameObjectStats.MaxDC) ? 装备Stat[GameObjectStats.MaxDC] : 0)) > 0)
                         {
                             dictionary4[0][EquipmentData3] = value;
                         }
-                        if ((value = (装备Stat.ContainsKey(GameObjectStats.MinMagic) ? 装备Stat[GameObjectStats.MinMagic] : 0) + (装备Stat.ContainsKey(GameObjectStats.MaxMagic) ? 装备Stat[GameObjectStats.MaxMagic] : 0)) > 0)
+                        if ((value = (装备Stat.ContainsKey(GameObjectStats.MinMC) ? 装备Stat[GameObjectStats.MinMC] : 0) + (装备Stat.ContainsKey(GameObjectStats.MaxMC) ? 装备Stat[GameObjectStats.MaxMC] : 0)) > 0)
                         {
                             dictionary4[1][EquipmentData3] = value;
                         }

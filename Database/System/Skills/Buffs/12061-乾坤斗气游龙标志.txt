@@ -29,14 +29,14 @@
       "Level3": 4
     },
     {
-      "Stat": "MinMagicDef",
+      "Stat": "MinMCDef",
       "Level0": 1,
       "Level1": 2,
       "Level2": 3,
       "Level3": 4
     },
     {
-      "Stat": "MaxMagicDef",
+      "Stat": "MaxMCDef",
       "Level0": 1,
       "Level1": 2,
       "Level2": 3,

@@ -14,7 +14,7 @@
   "PersistType": "装备",
   "StoreType": "服装",
   "BasicPowerCombat": 64,
-  "MaxAC": 3,
+  "MaxDC": 3,
   "CanRepair": true,
   "RepairCost": 9000,
   "SpecialRepairCost": 27000,

@@ -40,17 +40,17 @@
       "Stat": "MagicDodge"
     },
     {
-      "Stat": "MinAC"
+      "Stat": "MinDC"
     },
     {
-      "Stat": "MaxAC"
+      "Stat": "MaxDC"
     },
     {
-      "Stat": "MinMagic",
+      "Stat": "MinMC",
       "Value": 19
     },
     {
-      "Stat": "MaxMagic",
+      "Stat": "MaxMC",
       "Value": 45
     },
     {
@@ -62,11 +62,11 @@
       "Value": 32
     },
     {
-      "Stat": "MinMagicDef",
+      "Stat": "MinMCDef",
       "Value": 26
     },
     {
-      "Stat": "MaxMagicDef",
+      "Stat": "MaxMCDef",
       "Value": 39
     }
   ],

@@ -16,7 +16,7 @@
   "BasicPowerCombat": 54,
   "MinDef": 1,
   "MaxDef": 2,
-  "MaxMagicDef": 1,
+  "MaxMCDef": 1,
   "CanRepair": true,
   "RepairCost": 6000,
   "SpecialRepairCost": 30000,

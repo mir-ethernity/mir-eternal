@@ -1,5 +1,5 @@
 {
-  "Stat": "MaxMagicDef",
+  "Stat": "MaxMCDef",
   "Value": 4,
   "StatId": 10031,
   "CombatBonus": 40,

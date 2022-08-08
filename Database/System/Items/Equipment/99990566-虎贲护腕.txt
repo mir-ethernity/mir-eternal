@@ -14,7 +14,7 @@
   "PersistType": "装备",
   "StoreType": "服装",
   "BasicPowerCombat": 48,
-  "MaxAC": 2,
+  "MaxDC": 2,
   "MaxHP": 50,
   "MaxMP": 10,
   "CanRepair": true,

@@ -12,17 +12,17 @@ namespace GameServer
 		
 		MaxDef,
 		
-		MinMagicDef,
+		MinMCDef,
 		
-		MaxMagicDef,
+		MaxMCDef,
 		
-		MinAC,
+		MinDC,
 		
-		MaxAC,
+		MaxDC,
 		
-		MinMagic,
+		MinMC,
 		
-		MaxMagic,
+		MaxMC,
 		
 		Minimalist,
 		

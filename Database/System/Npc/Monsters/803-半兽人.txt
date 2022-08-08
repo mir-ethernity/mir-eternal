@@ -49,18 +49,18 @@
       "Stat": "MagicDodge"
     },
     {
-      "Stat": "MinAC",
+      "Stat": "MinDC",
       "Value": 4
     },
     {
-      "Stat": "MaxAC",
+      "Stat": "MaxDC",
       "Value": 9
     },
     {
-      "Stat": "MinMagic"
+      "Stat": "MinMC"
     },
     {
-      "Stat": "MaxMagic"
+      "Stat": "MaxMC"
     },
     {
       "Stat": "MinDef",
@@ -71,10 +71,10 @@
       "Value": 1
     },
     {
-      "Stat": "MinMagicDef"
+      "Stat": "MinMCDef"
     },
     {
-      "Stat": "MaxMagicDef"
+      "Stat": "MaxMCDef"
     }
   ],
   "Grows": [
@@ -148,7 +148,7 @@
       "Stat": "MagicDodge"
     },
     {
-      "Stat": "MinAC",
+      "Stat": "MinDC",
       "Level0": 4,
       "Level1": 4,
       "Level2": 4,
@@ -159,7 +159,7 @@
       "Level7": 4
     },
     {
-      "Stat": "MaxAC",
+      "Stat": "MaxDC",
       "Level0": 9,
       "Level1": 10,
       "Level2": 11,
@@ -170,10 +170,10 @@
       "Level7": 16
     },
     {
-      "Stat": "MinMagic"
+      "Stat": "MinMC"
     },
     {
-      "Stat": "MaxMagic"
+      "Stat": "MaxMC"
     },
     {
       "Stat": "MinDef",
@@ -198,10 +198,10 @@
       "Level7": 8
     },
     {
-      "Stat": "MinMagicDef"
+      "Stat": "MinMCDef"
     },
     {
-      "Stat": "MaxMagicDef",
+      "Stat": "MaxMCDef",
       "Level1": 1,
       "Level2": 2,
       "Level3": 3,

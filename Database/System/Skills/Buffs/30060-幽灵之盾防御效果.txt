@@ -23,7 +23,7 @@
   "StatDelayFactor": 1000,
   "StatsIncOrDec": [
     {
-      "Stat": "MaxMagicDef",
+      "Stat": "MaxMCDef",
       "Level0": 5,
       "Level1": 6,
       "Level2": 7,

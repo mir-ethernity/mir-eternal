@@ -67,7 +67,7 @@
       "Level7": 7
     },
     {
-      "Stat": "MinAC",
+      "Stat": "MinDC",
       "Level0": 10,
       "Level1": 11,
       "Level2": 12,
@@ -78,7 +78,7 @@
       "Level7": 17
     },
     {
-      "Stat": "MaxAC",
+      "Stat": "MaxDC",
       "Level0": 15,
       "Level1": 16,
       "Level2": 17,
@@ -111,7 +111,7 @@
       "Level7": 12
     },
     {
-      "Stat": "MinMagicDef",
+      "Stat": "MinMCDef",
       "Level0": 2,
       "Level1": 2,
       "Level2": 2,
@@ -122,7 +122,7 @@
       "Level7": 4
     },
     {
-      "Stat": "MaxMagicDef",
+      "Stat": "MaxMCDef",
       "Level0": 8,
       "Level1": 8,
       "Level2": 8,
@@ -148,12 +148,12 @@
     {
       "InheritsStats": "GreatestTaoism",
       "Ratio": 0.2,
-      "ConvertStat": "MinAC"
+      "ConvertStat": "MinDC"
     },
     {
       "InheritsStats": "GreatestTaoism",
       "Ratio": 0.5,
-      "ConvertStat": "MaxAC"
+      "ConvertStat": "MaxDC"
     },
     {
       "InheritsStats": "GreatestTaoism",
@@ -168,12 +168,12 @@
     {
       "InheritsStats": "GreatestTaoism",
       "Ratio": 0.2,
-      "ConvertStat": "MinMagicDef"
+      "ConvertStat": "MinMCDef"
     },
     {
       "InheritsStats": "GreatestTaoism",
       "Ratio": 0.4,
-      "ConvertStat": "MaxMagicDef"
+      "ConvertStat": "MaxMCDef"
     },
     {
       "InheritsStats": "PhysicalAgility",

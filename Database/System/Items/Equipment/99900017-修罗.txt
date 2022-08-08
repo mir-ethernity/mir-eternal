@@ -13,7 +13,7 @@
   "PersistType": "装备",
   "StoreType": "武器",
   "BasicPowerCombat": 162,
-  "MaxAC": 20,
+  "MaxDC": 20,
   "CanRepair": true,
   "RepairCost": 3000,
   "SpecialRepairCost": 15000,

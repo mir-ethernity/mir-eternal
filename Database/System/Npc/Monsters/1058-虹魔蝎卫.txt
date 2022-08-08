@@ -42,17 +42,17 @@
       "Value": 2000
     },
     {
-      "Stat": "MinAC"
+      "Stat": "MinDC"
     },
     {
-      "Stat": "MaxAC"
+      "Stat": "MaxDC"
     },
     {
-      "Stat": "MinMagic",
+      "Stat": "MinMC",
       "Value": 40
     },
     {
-      "Stat": "MaxMagic",
+      "Stat": "MaxMC",
       "Value": 75
     },
     {
@@ -64,11 +64,11 @@
       "Value": 32
     },
     {
-      "Stat": "MinMagicDef",
+      "Stat": "MinMCDef",
       "Value": 24
     },
     {
-      "Stat": "MaxMagicDef",
+      "Stat": "MaxMCDef",
       "Value": 33
     }
   ],

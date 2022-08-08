@@ -13,7 +13,7 @@
   "PersistType": "装备",
   "StoreType": "首饰",
   "BasicPowerCombat": 35,
-  "MinAC": 1,
+  "MinDC": 1,
   "MagicDodge": 1000,
   "CanRepair": true,
   "RepairCost": 900,

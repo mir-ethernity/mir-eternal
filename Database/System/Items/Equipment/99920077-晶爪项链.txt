@@ -17,7 +17,7 @@
   "MinBow": 1,
   "MaxBow": 8,
   "MaxDef": 1,
-  "MaxMagicDef": 1,
+  "MaxMCDef": 1,
   "CanRepair": true,
   "RepairCost": 36000,
   "SpecialRepairCost": 180000,

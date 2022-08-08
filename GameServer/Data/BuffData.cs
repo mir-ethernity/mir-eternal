@@ -94,10 +94,10 @@ namespace GameServer.Data
 				switch (this.伤害类型)
 				{
 				case SkillDamageType.Attack:
-					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinAC], 来源[GameObjectStats.MaxAC], 来源[GameObjectStats.幸运等级]);
+					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinDC], 来源[GameObjectStats.MaxDC], 来源[GameObjectStats.幸运等级]);
 					break;
 				case SkillDamageType.Magic:
-					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinMagic], 来源[GameObjectStats.MaxMagic], 来源[GameObjectStats.幸运等级]);
+					num4 = ComputingClass.计算Attack(来源[GameObjectStats.MinMC], 来源[GameObjectStats.MaxMC], 来源[GameObjectStats.幸运等级]);
 					break;
 				case SkillDamageType.Taoism:
 					num4 = ComputingClass.计算Attack(来源[GameObjectStats.Minimalist], 来源[GameObjectStats.GreatestTaoism], 来源[GameObjectStats.幸运等级]);

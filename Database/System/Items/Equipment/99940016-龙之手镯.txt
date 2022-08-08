@@ -14,7 +14,7 @@
   "StoreType": "首饰",
   "NeedMagic": 28,
   "BasicPowerCombat": 76,
-  "MaxMagic": 3,
+  "MaxMC": 3,
   "CanRepair": true,
   "RepairCost": 7200,
   "SpecialRepairCost": 36000,

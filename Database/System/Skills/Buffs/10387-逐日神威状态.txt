@@ -29,7 +29,7 @@
       "Level3": 5
     },
     {
-      "Stat": "MaxAC",
+      "Stat": "MaxDC",
       "Level0": 15,
       "Level1": 30,
       "Level2": 25,

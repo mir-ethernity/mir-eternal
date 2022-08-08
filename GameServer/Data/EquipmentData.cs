@@ -516,17 +516,17 @@ namespace GameServer.Data
                 {
                     dictionary[随机Stat.Stat] = 随机Stat.Value;
                 }
-                if (dictionary.ContainsKey(GameObjectStats.MinAC) || dictionary.ContainsKey(GameObjectStats.MaxAC))
+                if (dictionary.ContainsKey(GameObjectStats.MinDC) || dictionary.ContainsKey(GameObjectStats.MaxDC))
                 {
                     int num;
                     int num2;
-                    text += string.Format("\nAttack{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinAC, out num) ? num : 0, dictionary.TryGetValue(GameObjectStats.MaxAC, out num2) ? num2 : 0);
+                    text += string.Format("\nAttack{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinDC, out num) ? num : 0, dictionary.TryGetValue(GameObjectStats.MaxDC, out num2) ? num2 : 0);
                 }
-                if (dictionary.ContainsKey(GameObjectStats.MinMagic) || dictionary.ContainsKey(GameObjectStats.MaxMagic))
+                if (dictionary.ContainsKey(GameObjectStats.MinMC) || dictionary.ContainsKey(GameObjectStats.MaxMC))
                 {
                     int num3;
                     int num4;
-                    text += string.Format("\nMagic{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinMagic, out num3) ? num3 : 0, dictionary.TryGetValue(GameObjectStats.MaxMagic, out num4) ? num4 : 0);
+                    text += string.Format("\nMagic{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinMC, out num3) ? num3 : 0, dictionary.TryGetValue(GameObjectStats.MaxMC, out num4) ? num4 : 0);
                 }
                 if (dictionary.ContainsKey(GameObjectStats.Minimalist) || dictionary.ContainsKey(GameObjectStats.GreatestTaoism))
                 {
@@ -552,11 +552,11 @@ namespace GameServer.Data
                     int num12;
                     text += string.Format("\nDefence{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinDef, out num11) ? num11 : 0, dictionary.TryGetValue(GameObjectStats.MaxDef, out num12) ? num12 : 0);
                 }
-                if (dictionary.ContainsKey(GameObjectStats.MinMagicDef) || dictionary.ContainsKey(GameObjectStats.MaxMagicDef))
+                if (dictionary.ContainsKey(GameObjectStats.MinMCDef) || dictionary.ContainsKey(GameObjectStats.MaxMCDef))
                 {
                     int num13;
                     int num14;
-                    text += string.Format("\nMagic Defense{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinMagicDef, out num13) ? num13 : 0, dictionary.TryGetValue(GameObjectStats.MaxMagicDef, out num14) ? num14 : 0);
+                    text += string.Format("\nMagic Defense{0}-{1}", dictionary.TryGetValue(GameObjectStats.MinMCDef, out num13) ? num13 : 0, dictionary.TryGetValue(GameObjectStats.MaxMCDef, out num14) ? num14 : 0);
                 }
                 if (dictionary.ContainsKey(GameObjectStats.PhysicallyAccurate))
                 {
@@ -763,21 +763,21 @@ namespace GameServer.Data
             get
             {
                 Dictionary<GameObjectStats, int> dictionary = new Dictionary<GameObjectStats, int>();
-                if (装备模板.MinAC != 0)
+                if (装备模板.MinDC != 0)
                 {
-                    dictionary[GameObjectStats.MinAC] = 装备模板.MinAC;
+                    dictionary[GameObjectStats.MinDC] = 装备模板.MinDC;
                 }
-                if (装备模板.MaxAC != 0)
+                if (装备模板.MaxDC != 0)
                 {
-                    dictionary[GameObjectStats.MaxAC] = 装备模板.MaxAC;
+                    dictionary[GameObjectStats.MaxDC] = 装备模板.MaxDC;
                 }
-                if (装备模板.MinMagic != 0)
+                if (装备模板.MinMC != 0)
                 {
-                    dictionary[GameObjectStats.MinMagic] = 装备模板.MinMagic;
+                    dictionary[GameObjectStats.MinMC] = 装备模板.MinMC;
                 }
-                if (装备模板.MaxMagic != 0)
+                if (装备模板.MaxMC != 0)
                 {
-                    dictionary[GameObjectStats.MaxMagic] = 装备模板.MaxMagic;
+                    dictionary[GameObjectStats.MaxMC] = 装备模板.MaxMC;
                 }
                 if (装备模板.Minimalist != 0)
                 {
@@ -811,13 +811,13 @@ namespace GameServer.Data
                 {
                     dictionary[GameObjectStats.MaxDef] = 装备模板.MaxDef;
                 }
-                if (装备模板.MinMagicDef != 0)
+                if (装备模板.MinMCDef != 0)
                 {
-                    dictionary[GameObjectStats.MinMagicDef] = 装备模板.MinMagicDef;
+                    dictionary[GameObjectStats.MinMCDef] = 装备模板.MinMCDef;
                 }
-                if (装备模板.MaxMagicDef != 0)
+                if (装备模板.MaxMCDef != 0)
                 {
-                    dictionary[GameObjectStats.MaxMagicDef] = 装备模板.MaxMagicDef;
+                    dictionary[GameObjectStats.MaxMCDef] = 装备模板.MaxMCDef;
                 }
                 if (装备模板.MaxHP != 0)
                 {
@@ -849,11 +849,11 @@ namespace GameServer.Data
                 }
                 if (升级Attack.V != 0)
                 {
-                    dictionary[GameObjectStats.MaxAC] = (dictionary.ContainsKey(GameObjectStats.MaxAC) ? (dictionary[GameObjectStats.MaxAC] + (int)升级Attack.V) : ((int)升级Attack.V));
+                    dictionary[GameObjectStats.MaxDC] = (dictionary.ContainsKey(GameObjectStats.MaxDC) ? (dictionary[GameObjectStats.MaxDC] + (int)升级Attack.V) : ((int)升级Attack.V));
                 }
                 if (升级Magic.V != 0)
                 {
-                    dictionary[GameObjectStats.MaxMagic] = (dictionary.ContainsKey(GameObjectStats.MaxMagic) ? (dictionary[GameObjectStats.MaxMagic] + (int)升级Magic.V) : ((int)升级Magic.V));
+                    dictionary[GameObjectStats.MaxMC] = (dictionary.ContainsKey(GameObjectStats.MaxMC) ? (dictionary[GameObjectStats.MaxMC] + (int)升级Magic.V) : ((int)升级Magic.V));
                 }
                 if (升级Taoism.V != 0)
                 {
@@ -936,19 +936,19 @@ namespace GameServer.Data
                                         switch (Id)
                                         {
                                             case 10320:
-                                                dictionary[GameObjectStats.MaxMagic] = (dictionary.ContainsKey(GameObjectStats.MaxMagic) ? (dictionary[GameObjectStats.MaxMagic] + 1) : 1);
+                                                dictionary[GameObjectStats.MaxMC] = (dictionary.ContainsKey(GameObjectStats.MaxMC) ? (dictionary[GameObjectStats.MaxMC] + 1) : 1);
                                                 break;
                                             case 10321:
-                                                dictionary[GameObjectStats.MaxMagic] = (dictionary.ContainsKey(GameObjectStats.MaxMagic) ? (dictionary[GameObjectStats.MaxMagic] + 2) : 2);
+                                                dictionary[GameObjectStats.MaxMC] = (dictionary.ContainsKey(GameObjectStats.MaxMC) ? (dictionary[GameObjectStats.MaxMC] + 2) : 2);
                                                 break;
                                             case 10322:
-                                                dictionary[GameObjectStats.MaxMagic] = (dictionary.ContainsKey(GameObjectStats.MaxMagic) ? (dictionary[GameObjectStats.MaxMagic] + 3) : 3);
+                                                dictionary[GameObjectStats.MaxMC] = (dictionary.ContainsKey(GameObjectStats.MaxMC) ? (dictionary[GameObjectStats.MaxMC] + 3) : 3);
                                                 break;
                                             case 10323:
-                                                dictionary[GameObjectStats.MaxMagic] = (dictionary.ContainsKey(GameObjectStats.MaxMagic) ? (dictionary[GameObjectStats.MaxMagic] + 4) : 4);
+                                                dictionary[GameObjectStats.MaxMC] = (dictionary.ContainsKey(GameObjectStats.MaxMC) ? (dictionary[GameObjectStats.MaxMC] + 4) : 4);
                                                 break;
                                             case 10324:
-                                                dictionary[GameObjectStats.MaxMagic] = (dictionary.ContainsKey(GameObjectStats.MaxMagic) ? (dictionary[GameObjectStats.MaxMagic] + 5) : 5);
+                                                dictionary[GameObjectStats.MaxMC] = (dictionary.ContainsKey(GameObjectStats.MaxMC) ? (dictionary[GameObjectStats.MaxMC] + 5) : 5);
                                                 break;
                                         }
                                         break;
@@ -961,37 +961,37 @@ namespace GameServer.Data
                         switch (Id)
                         {
                             case 10420:
-                                dictionary[GameObjectStats.MaxAC] = (dictionary.ContainsKey(GameObjectStats.MaxAC) ? (dictionary[GameObjectStats.MaxAC] + 1) : 1);
+                                dictionary[GameObjectStats.MaxDC] = (dictionary.ContainsKey(GameObjectStats.MaxDC) ? (dictionary[GameObjectStats.MaxDC] + 1) : 1);
                                 break;
                             case 10421:
-                                dictionary[GameObjectStats.MaxAC] = (dictionary.ContainsKey(GameObjectStats.MaxAC) ? (dictionary[GameObjectStats.MaxAC] + 2) : 2);
+                                dictionary[GameObjectStats.MaxDC] = (dictionary.ContainsKey(GameObjectStats.MaxDC) ? (dictionary[GameObjectStats.MaxDC] + 2) : 2);
                                 break;
                             case 10422:
-                                dictionary[GameObjectStats.MaxAC] = (dictionary.ContainsKey(GameObjectStats.MaxAC) ? (dictionary[GameObjectStats.MaxAC] + 3) : 3);
+                                dictionary[GameObjectStats.MaxDC] = (dictionary.ContainsKey(GameObjectStats.MaxDC) ? (dictionary[GameObjectStats.MaxDC] + 3) : 3);
                                 break;
                             case 10423:
-                                dictionary[GameObjectStats.MaxAC] = (dictionary.ContainsKey(GameObjectStats.MaxAC) ? (dictionary[GameObjectStats.MaxAC] + 4) : 4);
+                                dictionary[GameObjectStats.MaxDC] = (dictionary.ContainsKey(GameObjectStats.MaxDC) ? (dictionary[GameObjectStats.MaxDC] + 4) : 4);
                                 break;
                             case 10424:
-                                dictionary[GameObjectStats.MaxAC] = (dictionary.ContainsKey(GameObjectStats.MaxAC) ? (dictionary[GameObjectStats.MaxAC] + 5) : 5);
+                                dictionary[GameObjectStats.MaxDC] = (dictionary.ContainsKey(GameObjectStats.MaxDC) ? (dictionary[GameObjectStats.MaxDC] + 5) : 5);
                                 break;
                             default:
                                 switch (Id)
                                 {
                                     case 10520:
-                                        dictionary[GameObjectStats.MaxMagicDef] = (dictionary.ContainsKey(GameObjectStats.MaxMagicDef) ? (dictionary[GameObjectStats.MaxMagicDef] + 1) : 1);
+                                        dictionary[GameObjectStats.MaxMCDef] = (dictionary.ContainsKey(GameObjectStats.MaxMCDef) ? (dictionary[GameObjectStats.MaxMCDef] + 1) : 1);
                                         break;
                                     case 10521:
-                                        dictionary[GameObjectStats.MaxMagicDef] = (dictionary.ContainsKey(GameObjectStats.MaxMagicDef) ? (dictionary[GameObjectStats.MaxMagicDef] + 2) : 2);
+                                        dictionary[GameObjectStats.MaxMCDef] = (dictionary.ContainsKey(GameObjectStats.MaxMCDef) ? (dictionary[GameObjectStats.MaxMCDef] + 2) : 2);
                                         break;
                                     case 10522:
-                                        dictionary[GameObjectStats.MaxMagicDef] = (dictionary.ContainsKey(GameObjectStats.MaxMagicDef) ? (dictionary[GameObjectStats.MaxMagicDef] + 3) : 3);
+                                        dictionary[GameObjectStats.MaxMCDef] = (dictionary.ContainsKey(GameObjectStats.MaxMCDef) ? (dictionary[GameObjectStats.MaxMCDef] + 3) : 3);
                                         break;
                                     case 10523:
-                                        dictionary[GameObjectStats.MaxMagicDef] = (dictionary.ContainsKey(GameObjectStats.MaxMagicDef) ? (dictionary[GameObjectStats.MaxMagicDef] + 4) : 4);
+                                        dictionary[GameObjectStats.MaxMCDef] = (dictionary.ContainsKey(GameObjectStats.MaxMCDef) ? (dictionary[GameObjectStats.MaxMCDef] + 4) : 4);
                                         break;
                                     case 10524:
-                                        dictionary[GameObjectStats.MaxMagicDef] = (dictionary.ContainsKey(GameObjectStats.MaxMagicDef) ? (dictionary[GameObjectStats.MaxMagicDef] + 5) : 5);
+                                        dictionary[GameObjectStats.MaxMCDef] = (dictionary.ContainsKey(GameObjectStats.MaxMCDef) ? (dictionary[GameObjectStats.MaxMCDef] + 5) : 5);
                                         break;
                                 }
                                 break;

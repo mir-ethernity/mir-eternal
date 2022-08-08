@@ -1,5 +1,5 @@
 {
-  "Stat": "MinMagicDef",
+  "Stat": "MinMCDef",
   "Value": 4,
   "StatId": 9031,
   "CombatBonus": 40,

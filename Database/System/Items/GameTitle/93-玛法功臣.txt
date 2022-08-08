@@ -3,8 +3,8 @@
   "Id": 93,
   "Combat": 40,
   "Attributes": {
-    "MaxAC": 1,
-    "MaxMagic": 1,
+    "MaxDC": 1,
+    "MaxMC": 1,
     "GreatestTaoism": 1,
     "MaxNeedle": 1,
     "MaxBow": 1,

@@ -41,18 +41,18 @@
       "Stat": "MagicDodge"
     },
     {
-      "Stat": "MinAC",
+      "Stat": "MinDC",
       "Value": 20
     },
     {
-      "Stat": "MaxAC",
+      "Stat": "MaxDC",
       "Value": 32
     },
     {
-      "Stat": "MinMagic"
+      "Stat": "MinMC"
     },
     {
-      "Stat": "MaxMagic"
+      "Stat": "MaxMC"
     },
     {
       "Stat": "MinDef",
@@ -63,11 +63,11 @@
       "Value": 10
     },
     {
-      "Stat": "MinMagicDef",
+      "Stat": "MinMCDef",
       "Value": 15
     },
     {
-      "Stat": "MaxMagicDef",
+      "Stat": "MaxMCDef",
       "Value": 21
     }
   ],
@@ -142,7 +142,7 @@
       "Stat": "MagicDodge"
     },
     {
-      "Stat": "MinAC",
+      "Stat": "MinDC",
       "Level0": 20,
       "Level1": 20,
       "Level2": 20,
@@ -153,7 +153,7 @@
       "Level7": 20
     },
     {
-      "Stat": "MaxAC",
+      "Stat": "MaxDC",
       "Level0": 26,
       "Level1": 27,
       "Level2": 28,
@@ -164,10 +164,10 @@
       "Level7": 33
     },
     {
-      "Stat": "MinMagic"
+      "Stat": "MinMC"
     },
     {
-      "Stat": "MaxMagic"
+      "Stat": "MaxMC"
     },
     {
       "Stat": "MinDef",
@@ -192,7 +192,7 @@
       "Level7": 17
     },
     {
-      "Stat": "MinMagicDef",
+      "Stat": "MinMCDef",
       "Level0": 15,
       "Level1": 15,
       "Level2": 15,
@@ -203,7 +203,7 @@
       "Level7": 15
     },
     {
-      "Stat": "MaxMagicDef",
+      "Stat": "MaxMCDef",
       "Level0": 21,
       "Level1": 22,
       "Level2": 23,

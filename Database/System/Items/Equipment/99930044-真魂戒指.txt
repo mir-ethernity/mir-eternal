@@ -16,7 +16,7 @@
   "BasicPowerCombat": 220,
   "Minimalist": 2,
   "GreatestTaoism": 9,
-  "MaxMagicDef": 1,
+  "MaxMCDef": 1,
   "CanRepair": true,
   "RepairCost": 36000,
   "SpecialRepairCost": 180000,

@@ -21,7 +21,7 @@
   "SkillLevelDelay": true,
   "ExtendedTimePerLevel": 5000,
   "PlayerStatDelay": true,
-  "BoundPlayerStat": "MaxMagic",
+  "BoundPlayerStat": "MaxMC",
   "StatDelayFactor": 1000,
   "HasSpecificInscriptionDelay": true,
   "SpecificInscriptionSkills": 25352,

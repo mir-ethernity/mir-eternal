@@ -15,10 +15,10 @@ namespace GameServer.Templates
 		public int NeedAcupuncture;
 		public int NeedArchery;
 		public int BasicPowerCombat;
-		public int MinAC;
-		public int MaxAC;
-		public int MinMagic;
-		public int MaxMagic;
+		public int MinDC;
+		public int MaxDC;
+		public int MinMC;
+		public int MaxMC;
 		public int Minimalist;
 		public int GreatestTaoism;
 		public int MinNeedle;
@@ -27,8 +27,8 @@ namespace GameServer.Templates
 		public int MaxBow;
 		public int MinDef;
 		public int MaxDef;
-		public int MinMagicDef;
-		public int MaxMagicDef;
+		public int MinMCDef;
+		public int MaxMCDef;
 		public int MaxHP;
 		public int MaxMP;
 		public int PhysicallyAccurate;

@@ -13,7 +13,7 @@
   "PersistType": "装备",
   "StoreType": "首饰",
   "BasicPowerCombat": 13,
-  "MaxMagic": 1,
+  "MaxMC": 1,
   "CanRepair": true,
   "RepairCost": 240,
   "SpecialRepairCost": 1200,

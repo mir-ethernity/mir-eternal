@@ -1742,14 +1742,14 @@ namespace GameServer.Maps
                         {
                             case SkillDamageType.Attack:
                                 num10 = ComputingClass.计算防御(this[GameObjectStats.MinDef], this[GameObjectStats.MaxDef]);
-                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinAC], MapObject[GameObjectStats.MaxAC], MapObject[GameObjectStats.幸运等级]);
+                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinDC], MapObject[GameObjectStats.MaxDC], MapObject[GameObjectStats.幸运等级]);
                                 break;
                             case SkillDamageType.Magic:
-                                num10 = ComputingClass.计算防御(this[GameObjectStats.MinMagicDef], this[GameObjectStats.MaxMagicDef]);
-                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinMagic], MapObject[GameObjectStats.MaxMagic], MapObject[GameObjectStats.幸运等级]);
+                                num10 = ComputingClass.计算防御(this[GameObjectStats.MinMCDef], this[GameObjectStats.MaxMCDef]);
+                                num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.MinMC], MapObject[GameObjectStats.MaxMC], MapObject[GameObjectStats.幸运等级]);
                                 break;
                             case SkillDamageType.Taoism:
-                                num10 = ComputingClass.计算防御(this[GameObjectStats.MinMagicDef], this[GameObjectStats.MaxMagicDef]);
+                                num10 = ComputingClass.计算防御(this[GameObjectStats.MinMCDef], this[GameObjectStats.MaxMCDef]);
                                 num9 = ComputingClass.计算Attack(MapObject[GameObjectStats.Minimalist], MapObject[GameObjectStats.GreatestTaoism], MapObject[GameObjectStats.幸运等级]);
                                 break;
                             case SkillDamageType.Needle:
@@ -2184,7 +2184,7 @@ namespace GameServer.Maps
                     break;
                 case SkillDamageType.Magic:
                 case SkillDamageType.Taoism:
-                    num = ComputingClass.计算防御(this[GameObjectStats.MinMagicDef], this[GameObjectStats.MaxMagicDef]);
+                    num = ComputingClass.计算防御(this[GameObjectStats.MinMCDef], this[GameObjectStats.MaxMCDef]);
                     break;
             }
             int num2 = Math.Max(0, 数据.伤害基数.V * (int)数据.当前层数.V - num);

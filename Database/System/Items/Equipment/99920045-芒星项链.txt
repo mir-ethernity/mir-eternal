@@ -16,7 +16,7 @@
   "BasicPowerCombat": 128,
   "MinNeedle": 2,
   "MaxNeedle": 5,
-  "MaxMagicDef": 1,
+  "MaxMCDef": 1,
   "PhysicallyAccurate": 1,
   "CanRepair": true,
   "RepairCost": 12000,
