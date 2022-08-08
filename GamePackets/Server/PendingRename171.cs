@@ -31,7 +31,7 @@ namespace GameServer.Networking
 
 		
 		[WrappingFieldAttribute(SubScript = 18, Length = 4)]
-		public int MaxMagic2;
+		public int MaxMP;
 
 		
 		[WrappingFieldAttribute(SubScript = 22, Length = 4)]

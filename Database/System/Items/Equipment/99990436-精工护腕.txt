@@ -16,7 +16,7 @@
   "BasicPowerCombat": 32,
   "GreatestTaoism": 1,
   "MaxHP": 22,
-  "MaxMagic2": 28,
+  "MaxMP": 28,
   "CanRepair": true,
   "RepairCost": 4800,
   "SpecialRepairCost": 24000,

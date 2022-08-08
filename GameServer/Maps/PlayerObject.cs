@@ -145,7 +145,7 @@ namespace GameServer.Maps
                 CurrentMap = MapGatewayProcess.分配地图(this.重生地图);
                 CurrentCoords = (this.红名玩家 ? this.CurrentMap.红名区域.RandomCoords : this.CurrentMap.复活区域.RandomCoords);
                 CurrentStamina = (int)((float)this[GameObjectStats.MaxHP] * 0.3f);
-                当前魔力 = (int)((float)this[GameObjectStats.MaxMagic2] * 0.3f);
+                当前魔力 = (int)((float)this[GameObjectStats.MaxMP] * 0.3f);
             }
             else if (GameMap.DataSheet[(byte)CharacterData.CurrentMap.V].NoReconnect)
             {
@@ -531,7 +531,7 @@ namespace GameServer.Maps
                                 对象编号 = this.ObjectId,
                                 对象等级 = (int)this.CurrentRank,
                                 MaxHP = this[GameObjectStats.MaxHP],
-                                MaxMagic2 = this[GameObjectStats.MaxMagic2],
+                                MaxMP = this[GameObjectStats.MaxMP],
                                 CurrentStamina = this.CurrentStamina,
                                 当前魔力 = this.当前魔力,
                                 CurrentMap = this.CurrentMap.MapId,
@@ -594,7 +594,7 @@ namespace GameServer.Maps
                                             goto IL_794;
                                         }
                                     }
-                                    int num3 = Math.Min(15, Math.Min(EquipmentData.当前持久.V, this[GameObjectStats.MaxMagic2] - this.当前魔力));
+                                    int num3 = Math.Min(15, Math.Min(EquipmentData.当前持久.V, this[GameObjectStats.MaxMP] - this.当前魔力));
                                     if (num3 > 0)
                                     {
                                         this.当前魔力 += num3;
@@ -885,7 +885,7 @@ namespace GameServer.Maps
             }
             set
             {
-                value = Math.Min(this[GameObjectStats.MaxMagic2], Math.Max(0, value));
+                value = Math.Min(this[GameObjectStats.MaxMP], Math.Max(0, value));
                 if (this.当前魔力 != value)
                 {
                     this.CharacterData.当前蓝量.V = Math.Max(0, value);
@@ -2092,7 +2092,7 @@ namespace GameServer.Maps
             if (!this.Died)
             {
                 this.CurrentStamina = this[GameObjectStats.MaxHP];
-                this.当前魔力 = this[GameObjectStats.MaxMagic2];
+                this.当前魔力 = this[GameObjectStats.MaxMP];
             }
             TeacherData 所属师门 = this.所属师门;
             if (所属师门 != null)
@@ -3186,7 +3186,7 @@ namespace GameServer.Maps
                     });
                 }
                 this.CurrentStamina = (int)((float)this[GameObjectStats.MaxHP] * 0.3f);
-                this.当前魔力 = (int)((float)this[GameObjectStats.MaxMagic2] * 0.3f);
+                this.当前魔力 = (int)((float)this[GameObjectStats.MaxMP] * 0.3f);
                 this.Died = false;
                 this.阻塞网格 = true;
                 if (this.CurrentMap == MapGatewayProcess.沙城地图 && MapGatewayProcess.沙城节点 >= 2)
@@ -3819,7 +3819,7 @@ namespace GameServer.Maps
                     CurrentStamina = MapObject.CurrentStamina,
                     当前魔力 = MapObject.当前魔力,
                     MaxHP = MapObject[GameObjectStats.MaxHP],
-                    MaxMagic2 = MapObject[GameObjectStats.MaxMagic2],
+                    MaxMP = MapObject[GameObjectStats.MaxMP],
                     Buff描述 = MapObject.对象Buff详述()
                 });
             }
@@ -14460,7 +14460,7 @@ namespace GameServer.Maps
                     }
                     SyncPlayerAppearancePacket.身上披风 = 身上披风;
                     SyncPlayerAppearancePacket.CurrentStamina = PlayerObject[GameObjectStats.MaxHP];
-                    SyncPlayerAppearancePacket.当前魔力 = PlayerObject[GameObjectStats.MaxMagic2];
+                    SyncPlayerAppearancePacket.当前魔力 = PlayerObject[GameObjectStats.MaxMP];
                     SyncPlayerAppearancePacket.对象名字 = PlayerObject.对象名字;
                     GuildData 所属行会 = PlayerObject.Guild;
                     SyncPlayerAppearancePacket.行会编号 = ((所属行会 != null) ? 所属行会.数据索引.V : 0);

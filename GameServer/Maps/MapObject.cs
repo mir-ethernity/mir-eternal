@@ -169,7 +169,7 @@ namespace GameServer.Maps
                     this.CurrentStamina = Math.Min(this.CurrentStamina, value);
                     return;
                 }
-                if (Stat == GameObjectStats.MaxMagic2)
+                if (Stat == GameObjectStats.MaxMP)
                 {
                     this.当前魔力 = Math.Min(this.当前魔力, value);
                 }

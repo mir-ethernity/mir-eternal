@@ -38,7 +38,7 @@ namespace GameServer
 		
 		MaxHP,
 		
-		MaxMagic2,
+		MaxMP,
 		
 		行走速度,
 		

@@ -331,7 +331,7 @@ namespace GameServer.Data
             this.角色脸型.V = 脸型;
             this.CreatedDate.V = MainProcess.CurrentTime;
             this.当前血量.V = 角色成长.获取数据(职业, 1)[GameObjectStats.MaxHP];
-            this.当前蓝量.V = 角色成长.获取数据(职业, 1)[GameObjectStats.MaxMagic2];
+            this.当前蓝量.V = 角色成长.获取数据(职业, 1)[GameObjectStats.MaxMP];
             this.当前朝向.V = ComputingClass.随机方向();
             this.CurrentMap.V = 142;
             this.重生地图.V = 142;

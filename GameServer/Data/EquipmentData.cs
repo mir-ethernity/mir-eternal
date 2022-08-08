@@ -573,10 +573,10 @@ namespace GameServer.Data
                     int num17;
                     text += string.Format("\nStamina{0}", dictionary.TryGetValue(GameObjectStats.MaxHP, out num17) ? num17 : 0);
                 }
-                if (dictionary.ContainsKey(GameObjectStats.MaxMagic2))
+                if (dictionary.ContainsKey(GameObjectStats.MaxMP))
                 {
                     int num18;
-                    text += string.Format("\nMana{0}", dictionary.TryGetValue(GameObjectStats.MaxMagic2, out num18) ? num18 : 0);
+                    text += string.Format("\nMana{0}", dictionary.TryGetValue(GameObjectStats.MaxMP, out num18) ? num18 : 0);
                 }
                 if (dictionary.ContainsKey(GameObjectStats.MagicDodge))
                 {
@@ -823,9 +823,9 @@ namespace GameServer.Data
                 {
                     dictionary[GameObjectStats.MaxHP] = 装备模板.MaxHP;
                 }
-                if (装备模板.MaxMagic2 != 0)
+                if (装备模板.MaxMP != 0)
                 {
-                    dictionary[GameObjectStats.MaxMagic2] = 装备模板.MaxMagic2;
+                    dictionary[GameObjectStats.MaxMP] = 装备模板.MaxMP;
                 }
                 if (装备模板.AttackSpeed != 0)
                 {

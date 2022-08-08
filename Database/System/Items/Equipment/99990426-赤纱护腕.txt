@@ -16,7 +16,7 @@
   "BasicPowerCombat": 32,
   "MaxMagic": 1,
   "MaxHP": 11,
-  "MaxMagic2": 53,
+  "MaxMP": 53,
   "CanRepair": true,
   "RepairCost": 4800,
   "SpecialRepairCost": 24000,
