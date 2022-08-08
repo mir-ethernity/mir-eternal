@@ -662,7 +662,7 @@ namespace GameServer.Maps
                     }
 
                     if (num > 0)
-                        MainForm.UpdateMapData(this.CurrentMap, "MobsDrops", num);
+                        MainForm.UpdateMapData(this.CurrentMap, "MobsDrops", (long)num);
 
                     foreach (var playerObj in CurrentMap.NrPlayers)
                         playerObj.GainExperience(this, (int)(Experience * 1.5f));
@@ -745,11 +745,11 @@ namespace GameServer.Maps
                     }
                     if (num11 > 0)
                     {
-                        MainForm.UpdateMapData(CurrentMap, "MobGoldDrop", num11);
+                        MainForm.UpdateMapData(CurrentMap, "MobGoldDrop", (long)num11);
                     }
                     if (num12 > 0)
                     {
-                        MainForm.UpdateMapData(CurrentMap, "MobsDrops", num12);
+                        MainForm.UpdateMapData(CurrentMap, "MobsDrops", (long)num12);
                     }
                     if (num11 > 0 || num12 > 0)
                     {
