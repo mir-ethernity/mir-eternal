@@ -384,7 +384,7 @@ namespace GameServer.Maps
                     : GameObjectRelationship.Friendly;
             else if (this is TrapObject trapObject)
                 return trapObject.TrapSource.GetRelationship(obj);
-            else if (this is MonsterObject)
+            else if (this is not MonsterObject)
                 return GameObjectRelationship.Hostility;
 
             return GameObjectRelationship.Friendly;
