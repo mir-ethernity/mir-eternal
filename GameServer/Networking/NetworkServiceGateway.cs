@@ -202,7 +202,7 @@ namespace GameServer.Networking
 		}
 
 		
-		public static void 发送公告(string 内容, bool 滚动播报 = false)
+		public static void SendAnnouncement(string 内容, bool 滚动播报 = false)
 		{
 			using (MemoryStream memoryStream = new())
 			{

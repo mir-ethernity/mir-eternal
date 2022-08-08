@@ -624,7 +624,7 @@ namespace GameServer.Data
                 }
                 else
                 {
-                    this.所属队伍.V.队伍成员.Remove(this);
+                    this.所属队伍.V.Members.Remove(this);
                 }
             }
             if (this.所属师门.V != null)

@@ -216,7 +216,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public override byte CurrentRank
+		public override byte CurrentLevel
 		{
 			get
 			{
@@ -538,7 +538,7 @@ namespace GameServer.Maps
 			
 			
 			this.PlayerOwner = 宠物主人;
-			this.Template = 诱惑怪物.对象模板;
+			this.Template = 诱惑怪物.Template;
 			this.PetData = new PetData(诱惑怪物.ObjectName, 初始等级, 7, BoundWeapons, MainProcess.CurrentTime.AddMinutes((double)宠物时长));
 			this.CurrentPosition = 诱惑怪物.CurrentPosition;
 			this.CurrentMap = 诱惑怪物.CurrentMap;
@@ -779,7 +779,7 @@ namespace GameServer.Maps
 				PetData.Delete();
 			}
 			this.SecondaryObject = true;
-			MapGatewayProcess.添加次要对象(this);
+			MapGatewayProcess.AddSecondaryObject(this);
 			this.ActiveObject = false;
 			MapGatewayProcess.RemoveActiveObject(this);
 		}
@@ -852,7 +852,7 @@ namespace GameServer.Maps
 				return;
 			}
 			GameSkills 游戏技能;
-			if (this.ProbabilityTriggerSkills != null && (!this.Coolings.ContainsKey((int)this.NormalAttackSkills.OwnSkillId | 16777216) || MainProcess.CurrentTime > this.Coolings[(int)this.NormalAttackSkills.OwnSkillId | 16777216]) && ComputingClass.计算概率(this.ProbabilityTriggerSkills.CalculateLuckyProbability ? ComputingClass.计算幸运(this[GameObjectStats.Luck]) : this.ProbabilityTriggerSkills.CalculateTriggerProbability))
+			if (this.ProbabilityTriggerSkills != null && (!this.Coolings.ContainsKey((int)this.NormalAttackSkills.OwnSkillId | 16777216) || MainProcess.CurrentTime > this.Coolings[(int)this.NormalAttackSkills.OwnSkillId | 16777216]) && ComputingClass.CheckProbability(this.ProbabilityTriggerSkills.CalculateLuckyProbability ? ComputingClass.计算幸运(this[GameObjectStats.Luck]) : this.ProbabilityTriggerSkills.CalculateTriggerProbability))
 			{
 				游戏技能 = this.ProbabilityTriggerSkills;
 			}
@@ -920,7 +920,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public void 宠物经验增加()
+		public void IncreasePetExp()
 		{
 			if (this.宠物等级 >= this.GradeCap)
 			{

@@ -37,7 +37,7 @@ namespace GameServer.Maps
         public virtual int ObjectId { get; set; }
         public virtual int CurrentHP { get; set; }
         public virtual int CurrentMP { get; set; }
-        public virtual byte CurrentRank { get; set; }
+        public virtual byte CurrentLevel { get; set; }
         public virtual bool Died { get; set; }
         public virtual bool Blocking { get; set; }
         public virtual bool CanBeHit => !this.Died;
@@ -343,8 +343,8 @@ namespace GameServer.Maps
                         )
                         || (
                             playerObject.AttackMode == AttackMode.组队 && (
-                                playerObject.所属队伍 != null && neightborPlayerObject.所属队伍 != null
-                                && playerObject.所属队伍 == neightborPlayerObject.所属队伍
+                                playerObject.Team != null && neightborPlayerObject.Team != null
+                                && playerObject.Team == neightborPlayerObject.Team
                             )
                         )
                         || (
@@ -365,7 +365,7 @@ namespace GameServer.Maps
                     return (petObject.PlayerOwner == this && playerObject.AttackMode != AttackMode.全体)
                         || (playerObject.AttackMode == AttackMode.和平)
                         || (playerObject.AttackMode == AttackMode.行会 && playerObject.Guild != null && petObject.PlayerOwner.Guild != null && (playerObject.Guild == petObject.PlayerOwner.Guild || playerObject.Guild.结盟行会.ContainsKey(petObject.PlayerOwner.Guild)))
-                        || (playerObject.AttackMode == AttackMode.组队 && playerObject.所属队伍 != null && petObject.PlayerOwner.所属队伍 != null && playerObject.所属队伍 == petObject.PlayerOwner.所属队伍)
+                        || (playerObject.AttackMode == AttackMode.组队 && playerObject.Team != null && petObject.PlayerOwner.Team != null && playerObject.Team == petObject.PlayerOwner.Team)
                         || (playerObject.AttackMode == AttackMode.善恶 && !petObject.PlayerOwner.红名玩家 && !petObject.PlayerOwner.灰名玩家)
                         || (playerObject.AttackMode != AttackMode.Hostility && (
                             playerObject.Guild == null
@@ -400,9 +400,9 @@ namespace GameServer.Maps
             if (this is MonsterObject monsterObject)
             {
                 return targetType == SpecifyTargetType.None
-                    || (targetType & SpecifyTargetType.LowLevelTarget) == SpecifyTargetType.LowLevelTarget && CurrentRank < obj.CurrentRank
+                    || (targetType & SpecifyTargetType.LowLevelTarget) == SpecifyTargetType.LowLevelTarget && CurrentLevel < obj.CurrentLevel
                     || (targetType & SpecifyTargetType.AllMonsters) == SpecifyTargetType.AllMonsters
-                    || (targetType & SpecifyTargetType.LowLevelMonster) == SpecifyTargetType.LowLevelMonster && CurrentRank < obj.CurrentRank
+                    || (targetType & SpecifyTargetType.LowLevelMonster) == SpecifyTargetType.LowLevelMonster && CurrentLevel < obj.CurrentLevel
                     || ((targetType & SpecifyTargetType.LowBloodMonster) == SpecifyTargetType.LowBloodMonster && (float)this.CurrentHP / (float)this[GameObjectStats.MaxHP] < 0.4f)
                     || ((targetType & SpecifyTargetType.Normal) == SpecifyTargetType.Normal && monsterObject.Category == MonsterLevelType.Normal)
                     || ((targetType & SpecifyTargetType.Undead) == SpecifyTargetType.Undead && monsterObject.怪物种族 == MonsterRaceType.Undead)
@@ -427,7 +427,7 @@ namespace GameServer.Maps
             else if (this is GuardObject)
             {
                 return targetType == SpecifyTargetType.None
-                    || ((targetType & SpecifyTargetType.LowLevelTarget) == SpecifyTargetType.LowLevelTarget && CurrentRank < obj.CurrentRank)
+                    || ((targetType & SpecifyTargetType.LowLevelTarget) == SpecifyTargetType.LowLevelTarget && CurrentLevel < obj.CurrentLevel)
                     || (((targetType & SpecifyTargetType.Backstab) == SpecifyTargetType.Backstab) && (
                        (CurrentDirection == GameDirection.上方 && (targetDirection == GameDirection.左上 || targetDirection == GameDirection.上方 || targetDirection == GameDirection.右上))
                             || (CurrentDirection == GameDirection.左上 && (targetDirection == GameDirection.左方 || targetDirection == GameDirection.左上 || targetDirection == GameDirection.上方))
@@ -442,7 +442,7 @@ namespace GameServer.Maps
             else if (this is PetObject petObject)
             {
                 return targetType == SpecifyTargetType.None
-                    || ((targetType & SpecifyTargetType.LowLevelTarget) == SpecifyTargetType.LowLevelTarget && this.CurrentRank < obj.CurrentRank)
+                    || ((targetType & SpecifyTargetType.LowLevelTarget) == SpecifyTargetType.LowLevelTarget && this.CurrentLevel < obj.CurrentLevel)
                     || ((targetType & SpecifyTargetType.Undead) == SpecifyTargetType.Undead && petObject.宠物种族 == MonsterRaceType.Undead)
                     || ((targetType & SpecifyTargetType.ZergCreature) == SpecifyTargetType.ZergCreature && petObject.宠物种族 == MonsterRaceType.ZergCreature)
                     || ((targetType & SpecifyTargetType.AllPets) == SpecifyTargetType.AllPets)
@@ -460,7 +460,7 @@ namespace GameServer.Maps
             else if (this is PlayerObject playerObject)
             {
                 return targetType == SpecifyTargetType.None
-                || ((targetType & SpecifyTargetType.LowLevelTarget) == SpecifyTargetType.LowLevelTarget && this.CurrentRank < obj.CurrentRank)
+                || ((targetType & SpecifyTargetType.LowLevelTarget) == SpecifyTargetType.LowLevelTarget && this.CurrentLevel < obj.CurrentLevel)
                     || ((targetType & SpecifyTargetType.ShieldMage) == SpecifyTargetType.ShieldMage && playerObject.CharRole == GameObjectRace.法师 && playerObject.Buffs.ContainsKey(25350))
                     || (((targetType & SpecifyTargetType.Backstab) == SpecifyTargetType.Backstab) && (
                      (CurrentDirection == GameDirection.上方 && (targetDirection == GameDirection.左上 || targetDirection == GameDirection.上方 || targetDirection == GameDirection.右上))
@@ -1017,7 +1017,7 @@ namespace GameServer.Maps
             {
                 if ((详情.Feedback & SkillHitFeedback.Miss) == SkillHitFeedback.正常)
                 {
-                    if (参数.技能斩杀类型 != SpecifyTargetType.None && ComputingClass.计算概率(参数.技能斩杀概率) && this.IsSpecificType(MapObject, 参数.技能斩杀类型))
+                    if (参数.技能斩杀类型 != SpecifyTargetType.None && ComputingClass.CheckProbability(参数.技能斩杀概率) && this.IsSpecificType(MapObject, 参数.技能斩杀类型))
                     {
                         详情.Damage = this.CurrentHP;
                     }
@@ -1044,7 +1044,7 @@ namespace GameServer.Maps
                         }
                         int num7 = 0;
                         float num8 = 0f;
-                        if (参数.技能破防概率 > 0f && ComputingClass.计算概率(参数.技能破防概率))
+                        if (参数.技能破防概率 > 0f && ComputingClass.CheckProbability(参数.技能破防概率))
                         {
                             num7 = 参数.技能破防基数;
                             num8 = 参数.技能破防系数;

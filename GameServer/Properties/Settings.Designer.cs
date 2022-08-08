@@ -134,7 +134,7 @@ namespace GameServer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("10")]
-        public byte 减收益等级差 {
+        public byte LessExpGrade {
             get {
                 return ((byte)(this["减收益等级差"]));
             }
@@ -146,7 +146,7 @@ namespace GameServer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0.1")]
-        public decimal 收益减少比率 {
+        public decimal LessExpGradeRate {
             get {
                 return ((decimal)(this["收益减少比率"]));
             }

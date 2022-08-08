@@ -208,7 +208,7 @@ namespace GameServer.Maps
                         base.更新邻居时处理();
                         MapGatewayProcess.添加MapObject(this);
                         this.SecondaryObject = true;
-                        MapGatewayProcess.添加次要对象(this);
+                        MapGatewayProcess.AddSecondaryObject(this);
                         return;
                     }
                     if (num2 < num)

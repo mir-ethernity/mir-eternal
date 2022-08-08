@@ -140,9 +140,9 @@
             this.S_诱惑时长标签 = new System.Windows.Forms.Label();
             this.S_怪物诱惑时长 = new System.Windows.Forms.NumericUpDown();
             this.S_收益衰减标签 = new System.Windows.Forms.Label();
-            this.S_收益减少比率 = new System.Windows.Forms.NumericUpDown();
+            this.S_LessExpGradeRate = new System.Windows.Forms.NumericUpDown();
             this.S_收益等级标签 = new System.Windows.Forms.Label();
-            this.S_减收益等级差 = new System.Windows.Forms.NumericUpDown();
+            this.S_LessExpGrade = new System.Windows.Forms.NumericUpDown();
             this.S_经验倍率标签 = new System.Windows.Forms.Label();
             this.S_怪物经验倍率 = new System.Windows.Forms.NumericUpDown();
             this.S_特修折扣标签 = new System.Windows.Forms.Label();
@@ -207,8 +207,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.S_物品归属时间)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.S_物品清理时间)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.S_怪物诱惑时长)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.S_收益减少比率)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.S_减收益等级差)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.S_LessExpGradeRate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.S_LessExpGrade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.S_怪物经验倍率)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.S_装备特修折扣)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.S_怪物额外爆率)).BeginInit();
@@ -1548,9 +1548,9 @@
             this.S_游戏设置分组.Controls.Add(this.S_诱惑时长标签);
             this.S_游戏设置分组.Controls.Add(this.S_怪物诱惑时长);
             this.S_游戏设置分组.Controls.Add(this.S_收益衰减标签);
-            this.S_游戏设置分组.Controls.Add(this.S_收益减少比率);
+            this.S_游戏设置分组.Controls.Add(this.S_LessExpGradeRate);
             this.S_游戏设置分组.Controls.Add(this.S_收益等级标签);
-            this.S_游戏设置分组.Controls.Add(this.S_减收益等级差);
+            this.S_游戏设置分组.Controls.Add(this.S_LessExpGrade);
             this.S_游戏设置分组.Controls.Add(this.S_经验倍率标签);
             this.S_游戏设置分组.Controls.Add(this.S_怪物经验倍率);
             this.S_游戏设置分组.Controls.Add(this.S_特修折扣标签);
@@ -1684,25 +1684,25 @@
             // 
             // S_收益减少比率
             // 
-            this.S_收益减少比率.DecimalPlaces = 2;
-            this.S_收益减少比率.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.S_收益减少比率.Location = new System.Drawing.Point(146, 252);
-            this.S_收益减少比率.Margin = new System.Windows.Forms.Padding(4);
-            this.S_收益减少比率.Maximum = new decimal(new int[] {
+            this.S_LessExpGradeRate.DecimalPlaces = 2;
+            this.S_LessExpGradeRate.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.S_LessExpGradeRate.Location = new System.Drawing.Point(146, 252);
+            this.S_LessExpGradeRate.Margin = new System.Windows.Forms.Padding(4);
+            this.S_LessExpGradeRate.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.S_收益减少比率.Name = "S_收益减少比率";
-            this.S_收益减少比率.Size = new System.Drawing.Size(127, 24);
-            this.S_收益减少比率.TabIndex = 12;
-            this.S_收益减少比率.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.S_收益减少比率.Value = new decimal(new int[] {
+            this.S_LessExpGradeRate.Name = "S_收益减少比率";
+            this.S_LessExpGradeRate.Size = new System.Drawing.Size(127, 24);
+            this.S_LessExpGradeRate.TabIndex = 12;
+            this.S_LessExpGradeRate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.S_LessExpGradeRate.Value = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.S_收益减少比率.ValueChanged += new System.EventHandler(this.更改设置Value_Value);
+            this.S_LessExpGradeRate.ValueChanged += new System.EventHandler(this.更改设置Value_Value);
             // 
             // S_收益等级标签
             // 
@@ -1716,19 +1716,19 @@
             // 
             // S_减收益等级差
             // 
-            this.S_减收益等级差.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.S_减收益等级差.Location = new System.Drawing.Point(146, 217);
-            this.S_减收益等级差.Margin = new System.Windows.Forms.Padding(4);
-            this.S_减收益等级差.Maximum = new decimal(new int[] {
+            this.S_LessExpGrade.Font = new System.Drawing.Font("Arial", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.S_LessExpGrade.Location = new System.Drawing.Point(146, 217);
+            this.S_LessExpGrade.Margin = new System.Windows.Forms.Padding(4);
+            this.S_LessExpGrade.Maximum = new decimal(new int[] {
             30,
             0,
             0,
             0});
-            this.S_减收益等级差.Name = "S_减收益等级差";
-            this.S_减收益等级差.Size = new System.Drawing.Size(127, 24);
-            this.S_减收益等级差.TabIndex = 10;
-            this.S_减收益等级差.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.S_减收益等级差.ValueChanged += new System.EventHandler(this.更改设置Value_Value);
+            this.S_LessExpGrade.Name = "S_减收益等级差";
+            this.S_LessExpGrade.Size = new System.Drawing.Size(127, 24);
+            this.S_LessExpGrade.TabIndex = 10;
+            this.S_LessExpGrade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.S_LessExpGrade.ValueChanged += new System.EventHandler(this.更改设置Value_Value);
             // 
             // S_经验倍率标签
             // 
@@ -2163,8 +2163,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.S_物品归属时间)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.S_物品清理时间)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.S_怪物诱惑时长)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.S_收益减少比率)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.S_减收益等级差)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.S_LessExpGradeRate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.S_LessExpGrade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.S_怪物经验倍率)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.S_装备特修折扣)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.S_怪物额外爆率)).EndInit();
@@ -2327,13 +2327,13 @@
 		private global::System.Windows.Forms.Label S_收益等级标签;
 
 		
-		private global::System.Windows.Forms.NumericUpDown S_减收益等级差;
+		private global::System.Windows.Forms.NumericUpDown S_LessExpGrade;
 
 		
 		private global::System.Windows.Forms.Label S_收益衰减标签;
 
 		
-		private global::System.Windows.Forms.NumericUpDown S_收益减少比率;
+		private global::System.Windows.Forms.NumericUpDown S_LessExpGradeRate;
 
 		
 		private global::System.Windows.Forms.Label S_诱惑时长标签;

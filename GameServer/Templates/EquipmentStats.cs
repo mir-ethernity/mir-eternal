@@ -19,7 +19,7 @@ namespace GameServer.Templates
         public static List<RandomStats> GenerateStats(ItemType Type, bool reforgedEquipment = false)
         {
             EquipmentStats stats;
-            if (DataSheet.TryGetValue((byte)Type, out stats) && 概率表.TryGetValue((byte)Type, out RandomStats[] array) && array.Length != 0 && (reforgedEquipment || ComputingClass.计算概率(stats.ExtremeProbability)))
+            if (DataSheet.TryGetValue((byte)Type, out stats) && 概率表.TryGetValue((byte)Type, out RandomStats[] array) && array.Length != 0 && (reforgedEquipment || ComputingClass.CheckProbability(stats.ExtremeProbability)))
             {
                 int num = MainProcess.RandomNumber.Next(100);
                 Dictionary<GameObjectStats, RandomStats> dictionary = new Dictionary<GameObjectStats, RandomStats>();

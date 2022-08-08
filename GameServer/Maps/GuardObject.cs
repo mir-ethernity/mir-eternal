@@ -15,10 +15,10 @@ namespace GameServer.Maps
         public bool 尸体消失 { get; set; }
 
 
-        public DateTime 复活时间 { get; set; }
+        public DateTime ResurrectionTime { get; set; }
 
 
-        public DateTime 消失时间 { get; set; }
+        public DateTime DisappearTime { get; set; }
 
 
         public DateTime 转移计时 { get; set; }
@@ -133,7 +133,7 @@ namespace GameServer.Maps
         }
 
 
-        public override byte CurrentRank
+        public override byte CurrentLevel
         {
             get
             {
@@ -286,13 +286,13 @@ namespace GameServer.Maps
             }
             if (this.Died)
             {
-                if (!this.尸体消失 && MainProcess.CurrentTime >= this.消失时间)
+                if (!this.尸体消失 && MainProcess.CurrentTime >= this.DisappearTime)
                 {
                     base.NotifyNeightborClear();
                     base.UnbindGrid();
                     this.尸体消失 = true;
                 }
-                if (MainProcess.CurrentTime >= this.复活时间)
+                if (MainProcess.CurrentTime >= this.ResurrectionTime)
                 {
                     base.NotifyNeightborClear();
                     base.UnbindGrid();
@@ -342,14 +342,14 @@ namespace GameServer.Maps
         }
 
 
-        public override void Dies(MapObject 对象, bool 技能击杀)
+        public override void Dies(MapObject obj, bool skillKill)
         {
-            base.Dies(对象, 技能击杀);
-            this.消失时间 = MainProcess.CurrentTime.AddMilliseconds(10000.0);
-            this.复活时间 = MainProcess.CurrentTime.AddMilliseconds((double)((this.CurrentMap.MapId == 80) ? int.MaxValue : 60000));
+            base.Dies(obj, skillKill);
+            this.DisappearTime = MainProcess.CurrentTime.AddMilliseconds(10000.0);
+            this.ResurrectionTime = MainProcess.CurrentTime.AddMilliseconds((double)((this.CurrentMap.MapId == 80) ? int.MaxValue : 60000));
             this.Buffs.Clear();
             this.SecondaryObject = true;
-            MapGatewayProcess.添加次要对象(this);
+            MapGatewayProcess.AddSecondaryObject(this);
             if (this.ActiveObject)
             {
                 this.ActiveObject = false;

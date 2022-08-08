@@ -79,15 +79,15 @@ namespace GameServer.Maps
 		}
 
 		
-		public override byte CurrentRank
+		public override byte CurrentLevel
 		{
 			get
 			{
-				return this.TrapSource.CurrentRank;
+				return this.TrapSource.CurrentLevel;
 			}
 			set
 			{
-				this.TrapSource.CurrentRank = value;
+				this.TrapSource.CurrentLevel = value;
 			}
 		}
 

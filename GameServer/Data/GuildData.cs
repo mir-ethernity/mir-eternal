@@ -139,7 +139,7 @@ namespace GameServer.Data
 							外交类型 = 1,
 							行会编号 = this.行会编号
 						});
-						NetworkServiceGateway.发送公告(string.Format("The guild covenant for [{0}] and [{1}] has expired and been automatically dissolved", this, keyValuePair.Key), false);
+						NetworkServiceGateway.SendAnnouncement(string.Format("The guild covenant for [{0}] and [{1}] has expired and been automatically dissolved", this, keyValuePair.Key), false);
 					}
 				}
 				foreach (KeyValuePair<GuildData, DateTime> keyValuePair2 in this.Hostility行会.ToList<KeyValuePair<GuildData, DateTime>>())
@@ -158,7 +158,7 @@ namespace GameServer.Data
 							外交类型 = 2,
 							行会编号 = this.行会编号
 						});
-						NetworkServiceGateway.发送公告(string.Format("Guild hostilities for [{0}] and [{1}] have expired and are automatically lifted", this, keyValuePair2.Key), false);
+						NetworkServiceGateway.SendAnnouncement(string.Format("Guild hostilities for [{0}] and [{1}] have expired and are automatically lifted", this, keyValuePair2.Key), false);
 					}
 				}
 				foreach (KeyValuePair<CharacterData, DateTime> keyValuePair3 in this.申请列表.ToList<KeyValuePair<CharacterData, DateTime>>())

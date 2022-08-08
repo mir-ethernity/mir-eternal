@@ -24,13 +24,13 @@ namespace GameServer.Maps
 			{
 				对象编号 = this.交易申请方.ObjectId,
 				交易状态 = this.申请方状态,
-				对象等级 = (int)this.交易申请方.CurrentRank
+				对象等级 = (int)this.交易申请方.CurrentLevel
 			});
 			this.发送封包(new TransactionStatusChangePacket
 			{
 				对象编号 = this.交易接收方.ObjectId,
 				交易状态 = this.接收方状态,
-				对象等级 = (int)this.交易接收方.CurrentRank
+				对象等级 = (int)this.交易接收方.CurrentLevel
 			});
 		}
 
@@ -44,7 +44,7 @@ namespace GameServer.Maps
 				{
 					对象编号 = this.交易申请方.ObjectId,
 					交易状态 = 0,
-					对象等级 = (int)this.交易申请方.CurrentRank
+					对象等级 = (int)this.交易申请方.CurrentLevel
 				});
 			}
 			SConnection 网络连接2 = this.交易接收方.ActiveConnection;
@@ -54,7 +54,7 @@ namespace GameServer.Maps
 				{
 					对象编号 = this.交易接收方.ObjectId,
 					交易状态 = 0,
-					对象等级 = (int)this.交易接收方.CurrentRank
+					对象等级 = (int)this.交易接收方.CurrentLevel
 				});
 			}
 			this.交易申请方.当前交易 = (this.交易接收方.当前交易 = null);
@@ -192,13 +192,13 @@ namespace GameServer.Maps
 				{
 					对象编号 = this.交易申请方.ObjectId,
 					交易状态 = this.申请方状态,
-					对象等级 = (int)this.交易申请方.CurrentRank
+					对象等级 = (int)this.交易申请方.CurrentLevel
 				});
 				this.发送封包(new TransactionStatusChangePacket
 				{
 					对象编号 = this.交易接收方.ObjectId,
 					交易状态 = this.接收方状态,
-					对象等级 = (int)this.交易接收方.CurrentRank
+					对象等级 = (int)this.交易接收方.CurrentLevel
 				});
 				return;
 			}
@@ -209,7 +209,7 @@ namespace GameServer.Maps
 				{
 					对象编号 = 玩家.ObjectId,
 					交易状态 = 玩家.交易状态,
-					对象等级 = (int)玩家.CurrentRank
+					对象等级 = (int)玩家.CurrentLevel
 				});
 				return;
 			}
@@ -220,7 +220,7 @@ namespace GameServer.Maps
 				{
 					对象编号 = 玩家.ObjectId,
 					交易状态 = 玩家.交易状态,
-					对象等级 = (int)玩家.CurrentRank
+					对象等级 = (int)玩家.CurrentLevel
 				});
 				return;
 			}

@@ -7,8 +7,8 @@ namespace GameServer
 	public static class ComputingClass
 	{
 		public static readonly Random RandomNumber = new Random();
-		public static ushort 减收益等级差;
-		public static decimal 收益减少比率;
+		public static ushort LessExpGradeLevel;
+		public static decimal LessExpGradeRate;
 
 		public static int Extendedbackpack(int ExpansionTimes, int CurrentConsumption = 0, int CurrentPosition = 1, int CumulativeConsumption = 0)
 		{
@@ -40,7 +40,6 @@ namespace GameServer
 			}
 			return ComputingClass.Extendedbackpack(ExpansionTimes, CurrentConsumption, CurrentPosition + 1, CumulativeConsumption);
 		}
-
 		
 		public static int ExtendedWarehouse(int ExpansionTimes, int CurrentConsumption = 0, int CurrentPosition = 1, int CumulativeConsumption = 0)
 		{
@@ -105,7 +104,6 @@ namespace GameServer
 			return ExtendedExtraBackpack(expansionTimes, currentConsumption, currentPosition + 1, cumulativeConsumption);
 		}
 
-
 		public static int ValueLimit(int LowerLimit, int Value, int UpperLimit)
 		{
 			if (Value > UpperLimit)
@@ -118,7 +116,6 @@ namespace GameServer
 			}
 			return Value;
 		}
-
 		
 		public static int GridDistance(Point startLocation, Point endLocation)
 		{
@@ -126,13 +123,11 @@ namespace GameServer
 			int val2 = Math.Abs(endLocation.Y - startLocation.Y);
 			return Math.Max(val, val2);
 		}
-
 		
 		public static int TimeShift(DateTime time)
 		{
 			return (int)(time - ComputingClass.SystemRelativeTime).TotalSeconds;
 		}
-
 		
 		public static bool DateIsOnSameWeek(DateTime dateOne, DateTime dateTwo)
 		{
@@ -154,20 +149,17 @@ namespace GameServer
 			}
 			return num2 <= num;
 		}
-
 		
-		public static float 收益衰减(int 玩家等级, int Level)
+		public static float CalculateExpRatio(int playerLevel, int monsterLevel)
 		{
-			decimal val = Math.Max(0, 玩家等级 - Level - (int)减收益等级差) * 收益减少比率;
+			decimal val = Math.Max(0, playerLevel - monsterLevel - (int)LessExpGradeLevel) * LessExpGradeRate;
 			return (float)Math.Max(0m, val);
 		}
-
 		
-		public static bool 计算概率(float 概率)
+		public static bool CheckProbability(float 概率)
 		{
 			return 概率 >= 1f || (概率 > 0f && 概率 * 100000000f > (float)RandomNumber.Next(100000000));
 		}
-
 		
 		public static Point 螺旋坐标(Point 原点, int 步数)
 		{
@@ -192,7 +184,6 @@ namespace GameServer
 			}
 			return 原点;
 		}
-
 		
 		public static Point GetFrontPosition(Point 原点, Point 终点, int 步数)
 		{
@@ -205,7 +196,6 @@ namespace GameServer
 			int num3 = (int)Math.Round((double)((float)(终点.Y - 原点.Y) * num));
 			return new Point(原点.X + num2, 原点.Y + num3);
 		}
-
 		
 		public static Point 前方坐标(Point 原点, GameDirection 方向, int 步数)
 		{
@@ -248,13 +238,11 @@ namespace GameServer
 			}
 			return new Point(原点.X + 步数, 原点.Y - 步数);
 		}
-
 		
 		public static GameDirection 随机方向()
 		{
 			return (GameDirection)(RandomNumber.Next(8) * 1024);
 		}
-
 		
 		public static GameDirection GetDirection(Point 原点, Point 终点)
 		{
@@ -350,12 +338,11 @@ namespace GameServer
 				return 0f;
 			}
 		}
-
 		
 		public static int CalculateAttack(int 下限, int 上限, int 幸运)
 		{
 			int result = (幸运 >= 0) ? 上限 : 下限;
-			if (ComputingClass.计算概率(ComputingClass.计算幸运(Math.Abs(幸运))))
+			if (ComputingClass.CheckProbability(ComputingClass.计算幸运(Math.Abs(幸运))))
 			{
 				return result;
 			}
@@ -387,13 +374,13 @@ namespace GameServer
 			float num = 命中系数 - 闪避系数;
 			if (num == 0f)
 			{
-				return ComputingClass.计算概率(概率);
+				return ComputingClass.CheckProbability(概率);
 			}
 			if (num >= 0f)
 			{
-				return ComputingClass.计算概率(概率) || ComputingClass.计算概率(num);
+				return ComputingClass.CheckProbability(概率) || ComputingClass.CheckProbability(num);
 			}
-			return ComputingClass.计算概率(概率) && !ComputingClass.计算概率(-num);
+			return ComputingClass.CheckProbability(概率) && !ComputingClass.CheckProbability(-num);
 		}
 
 

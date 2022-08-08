@@ -97,8 +97,8 @@ namespace GameServer.Templates
                         if (a_00.CalculateTriggerProbability)
                         {
                             flag = !a_00.CalculateLuckyProbability
-                                ? ComputingClass.计算概率(a_00.技能触发概率 + ((a_00.增加概率Buff == 0 || !CasterObject.Buffs.ContainsKey(a_00.增加概率Buff)) ? 0f : a_00.Buff增加系数))
-                                : ComputingClass.计算概率(ComputingClass.计算幸运(CasterObject[GameObjectStats.Luck]));
+                                ? ComputingClass.CheckProbability(a_00.技能触发概率 + ((a_00.增加概率Buff == 0 || !CasterObject.Buffs.ContainsKey(a_00.增加概率Buff)) ? 0f : a_00.Buff增加系数))
+                                : ComputingClass.CheckProbability(ComputingClass.计算幸运(CasterObject[GameObjectStats.Luck]));
                         }
 
                         if (flag && a_00.验证ItSelfBuff)
@@ -159,7 +159,7 @@ namespace GameServer.Templates
                                         _ = new SkillInstance(CasterObject, skill, SkillData, ActionId, ReleaseMap, ReleaseLocation, item.Value.Object, item.Value.Object.CurrentPosition, this);
                                     break;
                                 case SkillTriggerMethod.ForehandAndBackhandRandom:
-                                    if (ComputingClass.计算概率(0.5f) && GameSkills.DataSheet.TryGetValue(a_00.反手SkillName, out var value3))
+                                    if (ComputingClass.CheckProbability(0.5f) && GameSkills.DataSheet.TryGetValue(a_00.反手SkillName, out var value3))
                                         _ = new SkillInstance(CasterObject, value3, SkillData, ActionId, ReleaseMap, ReleaseLocation, null, SkillLocation, this);
                                     else
                                         _ = new SkillInstance(CasterObject, skill, SkillData, ActionId, ReleaseMap, ReleaseLocation, null, SkillLocation, this);
@@ -184,7 +184,7 @@ namespace GameServer.Templates
                     if (a_01.角色ItSelf添加)
                     {
                         bool flag3 = true;
-                        if (!ComputingClass.计算概率(a_01.Buff触发概率))
+                        if (!ComputingClass.CheckProbability(a_01.Buff触发概率))
                             flag3 = false;
 
                         if (flag3 && a_01.验证铭文技能 && CasterObject is PlayerObject PlayerObject2)
@@ -263,7 +263,7 @@ namespace GameServer.Templates
                                 if ((item.Value.Feedback & (SkillHitFeedback.Miss | SkillHitFeedback.丢失)) != SkillHitFeedback.正常)
                                     flag5 = false;
 
-                                if (flag5 && !ComputingClass.计算概率(a_01.Buff触发概率))
+                                if (flag5 && !ComputingClass.CheckProbability(a_01.Buff触发概率))
                                     flag5 = false;
 
                                 if (flag5 && a_01.VerifyTargetType && !item.Value.Object.IsSpecificType(CasterObject, a_01.所需目标类型))
@@ -596,7 +596,7 @@ namespace GameServer.Templates
                                 foreach (ushort 编号 in c_01.清除状态列表.ToList())
                                     item.Value.Object.移除Buff时处理(编号);
 
-                    if (c_01.触发PassiveSkill && Hits.Count != 0 && ComputingClass.计算概率(c_01.触发被动概率))
+                    if (c_01.触发PassiveSkill && Hits.Count != 0 && ComputingClass.CheckProbability(c_01.触发被动概率))
                         CasterObject[GameObjectStats.SkillSign] = 1;
 
                     if (c_01.GainSkillExp && Hits.Count != 0 && CasterObject is PlayerObject playerObj)
@@ -672,7 +672,7 @@ namespace GameServer.Templates
                                 int num11 = c_02.PhysicalRecoveryBase;
                                 if (c_02.等级差减回复)
                                 {
-                                    int Value = (CasterObject.CurrentRank - item.Value.Object.CurrentRank) - c_02.减回复等级差;
+                                    int Value = (CasterObject.CurrentLevel - item.Value.Object.CurrentLevel) - c_02.减回复等级差;
                                     int num12 = c_02.零回复等级差 - c_02.减回复等级差;
                                     float num13 = ComputingClass.ValueLimit(0, Value, num12) / (float)num12;
                                     num11 = (int)((float)num11 - (float)num11 * num13);
@@ -815,10 +815,10 @@ namespace GameServer.Templates
                         {
                             foreach (MapObject mapObj in array2)
                             {
-                                if (c_03.目标位移编号 != 0 && ComputingClass.计算概率(c_03.位移Buff概率))
+                                if (c_03.目标位移编号 != 0 && ComputingClass.CheckProbability(c_03.位移Buff概率))
                                     mapObj.OnAddBuff(c_03.目标位移编号, CasterObject);
 
-                                if (c_03.目标附加编号 != 0 && ComputingClass.计算概率(c_03.附加Buff概率) && mapObj.IsSpecificType(CasterObject, c_03.限定附加类型))
+                                if (c_03.目标附加编号 != 0 && ComputingClass.CheckProbability(c_03.附加Buff概率) && mapObj.IsSpecificType(CasterObject, c_03.限定附加类型))
                                     mapObj.OnAddBuff(c_03.目标附加编号, CasterObject);
 
                                 mapObj.CurrentDirection = ComputingClass.GetDirection(mapObj.CurrentPosition, CasterObject.CurrentPosition);
@@ -843,7 +843,7 @@ namespace GameServer.Templates
                                 }
                             }
 
-                            if (c_03.成功Id != 0 && ComputingClass.计算概率(c_03.成功Buff概率))
+                            if (c_03.成功Id != 0 && ComputingClass.CheckProbability(c_03.成功Buff概率))
                                 CasterObject.OnAddBuff(c_03.成功Id, CasterObject);
 
                             CasterObject.CurrentDirection = ComputingClass.GetDirection(CasterObject.CurrentPosition, point);
@@ -884,7 +884,7 @@ namespace GameServer.Templates
                         }
                         else
                         {
-                            if (ComputingClass.计算概率(c_03.失败Buff概率))
+                            if (ComputingClass.CheckProbability(c_03.失败Buff概率))
                                 CasterObject.OnAddBuff(c_03.失败Id, CasterObject);
 
                             CasterObject.HardTime = MainProcess.CurrentTime.AddMilliseconds(c_03.ItSelf硬直时间);
@@ -905,7 +905,7 @@ namespace GameServer.Templates
                     {
                         foreach (var item in Hits)
                         {
-                            if ((item.Value.Feedback & SkillHitFeedback.Miss) != SkillHitFeedback.正常 || (item.Value.Feedback & SkillHitFeedback.丢失) != SkillHitFeedback.正常 || (item.Value.Feedback & SkillHitFeedback.死亡) != SkillHitFeedback.正常 || ComputingClass.计算概率(c_03.推动目标概率) || item.Value.Object.IsSpecificType(CasterObject, c_03.推动目标类型))
+                            if ((item.Value.Feedback & SkillHitFeedback.Miss) != SkillHitFeedback.正常 || (item.Value.Feedback & SkillHitFeedback.丢失) != SkillHitFeedback.正常 || (item.Value.Feedback & SkillHitFeedback.死亡) != SkillHitFeedback.正常 || ComputingClass.CheckProbability(c_03.推动目标概率) || item.Value.Object.IsSpecificType(CasterObject, c_03.推动目标类型))
                                 continue;
 
                             byte[] 目标位移距离 = c_03.目标位移距离;
@@ -921,10 +921,10 @@ namespace GameServer.Templates
                             if (!item.Value.Object.CanBeDisplaced(CasterObject, 锚点2, num21, 0, false, out var point3, out var array4))
                                 continue;
 
-                            if (ComputingClass.计算概率(c_03.位移Buff概率))
+                            if (ComputingClass.CheckProbability(c_03.位移Buff概率))
                                 item.Value.Object.OnAddBuff(c_03.目标位移编号, CasterObject);
 
-                            if (ComputingClass.计算概率(c_03.附加Buff概率) && item.Value.Object.IsSpecificType(CasterObject, c_03.限定附加类型))
+                            if (ComputingClass.CheckProbability(c_03.附加Buff概率) && item.Value.Object.IsSpecificType(CasterObject, c_03.限定附加类型))
                                 item.Value.Object.OnAddBuff(c_03.目标附加编号, CasterObject);
 
                             item.Value.Object.CurrentDirection = ComputingClass.GetDirection(item.Value.Object.CurrentPosition, CasterObject.CurrentPosition);

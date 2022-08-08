@@ -193,7 +193,7 @@ namespace GameServer.Maps
 						KeyValuePair<DateTime, GuildData> keyValuePair2 = enumerator3.Current;
 						if (keyValuePair2.Key.Date == MainProcess.CurrentTime.Date)
 						{
-							NetworkServiceGateway.发送公告("The Shabak Siege will start in 10 minutes, please be ready!", true);
+							NetworkServiceGateway.SendAnnouncement("The Shabak Siege will start in 10 minutes, please be ready!", true);
 							MapGatewayProcess.沙城节点 += 1;
 							break;
 						}
@@ -307,7 +307,7 @@ namespace GameServer.Maps
 							}
 						}
 					}
-					NetworkServiceGateway.发送公告("The shabak siege starts", true);
+					NetworkServiceGateway.SendAnnouncement("The shabak siege starts", true);
 					MapGatewayProcess.沙城节点 += 1;
 					return;
 				}
@@ -316,7 +316,7 @@ namespace GameServer.Maps
 			{
 				if (MapGatewayProcess.沙城城门.Died && MapGatewayProcess.沙城城门.出生地图 != null)
 				{
-					NetworkServiceGateway.发送公告("Shabak City Gate has been breached", true);
+					NetworkServiceGateway.SendAnnouncement("Shabak City Gate has been breached", true);
 					MapGatewayProcess.沙城城门.出生地图 = null;
 				}
 				if (MapGatewayProcess.八卦坛激活行会 == null)
@@ -456,7 +456,7 @@ namespace GameServer.Maps
 						{
 							MapGatewayProcess.八卦坛激活行会 = GuildData2;
 							MapGatewayProcess.八卦坛激活法阵 = new GuardObject(Guards.DataSheet[6123], MapGatewayProcess.沙城地图, GameDirection.左方, MapGatewayProcess.八卦坛坐标中);
-							NetworkServiceGateway.发送公告(string.Format("The Shabak Gossip Altar teleportation point has been successfully activated by guild [{0}]", GuildData2), true);
+							NetworkServiceGateway.SendAnnouncement(string.Format("The Shabak Gossip Altar teleportation point has been successfully activated by guild [{0}]", GuildData2), true);
 						}
 					}
 					else
@@ -509,7 +509,7 @@ namespace GameServer.Maps
 					{
 						keyValuePair4.Key.攻沙日期.V = MainProcess.CurrentTime;
 					}
-					NetworkServiceGateway.发送公告(string.Format("The Battle of Shabak has ended, and [{0}] has become the new Shabak Guild", GuildData3), true);
+					NetworkServiceGateway.SendAnnouncement(string.Format("The Battle of Shabak has ended, and [{0}] has become the new Shabak Guild", GuildData3), true);
 					MapGatewayProcess.八卦坛激活计时 = MainProcess.CurrentTime.AddMinutes(5.0);
 					MapGatewayProcess.沙城节点 += 1;
 					return;
@@ -518,11 +518,11 @@ namespace GameServer.Maps
 				{
 					if (SystemData.Data.OccupyGuild.V == null)
 					{
-						NetworkServiceGateway.发送公告("The Battle of Shabak has ended, and Shabak remains without owners", true);
+						NetworkServiceGateway.SendAnnouncement("The Battle of Shabak has ended, and Shabak remains without owners", true);
 					}
 					else
 					{
-						NetworkServiceGateway.发送公告(string.Format("The Shabak siege has ended, Shabak is still occupied by [{0}] guild", SystemData.Data.OccupyGuild.V.GuildName), true);
+						NetworkServiceGateway.SendAnnouncement(string.Format("The Shabak siege has ended, Shabak is still occupied by [{0}] guild", SystemData.Data.OccupyGuild.V.GuildName), true);
 					}
 					if (SystemData.Data.OccupyGuild.V == null)
 					{
@@ -558,7 +558,7 @@ namespace GameServer.Maps
 				{
 					MonsterObject4.Delete();
 				}
-				MapGatewayProcess.沙城城门 = new MonsterObject(MapGatewayProcess.沙城城门.对象模板, MapGatewayProcess.沙城地图, int.MaxValue, new Point[]
+				MapGatewayProcess.沙城城门 = new MonsterObject(MapGatewayProcess.沙城城门.Template, MapGatewayProcess.沙城地图, int.MaxValue, new Point[]
 				{
 					MapGatewayProcess.沙城城门坐标
 				}, true, true)
@@ -566,7 +566,7 @@ namespace GameServer.Maps
 					CurrentDirection = GameDirection.右上,
 					存活时间 = DateTime.MaxValue
 				};
-				MapGatewayProcess.上方宫门 = new MonsterObject(MapGatewayProcess.上方宫门.对象模板, MapGatewayProcess.沙城地图, int.MaxValue, new Point[]
+				MapGatewayProcess.上方宫门 = new MonsterObject(MapGatewayProcess.上方宫门.Template, MapGatewayProcess.沙城地图, int.MaxValue, new Point[]
 				{
 					MapGatewayProcess.皇宫上门坐标
 				}, true, true)
@@ -574,7 +574,7 @@ namespace GameServer.Maps
 					CurrentDirection = GameDirection.右下,
 					存活时间 = DateTime.MaxValue
 				};
-				MapGatewayProcess.下方宫门 = new MonsterObject(MapGatewayProcess.下方宫门.对象模板, MapGatewayProcess.沙城地图, int.MaxValue, new Point[]
+				MapGatewayProcess.下方宫门 = new MonsterObject(MapGatewayProcess.下方宫门.Template, MapGatewayProcess.沙城地图, int.MaxValue, new Point[]
 				{
 					MapGatewayProcess.皇宫下门坐标
 				}, true, true)
@@ -582,7 +582,7 @@ namespace GameServer.Maps
 					CurrentDirection = GameDirection.右下,
 					存活时间 = DateTime.MaxValue
 				};
-				MapGatewayProcess.左方宫门 = new MonsterObject(MapGatewayProcess.左方宫门.对象模板, MapGatewayProcess.沙城地图, int.MaxValue, new Point[]
+				MapGatewayProcess.左方宫门 = new MonsterObject(MapGatewayProcess.左方宫门.Template, MapGatewayProcess.沙城地图, int.MaxValue, new Point[]
 				{
 					MapGatewayProcess.皇宫左门坐标
 				}, true, true)
@@ -655,7 +655,7 @@ namespace GameServer.Maps
 			{
 				if (MainProcess.CurrentTime.Hour + 1 == (int)Config.武斗场时间一 || MainProcess.CurrentTime.Hour + 1 == (int)Config.武斗场时间二)
 				{
-					NetworkServiceGateway.发送公告("The Experience Arena will open in five minutes, so get ready if you want to participate!", true);
+					NetworkServiceGateway.SendAnnouncement("The Experience Arena will open in five minutes, so get ready if you want to participate!", true);
 				}
 				MapGatewayProcess.通知时间 = MainProcess.CurrentTime;
 			}
@@ -953,7 +953,7 @@ namespace GameServer.Maps
 		}
 
 		
-		public static void 添加次要对象(MapObject 当前对象)
+		public static void AddSecondaryObject(MapObject 当前对象)
 		{
 			MapGatewayProcess.对象备份表.Add(当前对象);
 		}

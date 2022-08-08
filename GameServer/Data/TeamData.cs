@@ -31,7 +31,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.队伍成员.Count;
+				return this.Members.Count;
 			}
 		}
 
@@ -103,14 +103,14 @@ namespace GameServer.Data
 			
 			this.分配方式.V = 分配方式;
 			this.队伍队长.V = 创建角色;
-			this.队伍成员.Add(创建角色);
+			this.Members.Add(创建角色);
 			GameDataGateway.TeamData表.AddData(this, true);
 		}
 
 		
 		public override void Delete()
 		{
-			foreach (CharacterData CharacterData in this.队伍成员)
+			foreach (CharacterData CharacterData in this.Members)
 			{
 				CharacterData.当前队伍 = null;
 			}
@@ -120,7 +120,7 @@ namespace GameServer.Data
 		
 		public void 发送封包(GamePacket P)
 		{
-			foreach (CharacterData CharacterData in this.队伍成员)
+			foreach (CharacterData CharacterData in this.Members)
 			{
 				SConnection 网络连接 = CharacterData.ActiveConnection;
 				if (网络连接 != null)
@@ -144,9 +144,9 @@ namespace GameServer.Data
 					binaryWriter.Write(this.拾取方式);
 					binaryWriter.Write(this.队长编号);
 					binaryWriter.Write(11);
-					binaryWriter.Write((ushort)this.队伍成员.Count);
+					binaryWriter.Write((ushort)this.Members.Count);
 					binaryWriter.Write(0);
-					foreach (CharacterData 队友 in this.队伍成员)
+					foreach (CharacterData 队友 in this.Members)
 					{
 						binaryWriter.Write(this.队友描述(队友));
 					}
@@ -183,7 +183,7 @@ namespace GameServer.Data
 		public readonly DataMonitor<CharacterData> 队伍队长;
 
 		
-		public readonly HashMonitor<CharacterData> 队伍成员;
+		public readonly HashMonitor<CharacterData> Members;
 
 		
 		public Dictionary<CharacterData, DateTime> 申请列表;

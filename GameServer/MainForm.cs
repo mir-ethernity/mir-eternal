@@ -286,11 +286,11 @@ namespace GameServer
                 var isScrolled = Singleton.rtbPacketsLogs.SelectionStart == Singleton.rtbPacketsLogs.Text.Length;
                 var data = packet.取字节(forceNoEncrypt: true);
                 var message = string.Format(
-                    "[{0}]: {1} {2} ({3}) - {{{4}}}\r\n", 
-                    DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), 
-                    incoming ? "C->S" : "S->C", 
-                    packet.PacketInfo.编号, 
-                    packet.PacketType.Name, 
+                    "[{0}]: {1} {2} ({3}) - {{{4}}}\r\n",
+                    DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                    incoming ? "C->S" : "S->C",
+                    packet.PacketInfo.编号,
+                    packet.PacketType.Name,
                     string.Join(", ", data.Select(x => x.ToString()).ToArray())
                 );
                 Singleton.rtbPacketsLogs.AppendText(message, incoming ? Color.Blue : Color.Green);
@@ -712,32 +712,25 @@ namespace GameServer
         }
 
 
-        public static void 更新地图数据(MapInstance 地图, string 表头, object 内容)
+        public static void UpdateMapData(MapInstance map, string field, object content)
         {
-            MainForm MainForm = MainForm.Singleton;
-            if (MainForm == null)
+            Singleton?.BeginInvoke(() =>
             {
-                return;
-            }
-            MainForm.BeginInvoke(new MethodInvoker(delegate ()
-            {
-                DataRow dataRow;
-                if (MainForm.MapsDataRow.TryGetValue(地图.地图模板, out dataRow))
+                if (MapsDataRow.TryGetValue(map.地图模板, out DataRow dataRow))
                 {
-                    string 表头2 = 表头;
-                    if (表头2 == "MobsAlive" || 表头2 == "MobsRespawned")
+                    if (field == "MobsAlive" || field == "MobsRespawned")
                     {
-                        dataRow[表头] = (long)((ulong)Convert.ToUInt32(dataRow[表头]) + (ulong)((long)((int)内容)));
+                        dataRow[field] = (long)(Convert.ToUInt32(dataRow[field]) + (ulong)content);
                         return;
                     }
-                    if (表头2 == "MobGoldDrop" || 表头2 == "MobsDrops")
+                    if (field == "MobGoldDrop" || field == "MobsDrops")
                     {
-                        dataRow[表头] = Convert.ToInt64(dataRow[表头]) + (long)((int)内容);
+                        dataRow[field] = Convert.ToInt64(dataRow[field]) + (long)content;
                         return;
                     }
-                    dataRow[表头] = 内容;
+                    dataRow[field] = content;
                 }
-            }));
+            });
         }
 
 
@@ -769,7 +762,7 @@ namespace GameServer
         }
 
 
-        public static void 更新DropStats(Monsters 怪物, List<KeyValuePair<GameItems, long>> 物品)
+        public static void UpdateDropStats(Monsters 怪物, List<KeyValuePair<GameItems, long>> 物品)
         {
             MainForm MainForm = MainForm.Singleton;
             if (MainForm == null)
@@ -882,15 +875,17 @@ namespace GameServer
             this.S_异常屏蔽时间.Value = (Config.异常屏蔽时间 = Settings.Default.异常屏蔽时间);
             this.S_掉线判定时间.Value = (Config.掉线判定时间 = Settings.Default.掉线判定时间);
             this.S_游戏OpenLevelCommand.Value = (Config.MaxLevel = Settings.Default.游戏OpenLevelCommand);
-            this.S_NoobSupportCommand等级.Value = (Config.NoobSupportCommand等级 = Settings.Default.NoobSupportCommand等级);
+            this.S_NoobSupportCommand等级.Value = (Config.NoobLevel = Settings.Default.NoobSupportCommand等级);
             this.S_装备特修折扣.Value = (Config.EquipRepairDto = Settings.Default.装备特修折扣);
-            this.S_怪物额外爆率.Value = (Config.怪物额外爆率 = Settings.Default.怪物额外爆率);
-            this.S_怪物经验倍率.Value = (Config.怪物经验倍率 = Settings.Default.怪物经验倍率);
-            this.S_减收益等级差.Value = (Config.减收益等级差 = (ushort)Settings.Default.减收益等级差);
-            this.S_收益减少比率.Value = (Config.收益减少比率 = Settings.Default.收益减少比率);
+            this.S_怪物额外爆率.Value = (Config.ExtraDropRate = Settings.Default.怪物额外爆率);
+            this.S_怪物经验倍率.Value = (Config.ExpRate = Settings.Default.怪物经验倍率);
+            this.S_LessExpGrade.Value = (ComputingClass.LessExpGradeLevel = Config.LessExpGrade = (ushort)Settings.Default.LessExpGrade);
+            this.S_LessExpGradeRate.Value = (ComputingClass.LessExpGradeRate = Config.LessExpGradeRate = Settings.Default.LessExpGradeRate);
             this.S_怪物诱惑时长.Value = (Config.怪物诱惑时长 = Settings.Default.怪物诱惑时长);
             this.S_物品归属时间.Value = (Config.物品归属时间 = (ushort)Settings.Default.物品归属时间);
             this.S_物品清理时间.Value = (Config.物品清理时间 = (ushort)Settings.Default.物品清理时间);
+
+
             Task.Run(delegate ()
             {
                 Thread.Sleep(100);
@@ -1165,7 +1160,7 @@ namespace GameServer
                 switch (name)
                 {
                     case "S_收益减少比率":
-                        Config.收益减少比率 = (Settings.Default.收益减少比率 = numericUpDown.Value);
+                        Config.LessExpGradeRate = (Settings.Default.LessExpGradeRate = numericUpDown.Value);
                         break;
                     case "S_掉线判定时间":
                         Config.掉线判定时间 = (Settings.Default.掉线判定时间 = (ushort)numericUpDown.Value);
@@ -1177,7 +1172,7 @@ namespace GameServer
                         Config.怪物诱惑时长 = (Settings.Default.怪物诱惑时长 = (ushort)numericUpDown.Value);
                         break;
                     case "S_怪物经验倍率":
-                        Config.怪物经验倍率 = (Settings.Default.怪物经验倍率 = numericUpDown.Value);
+                        Config.ExpRate = (Settings.Default.怪物经验倍率 = numericUpDown.Value);
                         break;
                     case "S_TSPort":
                         Config.TSPort = (Settings.Default.TSPort = (ushort)numericUpDown.Value);
@@ -1186,16 +1181,16 @@ namespace GameServer
                         Config.异常屏蔽时间 = (Settings.Default.异常屏蔽时间 = (ushort)numericUpDown.Value);
                         break;
                     case "S_减收益等级差":
-                        Config.减收益等级差 = (ushort)(Settings.Default.减收益等级差 = (byte)numericUpDown.Value);
+                        Config.LessExpGrade = (ushort)(Settings.Default.LessExpGrade = (byte)numericUpDown.Value);
                         break;
                     case "S_怪物额外爆率":
-                        Config.怪物额外爆率 = (Settings.Default.怪物额外爆率 = numericUpDown.Value);
+                        Config.ExtraDropRate = (Settings.Default.怪物额外爆率 = numericUpDown.Value);
                         break;
                     case "S_物品归属时间":
                         Config.物品归属时间 = (ushort)(Settings.Default.物品归属时间 = (byte)numericUpDown.Value);
                         break;
                     case "S_NoobSupportCommand等级":
-                        Config.NoobSupportCommand等级 = (Settings.Default.NoobSupportCommand等级 = (byte)numericUpDown.Value);
+                        Config.NoobLevel = (Settings.Default.NoobSupportCommand等级 = (byte)numericUpDown.Value);
                         break;
                     case "S_装备特修折扣":
                         Config.EquipRepairDto = (Settings.Default.装备特修折扣 = numericUpDown.Value);
@@ -1567,7 +1562,7 @@ namespace GameServer
                     keyValuePair.Key.Cells["公告计时"].Value = (keyValuePair.Value - now).ToString("hh\\:mm\\:ss");
                     if (now > keyValuePair.Value)
                     {
-                        NetworkServiceGateway.发送公告(keyValuePair.Key.Cells["AnnounceText"].Value.ToString(), true);
+                        NetworkServiceGateway.SendAnnouncement(keyValuePair.Key.Cells["AnnounceText"].Value.ToString(), true);
                         MainForm.公告DataSheet[keyValuePair.Key] = now.AddMinutes((double)Convert.ToInt32(keyValuePair.Key.Cells["AnnounceTime"].Value));
                         int num = Convert.ToInt32(keyValuePair.Key.Cells["RemainingTimeLeft"].Value) - 1;
                         keyValuePair.Key.Cells["RemainingTimeLeft"].Value = num;
