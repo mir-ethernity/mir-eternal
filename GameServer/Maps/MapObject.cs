@@ -257,25 +257,27 @@ namespace GameServer.Maps
             if (obj.Died)
                 return false;
 
-            if (this is MonsterObject)
+            if (this is MonsterObject monsterObject)
             {
-                return obj is PlayerObject
+                return monsterObject.ActiveAttackTarget && (
+                    obj is PlayerObject
                     || obj is PetObject
-                    || (obj is GuardObject guardObject && guardObject.CanBeInjured);
+                    || (obj is GuardObject guardObject && guardObject.CanBeInjured)
+                    );
             }
             else if (this is GuardObject guardObject)
             {
                 return guardObject.ActiveAttackTarget
                     && (
-                        (obj is MonsterObject monsterObject && monsterObject.ActiveAttackTarget)
+                        (obj is MonsterObject neightborMonsterObject && neightborMonsterObject.ActiveAttackTarget)
                         || (obj is PlayerObject playerObject && playerObject.红名玩家)
                         || (obj is PetObject && guardObject.MobId == 6734)
                     );
             }
             else if (this is PetObject)
             {
-                return obj is MonsterObject monsterObject
-                    && monsterObject.ActiveAttackTarget;
+                return obj is MonsterObject neightborMonsterObject
+                    && neightborMonsterObject.ActiveAttackTarget;
             }
 
             return false;
@@ -384,7 +386,7 @@ namespace GameServer.Maps
                     : GameObjectRelationship.Friendly;
             else if (this is TrapObject trapObject)
                 return trapObject.TrapSource.GetRelationship(obj);
-            else if (this is not MonsterObject)
+            else if (obj is not MonsterObject)
                 return GameObjectRelationship.Hostility;
 
             return GameObjectRelationship.Friendly;
