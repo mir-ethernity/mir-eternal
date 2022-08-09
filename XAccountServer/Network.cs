@@ -88,7 +88,7 @@ namespace AccountServer
                                             }
                                             else if (array.Length == 6)
                                             {
-                                                if (!SEnvir.AccountData.TryGetValue(array[2], out var accountData) || array[3] != accountData.Password)
+                                                if (!SEnvir.Accounts.Login(array[2], array[3]))
                                                 {
                                                     SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(array[0] + " 7 wrong user name or password"));
                                                 }
@@ -122,31 +122,34 @@ namespace AccountServer
                                             {
                                                 SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(array[0] + " 5 wrong password length"));
                                             }
-                                            else if (!SEnvir.AccountData.TryGetValue(array[2], out accountData))
-                                            {
-                                                SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(array[0] + " 5 Account does not exist"));
-                                            }
-                                            else if (array[4] != accountData.Question)
-                                            {
-                                                SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(array[0] + " 5 Wrong question"));
-                                            }
-                                            else if (array[5] != accountData.Answer)
-                                            {
-                                                SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(array[0] + " 5 Wrong answer"));
-                                            }
                                             else
                                             {
-                                                accountData.Password = array[3];
-                                                SEnvir.SaveAccount(accountData);
-                                                SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(string.Concat(new string[]
+                                                var account = SEnvir.Accounts.GetByUsername(array[2]);
+                                                if (account == null)
                                                 {
+                                                    SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(array[0] + " 5 Account does not exist"));
+                                                }
+                                                else if (array[4] != account.Question)
+                                                {
+                                                    SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(array[0] + " 5 Wrong question"));
+                                                }
+                                                else if (array[5] != account.Answer)
+                                                {
+                                                    SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(array[0] + " 5 Wrong answer"));
+                                                }
+                                                else
+                                                {
+                                                    SEnvir.Accounts.ChangePassword(array[2], array[3]);
+                                                    SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(string.Concat(new string[]
+                                                    {
                                                         array[0],
                                                         " 4 ",
                                                         array[1],
                                                         " ",
                                                         array[2]
-                                                })));
-                                                Console.WriteLine("Password Changed on Account: " + array[1]);
+                                                    })));
+                                                    Console.WriteLine("Password Changed on Account: " + array[1]);
+                                                }
                                             }
                                         }
                                     }
@@ -176,13 +179,13 @@ namespace AccountServer
                                         {
                                             SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(array[0] + " 3 Username format error"));
                                         }
-                                        else if (SEnvir.AccountData.ContainsKey(array[2]))
+                                        else if (SEnvir.Accounts.Exists(array[2]))
                                         {
                                             SendData(packet.ClientAddress, Encoding.UTF8.GetBytes("3 Username already exists"));
                                         }
                                         else
                                         {
-                                            SEnvir.AddAccount(new AccountData(array[2], array[3], array[4], array[5]));
+                                            SEnvir.Accounts.Register(new AccountData(array[2], array[3], array[4], array[5]));
                                             SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(string.Concat(new string[]
                                             {
                                                     array[0],
@@ -198,8 +201,7 @@ namespace AccountServer
                                 }
                                 else if (array.Length == 4)
                                 {
-                                    AccountData AccountData3;
-                                    if (!SEnvir.AccountData.TryGetValue(array[2], out AccountData3) || array[3] != AccountData3.Password)
+                                    if (!SEnvir.Accounts.Login(array[2], array[3]))
                                     {
                                         SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(array[0] + " 1 wrong user name or password"));
                                     }

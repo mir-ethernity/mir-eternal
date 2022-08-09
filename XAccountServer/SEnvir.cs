@@ -1,23 +1,32 @@
 ﻿using AccountServer;
+using Npgsql;
+using SimpleMigrations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using XAccountServer.Repository;
 
 namespace XAccountServer
 {
     public static class SEnvir
     {
-        public static Dictionary<string, AccountData> AccountData { get; } = new Dictionary<string, AccountData>();
+        //public static Dictionary<string, AccountData> AccountData { get; } = new Dictionary<string, AccountData>();
+
         public static uint TotalTickets { get; set; }
         public static uint TotalNewAccounts { get; internal set; }
         public static long TotalBytesSended { get; internal set; }
+        public static NpgsqlConnection DBConnection { get; private set; }
+        public static AccountRepository Accounts { get; private set; }
 
-        public static void Start()
+        public static bool Start()
         {
-            LoadAccounts();
+            if (!LoadDatabase())
+                return false;
+
+            // LoadAccounts();
             foreach (var server in Config.Servers)
             {
                 var result = Dns.GetHostEntry(server.PublicIP);
@@ -27,48 +36,59 @@ namespace XAccountServer
                 Console.WriteLine($"GS: {server.PrivateIP},{server.PublicIP},{server.Port}/{server.Name}");
             }
             Network.Start();
+
+            return true;
         }
 
-        private static void LoadAccounts()
+        private static bool LoadDatabase()
         {
-            AccountData.Clear();
+            try
+            {
+                DBConnection = new NpgsqlConnection($"User ID={Config.Database.User};Password={Config.Database.Pass};Host={Config.Database.Host};Port={Config.Database.Port};Database={Config.Database.DBName};");
+                DBConnection.Open();
 
-            if (!Directory.Exists(Config.DataDirectory))
-            {
-                Console.WriteLine("Account Directory does not exist. It has been created automatically.");
-                Directory.CreateDirectory(Config.DataDirectory);
-                return;
+                var dbProvider = new SimpleMigrations.DatabaseProvider.PostgresqlDatabaseProvider(DBConnection);
+                var migrator = new SimpleMigrator(typeof(SEnvir).Assembly, dbProvider);
+                migrator.Load();
+                migrator.MigrateToLatest();
+
+                Accounts = new AccountRepository(DBConnection);
+
+                return true;
             }
-            object[] array = Serializer.Deserialize(Config.DataDirectory, typeof(AccountData));
-            for (int i = 0; i < array.Length; i++)
+            catch (Exception ex)
             {
-                AccountData? accountData = array[i] as AccountData;
-                if (accountData != null)
-                {
-                    AccountData[accountData.Account] = accountData;
-                }
+                Console.Error.WriteLine($"An error ocurred connecting to database: {ex}");
+                return false;
             }
-            Console.WriteLine(string.Format("Accounts Loaded: {0}", AccountData.Count));
         }
+
+        //private static void LoadAccounts()
+        //{
+        //    AccountData.Clear();
+
+        //    if (!Directory.Exists(Config.DataDirectory))
+        //    {
+        //        Console.WriteLine("Account Directory does not exist. It has been created automatically.");
+        //        Directory.CreateDirectory(Config.DataDirectory);
+        //        return;
+        //    }
+        //    object[] array = Serializer.Deserialize(Config.DataDirectory, typeof(AccountData));
+        //    for (int i = 0; i < array.Length; i++)
+        //    {
+        //        AccountData? accountData = array[i] as AccountData;
+        //        if (accountData != null)
+        //        {
+        //            AccountData[accountData.Account] = accountData;
+        //        }
+        //    }
+        //    Console.WriteLine(string.Format("Accounts Loaded: {0}", AccountData.Count));
+        //}
 
         public static bool TryGetServerConfig(string name, out ServerConfig? serverConfig)
         {
             serverConfig = Config.Servers.Where(x => x.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
             return serverConfig != null;
-        }
-
-        public static void SaveAccount(AccountData account)
-        {
-            File.WriteAllText(Path.Combine(Config.DataDirectory, account.Account + ".txt"), Serializer.Serialize(account));
-        }
-
-        public static void AddAccount(AccountData account)
-        {
-            if (!AccountData.ContainsKey(account.Account))
-            {
-                AccountData[account.Account] = account;
-                SaveAccount(account);
-            }
         }
     }
 }
