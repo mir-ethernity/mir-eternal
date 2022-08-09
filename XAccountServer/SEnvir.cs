@@ -21,9 +21,9 @@ namespace XAccountServer
             foreach (var server in Config.Servers)
             {
                 var result = Dns.GetHostEntry(server.PublicIP);
-                server.PublicIP = result.AddressList[0].Address.ToString();
+                server.PublicIP = result.AddressList[0].ToString();
                 result = Dns.GetHostEntry(server.PrivateIP);
-                server.PrivateIP = result.AddressList[0].Address.ToString();
+                server.PrivateIP = result.AddressList[0].ToString();
                 Console.WriteLine($"GS: {server.PrivateIP},{server.PublicIP},{server.Port}/{server.Name}");
             }
             Network.Start();
