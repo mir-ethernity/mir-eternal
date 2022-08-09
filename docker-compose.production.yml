@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  accountserver:
+    image: ghcr.io/suprcode/mir-eternal/accountserver:latest
+    ports:
+      - 8001:8001/udp
+    volumes:
+      - ./Database/Account:/app/Accounts
+    environment:
+      - LoginGatePort=8001
+      - LoginServerPort=6678
+      - Servers__0__Name=LomCN
+      - Servers__0__PrivateIP=gameserver
+      - Servers__0__PublicIP=127.0.0.1
+      - Servers__0__Port=8701
+    depends_on:
+      - gameserver
+
+  gameserver:
+    image: ghcr.io/suprcode/mir-eternal/gameserver:latest
+    ports:
+      - 8701:8701/tcp
+    volumes:
+      - ./Database/System:/app/Database/System
+      - ./Database/GS1User:/app/Database/User
+      - ./Database/GS1Backups:/app/Backups
+    environment:
+      - GSPort=8701
+      - MaxLevel=60

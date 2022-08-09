@@ -1,12 +1,27 @@
 version: '3.4'
 
 services:
+  database:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./Database/Postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: mir-eternal
+
   xaccountserver:
     ports:
       - 8001:8001/udp
     volumes:
       - ./Database/Account:/app/Accounts
     environment:
+      - Database__Host=database
+      - Database__Port=5432
+      - Database__User=postgres
+      - Database__Pass=mir-eternal
+      - Database__DBName=postgres
       - LoginGatePort=8001
       - LoginServerPort=6678
       - Servers__0__Name=GS1
