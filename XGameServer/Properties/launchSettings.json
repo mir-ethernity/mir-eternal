@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "XGameServer": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

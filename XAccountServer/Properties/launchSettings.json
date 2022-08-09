@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "XAccountServer": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

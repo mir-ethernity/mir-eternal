@@ -3,4 +3,5 @@ bin/
 obj/
 *.csproj.user
 packages/
-Database/User
+Database/*
+!Database/System/

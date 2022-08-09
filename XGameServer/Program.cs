@@ -14,8 +14,8 @@ IConfiguration config = new ConfigurationBuilder()
 
 Console.Title = $"Mir3D - Game Server - v0.0.0-dev";
 
-Config.GameDataPath = config.GetValue<string>(nameof(Config.GameDataPath), "../../Mir3D/Database");
-Config.BackupFolder = config.GetValue<string>(nameof(Config.BackupFolder), "../../Mir3D/Backups");
+Config.GameDataPath = config.GetValue<string>(nameof(Config.GameDataPath), "./Database");
+Config.BackupFolder = config.GetValue<string>(nameof(Config.BackupFolder), "./Backups");
 Config.GSPort = config.GetValue<ushort>(nameof(Config.GSPort), 8701);
 Config.TSPort = config.GetValue<ushort>(nameof(Config.TSPort), 6678);
 Config.PacketLimit = config.GetValue<ushort>(nameof(Config.PacketLimit), 100);

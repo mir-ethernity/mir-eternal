@@ -1,0 +1,34 @@
+version: "3.7"
+
+services:
+  account_server:
+    build:
+      context: .
+      dockerfile: ./XAccountServer/Dockerfile
+    ports:
+      - 8001:8001/udp
+    volumes:
+      - ./Database/Account:/app/Accounts
+    environment:
+      - LoginGatePort=8001
+      - LoginServerPort=6678
+      - Servers__0__Name=GS1
+      - Servers__0__PrivateIP=game_server_1
+      - Servers__0__PublicIP=127.0.0.1
+      - Servers__0__Port=8701
+    depends_on:
+      - game_server_1
+
+  game_server_1:
+    build:
+      context: .
+      dockerfile: ./XGameServer/Dockerfile
+    ports:
+      - 8701:8701/tcp
+    volumes:
+      - ./Database/System:/app/Database/System
+      - ./Database/GS1User:/app/Database/User
+      - ./Database/GS1Backups:/app/Backups
+    environment:
+      - GSPort=8701
+      - MaxLevel=60
