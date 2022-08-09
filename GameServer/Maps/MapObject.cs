@@ -562,10 +562,9 @@ namespace GameServer.Maps
                         if (flag) break;
                         targets = list.ToArray();
                         displacedLocation = point;
+                        return displacedLocation != this.CurrentPosition;
                     }
                 }
-
-                return displacedLocation != this.CurrentPosition;
             }
             return false;
         }
