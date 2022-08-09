@@ -31,8 +31,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GamePackets\GamePackets.csproj" />
+    <ProjectReference Include="..\GameServer.Core\GameServer.Core.csproj" />
     <ProjectReference Include="..\Library\Library.csproj" />
-    <ProjectReference Include="..\Models\Models.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Settings.Designer.cs">

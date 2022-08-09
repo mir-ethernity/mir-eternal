@@ -299,7 +299,7 @@ namespace GameServer
         }
 
 
-        public static void AddChatLog(string preffix, byte[] text)
+        public static void AddChatLog(string message)
         {
             MainForm MainForm = MainForm.Singleton;
             if (MainForm == null)
@@ -308,7 +308,7 @@ namespace GameServer
             }
             MainForm.BeginInvoke(new MethodInvoker(delegate ()
             {
-                MainForm.Singleton.聊天日志.AppendText(string.Format("[{0:F}]: {1}", DateTime.Now, preffix + Encoding.UTF8.GetString(text).Trim(new char[1])) + "\r\n");
+                MainForm.Singleton.聊天日志.AppendText(string.Format("[{0:F}]: {1}", DateTime.Now, message) + "\r\n");
                 MainForm.Singleton.聊天日志.ScrollToCaret();
                 Control control = MainForm.Singleton.清空聊天日志;
                 MainForm.Singleton.保存聊天日志.Enabled = true;
@@ -845,6 +845,7 @@ namespace GameServer
 
             this.InitializeComponent();
             MainForm.Singleton = this;
+            SEnvir.Logger = new MainLogger();
             string 系统AnnounceText = Settings.Default.SystemAnnounceText;
             MainForm.公告DataSheet = new Dictionary<DataGridViewRow, DateTime>();
             string[] array = 系统AnnounceText.Split(new char[]
@@ -873,7 +874,7 @@ namespace GameServer
             this.S_TSPort.Value = (Config.TSPort = Settings.Default.TSPort);
             this.S_PacketLimit.Value = (Config.PacketLimit = Settings.Default.PacketLimit);
             this.S_AbnormalBlockTime.Value = (Config.AbnormalBlockTime = Settings.Default.AbnormalBlockTime);
-            this.S_DisconnectTime.Value = (Config.掉线判定时间 = Settings.Default.DisconnectTime);
+            this.S_DisconnectTime.Value = (Config.DisconnectTime = Settings.Default.DisconnectTime);
             this.S_MaxLevel.Value = (Config.MaxLevel = Settings.Default.MaxLevel);
             this.S_NoobLevel.Value = (Config.NoobLevel = Settings.Default.NoobLevel);
             this.S_EquipRepairDto.Value = (Config.EquipRepairDto = Settings.Default.EquipRepairDto);
@@ -881,7 +882,7 @@ namespace GameServer
             this.S_ExpRate.Value = (Config.ExpRate = Settings.Default.ExpRate);
             this.S_LessExpGrade.Value = (ComputingClass.LessExpGradeLevel = Config.LessExpGrade = (ushort)Settings.Default.LessExpGrade);
             this.S_LessExpGradeRate.Value = (ComputingClass.LessExpGradeRate = Config.LessExpGradeRate = Settings.Default.LessExpGradeRate);
-            this.S_TemptationTime.Value = (Config.怪物诱惑时长 = Settings.Default.TemptationTime);
+            this.S_TemptationTime.Value = (Config.TemptationTime = Settings.Default.TemptationTime);
             this.S_ItemOwnershipTime.Value = (Config.ItemOwnershipTime = (ushort)Settings.Default.ItemOwnershipTime);
             this.S_ItemCleaningTime.Value = (Config.ItemCleaningTime = (ushort)Settings.Default.ItemCleaningTime);
 
@@ -1163,13 +1164,13 @@ namespace GameServer
                         Config.LessExpGradeRate = (Settings.Default.LessExpGradeRate = numericUpDown.Value);
                         break;
                     case "S_DisconnectTime":
-                        Config.掉线判定时间 = (Settings.Default.DisconnectTime = (ushort)numericUpDown.Value);
+                        Config.DisconnectTime = (Settings.Default.DisconnectTime = (ushort)numericUpDown.Value);
                         break;
                     case "S_MaxLevel":
                         Config.MaxLevel = (Settings.Default.MaxLevel = (byte)numericUpDown.Value);
                         break;
                     case "S_TemptationTime":
-                        Config.怪物诱惑时长 = (Settings.Default.TemptationTime = (ushort)numericUpDown.Value);
+                        Config.TemptationTime = (Settings.Default.TemptationTime = (ushort)numericUpDown.Value);
                         break;
                     case "S_ExpRate":
                         Config.ExpRate = (Settings.Default.ExpRate = numericUpDown.Value);
