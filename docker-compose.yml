@@ -2,12 +2,14 @@ version: '3.4'
 
 services:
   xaccountserver:
+    container_name: Mir3D_AccountServer
     image: ${DOCKER_REGISTRY-}xaccountserver
     build:
       context: .
       dockerfile: XAccountServer/Dockerfile
 
   xgameserver:
+    container_name: Mir3D_GameServer
     image: ${DOCKER_REGISTRY-}xgameserver
     build:
       context: .

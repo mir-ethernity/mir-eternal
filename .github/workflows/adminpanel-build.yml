@@ -1,0 +1,30 @@
+name: AccountServer Build
+
+on:
+  push:
+    branches: [ "main", "feat/migration-to-console" ]
+    paths:
+      - XAccountServer/**
+      - .github/workflows/accountserver-build.yml
+
+jobs:
+  build-docker:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - uses: mr-smithers-excellent/docker-build-push@v5
+      name: Build & push Docker image
+      with:
+        image: mir-eternal/adminpanel
+        tags: latest
+        registry: docker.pkg.github.com
+        directory: ./AdminPanel/
+        dockerfile: ./AdminPanel/Dockerfile
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}

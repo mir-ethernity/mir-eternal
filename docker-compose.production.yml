@@ -1,8 +1,37 @@
 version: "3.7"
 
 services:
+  database:
+    image: ghcr.io/suprcode/mir-eternal/postgres:latest
+    restart: always
+    volumes:
+      - ./Database/Postgres:/var/lib/postgresql/data
+      - ./Database/PostgresBackups:/opt/backups/
+    environment:
+      - RUN_BACKUPS=true
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+      - DB_NAME=${DB_NAME}
+      - POSTGRES_PASSWORD=${DB_PGPASSWORD}
+
+  adminpanel:
+    image: ghcr.io/suprcode/mir-eternal/adminpanel:latest
+    restart: always
+    environment:
+      - DATABASE_CLIENT=pg
+      - DATABASE_NAME=${DB_NAME}
+      - DATABASE_HOST=database
+      - DATABASE_PORT=5432
+      - DATABASE_USERNAME=${DB_USER}
+      - DATABASE_PASSWORD=${DB_PASS}
+    volumes:
+      - ./Database/admin-uploads:/public/uploads
+    ports:
+      - 1337:1337
+
   accountserver:
     image: ghcr.io/suprcode/mir-eternal/accountserver:latest
+    restart: always
     ports:
       - 8001:8001/udp
     volumes:
@@ -10,15 +39,21 @@ services:
     environment:
       - LoginGatePort=8001
       - LoginServerPort=6678
-      - Servers__0__Name=LomCN
+      - Database__Host=database
+      - Database__Port=5432
+      - Database__User=${DB_USER}
+      - Database__Pass=${DB_PASS}
+      - Database__DBName=${DB_NAME}
+      - Servers__0__Name=${SERVER_NAME}
       - Servers__0__PrivateIP=gameserver
-      - Servers__0__PublicIP=127.0.0.1
+      - Servers__0__PublicIP=${PUBLIC_IP}
       - Servers__0__Port=8701
     depends_on:
       - gameserver
 
   gameserver:
     image: ghcr.io/suprcode/mir-eternal/gameserver:latest
+    restart: always
     ports:
       - 8701:8701/tcp
     volumes:
@@ -26,5 +61,16 @@ services:
       - ./Database/GS1User:/app/Database/User
       - ./Database/GS1Backups:/app/Backups
     environment:
-      - GSPort=8701
-      - MaxLevel=60
+      - PacketLimit=${PACKET_LIMIT}
+      - AbnormalBlockTime=${ABNORMAL_BLOCK_TIME}
+      - DisconnectTime=${DISCONNECT_TIME}
+      - MaxLevel=${MAX_LEVEL}
+      - NoobLevel=${NOOB_LEVEL}
+      - EquipRepairDto=${EQUIP_REPAIR_DTO}
+      - ExtraDropRate=${EXTRA_DROP_RATE}
+      - ExpRate=${EXP_RATE}
+      - LessExpGrade=${LESS_EXP_GRADE}
+      - LessExpGradeRate=${LESS_EXP_GRADE_RATE}
+      - TemptationTime=${TEMPTATION_TIME}
+      - ItemOwnershipTime=${ITEM_OWNERSHIP_TIME}
+      - ItemCleaningTime=${ITEM_CLEANING_TIME}
