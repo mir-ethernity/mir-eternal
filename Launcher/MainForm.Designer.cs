@@ -811,7 +811,7 @@ namespace Launcher
             this.StartGameTab.Location = new System.Drawing.Point(0, 15);
             this.StartGameTab.Margin = new System.Windows.Forms.Padding(0);
             this.StartGameTab.Name = "StartGameTab";
-            this.StartGameTab.Size = new System.Drawing.Size(600, 415);
+            this.StartGameTab.Size = new System.Drawing.Size(200, 85);
             this.StartGameTab.TabIndex = 3;
             this.StartGameTab.Text = "Start Game";
             // 
