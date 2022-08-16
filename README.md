@@ -19,6 +19,8 @@ In this repository, we have done a refactoring, translation and correction work 
 First, a compatible client will need to be downloaded, for example:
 https://cq.dorado.sdo.com/downloader/cqyh_10340_downloader.exe
 
+Version 1.0.3.59: https://mega.nz/file/MAA3jAhI#MlBld_ZnXxxwDcBgxDSVg7r5Q9mztUFI5g9fbry6Hns
+
 Once downloaded, you will need to copy the compiled binaries of the launcher to the root of the folder.
 
 In launcher there is a configuration file called "ServerCfg.txt". In this file we must put our WAN IP and the AccountServer port (by default 7000), eg:
