@@ -9,6 +9,14 @@ using System.Threading.Tasks;
 
 namespace XAccountServer.Repository
 {
+    public class AccountModel
+    {
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Question { get; set; }
+        public string Answer { get; set; }
+    }
+
     public class AccountRepository
     {
         private readonly NpgsqlConnection _db;
@@ -31,7 +39,7 @@ namespace XAccountServer.Repository
 
         public bool Login(string username, string password)
         {
-            var account = _db.QueryFirstOrDefault<AccountData>("select * from public.accounts where username = @username", new
+            var account = _db.QueryFirstOrDefault<AccountModel>("select * from public.accounts where username = @username", new
             {
                 username
             });
@@ -41,7 +49,7 @@ namespace XAccountServer.Repository
 
         public bool Exists(string username)
         {
-            var account = _db.QueryFirstOrDefault<AccountData>("select * from public.accounts where username = @username", new
+            var account = _db.QueryFirstOrDefault<AccountModel>("select * from public.accounts where username = @username", new
             {
                 username
             });
@@ -49,9 +57,9 @@ namespace XAccountServer.Repository
             return account != null;
         }
 
-        public AccountData GetByUsername(string username)
+        public AccountModel GetByUsername(string username)
         {
-            var account = _db.QueryFirstOrDefault<AccountData>("select * from public.accounts where username = @username", new
+            var account = _db.QueryFirstOrDefault<AccountModel>("select * from public.accounts where username = @username", new
             {
                 username
             });

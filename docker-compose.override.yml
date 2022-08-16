@@ -16,27 +16,6 @@ services:
       timeout: 5s
       retries: 5
 
-  adminpanel:
-    container_name: Mir3D_AdminPanel
-    image: strapi/strapi:latest
-    restart: always
-    environment:
-      - DATABASE_CLIENT=postgres
-      - DATABASE_NAME=postgres
-      - DATABASE_HOST=database
-      - DATABASE_PORT=5432
-      - DATABASE_USERNAME=postgres
-      - DATABASE_PASSWORD=mir-eternal
-    volumes:
-      - ./AdminPanel:/srv/app
-      - ./Database/admin-uploads:/public/uploads
-    ports:
-      - 1337:1337
-    depends_on:
-      database:
-        condition: service_healthy
-
-
   xaccountserver:
     ports:
       - 8001:8001/udp
