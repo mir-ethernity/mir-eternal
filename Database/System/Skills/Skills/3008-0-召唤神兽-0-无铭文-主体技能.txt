@@ -30,7 +30,7 @@
     },
     "624": {
       "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
-      "PetName": "DaoistSummonBeast",
+      "PetName": "道士召唤神兽",
       "SpawnCount": "AQEBAQ==",
       "LevelCap": "AQMFBw==",
       "GainSkillExp": true,
