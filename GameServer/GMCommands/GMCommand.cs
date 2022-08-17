@@ -72,7 +72,7 @@ namespace GameServer
 
             int expectedLength = fields.Length;
 
-            for(var i = fields.Length - 1; i >= 0; i--)
+            for (var i = fields.Length - 1; i >= 0; i--)
             {
                 var field = fields[i];
                 var attr = field.GetCustomAttribute<FieldAttribute>();
@@ -95,7 +95,12 @@ namespace GameServer
 
                 try
                 {
-                    fields[i].SetValue(cmd, 字段写入方法表[fields[i].FieldType](array[i + 1]));
+                    var fieldType = fields[i].FieldType;
+
+                    if (fieldType.IsGenericType && fieldType.GetGenericTypeDefinition() == typeof(Nullable<>))
+                        fieldType = fieldType.GetGenericArguments()[0];
+
+                    fields[i].SetValue(cmd, 字段写入方法表[fieldType](array[i + 1]));
                 }
                 catch
                 {
