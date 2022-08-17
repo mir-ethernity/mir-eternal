@@ -277,6 +277,7 @@ namespace GameServer
 
         public static void AddPacketLog(GamePacket packet, bool incoming)
         {
+            if (!Config.DebugPackets) return;
             if (packet.PacketInfo?.NoDebug ?? false) return;
 
             MainForm MainForm = MainForm.Singleton;
@@ -842,8 +843,9 @@ namespace GameServer
 
         public MainForm()
         {
-
             this.InitializeComponent();
+            if (!Config.DebugPackets) MainTabs.TabPages.Remove(tabPackets);
+
             MainForm.Singleton = this;
             string 系统AnnounceText = Settings.Default.SystemAnnounceText;
             MainForm.公告DataSheet = new Dictionary<DataGridViewRow, DateTime>();
@@ -1219,7 +1221,7 @@ namespace GameServer
             if (e.KeyChar == Convert.ToChar(13) && this.GMCommand文本.Text.Length > 0)
             {
                 this.主选项卡.SelectedIndex = 0;
-                this.日志选项卡.SelectedIndex = 2;
+                this.MainTabs.SelectedIndex = 2;
                 MainForm.AddCommandLog("=> " + this.GMCommand文本.Text);
                 GMCommand GMCommand;
                 if (this.GMCommand文本.Text[0] != '@')

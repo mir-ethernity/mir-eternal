@@ -22,6 +22,7 @@ namespace GameServer
                 Application.SetCompatibleTextRenderingDefault(false);
 
                 Config.SendPacketsAsync = Settings.Default.SendPacketsAsync;
+                Config.DebugPackets = Settings.Default.DebugPackets;
                 GamePacket.Config(typeof(SConnection));
 
                 Application.Run(new MainForm());

@@ -396,7 +396,7 @@ namespace GameServer.Data
                 MainForm.Singleton.下方控件页.Enabled = false;
                 设置页面.Enabled = false;
                 MainForm.Singleton.主选项卡.SelectedIndex = 0;
-                MainForm.Singleton.日志选项卡.SelectedIndex = 2;
+                MainForm.Singleton.MainTabs.SelectedIndex = 2;
                 MainForm.AddCommandLog("Start collating current customer data...");
                 GameDataGateway.SortDataCommand(false);
                 Dictionary<Type, DataTableBase> dictionary = GameDataGateway.Data型表;
