@@ -13,27 +13,27 @@ namespace GameServer.Templates
 		}
 
 		
-		public string 召唤PetName;
+		public string PetName;
 
 		
-		public bool 怪物召唤同伴;
+		public bool Companion;
 
 		
-		public byte[] 召唤宠物数量;
+		public byte[] SpawnCount;
 
 		
-		public byte[] 宠物GradeCap;
+		public byte[] LevelCap;
 
 		
 		public bool GainSkillExp;
 
 		
-		public ushort 经验SkillId;
+		public ushort ExpSkillId;
 
 		
-		public bool 宠物BoundWeapons;
+		public bool PetBoundWeapons;
 
 		
-		public bool 检查技能铭文;
+		public bool CheckSkillInscriptions;
 	}
 }

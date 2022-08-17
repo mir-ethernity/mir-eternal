@@ -38,7 +38,7 @@
       "技能破防系数": 1,
       "扣除武器持久": true,
       "GainSkillExp": true,
-      "经验SkillId": 1033,
+      "ExpSkillId": 1033,
       "清除状态列表": []
     }
   }

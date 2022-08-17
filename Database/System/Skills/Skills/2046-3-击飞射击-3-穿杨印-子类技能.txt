@@ -46,7 +46,7 @@
       "技能斩杀类型": "LowLevelMonster",
       "技能斩杀概率": 0.1,
       "GainSkillExp": true,
-      "经验SkillId": 2041,
+      "ExpSkillId": 2041,
       "目标硬直时间": 500,
       "清除状态列表": []
     },

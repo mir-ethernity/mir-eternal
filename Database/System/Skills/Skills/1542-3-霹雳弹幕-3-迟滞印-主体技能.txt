@@ -31,7 +31,7 @@
       "$type": "A_02_TriggerTrapSkills, Assembly-CSharp",
       "TriggerTrapSkills": "霹雳弹幕-3-迟滞印",
       "GainSkillExp": true,
-      "经验SkillId": 1542
+      "ExpSkillId": 1542
     },
     "625": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

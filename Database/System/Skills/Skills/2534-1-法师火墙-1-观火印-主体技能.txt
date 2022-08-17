@@ -32,7 +32,7 @@
       "TriggerTrapSkills": "法师火墙-1-观火印",
       "NumberTrapsTriggered": "Diamond3x3",
       "GainSkillExp": true,
-      "经验SkillId": 2534
+      "ExpSkillId": 2534
     },
     "625": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

@@ -57,7 +57,7 @@
       ],
       "扣除武器持久": true,
       "GainSkillExp": true,
-      "经验SkillId": 1535,
+      "ExpSkillId": 1535,
       "目标硬直时间": 500,
       "清除状态列表": []
     },

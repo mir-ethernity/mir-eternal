@@ -35,7 +35,7 @@
       "LimitedTargetType": "Pet, Monster",
       "LimitedTargetRelationship": "Hostility",
       "GainSkillExp": true,
-      "经验SkillId": 2541,
+      "ExpSkillId": 2541,
       "清除状态列表": []
     },
     "127": {

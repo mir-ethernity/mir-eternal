@@ -11,7 +11,7 @@
       "RevivalInterval": 10
     },
     {
-      "MonsterName": "NOTWORKING角蝇",
+      "MonsterName": "角蝇",
       "SpawnCount": 15,
       "RevivalInterval": 10
     },

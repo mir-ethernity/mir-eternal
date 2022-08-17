@@ -38,7 +38,7 @@
       "$type": "A_02_TriggerTrapSkills, Assembly-CSharp",
       "TriggerTrapSkills": "困魔咒术-1-邪咒印",
       "GainSkillExp": true,
-      "经验SkillId": 3011
+      "ExpSkillId": 3011
     },
     "625": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

@@ -60,7 +60,7 @@
       "立即回复基数": [],
       "立即回复系数": [],
       "GainSkillExp": true,
-      "经验SkillId": 3002
+      "ExpSkillId": 3002
     },
     "424": {
       "$type": "A_00_TriggerSubSkills, Assembly-CSharp",

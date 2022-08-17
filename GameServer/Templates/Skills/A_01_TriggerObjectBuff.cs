@@ -73,6 +73,6 @@ namespace GameServer.Templates
 		public bool GainSkillExp;
 
 		
-		public ushort 经验SkillId;
+		public ushort ExpSkillId;
 	}
 }

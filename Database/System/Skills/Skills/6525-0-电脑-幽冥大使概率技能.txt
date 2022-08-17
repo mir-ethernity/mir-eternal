@@ -14,10 +14,10 @@
     },
     "650": {
       "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
-      "召唤宠物名字": "Spectral Shield Crab",
-      "怪物召唤同伴": true,
-      "召唤宠物数量": "AAAAAA==",
-      "宠物等级上限": "AAAAAA=="
+      "PetName": "Spectral Shield Crab",
+      "Companion": true,
+      "SpawnCount": "AAAAAA==",
+      "LevelCap": "AAAAAA=="
     }
   }
 }
