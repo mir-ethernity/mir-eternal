@@ -244,8 +244,8 @@ namespace GameServer
                 foreach (KeyValuePair<DataGridViewRow, DateTime> keyValuePair in MainForm.公告DataSheet)
                 {
                     keyValuePair.Key.ReadOnly = false;
-                    keyValuePair.Key.Cells["公告状态"].Value = "";
-                    keyValuePair.Key.Cells["公告计时"].Value = "";
+                    keyValuePair.Key.Cells["AnnounceStatus"].Value = "";
+                    keyValuePair.Key.Cells["AnnounceTime"].Value = "";
                     keyValuePair.Key.Cells["RemainingTimeLeft"].Value = 0;
                 }
                 if (MainForm.Singleton.公告浏览表.SelectedRows.Count != 0)
@@ -862,9 +862,9 @@ namespace GameServer
                 });
                 int index = this.公告浏览表.Rows.Add();
 
-                this.公告浏览表.Rows[index].Cells["公告间隔"].Value = array2[0];
-                this.公告浏览表.Rows[index].Cells["公告次数"].Value = array2[1];
-                this.公告浏览表.Rows[index].Cells["公告内容"].Value = array2[2];
+                this.公告浏览表.Rows[index].Cells["Interval"].Value = array2[0];
+                this.公告浏览表.Rows[index].Cells["Count"].Value = array2[1];
+                this.公告浏览表.Rows[index].Cells["Content"].Value = array2[2];
 
             }
             this.dgvCharacters.ColumnHeadersDefaultCellStyle.Font = (this.dgvMaps.ColumnHeadersDefaultCellStyle.Font = (this.怪物浏览表.ColumnHeadersDefaultCellStyle.Font = (this.掉落浏览表.ColumnHeadersDefaultCellStyle.Font = (this.封禁浏览表.ColumnHeadersDefaultCellStyle.Font = (this.dgvCharacters.DefaultCellStyle.Font = (this.dgvMaps.DefaultCellStyle.Font = (this.怪物浏览表.DefaultCellStyle.Font = (this.封禁浏览表.DefaultCellStyle.Font = (this.掉落浏览表.DefaultCellStyle.Font = new Font("宋体", 9f))))))))));
@@ -1341,14 +1341,14 @@ namespace GameServer
         private void 添加公告按钮_Click(object sender, EventArgs e)
         {
             int index = this.公告浏览表.Rows.Add();
-            this.公告浏览表.Rows[index].Cells["AnnounceTime"].Value = 5;
-            this.公告浏览表.Rows[index].Cells["AnnounceNumber"].Value = 1;
-            this.公告浏览表.Rows[index].Cells["AnnounceText"].Value = "请输入AnnounceText";
+            this.公告浏览表.Rows[index].Cells["Time"].Value = 5;
+            this.公告浏览表.Rows[index].Cells["Count"].Value = 1;
+            this.公告浏览表.Rows[index].Cells["Content"].Value = "Write announcement";
             string text = null;
             int i = 0;
             while (i < this.公告浏览表.Rows.Count)
             {
-                object value = this.公告浏览表.Rows[i].Cells["AnnounceTime"].Value;
+                object value = this.公告浏览表.Rows[i].Cells["Time"].Value;
                 if (value == null)
                 {
                     goto IL_CE;
@@ -1360,7 +1360,7 @@ namespace GameServer
                 }
             IL_D4:
                 string text3 = text2;
-                object value2 = this.公告浏览表.Rows[i].Cells["AnnounceNumber"].Value;
+                object value2 = this.公告浏览表.Rows[i].Cells["Count"].Value;
                 if (value2 == null)
                 {
                     goto IL_109;
@@ -1372,7 +1372,7 @@ namespace GameServer
                 }
             IL_10F:
                 string text5 = text4;
-                object value3 = this.公告浏览表.Rows[i].Cells["AnnounceText"].Value;
+                object value3 = this.公告浏览表.Rows[i].Cells["Content"].Value;
                 if (value3 == null)
                 {
                     goto IL_145;
@@ -1422,7 +1422,7 @@ namespace GameServer
                 int i = 0;
                 while (i < this.公告浏览表.Rows.Count)
                 {
-                    object value = this.公告浏览表.Rows[i].Cells["AnnounceTime"].Value;
+                    object value = this.公告浏览表.Rows[i].Cells["Time"].Value;
                     if (value == null)
                     {
                         goto IL_C0;
@@ -1434,7 +1434,7 @@ namespace GameServer
                     }
                 IL_C6:
                     string text3 = text2;
-                    object value2 = this.公告浏览表.Rows[i].Cells["AnnounceNumber"].Value;
+                    object value2 = this.公告浏览表.Rows[i].Cells["Number"].Value;
                     if (value2 == null)
                     {
                         goto IL_FC;
@@ -1446,7 +1446,7 @@ namespace GameServer
                     }
                 IL_102:
                     string text5 = text4;
-                    object value3 = this.公告浏览表.Rows[i].Cells["AnnounceText"].Value;
+                    object value3 = this.公告浏览表.Rows[i].Cells["Content"].Value;
                     if (value3 == null)
                     {
                         goto IL_137;
@@ -1487,7 +1487,7 @@ namespace GameServer
         }
 
 
-        private void 开始公告按钮_Click(object sender, EventArgs e)
+        private void StartAnnouncement_Click(object sender, EventArgs e)
         {
             if (!MainProcess.Running || !this.停止按钮.Enabled)
             {
@@ -1503,7 +1503,7 @@ namespace GameServer
             }
             DataGridViewRow dataGridViewRow = this.公告浏览表.Rows[this.公告浏览表.SelectedRows[0].Index];
             int num;
-            if (!int.TryParse(dataGridViewRow.Cells["AnnounceTime"].Value.ToString(), out num) || num <= 0)
+            if (dataGridViewRow.Cells["Interval"].Value == null || !int.TryParse(dataGridViewRow.Cells["Interval"].Value.ToString(), out num) || num <= 0)
             {
                 Task.Run(delegate ()
                 {
@@ -1512,7 +1512,7 @@ namespace GameServer
                 return;
             }
             int num2;
-            if (!int.TryParse(dataGridViewRow.Cells["AnnounceNumber"].Value.ToString(), out num2) || num2 <= 0)
+            if (!int.TryParse(dataGridViewRow.Cells["Count"].Value.ToString(), out num2) || num2 <= 0)
             {
                 Task.Run(delegate ()
                 {
@@ -1520,11 +1520,11 @@ namespace GameServer
                 });
                 return;
             }
-            if (dataGridViewRow.Cells["AnnounceText"].Value != null && dataGridViewRow.Cells["AnnounceText"].Value.ToString().Length > 0)
+            if (dataGridViewRow.Cells["Content"].Value != null && dataGridViewRow.Cells["Content"].Value.ToString().Length > 0)
             {
                 dataGridViewRow.ReadOnly = true;
-                dataGridViewRow.Cells["公告状态"].Value = "√";
-                dataGridViewRow.Cells["RemainingTimeLeft"].Value = dataGridViewRow.Cells["AnnounceNumber"].Value;
+                dataGridViewRow.Cells["Status"].Value = "√";
+                dataGridViewRow.Cells["RemainingTime"].Value = dataGridViewRow.Cells["Count"].Value;
                 MainForm.公告DataSheet.Add(dataGridViewRow, DateTime.Now);
                 this.开始公告按钮.Enabled = false;
                 this.停止公告按钮.Enabled = true;
@@ -1544,9 +1544,9 @@ namespace GameServer
                 DataGridViewRow dataGridViewRow = this.公告浏览表.Rows[this.公告浏览表.SelectedRows[0].Index];
                 MainForm.公告DataSheet.Remove(dataGridViewRow);
                 dataGridViewRow.ReadOnly = false;
-                dataGridViewRow.Cells["公告状态"].Value = "";
-                dataGridViewRow.Cells["公告计时"].Value = "";
-                dataGridViewRow.Cells["RemainingTimeLeft"].Value = 0;
+                dataGridViewRow.Cells["Status"].Value = "";
+                dataGridViewRow.Cells["Time"].Value = "";
+                dataGridViewRow.Cells["RemainingTime"].Value = 0;
                 this.开始公告按钮.Enabled = true;
                 this.停止公告按钮.Enabled = false;
                 return;
@@ -1561,18 +1561,18 @@ namespace GameServer
                 DateTime now = DateTime.Now;
                 foreach (KeyValuePair<DataGridViewRow, DateTime> keyValuePair in MainForm.公告DataSheet.ToList<KeyValuePair<DataGridViewRow, DateTime>>())
                 {
-                    keyValuePair.Key.Cells["公告计时"].Value = (keyValuePair.Value - now).ToString("hh\\:mm\\:ss");
+                    keyValuePair.Key.Cells["Time"].Value = (keyValuePair.Value - now).ToString("hh\\:mm\\:ss");
                     if (now > keyValuePair.Value)
                     {
-                        NetworkServiceGateway.SendAnnouncement(keyValuePair.Key.Cells["AnnounceText"].Value.ToString(), true);
-                        MainForm.公告DataSheet[keyValuePair.Key] = now.AddMinutes((double)Convert.ToInt32(keyValuePair.Key.Cells["AnnounceTime"].Value));
-                        int num = Convert.ToInt32(keyValuePair.Key.Cells["RemainingTimeLeft"].Value) - 1;
-                        keyValuePair.Key.Cells["RemainingTimeLeft"].Value = num;
+                        NetworkServiceGateway.SendAnnouncement(keyValuePair.Key.Cells["Content"].Value.ToString(), true);
+                        MainForm.公告DataSheet[keyValuePair.Key] = now.AddMinutes((double)Convert.ToInt32(keyValuePair.Key.Cells["Interval"].Value));
+                        int num = Convert.ToInt32(keyValuePair.Key.Cells["RemainingTime"].Value) - 1;
+                        keyValuePair.Key.Cells["RemainingTime"].Value = num;
                         if (num <= 0)
                         {
                             MainForm.公告DataSheet.Remove(keyValuePair.Key);
                             keyValuePair.Key.ReadOnly = false;
-                            keyValuePair.Key.Cells["公告状态"].Value = "";
+                            keyValuePair.Key.Cells["Status"].Value = "";
                             if (keyValuePair.Key.Selected)
                             {
                                 this.开始公告按钮.Enabled = true;
@@ -1613,7 +1613,7 @@ namespace GameServer
             int i = 0;
             while (i < this.公告浏览表.Rows.Count)
             {
-                object value = this.公告浏览表.Rows[i].Cells["AnnounceTime"].Value;
+                object value = this.公告浏览表.Rows[i].Cells["Time"].Value;
                 if (value == null)
                 {
                     goto IL_3D;
@@ -1625,7 +1625,7 @@ namespace GameServer
                 }
             IL_43:
                 string text3 = text2;
-                object value2 = this.公告浏览表.Rows[i].Cells["AnnounceNumber"].Value;
+                object value2 = this.公告浏览表.Rows[i].Cells["Count"].Value;
                 if (value2 == null)
                 {
                     goto IL_79;
@@ -1637,7 +1637,7 @@ namespace GameServer
                 }
             IL_7F:
                 string text5 = text4;
-                object value3 = this.公告浏览表.Rows[i].Cells["AnnounceText"].Value;
+                object value3 = this.公告浏览表.Rows[i].Cells["Content"].Value;
                 if (value3 == null)
                 {
                     goto IL_B4;
