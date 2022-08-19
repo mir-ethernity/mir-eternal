@@ -8,8 +8,10 @@ namespace GameServer.Enums
 {
     public enum UsageType
     {
-        RecoveryHP = 0,
-        RecoveryMP = 1,
-        Medicine = 2
+        Unknown = 0,
+        RecoveryHP = 1,
+        RecoveryMP = 2,
+        Medicine = 3,
+        RandomTeleport = 4
     }
 }

@@ -10311,49 +10311,72 @@ namespace GameServer.Maps
                         }
                         else
                         {
-                            var drugItem = v.物品模板;
 
                             if (v.PersistType == PersistentItemType.堆叠)
                             {
+                                var drugItem = v.物品模板;
+
                                 if (v.UnpackItemId == null || !GameItems.DataSheet.TryGetValue(v.UnpackItemId.Value, out drugItem))
                                     break;
-                            }
 
-                            if (v.GroupId > 0 && v.GroupCooling > 0)
-                            {
-                                Coolings[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
-                                ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
+                                if (v.GroupId > 0 && v.GroupCooling > 0)
                                 {
-                                    冷却编号 = (v.GroupId | 0),
-                                    Cooldown = v.GroupCooling
-                                });
-                            }
-                            if (v.Cooldown > 0)
-                            {
-                                Coolings[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
-                                ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                                {
-                                    冷却编号 = (v.Id | 0x2000000),
-                                    Cooldown = v.Cooldown
-                                });
-                            }
-
-                            ConsumeBackpackItem(1, v);
-
-                            byte b21 = 0;
-                            byte b22 = 0;
-                            while (b21 < BackpackSize && b22 < 6)
-                            {
-                                if (!Backpack.ContainsKey(b21))
-                                {
-                                    Backpack[b21] = new ItemData(drugItem, CharacterData, 1, b21, 1);
-                                    ActiveConnection?.SendPacket(new 玩家物品变动
+                                    Coolings[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+                                    ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
                                     {
-                                        物品描述 = Backpack[b21].字节描述()
+                                        冷却编号 = (v.GroupId | 0),
+                                        Cooldown = v.GroupCooling
                                     });
-                                    b22 = (byte)(b22 + 1);
                                 }
-                                b21 = (byte)(b21 + 1);
+                                if (v.Cooldown > 0)
+                                {
+                                    Coolings[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+                                    ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
+                                    {
+                                        冷却编号 = (v.Id | 0x2000000),
+                                        Cooldown = v.Cooldown
+                                    });
+                                }
+
+                                ConsumeBackpackItem(1, v);
+
+                                byte b21 = 0;
+                                byte b22 = 0;
+                                while (b21 < BackpackSize && b22 < 6)
+                                {
+                                    if (!Backpack.ContainsKey(b21))
+                                    {
+                                        Backpack[b21] = new ItemData(drugItem, CharacterData, 1, b21, 1);
+                                        ActiveConnection?.SendPacket(new 玩家物品变动
+                                        {
+                                            物品描述 = Backpack[b21].字节描述()
+                                        });
+                                        b22 = (byte)(b22 + 1);
+                                    }
+                                    b21 = (byte)(b21 + 1);
+                                }
+                            }
+                            else if (v.PersistType == PersistentItemType.消耗)
+                            {
+                                var usageType2 = (UsageType)v.GetProp(ItemProperty.UsageType);
+                                switch (usageType2)
+                                {
+                                    case UsageType.RandomTeleport:
+                                        Point point = CurrentMap.随机传送(CurrentPosition);
+                                        if (point != default(Point))
+                                        {
+                                            ConsumeBackpackItem(1, v);
+                                            玩家切换地图(CurrentMap, AreaType.未知区域, point);
+                                        }
+                                        else
+                                        {
+                                            ActiveConnection?.SendPacket(new GameErrorMessagePacket
+                                            {
+                                                错误代码 = 776
+                                            });
+                                        }
+                                        break;
+                                }
                             }
                         }
                         break;
@@ -11259,24 +11282,6 @@ namespace GameServer.Maps
                         ConsumeBackpackItem(1, v);
                         Ingots += 100000;
                         break;
-                    case "随机传送石(大)":
-                    case "随机传送石":
-                        {
-                            Point point = CurrentMap.随机传送(CurrentPosition);
-                            if (point != default(Point))
-                            {
-                                ConsumeBackpackItem(1, v);
-                                玩家切换地图(CurrentMap, AreaType.未知区域, point);
-                            }
-                            else
-                            {
-                                ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                                {
-                                    错误代码 = 776
-                                });
-                            }
-                            break;
-                        }
                     case "豪杰铭文石礼包":
                         {
                             byte b = byte.MaxValue;

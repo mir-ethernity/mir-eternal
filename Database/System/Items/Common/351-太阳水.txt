@@ -15,7 +15,7 @@
   "PersistType": "堆叠",
   "StoreType": "药品",
   "Props": {
-    "UsageType": 2,
+    "UsageType": 3,
     "IncreaseHP": 30,
     "IncreaseMP": 40
   },

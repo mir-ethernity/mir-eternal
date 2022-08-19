@@ -15,7 +15,7 @@
   "PersistType": "堆叠",
   "StoreType": "药品",
   "Props": {
-    "UsageType": 0,
+    "UsageType": 1,
     "RecoveryTime": 1,
     "RecoveryBase": 20,
     "RecoverySteps": 4
