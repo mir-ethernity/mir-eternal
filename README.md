@@ -52,6 +52,8 @@ To publish on the internet, you must open ports 7000 and 8701 on your router
 
 # Special Thanks
 
-- CraZyEriK: For the constant help in correcting bugs & translate UI.
-- Wincha: For being a dark wizard. And find out what no one can!
-- Armifer (ElAmO): For the refactoring and translation of the code.
+- CraZyEriK
+- Wincha
+- Lilcooldoode
+- Far
+- Armifer (ElAmO)
