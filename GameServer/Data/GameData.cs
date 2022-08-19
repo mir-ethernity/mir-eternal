@@ -105,7 +105,7 @@ namespace GameServer.Data
 		}
 
 		
-		public readonly DataMonitor<int> 数据索引;
+		public readonly DataMonitor<int> Index;
 
 		
 		public readonly Type Data型;

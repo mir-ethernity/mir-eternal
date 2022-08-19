@@ -34,7 +34,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.数据索引.V;
+				return this.Index.V;
 			}
 		}
 
@@ -168,6 +168,6 @@ namespace GameServer.Data
 		public readonly DataMonitor<CharacterData> 邮件作者;
 
 		
-		public readonly DataMonitor<CharacterData> 收件地址;
+		public readonly DataMonitor<CharacterData> ShippingAddress;
 	}
 }

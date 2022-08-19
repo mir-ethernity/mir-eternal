@@ -25,7 +25,7 @@ namespace GameServer.Maps
 				GameBuffs 游戏Buff;
 				Monsters 对应模板;
 				Monsters 对应模板2;
-				if (MapGatewayProcess.MapInstance表.TryGetValue(2433, out MapGatewayProcess.沙城地图) && GameBuffs.DataSheet.TryGetValue(22300, out 游戏Buff) && Monsters.DataSheet.TryGetValue("沙巴克城门", out 对应模板) && Monsters.DataSheet.TryGetValue("沙巴克宫门", out 对应模板2))
+				if (MapGatewayProcess.MapInstances.TryGetValue(2433, out MapGatewayProcess.沙城地图) && GameBuffs.DataSheet.TryGetValue(22300, out 游戏Buff) && Monsters.DataSheet.TryGetValue("沙巴克城门", out 对应模板) && Monsters.DataSheet.TryGetValue("沙巴克宫门", out 对应模板2))
 				{
 					if ((MapGatewayProcess.皇宫随机区域 = MapGatewayProcess.沙城地图.地图区域.FirstOrDefault((MapAreas O) => O.RegionName == "沙巴克-皇宫随机区域")) != null)
 					{
@@ -230,7 +230,7 @@ namespace GameServer.Maps
 						}
 					}
 					MapInstance MapInstance;
-					if (MapGatewayProcess.MapInstance表.TryGetValue(2849, out MapInstance))
+					if (MapGatewayProcess.MapInstances.TryGetValue(2849, out MapInstance))
 					{
 						foreach (PlayerObject PlayerObject10 in MapInstance.NrPlayers.ToList<PlayerObject>())
 						{
@@ -701,7 +701,7 @@ namespace GameServer.Maps
 			MapGatewayProcess.移除激活表 = new ConcurrentQueue<MapObject>();
 			MapGatewayProcess.ActiveObjects = new Dictionary<int, MapObject>();
 			MapGatewayProcess.Objects = new Dictionary<int, MapObject>();
-			MapGatewayProcess.MapInstance表 = new Dictionary<int, MapInstance>();
+			MapGatewayProcess.MapInstances = new Dictionary<int, MapInstance>();
 			MapGatewayProcess.玩家对象表 = new Dictionary<int, PlayerObject>();
 			MapGatewayProcess.怪物对象表 = new Dictionary<int, MonsterObject>();
 			MapGatewayProcess.宠物对象表 = new Dictionary<int, PetObject>();
@@ -710,11 +710,11 @@ namespace GameServer.Maps
 			MapGatewayProcess.陷阱对象表 = new Dictionary<int, TrapObject>();
 			foreach (GameMap 游戏地图 in GameMap.DataSheet.Values)
 			{
-				MapGatewayProcess.MapInstance表.Add((int)(游戏地图.MapId * 16 + 1), new MapInstance(游戏地图, 16777217));
+				MapGatewayProcess.MapInstances.Add((int)(游戏地图.MapId * 16 + 1), new MapInstance(游戏地图, 16777217));
 			}
 			foreach (Terrains 地形数据 in Terrains.DataSheet.Values)
 			{
-				foreach (MapInstance MapInstance in MapGatewayProcess.MapInstance表.Values)
+				foreach (MapInstance MapInstance in MapGatewayProcess.MapInstances.Values)
 				{
 					if (MapInstance.MapId == (int)地形数据.MapId)
 					{
@@ -732,13 +732,13 @@ namespace GameServer.Maps
 			}
 			foreach (MapAreas 地图区域 in MapAreas.DataSheet)
 			{
-				foreach (MapInstance MapInstance2 in MapGatewayProcess.MapInstance表.Values)
+				foreach (MapInstance MapInstance2 in MapGatewayProcess.MapInstances.Values)
 				{
 					if (MapInstance2.MapId == (int)地图区域.FromMapId)
 					{
 						if (地图区域.AreaType == AreaType.复活区域)
 						{
-							MapInstance2.复活区域 = 地图区域;
+							MapInstance2.ResurrectionArea = 地图区域;
 						}
 						if (地图区域.AreaType == AreaType.红名区域)
 						{
@@ -755,7 +755,7 @@ namespace GameServer.Maps
 			}
 			foreach (TeleportGates 传送法阵 in TeleportGates.DataSheet)
 			{
-				foreach (MapInstance MapInstance3 in MapGatewayProcess.MapInstance表.Values)
+				foreach (MapInstance MapInstance3 in MapGatewayProcess.MapInstances.Values)
 				{
 					if (MapInstance3.MapId == (int)传送法阵.FromMapId)
 					{
@@ -765,7 +765,7 @@ namespace GameServer.Maps
 			}
 			foreach (MapGuards 守卫刷新 in MapGuards.DataSheet)
 			{
-				foreach (MapInstance MapInstance4 in MapGatewayProcess.MapInstance表.Values)
+				foreach (MapInstance MapInstance4 in MapGatewayProcess.MapInstances.Values)
 				{
 					if (MapInstance4.MapId == (int)守卫刷新.FromMapId)
 					{
@@ -775,7 +775,7 @@ namespace GameServer.Maps
 			}
 			foreach (MonsterSpawns 怪物刷新 in MonsterSpawns.DataSheet)
 			{
-				foreach (MapInstance MapInstance5 in MapGatewayProcess.MapInstance表.Values)
+				foreach (MapInstance MapInstance5 in MapGatewayProcess.MapInstances.Values)
 				{
 					if (MapInstance5.MapId == (int)怪物刷新.FromMapId)
 					{
@@ -783,7 +783,7 @@ namespace GameServer.Maps
 					}
 				}
 			}
-			foreach (MapInstance MapInstance6 in MapGatewayProcess.MapInstance表.Values)
+			foreach (MapInstance MapInstance6 in MapGatewayProcess.MapInstances.Values)
 			{
 				if (!MapInstance6.CopyMap)
 				{
@@ -959,10 +959,10 @@ namespace GameServer.Maps
 		}
 
 		
-		public static MapInstance 分配地图(int MapId)
+		public static MapInstance GetMapInstance(int MapId)
 		{
 			MapInstance result;
-			if (MapGatewayProcess.MapInstance表.TryGetValue(MapId * 16 + 1, out result))
+			if (MapGatewayProcess.MapInstances.TryGetValue(MapId * 16 + 1, out result))
 			{
 				return result;
 			}
@@ -1036,7 +1036,7 @@ namespace GameServer.Maps
 		public static Dictionary<int, TrapObject> 陷阱对象表;
 
 		
-		public static Dictionary<int, MapInstance> MapInstance表;
+		public static Dictionary<int, MapInstance> MapInstances;
 
 		
 		public static HashSet<MapInstance> 副本实例表;

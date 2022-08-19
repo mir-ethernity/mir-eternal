@@ -508,7 +508,7 @@ namespace GameServer.Data
                     binaryWriter.Write(数据版本);
                     BinaryWriter binaryWriter2 = binaryWriter;
                     CharacterData v = 生成来源.V;
-                    binaryWriter2.Write((v != null) ? v.数据索引.V : 0);
+                    binaryWriter2.Write((v != null) ? v.Index.V : 0);
                     binaryWriter.Write(ComputingClass.TimeShift(生成时间.V));
                     binaryWriter.Write(对应模板.V.Id);
                     binaryWriter.Write(物品容器.V);
@@ -535,7 +535,7 @@ namespace GameServer.Data
                     binaryWriter.Write(数据版本);
                     BinaryWriter binaryWriter2 = binaryWriter;
                     CharacterData v = 生成来源.V;
-                    binaryWriter2.Write((v != null) ? v.数据索引.V : 0);
+                    binaryWriter2.Write((v != null) ? v.Index.V : 0);
                     binaryWriter.Write(ComputingClass.TimeShift(生成时间.V));
                     binaryWriter.Write(对应模板.V.Id);
                     binaryWriter.Write(物品容器.V);

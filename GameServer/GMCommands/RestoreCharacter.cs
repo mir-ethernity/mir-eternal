@@ -24,25 +24,25 @@ namespace GameServer
 				CharacterData CharacterData = GameData as CharacterData;
 				if (CharacterData != null)
 				{
-					if (CharacterData.DateDelete.V == default(DateTime) || !CharacterData.AccNumber.V.删除列表.Contains(CharacterData))
+					if (CharacterData.DateDelete.V == default(DateTime) || !CharacterData.Account.V.删除列表.Contains(CharacterData))
 					{
 						MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, character not deleted");
 						return;
 					}
-					if (CharacterData.AccNumber.V.角色列表.Count >= 4)
+					if (CharacterData.Account.V.Characters.Count >= 4)
 					{
 						MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, character list is full");
 						return;
 					}
-					if (CharacterData.AccNumber.V.网络连接 != null)
+					if (CharacterData.Account.V.网络连接 != null)
 					{
 						MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command execution failed, account must be offline");
 						return;
 					}
 					CharacterData.FreezeDate.V = default(DateTime);
 					CharacterData.DateDelete.V = default(DateTime);
-					CharacterData.AccNumber.V.删除列表.Remove(CharacterData);
-					CharacterData.AccNumber.V.角色列表.Add(CharacterData);
+					CharacterData.Account.V.删除列表.Remove(CharacterData);
+					CharacterData.Account.V.Characters.Add(CharacterData);
 					MainForm.AddCommandLog("<= @" + base.GetType().Name + " Command executed, character restored successfully");
 					return;
 				}

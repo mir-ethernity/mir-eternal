@@ -9,7 +9,7 @@ using GameServer.Networking;
 namespace GameServer.Data
 {
 	
-	[FastDataReturnAttribute(检索字段 = "GuildName")]
+	[FastDataReturnAttribute(SearchFilder = "GuildName")]
 	public sealed class GuildData : GameData
 	{
 		
@@ -17,7 +17,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return this.数据索引.V;
+				return this.Index.V;
 			}
 		}
 
@@ -209,13 +209,13 @@ namespace GameServer.Data
 			});
 			foreach (CharacterData CharacterData in this.行会成员.Keys)
 			{
-				CharacterData.当前行会 = null;
+				CharacterData.CurrentGuild = null;
 				SConnection 网络连接 = CharacterData.ActiveConnection;
 				if (网络连接 != null)
 				{
 					网络连接.SendPacket(new 同步对象行会
 					{
-						对象编号 = CharacterData.Id
+						对象编号 = CharacterData.CharId
 					});
 				}
 			}
@@ -249,21 +249,21 @@ namespace GameServer.Data
 		public void 添加成员(CharacterData 成员, GuildJobs 职位 = GuildJobs.会员)
 		{
 			this.行会成员.Add(成员, 职位);
-			成员.当前行会 = this;
+			成员.CurrentGuild = this;
 			this.发送封包(new GuildJoinMemberPacket
 			{
-				对象编号 = 成员.Id,
+				对象编号 = 成员.CharId,
 				对象名字 = 成员.CharName.V,
 				对象职位 = 7,
-				对象等级 = 成员.角色等级,
-				对象职业 = (byte)成员.CharRole.V,
+				对象等级 = 成员.CharLevel,
+				对象职业 = (byte)成员.CharRace.V,
 				CurrentMap = (byte)成员.CurrentMap.V
 			});
 			if (成员.ActiveConnection == null)
 			{
 				this.发送封包(new SyncMemberInfoPacket
 				{
-					对象编号 = 成员.Id,
+					对象编号 = 成员.CharId,
 					对象信息 = ComputingClass.TimeShift(成员.OfflineDate.V)
 				});
 			}
@@ -278,15 +278,15 @@ namespace GameServer.Data
 			this.添加事记(new GuildEvents
 			{
 				MemorandumType = MemorandumType.加入公会,
-				第一参数 = 成员.Id,
+				第一参数 = 成员.CharId,
 				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 			});
 			PlayerObject PlayerObject;
-			if (MapGatewayProcess.玩家对象表.TryGetValue(成员.Id, out PlayerObject))
+			if (MapGatewayProcess.玩家对象表.TryGetValue(成员.CharId, out PlayerObject))
 			{
 				PlayerObject.SendPacket(new 同步对象行会
 				{
-					对象编号 = 成员.Id,
+					对象编号 = 成员.CharId,
 					行会编号 = this.行会编号
 				});
 			}
@@ -298,7 +298,7 @@ namespace GameServer.Data
 		{
 			this.行会成员.Remove(成员);
 			this.行会禁言.Remove(成员);
-			成员.当前行会 = null;
+			成员.CurrentGuild = null;
 			SConnection 网络连接 = 成员.ActiveConnection;
 			if (网络连接 != null)
 			{
@@ -309,20 +309,20 @@ namespace GameServer.Data
 			}
 			this.发送封包(new 脱离行会公告
 			{
-				对象编号 = 成员.Id
+				对象编号 = 成员.CharId
 			});
 			this.添加事记(new GuildEvents
 			{
 				MemorandumType = MemorandumType.离开公会,
-				第一参数 = 成员.Id,
+				第一参数 = 成员.CharId,
 				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 			});
 			PlayerObject PlayerObject;
-			if (MapGatewayProcess.玩家对象表.TryGetValue(成员.Id, out PlayerObject))
+			if (MapGatewayProcess.玩家对象表.TryGetValue(成员.CharId, out PlayerObject))
 			{
 				PlayerObject.SendPacket(new 同步对象行会
 				{
-					对象编号 = 成员.Id
+					对象编号 = 成员.CharId
 				});
 			}
 			SystemData.Data.更新行会(this);
@@ -334,7 +334,7 @@ namespace GameServer.Data
 			if (this.行会成员.Remove(成员))
 			{
 				this.行会禁言.Remove(成员);
-				成员.当前行会 = null;
+				成员.CurrentGuild = null;
 				SConnection 网络连接 = 成员.ActiveConnection;
 				if (网络连接 != null)
 				{
@@ -345,21 +345,21 @@ namespace GameServer.Data
 				}
 				this.发送封包(new 脱离行会公告
 				{
-					对象编号 = 成员.Id
+					对象编号 = 成员.CharId
 				});
 				this.添加事记(new GuildEvents
 				{
 					MemorandumType = MemorandumType.逐出公会,
-					第一参数 = 成员.Id,
-					第二参数 = 主事.Id,
+					第一参数 = 成员.CharId,
+					第二参数 = 主事.CharId,
 					事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 				});
 				PlayerObject PlayerObject;
-				if (MapGatewayProcess.玩家对象表.TryGetValue(成员.Id, out PlayerObject))
+				if (MapGatewayProcess.玩家对象表.TryGetValue(成员.CharId, out PlayerObject))
 				{
 					PlayerObject.SendPacket(new 同步对象行会
 					{
-						对象编号 = 成员.Id
+						对象编号 = 成员.CharId
 					});
 				}
 				SystemData.Data.更新行会(this);
@@ -373,14 +373,14 @@ namespace GameServer.Data
 			this.行会成员[成员] = 职位;
 			this.发送封包(new 变更职位公告
 			{
-				对象编号 = 成员.Id,
+				对象编号 = 成员.CharId,
 				对象职位 = (byte)职位
 			});
 			this.添加事记(new GuildEvents
 			{
 				MemorandumType = MemorandumType.变更职位,
-				第一参数 = 主事.Id,
-				第二参数 = 成员.Id,
+				第一参数 = 主事.CharId,
+				第二参数 = 成员.CharId,
 				第三参数 = (int)((byte)职位),
 				第四参数 = (int)((byte)职位),
 				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
@@ -420,14 +420,14 @@ namespace GameServer.Data
 			this.行会成员[成员] = GuildJobs.会长;
 			this.发送封包(new 会长传位公告
 			{
-				当前编号 = 会长.Id,
-				传位编号 = 成员.Id
+				当前编号 = 会长.CharId,
+				传位编号 = 成员.CharId
 			});
 			this.添加事记(new GuildEvents
 			{
 				MemorandumType = MemorandumType.会长传位,
-				第一参数 = 会长.Id,
-				第二参数 = 成员.Id,
+				第一参数 = 会长.CharId,
+				第二参数 = 成员.CharId,
 				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 			});
 		}
@@ -439,7 +439,7 @@ namespace GameServer.Data
 			{
 				this.发送封包(new GuildBanAnnouncementPacket
 				{
-					对象编号 = 成员.Id,
+					对象编号 = 成员.CharId,
 					禁言状态 = 2
 				});
 				return;
@@ -449,7 +449,7 @@ namespace GameServer.Data
 				this.行会禁言[成员] = MainProcess.CurrentTime;
 				this.发送封包(new GuildBanAnnouncementPacket
 				{
-					对象编号 = 成员.Id,
+					对象编号 = 成员.CharId,
 					禁言状态 = 1
 				});
 				return;
@@ -667,7 +667,7 @@ namespace GameServer.Data
 			{
 				if (keyValuePair.Value <= 职位)
 				{
-					keyValuePair.Key.发送邮件(new MailData(null, 标题, 内容, null));
+					keyValuePair.Key.SendEmail(new MailData(null, 标题, 内容, null));
 				}
 			}
 		}
@@ -697,7 +697,7 @@ namespace GameServer.Data
 			foreach (KeyValuePair<CharacterData, GuildJobs> keyValuePair in this.行会成员)
 			{
 				SConnection 客户网络;
-				if (keyValuePair.Value <= 职位 && keyValuePair.Key.角色在线(out 客户网络))
+				if (keyValuePair.Value <= 职位 && keyValuePair.Key.IsOnline(out 客户网络))
 				{
 					客户网络.SendPacket(new SendGuildNoticePacket
 					{
@@ -770,16 +770,16 @@ namespace GameServer.Data
 					binaryWriter.Seek(7960, SeekOrigin.Begin);
 					foreach (KeyValuePair<CharacterData, GuildJobs> keyValuePair in this.行会成员)
 					{
-						binaryWriter.Write(keyValuePair.Key.Id);
+						binaryWriter.Write(keyValuePair.Key.CharId);
 						byte[] array = new byte[32];
 						Encoding.UTF8.GetBytes(keyValuePair.Key.CharName.V).CopyTo(array, 0);
 						binaryWriter.Write(array);
 						binaryWriter.Write((byte)keyValuePair.Value);
-						binaryWriter.Write(keyValuePair.Key.角色等级);
-						binaryWriter.Write((byte)keyValuePair.Key.CharRole.V);
+						binaryWriter.Write(keyValuePair.Key.CharLevel);
+						binaryWriter.Write((byte)keyValuePair.Key.CharRace.V);
 						binaryWriter.Write(keyValuePair.Key.CurrentMap.V);
 						SConnection 客户网络;
-						binaryWriter.Write(keyValuePair.Key.角色在线(out 客户网络) ? 0 : ComputingClass.TimeShift(keyValuePair.Key.OfflineDate.V));
+						binaryWriter.Write(keyValuePair.Key.IsOnline(out 客户网络) ? 0 : ComputingClass.TimeShift(keyValuePair.Key.OfflineDate.V));
 						binaryWriter.Write(0);
 						binaryWriter.Write(this.行会禁言.ContainsKey(keyValuePair.Key));
 					}
@@ -839,14 +839,14 @@ namespace GameServer.Data
 					binaryWriter.Write((ushort)this.申请列表.Count);
 					foreach (CharacterData CharacterData in this.申请列表.Keys)
 					{
-						binaryWriter.Write(CharacterData.Id);
+						binaryWriter.Write(CharacterData.CharId);
 						byte[] array = new byte[32];
 						Encoding.UTF8.GetBytes(CharacterData.CharName.V).CopyTo(array, 0);
 						binaryWriter.Write(array);
-						binaryWriter.Write(CharacterData.角色等级);
-						binaryWriter.Write(CharacterData.角色等级);
+						binaryWriter.Write(CharacterData.CharLevel);
+						binaryWriter.Write(CharacterData.CharLevel);
 						SConnection 客户网络;
-						binaryWriter.Write(CharacterData.角色在线(out 客户网络) ? ComputingClass.TimeShift(MainProcess.CurrentTime) : ComputingClass.TimeShift(CharacterData.OfflineDate.V));
+						binaryWriter.Write(CharacterData.IsOnline(out 客户网络) ? ComputingClass.TimeShift(MainProcess.CurrentTime) : ComputingClass.TimeShift(CharacterData.OfflineDate.V));
 					}
 					result = memoryStream.ToArray();
 				}

@@ -305,14 +305,14 @@ namespace GameServer.Maps
 		{
 			get
 			{
-				ushort[] 宠物升级经验 = 角色成长.宠物升级经验;
+				ushort[] 宠物升级经验 = CharacterProgression.宠物升级经验;
 				int? num = (宠物升级经验 != null) ? new int?(宠物升级经验.Length) : null;
 				int 宠物等级 = (int)this.宠物等级;
 				if (!(num.GetValueOrDefault() > 宠物等级 & num != null))
 				{
 					return 10;
 				}
-				return 角色成长.宠物升级经验[(int)this.宠物等级];
+				return CharacterProgression.宠物升级经验[(int)this.宠物等级];
 			}
 		}
 

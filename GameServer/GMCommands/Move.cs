@@ -39,7 +39,7 @@ namespace GameServer.GMCommands
                 return;
             }
 
-            var mapInstance = MapGatewayProcess.分配地图(map.MapId);
+            var mapInstance = MapGatewayProcess.GetMapInstance(map.MapId);
             var mapArea = mapInstance.传送区域 ?? mapInstance.地图区域.FirstOrDefault();
 
             var location = MapX != null && MapY != null

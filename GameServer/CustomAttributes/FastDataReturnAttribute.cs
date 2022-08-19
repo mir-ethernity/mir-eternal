@@ -14,6 +14,6 @@ namespace GameServer
 		}
 
 		
-		public string 检索字段;
+		public string SearchFilder;
 	}
 }

@@ -44,7 +44,7 @@ namespace GameServer
                 }
             }
 
-            字段写入方法表 = new Dictionary<Type, Func<string, object>>
+            ParseValue = new Dictionary<Type, Func<string, object>>
             {
                 [typeof(string)] = (string s) => s,
                 [typeof(int)] = (string s) => Convert.ToInt32(s),
@@ -100,7 +100,7 @@ namespace GameServer
                     if (fieldType.IsGenericType && fieldType.GetGenericTypeDefinition() == typeof(Nullable<>))
                         fieldType = fieldType.GetGenericArguments()[0];
 
-                    fields[i].SetValue(cmd, 字段写入方法表[fieldType](array[i + 1]));
+                    fields[i].SetValue(cmd, ParseValue[fieldType](array[i + 1]));
                 }
                 catch
                 {
@@ -132,7 +132,7 @@ namespace GameServer
         private static readonly Dictionary<string, FieldInfo[]> 字段列表;
 
 
-        private static readonly Dictionary<Type, Func<string, object>> 字段写入方法表;
+        public static readonly Dictionary<Type, Func<string, object>> ParseValue;
 
 
         public static readonly Dictionary<string, string> 命令格式;

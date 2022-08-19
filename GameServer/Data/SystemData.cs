@@ -19,7 +19,7 @@ namespace GameServer.Data
 		{
 			
 			
-			this.数据索引.V = 索引;
+			this.Index.V = 索引;
 			GameDataGateway.Data型表[typeof(SystemData)].AddData(this, false);
 		}
 
@@ -33,10 +33,10 @@ namespace GameServer.Data
 		}
 
 		
-		public void 更新战力(CharacterData 角色)
+		public void UpdatedPowerCombat(CharacterData 角色)
 		{
 			SystemData.更新榜单(this.个人战力排名, 6, 角色, SystemData.战力计算器);
-			switch (角色.CharRole.V)
+			switch (角色.CharRace.V)
 			{
 			case GameObjectRace.战士:
 				SystemData.更新榜单(this.战士战力排名, 7, 角色, SystemData.战力计算器);
@@ -65,7 +65,7 @@ namespace GameServer.Data
 		public void 更新等级(CharacterData 角色)
 		{
 			SystemData.更新榜单(this.个人等级排名, 0, 角色, SystemData.等级计算器);
-			switch (角色.CharRole.V)
+			switch (角色.CharRace.V)
 			{
 			case GameObjectRace.战士:
 				SystemData.更新榜单(this.战士等级排名, 1, 角色, SystemData.等级计算器);
@@ -97,7 +97,7 @@ namespace GameServer.Data
 		}
 
 		
-		public void 更新PK值(CharacterData 角色)
+		public void UpdatedPKLevel(CharacterData 角色)
 		{
 			SystemData.更新榜单(this.个人PK值排名, 15, 角色, SystemData.PK值计算器);
 		}
@@ -491,11 +491,11 @@ namespace GameServer.Data
 			
 			public int Compare(CharacterData x, CharacterData y)
 			{
-				if (x.角色等级 == y.角色等级)
+				if (x.CharLevel == y.CharLevel)
 				{
-					return x.角色经验 - y.角色经验;
+					return x.CharExp - y.CharExp;
 				}
-				return (int)(x.角色等级 - y.角色等级);
+				return (int)(x.CharLevel - y.CharLevel);
 			}
 
 			
@@ -512,7 +512,7 @@ namespace GameServer.Data
 			
 			public int Compare(CharacterData x, CharacterData y)
 			{
-				return x.角色战力 - y.角色战力;
+				return x.CharPowerCombat - y.CharPowerCombat;
 			}
 
 			
@@ -546,7 +546,7 @@ namespace GameServer.Data
 			
 			public int Compare(CharacterData x, CharacterData y)
 			{
-				return x.角色PK值 - y.角色PK值;
+				return x.CharPKLevel - y.CharPKLevel;
 			}
 
 			

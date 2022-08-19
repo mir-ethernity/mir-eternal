@@ -9,7 +9,7 @@ using GameServer.Networking;
 namespace GameServer.Data
 {
 
-    [FastDataReturnAttribute(检索字段 = "Account")]
+    [FastDataReturnAttribute(SearchFilder = "Account")]
     public sealed class AccountData : GameData
     {
 
@@ -57,10 +57,10 @@ namespace GameServer.Data
 
             ms.Seek(0, SeekOrigin.Begin);
 
-            bw.Write((byte)(Math.Min(4, this.角色列表.Count) + Math.Min(5, this.冻结列表.Count)));
+            bw.Write((byte)(Math.Min(4, this.Characters.Count) + Math.Min(5, this.冻结列表.Count)));
 
-            List<CharacterData> activePlayers = (from O in this.角色列表
-                                                 orderby O.CurrentRank.V descending
+            List<CharacterData> activePlayers = (from O in this.Characters
+                                                 orderby O.Level.V descending
                                                  select O).ToList();
 
             int num = 0;
@@ -71,7 +71,7 @@ namespace GameServer.Data
             }
 
             List<CharacterData> freezePlayers = (from O in this.冻结列表
-                                                 orderby O.CurrentRank.V descending
+                                                 orderby O.Level.V descending
                                                  select O).ToList<CharacterData>();
 
             int num2 = 0;
@@ -153,7 +153,7 @@ namespace GameServer.Data
                 });
                 return;
             }
-            if (this.角色列表.Count >= 4)
+            if (this.Characters.Count >= 4)
             {
                 当前网络.SendPacket(new LoginErrorMessagePacket
                 {
@@ -235,9 +235,9 @@ namespace GameServer.Data
             if (GameDataGateway.CharacterDataTable.DataSheet.TryGetValue(P.角色编号, out GameData))
             {
                 CharacterData CharacterData = GameData as CharacterData;
-                if (CharacterData != null && this.角色列表.Contains(CharacterData))
+                if (CharacterData != null && this.Characters.Contains(CharacterData))
                 {
-                    if (CharacterData.Affiliation.V != null)
+                    if (CharacterData.Guild.V != null)
                     {
                         当前网络.SendPacket(new LoginErrorMessagePacket
                         {
@@ -245,7 +245,7 @@ namespace GameServer.Data
                         });
                         return;
                     }
-                    if (CharacterData.所属师门.V != null && (CharacterData.所属师门.V.师门成员.Contains(CharacterData) || CharacterData.所属师门.V.师门成员.Count != 0))
+                    if (CharacterData.Teacher.V != null && (CharacterData.Teacher.V.师门成员.Contains(CharacterData) || CharacterData.Teacher.V.师门成员.Count != 0))
                     {
                         当前网络.SendPacket(new LoginErrorMessagePacket
                         {
@@ -259,11 +259,11 @@ namespace GameServer.Data
                         return;
                     }
                     CharacterData.FreezeDate.V = MainProcess.CurrentTime;
-                    this.角色列表.Remove(CharacterData);
+                    this.Characters.Remove(CharacterData);
                     this.冻结列表.Add(CharacterData);
                     当前网络.SendPacket(new 删除角色应答
                     {
-                        角色编号 = CharacterData.数据索引.V
+                        角色编号 = CharacterData.Index.V
                     });
                     return;
                 }
@@ -283,7 +283,7 @@ namespace GameServer.Data
                 CharacterData CharacterData = GameData as CharacterData;
                 if (CharacterData != null && this.冻结列表.Contains(CharacterData))
                 {
-                    if (CharacterData.角色等级 >= 40)
+                    if (CharacterData.CharLevel >= 40)
                     {
                         当前网络.SendPacket(new LoginErrorMessagePacket
                         {
@@ -304,7 +304,7 @@ namespace GameServer.Data
                     this.删除列表.Add(CharacterData);
                     当前网络.SendPacket(new DeleteCharacterPacket
                     {
-                        角色编号 = CharacterData.Id
+                        角色编号 = CharacterData.CharId
                     });
                     return;
                 }
@@ -324,17 +324,17 @@ namespace GameServer.Data
                 CharacterData CharacterData = GameData as CharacterData;
                 if (CharacterData != null && this.冻结列表.Contains(CharacterData))
                 {
-                    if (this.角色列表.Count >= 4)
+                    if (this.Characters.Count >= 4)
                     {
                         当前网络.CallExceptionEventHandler(new Exception("GetBackCharacter when the list of characters is full, disconnect."));
                         return;
                     }
                     CharacterData.FreezeDate.V = default(DateTime);
                     this.冻结列表.Remove(CharacterData);
-                    this.角色列表.Add(CharacterData);
+                    this.Characters.Add(CharacterData);
                     当前网络.SendPacket(new GetBackCharacterAnswersPacket
                     {
-                        角色编号 = CharacterData.Id
+                        角色编号 = CharacterData.CharId
                     });
                     return;
                 }
@@ -352,7 +352,7 @@ namespace GameServer.Data
             if (GameDataGateway.CharacterDataTable.DataSheet.TryGetValue(P.角色编号, out GameData))
             {
                 CharacterData CharacterData = GameData as CharacterData;
-                if (CharacterData != null && this.角色列表.Contains(CharacterData))
+                if (CharacterData != null && this.Characters.Contains(CharacterData))
                 {
                     if (MainProcess.CurrentTime < this.封禁日期.V)
                     {
@@ -375,7 +375,7 @@ namespace GameServer.Data
 
                     conn.SendPacket(new EnterGameAnswerPacket
                     {
-                        角色编号 = CharacterData.Id
+                        角色编号 = CharacterData.CharId
                     });
 
                     conn.Player = new PlayerObject(CharacterData, conn);
@@ -421,7 +421,7 @@ namespace GameServer.Data
         public readonly DataMonitor<DateTime> DateDelete;
 
 
-        public readonly HashMonitor<CharacterData> 角色列表;
+        public readonly HashMonitor<CharacterData> Characters;
 
 
         public readonly HashMonitor<CharacterData> 冻结列表;

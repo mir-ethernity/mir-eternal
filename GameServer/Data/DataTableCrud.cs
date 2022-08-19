@@ -20,7 +20,7 @@ namespace GameServer.Data
 			FastDataReturnAttribute customAttribute = this.DataType.GetCustomAttribute<FastDataReturnAttribute>();
 			if (customAttribute != null)
 			{
-				this.SearchField = this.DataType.GetField(customAttribute.检索字段, BindingFlags.Instance | BindingFlags.Public);
+				this.SearchField = this.DataType.GetField(customAttribute.SearchFilder, BindingFlags.Instance | BindingFlags.Public);
 			}
 			if (this.DataType == typeof(GuildData))
 			{
@@ -37,17 +37,17 @@ namespace GameServer.Data
 		{
 			if (分配索引)
 			{
-				DataMonitor<int> 数据索引 = 数据.数据索引;
+				DataMonitor<int> 数据索引 = 数据.Index;
 				int num = this.CurrentIndex + 1;
 				this.CurrentIndex = num;
 				数据索引.V = num;
 			}
-			if (数据.数据索引.V == 0)
+			if (数据.Index.V == 0)
 			{
 				MessageBox.Show("Data table add data exception, index is zero.");
 			}
 			数据.StorageDataTable = this;
-			this.DataSheet.Add(数据.数据索引.V, 数据);
+			this.DataSheet.Add(数据.Index.V, 数据);
 			if (this.SearchField != null)
 			{
 				this.Keyword.Add((this.SearchField.GetValue(数据) as DataMonitor<string>).V, 数据);
@@ -58,7 +58,7 @@ namespace GameServer.Data
 		
 		public override void 删除数据(GameData 数据)
 		{
-			this.DataSheet.Remove(数据.数据索引.V);
+			this.DataSheet.Remove(数据.Index.V);
 			if (this.SearchField != null)
 			{
 				this.Keyword.Remove((this.SearchField.GetValue(数据) as DataMonitor<string>).V);
@@ -106,7 +106,7 @@ namespace GameServer.Data
 						T t2 = t;
 						t2.RawData = binaryReader.ReadBytes(binaryReader.ReadInt32());
 						t2.LoadData(histoMapping);
-						this.DataSheet[t2.数据索引.V] = t2;
+						this.DataSheet[t2.Index.V] = t2;
 						if (this.SearchField != null)
 						{
 							DataMonitor<string> DataMonitor = this.SearchField.GetValue(t2) as DataMonitor<string>;

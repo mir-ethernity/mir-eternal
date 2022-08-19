@@ -9,11 +9,11 @@ namespace GameServer.Data
 	public sealed class TeacherData : GameData
 	{
 		
-		public int 师父编号
+		public int MasterId
 		{
 			get
 			{
-				return this.师父数据.Id;
+				return this.师父数据.CharId;
 			}
 		}
 
@@ -69,10 +69,10 @@ namespace GameServer.Data
 		
 		public override void Delete()
 		{
-			this.师父数据.所属师门.V = null;
+			this.师父数据.Teacher.V = null;
 			foreach (CharacterData CharacterData in this.师门成员)
 			{
-				CharacterData.所属师门.V = null;
+				CharacterData.Teacher.V = null;
 			}
 			base.Delete();
 		}
@@ -154,7 +154,7 @@ namespace GameServer.Data
 			this.师父经验.Add(角色, 0);
 			this.师父金币.Add(角色, 0);
 			this.师父声望.Add(角色, 0);
-			角色.当前师门 = this;
+			角色.CurrentTeacher = this;
 			foreach (CharacterData CharacterData in this.师门成员)
 			{
 				if (CharacterData != null)
@@ -204,7 +204,7 @@ namespace GameServer.Data
 							while (enumerator.MoveNext())
 							{
 								CharacterData CharacterData = enumerator.Current;
-								binaryWriter.Write(CharacterData.Id);
+								binaryWriter.Write(CharacterData.CharId);
 								binaryWriter.Write(this.徒弟提供经验(CharacterData));
 								binaryWriter.Write(this.徒弟提供声望(CharacterData));
 								binaryWriter.Write(this.徒弟提供金币(CharacterData));
@@ -212,7 +212,7 @@ namespace GameServer.Data
 							goto IL_A3;
 						}
 					}
-					binaryWriter.Write(this.师父编号);
+					binaryWriter.Write(this.MasterId);
 					binaryWriter.Write(this.徒弟出师经验(角色));
 					binaryWriter.Write(this.徒弟出师金币(角色));
 					IL_A3:
@@ -230,14 +230,14 @@ namespace GameServer.Data
 			{
 				using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
 				{
-					binaryWriter.Write(this.师父编号);
-					binaryWriter.Write(this.师父数据.角色等级);
+					binaryWriter.Write(this.MasterId);
+					binaryWriter.Write(this.师父数据.CharLevel);
 					binaryWriter.Write((byte)this.师门成员.Count);
 					foreach (CharacterData CharacterData in this.师门成员)
 					{
-						binaryWriter.Write(CharacterData.Id);
-						binaryWriter.Write(CharacterData.角色等级);
-						binaryWriter.Write(CharacterData.角色等级);
+						binaryWriter.Write(CharacterData.CharId);
+						binaryWriter.Write(CharacterData.CharLevel);
+						binaryWriter.Write(CharacterData.CharLevel);
 					}
 					result = memoryStream.ToArray();
 				}

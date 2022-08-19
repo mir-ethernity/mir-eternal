@@ -107,7 +107,7 @@ namespace GameServer
             MainForm.CharacterDataTable.Columns.Add("CharRole", typeof(string));
             MainForm.CharacterDataTable.Columns.Add("CharGender", typeof(string));
             MainForm.CharacterDataTable.Columns.Add("Affiliation", typeof(string));
-            MainForm.CharacterDataTable.Columns.Add("NumberDollars", typeof(string));
+            MainForm.CharacterDataTable.Columns.Add("Ingots", typeof(string));
             MainForm.CharacterDataTable.Columns.Add("DollarConsumption", typeof(string));
             MainForm.CharacterDataTable.Columns.Add("NumberGoldCoins", typeof(string));
             MainForm.CharacterDataTable.Columns.Add("TransferOutGoldCoins", typeof(string));
@@ -464,8 +464,8 @@ namespace GameServer
                 {
                     DataRow dataRow = MainForm.CharacterDataTable.NewRow();
                     dataRow["CharName"] = 角色;
-                    dataRow["AccNumber"] = 角色.AccNumber;
-                    dataRow["AccBlocking"] = ((角色.AccNumber.V.封禁日期.V != default(DateTime)) ? 角色.AccNumber.V.封禁日期 : null);
+                    dataRow["AccNumber"] = 角色.Account;
+                    dataRow["AccBlocking"] = ((角色.Account.V.封禁日期.V != default(DateTime)) ? 角色.Account.V.封禁日期 : null);
                     dataRow["CharacterBlock"] = ((角色.封禁日期.V != default(DateTime)) ? 角色.封禁日期 : null);
                     dataRow["FreezeDate"] = ((角色.FreezeDate.V != default(DateTime)) ? 角色.FreezeDate : null);
                     dataRow["DateDelete"] = ((角色.DateDelete.V != default(DateTime)) ? 角色.DateDelete : null);
@@ -473,10 +473,10 @@ namespace GameServer
                     dataRow["OfflineDate"] = ((角色.ActiveConnection == null) ? 角色.OfflineDate : null);
                     dataRow["NetAddress"] = 角色.NetAddress;
                     dataRow["MacAddress"] = 角色.MacAddress;
-                    dataRow["CharRole"] = 角色.CharRole;
+                    dataRow["CharRole"] = 角色.CharRace;
                     dataRow["CharGender"] = 角色.CharGender;
-                    dataRow["Affiliation"] = 角色.Affiliation;
-                    dataRow["NumberDollars"] = 角色.NumberDollars;
+                    dataRow["Affiliation"] = 角色.Guild;
+                    dataRow["Ingots"] = 角色.Ingots;
                     dataRow["DollarConsumption"] = 角色.DollarConsumption;
                     dataRow["NumberGoldCoins"] = 角色.NumberGoldCoins;
                     dataRow["TransferOutGoldCoins"] = 角色.TransferOutGoldCoins;
@@ -488,10 +488,10 @@ namespace GameServer
                     dataRow["PreviousPrivilege"] = 角色.PreviousPrivilege;
                     dataRow["DateLastIssue"] = 角色.DateLastIssue;
                     dataRow["RemainingPrivileges"] = 角色.RemainingPrivileges;
-                    dataRow["CurrentRank"] = 角色.CurrentRank;
+                    dataRow["CurrentRank"] = 角色.Level;
                     dataRow["CurrentExp"] = 角色.CurrentExp;
                     dataRow["DoubleExp"] = 角色.DoubleExp;
-                    dataRow["CurrentBattlePower"] = 角色.CurrentBattlePower;
+                    dataRow["CurrentBattlePower"] = 角色.PowerCombat;
                     GameMap 游戏地图;
                     dataRow["CurrentMap"] = (GameMap.DataSheet.TryGetValue((byte)角色.CurrentMap.V, out 游戏地图) ? 游戏地图.MapName : 角色.CurrentMap);
                     dataRow["PkLevel"] = 角色.PkLevel;
@@ -611,7 +611,7 @@ namespace GameServer
         }
 
 
-        public static void 更新CharacterData(CharacterData 角色, string 表头, object 内容)
+        public static void UpdatedCharacterData(CharacterData 角色, string fieldChanged, object 内容)
         {
             MainForm MainForm = MainForm.Singleton;
             if (MainForm == null)
@@ -623,7 +623,7 @@ namespace GameServer
                 DataRow dataRow;
                 if (MainForm.CharacterData行.TryGetValue(角色, out dataRow))
                 {
-                    dataRow[表头] = 内容;
+                    dataRow[fieldChanged] = 内容;
                 }
             }));
         }

@@ -227,7 +227,7 @@ namespace GameServer.Maps
 						}
 						else
 						{
-							PlayerObject.玩家切换地图(MapGatewayProcess.分配地图(PlayerObject.重生地图), AreaType.复活区域, default(Point));
+							PlayerObject.玩家切换地图(MapGatewayProcess.GetMapInstance(PlayerObject.重生地图), AreaType.复活区域, default(Point));
 						}
 					}
 					foreach (PetObject PetObject in this.宠物列表.ToList<PetObject>())
@@ -358,7 +358,7 @@ namespace GameServer.Maps
 		{
 			if (区域 == AreaType.复活区域)
 			{
-				return this.复活区域.RandomCoords;
+				return this.ResurrectionArea.RandomCoords;
 			}
 			if (区域 == AreaType.红名区域)
 			{
@@ -542,7 +542,7 @@ namespace GameServer.Maps
 		public Terrains 地形数据;
 
 		
-		public MapAreas 复活区域;
+		public MapAreas ResurrectionArea;
 
 		
 		public MapAreas 红名区域;

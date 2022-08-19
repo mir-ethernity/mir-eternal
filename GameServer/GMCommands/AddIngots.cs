@@ -25,16 +25,16 @@ namespace GameServer
 				CharacterData CharacterData = GameData as CharacterData;
 				if (CharacterData != null)
 				{
-					CharacterData.NumberDollars += this.NumberDollars;
+					CharacterData.Ingots += this.Ingots;
 					SConnection 网络连接 = CharacterData.ActiveConnection;
 					if (网络连接 != null)
 					{
-						网络连接.SendPacket(new 同步NumberDollars
+						网络连接.SendPacket(new 同步Ingots
 						{
-							NumberDollars = CharacterData.NumberDollars
+							Ingots = CharacterData.Ingots
 						});
 					}
-					MainForm.AddCommandLog(string.Format("<= @{0} command has been executed, current amount of treasure: {1}", base.GetType().Name, CharacterData.NumberDollars));
+					MainForm.AddCommandLog(string.Format("<= @{0} command has been executed, current amount of treasure: {1}", base.GetType().Name, CharacterData.Ingots));
 					return;
 				}
 			}
@@ -54,6 +54,6 @@ namespace GameServer
 
 		
 		[FieldAttribute(0, Position = 1)]
-		public int NumberDollars;
+		public int Ingots;
 	}
 }

@@ -239,14 +239,14 @@ namespace GameServer.Data
                     num2 = 1879048192;
                 }
                 List<GameData> list = (from O in keyValuePair.Value.DataSheet.Values
-                                       orderby O.数据索引.V
+                                       orderby O.Index.V
                                        select O).ToList<GameData>();
                 int num3 = 0;
                 for (int i = 0; i < list.Count; i++)
                 {
                     int num4 = num2 + i + 1;
                     GameData GameData = list[i];
-                    if (GameData.数据索引.V != num4)
+                    if (GameData.Index.V != num4)
                     {
                         if (GameData is CharacterData)
                         {
@@ -262,7 +262,7 @@ namespace GameServer.Data
                                             case MemorandumType.创建公会:
                                             case MemorandumType.加入公会:
                                             case MemorandumType.离开公会:
-                                                if (GuildEvents.第一参数 == GameData.数据索引.V)
+                                                if (GuildEvents.第一参数 == GameData.Index.V)
                                                 {
                                                     GuildEvents.第一参数 = num4;
                                                 }
@@ -270,11 +270,11 @@ namespace GameServer.Data
                                             case MemorandumType.逐出公会:
                                             case MemorandumType.变更职位:
                                             case MemorandumType.会长传位:
-                                                if (GuildEvents.第一参数 == GameData.数据索引.V)
+                                                if (GuildEvents.第一参数 == GameData.Index.V)
                                                 {
                                                     GuildEvents.第一参数 = num4;
                                                 }
-                                                if (GuildEvents.第二参数 == GameData.数据索引.V)
+                                                if (GuildEvents.第二参数 == GameData.Index.V)
                                                 {
                                                     GuildEvents.第二参数 = num4;
                                                 }
@@ -297,11 +297,11 @@ namespace GameServer.Data
                                         MemorandumType MemorandumType = GuildEvents2.MemorandumType;
                                         if (MemorandumType - MemorandumType.行会结盟 <= 1 || MemorandumType - MemorandumType.取消结盟 <= 1)
                                         {
-                                            if (GuildEvents2.第一参数 == GameData.数据索引.V)
+                                            if (GuildEvents2.第一参数 == GameData.Index.V)
                                             {
                                                 GuildEvents2.第一参数 = num4;
                                             }
-                                            if (GuildEvents2.第二参数 == GameData.数据索引.V)
+                                            if (GuildEvents2.第二参数 == GameData.Index.V)
                                             {
                                                 GuildEvents2.第二参数 = num4;
                                             }
@@ -313,14 +313,14 @@ namespace GameServer.Data
                             goto IL_2D7;
                         }
                     IL_37E:
-                        GameData.数据索引.V = num4;
+                        GameData.Index.V = num4;
                         num3++;
                     }
                 IL_2D7:;
                 }
                 keyValuePair.Value.CurrentIndex = list.Count + num2;
                 num += num3;
-                keyValuePair.Value.DataSheet = keyValuePair.Value.DataSheet.ToDictionary((KeyValuePair<int, GameData> x) => x.Value.数据索引.V, (KeyValuePair<int, GameData> x) => x.Value);
+                keyValuePair.Value.DataSheet = keyValuePair.Value.DataSheet.ToDictionary((KeyValuePair<int, GameData> x) => x.Value.Index.V, (KeyValuePair<int, GameData> x) => x.Value);
                 MainForm.AddCommandLog(string.Format("{0} Sorted, Quantity sorted: {1}", keyValuePair.Key.Name, num3));
             }
             MainForm.AddCommandLog(string.Format("The customer data has been collated, and the totals collated: {0}", num));
@@ -344,26 +344,26 @@ namespace GameServer.Data
             foreach (GameData GameData in GameDataGateway.CharacterDataTable.DataSheet.Values.ToList<GameData>())
             {
                 CharacterData CharacterData = GameData as CharacterData;
-                if (CharacterData != null && (int)CharacterData.CurrentRank.V < MinLevel && !(CharacterData.OfflineDate.V > t))
+                if (CharacterData != null && (int)CharacterData.Level.V < MinLevel && !(CharacterData.OfflineDate.V > t))
                 {
                     if (CharacterData.当前排名.Count > 0)
                     {
-                        MainForm.AddCommandLog(string.Format("[{0}]({1}/{2}) In the leaderboard, skipped cleanup", CharacterData, CharacterData.CurrentRank, (int)(DateTime.Now - CharacterData.OfflineDate.V).TotalDays));
+                        MainForm.AddCommandLog(string.Format("[{0}]({1}/{2}) In the leaderboard, skipped cleanup", CharacterData, CharacterData.Level, (int)(DateTime.Now - CharacterData.OfflineDate.V).TotalDays));
                     }
-                    else if (CharacterData.NumberDollars > 0)
+                    else if (CharacterData.Ingots > 0)
                     {
-                        MainForm.AddCommandLog(string.Format("[{0}]({1}/{2}) There are unspent treasures, cleanup has been skipped", CharacterData, CharacterData.CurrentRank, (int)(DateTime.Now - CharacterData.OfflineDate.V).TotalDays));
+                        MainForm.AddCommandLog(string.Format("[{0}]({1}/{2}) There are unspent treasures, cleanup has been skipped", CharacterData, CharacterData.Level, (int)(DateTime.Now - CharacterData.OfflineDate.V).TotalDays));
                     }
                     else
                     {
-                        GuildData 当前行会 = CharacterData.当前行会;
+                        GuildData 当前行会 = CharacterData.CurrentGuild;
                         if (((当前行会 != null) ? 当前行会.会长数据 : null) == CharacterData)
                         {
-                            MainForm.AddCommandLog(string.Format("[{0}]({1}/{2}) t's the president of the guild, skipped cleanup", CharacterData, CharacterData.CurrentRank, (int)(DateTime.Now - CharacterData.OfflineDate.V).TotalDays));
+                            MainForm.AddCommandLog(string.Format("[{0}]({1}/{2}) t's the president of the guild, skipped cleanup", CharacterData, CharacterData.Level, (int)(DateTime.Now - CharacterData.OfflineDate.V).TotalDays));
                         }
                         else
                         {
-                            MainForm.AddCommandLog(string.Format("Start cleaning [{0}]({1}/{2})...", CharacterData, CharacterData.CurrentRank, (int)(DateTime.Now - CharacterData.OfflineDate.V).TotalDays));
+                            MainForm.AddCommandLog(string.Format("Start cleaning [{0}]({1}/{2})...", CharacterData, CharacterData.Level, (int)(DateTime.Now - CharacterData.OfflineDate.V).TotalDays));
                             CharacterData.Delete();
                             num++;
                             MainForm.RemoveCharacter(CharacterData);
@@ -480,20 +480,20 @@ namespace GameServer.Data
                                         AccountData AccountData2 = GameData as AccountData;
                                         if (AccountData2 != null)
                                         {
-                                            foreach (CharacterData CharacterData in AccountData.角色列表)
+                                            foreach (CharacterData CharacterData in AccountData.Characters)
                                             {
-                                                AccountData2.角色列表.Add(CharacterData);
-                                                CharacterData.AccNumber.V = AccountData2;
+                                                AccountData2.Characters.Add(CharacterData);
+                                                CharacterData.Account.V = AccountData2;
                                             }
                                             foreach (CharacterData CharacterData2 in AccountData.冻结列表)
                                             {
                                                 AccountData2.冻结列表.Add(CharacterData2);
-                                                CharacterData2.AccNumber.V = AccountData2;
+                                                CharacterData2.Account.V = AccountData2;
                                             }
                                             foreach (CharacterData CharacterData3 in AccountData.删除列表)
                                             {
                                                 AccountData2.删除列表.Add(CharacterData3);
-                                                CharacterData3.AccNumber.V = AccountData2;
+                                                CharacterData3.Account.V = AccountData2;
                                             }
                                             AccountData2.封禁日期.V = ((AccountData2.封禁日期.V <= AccountData.封禁日期.V) ? AccountData2.封禁日期.V : AccountData.封禁日期.V);
                                             AccountData2.DateDelete.V = default(DateTime);

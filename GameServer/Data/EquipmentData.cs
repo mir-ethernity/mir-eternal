@@ -1112,7 +1112,7 @@ namespace GameServer.Data
                 {
                     binaryWriter.Write(ItemData.数据版本);
                     BinaryWriter binaryWriter2 = binaryWriter;
-                    binaryWriter2.Write(生成来源.V?.数据索引.V ?? 0);
+                    binaryWriter2.Write(生成来源.V?.Index.V ?? 0);
                     binaryWriter.Write(ComputingClass.TimeShift(生成时间.V));
                     binaryWriter.Write(对应模板.V.Id);
                     binaryWriter.Write(物品容器.V);

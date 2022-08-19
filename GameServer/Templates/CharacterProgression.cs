@@ -7,10 +7,10 @@ using System.Text.RegularExpressions;
 namespace GameServer.Templates
 {
 	
-	public sealed class 角色成长
+	public sealed class CharacterProgression
 	{
 		
-		static 角色成长()
+		static CharacterProgression()
 		{
 			
 			Dictionary<byte, int> dictionary = new Dictionary<byte, int>();
@@ -73,8 +73,8 @@ namespace GameServer.Templates
 			dictionary[57] = 600000000;
 			dictionary[58] = 700000000;
 			dictionary[59] = 800000000;
-			角色成长.升级所需经验 = dictionary;
-			角色成长.宠物升级经验 = new ushort[]
+			CharacterProgression.MaxExpTable = dictionary;
+			CharacterProgression.宠物升级经验 = new ushort[]
 			{
 				5,
 				10,
@@ -86,7 +86,7 @@ namespace GameServer.Templates
 				40,
 				45
 			};
-			角色成长.DataSheet = new Dictionary<int, Dictionary<GameObjectStats, int>>();
+			CharacterProgression.DataSheet = new Dictionary<int, Dictionary<GameObjectStats, int>>();
 			string path = Config.GameDataPath + "\\System\\GrowthAttribute.txt";
 			string[] array = Regex.Split(File.ReadAllText(path).Trim(new char[]
 			{
@@ -127,19 +127,19 @@ namespace GameServer.Templates
 							dictionary3[GameObjectProperties] = Convert.ToInt32(array2[dictionary2[GameObjectProperties.ToString()]]);
 						}
 					}
-					角色成长.DataSheet.Add(key, dictionary3);
+					CharacterProgression.DataSheet.Add(key, dictionary3);
 				}
 			}
 		}
 
 		
-		public static Dictionary<GameObjectStats, int> 获取数据(GameObjectRace 职业, byte 等级)
+		public static Dictionary<GameObjectStats, int> GetData(GameObjectRace 职业, byte 等级)
 		{
-			return 角色成长.DataSheet[(int)((byte)职业) * 256 + (int)等级];
+			return CharacterProgression.DataSheet[(int)((byte)职业) * 256 + (int)等级];
 		}
 
 		
-		public 角色成长()
+		public CharacterProgression()
 		{
 			
 			
@@ -149,7 +149,7 @@ namespace GameServer.Templates
 		public static Dictionary<int, Dictionary<GameObjectStats, int>> DataSheet;
 
 		
-		public static readonly Dictionary<byte, int> 升级所需经验;
+		public static readonly Dictionary<byte, int> MaxExpTable;
 
 		
 		public static readonly ushort[] 宠物升级经验;

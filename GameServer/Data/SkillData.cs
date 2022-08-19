@@ -50,7 +50,7 @@ namespace GameServer.Data
 		{
 			get
 			{
-				return InscriptionSkill.DataSheet[this.Index];
+				return InscriptionSkill.DataSheet[this.SkillIndex];
 			}
 		}
 
@@ -112,7 +112,7 @@ namespace GameServer.Data
 		}
 
 		
-		public ushort Index
+		public ushort SkillIndex
 		{
 			get
 			{

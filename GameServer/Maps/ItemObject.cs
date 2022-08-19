@@ -224,8 +224,8 @@ namespace GameServer.Maps
         public int GetOwnerPlayerIdForDrop(PlayerObject playerAppearing)
         {
             return 物品归属 == null || 物品归属.Contains(playerAppearing.CharacterData)
-                ? playerAppearing.CharacterData.Id
-                : 物品归属?.FirstOrDefault()?.Id ?? 0;
+                ? playerAppearing.CharacterData.CharId
+                : 物品归属?.FirstOrDefault()?.CharId ?? 0;
 
         }
 
