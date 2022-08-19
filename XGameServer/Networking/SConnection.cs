@@ -390,6 +390,11 @@ namespace GameServer.Networking
 
         }
 
+        public void 处理封包(UnknownC4 P)
+        {
+
+        }
+
         public void 处理封包(ReservedPacketZeroOnePacket P)
         {
         }

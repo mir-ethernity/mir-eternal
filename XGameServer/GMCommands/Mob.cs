@@ -29,7 +29,7 @@ namespace GameServer.GMCommands
 
             var mapInstance = MapGatewayProcess.分配地图(map.MapId);
 
-            new MonsterObject(monster, mapInstance, 0, new System.Drawing.Point[] { new System.Drawing.Point(MapX, MapY) }, true, true);
+            new MonsterObject(monster, mapInstance, int.MaxValue, new System.Drawing.Point[] { new System.Drawing.Point(MapX, MapY) }, true, true) { 存活时间 = MainProcess.CurrentTime.AddMinutes(1.0) };
         }
 
         [FieldAttribute(0, Position = 0)]

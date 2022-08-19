@@ -30,7 +30,7 @@
       "同组铭文无效": true,
       "所需Buff层数": 1,
       "GainSkillExp": true,
-      "经验SkillId": 1205
+      "ExpSkillId": 1205
     },
     "2": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
@@ -41,7 +41,7 @@
       "同组铭文无效": true,
       "所需Buff层数": 1,
       "GainSkillExp": true,
-      "经验SkillId": 1205
+      "ExpSkillId": 1205
     },
     "3": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
@@ -52,7 +52,7 @@
       "同组铭文无效": true,
       "所需Buff层数": 1,
       "GainSkillExp": true,
-      "经验SkillId": 1205
+      "ExpSkillId": 1205
     },
     "4": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
@@ -63,7 +63,7 @@
       "同组铭文无效": true,
       "所需Buff层数": 1,
       "GainSkillExp": true,
-      "经验SkillId": 1205
+      "ExpSkillId": 1205
     },
     "5": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
@@ -74,7 +74,7 @@
       "同组铭文无效": true,
       "所需Buff层数": 1,
       "GainSkillExp": true,
-      "经验SkillId": 1205
+      "ExpSkillId": 1205
     },
     "6": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",

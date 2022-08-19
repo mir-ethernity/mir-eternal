@@ -283,7 +283,7 @@ namespace GameServer.Templates
                     }
 
                     if (flag2 && a_01.GainSkillExp && CasterObject is PlayerObject playerObj)
-                        playerObj.SkillGainExp(a_01.经验SkillId);
+                        playerObj.SkillGainExp(a_01.ExpSkillId);
                 }
                 else if (task is A_02_TriggerTrapSkills a_02)
                 {
@@ -300,8 +300,8 @@ namespace GameServer.Templates
                             }
                         }
 
-                        if (num7 != 0 && a_02.经验SkillId != 0 && CasterObject is PlayerObject playerObj)
-                            playerObj.SkillGainExp(a_02.经验SkillId);
+                        if (num7 != 0 && a_02.ExpSkillId != 0 && CasterObject is PlayerObject playerObj)
+                            playerObj.SkillGainExp(a_02.ExpSkillId);
                     }
                 }
                 else if (task is B_00_SkillSwitchNotification b_00)
@@ -600,7 +600,7 @@ namespace GameServer.Templates
                         CasterObject[GameObjectStats.SkillSign] = 1;
 
                     if (c_01.GainSkillExp && Hits.Count != 0 && CasterObject is PlayerObject playerObj)
-                        playerObj.SkillGainExp(c_01.经验SkillId);
+                        playerObj.SkillGainExp(c_01.ExpSkillId);
 
                     if (c_01.计算飞行耗时 && c_01.单格飞行耗时 != 0)
                         FightTime = ComputingClass.GridDistance(ReleaseLocation, SkillLocation) * c_01.单格飞行耗时;
@@ -776,7 +776,7 @@ namespace GameServer.Templates
                     if (CasterObject is PlayerObject playerObj)
                     {
                         if (c_02.GainSkillExp && Hits.Count != 0)
-                            playerObj.SkillGainExp(c_02.经验SkillId);
+                            playerObj.SkillGainExp(c_02.ExpSkillId);
 
                         if (c_02.扣除武器持久 && Hits.Count != 0)
                             playerObj.武器损失持久();
@@ -955,27 +955,27 @@ namespace GameServer.Templates
                 }
                 else if (task is C_06_CalculatePetSummoning c_06)
                 {
-                    if (c_06.怪物召唤同伴)
+                    if (c_06.Companion)
                     {
-                        if (c_06.召唤PetName == null || c_06.召唤PetName.Length == 0)
+                        if (c_06.PetName == null || c_06.PetName.Length == 0)
                             return;
 
-                        if (Monsters.DataSheet.TryGetValue(c_06.召唤PetName, out var 对应模板))
+                        if (Monsters.DataSheet.TryGetValue(c_06.PetName, out var 对应模板))
                             _ = new MonsterObject(对应模板, ReleaseMap, int.MaxValue, new Point[] { ReleaseLocation }, true, true) { 存活时间 = MainProcess.CurrentTime.AddMinutes(1.0) };
                     }
                     else if (CasterObject is PlayerObject playerObj)
                     {
-                        if (c_06.检查技能铭文 && (!playerObj.MainSkills表.TryGetValue(SkillId, out var skill) || skill.Id != Id))
+                        if (c_06.CheckSkillInscriptions && (!playerObj.MainSkills表.TryGetValue(SkillId, out var skill) || skill.Id != Id))
                             return;
 
-                        if (c_06.召唤PetName == null || c_06.召唤PetName.Length == 0)
+                        if (c_06.PetName == null || c_06.PetName.Length == 0)
                             return;
 
-                        int num21 = ((c_06.召唤宠物数量?.Length > SkillLevel) ? c_06.召唤宠物数量[SkillLevel] : 0);
-                        if (playerObj.Pets.Count < num21 && Monsters.DataSheet.TryGetValue(c_06.召唤PetName, out var value5))
+                        int num21 = ((c_06.SpawnCount?.Length > SkillLevel) ? c_06.SpawnCount[SkillLevel] : 0);
+                        if (playerObj.Pets.Count < num21 && Monsters.DataSheet.TryGetValue(c_06.PetName, out var value5))
                         {
-                            byte GradeCap = (byte)((c_06.宠物GradeCap?.Length > SkillLevel) ? c_06.宠物GradeCap[SkillLevel] : 0);
-                            PetObject 宠物实例 = new PetObject(playerObj, value5, SkillLevel, GradeCap, c_06.宠物BoundWeapons);
+                            byte GradeCap = (byte)((c_06.LevelCap?.Length > SkillLevel) ? c_06.LevelCap[SkillLevel] : 0);
+                            PetObject 宠物实例 = new PetObject(playerObj, value5, SkillLevel, GradeCap, c_06.PetBoundWeapons);
                             playerObj.ActiveConnection.SendPacket(new SyncPetLevelPacket
                             {
                                 宠物编号 = 宠物实例.ObjectId,
@@ -990,7 +990,7 @@ namespace GameServer.Templates
                             playerObj.Pets.Add(宠物实例);
 
                             if (c_06.GainSkillExp)
-                                playerObj.SkillGainExp(c_06.经验SkillId);
+                                playerObj.SkillGainExp(c_06.ExpSkillId);
                         }
                     }
                 }
@@ -1000,7 +1000,7 @@ namespace GameServer.Templates
                         keyValuePair20.Value.Object.被动回复时处理(this, c_05);
 
                     if (c_05.GainSkillExp && Hits.Count != 0 && CasterObject is PlayerObject playerObj)
-                        playerObj.SkillGainExp(c_05.经验SkillId);
+                        playerObj.SkillGainExp(c_05.ExpSkillId);
                 }
                 else if (task is C_07_CalculateTargetTeleportation c_07 && CasterObject is PlayerObject playerObj)
                     playerObj.玩家瞬间移动(this, c_07);

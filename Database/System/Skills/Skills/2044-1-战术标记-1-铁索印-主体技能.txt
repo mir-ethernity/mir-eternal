@@ -47,7 +47,7 @@
       "Buff触发概率": 1,
       "所需Buff层数": 1,
       "GainSkillExp": true,
-      "经验SkillId": 2044
+      "ExpSkillId": 2044
     },
     "375": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",

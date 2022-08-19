@@ -30,11 +30,11 @@
     },
     "624": {
       "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
-      "召唤宠物名字": "道士骷髅普通",
-      "召唤宠物数量": "AQEBAQ==",
-      "宠物等级上限": "AQMFBw==",
+      "PetName": "道士骷髅普通",
+      "SpawnCount": "AQEBAQ==",
+      "LevelCap": "AQMFBw==",
       "GainSkillExp": true,
-      "经验SkillId": 3003
+      "ExpSkillId": 3003
     },
     "625": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

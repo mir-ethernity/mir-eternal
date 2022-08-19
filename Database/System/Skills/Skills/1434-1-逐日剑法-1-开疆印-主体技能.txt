@@ -63,7 +63,7 @@
       "冷却减少时间": 5000,
       "扣除武器持久": true,
       "GainSkillExp": true,
-      "经验SkillId": 1038,
+      "ExpSkillId": 1038,
       "目标硬直时间": 500,
       "清除状态列表": []
     },
@@ -72,7 +72,7 @@
       "TriggerTrapSkills": "逐日剑法-1-开疆印",
       "NumberTrapsTriggered": "Solid3x3",
       "GainSkillExp": true,
-      "经验SkillId": 2534
+      "ExpSkillId": 2534
     },
     "900": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

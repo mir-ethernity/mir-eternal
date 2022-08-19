@@ -83,7 +83,7 @@ namespace GameServer.Templates
 		public bool GainSkillExp;
 
 		
-		public ushort 经验SkillId;
+		public ushort ExpSkillId;
 
 		
 		public bool 清除目标状态;

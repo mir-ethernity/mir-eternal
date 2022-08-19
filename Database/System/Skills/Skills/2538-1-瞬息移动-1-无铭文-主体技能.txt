@@ -33,7 +33,7 @@
       "瞬移失败提示": 25380,
       "失败添加Buff": 25381,
       "GainSkillExp": true,
-      "经验SkillId": 2538
+      "ExpSkillId": 2538
     },
     "625": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

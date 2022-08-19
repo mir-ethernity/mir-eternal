@@ -19,7 +19,7 @@
       "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "GainSkillExp": true,
-      "经验SkillId": 2042,
+      "ExpSkillId": 2042,
       "清除状态列表": []
     },
     "1": {

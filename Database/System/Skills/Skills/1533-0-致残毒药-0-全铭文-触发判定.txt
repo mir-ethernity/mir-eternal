@@ -30,7 +30,7 @@
       "Id": 15330,
       "所需Buff层数": 1,
       "GainSkillExp": true,
-      "经验SkillId": 1533
+      "ExpSkillId": 1533
     },
     "2": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
@@ -41,7 +41,7 @@
       "Id": 15332,
       "所需Buff层数": 1,
       "GainSkillExp": true,
-      "经验SkillId": 1533
+      "ExpSkillId": 1533
     },
     "3": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
@@ -51,7 +51,7 @@
       "Id": 15334,
       "所需Buff层数": 1,
       "GainSkillExp": true,
-      "经验SkillId": 1533
+      "ExpSkillId": 1533
     },
     "4": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
@@ -61,7 +61,7 @@
       "Id": 15335,
       "所需Buff层数": 1,
       "GainSkillExp": true,
-      "经验SkillId": 1533
+      "ExpSkillId": 1533
     },
     "5": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
@@ -70,7 +70,7 @@
       "验证ItSelfBuff": true,
       "Id": 15335,
       "所需Buff层数": 1,
-      "经验SkillId": 1533
+      "ExpSkillId": 1533
     },
     "6": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
@@ -81,7 +81,7 @@
       "Id": 15338,
       "所需Buff层数": 1,
       "GainSkillExp": true,
-      "经验SkillId": 1533
+      "ExpSkillId": 1533
     },
     "7": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
@@ -91,7 +91,7 @@
       "Id": 15300,
       "所需Buff层数": 1,
       "GainSkillExp": true,
-      "经验SkillId": 1533
+      "ExpSkillId": 1533
     },
     "8": {
       "$type": "A_00_TriggerSubSkills, Assembly-CSharp",

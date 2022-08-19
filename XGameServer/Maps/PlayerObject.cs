@@ -2645,7 +2645,7 @@ namespace GameServer.Maps
             }
             if (参数.GainSkillExp)
             {
-                this.SkillGainExp(参数.经验SkillId);
+                this.SkillGainExp(参数.ExpSkillId);
             }
         }
 

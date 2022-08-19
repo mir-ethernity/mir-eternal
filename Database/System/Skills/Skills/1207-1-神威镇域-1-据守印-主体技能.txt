@@ -34,7 +34,7 @@
       "Buff触发概率": 1,
       "所需Buff层数": 1,
       "GainSkillExp": true,
-      "经验SkillId": 1207
+      "ExpSkillId": 1207
     },
     "625": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

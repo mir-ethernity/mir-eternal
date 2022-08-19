@@ -5,6 +5,9 @@
 [![GameServer Build](https://github.com/Suprcode/mir-eternal/actions/workflows/gameserver-build.yml/badge.svg)](https://github.com/Suprcode/mir-eternal/actions/workflows/gameserver-build.yml)
 [![Launcher Build](https://github.com/Suprcode/mir-eternal/actions/workflows/launcher-build.yml/badge.svg)](https://github.com/Suprcode/mir-eternal/actions/workflows/launcher-build.yml)
 
+## Help us to continue maintaining the project
+[![Donate with paypal](docs/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SYTUMJ7742MRC)
+
 ## Info
 
 Originally, these sources were published on LOMCN in the following post:
@@ -18,6 +21,8 @@ In this repository, we have done a refactoring, translation and correction work 
 
 First, a compatible client will need to be downloaded, for example:
 https://cq.dorado.sdo.com/downloader/cqyh_10340_downloader.exe
+
+Latest version still compatible with this files **[1.0.3.63]** at 18/08/22!
 
 Once downloaded, you will need to copy the compiled binaries of the launcher to the root of the folder.
 

@@ -57,7 +57,7 @@
         2
       ],
       "GainSkillExp": true,
-      "经验SkillId": 2056,
+      "ExpSkillId": 2056,
       "目标硬直时间": 500,
       "清除状态列表": []
     },
