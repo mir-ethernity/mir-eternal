@@ -1281,7 +1281,7 @@ namespace GameServer.Maps
         {
             get
             {
-                return CharacterProgression.MaxExpTable[this.CurrentLevel];
+                return CharacterProgression.MaxExpTable[(byte)(this.CurrentLevel - 1)];
             }
         }
 
@@ -2071,25 +2071,21 @@ namespace GameServer.Maps
 
         public void 玩家升级处理()
         {
-            base.SendPacket(new CharacterLevelUpPacket
+            SendPacket(new CharacterLevelUpPacket
             {
                 对象编号 = this.ObjectId,
                 对象等级 = this.CurrentLevel
             });
-            GuildData Affiliation = this.Guild;
-            if (Affiliation != null)
+            Guild?.发送封包(new SyncMemberInfoPacket
             {
-                Affiliation.发送封包(new SyncMemberInfoPacket
-                {
-                    对象编号 = this.ObjectId,
-                    对象信息 = this.CurrentMap.MapId,
-                    CurrentRank = this.CurrentLevel
-                });
-            }
-            this.CombatBonus[this] = (int)(this.CurrentLevel * 10);
-            this.更新玩家战力();
-            this.StatsBonus[this] = CharacterProgression.GetData(this.CharRole, this.CurrentLevel);
-            this.RefreshStats();
+                对象编号 = this.ObjectId,
+                对象信息 = this.CurrentMap.MapId,
+                CurrentRank = this.CurrentLevel
+            });
+            CombatBonus[this] = (int)(this.CurrentLevel * 10);
+            更新玩家战力();
+            StatsBonus[this] = CharacterProgression.GetData(this.CharRole, this.CurrentLevel);
+            RefreshStats();
             if (!this.Died)
             {
                 this.CurrentHP = this[GameObjectStats.MaxHP];
@@ -13673,12 +13669,12 @@ namespace GameServer.Maps
             {
                 using (BinaryWriter binaryWriter3 = new BinaryWriter(memoryStream3))
                 {
-                    binaryWriter3.Write(CharacterData.CharId);
-                    binaryWriter3.Write(ObjectId);
+                    binaryWriter3.Write(0);
+                    binaryWriter3.Write(0);
                     binaryWriter3.Write(1);
                     binaryWriter3.Write((int)this.CurrentLevel);
-                    binaryWriter3.Write(Encoding.UTF8.GetBytes(message));
-                    binaryWriter3.Write(Encoding.UTF8.GetBytes(ObjectName));
+                    binaryWriter3.Write(Encoding.UTF8.GetBytes(message + '\0'));
+                    binaryWriter3.Write(String.Empty);
                     binaryWriter3.Write((byte)0);
                     ActiveConnection?.SendPacket(new ReceiveChatMessagesPacket
                     {

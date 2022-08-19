@@ -14,8 +14,14 @@ namespace GameServer.PlayerCommands
 
         public override void Execute()
         {
+            if (Level <= 0 || Level > Config.MaxLevel)
+            {
+                Player.SendMessage($"Invalid level, please provide one between 1-{Config.MaxLevel}");
+                return;
+            }
+
             Player.CurrentLevel = Level;
-            Player.CurrentExp = 1;
+            Player.CurrentExp = 0;
             Player.玩家升级处理();
             Player.SendPacket(new CharacterExpChangesPacket
             {
