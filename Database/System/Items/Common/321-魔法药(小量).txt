@@ -17,8 +17,8 @@
   "Props": {
     "UsageType": 2,
     "RecoveryTime": 1,
-    "RecoveryBase": 5,
-    "RecoverySteps": 4
+    "RecoveryBase": 10,
+    "RecoverySteps": 3
   },
   "物品掉落列表": [
     {

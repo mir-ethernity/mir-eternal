@@ -13,5 +13,10 @@
   "Type": "可用药剂",
   "NeedRace": "通用",
   "PersistType": "堆叠",
-  "StoreType": "药品"
+  "StoreType": "药品",
+  "Props": {
+    "UsageType": 3,
+    "IncreaseHP": 75,
+    "IncreaseMP": 100
+  }
 }

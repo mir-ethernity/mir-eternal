@@ -7,5 +7,9 @@
   "ValuableObjects": true,
   "Type": "宝图宝物",
   "NeedRace": "通用",
-  "PersistType": "堆叠"
+  "PersistType": "堆叠",
+  "Props": {
+    "UsageType": 7,
+    "IngotsAmount": 100000
+  }
 }

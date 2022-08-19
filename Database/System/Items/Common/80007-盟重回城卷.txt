@@ -11,5 +11,9 @@
   "Type": "可用杂物",
   "NeedRace": "通用",
   "PersistType": "堆叠",
-  "StoreType": "杂货"
+  "StoreType": "杂货",
+  "Props": {
+    "UsageType": 8,
+    "MapId": 147
+  }
 }

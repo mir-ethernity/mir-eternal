@@ -12,6 +12,10 @@ namespace GameServer.Enums
         RecoveryHP = 1,
         RecoveryMP = 2,
         Medicine = 3,
-        RandomTeleport = 4
+        RandomTeleport = 4,
+        Treasure = 5,
+        UnpackStack = 6,
+        GainIngots = 7,
+        TownTeleport = 8
     }
 }

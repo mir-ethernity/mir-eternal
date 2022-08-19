@@ -13,6 +13,8 @@ namespace GameServer.Enums
         RecoveryTime,
         UsageType,
         IncreaseHP,
-        IncreaseMP
+        IncreaseMP,
+        IngotsAmount,
+        MapId
     }
 }

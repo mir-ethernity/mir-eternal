@@ -10206,6 +10206,194 @@ namespace GameServer.Maps
             }
         }
 
+        private void ProcessConsumableRecoveryHP(ItemData item)
+        {
+            药品回血 = MainProcess.CurrentTime.AddSeconds(item.GetProp(ItemProperty.RecoveryTime, 1));
+            回血基数 = item.GetProp(ItemProperty.RecoveryBase, 15);
+            回血次数 = item.GetProp(ItemProperty.RecoverySteps, 6);
+        }
+
+        private void ProcessConsumableRecoveryMP(ItemData item)
+        {
+            药品回血 = MainProcess.CurrentTime.AddSeconds(item.GetProp(ItemProperty.RecoveryTime, 1));
+            回魔基数 = item.GetProp(ItemProperty.RecoveryBase, 15);
+            回魔次数 = item.GetProp(ItemProperty.RecoverySteps, 6);
+        }
+
+        private void ProcessConsumableMedicine(ItemData item)
+        {
+            药品回血 = MainProcess.CurrentTime.AddSeconds(item.GetProp(ItemProperty.RecoveryTime, 1));
+            CurrentHP += (int)Math.Max(item.GetProp(ItemProperty.IncreaseHP, 30) * (1f + (float)this[GameObjectStats.药品回血] / 10000f), 0f);
+            CurrentMP += (int)Math.Max(item.GetProp(ItemProperty.IncreaseMP, 40) * (1f + (float)this[GameObjectStats.药品回魔] / 10000f), 0f);
+        }
+
+        private void ProcessConsumableStack(ItemData item)
+        {
+            if (BackpackSize - Backpack.Count < 5)
+            {
+                ActiveConnection?.SendPacket(new GameErrorMessagePacket
+                {
+                    错误代码 = 1793
+                });
+                return;
+            }
+
+            if (item.UnpackItemId == null || !GameItems.DataSheet.TryGetValue(item.UnpackItemId.Value, out var drugItem))
+                return;
+
+            if (item.GroupId > 0 && item.GroupCooling > 0)
+            {
+                Coolings[item.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(item.GroupCooling);
+                ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
+                {
+                    冷却编号 = (item.GroupId | 0),
+                    Cooldown = item.GroupCooling
+                });
+            }
+
+            if (item.Cooldown > 0)
+            {
+                Coolings[item.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(item.Cooldown);
+                ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
+                {
+                    冷却编号 = (item.Id | 0x2000000),
+                    Cooldown = item.Cooldown
+                });
+            }
+
+            ConsumeBackpackItem(1, item);
+
+            byte b21 = 0;
+            byte b22 = 0;
+            while (b21 < BackpackSize && b22 < 6)
+            {
+                if (!Backpack.ContainsKey(b21))
+                {
+                    Backpack[b21] = new ItemData(drugItem, CharacterData, 1, b21, 1);
+                    ActiveConnection?.SendPacket(new 玩家物品变动
+                    {
+                        物品描述 = Backpack[b21].字节描述()
+                    });
+                    b22 = (byte)(b22 + 1);
+                }
+                b21 = (byte)(b21 + 1);
+            }
+        }
+
+        private void ProcessConsumableRandomTeleport(ItemData item)
+        {
+            Point point = CurrentMap.随机传送(CurrentPosition);
+            if (point != default(Point))
+            {
+                ConsumeBackpackItem(1, item);
+                玩家切换地图(CurrentMap, AreaType.未知区域, point);
+            }
+            else
+            {
+                ActiveConnection?.SendPacket(new GameErrorMessagePacket
+                {
+                    错误代码 = 776
+                });
+            }
+        }
+
+        private void ProcessConsumableTreasure(ItemData item)
+        {
+            if (!CharacterData.TryGetFreeSpaceAtInventory(out byte inventoryLocation))
+            {
+                ActiveConnection?.SendPacket(new GameErrorMessagePacket
+                {
+                    错误代码 = 1825
+                });
+                return;
+            }
+
+            var randomPos = MainProcess.RandomNumber.Next(item.对应模板.V.TreasureItems.Count);
+            if (GameItems.DataSheetByName.TryGetValue(item.对应模板.V.TreasureItems[randomPos], out var randomItem))
+            {
+                ConsumeBackpackItem(1, item);
+                Backpack[inventoryLocation] = new ItemData(randomItem, CharacterData, 1, inventoryLocation, 2);
+                ActiveConnection?.SendPacket(new 玩家物品变动
+                {
+                    物品描述 = Backpack[inventoryLocation].字节描述()
+                });
+            }
+        }
+
+        private void ProcessConsumableTownTeleport(ItemData item)
+        {
+            var mapId = item.GetProp(ItemProperty.MapId, 147);
+            var map = (CurrentMap.MapId == mapId) ? CurrentMap : MapGatewayProcess.GetMapInstance(mapId);
+            if (map == null) return;
+            玩家切换地图(map, AreaType.复活区域);
+        }
+
+        private void ProcessConsumableItem(ItemData item)
+        {
+            if (item.物品类型 == ItemType.技能书籍)
+            {
+                if (LearnSkill(item.SkillId))
+                {
+                    ConsumeBackpackItem(1, item);
+                }
+                return;
+            }
+
+            var usageType = (UsageType)item.GetProp(ItemProperty.UsageType);
+
+            if (usageType == UsageType.Unknown)
+                return;
+
+            if (item.GroupId > 0 && item.GroupCooling > 0)
+            {
+                Coolings[item.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(item.GroupCooling);
+                ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
+                {
+                    冷却编号 = (item.GroupId | 0),
+                    Cooldown = item.GroupCooling
+                });
+            }
+            if (item.Cooldown > 0)
+            {
+                Coolings[item.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(item.Cooldown);
+                ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
+                {
+                    冷却编号 = (item.Id | 0x2000000),
+                    Cooldown = item.Cooldown
+                });
+            }
+
+            ConsumeBackpackItem(1, item);
+
+            switch (usageType)
+            {
+                case UsageType.RecoveryHP:
+                    ProcessConsumableRecoveryHP(item);
+                    break;
+                case UsageType.RecoveryMP:
+                    ProcessConsumableRecoveryMP(item);
+                    break;
+                case UsageType.Medicine:
+                    ProcessConsumableMedicine(item);
+                    break;
+                case UsageType.UnpackStack:
+                    ProcessConsumableStack(item);
+                    break;
+                case UsageType.RandomTeleport:
+                    ProcessConsumableRandomTeleport(item);
+                    break;
+                case UsageType.Treasure:
+                    ProcessConsumableTreasure(item);
+                    break;
+                case UsageType.GainIngots:
+                    Ingots += item.GetProp(ItemProperty.IngotsAmount, 100);
+                    break;
+                case UsageType.TownTeleport:
+                    ProcessConsumableTownTeleport(item);
+                    break;
+            }
+        }
+
         public void UseItem(byte backpackType, byte itemPosition)
         {
             if (!Died && ParalysisState <= 0 && 交易状态 < 3)
@@ -10255,1096 +10443,581 @@ namespace GameServer.Maps
                     return;
                 }
 
-                switch (v.物品类型)
-                {
-                    case ItemType.技能书籍:
-                        if (LearnSkill(v.SkillId))
-                        {
-                            ConsumeBackpackItem(1, v);
-                        }
-                        break;
-                    case ItemType.可用药剂:
-                        if (v.GroupId > 0 && v.GroupCooling > 0)
-                        {
-                            Coolings[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.GroupId | 0),
-                                Cooldown = v.GroupCooling
-                            });
-                        }
-                        if (v.Cooldown > 0)
-                        {
-                            Coolings[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.Id | 0x2000000),
-                                Cooldown = v.Cooldown
-                            });
-                        }
-                        ConsumeBackpackItem(1, v);
-                        var usageType = (UsageType)v.GetProp(ItemProperty.UsageType);
-                        药品回血 = MainProcess.CurrentTime.AddSeconds(v.GetProp(ItemProperty.RecoveryTime, 1));
-                        switch (usageType)
-                        {
-                            case UsageType.RecoveryHP:
-                                回血基数 = v.GetProp(ItemProperty.RecoveryBase, 15);
-                                回血次数 = v.GetProp(ItemProperty.RecoverySteps, 6);
-                                break;
-                            case UsageType.RecoveryMP:
-                                回魔基数 = v.GetProp(ItemProperty.RecoveryBase, 15);
-                                回魔次数 = v.GetProp(ItemProperty.RecoverySteps, 6);
-                                break;
-                            case UsageType.Medicine:
-                                CurrentHP += (int)Math.Max(v.GetProp(ItemProperty.IncreaseHP, 30) * (1f + (float)this[GameObjectStats.药品回血] / 10000f), 0f);
-                                CurrentMP += (int)Math.Max(v.GetProp(ItemProperty.IncreaseMP, 40) * (1f + (float)this[GameObjectStats.药品回魔] / 10000f), 0f);
-                                break;
-                        }
-                        break;
-                    case ItemType.可用杂物:
-                        if (BackpackSize - Backpack.Count < 5)
-                        {
-                            ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                            {
-                                错误代码 = 1793
-                            });
-                        }
-                        else
-                        {
+                ProcessConsumableItem(v);
 
-                            if (v.PersistType == PersistentItemType.堆叠)
-                            {
-                                var drugItem = v.物品模板;
+                // TODO: WE NEED CONVERT IT INTO GENERIC CONSUMABLE ITEM
 
-                                if (v.UnpackItemId == null || !GameItems.DataSheet.TryGetValue(v.UnpackItemId.Value, out drugItem))
-                                    break;
-
-                                if (v.GroupId > 0 && v.GroupCooling > 0)
-                                {
-                                    Coolings[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
-                                    ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                                    {
-                                        冷却编号 = (v.GroupId | 0),
-                                        Cooldown = v.GroupCooling
-                                    });
-                                }
-                                if (v.Cooldown > 0)
-                                {
-                                    Coolings[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
-                                    ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                                    {
-                                        冷却编号 = (v.Id | 0x2000000),
-                                        Cooldown = v.Cooldown
-                                    });
-                                }
-
-                                ConsumeBackpackItem(1, v);
-
-                                byte b21 = 0;
-                                byte b22 = 0;
-                                while (b21 < BackpackSize && b22 < 6)
-                                {
-                                    if (!Backpack.ContainsKey(b21))
-                                    {
-                                        Backpack[b21] = new ItemData(drugItem, CharacterData, 1, b21, 1);
-                                        ActiveConnection?.SendPacket(new 玩家物品变动
-                                        {
-                                            物品描述 = Backpack[b21].字节描述()
-                                        });
-                                        b22 = (byte)(b22 + 1);
-                                    }
-                                    b21 = (byte)(b21 + 1);
-                                }
-                            }
-                            else if (v.PersistType == PersistentItemType.消耗)
-                            {
-                                var usageType2 = (UsageType)v.GetProp(ItemProperty.UsageType);
-                                switch (usageType2)
-                                {
-                                    case UsageType.RandomTeleport:
-                                        Point point = CurrentMap.随机传送(CurrentPosition);
-                                        if (point != default(Point))
-                                        {
-                                            ConsumeBackpackItem(1, v);
-                                            玩家切换地图(CurrentMap, AreaType.未知区域, point);
-                                        }
-                                        else
-                                        {
-                                            ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                                            {
-                                                错误代码 = 776
-                                            });
-                                        }
-                                        break;
-                                }
-                            }
-                        }
-                        break;
-                }
-
-                switch (v.Name)
-                {
-                    case "豪杰灵石宝盒":
-                        {
-                            byte b41 = byte.MaxValue;
-                            byte b42 = 0;
-                            while (b42 < BackpackSize)
-                            {
-                                if (Backpack.ContainsKey(b42))
-                                {
-                                    b42 = (byte)(b42 + 1);
-                                    continue;
-                                }
-                                b41 = b42;
-                                break;
-                            }
-                            if (b41 == byte.MaxValue)
-                            {
-                                ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                                {
-                                    错误代码 = 1793
-                                });
-                                break;
-                            }
-                            GameItems value24 = null;
-                            switch (MainProcess.RandomNumber.Next(8))
-                            {
-                                case 0:
-                                    GameItems.DataSheetByName.TryGetValue("驭朱灵石1级", out value24);
-                                    break;
-                                case 1:
-                                    GameItems.DataSheetByName.TryGetValue("命朱灵石1级", out value24);
-                                    break;
-                                case 2:
-                                    GameItems.DataSheetByName.TryGetValue("守阳灵石1级", out value24);
-                                    break;
-                                case 3:
-                                    GameItems.DataSheetByName.TryGetValue("蔚蓝灵石1级", out value24);
-                                    break;
-                                case 4:
-                                    GameItems.DataSheetByName.TryGetValue("精绿灵石1级", out value24);
-                                    break;
-                                case 5:
-                                    GameItems.DataSheetByName.TryGetValue("纯紫灵石1级", out value24);
-                                    break;
-                                case 6:
-                                    GameItems.DataSheetByName.TryGetValue("深灰灵石1级", out value24);
-                                    break;
-                                case 7:
-                                    GameItems.DataSheetByName.TryGetValue("橙黄灵石1级", out value24);
-                                    break;
-                            }
-                            if (value24 != null)
-                            {
-                                ConsumeBackpackItem(1, v);
-                                Backpack[b41] = new ItemData(value24, CharacterData, backpackType, b41, 2);
-                                ActiveConnection?.SendPacket(new 玩家物品变动
-                                {
-                                    物品描述 = Backpack[b41].字节描述()
-                                });
-                            }
-                            break;
-                        }
-                    case "金创药(中量)":
-                        if (v.GroupId > 0 && v.GroupCooling > 0)
-                        {
-                            Coolings[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.GroupId | 0),
-                                Cooldown = v.GroupCooling
-                            });
-                        }
-                        if (v.Cooldown > 0)
-                        {
-                            Coolings[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.Id | 0x2000000),
-                                Cooldown = v.Cooldown
-                            });
-                        }
-                        ConsumeBackpackItem(1, v);
-                        药品回血 = MainProcess.CurrentTime.AddSeconds(1.0);
-                        回血基数 = 10;
-                        回血次数 = 5;
-                        break;
-                    case "战具礼盒":
-                        {
-                            byte b11 = byte.MaxValue;
-                            byte b12 = 0;
-                            while (b12 < BackpackSize)
-                            {
-                                if (Backpack.ContainsKey(b12))
-                                {
-                                    b12 = (byte)(b12 + 1);
-                                    continue;
-                                }
-                                b11 = b12;
-                                break;
-                            }
-                            if (b11 == byte.MaxValue)
-                            {
-                                ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                                {
-                                    错误代码 = 1793
-                                });
-                                break;
-                            }
-                            GameItems value6 = null;
-                            if (CharRole == GameObjectRace.战士)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("气血石", out value6);
-                            }
-                            else if (CharRole == GameObjectRace.法师)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("魔法石", out value6);
-                            }
-                            else if (CharRole == GameObjectRace.道士)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("万灵符", out value6);
-                            }
-                            else if (CharRole == GameObjectRace.刺客)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("吸血令", out value6);
-                            }
-                            else if (CharRole == GameObjectRace.弓手)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("守护箭袋", out value6);
-                            }
-                            else if (CharRole == GameObjectRace.龙枪)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("血精石", out value6);
-                            }
-                            if (value6 != null && value6 is EquipmentItem 模板)
-                            {
-                                ConsumeBackpackItem(1, v);
-                                Backpack[b11] = new EquipmentData(模板, CharacterData, backpackType, b11);
-                                ActiveConnection?.SendPacket(new 玩家物品变动
-                                {
-                                    物品描述 = Backpack[b11].字节描述()
-                                });
-                            }
-                            break;
-                        }
-                    case "万年雪霜":
-                        if (v.GroupId > 0 && v.GroupCooling > 0)
-                        {
-                            Coolings[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.GroupId | 0),
-                                Cooldown = v.GroupCooling
-                            });
-                        }
-                        if (v.Cooldown > 0)
-                        {
-                            Coolings[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.Id | 0x2000000),
-                                Cooldown = v.Cooldown
-                            });
-                        }
-                        ConsumeBackpackItem(1, v);
-                        CurrentHP += (int)Math.Max(75f * (1f + (float)this[GameObjectStats.药品回血] / 10000f), 0f);
-                        CurrentMP += (int)Math.Max(100f * (1f + (float)this[GameObjectStats.药品回魔] / 10000f), 0f);
-                        break;
-                    case "魔龙城回城卷包":
-                        if (BackpackSize - Backpack.Count < 5)
-                        {
-                            ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                            {
-                                错误代码 = 1793
-                            });
-                        }
-                        else
-                        {
-                            if (!GameItems.DataSheetByName.TryGetValue("魔龙城回城卷", out var value21))
-                            {
-                                break;
-                            }
-                            if (v.GroupId > 0 && v.GroupCooling > 0)
-                            {
-                                Coolings[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
-                                ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                                {
-                                    冷却编号 = (v.GroupId | 0),
-                                    Cooldown = v.GroupCooling
-                                });
-                            }
-                            if (v.Cooldown > 0)
-                            {
-                                Coolings[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
-                                ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                                {
-                                    冷却编号 = (v.Id | 0x2000000),
-                                    Cooldown = v.Cooldown
-                                });
-                            }
-                            ConsumeBackpackItem(1, v);
-                            byte b35 = 0;
-                            byte b36 = 0;
-                            while (b35 < BackpackSize && b36 < 6)
-                            {
-                                if (!Backpack.ContainsKey(b35))
-                                {
-                                    Backpack[b35] = new ItemData(value21, CharacterData, 1, b35, 1);
-                                    ActiveConnection?.SendPacket(new 玩家物品变动
-                                    {
-                                        物品描述 = Backpack[b35].字节描述()
-                                    });
-                                    b36 = (byte)(b36 + 1);
-                                }
-                                b35 = (byte)(b35 + 1);
-                            }
-                        }
-                        break;
-                    case "中平枪术":
-                        if (LearnSkill(1201))
-                        {
-                            ConsumeBackpackItem(1, v);
-                        }
-                        break;
-                    case "强效太阳水":
-                        if (v.GroupId > 0 && v.GroupCooling > 0)
-                        {
-                            Coolings[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.GroupId | 0),
-                                Cooldown = v.GroupCooling
-                            });
-                        }
-                        if (v.Cooldown > 0)
-                        {
-                            Coolings[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.Id | 0x2000000),
-                                Cooldown = v.Cooldown
-                            });
-                        }
-                        ConsumeBackpackItem(1, v);
-                        CurrentHP += (int)Math.Max(50f * (1f + (float)this[GameObjectStats.药品回血] / 10000f), 0f);
-                        CurrentMP += (int)Math.Max(80f * (1f + (float)this[GameObjectStats.药品回魔] / 10000f), 0f);
-                        break;
-                    case "元宝袋(小)":
-                        ConsumeBackpackItem(1, v);
-                        Ingots += 100;
-                        break;
-                    case "盟重回城卷":
-                        ConsumeBackpackItem(1, v);
-                        玩家切换地图((CurrentMap.MapId == 147) ? CurrentMap : MapGatewayProcess.GetMapInstance(147), AreaType.复活区域);
-                        break;
-                    case "祝福油":
-                        {
-                            if (!Equipment.TryGetValue(0, out var v5))
-                            {
-                                ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                                {
-                                    错误代码 = 1927
-                                });
-                                break;
-                            }
-                            if (v5.Luck.V >= 7)
-                            {
-                                ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                                {
-                                    错误代码 = 1843
-                                });
-                                break;
-                            }
-                            ConsumeBackpackItem(1, v);
-                            int num2 = 0;
-                            num2 = v5.Luck.V switch
-                            {
-                                0 => 80,
-                                1 => 10,
-                                2 => 8,
-                                3 => 6,
-                                4 => 5,
-                                5 => 4,
-                                6 => 3,
-                                _ => 80,
-                            };
-                            int num3 = MainProcess.RandomNumber.Next(100);
-                            if (num3 < num2)
-                            {
-                                v5.Luck.V++;
-                                ActiveConnection?.SendPacket(new 玩家物品变动
-                                {
-                                    物品描述 = v5.字节描述()
-                                });
-                                ActiveConnection?.SendPacket(new 武器幸运变化
-                                {
-                                    幸运变化 = 1
-                                });
-                                StatsBonus[v5] = v5.装备Stat;
-                                RefreshStats();
-                                if (v5.Luck.V >= 5)
-                                {
-                                    NetworkServiceGateway.SendAnnouncement($"[{ObjectName}] 成功将 [{v5.Name}] 升到幸运 {v5.Luck.V} 级.");
-                                }
-                            }
-                            else if (num3 >= 95 && v5.Luck.V > -9)
-                            {
-                                v5.Luck.V--;
-                                ActiveConnection?.SendPacket(new 玩家物品变动
-                                {
-                                    物品描述 = v5.字节描述()
-                                });
-                                ActiveConnection?.SendPacket(new 武器幸运变化
-                                {
-                                    幸运变化 = -1
-                                });
-                                StatsBonus[v5] = v5.装备Stat;
-                                RefreshStats();
-                            }
-                            else
-                            {
-                                ActiveConnection?.SendPacket(new 武器幸运变化
-                                {
-                                    幸运变化 = 0
-                                });
-                            }
-                            break;
-                        }
-                    case "金创药(小量)":
-                        if (v.GroupId > 0 && v.GroupCooling > 0)
-                        {
-                            Coolings[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.GroupId | 0),
-                                Cooldown = v.GroupCooling
-                            });
-                        }
-                        if (v.Cooldown > 0)
-                        {
-                            Coolings[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.Id | 0x2000000),
-                                Cooldown = v.Cooldown
-                            });
-                        }
-                        ConsumeBackpackItem(1, v);
-                        药品回血 = MainProcess.CurrentTime.AddSeconds(1.0);
-                        回血基数 = 5;
-                        回血次数 = 4;
-                        break;
-                    case "太阳水包":
-                        if (BackpackSize - Backpack.Count < 5)
-                        {
-                            ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                            {
-                                错误代码 = 1793
-                            });
-                        }
-                        else
-                        {
-                            if (!GameItems.DataSheetByName.TryGetValue("太阳水", out var value22))
-                            {
-                                break;
-                            }
-                            if (v.GroupId > 0 && v.GroupCooling > 0)
-                            {
-                                Coolings[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
-                                ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                                {
-                                    冷却编号 = (v.GroupId | 0),
-                                    Cooldown = v.GroupCooling
-                                });
-                            }
-                            if (v.Cooldown > 0)
-                            {
-                                Coolings[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
-                                ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                                {
-                                    冷却编号 = (v.Id | 0x2000000),
-                                    Cooldown = v.Cooldown
-                                });
-                            }
-                            ConsumeBackpackItem(1, v);
-                            byte b37 = 0;
-                            byte b38 = 0;
-                            while (b37 < BackpackSize && b38 < 6)
-                            {
-                                if (!Backpack.ContainsKey(b37))
-                                {
-                                    Backpack[b37] = new ItemData(value22, CharacterData, 1, b37, 1);
-                                    ActiveConnection?.SendPacket(new 玩家物品变动
-                                    {
-                                        物品描述 = Backpack[b37].字节描述()
-                                    });
-                                    b38 = (byte)(b38 + 1);
-                                }
-                                b37 = (byte)(b37 + 1);
-                            }
-                        }
-                        break;
-                    case "比奇回城卷":
-                        ConsumeBackpackItem(1, v);
-                        玩家切换地图((CurrentMap.MapId == 143) ? CurrentMap : MapGatewayProcess.GetMapInstance(143), AreaType.复活区域);
-                        break;
-                    case "太阳水":
-                        if (v.GroupId > 0 && v.GroupCooling > 0)
-                        {
-                            Coolings[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.GroupId | 0),
-                                Cooldown = v.GroupCooling
-                            });
-                        }
-                        if (v.Cooldown > 0)
-                        {
-                            Coolings[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.Id | 0x2000000),
-                                Cooldown = v.Cooldown
-                            });
-                        }
-                        ConsumeBackpackItem(1, v);
-                        CurrentHP += (int)Math.Max(30f * (1f + (float)this[GameObjectStats.药品回血] / 10000f), 0f);
-                        CurrentMP += (int)Math.Max(40f * (1f + (float)this[GameObjectStats.药品回魔] / 10000f), 0f);
-                        break;
-                    case "铭文位切换神符":
-                        {
-                            if (!Equipment.TryGetValue(0, out var v4))
-                            {
-                                ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                                {
-                                    错误代码 = 1927
-                                });
-                                break;
-                            }
-                            if (!v4.双铭文栏.V)
-                            {
-                                ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                                {
-                                    错误代码 = 1926
-                                });
-                                break;
-                            }
-                            if (v4.第一铭文 != null)
-                            {
-                                玩家装卸铭文(v4.第一铭文.SkillId, 0);
-                            }
-                            if (v4.第二铭文 != null)
-                            {
-                                玩家装卸铭文(v4.第二铭文.SkillId, 0);
-                            }
-                            v4.当前铭栏.V = (byte)((v4.当前铭栏.V == 0) ? 1u : 0u);
-                            if (v4.第一铭文 != null)
-                            {
-                                玩家装卸铭文(v4.第一铭文.SkillId, v4.第一铭文.Id);
-                            }
-                            if (v4.第二铭文 != null)
-                            {
-                                玩家装卸铭文(v4.第二铭文.SkillId, v4.第二铭文.Id);
-                            }
-                            ActiveConnection?.SendPacket(new 玩家物品变动
-                            {
-                                物品描述 = v4.字节描述()
-                            });
-                            ActiveConnection?.SendPacket(new DoubleInscriptionPositionSwitchPacket
-                            {
-                                当前栏位 = v4.当前铭栏.V,
-                                第一铭文 = (v4.第一铭文?.Index ?? 0),
-                                第二铭文 = (v4.第二铭文?.Index ?? 0)
-                            });
-                            Coolings[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.Id | 0x2000000),
-                                Cooldown = v.Cooldown
-                            });
-                            ConsumeBackpackItem(1, v);
-                            ActiveConnection?.SendPacket(new DoubleInscriptionPositionSwitchPacket
-                            {
-                                当前栏位 = v4.当前铭栏.V,
-                                第一铭文 = (v4.第一铭文?.Index ?? 0),
-                                第二铭文 = (v4.第二铭文?.Index ?? 0)
-                            });
-                            break;
-                        }
-                    case "强化战具礼盒":
-                        {
-                            byte b13 = byte.MaxValue;
-                            byte b14 = 0;
-                            while (b14 < BackpackSize)
-                            {
-                                if (Backpack.ContainsKey(b14))
-                                {
-                                    b14 = (byte)(b14 + 1);
-                                    continue;
-                                }
-                                b13 = b14;
-                                break;
-                            }
-                            if (b13 == byte.MaxValue)
-                            {
-                                ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                                {
-                                    错误代码 = 1793
-                                });
-                                break;
-                            }
-                            GameItems value7 = null;
-                            if (CharRole == GameObjectRace.战士)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("灵疗石", out value7);
-                            }
-                            else if (CharRole == GameObjectRace.法师)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("幻魔石", out value7);
-                            }
-                            else if (CharRole == GameObjectRace.道士)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("圣灵符", out value7);
-                            }
-                            else if (CharRole == GameObjectRace.刺客)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("狂血令", out value7);
-                            }
-                            else if (CharRole == GameObjectRace.弓手)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("射手箭袋", out value7);
-                            }
-                            else if (CharRole == GameObjectRace.龙枪)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("龙晶石", out value7);
-                            }
-                            if (value7 != null && value7 is EquipmentItem 模板2)
-                            {
-                                ConsumeBackpackItem(1, v);
-                                Backpack[b13] = new EquipmentData(模板2, CharacterData, backpackType, b13);
-                                ActiveConnection?.SendPacket(new 玩家物品变动
-                                {
-                                    物品描述 = Backpack[b13].字节描述()
-                                });
-                            }
-                            break;
-                        }
-                    case "随机传送卷":
-                        {
-                            Point point2 = CurrentMap.随机传送(CurrentPosition);
-                            if (point2 != default(Point))
-                            {
-                                ConsumeBackpackItem(1, v);
-                                玩家切换地图(CurrentMap, AreaType.未知区域, point2);
-                            }
-                            else
-                            {
-                                ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                                {
-                                    错误代码 = 776
-                                });
-                            }
-                            break;
-                        }
-                    case "疗伤药":
-                        if (v.GroupId > 0 && v.GroupCooling > 0)
-                        {
-                            Coolings[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.GroupId | 0),
-                                Cooldown = v.GroupCooling
-                            });
-                        }
-                        if (v.Cooldown > 0)
-                        {
-                            Coolings[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.Id | 0x2000000),
-                                Cooldown = v.Cooldown
-                            });
-                        }
-                        ConsumeBackpackItem(1, v);
-                        CurrentHP += (int)Math.Max(100f * (1f + (float)this[GameObjectStats.药品回血] / 10000f), 0f);
-                        CurrentMP += (int)Math.Max(160f * (1f + (float)this[GameObjectStats.药品回魔] / 10000f), 0f);
-                        break;
-                    case "魔法药(小量)":
-                        if (v.GroupId > 0 && v.GroupCooling > 0)
-                        {
-                            Coolings[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.GroupId | 0),
-                                Cooldown = v.GroupCooling
-                            });
-                        }
-                        if (v.Cooldown > 0)
-                        {
-                            Coolings[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.Id | 0x2000000),
-                                Cooldown = v.Cooldown
-                            });
-                        }
-                        ConsumeBackpackItem(1, v);
-                        药品回魔 = MainProcess.CurrentTime.AddSeconds(1.0);
-                        回魔基数 = 10;
-                        回魔次数 = 3;
-                        break;
-                    case "强效魔法药":
-                        if (v.GroupId > 0 && v.GroupCooling > 0)
-                        {
-                            Coolings[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.GroupId | 0),
-                                Cooldown = v.GroupCooling
-                            });
-                        }
-                        if (v.Cooldown > 0)
-                        {
-                            Coolings[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.Id | 0x2000000),
-                                Cooldown = v.Cooldown
-                            });
-                        }
-                        ConsumeBackpackItem(1, v);
-                        药品回魔 = MainProcess.CurrentTime.AddSeconds(1.0);
-                        回魔基数 = 25;
-                        回魔次数 = 6;
-                        break;
-                    case "沙城每日宝箱":
-                        {
-                            byte b29 = byte.MaxValue;
-                            byte b30 = 0;
-                            while (b30 < BackpackSize)
-                            {
-                                if (Backpack.ContainsKey(b30))
-                                {
-                                    b30 = (byte)(b30 + 1);
-                                    continue;
-                                }
-                                b29 = b30;
-                                break;
-                            }
-                            if (b29 == byte.MaxValue)
-                            {
-                                ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                                {
-                                    错误代码 = 1793
-                                });
-                                break;
-                            }
-                            int num = MainProcess.RandomNumber.Next(100);
-                            GameItems value18;
-                            if (num < 60)
-                            {
-                                ConsumeBackpackItem(1, v);
-                                DoubleExp += 500000;
-                            }
-                            else if (num < 80)
-                            {
-                                ConsumeBackpackItem(1, v);
-                                NumberGoldCoins += 100000;
-                            }
-                            else if (num < 90)
-                            {
-                                if (GameItems.DataSheetByName.TryGetValue("元宝袋(小)", out var value15))
-                                {
-                                    ConsumeBackpackItem(1, v);
-                                    Backpack[b29] = new ItemData(value15, CharacterData, backpackType, b29, 5);
-                                    ActiveConnection?.SendPacket(new 玩家物品变动
-                                    {
-                                        物品描述 = Backpack[b29].字节描述()
-                                    });
-                                }
-                            }
-                            else if (num < 95)
-                            {
-                                GameItems value16 = null;
-                                if (CharRole == GameObjectRace.战士)
-                                {
-                                    GameItems.DataSheetByName.TryGetValue("战士铭文石", out value16);
-                                }
-                                else if (CharRole == GameObjectRace.法师)
-                                {
-                                    GameItems.DataSheetByName.TryGetValue("法师铭文石", out value16);
-                                }
-                                else if (CharRole == GameObjectRace.道士)
-                                {
-                                    GameItems.DataSheetByName.TryGetValue("道士铭文石", out value16);
-                                }
-                                else if (CharRole == GameObjectRace.刺客)
-                                {
-                                    GameItems.DataSheetByName.TryGetValue("刺客铭文石", out value16);
-                                }
-                                else if (CharRole == GameObjectRace.弓手)
-                                {
-                                    GameItems.DataSheetByName.TryGetValue("弓手铭文石", out value16);
-                                }
-                                else if (CharRole == GameObjectRace.龙枪)
-                                {
-                                    GameItems.DataSheetByName.TryGetValue("龙枪铭文石", out value16);
-                                }
-                                if (value16 != null)
-                                {
-                                    ConsumeBackpackItem(1, v);
-                                    Backpack[b29] = new ItemData(value16, CharacterData, backpackType, b29, 3);
-                                    ActiveConnection?.SendPacket(new 玩家物品变动
-                                    {
-                                        物品描述 = Backpack[b29].字节描述()
-                                    });
-                                }
-                            }
-                            else if (num < 98)
-                            {
-                                if (GameItems.DataSheetByName.TryGetValue("祝福油", out var value17))
-                                {
-                                    ConsumeBackpackItem(1, v);
-                                    Backpack[b29] = new ItemData(value17, CharacterData, backpackType, b29, 2);
-                                    ActiveConnection?.SendPacket(new 玩家物品变动
-                                    {
-                                        物品描述 = Backpack[b29].字节描述()
-                                    });
-                                }
-                            }
-                            else if (GameItems.DataSheetByName.TryGetValue("沙城奖杯", out value18))
-                            {
-                                ConsumeBackpackItem(1, v);
-                                Backpack[b29] = new ItemData(value18, CharacterData, backpackType, b29, 1);
-                                ActiveConnection?.SendPacket(new 玩家物品变动
-                                {
-                                    物品描述 = Backpack[b29].字节描述()
-                                });
-                            }
-                            break;
-                        }
-                    case "盟重回城石":
-                        ConsumeBackpackItem(1, v);
-                        玩家切换地图((CurrentMap.MapId == 147) ? CurrentMap : MapGatewayProcess.GetMapInstance(147), AreaType.复活区域);
-                        break;
-                    case "名俊铭文石礼包":
-                        {
-                            byte b17 = byte.MaxValue;
-                            byte b18 = 0;
-                            while (b18 < BackpackSize)
-                            {
-                                if (Backpack.ContainsKey(b18))
-                                {
-                                    b18 = (byte)(b18 + 1);
-                                    continue;
-                                }
-                                b17 = b18;
-                                break;
-                            }
-                            if (b17 == byte.MaxValue)
-                            {
-                                ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                                {
-                                    错误代码 = 1793
-                                });
-                                break;
-                            }
-                            GameItems value9 = null;
-                            if (CharRole == GameObjectRace.战士)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("战士铭文石", out value9);
-                            }
-                            else if (CharRole == GameObjectRace.法师)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("法师铭文石", out value9);
-                            }
-                            else if (CharRole == GameObjectRace.道士)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("道士铭文石", out value9);
-                            }
-                            else if (CharRole == GameObjectRace.刺客)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("刺客铭文石", out value9);
-                            }
-                            else if (CharRole == GameObjectRace.弓手)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("弓手铭文石", out value9);
-                            }
-                            else if (CharRole == GameObjectRace.龙枪)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("龙枪铭文石", out value9);
-                            }
-                            if (value9 != null)
-                            {
-                                ConsumeBackpackItem(1, v);
-                                Backpack[b17] = new ItemData(value9, CharacterData, backpackType, b17, 5);
-                                ActiveConnection?.SendPacket(new 玩家物品变动
-                                {
-                                    物品描述 = Backpack[b17].字节描述()
-                                });
-                            }
-                            break;
-                        }
-                    case "名俊灵石宝盒":
-                        {
-                            byte b3 = byte.MaxValue;
-                            byte b4 = 0;
-                            while (b4 < BackpackSize)
-                            {
-                                if (Backpack.ContainsKey(b4))
-                                {
-                                    b4 = (byte)(b4 + 1);
-                                    continue;
-                                }
-                                b3 = b4;
-                                break;
-                            }
-                            if (b3 == byte.MaxValue)
-                            {
-                                ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                                {
-                                    错误代码 = 1793
-                                });
-                                break;
-                            }
-                            GameItems value2 = null;
-                            switch (MainProcess.RandomNumber.Next(8))
-                            {
-                                case 0:
-                                    GameItems.DataSheetByName.TryGetValue("驭朱灵石1级", out value2);
-                                    break;
-                                case 1:
-                                    GameItems.DataSheetByName.TryGetValue("命朱灵石1级", out value2);
-                                    break;
-                                case 2:
-                                    GameItems.DataSheetByName.TryGetValue("守阳灵石1级", out value2);
-                                    break;
-                                case 3:
-                                    GameItems.DataSheetByName.TryGetValue("蔚蓝灵石1级", out value2);
-                                    break;
-                                case 4:
-                                    GameItems.DataSheetByName.TryGetValue("精绿灵石1级", out value2);
-                                    break;
-                                case 5:
-                                    GameItems.DataSheetByName.TryGetValue("纯紫灵石1级", out value2);
-                                    break;
-                                case 6:
-                                    GameItems.DataSheetByName.TryGetValue("深灰灵石1级", out value2);
-                                    break;
-                                case 7:
-                                    GameItems.DataSheetByName.TryGetValue("橙黄灵石1级", out value2);
-                                    break;
-                            }
-                            if (value2 != null)
-                            {
-                                ConsumeBackpackItem(1, v);
-                                Backpack[b3] = new ItemData(value2, CharacterData, backpackType, b3, 1);
-                                ActiveConnection?.SendPacket(new 玩家物品变动
-                                {
-                                    物品描述 = Backpack[b3].字节描述()
-                                });
-                            }
-                            break;
-                        }
-                    case "比奇回城石":
-                        ConsumeBackpackItem(1, v);
-                        玩家切换地图((CurrentMap.MapId == 143) ? CurrentMap : MapGatewayProcess.GetMapInstance(143), AreaType.复活区域);
-                        break;
-                    case "魔法药(中量)":
-                        if (v.GroupId > 0 && v.GroupCooling > 0)
-                        {
-                            Coolings[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.GroupId | 0),
-                                Cooldown = v.GroupCooling
-                            });
-                        }
-                        if (v.Cooldown > 0)
-                        {
-                            Coolings[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
-                            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                            {
-                                冷却编号 = (v.Id | 0x2000000),
-                                Cooldown = v.Cooldown
-                            });
-                        }
-                        ConsumeBackpackItem(1, v);
-                        药品回魔 = MainProcess.CurrentTime.AddSeconds(1.0);
-                        回魔基数 = 16;
-                        回魔次数 = 5;
-                        break;
-                    case "元宝袋(大)":
-                        ConsumeBackpackItem(1, v);
-                        Ingots += 10000;
-                        break;
-                    case "元宝袋(超)":
-                        ConsumeBackpackItem(1, v);
-                        Ingots += 100000;
-                        break;
-                    case "豪杰铭文石礼包":
-                        {
-                            byte b = byte.MaxValue;
-                            byte b2 = 0;
-                            while (b2 < BackpackSize)
-                            {
-                                if (Backpack.ContainsKey(b2))
-                                {
-                                    b2 = (byte)(b2 + 1);
-                                    continue;
-                                }
-                                b = b2;
-                                break;
-                            }
-                            if (b == byte.MaxValue)
-                            {
-                                ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                                {
-                                    错误代码 = 1793
-                                });
-                                break;
-                            }
-                            GameItems value = null;
-                            if (CharRole == GameObjectRace.战士)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("战士铭文石", out value);
-                            }
-                            else if (CharRole == GameObjectRace.法师)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("法师铭文石", out value);
-                            }
-                            else if (CharRole == GameObjectRace.道士)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("道士铭文石", out value);
-                            }
-                            else if (CharRole == GameObjectRace.刺客)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("刺客铭文石", out value);
-                            }
-                            else if (CharRole == GameObjectRace.弓手)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("弓手铭文石", out value);
-                            }
-                            else if (CharRole == GameObjectRace.龙枪)
-                            {
-                                GameItems.DataSheetByName.TryGetValue("龙枪铭文石", out value);
-                            }
-                            if (value != null)
-                            {
-                                ConsumeBackpackItem(1, v);
-                                Backpack[b] = new ItemData(value, CharacterData, backpackType, b, 10);
-                                ActiveConnection?.SendPacket(new 玩家物品变动
-                                {
-                                    物品描述 = Backpack[b].字节描述()
-                                });
-                            }
-                            break;
-                        }
-                    case "元宝袋(中)":
-                        ConsumeBackpackItem(1, v);
-                        Ingots += 1000;
-                        break;
-                }
+                //switch (v.Name)
+                //{
+                //    case "战具礼盒":
+                //        {
+                //            byte b11 = byte.MaxValue;
+                //            byte b12 = 0;
+                //            while (b12 < BackpackSize)
+                //            {
+                //                if (Backpack.ContainsKey(b12))
+                //                {
+                //                    b12 = (byte)(b12 + 1);
+                //                    continue;
+                //                }
+                //                b11 = b12;
+                //                break;
+                //            }
+                //            if (b11 == byte.MaxValue)
+                //            {
+                //                ActiveConnection?.SendPacket(new GameErrorMessagePacket
+                //                {
+                //                    错误代码 = 1793
+                //                });
+                //                break;
+                //            }
+                //            GameItems value6 = null;
+                //            if (CharRole == GameObjectRace.战士)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("气血石", out value6);
+                //            }
+                //            else if (CharRole == GameObjectRace.法师)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("魔法石", out value6);
+                //            }
+                //            else if (CharRole == GameObjectRace.道士)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("万灵符", out value6);
+                //            }
+                //            else if (CharRole == GameObjectRace.刺客)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("吸血令", out value6);
+                //            }
+                //            else if (CharRole == GameObjectRace.弓手)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("守护箭袋", out value6);
+                //            }
+                //            else if (CharRole == GameObjectRace.龙枪)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("血精石", out value6);
+                //            }
+                //            if (value6 != null && value6 is EquipmentItem 模板)
+                //            {
+                //                ConsumeBackpackItem(1, v);
+                //                Backpack[b11] = new EquipmentData(模板, CharacterData, backpackType, b11);
+                //                ActiveConnection?.SendPacket(new 玩家物品变动
+                //                {
+                //                    物品描述 = Backpack[b11].字节描述()
+                //                });
+                //            }
+                //            break;
+                //        }
+                //    case "祝福油":
+                //        {
+                //            if (!Equipment.TryGetValue(0, out var v5))
+                //            {
+                //                ActiveConnection?.SendPacket(new GameErrorMessagePacket
+                //                {
+                //                    错误代码 = 1927
+                //                });
+                //                break;
+                //            }
+                //            if (v5.Luck.V >= 7)
+                //            {
+                //                ActiveConnection?.SendPacket(new GameErrorMessagePacket
+                //                {
+                //                    错误代码 = 1843
+                //                });
+                //                break;
+                //            }
+                //            ConsumeBackpackItem(1, v);
+                //            int num2 = 0;
+                //            num2 = v5.Luck.V switch
+                //            {
+                //                0 => 80,
+                //                1 => 10,
+                //                2 => 8,
+                //                3 => 6,
+                //                4 => 5,
+                //                5 => 4,
+                //                6 => 3,
+                //                _ => 80,
+                //            };
+                //            int num3 = MainProcess.RandomNumber.Next(100);
+                //            if (num3 < num2)
+                //            {
+                //                v5.Luck.V++;
+                //                ActiveConnection?.SendPacket(new 玩家物品变动
+                //                {
+                //                    物品描述 = v5.字节描述()
+                //                });
+                //                ActiveConnection?.SendPacket(new 武器幸运变化
+                //                {
+                //                    幸运变化 = 1
+                //                });
+                //                StatsBonus[v5] = v5.装备Stat;
+                //                RefreshStats();
+                //                if (v5.Luck.V >= 5)
+                //                {
+                //                    NetworkServiceGateway.SendAnnouncement($"[{ObjectName}] 成功将 [{v5.Name}] 升到幸运 {v5.Luck.V} 级.");
+                //                }
+                //            }
+                //            else if (num3 >= 95 && v5.Luck.V > -9)
+                //            {
+                //                v5.Luck.V--;
+                //                ActiveConnection?.SendPacket(new 玩家物品变动
+                //                {
+                //                    物品描述 = v5.字节描述()
+                //                });
+                //                ActiveConnection?.SendPacket(new 武器幸运变化
+                //                {
+                //                    幸运变化 = -1
+                //                });
+                //                StatsBonus[v5] = v5.装备Stat;
+                //                RefreshStats();
+                //            }
+                //            else
+                //            {
+                //                ActiveConnection?.SendPacket(new 武器幸运变化
+                //                {
+                //                    幸运变化 = 0
+                //                });
+                //            }
+                //            break;
+                //        }
+                //    case "铭文位切换神符":
+                //        {
+                //            if (!Equipment.TryGetValue(0, out var v4))
+                //            {
+                //                ActiveConnection?.SendPacket(new GameErrorMessagePacket
+                //                {
+                //                    错误代码 = 1927
+                //                });
+                //                break;
+                //            }
+                //            if (!v4.双铭文栏.V)
+                //            {
+                //                ActiveConnection?.SendPacket(new GameErrorMessagePacket
+                //                {
+                //                    错误代码 = 1926
+                //                });
+                //                break;
+                //            }
+                //            if (v4.第一铭文 != null)
+                //            {
+                //                玩家装卸铭文(v4.第一铭文.SkillId, 0);
+                //            }
+                //            if (v4.第二铭文 != null)
+                //            {
+                //                玩家装卸铭文(v4.第二铭文.SkillId, 0);
+                //            }
+                //            v4.当前铭栏.V = (byte)((v4.当前铭栏.V == 0) ? 1u : 0u);
+                //            if (v4.第一铭文 != null)
+                //            {
+                //                玩家装卸铭文(v4.第一铭文.SkillId, v4.第一铭文.Id);
+                //            }
+                //            if (v4.第二铭文 != null)
+                //            {
+                //                玩家装卸铭文(v4.第二铭文.SkillId, v4.第二铭文.Id);
+                //            }
+                //            ActiveConnection?.SendPacket(new 玩家物品变动
+                //            {
+                //                物品描述 = v4.字节描述()
+                //            });
+                //            ActiveConnection?.SendPacket(new DoubleInscriptionPositionSwitchPacket
+                //            {
+                //                当前栏位 = v4.当前铭栏.V,
+                //                第一铭文 = (v4.第一铭文?.Index ?? 0),
+                //                第二铭文 = (v4.第二铭文?.Index ?? 0)
+                //            });
+                //            Coolings[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+                //            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
+                //            {
+                //                冷却编号 = (v.Id | 0x2000000),
+                //                Cooldown = v.Cooldown
+                //            });
+                //            ConsumeBackpackItem(1, v);
+                //            ActiveConnection?.SendPacket(new DoubleInscriptionPositionSwitchPacket
+                //            {
+                //                当前栏位 = v4.当前铭栏.V,
+                //                第一铭文 = (v4.第一铭文?.Index ?? 0),
+                //                第二铭文 = (v4.第二铭文?.Index ?? 0)
+                //            });
+                //            break;
+                //        }
+                //    case "强化战具礼盒":
+                //        {
+                //            byte b13 = byte.MaxValue;
+                //            byte b14 = 0;
+                //            while (b14 < BackpackSize)
+                //            {
+                //                if (Backpack.ContainsKey(b14))
+                //                {
+                //                    b14 = (byte)(b14 + 1);
+                //                    continue;
+                //                }
+                //                b13 = b14;
+                //                break;
+                //            }
+                //            if (b13 == byte.MaxValue)
+                //            {
+                //                ActiveConnection?.SendPacket(new GameErrorMessagePacket
+                //                {
+                //                    错误代码 = 1793
+                //                });
+                //                break;
+                //            }
+                //            GameItems value7 = null;
+                //            if (CharRole == GameObjectRace.战士)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("灵疗石", out value7);
+                //            }
+                //            else if (CharRole == GameObjectRace.法师)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("幻魔石", out value7);
+                //            }
+                //            else if (CharRole == GameObjectRace.道士)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("圣灵符", out value7);
+                //            }
+                //            else if (CharRole == GameObjectRace.刺客)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("狂血令", out value7);
+                //            }
+                //            else if (CharRole == GameObjectRace.弓手)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("射手箭袋", out value7);
+                //            }
+                //            else if (CharRole == GameObjectRace.龙枪)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("龙晶石", out value7);
+                //            }
+                //            if (value7 != null && value7 is EquipmentItem 模板2)
+                //            {
+                //                ConsumeBackpackItem(1, v);
+                //                Backpack[b13] = new EquipmentData(模板2, CharacterData, backpackType, b13);
+                //                ActiveConnection?.SendPacket(new 玩家物品变动
+                //                {
+                //                    物品描述 = Backpack[b13].字节描述()
+                //                });
+                //            }
+                //            break;
+                //        }
+                //    case "沙城每日宝箱":
+                //        {
+                //            byte b29 = byte.MaxValue;
+                //            byte b30 = 0;
+                //            while (b30 < BackpackSize)
+                //            {
+                //                if (Backpack.ContainsKey(b30))
+                //                {
+                //                    b30 = (byte)(b30 + 1);
+                //                    continue;
+                //                }
+                //                b29 = b30;
+                //                break;
+                //            }
+                //            if (b29 == byte.MaxValue)
+                //            {
+                //                ActiveConnection?.SendPacket(new GameErrorMessagePacket
+                //                {
+                //                    错误代码 = 1793
+                //                });
+                //                break;
+                //            }
+                //            int num = MainProcess.RandomNumber.Next(100);
+                //            GameItems value18;
+                //            if (num < 60)
+                //            {
+                //                ConsumeBackpackItem(1, v);
+                //                DoubleExp += 500000;
+                //            }
+                //            else if (num < 80)
+                //            {
+                //                ConsumeBackpackItem(1, v);
+                //                NumberGoldCoins += 100000;
+                //            }
+                //            else if (num < 90)
+                //            {
+                //                if (GameItems.DataSheetByName.TryGetValue("元宝袋(小)", out var value15))
+                //                {
+                //                    ConsumeBackpackItem(1, v);
+                //                    Backpack[b29] = new ItemData(value15, CharacterData, backpackType, b29, 5);
+                //                    ActiveConnection?.SendPacket(new 玩家物品变动
+                //                    {
+                //                        物品描述 = Backpack[b29].字节描述()
+                //                    });
+                //                }
+                //            }
+                //            else if (num < 95)
+                //            {
+                //                GameItems value16 = null;
+                //                if (CharRole == GameObjectRace.战士)
+                //                {
+                //                    GameItems.DataSheetByName.TryGetValue("战士铭文石", out value16);
+                //                }
+                //                else if (CharRole == GameObjectRace.法师)
+                //                {
+                //                    GameItems.DataSheetByName.TryGetValue("法师铭文石", out value16);
+                //                }
+                //                else if (CharRole == GameObjectRace.道士)
+                //                {
+                //                    GameItems.DataSheetByName.TryGetValue("道士铭文石", out value16);
+                //                }
+                //                else if (CharRole == GameObjectRace.刺客)
+                //                {
+                //                    GameItems.DataSheetByName.TryGetValue("刺客铭文石", out value16);
+                //                }
+                //                else if (CharRole == GameObjectRace.弓手)
+                //                {
+                //                    GameItems.DataSheetByName.TryGetValue("弓手铭文石", out value16);
+                //                }
+                //                else if (CharRole == GameObjectRace.龙枪)
+                //                {
+                //                    GameItems.DataSheetByName.TryGetValue("龙枪铭文石", out value16);
+                //                }
+                //                if (value16 != null)
+                //                {
+                //                    ConsumeBackpackItem(1, v);
+                //                    Backpack[b29] = new ItemData(value16, CharacterData, backpackType, b29, 3);
+                //                    ActiveConnection?.SendPacket(new 玩家物品变动
+                //                    {
+                //                        物品描述 = Backpack[b29].字节描述()
+                //                    });
+                //                }
+                //            }
+                //            else if (num < 98)
+                //            {
+                //                if (GameItems.DataSheetByName.TryGetValue("祝福油", out var value17))
+                //                {
+                //                    ConsumeBackpackItem(1, v);
+                //                    Backpack[b29] = new ItemData(value17, CharacterData, backpackType, b29, 2);
+                //                    ActiveConnection?.SendPacket(new 玩家物品变动
+                //                    {
+                //                        物品描述 = Backpack[b29].字节描述()
+                //                    });
+                //                }
+                //            }
+                //            else if (GameItems.DataSheetByName.TryGetValue("沙城奖杯", out value18))
+                //            {
+                //                ConsumeBackpackItem(1, v);
+                //                Backpack[b29] = new ItemData(value18, CharacterData, backpackType, b29, 1);
+                //                ActiveConnection?.SendPacket(new 玩家物品变动
+                //                {
+                //                    物品描述 = Backpack[b29].字节描述()
+                //                });
+                //            }
+                //            break;
+                //        }
+                //    case "名俊铭文石礼包":
+                //        {
+                //            byte b17 = byte.MaxValue;
+                //            byte b18 = 0;
+                //            while (b18 < BackpackSize)
+                //            {
+                //                if (Backpack.ContainsKey(b18))
+                //                {
+                //                    b18 = (byte)(b18 + 1);
+                //                    continue;
+                //                }
+                //                b17 = b18;
+                //                break;
+                //            }
+                //            if (b17 == byte.MaxValue)
+                //            {
+                //                ActiveConnection?.SendPacket(new GameErrorMessagePacket
+                //                {
+                //                    错误代码 = 1793
+                //                });
+                //                break;
+                //            }
+                //            GameItems value9 = null;
+                //            if (CharRole == GameObjectRace.战士)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("战士铭文石", out value9);
+                //            }
+                //            else if (CharRole == GameObjectRace.法师)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("法师铭文石", out value9);
+                //            }
+                //            else if (CharRole == GameObjectRace.道士)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("道士铭文石", out value9);
+                //            }
+                //            else if (CharRole == GameObjectRace.刺客)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("刺客铭文石", out value9);
+                //            }
+                //            else if (CharRole == GameObjectRace.弓手)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("弓手铭文石", out value9);
+                //            }
+                //            else if (CharRole == GameObjectRace.龙枪)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("龙枪铭文石", out value9);
+                //            }
+                //            if (value9 != null)
+                //            {
+                //                ConsumeBackpackItem(1, v);
+                //                Backpack[b17] = new ItemData(value9, CharacterData, backpackType, b17, 5);
+                //                ActiveConnection?.SendPacket(new 玩家物品变动
+                //                {
+                //                    物品描述 = Backpack[b17].字节描述()
+                //                });
+                //            }
+                //            break;
+                //        }
+                //    case "名俊灵石宝盒":
+                //        {
+                //            byte b3 = byte.MaxValue;
+                //            byte b4 = 0;
+                //            while (b4 < BackpackSize)
+                //            {
+                //                if (Backpack.ContainsKey(b4))
+                //                {
+                //                    b4 = (byte)(b4 + 1);
+                //                    continue;
+                //                }
+                //                b3 = b4;
+                //                break;
+                //            }
+                //            if (b3 == byte.MaxValue)
+                //            {
+                //                ActiveConnection?.SendPacket(new GameErrorMessagePacket
+                //                {
+                //                    错误代码 = 1793
+                //                });
+                //                break;
+                //            }
+                //            GameItems value2 = null;
+                //            switch (MainProcess.RandomNumber.Next(8))
+                //            {
+                //                case 0:
+                //                    GameItems.DataSheetByName.TryGetValue("驭朱灵石1级", out value2);
+                //                    break;
+                //                case 1:
+                //                    GameItems.DataSheetByName.TryGetValue("命朱灵石1级", out value2);
+                //                    break;
+                //                case 2:
+                //                    GameItems.DataSheetByName.TryGetValue("守阳灵石1级", out value2);
+                //                    break;
+                //                case 3:
+                //                    GameItems.DataSheetByName.TryGetValue("蔚蓝灵石1级", out value2);
+                //                    break;
+                //                case 4:
+                //                    GameItems.DataSheetByName.TryGetValue("精绿灵石1级", out value2);
+                //                    break;
+                //                case 5:
+                //                    GameItems.DataSheetByName.TryGetValue("纯紫灵石1级", out value2);
+                //                    break;
+                //                case 6:
+                //                    GameItems.DataSheetByName.TryGetValue("深灰灵石1级", out value2);
+                //                    break;
+                //                case 7:
+                //                    GameItems.DataSheetByName.TryGetValue("橙黄灵石1级", out value2);
+                //                    break;
+                //            }
+                //            if (value2 != null)
+                //            {
+                //                ConsumeBackpackItem(1, v);
+                //                Backpack[b3] = new ItemData(value2, CharacterData, backpackType, b3, 1);
+                //                ActiveConnection?.SendPacket(new 玩家物品变动
+                //                {
+                //                    物品描述 = Backpack[b3].字节描述()
+                //                });
+                //            }
+                //            break;
+                //        }
+                //    case "魔法药(中量)":
+                //        if (v.GroupId > 0 && v.GroupCooling > 0)
+                //        {
+                //            Coolings[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
+                //            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
+                //            {
+                //                冷却编号 = (v.GroupId | 0),
+                //                Cooldown = v.GroupCooling
+                //            });
+                //        }
+                //        if (v.Cooldown > 0)
+                //        {
+                //            Coolings[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
+                //            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
+                //            {
+                //                冷却编号 = (v.Id | 0x2000000),
+                //                Cooldown = v.Cooldown
+                //            });
+                //        }
+                //        ConsumeBackpackItem(1, v);
+                //        药品回魔 = MainProcess.CurrentTime.AddSeconds(1.0);
+                //        回魔基数 = 16;
+                //        回魔次数 = 5;
+                //        break;
+                //    case "元宝袋(大)":
+                //        ConsumeBackpackItem(1, v);
+                //        Ingots += 10000;
+                //        break;
+                //    case "元宝袋(超)":
+                //        ConsumeBackpackItem(1, v);
+                //        Ingots += 100000;
+                //        break;
+                //    case "豪杰铭文石礼包":
+                //        {
+                //            byte b = byte.MaxValue;
+                //            byte b2 = 0;
+                //            while (b2 < BackpackSize)
+                //            {
+                //                if (Backpack.ContainsKey(b2))
+                //                {
+                //                    b2 = (byte)(b2 + 1);
+                //                    continue;
+                //                }
+                //                b = b2;
+                //                break;
+                //            }
+                //            if (b == byte.MaxValue)
+                //            {
+                //                ActiveConnection?.SendPacket(new GameErrorMessagePacket
+                //                {
+                //                    错误代码 = 1793
+                //                });
+                //                break;
+                //            }
+                //            GameItems value = null;
+                //            if (CharRole == GameObjectRace.战士)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("战士铭文石", out value);
+                //            }
+                //            else if (CharRole == GameObjectRace.法师)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("法师铭文石", out value);
+                //            }
+                //            else if (CharRole == GameObjectRace.道士)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("道士铭文石", out value);
+                //            }
+                //            else if (CharRole == GameObjectRace.刺客)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("刺客铭文石", out value);
+                //            }
+                //            else if (CharRole == GameObjectRace.弓手)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("弓手铭文石", out value);
+                //            }
+                //            else if (CharRole == GameObjectRace.龙枪)
+                //            {
+                //                GameItems.DataSheetByName.TryGetValue("龙枪铭文石", out value);
+                //            }
+                //            if (value != null)
+                //            {
+                //                ConsumeBackpackItem(1, v);
+                //                Backpack[b] = new ItemData(value, CharacterData, backpackType, b, 10);
+                //                ActiveConnection?.SendPacket(new 玩家物品变动
+                //                {
+                //                    物品描述 = Backpack[b].字节描述()
+                //                });
+                //            }
+                //            break;
+                //        }
+                //    case "元宝袋(中)":
+                //        ConsumeBackpackItem(1, v);
+                //        Ingots += 1000;
+                //        break;
+                //}
             }
             else
             {

@@ -11,5 +11,8 @@
   "NeedRace": "通用",
   "PersistType": "堆叠",
   "UnpackItemId": 80008,
-  "StoreType": "杂货"
+  "StoreType": "杂货",
+  "Props": {
+    "UsageType": 6
+  }
 }

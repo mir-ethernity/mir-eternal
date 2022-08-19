@@ -11,5 +11,8 @@
   "NeedRace": "通用",
   "PersistType": "堆叠",
   "UnpackItemId": 302,
-  "StoreType": "药品"
+  "StoreType": "药品",
+  "Props": {
+    "UsageType": 6
+  }
 }
