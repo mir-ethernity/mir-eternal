@@ -10923,38 +10923,6 @@ namespace GameServer.Maps
                 //            }
                 //            break;
                 //        }
-                //    case "魔法药(中量)":
-                //        if (v.GroupId > 0 && v.GroupCooling > 0)
-                //        {
-                //            Coolings[v.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(v.GroupCooling);
-                //            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                //            {
-                //                冷却编号 = (v.GroupId | 0),
-                //                Cooldown = v.GroupCooling
-                //            });
-                //        }
-                //        if (v.Cooldown > 0)
-                //        {
-                //            Coolings[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
-                //            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                //            {
-                //                冷却编号 = (v.Id | 0x2000000),
-                //                Cooldown = v.Cooldown
-                //            });
-                //        }
-                //        ConsumeBackpackItem(1, v);
-                //        药品回魔 = MainProcess.CurrentTime.AddSeconds(1.0);
-                //        回魔基数 = 16;
-                //        回魔次数 = 5;
-                //        break;
-                //    case "元宝袋(大)":
-                //        ConsumeBackpackItem(1, v);
-                //        Ingots += 10000;
-                //        break;
-                //    case "元宝袋(超)":
-                //        ConsumeBackpackItem(1, v);
-                //        Ingots += 100000;
-                //        break;
                 //    case "豪杰铭文石礼包":
                 //        {
                 //            byte b = byte.MaxValue;
@@ -11013,10 +10981,6 @@ namespace GameServer.Maps
                 //            }
                 //            break;
                 //        }
-                //    case "元宝袋(中)":
-                //        ConsumeBackpackItem(1, v);
-                //        Ingots += 1000;
-                //        break;
                 //}
             }
             else
