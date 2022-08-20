@@ -9,5 +9,24 @@
   "ValuableObjects": true,
   "Type": "宝图宝物",
   "NeedRace": "通用",
-  "PersistType": "堆叠"
+  "PersistType": "堆叠",
+  "Props": {
+    "UsageType": 5,
+    "TreasureItemRate": 20,
+    "DoubleExpRate": 60,
+    "GoldRate": 20,
+    "GoldAmount": 100000,
+    "DoubleExpAmount": 500000
+  },
+  "TreasureItems": [
+    {"ItemName": "元宝袋(小)", "Rate": 50 },
+    {"ItemName": "祝福油", "Rate": 15 },
+    {"ItemName": "沙城奖杯", "Rate": 10 },
+    {"ItemName": "战士铭文石", "NeedRace": "战士", "Rate": 25 },
+    {"ItemName": "法师铭文石", "NeedRace": "法师", "Rate": 25 },
+    {"ItemName": "道士铭文石", "NeedRace": "道士", "Rate": 25 },
+    {"ItemName": "刺客铭文石", "NeedRace": "刺客", "Rate": 25 },
+    {"ItemName": "弓手铭文石", "NeedRace": "弓手", "Rate": 25 },
+    {"ItemName": "龙枪铭文石", "NeedRace": "龙枪", "Rate": 25 }
+  ]
 }

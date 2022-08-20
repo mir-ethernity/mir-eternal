@@ -591,5 +591,10 @@ namespace GameServer.Data
                 ? value
                 : defaultValue;
         }
+
+        public bool HasProp(ItemProperty property)
+        {
+            return 物品模板.Props.ContainsKey(property);
+        }
     }
 }

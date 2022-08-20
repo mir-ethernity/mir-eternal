@@ -28,7 +28,7 @@ namespace GameServer.Templates
         public bool ValuableObjects;
         public bool Resource;
         public int? UnpackItemId;
-        public List<string> TreasureItems = new List<string>();
+        public List<GameItemTreasure> TreasureItems = new List<GameItemTreasure>();
 
         public ItemType Type;
         public GameObjectRace NeedRace;

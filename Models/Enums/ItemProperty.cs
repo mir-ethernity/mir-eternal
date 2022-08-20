@@ -15,6 +15,11 @@ namespace GameServer.Enums
         IncreaseHP,
         IncreaseMP,
         IngotsAmount,
-        MapId
+        MapId,
+        TreasureItemRate,
+        DoubleExpRate,
+        GoldRate,
+        GoldAmount,
+        DoubleExpAmount
     }
 }
