@@ -1237,7 +1237,7 @@ namespace GameServer.Maps
         }
 
 
-        public int CurrentExp
+        public ulong CurrentExp
         {
             get
             {

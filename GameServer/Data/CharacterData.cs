@@ -18,7 +18,7 @@ namespace GameServer.Data
         public int CharId => Index.V;
 
 
-        public int CharExp
+        public ulong CharExp
         {
             get => CurrentExp.V;
             set => CurrentExp.V = value;
@@ -787,7 +787,7 @@ namespace GameServer.Data
         public readonly DataMonitor<byte> Level;
 
 
-        public readonly DataMonitor<int> CurrentExp;
+        public readonly DataMonitor<ulong> CurrentExp;
 
 
         public readonly DataMonitor<int> DoubleExp;
