@@ -16,6 +16,7 @@ namespace GameServer.Enums
         Treasure = 5,
         UnpackStack = 6,
         GainIngots = 7,
-        TownTeleport = 8
+        TownTeleport = 8,
+        Blessing = 9
     }
 }

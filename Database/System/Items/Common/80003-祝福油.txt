@@ -11,6 +11,9 @@
   "NeedRace": "通用",
   "PersistType": "堆叠",
   "StoreType": "杂货",
+  "Props": {
+    "UsageType": 9
+  },
   "物品掉落列表": [
     {
       "Name": "祝福油",
