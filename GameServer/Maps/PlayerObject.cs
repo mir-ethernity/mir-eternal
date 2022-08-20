@@ -406,7 +406,6 @@ namespace GameServer.Maps
             }
         }
 
-
         public override void Process()
         {
             if (this.绑定地图)
