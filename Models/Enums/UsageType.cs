@@ -17,6 +17,7 @@ namespace GameServer.Enums
         UnpackStack = 6,
         GainIngots = 7,
         TownTeleport = 8,
-        Blessing = 9
+        Blessing = 9,
+        SwitchSkill = 10
     }
 }

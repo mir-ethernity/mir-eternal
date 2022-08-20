@@ -10451,6 +10451,57 @@ namespace GameServer.Maps
             return true;
         }
 
+        private bool ProcessConsumableSwitchSkill(ItemData item)
+        {
+            if (!Equipment.TryGetValue(0, out var v4))
+            {
+                ActiveConnection?.SendPacket(new GameErrorMessagePacket
+                {
+                    错误代码 = 1927
+                });
+                return false;
+            }
+            if (!v4.双铭文栏.V)
+            {
+                ActiveConnection?.SendPacket(new GameErrorMessagePacket
+                {
+                    错误代码 = 1926
+                });
+                return false;
+            }
+
+            if (v4.第一铭文 != null)
+            {
+                玩家装卸铭文(v4.第一铭文.SkillId, 0);
+            }
+            if (v4.第二铭文 != null)
+            {
+                玩家装卸铭文(v4.第二铭文.SkillId, 0);
+            }
+            v4.当前铭栏.V = (byte)((v4.当前铭栏.V == 0) ? 1u : 0u);
+            if (v4.第一铭文 != null)
+            {
+                玩家装卸铭文(v4.第一铭文.SkillId, v4.第一铭文.Id);
+            }
+            if (v4.第二铭文 != null)
+            {
+                玩家装卸铭文(v4.第二铭文.SkillId, v4.第二铭文.Id);
+            }
+
+            ActiveConnection?.SendPacket(new 玩家物品变动
+            {
+                物品描述 = v4.字节描述()
+            });
+
+            ActiveConnection?.SendPacket(new DoubleInscriptionPositionSwitchPacket
+            {
+                当前栏位 = v4.当前铭栏.V,
+                第一铭文 = (v4.第一铭文?.Index ?? 0),
+                第二铭文 = (v4.第二铭文?.Index ?? 0)
+            });
+
+            return true;
+        }
 
         private void ProcessConsumableItem(ItemData item)
         {
@@ -10467,25 +10518,6 @@ namespace GameServer.Maps
 
             if (usageType == UsageType.Unknown)
                 return;
-
-            if (item.GroupId > 0 && item.GroupCooling > 0)
-            {
-                Coolings[item.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(item.GroupCooling);
-                ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                {
-                    冷却编号 = (item.GroupId | 0),
-                    Cooldown = item.GroupCooling
-                });
-            }
-            if (item.Cooldown > 0)
-            {
-                Coolings[item.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(item.Cooldown);
-                ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                {
-                    冷却编号 = (item.Id | 0x2000000),
-                    Cooldown = item.Cooldown
-                });
-            }
 
             var processed = false;
 
@@ -10519,9 +10551,34 @@ namespace GameServer.Maps
                 case UsageType.Blessing:
                     processed = ProcessConsumableBlessing(item);
                     break;
+                case UsageType.SwitchSkill:
+                    processed = ProcessConsumableSwitchSkill(item);
+                    break;
             }
 
-            if (processed) ConsumeBackpackItem(1, item);
+            if (processed)
+            {
+                if (item.GroupId > 0 && item.GroupCooling > 0)
+                {
+                    Coolings[item.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(item.GroupCooling);
+                    ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
+                    {
+                        冷却编号 = (item.GroupId | 0),
+                        Cooldown = item.GroupCooling
+                    });
+                }
+                if (item.Cooldown > 0)
+                {
+                    Coolings[item.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(item.Cooldown);
+                    ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
+                    {
+                        冷却编号 = (item.Id | 0x2000000),
+                        Cooldown = item.Cooldown
+                    });
+                }
+
+                ConsumeBackpackItem(1, item);
+            }
         }
 
         public void UseItem(byte backpackType, byte itemPosition)
@@ -10574,145 +10631,6 @@ namespace GameServer.Maps
                 }
 
                 ProcessConsumableItem(v);
-
-                // TODO: WE NEED CONVERT IT INTO GENERIC CONSUMABLE ITEM
-
-                //switch (v.Name)
-                //{
-                //    case "祝福油":
-                //        {
-                //            if (!Equipment.TryGetValue(0, out var v5))
-                //            {
-                //                ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                //                {
-                //                    错误代码 = 1927
-                //                });
-                //                break;
-                //            }
-                //            if (v5.Luck.V >= 7)
-                //            {
-                //                ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                //                {
-                //                    错误代码 = 1843
-                //                });
-                //                break;
-                //            }
-                //            ConsumeBackpackItem(1, v);
-                //            int num2 = 0;
-                //            num2 = v5.Luck.V switch
-                //            {
-                //                0 => 80,
-                //                1 => 10,
-                //                2 => 8,
-                //                3 => 6,
-                //                4 => 5,
-                //                5 => 4,
-                //                6 => 3,
-                //                _ => 80,
-                //            };
-                //            int num3 = MainProcess.RandomNumber.Next(100);
-                //            if (num3 < num2)
-                //            {
-                //                v5.Luck.V++;
-                //                ActiveConnection?.SendPacket(new 玩家物品变动
-                //                {
-                //                    物品描述 = v5.字节描述()
-                //                });
-                //                ActiveConnection?.SendPacket(new 武器幸运变化
-                //                {
-                //                    幸运变化 = 1
-                //                });
-                //                StatsBonus[v5] = v5.装备Stat;
-                //                RefreshStats();
-                //                if (v5.Luck.V >= 5)
-                //                {
-                //                    NetworkServiceGateway.SendAnnouncement($"[{ObjectName}] 成功将 [{v5.Name}] 升到幸运 {v5.Luck.V} 级.");
-                //                }
-                //            }
-                //            else if (num3 >= 95 && v5.Luck.V > -9)
-                //            {
-                //                v5.Luck.V--;
-                //                ActiveConnection?.SendPacket(new 玩家物品变动
-                //                {
-                //                    物品描述 = v5.字节描述()
-                //                });
-                //                ActiveConnection?.SendPacket(new 武器幸运变化
-                //                {
-                //                    幸运变化 = -1
-                //                });
-                //                StatsBonus[v5] = v5.装备Stat;
-                //                RefreshStats();
-                //            }
-                //            else
-                //            {
-                //                ActiveConnection?.SendPacket(new 武器幸运变化
-                //                {
-                //                    幸运变化 = 0
-                //                });
-                //            }
-                //            break;
-                //        }
-                //    case "铭文位切换神符":
-                //        {
-                //            if (!Equipment.TryGetValue(0, out var v4))
-                //            {
-                //                ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                //                {
-                //                    错误代码 = 1927
-                //                });
-                //                break;
-                //            }
-                //            if (!v4.双铭文栏.V)
-                //            {
-                //                ActiveConnection?.SendPacket(new GameErrorMessagePacket
-                //                {
-                //                    错误代码 = 1926
-                //                });
-                //                break;
-                //            }
-                //            if (v4.第一铭文 != null)
-                //            {
-                //                玩家装卸铭文(v4.第一铭文.SkillId, 0);
-                //            }
-                //            if (v4.第二铭文 != null)
-                //            {
-                //                玩家装卸铭文(v4.第二铭文.SkillId, 0);
-                //            }
-                //            v4.当前铭栏.V = (byte)((v4.当前铭栏.V == 0) ? 1u : 0u);
-                //            if (v4.第一铭文 != null)
-                //            {
-                //                玩家装卸铭文(v4.第一铭文.SkillId, v4.第一铭文.Id);
-                //            }
-                //            if (v4.第二铭文 != null)
-                //            {
-                //                玩家装卸铭文(v4.第二铭文.SkillId, v4.第二铭文.Id);
-                //            }
-                //            ActiveConnection?.SendPacket(new 玩家物品变动
-                //            {
-                //                物品描述 = v4.字节描述()
-                //            });
-                //            ActiveConnection?.SendPacket(new DoubleInscriptionPositionSwitchPacket
-                //            {
-                //                当前栏位 = v4.当前铭栏.V,
-                //                第一铭文 = (v4.第一铭文?.Index ?? 0),
-                //                第二铭文 = (v4.第二铭文?.Index ?? 0)
-                //            });
-                //            Coolings[v.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(v.Cooldown);
-                //            ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
-                //            {
-                //                冷却编号 = (v.Id | 0x2000000),
-                //                Cooldown = v.Cooldown
-                //            });
-                //            ConsumeBackpackItem(1, v);
-                //            ActiveConnection?.SendPacket(new DoubleInscriptionPositionSwitchPacket
-                //            {
-                //                当前栏位 = v4.当前铭栏.V,
-                //                第一铭文 = (v4.第一铭文?.Index ?? 0),
-                //                第二铭文 = (v4.第二铭文?.Index ?? 0)
-                //            });
-                //            break;
-                //        }
-                //}
             }
             else
             {
