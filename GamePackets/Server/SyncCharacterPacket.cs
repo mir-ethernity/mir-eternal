@@ -40,10 +40,10 @@ namespace GameServer.Networking
         public ushort Distance = 1;
 
         [WrappingField(SubScript = 72, Length = 8)]
-        public ulong RequiredExp;
+        public long RequiredExp;
 
         [WrappingField(SubScript = 80, Length = 4)]
-        public ulong ExpCap = ulong.MaxValue;
+        public long ExpCap = long.MaxValue;
 
         [WrappingField(SubScript = 88, Length = 4)]
         public int DoubleExp;
@@ -73,7 +73,7 @@ namespace GameServer.Networking
         public byte[] Unknown6 = new byte[8];
 
         [WrappingField(SubScript = 145, Length = 8)]
-        public ulong CurrentExp;
+        public long CurrentExp;
 
         [WrappingField(SubScript = 153, Length = 1)]
         public bool BrownName = false;

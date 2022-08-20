@@ -493,7 +493,7 @@ namespace GameServer.Data
 			{
 				if (x.CharLevel == y.CharLevel)
 				{
-					return x.CharExp - y.CharExp;
+					return (int)(uint)(x.CharExp - y.CharExp);
 				}
 				return (int)(x.CharLevel - y.CharLevel);
 			}

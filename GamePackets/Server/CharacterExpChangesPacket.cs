@@ -30,11 +30,10 @@ namespace GameServer.Networking
 		public int DoubleExp;
 
 		
-		[WrappingFieldAttribute(SubScript = 18, Length = 4)]
-		public int CurrentExp;
-
+		[WrappingFieldAttribute(SubScript = 18, Length = 8)]
+		public long CurrentExp;
 		
-		[WrappingFieldAttribute(SubScript = 26, Length = 4)]
-		public int 升级所需;
+		[WrappingFieldAttribute(SubScript = 26, Length = 8)]
+		public long 升级所需;
 	}
 }

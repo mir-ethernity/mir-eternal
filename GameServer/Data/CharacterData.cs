@@ -18,7 +18,7 @@ namespace GameServer.Data
         public int CharId => Index.V;
 
 
-        public ulong CharExp
+        public long CharExp
         {
             get => CurrentExp.V;
             set => CurrentExp.V = value;
@@ -68,7 +68,7 @@ namespace GameServer.Data
             }
         }
 
-        public int CharMaxExp => CharacterProgression.MaxExpTable[CharLevel];
+        public long CharMaxExp => CharacterProgression.MaxExpTable[CharLevel];
 
         public int Ingots
         {
@@ -489,7 +489,7 @@ namespace GameServer.Data
             {
                 MainForm.UpdatedCharacterData(this, "CurrentRank", O);
             };
-            this.CurrentExp.更改事件 += delegate (int O)
+            this.CurrentExp.更改事件 += delegate (long O)
             {
                 MainForm.UpdatedCharacterData(this, "CurrentExp", O);
             };
@@ -787,7 +787,7 @@ namespace GameServer.Data
         public readonly DataMonitor<byte> Level;
 
 
-        public readonly DataMonitor<ulong> CurrentExp;
+        public readonly DataMonitor<long> CurrentExp;
 
 
         public readonly DataMonitor<int> DoubleExp;

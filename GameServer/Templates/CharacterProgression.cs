@@ -13,7 +13,7 @@ namespace GameServer.Templates
 		static CharacterProgression()
 		{
 			
-			Dictionary<byte, int> dictionary = new Dictionary<byte, int>();
+			Dictionary<byte, long> dictionary = new Dictionary<byte, long>();
 			dictionary[1] = 100;
 			dictionary[2] = 200;
 			dictionary[3] = 300;
@@ -149,7 +149,7 @@ namespace GameServer.Templates
 		public static Dictionary<int, Dictionary<GameObjectStats, int>> DataSheet;
 
 		
-		public static readonly Dictionary<byte, int> MaxExpTable;
+		public static readonly Dictionary<byte, long> MaxExpTable;
 
 		
 		public static readonly ushort[] 宠物升级经验;

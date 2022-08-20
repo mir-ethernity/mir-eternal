@@ -1237,7 +1237,7 @@ namespace GameServer.Maps
         }
 
 
-        public ulong CurrentExp
+        public long CurrentExp
         {
             get
             {
@@ -1277,11 +1277,11 @@ namespace GameServer.Maps
         }
 
 
-        public int MaxExperience
+        public long MaxExperience
         {
             get
             {
-                return CharacterProgression.MaxExpTable[(byte)(this.CurrentLevel - 1)];
+                return CharacterProgression.MaxExpTable[this.CurrentLevel];
             }
         }
 
@@ -13673,10 +13673,10 @@ namespace GameServer.Maps
         }
 
 
-        public void 请求对象外观(int 对象编号, int 状态编号)
+        public void 请求对象外观(int obectId, int statusId)
         {
             MapObject MapObject;
-            if (!MapGatewayProcess.Objects.TryGetValue(对象编号, out MapObject))
+            if (!MapGatewayProcess.Objects.TryGetValue(obectId, out MapObject))
             {
                 SConnection 网络连接 = this.ActiveConnection;
                 if (网络连接 == null)
@@ -13700,18 +13700,18 @@ namespace GameServer.Maps
                         return;
                     }
                     SyncPlayerAppearancePacket SyncPlayerAppearancePacket = new SyncPlayerAppearancePacket();
-                    SyncPlayerAppearancePacket.对象编号 = PlayerObject.ObjectId;
-                    SyncPlayerAppearancePacket.对象PK值 = PlayerObject.PK值惩罚;
-                    SyncPlayerAppearancePacket.对象职业 = (byte)PlayerObject.CharRole;
-                    SyncPlayerAppearancePacket.对象性别 = (byte)PlayerObject.CharGender;
-                    SyncPlayerAppearancePacket.对象发型 = (byte)PlayerObject.角色发型;
-                    SyncPlayerAppearancePacket.对象发色 = (byte)PlayerObject.角色发色;
-                    SyncPlayerAppearancePacket.对象脸型 = (byte)PlayerObject.角色脸型;
-                    SyncPlayerAppearancePacket.摆摊状态 = PlayerObject.ParalysisState;
-                    SyncPlayerAppearancePacket.摊位名字 = PlayerObject.摊位名字;
+                    SyncPlayerAppearancePacket.ObjectId = PlayerObject.ObjectId;
+                    SyncPlayerAppearancePacket.PKLevel = PlayerObject.PK值惩罚;
+                    SyncPlayerAppearancePacket.Race = (byte)PlayerObject.CharRole;
+                    SyncPlayerAppearancePacket.Gender = (byte)PlayerObject.CharGender;
+                    SyncPlayerAppearancePacket.HairType = (byte)PlayerObject.角色发型;
+                    SyncPlayerAppearancePacket.HairColor = (byte)PlayerObject.角色发色;
+                    SyncPlayerAppearancePacket.Face = (byte)PlayerObject.角色脸型;
+                    SyncPlayerAppearancePacket.StallStatus = PlayerObject.ParalysisState;
+                    SyncPlayerAppearancePacket.BoothName = PlayerObject.摊位名字;
                     EquipmentData EquipmentData;
-                    SyncPlayerAppearancePacket.武器等级 = ((byte)(PlayerObject.Equipment.TryGetValue(0, out EquipmentData) ? ((EquipmentData != null) ? EquipmentData.升级次数.V : 0) : 0));
-                    SyncPlayerAppearancePacket.身上武器 = ((EquipmentData != null) ? EquipmentData.对应模板.V.Id : 0);
+                    SyncPlayerAppearancePacket.WeaponType = ((byte)(PlayerObject.Equipment.TryGetValue(0, out EquipmentData) ? ((EquipmentData != null) ? EquipmentData.升级次数.V : 0) : 0));
+                    SyncPlayerAppearancePacket.WeaponBody = ((EquipmentData != null) ? EquipmentData.对应模板.V.Id : 0);
                     EquipmentData EquipmentData2;
                     int 身上衣服;
                     if (!PlayerObject.Equipment.TryGetValue(1, out EquipmentData2))
@@ -13741,7 +13741,7 @@ namespace GameServer.Maps
                         int? num2 = num;
                         身上衣服 = num2.GetValueOrDefault();
                     }
-                    SyncPlayerAppearancePacket.身上衣服 = 身上衣服;
+                    SyncPlayerAppearancePacket.Clothes = 身上衣服;
                     EquipmentData EquipmentData3;
                     int 身上披风;
                     if (!PlayerObject.Equipment.TryGetValue(2, out EquipmentData3))
@@ -13771,14 +13771,13 @@ namespace GameServer.Maps
                         int? num2 = num3;
                         身上披风 = num2.GetValueOrDefault();
                     }
-                    SyncPlayerAppearancePacket.身上披风 = 身上披风;
+                    SyncPlayerAppearancePacket.Cloak = 身上披风;
                     SyncPlayerAppearancePacket.CurrentHP = PlayerObject[GameObjectStats.MaxHP];
                     SyncPlayerAppearancePacket.CurrentMP = PlayerObject[GameObjectStats.MaxMP];
-                    SyncPlayerAppearancePacket.对象名字 = PlayerObject.ObjectName;
+                    SyncPlayerAppearancePacket.Name = PlayerObject.ObjectName;
                     GuildData 所属行会 = PlayerObject.Guild;
-                    SyncPlayerAppearancePacket.行会编号 = ((所属行会 != null) ? 所属行会.Index.V : 0);
+                    SyncPlayerAppearancePacket.GuildId = ((所属行会 != null) ? 所属行会.Index.V : 0);
 
-                    // TODO: Causes error on client
                     网络连接2.SendPacket(SyncPlayerAppearancePacket);
                     return;
                 }
