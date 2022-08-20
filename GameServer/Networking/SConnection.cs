@@ -1763,14 +1763,14 @@ namespace GameServer.Networking
         }
 
 
-        public void 处理封包(申请创建行会 P)
+        public void 处理封包(CreateGuildPacket P)
         {
             if (this.当前阶段 != GameStage.PlayingScene)
             {
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
                 return;
             }
-            this.Player.申请创建行会(P.字节数据);
+            this.Player.申请创建行会(P.Data);
         }
 
 
@@ -2418,7 +2418,7 @@ namespace GameServer.Networking
         }
 
 
-        public void 处理封包(客户账号登录 P)
+        public void 处理封包(AcountLoginPacket P)
         {
             if (this.当前阶段 != GameStage.StartingSessionScene)
             {
@@ -2428,7 +2428,7 @@ namespace GameServer.Networking
             {
                 this.CallExceptionEventHandler(new Exception("网卡封禁, 限制登录"));
             }
-            else if (!NetworkServiceGateway.门票DataSheet.TryGetValue(P.登录门票, out TicketInformation TicketInformation))
+            else if (!NetworkServiceGateway.门票DataSheet.TryGetValue(P.Ticket, out TicketInformation TicketInformation))
             {
                 this.CallExceptionEventHandler(new Exception("登录的门票不存在."));
             }
@@ -2465,7 +2465,7 @@ namespace GameServer.Networking
                     AccountData3.账号登录(this, P.MacAddress);
                 }
             }
-            NetworkServiceGateway.门票DataSheet.Remove(P.登录门票);
+            NetworkServiceGateway.门票DataSheet.Remove(P.Ticket);
         }
 
 

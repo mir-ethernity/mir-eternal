@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 62, 长度 = 7, 注释 = "对象消失")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 62, Length = 7, Description = "对象消失")]
 	public sealed class ObjectOutOfViewPacket : GamePacket
 	{
 		

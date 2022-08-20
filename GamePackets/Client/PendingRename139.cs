@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 94, 长度 = 2, 注释 = "随身特修全部")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 94, Length = 2, Description = "随身特修全部")]
 	public sealed class 随身特修全部 : GamePacket
 	{
 		

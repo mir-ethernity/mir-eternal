@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 564, 长度 = 7, 注释 = "设置行会禁言")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 564, Length = 7, Description = "设置行会禁言")]
 	public sealed class 设置行会禁言 : GamePacket
 	{
 		

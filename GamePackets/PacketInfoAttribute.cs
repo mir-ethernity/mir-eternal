@@ -14,16 +14,16 @@ namespace GameServer
 		}
 
 		
-		public PacketSource 来源;
+		public PacketSource Source;
 
 		
-		public ushort 编号;
+		public ushort Id;
 
 		
-		public ushort 长度;
+		public ushort Length;
 
 		
-		public string 注释;
+		public string Description;
 
 		public bool NoDebug;
 

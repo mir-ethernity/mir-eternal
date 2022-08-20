@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 57, 长度 = 55, 注释 = "复活信息(无此封包不会弹出复活框)")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 57, Length = 55, Description = "复活信息(无此封包不会弹出复活框)")]
 	public sealed class SendResurrectionMessagePacket : GamePacket
 	{
 		

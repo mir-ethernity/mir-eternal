@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 534, 长度 = 38, 注释 = "OtherPersonPaysAttentionToHimselfPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 534, Length = 38, Description = "OtherPersonPaysAttentionToHimselfPacket")]
 	public sealed class OtherPersonPaysAttentionToHimselfPacket : GamePacket
 	{
 		

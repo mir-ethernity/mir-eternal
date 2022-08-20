@@ -4,7 +4,7 @@ using System.Drawing;
 namespace GameServer.Networking
 {
 
-    [PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 60, 长度 = 20, 注释 = "对象出现, 适用于对象主动进入视野")]
+    [PacketInfoAttribute(Source = PacketSource.Server, Id = 60, Length = 20, Description = "对象出现, 适用于对象主动进入视野")]
     public sealed class ObjectComesIntoViewPacket : GamePacket
     {
 

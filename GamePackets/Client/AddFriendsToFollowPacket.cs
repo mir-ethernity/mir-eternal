@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 522, 长度 = 38, 注释 = "AddFriendsToFollowPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 522, Length = 38, Description = "AddFriendsToFollowPacket")]
 	public sealed class AddFriendsToFollowPacket : GamePacket
 	{
 		

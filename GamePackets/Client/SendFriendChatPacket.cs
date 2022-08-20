@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 526, 长度 = 0, 注释 = "好友聊天")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 526, Length = 0, Description = "好友聊天")]
 	public sealed class SendFriendChatPacket : GamePacket
 	{
 		

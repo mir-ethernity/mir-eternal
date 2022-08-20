@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 110, 长度 = 7, 注释 = "同步PK模式")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 110, Length = 7, Description = "同步PK模式")]
 	public sealed class 同步对战模式 : GamePacket
 	{
 		

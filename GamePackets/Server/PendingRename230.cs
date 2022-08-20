@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 104, 长度 = 10, 注释 = "体力变动飘字")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 104, Length = 10, Description = "体力变动飘字")]
 	public sealed class 体力变动飘字 : GamePacket
 	{
 		

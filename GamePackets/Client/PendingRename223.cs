@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 12, 长度 = 10, 注释 = "场景加载完成")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 12, Length = 10, Description = "场景加载完成")]
 	public sealed class 场景加载完成 : GamePacket
 	{
 		

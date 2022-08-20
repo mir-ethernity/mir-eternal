@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 22, 长度 = 6, 注释 = "进入传送门触发")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 22, Length = 6, Description = "进入传送门触发")]
 	public sealed class 客户进入法阵 : GamePacket
 	{
 		

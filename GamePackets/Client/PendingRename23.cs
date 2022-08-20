@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 137, 长度 = 0, 注释 = "上传游戏设置")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 137, Length = 0, Description = "上传游戏设置")]
 	public sealed class 上传游戏设置 : GamePacket
 	{
 		

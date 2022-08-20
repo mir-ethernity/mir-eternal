@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 548, 长度 = 2, 注释 = "QueryMailboxContentPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 548, Length = 2, Description = "QueryMailboxContentPacket")]
 	public sealed class QueryMailboxContentPacket : GamePacket
 	{
 		

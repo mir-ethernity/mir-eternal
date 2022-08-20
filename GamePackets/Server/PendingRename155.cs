@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 513, 长度 = 66, 注释 = "同步角色信息")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 513, Length = 66, Description = "同步角色信息")]
 	public sealed class 同步角色信息 : GamePacket
 	{
 		

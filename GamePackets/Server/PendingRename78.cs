@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 514, 长度 = 14, 注释 = "聊天服务器错误提示")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 514, Length = 14, Description = "聊天服务器错误提示")]
 	public sealed class 社交错误提示 : GamePacket
 	{
 		

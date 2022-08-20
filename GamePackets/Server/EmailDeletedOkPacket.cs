@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 576, 长度 = 14, 注释 = "EmailDeletedOkPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 576, Length = 14, Description = "EmailDeletedOkPacket")]
 	public sealed class EmailDeletedOkPacket : GamePacket
 	{
 		

@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 259, 长度 = 31, 注释 = "DecompositionItemResponsePacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 259, Length = 31, Description = "DecompositionItemResponsePacket")]
 	public sealed class DecompositionItemResponsePacket : GamePacket
 	{
 		

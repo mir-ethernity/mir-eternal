@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 99, 长度 = 5, 注释 = "释放完成, 可以释放下一个技能")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 99, Length = 5, Description = "释放完成, 可以释放下一个技能")]
 	public sealed class 技能释放完成 : GamePacket
 	{
 		

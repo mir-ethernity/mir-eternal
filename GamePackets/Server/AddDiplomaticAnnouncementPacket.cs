@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 608, 长度 = 38, 注释 = "AddDiplomaticAnnouncementPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 608, Length = 38, Description = "AddDiplomaticAnnouncementPacket")]
 	public sealed class AddDiplomaticAnnouncementPacket : GamePacket
 	{
 		

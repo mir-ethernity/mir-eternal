@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 38, 长度 = 3, 注释 = "ToggleAttackMode")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 38, Length = 3, Description = "ToggleAttackMode")]
 	public sealed class ToggleAttackMode : GamePacket
 	{
 		

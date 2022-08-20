@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 45, 长度 = 6, 注释 = "同步游戏ping", NoDebug = true)]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 45, Length = 6, Description = "同步游戏ping", NoDebug = true)]
 	public sealed class InternetSpeedTestPacket : GamePacket
 	{
 		

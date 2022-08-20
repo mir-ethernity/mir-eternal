@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 533, 长度 = 6, 注释 = "取消关注")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 533, Length = 6, Description = "取消关注")]
 	public sealed class 玩家取消关注 : GamePacket
 	{
 		

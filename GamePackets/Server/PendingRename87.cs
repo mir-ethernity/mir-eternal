@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 125, 长度 = 5, 注释 = "技能升级")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 125, Length = 5, Description = "技能升级")]
 	public sealed class 玩家技能升级 : GamePacket
 	{
 		

@@ -4,7 +4,7 @@ using System.Drawing;
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 34, 长度 = 16, 注释 = "释放技能")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 34, Length = 16, Description = "释放技能")]
 	public sealed class CharacterReleaseSkillsPacket : GamePacket
 	{
 		

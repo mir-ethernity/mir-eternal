@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfo(来源 = PacketSource.Server, 编号 = 96, 长度 = 0, 注释 = "触发技能正常(技能信息,目标,反馈,耗时)", Broadcast = true)]
+	[PacketInfo(Source = PacketSource.Server, Id = 96, Length = 0, Description = "触发技能正常(技能信息,目标,反馈,耗时)", Broadcast = true)]
 	public sealed class SkillHitNormal : GamePacket
 	{
 		public SkillHitNormal()

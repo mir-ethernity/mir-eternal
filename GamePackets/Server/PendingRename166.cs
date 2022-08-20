@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 80, 长度 = 10, 注释 = "同步PK惩罚值", Broadcast = true)]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 80, Length = 10, Description = "同步PK惩罚值", Broadcast = true)]
 	public sealed class 同步对象惩罚 : GamePacket
 	{
 		

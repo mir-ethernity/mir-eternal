@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 579, 长度 = 27, 注释 = "StartGuildWarPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 579, Length = 27, Description = "StartGuildWarPacket")]
 	public sealed class StartGuildWarPacket : GamePacket
 	{
 		

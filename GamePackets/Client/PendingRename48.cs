@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 108, 长度 = 3, 注释 = "取回摊位物品")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 108, Length = 3, Description = "取回摊位物品")]
 	public sealed class 取回摊位物品 : GamePacket
 	{
 		

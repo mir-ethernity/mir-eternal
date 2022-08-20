@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 181, 长度 = 6, 注释 = "玩家解除屏蔽")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 181, Length = 6, Description = "玩家解除屏蔽")]
 	public sealed class 玩家解除屏蔽 : GamePacket
 	{
 		

@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 56, 长度 = 7, 注释 = "角色复活")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 56, Length = 7, Description = "角色复活")]
 	public sealed class 玩家角色复活 : GamePacket
 	{
 		

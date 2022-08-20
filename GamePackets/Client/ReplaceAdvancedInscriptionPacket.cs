@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 73, 长度 = 4, 注释 = "ReplaceAdvancedInscriptionPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 73, Length = 4, Description = "ReplaceAdvancedInscriptionPacket")]
 	public sealed class ReplaceAdvancedInscriptionPacket : GamePacket
 	{
 		

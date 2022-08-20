@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 577, 长度 = 6, 注释 = "未读邮件提醒")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 577, Length = 6, Description = "未读邮件提醒")]
 	public sealed class 未读邮件提醒 : GamePacket
 	{
 		

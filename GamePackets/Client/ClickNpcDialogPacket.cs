@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 113, 长度 = 14, 注释 = "ClickNpcDialogPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 113, Length = 14, Description = "ClickNpcDialogPacket")]
 	public sealed class ClickNpcDialogPacket : GamePacket
 	{
 		

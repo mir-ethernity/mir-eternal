@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 121, 长度 = 10, 注释 = "CharacterSelectionTargetPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 121, Length = 10, Description = "CharacterSelectionTargetPacket")]
 	public sealed class 玩家选中目标 : GamePacket
 	{
 		

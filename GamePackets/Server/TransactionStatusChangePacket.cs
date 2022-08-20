@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 215, 长度 = 11, 注释 = "TransactionStatusChangePacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 215, Length = 11, Description = "TransactionStatusChangePacket")]
 	public sealed class TransactionStatusChangePacket : GamePacket
 	{
 		

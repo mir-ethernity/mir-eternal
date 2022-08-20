@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 535, 长度 = 38, 注释 = "OtherPartyUnfollowsPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 535, Length = 38, Description = "OtherPartyUnfollowsPacket")]
 	public sealed class OtherPartyUnfollowsPacket : GamePacket
 	{
 		

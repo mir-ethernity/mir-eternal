@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 567, 长度 = 6, 注释 = "TransferPresidentPositionPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 567, Length = 6, Description = "TransferPresidentPositionPacket")]
 	public sealed class TransferPresidentPositionPacket : GamePacket
 	{
 		

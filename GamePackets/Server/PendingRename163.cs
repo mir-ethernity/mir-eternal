@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 81, 长度 = 13, 注释 = "发送PK的结果")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 81, Length = 13, Description = "发送PK的结果")]
 	public sealed class 同步对战结果 : GamePacket
 	{
 		

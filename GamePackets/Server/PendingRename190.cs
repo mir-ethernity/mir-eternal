@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 88, 长度 = 3, 注释 = "领取师门奖励(已经弃用, 出师时自动结算)")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 88, Length = 3, Description = "领取师门奖励(已经弃用, 出师时自动结算)")]
 	public sealed class 领取师门奖励 : GamePacket
 	{
 		

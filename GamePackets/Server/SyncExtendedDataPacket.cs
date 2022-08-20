@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 66, 长度 = 58, 注释 = "同步Npcc数据扩展(宠物)")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 66, Length = 58, Description = "同步Npcc数据扩展(宠物)")]
 	public sealed class SyncExtendedDataPacket : GamePacket
 	{
 		

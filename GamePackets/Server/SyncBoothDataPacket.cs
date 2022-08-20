@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 161, 长度 = 0, 注释 = "SyncBoothDataPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 161, Length = 0, Description = "SyncBoothDataPacket")]
 	public sealed class SyncBoothDataPacket : GamePacket
 	{
 		

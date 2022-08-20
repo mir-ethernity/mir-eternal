@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 604, 长度 = 10, 注释 = "PropertyChangeNotificationPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 604, Length = 10, Description = "PropertyChangeNotificationPacket")]
 	public sealed class PropertyChangeNotificationPacket : GamePacket
 	{
 		

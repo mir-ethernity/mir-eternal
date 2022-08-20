@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 578, 长度 = 14, 注释 = "提取附件成功")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 578, Length = 14, Description = "提取附件成功")]
 	public sealed class 成功提取附件 : GamePacket
 	{
 		

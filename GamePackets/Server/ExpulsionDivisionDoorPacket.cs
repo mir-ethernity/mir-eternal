@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 566, 长度 = 6, 注释 = "ExpulsionDivisionDoorPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 566, Length = 6, Description = "ExpulsionDivisionDoorPacket")]
 	public sealed class ExpulsionDivisionDoorPacket : GamePacket
 	{
 		

@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 312, 长度 = 0, 注释 = "SyncWantedListPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 312, Length = 0, Description = "SyncWantedListPacket")]
 	public sealed class SyncWantedListPacket : GamePacket
 	{
 		

@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 255, 长度 = 6, 注释 = "OrdinaryInscriptionRefinementPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 255, Length = 6, Description = "OrdinaryInscriptionRefinementPacket")]
 	public sealed class 玩家普通洗练 : GamePacket
 	{
 		

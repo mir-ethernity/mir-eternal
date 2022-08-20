@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 98, 长度 = 13, 注释 = "技能释放中断", Broadcast = true)]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 98, Length = 13, Description = "技能释放中断", Broadcast = true)]
 	public sealed class 技能释放中断 : GamePacket
 	{
 		

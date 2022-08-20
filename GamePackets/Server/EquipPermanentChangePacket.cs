@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 143, 长度 = 8, 注释 = "EquipPermanentChangePacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 143, Length = 8, Description = "EquipPermanentChangePacket")]
 	public sealed class EquipPermanentChangePacket : GamePacket
 	{
 		

@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 110, 长度 = 3, 注释 = "更改摊位外观")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 110, Length = 3, Description = "更改摊位外观")]
 	public sealed class 更改摊位外观 : GamePacket
 	{
 		

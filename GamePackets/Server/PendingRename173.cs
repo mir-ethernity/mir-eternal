@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 85, 长度 = 8, 注释 = "泡泡提示")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 85, Length = 8, Description = "泡泡提示")]
 	public sealed class 同步气泡提示 : GamePacket
 	{
 		

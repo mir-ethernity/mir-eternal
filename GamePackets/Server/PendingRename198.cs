@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 531, 长度 = 82, 注释 = "好友上下线")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 531, Length = 82, Description = "好友上下线")]
 	public sealed class 好友上线下线 : GamePacket
 	{
 		

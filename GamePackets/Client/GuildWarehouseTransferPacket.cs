@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 165, 长度 = 8, 注释 = "GuildWarehouseTransferPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 165, Length = 8, Description = "GuildWarehouseTransferPacket")]
 	public sealed class GuildWarehouseTransferPacket : GamePacket
 	{
 		

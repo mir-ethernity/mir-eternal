@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace GameServer.Networking
 {
-    [PacketInfo(来源 = PacketSource.Client, 编号 = 265, 长度 = 142, 注释 = "UnknownC1")]
+    [PacketInfo(Source = PacketSource.Client, Id = 265, Length = 142, Description = "UnknownC1")]
     public class UnknownC4 : GamePacket
     {
     }
 
 
-    [PacketInfo(来源 = PacketSource.Client, 编号 = 642, 长度 = 4, 注释 = "UnknownC1")]
+    [PacketInfo(Source = PacketSource.Client, Id = 642, Length = 4, Description = "UnknownC1")]
     public class UnknownC1 : GamePacket
     {
     }
 
-    [PacketInfo(来源 = PacketSource.Client, 编号 = 644, 长度 = 0, 注释 = "UnknownC1")]
+    [PacketInfo(Source = PacketSource.Client, Id = 644, Length = 0, Description = "UnknownC1")]
     public class UnknownC2 : GamePacket
     {
     }
 
-    [PacketInfo(来源 = PacketSource.Client, 编号 = 155, 长度 = 6, 注释 = "UnknownC1")]
+    [PacketInfo(Source = PacketSource.Client, Id = 155, Length = 6, Description = "UnknownC1")]
     public class UnknownC3 : GamePacket
     {
         [WrappingField(SubScript = 2, Length = 2)]
@@ -31,7 +31,7 @@ namespace GameServer.Networking
         public ushort U2;
     }
 
-    [PacketInfo(来源 = PacketSource.Server, 编号 = 691, 长度 = 16, 注释 = "UnknownS1")]
+    [PacketInfo(Source = PacketSource.Server, Id = 691, Length = 16, Description = "UnknownS1")]
     public class UnknownS1 : GamePacket
     {
         [WrappingField(SubScript = 2, Length = 2)]
@@ -50,12 +50,12 @@ namespace GameServer.Networking
         public ushort U7;
     }
 
-    [PacketInfo(来源 = PacketSource.Server, 编号 = 692, 长度 = 6, 注释 = "UnknownS2")]
+    [PacketInfo(Source = PacketSource.Server, Id = 692, Length = 6, Description = "UnknownS2")]
     public class UnknownS2 : GamePacket
     {
     }
 
-    [PacketInfo(来源 = PacketSource.Server, 编号 = 529, 长度 = 39, 注释 = "UnknownS3")]
+    [PacketInfo(Source = PacketSource.Server, Id = 529, Length = 39, Description = "UnknownS3")]
     public class UnknownS3 : GamePacket
     {
         [WrappingField(SubScript = 2, Length = 12)]

@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 73, 长度 = 7, 注释 = "Npc变换类型", Broadcast = true)]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 73, Length = 7, Description = "Npc变换类型", Broadcast = true)]
 	public sealed class ObjectTransformTypePacket : GamePacket
 	{
 		

@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 152, 长度 = 19, 注释 = "GamePropsAppearPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 152, Length = 19, Description = "GamePropsAppearPacket")]
 	public sealed class GamePropsAppearPacket : GamePacket
 	{
 		

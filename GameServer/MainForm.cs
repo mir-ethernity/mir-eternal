@@ -290,7 +290,7 @@ namespace GameServer
                     "[{0}]: {1} {2} ({3}) - {{{4}}}\r\n",
                     DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
                     incoming ? "C->S" : "S->C",
-                    packet.PacketInfo.编号,
+                    packet.PacketInfo.Id,
                     packet.PacketType.Name,
                     string.Join(", ", data.Select(x => x.ToString()).ToArray())
                 );

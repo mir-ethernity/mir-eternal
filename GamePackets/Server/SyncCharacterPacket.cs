@@ -3,13 +3,13 @@ using System.Drawing;
 
 namespace GameServer.Networking
 {
-	[PacketInfo(来源 = PacketSource.Server, 编号 = 12, 长度 = 172, 注释 = "同步CharacterData(地图.坐标.职业.性别.等级...)")]
+	[PacketInfo(Source = PacketSource.Server, Id = 12, Length = 172, Description = "同步CharacterData(地图.坐标.职业.性别.等级...)")]
 	public sealed class RawSyncCharacterPacket: GamePacket
     {
 
     }
 
-	[PacketInfo(来源 = PacketSource.Server, 编号 = 12, 长度 = 172, 注释 = "同步CharacterData(地图.坐标.职业.性别.等级...)")]
+	[PacketInfo(Source = PacketSource.Server, Id = 12, Length = 172, Description = "同步CharacterData(地图.坐标.职业.性别.等级...)")]
 	public sealed class SyncCharacterPacket : GamePacket
 	{
 		[WrappingField(SubScript = 2, Length = 4)]

@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 107, 长度 = 11, 注释 = "PutItemsInBoothPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 107, Length = 11, Description = "PutItemsInBoothPacket")]
 	public sealed class PutItemsInBoothPacket : GamePacket
 	{
 		

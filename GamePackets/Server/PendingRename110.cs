@@ -4,7 +4,7 @@ using System.Drawing;
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 39, 长度 = 17, 注释 = "进入场景(包括商店/随机卷)")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 39, Length = 17, Description = "进入场景(包括商店/随机卷)")]
 	public sealed class 玩家进入场景 : GamePacket
 	{
 		

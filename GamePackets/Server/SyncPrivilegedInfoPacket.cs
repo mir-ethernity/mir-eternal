@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 322, 长度 = 0, 注释 = "SyncPrivilegedInfoPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 322, Length = 0, Description = "SyncPrivilegedInfoPacket")]
 	public sealed class SyncPrivilegedInfoPacket : GamePacket
 	{
 		

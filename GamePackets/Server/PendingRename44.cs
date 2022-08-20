@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 670, 长度 = 134, 注释 = "计费系统错误")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 670, Length = 134, Description = "计费系统错误")]
 	public sealed class 计费系统错误 : GamePacket
 	{
 		

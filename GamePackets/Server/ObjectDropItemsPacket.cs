@@ -4,7 +4,7 @@ using System.Drawing;
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 150, 长度 = 34, 注释 = "掉落物品")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 150, Length = 34, Description = "掉落物品")]
 	public sealed class ObjectDropItemsPacket : GamePacket
 	{
 		[WrappingFieldAttribute(SubScript = 2, Length = 2)]

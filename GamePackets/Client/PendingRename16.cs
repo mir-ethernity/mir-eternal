@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 1002, 长度 = 40, 注释 = "创建角色")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 1002, Length = 40, Description = "创建角色")]
 	public sealed class 客户创建角色 : GamePacket
 	{
 		

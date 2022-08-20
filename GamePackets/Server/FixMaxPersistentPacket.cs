@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 343, 长度 = 3, 注释 = "FixMaxPersistentPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 343, Length = 3, Description = "FixMaxPersistentPacket")]
 	public sealed class FixMaxPersistentPacket : GamePacket
 	{
 		

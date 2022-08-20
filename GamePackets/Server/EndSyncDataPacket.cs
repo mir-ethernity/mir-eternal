@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 33, 长度 = 6, 注释 = "同步GameData结束")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 33, Length = 6, Description = "同步GameData结束")]
 	public sealed class EndSyncDataPacket : GamePacket
 	{
 		

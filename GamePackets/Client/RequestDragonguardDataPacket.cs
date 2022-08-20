@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 224, 长度 = 6, 注释 = "RequestDragonguardDataPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 224, Length = 6, Description = "RequestDragonguardDataPacket")]
 	public sealed class RequestDragonguardDataPacket : GamePacket
 	{
 		

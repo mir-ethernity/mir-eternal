@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 572, 长度 = 5, 注释 = "更改存储权限")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 572, Length = 5, Description = "更改存储权限")]
 	public sealed class 更改存储权限 : GamePacket
 	{
 		

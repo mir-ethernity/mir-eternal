@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 190, 长度 = 3, 注释 = "更改PetMode")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 190, Length = 3, Description = "更改PetMode")]
 	public sealed class 更改PetMode : GamePacket
 	{
 		

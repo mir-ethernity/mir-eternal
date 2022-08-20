@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 620, 长度 = 0, 注释 = "更多GuildEvents")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 620, Length = 0, Description = "更多GuildEvents")]
 	public sealed class 同步GuildEvents : GamePacket
 	{
 		

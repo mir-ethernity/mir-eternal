@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 75, 长度 = 5, 注释 = "ToggleDoubleInscriptionBitPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 75, Length = 5, Description = "ToggleDoubleInscriptionBitPacket")]
 	public sealed class ToggleDoubleInscriptionBitPacket : GamePacket
 	{
 		

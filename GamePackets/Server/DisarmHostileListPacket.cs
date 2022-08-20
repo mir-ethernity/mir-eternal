@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 640, 长度 = 10, 注释 = "DisarmHostileListPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 640, Length = 10, Description = "DisarmHostileListPacket")]
 	public sealed class DisarmHostileListPacket : GamePacket
 	{
 		

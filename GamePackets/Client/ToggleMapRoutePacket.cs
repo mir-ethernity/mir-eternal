@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 134, 长度 = 3, 注释 = "ToggleMapRoutePacket")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 134, Length = 3, Description = "ToggleMapRoutePacket")]
 	public sealed class ToggleMapRoutePacket : GamePacket
 	{
 		

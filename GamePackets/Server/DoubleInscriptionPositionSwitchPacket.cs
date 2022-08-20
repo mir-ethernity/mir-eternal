@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 267, 长度 = 8, 注释 = "DoubleInscriptionPositionSwitchPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 267, Length = 8, Description = "DoubleInscriptionPositionSwitchPacket")]
 	public sealed class DoubleInscriptionPositionSwitchPacket : GamePacket
 	{
 		

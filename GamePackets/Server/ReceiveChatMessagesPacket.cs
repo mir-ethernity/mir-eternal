@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 540, 长度 = 0, 注释 = "ReceiveChatMessagesPacket(system/private chat/broadcast/voice/guild/team)")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 540, Length = 0, Description = "ReceiveChatMessagesPacket(system/private chat/broadcast/voice/guild/team)")]
 	public sealed class ReceiveChatMessagesPacket : GamePacket
 	{
 		

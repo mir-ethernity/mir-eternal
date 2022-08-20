@@ -186,11 +186,11 @@ namespace GameServer.Networking
                     PacketInfoAttribute customAttribute = type.GetCustomAttribute<PacketInfoAttribute>();
                     if (customAttribute != null)
                     {
-                        if (customAttribute.来源 == PacketSource.Client)
+                        if (customAttribute.Source == PacketSource.Client)
                         {
-                            GamePacket.ClientPackets[customAttribute.编号] = type;
-                            GamePacket.ClientPacketNumberTable[type] = customAttribute.编号;
-                            GamePacket.ClientPacketLengthTable[customAttribute.编号] = customAttribute.长度;
+                            GamePacket.ClientPackets[customAttribute.Id] = type;
+                            GamePacket.ClientPacketNumberTable[type] = customAttribute.Id;
+                            GamePacket.ClientPacketLengthTable[customAttribute.Id] = customAttribute.Length;
                             GamePacket.PacketMethods[type] = connectionType.GetMethod("处理封包", new Type[]
                             {
                                 type
@@ -198,9 +198,9 @@ namespace GameServer.Networking
                         }
                         else
                         {
-                            GamePacket.ServerPackets[customAttribute.编号] = type;
-                            GamePacket.ServerPacketNumberTable[type] = customAttribute.编号;
-                            GamePacket.ServerPacketLengthTable[customAttribute.编号] = customAttribute.长度;
+                            GamePacket.ServerPackets[customAttribute.Id] = type;
+                            GamePacket.ServerPacketNumberTable[type] = customAttribute.Id;
+                            GamePacket.ServerPacketLengthTable[customAttribute.Id] = customAttribute.Length;
                         }
                     }
                 }
@@ -220,18 +220,18 @@ namespace GameServer.Networking
         }
 
 
-        public virtual bool 是否加密 { get; set; }
+        public virtual bool Encrypted { get; set; }
 
 
         public GamePacket()
         {
 
-            this.是否加密 = true;
+            this.Encrypted = true;
 
             this.PacketType = base.GetType();
             this.PacketInfo = this.PacketType.GetCustomAttribute<PacketInfoAttribute>();
 
-            if (this.PacketInfo.来源 == PacketSource.Server)
+            if (this.PacketInfo.Source == PacketSource.Server)
             {
                 this.PacketID = GamePacket.ServerPacketNumberTable[this.PacketType];
                 this.PacketLength = GamePacket.ServerPacketLengthTable[this.PacketID];
@@ -270,7 +270,7 @@ namespace GameServer.Networking
                         binaryWriter.Write((ushort)memoryStream.Length);
                     }
                     byte[] array = memoryStream.ToArray();
-                    if (this.是否加密 && !forceNoEncrypt)
+                    if (this.Encrypted && !forceNoEncrypt)
                     {
                         result = GamePacket.EncodeData(array);
                     }
@@ -340,7 +340,7 @@ namespace GameServer.Networking
             }
             GamePacket GamePacket = (GamePacket)Activator.CreateInstance(type);
             byte[] dataPacket = inData.Take((int)num2).ToArray<byte>();
-            if (GamePacket.是否加密)
+            if (GamePacket.Encrypted)
             {
                 GamePacket.EncodeData(dataPacket);
             }

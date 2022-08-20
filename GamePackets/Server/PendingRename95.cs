@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 516, 长度 = 0, 注释 = "玩家加入队伍")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 516, Length = 0, Description = "玩家加入队伍")]
 	public sealed class 玩家加入队伍 : GamePacket
 	{
 		

@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 586, 长度 = 231, 注释 = "FindGuildAnswersPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 586, Length = 231, Description = "FindGuildAnswersPacket")]
 	public sealed class FindGuildAnswersPacket : GamePacket
 	{
 		

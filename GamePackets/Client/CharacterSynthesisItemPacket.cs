@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 87, 长度 = 6, 注释 = "CharacterSynthesisItemPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 87, Length = 6, Description = "CharacterSynthesisItemPacket")]
 	public sealed class CharacterSynthesisItemPacket : GamePacket
 	{
 		

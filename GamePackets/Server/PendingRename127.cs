@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 250, 长度 = 38, 注释 = "玩家屏蔽目标")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 250, Length = 38, Description = "玩家屏蔽目标")]
 	public sealed class 玩家屏蔽目标 : GamePacket
 	{
 		

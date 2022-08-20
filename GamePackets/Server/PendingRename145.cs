@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 167, 长度 = 0, 注释 = "Npcc交互结果")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 167, Length = 0, Description = "Npcc交互结果")]
 	public sealed class 同步交互结果 : GamePacket
 	{
 		

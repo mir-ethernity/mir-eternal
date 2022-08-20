@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 22, 长度 = 338, 注释 = "SyncReputationListPacket(不同步会导致怪物不能ActiveAttack)")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 22, Length = 338, Description = "SyncReputationListPacket(不同步会导致怪物不能ActiveAttack)")]
 	public sealed class SyncReputationListPacket : GamePacket
 	{
 		

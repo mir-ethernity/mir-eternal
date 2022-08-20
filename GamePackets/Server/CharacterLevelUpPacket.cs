@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 74, 长度 = 7, 注释 = "CharacterLevelUpPacket", Broadcast = true)]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 74, Length = 7, Description = "CharacterLevelUpPacket", Broadcast = true)]
 	public sealed class CharacterLevelUpPacket : GamePacket
 	{
 		

@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 155, 长度 = 11, 注释 = "EndOperationPropsPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 155, Length = 11, Description = "EndOperationPropsPacket")]
 	public sealed class EndOperationPropsPacket : GamePacket
 	{
 		

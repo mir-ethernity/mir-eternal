@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 1010, 长度 = 6, 注释 = "Synchronous gateway ping", NoDebug = true)]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 1010, Length = 6, Description = "Synchronous gateway ping", NoDebug = true)]
 	public sealed class LoginQueryResponsePacket : GamePacket
 	{
 		

@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 264, 长度 = 16, 注释 = "高级铭文洗练")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 264, Length = 16, Description = "高级铭文洗练")]
 	public sealed class 玩家高级洗练 : GamePacket
 	{
 		

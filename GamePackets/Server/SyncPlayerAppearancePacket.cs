@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 64, 长度 = 133, 注释 = "SyncPlayerAppearancePacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 64, Length = 133, Description = "SyncPlayerAppearancePacket")]
 	public sealed class SyncPlayerAppearancePacket : GamePacket
 	{
 		[WrappingFieldAttribute(SubScript = 2, Length = 4)]

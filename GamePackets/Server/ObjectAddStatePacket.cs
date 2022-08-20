@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 116, 长度 = 21, 注释 = "添加BUFF", Broadcast = true)]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 116, Length = 21, Description = "添加BUFF", Broadcast = true)]
 	public sealed class ObjectAddStatePacket : GamePacket
 	{
 		

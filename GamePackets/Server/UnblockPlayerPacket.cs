@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 251, 长度 = 6, 注释 = "UnblockPlayerPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 251, Length = 6, Description = "UnblockPlayerPacket")]
 	public sealed class UnblockPlayerPacket : GamePacket
 	{
 		

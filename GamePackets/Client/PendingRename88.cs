@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 528, 长度 = 6, 注释 = "删除仇人")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 528, Length = 6, Description = "删除仇人")]
 	public sealed class 玩家删除仇人 : GamePacket
 	{
 		

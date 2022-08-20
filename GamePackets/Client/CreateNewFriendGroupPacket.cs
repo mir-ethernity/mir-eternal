@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 135, 长度 = 28, 注释 = "CreateNewFriendGroupPacket(已屏蔽)")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 135, Length = 28, Description = "CreateNewFriendGroupPacket(已屏蔽)")]
 	public sealed class CreateNewFriendGroupPacket : GamePacket
 	{
 		

@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 137, 长度 = 4, 注释 = "背包容量改变")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 137, Length = 4, Description = "背包容量改变")]
 	public sealed class 背包容量改变 : GamePacket
 	{
 		

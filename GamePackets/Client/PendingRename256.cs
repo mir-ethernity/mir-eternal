@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 530, 长度 = 2, 注释 = "查询地图路线")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 530, Length = 2, Description = "查询地图路线")]
 	public sealed class 查询地图路线 : GamePacket
 	{
 		

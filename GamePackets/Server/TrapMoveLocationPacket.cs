@@ -4,7 +4,7 @@ using System.Drawing;
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 124, 长度 = 18, 注释 = "陷阱移动", Broadcast = true)]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 124, Length = 18, Description = "陷阱移动", Broadcast = true)]
 	public sealed class TrapMoveLocationPacket : GamePacket
 	{
 		

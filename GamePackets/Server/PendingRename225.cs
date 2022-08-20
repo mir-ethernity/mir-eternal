@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 95, 长度 = 0, 注释 = "触发技能扩展(技能信息,目标,反馈,耗时)", Broadcast = true)]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 95, Length = 0, Description = "触发技能扩展(技能信息,目标,反馈,耗时)", Broadcast = true)]
 	public sealed class 触发技能扩展 : GamePacket
 	{
 		

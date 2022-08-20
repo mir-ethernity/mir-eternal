@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 573, 长度 = 2, 注释 = "邮件发送成功")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 573, Length = 2, Description = "邮件发送成功")]
 	public sealed class 成功发送邮件 : GamePacket
 	{
 		

@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 76, 长度 = 6, 注释 = "DoubleExpChangePacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 76, Length = 6, Description = "DoubleExpChangePacket")]
 	public sealed class DoubleExpChangePacket : GamePacket
 	{
 		

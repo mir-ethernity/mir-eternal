@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 332, 长度 = 3, 注释 = "SyncMarfaPrivilegesPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 332, Length = 3, Description = "SyncMarfaPrivilegesPacket")]
 	public sealed class SyncMarfaPrivilegesPacket : GamePacket
 	{
 		

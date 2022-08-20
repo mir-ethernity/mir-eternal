@@ -4,7 +4,7 @@ using System.Drawing;
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 41, 长度 = 23, 注释 = "切换地图(回城/过图/传送)")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 41, Length = 23, Description = "切换地图(回城/过图/传送)")]
 	public sealed class 玩家切换地图 : GamePacket
 	{
 		

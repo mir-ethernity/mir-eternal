@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 149, 长度 = 30, 注释 = "货币数量变动")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 149, Length = 30, Description = "货币数量变动")]
 	public sealed class 货币数量变动 : GamePacket
 	{
 		

@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 568, 长度 = 6, 注释 = "RemoveApprenticePromptPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 568, Length = 6, Description = "RemoveApprenticePromptPacket")]
 	public sealed class RemoveApprenticePromptPacket : GamePacket
 	{
 		

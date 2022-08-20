@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 1001, 长度 = 14, 注释 = "Logging on to the server, error message")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 1001, Length = 14, Description = "Logging on to the server, error message")]
 	public sealed class LoginErrorMessagePacket : GamePacket
 	{
 		

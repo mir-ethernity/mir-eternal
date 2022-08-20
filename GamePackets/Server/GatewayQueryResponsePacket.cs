@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 1, 长度 = 15, 注释 = "GatewayQueryResponsePacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 1, Length = 15, Description = "GatewayQueryResponsePacket")]
 	public sealed class GatewayQueryResponsePacket : GamePacket
 	{
 		

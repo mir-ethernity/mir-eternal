@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 156, 长度 = 7, 注释 = "摆摊状态改变", Broadcast = true)]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 156, Length = 7, Description = "摆摊状态改变", Broadcast = true)]
 	public sealed class 摆摊状态改变 : GamePacket
 	{
 		

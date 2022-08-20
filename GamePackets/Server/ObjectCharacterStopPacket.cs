@@ -4,7 +4,7 @@ using System.Drawing;
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 48, 长度 = 13, 注释 = "角色停止")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 48, Length = 13, Description = "角色停止")]
 	public sealed class ObjectCharacterStopPacket : GamePacket
 	{
 		

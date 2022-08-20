@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 580, 长度 = 2, 注释 = "QueryGuildAchievementsPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 580, Length = 2, Description = "QueryGuildAchievementsPacket")]
 	public sealed class QueryGuildAchievementsPacket : GamePacket
 	{
 		

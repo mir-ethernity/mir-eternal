@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Server, 编号 = 569, 长度 = 2, 注释 = "ClearGuildInfoPacket")]
+	[PacketInfoAttribute(Source = PacketSource.Server, Id = 569, Length = 2, Description = "ClearGuildInfoPacket")]
 	public sealed class ClearGuildInfoPacket : GamePacket
 	{
 		

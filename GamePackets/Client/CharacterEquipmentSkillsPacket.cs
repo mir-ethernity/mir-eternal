@@ -3,7 +3,7 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(来源 = PacketSource.Client, 编号 = 39, 长度 = 5, 注释 = "装备技能")]
+	[PacketInfoAttribute(Source = PacketSource.Client, Id = 39, Length = 5, Description = "装备技能")]
 	public sealed class CharacterEquipmentSkillsPacket : GamePacket
 	{
 		
