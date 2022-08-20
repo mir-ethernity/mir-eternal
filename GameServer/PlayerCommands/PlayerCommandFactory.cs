@@ -36,7 +36,7 @@ namespace GameServer.PlayerCommands
 
     public static class PlayerCommandFactory
     {
-        private static readonly Regex _commandRegex = new Regex(@"^\@(?<cmd>.+?)(?:\s|$)(?<args>.+?)$");
+        private static readonly Regex _commandRegex = new Regex(@"^\@(?<cmd>.+?)(?:\s|$)(?<args>.+?)?$");
         private static readonly Regex _commandArgsRegex = new Regex(@"(?:\""(?<val_quoted>.+?)\""|\s*(?<val_noquote>.+?)(?:\s+|$))");
         public static readonly Dictionary<string, PlayerCommandInfo> PlayerCommandTypes = new Dictionary<string, PlayerCommandInfo>();
 
