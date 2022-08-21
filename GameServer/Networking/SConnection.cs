@@ -159,15 +159,15 @@ namespace GameServer.Networking
 
         public void SendRaw(ushort type, ushort length, byte[] data, bool encoded = true)
         {
-            if (Config.SendPacketsAsync)
-                throw new ApplicationException("To send raw packets it is necessary to disable the \"SendPacketsAsync\" setting");
+            //if (Config.SendPacketsAsync)
+            //    throw new ApplicationException("To send raw packets it is necessary to disable the \"SendPacketsAsync\" setting");
 
             byte[] output;
             if (length == 0)
             {
                 output = new byte[data.Length + 4];
                 Array.Copy(BitConverter.GetBytes((ushort)type), 0, output, 0, 2);
-                Array.Copy(BitConverter.GetBytes((ushort)data.Length + 4), 0, output, 2, 2);
+                Array.Copy(BitConverter.GetBytes((ushort)output.Length), 0, output, 2, 2);
                 Array.Copy(data, 0, output, 4, data.Length);
             }
             else
