@@ -416,7 +416,7 @@ namespace GameServer.Maps
 
             if (this.Guild != null && this.Guild == SystemData.Data.OccupyGuild.V && this.Guild.行会成员[CharacterData] == GuildJobs.会长)
             {
-                NetworkServiceGateway.SendAnnouncement("沙巴克城主 [" + this.ObjectName + "] 进入了游戏", false);
+                NetworkServiceGateway.SendAnnouncement("Shabak Lord [" + this.ObjectName + "] has joined the game", false);
             }
 
             if (Team != null)
@@ -10436,7 +10436,7 @@ namespace GameServer.Maps
                 RefreshStats();
                 if (v5.Luck.V >= 5)
                 {
-                    NetworkServiceGateway.SendAnnouncement($"[{ObjectName}] 成功将 [{v5.Name}] 升到幸运 {v5.Luck.V} 级.");
+                    NetworkServiceGateway.SendAnnouncement($"[{ObjectName}] won on [{v5.Name}] Luck: {v5.Luck.V} .");
                 }
             }
             else if (num3 >= 95 && v5.Luck.V > -9)
