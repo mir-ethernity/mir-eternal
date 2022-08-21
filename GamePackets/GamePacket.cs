@@ -71,7 +71,19 @@ namespace GameServer.Networking
                 br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
                 return br.ReadUInt32();
             };
-            
+
+            ReaderDictionary[typeof(long)] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
+            {
+                br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                return br.ReadInt32();
+            };
+
+            ReaderDictionary[typeof(ulong)] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
+            {
+                br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                return br.ReadUInt32();
+            };
+
             ReaderDictionary[typeof(string)] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
             {
                 br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
@@ -139,7 +151,19 @@ namespace GameServer.Networking
                 bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
                 bw.Write((uint)obj);
             };
-            
+
+            WriterDictionary[typeof(long)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
+            {
+                bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                bw.Write((long)obj);
+            };
+
+            WriterDictionary[typeof(ulong)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
+            {
+                bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
+                bw.Write((ulong)obj);
+            };
+
             WriterDictionary[typeof(string)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
                 string text3 = obj as string;

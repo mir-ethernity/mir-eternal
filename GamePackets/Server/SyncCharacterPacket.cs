@@ -40,10 +40,10 @@ namespace GameServer.Networking
         public ushort Distance = 1;
 
         [WrappingField(SubScript = 72, Length = 8)]
-        public long RequiredExp;
+        public long MaxExp;
 
-        [WrappingField(SubScript = 80, Length = 4)]
-        public long ExpCap = long.MaxValue;
+        [WrappingField(SubScript = 84, Length = 8)]
+        public long ExpCap = 0x7FFFFFFF00000000;
 
         [WrappingField(SubScript = 88, Length = 4)]
         public int DoubleExp;
