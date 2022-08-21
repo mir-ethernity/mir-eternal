@@ -263,6 +263,7 @@ namespace GameServer.Maps
                 字节描述 = this.全部货币描述()
             });
 
+            // TODO: check-in daily gifts
             网络连接.SendPacket(new 同步签到信息());
 
             网络连接.SendPacket(new SyncPrivilegedInfoPacket
@@ -2303,37 +2304,29 @@ namespace GameServer.Maps
         public bool LearnSkill(ushort SkillId)
         {
             if (this.MainSkills表.ContainsKey(SkillId))
-            {
                 return false;
-            }
-            this.MainSkills表[SkillId] = new SkillData(SkillId);
-            SConnection 网络连接 = this.ActiveConnection;
-            if (网络连接 != null)
+
+            MainSkills表[SkillId] = new SkillData(SkillId);
+            
+            ActiveConnection?.SendPacket(new CharacterLearningSkillPacket
             {
-                网络连接.SendPacket(new CharacterLearningSkillPacket
-                {
-                    角色编号 = this.ObjectId,
-                    SkillId = SkillId
-                });
-            }
-            if (this.MainSkills表[SkillId].自动装配)
+                角色编号 = this.ObjectId,
+                SkillId = SkillId
+            });
+
+            if (MainSkills表[SkillId].自动装配)
             {
                 byte b = 0;
                 while (b < 8)
                 {
-                    if (this.CharacterData.ShorcutField.ContainsKey(b))
+                    if (CharacterData.ShorcutField.ContainsKey(b))
                     {
                         b += 1;
                     }
                     else
                     {
-                        this.CharacterData.ShorcutField[b] = this.MainSkills表[SkillId];
-                        SConnection 网络连接2 = this.ActiveConnection;
-                        if (网络连接2 == null)
-                        {
-                            break;
-                        }
-                        网络连接2.SendPacket(new CharacterDragSkillsPacket
+                        CharacterData.ShorcutField[b] = MainSkills表[SkillId];
+                        ActiveConnection?.SendPacket(new CharacterDragSkillsPacket
                         {
                             技能栏位 = b,
                             Id = this.MainSkills表[SkillId].Id,

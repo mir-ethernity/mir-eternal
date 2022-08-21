@@ -33,6 +33,7 @@
     "325": {
       "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
+      "技能伤害类型": "Taoism",
       "技能伤害基数": [],
       "技能伤害系数": [
         1,
