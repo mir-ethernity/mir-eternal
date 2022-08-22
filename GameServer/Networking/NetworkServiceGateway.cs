@@ -75,7 +75,7 @@ namespace GameServer.Networking
 			}
 			catch (Exception ex)
 			{
-				MainProcess.AddSystemLog("接收登录门票时发生错误. " + ex.Message);
+				MainProcess.AddSystemLog("An error occurred while receiving a login ticket. " + ex.Message);
 			}
 			using (HashSet<SConnection>.Enumerator enumerator = Connections.GetEnumerator())
 			{
@@ -84,7 +84,7 @@ namespace GameServer.Networking
 					SConnection 客户网络 = enumerator.Current;
 					if (!客户网络.ConnectionErrored && 客户网络.Account == null && MainProcess.CurrentTime.Subtract(客户网络.接入时间).TotalSeconds > 30.0)
 					{
-						客户网络.CallExceptionEventHandler(new Exception("登录超时, 断开连接!"));
+						客户网络.CallExceptionEventHandler(new Exception("Login timeout, disconnect!"));
 					}
 					else
 					{

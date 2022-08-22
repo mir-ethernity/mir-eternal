@@ -513,7 +513,7 @@ namespace GameServer.Networking
                 this.Player.更改AttackMode(模式);
                 return;
             }
-            this.CallExceptionEventHandler(new Exception("更改AttackMode时提供错误的枚举参数.即将断开连接."));
+            this.CallExceptionEventHandler(new Exception("Wrong enumeration parameter is provided when changing the AttackMode. About to be disconnected."));
         }
 
 
@@ -529,7 +529,7 @@ namespace GameServer.Networking
                 this.Player.更改PetMode(模式);
                 return;
             }
-            this.CallExceptionEventHandler(new Exception(string.Format("更改PetMode时提供错误的枚举参数.即将断开连接. 参数 - {0}", P.PetMode)));
+            this.CallExceptionEventHandler(new Exception(string.Format("Wrong enumeration parameter is provided when changing PetMode. About to be disconnected. Parameter - {0}", P.PetMode)));
         }
 
 
@@ -556,7 +556,7 @@ namespace GameServer.Networking
                 this.Player.玩家角色转动(转动方向);
                 return;
             }
-            this.CallExceptionEventHandler(new Exception("玩家角色转动时提供错误的枚举参数.即将断开连接."));
+            this.CallExceptionEventHandler(new Exception("Wrong enumeration parameter provided when player character is rotated. Disconnection is imminent."));
         }
 
 
@@ -605,7 +605,7 @@ namespace GameServer.Networking
                 this.Player.EquipSkill(P.技能栏位, P.SkillId);
                 return;
             }
-            this.CallExceptionEventHandler(new Exception("玩家装配技能时提供错误的封包参数.即将断开连接."));
+            this.CallExceptionEventHandler(new Exception("Player supplied wrong packet parameters when assembling skills. Disconnection is imminent."));
         }
 
 
@@ -805,7 +805,7 @@ namespace GameServer.Networking
                 this.Player.玩家回购物品(P.物品位置);
                 return;
             }
-            this.CallExceptionEventHandler(new Exception("玩家回购物品时提供错误的位置参数.即将断开连接."));
+            this.CallExceptionEventHandler(new Exception("The player has provided the wrong location parameters when buying back the item. Disconnection is imminent."));
         }
 
 
@@ -898,7 +898,7 @@ namespace GameServer.Networking
                 this.Player.玩家分解物品(P.背包类型, P.物品位置, P.分解数量);
                 return;
             }
-            this.CallExceptionEventHandler(new Exception("玩家分解物品时提供错误的枚举参数.即将断开连接."));
+            this.CallExceptionEventHandler(new Exception("Player provides wrong enumeration parameters when breaking down an item. Disconnection is imminent."));
         }
 
 
@@ -2426,15 +2426,15 @@ namespace GameServer.Networking
             }
             else if (SystemData.Data.网卡封禁.TryGetValue(P.MacAddress, out DateTime t) && t > MainProcess.CurrentTime)
             {
-                this.CallExceptionEventHandler(new Exception("网卡封禁, 限制登录"));
+                this.CallExceptionEventHandler(new Exception("NIC blocking, restricted login"));
             }
             else if (!NetworkServiceGateway.门票DataSheet.TryGetValue(P.Ticket, out TicketInformation TicketInformation))
             {
-                this.CallExceptionEventHandler(new Exception("登录的门票不存在."));
+                this.CallExceptionEventHandler(new Exception("Logged tickets do not exist."));
             }
             else if (MainProcess.CurrentTime > TicketInformation.EffectiveTime)
             {
-                this.CallExceptionEventHandler(new Exception("登录门票已经过期."));
+                this.CallExceptionEventHandler(new Exception("Login tickets have expired."));
             }
             else
             {
@@ -2457,8 +2457,8 @@ namespace GameServer.Networking
                     {
                         错误代码 = 260U
                     });
-                    AccountData3.网络连接.CallExceptionEventHandler(new Exception("账号重复登录, 被踢下线."));
-                    this.CallExceptionEventHandler(new Exception("账号已经在线, 无法登录."));
+                    AccountData3.网络连接.CallExceptionEventHandler(new Exception("Repeated login, kicked offline."));
+                    this.CallExceptionEventHandler(new Exception("Account already online, unable to log in."));
                 }
                 else
                 {

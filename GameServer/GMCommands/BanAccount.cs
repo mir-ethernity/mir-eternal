@@ -29,7 +29,7 @@ namespace GameServer
 					SConnection 网络连接 = AccountData.网络连接;
 					if (网络连接 != null)
 					{
-						网络连接.CallExceptionEventHandler(new Exception("账号被封禁, 强制下线"));
+						网络连接.CallExceptionEventHandler(new Exception("Account Banned, Forced to Offline"));
 					}
 					MainForm.AddCommandLog(string.Format("<= @{0} command executed, blocking expiry time: {1}", base.GetType().Name, AccountData.封禁日期));
 					return;

@@ -3508,7 +3508,7 @@ namespace GameServer.Maps
             {
                 if (this != null)
                 {
-                    this.ActiveConnection.CallExceptionEventHandler(new Exception("释放未学会的技能, 尝试断开连接."));
+                    this.ActiveConnection.CallExceptionEventHandler(new Exception("Release unlearned skills, try to disconnect."));
                     return;
                 }
             }
@@ -3844,17 +3844,17 @@ namespace GameServer.Maps
             }
             if (!MapGatewayProcess.守卫对象表.TryGetValue(对象编号, out this.对话守卫))
             {
-                this.ActiveConnection.CallExceptionEventHandler(new Exception("错误操作: 开始Npcc对话. 错误: 没有找到对象."));
+                this.ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Start Npcc conversation. Error: No object found."));
                 return;
             }
             if (this.CurrentMap != this.对话守卫.CurrentMap)
             {
-                this.ActiveConnection.CallExceptionEventHandler(new Exception("错误操作: 开始Npcc对话. 错误: 跨越地图对话."));
+                this.ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Start Npcc conversation. Error: Cross map dialogue."));
                 return;
             }
             if (base.GetDistance(this.对话守卫) > 12)
             {
-                this.ActiveConnection.CallExceptionEventHandler(new Exception("错误操作: 开始Npcc对话. 错误: 超长距离对话."));
+                this.ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Start Npcc conversation. Error: Long distance conversation."));
                 return;
             }
             if (NpcDialogs.DataSheet.ContainsKey((int)this.对话守卫.MobId * 100000))
@@ -3881,17 +3881,17 @@ namespace GameServer.Maps
             }
             if (this.对话守卫 == null)
             {
-                this.ActiveConnection.CallExceptionEventHandler(new Exception("错误操作: 继续Npcc对话.  错误: 没有选中守卫."));
+                this.ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Continue Npcc conversation.  Error: No guards selected."));
                 return;
             }
             if (this.CurrentMap != this.对话守卫.CurrentMap)
             {
-                this.ActiveConnection.CallExceptionEventHandler(new Exception("错误操作: 开始Npcc对话. 错误: 跨越地图对话."));
+                this.ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Start Npcc conversation. Error: Cross map dialogue."));
                 return;
             }
             if (base.GetDistance(this.对话守卫) > 12)
             {
-                this.ActiveConnection.CallExceptionEventHandler(new Exception("错误操作: 开始Npcc对话. 错误: 超长距离对话."));
+                this.ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Start Npcc conversation. Error: Long distance conversation."));
                 return;
             }
             if (!(MainProcess.CurrentTime > this.对话超时))
@@ -6622,7 +6622,7 @@ namespace GameServer.Maps
                         {
                             if (this.CharacterData.升级装备.V == null)
                             {
-                                this.ActiveConnection.CallExceptionEventHandler(new Exception("错误操作: 继续Npcc对话.  错误: 尝试取回武器."));
+                                this.ActiveConnection.CallExceptionEventHandler(new Exception("Error: Continue Npcc conversation.  Error: Trying to retrieve a weapon."));
                                 return;
                             }
                             if (选项编号 == 1)
@@ -9770,7 +9770,7 @@ namespace GameServer.Maps
             {
                 if (背包类型 != 1)
                 {
-                    this.ActiveConnection.CallExceptionEventHandler(new Exception("错误操作: 玩家分解物品.  错误: 背包类型错误."));
+                    this.ActiveConnection.CallExceptionEventHandler(new Exception("Bug: Player breaking down an item.  Error: Wrong type of backpack."));
                     return;
                 }
                 ItemData ItemData;
@@ -10600,7 +10600,7 @@ namespace GameServer.Maps
             {
                 if (backpackType != 1)
                 {
-                    ActiveConnection.CallExceptionEventHandler(new Exception("错误操作: 玩家使用物品.  错误: 背包类型错误."));
+                    ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Player using an item.  Error: Wrong type of backpack."));
                     return;
                 }
                 if (!Backpack.TryGetValue(itemPosition, out var v))
@@ -10613,17 +10613,17 @@ namespace GameServer.Maps
                 }
                 if (CurrentLevel < v.NeedLevel)
                 {
-                    ActiveConnection.CallExceptionEventHandler(new Exception("错误操作: 玩家使用物品.  错误: 等级无法使用."));
+                    ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Player using an item.  Error: Level cannot be used."));
                     return;
                 }
                 if (v.NeedRace != GameObjectRace.通用 && CharRole != v.NeedRace)
                 {
-                    ActiveConnection.CallExceptionEventHandler(new Exception("错误操作: 玩家使用物品.  错误: 性别无法使用."));
+                    ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Player using an item.  Error: Gender is not available."));
                     return;
                 }
                 if (v.NeedRace != GameObjectRace.通用 && CharRole != v.NeedRace)
                 {
-                    ActiveConnection.CallExceptionEventHandler(new Exception("错误操作: 玩家使用物品.  错误: 职业无法使用."));
+                    ActiveConnection.CallExceptionEventHandler(new Exception("Error: Player uses an item.  Error: Occupation cannot be used."));
                     return;
                 }
                 if (Coolings.TryGetValue(v.Id | 0x2000000, out var v2) && MainProcess.CurrentTime < v2)
@@ -15009,7 +15009,7 @@ namespace GameServer.Maps
         {
             if (数据.Length < 94 || 数据.Length > 839)
             {
-                this.ActiveConnection.CallExceptionEventHandler(new Exception("错误操作: 申请发送邮件.  错误: 数据长度错误."));
+                this.ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Request to send mail.  Error: Incorrect data length."));
                 return;
             }
             if (MainProcess.CurrentTime < this.邮件时间)
