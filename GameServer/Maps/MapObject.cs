@@ -1927,358 +1927,342 @@ namespace GameServer.Maps
         {
             if (this.NeighborsSneak.Remove(对象))
             {
-                if (!(this is ItemObject))
+                if (this is PlayerObject PlayerObject)
                 {
-                    PlayerObject PlayerObject = this as PlayerObject;
-                    if (PlayerObject != null)
+                    GameObjectType 对象类型 = 对象.ObjectType;
+                    if (对象类型 <= GameObjectType.NPC)
                     {
-                        GameObjectType 对象类型 = 对象.ObjectType;
-                        if (对象类型 <= GameObjectType.NPC)
+                        switch (对象类型)
                         {
-                            switch (对象类型)
-                            {
-                                case GameObjectType.Player:
-                                case GameObjectType.Monster:
-                                    break;
-                                case GameObjectType.Pet:
-                                    PlayerObject.ActiveConnection.SendPacket(new ObjectCharacterStopPacket
-                                    {
-                                        对象编号 = 对象.ObjectId,
-                                        对象坐标 = 对象.CurrentPosition,
-                                        对象高度 = 对象.CurrentAltitude
-                                    });
-                                    PlayerObject.ActiveConnection.SendPacket(new ObjectComesIntoViewPacket
-                                    {
-                                        出现方式 = 1,
-                                        对象编号 = 对象.ObjectId,
-                                        现身坐标 = 对象.CurrentPosition,
-                                        现身高度 = 对象.CurrentAltitude,
-                                        现身方向 = (ushort)对象.CurrentDirection,
-                                        现身姿态 = ((byte)(对象.Died ? 13 : 1)),
-                                        体力比例 = (byte)(对象.CurrentHP * 100 / 对象[GameObjectStats.MaxHP])
-                                    });
-                                    PlayerObject.ActiveConnection.SendPacket(new SyncObjectHP
-                                    {
-                                        ObjectId = 对象.ObjectId,
-                                        CurrentHP = 对象.CurrentHP,
-                                        MaxHP = 对象[GameObjectStats.MaxHP]
-                                    });
-                                    PlayerObject.ActiveConnection.SendPacket(new ObjectTransformTypePacket
-                                    {
-                                        改变类型 = 2,
-                                        对象编号 = 对象.ObjectId
-                                    });
-                                    goto IL_356;
-                                case (GameObjectType)3:
-                                    goto IL_356;
-                                default:
-                                    if (对象类型 != GameObjectType.NPC)
-                                    {
-                                        goto IL_356;
-                                    }
-                                    break;
-                            }
-                            PlayerObject.ActiveConnection.SendPacket(new ObjectCharacterStopPacket
-                            {
-                                对象编号 = 对象.ObjectId,
-                                对象坐标 = 对象.CurrentPosition,
-                                对象高度 = 对象.CurrentAltitude
-                            });
-                            SConnection 网络连接 = PlayerObject.ActiveConnection;
-                            ObjectComesIntoViewPacket ObjectComesIntoViewPacket = new ObjectComesIntoViewPacket();
-                            ObjectComesIntoViewPacket.出现方式 = 1;
-                            ObjectComesIntoViewPacket.对象编号 = 对象.ObjectId;
-                            ObjectComesIntoViewPacket.现身坐标 = 对象.CurrentPosition;
-                            ObjectComesIntoViewPacket.现身高度 = 对象.CurrentAltitude;
-                            ObjectComesIntoViewPacket.现身方向 = (ushort)对象.CurrentDirection;
-                            ObjectComesIntoViewPacket.现身姿态 = ((byte)(对象.Died ? 13 : 1));
-                            ObjectComesIntoViewPacket.体力比例 = (byte)(对象.CurrentHP * 100 / 对象[GameObjectStats.MaxHP]);
-                            PlayerObject PlayerObject2 = 对象 as PlayerObject;
-                            ObjectComesIntoViewPacket.AdditionalParam = ((byte)((PlayerObject2 == null || !PlayerObject2.灰名玩家) ? 0 : 2));
-                            网络连接.SendPacket(ObjectComesIntoViewPacket);
-                            PlayerObject.ActiveConnection.SendPacket(new SyncObjectHP
-                            {
-                                ObjectId = 对象.ObjectId,
-                                CurrentHP = 对象.CurrentHP,
-                                MaxHP = 对象[GameObjectStats.MaxHP]
-                            });
-                        }
-                        else if (对象类型 != GameObjectType.Item)
-                        {
-                            if (对象类型 == GameObjectType.Trap)
-                            {
-                                PlayerObject.ActiveConnection.SendPacket(new TrapComesIntoViewPacket
+                            case GameObjectType.Player:
+                            case GameObjectType.Monster:
+                                break;
+                            case GameObjectType.Pet:
+                                PlayerObject.ActiveConnection.SendPacket(new ObjectCharacterStopPacket
                                 {
-                                    MapId = 对象.ObjectId,
-                                    陷阱坐标 = 对象.CurrentPosition,
-                                    陷阱高度 = 对象.CurrentAltitude,
-                                    来源编号 = (对象 as TrapObject).TrapSource.ObjectId,
-                                    Id = (对象 as TrapObject).Id,
-                                    持续时间 = (对象 as TrapObject).陷阱剩余时间
+                                    对象编号 = 对象.ObjectId,
+                                    对象坐标 = 对象.CurrentPosition,
+                                    对象高度 = 对象.CurrentAltitude
                                 });
-                            }
+                                PlayerObject.ActiveConnection.SendPacket(new ObjectComesIntoViewPacket
+                                {
+                                    出现方式 = 1,
+                                    对象编号 = 对象.ObjectId,
+                                    现身坐标 = 对象.CurrentPosition,
+                                    现身高度 = 对象.CurrentAltitude,
+                                    现身方向 = (ushort)对象.CurrentDirection,
+                                    现身姿态 = ((byte)(对象.Died ? 13 : 1)),
+                                    体力比例 = (byte)(对象.CurrentHP * 100 / 对象[GameObjectStats.MaxHP])
+                                });
+                                PlayerObject.ActiveConnection.SendPacket(new SyncObjectHP
+                                {
+                                    ObjectId = 对象.ObjectId,
+                                    CurrentHP = 对象.CurrentHP,
+                                    MaxHP = 对象[GameObjectStats.MaxHP]
+                                });
+                                PlayerObject.ActiveConnection.SendPacket(new ObjectTransformTypePacket
+                                {
+                                    改变类型 = 2,
+                                    对象编号 = 对象.ObjectId
+                                });
+                                goto IL_356;
+                            case (GameObjectType)3:
+                                goto IL_356;
+                            default:
+                                if (对象类型 != GameObjectType.NPC)
+                                {
+                                    goto IL_356;
+                                }
+                                break;
                         }
-                        else if (对象 is ItemObject dropObject)
+                        PlayerObject.ActiveConnection.SendPacket(new ObjectCharacterStopPacket
                         {
-                            PlayerObject.ActiveConnection.SendPacket(new ObjectDropItemsPacket
-                            {
-                                DropperObjectId = dropObject.DropperObjectId,
-                                ItemObjectId = dropObject.ObjectId,
-                                掉落坐标 = dropObject.CurrentPosition,
-                                掉落高度 = dropObject.CurrentAltitude,
-                                ItemId = dropObject.Id,
-                                物品数量 = dropObject.堆叠数量,
-                                OwnerPlayerId = dropObject.GetOwnerPlayerIdForDrop(PlayerObject),
-                            });
-                        }
-                    IL_356:
-                        if (对象.Buffs.Count > 0)
+                            对象编号 = 对象.ObjectId,
+                            对象坐标 = 对象.CurrentPosition,
+                            对象高度 = 对象.CurrentAltitude
+                        });
+                        SConnection 网络连接 = PlayerObject.ActiveConnection;
+                        ObjectComesIntoViewPacket ObjectComesIntoViewPacket = new ObjectComesIntoViewPacket();
+                        ObjectComesIntoViewPacket.出现方式 = 1;
+                        ObjectComesIntoViewPacket.对象编号 = 对象.ObjectId;
+                        ObjectComesIntoViewPacket.现身坐标 = 对象.CurrentPosition;
+                        ObjectComesIntoViewPacket.现身高度 = 对象.CurrentAltitude;
+                        ObjectComesIntoViewPacket.现身方向 = (ushort)对象.CurrentDirection;
+                        ObjectComesIntoViewPacket.现身姿态 = ((byte)(对象.Died ? 13 : 1));
+                        ObjectComesIntoViewPacket.体力比例 = (byte)(对象.CurrentHP * 100 / 对象[GameObjectStats.MaxHP]);
+                        PlayerObject PlayerObject2 = 对象 as PlayerObject;
+                        ObjectComesIntoViewPacket.AdditionalParam = ((byte)((PlayerObject2 == null || !PlayerObject2.灰名玩家) ? 0 : 2));
+                        网络连接.SendPacket(ObjectComesIntoViewPacket);
+                        PlayerObject.ActiveConnection.SendPacket(new SyncObjectHP
                         {
-                            PlayerObject.ActiveConnection.SendPacket(new 同步对象Buff
+                            ObjectId = 对象.ObjectId,
+                            CurrentHP = 对象.CurrentHP,
+                            MaxHP = 对象[GameObjectStats.MaxHP]
+                        });
+                    }
+                    else if (对象类型 != GameObjectType.Item)
+                    {
+                        if (对象类型 == GameObjectType.Trap)
+                        {
+                            PlayerObject.ActiveConnection.SendPacket(new TrapComesIntoViewPacket
                             {
-                                字节描述 = 对象.对象Buff简述()
+                                MapId = 对象.ObjectId,
+                                陷阱坐标 = 对象.CurrentPosition,
+                                陷阱高度 = 对象.CurrentAltitude,
+                                来源编号 = (对象 as TrapObject).TrapSource.ObjectId,
+                                Id = (对象 as TrapObject).Id,
+                                持续时间 = (对象 as TrapObject).陷阱剩余时间
                             });
-                            return;
                         }
                     }
-                    else
+                    else if (对象 is ItemObject dropObject)
                     {
-                        TrapObject TrapObject = this as TrapObject;
-                        if (TrapObject != null)
+                        PlayerObject.ActiveConnection.SendPacket(new ObjectDropItemsPacket
                         {
-                            if (ComputingClass.GetLocationRange(TrapObject.CurrentPosition, TrapObject.CurrentDirection, TrapObject.ObjectSize).Contains(对象.CurrentPosition))
-                            {
-                                TrapObject.被动触发陷阱(对象);
-                                return;
-                            }
-                        }
-                        else
+                            DropperObjectId = dropObject.DropperObjectId,
+                            ItemObjectId = dropObject.ObjectId,
+                            掉落坐标 = dropObject.CurrentPosition,
+                            掉落高度 = dropObject.CurrentAltitude,
+                            ItemId = dropObject.Id,
+                            物品数量 = dropObject.堆叠数量,
+                            OwnerPlayerId = dropObject.GetOwnerPlayerIdForDrop(PlayerObject),
+                        });
+                    }
+                IL_356:
+                    if (对象.Buffs.Count > 0)
+                    {
+                        PlayerObject.ActiveConnection.SendPacket(new 同步对象Buff
                         {
-                            PetObject PetObject = this as PetObject;
-                            if (PetObject != null)
-                            {
-                                if (this.GetDistance(对象) <= PetObject.RangeHate && PetObject.CanAttack(对象) && !对象.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus))
-                                {
-                                    PetObject.HateObject.添加仇恨(对象, default(DateTime), 0);
-                                    return;
-                                }
-                                HateObject.仇恨详情 仇恨详情;
-                                if (this.GetDistance(对象) > PetObject.RangeHate && PetObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情) && 仇恨详情.仇恨时间 < MainProcess.CurrentTime)
-                                {
-                                    PetObject.HateObject.移除仇恨(对象);
-                                    return;
-                                }
-                            }
-                            else
-                            {
-                                MonsterObject MonsterObject = this as MonsterObject;
-                                if (MonsterObject != null)
-                                {
-                                    if (this.GetDistance(对象) <= MonsterObject.RangeHate && MonsterObject.CanAttack(对象) && (MonsterObject.VisibleStealthTargets || !对象.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus)))
-                                    {
-                                        MonsterObject.HateObject.添加仇恨(对象, default(DateTime), 0);
-                                        return;
-                                    }
-                                    HateObject.仇恨详情 仇恨详情2;
-                                    if (this.GetDistance(对象) > MonsterObject.RangeHate && MonsterObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情2) && 仇恨详情2.仇恨时间 < MainProcess.CurrentTime)
-                                    {
-                                        MonsterObject.HateObject.移除仇恨(对象);
-                                        return;
-                                    }
-                                }
-                            }
-                        }
+                            字节描述 = 对象.对象Buff简述()
+                        });
+                        return;
+                    }
+                }
+                else if (this is TrapObject TrapObject)
+                {
+                    if (ComputingClass.GetLocationRange(TrapObject.CurrentPosition, TrapObject.CurrentDirection, TrapObject.ObjectSize).Contains(对象.CurrentPosition))
+                    {
+                        TrapObject.被动触发陷阱(对象);
+                        return;
+                    }
+                }
+                else if (this is PetObject PetObject)
+                {
+                    if (this.GetDistance(对象) <= PetObject.RangeHate && PetObject.CanAttack(对象) && !对象.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus))
+                    {
+                        PetObject.HateObject.添加仇恨(对象, default(DateTime), 0);
+                        return;
+                    }
+                    HateObject.仇恨详情 仇恨详情;
+                    if (this.GetDistance(对象) > PetObject.RangeHate && PetObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情) && 仇恨详情.仇恨时间 < MainProcess.CurrentTime)
+                    {
+                        PetObject.HateObject.移除仇恨(对象);
+                        return;
+                    }
+                }
+                else if (this is MonsterObject MonsterObject)
+                {
+                    if (this.GetDistance(对象) <= MonsterObject.RangeHate && MonsterObject.CanAttack(对象) && (MonsterObject.VisibleStealthTargets || !对象.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus)))
+                    {
+                        MonsterObject.HateObject.添加仇恨(对象, default(DateTime), 0);
+                        return;
+                    }
+                    HateObject.仇恨详情 仇恨详情2;
+                    if (this.GetDistance(对象) > MonsterObject.RangeHate && MonsterObject.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情2) && 仇恨详情2.仇恨时间 < MainProcess.CurrentTime)
+                    {
+                        MonsterObject.HateObject.移除仇恨(对象);
+                        return;
                     }
                 }
             }
             else if (this.Neighbors.Add(对象))
             {
                 if (对象 is PlayerObject || 对象 is PetObject)
-                {
                     this.NeighborsImportant.Add(对象);
-                }
-                if (!(this is ItemObject))
+
+                if (this is PlayerObject PlayerObject3)
                 {
-                    PlayerObject PlayerObject3 = this as PlayerObject;
-                    if (PlayerObject3 != null)
+                    GameObjectType 对象类型 = 对象.ObjectType;
+                    if (对象类型 <= GameObjectType.NPC)
                     {
-                        GameObjectType 对象类型 = 对象.ObjectType;
-                        if (对象类型 <= GameObjectType.NPC)
+                        switch (对象类型)
                         {
-                            switch (对象类型)
-                            {
-                                case GameObjectType.Player:
-                                case GameObjectType.Monster:
-                                    break;
-                                case GameObjectType.Pet:
-                                    PlayerObject3.ActiveConnection.SendPacket(new ObjectCharacterStopPacket
-                                    {
-                                        对象编号 = 对象.ObjectId,
-                                        对象坐标 = 对象.CurrentPosition,
-                                        对象高度 = 对象.CurrentAltitude
-                                    });
-                                    PlayerObject3.ActiveConnection.SendPacket(new ObjectComesIntoViewPacket
-                                    {
-                                        出现方式 = 1,
-                                        对象编号 = 对象.ObjectId,
-                                        现身坐标 = 对象.CurrentPosition,
-                                        现身高度 = 对象.CurrentAltitude,
-                                        现身方向 = (ushort)对象.CurrentDirection,
-                                        现身姿态 = ((byte)(对象.Died ? 13 : 1)),
-                                        体力比例 = (byte)(对象.CurrentHP * 100 / 对象[GameObjectStats.MaxHP])
-                                    });
-                                    PlayerObject3.ActiveConnection.SendPacket(new SyncObjectHP
-                                    {
-                                        ObjectId = 对象.ObjectId,
-                                        CurrentHP = 对象.CurrentHP,
-                                        MaxHP = 对象[GameObjectStats.MaxHP]
-                                    });
-                                    PlayerObject3.ActiveConnection.SendPacket(new ObjectTransformTypePacket
-                                    {
-                                        改变类型 = 2,
-                                        对象编号 = 对象.ObjectId
-                                    });
+                            case GameObjectType.Player:
+                            case GameObjectType.Monster:
+                                break;
+                            case GameObjectType.Pet:
+                                PlayerObject3.ActiveConnection.SendPacket(new ObjectCharacterStopPacket
+                                {
+                                    对象编号 = 对象.ObjectId,
+                                    对象坐标 = 对象.CurrentPosition,
+                                    对象高度 = 对象.CurrentAltitude
+                                });
+                                PlayerObject3.ActiveConnection.SendPacket(new ObjectComesIntoViewPacket
+                                {
+                                    出现方式 = 1,
+                                    对象编号 = 对象.ObjectId,
+                                    现身坐标 = 对象.CurrentPosition,
+                                    现身高度 = 对象.CurrentAltitude,
+                                    现身方向 = (ushort)对象.CurrentDirection,
+                                    现身姿态 = ((byte)(对象.Died ? 13 : 1)),
+                                    体力比例 = (byte)(对象.CurrentHP * 100 / 对象[GameObjectStats.MaxHP])
+                                });
+                                PlayerObject3.ActiveConnection.SendPacket(new SyncObjectHP
+                                {
+                                    ObjectId = 对象.ObjectId,
+                                    CurrentHP = 对象.CurrentHP,
+                                    MaxHP = 对象[GameObjectStats.MaxHP]
+                                });
+                                PlayerObject3.ActiveConnection.SendPacket(new ObjectTransformTypePacket
+                                {
+                                    改变类型 = 2,
+                                    对象编号 = 对象.ObjectId
+                                });
+                                goto IL_866;
+                            case (GameObjectType)3:
+                                goto IL_866;
+                            default:
+                                if (对象类型 != GameObjectType.NPC)
+                                {
                                     goto IL_866;
-                                case (GameObjectType)3:
-                                    goto IL_866;
-                                default:
-                                    if (对象类型 != GameObjectType.NPC)
-                                    {
-                                        goto IL_866;
-                                    }
-                                    break;
-                            }
-                            PlayerObject3.ActiveConnection.SendPacket(new ObjectCharacterStopPacket
+                                }
+                                break;
+                        }
+                        PlayerObject3.ActiveConnection.SendPacket(new ObjectCharacterStopPacket
+                        {
+                            对象编号 = 对象.ObjectId,
+                            对象坐标 = 对象.CurrentPosition,
+                            对象高度 = 对象.CurrentAltitude
+                        });
+                        SConnection 网络连接2 = PlayerObject3.ActiveConnection;
+                        ObjectComesIntoViewPacket ObjectComesIntoViewPacket2 = new ObjectComesIntoViewPacket();
+                        ObjectComesIntoViewPacket2.出现方式 = 1;
+                        ObjectComesIntoViewPacket2.对象编号 = 对象.ObjectId;
+                        ObjectComesIntoViewPacket2.现身坐标 = 对象.CurrentPosition;
+                        ObjectComesIntoViewPacket2.现身高度 = 对象.CurrentAltitude;
+                        ObjectComesIntoViewPacket2.现身方向 = (ushort)对象.CurrentDirection;
+                        ObjectComesIntoViewPacket2.现身姿态 = ((byte)(对象.Died ? 13 : 1));
+                        ObjectComesIntoViewPacket2.体力比例 = (byte)(对象.CurrentHP * 100 / 对象[GameObjectStats.MaxHP]);
+                        PlayerObject PlayerObject4 = 对象 as PlayerObject;
+                        ObjectComesIntoViewPacket2.AdditionalParam = ((byte)((PlayerObject4 == null || !PlayerObject4.灰名玩家) ? 0 : 2));
+                        网络连接2.SendPacket(ObjectComesIntoViewPacket2);
+                        PlayerObject3.ActiveConnection.SendPacket(new SyncObjectHP
+                        {
+                            ObjectId = 对象.ObjectId,
+                            CurrentHP = 对象.CurrentHP,
+                            MaxHP = 对象[GameObjectStats.MaxHP]
+                        });
+                    }
+                    else if (对象类型 != GameObjectType.Item)
+                    {
+                        if (对象类型 == GameObjectType.Trap)
+                        {
+                            PlayerObject3.ActiveConnection.SendPacket(new TrapComesIntoViewPacket
                             {
-                                对象编号 = 对象.ObjectId,
-                                对象坐标 = 对象.CurrentPosition,
-                                对象高度 = 对象.CurrentAltitude
+                                MapId = 对象.ObjectId,
+                                陷阱坐标 = 对象.CurrentPosition,
+                                陷阱高度 = 对象.CurrentAltitude,
+                                来源编号 = (对象 as TrapObject).TrapSource.ObjectId,
+                                Id = (对象 as TrapObject).Id,
+                                持续时间 = (对象 as TrapObject).陷阱剩余时间
                             });
-                            SConnection 网络连接2 = PlayerObject3.ActiveConnection;
-                            ObjectComesIntoViewPacket ObjectComesIntoViewPacket2 = new ObjectComesIntoViewPacket();
-                            ObjectComesIntoViewPacket2.出现方式 = 1;
-                            ObjectComesIntoViewPacket2.对象编号 = 对象.ObjectId;
-                            ObjectComesIntoViewPacket2.现身坐标 = 对象.CurrentPosition;
-                            ObjectComesIntoViewPacket2.现身高度 = 对象.CurrentAltitude;
-                            ObjectComesIntoViewPacket2.现身方向 = (ushort)对象.CurrentDirection;
-                            ObjectComesIntoViewPacket2.现身姿态 = ((byte)(对象.Died ? 13 : 1));
-                            ObjectComesIntoViewPacket2.体力比例 = (byte)(对象.CurrentHP * 100 / 对象[GameObjectStats.MaxHP]);
-                            PlayerObject PlayerObject4 = 对象 as PlayerObject;
-                            ObjectComesIntoViewPacket2.AdditionalParam = ((byte)((PlayerObject4 == null || !PlayerObject4.灰名玩家) ? 0 : 2));
-                            网络连接2.SendPacket(ObjectComesIntoViewPacket2);
-                            PlayerObject3.ActiveConnection.SendPacket(new SyncObjectHP
+                        }
+                        else if (对象 is ChestObject chestObject && chestObject.IsAlredyOpened(PlayerObject3))
+                        {
+                            PlayerObject3.ActiveConnection.SendPacket(new ChestComesIntoViewPacket
                             {
                                 ObjectId = 对象.ObjectId,
-                                CurrentHP = 对象.CurrentHP,
-                                MaxHP = 对象[GameObjectStats.MaxHP]
+                                Direction = (ushort)对象.CurrentDirection,
+                                Position = 对象.CurrentPosition,
+                                Altitude = 对象.CurrentAltitude,
+                                NPCTemplateId = chestObject.Template.Id,
                             });
+                            chestObject.ActivateObject();
                         }
-                        else if (对象类型 != GameObjectType.Item)
+                    }
+                    else if (对象 is ItemObject dropObject)
+                    {
+                        PlayerObject3.ActiveConnection.SendPacket(new ObjectDropItemsPacket
                         {
-                            if (对象类型 == GameObjectType.Trap)
-                            {
-                                PlayerObject3.ActiveConnection.SendPacket(new TrapComesIntoViewPacket
-                                {
-                                    MapId = 对象.ObjectId,
-                                    陷阱坐标 = 对象.CurrentPosition,
-                                    陷阱高度 = 对象.CurrentAltitude,
-                                    来源编号 = (对象 as TrapObject).TrapSource.ObjectId,
-                                    Id = (对象 as TrapObject).Id,
-                                    持续时间 = (对象 as TrapObject).陷阱剩余时间
-                                });
-                            }
+                            DropperObjectId = dropObject.DropperObjectId,
+                            ItemObjectId = dropObject.ObjectId,
+                            掉落坐标 = dropObject.CurrentPosition,
+                            掉落高度 = dropObject.CurrentAltitude,
+                            ItemId = dropObject.Id,
+                            物品数量 = dropObject.堆叠数量,
+                            OwnerPlayerId = dropObject.GetOwnerPlayerIdForDrop(PlayerObject3),
+                        });
+                    }
+                IL_866:
+                    if (对象.Buffs.Count > 0)
+                    {
+                        PlayerObject3.ActiveConnection.SendPacket(new 同步对象Buff
+                        {
+                            字节描述 = 对象.对象Buff简述()
+                        });
+                        return;
+                    }
+                }
+                else if (this is TrapObject TrapObject2)
+                {
+                    if (ComputingClass.GetLocationRange(TrapObject2.CurrentPosition, TrapObject2.CurrentDirection, TrapObject2.ObjectSize).Contains(对象.CurrentPosition))
+                    {
+                        TrapObject2.被动触发陷阱(对象);
+                        return;
+                    }
+                }
+                else if (this is PetObject PetObject2)
+                {
+                    if (!this.Died)
+                    {
+                        if (this.GetDistance(对象) <= PetObject2.RangeHate && PetObject2.CanAttack(对象) && !对象.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus))
+                        {
+                            PetObject2.HateObject.添加仇恨(对象, default(DateTime), 0);
+                            return;
                         }
-                        else if (对象 is ItemObject dropObject)
+                        HateObject.仇恨详情 仇恨详情3;
+                        if (this.GetDistance(对象) > PetObject2.RangeHate && PetObject2.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情3) && 仇恨详情3.仇恨时间 < MainProcess.CurrentTime)
                         {
-                            PlayerObject3.ActiveConnection.SendPacket(new ObjectDropItemsPacket
-                            {
-                                DropperObjectId = dropObject.DropperObjectId,
-                                ItemObjectId = dropObject.ObjectId,
-                                掉落坐标 = dropObject.CurrentPosition,
-                                掉落高度 = dropObject.CurrentAltitude,
-                                ItemId = dropObject.Id,
-                                物品数量 = dropObject.堆叠数量,
-                                OwnerPlayerId = dropObject.GetOwnerPlayerIdForDrop(PlayerObject3),
-                            });
-                        }
-                    IL_866:
-                        if (对象.Buffs.Count > 0)
-                        {
-                            PlayerObject3.ActiveConnection.SendPacket(new 同步对象Buff
-                            {
-                                字节描述 = 对象.对象Buff简述()
-                            });
+                            PetObject2.HateObject.移除仇恨(对象);
                             return;
                         }
                     }
-                    else
+                }
+                else if (this is MonsterObject MonsterObject2)
+                {
+                    if (!this.Died)
                     {
-                        TrapObject TrapObject2 = this as TrapObject;
-                        if (TrapObject2 != null)
+                        HateObject.仇恨详情 仇恨详情4;
+                        if (this.GetDistance(对象) <= MonsterObject2.RangeHate && MonsterObject2.CanAttack(对象) && (MonsterObject2.VisibleStealthTargets || !对象.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus)))
                         {
-                            if (ComputingClass.GetLocationRange(TrapObject2.CurrentPosition, TrapObject2.CurrentDirection, TrapObject2.ObjectSize).Contains(对象.CurrentPosition))
-                            {
-                                TrapObject2.被动触发陷阱(对象);
-                                return;
-                            }
+                            MonsterObject2.HateObject.添加仇恨(对象, default(DateTime), 0);
                         }
-                        else
+                        else if (this.GetDistance(对象) > MonsterObject2.RangeHate && MonsterObject2.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情4) && 仇恨详情4.仇恨时间 < MainProcess.CurrentTime)
                         {
-                            PetObject PetObject2 = this as PetObject;
-                            if (PetObject2 != null && !this.Died)
-                            {
-                                if (this.GetDistance(对象) <= PetObject2.RangeHate && PetObject2.CanAttack(对象) && !对象.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus))
-                                {
-                                    PetObject2.HateObject.添加仇恨(对象, default(DateTime), 0);
-                                    return;
-                                }
-                                HateObject.仇恨详情 仇恨详情3;
-                                if (this.GetDistance(对象) > PetObject2.RangeHate && PetObject2.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情3) && 仇恨详情3.仇恨时间 < MainProcess.CurrentTime)
-                                {
-                                    PetObject2.HateObject.移除仇恨(对象);
-                                    return;
-                                }
-                            }
-                            else
-                            {
-                                MonsterObject MonsterObject2 = this as MonsterObject;
-                                if (MonsterObject2 != null && !this.Died)
-                                {
-                                    HateObject.仇恨详情 仇恨详情4;
-                                    if (this.GetDistance(对象) <= MonsterObject2.RangeHate && MonsterObject2.CanAttack(对象) && (MonsterObject2.VisibleStealthTargets || !对象.CheckStatus(GameObjectState.Invisibility | GameObjectState.StealthStatus)))
-                                    {
-                                        MonsterObject2.HateObject.添加仇恨(对象, default(DateTime), 0);
-                                    }
-                                    else if (this.GetDistance(对象) > MonsterObject2.RangeHate && MonsterObject2.HateObject.仇恨列表.TryGetValue(对象, out 仇恨详情4) && 仇恨详情4.仇恨时间 < MainProcess.CurrentTime)
-                                    {
-                                        MonsterObject2.HateObject.移除仇恨(对象);
-                                    }
-                                    if (this.NeighborsImportant.Count != 0)
-                                    {
-                                        MonsterObject2.怪物激活处理();
-                                        return;
-                                    }
-                                }
-                                else
-                                {
-                                    GuardObject GuardInstance = this as GuardObject;
-                                    if (GuardInstance != null && !this.Died)
-                                    {
-                                        if (GuardInstance.CanAttack(对象) && this.GetDistance(对象) <= GuardInstance.RangeHate)
-                                        {
-                                            GuardInstance.HateObject.添加仇恨(对象, default(DateTime), 0);
-                                        }
-                                        else if (this.GetDistance(对象) > GuardInstance.RangeHate)
-                                        {
-                                            GuardInstance.HateObject.移除仇恨(对象);
-                                        }
-                                        if (this.NeighborsImportant.Count != 0)
-                                        {
-                                            GuardInstance.守卫激活处理();
-                                        }
-                                    }
-                                }
-                            }
+                            MonsterObject2.HateObject.移除仇恨(对象);
+                        }
+                        if (this.NeighborsImportant.Count != 0)
+                        {
+                            MonsterObject2.怪物激活处理();
+                            return;
+                        }
+                    }
+                }
+                else if (this is GuardObject GuardInstance)
+                {
+                    if (!this.Died)
+                    {
+                        if (GuardInstance.CanAttack(对象) && this.GetDistance(对象) <= GuardInstance.RangeHate)
+                        {
+                            GuardInstance.HateObject.添加仇恨(对象, default(DateTime), 0);
+                        }
+                        else if (this.GetDistance(对象) > GuardInstance.RangeHate)
+                        {
+                            GuardInstance.HateObject.移除仇恨(对象);
+                        }
+                        if (this.NeighborsImportant.Count != 0)
+                        {
+                            GuardInstance.守卫激活处理();
                         }
                     }
                 }

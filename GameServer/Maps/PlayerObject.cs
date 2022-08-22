@@ -674,7 +674,6 @@ namespace GameServer.Maps
             base.Process();
         }
 
-
         public override void Dies(MapObject 对象, bool 技能击杀)
         {
             base.Dies(对象, 技能击杀);
@@ -1412,6 +1411,16 @@ namespace GameServer.Maps
             }
         }
 
+        public void OpenChest(int objectId)
+        {
+            if (!MapGatewayProcess.Chests.TryGetValue(objectId, out var chestObject))
+                return;
+
+            if (!Neighbors.Contains(chestObject))
+                return;
+
+            chestObject.Open(this);
+        }
 
         public int 重生地图
         {
@@ -2058,7 +2067,6 @@ namespace GameServer.Maps
                 return this.CharacterData.称号列表;
             }
         }
-
 
         public void 更新玩家战力()
         {
@@ -10310,7 +10318,7 @@ namespace GameServer.Maps
 
             var goldAmount = item.GetProp(ItemProperty.GoldAmount, 0);
             var doubleExpAmount = item.GetProp(ItemProperty.DoubleExpAmount, 0);
-            var treasureItems = FilterItemTreasures(item.对应模板.V);
+            var treasureItems = FilterItemTreasures(item.对应模板.V.TreasureItems);
 
             if (item.HasProp(ItemProperty.TreasureItemRate) || treasureItems.Length > 0)
                 rates.Add(ItemProperty.TreasureItemRate, item.GetProp(ItemProperty.TreasureItemRate, 100));
@@ -10367,11 +10375,11 @@ namespace GameServer.Maps
             return false;
         }
 
-        private GameItemTreasure[] FilterItemTreasures(GameItems item)
+        public GameItemTreasure[] FilterItemTreasures(IEnumerable<GameItemTreasure> items)
         {
             var num = MainProcess.RandomNumber.Next(0, 100);
 
-            return item.TreasureItems
+            return items
                 .Where(x => x.NeedRace == null || x.NeedRace == CharRole)
                 .OrderBy(x => x.Rate ?? 100)
                 .Where(x => x.Rate == null || x.Rate < num)

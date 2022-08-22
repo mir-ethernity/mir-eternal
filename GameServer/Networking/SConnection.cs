@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Reflection;
 using GameServer.Maps;
 using GameServer.Data;
+using GamePackets.Client;
 
 namespace GameServer.Networking
 {
@@ -691,6 +692,8 @@ namespace GameServer.Networking
             {
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
             }
+
+            // TODO: Pickup items
         }
 
 
@@ -1762,6 +1765,16 @@ namespace GameServer.Networking
             this.Player.InviteToJoinGuildPacket(P.对象名字);
         }
 
+        public void 处理封包(OpenChestPacket P)
+        {
+            if (this.当前阶段 != GameStage.PlayingScene)
+            {
+                this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
+                return;
+            }
+
+            this.Player.OpenChest(P.ObjectId);
+        }
 
         public void 处理封包(CreateGuildPacket P)
         {

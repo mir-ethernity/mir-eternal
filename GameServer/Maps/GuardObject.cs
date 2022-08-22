@@ -256,8 +256,6 @@ namespace GameServer.Maps
 
         public GuardObject(Guards 对应模板, MapInstance 出生地图, GameDirection 出生方向, Point 出生坐标)
         {
-
-
             this.对象模板 = 对应模板;
             this.出生地图 = 出生地图;
             this.CurrentMap = 出生地图;

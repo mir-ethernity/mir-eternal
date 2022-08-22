@@ -21,20 +21,29 @@ namespace GameServer.PlayerCommands
             {
                 case 0:
                     // 同步道具列表
+                    var dir = BitConverter.GetBytes((ushort)GameDirection.左下);
                     SendPacket(
                         153,
                         0,
                         new byte[] { 
                             // ObjectID
                             45, 1, 0, 48, 
-                            // NPC ID?
+                            // NPC Template Id
                             137, 13, 0, 0,
                             // X
                             48, 107, 
                             // Y
-                            255, 58, 
-                            146, 4, 96, 8, 1 }
+                            208, 58, 
+                            // terrain height
+                            146, 4,
+                            // direction
+                            dir[0], dir[1], 
+                            // flag interactive
+                            1
+                        }
                     );
+                    // TODO: al abrir el cofre, recibimos el paquete 116, con el object id
+                    // tenemos que lanzar el step 1
                     break;
                 case 1:
                     // 开始操作道具

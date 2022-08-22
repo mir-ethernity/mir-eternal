@@ -1,0 +1,9 @@
+{
+  "Id": 3465,
+  "Name": "Treasure1",
+  "Items": [
+    {
+      "ItemName": "比奇回城卷"
+    }
+  ]
+}
