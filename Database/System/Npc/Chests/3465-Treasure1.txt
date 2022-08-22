@@ -2,8 +2,48 @@
   "Id": 3465,
   "Name": "Treasure1",
   "Items": [
-    {
-      "ItemName": "比奇回城卷"
+  {
+ "ItemName": "雷霆战甲(女)", "NeedRace": "战士", "NeedGender": "女性" 
+},{
+ "ItemName": "雷霆战甲(男)", "NeedRace": "战士", "NeedGender": "男性" 
+},{
+ "ItemName": "雷霆项链", "NeedRace": "战士" 
+},{
+ "ItemName": "雷霆战戒", "NeedRace": "战士" 
+ },{
+ "ItemName": "雷霆护腕", "NeedRace": "战士" 
+ },{
+ "ItemName": "雷霆腰带", "NeedRace": "战士" 
+ },{
+ "ItemName": "雷霆战靴", "NeedRace": "战士" 
+ },{
+ "ItemName": "烈焰魔衣(女)", "NeedRace": "法师", "NeedGender": "女性" 
+},{
+ "ItemName": "烈焰魔衣(男)", "NeedRace": "法师", "NeedGender": "男性" 
+},{
+ "ItemName": "烈焰护腕", "NeedRace": "法师" 
+},{
+ "ItemName": "烈焰项链", "NeedRace": "法师" 
+},{
+ "ItemName": "烈焰魔戒", "NeedRace": "法师" 
+},{
+ "ItemName": "烈焰腰带", "NeedRace": "法师" 
+},{
+ "ItemName": "烈焰魔靴", "NeedRace": "法师" 
+ },{
+ "ItemName": "光芒道袍(女)", "NeedRace": "道士", "NeedGender": "女性" 
+},{
+ "ItemName": "光芒道袍(男)", "NeedRace": "道士", "NeedGender": "男性" 
+},{
+ "ItemName": "光芒项链", "NeedRace": "道士" 
+},{
+ "ItemName": "光芒道戒", "NeedRace": "道士" 
+},{
+ "ItemName": "光芒护腕", "NeedRace": "道士" 
+},{
+ "ItemName": "光芒腰带", "NeedRace": "道士" 
+},{
+ "ItemName": "光芒道靴", "NeedRace": "道士" 
     }
   ]
 }
