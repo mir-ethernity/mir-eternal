@@ -1,0 +1,16 @@
+{
+  "SkillName": "骑术-0-无铭文",
+  "Race": "通用",
+  "SkillId": 4587,
+  "MinPlayerLevel": "Hh4eHg==",
+  "RemoveOnDie": true,
+  "StatsBonus": [],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "SkillCombatBonus": [0,0,0,0],
+  "MinSkillExp": [0,0,0,0],
+  "MainSkills": [
+    "骑术-0-通用-主体技能"
+  ],
+  "SwitchSkills": []
+}

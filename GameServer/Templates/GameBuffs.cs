@@ -20,6 +20,7 @@ namespace GameServer.Templates
 		public bool OnChangeWeaponRemove;
 		public bool OnPlayerDiesRemove;
 		public bool OnPlayerDisconnectRemove;
+		public bool OnReleaseSkillRemove;
 		public ushort BindingSkillLevel;
 		public bool RemoveAddCooling;
 		public ushort SkillCooldown;

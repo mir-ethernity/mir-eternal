@@ -1,0 +1,86 @@
+{
+  "Name": "Mount",
+  "Id": 2555,
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnReleaseSkillRemove": true,
+  "OnChangeWeaponRemove": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 4587,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 1000,
+  "ProcessDelay": 1000,
+  "Duration": 900000,
+  "ExtendedDuration": true,
+  "AssociatedId": 45870,
+  "RequireBuff": [
+    45870,
+    45871,
+    45872,
+    45873,
+    45874,
+    45875,
+    45876,
+    45877,
+],
+"StatsIncOrDec": [
+    {
+      "Stat": "WalkSpeed",
+      "Level0": -3,
+      "Level1": -3,
+      "Level2": -3,
+      "Level3": -3
+    },
+    {
+      "Stat": "RunSpeed",
+      "Level0": -5,
+      "Level1": -5,
+      "Level2": -5,
+      "Level3": -5
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 1,
+      "Level1": 2,
+      "Level2": 2,
+      "Level3": 3
+    },
+    {
+      "Stat": "MaxDC",
+      "Level0": 5,
+      "Level1": 10,
+      "Level2": 15,
+      "Level3": 20
+    }
+  ],
+  "DamageBase": [
+    10,
+    20,
+    30,
+    40
+  ],
+  "DamageFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "HowJudgeEffect": "PassiveInjuryReduction",
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

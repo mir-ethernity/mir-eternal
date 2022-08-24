@@ -3,5 +3,5 @@
   "Value": 1,
   "StatId": 2001,
   "CombatBonus": 10,
-  "StatDescription": "最大攻击+1"
+  "StatDescription": "MaxDC+1"
 }

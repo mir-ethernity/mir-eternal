@@ -711,12 +711,12 @@ namespace GameServer.Maps
                             {
                                 this.SendPacket(new ObjectAddStatePacket
                                 {
-                                    对象编号 = this.ObjectId,
-                                    Buff来源 = obj.ObjectId,
-                                    Id = BuffData2.Id.V,
-                                    Buff索引 = (int)BuffData2.Id.V,
-                                    Buff层数 = BuffData2.当前层数.V,
-                                    持续时间 = (int)BuffData2.持续时间.V.TotalMilliseconds
+                                    SourceObjectId = this.ObjectId,
+                                    TargetObjectId = obj.ObjectId,
+                                    BuffId = BuffData2.Id.V,
+                                    BuffIndex = (int)BuffData2.Id.V,
+                                    BuffLayers = BuffData2.当前层数.V,
+                                    Duration = (int)BuffData2.持续时间.V.TotalMilliseconds
                                 });
                             }
                             if ((游戏Buff.Effect & BuffEffectType.StatsIncOrDec) != BuffEffectType.SkillSign)
@@ -724,6 +724,12 @@ namespace GameServer.Maps
                                 this.StatsBonus.Add(BuffData2, BuffData2.Stat加成);
                                 this.RefreshStats();
                             }
+
+                            if ((游戏Buff.Effect & BuffEffectType.Riding) != BuffEffectType.SkillSign && this is PlayerObject playerObject)
+                            {
+                                playerObject.Riding = true;
+                            }
+
                             if ((游戏Buff.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign)
                             {
                                 if ((游戏Buff.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal)
@@ -803,6 +809,12 @@ namespace GameServer.Maps
                     this.StatsBonus.Remove(BuffData);
                     this.RefreshStats();
                 }
+
+                if ((BuffData.Effect & BuffEffectType.Riding) != BuffEffectType.SkillSign && this is PlayerObject playerObject)
+                {
+                    playerObject.Riding = true;
+                }
+
                 if ((BuffData.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign)
                 {
                     if ((BuffData.Template.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal)

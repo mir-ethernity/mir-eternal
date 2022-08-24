@@ -15,6 +15,19 @@ namespace GameServer.Data
 		{
 			
 			Dictionary<Type, Func<BinaryReader, GameData, DataField, object>> dictionary = new Dictionary<Type, Func<BinaryReader, GameData, DataField, object>>();
+
+			dictionary[typeof(DataMonitor<short>)] = delegate (BinaryReader r, GameData o, DataField f)
+			{
+				DataMonitor<short> DataMonitor = new DataMonitor<short>(o);
+				DataMonitor.QuietlySetValue(r.ReadInt16());
+				return DataMonitor;
+			};
+			dictionary[typeof(DataMonitor<ushort>)] = delegate (BinaryReader r, GameData o, DataField f)
+			{
+				DataMonitor<ushort> DataMonitor = new DataMonitor<ushort>(o);
+				DataMonitor.QuietlySetValue(r.ReadUInt16());
+				return DataMonitor;
+			};
 			Type typeFromHandle = typeof(DataMonitor<int>);
 			dictionary[typeFromHandle] = delegate(BinaryReader r, GameData o, DataField f)
 			{
@@ -62,13 +75,6 @@ namespace GameServer.Data
 			{
 				DataMonitor<string> DataMonitor = new DataMonitor<string>(o);
 				DataMonitor.QuietlySetValue(r.ReadString());
-				return DataMonitor;
-			};
-			Type typeFromHandle8 = typeof(DataMonitor<ushort>);
-			dictionary[typeFromHandle8] = delegate(BinaryReader r, GameData o, DataField f)
-			{
-				DataMonitor<ushort> DataMonitor = new DataMonitor<ushort>(o);
-				DataMonitor.QuietlySetValue(r.ReadUInt16());
 				return DataMonitor;
 			};
 			Type typeFromHandle9 = typeof(DataMonitor<Point>);
@@ -234,6 +240,26 @@ namespace GameServer.Data
 				DataMonitor<ItemData> DataMonitor = new DataMonitor<ItemData>(o);
 				DataLinkTable.添加任务(o, f, DataMonitor, r.ReadBoolean() ? typeof(EquipmentData) : typeof(ItemData), r.ReadInt32());
 				return DataMonitor;
+			};
+			dictionary[typeof(ListMonitor<short>)] = delegate (BinaryReader r, GameData o, DataField f)
+			{
+				ListMonitor<short> ListMonitor = new ListMonitor<short>(o);
+				int num = r.ReadInt16();
+				for (int i = 0; i < num; i++)
+				{
+					ListMonitor.QuietlyAdd(r.ReadInt16());
+				}
+				return ListMonitor;
+			};
+			dictionary[typeof(ListMonitor<ushort>)] = delegate (BinaryReader r, GameData o, DataField f)
+			{
+				ListMonitor<ushort> ListMonitor = new ListMonitor<ushort>(o);
+				int num = r.ReadUInt16();
+				for (int i = 0; i < num; i++)
+				{
+					ListMonitor.QuietlyAdd(r.ReadUInt16());
+				}
+				return ListMonitor;
 			};
 			Type typeFromHandle32 = typeof(ListMonitor<int>);
 			dictionary[typeFromHandle32] = delegate(BinaryReader r, GameData o, DataField f)
@@ -646,6 +672,20 @@ namespace GameServer.Data
 				}
 				return MonitorDictionary;
 			};
+
+			dictionary[typeof(HashMonitor<int>)] = delegate (BinaryReader r, GameData o, DataField f)
+			{
+				MonitorDictionary<DateTime, GuildData> MonitorDictionary = new MonitorDictionary<DateTime, GuildData>(o);
+				int num = r.ReadInt32();
+				for (int i = 0; i < num; i++)
+				{
+					long dateData = r.ReadInt64();
+					int 值索引 = r.ReadInt32();
+					DataLinkTable.添加任务(o, f, MonitorDictionary.IDictionary_0, DateTime.FromBinary(dateData), null, typeof(DateTime), typeof(GuildData), 0, 值索引);
+				}
+				return MonitorDictionary;
+			};
+
 			DataField.字段读取方法表 = dictionary;
 			Dictionary<Type, Action<BinaryWriter, object>> dictionary2 = new Dictionary<Type, Action<BinaryWriter, object>>();
 			typeFromHandle63 = typeof(DataMonitor<int>);
@@ -683,8 +723,11 @@ namespace GameServer.Data
 			{
 				b.Write(((DataMonitor<string>)o).V ?? "");
 			};
-			typeFromHandle56 = typeof(DataMonitor<ushort>);
-			dictionary2[typeFromHandle56] = delegate(BinaryWriter b, object o)
+			dictionary2[typeof(DataMonitor<short>)] = delegate (BinaryWriter b, object o)
+			{
+				b.Write(((DataMonitor<short>)o).V);
+			};
+			dictionary2[typeof(DataMonitor<ushort>)] = delegate(BinaryWriter b, object o)
 			{
 				b.Write(((DataMonitor<ushort>)o).V);
 			};
@@ -817,6 +860,20 @@ namespace GameServer.Data
 				b.Write(DataMonitor.V is EquipmentData);
 				ItemData v = DataMonitor.V;
 				b.Write((v != null) ? v.Index.V : 0);
+			};
+			dictionary2[typeof(ListMonitor<short>)] = delegate (BinaryWriter b, object o)
+			{
+				ListMonitor<short> ListMonitor = (ListMonitor<short>)o;
+				b.Write((ListMonitor != null) ? ListMonitor.Count : 0);
+				foreach (short value in ListMonitor)
+					b.Write(value);
+			};
+			dictionary2[typeof(ListMonitor<ushort>)] = delegate (BinaryWriter b, object o)
+			{
+				ListMonitor<ushort> ListMonitor = (ListMonitor<ushort>)o;
+				b.Write((ListMonitor != null) ? ListMonitor.Count : 0);
+				foreach (ushort value in ListMonitor)
+					b.Write(value);
 			};
 			typeFromHandle32 = typeof(ListMonitor<int>);
 			dictionary2[typeFromHandle32] = delegate(BinaryWriter b, object o)
@@ -1074,8 +1131,7 @@ namespace GameServer.Data
 					b.Write(keyValuePair.Value.Index.V);
 				}
 			};
-			typeFromHandle8 = typeof(MonitorDictionary<byte, ItemData>);
-			dictionary2[typeFromHandle8] = delegate(BinaryWriter b, object o)
+			dictionary2[typeof(MonitorDictionary<byte, ItemData>)] = delegate(BinaryWriter b, object o)
 			{
 				MonitorDictionary<byte, ItemData> MonitorDictionary = (MonitorDictionary<byte, ItemData>)o;
 				b.Write((MonitorDictionary != null) ? MonitorDictionary.Count : 0);
