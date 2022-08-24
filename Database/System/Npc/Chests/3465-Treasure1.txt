@@ -3,7 +3,7 @@
   "Name": "Treasure1",
   "Items": [
     {
-      "ItemName": "比奇回城卷"
+      "ItemName": "ChestScroll"
     }
   ]
 }

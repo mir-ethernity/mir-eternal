@@ -59,6 +59,8 @@ namespace GameServer.Templates
 					DataSheet.Add(((NpcDialogs)obj).Id, ((NpcDialogs)obj).Content);
 				}
 			}
+
+			// DataById.Add();
 		}
 	}
 }

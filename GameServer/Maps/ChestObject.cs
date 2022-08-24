@@ -74,7 +74,7 @@ namespace GameServer.Maps
                         if (!GameItems.DataSheetByName.TryGetValue(item.ItemName, out var itemTemplate))
                             continue;
 
-                        new ItemObject(itemTemplate, null, CurrentMap, CurrentPosition, new HashSet<CharacterData> { opener.Player.CharacterData }, 堆叠数量: 1, 物品绑定: true, dropperObject: this);
+                        new ItemObject(itemTemplate, null, CurrentMap, CurrentPosition, new HashSet<CharacterData> { opener.Player.CharacterData }, 堆叠数量: 1, dropperObject: this);
                     }
 
                     opener.Player.ActiveConnection.SendPacket(new 同步道具次数

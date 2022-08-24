@@ -75,7 +75,7 @@ namespace ClientPacketSniffer
                     _device = devices[deviceIndex];
                     break;
                 case "1":
-                    _device = new CaptureFileReaderDevice(@"D:\Mir3D\caca.pcap");
+                    _device = new CaptureFileReaderDevice(@"D:\Mir3D\mix_0.pcap");
                     break;
                 default:
                     throw new ApplicationException();
