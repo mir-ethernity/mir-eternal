@@ -19,6 +19,7 @@ namespace GameServer.Templates
 		public byte Quality;
 		public int Probability;
 		public bool BroadcastNotification;
+		public bool RemoveOnDie;
 		public string Description;
 		public byte[] MinPlayerLevel;
 		public ushort[] MinSkillExp;
@@ -28,6 +29,7 @@ namespace GameServer.Templates
 		public List<ushort> PassiveSkills;
 		public List<string> MainSkills;
 		public List<string> SwitchSkills;
+		public int? AdquireMountId;
 
 		private Dictionary<GameObjectStats, int>[] _statsBonus;
 

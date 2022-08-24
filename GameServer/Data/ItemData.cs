@@ -18,6 +18,8 @@ namespace GameServer.Data
             }
         }
 
+        public ushort? AdquireMount => 物品模板.AdquireMount;
+
 
         public ItemsForSale 出售类型
         {

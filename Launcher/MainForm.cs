@@ -70,9 +70,9 @@ namespace Launcher
 
             if (Environment.Is64BitOperatingSystem)
             {
-                uiCheckBox1.Enabled = false;
+                uiCheckBox1.Enabled = true;
                 uiCheckBox1.Checked = false;
-                uiCheckBox2.Enabled = false;
+                uiCheckBox2.Enabled = true;
                 uiCheckBox2.Checked = true;
             }
             else
@@ -501,12 +501,12 @@ namespace Launcher
         }
         private void uiCheckBox1_CheckedChanged(object sender, EventArgs e)
         {
-
+            uiCheckBox2.Checked = !uiCheckBox1.Checked;
         }
 
         private void uiCheckBox2_CheckedChanged(object sender, EventArgs e)
         {
-
+            uiCheckBox1.Checked = !uiCheckBox2.Checked;
         }
     }
 }

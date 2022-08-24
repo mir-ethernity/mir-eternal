@@ -28,6 +28,7 @@ namespace GameServer.Templates
         public bool ValuableObjects;
         public bool Resource;
         public int? UnpackItemId;
+        public ushort? AdquireMount;
         public List<GameItemTreasure> TreasureItems = new List<GameItemTreasure>();
 
         public ItemType Type;

@@ -17,5 +17,7 @@ namespace GameServer.Templates
 
 		
 		public bool 允许移除标记;
+
+		public int 角色忙绿时间;
 	}
 }

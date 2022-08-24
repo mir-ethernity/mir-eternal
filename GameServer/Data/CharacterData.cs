@@ -191,7 +191,6 @@ namespace GameServer.Data
             }
         }
 
-
         public SConnection ActiveConnection { get; set; }
 
 
@@ -937,7 +936,10 @@ namespace GameServer.Data
 
         public readonly HashMonitor<CharacterData> 仇恨列表;
 
-
         public readonly HashMonitor<CharacterData> 黑名单表;
+
+        public readonly ListMonitor<ushort> Mounts;
+
+        public readonly DataMonitor<ushort> CurrentMount;
     }
 }
