@@ -12,6 +12,7 @@ namespace GameServer.Templates
 		DamageIncOrDec = 8,
 		CreateTrap = 16,
 		LifeRecovery = 32,
-		TemptationBoost = 64
+		TemptationBoost = 64,
+		Riding = 128
 	}
 }

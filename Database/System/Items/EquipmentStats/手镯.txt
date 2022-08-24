@@ -27,22 +27,22 @@
     {
       "StatId": 2001,
       "Probability": 100,
-      "StatDescription": "最大攻击+1"
+      "StatDescription": "MaxDC+1"
     },
     {
       "StatId": 2011,
       "Probability": 12,
-      "StatDescription": "最大攻击+2"
+      "StatDescription": "MaxDC+2"
     },
     {
       "StatId": 2021,
       "Probability": 3,
-      "StatDescription": "最大攻击+3"
+      "StatDescription": "MaxDC+3"
     },
     {
       "StatId": 2031,
       "Probability": 1,
-      "StatDescription": "最大攻击+4"
+      "StatDescription": "MaxDC+4"
     },
     {
       "StatId": 3001,
@@ -66,22 +66,22 @@
     {
       "StatId": 4001,
       "Probability": 100,
-      "StatDescription": "最大魔法+1"
+      "StatDescription": "MaxMC+1"
     },
     {
       "StatId": 4011,
       "Probability": 12,
-      "StatDescription": "最大魔法+2"
+      "StatDescription": "MaxMC+2"
     },
     {
       "StatId": 4021,
       "Probability": 3,
-      "StatDescription": "最大魔法+3"
+      "StatDescription": "MaxMC+3"
     },
     {
       "StatId": 4031,
       "Probability": 1,
-      "StatDescription": "最大魔法+4"
+      "StatDescription": "MaxMC+4"
     },
     {
       "StatId": 5001,

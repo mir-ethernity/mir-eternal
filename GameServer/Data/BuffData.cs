@@ -166,7 +166,9 @@ namespace GameServer.Data
 			}
 		}
 
-		
+		public bool OnReleaseSkillRemove => Template.OnReleaseSkillRemove;
+
+
 		public bool 增益Buff
 		{
 			get

@@ -3,5 +3,5 @@
   "Value": 2,
   "StatId": 4011,
   "CombatBonus": 20,
-  "StatDescription": "最大魔法+2"
+  "StatDescription": "MaxMC+2"
 }

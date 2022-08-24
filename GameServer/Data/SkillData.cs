@@ -63,7 +63,16 @@ namespace GameServer.Data
 			}
 		}
 
-		
+		public int? AdquireMountId
+        {
+            get
+            {
+				return this.铭文模板.AdquireMountId;
+			}
+        }
+
+
+
 		public byte 升级等级
 		{
 			get

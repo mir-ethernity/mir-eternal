@@ -17,6 +17,7 @@ namespace GameServer.Templates
 		Invisibility = 256,
 		StealthStatus = 512,
 		Absence = 1024,
-		Exposed = 2048
+		Exposed = 2048,
+		Riding = 4096
 	}
 }
