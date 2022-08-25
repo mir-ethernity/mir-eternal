@@ -6,6 +6,7 @@ using System.Linq;
 using GameServer.Data;
 using GameServer.Templates;
 using GameServer.Networking;
+using GamePackets.Server;
 
 namespace GameServer.Maps
 {
@@ -584,177 +585,165 @@ namespace GameServer.Maps
 
         public void OnAddBuff(ushort buffId, MapObject obj)
         {
-            if (!(this is ItemObject) && !(this is TrapObject))
-            {
-                GuardObject GuardInstance = this as GuardObject;
-                if (GuardInstance == null || GuardInstance.CanBeInjured)
-                {
-                    TrapObject TrapObject = obj as TrapObject;
-                    if (TrapObject != null)
-                    {
-                        obj = TrapObject.TrapSource;
-                    }
-                    GameBuffs 游戏Buff;
-                    if (GameBuffs.DataSheet.TryGetValue(buffId, out 游戏Buff))
-                    {
-                        if ((游戏Buff.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign)
-                        {
-                            if (((游戏Buff.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal || (游戏Buff.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal) && this.CheckStatus(GameObjectState.Exposed))
-                            {
-                                return;
-                            }
-                            if ((游戏Buff.PlayerState & GameObjectState.Exposed) != GameObjectState.Normal)
-                            {
-                                foreach (BuffData BuffData in this.Buffs.Values.ToList<BuffData>())
-                                {
-                                    if ((BuffData.Template.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal || (BuffData.Template.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal)
-                                    {
-                                        this.移除Buff时处理(BuffData.Id.V);
-                                    }
-                                }
-                            }
-                        }
-                        if ((游戏Buff.Effect & BuffEffectType.CausesSomeDamages) != BuffEffectType.SkillSign && 游戏Buff.DamageType == SkillDamageType.Burn && this.Buffs.ContainsKey(25352))
-                        {
-                            return;
-                        }
-                        ushort GroupId = (游戏Buff.GroupId != 0) ? 游戏Buff.GroupId : 游戏Buff.Id;
-                        BuffData BuffData2 = null;
-                        switch (游戏Buff.OverlayType)
-                        {
-                            case BuffOverlayType.SuperpositionDisabled:
-                                if (this.Buffs.Values.FirstOrDefault((BuffData O) => O.Buff分组 == GroupId) == null)
-                                {
-                                    BuffData2 = (this.Buffs[游戏Buff.Id] = new BuffData(obj, this, 游戏Buff.Id));
-                                }
-                                break;
-                            case BuffOverlayType.SimilarReplacement:
-                                {
-                                    IEnumerable<BuffData> values = this.Buffs.Values;
-                                    Func<BuffData, bool> predicate = null;
+            if (this is ItemObject || this is TrapObject || (this is GuardObject guardObject && !guardObject.CanBeInjured))
+                return;
 
-                                    if (predicate == null)
-                                    {
-                                        predicate = ((BuffData O) => O.Buff分组 == GroupId);
-                                    }
-                                    foreach (BuffData BuffData3 in values.Where(predicate).ToList<BuffData>())
-                                    {
-                                        this.移除Buff时处理(BuffData3.Id.V);
-                                    }
-                                    BuffData2 = (this.Buffs[游戏Buff.Id] = new BuffData(obj, this, 游戏Buff.Id));
-                                    break;
-                                }
-                            case BuffOverlayType.HomogeneousStacking:
-                                {
-                                    BuffData BuffData4;
-                                    if (this.Buffs.TryGetValue(buffId, out BuffData4))
-                                    {
-                                        BuffData4.当前层数.V = (byte)Math.Min(BuffData4.当前层数.V + 1, BuffData4.最大层数);
-                                        GameBuffs 游戏Buff2;
-                                        if (游戏Buff.AllowsSynthesis && BuffData4.当前层数.V >= 游戏Buff.BuffSynthesisLayer && GameBuffs.DataSheet.TryGetValue(游戏Buff.BuffSynthesisId, out 游戏Buff2))
-                                        {
-                                            this.移除Buff时处理(BuffData4.Id.V);
-                                            this.OnAddBuff(游戏Buff.BuffSynthesisId, obj);
-                                        }
-                                        else
-                                        {
-                                            BuffData4.剩余时间.V = BuffData4.持续时间.V;
-                                            if (BuffData4.Buff同步)
-                                            {
-                                                this.SendPacket(new ObjectStateChangePacket
-                                                {
-                                                    对象编号 = this.ObjectId,
-                                                    Id = BuffData4.Id.V,
-                                                    Buff索引 = (int)BuffData4.Id.V,
-                                                    当前层数 = BuffData4.当前层数.V,
-                                                    剩余时间 = (int)BuffData4.剩余时间.V.TotalMilliseconds,
-                                                    持续时间 = (int)BuffData4.持续时间.V.TotalMilliseconds
-                                                });
-                                            }
-                                        }
-                                    }
-                                    else
-                                    {
-                                        BuffData2 = (this.Buffs[游戏Buff.Id] = new BuffData(obj, this, 游戏Buff.Id));
-                                    }
-                                    break;
-                                }
-                            case BuffOverlayType.SimilarDelay:
-                                {
-                                    BuffData BuffData5;
-                                    if (this.Buffs.TryGetValue(buffId, out BuffData5))
-                                    {
-                                        BuffData5.剩余时间.V += BuffData5.持续时间.V;
-                                        if (BuffData5.Buff同步)
-                                        {
-                                            this.SendPacket(new ObjectStateChangePacket
-                                            {
-                                                对象编号 = this.ObjectId,
-                                                Id = BuffData5.Id.V,
-                                                Buff索引 = (int)BuffData5.Id.V,
-                                                当前层数 = BuffData5.当前层数.V,
-                                                剩余时间 = (int)BuffData5.剩余时间.V.TotalMilliseconds,
-                                                持续时间 = (int)BuffData5.持续时间.V.TotalMilliseconds
-                                            });
-                                        }
-                                    }
-                                    else
-                                    {
-                                        BuffData2 = (this.Buffs[游戏Buff.Id] = new BuffData(obj, this, 游戏Buff.Id));
-                                    }
-                                    break;
-                                }
-                        }
-                        if (BuffData2 != null)
+            if (obj is TrapObject trapObject)
+                obj = trapObject.TrapSource;
+
+
+            if (!GameBuffs.DataSheet.TryGetValue(buffId, out var 游戏Buff))
+                return;
+
+            if ((游戏Buff.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign)
+            {
+                if (((游戏Buff.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal || (游戏Buff.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal) && this.CheckStatus(GameObjectState.Exposed))
+                    return;
+
+                if ((游戏Buff.PlayerState & GameObjectState.Exposed) != GameObjectState.Normal)
+                {
+                    foreach (BuffData BuffData in this.Buffs.Values.ToList<BuffData>())
+                    {
+                        if ((BuffData.Template.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal || (BuffData.Template.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal)
                         {
-                            if (BuffData2.Buff同步)
+                            移除Buff时处理(BuffData.Id.V);
+                        }
+                    }
+                }
+            }
+
+            if ((游戏Buff.Effect & BuffEffectType.CausesSomeDamages) != BuffEffectType.SkillSign && 游戏Buff.DamageType == SkillDamageType.Burn && this.Buffs.ContainsKey(25352))
+                return;
+
+            ushort GroupId = (游戏Buff.GroupId != 0) ? 游戏Buff.GroupId : 游戏Buff.Id;
+            BuffData BuffData2 = null;
+            switch (游戏Buff.OverlayType)
+            {
+                case BuffOverlayType.SuperpositionDisabled:
+                    if (this.Buffs.Values.FirstOrDefault((BuffData O) => O.Buff分组 == GroupId) == null)
+                    {
+                        BuffData2 = (this.Buffs[游戏Buff.Id] = new BuffData(obj, this, 游戏Buff.Id));
+                    }
+                    break;
+                case BuffOverlayType.SimilarReplacement:
+                    {
+                        foreach (var BuffData3 in Buffs.Values.Where(O => O.Buff分组 == GroupId).ToList())
+                        {
+                            移除Buff时处理(BuffData3.Id.V);
+                        }
+                        BuffData2 = (this.Buffs[游戏Buff.Id] = new BuffData(obj, this, 游戏Buff.Id));
+                        break;
+                    }
+                case BuffOverlayType.HomogeneousStacking:
+                    {
+                        if (!Buffs.TryGetValue(buffId, out var BuffData4))
+                        {
+                            BuffData2 = (this.Buffs[游戏Buff.Id] = new BuffData(obj, this, 游戏Buff.Id));
+                            break;
+                        }
+
+                        BuffData4.当前层数.V = (byte)Math.Min(BuffData4.当前层数.V + 1, BuffData4.最大层数);
+                        if (游戏Buff.AllowsSynthesis && BuffData4.当前层数.V >= 游戏Buff.BuffSynthesisLayer && GameBuffs.DataSheet.TryGetValue(游戏Buff.BuffSynthesisId, out var 游戏Buff2))
+                        {
+                            移除Buff时处理(BuffData4.Id.V);
+                            OnAddBuff(游戏Buff.BuffSynthesisId, obj);
+                            break;
+                        }
+
+                        BuffData4.剩余时间.V = BuffData4.持续时间.V;
+                        if (BuffData4.Buff同步)
+                        {
+                            SendPacket(new ObjectStateChangePacket
                             {
-                                this.SendPacket(new ObjectAddStatePacket
+                                对象编号 = this.ObjectId,
+                                Id = BuffData4.Id.V,
+                                Buff索引 = (int)BuffData4.Id.V,
+                                当前层数 = BuffData4.当前层数.V,
+                                剩余时间 = (int)BuffData4.剩余时间.V.TotalMilliseconds,
+                                持续时间 = (int)BuffData4.持续时间.V.TotalMilliseconds
+                            });
+                        }
+                        break;
+                    }
+                case BuffOverlayType.SimilarDelay:
+                    {
+                        if (Buffs.TryGetValue(buffId, out var BuffData5))
+                        {
+                            BuffData5.剩余时间.V += BuffData5.持续时间.V;
+                            if (BuffData5.Buff同步)
+                            {
+                                SendPacket(new ObjectStateChangePacket
                                 {
-                                    SourceObjectId = this.ObjectId,
-                                    TargetObjectId = obj.ObjectId,
-                                    BuffId = BuffData2.Id.V,
-                                    BuffIndex = (int)BuffData2.Id.V,
-                                    BuffLayers = BuffData2.当前层数.V,
-                                    Duration = (int)BuffData2.持续时间.V.TotalMilliseconds
+                                    对象编号 = this.ObjectId,
+                                    Id = BuffData5.Id.V,
+                                    Buff索引 = (int)BuffData5.Id.V,
+                                    当前层数 = BuffData5.当前层数.V,
+                                    剩余时间 = (int)BuffData5.剩余时间.V.TotalMilliseconds,
+                                    持续时间 = (int)BuffData5.持续时间.V.TotalMilliseconds
                                 });
                             }
-                            if ((游戏Buff.Effect & BuffEffectType.StatsIncOrDec) != BuffEffectType.SkillSign)
-                            {
-                                this.StatsBonus.Add(BuffData2, BuffData2.Stat加成);
-                                this.RefreshStats();
-                            }
-
-                            if ((游戏Buff.Effect & BuffEffectType.Riding) != BuffEffectType.SkillSign && this is PlayerObject playerObject)
-                            {
-                                playerObject.Riding = true;
-                            }
-
-                            if ((游戏Buff.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign)
-                            {
-                                if ((游戏Buff.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal)
-                                {
-                                    foreach (MapObject MapObject in this.Neighbors.ToList<MapObject>())
-                                    {
-                                        MapObject.对象隐身时处理(this);
-                                    }
-                                }
-                                if ((游戏Buff.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal)
-                                {
-                                    foreach (MapObject MapObject2 in this.Neighbors.ToList<MapObject>())
-                                    {
-                                        MapObject2.对象潜行时处理(this);
-                                    }
-                                }
-                            }
-                            if (游戏Buff.AssociatedId != 0)
-                            {
-                                this.OnAddBuff(游戏Buff.AssociatedId, obj);
-                            }
                         }
+                        else
+                        {
+                            BuffData2 = (this.Buffs[游戏Buff.Id] = new BuffData(obj, this, 游戏Buff.Id));
+                        }
+                        break;
                     }
-                    return;
+            }
+
+            if (BuffData2 == null)
+                return;
+
+
+            if (BuffData2.Buff同步)
+            {
+                SendPacket(new ObjectAddStatePacket
+                {
+                    SourceObjectId = this.ObjectId,
+                    TargetObjectId = obj.ObjectId,
+                    BuffId = BuffData2.Id.V,
+                    BuffIndex = (int)BuffData2.Id.V,
+                    BuffLayers = BuffData2.当前层数.V,
+                    Duration = (int)BuffData2.持续时间.V.TotalMilliseconds
+                });
+            }
+
+            if ((游戏Buff.Effect & BuffEffectType.StatsIncOrDec) != BuffEffectType.SkillSign)
+            {
+                StatsBonus.Add(BuffData2, BuffData2.Stat加成);
+                RefreshStats();
+            }
+
+            if ((游戏Buff.Effect & BuffEffectType.Riding) != BuffEffectType.SkillSign && this is PlayerObject playerObject)
+            {
+                playerObject.Riding = true;
+                SendPacket(new SyncObjectMountPacket
+                {
+                    ObjectId = ObjectId,
+                    MountId = (byte)playerObject.CharacterData.CurrentMount.V
+                });
+            }
+
+            if ((游戏Buff.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign)
+            {
+                if ((游戏Buff.PlayerState & GameObjectState.Invisibility) != GameObjectState.Normal)
+                {
+                    foreach (MapObject MapObject in this.Neighbors.ToList<MapObject>())
+                    {
+                        MapObject.对象隐身时处理(this);
+                    }
                 }
+                if ((游戏Buff.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal)
+                {
+                    foreach (MapObject MapObject2 in this.Neighbors.ToList<MapObject>())
+                    {
+                        MapObject2.对象潜行时处理(this);
+                    }
+                }
+            }
+            if (游戏Buff.AssociatedId != 0)
+            {
+                OnAddBuff(游戏Buff.AssociatedId, obj);
             }
         }
 
