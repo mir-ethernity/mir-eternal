@@ -254,7 +254,7 @@ namespace GameServer.Data
 			dictionary[typeof(ListMonitor<ushort>)] = delegate (BinaryReader r, GameData o, DataField f)
 			{
 				ListMonitor<ushort> ListMonitor = new ListMonitor<ushort>(o);
-				int num = r.ReadUInt16();
+				int num = r.ReadInt32();
 				for (int i = 0; i < num; i++)
 				{
 					ListMonitor.QuietlyAdd(r.ReadUInt16());
