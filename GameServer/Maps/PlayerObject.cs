@@ -8073,21 +8073,21 @@ namespace GameServer.Maps
             GameItems GameItems;
             if (Treasures.DataSheet.TryGetValue(Id, out 珍宝商品) && GameItems.DataSheet.TryGetValue(Id, out GameItems))
             {
-                int num;
-                if (购入数量 != 1)
+                if (购入数量 <= 0)
+                    return;
+
+                int num = 购入数量;
+
+                if (购入数量 > 1)
                 {
                     if (GameItems.PersistType == PersistentItemType.堆叠)
-                    {
                         num = Math.Min(购入数量, GameItems.MaxDura);
-                        goto IL_42;
-                    }
                 }
-                num = 1;
-            IL_42:
+            
                 int num2 = num;
                 int num3 = 珍宝商品.CurrentPrice * num2;
-                int num4 = -1;
                 byte b = 0;
+
                 while (b < this.BackpackSize)
                 {
                     ItemData ItemData;
@@ -8097,8 +8097,8 @@ namespace GameServer.Maps
                     }
                     else
                     {
-                        num4 = (int)b;
-                    IL_A7:
+                        int num4 = (int)b;
+
                         if (num4 == -1)
                         {
                             SConnection 网络连接 = this.ActiveConnection;
