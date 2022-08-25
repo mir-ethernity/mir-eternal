@@ -9,7 +9,6 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
     <Platforms>AnyCPU;x64;x86</Platforms>
-    <PublishSingleFile>true</PublishSingleFile>
     <OutputPath>..\..\Bin\Launcher\</OutputPath>
   </PropertyGroup>
   <PropertyGroup>
@@ -18,18 +17,9 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AssemblyName>Mir3DLauncher</AssemblyName>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System.Design" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="SunnyUI" Version="3.2.1" />
-    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.336902">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 </Project>
