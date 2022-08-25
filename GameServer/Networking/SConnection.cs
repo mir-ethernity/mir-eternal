@@ -390,6 +390,15 @@ namespace GameServer.Networking
             this.Player.SyncSelectedMount(P.SelectedMountId);
         }
 
+        public void 处理封包(LockItemPacket P)
+        {
+            if (this.当前阶段 != GameStage.PlayingScene)
+            {
+                this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
+                return;
+            }
+        }
+
         public void 处理封包(UnknownC1 P)
         {
             if (this.当前阶段 != GameStage.LoadingScene && this.当前阶段 != GameStage.PlayingScene)
