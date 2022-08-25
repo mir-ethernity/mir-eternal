@@ -30,6 +30,9 @@ namespace GameServer.PlayerCommands
                 case 2:
                     SendPacket(145, 7, new byte[] { 0, 0, 0, 0, 0 });
                     break;
+                case 3:
+                    SendPacket(76, 6, new byte[4] { 250, 2, 0, 0 });
+                    break;
                 default:
                     break;
             }

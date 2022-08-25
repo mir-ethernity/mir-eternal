@@ -416,6 +416,11 @@ namespace GameServer.Networking
 
         }
 
+        public void 处理封包(UnknownC5 P)
+        {
+    
+        }
+
         public void 处理封包(ReservedPacketZeroOnePacket P)
         {
         }
