@@ -2403,13 +2403,6 @@ namespace GameServer.Maps
                 }
             }
 
-            if (newSkill.AdquireMountId != null)
-            {
-                // CharacterData.Mounts
-                // Packet ID: 145, Name: Sync Object Mount (Server)
-                ActiveConnection?.SendRaw(145, 7, new byte[] { 1, 0, 0, 0, 8 });
-            }
-
             EquipmentData EquipmentData;
             if (this.Equipment.TryGetValue(0, out EquipmentData))
             {
@@ -10580,6 +10573,13 @@ namespace GameServer.Maps
             SyncSelectedMount(mountId);
         }
 
+        public bool ProcessConsumableAdquireMount(ItemData item)
+        {
+            var mountId = (ushort)item.GetProp(ItemProperty.MountId, 2);
+            AdquireMount(mountId);
+            return true;
+        }
+
         private void ProcessConsumableItem(ItemData item)
         {
             if (item.物品类型 == ItemType.技能书籍)
@@ -10587,7 +10587,8 @@ namespace GameServer.Maps
                 if (LearnSkill(item.SkillId))
                 {
                     ConsumeBackpackItem(1, item);
-                    if (item.AdquireMount != null) AdquireMount(item.AdquireMount.Value);
+                    if (item.HasProp(ItemProperty.MountId))
+                        AdquireMount((ushort)item.GetProp(ItemProperty.MountId));
                 }
                 return;
             }
@@ -10631,6 +10632,9 @@ namespace GameServer.Maps
                     break;
                 case UsageType.SwitchSkill:
                     processed = ProcessConsumableSwitchSkill(item);
+                    break;
+                case UsageType.AdquireMount:
+                    processed = ProcessConsumableAdquireMount(item);
                     break;
             }
 

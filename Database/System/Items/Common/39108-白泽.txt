@@ -1,17 +1,17 @@
 {
-  "Name":"RidingBook",
-  "Id":39001,
+  "Name":"白泽",
+  "Id":39108,
   "MaxDura": 1,
   "NeedLevel": 1,
   "SalePrice": 500,
-  "AdditionalSkill": 4587,
   "CanSold": true,
   "ValuableObjects": true,
-  "Type": "技能书籍",
+  "Type": "战具",
   "NeedRace": "通用",
   "PersistType": "堆叠",
   "StoreType": "杂货",
   "Props": {
-    "MountId": 2
+    "UsageType": 11,
+    "MountId": 8
   }
 }
