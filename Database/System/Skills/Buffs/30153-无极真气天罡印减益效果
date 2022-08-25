@@ -1,0 +1,77 @@
+{
+  "Name": "无极真气天罡印减益效果",
+  "Id": 30153,
+  "Group": 30153,
+  "OverlayType": "SimilarDelay",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 3000,
+  "ProcessDelay": 6000,
+  "Duration": 2000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "MinDef",
+      "Level0": -1,
+      "Level1": -2,
+      "Level2": -3,
+      "Level3": -4
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": -1,
+      "Level1": -2,
+      "Level2": -3,
+      "Level3": -4
+    },
+    {
+      "Stat": "MinMCDef",
+      "Level0": -1,
+      "Level1": -2,
+      "Level2": -3,
+      "Level3": -4
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Level0": -1,
+      "Level1": -2,
+      "Level2": -3,
+      "Level3": -4
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

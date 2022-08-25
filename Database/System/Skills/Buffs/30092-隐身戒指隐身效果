@@ -1,0 +1,37 @@
+{
+  "Name": "隐身戒指隐身效果",
+  "Id": 30092,
+  "OverlayType": "SimilarReplacement",
+  "Effect": "SkillSign",
+  "SyncClient": true,
+  "OnReleaseSkillRemove": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "RequireBuff": [],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}
