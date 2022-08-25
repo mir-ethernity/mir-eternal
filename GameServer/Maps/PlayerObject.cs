@@ -8083,7 +8083,7 @@ namespace GameServer.Maps
                     if (GameItems.PersistType == PersistentItemType.堆叠)
                         num = Math.Min(购入数量, GameItems.MaxDura);
                 }
-            
+
                 int num2 = num;
                 int num3 = 珍宝商品.CurrentPrice * num2;
                 byte b = 0;
@@ -8395,35 +8395,25 @@ namespace GameServer.Maps
                         this.DoubleExp += 2750000;
                         this.CharacterData.DollarConsumption.V += 3000L;
                         this.Backpack[b4] = new ItemData(模板2, this.CharacterData, 1, b4, 1);
-                        SConnection 网络连接11 = this.ActiveConnection;
-                        if (网络连接11 != null)
+                        ActiveConnection?.SendPacket(new 玩家物品变动
                         {
-                            网络连接11.SendPacket(new 玩家物品变动
-                            {
-                                物品描述 = this.Backpack[b4].字节描述()
-                            });
-                        }
+                            物品描述 = this.Backpack[b4].字节描述()
+                        });
+
                         this.Backpack[b5] = new ItemData(模板3, this.CharacterData, 1, b5, 1);
-                        SConnection 网络连接12 = this.ActiveConnection;
-                        if (网络连接12 != null)
+                        ActiveConnection?.SendPacket(new 玩家物品变动
                         {
-                            网络连接12.SendPacket(new 玩家物品变动
-                            {
-                                物品描述 = this.Backpack[b5].字节描述()
-                            });
-                        }
+                            物品描述 = this.Backpack[b5].字节描述()
+                        });
+
                         this.CharacterData.战备日期.V = MainProcess.CurrentTime;
-                        SConnection 网络连接13 = this.ActiveConnection;
-                        if (网络连接13 != null)
+                        ActiveConnection?.SendPacket(new SyncSupplementaryVariablesPacket
                         {
-                            网络连接13.SendPacket(new SyncSupplementaryVariablesPacket
-                            {
-                                变量类型 = 1,
-                                对象编号 = this.ObjectId,
-                                变量索引 = 975,
-                                变量内容 = ComputingClass.TimeShift(MainProcess.CurrentTime)
-                            });
-                        }
+                            变量类型 = 1,
+                            对象编号 = this.ObjectId,
+                            变量索引 = 975,
+                            变量内容 = ComputingClass.TimeShift(MainProcess.CurrentTime)
+                        });
                         MainProcess.AddSystemLog(string.Format("Level [{0}][{1}] purchased [Weekly Battle Pack], consumed [3000] Game Coins", this.ObjectName, this.CurrentLevel));
                         return;
                     }
