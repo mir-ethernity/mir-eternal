@@ -1,0 +1,26 @@
+{
+  "SkillName": "道尊天喻-0-无铭文",
+  "Race": "道士",
+  "SkillId": 3022,
+  "MinPlayerLevel": "HyImKQ==",
+  "MinSkillExp": [
+    10,
+    20,
+    30,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "道尊天喻-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": [
+    ""
+  ]
+}

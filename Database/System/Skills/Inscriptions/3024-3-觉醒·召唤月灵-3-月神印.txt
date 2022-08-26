@@ -1,0 +1,27 @@
+{
+  "SkillName": "觉醒·召唤月灵-3-月神印",
+  "Race": "道士",
+  "SkillId": 3024,
+  "Id": 3,
+  "Quality": 7,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "KCosLg==",
+  "MinSkillExp": [
+    200,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "觉醒·召唤月灵-3-月神印-主体技能"
+  ],
+  "SwitchSkills": []
+}

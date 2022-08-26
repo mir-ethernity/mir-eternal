@@ -1,0 +1,24 @@
+{
+  "SkillName": "狮子吼-0-无铭文",
+  "Race": "战士",
+  "SkillId": 1037,
+  "MinPlayerLevel": "JiksLw==",
+  "MinSkillExp": [
+    10,
+    20,
+    30,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    20,
+    30,
+    40
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "狮子吼-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

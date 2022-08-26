@@ -1,0 +1,28 @@
+{
+  "SkillName": "噬血术-1-噬心印",
+  "Race": "道士",
+  "SkillId": 3010,
+  "Id": 1,
+  "Quality": 8,
+  "Probability": 80,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "IyUoKg==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    30,
+    40,
+    50,
+    60
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "噬血术-1-噬心印-主体技能"
+  ],
+  "SwitchSkills": []
+}

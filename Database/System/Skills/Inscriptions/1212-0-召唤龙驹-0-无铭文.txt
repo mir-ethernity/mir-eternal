@@ -1,0 +1,26 @@
+{
+  "SkillName": "召唤龙驹-0-无铭文",
+  "Race": "龙枪",
+  "SkillId": 1212,
+  "MinPlayerLevel": "MzU3OQ==",
+  "MinSkillExp": [
+    10,
+    10,
+    10,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1608
+  ],
+  "MainSkills": [],
+  "SwitchSkills": [
+    "召唤龙驹-0-无铭文-技能开关"
+  ]
+}

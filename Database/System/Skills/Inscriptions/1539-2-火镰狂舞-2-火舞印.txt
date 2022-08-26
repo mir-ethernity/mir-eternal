@@ -1,0 +1,31 @@
+{
+  "SkillName": "火镰狂舞-2-火舞印",
+  "Race": "刺客",
+  "SkillId": 1539,
+  "Id": 2,
+  "Quality": 9,
+  "Probability": 20,
+  "BroadcastNotification": true,
+  "PassiveSkill": true,
+  "MinPlayerLevel": "IyYpLA==",
+  "MinSkillExp": [
+    20,
+    40,
+    60,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1932
+  ],
+  "MainSkills": [
+    "火镰狂舞-2-火舞印-主体技能"
+  ],
+  "SwitchSkills": []
+}

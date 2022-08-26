@@ -1,0 +1,30 @@
+{
+  "SkillName": "御龙晶甲-3-吞虎印",
+  "Race": "龙枪",
+  "SkillId": 1209,
+  "Id": 3,
+  "Quality": 8,
+  "Probability": 3,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "HyImKQ==",
+  "MinSkillExp": [
+    200,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "御龙晶甲-3-吞虎印-主体技能"
+  ],
+  "SwitchSkills": [
+    "御龙晶甲-3-吞虎印-技能开关"
+  ]
+}

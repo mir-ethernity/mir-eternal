@@ -1,0 +1,27 @@
+{
+  "SkillName": "狮子吼-6-战吼印",
+  "Race": "战士",
+  "Id": 6,
+  "Quality": 6,
+  "SkillId": 1037,
+  "Probability": 60,
+  "MinPlayerLevel": "JiksLw==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    20,
+    30,
+    40
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "狮子吼-6-战吼印-主体技能"
+  ],
+  "SwitchSkills": []
+}

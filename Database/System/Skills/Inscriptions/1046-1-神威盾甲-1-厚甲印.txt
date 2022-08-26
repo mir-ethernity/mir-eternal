@@ -1,0 +1,28 @@
+{
+  "SkillName": "神威盾甲-1-厚甲印",
+  "SkillId": 1046,
+  "Id": 1,
+  "Quality": 6,
+  "Probability": 0,
+  "MinPlayerLevel": "MzU3OQ==",
+  "MinSkillExp": [
+    10,
+    10,
+    10,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "神威盾甲-1-厚甲印-主体技能"
+  ],
+  "SwitchSkills": [
+    "神威盾甲-1-厚甲印-主体技能"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "SkillName": "灭天火-1-夺气印",
+  "Race": "法师",
+  "SkillId": 2539,
+  "Id": 1,
+  "Quality": 6,
+  "Probability": 20,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "ERQXGg==",
+  "MinSkillExp": [
+    400,
+    800,
+    1600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "灭天火-1-夺气印-主体技能"
+  ],
+  "SwitchSkills": []
+}

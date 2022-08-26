@@ -1,0 +1,27 @@
+{
+  "SkillName": "金钟罩-3-忿怒印",
+  "Race": "战士",
+  "SkillId": 1047,
+  "Id": 3,
+  "MinPlayerLevel": "KC82PA==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "金钟罩-3-忿怒印-主体技能"
+  ],
+  "SwitchSkills": [
+    "金钟罩-3-忿怒印-主体技能"
+  ]
+}
