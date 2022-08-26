@@ -11,6 +11,7 @@ namespace ClientPacketSnifferApp
         private LibPcapLiveDevice? _selectedDevice = null;
         private BackgroundWorker _backgroundWorker;
         private MemoryStream? _captureBuffer = null;
+        private bool _backgroundWorkerRunning = false;
 
         public bool Capturing { get; set; }
         public int TotalClientPackets { get; private set; }
@@ -23,12 +24,32 @@ namespace ClientPacketSnifferApp
 
         private void FMain_Load(object sender, EventArgs e)
         {
+            FormClosing += FMain_FormClosing;
             _devices = CaptureDeviceList.Instance
                 .OfType<LibPcapLiveDevice>()
                 .ToList();
 
             OpenSelectDevice();
             UpdateUI();
+        }
+
+        private void FMain_FormClosing(object? sender, FormClosingEventArgs e)
+        {
+            if (!Capturing) return;
+
+            if (Capturing && _captureBuffer?.Length == 0)
+            {
+                ClearData();
+                return;
+            }
+
+            if (MessageBox.Show("You are in the middle of a packet capture, are you sure you want to close the application and discard the captured data?", "Discard Changes", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                ClearData();
+                return;
+            }
+
+            e.Cancel = true;
         }
 
         private void OpenSelectDevice()
@@ -52,6 +73,7 @@ namespace ClientPacketSnifferApp
             LabelCaptureSize.Text = "Capture Size: " + (_captureBuffer != null ? _captureBuffer.Length.ToString() : "0");
             LabelClientPackets.Text = "Client Packets: " + TotalClientPackets;
             LabelServerPackets.Text = "Server Packets: " + TotalServerPackets;
+            ButtonChangeDevice.Enabled = !Capturing;
         }
 
         private void ButtonCaptureToggle_Click(object sender, EventArgs e)
@@ -76,27 +98,45 @@ namespace ClientPacketSnifferApp
 
         private void SaveCapture()
         {
-            if (_captureBuffer == null) return;
-
-            var saveDialog = new SaveFileDialog();
-            saveDialog.FileName = $"CapturePackets_{DateTime.UtcNow.ToString("yyyyMMddHHmmss")}.raw";
-
-            if (saveDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                File.WriteAllBytes(saveDialog.FileName, _captureBuffer.ToArray());
-                ClearData();
-            }
-            else
-            {
-                if (MessageBox.Show("Are you sure you want to delete the capture you made?") != DialogResult.OK)
-                    SaveCapture();
-                else
+                ButtonCaptureToggle.Enabled = false;
+
+                if (_captureBuffer == null) return;
+                if (_captureBuffer.Length == 0) return;
+
+                var timeout = DateTime.Now.AddSeconds(10);
+
+                while (_backgroundWorkerRunning && timeout >= DateTime.Now)
+                    Thread.Sleep(100);
+
+                var saveDialog = new SaveFileDialog();
+                saveDialog.FileName = $"CapturePackets_{DateTime.UtcNow.ToString("yyyyMMddHHmmss")}.raw";
+
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    File.WriteAllBytes(saveDialog.FileName, _captureBuffer.ToArray());
                     ClearData();
+                }
+                else
+                {
+                    if (MessageBox.Show("Are you sure you want to delete the capture you made?", "Save Capture", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                        SaveCapture();
+                    else
+                        ClearData();
+                }
             }
+            finally
+            {
+                UpdateUI();
+            }
+
         }
 
         private void ClearData()
         {
+            Capturing = false;
+            _selectedDevice?.Close();
             _captureBuffer?.Dispose();
             _captureBuffer = null;
             PacketsList.Items.Clear();
@@ -119,31 +159,40 @@ namespace ClientPacketSnifferApp
                 ReadTimeout = 10000,
             });
 
-            while (Capturing)
+            _backgroundWorkerRunning = true;
+
+            try
             {
-                var status = device.GetNextPacket(out PacketCapture packet);
-                if (!Capturing) break;
-                if (status != GetPacketStatus.PacketRead) continue;
+                while (Capturing)
+                {
+                    var status = device.GetNextPacket(out PacketCapture packet);
+                    if (!Capturing) break;
+                    if (status != GetPacketStatus.PacketRead) continue;
 
-                var rawCapture = packet.GetPacket();
-                var p = Packet.ParsePacket(rawCapture.LinkLayerType, rawCapture.Data);
-                if (p.PayloadPacket is not IPv4Packet ipv4packet) continue;
+                    var rawCapture = packet.GetPacket();
+                    var p = Packet.ParsePacket(rawCapture.LinkLayerType, rawCapture.Data);
+                    if (p.PayloadPacket is not IPv4Packet ipv4packet) continue;
 
-                if (
-                    ipv4packet.PayloadPacket is not TransportPacket transportPacket
-                    || transportPacket.PayloadData == null
-                    || transportPacket.PayloadData.Length == 0
-                ) continue;
+                    if (
+                        ipv4packet.PayloadPacket is not TransportPacket transportPacket
+                        || transportPacket.PayloadData == null
+                        || transportPacket.PayloadData.Length == 0
+                    ) continue;
 
-                if (transportPacket is not TcpPacket)
-                    continue;
+                    if (transportPacket is not TcpPacket)
+                        continue;
 
-                var isGame = transportPacket.SourcePort == 8701 || transportPacket.DestinationPort == 8701;
-                if (!isGame) continue;
+                    var isGame = transportPacket.SourcePort == 8701 || transportPacket.DestinationPort == 8701;
+                    if (!isGame) continue;
 
-                var packetFromClient = transportPacket.DestinationPort == 8701;
+                    var packetFromClient = transportPacket.DestinationPort == 8701;
 
-                WriteData(DateTime.Now, packetFromClient, transportPacket.PayloadData);
+                    WriteData(DateTime.Now, packetFromClient, transportPacket.PayloadData);
+                }
+            }
+            finally
+            {
+                _backgroundWorkerRunning = false;
             }
         }
 
@@ -166,6 +215,7 @@ namespace ClientPacketSnifferApp
             Invoke(() =>
             {
                 PacketsList.Items.Add($"[{now.ToShortTimeString()}] ({(packetFromClient ? "C-S" : "S-C")}) {BitConverter.ToString(payloadData)}");
+                PacketsList.SelectedIndex = PacketsList.Items.Count - 1;
                 UpdateUI();
             });
         }
