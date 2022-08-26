@@ -1,0 +1,75 @@
+{
+  "SkillName": "狮子吼-6-战吼印-主体技能",
+  "Race": "战士",
+  "OwnSkillId": 1037,
+  "BindingLevelId": 1037,
+  "CalculateTriggerProbability": 1.0,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    25,
+    30,
+    35,
+    40
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 1500,
+      "角色忙绿时间": 1000
+    },
+    "400": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "触发SkillName": "狮子吼-6-战吼印-三级雷光特效"
+    },
+    "420": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "清空命中列表": true,
+      "技能能否穿墙": false,
+      "技能锁定方式": "锁定ItSelf坐标",
+      "技能范围类型": "Spiral7x7",
+      "HitsLimit": 20,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "ItSelf",
+      "清除状态列表": []
+    },
+    "430": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "触发Id": 10404,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1
+    },
+    "440": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "清空命中列表": true,
+      "技能能否穿墙": false,
+      "技能锁定方式": "锁定ItSelf坐标",
+      "SkillHitFeedback": "后仰",
+      "技能范围类型": "Spiral7x7",
+      "HitsLimit": 20,
+      "QualifySpecificType": "LowLevelMonster",
+      "LimitedTargetType": "Monster",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "450": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "触发Id": 49160,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1,
+      "GainSkillExp": true,
+      "ExpSkillId": 1037
+    },
+    "500": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 725,
+      "禁止行走时间": 625,
+      "禁止奔跑时间": 625
+    },
+    "800": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    }
+  }
+}

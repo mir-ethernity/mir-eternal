@@ -1,0 +1,40 @@
+{
+  "SkillName": "觉醒·元素星辰-0-无铭文-主体技能",
+  "OwnSkillId": 2558,
+  "GroupId": 1,
+  "BindingLevelId": 2558,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    25,
+    30,
+    35,
+    40
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 30000,
+      "分组Cooldown": 30000
+    },
+    "250": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 25580,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1,
+      "GainSkillExp": true,
+      "ExpSkillId": 2558
+    },
+    "625": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "725": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    }
+  }
+}

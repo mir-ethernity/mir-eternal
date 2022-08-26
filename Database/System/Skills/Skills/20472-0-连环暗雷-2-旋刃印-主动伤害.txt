@@ -1,0 +1,49 @@
+{
+  "SkillName": "连环暗雷-2-旋刃印-主动伤害",
+  "Race": "弓手",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 20472,
+  "BindingLevelId": 2047,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
+      "放空结束技能": true,
+      "补发释放通知": true,
+      "技能命中通知": true,
+      "HitsLimit": 5,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "1": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Archery",
+      "技能伤害基数": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "技能伤害系数": [
+        0.7,
+        0.8,
+        0.9,
+        1.0
+      ],
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "SkillName": "觉醒·召唤月灵-0-无铭文-刺客分身",
+  "Race": "刺客",
+  "OwnSkillId": 3024,
+  "GroupId": 2,
+  "BindingLevelId": 1546,
+  "CalculateTriggerProbability": 1.0,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 1750,
+      "分组Cooldown": 1750,
+      "角色忙绿时间": 625
+    },
+    "624": {
+      "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
+      "PetName": "刺客分身",
+      "SpawnCount": "AQEBAQ==",
+      "LevelCap": "AQMFBw=="
+    },
+    "625": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 600,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "1000": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    }
+  }
+}

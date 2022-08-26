@@ -1,0 +1,51 @@
+{
+  "SkillName": "电脑-龙裔霸主的普攻技能",
+  "Race": "电脑",
+  "OwnSkillId": 3821,
+  "MaxDistance": 3,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "角色忙绿时间": 1000
+    },
+    "1": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
+      "MaxDistance": 2,
+      "技能最近距离": 2
+    },
+    "300": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能范围类型": "Solid3x3",
+      "技能扩展通知": true,
+      "HitsLimit": 9,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "301": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害基数": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "技能伤害系数": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "清除状态列表": []
+    }
+  }
+}

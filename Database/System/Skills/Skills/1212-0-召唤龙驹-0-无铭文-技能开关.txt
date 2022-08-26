@@ -1,0 +1,29 @@
+{
+  "SkillName": "召唤龙驹-0-无铭文-技能开关",
+  "OwnSkillId": 1212,
+  "GroupId": 3,
+  "BindingLevelId": 1212,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    7,
+    7,
+    7,
+    7
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 10000,
+      "分组Cooldown": 10000
+    },
+    "1": {
+      "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",
+      "SkillTagId": 12122
+    },
+    "2": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

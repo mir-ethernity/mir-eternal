@@ -1,0 +1,52 @@
+{
+  "SkillName": "连环暗雷-0-无铭文-主体技能",
+  "Race": "弓手",
+  "OwnSkillId": 2047,
+  "GroupId": 1,
+  "BindingLevelId": 2047,
+  "CalculateTriggerProbability": 1.0,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
+      "MaxDistance": 1
+    },
+    "1": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 2375,
+      "分组Cooldown": 2000,
+      "角色忙绿时间": 625
+    },
+    "3": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "AnchorAbsolutePosition",
+      "触发SkillName": "连环暗雷-0-无铭文-爆炸特效"
+    },
+    "225": {
+      "$type": "A_02_TriggerTrapSkills, Assembly-CSharp",
+      "TriggerTrapSkills": "连环暗雷-0-无铭文",
+      "NumberTrapsTriggered": "HalfMoon3x1",
+      "GainSkillExp": true,
+      "ExpSkillId": 2047
+    },
+    "625": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "725": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    }
+  }
+}

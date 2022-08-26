@@ -1,0 +1,32 @@
+{
+  "SkillName": "电脑-月魔群攻技能",
+  "Race": "电脑",
+  "OwnSkillId": 3962,
+  "MaxDistance": 8,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "角色忙绿时间": 5000
+    },
+    "1": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp"
+    },
+    "875": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能锁定方式": "锁定锚点坐标",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "技能范围类型": "Spiral15x15",
+      "HitsLimit": 20,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility"
+    },
+    "876": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "电脑-赤月恶魔陷阱触发"
+    }
+  }
+}

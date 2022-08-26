@@ -1,0 +1,28 @@
+{
+  "SkillName": "觉醒·百战军魂-0-无铭文-技能开关",
+  "OwnSkillId": 1214,
+  "BindingLevelId": 1214,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    2,
+    5,
+    6,
+    7
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 10000,
+      "分组Cooldown": 10000
+    },
+    "1": {
+      "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",
+      "SkillTagId": 12140
+    },
+    "2": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

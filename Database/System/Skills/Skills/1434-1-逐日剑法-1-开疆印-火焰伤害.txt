@@ -1,0 +1,49 @@
+{
+  "SkillName": "逐日剑法-1-开疆印-火焰伤害",
+  "SkillType": "SubSkills",
+  "Id": 1,
+  "OwnSkillId": 1434,
+  "BindingLevelId": 1038,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "SkillEvasion": "CanBeMagicEvaded",
+      "SkillHitFeedback": "后仰",
+      "放空结束技能": true,
+      "补发释放通知": true,
+      "技能命中通知": true,
+      "HitsLimit": 1,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "1": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Burn",
+      "技能伤害基数": [
+        35,
+        42,
+        46,
+        50
+      ],
+      "技能伤害系数": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    }
+  }
+}

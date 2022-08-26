@@ -1,0 +1,29 @@
+{
+  "SkillName": "御龙晶甲-1-长磬印-技能开关",
+  "Race": "龙枪",
+  "OwnSkillId": 1209,
+  "BindingLevelId": 1209,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    7,
+    7,
+    7,
+    7
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 15000
+    },
+    "1": {
+      "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",
+      "SkillTagId": 12091,
+      "允许移除标记": true
+    },
+    "2": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

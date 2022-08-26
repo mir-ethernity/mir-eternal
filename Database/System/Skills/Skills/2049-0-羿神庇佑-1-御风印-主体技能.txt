@@ -1,0 +1,53 @@
+{
+  "SkillName": "羿神庇佑-1-御风印-主体技能",
+  "Race": "弓手",
+  "OwnSkillId": 2049,
+  "GroupId": 3,
+  "BindingLevelId": 2049,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    7,
+    7,
+    7,
+    7
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 60000
+    },
+    "1": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "触发SkillName": "羿神庇佑-1-御风印-御风印特效"
+    },
+    "2": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 20492,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1,
+      "GainSkillExp": true,
+      "ExpSkillId": 2049
+    },
+    "3": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 20493,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1,
+      "GainSkillExp": true,
+      "ExpSkillId": 2049
+    },
+    "625": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "725": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    }
+  }
+}

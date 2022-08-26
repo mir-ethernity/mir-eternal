@@ -1,0 +1,27 @@
+{
+  "SkillName": "电脑-刺客分身退出战斗",
+  "Race": "电脑",
+  "OwnSkillId": 1546,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "1": {
+      "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",
+      "SkillTagId": 15460,
+      "允许移除标记": true
+    },
+    "2": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

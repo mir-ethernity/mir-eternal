@@ -1,0 +1,94 @@
+{
+  "SkillName": "道尊天喻-0-无铭文-主体技能",
+  "Race": "道士",
+  "OwnSkillId": 3022,
+  "GroupId": 1,
+  "BindingLevelId": 3022,
+  "CalculateTriggerProbability": 1.0,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    1,
+    1,
+    2,
+    2
+  ],
+  "NeedConsumeItems": [],
+  "NeedConsumeItemsQuantity": 1,
+  "GearDeductionPoints": 1,
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 1750,
+      "分组Cooldown": 1750,
+      "角色忙绿时间": 625
+    },
+    "618": {
+      "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
+      "PetName": "道士骷髅普通",
+      "SpawnCount": "AQMFBw==",
+      "LevelCap": "AQMFBw==",
+      "GainSkillExp": true,
+      "ExpSkillId": 3022
+    },
+    "619": {
+      "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
+      "PetName": "道士召唤神兽",
+      "SpawnCount": "AQMFBw==",
+      "LevelCap": "AQMFBw==",
+      "GainSkillExp": true,
+      "ExpSkillId": 3022
+    },
+    "620": {
+      "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
+      "PetName": "道士骷髅战将",
+      "SpawnCount": "AQMFBw==",
+      "LevelCap": "AQMFBw==",
+      "GainSkillExp": true,
+      "ExpSkillId": 3022
+    },
+    "621": {
+      "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
+      "PetName": "道士骷髅护卫",
+      "SpawnCount": "AQMFBw==",
+      "LevelCap": "AQMFBw==",
+      "GainSkillExp": true,
+      "ExpSkillId": 3022
+    },
+    "622": {
+      "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
+      "PetName": "道士骷髅将军",
+      "SpawnCount": "AQMFBw==",
+      "LevelCap": "AQMFBw==",
+      "GainSkillExp": true,
+      "ExpSkillId": 3022
+    },
+    "623": {
+      "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
+      "PetName": "道士召唤灵兽",
+      "SpawnCount": "AQMFBw==",
+      "LevelCap": "AQMFBw==",
+      "GainSkillExp": true,
+      "ExpSkillId": 3022
+    },
+    "624": {
+      "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
+      "PetName": "道士召唤圣兽",
+      "SpawnCount": "AQMFBw==",
+      "LevelCap": "AQMFBw==",
+      "GainSkillExp": true,
+      "ExpSkillId": 3022
+    },
+    "625": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "1000": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    }
+  }
+}

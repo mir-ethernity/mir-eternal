@@ -1,0 +1,55 @@
+{
+  "SkillName": "电脑-月灵多重技能",
+  "Race": "电脑",
+  "OwnSkillId": 2549,
+  "MaxDistance": 8,
+  "CalculateTriggerProbability": 0.25,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
+      "MaxDistance": 8
+    },
+    "1": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "角色忙绿时间": 300
+    },
+    "2": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "AnchorAbsolutePosition",
+      "触发SkillName": "大火球术-1-连环印-月灵连爆"
+    },
+    "3": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "SkillEvasion": "CanBeMagicEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能扩展通知": true,
+      "HitsLimit": 1,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "4": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Magic",
+      "技能伤害基数": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "技能伤害系数": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "清除状态列表": []
+    }
+  }
+}

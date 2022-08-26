@@ -1,0 +1,58 @@
+{
+  "SkillName": "电脑-沙虫之母-赤火的普攻技能",
+  "Race": "电脑",
+  "OwnSkillId": 3916,
+  "MaxDistance": 7,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "角色忙绿时间": 2500
+    },
+    "1": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
+      "MaxDistance": 4,
+      "技能最近距离": 1
+    },
+    "1000": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能范围类型": "Spiral7x7",
+      "技能命中通知": true,
+      "HitsLimit": 20,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "1001": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Magic",
+      "技能伤害基数": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "技能伤害系数": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "清除状态列表": []
+    },
+    "1002": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "触发Id": 39150,
+      "Buff触发概率": 0.15,
+      "所需Buff层数": 1
+    }
+  }
+}

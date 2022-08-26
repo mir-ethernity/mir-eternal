@@ -1,0 +1,33 @@
+{
+  "SkillName": "羿神庇佑-3-捷风印-技能开关",
+  "OwnSkillId": 2049,
+  "GroupId": 3,
+  "BindingLevelId": 2049,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    7,
+    7,
+    7,
+    7
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 30000,
+      "分组Cooldown": 30000
+    },
+    "1": {
+      "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",
+      "SkillTagId": 20496
+    },
+    "2": {
+      "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",
+      "SkillTagId": 20497
+    },
+    "3": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

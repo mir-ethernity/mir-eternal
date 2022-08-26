@@ -1,0 +1,35 @@
+{
+  "SkillName": "御龙晶甲-1-长磬印-主体技能",
+  "Race": "龙枪",
+  "OwnSkillId": 1209,
+  "BindingLevelId": 1209,
+  "CalculateTriggerProbability": 1.0,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    7,
+    7,
+    7,
+    7
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 15000
+    },
+    "1": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 12091,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1,
+      "GainSkillExp": true,
+      "ExpSkillId": 1209
+    },
+    "2": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

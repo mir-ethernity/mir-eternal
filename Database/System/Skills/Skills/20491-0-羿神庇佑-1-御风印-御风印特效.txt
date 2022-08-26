@@ -1,0 +1,23 @@
+{
+  "SkillName": "羿神庇佑-1-御风印-御风印特效",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 20491,
+  "BindingLevelId": 2049,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "1": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

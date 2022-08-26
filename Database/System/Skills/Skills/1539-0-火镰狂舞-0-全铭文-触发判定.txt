@@ -1,0 +1,32 @@
+{
+  "SkillName": "火镰狂舞-0-全铭文-触发判定",
+  "Race": "刺客",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 1539,
+  "BindingLevelId": 1539,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 15390,
+      "Buff触发概率": 1.0,
+      "验证ItSelfBuff": true,
+      "Id": 15380,
+      "所需Buff层数": 1
+    },
+    "1": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 15390,
+      "Buff触发概率": 0.35,
+      "所需Buff层数": 1
+    }
+  }
+}

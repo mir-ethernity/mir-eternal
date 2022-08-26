@@ -1,0 +1,23 @@
+{
+  "SkillName": "穿刺射击-2-震穹印-成功特效",
+  "Race": "弓手",
+  "OwnSkillId": 20502,
+  "BindingLevelId": 2050,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "1": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

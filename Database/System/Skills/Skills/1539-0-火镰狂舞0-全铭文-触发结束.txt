@@ -1,0 +1,30 @@
+{
+  "SkillName": "火镰狂舞0-全铭文-触发结束",
+  "Race": "刺客",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 1539,
+  "BindingLevelId": 1539,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "HitsLimit": 1,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "ItSelf",
+      "清除目标状态": true,
+      "清除状态列表": [
+        15380,
+        15383,
+        15384,
+        15385,
+        15310
+      ]
+    }
+  }
+}

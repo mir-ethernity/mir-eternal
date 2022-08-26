@@ -1,0 +1,53 @@
+{
+  "SkillName": "噬血术-4-劫魂印-劫魂特效",
+  "Race": "道士",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 30104,
+  "BindingLevelId": 3010,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "1": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    },
+    "2": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能锁定方式": "锁定目标",
+      "放空结束技能": true,
+      "HitsLimit": 1,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "3": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 30104,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1
+    },
+    "4": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 30103,
+      "Buff触发概率": 0.3,
+      "所需Buff层数": 1
+    },
+    "5": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "触发Id": 30105,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1
+    }
+  }
+}
