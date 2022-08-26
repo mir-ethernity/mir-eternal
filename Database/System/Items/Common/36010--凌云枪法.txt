@@ -1,0 +1,16 @@
+{
+  "Name": "凌云枪法",
+  "Id": 36010,
+  "MaxDura": 10,
+  "Weight": 1,
+  "NeedLevel": 41,
+  "SalePrice": 10000,
+  "AdditionalSkill": 1210,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "技能书籍",
+  "NeedRace": "龙枪",
+  "PersistType": "堆叠",
+  "StoreType": "书籍"
+}

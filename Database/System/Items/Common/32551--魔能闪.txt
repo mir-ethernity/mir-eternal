@@ -1,0 +1,15 @@
+{
+  "Name": "魔能闪",
+  "Id": 32551,
+  "MaxDura": 10,
+  "Weight": 1,
+  "NeedLevel": 51,
+  "SalePrice": 4000,
+  "AdditionalSkill": 2554,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "技能书籍",
+  "NeedRace": "法师",
+  "PersistType": "堆叠",
+  "StoreType": "书籍"
+}

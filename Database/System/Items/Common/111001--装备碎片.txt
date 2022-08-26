@@ -1,0 +1,13 @@
+{
+  "Name": "装备碎片",
+  "Id": 111001,
+  "MaxDura": 1,
+  "NeedLevel": 1,
+  "SalePrice": 500,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "普通杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}
