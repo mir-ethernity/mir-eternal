@@ -336,17 +336,19 @@ namespace GameServer.Data
             switch (CharRace.V)
             {
                 case GameObjectRace.战士:
-                case GameObjectRace.刺客:
                     basicInscriptionSkill = 10300;
                     break;
                 case GameObjectRace.法师:
                     basicInscriptionSkill = 25300;
                     break;
-                case GameObjectRace.道士:
-                    basicInscriptionSkill = 30000;
+                case GameObjectRace.刺客:
+                    basicInscriptionSkill = 15300;
                     break;
                 case GameObjectRace.弓手:
                     basicInscriptionSkill = 20400;
+                    break;
+                case GameObjectRace.道士:
+                    basicInscriptionSkill = 30000;
                     break;
                 default:
                     basicInscriptionSkill = 12000;
