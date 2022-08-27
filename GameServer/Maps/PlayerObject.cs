@@ -7444,7 +7444,7 @@ namespace GameServer.Maps
             }
             else
             {
-                NumberGoldCoins -= num4;
+                this.NumberGoldCoins -= num4;
                 BackpackSize += position;
                 ActiveConnection?.SendPacket(new 背包容量改变
                 {
@@ -7474,7 +7474,7 @@ namespace GameServer.Maps
             }
             else
             {
-                NumberGoldCoins -= num2;
+                this.NumberGoldCoins -= num2;
                 WarehouseSize += position;
                 ActiveConnection?.SendPacket(new 背包容量改变
                 {
@@ -7484,15 +7484,22 @@ namespace GameServer.Maps
             }
         }
 
-        private void ExpandExtraBackpack(byte position)
+        private void ExpandExtraBackpack(byte addCells)
         {
-            if (WarehouseSize + position > (72 * 3))
+            if (BackpackSize + addCells > (72 * 3))
             {
                 ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Player expanded backpack.  Error: Warehouse exceeded limit."));
                 return;
             }
 
-            int cost = position - ExtraBackpackSize;
+            int cost = 0;
+
+            for (var i = 0; i < addCells; i++)
+            {
+                var position = ExtraBackpackSize + i;
+                var pricePerCell = (int)Math.Ceiling((decimal)position / 72m);
+                cost += pricePerCell;
+            }
 
             if (this.NumberGoldCoins < cost)
             {
@@ -7504,7 +7511,7 @@ namespace GameServer.Maps
             else
             {
                 NumberGoldCoins -= cost;
-                ExtraBackpackSize += position;
+                ExtraBackpackSize += addCells;
                 ActiveConnection?.SendPacket(new 背包容量改变
                 {
                     背包类型 = 7,
