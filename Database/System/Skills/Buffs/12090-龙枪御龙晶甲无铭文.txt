@@ -1,0 +1,62 @@
+{
+  "Name": "龙枪御龙晶甲无铭文",
+  "Id": 12090,
+  "Group": 1209,
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnChangeWeaponRemove": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": true,
+  "RemoveAddCooling": true,
+  "SkillCooldown": 1000,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 3000,
+  "Duration": 3000,
+  "RequireBuff": [
+    12092,
+    12094,
+    12095,
+    12096
+  ],
+  "SkillLevelDelay": true,
+  "ExtendedTimePerLevel": 1000,
+  "PlayerStatDelay": true,
+  "BoundPlayerStat": "MaxDC",
+  "StatDelayFactor": 1000.0,
+  "HasSpecificInscriptionDelay": true,
+  "SpecificInscriptionSkills": 12090,
+  "InscriptionExtendedTime": 15000,
+  "StatsIncOrDec": [],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "HowJudgeEffect": "PassiveInjuryReduction",
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.5,
+    0.7,
+    0.9,
+    1.0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

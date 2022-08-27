@@ -1,0 +1,60 @@
+{
+  "Name": "羿神庇佑神恩印闪避效果",
+  "Id": 20494,
+  "Group": 20494,
+  "OverlayType": "SimilarReplacement",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 3000,
+  "ProcessDelay": 3000,
+  "Duration": 3000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "SkillLevelDelay": true,
+  "ExtendedTimePerLevel": 1000,
+  "PlayerStatDelay": true,
+  "StatDelayFactor": 1000.0,
+  "StatsIncOrDec": [
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 30,
+      "Level1": 40,
+      "Level2": 50,
+      "Level3": 60
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

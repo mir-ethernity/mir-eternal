@@ -1,0 +1,652 @@
+{
+  "MonsterName": "疯魔卫 铁蹄",
+  "Id": 3154,
+  "Level": 70,
+  "Category": "Elite",
+  "VisibleStealthTargets": true,
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "MoveInterval": 350,
+  "RoamInterval": 21000,
+  "CorpsePreservationDuration": 13000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 15000,
+  "NormalAttackSkills": "电脑-沃玛勇士普攻技能",
+  "Stats": [
+    {
+      "Stat": "MaxHP",
+      "Value": 13500
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 3
+    },
+    {
+      "Stat": "WalkSpeed",
+      "Value": 11
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 15
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 14
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinDC",
+      "Value": 26
+    },
+    {
+      "Stat": "MaxDC",
+      "Value": 48
+    },
+    {
+      "Stat": "MinMC"
+    },
+    {
+      "Stat": "MaxMC"
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 2
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 5
+    },
+    {
+      "Stat": "MinMCDef",
+      "Value": 1
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Value": 5
+    }
+  ],
+  "ProvideExperience": 4000,
+  "Drops": [
+    {
+      "Name": "蓝色灵气",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫色灵气",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙色灵气",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "苍月锦",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "棉线",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽皮",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "勋章之心",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "祈福项链",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "矿渣",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "命运之证",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铭文位切换神符",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "打孔石",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "白银VIP",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "钻石VIP",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主驭朱灵石",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "守阳灵石1级",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主蔚蓝灵石",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主精绿灵石",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主深灰灵石",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主橙黄灵石",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙黄灵石2级",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "逐日剑法",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色灵气",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "寒冰掌",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "噬血术",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "无极真气",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道德戒指",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魅力戒指",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅戒指",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "翡翠戒指",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "扣弦扳指",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 650,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金戒指",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珊瑚戒指",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫玉戒指",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁皮指环",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法手镯",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔力手镯",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "坚固手套",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士手镯",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑檀手镯",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "夏普儿手镯",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 3000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "辟邪手镯",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金手镯",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "桃木手镯",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤手镯",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "破魂",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "罗刹",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "偃月",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "降魔",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "斩马刀",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "冰月戟",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁胎弓",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "百炼枪",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "修罗",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凝霜",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅头盔",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士头盔",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 5,
+      "MinAmount": 2000,
+      "MaxAmount": 5000
+    },
+    {
+      "Name": "天书残页",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 5,
+      "MinAmount": 1,
+      "MaxAmount": 2
+    },
+    {
+      "Name": "修复油",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 5,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "祝福油",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "驭朱灵石1级",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "命朱灵石1级",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "守阳灵石1级",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蔚蓝灵石1级",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精绿灵石1级",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "纯紫灵石1级",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "深灰灵石1级",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙黄灵石1级",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "战士铭文石",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法师铭文石",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士铭文石",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客铭文石",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "弓手铭文石",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙枪铭文石",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色灵气",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫色灵气",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙色灵气",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "屠魔令",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 3,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雕色石",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效太阳水",
+      "MonsterName": "疯魔卫 铁蹄",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

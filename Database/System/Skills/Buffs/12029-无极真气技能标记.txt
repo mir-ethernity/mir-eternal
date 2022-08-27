@@ -1,0 +1,17 @@
+{
+  "Name": "无极真气技能标记",
+  "Id": 12029,
+  "Group": 12029,
+  "SyncClient": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 20000,
+  "ProcessDelay": 20000,
+  "Duration": 6000,
+  "RequireBuff": [
+    12029
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}
