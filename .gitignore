@@ -2,5 +2,6 @@
 bin/
 obj/
 *.csproj.user
+*.pubxml.user
 packages/
 Database/User

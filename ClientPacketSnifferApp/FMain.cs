@@ -1,3 +1,4 @@
+using ClientPacketSnifferApp.Properties;
 using PacketDotNet;
 using SharpPcap;
 using SharpPcap.LibPcap;
@@ -156,7 +157,7 @@ namespace ClientPacketSnifferApp
             device.Open(new DeviceConfiguration
             {
                 Mode = DeviceModes.Promiscuous,
-                ReadTimeout = 10000,
+                ReadTimeout = Settings.Default.ReadTimeout,
             });
 
             _backgroundWorkerRunning = true;
@@ -182,10 +183,10 @@ namespace ClientPacketSnifferApp
                     if (transportPacket is not TcpPacket)
                         continue;
 
-                    var isGame = transportPacket.SourcePort == 8701 || transportPacket.DestinationPort == 8701;
+                    var isGame = transportPacket.SourcePort == Settings.Default.ListenPort || transportPacket.DestinationPort == Settings.Default.ListenPort;
                     if (!isGame) continue;
 
-                    var packetFromClient = transportPacket.DestinationPort == 8701;
+                    var packetFromClient = transportPacket.DestinationPort == Settings.Default.ListenPort;
 
                     WriteData(DateTime.Now, packetFromClient, transportPacket.PayloadData);
                 }
@@ -223,6 +224,18 @@ namespace ClientPacketSnifferApp
         private void ButtonChangeDevice_Click(object sender, EventArgs e)
         {
             OpenSelectDevice();
+        }
+
+        private void ButtonConfig_Click(object sender, EventArgs e)
+        {
+            if (Capturing)
+            {
+                MessageBox.Show("Stop capture packets before change config");
+                return;
+            }
+
+            using var form = new FConfig();
+            form.ShowDialog();
         }
     }
 }

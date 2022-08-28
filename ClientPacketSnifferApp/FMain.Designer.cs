@@ -31,14 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMain));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.LabelSelectedDevice = new System.Windows.Forms.ToolStripStatusLabel();
+            this.LabelClientPackets = new System.Windows.Forms.ToolStripStatusLabel();
+            this.LabelServerPackets = new System.Windows.Forms.ToolStripStatusLabel();
+            this.LabelCaptureSize = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.ButtonCaptureToggle = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ButtonChangeDevice = new System.Windows.Forms.ToolStripButton();
             this.PacketsList = new System.Windows.Forms.ListBox();
-            this.LabelClientPackets = new System.Windows.Forms.ToolStripStatusLabel();
-            this.LabelServerPackets = new System.Windows.Forms.ToolStripStatusLabel();
-            this.LabelCaptureSize = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ButtonConfig = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -62,12 +64,32 @@
             this.LabelSelectedDevice.Size = new System.Drawing.Size(114, 17);
             this.LabelSelectedDevice.Text = "LabelSelectedDevice";
             // 
+            // LabelClientPackets
+            // 
+            this.LabelClientPackets.Name = "LabelClientPackets";
+            this.LabelClientPackets.Size = new System.Drawing.Size(107, 17);
+            this.LabelClientPackets.Text = "Client Packets: N/a";
+            // 
+            // LabelServerPackets
+            // 
+            this.LabelServerPackets.Name = "LabelServerPackets";
+            this.LabelServerPackets.Size = new System.Drawing.Size(108, 17);
+            this.LabelServerPackets.Text = "Server Packets: N/a";
+            // 
+            // LabelCaptureSize
+            // 
+            this.LabelCaptureSize.Name = "LabelCaptureSize";
+            this.LabelCaptureSize.Size = new System.Drawing.Size(98, 17);
+            this.LabelCaptureSize.Text = "Capture Size: N/a";
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ButtonCaptureToggle,
             this.toolStripSeparator1,
-            this.ButtonChangeDevice});
+            this.ButtonChangeDevice,
+            this.toolStripSeparator2,
+            this.ButtonConfig});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
@@ -110,23 +132,20 @@
             this.PacketsList.Size = new System.Drawing.Size(800, 403);
             this.PacketsList.TabIndex = 3;
             // 
-            // LabelClientPackets
+            // toolStripSeparator2
             // 
-            this.LabelClientPackets.Name = "LabelClientPackets";
-            this.LabelClientPackets.Size = new System.Drawing.Size(107, 17);
-            this.LabelClientPackets.Text = "Client Packets: N/a";
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // LabelServerPackets
+            // ButtonConfig
             // 
-            this.LabelServerPackets.Name = "LabelServerPackets";
-            this.LabelServerPackets.Size = new System.Drawing.Size(108, 17);
-            this.LabelServerPackets.Text = "Server Packets: N/a";
-            // 
-            // LabelCaptureSize
-            // 
-            this.LabelCaptureSize.Name = "LabelCaptureSize";
-            this.LabelCaptureSize.Size = new System.Drawing.Size(98, 17);
-            this.LabelCaptureSize.Text = "Capture Size: N/a";
+            this.ButtonConfig.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.ButtonConfig.Image = ((System.Drawing.Image)(resources.GetObject("ButtonConfig.Image")));
+            this.ButtonConfig.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ButtonConfig.Name = "ButtonConfig";
+            this.ButtonConfig.Size = new System.Drawing.Size(47, 22);
+            this.ButtonConfig.Text = "Config";
+            this.ButtonConfig.Click += new System.EventHandler(this.ButtonConfig_Click);
             // 
             // FMain
             // 
@@ -159,5 +178,7 @@
         private ToolStripStatusLabel LabelClientPackets;
         private ToolStripStatusLabel LabelServerPackets;
         private ToolStripStatusLabel LabelCaptureSize;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripButton ButtonConfig;
     }
 }
