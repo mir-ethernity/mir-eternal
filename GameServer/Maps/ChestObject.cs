@@ -109,13 +109,14 @@ namespace GameServer.Maps
             _openers.Add(new ChestPlayerOpener
             {
                 Player = player,
-                EndOpensTime = MainProcess.CurrentTime.AddSeconds(1)
+                EndOpensTime = MainProcess.CurrentTime.AddSeconds(1.6)
             });
 
             player.ActiveConnection.SendPacket(new StartOpenChestPacket
             {
                 PlayerId = player.ObjectId,
-                ObjectId = ObjectId
+                ObjectId = ObjectId,
+                Duration = 16
             });
         }
 
