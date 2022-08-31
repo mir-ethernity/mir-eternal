@@ -13,6 +13,6 @@ namespace GameServer.Networking
         public int ObjectId;
 
         [WrappingField(SubScript = 10, Length = 2)]
-        public ushort Unknown = 16;
+        public ushort Duration = 16; // 10 is 1s
     }
 }
