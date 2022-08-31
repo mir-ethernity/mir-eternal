@@ -33,7 +33,7 @@
       "技能能否穿墙": true,
       "技能锁定方式": "放空锁定ItSelf",
       "HitsLimit": 1,
-      "LimitedTargetType": "Player",
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "ItSelf",
       "清除状态列表": []
     },
