@@ -10,7 +10,7 @@
   "RangeHate": 8,
   "HateTime": 30000,
   "NormalAttackSkills": "电脑-烈焰恶魔普攻技能",
-  "ProbabilityTriggerSkills": "电脑-Flaming Demon概率技能",
+  "ProbabilityTriggerSkills": "电脑-烈焰恶魔概率技能",
   "Stats": [
     {
       "Stat": "MaxHP",
