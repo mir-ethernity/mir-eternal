@@ -38,9 +38,11 @@
             this.ButtonCaptureToggle = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ButtonChangeDevice = new System.Windows.Forms.ToolStripButton();
-            this.PacketsList = new System.Windows.Forms.ListBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ButtonConfig = new System.Windows.Forms.ToolStripButton();
+            this.PacketsList = new System.Windows.Forms.ListBox();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.ButtonOpenRaw = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -89,7 +91,9 @@
             this.toolStripSeparator1,
             this.ButtonChangeDevice,
             this.toolStripSeparator2,
-            this.ButtonConfig});
+            this.ButtonConfig,
+            this.toolStripSeparator3,
+            this.ButtonOpenRaw});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
@@ -122,16 +126,6 @@
             this.ButtonChangeDevice.Text = "Change Device";
             this.ButtonChangeDevice.Click += new System.EventHandler(this.ButtonChangeDevice_Click);
             // 
-            // PacketsList
-            // 
-            this.PacketsList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PacketsList.FormattingEnabled = true;
-            this.PacketsList.ItemHeight = 15;
-            this.PacketsList.Location = new System.Drawing.Point(0, 25);
-            this.PacketsList.Name = "PacketsList";
-            this.PacketsList.Size = new System.Drawing.Size(800, 403);
-            this.PacketsList.TabIndex = 3;
-            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
@@ -146,6 +140,31 @@
             this.ButtonConfig.Size = new System.Drawing.Size(47, 22);
             this.ButtonConfig.Text = "Config";
             this.ButtonConfig.Click += new System.EventHandler(this.ButtonConfig_Click);
+            // 
+            // PacketsList
+            // 
+            this.PacketsList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PacketsList.FormattingEnabled = true;
+            this.PacketsList.ItemHeight = 15;
+            this.PacketsList.Location = new System.Drawing.Point(0, 25);
+            this.PacketsList.Name = "PacketsList";
+            this.PacketsList.Size = new System.Drawing.Size(800, 403);
+            this.PacketsList.TabIndex = 3;
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // ButtonOpenRaw
+            // 
+            this.ButtonOpenRaw.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.ButtonOpenRaw.Image = ((System.Drawing.Image)(resources.GetObject("ButtonOpenRaw.Image")));
+            this.ButtonOpenRaw.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ButtonOpenRaw.Name = "ButtonOpenRaw";
+            this.ButtonOpenRaw.Size = new System.Drawing.Size(65, 22);
+            this.ButtonOpenRaw.Text = "Open Raw";
+            this.ButtonOpenRaw.Click += new System.EventHandler(this.ButtonOpenRaw_Click);
             // 
             // FMain
             // 
@@ -180,5 +199,7 @@
         private ToolStripStatusLabel LabelCaptureSize;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripButton ButtonConfig;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripButton ButtonOpenRaw;
     }
 }

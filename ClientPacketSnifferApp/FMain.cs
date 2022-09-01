@@ -26,11 +26,6 @@ namespace ClientPacketSnifferApp
         private void FMain_Load(object sender, EventArgs e)
         {
             FormClosing += FMain_FormClosing;
-            _devices = CaptureDeviceList.Instance
-                .OfType<LibPcapLiveDevice>()
-                .ToList();
-
-            OpenSelectDevice();
             UpdateUI();
         }
 
@@ -55,6 +50,13 @@ namespace ClientPacketSnifferApp
 
         private void OpenSelectDevice()
         {
+            if (_devices == null)
+            {
+                _devices = CaptureDeviceList.Instance
+                .OfType<LibPcapLiveDevice>()
+                .ToList();
+            }
+
             var form = new FDeviceSelector(_devices);
 
             if (form.ShowDialog() != DialogResult.OK)
@@ -235,6 +237,28 @@ namespace ClientPacketSnifferApp
             }
 
             using var form = new FConfig();
+            form.ShowDialog();
+        }
+
+        private void ButtonOpenRaw_Click(object sender, EventArgs e)
+        {
+            using var dialog = new OpenFileDialog();
+
+            dialog.Filter = "Packets Raw|*.raw";
+
+            if (dialog.ShowDialog() != DialogResult.OK)
+                return;
+
+            if (!File.Exists(dialog.FileName))
+            {
+                MessageBox.Show($"File not found");
+                return;
+            }
+
+            var buffer = File.ReadAllBytes(dialog.FileName);
+
+            using var form = new FRawFile();
+            form.LoadBuffer(buffer);
             form.ShowDialog();
         }
     }
