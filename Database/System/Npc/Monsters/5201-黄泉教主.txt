@@ -10,7 +10,7 @@
   "RangeHate": 8,
   "HateTime": 30000,
   "NormalAttackSkills": "电脑-黄泉教主普攻技能",
-  "ProbabilityTriggerSkills": "电脑-Lord Yellow Springs概率技能",
+  "ProbabilityTriggerSkills": "电脑-黄泉教主概率技能",
   "Stats": [
     {
       "Stat": "MaxHP",

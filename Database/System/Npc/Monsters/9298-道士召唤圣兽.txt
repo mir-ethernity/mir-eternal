@@ -13,7 +13,7 @@
   "RangeHate": 4,
   "HateTime": 15000,
   "NormalAttackSkills": "电脑-召唤圣兽圣兽普攻",
-  "ProbabilityTriggerSkills": "电脑-召唤圣兽普攻Burn",
+  "ProbabilityTriggerSkills": "电脑-召唤圣兽普攻灼烧",
   "EnterCombatSkills": "电脑-召唤圣兽进入战斗",
   "ExitCombatSkills": "电脑-召唤圣兽退出战斗",
   "瞬移释放技能": "",
