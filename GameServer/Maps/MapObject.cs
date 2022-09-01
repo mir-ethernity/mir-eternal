@@ -703,8 +703,8 @@ namespace GameServer.Maps
                     TargetObjectId = obj.ObjectId,
                     BuffId = BuffData2.Id.V,
                     BuffIndex = (int)BuffData2.Id.V,
+                    Duration = (int)BuffData2.持续时间.V.TotalMilliseconds,
                     BuffLayers = BuffData2.当前层数.V,
-                    Duration = (int)BuffData2.持续时间.V.TotalMilliseconds
                 });
             }
 
@@ -777,7 +777,7 @@ namespace GameServer.Maps
                             this.Coolings[(int)BuffData.绑定技能 | 16777216] = dateTime;
                             this.SendPacket(new AddedSkillCooldownPacket
                             {
-                                冷却编号 = ((int)BuffData.绑定技能 | 16777216),
+                                CoolingId = ((int)BuffData.绑定技能 | 16777216),
                                 Cooldown = (int)BuffData.Cooldown
                             });
                         }
