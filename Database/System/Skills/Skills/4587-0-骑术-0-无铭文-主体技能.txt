@@ -22,7 +22,7 @@
       "SkillTagId": 2555,
       "允许移除标记": true
     },
-    "2": {
+    "2001": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true
     }
