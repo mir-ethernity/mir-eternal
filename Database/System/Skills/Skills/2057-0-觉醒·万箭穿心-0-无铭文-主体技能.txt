@@ -44,7 +44,7 @@
       "技能锁定方式": "锁定锚点坐标",
       "技能范围类型": "Spiral7x7",
       "HitsLimit": 4,
-      "LimitedTargetType": "Player",
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "GainSkillExp": true,
       "ExpSkillId": 2057,
