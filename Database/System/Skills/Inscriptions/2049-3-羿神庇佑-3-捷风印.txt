@@ -1,0 +1,30 @@
+{
+  "SkillName": "羿神庇佑-3-捷风印",
+  "Race": "弓手",
+  "SkillId": 2049,
+  "Id": 3,
+  "Quality": 8,
+  "Probability": 80,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "IyUoKg==",
+  "MinSkillExp": [
+    10,
+    10,
+    10,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "羿神庇佑-3-捷风印-主体技能"
+  ],
+  "SwitchSkills": [
+    "羿神庇佑-3-捷风印-技能开关"
+  ]
+}

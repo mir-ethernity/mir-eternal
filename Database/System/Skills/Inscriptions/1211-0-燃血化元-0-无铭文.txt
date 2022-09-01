@@ -1,0 +1,28 @@
+{
+  "SkillName": "燃血化元-0-无铭文",
+  "Race": "龙枪",
+  "SkillId": 1211,
+  "MinPlayerLevel": "HyImKQ==",
+  "MinSkillExp": [
+    10,
+    20,
+    30,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1206
+  ],
+  "MainSkills": [
+    "燃血化元-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": [
+    ""
+  ]
+}

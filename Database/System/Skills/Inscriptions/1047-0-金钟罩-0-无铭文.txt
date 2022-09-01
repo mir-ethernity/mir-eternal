@@ -1,0 +1,26 @@
+{
+  "SkillName": "金钟罩-0-无铭文",
+  "Race": "战士",
+  "SkillId": 1047,
+  "MinPlayerLevel": "KC82PA==",
+  "MinSkillExp": [
+    10,
+    20,
+    30,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "金钟罩-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": [
+    "金钟罩-0-无铭文-主体技能"
+  ]
+}

@@ -2646,13 +2646,6 @@ namespace GameServer.Maps
                 }
             }
 
-            if (newSkill.AdquireMountId != null)
-            {
-                // CharacterData.Mounts
-                // Packet ID: 145, Name: Sync Object Mount (Server)
-                ActiveConnection?.SendRaw(145, 7, new byte[] { 1, 0, 0, 0, 8 });
-            }
-
             EquipmentData EquipmentData;
             if (this.Equipment.TryGetValue(0, out EquipmentData))
             {
@@ -3854,7 +3847,7 @@ namespace GameServer.Maps
             {
                 ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
                 {
-                    冷却编号 = (skillId | 0x1000000),
+                    CoolingId = (skillId | 0x1000000),
                     Cooldown = (int)(v2 - MainProcess.CurrentTime).TotalMilliseconds
                 });
                 ActiveConnection?.SendPacket(new 技能释放完成
@@ -3873,9 +3866,7 @@ namespace GameServer.Maps
 
             foreach (BuffData BuffData in this.Buffs.Values.ToList<BuffData>())
             {
-                if (BuffData.OnReleaseSkillRemove)
-                    base.删除Buff时处理(BuffData.Id.V);
-                else if (CharRole == GameObjectRace.刺客 && (BuffData.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign && (BuffData.Template.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal)
+                if (CharRole == GameObjectRace.刺客 && (BuffData.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign && (BuffData.Template.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal)
                     base.删除Buff时处理(BuffData.Id.V);
             }
 
@@ -3907,7 +3898,7 @@ namespace GameServer.Maps
                         {
                             ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
                             {
-                                冷却编号 = (skillId | 0x1000000),
+                                CoolingId = (skillId | 0x1000000),
                                 Cooldown = (int)(HardTime - MainProcess.CurrentTime).TotalMilliseconds
                             });
                             ActiveConnection?.SendPacket(new 技能释放完成
@@ -4005,7 +3996,7 @@ namespace GameServer.Maps
                     }
                     ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
                     {
-                        冷却编号 = (skillId | 0x1000000),
+                        CoolingId = (skillId | 0x1000000),
                         Cooldown = (int)(BusyTime - MainProcess.CurrentTime).TotalMilliseconds
                     });
                     ActiveConnection?.SendPacket(new 技能释放完成
@@ -4018,7 +4009,7 @@ namespace GameServer.Maps
 
                 ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
                 {
-                    冷却编号 = (skillId | 0x1000000),
+                    CoolingId = (skillId | 0x1000000),
                     Cooldown = (int)(v3 - MainProcess.CurrentTime).TotalMilliseconds
                 });
                 ActiveConnection?.SendPacket(new 技能释放完成
@@ -7712,7 +7703,7 @@ namespace GameServer.Maps
             }
             else
             {
-                NumberGoldCoins -= num4;
+                this.NumberGoldCoins -= num4;
                 BackpackSize += position;
                 ActiveConnection?.SendPacket(new 背包容量改变
                 {
@@ -7742,7 +7733,7 @@ namespace GameServer.Maps
             }
             else
             {
-                NumberGoldCoins -= num2;
+                this.NumberGoldCoins -= num2;
                 WarehouseSize += position;
                 ActiveConnection?.SendPacket(new 背包容量改变
                 {
@@ -7752,15 +7743,22 @@ namespace GameServer.Maps
             }
         }
 
-        private void ExpandExtraBackpack(byte position)
+        private void ExpandExtraBackpack(byte addCells)
         {
-            if (WarehouseSize + position > (72 * 3))
+            if (BackpackSize + addCells > (72 * 3))
             {
                 ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Player expanded backpack.  Error: Warehouse exceeded limit."));
                 return;
             }
 
-            int cost = position - ExtraBackpackSize;
+            int cost = 0;
+
+            for (var i = 0; i < addCells; i++)
+            {
+                var position = ExtraBackpackSize + i;
+                var pricePerCell = (int)Math.Ceiling((decimal)position / 72m);
+                cost += pricePerCell;
+            }
 
             if (this.NumberGoldCoins < cost)
             {
@@ -7772,7 +7770,7 @@ namespace GameServer.Maps
             else
             {
                 NumberGoldCoins -= cost;
-                ExtraBackpackSize += position;
+                ExtraBackpackSize += addCells;
                 ActiveConnection?.SendPacket(new 背包容量改变
                 {
                     背包类型 = 7,
@@ -8341,21 +8339,21 @@ namespace GameServer.Maps
             GameItems GameItems;
             if (Treasures.DataSheet.TryGetValue(Id, out 珍宝商品) && GameItems.DataSheet.TryGetValue(Id, out GameItems))
             {
-                int num;
-                if (购入数量 != 1)
+                if (购入数量 <= 0)
+                    return;
+
+                int num = 购入数量;
+
+                if (购入数量 > 1)
                 {
                     if (GameItems.PersistType == PersistentItemType.堆叠)
-                    {
                         num = Math.Min(购入数量, GameItems.MaxDura);
-                        goto IL_42;
-                    }
                 }
-                num = 1;
-            IL_42:
+
                 int num2 = num;
                 int num3 = 珍宝商品.CurrentPrice * num2;
-                int num4 = -1;
                 byte b = 0;
+
                 while (b < this.BackpackSize)
                 {
                     ItemData ItemData;
@@ -8365,8 +8363,8 @@ namespace GameServer.Maps
                     }
                     else
                     {
-                        num4 = (int)b;
-                    IL_A7:
+                        int num4 = (int)b;
+
                         if (num4 == -1)
                         {
                             SConnection 网络连接 = this.ActiveConnection;
@@ -8663,35 +8661,25 @@ namespace GameServer.Maps
                         this.DoubleExp += 2750000;
                         this.CharacterData.DollarConsumption.V += 3000L;
                         this.Backpack[b4] = new ItemData(模板2, this.CharacterData, 1, b4, 1);
-                        SConnection 网络连接11 = this.ActiveConnection;
-                        if (网络连接11 != null)
+                        ActiveConnection?.SendPacket(new 玩家物品变动
                         {
-                            网络连接11.SendPacket(new 玩家物品变动
-                            {
-                                物品描述 = this.Backpack[b4].字节描述()
-                            });
-                        }
+                            物品描述 = this.Backpack[b4].字节描述()
+                        });
+
                         this.Backpack[b5] = new ItemData(模板3, this.CharacterData, 1, b5, 1);
-                        SConnection 网络连接12 = this.ActiveConnection;
-                        if (网络连接12 != null)
+                        ActiveConnection?.SendPacket(new 玩家物品变动
                         {
-                            网络连接12.SendPacket(new 玩家物品变动
-                            {
-                                物品描述 = this.Backpack[b5].字节描述()
-                            });
-                        }
+                            物品描述 = this.Backpack[b5].字节描述()
+                        });
+
                         this.CharacterData.战备日期.V = MainProcess.CurrentTime;
-                        SConnection 网络连接13 = this.ActiveConnection;
-                        if (网络连接13 != null)
+                        ActiveConnection?.SendPacket(new SyncSupplementaryVariablesPacket
                         {
-                            网络连接13.SendPacket(new SyncSupplementaryVariablesPacket
-                            {
-                                变量类型 = 1,
-                                对象编号 = this.ObjectId,
-                                变量索引 = 975,
-                                变量内容 = ComputingClass.TimeShift(MainProcess.CurrentTime)
-                            });
-                        }
+                            变量类型 = 1,
+                            对象编号 = this.ObjectId,
+                            变量索引 = 975,
+                            变量内容 = ComputingClass.TimeShift(MainProcess.CurrentTime)
+                        });
                         MainProcess.AddSystemLog(string.Format("Level [{0}][{1}] purchased [Weekly Battle Pack], consumed [3000] Game Coins", this.ObjectName, this.CurrentLevel));
                         return;
                     }
@@ -10845,6 +10833,13 @@ namespace GameServer.Maps
             SyncSelectedMount(mountId);
         }
 
+        public bool ProcessConsumableAdquireMount(ItemData item)
+        {
+            var mountId = (ushort)item.GetProp(ItemProperty.MountId, 2);
+            AdquireMount(mountId);
+            return true;
+        }
+
         private void ProcessConsumableItem(ItemData item)
         {
             if (item.物品类型 == ItemType.技能书籍)
@@ -10852,7 +10847,8 @@ namespace GameServer.Maps
                 if (LearnSkill(item.SkillId))
                 {
                     ConsumeBackpackItem(1, item);
-                    if (item.AdquireMount != null) AdquireMount(item.AdquireMount.Value);
+                    if (item.HasProp(ItemProperty.MountId))
+                        AdquireMount((ushort)item.GetProp(ItemProperty.MountId));
                 }
                 return;
             }
@@ -10897,6 +10893,9 @@ namespace GameServer.Maps
                 case UsageType.SwitchSkill:
                     processed = ProcessConsumableSwitchSkill(item);
                     break;
+                case UsageType.AdquireMount:
+                    processed = ProcessConsumableAdquireMount(item);
+                    break;
             }
 
             if (processed)
@@ -10906,7 +10905,7 @@ namespace GameServer.Maps
                     Coolings[item.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(item.GroupCooling);
                     ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
                     {
-                        冷却编号 = (item.GroupId | 0),
+                        CoolingId = (item.GroupId | 0),
                         Cooldown = item.GroupCooling
                     });
                 }
@@ -10915,7 +10914,7 @@ namespace GameServer.Maps
                     Coolings[item.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(item.Cooldown);
                     ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
                     {
-                        冷却编号 = (item.Id | 0x2000000),
+                        CoolingId = (item.Id | 0x2000000),
                         Cooldown = item.Cooldown
                     });
                 }

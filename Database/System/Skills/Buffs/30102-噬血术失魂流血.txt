@@ -1,0 +1,40 @@
+{
+  "Name": "噬血术失魂流血",
+  "Id": 30102,
+  "Group": 30102,
+  "ActionType": "Debuff",
+  "OverlayType": "HomogeneousStacking",
+  "Effect": "CausesSomeDamages",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BindingSkillLevel": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 5,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 1000,
+  "ProcessDelay": 1000,
+  "Duration": 6000,
+  "RequireBuff": [],
+  "DamageType": "Tear",
+  "DamageBase": [
+    3,
+    3,
+    3,
+    3
+  ],
+  "DamageFactor": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

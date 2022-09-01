@@ -1,0 +1,28 @@
+{
+  "SkillName": "觉醒·魔刃天旋-0-无铭文",
+  "Race": "刺客",
+  "SkillId": 1547,
+  "MinPlayerLevel": "HyImKQ==",
+  "MinSkillExp": [
+    10,
+    20,
+    30,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1547
+  ],
+  "MainSkills": [
+    "觉醒·魔刃天旋-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": [
+    "觉醒·魔刃天旋-0-无铭文-技能开关"
+  ]
+}

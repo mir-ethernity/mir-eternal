@@ -1,0 +1,24 @@
+{
+  "SkillName": "灭天火-0-无铭文",
+  "Race": "法师",
+  "SkillId": 2539,
+  "MinPlayerLevel": "JiksLw==",
+  "MinSkillExp": [
+    10,
+    20,
+    30,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "灭天火-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

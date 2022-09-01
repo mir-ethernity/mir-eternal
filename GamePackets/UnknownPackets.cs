@@ -6,12 +6,6 @@ using System.Threading.Tasks;
 
 namespace GameServer.Networking
 {
-    [PacketInfo(Source = PacketSource.Client, Id = 265, Length = 142, Description = "UnknownC1")]
-    public class UnknownC4 : GamePacket
-    {
-    }
-
-
     [PacketInfo(Source = PacketSource.Client, Id = 642, Length = 4, Description = "UnknownC1")]
     public class UnknownC1 : GamePacket
     {
@@ -27,6 +21,16 @@ namespace GameServer.Networking
     {
         [WrappingField(SubScript = 2, Length = 4)]
         public int U1;
+    }
+
+    [PacketInfo(Source = PacketSource.Client, Id = 265, Length = 11, Description = "UnknownC4")]
+    public class UnknownC4 : GamePacket
+    {
+    }
+
+    [PacketInfo(Source = PacketSource.Client, Id = 266, Length = 142, Description = "UnknownC5")]
+    public class UnknownC5 : GamePacket
+    {
     }
 
     [PacketInfo(Source = PacketSource.Server, Id = 691, Length = 16, Description = "UnknownS1")]

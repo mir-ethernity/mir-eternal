@@ -1,0 +1,16 @@
+{
+  "Name": "寒冰掌",
+  "Id": 32550,
+  "MaxDura": 10,
+  "Weight": 1,
+  "NeedLevel": 47,
+  "SalePrice": 10000,
+  "AdditionalSkill": 2550,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "技能书籍",
+  "NeedRace": "法师",
+  "PersistType": "堆叠",
+  "StoreType": "书籍"
+}

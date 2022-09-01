@@ -1,0 +1,16 @@
+{
+  "Name": "觉醒·阴阳道盾",
+  "Id": 33019,
+  "MaxDura": 10,
+  "Weight": 1,
+  "NeedLevel": 45,
+  "SalePrice": 10000,
+  "AdditionalSkill": 3025,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "技能书籍",
+  "NeedRace": "道士",
+  "PersistType": "堆叠",
+  "StoreType": "书籍"
+}

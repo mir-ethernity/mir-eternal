@@ -1,0 +1,27 @@
+{
+  "SkillName": "连环暗雷-2-旋刃印",
+  "Race": "弓手",
+  "SkillId": 2047,
+  "Id": 2,
+  "Quality": 6,
+  "Probability": 30,
+  "MinPlayerLevel": "GB0hJQ==",
+  "MinSkillExp": [
+    200,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "连环暗雷-2-旋刃印-主体技能"
+  ],
+  "SwitchSkills": []
+}

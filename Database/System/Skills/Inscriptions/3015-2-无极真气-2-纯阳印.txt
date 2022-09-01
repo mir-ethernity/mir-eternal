@@ -1,0 +1,28 @@
+{
+  "SkillName": "无极真气-2-纯阳印",
+  "Race": "道士",
+  "SkillId": 3015,
+  "Id": 2,
+  "Quality": 8,
+  "Probability": 80,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "FhgaHA==",
+  "MinSkillExp": [
+    50,
+    100,
+    150,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "无极真气-2-纯阳印-主体技能"
+  ],
+  "SwitchSkills": []
+}

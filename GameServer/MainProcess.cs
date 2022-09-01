@@ -159,6 +159,7 @@ namespace GameServer
         private static void ProcessSaveData()
         {
             if (NextSaveDataTime > CurrentTime) return;
+            GameDataGateway.强制保存();
             GameDataGateway.SaveData();
             GameDataGateway.PersistData();
             NextSaveDataTime = CurrentTime.AddSeconds(60);

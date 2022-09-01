@@ -1,0 +1,64 @@
+{
+  "SkillName": "寒冰掌-1-霜冻印-主体技能",
+  "Race": "法师",
+  "OwnSkillId": 2550,
+  "GroupId": 1,
+  "BindingLevelId": 2550,
+  "CalculateTriggerProbability": 1.0,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    12,
+    15,
+    18,
+    20
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
+      "MaxDistance": 8
+    },
+    "1": {
+      "$type": "C_03_CalculateObjectDisplacement, Assembly-CSharp",
+      "角色ItSelf位移": true,
+      "允许超出锚点": false,
+      "锚点反向位移": true,
+      "能否穿越障碍": false,
+      "ItSelf位移耗时": 1,
+      "ItSelf位移次数": "AQEBAQ==",
+      "ItSelf位移距离": "AgICAg==",
+      "目标位移距离": "AAAAAA=="
+    },
+    "2": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 1500,
+      "分组Cooldown": 1000,
+      "角色忙绿时间": 625
+    },
+    "3": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "触发SkillName": "寒冰掌-1-霜冻印-技能特效"
+    },
+    "150": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "AnchorAbsolutePosition",
+      "触发SkillName": "寒冰掌-1-霜冻印-技能伤害"
+    },
+    "500": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "AnchorAbsolutePosition",
+      "触发SkillName": "寒冰掌-1-霜冻印-技能伤害"
+    },
+    "625": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "725": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    }
+  }
+}

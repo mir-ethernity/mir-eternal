@@ -1,0 +1,24 @@
+{
+  "SkillName": "气功波-0-无铭文",
+  "Race": "道士",
+  "SkillId": 3018,
+  "MinPlayerLevel": "FhgaHA==",
+  "MinSkillExp": [
+    10,
+    20,
+    30,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "气功波-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

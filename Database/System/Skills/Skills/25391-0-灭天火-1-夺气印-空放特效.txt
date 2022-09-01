@@ -1,0 +1,24 @@
+{
+  "SkillName": "灭天火-1-夺气印-空放特效",
+  "Race": "法师",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 25391,
+  "BindingLevelId": 2539,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "1": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

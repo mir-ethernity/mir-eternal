@@ -1,0 +1,29 @@
+{
+  "SkillName": "流星火雨-2-陨石印",
+  "Race": "法师",
+  "SkillId": 2540,
+  "Id": 2,
+  "Quality": 6,
+  "Probability": 20,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "LzI1OA==",
+  "MinSkillExp": [
+    400,
+    800,
+    1600,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "流星火雨-2-陨石印-召唤陨石",
+    "流星火雨-2-陨石印-主体技能"
+  ],
+  "SwitchSkills": []
+}

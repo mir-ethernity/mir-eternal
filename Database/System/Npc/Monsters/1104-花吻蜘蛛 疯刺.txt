@@ -1,0 +1,1016 @@
+{
+  "MonsterName": "花吻蜘蛛 疯刺",
+  "Id": 1104,
+  "Level": 70,
+  "Category": "Elite",
+  "VisibleStealthTargets": true,
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "MoveInterval": 400,
+  "RoamInterval": 16000,
+  "CorpsePreservationDuration": 16000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 16000,
+  "NormalAttackSkills": "电脑-花吻蜘蛛普攻技能",
+  "Stats": [
+    {
+      "Stat": "MaxHP",
+      "Value": 13000
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 10
+    },
+    {
+      "Stat": "WalkSpeed",
+      "Value": 8
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 17
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 17
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinDC",
+      "Value": 50
+    },
+    {
+      "Stat": "MaxDC",
+      "Value": 92
+    },
+    {
+      "Stat": "MinMC"
+    },
+    {
+      "Stat": "MaxMC"
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 10
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 16
+    },
+    {
+      "Stat": "MinMCDef",
+      "Value": 24
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Value": 31
+    }
+  ],
+  "ProvideExperience": 7200,
+  "Drops": [
+    {
+      "Name": "战神盔甲(男)",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "恶魔长袍(男)",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵战衣(男)",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风侠短袍(男)",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽骨猎袍(男)",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "陷阵之甲(男)",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "战神盔甲(女)",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "恶魔长袍(女)",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵战衣(女)",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风侠短袍(女)",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽骨猎袍(女)",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "陷阵之甲(女)",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天魔神甲",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神披风",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天尊道袍",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "耀阳赤衣",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "箭灵铠甲",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙枪神甲",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣战宝甲",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "霓裳羽衣",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天师长袍",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "暗影赤衣",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "羽灵护甲",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙枪宝甲",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黄金VIP",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜腰带",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "钢黄金VIP",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "驭朱灵石1级",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫绸靴",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "避魂靴",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵项链",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 15,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生命项链",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 15,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天珠项链",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 15,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影项链",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 15,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 15,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "绿色项链",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂项链",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "恶魔铃铛",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "芒星项链",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "神射项链",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁虎项链",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣战项链",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神项链",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天尊项链",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴项链",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "箭灵项链",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "虎贲项链",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铂金戒指",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "红宝石戒指",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙之戒指",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影戒指",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼首戒指",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "力量戒指",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫碧螺",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "泰坦戒指",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "芒星戒指",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "射手指环",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁虎指环",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣战戒指",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神戒指",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天尊戒指",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴戒指",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "箭灵戒指",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "虎贲戒指",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "死神手套",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "思贝儿手镯",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "心灵手镯",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵手套",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影手镯",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狮纹手镯",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "三眼手镯",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骑士手镯",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙之手镯",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "阎罗手套",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "芒星手镯",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "血狮腕带",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁虎腕轮",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣战手镯",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神手镯",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天尊手镯",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴手镯",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "箭灵手镯",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "虎贲手镯",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔杖",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "炼狱",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "银蛇",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "追魂",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "双环战弓",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蛇牙枪",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "井中月",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "血饮",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "无极棍",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "赤影",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "沉锋",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青虹",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "裁决之杖",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙纹剑",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骨玉权杖",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙爪手",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "猎首",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "虎咆",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑铁头盔",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣战头盔",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神头盔",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天尊头盔",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴头盔",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "箭灵头盔",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙枪头盔",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 1,
+      "MinAmount": 5000,
+      "MaxAmount": 8000
+    },
+    {
+      "Name": "天书残页",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 5,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效金创药",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 3
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "疗伤药",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 3
+    },
+    {
+      "Name": "修复油",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "祝福油",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 5,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "驭朱灵石1级",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "命朱灵石1级",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "守阳灵石1级",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蔚蓝灵石1级",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精绿灵石1级",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "纯紫灵石1级",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "深灰灵石1级",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙黄灵石1级",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "战士铭文石",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法师铭文石",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士铭文石",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客铭文石",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "弓手铭文石",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙枪铭文石",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色灵气",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫色灵气",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙色灵气",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "屠魔令",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雕色石",
+      "MonsterName": "花吻蜘蛛 疯刺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

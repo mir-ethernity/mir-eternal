@@ -1,0 +1,197 @@
+{
+  "MonsterName": "道士召唤月灵",
+  "Id": 2481,
+  "Level": 41,
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "RoamInterval": 10000,
+  "CorpsePreservationDuration": 10000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 15000,
+  "NormalAttackSkills": "电脑-月灵普攻技能",
+  "ProbabilityTriggerSkills": "电脑-月灵多重技能",
+  "EnterCombatSkills": "",
+  "ExitCombatSkills": "",
+  "MoveReleaseSkill": "",
+  "BirthReleaseSkill": "",
+  "DeathReleaseSkill": "",
+  "Stats": [],
+  "Grows": [
+    {
+      "Stat": "MaxHP",
+      "Level0": 300,
+      "Level1": 420,
+      "Level2": 600,
+      "Level3": 840,
+      "Level4": 1140,
+      "Level5": 1500,
+      "Level6": 1920,
+      "Level7": 2400
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 21,
+      "Level1": 23,
+      "Level2": 25,
+      "Level3": 27,
+      "Level4": 29,
+      "Level5": 31,
+      "Level6": 33,
+      "Level7": 35
+    },
+    {
+      "Stat": "WalkSpeed",
+      "Level0": 9,
+      "Level1": 9,
+      "Level2": 9,
+      "Level3": 8,
+      "Level4": 8,
+      "Level5": 8,
+      "Level6": 8,
+      "Level7": 9
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 6,
+      "Level1": 6,
+      "Level2": 6,
+      "Level3": 7,
+      "Level4": 7,
+      "Level5": 7,
+      "Level6": 7,
+      "Level7": 8
+    },
+    {
+      "Stat": "MinMC",
+      "Level0": 16,
+      "Level1": 17,
+      "Level2": 18,
+      "Level3": 25,
+      "Level4": 26,
+      "Level5": 27,
+      "Level6": 28,
+      "Level7": 30
+    },
+    {
+      "Stat": "MaxMC",
+      "Level0": 28,
+      "Level1": 29,
+      "Level2": 30,
+      "Level3": 36,
+      "Level4": 37,
+      "Level5": 38,
+      "Level6": 39,
+      "Level7": 40
+    },
+    {
+      "Stat": "MinDef",
+      "Level0": 13,
+      "Level1": 13,
+      "Level2": 13,
+      "Level3": 20,
+      "Level4": 21,
+      "Level5": 22,
+      "Level6": 23,
+      "Level7": 25
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 19,
+      "Level1": 19,
+      "Level2": 19,
+      "Level3": 26,
+      "Level4": 27,
+      "Level5": 28,
+      "Level6": 29,
+      "Level7": 30
+    },
+    {
+      "Stat": "MinMCDef",
+      "Level0": 17,
+      "Level1": 17,
+      "Level2": 17,
+      "Level3": 25,
+      "Level4": 26,
+      "Level5": 27,
+      "Level6": 28,
+      "Level7": 30
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Level0": 23,
+      "Level1": 23,
+      "Level2": 23,
+      "Level3": 36,
+      "Level4": 37,
+      "Level5": 38,
+      "Level6": 39,
+      "Level7": 40
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 2,
+      "Level1": 2,
+      "Level2": 2,
+      "Level3": 4,
+      "Level4": 5,
+      "Level5": 6,
+      "Level6": 7,
+      "Level7": 8
+    }
+  ],
+  "InheritsStats": [
+    {
+      "InheritsStats": "MaxSC",
+      "Ratio": 0.4,
+      "ConvertStat": "MinSC"
+    },
+    {
+      "InheritsStats": "MaxSC",
+      "Ratio": 0.7,
+      "ConvertStat": "MaxSC"
+    },
+    {
+      "InheritsStats": "MaxSC",
+      "Ratio": 0.2,
+      "ConvertStat": "MinDef"
+    },
+    {
+      "InheritsStats": "MaxSC",
+      "Ratio": 0.5,
+      "ConvertStat": "MaxDef"
+    },
+    {
+      "InheritsStats": "MaxSC",
+      "Ratio": 0.2,
+      "ConvertStat": "MinMCDef"
+    },
+    {
+      "InheritsStats": "MaxSC",
+      "Ratio": 0.5,
+      "ConvertStat": "MaxMCDef"
+    },
+    {
+      "InheritsStats": "PhysicalAgility",
+      "Ratio": 1.0,
+      "ConvertStat": "PhysicalAgility"
+    },
+    {
+      "InheritsStats": "PhysicallyAccurate",
+      "Ratio": 1.0,
+      "ConvertStat": "PhysicallyAccurate"
+    },
+    {
+      "InheritsStats": "MagicDodge",
+      "Ratio": 1.0,
+      "ConvertStat": "MagicDodge"
+    },
+    {
+      "InheritsStats": "Luck",
+      "Ratio": 1.0,
+      "ConvertStat": "Luck"
+    }
+  ],
+  "Drops": []
+}

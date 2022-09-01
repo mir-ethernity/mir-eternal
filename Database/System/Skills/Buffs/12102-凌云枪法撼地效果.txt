@@ -1,0 +1,63 @@
+{
+  "Name": "凌云枪法撼地效果",
+  "Id": 12102,
+  "Group": 12102,
+  "ActionType": "Debuff",
+  "OverlayType": "SimilarReplacement",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 5000,
+  "ProcessDelay": 5000,
+  "Duration": 5000,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "WalkSpeed",
+      "Level0": 1,
+      "Level1": 1,
+      "Level2": 1,
+      "Level3": 1
+    },
+    {
+      "Stat": "RunSpeed",
+      "Level0": 2,
+      "Level1": 2,
+      "Level2": 2,
+      "Level3": 2
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

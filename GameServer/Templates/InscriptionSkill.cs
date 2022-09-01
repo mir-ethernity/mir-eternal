@@ -29,7 +29,6 @@ namespace GameServer.Templates
 		public List<ushort> PassiveSkills;
 		public List<string> MainSkills;
 		public List<string> SwitchSkills;
-		public int? AdquireMountId;
 
 		private Dictionary<GameObjectStats, int>[] _statsBonus;
 

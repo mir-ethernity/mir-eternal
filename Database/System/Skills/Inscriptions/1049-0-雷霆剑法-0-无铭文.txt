@@ -1,0 +1,27 @@
+{
+  "SkillName": "雷霆剑法-0-无铭文",
+  "SkillId": 1049,
+  "MinPlayerLevel": "LTAzNg==",
+  "MinSkillExp": [
+    10,
+    20,
+    30,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1437
+  ],
+  "MainSkills": [
+    "雷霆剑法-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": [
+    "雷霆剑法-0-无铭文-技能开关"
+  ]
+}

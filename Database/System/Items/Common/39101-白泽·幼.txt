@@ -1,0 +1,17 @@
+{
+  "Name":"白泽·幼",
+  "Id":39101,
+  "MaxDura": 1,
+  "NeedLevel": 1,
+  "SalePrice": 500,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "战具",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货",
+  "Props": {
+    "UsageType": 11,
+    "MountId": 1
+  }
+}

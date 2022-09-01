@@ -1,0 +1,440 @@
+{
+  "MonsterName": "僵尸强盗 金豹",
+  "Id": 3101,
+  "Level": 25,
+  "Category": "Elite",
+  "VisibleStealthTargets": true,
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "MoveInterval": 125,
+  "RoamInterval": 21000,
+  "CorpsePreservationDuration": 15000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 15000,
+  "NormalAttackSkills": "电脑-直立僵尸普攻技能",
+  "Stats": [
+    {
+      "Stat": "MaxHP",
+      "Value": 1000
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 5
+    },
+    {
+      "Stat": "WalkSpeed",
+      "Value": 12
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 7
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 13
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 12
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinDC",
+      "Value": 15
+    },
+    {
+      "Stat": "MaxDC",
+      "Value": 25
+    },
+    {
+      "Stat": "MinMC"
+    },
+    {
+      "Stat": "MaxMC"
+    },
+    {
+      "Stat": "MinDef"
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 3
+    },
+    {
+      "Stat": "MinMCDef"
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Value": 3
+    }
+  ],
+  "ProvideExperience": 1000,
+  "Drops": [
+    {
+      "Name": "元宝袋(小)",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 4
+    },
+    {
+      "Name": "中型盔甲(男)",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "中型盔甲(女)",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "夏普儿手镯",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "辟邪手镯",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "罗刹",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 5,
+      "MinAmount": 3000,
+      "MaxAmount": 4000
+    },
+    {
+      "Name": "强效太阳水",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 20,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺杀剑术",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 60,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "火墙",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 60,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "疾光电影",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 60,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵盾",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 60,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "神圣战甲术",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 60,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "集体隐身术",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "潜行术",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 60,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "致残毒药",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 60,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "鬼灵步",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 60,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "三发散射",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 60,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "伏波荡寇",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 20,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "横扫六合",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 20,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狂飙突刺",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 60,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天书残页",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 2
+    },
+    {
+      "Name": "修复油",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "祝福油",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "驭朱灵石1级",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "命朱灵石1级",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "守阳灵石1级",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蔚蓝灵石1级",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精绿灵石1级",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "纯紫灵石1级",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "深灰灵石1级",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙黄灵石1级",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "战士铭文石",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法师铭文石",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士铭文石",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客铭文石",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "弓手铭文石",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙枪铭文石",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "半月弯刀",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "地狱雷光",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣言术",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "困魔咒",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "群体治愈术",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "炎龙波",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "击飞射击",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "乾坤斗气",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色灵气",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫色灵气",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙色灵气",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "屠魔令",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雕色石",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "钩镰枪法",
+      "MonsterName": "僵尸强盗 金豹",
+      "Probability": 60,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

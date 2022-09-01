@@ -1,0 +1,841 @@
+{
+  "MonsterName": "兽战士 白牙",
+  "Id": 3122,
+  "Level": 70,
+  "Category": "Elite",
+  "VisibleStealthTargets": true,
+  "CanBeSeducedBySkills": true,
+  "BaseTemptationProbability": 0.01,
+  "MoveInterval": 500,
+  "RoamInterval": 20000,
+  "CorpsePreservationDuration": 20000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 20000,
+  "NormalAttackSkills": "电脑-半兽战士勇士普攻",
+  "Stats": [
+    {
+      "Stat": "MaxHP",
+      "Value": 5500
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 3
+    },
+    {
+      "Stat": "WalkSpeed",
+      "Value": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 13
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 13
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinDC",
+      "Value": 20
+    },
+    {
+      "Stat": "MaxDC",
+      "Value": 42
+    },
+    {
+      "Stat": "MinMC"
+    },
+    {
+      "Stat": "MaxMC"
+    },
+    {
+      "Stat": "MinDef"
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 3
+    },
+    {
+      "Stat": "MinMCDef"
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Value": 3
+    }
+  ],
+  "Grows": [
+    {
+      "Stat": "MaxHP",
+      "Level0": 300,
+      "Level1": 330,
+      "Level2": 360,
+      "Level3": 395,
+      "Level4": 430,
+      "Level5": 470,
+      "Level6": 510,
+      "Level7": 555
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 3,
+      "Level1": 4,
+      "Level2": 5,
+      "Level3": 6,
+      "Level4": 6,
+      "Level5": 7,
+      "Level6": 7,
+      "Level7": 7
+    },
+    {
+      "Stat": "WalkSpeed",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 10,
+      "Level4": 10,
+      "Level5": 10,
+      "Level6": 10,
+      "Level7": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 5,
+      "Level6": 5,
+      "Level7": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 13,
+      "Level1": 13,
+      "Level2": 13,
+      "Level3": 14,
+      "Level4": 14,
+      "Level5": 15,
+      "Level6": 15,
+      "Level7": 15
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 13,
+      "Level1": 13,
+      "Level2": 13,
+      "Level3": 14,
+      "Level4": 14,
+      "Level5": 15,
+      "Level6": 15,
+      "Level7": 15
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinDC",
+      "Level0": 15,
+      "Level1": 15,
+      "Level2": 15,
+      "Level3": 15,
+      "Level4": 15,
+      "Level5": 15,
+      "Level6": 15,
+      "Level7": 15
+    },
+    {
+      "Stat": "MaxDC",
+      "Level0": 32,
+      "Level1": 33,
+      "Level2": 34,
+      "Level3": 35,
+      "Level4": 36,
+      "Level5": 37,
+      "Level6": 38,
+      "Level7": 39
+    },
+    {
+      "Stat": "MinMC"
+    },
+    {
+      "Stat": "MaxMC"
+    },
+    {
+      "Stat": "MinDef"
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 5,
+      "Level1": 6,
+      "Level2": 7,
+      "Level3": 8,
+      "Level4": 9,
+      "Level5": 10,
+      "Level6": 11,
+      "Level7": 12
+    },
+    {
+      "Stat": "MinMCDef"
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Level0": 5,
+      "Level1": 6,
+      "Level2": 7,
+      "Level3": 8,
+      "Level4": 9,
+      "Level5": 10,
+      "Level6": 11,
+      "Level7": 12
+    }
+  ],
+  "InheritsStats": [],
+  "ProvideExperience": 3000,
+  "Drops": [
+    {
+      "Name": "蓝色灵气",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫色灵气",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙色灵气",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "苍月锦",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "棉线",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽皮",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "勋章之心",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "祈福项链",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "矿渣",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "命运之证",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铭文位切换神符",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "打孔石",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "白银VIP",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "钻石VIP",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主驭朱灵石",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "守阳灵石1级",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主蔚蓝灵石",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主精绿灵石",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主深灰灵石",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主橙黄灵石",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙黄灵石2级",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "逐日剑法",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色灵气",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "寒冰掌",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "噬血术",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "无极真气",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道德戒指",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魅力戒指",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅戒指",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "翡翠戒指",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "扣弦扳指",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金戒指",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珊瑚戒指",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫玉戒指",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁皮指环",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法手镯",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔力手镯",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "坚固手套",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士手镯",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑檀手镯",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "夏普儿手镯",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 3000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "辟邪手镯",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金手镯",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "桃木手镯",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤手镯",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "破魂",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "罗刹",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "偃月",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "降魔",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "斩马刀",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "冰月戟",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁胎弓",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "百炼枪",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "修罗",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凝霜",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士头盔",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 1,
+      "MinAmount": 4000,
+      "MaxAmount": 6500
+    },
+    {
+      "Name": "天书残页",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 5,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效金创药",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 3
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "疗伤药",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 3
+    },
+    {
+      "Name": "修复油",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 5,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "祝福油",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 5,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "驭朱灵石1级",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "命朱灵石1级",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "守阳灵石1级",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蔚蓝灵石1级",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精绿灵石1级",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "纯紫灵石1级",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "深灰灵石1级",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙黄灵石1级",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "战士铭文石",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法师铭文石",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士铭文石",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客铭文石",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "弓手铭文石",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙枪铭文石",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "半月弯刀",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "地狱雷光",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣言术",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "困魔咒",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽皮",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "矿渣",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "击飞射击",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主精绿灵石",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色灵气",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫色灵气",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙色灵气",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "屠魔令",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 3,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雕色石",
+      "MonsterName": "兽战士 白牙",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

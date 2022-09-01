@@ -1,0 +1,32 @@
+{
+  "SkillName": "凌云枪法-1-撼地印",
+  "Race": "龙枪",
+  "SkillId": 1210,
+  "Id": 1,
+  "Quality": 8,
+  "Probability": 80,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "IyUoKg==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1603
+  ],
+  "MainSkills": [
+    "凌云枪法-1-撼地印-主体技能"
+  ],
+  "SwitchSkills": [
+    "凌云枪法-0-无铭文-技能开关"
+  ]
+}

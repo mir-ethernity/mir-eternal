@@ -1,0 +1,62 @@
+{
+  "SkillName": "觉醒·万箭穿心-0-无铭文-主体技能",
+  "Race": "弓手",
+  "OwnSkillId": 2057,
+  "GroupId": 1,
+  "BindingLevelId": 2057,
+  "CalculateTriggerProbability": 1.0,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "CheckOccupationalWeapons": true,
+  "NeedConsumeMagic": [
+    4,
+    6,
+    8,
+    10
+  ],
+  "NeedConsumeItems": [
+    40202,
+    40201
+  ],
+  "NeedConsumeItemsQuantity": 1,
+  "GearDeductionPoints": 1,
+  "Nodes": {
+    "0": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
+      "MaxDistance": 8
+    },
+    "1": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "角色忙绿时间": 500
+    },
+    "500": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 1250,
+      "禁止行走时间": 875,
+      "禁止奔跑时间": 650
+    },
+    "501": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "技能范围类型": "Spiral7x7",
+      "HitsLimit": 4,
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetRelationship": "Hostility",
+      "GainSkillExp": true,
+      "ExpSkillId": 2057,
+      "清除状态列表": []
+    },
+    "502": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "觉醒·万箭穿心-0-无铭文-命中触发"
+    },
+    "1250": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    }
+  }
+}

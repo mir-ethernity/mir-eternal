@@ -1,0 +1,62 @@
+{
+  "Name": "噬血术夺魂效果",
+  "Id": 30100,
+  "Group": 30100,
+  "OverlayType": "SimilarReplacement",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BindingSkillLevel": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessDelay": 5000,
+  "Duration": 5000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "BoundPlayerStat": "MaxSC",
+  "StatsIncOrDec": [
+    {
+      "Stat": "MaxDef",
+      "Level0": -5,
+      "Level1": -6,
+      "Level2": -7,
+      "Level3": -8
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Level0": -5,
+      "Level1": -6,
+      "Level2": -7,
+      "Level3": -8
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

@@ -1,0 +1,50 @@
+{
+  "SkillName": "觉醒·召唤月灵-0-无铭文-主体技能",
+  "Race": "道士",
+  "OwnSkillId": 3024,
+  "GroupId": 2,
+  "BindingLevelId": 3024,
+  "CalculateTriggerProbability": 1.0,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    28,
+    32,
+    36,
+    40
+  ],
+  "NeedConsumeItems": [
+    40103,
+    40101,
+    40102
+  ],
+  "NeedConsumeItemsQuantity": 5,
+  "GearDeductionPoints": 5,
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 1750,
+      "分组Cooldown": 1750,
+      "角色忙绿时间": 625
+    },
+    "624": {
+      "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
+      "PetName": "道士召唤月灵",
+      "SpawnCount": "AgICAg==",
+      "LevelCap": "AQMFBw==",
+      "GainSkillExp": true,
+      "ExpSkillId": 3017
+    },
+    "625": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 600,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "1000": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    }
+  }
+}

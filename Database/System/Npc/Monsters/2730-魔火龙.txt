@@ -1,0 +1,487 @@
+{
+  "ActiveAttackTarget": true,
+  "VisibleStealthTargets": true,
+  "CorpsePreservationDuration": 60000,
+  "HateTime": 30000,
+  "RangeHate": 8,
+  "MonsterName": "魔火龙",
+  "Stats": [
+    {
+      "Stat": "MaxHP",
+      "Value": 3500000
+    },
+    {
+      "Stat": "WalkSpeed",
+      "Value": 6
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 160
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 10
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 35
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 21
+    },
+    {
+      "Stat": "MinDC",
+      "Value": 165
+    },
+    {
+      "Stat": "MaxDC",
+      "Value": 215
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 165
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 200
+    },
+    {
+      "Stat": "MinMCDef",
+      "Value": 94
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Value": 160
+    }
+  ],
+  "Drops": [
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 50,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "城主暗灭轮"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 50,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "城主开天"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 50,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "城主镇天"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 50,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "城主屠龙"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 50,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "城主倚天剑"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 50,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "城主披风(法神)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 50,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "城主披风(圣战)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 50,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "城主披风(天尊)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 50,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "城主披风(刺客)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 50,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "城主披风(弓手)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 50,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "城主披风(龙枪)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王项链(圣战)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王项链(法神)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王项链(天尊)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王项链(影刺)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王项链(箭灵)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王项链(龙枪)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王戒指(圣战)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王戒指(法神)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王戒指(天尊)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王戒指(影刺)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王戒指(箭灵)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王戒指(龙枪)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王手镯(圣战)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王手镯(法神)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王手镯(天尊)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王手镯(影刺)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王手镯(箭灵)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王手镯(龙枪)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王战甲(男)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王战甲(女)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王法衣(男)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王法衣(女)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王道袍(男)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王道袍(女)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王暗衣(男)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王暗衣(女)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王猎装(男)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王猎装(女)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王将袍(男)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 30,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "星王将袍(女)"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 20,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "预言腰带（法神）"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 20,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "预言靴子（法神）"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 20,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "预言头盔（法神）"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 20,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "预言头盔（圣战）"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 20,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "预言腰带（圣战）"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 20,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "预言靴子（圣战）"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 20,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "预言头盔（天尊）"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 20,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "预言腰带（天尊）"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 20,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "预言靴子（天尊）"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 20,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "预言头盔（影刺）"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 20,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "预言腰带（影刺）"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 20,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "预言靴子（影刺）"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 20,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "预言头盔（箭灵）"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 20,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "预言腰带（箭灵）"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 20,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "预言靴子（箭灵）"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 20,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "预言头盔（龙枪）"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 20,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "预言腰带（龙枪）"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 20,
+      "MaxAmount": 1,
+      "MinAmount": 1,
+      "Name": "预言靴子（龙枪）"
+    },
+    {
+      "MonsterName": "魔火龙",
+      "Probability": 1,
+      "MaxAmount": 100000,
+      "MinAmount": 90000,
+      "Name": "金币"
+    }
+  ],
+  "ProvideExperience": 25000,
+  "RoamInterval": 30000,
+  "Level": 99,
+  "Category": "Boss",
+  "Id": 2730,
+  "NormalAttackSkills": "电脑-魔火龙普攻技能",
+  "ProbabilityTriggerSkills": "电脑-血手概率触发技能"
+}

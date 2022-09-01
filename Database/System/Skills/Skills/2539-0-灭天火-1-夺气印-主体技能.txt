@@ -1,0 +1,79 @@
+{
+  "SkillName": "灭天火-1-夺气印-主体技能",
+  "Race": "法师",
+  "OwnSkillId": 2539,
+  "GroupId": 1,
+  "BindingLevelId": 2539,
+  "CalculateTriggerProbability": 1.0,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    1,
+    1,
+    1,
+    1
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
+      "MaxDistance": 8
+    },
+    "1": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 1500,
+      "分组Cooldown": 1000,
+      "角色忙绿时间": 625
+    },
+    "623": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能能否招架": true,
+      "技能锁定方式": "锁定目标",
+      "SkillEvasion": "CanBeMagicEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能命中通知": true,
+      "HitsLimit": 1,
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "624": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Magic",
+      "技能伤害基数": [
+        17,
+        19,
+        21,
+        24
+      ],
+      "技能伤害系数": [
+        1.2,
+        1.3,
+        1.4,
+        1.5
+      ],
+      "GainSkillExp": true,
+      "ExpSkillId": 2539,
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    },
+    "501": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "AnchorAbsolutePosition",
+      "触发SkillName": "灭天火-1-夺气印-空放特效"
+    },
+    "625": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "725": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    }
+  }
+}

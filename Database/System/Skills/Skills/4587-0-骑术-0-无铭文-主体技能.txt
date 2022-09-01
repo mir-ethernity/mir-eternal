@@ -15,14 +15,14 @@
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
-      "ItSelfCooldown": 10000
+      "ItSelfCooldown": 1000
     },
-    "1": {
+    "2000": {
       "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",
       "SkillTagId": 2555,
       "允许移除标记": true
     },
-    "2": {
+    "2001": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true
     }

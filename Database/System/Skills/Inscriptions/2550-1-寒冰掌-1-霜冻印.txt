@@ -1,0 +1,27 @@
+{
+  "SkillName": "寒冰掌-1-霜冻印",
+  "Race": "法师",
+  "SkillId": 2550,
+  "Id": 1,
+  "Quality": 1,
+  "Probability": 100,
+  "MinPlayerLevel": "JCcpLA==",
+  "MinSkillExp": [
+    120,
+    300,
+    500,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "寒冰掌-1-霜冻印-主体技能"
+  ],
+  "SwitchSkills": []
+}

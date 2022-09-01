@@ -1,0 +1,56 @@
+{
+  "Name": "无极真气普通效果",
+  "Id": 30150,
+  "Group": 30150,
+  "OverlayType": "SimilarDelay",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 10000,
+  "ProcessDelay": 10000,
+  "Duration": 10000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "MaxSC",
+      "Level0": 5,
+      "Level1": 10,
+      "Level2": 15,
+      "Level3": 20
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

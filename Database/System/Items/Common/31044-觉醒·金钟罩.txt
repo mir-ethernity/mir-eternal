@@ -1,0 +1,16 @@
+{
+  "Name": "觉醒·金钟罩",
+  "Id": 31044,
+  "MaxDura": 10,
+  "Weight": 1,
+  "NeedLevel": 40,
+  "SalePrice": 10000,
+  "AdditionalSkill": 1047,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "技能书籍",
+  "NeedRace": "战士",
+  "PersistType": "堆叠",
+  "StoreType": "书籍"
+}

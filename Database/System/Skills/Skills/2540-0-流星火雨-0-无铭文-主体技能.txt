@@ -1,0 +1,74 @@
+{
+  "SkillName": "流星火雨-0-无铭文-主体技能",
+  "Race": "法师",
+  "OwnSkillId": 2540,
+  "GroupId": 1,
+  "BindingLevelId": 2540,
+  "CalculateTriggerProbability": 1.0,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    43,
+    46,
+    49,
+    52
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
+      "MaxDistance": 8
+    },
+    "1": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 1500,
+      "分组Cooldown": 1000,
+      "角色忙绿时间": 625
+    },
+    "2": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能能否招架": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "SkillHitFeedback": "后仰",
+      "技能范围类型": "Solid5x5",
+      "技能命中通知": true,
+      "HitsLimit": 12,
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "350": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Magic",
+      "技能伤害基数": [
+        25,
+        29,
+        33,
+        37
+      ],
+      "技能伤害系数": [
+        1.5,
+        1.6,
+        1.7,
+        1.8
+      ],
+      "GainSkillExp": true,
+      "ExpSkillId": 2540,
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    },
+    "625": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "725": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    }
+  }
+}

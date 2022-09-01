@@ -1,0 +1,26 @@
+{
+  "SkillName": "阴阳道盾-0-无铭文",
+  "Race": "道士",
+  "SkillId": 3025,
+  "MinPlayerLevel": "HyImKQ==",
+  "MinSkillExp": [
+    10,
+    20,
+    30,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "阴阳道盾-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": [
+    "阴阳道盾-0-无铭文-技能开关"
+  ]
+}

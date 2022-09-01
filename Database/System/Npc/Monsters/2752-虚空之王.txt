@@ -1,0 +1,28 @@
+{
+  "MonsterName": "虚空之王",
+  "Id": 2752,
+  "Level": 2,
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CanBeSeducedBySkills": true,
+  "BaseTemptationProbability": 0.25,
+  "MoveInterval": 1000,
+  "RoamInterval": 15000,
+  "CorpsePreservationDuration": 15000,
+  "RangeHate": 3,
+  "HateTime": 10000,
+  "NormalAttackSkills": "电脑-牛魔王的普攻技能",
+  "ProbabilityTriggerSkills": "",
+  "EnterCombatSkills": "",
+  "ExitCombatSkills": "",
+  "MoveReleaseSkill": "",
+  "BirthReleaseSkill": "",
+  "DeathReleaseSkill": "",
+  "Stats": [
+    {
+      "Stat": "MaxHP",
+      "Value": 2752
+    }
+  ]
+}

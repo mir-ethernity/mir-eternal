@@ -1,0 +1,507 @@
+{
+  "MonsterName": "铁腹角虫 六足",
+  "Id": 3186,
+  "Level": 70,
+  "Category": "Elite",
+  "VisibleStealthTargets": true,
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "MoveInterval": 500,
+  "RoamInterval": 14000,
+  "CorpsePreservationDuration": 14000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 16000,
+  "NormalAttackSkills": "电脑-多角虫的普攻技能",
+  "Stats": [
+    {
+      "Stat": "MaxHP",
+      "Value": 1000
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 1
+    },
+    {
+      "Stat": "WalkSpeed",
+      "Value": 12
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 9
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 9
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinDC",
+      "Value": 17
+    },
+    {
+      "Stat": "MaxDC",
+      "Value": 28
+    },
+    {
+      "Stat": "MinMC"
+    },
+    {
+      "Stat": "MaxMC"
+    },
+    {
+      "Stat": "MinDef"
+    },
+    {
+      "Stat": "MaxDef"
+    },
+    {
+      "Stat": "MinMCDef"
+    },
+    {
+      "Stat": "MaxMCDef"
+    }
+  ],
+  "Grows": [
+    {
+      "Stat": "MaxHP",
+      "Level0": 45,
+      "Level1": 55,
+      "Level2": 65,
+      "Level3": 80,
+      "Level4": 95,
+      "Level5": 115,
+      "Level6": 135,
+      "Level7": 160
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 1,
+      "Level1": 2,
+      "Level2": 3,
+      "Level3": 3,
+      "Level4": 3,
+      "Level5": 4,
+      "Level6": 4,
+      "Level7": 5
+    },
+    {
+      "Stat": "WalkSpeed",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 10,
+      "Level4": 10,
+      "Level5": 10,
+      "Level6": 10,
+      "Level7": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 5,
+      "Level6": 5,
+      "Level7": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 11,
+      "Level4": 11,
+      "Level5": 12,
+      "Level6": 12,
+      "Level7": 12
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 11,
+      "Level4": 11,
+      "Level5": 12,
+      "Level6": 12,
+      "Level7": 12
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinDC",
+      "Level0": 7,
+      "Level1": 7,
+      "Level2": 7,
+      "Level3": 7,
+      "Level4": 7,
+      "Level5": 7,
+      "Level6": 7,
+      "Level7": 7
+    },
+    {
+      "Stat": "MaxDC",
+      "Level0": 9,
+      "Level1": 10,
+      "Level2": 11,
+      "Level3": 12,
+      "Level4": 13,
+      "Level5": 14,
+      "Level6": 15,
+      "Level7": 16
+    },
+    {
+      "Stat": "MinMC"
+    },
+    {
+      "Stat": "MaxMC"
+    },
+    {
+      "Stat": "MinDef",
+      "Level1": 1,
+      "Level2": 2,
+      "Level3": 3,
+      "Level4": 4,
+      "Level5": 5,
+      "Level6": 6,
+      "Level7": 7
+    },
+    {
+      "Stat": "MaxDef"
+    },
+    {
+      "Stat": "MinMCDef"
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Level1": 1,
+      "Level2": 2,
+      "Level3": 3,
+      "Level4": 4,
+      "Level5": 5,
+      "Level6": 6,
+      "Level7": 7
+    }
+  ],
+  "ProvideExperience": 4000,
+  "Drops": [
+    {
+      "Name": "轻型盔甲",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "轻型盔甲(女)",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黄色水晶项链",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑檀项链",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑色水晶项链",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古铜戒指",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玻璃戒指",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "六角戒指",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "牛角戒指",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁手镯",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "银手镯",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "皮制手套",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "钢手镯",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "大手镯",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 450,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "短剑",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁剑",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 70,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜斧",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "双刀",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "神臂弓",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜枪",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 5,
+      "MinAmount": 2000,
+      "MaxAmount": 5000
+    },
+    {
+      "Name": "天书残页",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 5,
+      "MinAmount": 1,
+      "MaxAmount": 2
+    },
+    {
+      "Name": "修复油",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 5,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "祝福油",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "驭朱灵石1级",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "命朱灵石1级",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "守阳灵石1级",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蔚蓝灵石1级",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精绿灵石1级",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "纯紫灵石1级",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "深灰灵石1级",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙黄灵石1级",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "战士铭文石",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法师铭文石",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士铭文石",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客铭文石",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "弓手铭文石",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙枪铭文石",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色灵气",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫色灵气",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙色灵气",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "屠魔令",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 3,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雕色石",
+      "MonsterName": "铁腹角虫 六足",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

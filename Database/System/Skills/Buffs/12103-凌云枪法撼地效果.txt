@@ -1,0 +1,63 @@
+{
+  "Name": "凌云枪法撼地效果",
+  "Id": 12103,
+  "Group": 12103,
+  "ActionType": "Debuff",
+  "OverlayType": "SimilarReplacement",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 5000,
+  "ProcessDelay": 5000,
+  "Duration": 5000,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "MagicDodge",
+      "Level0": -200,
+      "Level1": -400,
+      "Level2": -600,
+      "Level3": -800
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": -2,
+      "Level1": -4,
+      "Level2": -6,
+      "Level3": -8
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

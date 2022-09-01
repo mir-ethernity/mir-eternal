@@ -1,0 +1,26 @@
+{
+  "SkillName": "穿刺射击-0-无铭文",
+  "Race": "弓手",
+  "SkillId": 2050,
+  "MinPlayerLevel": "HyImKQ==",
+  "MinSkillExp": [
+    10,
+    20,
+    30,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "穿刺射击-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": [
+    ""
+  ]
+}

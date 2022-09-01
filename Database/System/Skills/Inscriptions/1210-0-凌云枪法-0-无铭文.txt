@@ -1,0 +1,27 @@
+{
+  "SkillName": "凌云枪法-0-无铭文",
+  "SkillId": 1210,
+  "MinPlayerLevel": "IyUoKg==",
+  "MinSkillExp": [
+    10,
+    20,
+    30,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1603
+  ],
+  "MainSkills": [
+    "凌云枪法-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": [
+    "凌云枪法-0-无铭文-技能开关"
+  ]
+}

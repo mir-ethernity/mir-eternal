@@ -1,0 +1,49 @@
+{
+  "Name": "流行火雨陨石蓄力",
+  "Id": 25401,
+  "Group": 25401,
+  "OverlayType": "HomogeneousStacking",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnChangeWeaponRemove": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 3,
+  "BuffSynthesisLayer": 3,
+  "AllowsSynthesis": true,
+  "BuffSynthesisId": 25402,
+  "ProcessInterval": 15000,
+  "ProcessDelay": 15000,
+  "Duration": 15000,
+  "RequireBuff": [],
+  "DamageType": "Magic",
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

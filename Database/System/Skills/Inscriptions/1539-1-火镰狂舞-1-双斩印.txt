@@ -1,0 +1,30 @@
+{
+  "SkillName": "火镰狂舞-1-双斩印",
+  "Race": "刺客",
+  "SkillId": 1539,
+  "Id": 1,
+  "Quality": 4,
+  "Probability": 20,
+  "PassiveSkill": true,
+  "MinPlayerLevel": "IyYpLA==",
+  "MinSkillExp": [
+    20,
+    40,
+    60,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1932
+  ],
+  "MainSkills": [
+    "火镰狂舞-1-双斩印-主体技能"
+  ],
+  "SwitchSkills": []
+}

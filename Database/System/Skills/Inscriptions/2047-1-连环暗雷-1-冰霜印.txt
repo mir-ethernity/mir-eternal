@@ -1,0 +1,27 @@
+{
+  "SkillName": "连环暗雷-1-冰霜印",
+  "Race": "弓手",
+  "SkillId": 2047,
+  "Id": 1,
+  "Quality": 6,
+  "Probability": 25,
+  "MinPlayerLevel": "GB0hJQ==",
+  "MinSkillExp": [
+    200,
+    400,
+    800,
+    0
+  ],
+  "SkillCombatBonus": [
+    10,
+    15,
+    20,
+    25
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "连环暗雷-1-冰霜印-主体技能"
+  ],
+  "SwitchSkills": []
+}

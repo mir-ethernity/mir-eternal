@@ -1,0 +1,24 @@
+{
+  "SkillName": "觉醒·法神奥义-0-无铭文",
+  "Race": "法师",
+  "SkillId": 2557,
+  "MinPlayerLevel": "FhgaHA==",
+  "MinSkillExp": [
+    10,
+    20,
+    30,
+    0
+  ],
+  "SkillCombatBonus": [
+    6,
+    9,
+    12,
+    15
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "觉醒·法神奥义-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

@@ -1,0 +1,92 @@
+{
+  "SkillName": "献祭-0-全铭文-触发判定",
+  "Race": "刺客",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 1545,
+  "BindingLevelId": 1545,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能锁定方式": "锁定目标",
+      "放空结束技能": true,
+      "HitsLimit": 1,
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "1": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "触发Id": 15450,
+      "Buff触发概率": 0.25,
+      "验证铭文技能": true,
+      "所需Id": 15450,
+      "同组铭文无效": true,
+      "所需Buff层数": 1,
+      "GainSkillExp": true,
+      "ExpSkillId": 1545
+    },
+    "2": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "触发Id": 15450,
+      "Buff触发概率": 1.0,
+      "验证铭文技能": true,
+      "所需Id": 15451,
+      "同组铭文无效": true,
+      "所需Buff层数": 1,
+      "GainSkillExp": true,
+      "ExpSkillId": 1545
+    },
+    "3": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "触发Id": 15451,
+      "Buff触发概率": 0.25,
+      "验证铭文技能": true,
+      "所需Id": 15452,
+      "同组铭文无效": true,
+      "所需Buff层数": 1,
+      "GainSkillExp": true,
+      "ExpSkillId": 1545
+    },
+    "4": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "触发Id": 15450,
+      "Buff触发概率": 0.25,
+      "验证铭文技能": true,
+      "所需Id": 15453,
+      "同组铭文无效": true,
+      "所需Buff层数": 1,
+      "GainSkillExp": true,
+      "ExpSkillId": 1545
+    },
+    "5": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "触发Id": 15450,
+      "Buff触发概率": 0.25,
+      "验证铭文技能": true,
+      "所需Id": 15454,
+      "同组铭文无效": true,
+      "所需Buff层数": 1,
+      "GainSkillExp": true,
+      "ExpSkillId": 1545
+    },
+    "6": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 15452,
+      "Buff触发概率": 1.0,
+      "验证铭文技能": true,
+      "所需Id": 15454,
+      "同组铭文无效": true,
+      "VerifyTargetBuff": true,
+      "目标Id": 15454,
+      "所需Buff层数": 5
+    }
+  }
+}

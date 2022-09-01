@@ -1128,6 +1128,7 @@ namespace GameServer.Data
                     binaryWriter.Write((short)num);
 
                     int num2 = 0;
+
                     if (物品状态.V != 1) num2 |= 1;
                     else if (随机Stat.Count != 0) num2 |= 1;
                     else if (Sacred伤害.V != 0) num2 |= 1;
@@ -1155,12 +1156,23 @@ namespace GameServer.Data
                     if (镶嵌灵石[3] != null) num2 |= 0x20000;
 
                     if (Sacred伤害.V != 0) num2 |= 0x400000;
-
                     else if (圣石数量.V != 0) num2 |= 0x400000;
+
+                    // unknown flag
+                    if (false) num2 |= 0x80000;
+                   
+                    // expire time
+                    if (false) num2 |= 0x100000;
+
+                    // unknown flag
+                    if (false) num2 |= 0x200000;
 
                     if (祈祷次数.V != 0) num2 |= 0x800000;
 
                     if (装备神佑.V) num2 |= 0x2000000;
+
+                    // unknow flag
+                    if (false) num2 |= 0x4000000;
 
                     binaryWriter.Write(num2);
 
@@ -1252,7 +1264,7 @@ namespace GameServer.Data
                         binaryWriter.Write(0);
 
                     if (((uint)num2 & 0x100000u) != 0)
-                        binaryWriter.Write(0);
+                        binaryWriter.Write(ComputingClass.TimeShift(DateTime.Now.AddMinutes(10)));
 
                     if (((uint)num2 & 0x200000u) != 0)
                         binaryWriter.Write(0);

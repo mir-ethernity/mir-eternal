@@ -1,0 +1,37 @@
+{
+  "SkillName": "火镰狂舞-1-双斩印-冷却减少",
+  "Race": "刺客",
+  "OwnSkillId": 1539,
+  "Id": 1,
+  "GroupId": 1,
+  "BindingLevelId": 1539,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能锁定方式": "锁定目标",
+      "HitsLimit": 1,
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "1": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Needle",
+      "技能伤害基数": [],
+      "技能伤害系数": [],
+      "命中减少冷却": true,
+      "冷却减少技能": 1538,
+      "冷却减少分组": 1,
+      "冷却减少时间": 10000,
+      "清除状态列表": []
+    }
+  }
+}
