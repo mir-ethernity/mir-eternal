@@ -3604,7 +3604,7 @@ namespace GameServer.Maps
             {
                 ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
                 {
-                    冷却编号 = (skillId | 0x1000000),
+                    CoolingId = (skillId | 0x1000000),
                     Cooldown = (int)(v2 - MainProcess.CurrentTime).TotalMilliseconds
                 });
                 ActiveConnection?.SendPacket(new 技能释放完成
@@ -3623,9 +3623,7 @@ namespace GameServer.Maps
 
             foreach (BuffData BuffData in this.Buffs.Values.ToList<BuffData>())
             {
-                if (BuffData.OnReleaseSkillRemove)
-                    base.删除Buff时处理(BuffData.Id.V);
-                else if (CharRole == GameObjectRace.刺客 && (BuffData.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign && (BuffData.Template.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal)
+                if (CharRole == GameObjectRace.刺客 && (BuffData.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign && (BuffData.Template.PlayerState & GameObjectState.StealthStatus) != GameObjectState.Normal)
                     base.删除Buff时处理(BuffData.Id.V);
             }
 
@@ -3657,7 +3655,7 @@ namespace GameServer.Maps
                         {
                             ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
                             {
-                                冷却编号 = (skillId | 0x1000000),
+                                CoolingId = (skillId | 0x1000000),
                                 Cooldown = (int)(HardTime - MainProcess.CurrentTime).TotalMilliseconds
                             });
                             ActiveConnection?.SendPacket(new 技能释放完成
@@ -3755,7 +3753,7 @@ namespace GameServer.Maps
                     }
                     ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
                     {
-                        冷却编号 = (skillId | 0x1000000),
+                        CoolingId = (skillId | 0x1000000),
                         Cooldown = (int)(BusyTime - MainProcess.CurrentTime).TotalMilliseconds
                     });
                     ActiveConnection?.SendPacket(new 技能释放完成
@@ -3768,7 +3766,7 @@ namespace GameServer.Maps
 
                 ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
                 {
-                    冷却编号 = (skillId | 0x1000000),
+                    CoolingId = (skillId | 0x1000000),
                     Cooldown = (int)(v3 - MainProcess.CurrentTime).TotalMilliseconds
                 });
                 ActiveConnection?.SendPacket(new 技能释放完成
@@ -10642,7 +10640,7 @@ namespace GameServer.Maps
                     Coolings[item.GroupId | 0] = MainProcess.CurrentTime.AddMilliseconds(item.GroupCooling);
                     ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
                     {
-                        冷却编号 = (item.GroupId | 0),
+                        CoolingId = (item.GroupId | 0),
                         Cooldown = item.GroupCooling
                     });
                 }
@@ -10651,7 +10649,7 @@ namespace GameServer.Maps
                     Coolings[item.Id | 0x2000000] = MainProcess.CurrentTime.AddMilliseconds(item.Cooldown);
                     ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
                     {
-                        冷却编号 = (item.Id | 0x2000000),
+                        CoolingId = (item.Id | 0x2000000),
                         Cooldown = item.Cooldown
                     });
                 }

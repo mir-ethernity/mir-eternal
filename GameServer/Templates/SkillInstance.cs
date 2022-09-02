@@ -365,7 +365,7 @@ namespace GameServer.Templates
                                 CasterObject.Coolings[SkillId | 0x1000000] = dateTime;
                                 CasterObject.SendPacket(new AddedSkillCooldownPacket
                                 {
-                                    冷却编号 = ((int)SkillId | 0x1000000),
+                                    CoolingId = ((int)SkillId | 0x1000000),
                                     Cooldown = num8
                                 });
                             }
@@ -379,7 +379,7 @@ namespace GameServer.Templates
                         if (dateTime2 > t2) playerObj2.Coolings[(int)(GroupId | 0)] = dateTime2;
                         CasterObject.SendPacket(new AddedSkillCooldownPacket
                         {
-                            冷却编号 = (int)(GroupId | 0),
+                            CoolingId = (int)(GroupId | 0),
                             Cooldown = b_01.分组Cooldown
                         });
                     }
@@ -388,16 +388,16 @@ namespace GameServer.Templates
                         CasterObject.BusyTime = ReleaseTime.AddMilliseconds((double)b_01.角色忙绿时间);
 
                     if (b_01.发送释放通知)
-                        CasterObject.SendPacket(new 开始释放技能
+                        CasterObject.SendPacket(new StartToReleaseSkillPacket
                         {
-                            对象编号 = !TargetBorrow || SkillTarget == null ? CasterObject.ObjectId : SkillTarget.ObjectId,
+                            ObjectId = !TargetBorrow || SkillTarget == null ? CasterObject.ObjectId : SkillTarget.ObjectId, // On ride send 3, its horse id?
                             SkillId = SkillId,
                             SkillLevel = SkillLevel,
-                            技能铭文 = Id,
-                            锚点坐标 = SkillLocation,
-                            动作编号 = ActionId,
-                            目标编号 = SkillTarget?.ObjectId ?? 0,
-                            锚点高度 = ReleaseMap.GetTerrainHeight(SkillLocation)
+                            SkillInscription = Id,
+                            TargetId = SkillTarget?.ObjectId ?? 0,
+                            AnchorCoords = SkillLocation,
+                            AnchorHeight = ReleaseMap.GetTerrainHeight(SkillLocation),
+                            ActionId = ActionId,
                         });
                 }
                 else if (task is B_02_SkillHitNotification b_02)
@@ -575,16 +575,16 @@ namespace GameServer.Templates
                     }
 
                     if (c_01.补发释放通知)
-                        CasterObject.SendPacket(new 开始释放技能
+                        CasterObject.SendPacket(new StartToReleaseSkillPacket
                         {
-                            对象编号 = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
+                            ObjectId = ((!TargetBorrow || SkillTarget == null) ? CasterObject.ObjectId : SkillTarget.ObjectId),
                             SkillId = SkillId,
                             SkillLevel = SkillLevel,
-                            技能铭文 = Id,
-                            目标编号 = SkillTarget?.ObjectId ?? 0,
-                            锚点坐标 = SkillLocation,
-                            锚点高度 = ReleaseMap.GetTerrainHeight(SkillLocation),
-                            动作编号 = ActionId
+                            SkillInscription = Id,
+                            TargetId = SkillTarget?.ObjectId ?? 0,
+                            AnchorCoords = SkillLocation,
+                            AnchorHeight = ReleaseMap.GetTerrainHeight(SkillLocation),
+                            ActionId = ActionId
                         });
 
                     if (Hits.Count != 0 && c_01.攻速提升类型 != SpecifyTargetType.None && Hits[0].Object.IsSpecificType(CasterObject, c_01.攻速提升类型))
@@ -706,7 +706,7 @@ namespace GameServer.Templates
                                 CasterObject.Coolings[c_02.冷却减少技能 | 0x1000000] = dateTime3;
                                 CasterObject.SendPacket(new AddedSkillCooldownPacket
                                 {
-                                    冷却编号 = (c_02.冷却减少技能 | 0x1000000),
+                                    CoolingId = (c_02.冷却减少技能 | 0x1000000),
                                     Cooldown = Math.Max(0, (int)(dateTime3 - MainProcess.CurrentTime).TotalMilliseconds)
                                 });
                             }
@@ -717,7 +717,7 @@ namespace GameServer.Templates
                                 PlayerObject8.Coolings[(c_02.冷却减少分组 | 0)] = dateTime4;
                                 CasterObject.SendPacket(new AddedSkillCooldownPacket
                                 {
-                                    冷却编号 = (c_02.冷却减少分组 | 0),
+                                    CoolingId = (c_02.冷却减少分组 | 0),
                                     Cooldown = Math.Max(0, (int)(dateTime4 - MainProcess.CurrentTime).TotalMilliseconds)
                                 });
                             }
@@ -740,7 +740,7 @@ namespace GameServer.Templates
                                 CasterObject.Coolings[c_02.冷却减少技能 | 0x1000000] = dateTime5;
                                 CasterObject.SendPacket(new AddedSkillCooldownPacket
                                 {
-                                    冷却编号 = (c_02.冷却减少技能 | 0x1000000),
+                                    CoolingId = (c_02.冷却减少技能 | 0x1000000),
                                     Cooldown = Math.Max(0, (int)(dateTime5 - MainProcess.CurrentTime).TotalMilliseconds)
                                 });
                             }
@@ -753,7 +753,7 @@ namespace GameServer.Templates
                                     PlayerObject9.Coolings[(c_02.冷却减少分组 | 0)] = dateTime6;
                                     CasterObject.SendPacket(new AddedSkillCooldownPacket
                                     {
-                                        冷却编号 = (c_02.冷却减少分组 | 0),
+                                        CoolingId = (c_02.冷却减少分组 | 0),
                                         Cooldown = Math.Max(0, (int)(dateTime6 - MainProcess.CurrentTime).TotalMilliseconds)
                                     });
                                 }
