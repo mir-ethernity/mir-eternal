@@ -654,9 +654,9 @@ namespace GameServer.Maps
                             {
                                 "[",
                                 this.ObjectName,
-                                "] killed by [",
+                                "] 被 [",
                                 playerObject.ObjectName,
-                                "] dropped [Blessed Oil]"
+                                "] 击杀, 掉落了[祝福油]"
                             }), false);
                         }
                     }

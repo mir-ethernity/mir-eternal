@@ -12,7 +12,7 @@
   "RangeHate": 4,
   "HateTime": 30000,
   "NormalAttackSkills": "电脑-秘密信使普攻技能",
-  "ProbabilityTriggerSkills": "电脑-秘密信使概率技能",
+  "ProbabilityTriggerSkills": "电脑-Secret Messenger概率技能",
   "Stats": [
     {
       "Stat": "MaxHP",

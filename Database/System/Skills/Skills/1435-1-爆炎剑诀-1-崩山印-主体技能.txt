@@ -42,7 +42,7 @@
       "技能范围类型": "Zhanyue1x3",
       "技能扩展通知": true,
       "HitsLimit": 2,
-      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetType": "Player",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },

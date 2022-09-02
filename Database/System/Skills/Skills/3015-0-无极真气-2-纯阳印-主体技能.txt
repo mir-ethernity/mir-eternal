@@ -36,7 +36,7 @@
       "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能锁定方式": "放空锁定ItSelf",
       "HitsLimit": 1,
-      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetType": "Player",
       "LimitedTargetRelationship": "ItSelf",
       "清除状态列表": []
     },

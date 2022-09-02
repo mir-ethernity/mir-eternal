@@ -25,7 +25,7 @@
       "计算飞行耗时": true,
       "单格飞行耗时": 60,
       "HitsLimit": 1,
-      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetType": "Player",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
