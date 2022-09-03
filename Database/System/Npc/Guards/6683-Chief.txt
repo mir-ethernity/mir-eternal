@@ -1,5 +1,5 @@
 {
-  "Name": "Viejo",
+  "Name": "Chief",
   "GuardNumber": 6683,
   "Level": 99,
   "RangeHate": 8

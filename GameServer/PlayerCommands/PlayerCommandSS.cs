@@ -20,154 +20,21 @@ namespace GameServer.PlayerCommands
         {
             switch (Step)
             {
-                case 0:
-                    // 同步Npcc数据 (Server)
-                    SendPacket(
-                    65,
-                    16,
-                    new byte[] { 123, 51, 0, 16, 147, 37, 0, 0, 1, 1, 15, 0, 0, 0 }
-                    );
-
-                    // 同步Npcc数据 (Server)
-                    SendPacket(
-                    65,
-                    16,
-                    new byte[] { 159, 37, 0, 16, 26, 26, 0, 0, 3, 1, 15, 39, 0, 0 }
-                    );
-
-                    // 同步Npcc数据 (Server)
-                    SendPacket(
-                    65,
-                    16,
-                    new byte[] { 121, 51, 0, 16, 147, 37, 0, 0, 1, 1, 15, 0, 0, 0 }
-                    );
-
-                    // 同步Npcc数据 (Server)
-                    SendPacket(
-                    65,
-                    16,
-                    new byte[] { 122, 51, 0, 16, 147, 37, 0, 0, 1, 1, 15, 0, 0, 0 }
-                    );
-
-                    // 同步Npcc数据 (Server)
-                    SendPacket(
-                    65,
-                    16,
-                    new byte[] { 125, 37, 0, 16, 6, 26, 0, 0, 3, 1, 15, 39, 0, 0 }
-                    );
-
-                    // 同步Npcc数据 (Server)
-                    SendPacket(
-                    65,
-                    16,
-                    new byte[] { 245, 39, 0, 16, 51, 3, 0, 0, 2, 10, 15, 0, 0, 0 }
-                    );
-
-                    // 同步Npcc数据 (Server)
-                    SendPacket(
-                    65,
-                    16,
-                    new byte[] { 134, 51, 0, 16, 142, 37, 0, 0, 1, 1, 15, 0, 0, 0 }
-                    );
-
-                    // 同步Npcc数据 (Server)
-                    SendPacket(
-                    65,
-                    16,
-                    new byte[] { 99, 51, 0, 16, 147, 37, 0, 0, 1, 1, 15, 0, 0, 0 }
-                    );
-
-                    // 同步Npcc数据 (Server)
-                    SendPacket(
-                    65,
-                    16,
-                    new byte[] { 126, 51, 0, 16, 147, 37, 0, 0, 1, 1, 15, 0, 0, 0 }
-                    );
-
-                    // 同步Npcc数据 (Server)
-                    SendPacket(
-                    65,
-                    16,
-                    new byte[] { 125, 51, 0, 16, 142, 37, 0, 0, 1, 1, 15, 0, 0, 0 }
-                    );
-
-                    // 同步Npcc数据 (Server)
-                    SendPacket(
-                    65,
-                    16,
-                    new byte[] { 124, 51, 0, 16, 147, 37, 0, 0, 1, 1, 15, 0, 0, 0 }
-                    );
-
-                    // 同步Npcc数据 (Server)
-                    SendPacket(
-                    65,
-                    16,
-                    new byte[] { 146, 37, 0, 16, 67, 26, 0, 0, 3, 99, 15, 39, 0, 0 }
-                    );
-
-                    // 同步Npcc数据 (Server)
-                    SendPacket(
-                    65,
-                    16,
-                    new byte[] { 136, 37, 0, 16, 23, 26, 0, 0, 3, 1, 15, 39, 0, 0 }
-                    );
-
-                    // 同步Npcc数据 (Server)
-                    SendPacket(
-                    65,
-                    16,
-                    new byte[] { 135, 37, 0, 16, 16, 26, 0, 0, 3, 1, 15, 39, 0, 0 }
-                    );
-
-                    // 同步Npcc数据 (Server)
-                    SendPacket(
-                    65,
-                    16,
-                    new byte[] { 120, 51, 0, 16, 147, 37, 0, 0, 1, 1, 15, 0, 0, 0 }
-                    );
-
-                    // 同步Npcc数据 (Server)
-                    SendPacket(
-                    65,
-                    16,
-                    new byte[] { 127, 37, 0, 16, 8, 26, 0, 0, 3, 1, 15, 39, 0, 0 }
-                    );
-
-                    // 同步Npcc数据 (Server)
-                    SendPacket(
-                    65,
-                    16,
-                    new byte[] { 126, 37, 0, 16, 7, 26, 0, 0, 3, 1, 15, 39, 0, 0 }
-                    );
+                case 0: // on start talk with npc viejo
+                    SendPacket(222, 10, new byte[] { 5, 0, 0, 0, 3, 0, 0, 0 });
                     break;
-                case 1:
-                    SendPacket(
- 60,
- 20,
- new byte[] { 2, 99, 51, 0, 16, 5, 48, 109, 16, 60, 144, 4, 0, 24, 100, 0, 250, 255 }
- );
+                case 1: // a type of reward??
+                    SendPacket(178, 7, new byte[] { 30, 11, 0, 0, 0 });
                     break;
-                case 9:
-                    // mark quest as completed and go next
-                    SendPacket(
-                        166,
-                        6,
-                        new byte[] { 161, 5, 0, 0 }
-                    );
+                case 2: // on complete first quest
+                    SendPacket(221, 10, new byte[] { 25, 0, 0, 0, 1, 0, 0, 0 });
+                    SendPacket(221, 10, new byte[] { 78, 0, 0, 0, 1, 0, 0, 0 });
                     break;
-                case 10:
-                    SendPacket(
-                        221,
-                        10,
-                        new byte[] { 25, 0, 0, 0, 2, 0, 0, 0 }
-                    );
+                case 3: // anything related with rewards?
+                    SendPacket(222, 10, new byte[] { 11, 0, 0, 0, 10, 0, 0, 0 });
                     break;
-                case 11:
-                    SendPacket(
-                        221,
-                        10,
-                        new byte[] { 78, 0, 0, 0, 9, 0, 0, 0 }
-                    );
+                case 4:
+                    SendPacket(187, 13, new byte[] { 6, 0, 0, 165, 5, 0, 0, 1, 0, 0, 0 });
                     break;
                 default:
                     break;

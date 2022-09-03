@@ -681,6 +681,38 @@ namespace GameServer.Maps
                         hashSet.Add(playerObject.CharacterData);
                     }
 
+                    foreach (var characterData in hashSet)
+                    {
+                        if (characterData.ActiveConnection?.Player == null) continue;
+
+                        foreach (var quest in characterData.Quests)
+                        {
+                            if (quest.CompleteDate.V != DateTime.MinValue) continue;
+
+                            foreach (var constraint in quest.Missions)
+                            {
+                                if (constraint.CompletedDate.V != DateTime.MinValue) continue;
+                                if (constraint.Info.V.Type != QuestMissionType.KillMob) continue;
+                                if (constraint.Info.V.Value != Template.Id) continue;
+
+                                constraint.Amount.V = constraint.Amount.V + 1;
+
+                                characterData.ActiveConnection.Player.SendPacket(new SyncSupplementaryVariablesPacket
+                                {
+                                    变量类型 = 6, // Quest Progress Update
+                                    对象编号 = quest.Info.V.Id,
+                                    变量内容 = constraint.Amount.V
+                                });
+
+                                if (constraint.Amount.V >= (constraint.Info.V.RequireAmount ?? 0))
+                                    constraint.CompletedDate.V = MainProcess.CurrentTime;
+
+                                characterData.ActiveConnection.Player.UpdateQuestProgress();
+                            }
+                        }
+                    }
+
+
                     float num10 = ComputingClass.CalculateExpRatio(playerObject.CurrentLevel, CurrentLevel);
                     int num11 = 0;
                     int num12 = 0;

@@ -142,6 +142,8 @@ namespace GameServer.Data
             }
             GameDataGateway.AccountData表 = (GameDataGateway.Data型表[typeof(AccountData)] as DataTableCrud<AccountData>);
             GameDataGateway.CharacterDataTable = (GameDataGateway.Data型表[typeof(CharacterData)] as DataTableCrud<CharacterData>);
+            GameDataGateway.CharacterQuestDataTable = (GameDataGateway.Data型表[typeof(CharacterQuest)] as DataTableCrud<CharacterQuest>);
+            GameDataGateway.CharacterQuestConstraintDataTable = (GameDataGateway.Data型表[typeof(CharacterQuestMission)] as DataTableCrud<CharacterQuestMission>);
             GameDataGateway.PetDataTable = (GameDataGateway.Data型表[typeof(PetData)] as DataTableCrud<PetData>);
             GameDataGateway.ItemData表 = (GameDataGateway.Data型表[typeof(ItemData)] as DataTableCrud<ItemData>);
             GameDataGateway.EquipmentData表 = (GameDataGateway.Data型表[typeof(EquipmentData)] as DataTableCrud<EquipmentData>);
@@ -151,6 +153,7 @@ namespace GameServer.Data
             GameDataGateway.GuildData表 = (GameDataGateway.Data型表[typeof(GuildData)] as DataTableCrud<GuildData>);
             GameDataGateway.TeacherData表 = (GameDataGateway.Data型表[typeof(TeacherData)] as DataTableCrud<TeacherData>);
             GameDataGateway.MailData表 = (GameDataGateway.Data型表[typeof(MailData)] as DataTableCrud<MailData>);
+            
             DataLinkTable.处理任务();
             foreach (KeyValuePair<int, GameData> keyValuePair2 in GameDataGateway.CharacterDataTable.DataSheet)
             {
@@ -607,6 +610,10 @@ namespace GameServer.Data
 
 
         public static DataTableCrud<CharacterData> CharacterDataTable;
+
+        public static DataTableCrud<CharacterQuest> CharacterQuestDataTable;
+
+        public static DataTableCrud<CharacterQuestMission> CharacterQuestConstraintDataTable;
 
 
         public static DataTableCrud<PetData> PetDataTable;

@@ -33,7 +33,8 @@ namespace GameServer.Templates
                 typeof(GameBuffs),
                 typeof(InscriptionItems),
                 typeof(ChestTemplate),
-                typeof(MapChest)
+                typeof(MapChest),
+                typeof(GameQuests),
             };
 
             Task.Run(delegate ()

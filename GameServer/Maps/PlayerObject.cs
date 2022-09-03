@@ -75,6 +75,8 @@ namespace GameServer.Maps
             }
         }
 
+
+
         public PlayerObject(CharacterData CharacterData, SConnection 网络连接)
         {
             this.CharacterData = CharacterData;
@@ -580,6 +582,78 @@ namespace GameServer.Maps
             }
         }
 
+        public void CompleteQuest(int questId)
+        {
+            var questToComplete = CharacterData.Quests.FirstOrDefault(x => x.Info.V.Id == questId);
+            if (questToComplete == null || questToComplete.CompleteDate.V != DateTime.MinValue) return;
+
+            var isCompleted = questToComplete.Missions.All(x => x.CompletedDate.V != DateTime.MinValue);
+            if (!isCompleted) return;
+
+            if (questToComplete.Info.V.FinishNpcId > 0 && (对话守卫 == null || 对话守卫.MobId != questToComplete.Info.V.FinishNpcId))
+                return;
+
+            var requireInventorySpaceCount = (byte)questToComplete.Info.V.Rewards.Sum(x => x.Type == RewardType.Item ? 1 : 0);
+
+            byte[] locations = Array.Empty<byte>();
+
+            if (requireInventorySpaceCount > 0 && !CharacterData.TryGetFreeSpacesAtInventory(requireInventorySpaceCount, out locations))
+                return;
+
+            byte itemSpacePos = 0;
+
+            foreach (var reward in questToComplete.Info.V.Rewards)
+            {
+                switch (reward.Type)
+                {
+                    case RewardType.Gold:
+                        NumberGoldCoins += reward.Amount;
+                        break;
+                    case RewardType.Exp:
+                        GainExperience(null, reward.Amount);
+                        break;
+                    case RewardType.Item:
+                        if (GameItems.DataSheet.TryGetValue(reward.Value, out GameItems item))
+                            GainItem(item, locations[itemSpacePos++], reward.Amount > 0 ? reward.Amount : 1);
+                        break;
+                }
+            }
+
+            questToComplete.CompleteDate.V = MainProcess.CurrentTime;
+
+            ActiveConnection.SendPacket(new CompleteQuestPacket
+            {
+                QuestId = questId
+            });
+        }
+
+        public void GainItem(GameItems item, byte position, int qty = 1)
+        {
+            if (item is EquipmentItem equipItem)
+            {
+                CharacterData.Backpack[position] = new EquipmentData(equipItem, CharacterData, 1, position, true);
+            }
+            else if (item.PersistType == PersistentItemType.容器)
+            {
+                CharacterData.Backpack[position] = new ItemData(item, CharacterData, 1, position, 0);
+            }
+            else if (item.PersistType == PersistentItemType.堆叠)
+            {
+                CharacterData.Backpack[position] = new ItemData(item, CharacterData, 1, position, 1);
+            }
+            else
+            {
+                CharacterData.Backpack[position] = new ItemData(item, CharacterData, 1, position, item.MaxDura);
+            }
+
+            if (qty > 1) CharacterData.Backpack[position].当前持久.V = qty;
+
+            ActiveConnection?.SendPacket(new 玩家物品变动
+            {
+                物品描述 = CharacterData.Backpack[position].字节描述()
+            });
+        }
+
         public void AddMountSkillPacket(ushort field, byte unknown)
         {
 
@@ -605,14 +679,79 @@ namespace GameServer.Maps
             return ms.ToArray();
         }
 
-        public void ProcessActionNPC(int 对象编号, int questId)
+        private bool CanAcceptQuest(int questId)
         {
-            // Accept quest
-            ActiveConnection?.SendRaw(
-                164,
-                6,
-                BitConverter.GetBytes(对象编号)
-            );
+            if (CharacterData.Quests.Any(x => x.Info.V.Id == questId))
+                return false;
+
+            if (!GameQuests.DataSheet.TryGetValue(questId, out var questInfo))
+                return false;
+
+            return questInfo.Constraints.All(x =>
+            {
+                switch (x.Type)
+                {
+                    case QuestAcceptConstraint.QuestCompleted:
+                        var quest = CharacterData.Quests.FirstOrDefault(y => y.Info.V.Id == x.Value);
+                        return quest != null && quest.CompleteDate.V != DateTime.MinValue;
+                    default:
+                        throw new NotImplementedException();
+                }
+            });
+        }
+
+        private void StartQuest(int questId)
+        {
+            if (!GameQuests.DataSheet.TryGetValue(questId, out var questInfo))
+                return;
+
+            if (!CanAcceptQuest(questId))
+                return;
+
+            var quest = CharacterQuest.Create(CharacterData, questInfo);
+
+            CharacterData.Quests.Add(quest);
+
+            ActiveConnection?.SendPacket(new AcceptQuestPacket
+            {
+                QuestId = questId
+            });
+
+            UpdateQuestProgress();
+        }
+
+        public void UpdateQuestProgress()
+        {
+            var activeQuest = CharacterData.Quests
+                .Where(x => x.CompleteDate.V == DateTime.MinValue)
+                .FirstOrDefault();
+
+            if (activeQuest == null) return;
+
+            foreach (var mission in activeQuest.Missions)
+            {
+                if (mission.CompletedDate.V != DateTime.MinValue) continue;
+
+                switch (mission.Info.V.Type)
+                {
+                    case QuestMissionType.EquipSword:
+                        if (Equipment[(byte)EquipmentWearingParts.武器] != null)
+                            mission.CompletedDate.V = MainProcess.CurrentTime;
+                        break;
+                }
+            }
+
+            CompleteQuest(activeQuest.Info.V.Id);
+        }
+
+        public void ProcessActionNPC(int actionValue, int actionType)
+        {
+            switch (actionType)
+            {
+                case 1: // Accept Quest
+                    StartQuest(actionValue);
+                    break;
+            }
         }
 
         public void AcceptReward(int questId)
@@ -657,28 +796,47 @@ namespace GameServer.Maps
             using (var ms = new MemoryStream())
             using (var bw = new BinaryWriter(ms))
             {
-                // current time
-                // this value also is in syncharvariables => 58, 41, 2, 99
-                var buff = new byte[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 216, 42, 1, 99, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 162, 5, 0, 0, 119, 117, 237, 98, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 00 };
-                ms.Write(buff);
+                var totalCompletedQuests = CharacterData.Quests
+                   .Where(x => x.CompleteDate.V != DateTime.MinValue)
+                   .Count();
+
+                var questActive = CharacterData.Quests
+                   .Where(x => x.CompleteDate.V == DateTime.MinValue)
+                   .FirstOrDefault();
+
+                ms.Seek(180, SeekOrigin.Begin);
+                bw.Write(totalCompletedQuests * 3); // parece que esta relacionado con algun id de quest completada
 
                 ms.Seek(772, SeekOrigin.Begin);
-                bw.Write(true); // quest acceptable
-                bw.Write(0); // completed date
-                bw.Write(0); // unknown
-                bw.Write(ComputingClass.TimeShift(MainProcess.CurrentTime)); // start date
 
-                ms.Seek(1305, SeekOrigin.Begin);
+                bw.Write(questActive != null); // HasActiveQuest?
+                bw.Write(0); // ???
+                bw.Write(0); // ???
+                bw.Write(ComputingClass.TimeShift(MainProcess.CurrentTime)); // the last complete quest date??
+
+                bw.Seek(1305, SeekOrigin.Begin);
                 bw.Write(int.MaxValue);
 
-                ms.Seek(buff.Length - 64, SeekOrigin.Begin);
-                bw.Write(1440); // active main quest id
+                bw.Seek(1408, SeekOrigin.Begin);
+                bw.Write(0); // ???
+                bw.Write(0); // ???
+                bw.Write(0); // ???
+                bw.Write(0); // i dont know what is - antes 10
 
-                // active main quest
-                //buff[buff.Length - 64] = 162;
-                //buff[buff.Length - 63] = 5;
-                //buff[buff.Length - 62] = 0;
-                //buff[buff.Length - 61] = 0;
+                bw.Seek(1433, SeekOrigin.Begin);
+                bw.Write(int.MaxValue);
+
+                bw.Seek(1577, SeekOrigin.Begin);
+
+                if (questActive != null)
+                {
+                    bw.Write(questActive.Info.V.Id); // active main quest id
+                    bw.Write(ComputingClass.TimeShift(questActive.StartDate.V));
+                    bw.Write(0);
+                    var progress = questActive.Missions.FirstOrDefault();
+                    bw.Write(progress.Amount.V);
+                    bw.Write(new byte[48]); // ???
+                }
 
                 return ms.ToArray();
             }
@@ -4144,14 +4302,29 @@ namespace GameServer.Maps
                 return;
             }
 
-            if (this.对话守卫.MobId == 6683)
+
+            foreach (var quest in CharacterData.Quests)
+            {
+                if (quest.CompleteDate.V != DateTime.MinValue) continue;
+
+                foreach (var constraint in quest.Missions)
+                {
+                    if (constraint.CompletedDate.V != DateTime.MinValue) continue;
+                    if (constraint.Info.V.Type != QuestMissionType.SpeakWithNPC) continue;
+                    if (constraint.Info.V.Value != 对话守卫.MobId) continue;
+                    constraint.CompletedDate.V = MainProcess.CurrentTime;
+                }
+            }
+
+            // TODO: Progress QUEST
+            if (this.对话守卫.MobId == 6683 || 对话守卫.MobId == 6684)
             {
                 // u222 (Server)
-                ActiveConnection?.SendRaw(
-                    222,
-                    10,
-                    new byte[] { 5, 0, 0, 0, 3, 0, 0, 0 }
-                );
+                //ActiveConnection?.SendRaw(
+                //    222,
+                //    10,
+                //    new byte[] { 5, 0, 0, 0, 3, 0, 0, 0 }
+                //);
 
                 ActiveConnection?.SendPacket(new 同步交互结果
                 {
@@ -9983,6 +10156,7 @@ namespace GameServer.Maps
                             ItemData = this.Backpack[b].字节描述(),
                         });
 
+                        // TODO: Complete Reward after pickup chest scroll
                         if (this.Backpack[b].Id == 90178)
                         {
                             ActiveConnection?.SendPacket(new UnknownS4
@@ -10522,6 +10696,8 @@ namespace GameServer.Maps
                 else if (fromStorageType == 0)
                     玩家穿卸装备((EquipmentWearingParts)fromStoragePosition, (EquipmentData)sourceItem, (EquipmentData)destItem);
             }
+
+            UpdateQuestProgress();
         }
 
         private bool ProcessConsumableRecoveryHP(ItemData item)

@@ -442,16 +442,6 @@ namespace GameServer.Networking
 
         }
 
-        public void 处理封包(AcceptRewardPacket P)
-        {
-            if (this.当前阶段 != GameStage.PlayingScene)
-            {
-                this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
-                return;
-            }
-            this.Player.AcceptReward(P.QuestId);
-        }
-
         public void 处理封包(UnknownC5 P)
         {
     
@@ -471,6 +461,26 @@ namespace GameServer.Networking
         {
         }
 
+        public void 处理封包(PlayerCompleteQuestPacket P)
+        {
+            if (this.当前阶段 != GameStage.PlayingScene)
+            {
+                this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
+                return;
+            }
+            Player.CompleteQuest(P.QuestId);
+        }
+
+
+        public void 处理封包(AcceptRewardPacket P)
+        {
+            if (this.当前阶段 != GameStage.PlayingScene)
+            {
+                this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
+                return;
+            }
+            this.Player.AcceptReward(P.QuestId);
+        }
 
         public void 处理封包(上传游戏设置 P)
         {
