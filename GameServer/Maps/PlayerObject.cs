@@ -10,6 +10,8 @@ using GameServer.Networking;
 using GameServer.Enums;
 using GameServer.PlayerCommands;
 using GamePackets.Server;
+using Models.Enums;
+using System.Collections;
 
 namespace GameServer.Maps
 {
@@ -75,6 +77,8 @@ namespace GameServer.Maps
             }
         }
 
+
+
         public PlayerObject(CharacterData CharacterData, SConnection 网络连接)
         {
             this.CharacterData = CharacterData;
@@ -123,7 +127,7 @@ namespace GameServer.Maps
                 {
                     this.StatsBonus.Add(BuffData, BuffData.Stat加成);
                 }
-                else if ((BuffData.Effect & BuffEffectType.Riding) != BuffEffectType.SkillSign)
+                if ((BuffData.Effect & BuffEffectType.Riding) != BuffEffectType.SkillSign)
                 {
                     this.Riding = true;
                 }
@@ -194,8 +198,162 @@ namespace GameServer.Maps
             CharacterData.LoginDate.V = MainProcess.CurrentTime;
             CharacterData.OnCharacterConnect(网络连接);
 
+            ActiveConnection.SendPacket(new SyncSupplementaryVariablesPacket
+            {
+                变量类型 = 1,
+                变量索引 = 132,
+                对象编号 = ObjectId,
+                变量内容 = 1
+            });
+
+            // unknown
+            ActiveConnection.SendRaw(169, 14, new byte[] { 1, 0, 0, 0, 3, 0, 0, 0, 10, 0, 0, 0 });
+
+            // unknown
+            ActiveConnection.SendRaw(177, 4, new byte[] { 13, 0 });
+
+            // unknown
+            ActiveConnection.SendRaw(177, 4, new byte[] { 17, 0 });
+
+            // unknown
+            ActiveConnection.SendRaw(177, 4, new byte[] { 18, 0 });
+
+            // unknown
+            ActiveConnection.SendRaw(177, 4, new byte[] { 24, 0 });
+
+            网络连接.SendPacket(new SyncSupplementaryVariablesPacket
+            {
+                变量类型 = 1,
+                对象编号 = this.ObjectId,
+                变量索引 = 112,
+                变量内容 = ComputingClass.TimeShift(CharacterData.补给日期.V)
+            });
+
+            网络连接.SendPacket(new SyncSupplementaryVariablesPacket
+            {
+                变量类型 = 1,
+                对象编号 = this.ObjectId,
+                变量索引 = 975,
+                变量内容 = ComputingClass.TimeShift(CharacterData.战备日期.V)
+            });
+
+            // unknown
+            ActiveConnection.SendRaw(280, 4, new byte[] { 0, 0 });
+
+            // unknown
+            ActiveConnection.SendRaw(281, 4, new byte[] { 0, 0 });
+
             // Sync Quest Progress
-            ActiveConnection.SendRaw(20, 0, new byte[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 195, 126, 239, 210, 0, 0, 0, 0, 58, 41, 2, 99, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 139, 122, 170, 113, 164, 41, 134, 186, 244, 246, 134, 145, 27, 154, 246, 210, 157, 226, 181, 170, 66, 169, 133, 24, 252, 183, 74, 49, 149, 204, 168, 55, 15, 10, 48, 97, 26, 13, 217, 227, 55, 103, 121, 14, 23, 222, 82, 167, 34, 173, 78, 12, 95, 0, 115, 25, 197, 219, 231, 82, 172, 83, 180, 42, 78, 121, 101, 38, 7, 232, 216, 219, 114, 194, 38, 198, 69, 41, 141, 27, 101, 127, 217, 52, 71, 230, 245, 155, 197, 221, 191, 181, 144, 97, 164, 202, 22, 8, 221, 87, 124, 1, 181, 45, 254, 139, 129, 190, 152, 107, 39, 63, 243, 188, 4, 177, 100, 121, 157, 80, 131, 138, 43, 56, 255, 255, 255, 255, 198, 26, 221, 8, 44, 64, 44, 117, 138, 99, 141, 129, 162, 148, 178, 30, 148, 77, 176, 72, 218, 253, 32, 4, 234, 247, 182, 44, 212, 230, 62, 154, 217, 192, 23, 61, 171, 46, 158, 62, 119, 128, 8, 145, 150, 208, 68, 220, 19, 158, 96, 174, 154, 141, 184, 142, 178, 90, 58, 98, 228, 253, 251, 104, 136, 21, 246, 160, 196, 216, 26, 180, 88, 138, 245, 157, 79, 31, 40, 44, 29, 11, 191, 145, 6, 89, 38, 105, 9, 172, 22, 73, 109, 106, 198, 39, 205, 103, 61, 39, 176, 17, 177, 212, 249, 219, 113, 141, 236, 177, 118, 186, 175, 157, 144, 107, 156, 199, 8, 129, 188, 137, 161, 172, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 161, 5, 0, 0, 58, 41, 2, 99, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
+            ActiveConnection.SendRaw(20, 0, GetQuestProgressData());
+
+            // unknown
+            ActiveConnection.SendRaw(169, 14, new byte[] { 0, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0 });
+
+            // unknown
+            ActiveConnection.SendRaw(169, 14, new byte[] { 1, 0, 0, 0, 3, 0, 0, 0, 10, 0, 0, 0 });
+
+            var supplementaryIds1 = new Dictionary<ushort, int> {
+                { 50, 1536 },
+                { 142, 0 },
+                { 143, 0 },
+                { 150, 0 },
+                { 151, 1661102957 },
+                { 152, 0 },
+                { 245, 0 },
+                { 246, 0 },
+                { 247, 0 },
+                { 321, 0 },
+                { 322, 0 },
+                { 325, 0 },
+                { 329, 0 },
+                { 349, 0 },
+                { 352, 0 },
+                { 379, 0 },
+                { 380, 0 },
+                { 411, 0 },
+                { 414, 0 },
+                { 430, 0 },
+                { 500, CurrentMap.MapId },
+                { 504, 0 },
+                { 507, 0 },
+                { 508, 0 },
+                { 509, 0 },
+                { 517, 0 },
+                { 532, 0 },
+                { 539, 0 },
+                { 540, 0 },
+                { 541, 0 },
+                { 542, 0 },
+                { 543, 0 },
+                { 544, 0 },
+                { 545, 0 },
+                { 546, 0 },
+                { 547, 0 },
+                { 548, 0 },
+                { 549, 0 },
+                { 550, 0 },
+                { 551, 0 },
+                { 553, 0 },
+                { 554, 0 },
+                { 555, 0 },
+                { 556, 0 },
+                { 557, 0 },
+                { 558, 0 },
+                { 559, 0 },
+                { 560, 0 },
+                { 561, 0 },
+                { 562, 0 },
+                { 563, 0 },
+                { 577, 0 },
+                { 578, 0 },
+                { 579, 0 },
+                { 597, 0 },
+                { 598, 0 },
+                { 599, 0 },
+                { 610, 0 },
+                { 611, 0 },
+                { 612, 0 },
+                { 615, 0 },
+                { 638, 0 },
+                { 639, 0 },
+                { 640, 0 },
+                { 641, 0 },
+                { 642, 0 },
+                { 657, 0 },
+                { 704, 0 },
+                { 714, 0 },
+                { 793, 1 },
+                { 939, 14 },
+                { 975, 0 },
+            };
+
+            foreach (var sup in supplementaryIds1)
+            {
+                网络连接.SendPacket(new SyncSupplementaryVariablesPacket
+                {
+                    变量类型 = 1,
+                    对象编号 = this.ObjectId,
+                    变量索引 = sup.Key,
+                    变量内容 = sup.Value
+                });
+            }
+
+            // unknown (stat updater)
+            ActiveConnection.SendRaw(221, 10, new byte[] { 47, 0, 0, 0, 0, 0, 0, 0 });
+
+            // UnknownS3
+            ActiveConnection.SendPacket(new UnknownS3
+            {
+                Data = GetPlayerAgreement()
+            });
+
+            ActiveConnection.SendRaw(182, 10, new byte[] { 255, 255, 255, 255, 255, 255, 255, 255 });
+
+            // unknown
+            ActiveConnection.SendRaw(207, 0, new byte[] { 0 });
+
+            // unknown
+            ActiveConnection.SendRaw(23, 6, new byte[] { 0, 0, 0, 0 });
 
             // Packet ID: 28, Name: SyncMountData
             ActiveConnection.SendPacket(new SyncMountDataPacket { MountData = GetMountData() });
@@ -218,7 +376,8 @@ namespace GameServer.Maps
             ActiveConnection.SendRaw(296, 0, new byte[] { 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 2, 0, 0, 2, 0, 0, 0, 2, 1, 0, 0, 2, 2, 0, 0, 3, 0, 0, 0, 3, 1, 0, 0, 3, 2, 0, 0, 4, 0, 0, 0, 4, 1, 0, 0, 4, 2, 0, 0, 5, 0, 0, 0, 5, 1, 0, 0, 5, 2, 0, 0, 6, 0, 0, 0, 6, 1, 0, 0, 6, 2, 0, 0, 7, 0, 0, 0, 7, 1, 0, 0, 7, 2, 0, 0, 8, 0, 0, 0, 8, 1, 0, 0, 8, 2, 0, 0, 9, 0, 0, 0, 9, 1, 0, 0, 9, 2, 0, 0, 10, 0, 0, 0, 10, 1, 0, 0, 10, 2, 0, 0, 11, 0, 0, 0, 11, 1, 0, 0, 11, 2, 0, 0, 12, 0, 0, 0, 12, 1, 0, 0, 12, 2, 0, 0, 13, 0, 0, 0, 13, 1, 0, 0, 13, 2, 0, 0, 14, 0, 0, 0, 14, 1, 0, 0, 14, 2, 0, 0, 15, 0, 0, 0, 15, 1, 0, 0, 15, 2, 0, 0, 16, 0, 0, 0, 16, 1, 0, 0, 16, 2, 0, 0, 17, 0, 0, 0, 17, 1, 0, 0, 17, 2, 0, 0, 18, 0, 0, 0, 18, 1, 0, 0, 18, 2, 0, 0, 19, 0, 0, 0, 19, 1, 0, 0, 19, 2 });
 
             // SyncSceneVariables
-            ActiveConnection.SendRaw(184, 0, new byte[] { 20, 0, 73, 30, 2, 99 });
+            // ActiveConnection.SendRaw(184, 0, new byte[] { 20, 0, 73, 30, 2, 99 });
+
 
             ActiveConnection.SendPacket(new SyncCharacterPacket
             {
@@ -241,20 +400,6 @@ namespace GameServer.Maps
                 EquipRepairDto = (ushort)(Config.EquipRepairDto * 10000m)
             });
 
-            网络连接.SendPacket(new SyncSupplementaryVariablesPacket
-            {
-                变量类型 = 1,
-                对象编号 = this.ObjectId,
-                变量索引 = 112,
-                变量内容 = ComputingClass.TimeShift(CharacterData.补给日期.V)
-            });
-            网络连接.SendPacket(new SyncSupplementaryVariablesPacket
-            {
-                变量类型 = 1,
-                对象编号 = this.ObjectId,
-                变量索引 = 975,
-                变量内容 = ComputingClass.TimeShift(CharacterData.战备日期.V)
-            });
 
             网络连接.SendPacket(new SyncBackpackSizePacket
             {
@@ -439,6 +584,134 @@ namespace GameServer.Maps
             }
         }
 
+        public void TeleportToQuest(int questId)
+        {
+            if (!GameQuests.DataSheet.TryGetValue(questId, out GameQuests questInfo))
+                return;
+
+            if (!questInfo.CanTeleport && questInfo.TeleportCostId == 0)
+                return;
+
+            var charQuest = CharacterData.Quests
+                .Where(x => x.Info.V.Id == questInfo.Id)
+                .FirstOrDefault();
+
+            if (charQuest == null || charQuest.CompleteDate.V != DateTime.MinValue)
+                return;
+
+            var map = MapGatewayProcess.GetMapInstance(questInfo.StartNPCMap);
+
+            if (map == null)
+                return;
+
+            var npc = map.守卫区域
+                .Where(x => x.GuardNumber == questInfo.FinishNPCID)
+                .FirstOrDefault();
+
+            if (npc == null)
+                return;
+
+            if (questInfo.TeleportCostId > 0)
+            {
+                var item = GetBackpackItemById(questInfo.TeleportCostId);
+
+                if (item == null)
+                    return;
+
+                ConsumeBackpackItem(questInfo.TeleportCostValue, item);
+            }
+
+            玩家切换地图(map, AreaType.未知区域, npc.FromCoords);
+        }
+
+        private ItemData GetBackpackItemById(int itemId)
+        {
+            foreach (var item in Backpack)
+            {
+                if (item.Value.Id == itemId)
+                    return item.Value;
+            }
+
+            return null;
+        }
+
+        public void CompleteQuest(int questId)
+        {
+            var questToComplete = CharacterData.Quests.FirstOrDefault(x => x.Info.V.Id == questId);
+            if (questToComplete == null || questToComplete.CompleteDate.V != DateTime.MinValue) return;
+
+            var isCompleted = questToComplete.Missions.All(x => x.CompletedDate.V != DateTime.MinValue);
+            if (!isCompleted) return;
+
+            var requireInventorySpaceCount = (byte)questToComplete.Info.V.Rewards.Sum(x => x.Type == QuestRewardType.Item ? 1 : 0);
+
+            byte[] locations = Array.Empty<byte>();
+
+            if (requireInventorySpaceCount > 0 && !CharacterData.TryGetFreeSpacesAtInventory(requireInventorySpaceCount, out locations))
+                return;
+
+            byte itemSpacePos = 0;
+
+            foreach (var reward in questToComplete.Info.V.Rewards)
+            {
+                switch (reward.Type)
+                {
+                    case QuestRewardType.Currency:
+                        CharacterData.Currencies[(GameCurrency)reward.Id] += reward.Count;
+                        ActiveConnection?.SendPacket(new 货币数量变动
+                        {
+                            CurrencyType = (byte)reward.Id,
+                            货币数量 = reward.Count
+                        });
+                        break;
+                    case QuestRewardType.Exp:
+                        GainExperience(null, reward.Count);
+                        break;
+                    case QuestRewardType.Item:
+                        if (GameItems.DataSheet.TryGetValue(reward.Id, out GameItems item))
+                            GainItem(item, locations[itemSpacePos++], reward.Count > 0 ? reward.Count : 1);
+                        break;
+                    case QuestRewardType.Reputation:
+                    case QuestRewardType.Activity:
+                        break;
+                }
+            }
+
+            questToComplete.CompleteDate.V = MainProcess.CurrentTime;
+
+            ActiveConnection.SendPacket(new CompleteQuestPacket
+            {
+                QuestId = questId
+            });
+        }
+
+        public void GainItem(GameItems item, byte position, int qty = 1)
+        {
+            if (item is EquipmentItem equipItem)
+            {
+                CharacterData.Backpack[position] = new EquipmentData(equipItem, CharacterData, 1, position, true);
+            }
+            else if (item.PersistType == PersistentItemType.容器)
+            {
+                CharacterData.Backpack[position] = new ItemData(item, CharacterData, 1, position, 0);
+            }
+            else if (item.PersistType == PersistentItemType.堆叠)
+            {
+                CharacterData.Backpack[position] = new ItemData(item, CharacterData, 1, position, 1);
+            }
+            else
+            {
+                CharacterData.Backpack[position] = new ItemData(item, CharacterData, 1, position, item.MaxDura);
+            }
+
+            if (qty > 1) CharacterData.Backpack[position].当前持久.V = qty;
+
+            ActiveConnection?.SendPacket(new 玩家物品变动
+            {
+                物品描述 = CharacterData.Backpack[position].字节描述()
+            });
+        }
+
         public void AddMountSkillPacket(ushort field, byte unknown)
         {
 
@@ -462,6 +735,232 @@ namespace GameServer.Maps
                 bw.Write(mount);
 
             return ms.ToArray();
+        }
+
+        private bool CanAcceptQuest(int questId)
+        {
+            if (!GameQuests.DataSheet.TryGetValue(questId, out var questInfo))
+                return false;
+
+            if (questInfo.StartNPCMap > 0 && CurrentMap.MapId != questInfo.StartNPCMap)
+                return false;
+
+            if (questInfo.StartsNPCID > 0 && 对话守卫.MobId != questInfo.StartsNPCID)
+                return false;
+
+            var completedQuests = CharacterData.Quests
+                .Where(x => x.Info.V.Id == questId)
+                .ToArray();
+
+            if (questInfo.MaxCompleteCount > 0 && completedQuests.Length >= questInfo.MaxCompleteCount)
+                return false;
+
+            return questInfo.Constraints.All(x =>
+            {
+                switch (x.Type)
+                {
+                    case QuestAcceptConstraint.QuestCompleted:
+                        var quest = CharacterData.Quests.FirstOrDefault(y => y.Info.V.Id == x.Value);
+                        return quest != null && quest.CompleteDate.V != DateTime.MinValue;
+                    case QuestAcceptConstraint.MinLevel:
+                        return CurrentLevel >= x.Value;
+                    case QuestAcceptConstraint.MaxLevel:
+                        return CurrentLevel <= x.Value;
+                    case QuestAcceptConstraint.Job:
+                        return (int)CharRole == x.Value;
+                    case QuestAcceptConstraint.Gender:
+                        return (int)CharGender == x.Value;
+                    case QuestAcceptConstraint.AcceptStartTime:
+                        return ComputingClass.TimeShift(MainProcess.CurrentTime) >= x.Value;
+                    case QuestAcceptConstraint.AcceptEndTime:
+                        return x.Value >= ComputingClass.TimeShift(MainProcess.CurrentTime);
+                    default:
+                        throw new NotImplementedException();
+                }
+            });
+        }
+
+        private void StartQuest(int questId)
+        {
+            if (!GameQuests.DataSheet.TryGetValue(questId, out var questInfo))
+                return;
+
+            if (!CanAcceptQuest(questId))
+                return;
+
+            var quest = CharacterQuest.Create(CharacterData, questInfo);
+
+            CharacterData.Quests.Add(quest);
+
+            ActiveConnection?.SendPacket(new AcceptQuestPacket
+            {
+                QuestId = questId
+            });
+
+            UpdateQuestProgress(quest);
+        }
+
+        public void UpdateQuestsProgress()
+        {
+            foreach (var quest in CharacterData.Quests)
+                UpdateQuestProgress(quest);
+        }
+
+        public void UpdateQuestProgress(CharacterQuest quest)
+        {
+            if (quest.CompleteDate.V != DateTime.MinValue)
+                return;
+
+            foreach (var mission in quest.Missions)
+            {
+                if (mission.CompletedDate.V != DateTime.MinValue) continue;
+
+                switch (mission.Info.V.Type)
+                {
+                    case QuestMissionType.EquipItem:
+                        if (Equipment[(byte)EquipmentWearingParts.武器] != null)
+                            mission.CompletedDate.V = MainProcess.CurrentTime;
+                        break;
+                    case QuestMissionType.KillMob:
+                        if (mission.Count.V >= mission.Info.V.Count)
+                            mission.CompletedDate.V = MainProcess.CurrentTime;
+                        break;
+                }
+            }
+        }
+
+        public void ProcessActionNPC(int actionValue, int actionType)
+        {
+            switch (actionType)
+            {
+                case 1: // Accept Quest
+                    StartQuest(actionValue);
+                    break;
+            }
+        }
+
+        public void AcceptReward(int questId)
+        {
+            switch (questId)
+            {
+                case 1:
+                    break;
+                case 17:
+                case 58:
+                    CharacterData.Currencies[GameCurrency.AchievementPoints] += 100;
+                    ActiveConnection?.SendPacket(new 货币数量变动
+                    {
+                        CurrencyType = 13,
+                        货币数量 = CharacterData.Currencies[GameCurrency.AchievementPoints]
+                    });
+                    break;
+                case 59:
+                    CharacterData.Currencies[GameCurrency.AchievementPoints] += 50;
+                    ActiveConnection?.SendPacket(new 货币数量变动
+                    {
+                        CurrencyType = 13,
+                        货币数量 = CharacterData.Currencies[GameCurrency.AchievementPoints]
+                    });
+                    ActiveConnection?.SendPacket(new QuestRewardCompletedPacket
+                    {
+                        QuestId = questId,
+                        CompletedTime = ComputingClass.DateShift(DateTime.Now.AddDays(-2))
+                    });
+                    break;
+            }
+
+            ActiveConnection?.SendPacket(new QuestRewardCompletedPacket
+            {
+                QuestId = questId,
+                CompletedTime = 19224
+            });
+        }
+
+        private byte[] GetQuestProgressData()
+        {
+            using (var ms = new MemoryStream())
+            using (var bw = new BinaryWriter(ms))
+            {
+                var characterQuests = CharacterData.Quests
+                    .Where(x => x.CompleteDate.V != DateTime.MinValue)
+                    .ToDictionary(x => x.Info.V.Id);
+
+                var questActive = CharacterData.Quests
+                    .Where(x => x.CompleteDate.V == DateTime.MinValue)
+                    .FirstOrDefault();
+
+                var totalQuests = 5695;
+                var bitArray = new BitArray(totalQuests);
+
+                for (var i = 0; i < totalQuests; i++)
+                    bitArray.Set(i, characterQuests.ContainsKey(i));
+
+                var questsStatus = new byte[(int)Math.Ceiling((decimal)totalQuests / 8)];
+                bitArray.CopyTo(questsStatus, 0);
+
+                bw.Write(questsStatus);
+
+                ms.Seek(772, SeekOrigin.Begin);
+                bw.Write(1); // chapter?
+                bw.Write(0); // ???
+                bw.Write(0); // ???
+                bw.Write(ComputingClass.TimeShift(MainProcess.CurrentTime)); // the last complete quest date??
+
+                bw.Seek(1305, SeekOrigin.Begin);
+                bw.Write(int.MaxValue);
+
+                bw.Seek(1380, SeekOrigin.Begin);
+                bw.Write(0); // ???
+
+                bw.Seek(1408, SeekOrigin.Begin);
+                bw.Write(0); // ???
+                bw.Write(0); // ???
+                bw.Write((byte)0); // ???
+                bw.Write((byte)0); // ???
+
+                bw.Seek(1433, SeekOrigin.Begin);
+                bw.Write(int.MaxValue);
+
+                bw.Seek(1577, SeekOrigin.Begin);
+
+                if (questActive != null)
+                {
+                    bw.Write(questActive.Info.V.Id); // active main quest id
+                    bw.Write(ComputingClass.TimeShift(questActive.StartDate.V));
+                    bw.Write(0);
+
+                    var missions = questActive.Missions.ToArray();
+                    for (var i = 0; i < 4; i++)
+                        bw.Write(missions.Length > i ? missions[i].Count.V : (byte)0);
+
+                    bw.Write(new byte[48]); // ???
+                }
+
+                return ms.ToArray();
+            }
+
+        }
+
+        private byte[] GetPlayerAgreement()
+        {
+            using (var ms = new MemoryStream())
+            using (var bw = new BinaryWriter(ms))
+            {
+                var key = CharacterData.Account.V.GenerateLoginAgreementDescription();
+                ms.Write(key, 0, 37);
+                ms.Seek(0, SeekOrigin.Begin);
+                bw.Write(ObjectId);
+                ms.Seek(0, SeekOrigin.Begin);
+                bw.Write((byte)0);
+                ms.Seek(4, SeekOrigin.Begin);
+                bw.Write(0);
+                bw.Write(this.CurrentMap.路线编号);
+                bw.Write(this.CurrentMap.MapId);
+                bw.Write(ObjectId);
+                bw.Write(0);
+                bw.Write(-4600); // it's not a constant, but i dont know how to calculate or source:/
+                return ms.ToArray();
+            }
         }
 
         public override void Process()
@@ -3900,6 +4399,26 @@ namespace GameServer.Maps
                 this.ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Start Npcc conversation. Error: Long distance conversation."));
                 return;
             }
+
+
+            // TODO: Progress QUEST
+            if (this.对话守卫.MobId == 6683 || 对话守卫.MobId == 6684)
+            {
+                // u222 (Server)
+                //ActiveConnection?.SendRaw(
+                //    222,
+                //    10,
+                //    new byte[] { 5, 0, 0, 0, 3, 0, 0, 0 }
+                //);
+
+                ActiveConnection?.SendPacket(new 同步交互结果
+                {
+                    对象编号 = this.对话守卫.ObjectId,
+                    交互文本 = new byte[] { 60, 35, 68, 102, 116, 62, 0 }
+                });
+                return;
+            }
+
             if (NpcDialogs.DataSheet.ContainsKey((int)this.对话守卫.MobId * 100000))
             {
                 this.打开商店 = this.对话守卫.StoreId;
@@ -9710,23 +10229,28 @@ namespace GameServer.Maps
                                 this.Backpack[b] = new ItemData(物品.物品模板, this.CharacterData, 1, b, 物品.默认持久);
                             }
                         }
-                        SConnection 网络连接6 = this.ActiveConnection;
-                        if (网络连接6 != null)
+
+                        ActiveConnection?.SendPacket(new 玩家物品变动
                         {
-                            网络连接6.SendPacket(new 玩家拾取物品
+                            物品描述 = this.Backpack[b].字节描述()
+                        });
+
+                        ActiveConnection?.SendPacket(new PlayersPickupItemPacket
+                        {
+                            ObjectId = this.ObjectId,
+                            ItemData = this.Backpack[b].字节描述(),
+                        });
+
+                        // TODO: Complete Reward after pickup chest scroll
+                        if (this.Backpack[b].Id == 90178)
+                        {
+                            ActiveConnection?.SendPacket(new UnknownS4
                             {
-                                物品描述 = this.Backpack[b].字节描述(),
-                                角色编号 = this.ObjectId
+                                U1 = 11,
+                                U2 = 10
                             });
                         }
-                        SConnection 网络连接7 = this.ActiveConnection;
-                        if (网络连接7 != null)
-                        {
-                            网络连接7.SendPacket(new 玩家物品变动
-                            {
-                                物品描述 = this.Backpack[b].字节描述()
-                            });
-                        }
+
                         物品.物品转移处理();
                         return;
                     }
@@ -10257,6 +10781,8 @@ namespace GameServer.Maps
                 else if (fromStorageType == 0)
                     玩家穿卸装备((EquipmentWearingParts)fromStoragePosition, (EquipmentData)sourceItem, (EquipmentData)destItem);
             }
+
+            UpdateQuestsProgress();
         }
 
         private bool ProcessConsumableRecoveryHP(ItemData item)
@@ -13891,13 +14417,13 @@ namespace GameServer.Maps
                             {
                                 return;
                             }
-                            同步Npcc数据 同步Npcc数据 = new 同步Npcc数据();
-                            同步Npcc数据.对象编号 = MonsterObject.ObjectId;
-                            同步Npcc数据.对象等级 = MonsterObject.CurrentLevel;
-                            同步Npcc数据.对象质量 = (byte)MonsterObject.Category;
+                            SyncNPCData 同步Npcc数据 = new SyncNPCData();
+                            同步Npcc数据.ObjectId = MonsterObject.ObjectId;
+                            同步Npcc数据.ObjectClass = MonsterObject.CurrentLevel;
+                            同步Npcc数据.ObjectMass = (byte)MonsterObject.Category;
                             Monsters 对象模板 = MonsterObject.Template;
-                            同步Npcc数据.对象模板 = ((ushort)((对象模板 != null) ? 对象模板.Id : 0));
-                            同步Npcc数据.体力上限 = MonsterObject[GameObjectStats.MaxHP];
+                            同步Npcc数据.ObjectTemplate = ((ushort)((对象模板 != null) ? 对象模板.Id : 0));
+                            同步Npcc数据.MaxHP = MonsterObject[GameObjectStats.MaxHP];
                             网络连接4.SendPacket(同步Npcc数据);
                             return;
                         }
@@ -13915,13 +14441,13 @@ namespace GameServer.Maps
                                 {
                                     return;
                                 }
-                                同步Npcc数据 同步Npcc数据2 = new 同步Npcc数据();
-                                同步Npcc数据2.对象质量 = 3;
-                                同步Npcc数据2.对象编号 = GuardInstance.ObjectId;
-                                同步Npcc数据2.对象等级 = GuardInstance.CurrentLevel;
+                                SyncNPCData 同步Npcc数据2 = new SyncNPCData();
+                                同步Npcc数据2.ObjectMass = 3;
+                                同步Npcc数据2.ObjectId = GuardInstance.ObjectId;
+                                同步Npcc数据2.ObjectClass = GuardInstance.CurrentLevel;
                                 Guards 对象模板2 = GuardInstance.对象模板;
-                                同步Npcc数据2.对象模板 = ((ushort)((对象模板2 != null) ? 对象模板2.GuardNumber : 0));
-                                同步Npcc数据2.体力上限 = GuardInstance[GameObjectStats.MaxHP];
+                                同步Npcc数据2.ObjectTemplate = ((ushort)((对象模板2 != null) ? 对象模板2.GuardNumber : 0));
+                                同步Npcc数据2.MaxHP = GuardInstance[GameObjectStats.MaxHP];
                                 网络连接5.SendPacket(同步Npcc数据2);
                             }
                             return;

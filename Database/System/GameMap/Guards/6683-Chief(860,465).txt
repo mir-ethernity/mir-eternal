@@ -1,0 +1,6 @@
+{
+  "GuardNumber": 6683,
+  "FromMapId": 142,
+  "FromCoords": "860, 465",
+  "Direction": "右下",
+}

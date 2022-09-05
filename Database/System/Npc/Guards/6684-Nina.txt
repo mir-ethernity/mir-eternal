@@ -1,0 +1,6 @@
+{
+  "Name": "Nina",
+  "GuardNumber": 6684,
+  "Level": 99,
+  "RangeHate": 8
+}

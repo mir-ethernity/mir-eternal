@@ -33,6 +33,9 @@ namespace GameServer.Networking
 		[WrappingFieldAttribute(SubScript = 22, Length = 4)]
 		public int 物品数量;
 
+		[WrappingFieldAttribute(SubScript = 26, Length = 4)]
+		public int Unknown2 = 1;
+
 		[WrappingFieldAttribute(SubScript = 30, Length = 4)]
 		public int OwnerPlayerId;
 	}
