@@ -51,7 +51,7 @@ namespace GameServer.Data
             }
             if (内部列表 is ISet<CharacterQuestMission> characterQuestConstraint)
             {
-                LinkCharacterQuestConstraint.Enqueue(new 哈希关联参数<CharacterQuestMission>(数据, 字段, characterQuestConstraint, 数据索引));
+                LinkCharacterQuestMissions.Enqueue(new 哈希关联参数<CharacterQuestMission>(数据, 字段, characterQuestConstraint, 数据索引));
                 return;
             }
             MessageBox.Show("Failed to add hash association task");
@@ -175,9 +175,9 @@ namespace GameServer.Data
                     }
                 }
             }
-            while (!LinkCharacterQuestConstraint.IsEmpty)
+            while (!LinkCharacterQuestMissions.IsEmpty)
             {
-                if (LinkCharacterQuestConstraint.TryDequeue(out var characterQuestConstraintRelation) && characterQuestConstraintRelation.数据索引 != 0)
+                if (LinkCharacterQuestMissions.TryDequeue(out var characterQuestConstraintRelation) && characterQuestConstraintRelation.数据索引 != 0)
                 {
                     var characterQuestConstraint = GameDataGateway.Data型表[typeof(CharacterQuestMission)][characterQuestConstraintRelation.数据索引] as CharacterQuestMission;
                     if (characterQuestConstraint == null)
@@ -302,7 +302,7 @@ namespace GameServer.Data
             哈希角色表 = new ConcurrentQueue<哈希关联参数<CharacterData>>();
             哈希邮件表 = new ConcurrentQueue<哈希关联参数<MailData>>();
             LinkCharacterQuests = new ConcurrentQueue<哈希关联参数<CharacterQuest>>();
-            LinkCharacterQuestConstraint = new ConcurrentQueue<哈希关联参数<CharacterQuestMission>>();
+            LinkCharacterQuestMissions = new ConcurrentQueue<哈希关联参数<CharacterQuestMission>>();
         }
 
         private static readonly ConcurrentQueue<DataLinkTable.数据关联参数> 数据任务表;
@@ -312,7 +312,7 @@ namespace GameServer.Data
         private static readonly ConcurrentQueue<DataLinkTable.哈希关联参数<CharacterData>> 哈希角色表;
         private static readonly ConcurrentQueue<DataLinkTable.哈希关联参数<MailData>> 哈希邮件表;
         private static readonly ConcurrentQueue<DataLinkTable.哈希关联参数<CharacterQuest>> LinkCharacterQuests;
-        private static readonly ConcurrentQueue<DataLinkTable.哈希关联参数<CharacterQuestMission>> LinkCharacterQuestConstraint;
+        private static readonly ConcurrentQueue<DataLinkTable.哈希关联参数<CharacterQuestMission>> LinkCharacterQuestMissions;
 
 
         private struct 数据关联参数

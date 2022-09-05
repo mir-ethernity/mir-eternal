@@ -5,6 +5,7 @@ using System.Linq;
 using GameServer.Data;
 using GameServer.Templates;
 using GameServer.Networking;
+using Models.Enums;
 
 namespace GameServer.Maps
 {
@@ -684,31 +685,35 @@ namespace GameServer.Maps
                     foreach (var characterData in hashSet)
                     {
                         if (characterData.ActiveConnection?.Player == null) continue;
+                        var quests = characterData.GetInProgressQuests();
+                        var updated = false;
 
-                        foreach (var quest in characterData.Quests)
+                        foreach (var quest in quests)
                         {
-                            if (quest.CompleteDate.V != DateTime.MinValue) continue;
+                            var missions = quest.GetMissionsOfType(QuestMissionType.KillMob);
 
-                            foreach (var constraint in quest.Missions)
+                            foreach (var mission in missions)
                             {
-                                if (constraint.CompletedDate.V != DateTime.MinValue) continue;
-                                if (constraint.Info.V.Type != QuestMissionType.KillMob) continue;
-                                if (constraint.Info.V.Value != Template.Id) continue;
-
-                                constraint.Amount.V = constraint.Amount.V + 1;
+                                if (mission.Info.V.Id != Template.Id) continue;
+                                mission.Count.V = (byte)(mission.Count.V + 1);
 
                                 characterData.ActiveConnection.Player.SendPacket(new SyncSupplementaryVariablesPacket
                                 {
                                     变量类型 = 6, // Quest Progress Update
                                     对象编号 = quest.Info.V.Id,
-                                    变量内容 = constraint.Amount.V
+                                    变量内容 = mission.Count.V
                                 });
 
-                                if (constraint.Amount.V >= (constraint.Info.V.RequireAmount ?? 0))
-                                    constraint.CompletedDate.V = MainProcess.CurrentTime;
-
-                                characterData.ActiveConnection.Player.UpdateQuestProgress();
+                                updated = true;
                             }
+
+                            // This packet i think sends when have multiples progress
+                            // 网络连接.SendRaw(175, 6, new byte[] {
+                            // 1, 0, // progress index
+                            // 5, 0 // progress count
+                            // });
+
+                            if (updated) characterData.ActiveConnection.Player.UpdateQuestProgress(quest);
                         }
                     }
 

@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Reflection;
 using GameServer.Templates;
+using Models;
 
 namespace GameServer.Data
 {
@@ -270,6 +271,12 @@ namespace GameServer.Data
             {
                 var DataMonitor = new DataMonitor<CharacterQuest>(o);
                 DataLinkTable.添加任务(o, f, DataMonitor, typeof(CharacterQuest), r.ReadInt32());
+                return DataMonitor;
+            };
+            dictionary[typeof(DataMonitor<CharacterQuestMission>)] = delegate (BinaryReader r, GameData o, DataField f)
+            {
+                var DataMonitor = new DataMonitor<CharacterQuestMission>(o);
+                DataLinkTable.添加任务(o, f, DataMonitor, typeof(CharacterQuestMission), r.ReadInt32());
                 return DataMonitor;
             };
             dictionary[typeof(HashMonitor<CharacterQuestMission>)] = delegate (BinaryReader r, GameData o, DataField f)
@@ -810,9 +817,9 @@ namespace GameServer.Data
             };
             dictionary2[typeof(DataMonitor<GameQuestMission>)] = delegate (BinaryWriter b, object o)
             {
-                var constraint = (DataMonitor<GameQuestMission>)o;
-                b.Write(constraint.V?.Quest.Id ?? 0);
-                b.Write(constraint.V?.Quest.Missions.IndexOf(constraint.V) ?? 0);
+                var mission = (DataMonitor<GameQuestMission>)o;
+                b.Write(mission.V?.QuestId ?? 0);
+                b.Write(mission.V?.MissionIndex ?? 0);
             };
             typeFromHandle49 = typeof(DataMonitor<PetMode>);
             dictionary2[typeFromHandle49] = delegate (BinaryWriter b, object o)
@@ -920,6 +927,10 @@ namespace GameServer.Data
                 b.Write((HashMonitor != null) ? HashMonitor.Count : 0);
                 foreach (var item in HashMonitor)
                     b.Write(item.Index.V);
+            };
+            dictionary2[typeof(DataMonitor<CharacterQuestMission>)] = delegate (BinaryWriter b, object o)
+            {
+                b.Write(((DataMonitor<CharacterQuestMission>)o)?.V?.Index.V ?? 0);
             };
             dictionary2[typeof(HashMonitor<CharacterQuestMission>)] = delegate (BinaryWriter b, object o)
             {

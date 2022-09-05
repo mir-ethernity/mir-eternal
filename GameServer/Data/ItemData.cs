@@ -487,6 +487,22 @@ namespace GameServer.Data
             生成时间.V = MainProcess.CurrentTime;
             最大持久.V = 物品模板.MaxDura;
             当前持久.V = Math.Min(durability, 最大持久.V);
+
+            var activeQuests = character.GetInProgressQuests();
+            foreach (var quest in activeQuests)
+            {
+                var missions = quest.GetMissionsOfType(Models.Enums.QuestMissionType.AdquireItem);
+                var updated = false;
+                foreach (var mission in missions)
+                {
+                    if (mission.CompletedDate.V != DateTime.MinValue) continue;
+                    if (mission.Info.V.Id != item.Id) continue;
+                    mission.Count.V = (byte)(mission.Count.V + 1);
+                    updated = true;
+                }
+                if (updated) character.ActiveConnection?.Player.UpdateQuestProgress(quest);
+            }
+
             GameDataGateway.ItemData表.AddData(this, true);
         }
 

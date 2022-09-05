@@ -279,6 +279,11 @@ namespace GameServer.Data
             return tmp.Count == count;
         }
 
+        public CharacterQuest[] GetInProgressQuests()
+        {
+            return Quests.Where(x => x.CompleteDate.V == DateTime.MinValue).ToArray();
+        }
+
         public CharacterData()
         {
         }

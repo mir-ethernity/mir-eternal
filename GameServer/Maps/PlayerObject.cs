@@ -10,6 +10,8 @@ using GameServer.Networking;
 using GameServer.Enums;
 using GameServer.PlayerCommands;
 using GamePackets.Server;
+using Models.Enums;
+using System.Collections;
 
 namespace GameServer.Maps
 {
@@ -582,6 +584,57 @@ namespace GameServer.Maps
             }
         }
 
+        public void TeleportToQuest(int questId)
+        {
+            if (!GameQuests.DataSheet.TryGetValue(questId, out GameQuests questInfo))
+                return;
+
+            if (!questInfo.CanTeleport && questInfo.TeleportCostId == 0)
+                return;
+
+            var charQuest = CharacterData.Quests
+                .Where(x => x.Info.V.Id == questInfo.Id)
+                .FirstOrDefault();
+
+            if (charQuest == null || charQuest.CompleteDate.V != DateTime.MinValue)
+                return;
+
+            var map = MapGatewayProcess.GetMapInstance(questInfo.StartNPCMap);
+
+            if (map == null)
+                return;
+
+            var npc = map.守卫区域
+                .Where(x => x.GuardNumber == questInfo.FinishNPCID)
+                .FirstOrDefault();
+
+            if (npc == null)
+                return;
+
+            if (questInfo.TeleportCostId > 0)
+            {
+                var item = GetBackpackItemById(questInfo.TeleportCostId);
+
+                if (item == null)
+                    return;
+
+                ConsumeBackpackItem(questInfo.TeleportCostValue, item);
+            }
+
+            玩家切换地图(map, AreaType.未知区域, npc.FromCoords);
+        }
+
+        private ItemData GetBackpackItemById(int itemId)
+        {
+            foreach (var item in Backpack)
+            {
+                if (item.Value.Id == itemId)
+                    return item.Value;
+            }
+
+            return null;
+        }
+
         public void CompleteQuest(int questId)
         {
             var questToComplete = CharacterData.Quests.FirstOrDefault(x => x.Info.V.Id == questId);
@@ -590,10 +643,7 @@ namespace GameServer.Maps
             var isCompleted = questToComplete.Missions.All(x => x.CompletedDate.V != DateTime.MinValue);
             if (!isCompleted) return;
 
-            if (questToComplete.Info.V.FinishNpcId > 0 && (对话守卫 == null || 对话守卫.MobId != questToComplete.Info.V.FinishNpcId))
-                return;
-
-            var requireInventorySpaceCount = (byte)questToComplete.Info.V.Rewards.Sum(x => x.Type == RewardType.Item ? 1 : 0);
+            var requireInventorySpaceCount = (byte)questToComplete.Info.V.Rewards.Sum(x => x.Type == QuestRewardType.Item ? 1 : 0);
 
             byte[] locations = Array.Empty<byte>();
 
@@ -606,15 +656,23 @@ namespace GameServer.Maps
             {
                 switch (reward.Type)
                 {
-                    case RewardType.Gold:
-                        NumberGoldCoins += reward.Amount;
+                    case QuestRewardType.Currency:
+                        CharacterData.Currencies[(GameCurrency)reward.Id] += reward.Count;
+                        ActiveConnection?.SendPacket(new 货币数量变动
+                        {
+                            CurrencyType = (byte)reward.Id,
+                            货币数量 = reward.Count
+                        });
                         break;
-                    case RewardType.Exp:
-                        GainExperience(null, reward.Amount);
+                    case QuestRewardType.Exp:
+                        GainExperience(null, reward.Count);
                         break;
-                    case RewardType.Item:
-                        if (GameItems.DataSheet.TryGetValue(reward.Value, out GameItems item))
-                            GainItem(item, locations[itemSpacePos++], reward.Amount > 0 ? reward.Amount : 1);
+                    case QuestRewardType.Item:
+                        if (GameItems.DataSheet.TryGetValue(reward.Id, out GameItems item))
+                            GainItem(item, locations[itemSpacePos++], reward.Count > 0 ? reward.Count : 1);
+                        break;
+                    case QuestRewardType.Reputation:
+                    case QuestRewardType.Activity:
                         break;
                 }
             }
@@ -681,10 +739,20 @@ namespace GameServer.Maps
 
         private bool CanAcceptQuest(int questId)
         {
-            if (CharacterData.Quests.Any(x => x.Info.V.Id == questId))
+            if (!GameQuests.DataSheet.TryGetValue(questId, out var questInfo))
                 return false;
 
-            if (!GameQuests.DataSheet.TryGetValue(questId, out var questInfo))
+            if (questInfo.StartNPCMap > 0 && CurrentMap.MapId != questInfo.StartNPCMap)
+                return false;
+
+            if (questInfo.StartsNPCID > 0 && 对话守卫.MobId != questInfo.StartsNPCID)
+                return false;
+
+            var completedQuests = CharacterData.Quests
+                .Where(x => x.Info.V.Id == questId)
+                .ToArray();
+
+            if (questInfo.MaxCompleteCount > 0 && completedQuests.Length >= questInfo.MaxCompleteCount)
                 return false;
 
             return questInfo.Constraints.All(x =>
@@ -694,6 +762,18 @@ namespace GameServer.Maps
                     case QuestAcceptConstraint.QuestCompleted:
                         var quest = CharacterData.Quests.FirstOrDefault(y => y.Info.V.Id == x.Value);
                         return quest != null && quest.CompleteDate.V != DateTime.MinValue;
+                    case QuestAcceptConstraint.MinLevel:
+                        return CurrentLevel >= x.Value;
+                    case QuestAcceptConstraint.MaxLevel:
+                        return CurrentLevel <= x.Value;
+                    case QuestAcceptConstraint.Job:
+                        return (int)CharRole == x.Value;
+                    case QuestAcceptConstraint.Gender:
+                        return (int)CharGender == x.Value;
+                    case QuestAcceptConstraint.AcceptStartTime:
+                        return ComputingClass.TimeShift(MainProcess.CurrentTime) >= x.Value;
+                    case QuestAcceptConstraint.AcceptEndTime:
+                        return x.Value >= ComputingClass.TimeShift(MainProcess.CurrentTime);
                     default:
                         throw new NotImplementedException();
                 }
@@ -717,31 +797,36 @@ namespace GameServer.Maps
                 QuestId = questId
             });
 
-            UpdateQuestProgress();
+            UpdateQuestProgress(quest);
         }
 
-        public void UpdateQuestProgress()
+        public void UpdateQuestsProgress()
         {
-            var activeQuest = CharacterData.Quests
-                .Where(x => x.CompleteDate.V == DateTime.MinValue)
-                .FirstOrDefault();
+            foreach (var quest in CharacterData.Quests)
+                UpdateQuestProgress(quest);
+        }
 
-            if (activeQuest == null) return;
+        public void UpdateQuestProgress(CharacterQuest quest)
+        {
+            if (quest.CompleteDate.V != DateTime.MinValue)
+                return;
 
-            foreach (var mission in activeQuest.Missions)
+            foreach (var mission in quest.Missions)
             {
                 if (mission.CompletedDate.V != DateTime.MinValue) continue;
 
                 switch (mission.Info.V.Type)
                 {
-                    case QuestMissionType.EquipSword:
+                    case QuestMissionType.EquipItem:
                         if (Equipment[(byte)EquipmentWearingParts.武器] != null)
+                            mission.CompletedDate.V = MainProcess.CurrentTime;
+                        break;
+                    case QuestMissionType.KillMob:
+                        if (mission.Count.V >= mission.Info.V.Count)
                             mission.CompletedDate.V = MainProcess.CurrentTime;
                         break;
                 }
             }
-
-            CompleteQuest(activeQuest.Info.V.Id);
         }
 
         public void ProcessActionNPC(int actionValue, int actionType)
@@ -796,20 +881,27 @@ namespace GameServer.Maps
             using (var ms = new MemoryStream())
             using (var bw = new BinaryWriter(ms))
             {
-                var totalCompletedQuests = CharacterData.Quests
-                   .Where(x => x.CompleteDate.V != DateTime.MinValue)
-                   .Count();
+                var characterQuests = CharacterData.Quests
+                    .Where(x => x.CompleteDate.V != DateTime.MinValue)
+                    .ToDictionary(x => x.Info.V.Id);
 
                 var questActive = CharacterData.Quests
-                   .Where(x => x.CompleteDate.V == DateTime.MinValue)
-                   .FirstOrDefault();
+                    .Where(x => x.CompleteDate.V == DateTime.MinValue)
+                    .FirstOrDefault();
 
-                ms.Seek(180, SeekOrigin.Begin);
-                bw.Write(totalCompletedQuests * 3); // parece que esta relacionado con algun id de quest completada
+                var totalQuests = 5695;
+                var bitArray = new BitArray(totalQuests);
+
+                for (var i = 0; i < totalQuests; i++)
+                    bitArray.Set(i, characterQuests.ContainsKey(i));
+
+                var questsStatus = new byte[(int)Math.Ceiling((decimal)totalQuests / 8)];
+                bitArray.CopyTo(questsStatus, 0);
+
+                bw.Write(questsStatus);
 
                 ms.Seek(772, SeekOrigin.Begin);
-
-                bw.Write(questActive != null); // HasActiveQuest?
+                bw.Write(1); // chapter?
                 bw.Write(0); // ???
                 bw.Write(0); // ???
                 bw.Write(ComputingClass.TimeShift(MainProcess.CurrentTime)); // the last complete quest date??
@@ -817,11 +909,14 @@ namespace GameServer.Maps
                 bw.Seek(1305, SeekOrigin.Begin);
                 bw.Write(int.MaxValue);
 
+                bw.Seek(1380, SeekOrigin.Begin);
+                bw.Write(0); // ???
+
                 bw.Seek(1408, SeekOrigin.Begin);
                 bw.Write(0); // ???
                 bw.Write(0); // ???
-                bw.Write(0); // ???
-                bw.Write(0); // i dont know what is - antes 10
+                bw.Write((byte)0); // ???
+                bw.Write((byte)0); // ???
 
                 bw.Seek(1433, SeekOrigin.Begin);
                 bw.Write(int.MaxValue);
@@ -833,8 +928,11 @@ namespace GameServer.Maps
                     bw.Write(questActive.Info.V.Id); // active main quest id
                     bw.Write(ComputingClass.TimeShift(questActive.StartDate.V));
                     bw.Write(0);
-                    var progress = questActive.Missions.FirstOrDefault();
-                    bw.Write(progress.Amount.V);
+
+                    var missions = questActive.Missions.ToArray();
+                    for (var i = 0; i < 4; i++)
+                        bw.Write(missions.Length > i ? missions[i].Count.V : (byte)0);
+
                     bw.Write(new byte[48]); // ???
                 }
 
@@ -4302,19 +4400,6 @@ namespace GameServer.Maps
                 return;
             }
 
-
-            foreach (var quest in CharacterData.Quests)
-            {
-                if (quest.CompleteDate.V != DateTime.MinValue) continue;
-
-                foreach (var constraint in quest.Missions)
-                {
-                    if (constraint.CompletedDate.V != DateTime.MinValue) continue;
-                    if (constraint.Info.V.Type != QuestMissionType.SpeakWithNPC) continue;
-                    if (constraint.Info.V.Value != 对话守卫.MobId) continue;
-                    constraint.CompletedDate.V = MainProcess.CurrentTime;
-                }
-            }
 
             // TODO: Progress QUEST
             if (this.对话守卫.MobId == 6683 || 对话守卫.MobId == 6684)
@@ -10697,7 +10782,7 @@ namespace GameServer.Maps
                     玩家穿卸装备((EquipmentWearingParts)fromStoragePosition, (EquipmentData)sourceItem, (EquipmentData)destItem);
             }
 
-            UpdateQuestProgress();
+            UpdateQuestsProgress();
         }
 
         private bool ProcessConsumableRecoveryHP(ItemData item)

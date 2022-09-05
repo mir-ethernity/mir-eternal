@@ -471,6 +471,15 @@ namespace GameServer.Networking
             Player.CompleteQuest(P.QuestId);
         }
 
+        public void 处理封包(QuestTeleportPacket P)
+        {
+            if (this.当前阶段 != GameStage.PlayingScene)
+            {
+                this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
+                return;
+            }
+            this.Player.TeleportToQuest(P.QuestId);
+        }
 
         public void 处理封包(AcceptRewardPacket P)
         {

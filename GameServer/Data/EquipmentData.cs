@@ -1054,23 +1054,30 @@ namespace GameServer.Data
             生成时间.V = MainProcess.CurrentTime;
             物品状态.V = 1;
             最大持久.V = ((item.PersistType == PersistentItemType.装备) ? (item.MaxDura * 1000) : item.MaxDura);
-            DataMonitor<int> 当前持久 = this.当前持久;
-            int v;
-            if (randomGenerated)
-            {
-                if (item.PersistType == PersistentItemType.装备)
-                {
-                    v = MainProcess.RandomNumber.Next(0, 最大持久.V);
-                    goto IL_B8;
-                }
-            }
-            v = 最大持久.V;
-        IL_B8:
-            当前持久.V = v;
+
             if (randomGenerated && item.PersistType == PersistentItemType.装备)
+                当前持久.V = MainProcess.RandomNumber.Next(0, 最大持久.V);
+            else
+                当前持久.V = 最大持久.V;
+
+            if (randomGenerated && item.PersistType == PersistentItemType.装备)
+                随机Stat.SetValue(EquipmentStats.GenerateStats(base.物品类型, false));
+
+            var activeQuests = character.GetInProgressQuests();
+            foreach (var quest in activeQuests)
             {
-                随机Stat.SetValue(GameServer.Templates.EquipmentStats.GenerateStats(base.物品类型, false));
+                var missions = quest.GetMissionsOfType(Models.Enums.QuestMissionType.AdquireItem);
+                var updated = false;
+                foreach (var mission in missions)
+                {
+                    if (mission.CompletedDate.V != DateTime.MinValue) continue;
+                    if (mission.Info.V.Id != item.Id) continue;
+                    mission.Count.V = (byte)(mission.Count.V + 1);
+                    updated = true;
+                }
+                if (updated) character.ActiveConnection?.Player.UpdateQuestProgress(quest);
             }
+
             GameDataGateway.EquipmentData表.AddData(this, true);
         }
 
@@ -1160,7 +1167,7 @@ namespace GameServer.Data
 
                     // unknown flag
                     if (false) num2 |= 0x80000;
-                   
+
                     // expire time
                     if (false) num2 |= 0x100000;
 
@@ -1213,7 +1220,7 @@ namespace GameServer.Data
                         if (铭文技能[3] != null) num4 |= 2;
                         binaryWriter.Write((short)num4);
                         binaryWriter.Write(洗练数二.V * 10000);
-                        
+
                         if (((uint)num4 & (true ? 1u : 0u)) != 0)
                             binaryWriter.Write(铭文技能[2].Index);
 
