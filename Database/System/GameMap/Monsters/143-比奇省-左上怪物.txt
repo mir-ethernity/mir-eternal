@@ -12,6 +12,11 @@
     },
     {
       "MonsterName": "稻草人",
+      "SpawnCount": 60,
+      "RevivalInterval": 3
+    },
+    {
+      "MonsterName": "干枯的稻草人",
       "SpawnCount": 80,
       "RevivalInterval": 3
     },

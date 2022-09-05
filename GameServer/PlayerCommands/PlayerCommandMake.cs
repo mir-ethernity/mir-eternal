@@ -43,29 +43,7 @@ namespace GameServer.PlayerCommands
                 return;
             }
 
-            if (itemTemplate is EquipmentItem equipItem)
-            {
-                Player.CharacterData.Backpack[b] = new EquipmentData(equipItem, Player.CharacterData, 1, b, true);
-            }
-            else if (itemTemplate.PersistType == PersistentItemType.容器)
-            {
-                Player.CharacterData.Backpack[b] = new ItemData(itemTemplate, Player.CharacterData, 1, b, 0);
-            }
-            else if (itemTemplate.PersistType == PersistentItemType.堆叠)
-            {
-                Player.CharacterData.Backpack[b] = new ItemData(itemTemplate, Player.CharacterData, 1, b, 1);
-            }
-            else
-            {
-                Player.CharacterData.Backpack[b] = new ItemData(itemTemplate, Player.CharacterData, 1, b, itemTemplate.MaxDura);
-            }
-
-            if (Qty > 1) Player.CharacterData.Backpack[b].当前持久.V = Qty;
-
-            Player.ActiveConnection?.SendPacket(new 玩家物品变动
-            {
-                物品描述 = Player.CharacterData.Backpack[b].字节描述()
-            });
+            Player.GainItem(itemTemplate, b, Qty);
         }
     }
 }

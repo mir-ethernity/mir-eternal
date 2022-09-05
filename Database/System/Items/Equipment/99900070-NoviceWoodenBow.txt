@@ -1,0 +1,64 @@
+{
+  "Name": "NoviceWoodenBow",
+  "Id": 99900070,
+  "MaxDura": 4,
+  "Weight": 9,
+  "Level": 3,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "武器",
+  "NeedRace": "弓手",
+  "PersistType": "装备",
+  "StoreType": "武器",
+  "BasicPowerCombat": 22,
+  "MinDC": 1,
+  "MaxDC": 4,
+  "MinBC": 2,
+  "MaxBC": 4,
+  "CanRepair": true,
+  "RepairCost": 1,
+  "SpecialRepairCost": 5,
+  "灵魂绑点": 9,
+  "圣伤上限": 10,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "物品掉落列表": [
+    {
+      "Name": "木弓",
+      "MonsterName": "稻草人",
+      "Probability": 100,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "木弓",
+      "MonsterName": "海蟹",
+      "Probability": 100,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "木弓",
+      "MonsterName": "鹿",
+      "Probability": 100,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "木弓",
+      "MonsterName": "钉耙猫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "木弓",
+      "MonsterName": "羊",
+      "Probability": 100,
+      "MinAmount": 1,
+      "最大数量": 1
+    }
+  ]
+}

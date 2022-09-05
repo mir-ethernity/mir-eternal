@@ -417,7 +417,24 @@ namespace GameServer.Networking
 
         public void 处理封包(UnknownC3 P)
         {
+            //// 货币数量变动 (Server)
+            //SendPacket(
+            //149,
+            //30,
+            //new byte[] { 13, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0 }
+            //);
 
+            this.Player.ActiveConnection?.SendPacket(new UnknownS5
+            {
+                U1 = P.U1,
+                U2 = 19225
+            });
+            //// u218 (Server)
+            //SendPacket(
+            //218,
+            //10,
+            //new byte[] { 59, 0, 0, 0, 25, 75, 0, 0 }
+            //);
         }
 
         public void 处理封包(UnknownC4 P)
@@ -444,6 +461,35 @@ namespace GameServer.Networking
         {
         }
 
+        public void 处理封包(PlayerCompleteQuestPacket P)
+        {
+            if (this.当前阶段 != GameStage.PlayingScene)
+            {
+                this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
+                return;
+            }
+            Player.CompleteQuest(P.QuestId);
+        }
+
+        public void 处理封包(QuestTeleportPacket P)
+        {
+            if (this.当前阶段 != GameStage.PlayingScene)
+            {
+                this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
+                return;
+            }
+            this.Player.TeleportToQuest(P.QuestId);
+        }
+
+        public void 处理封包(AcceptRewardPacket P)
+        {
+            if (this.当前阶段 != GameStage.PlayingScene)
+            {
+                this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
+                return;
+            }
+            this.Player.AcceptReward(P.QuestId);
+        }
 
         public void 处理封包(上传游戏设置 P)
         {
@@ -476,12 +522,16 @@ namespace GameServer.Networking
         }
 
 
+
+    
         public void 处理封包(ClickNpcDialogPacket P)
         {
             if (this.当前阶段 != GameStage.PlayingScene)
             {
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.当前阶段)));
             }
+
+            this.Player.ProcessActionNPC(P.对象编号, P.QuestId);
         }
 
 

@@ -264,6 +264,25 @@ namespace GameServer.Data
             return false;
         }
 
+        public bool TryGetFreeSpacesAtInventory(byte count, out byte[] locations)
+        {
+            var tmp = new List<byte>();
+
+            for (byte b = 0; b < BackpackSize.V && count > tmp.Count; b += 1)
+            {
+                if (!Backpack.ContainsKey(b))
+                    tmp.Add(b);
+            }
+
+            locations = tmp.ToArray();
+
+            return tmp.Count == count;
+        }
+
+        public CharacterQuest[] GetInProgressQuests()
+        {
+            return Quests.Where(x => x.CompleteDate.V == DateTime.MinValue).ToArray();
+        }
 
         public CharacterData()
         {
@@ -385,7 +404,9 @@ namespace GameServer.Data
                     case ItemBackPack.人物背包:
                         for (var i = 0; i < (inscriptionItem.Quantity ?? 1); i++)
                             if (TryGetFreeSpaceAtInventory(out byte inventoryPosition))
-                                Backpack[inventoryPosition] = new ItemData(item, this, 1, inventoryPosition, 1);
+                                Backpack[inventoryPosition] = item is EquipmentItem
+                                    ? new EquipmentData((EquipmentItem)item, this, 1, inventoryPosition, false)
+                                    : new ItemData(item, this, 1, inventoryPosition, 1);
                         break;
                     case ItemBackPack.人物穿戴:
                         var equipment = (EquipmentItem)item;
@@ -533,7 +554,6 @@ namespace GameServer.Data
             };
         }
 
-
         public override void OnLoadCompleted()
         {
             AttachToEvents();
@@ -544,84 +564,69 @@ namespace GameServer.Data
             MainForm.更新角色仓库(this, this.Warehouse.ToList<KeyValuePair<byte, ItemData>>());
         }
 
-
         public override void Delete()
         {
             this.Account.V.Characters.Remove(this);
             this.Account.V.冻结列表.Remove(this);
             this.Account.V.删除列表.Remove(this);
-            EquipmentData v = this.升级装备.V;
-            if (v != null)
+
+            this.升级装备.V?.Delete();
+
+            foreach (var pet in PetData)
+                pet.Delete();
+
+            foreach (var mail in Mails)
+                mail.Delete();
+
+            foreach (var item in Backpack)
+                item.Value.Delete();
+
+            foreach (var item in Equipment)
+                item.Value.Delete();
+
+            foreach (var item in Warehouse)
+                item.Value.Delete();
+
+            foreach (var skill in SkillData)
+                skill.Value.Delete();
+
+            foreach (var buff in BuffData)
+                buff.Value.Delete();
+
+            foreach (var quest in Quests)
+                quest.Delete();
+
+            if (Team.V != null)
             {
-                v.Delete();
-            }
-            foreach (PetData PetData in this.PetData)
-            {
-                PetData.Delete();
-            }
-            foreach (MailData MailData in this.Mails)
-            {
-                MailData.Delete();
-            }
-            foreach (KeyValuePair<byte, ItemData> keyValuePair in this.Backpack)
-            {
-                keyValuePair.Value.Delete();
-            }
-            foreach (KeyValuePair<byte, EquipmentData> keyValuePair2 in this.Equipment)
-            {
-                keyValuePair2.Value.Delete();
-            }
-            foreach (KeyValuePair<byte, ItemData> keyValuePair3 in this.Warehouse)
-            {
-                keyValuePair3.Value.Delete();
-            }
-            foreach (KeyValuePair<ushort, SkillData> keyValuePair4 in this.SkillData)
-            {
-                keyValuePair4.Value.Delete();
-            }
-            foreach (KeyValuePair<ushort, BuffData> keyValuePair5 in this.BuffData)
-            {
-                keyValuePair5.Value.Delete();
-            }
-            if (this.Team.V != null)
-            {
-                if (this == this.Team.V.队长数据)
-                {
-                    this.Team.V.Delete();
-                }
+                if (this == Team.V.队长数据)
+                    Team.V.Delete();
                 else
-                {
-                    this.Team.V.Members.Remove(this);
-                }
+                    Team.V.Members.Remove(this);
             }
-            if (this.Teacher.V != null)
+
+            if (Teacher.V != null)
             {
-                if (this == this.Teacher.V.师父数据)
-                {
-                    this.Teacher.V.Delete();
-                }
+                if (this == Teacher.V.师父数据)
+                    Teacher.V.Delete();
                 else
-                {
-                    this.Teacher.V.移除徒弟(this);
-                }
+                    Teacher.V.移除徒弟(this);
             }
-            if (this.Guild.V != null)
+
+            if (Guild.V != null)
             {
-                this.Guild.V.行会成员.Remove(this);
-                this.Guild.V.行会禁言.Remove(this);
+                Guild.V.行会成员.Remove(this);
+                Guild.V.行会禁言.Remove(this);
             }
-            foreach (CharacterData CharacterData in this.好友列表)
-            {
+
+            foreach (CharacterData CharacterData in 好友列表)
                 CharacterData.好友列表.Remove(this);
-            }
-            foreach (CharacterData CharacterData2 in this.粉丝列表)
-            {
+
+            foreach (CharacterData CharacterData2 in 粉丝列表)
                 CharacterData2.偶像列表.Remove(this);
-            }
-            foreach (CharacterData CharacterData3 in this.仇恨列表)
-            {
+
+            foreach (CharacterData CharacterData3 in 仇恨列表)
                 CharacterData3.仇人列表.Remove(this);
-            }
+
             base.Delete();
         }
 
@@ -943,5 +948,7 @@ namespace GameServer.Data
         public readonly ListMonitor<ushort> Mounts;
 
         public readonly DataMonitor<ushort> CurrentMount;
+
+        public readonly HashMonitor<CharacterQuest> Quests;
     }
 }

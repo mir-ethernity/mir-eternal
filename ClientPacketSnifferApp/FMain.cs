@@ -179,6 +179,8 @@ namespace ClientPacketSnifferApp
                     if (
                         ipv4packet.PayloadPacket is not TransportPacket transportPacket
                         || transportPacket.PayloadData == null
+
+
                         || transportPacket.PayloadData.Length == 0
                     ) continue;
 

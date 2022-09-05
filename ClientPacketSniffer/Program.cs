@@ -1,10 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
-using ClientPacketSniffer;
-using ClientPacketSniffer.Repositories;
+﻿using ClientPacketSniffer;
 using ClientPacketSniffer.Services;
 using System.Text;
 
 Console.OutputEncoding = Encoding.UTF8;
+
+var key = new byte[16] { 0xB2, 0x59, 0xf9, 0x6c, 0xd9, 0x9e, 0xdb, 0x4d, 0xf8, 0x91, 0x58, 0x15, 0x27, 0x3d, 0x68, 0x8e };
+var input = new byte[] { 0x32, 0x30, 0x32, 0x32, 0x2d, 0x30, 0x38, 0x2d, 0x32, 0x32 };
+var ojo = Convert.FromBase64String("TMB5iVAs7eMXcfCTLx7XRA==");
 
 Console.CancelKeyPress += delegate
 {
