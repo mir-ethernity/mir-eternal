@@ -1,0 +1,6 @@
+{
+  "Name": "雕爷",
+  "GuardNumber": 7001,
+  "Level": 99,
+  "RangeHate": 8
+}

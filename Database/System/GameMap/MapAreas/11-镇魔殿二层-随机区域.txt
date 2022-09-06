@@ -1,0 +1,14 @@
+﻿{
+"FromMapId":11,
+"FromMapName":"镇魔殿二层",
+"FromCoords":"630,630",
+"RegionName":"镇魔殿二层-随机区域",
+"AreaRadius":45,
+"AreaType":"随机区域",
+"RangeCoords":
+[
+    "600,592",
+    "600,593",
+    "600,594"
+]
+}

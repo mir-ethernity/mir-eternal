@@ -1,0 +1,8 @@
+﻿{
+  "MapId": 21,
+  "MapName": "巅峰赛王城",
+  "MapFile": "MirAct33",
+  "TerrainFile": "0021-巅峰赛王城",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

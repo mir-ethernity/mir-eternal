@@ -1,0 +1,8 @@
+﻿{
+  "MapId": 68,
+  "MapName": "地下宫殿1",
+  "MapFile": "MirAct08",
+  "TerrainFile": "0068-地下宫殿1",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

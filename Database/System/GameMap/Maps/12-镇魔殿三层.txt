@@ -1,0 +1,8 @@
+﻿{
+  "MapId": 12,
+  "MapName": "镇魔殿三层",
+  "MapFile": "MirSp02_2",
+  "TerrainFile": "0012-镇魔殿三层",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

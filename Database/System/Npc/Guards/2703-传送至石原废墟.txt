@@ -1,0 +1,9 @@
+{
+  "Name": "传送至石原废墟",
+  "GuardNumber": 2703,
+  "Level": 99,
+  "CanBeInjured": false,
+  "CorpsePreservation": 300000,
+  "RevivalInterval": 15000,
+  "RangeHate": 8
+}

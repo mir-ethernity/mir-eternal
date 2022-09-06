@@ -1,0 +1,8 @@
+﻿{
+  "MapId": 10,
+  "MapName": "镇魔古城",
+  "MapFile": "MirSp01",
+  "TerrainFile": "0010-镇魔古城",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

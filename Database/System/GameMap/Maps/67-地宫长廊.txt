@@ -1,0 +1,8 @@
+﻿{
+  "MapId": 67,
+  "MapName": "地宫长廊",
+  "MapFile": "MirAct07",
+  "TerrainFile": "0067-地宫长廊",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

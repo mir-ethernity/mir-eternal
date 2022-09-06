@@ -1,0 +1,14 @@
+﻿{
+"FromMapId":13,
+"FromMapName":"镇魔殿四层",
+"FromCoords":"353,356",
+"RegionName":"镇魔殿四层-随机区域",
+"AreaRadius":45,
+"AreaType":"随机区域",
+"RangeCoords":
+[
+    "353,312",
+    "353,313",
+    "353,314"
+]
+}

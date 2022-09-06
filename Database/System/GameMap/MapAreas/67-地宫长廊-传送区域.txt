@@ -1,0 +1,12 @@
+﻿{
+  "FromMapId": 67,
+  "FromMapName": "地宫长廊",
+  "FromCoords": "110, 275",
+  "RegionName": "地宫长廊-传送区域",
+  "AreaRadius": 5,
+  "AreaType": "传送区域",
+  "RangeCoords": [
+"110,265",
+"110,255"
+  ]
+}

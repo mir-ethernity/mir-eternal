@@ -1,0 +1,4 @@
+﻿{
+  "Id": 700100000,
+  "Content": "For those warriors who have mastered the legendary techniques, Sun Xiaokong can help you activate the legendary inscriptions, each inscription requires one [Demon Slaying Order] which can be directly inscribed on the medal/jade pendant/necklace/shoulder armour/four parts. Which part do you want to engrave? <#SO:1>Medallion Inscription<#SO/> <#SO:2>Jade Pendant Inscription<#SO/> <#SO:3>Necklace Inscription<#SO/> <#SO:4>Shoulder Armour Inscription<#SO/>"
+}

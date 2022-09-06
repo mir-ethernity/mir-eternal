@@ -1,0 +1,4 @@
+﻿{
+  "Id": 699900000,
+  "Content": " The essence from monsters can be exchanged for special titles by me, which one do you want to exchange? <#SO:1>Lord of Woma (Woma Essence 400)<#SO/> <#SO:2>Lord of Zuma (Zuma Essence 400)<#SO/> <#SO:3>Lord of Red Moon (Red Moon Essence 400)<#SO/> <#SO:4>Demon King (Spear of the Demon Dragon Godfather 500)<#SO/> <#SO:5>Dragon Slayer (Spectral Collar 50)<#SO/> <#SO/> SO:6>Tenglong Takumi (Blood of the Bull Demon King 500)<#SO/>"
+}

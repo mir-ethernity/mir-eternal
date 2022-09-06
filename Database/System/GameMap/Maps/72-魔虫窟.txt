@@ -1,0 +1,8 @@
+﻿{
+  "MapId": 72,
+  "MapName": "魔虫窟",
+  "MapFile": "MirDg17",
+  "TerrainFile": "0072-魔虫窟",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

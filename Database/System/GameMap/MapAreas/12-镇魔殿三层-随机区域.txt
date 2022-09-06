@@ -1,0 +1,14 @@
+﻿{
+"FromMapId":12,
+"FromMapName":"镇魔殿三层",
+"FromCoords":"702,778",
+"RegionName":"镇魔殿三层-随机区域",
+"AreaRadius":45,
+"AreaType":"随机区域",
+"RangeCoords":
+[
+    "702,762",
+    "702,763",
+    "703,764"
+]
+}
