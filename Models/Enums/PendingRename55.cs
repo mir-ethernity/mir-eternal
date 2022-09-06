@@ -10,7 +10,7 @@ namespace GameServer.Templates
 		
 		锁定目标,
 
-		锁定ItSelf坐标,
+		锁定ItSelf坐标, //锁定自身坐标
 		
 		锁定目标坐标,
 		

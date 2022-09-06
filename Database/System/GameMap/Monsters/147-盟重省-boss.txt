@@ -1,0 +1,68 @@
+{
+  "FromMapId": 147,
+  "FromMapName": "盟重省",
+  "FromCoords": "951, 505",
+  "RegionName": "盟重省-boss",
+  "AreaRadius": 10,
+  "Spawns": [
+    {
+      "MonsterName": "魔火龙",
+      "SpawnCount": 1,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "兽人大祭祀",
+      "SpawnCount": 1,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "巨兽魔王",
+      "SpawnCount": 1,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "",
+      "SpawnCount": 1,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "",
+      "SpawnCount": 1,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "龙裔霸主",
+      "SpawnCount": 1,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "",
+      "SpawnCount": 1,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "",
+      "SpawnCount": 1,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "",
+      "SpawnCount": 1,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "",
+      "SpawnCount": 1,
+      "RevivalInterval": 1
+    }
+  ],
+  "RangeCoords": [
+    "948, 505",
+    "949, 505",
+    "950, 505",
+    "951, 505",
+    "952, 505",
+    "953, 505",
+    "954, 505",
+  ]
+}

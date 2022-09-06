@@ -16,6 +16,6 @@ namespace GameServer
 		
 		善恶,
 		
-		Hostility = 6
+		Hostility = 6 //敌对
 	}
 }

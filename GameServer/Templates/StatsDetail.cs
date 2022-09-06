@@ -5,7 +5,7 @@
         public class StatsDetail
 		{
 			public int StatId;
-			public int Probability;
+			public int Probability;  // 概率
 		}
 	}
 }

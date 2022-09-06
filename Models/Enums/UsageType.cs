@@ -18,7 +18,7 @@ namespace GameServer.Enums
         GainIngots = 7,
         TownTeleport = 8,
         Blessing = 9,
-        SwitchSkill = 10,
-        AdquireMount = 11
+        SwitchSkill = 10,  //切换技能
+        AdquireMount = 11 //获取坐骑
     }
 }

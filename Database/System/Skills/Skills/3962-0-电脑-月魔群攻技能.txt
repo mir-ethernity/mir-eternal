@@ -20,7 +20,7 @@
       "SkillEvasion": "CanBePhsyicallyEvaded",
       "技能范围类型": "Spiral15x15",
       "HitsLimit": 20,
-      "LimitedTargetType": "Player",
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility"
     },
     "876": {

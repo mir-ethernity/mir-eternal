@@ -1,0 +1,31 @@
+{
+  "SkillName": "烈火剑法-2-夺火印",
+  "SkillId": 1036,
+  "Id": 2,
+  "Quality": 6,
+  "Probability": 80,
+  "MinPlayerLevel": "IyUoKg==",
+  "MinSkillExp": [
+    20,
+    40,
+    60,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1433
+  ],
+  "MainSkills": [
+    "烈火剑法-2-夺火印-主体技能",
+    "烈火剑法-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": [
+    "烈火剑法-2-夺火印-技能开关"
+  ]
+}

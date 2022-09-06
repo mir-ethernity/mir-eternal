@@ -1,0 +1,29 @@
+{
+  "SkillName": "烈火剑法-3-燃烧印-技能开关",
+  "SkillId": 1036,
+  "GroupId": 4,
+  "BindingLevelId": 1036,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    2,
+    5,
+    6,
+    7
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 10000,
+      "分组Cooldown": 10000
+    },
+    "1": {
+      "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",
+      "技能标记编号": 10360
+    },
+    "2": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}
