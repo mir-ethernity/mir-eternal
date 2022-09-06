@@ -1,0 +1,770 @@
+﻿{
+  "MonsterName": "冰精",
+  "Id": 2734,
+  "Level": 60,
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "MoveInterval": 350,
+  "RoamInterval": 16000,
+  "CorpsePreservationDuration": 16000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 8,
+  "HateTime": 16000,
+  "NormalAttackSkills": "电脑-海蟹普通攻击技能",
+  "Stats": [
+    {
+      "Stat": "MaxHP",
+      "Value": 1580
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 18
+    },
+    {
+      "Stat": "WalkSpeed",
+      "Value": 11
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 16
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 18
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinDC"
+    },
+    {
+      "Stat": "MaxDC"
+    },
+    {
+      "Stat": "MinMC",
+      "Value": 35
+    },
+    {
+      "Stat": "MaxMC",
+      "Value": 70
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 18
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 27
+    },
+    {
+      "Stat": "MinMCDef",
+      "Value": 25
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Value": 40
+    }
+  ],
+  "ProvideExperience": 2400,
+  "Drops": [
+    {
+      "Name": "重盔甲(男)",
+      "MonsterName": "冰精2734",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(男)",
+      "MonsterName": "冰精2734",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(男)",
+      "MonsterName": "冰精2734",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(男)",
+      "MonsterName": "冰精2734",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(男)",
+      "MonsterName": "冰精2734",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(男)",
+      "MonsterName": "冰精2734",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "重盔甲(女)",
+      "MonsterName": "冰精2734",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法长袍(女)",
+      "MonsterName": "冰精2734",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂战衣(女)",
+      "MonsterName": "冰精2734",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客短袍(女)",
+      "MonsterName": "冰精2734",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "野猎之袍(女)",
+      "MonsterName": "冰精2734",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "镔铁盔甲(女)",
+      "MonsterName": "冰精2734",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "战神盔甲(男)",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "恶魔长袍(男)",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵战衣(男)",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风侠短袍(男)",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽骨猎袍(男)",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "陷阵之甲(男)",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "战神盔甲(女)",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "恶魔长袍(女)",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵战衣(女)",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风侠短袍(女)",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽骨猎袍(女)",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "陷阵之甲(女)",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽皮腰带",
+      "MonsterName": "冰精2734",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁腰带",
+      "MonsterName": "冰精2734",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜腰带",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "鹿皮靴",
+      "MonsterName": "冰精2734",
+      "Probability": 1000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫绸靴",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵项链",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生命项链",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天珠项链",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影项链",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "绿色项链",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂项链",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "恶魔铃铛",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "芒星项链",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "神射项链",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁虎项链",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "降妖除魔戒指",
+      "MonsterName": "冰精2734",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铂金戒指",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "红宝石戒指",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙之戒指",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影戒指",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼首戒指",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "力量戒指",
+      "MonsterName": "冰精2734",
+      "Probability": 8000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫碧螺",
+      "MonsterName": "冰精2734",
+      "Probability": 8000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "泰坦戒指",
+      "MonsterName": "冰精2734",
+      "Probability": 8000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "芒星戒指",
+      "MonsterName": "冰精2734",
+      "Probability": 8000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "射手指环",
+      "MonsterName": "冰精2734",
+      "Probability": 8000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁虎指环",
+      "MonsterName": "冰精2734",
+      "Probability": 8000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "死神手套",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "思贝儿手镯",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "心灵手镯",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵手套",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影手镯",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狮纹手镯",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "三眼手镯",
+      "MonsterName": "冰精2734",
+      "Probability": 8000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骑士手镯",
+      "MonsterName": "冰精2734",
+      "Probability": 8000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙之手镯",
+      "MonsterName": "冰精2734",
+      "Probability": 8000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "阎罗手套",
+      "MonsterName": "冰精2734",
+      "Probability": 8000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "芒星手镯",
+      "MonsterName": "冰精2734",
+      "Probability": 8000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "血狮腕带",
+      "MonsterName": "冰精2734",
+      "Probability": 8000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁虎腕轮",
+      "MonsterName": "冰精2734",
+      "Probability": 8000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔杖",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "炼狱",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "银蛇",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "追魂",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "双环战弓",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蛇牙枪",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "井中月",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "血饮",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "无极棍",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "赤影",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "沉锋",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青虹",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅头盔",
+      "MonsterName": "冰精2734",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士头盔",
+      "MonsterName": "冰精2734",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑铁头盔",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "冰精2734",
+      "Probability": 5,
+      "MinAmount": 2000,
+      "MaxAmount": 3500
+    },
+    {
+      "Name": "强效金创药",
+      "MonsterName": "冰精2734",
+      "Probability": 6,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "强效魔法药",
+      "MonsterName": "冰精2734",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "疗伤药",
+      "MonsterName": "冰精2734",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "驭朱灵石1级",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "命朱灵石1级",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "守阳灵石1级",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蔚蓝灵石1级",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精绿灵石1级",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "纯紫灵石1级",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "深灰灵石1级",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙黄灵石1级",
+      "MonsterName": "冰精2734",
+      "Probability": 10000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "战士铭文石",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法师铭文石",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士铭文石",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客铭文石",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "弓手铭文石",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙枪铭文石",
+      "MonsterName": "冰精2734",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫色灵气",
+      "MonsterName": "冰精2734",
+      "Probability": 1250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

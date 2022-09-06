@@ -1,0 +1,4 @@
+{
+  "Id": 700103000,
+  "Content": "You don't even bring your equipment, how can you enchant it?"
+}

@@ -1,0 +1,8 @@
+﻿{
+  "MapId": 76,
+  "MapName": "九层魔塔",
+  "MapFile": "MirAct13",
+  "TerrainFile": "0076-九层魔塔",
+  "LimitPlayers": 9999,
+  "LimitInstances": 1
+}

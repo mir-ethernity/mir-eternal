@@ -1,0 +1,603 @@
+﻿{
+  "MonsterName": "虹魔蝎卫  毒锋",
+  "Id": 1055,
+  "Level": 70,
+  "Race": "ZergCreature",
+  "Category": "Elite",
+  "VisibleStealthTargets": true,
+  "MoveInterval": 128,
+  "RoamInterval": 18000,
+  "CorpsePreservationDuration": 18000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 6,
+  "HateTime": 18000,
+  "NormalAttackSkills": "电脑-虹魔蝎卫普攻技能",
+  "Stats": [
+    {
+      "Stat": "MaxHP",
+      "Value": 13000
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 35
+    },
+    {
+      "Stat": "WalkSpeed",
+      "Value": 8
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 25
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 20
+    },
+    {
+      "Stat": "MagicDodge",
+      "Value": 1000
+    },
+    {
+      "Stat": "MinDC"
+    },
+    {
+      "Stat": "MaxDC"
+    },
+    {
+      "Stat": "MinMC",
+      "Value": 55
+    },
+    {
+      "Stat": "MaxMC",
+      "Value": 95
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 20
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 32
+    },
+    {
+      "Stat": "MinMCDef",
+      "Value": 24
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Value": 33
+    }
+  ],
+  "ProvideExperience": 5000,
+  "Drops": [
+        {
+      "Name": "橙色灵气",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫色灵气",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色灵气",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "驭朱灵石1级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "驭朱灵石2级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 20,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "驭朱灵石3级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "驭朱灵石10级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "命朱灵石1级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "命朱灵石2级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 20,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "命朱灵石3级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主驭朱灵石",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "高级祝福油",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "守阳灵石1级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "守阳灵石2级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 20,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "守阳灵石3级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "透蓝灵石1级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蔚蓝灵石1级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蔚蓝灵石2级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 20,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蔚蓝灵石3级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蔚蓝灵石10级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主蔚蓝灵石",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "盈绿灵石1级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精绿灵石1级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精绿灵石2级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 20,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精绿灵石3级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精绿灵石10级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主精绿灵石",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "韧紫灵石1级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "纯紫灵石1级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "纯紫灵石1级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 20,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "纯紫灵石3级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "深灰灵石1级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "深灰灵石2级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 20,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "深灰灵石3级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "深灰灵石10级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主深灰灵石",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙黄灵石1级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙黄灵石2级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 20,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙黄灵石3级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 30,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙黄灵石10级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主橙黄灵石",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "赤褐灵石10级",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "战士铭文石",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法师铭文石",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士铭文石",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客铭文石",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "弓手铭文石",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙枪铭文石",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "屠魔令",
+      "MonsterName": "虹魔蝎卫  毒锋",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "命朱灵石1级",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "守阳灵石1级",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蔚蓝灵石1级",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精绿灵石1级",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "纯紫灵石1级",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "深灰灵石1级",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙黄灵石1级",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "战士铭文石",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法师铭文石",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士铭文石",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客铭文石",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "弓手铭文石",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙枪铭文石",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 12,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "半月弯刀",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "地狱雷光",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣言术",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "困魔咒",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "群体治愈术",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "炎龙波",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "击飞射击",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "乾坤斗气",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色灵气",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫色灵气",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙色灵气",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "屠魔令",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雕色石",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

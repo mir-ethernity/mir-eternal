@@ -1,0 +1,446 @@
+{
+  "MonsterName": "畸魔",
+  "Id": 339,
+  "Level": 60,
+  "Category": "Elite",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CanBeSeducedBySkills": true,
+  "BaseTemptationProbability": 0.25,
+  "MoveInterval": 10,
+  "RoamInterval": 100,
+  "CorpsePreservationDuration": 30,
+  "ActiveAttackTarget": true,
+  "RangeHate": 3,
+  "HateTime": 30000,
+  "NormalAttackSkills": "",
+  "ProbabilityTriggerSkills": "",
+  "EnterCombatSkills": "",
+  "ExitCombatSkills": "",
+  "瞬移释放技能": "",
+  "复活释放技能": "",
+  "DeathReleaseSkill": "",
+  "Stats": [
+    {
+      "Stat": "MaxHP",
+      "Value": 5000
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 10
+    },
+    {
+      "Stat": "WalkSpeed",
+      "Value": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 11
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 11
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinDC",
+      "Value": 30
+    },
+    {
+      "Stat": "MaxDC",
+      "Value": 70
+    },
+    {
+      "Stat": "MinMC"
+    },
+    {
+      "Stat": "MaxMC"
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 10
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 20
+    },
+    {
+      "Stat": "MinMCDef",
+      "Value": 10
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Value": 30
+    }
+  ],
+  "Grows": [
+    {
+      "Stat": "MaxHP",
+      "Level0": 15,
+      "Level1": 100,
+      "Level2": 10,
+      "Level3": 1600,
+      "Level4": 1800,
+      "Level5": 1900,
+      "Level6": 2000,
+      "Level7": 2250
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 1,
+      "Level1": 1,
+      "Level2": 1,
+      "Level3": 2,
+      "Level4": 2,
+      "Level5": 3,
+      "Level6": 3,
+      "Level7": 3
+    },
+    {
+      "Stat": "WalkSpeed",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 10,
+      "Level4": 10,
+      "Level5": 10,
+      "Level6": 10,
+      "Level7": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 5,
+      "Level6": 5,
+      "Level7": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 11,
+      "Level1": 11,
+      "Level2": 11,
+      "Level3": 12,
+      "Level4": 12,
+      "Level5": 13,
+      "Level6": 13,
+      "Level7": 13
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 11,
+      "Level1": 11,
+      "Level2": 11,
+      "Level3": 12,
+      "Level4": 12,
+      "Level5": 13,
+      "Level6": 13,
+      "Level7": 13
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinDC",
+      "Level0": 3,
+      "Level1": 3,
+      "Level2": 3,
+      "Level3": 3,
+      "Level4": 3,
+      "Level5": 3,
+      "Level6": 3,
+      "Level7": 3
+    },
+    {
+      "Stat": "MaxDC",
+      "Level0": 7,
+      "Level1": 8,
+      "Level2": 9,
+      "Level3": 10,
+      "Level4": 11,
+      "Level5": 12,
+      "Level6": 13,
+      "Level7": 14
+    },
+    {
+      "Stat": "MinMC"
+    },
+    {
+      "Stat": "MaxMC"
+    },
+    {
+      "Stat": "MinDef",
+      "Level0": 1,
+      "Level1": 1,
+      "Level2": 1,
+      "Level3": 1,
+      "Level4": 1,
+      "Level5": 1,
+      "Level6": 1,
+      "Level7": 1
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 2,
+      "Level1": 3,
+      "Level2": 4,
+      "Level3": 5,
+      "Level4": 6,
+      "Level5": 7,
+      "Level6": 8,
+      "Level7": 9
+    },
+    {
+      "Stat": "MinMCDef",
+      "Level0": 1,
+      "Level1": 1,
+      "Level2": 1,
+      "Level3": 1,
+      "Level4": 1,
+      "Level5": 1,
+      "Level6": 1,
+      "Level7": 1
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Level0": 3,
+      "Level1": 4,
+      "Level2": 5,
+      "Level3": 6,
+      "Level4": 7,
+      "Level5": 8,
+      "Level6": 9,
+      "Level7": 10
+    }
+  ],
+  "继承属性": [],
+  "ProvideExperience": 85,
+  "Drops": [
+    {
+      "Name": "轻型盔甲",
+      "MonsterName": "游熊",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "轻型盔甲(女)",
+      "MonsterName": "游熊",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黄色水晶项链",
+      "MonsterName": "游熊",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑檀项链",
+      "MonsterName": "游熊",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑色水晶项链",
+      "MonsterName": "游熊",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "白金项链",
+      "MonsterName": "游熊",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色水晶戒指",
+      "MonsterName": "游熊",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "游熊",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珍珠戒指",
+      "MonsterName": "游熊",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑色水晶戒指",
+      "MonsterName": "游熊",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蛇眼戒指",
+      "MonsterName": "游熊",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜戒指",
+      "MonsterName": "游熊",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤戒指",
+      "MonsterName": "游熊",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁手镯",
+      "MonsterName": "游熊",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "银手镯",
+      "MonsterName": "游熊",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "皮制手套",
+      "MonsterName": "游熊",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "钢手镯",
+      "MonsterName": "游熊",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "大手镯",
+      "MonsterName": "游熊",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "短剑",
+      "MonsterName": "游熊",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁剑",
+      "MonsterName": "游熊",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜斧",
+      "MonsterName": "游熊",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "双刀",
+      "MonsterName": "游熊",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "神臂弓",
+      "MonsterName": "游熊",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜枪",
+      "MonsterName": "游熊",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "海魂",
+      "MonsterName": "游熊",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "八荒",
+      "MonsterName": "游熊",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "半月",
+      "MonsterName": "游熊",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "游熊",
+      "Probability": 300,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金币",
+      "MonsterName": "游熊",
+      "Probability": 5,
+      "MinAmount": 150,
+      "MaxAmount": 300
+    },
+    {
+      "Name": "金创药(中量)",
+      "MonsterName": "游熊",
+      "Probability": 6,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(中量)",
+      "MonsterName": "游熊",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

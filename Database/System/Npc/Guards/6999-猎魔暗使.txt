@@ -1,0 +1,6 @@
+{
+  "Name": "猎魔暗使",
+  "GuardNumber": 6999,
+  "Level": 99,
+  "RangeHate": 8
+}

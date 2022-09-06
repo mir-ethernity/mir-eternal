@@ -1,0 +1,14 @@
+﻿{
+"FromMapId":76,
+"FromMapName":"九层魔塔",
+"FromCoords":"430,430",
+"RegionName":"九层魔塔-随机区域",
+"AreaRadius":45,
+"AreaType":"随机区域",
+"RangeCoords":
+[
+    "402,412",
+    "402,413",
+    "403,414"
+]
+}

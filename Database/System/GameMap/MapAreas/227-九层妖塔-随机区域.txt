@@ -1,0 +1,14 @@
+﻿{
+"FromMapId":227,
+"FromMapName":"九层妖塔",
+"FromCoords":"750,750",
+"RegionName":"九层妖塔-随机区域",
+"AreaRadius":45,
+"AreaType":"随机区域",
+"RangeCoords":
+[
+    "745,745",
+    "745,746",
+    "745,747"
+]
+}

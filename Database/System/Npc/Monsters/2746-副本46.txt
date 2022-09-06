@@ -1,0 +1,82 @@
+﻿{
+  "MonsterName": "副本46",
+  "Id": 2746,
+  "Level": 2,
+  "Category": "Normal",
+  "MoveInterval": 0,
+  "RoamInterval": 0,
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CanBeSeducedBySkills": true,
+  "BaseTemptationProbability": 0.25,
+  "CorpsePreservationDuration": 100,
+  "ActiveAttackTarget": true,
+  "RangeHate": 4,
+  "HateTime": 10000,
+  "NormalAttackSkills": "",
+  "ProbabilityTriggerSkills": "",
+  "EnterCombatSkills": "",
+  "ExitCombatSkills": "",
+  "瞬移释放技能": "",
+  "复活释放技能": "",
+  "DeathReleaseSkill": "电脑-黑元素节点死亡",
+  "Stats": [
+    {
+      "Stat": "MaxHP",
+      "Value": 46
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 18
+    },
+    {
+      "Stat": "WalkSpeed",
+      "Value": 11
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 16
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 18
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinDC"
+    },
+    {
+      "Stat": "MaxDC"
+    },
+    {
+      "Stat": "MinMC",
+      "Value": 35
+    },
+    {
+      "Stat": "MaxMC",
+      "Value": 70
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 18
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 27
+    },
+    {
+      "Stat": "MinMCDef",
+      "Value": 25
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Value": 40
+    }
+  ]
+}

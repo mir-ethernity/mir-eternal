@@ -1,0 +1,1245 @@
+{
+  "MonsterName": "堕灵",
+  "Id": 307,
+  "Level": 60,
+  "Category": "Elite",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "MoveInterval": 10,
+  "RoamInterval": 100,
+  "CorpsePreservationDuration": 30,
+  "ActiveAttackTarget": true,
+  "RangeHate": 3,
+  "HateTime": 30000,
+  "NormalAttackSkills": "电脑-恶灵尸王普攻技能",
+  "ProbabilityTriggerSkills": "",
+  "EnterCombatSkills": "",
+  "ExitCombatSkills": "",
+  "瞬移释放技能": "",
+  "复活释放技能": "",
+  "DeathReleaseSkill": "",
+  "Stats": [
+    {
+      "Stat": "MaxHP",
+      "Value": 2180
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 23
+    },
+    {
+      "Stat": "WalkSpeed",
+      "Value": 11
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 6
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 16
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 19
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinDC",
+      "Value": 13
+    },
+    {
+      "Stat": "MaxDC",
+      "Value": 90
+    },
+    {
+      "Stat": "MinMC"
+    },
+    {
+      "Stat": "MaxMC"
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 25
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 47
+    },
+    {
+      "Stat": "MinMCDef",
+      "Value": 29
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Value": 52
+    }
+  ],
+  "ProvideExperience": 12850,
+  "Drops": [
+    {
+      "Name": "战神盔甲(男)",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "恶魔长袍(男)",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵战衣(男)",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风侠短袍(男)",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽骨猎袍(男)",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "陷阵之甲(男)",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "战神盔甲(女)",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "恶魔长袍(女)",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵战衣(女)",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风侠短袍(女)",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "兽骨猎袍(女)",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "陷阵之甲(女)",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天魔神甲",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神披风",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天尊道袍",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "耀阳赤衣",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "箭灵铠甲",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙枪神甲",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣战宝甲",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "霓裳羽衣",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天师长袍",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "暗影赤衣",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "羽灵护甲",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙枪宝甲",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雷霆战甲(男)",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "烈焰魔衣(男)",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "光芒道袍(男)",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风行盾甲(男)",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玄冰战甲(男)",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天诛魔甲(男)",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雷霆战甲(女)",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "烈焰魔衣(女)",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "光芒道袍(女)",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风行盾甲(女)",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玄冰战甲(女)",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天诛魔甲(女)",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵项链",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生命项链",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天珠项链",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影项链",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼牙项链",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "绿色项链",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "灵魂项链",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "恶魔铃铛",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "芒星项链",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "神射项链",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁虎项链",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣战项链",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神项链",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天尊项链",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴项链",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "箭灵项链",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "虎贲项链",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雷霆项链",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "烈焰项链",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "光芒项链",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风行项链",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玄冰项链",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天诛凶链",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铂金戒指",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "红宝石戒指",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙之戒指",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影戒指",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狼首戒指",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "力量戒指",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫碧螺",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "泰坦戒指",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "芒星戒指",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "射手指环",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁虎指环",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣战戒指",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神戒指",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天尊戒指",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴戒指",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "箭灵戒指",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "虎贲戒指",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雷霆战戒",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "烈焰魔戒",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "光芒道戒",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风行暗戒",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玄冰指环",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天诛血戒",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "死神手套",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "思贝儿手镯",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "心灵手镯",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "幽灵手套",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "闪影手镯",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "狮纹手镯",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "三眼手镯",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骑士手镯",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙之手镯",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "阎罗手套",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "芒星手镯",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "血狮腕带",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁虎腕轮",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣战手镯",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神手镯",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天尊手镯",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴手镯",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "箭灵手镯",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "虎贲手镯",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雷霆护腕",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "烈焰护腕",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "光芒护腕",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风行护腕",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "玄冰手镯",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天诛邪镯",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔杖",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "炼狱",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "银蛇",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "追魂",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "双环战弓",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蛇牙枪",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "井中月",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "血饮",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "无极棍",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "赤影",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "沉锋",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青虹",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "裁决之杖",
+      "MonsterName": "骨夺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙纹剑",
+      "MonsterName": "骨夺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骨玉权杖",
+      "MonsterName": "骨夺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙爪手",
+      "MonsterName": "骨夺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "猎首",
+      "MonsterName": "骨夺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "虎咆",
+      "MonsterName": "骨夺",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "逍遥扇",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "怒斩",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙牙",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "霜影",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "血染",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "横江",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "屠龙",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "嗜魂法杖",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "倚天剑",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黯灭轮",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "擎龙",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙炎",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑铁头盔",
+      "MonsterName": "骨夺",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "圣战头盔",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法神头盔",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "天尊头盔",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "风暴头盔",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "箭灵头盔",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙枪头盔",
+      "MonsterName": "骨夺",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "疗伤药",
+      "MonsterName": "骨夺",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 3
+    },
+    {
+      "Name": "修复油",
+      "MonsterName": "骨夺",
+      "Probability": 20,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "祝福油",
+      "MonsterName": "骨夺",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "驭朱灵石1级",
+      "MonsterName": "骨夺",
+      "Probability": 5,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "命朱灵石1级",
+      "MonsterName": "骨夺",
+      "Probability": 5,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "守阳灵石1级",
+      "MonsterName": "骨夺",
+      "Probability": 5,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蔚蓝灵石1级",
+      "MonsterName": "骨夺",
+      "Probability": 5,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精绿灵石1级",
+      "MonsterName": "骨夺",
+      "Probability": 5,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "纯紫灵石1级",
+      "MonsterName": "骨夺",
+      "Probability": 5,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "深灰灵石1级",
+      "MonsterName": "骨夺",
+      "Probability": 5,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙黄灵石1级",
+      "MonsterName": "骨夺",
+      "Probability": 5,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "战士铭文石",
+      "MonsterName": "骨夺",
+      "Probability": 4,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法师铭文石",
+      "MonsterName": "骨夺",
+      "Probability": 4,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士铭文石",
+      "MonsterName": "骨夺",
+      "Probability": 4,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客铭文石",
+      "MonsterName": "骨夺",
+      "Probability": 4,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "弓手铭文石",
+      "MonsterName": "骨夺",
+      "Probability": 4,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙枪铭文石",
+      "MonsterName": "骨夺",
+      "Probability": 4,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色灵气",
+      "MonsterName": "骨夺",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫色灵气",
+      "MonsterName": "骨夺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙色灵气",
+      "MonsterName": "骨夺",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "屠魔令",
+      "MonsterName": "骨夺",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雕色石",
+      "MonsterName": "骨夺",
+      "Probability": 1,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

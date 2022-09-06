@@ -1,0 +1,81 @@
+﻿{
+  "MonsterName": "黑焰龙仆",
+  "Id": 2736,
+  "Level": 2,
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CanBeSeducedBySkills": true,
+  "BaseTemptationProbability": 0.25,
+  "MoveInterval": 1000,
+  "RoamInterval": 15000,
+  "CorpsePreservationDuration": 15000,
+  "RangeHate": 3,
+  "HateTime": 10000,
+  "NormalAttackSkills": "",
+  "ProbabilityTriggerSkills": "",
+  "EnterCombatSkills": "",
+  "ExitCombatSkills": "",
+  "瞬移释放技能": "",
+  "复活释放技能": "",
+  "DeathReleaseSkill": "",
+  "Stats": [
+    {
+      "Stat": "MaxHP",
+      "Value": 2000
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 40
+    },
+    {
+      "Stat": "WalkSpeed",
+      "Value": 7
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 8
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 30
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 20
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinDC",
+      "Value": 105
+    },
+    {
+      "Stat": "MaxDC",
+      "Value": 225
+    },
+    {
+      "Stat": "MinMC"
+    },
+    {
+      "Stat": "MaxMC"
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 43
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 68
+    },
+    {
+      "Stat": "MinMCDef",
+      "Value": 49
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Value": 75
+    }
+  ]
+}

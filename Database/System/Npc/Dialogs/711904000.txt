@@ -1,0 +1,4 @@
+﻿{
+  "Id": 711904000,
+  "Content": "Welcome to use Quick Teleport, where are you going to the Four Holy Lands! <#SO:1>Magic Dragon Ridge<#SO/> <#SO:2>Stone Plain Desert<#SO/> <#SO:3>Dragon Yew Snow Mountain<#SO/> <#SO:4>Dragon Blood Earth Vein<#SO/>"
+}
