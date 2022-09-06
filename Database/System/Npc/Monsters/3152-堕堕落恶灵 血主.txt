@@ -1,0 +1,754 @@
+﻿{
+  "MonsterName": "堕落恶灵 血主",
+  "Id": 3152,
+  "Level": 70,
+  "Race": "WomaMonster",
+  "Category": "Elite",
+  "VisibleStealthTargets": true,
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "MoveInterval": 500,
+  "RoamInterval": 21000,
+  "CorpsePreservationDuration": 12000,
+  "ActiveAttackTarget": true,
+  "RangeHate": 5,
+  "HateTime": 15000,
+  "NormalAttackSkills": "电脑-暗黑战士普攻技能",
+  "Stats": [
+    {
+      "Stat": "MaxHP",
+      "Value": 13500
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 2
+    },
+    {
+      "Stat": "WalkSpeed",
+      "Value": 13
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 14
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 13
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinDC",
+      "Value": 29
+    },
+    {
+      "Stat": "MaxDC",
+      "Value": 36
+    },
+    {
+      "Stat": "MinMC"
+    },
+    {
+      "Stat": "MaxMC"
+    },
+    {
+      "Stat": "MinDef",
+      "Value": 1
+    },
+    {
+      "Stat": "MaxDef",
+      "Value": 3
+    },
+    {
+      "Stat": "MinMCDef",
+      "Value": 1
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Value": 2
+    }
+  ],
+  "Grows": [
+    {
+      "Stat": "MaxHP",
+      "Level0": 165,
+      "Level1": 190,
+      "Level2": 215,
+      "Level3": 245,
+      "Level4": 275,
+      "Level5": 310,
+      "Level6": 345,
+      "Level7": 385
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 2,
+      "Level1": 3,
+      "Level2": 4,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 6,
+      "Level6": 6,
+      "Level7": 6
+    },
+    {
+      "Stat": "WalkSpeed",
+      "Level0": 13,
+      "Level1": 13,
+      "Level2": 13,
+      "Level3": 13,
+      "Level4": 13,
+      "Level5": 13,
+      "Level6": 13,
+      "Level7": 13
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 5,
+      "Level6": 5,
+      "Level7": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 14,
+      "Level1": 14,
+      "Level2": 14,
+      "Level3": 15,
+      "Level4": 15,
+      "Level5": 16,
+      "Level6": 16,
+      "Level7": 16
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 13,
+      "Level1": 13,
+      "Level2": 13,
+      "Level3": 14,
+      "Level4": 14,
+      "Level5": 15,
+      "Level6": 15,
+      "Level7": 15
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinDC",
+      "Level0": 9,
+      "Level1": 9,
+      "Level2": 9,
+      "Level3": 9,
+      "Level4": 9,
+      "Level5": 9,
+      "Level6": 9,
+      "Level7": 9
+    },
+    {
+      "Stat": "MaxDC",
+      "Level0": 16,
+      "Level1": 17,
+      "Level2": 18,
+      "Level3": 19,
+      "Level4": 20,
+      "Level5": 21,
+      "Level6": 22,
+      "Level7": 23
+    },
+    {
+      "Stat": "MinMC"
+    },
+    {
+      "Stat": "MaxMC"
+    },
+    {
+      "Stat": "MinDef",
+      "Level0": 1,
+      "Level1": 1,
+      "Level2": 1,
+      "Level3": 1,
+      "Level4": 1,
+      "Level5": 1,
+      "Level6": 1,
+      "Level7": 1
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 3,
+      "Level1": 4,
+      "Level2": 5,
+      "Level3": 6,
+      "Level4": 7,
+      "Level5": 8,
+      "Level6": 9,
+      "Level7": 10
+    },
+    {
+      "Stat": "MinMCDef",
+      "Level0": 1,
+      "Level1": 1,
+      "Level2": 1,
+      "Level3": 1,
+      "Level4": 1,
+      "Level5": 1,
+      "Level6": 1,
+      "Level7": 1
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Level0": 2,
+      "Level1": 3,
+      "Level2": 4,
+      "Level3": 5,
+      "Level4": 6,
+      "Level5": 7,
+      "Level6": 8,
+      "Level7": 9
+    }
+  ],
+  "ProvideExperience": 4000,
+  "Drops": [
+    {
+      "Name": "钻石VIP",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主驭朱灵石",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "守阳灵石1级",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主蔚蓝灵石",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主精绿灵石",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主深灰灵石",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "城主橙黄灵石",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙黄灵石2级",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 10,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "逐日剑法",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色灵气",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "寒冰掌",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "噬血术",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "无极真气",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色水晶戒指",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "生铁戒指",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珍珠戒指",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑色水晶戒指",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蛇眼戒指",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜戒指",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤戒指",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道德戒指",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魅力戒指",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "骷髅戒指",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "翡翠戒指",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "扣弦扳指",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 350,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金戒指",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "珊瑚戒指",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫玉戒指",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁皮指环",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法手镯",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 1200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔力手镯",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "坚固手套",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士手镯",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑檀手镯",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "夏普儿手镯",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 3000,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "辟邪手镯",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金手镯",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "桃木手镯",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "古藤手镯",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "海魂",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "八荒",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "半月",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凌风",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "破魂",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "罗刹",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "偃月",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "降魔",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "斩马刀",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "冰月戟",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁胎弓",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "百炼枪",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 400,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "修罗",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "凝霜",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+	{
+      "Name": "金币",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 5,
+      "MinAmount": 2000,
+      "MaxAmount": 5000
+    },
+	{
+      "Name": "天书残页",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 5,
+      "MinAmount": 1,
+      "MaxAmount": 2
+    },
+	{
+      "Name": "修复油",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 5,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "祝福油",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 25,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "驭朱灵石1级",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "命朱灵石1级",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "守阳灵石1级",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蔚蓝灵石1级",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "精绿灵石1级",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "纯紫灵石1级",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "深灰灵石1级",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙黄灵石1级",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "战士铭文石",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "法师铭文石",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "道士铭文石",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "刺客铭文石",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "弓手铭文石",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "龙枪铭文石",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "蓝色灵气",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 50,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "紫色灵气",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "橙色灵气",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "屠魔令",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 3,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "雕色石",
+      "MonsterName": "堕落恶灵 血主",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}
