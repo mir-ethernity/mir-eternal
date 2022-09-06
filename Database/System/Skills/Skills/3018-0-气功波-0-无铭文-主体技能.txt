@@ -49,7 +49,7 @@
       "技能范围类型": "Hollow3x3",
       "技能命中通知": true,
       "HitsLimit": 9,
-      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetType": "Player",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },

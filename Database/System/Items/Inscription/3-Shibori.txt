@@ -2,5 +2,5 @@
   "Id": 3,
   "NeedRace": ["刺客"],
   "ItemId": 89900002,
-  "Backpack": "人物背包"
+  "Backpack": "人物穿戴"
 }

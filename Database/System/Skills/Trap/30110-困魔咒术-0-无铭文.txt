@@ -13,7 +13,7 @@
   "PassiveTriggerSkill": "困魔咒术-0-无铭文-被动触发",
   "PassiveObjectType": "Player, Pet",
   "PassiveType": "ItSelf, Friendly, Hostility",
-  "ActivelyTriggerSkills": "困魔咒术-0-无铭文-主动触发",
+  "ActivelyTriggerSkills": "困魔咒术-0-无铭文-主体技能",
   "ActivelyTriggerInterval": 2000,
   "ActivelyTriggerDelay": 50
 }

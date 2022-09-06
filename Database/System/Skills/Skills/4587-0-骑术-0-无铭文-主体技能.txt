@@ -15,14 +15,19 @@
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
-      "ItSelfCooldown": 1000
+      "ItSelfCooldown": 1000,
+      "分组Cooldown": 1000
     },
-    "2000": {
+    "1": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "触发SkillName": "骑术-0-通用-技能特效"
+    },
+    "2": {
       "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",
       "SkillTagId": 2555,
       "允许移除标记": true
     },
-    "2001": {
+    "3": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true
     }

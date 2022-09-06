@@ -25,7 +25,7 @@
       "SkillHitFeedback": "后仰",
       "技能命中通知": true,
       "HitsLimit": 1,
-      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetType": "Player",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },

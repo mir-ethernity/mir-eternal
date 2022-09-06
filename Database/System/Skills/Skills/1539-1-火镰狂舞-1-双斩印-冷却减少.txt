@@ -17,7 +17,7 @@
       "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能锁定方式": "锁定目标",
       "HitsLimit": 1,
-      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetType": "Player",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },

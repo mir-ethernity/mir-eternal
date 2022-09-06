@@ -42,7 +42,7 @@
       "技能范围类型": "Solid5x5",
       "技能扩展通知": true,
       "HitsLimit": 9,
-      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetType": "Player",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
