@@ -1,0 +1,31 @@
+{
+  "SkillName": "烈火剑法-1-斩月印",
+  "SkillId": 1036,
+  "Id": 1,
+  "Quality": 8,
+  "Probability": 80,
+  "广播通知": true,
+  "MinPlayerLevel": "IyUoKg==",
+  "MinSkillExp": [
+    20,
+    40,
+    60,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1433
+  ],
+  "MainSkills": [
+    "烈火剑法-1-斩月印-主体技能"
+  ],
+  "SwitchSkills": [
+    "烈火剑法-1-斩月印-技能开关"
+  ]
+}

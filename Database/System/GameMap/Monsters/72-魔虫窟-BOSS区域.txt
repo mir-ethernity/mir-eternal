@@ -1,0 +1,79 @@
+﻿{
+  "FromMapId": 72,
+  "FromMapName": "魔虫窟",
+  "FromCoords": "1142, 378",
+  "RegionName": "魔虫窟-BOSS区域",
+  "AreaRadius": 242,
+  "Spawns": [
+    {
+      "MonsterName": "蛇蝎 毒钩",
+      "SpawnCount": 30,
+      "RevivalInterval": 30
+    },
+    {
+      "MonsterName": "圣甲虫01",
+      "SpawnCount": 20,
+      "RevivalInterval": 6
+    },
+    {
+      "MonsterName": "赤月恶魔",
+      "SpawnCount": 1,
+      "RevivalInterval": 60
+    },
+    {
+      "MonsterName": "钻地虫01",
+      "SpawnCount": 20,
+      "RevivalInterval": 6
+    },
+    {
+      "MonsterName": "蛇蝎 赤牙",
+      "SpawnCount": 30,
+      "RevivalInterval": 30
+    },
+    {
+      "MonsterName": "赤月恶魔",
+      "SpawnCount": 1,
+      "RevivalInterval": 60
+    },
+    {
+      "MonsterName": "圣甲虫01",
+      "SpawnCount": 20,
+      "RevivalInterval": 6
+    },
+    {
+      "MonsterName": "钻地虫01",
+      "SpawnCount": 20,
+      "RevivalInterval": 6
+    },
+    {
+      "MonsterName": "蛇蝎 魔闪",
+      "SpawnCount": 30,
+      "RevivalInterval": 30
+    },
+    {
+      "MonsterName": "赤月恶魔",
+      "SpawnCount": 1,
+      "RevivalInterval": 60
+    },
+    {
+      "MonsterName": "圣甲虫01",
+      "SpawnCount": 20,
+      "RevivalInterval": 6
+    },
+    {
+      "MonsterName": "钻地虫01",
+      "SpawnCount": 20,
+      "RevivalInterval": 6
+    }
+  ],
+  "RangeCoords": [
+    "1035, 199",
+    "925, 292",
+    "909, 280",
+    "957, 325"
+  ]
+}
+ 
+ 
+   
+   

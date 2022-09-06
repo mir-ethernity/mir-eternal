@@ -17,7 +17,7 @@
   "Nodes": {
     "0": {
       "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
-      "MaxDistance": 1,
+      "MaxDistance": 3,
       "技能最近距离": 1
     },
     "1": {
@@ -39,12 +39,23 @@
       "技能锁定方式": "锁定锚点坐标",
       "SkillEvasion": "CanBePhsyicallyEvaded",
       "SkillHitFeedback": "后仰",
-      "技能范围类型": "Solid5x5",
+      "技能范围类型": "Zhanyue3x3",
       "技能扩展通知": true,
-      "HitsLimit": 1,
+      "HitsLimit": 9,
       "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
+    },
+    "225": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 10313,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1,
+      "验证铭文技能": true,
+      "触发Id": 10313,
+      "同组铭文无效": true,
+      "所需目标类型": "AllMonsters"
     },
     "250": {
       "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",

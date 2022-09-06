@@ -16,7 +16,7 @@ namespace GameServer.Templates
 		public bool 角色ItSelf添加;
 
 		
-		public ushort 触发Id;
+		public ushort 触发Id;  //触发Buff编号
 
 		
 		public ushort 伴生Id;
@@ -70,7 +70,7 @@ namespace GameServer.Templates
 		public SpecifyTargetType 所需目标类型;
 
 		
-		public bool GainSkillExp;
+		public bool GainSkillExp;  //增加技能经验
 
 		
 		public ushort ExpSkillId;

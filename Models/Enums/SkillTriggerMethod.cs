@@ -11,7 +11,7 @@ namespace GameServer.Templates
 		MonsterDeathDefinitely,
 		MonsterDeathTransposition,
 		MonsterHitDefinitely,
-		MonsterHitProbability,
+		MonsterHitProbability, //怪物命中概率
 		NoTargetPosition,
 		TargetPositionAbsolute,
 		ForehandAndBackhandRandom,
