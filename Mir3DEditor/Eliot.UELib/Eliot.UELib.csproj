@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7E45273F-434F-42FA-8269-0E760AEB41E1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UELib</RootNamespace>
+    <AssemblyName>Eliot.UELib</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <LangVersion>7.3</LangVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DECOMPILE BINARYMETADATA Forms UE1 UE2 UE3 VENGEANCE SWAT4 UNREAL2 INFINITYBLADE BORDERLANDS2 GOW2 DEBUG_TEST APB SPECIALFORCE2 XIII SINGULARITY THIEF_DS DEUSEX_IW BORDERLANDS MIRRORSEDGE BIOSHOCK HAWKEN UT DISHONORED REMEMBERME ALPHAPROTOCOL VANGUARD TERA MKKE TRANSFORMERS XCOM2 DCUO AA2 SPELLBORN BATMAN MOH ROCKETLEAGUE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DocumentationFile>
+    </DocumentationFile>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <NoWarn>
+    </NoWarn>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>GlobalizationRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;DECOMPILE BINARYMETADATA Forms UE1 UE2 UE3 VENGEANCE SWAT4 UNREAL2 INFINITYBLADE BORDERLANDS2 GOW2 APB SPECIALFORCE2 XIII SINGULARITY THIEF_DS DEUSEX_IW BORDERLANDS MIRRORSEDGE BIOSHOCK HAWKEN UT DISHONORED REMEMBERME ALPHAPROTOCOL VANGUARD TERA MKKE TRANSFORMERS XCOM2 DCUO AA2 SPELLBORN BATMAN</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DecompileDebug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DECOMPILE BINARYMETADATA Forms DEBUG_TEST DEBUG_TOKENPOSITIONS DEBUG_HIDDENTOKENS DEBUG_NESTS DEBUG_FUNCTIONINFO UE1 UE2 UE3 VENGEANCE SWAT4 UNREAL2 INFINITYBLADE BORDERLANDS2 GOW2 DEBUG_TEST APB SPECIALFORCE2 XIII SINGULARITY THIEF_DS DEUSEX_IW BORDERLANDS MIRRORSEDGE BIOSHOCK HAWKEN UT DISHONORED REMEMBERME ALPHAPROTOCOL VANGUARD TERA MKKE TRANSFORMERS XCOM2 DCUO AA2 SPELLBORN BATMAN MOH</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Optimize>false</Optimize>
+    <WarningLevel>0</WarningLevel>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish|AnyCPU'">
+    <OutputPath>bin\Publish\</OutputPath>
+    <DefineConstants>Forms DECOMPILE BINARYMETADATA UE1 UE2 UE3 VENGEANCE SWAT4 UNREAL2 INFINITYBLADE BORDERLANDS2 GOW2 APB SPECIALFORCE2 XIII SINGULARITY THIEF_DS DEUSEX_IW BORDERLANDS MIRRORSEDGE BIOSHOCK HAWKEN UT DISHONORED REMEMBERME ALPHAPROTOCOL VANGUARD TERA MKKE TRANSFORMERS XCOM2 DCUO AA2 SPELLBORN BATMAN</DefineConstants>
+    <Optimize>true</Optimize>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DocumentationFile>
+    </DocumentationFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'UnitTest|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DECOMPILE UE1 UE2 UE3 VENGEANCE SWAT4 UNREAL2 INFINITYBLADE BORDERLANDS2 GOW2 DEBUG_TEST APB SPECIALFORCE2 XIII SINGULARITY THIEF_DS DEUSEX_IW BORDERLANDS MIRRORSEDGE BIOSHOCK HAWKEN UT DISHONORED REMEMBERME ALPHAPROTOCOL VANGUARD TERA MKKE TRANSFORMERS XCOM2 DCUO AA2 SPELLBORN BATMAN</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <WarningLevel>0</WarningLevel>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>GlobalizationRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BinaryMetaData.cs" />
+    <Compile Include="Core\Classes\Props\Custom\UScriptMapProperty.cs" />
+    <Compile Include="Core\Classes\Props\UArrayProperty.cs" />
+    <Compile Include="Core\Classes\Props\UBoolProperty.cs" />
+    <Compile Include="Core\Classes\Props\UByteProperty.cs" />
+    <Compile Include="Core\Classes\Props\UClassProperty.cs" />
+    <Compile Include="Core\Classes\Props\UComponentProperty.cs" />
+    <Compile Include="Core\Classes\Props\UDelegateProperty.cs" />
+    <Compile Include="Core\Classes\Props\UFixedArrayProperty.cs" />
+    <Compile Include="Core\Classes\Props\UFloatProperty.cs" />
+    <Compile Include="Core\Classes\Props\UInterfaceProperty.cs" />
+    <Compile Include="Core\Classes\Props\UIntProperty.cs" />
+    <Compile Include="Core\Classes\Props\UMapProperty.cs" />
+    <Compile Include="Core\Classes\Props\Custom\UMKItemNoDestroyProperty.cs" />
+    <Compile Include="Core\Classes\Props\UNameProperty.cs" />
+    <Compile Include="Core\Classes\Props\UObjectProperty.cs" />
+    <Compile Include="Core\Classes\Props\UPointerProperty.cs" />
+    <Compile Include="Core\Classes\Props\Custom\UQWordProperty.cs" />
+    <Compile Include="Core\Classes\Props\Custom\UNativeTypeProperty.cs" />
+    <Compile Include="Core\Classes\Props\Custom\UMKItemProperty.cs" />
+    <Compile Include="Core\Classes\Props\UStringProperty.cs" />
+    <Compile Include="Core\Classes\Props\UStrProperty.cs" />
+    <Compile Include="Core\Classes\Props\UStructProperty.cs" />
+    <Compile Include="Core\Classes\Props\Custom\UResourceProperty.cs" />
+    <Compile Include="Core\Classes\Props\Custom\UXWeakReferenceProperty.cs" />
+    <Compile Include="Core\Classes\UCompressionBase.cs" />
+    <Compile Include="Core\Classes\UPackage.cs" />
+    <Compile Include="Core\Classes\UPackageNode.cs" />
+    <Compile Include="Core\Classes\UTexture2D.cs" />
+    <Compile Include="Core\Classes\Values\UValueArrayProperty.cs" />
+    <Compile Include="Core\Classes\Values\UValueBoolProperty.cs" />
+    <Compile Include="Core\Classes\Values\UValueColor.cs" />
+    <Compile Include="Core\Classes\Values\UValueFloatProperty.cs" />
+    <Compile Include="Core\Classes\Values\UValueGuid.cs" />
+    <Compile Include="Core\Classes\Values\UValueIntPoint.cs" />
+    <Compile Include="Core\Classes\Values\UValueIntProperty.cs" />
+    <Compile Include="Core\Classes\Values\UValueLinearColor.cs" />
+    <Compile Include="Core\Classes\Values\UValueMatrix.cs" />
+    <Compile Include="Core\Classes\Values\UValueObjectProperty.cs" />
+    <Compile Include="Core\Classes\Values\UValueProperty.cs" />
+    <Compile Include="Core\Classes\Values\UValuePropertyFactory.cs" />
+    <Compile Include="Core\Classes\Values\UValueByteProperty.cs" />
+    <Compile Include="Core\Classes\Values\UValueQuat.cs" />
+    <Compile Include="Core\Classes\Values\UValuePlane.cs" />
+    <Compile Include="Core\Classes\Values\UValueQWord.cs" />
+    <Compile Include="Core\Classes\Values\UValueRotator.cs" />
+    <Compile Include="Core\Classes\Values\UValueStructProperty.cs" />
+    <Compile Include="Core\Classes\Values\UValueStrProperty.cs" />
+    <Compile Include="Core\Classes\Values\UValueUniqueNetId.cs" />
+    <Compile Include="Core\Classes\Values\UValueUnknownProperty.cs" />
+    <Compile Include="Core\Classes\Values\UValueBox.cs" />
+    <Compile Include="Core\Classes\Values\UValueVector.cs" />
+    <Compile Include="Core\Classes\Values\UValueVector2D.cs" />
+    <Compile Include="Core\Tables\UDependTableItem.cs" />
+    <Compile Include="Core\Tables\UExportTableItem.cs" />
+    <Compile Include="Core\Tables\UGenerationTableItem.cs" />
+    <Compile Include="Core\Tables\UImportTableItem.cs" />
+    <Compile Include="Core\Tables\UNameTableItem.cs" />
+    <Compile Include="Core\Tables\UObjectTableItem.cs" />
+    <Compile Include="Core\Tables\UTextureInfo.cs" />
+    <Compile Include="Core\Tables\UThumbnailTableItem.cs" />
+    <Compile Include="Core\Tokens\ArrayTokens.cs" />
+    <Compile Include="Core\Tokens\CastTokens.cs" />
+    <Compile Include="Core\Tokens\ConstTokens.cs" />
+    <Compile Include="Core\Tokens\ContextTokens.cs" />
+    <Compile Include="Core\Tokens\FieldTokens.cs" />
+    <Compile Include="Core\Tokens\FunctionTokens.cs" />
+    <Compile Include="Core\Tokens\JumpTokens.cs" />
+    <Compile Include="Core\Tokens\LetTokens.cs" />
+    <Compile Include="Core\Tokens\OtherTokens.cs" />
+    <Compile Include="Core\Tokens\Token.cs" />
+    <Compile Include="Core\Classes\UClassDecompiler.cs" />
+    <Compile Include="Core\Classes\UComponent.cs" />
+    <Compile Include="ByteCodeDecompiler.cs" />
+    <Compile Include="Core\Types\UColor.cs" />
+    <Compile Include="Core\Types\UMap.cs" />
+    <Compile Include="Core\UStateFrame.cs" />
+    <Compile Include="Decoding\CryptoDecoder.AA2.cs" />
+    <Compile Include="Decoding\CryptoCore.cs" />
+    <Compile Include="Engine\Classes\UBitmapMaterial.cs" />
+    <Compile Include="Engine\Classes\UPalette.cs" />
+    <Compile Include="Decoding\IBufferDecoder.cs" />
+    <Compile Include="GameBuild.cs" />
+    <Compile Include="ObjectNodes.cs" />
+    <Compile Include="Core\Types\UArray.cs" />
+    <Compile Include="Core\Classes\UScriptStruct.cs" />
+    <Compile Include="Core\Classes\UTextBuffer.cs" />
+    <Compile Include="Engine\Classes\UModel.cs" />
+    <Compile Include="Engine\Classes\UTexture.cs" />
+    <Compile Include="Engine\Classes\USound.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\Classes\UConstDecompiler.cs" />
+    <Compile Include="Core\Classes\UEnumDecompiler.cs" />
+    <Compile Include="Core\Classes\UFieldDecompiler.cs" />
+    <Compile Include="Core\Classes\UFunctionDecompiler.cs" />
+    <Compile Include="Core\Classes\UObjectDecompiler.cs" />
+    <Compile Include="Core\Classes\Props\UPropertyDecompiler.cs" />
+    <Compile Include="Core\Classes\UStateDecompiler.cs" />
+    <Compile Include="Core\Classes\UStructDecompiler.cs" />
+    <Compile Include="Core\Classes\UTextBufferDecompiler.cs" />
+    <Compile Include="Core\Classes\UClassNode.cs" />
+    <Compile Include="Core\Classes\UFieldNode.cs" />
+    <Compile Include="Core\Classes\UFunctionNode.cs" />
+    <Compile Include="Core\Classes\UObjectNode.cs" />
+    <Compile Include="Core\Classes\UPropertyNode.cs" />
+    <Compile Include="Core\Classes\UStateNode.cs" />
+    <Compile Include="Core\Classes\UStructNode.cs" />
+    <Compile Include="Core\Classes\UClass.cs" />
+    <Compile Include="Core\Classes\UConst.cs" />
+    <Compile Include="Core\Classes\UDefaultProperty.cs" />
+    <Compile Include="Core\Classes\UEnum.cs" />
+    <Compile Include="Core\Classes\UField.cs" />
+    <Compile Include="Core\Classes\UFunction.cs" />
+    <Compile Include="Core\Classes\UMetaData.cs" />
+    <Compile Include="Core\Classes\UObject.cs" />
+    <Compile Include="Core\Classes\Props\UProperty.cs" />
+    <Compile Include="Core\Classes\UState.cs" />
+    <Compile Include="Core\Classes\UStruct.cs" />
+    <Compile Include="Engine\Classes\UFont.cs" />
+    <Compile Include="NativesTablePackage.cs" />
+    <Compile Include="TablesData.cs" />
+    <Compile Include="UnrealPackage.InitFlags.cs" />
+    <Compile Include="UnrealScript\PropertyDisplay.cs" />
+    <Compile Include="UDecompilingState.cs" />
+    <Compile Include="Core\Types\UName.cs" />
+    <Compile Include="UnrealBuild.cs" />
+    <Compile Include="UnrealCache.cs" />
+    <Compile Include="UnrealConfig.cs" />
+    <Compile Include="UnrealFlags.cs" />
+    <Compile Include="UnrealExtensions.cs" />
+    <Compile Include="UnrealInterfaces.cs" />
+    <Compile Include="UnrealLoader.cs" />
+    <Compile Include="UnrealMethods.cs" />
+    <Compile Include="UnrealMod.cs" />
+    <Compile Include="UnrealPackage.cs" />
+    <Compile Include="UnrealPackageCompression.cs" />
+    <Compile Include="UnrealStream.cs" />
+    <Compile Include="UnrealScript\ScriptConstants.cs" />
+    <Compile Include="Core\Tables\UTableItem.cs" />
+    <Compile Include="UnrealTokens.cs" />
+    <Compile Include="UnrealTypes.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UpkManager.Lzo\UpkManager.Lzo.csproj">
+      <Project>{576be056-1485-4702-8569-a50169087df2}</Project>
+      <Name>UpkManager.Lzo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" BuildVersion_BuildVersioningStyle="None.None.Increment.None" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
