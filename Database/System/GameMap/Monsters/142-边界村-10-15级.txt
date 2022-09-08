@@ -6,7 +6,32 @@
   "AreaRadius": 138,
   "Spawns": [
     {
+      "MonsterName": "半兽人 刀疤",
+      "SpawnCount": 2,
+      "RevivalInterval": 300
+    },
+    {
+      "MonsterName": "半兽人 红魔",
+      "SpawnCount": 2,
+      "RevivalInterval": 300
+    },
+    {
+      "MonsterName": "半兽人 掠骨手",
+      "SpawnCount": 2,
+      "RevivalInterval": 300
+    },
+    {
+      "MonsterName": "半兽人 保镖",
+      "SpawnCount": 2,
+      "RevivalInterval": 300
+    },
+    {
       "MonsterName": "稻草人",
+      "SpawnCount": 140,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "干枯的稻草人",
       "SpawnCount": 180,
       "RevivalInterval": 1
     },

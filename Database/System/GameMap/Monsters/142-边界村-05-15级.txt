@@ -6,12 +6,37 @@
   "AreaRadius": 95,
   "Spawns": [
     {
+      "MonsterName": "兵俑 铁皮",
+      "SpawnCount": 2,
+      "RevivalInterval": 300
+    },
+    {
+      "MonsterName": "钉耙猫 太子丹",
+      "SpawnCount": 2,
+      "RevivalInterval": 300
+    },
+    {
+      "MonsterName": "稻草人 魂十五",
+      "SpawnCount": 2,
+      "RevivalInterval": 300
+    },
+    {
+      "MonsterName": "钉耙猫 荒郊强盗",
+      "SpawnCount": 2,
+      "RevivalInterval": 300
+    },
+    {
       "MonsterName": "鹿",
       "SpawnCount": 100,
       "RevivalInterval": 1
     },
     {
       "MonsterName": "稻草人",
+      "SpawnCount": 80,
+      "RevivalInterval": 1
+    },
+    {
+      "MonsterName": "干枯的稻草人",
       "SpawnCount": 100,
       "RevivalInterval": 1
     },
