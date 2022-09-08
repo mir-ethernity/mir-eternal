@@ -1784,6 +1784,10 @@ string ConvertStat(string chinese)
             return "MinMC";
         case "最小道术":
             return "MinSC";
+        case "最小圣伤":
+            return "MinHC";
+        case "最大圣伤":
+            return "MaxHC";
         case "幸运等级":
             return "Luck";
         case "体力恢复":
