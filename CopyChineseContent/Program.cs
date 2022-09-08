@@ -11,9 +11,9 @@ var jsonOptions = new JsonSerializerSettings
     Formatting = Formatting.Indented
 };
 
-var chineseDbSystemPath = @"D:\emu_8.23\YH_Server\Database\System";
+var chineseDbSystemPath = @"D:\Descargas\YH191\Database\System";
 // var chineseDbSystemPath = @"D:\emu_8.23\Database\System";
-var mir3dDbSystemPath = @"D:\Mir3D\Clean\Mir3D\Database\System";
+var mir3dDbSystemPath = @"D:\Descargas\YH191\Database\English\System";
 
 void DumpBuffs()
 {
@@ -1461,6 +1461,8 @@ string ConvertSkillTriggerMethod(string chinese)
     {
         switch (value)
         {
+            case "原点位置绝对触发":
+                return "OriginAbsolutePosition";
             case "锚点位置绝对触发":
                 return "AnchorAbsolutePosition";
             case "目标命中绝对触发":
@@ -1829,6 +1831,8 @@ string ConvertActionType(string chinese)
     {
         case "减益类型":
             return "Debuff";
+        case "增益类型":
+            return "Gain";
         default:
             throw new ApplicationException();
     }
