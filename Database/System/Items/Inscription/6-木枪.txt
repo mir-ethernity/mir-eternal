@@ -1,6 +1,6 @@
 {
   "Id": 6,
-  "NeedGender": "龙枪",
+  "NeedRace": ["龙枪"],
   "ItemId": 99900100,
   "Backpack": "人物穿戴"
 }
