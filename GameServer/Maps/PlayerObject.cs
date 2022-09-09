@@ -822,6 +822,7 @@ namespace GameServer.Maps
                             mission.CompletedDate.V = MainProcess.CurrentTime;
                         break;
                     case QuestMissionType.KillMob:
+                    case QuestMissionType.AdquireItem:
                         if (mission.Count.V >= mission.Info.V.Count)
                             mission.CompletedDate.V = MainProcess.CurrentTime;
                         break;
