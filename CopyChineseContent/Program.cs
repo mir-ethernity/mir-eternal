@@ -12,9 +12,15 @@ var jsonOptions = new JsonSerializerSettings
 };
 
 // var chineseDbSystemPath = @"D:\Descargas\YH191\Database\System";
+<<<<<<< HEAD
 var chineseDbSystemPath = @"D:\cqyh\Server0904-sky\Database\System";
 // var mir3dDbSystemPath = @"D:\Descargas\YH191\Database\English\System";
 var mir3dDbSystemPath = @"D:\cqyh\Server0909\Database\System";
+=======
+var chineseDbSystemPath = @"D:\YH191\YH191\System";
+// var mir3dDbSystemPath = @"D:\Descargas\YH191\Database\English\System";
+var mir3dDbSystemPath = @"D:\Mir3D\Clean\Mir3D\Database\System";
+>>>>>>> upstream/main
 
 void DumpBuffs()
 {
