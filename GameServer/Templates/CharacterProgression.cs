@@ -74,7 +74,7 @@ namespace GameServer.Templates
             dictionary[58] = 700000000;
             dictionary[59] = 800000000;
 
-            for (byte i = 60; i <= 255; i++)
+            for (byte i = 60; i <= 105; i++)
                 dictionary[i] = 800000000;
 
             CharacterProgression.MaxExpTable = dictionary;
