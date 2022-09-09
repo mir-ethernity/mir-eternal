@@ -30,7 +30,7 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Build Applications
-      run: dotnet publish -c release -r $env:Target --self-contained -o ./publish/$env:Target Launcher
+      run: dotnet publish -c release -r $env:Target -o ./publish/$env:Target Launcher
       env:
         Target: ${{ matrix.targets }}
 
