@@ -1,11 +1,11 @@
-name: AccountServer Build
+name: Client Editor Build
 
 on:
   push:
     branches: [ "main" ]
     paths:
-      - AccountServer/**
-      - .github/workflows/accountserver-build.yml
+      - Mir3DEditor/**
+      - .github/workflows/client-editor-build.yml
 
 jobs:
   build:
@@ -30,14 +30,14 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Build Applications
-      run: dotnet publish -c release -r $env:Target -o ./publish/$env:Target AccountServer
+      run: dotnet publish -c release -r $env:Target -o ./publish/$env:Target Mir3DEditor/Mir3DClientEditor
       env:
         Target: ${{ matrix.targets }}
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: AccountServer-${{env.Target}}
+        name: Client-Editor-${{env.Target}}
         path: ./publish/${{env.Target}}
       env:
         Target: ${{ matrix.targets }}

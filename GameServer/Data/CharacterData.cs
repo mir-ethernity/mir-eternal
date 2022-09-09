@@ -369,6 +369,9 @@ namespace GameServer.Data
                 case GameObjectRace.道士:
                     basicInscriptionSkill = 30000;
                     break;
+                case GameObjectRace.龙枪:
+                    basicInscriptionSkill = 12000;
+                    break;
                 default:
                     basicInscriptionSkill = 12000;
                     break;
