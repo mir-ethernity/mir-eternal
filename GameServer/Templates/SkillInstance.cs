@@ -51,6 +51,8 @@ namespace GameServer.Templates
         }
         public bool CheckCount => SkillInfo.CheckSkillCount;
 
+        public bool IsSwitchedSkill { get; }
+
         public SkillInstance(MapObject casterObject, GameSkills skillInfo, SkillData skillData, byte actionId, MapInstance releaseMap, Point releaseLocation, MapObject skillTarget, Point skillPointer, SkillInstance parentSkill, Dictionary<int, HitDetail> hits = null, bool targetBorrow = false)
         {
             CasterObject = casterObject;
@@ -66,6 +68,20 @@ namespace GameServer.Templates
             TargetBorrow = targetBorrow;
             Hits = (hits ?? new Dictionary<int, HitDetail>());
             Nodes = new SortedDictionary<int, SkillTask>(skillInfo.Nodes);
+
+            if (skillData != null && skillData.铭文模板.SwitchSkills.Count > 0 && GameSkills.DataSheet.TryGetValue(skillData.铭文模板.SwitchSkills[0], out GameSkills switchSkill) && skillInfo != switchSkill)
+            {
+                var switchReleaseSkill = switchSkill.Nodes
+                    .Select(x => x.Value)
+                    .OfType<B_01_SkillReleaseNotification>()
+                    .FirstOrDefault();
+
+                if (switchReleaseSkill != null)
+                {
+                    IsSwitchedSkill = true;
+                    CasterObject.Coolings[SkillId | 16777216] = ReleaseTime.AddMilliseconds(switchReleaseSkill.ItSelfCooldown);
+                }
+            }
 
             if (Nodes.Count != 0)
             {
@@ -194,6 +210,7 @@ namespace GameServer.Templates
                             flag3 = PlayerObject2.MainSkills表.TryGetValue((ushort)num3, out SkillData skill) && a_01.同组铭文无效
                                 ? num4 == (int)skill.Id
                                 : skill != null && (num4 == 0 || num4 == (int)skill.Id);
+
                         }
                         if (flag3 && a_01.验证ItSelfBuff)
                         {
@@ -312,7 +329,9 @@ namespace GameServer.Templates
                             CasterObject.移除Buff时处理(b_00.SkillTagId);
                     }
                     else if (GameBuffs.DataSheet.ContainsKey(b_00.SkillTagId))
+                    {
                         CasterObject.OnAddBuff(b_00.SkillTagId, CasterObject);
+                    }
                 }
                 else if (task is B_01_SkillReleaseNotification b_01)
                 {
@@ -1008,6 +1027,9 @@ namespace GameServer.Templates
 
             if (Nodes.Count == 0)
             {
+                if (IsSwitchedSkill && SkillInfo.CheckSkillMarks)
+                    CasterObject.移除Buff时处理(SkillInfo.SkillTagId);
+
                 CasterObject.SkillTasks.Remove(this);
                 return;
             }
