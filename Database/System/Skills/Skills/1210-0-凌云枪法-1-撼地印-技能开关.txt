@@ -1,28 +1,28 @@
 {
-  "SkillName": "骑术-0-通用-主体技能",
-  "Race": "通用",
-  "OwnSkillId": 4587,
-  "BindingLevelId": 4587,
-  "CheckStiff": true,
+  "SkillName": "凌云枪法-1-撼地印-技能开关",
+  "Race": "龙枪",
+  "OwnSkillId": 1210,
+  "GroupId": 1,
+  "BindingLevelId": 1210,
   "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
-    0,
-    0,
-    0,
-    0
+    4,
+    6,
+    8,
+    10
   ],
   "Nodes": {
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
-      "ItSelfCooldown": 1000
+      "ItSelfCooldown": 10000,
+      "分组Cooldown": 10000
     },
-    "2000": {
+    "1": {
       "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",
-      "SkillTagId": 2555,
-      "允许移除标记": true
+      "SkillTagId": 12101
     },
-    "2001": {
+    "2": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true
     }

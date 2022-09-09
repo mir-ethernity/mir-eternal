@@ -1,0 +1,22 @@
+{
+  "SkillName": "魔火龙起飞减速",
+  "Race": "电脑",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 41080,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "1": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    },
+    "3000": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "触发SkillName": "魔火龙起飞召唤"
+    }
+  }
+}

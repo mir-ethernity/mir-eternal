@@ -1,0 +1,34 @@
+{
+  "SkillName": "大祭祀多重雷电",
+  "Race": "电脑",
+  "OwnSkillId": 3838,
+  "MaxDistance": 6,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "1": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 15000,
+      "角色忙绿时间": 2500
+    },
+    "901": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "触发SkillName": "大祭祀多重雷电特效"
+    },
+    "1201": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "触发SkillName": "大祭祀多重雷电特效"
+    },
+    "1501": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "触发SkillName": "大祭祀多重雷电特效"
+    }
+  }
+}

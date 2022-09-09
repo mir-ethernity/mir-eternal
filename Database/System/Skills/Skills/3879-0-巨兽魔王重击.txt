@@ -1,0 +1,65 @@
+{
+  "SkillName": "巨兽魔王重击",
+  "Race": "电脑",
+  "OwnSkillId": 3879,
+  "MaxDistance": 3,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 4000,
+      "角色忙绿时间": 3000
+    },
+    "1000": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定目标",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能命中通知": true,
+      "技能范围类型": "Solid5x5",
+      "HitsLimit": 10,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "1001": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害基数": [
+        300,
+        450,
+        500,
+        650
+      ],
+      "技能伤害系数": [
+        1.0,
+        1.1,
+        1.2,
+        1.3
+      ],
+      "数量衰减伤害": true,
+      "伤害衰减系数": 0.05,
+      "伤害衰减下限": 0.5,
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    },
+    "2000": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetMissDefinitely",
+      "触发SkillName": "巨兽魔王旋风斩"
+    },
+    "3000": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "3025": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    }
+  }
+}

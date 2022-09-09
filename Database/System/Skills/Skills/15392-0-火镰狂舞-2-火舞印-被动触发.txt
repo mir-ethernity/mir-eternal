@@ -1,0 +1,47 @@
+{
+  "SkillName": "火镰狂舞-2-火舞印-被动触发",
+  "Race": "刺客",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 15392,
+  "BindingLevelId": 1539,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定目标",
+      "SkillEvasion": "CanBeMagicEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能范围类型": "Hollow5x5",
+      "HitsLimit": 5,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "1": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Burn",
+      "技能伤害基数": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "技能伤害系数": [
+        0.5,
+        0.6,
+        0.7,
+        0.8
+      ],
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    }
+  }
+}

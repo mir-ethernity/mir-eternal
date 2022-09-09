@@ -1,0 +1,25 @@
+{
+  "SkillName": "魔火龙起飞",
+  "Race": "电脑",
+  "OwnSkillId": 4108,
+  "MaxDistance": 5,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "角色忙绿时间": 6000
+    },
+    "1": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
+      "MaxDistance": 5,
+      "技能最近距离": 1
+    },
+    "2": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "触发SkillName": "魔火龙起飞减速"
+    }
+  }
+}

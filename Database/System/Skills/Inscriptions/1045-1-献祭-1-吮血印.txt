@@ -1,0 +1,30 @@
+{
+  "SkillName": "献祭-1-吮血印",
+  "Race": "刺客",
+  "SkillId": 1045,
+  "Id": 1,
+  "Quality": 6,
+  "Probability": 20,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "EBUaHw==",
+  "MinSkillExp": [
+    10,
+    10,
+    10,
+    0
+  ],
+  "SkillCombatBonus": [
+    5,
+    7,
+    10,
+    13
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "献祭-1-吮血印-主体技能"
+  ],
+  "SwitchSkills": [
+    "献祭-0-无铭文-技能开关"
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "SkillName": "大祭祀地雷",
+  "Race": "电脑",
+  "OwnSkillId": 3839,
+  "MaxDistance": 2,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp"
+    },
+    "1": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 10000,
+      "角色忙绿时间": 3000
+    },
+    "1000": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定ItSelf坐标",
+      "SkillHitFeedback": "后仰",
+      "技能范围类型": "Solid5x5",
+      "技能命中通知": true,
+      "HitsLimit": 12,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "1001": {
+      "$type": "C_03_CalculateObjectDisplacement, Assembly-CSharp",
+      "ItSelf位移次数": "AAAAAA==",
+      "ItSelf位移距离": "AAAAAA==",
+      "推动目标位移": true,
+      "DisplacementIncreaseExp": true,
+      "推动目标概率": 1.0,
+      "目标位移耗时": 3,
+      "目标位移距离": "AgICAg==",
+      "目标硬直时间": 1000
+    },
+    "1100": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Magic",
+      "技能伤害基数": [
+        107,
+        109,
+        211,
+        213
+      ],
+      "技能伤害系数": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    },
+    "1110": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "1120": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    },
+    "2000": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "ForehandAndBackhandRandom",
+      "触发SkillName": "大祭祀多重雷电",
+      "反手SkillName": "大祭祀疾光电影"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "SkillName": "电脑-白元素节点死亡",
+  "Race": "电脑",
+  "OwnSkillId": 4113,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 1500,
+      "角色忙绿时间": 625
+    },
+    "1": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定ItSelf坐标",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能范围类型": "Hollow3x3",
+      "技能扩展通知": true,
+      "HitsLimit": 8,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "2": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害基数": [
+        110,
+        110,
+        110,
+        110
+      ],
+      "技能伤害系数": [
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "清除状态列表": []
+    },
+    "3": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 1500
+    }
+  }
+}

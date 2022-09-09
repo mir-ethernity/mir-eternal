@@ -1,0 +1,23 @@
+{
+  "SkillName": "神威盾甲-2-长歌印-成功特效",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 10462,
+  "BindingLevelId": 1046,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "1": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

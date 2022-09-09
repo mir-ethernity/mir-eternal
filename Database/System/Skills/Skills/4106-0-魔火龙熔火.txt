@@ -1,0 +1,28 @@
+{
+  "SkillName": "魔火龙熔火",
+  "Race": "电脑",
+  "OwnSkillId": 4106,
+  "MaxDistance": 5,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 20000,
+      "角色忙绿时间": 1000
+    },
+    "1": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
+      "MaxDistance": 5,
+      "技能最近距离": 1
+    },
+    "1000": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "触发SkillName": "魔火龙熔火0"
+    }
+  }
+}

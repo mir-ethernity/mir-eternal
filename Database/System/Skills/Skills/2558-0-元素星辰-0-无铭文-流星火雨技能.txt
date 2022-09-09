@@ -1,0 +1,54 @@
+{
+  "SkillName": "元素星辰-0-无铭文-流星火雨技能",
+  "Race": "法师",
+  "OwnSkillId": 2558,
+  "GroupId": 1,
+  "BindingLevelId": 2558,
+  "CalculateTriggerProbability": 1.0,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "ValidateLearnedSkills": 25580,
+  "NeedConsumeMagic": [
+    4,
+    8,
+    11,
+    15
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 3000,
+      "分组Cooldown": 3000,
+      "角色忙绿时间": 625
+    },
+    "1": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 25580,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1,
+      "GainSkillExp": true,
+      "ExpSkillId": 2558
+    },
+    "2": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 25585,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1,
+      "GainSkillExp": true,
+      "ExpSkillId": 2558
+    },
+    "625": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 1000,
+      "禁止行走时间": 875,
+      "禁止奔跑时间": 625
+    },
+    "1000": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    }
+  }
+}

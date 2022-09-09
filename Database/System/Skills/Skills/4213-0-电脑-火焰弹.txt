@@ -1,0 +1,69 @@
+{
+  "SkillName": "电脑-火焰弹",
+  "Race": "电脑",
+  "OwnSkillId": 4213,
+  "MaxDistance": 5,
+  "GroupId": 1,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 1500,
+      "分组Cooldown": 1000,
+      "角色忙绿时间": 625
+    },
+    "1": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
+      "MaxDistance": 5,
+      "技能最近距离": 1
+    },
+    "250": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定目标",
+      "SkillHitFeedback": "后仰",
+      "技能命中通知": true,
+      "计算飞行耗时": true,
+      "单格飞行耗时": 50,
+      "技能扩展通知": true,
+      "HitsLimit": 1,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility"
+    },
+    "251": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Magic",
+      "技能伤害基数": [
+        107,
+        109,
+        211,
+        213
+      ],
+      "技能伤害系数": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "目标硬直时间": 1000,
+      "清除状态列表": []
+    },
+    "625": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "725": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    }
+  }
+}

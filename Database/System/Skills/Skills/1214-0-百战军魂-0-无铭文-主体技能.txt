@@ -1,0 +1,43 @@
+{
+  "SkillName": "百战军魂-0-无铭文-主体技能",
+  "Race": "龙枪",
+  "OwnSkillId": 1214,
+  "BindingLevelId": 1214,
+  "CalculateTriggerProbability": 1.0,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    4,
+    8,
+    11,
+    15
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 3000,
+      "分组Cooldown": 3000,
+      "角色忙绿时间": 625
+    },
+    "1": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "触发SkillName": "百战军魂-0-无铭文-成功特效"
+    },
+    "502": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "百战军魂-0-无铭文-百战军魂触发"
+    },
+    "625": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 1000,
+      "禁止行走时间": 875,
+      "禁止奔跑时间": 625
+    },
+    "1000": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    }
+  }
+}

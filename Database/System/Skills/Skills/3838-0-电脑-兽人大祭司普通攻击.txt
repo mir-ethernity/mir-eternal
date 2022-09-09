@@ -1,0 +1,51 @@
+{
+  "SkillName": "电脑-兽人大祭司普通攻击",
+  "Race": "电脑",
+  "OwnSkillId": 3838,
+  "MaxDistance": 8,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "角色忙绿时间": 1500
+    },
+    "501": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "AnchorAbsolutePosition",
+      "触发SkillName": "电脑-兽人大祭司雷电术-空放特效"
+    },
+    "300": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定目标",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能扩展通知": true,
+      "HitsLimit": 1,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "301": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Magic",
+      "技能伤害基数": [
+        100,
+        200,
+        300,
+        400
+      ],
+      "技能伤害系数": [
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "清除状态列表": []
+    }
+  }
+}

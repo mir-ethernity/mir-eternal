@@ -1,28 +1,27 @@
 {
-  "SkillName": "骑术-0-通用-主体技能",
-  "Race": "通用",
-  "OwnSkillId": 4587,
-  "BindingLevelId": 4587,
-  "CheckStiff": true,
+  "SkillName": "凝神-0-无铭文-技能开关",
+  "OwnSkillId": 2051,
+  "GroupId": 3,
+  "BindingLevelId": 2051,
   "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
-    0,
-    0,
-    0,
-    0
+    7,
+    7,
+    7,
+    7
   ],
   "Nodes": {
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
-      "ItSelfCooldown": 1000
+      "ItSelfCooldown": 10000,
+      "分组Cooldown": 10000
     },
-    "2000": {
+    "1": {
       "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",
-      "SkillTagId": 2555,
-      "允许移除标记": true
+      "SkillTagId": 20510
     },
-    "2001": {
+    "2": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true
     }

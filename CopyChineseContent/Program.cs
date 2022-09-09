@@ -11,9 +11,10 @@ var jsonOptions = new JsonSerializerSettings
     Formatting = Formatting.Indented
 };
 
-var chineseDbSystemPath = @"D:\emu_8.23\YH_Server\Database\System";
-// var chineseDbSystemPath = @"D:\emu_8.23\Database\System";
-var mir3dDbSystemPath = @"D:\Mir3D\Clean\Mir3D\Database\System";
+// var chineseDbSystemPath = @"D:\Descargas\YH191\Database\System";
+var chineseDbSystemPath = @"D:\cqyh\Server0904-sky\Database\System";
+// var mir3dDbSystemPath = @"D:\Descargas\YH191\Database\English\System";
+var mir3dDbSystemPath = @"D:\cqyh\Server0909\Database\System";
 
 void DumpBuffs()
 {
@@ -1461,6 +1462,8 @@ string ConvertSkillTriggerMethod(string chinese)
     {
         switch (value)
         {
+            case "原点位置绝对触发":
+                return "OriginAbsolutePosition";
             case "锚点位置绝对触发":
                 return "AnchorAbsolutePosition";
             case "目标命中绝对触发":
@@ -1782,6 +1785,10 @@ string ConvertStat(string chinese)
             return "MinMC";
         case "最小道术":
             return "MinSC";
+        case "最小圣伤":
+            return "MinHC";
+        case "最大圣伤":
+            return "MaxHC";
         case "幸运等级":
             return "Luck";
         case "体力恢复":
@@ -1829,6 +1836,8 @@ string ConvertActionType(string chinese)
     {
         case "减益类型":
             return "Debuff";
+        case "增益类型":
+            return "Gain";
         default:
             throw new ApplicationException();
     }

@@ -1,0 +1,63 @@
+{
+  "SkillName": "魔火龙熔火2",
+  "Race": "电脑",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 41062,
+  "MaxDistance": 5,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 10000,
+      "角色忙绿时间": 1000
+    },
+    "1": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
+      "MaxDistance": 5,
+      "技能最近距离": 1
+    },
+    "2": {
+      "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
+      "PetName": "",
+      "Companion": true,
+      "SpawnCount": "AAAAAA==",
+      "LevelCap": "AAAAAA=="
+    },
+    "125": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定目标坐标",
+      "SkillEvasion": "CanBeMagicEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能命中通知": true,
+      "技能范围类型": "Spiral15x15",
+      "HitsLimit": 50,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "130": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "触发Id": 54890,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1
+    },
+    "150": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "触发SkillName": "魔火龙起飞"
+    },
+    "1000": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

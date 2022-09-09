@@ -1,0 +1,51 @@
+{
+  "SkillName": "电脑-远古巨灵概率技能",
+  "Race": "电脑",
+  "OwnSkillId": 5926,
+  "MaxDistance": 3,
+  "CalculateTriggerProbability": 0.25,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "角色忙绿时间": 1500
+    },
+    "1": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
+      "MaxDistance": 3,
+      "技能最近距离": 3
+    },
+    "1000": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能范围类型": "Spiral7x7",
+      "技能扩展通知": true,
+      "HitsLimit": 10,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "1001": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害基数": [
+        100,
+        200,
+        300,
+        400
+      ],
+      "技能伤害系数": [
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "清除状态列表": []
+    }
+  }
+}

@@ -1,9 +1,8 @@
 {
-  "SkillName": "骑术-0-通用-主体技能",
-  "Race": "通用",
-  "OwnSkillId": 4587,
-  "BindingLevelId": 4587,
-  "CheckStiff": true,
+  "SkillName": "大祭祀魔法盾特效",
+  "Race": "电脑",
+  "OwnSkillId": 38401,
+  "MaxDistance": 2,
   "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     0,
@@ -15,14 +14,10 @@
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
-      "ItSelfCooldown": 1000
+      "ItSelfCooldown": 10000,
+      "角色忙绿时间": 1625
     },
-    "2000": {
-      "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",
-      "SkillTagId": 2555,
-      "允许移除标记": true
-    },
-    "2001": {
+    "1": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true
     }
