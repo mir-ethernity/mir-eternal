@@ -193,7 +193,7 @@ namespace GameServer.Templates
                             int num4 = (int)(a_01.所需Id % 10);
                             flag3 = PlayerObject2.MainSkills表.TryGetValue((ushort)num3, out SkillData skill) && a_01.同组铭文无效
                                 ? num4 == (int)skill.Id
-                                : num4 == 0 || num4 == (int)skill.Id;
+                                : skill != null && (num4 == 0 || num4 == (int)skill.Id);
                         }
                         if (flag3 && a_01.验证ItSelfBuff)
                         {
@@ -251,7 +251,7 @@ namespace GameServer.Templates
 
                             flag4 = PlayerObject3.MainSkills表.TryGetValue((ushort)num5, out SkillData SkillData4) && a_01.同组铭文无效
                                 ? (num6 == (int)SkillData4.Id)
-                                : (num6 == 0 || num6 == (int)SkillData4.Id);
+                                : SkillData4 != null && (num6 == 0 || num6 == (int)SkillData4.Id);
                         }
 
                         if (flag4)

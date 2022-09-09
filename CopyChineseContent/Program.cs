@@ -211,7 +211,8 @@ void DumpBuffs()
             }
         }
 
-        var mir3dModel = mir3DbModels.FirstOrDefault(x => x.Value<int>("Id") == chineseModel.Value<int>("Buff编号"));
+        var chineseId = chineseModel.Value<int>("Buff编号");
+        var mir3dModel = mir3DbModels.FirstOrDefault(x => x.Value<int>("Id") == chineseId);
         var mir3dOutputPath = Path.Combine(mir3DbFolder, $"{chineseConverted["Id"]}-{chineseConverted["Name"]}.txt");
 
         if (mir3dModel == null)
