@@ -100,6 +100,12 @@
             this.删除公告按钮 = new System.Windows.Forms.Button();
             this.添加公告按钮 = new System.Windows.Forms.Button();
             this.公告浏览表 = new System.Windows.Forms.DataGridView();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Interval = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RemainingTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabConfig = new System.Windows.Forms.TabPage();
             this.S_软件授权分组 = new System.Windows.Forms.GroupBox();
             this.S_软件注册代码 = new System.Windows.Forms.TextBox();
@@ -166,12 +172,6 @@
             this.停止按钮 = new System.Windows.Forms.Button();
             this.保存数据提醒 = new System.Windows.Forms.Timer(this.components);
             this.定时发送公告 = new System.Windows.Forms.Timer(this.components);
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Interval = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RemainingTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.主选项卡.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.MainTabs.SuspendLayout();
@@ -1191,6 +1191,60 @@
             this.公告浏览表.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.公告浏览表_CellEndEdit);
             this.公告浏览表.SelectionChanged += new System.EventHandler(this.公告浏览表_SelectionChanged);
             // 
+            // Status
+            // 
+            this.Status.Frozen = true;
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Width = 60;
+            // 
+            // Interval
+            // 
+            this.Interval.DataPropertyName = "Interval";
+            this.Interval.Frozen = true;
+            this.Interval.HeaderText = "Interval";
+            this.Interval.MinimumWidth = 6;
+            this.Interval.Name = "Interval";
+            this.Interval.Width = 80;
+            // 
+            // Count
+            // 
+            this.Count.DataPropertyName = "Count";
+            this.Count.Frozen = true;
+            this.Count.HeaderText = "Count";
+            this.Count.MinimumWidth = 6;
+            this.Count.Name = "Count";
+            this.Count.Width = 80;
+            // 
+            // RemainingTime
+            // 
+            this.RemainingTime.Frozen = true;
+            this.RemainingTime.HeaderText = "Remaining Time";
+            this.RemainingTime.MinimumWidth = 6;
+            this.RemainingTime.Name = "RemainingTime";
+            this.RemainingTime.ReadOnly = true;
+            this.RemainingTime.Width = 80;
+            // 
+            // Time
+            // 
+            this.Time.Frozen = true;
+            this.Time.HeaderText = "Time";
+            this.Time.MinimumWidth = 6;
+            this.Time.Name = "Time";
+            this.Time.ReadOnly = true;
+            this.Time.Width = 90;
+            // 
+            // Content
+            // 
+            this.Content.DataPropertyName = "Content";
+            this.Content.Frozen = true;
+            this.Content.HeaderText = "Content";
+            this.Content.MinimumWidth = 6;
+            this.Content.Name = "Content";
+            this.Content.Width = 884;
+            // 
             // tabConfig
             // 
             this.tabConfig.BackColor = System.Drawing.Color.Gainsboro;
@@ -2076,60 +2130,6 @@
             // 
             this.定时发送公告.Tick += new System.EventHandler(this.定时发送公告_Tick);
             // 
-            // Status
-            // 
-            this.Status.Frozen = true;
-            this.Status.HeaderText = "Status";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Width = 60;
-            // 
-            // Interval
-            // 
-            this.Interval.DataPropertyName = "Interval";
-            this.Interval.Frozen = true;
-            this.Interval.HeaderText = "Interval";
-            this.Interval.MinimumWidth = 6;
-            this.Interval.Name = "Interval";
-            this.Interval.Width = 80;
-            // 
-            // Count
-            // 
-            this.Count.DataPropertyName = "Count";
-            this.Count.Frozen = true;
-            this.Count.HeaderText = "Count";
-            this.Count.MinimumWidth = 6;
-            this.Count.Name = "Count";
-            this.Count.Width = 80;
-            // 
-            // RemainingTime
-            // 
-            this.RemainingTime.Frozen = true;
-            this.RemainingTime.HeaderText = "Remaining Time";
-            this.RemainingTime.MinimumWidth = 6;
-            this.RemainingTime.Name = "RemainingTime";
-            this.RemainingTime.ReadOnly = true;
-            this.RemainingTime.Width = 80;
-            // 
-            // Time
-            // 
-            this.Time.Frozen = true;
-            this.Time.HeaderText = "Time";
-            this.Time.MinimumWidth = 6;
-            this.Time.Name = "Time";
-            this.Time.ReadOnly = true;
-            this.Time.Width = 90;
-            // 
-            // Content
-            // 
-            this.Content.DataPropertyName = "Content";
-            this.Content.Frozen = true;
-            this.Content.HeaderText = "Content";
-            this.Content.MinimumWidth = 6;
-            this.Content.Name = "Content";
-            this.Content.Width = 884;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2145,6 +2145,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GameServer - Mir3D LOMCN";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.关闭主界面_Click);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.主选项卡.ResumeLayout(false);
             this.tabMain.ResumeLayout(false);
             this.tabMain.PerformLayout();
