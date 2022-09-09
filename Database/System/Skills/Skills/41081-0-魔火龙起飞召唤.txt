@@ -1,0 +1,50 @@
+{
+  "SkillName": "魔火龙起飞召唤",
+  "Race": "电脑",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 41081,
+  "MaxDistance": 5,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 10000,
+      "角色忙绿时间": 1000
+    },
+    "1": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
+      "MaxDistance": 5,
+      "技能最近距离": 1
+    },
+    "2": {
+      "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
+      "PetName": "红元素节点",
+      "Companion": true,
+      "SpawnCount": "AAAAAA==",
+      "LevelCap": "AAAAAA=="
+    },
+    "50": {
+      "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
+      "PetName": "白元素节点",
+      "Companion": true,
+      "SpawnCount": "AAAAAA==",
+      "LevelCap": "AAAAAA=="
+    },
+    "80": {
+      "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
+      "PetName": "黑元素节点",
+      "Companion": true,
+      "SpawnCount": "AAAAAA==",
+      "LevelCap": "AAAAAA=="
+    },
+    "100": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "触发SkillName": "魔火龙落地"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "SkillName": "电脑-连续法球",
+  "Race": "电脑",
+  "OwnSkillId": 3752,
+  "BindingLevelId": 3752,
+  "MaxDistance": 8,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 5000,
+      "角色忙绿时间": 2500
+    },
+    "1": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "SkillEvasion": "CanBeMagicEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能命中通知": true,
+      "计算飞行耗时": true,
+      "单格飞行耗时": 200,
+      "HitsLimit": 1,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "2": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Magic",
+      "技能伤害基数": [
+        300,
+        320,
+        340,
+        360
+      ],
+      "技能伤害系数": [
+        1.0,
+        1.2,
+        1.3,
+        1.4
+      ],
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    }
+  }
+}

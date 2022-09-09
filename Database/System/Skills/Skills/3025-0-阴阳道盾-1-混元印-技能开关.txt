@@ -1,0 +1,30 @@
+{
+  "SkillName": "阴阳道盾-1-混元印-技能开关",
+  "Race": "道士",
+  "OwnSkillId": 3025,
+  "GroupId": 3,
+  "BindingLevelId": 3025,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    7,
+    7,
+    7,
+    7
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 5000,
+      "分组Cooldown": 5000
+    },
+    "1": {
+      "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",
+      "SkillTagId": 30251
+    },
+    "2": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

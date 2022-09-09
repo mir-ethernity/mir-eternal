@@ -1,0 +1,36 @@
+{
+  "SkillName": "电脑-祖玛教主瞬移技能",
+  "Race": "电脑",
+  "OwnSkillId": 3586,
+  "MaxDistance": 8,
+  "CalculateTriggerProbability": 0.1,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "1": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "角色忙绿时间": 1000
+    },
+    "2": {
+      "$type": "C_03_CalculateObjectDisplacement, Assembly-CSharp",
+      "角色ItSelf位移": true,
+      "能否穿越障碍": true,
+      "允许超出锚点": true,
+      "ItSelf位移次数": "AQEBAQ==",
+      "ItSelf位移距离": "BgYGBg==",
+      "目标位移距离": "AAAAAA=="
+    },
+    "3": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    },
+    "250": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    },
+    "750": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "OriginAbsolutePosition",
+      "触发SkillName": "电脑-祖玛教主概率技能"
+    }
+  }
+}

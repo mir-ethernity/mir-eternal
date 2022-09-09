@@ -1,0 +1,51 @@
+{
+  "SkillName": "穿刺射击-2-震穹印-减速效果",
+  "SkillType": "SubSkills",
+  "Race": "弓手",
+  "OwnSkillId": 20502,
+  "BindingLevelId": 2050,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能能否招架": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "SkillHitFeedback": "后仰",
+      "技能范围类型": "LineType3x7",
+      "技能扩展通知": true,
+      "HitsLimit": 10,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "1": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆命中目标": true,
+      "点爆标记编号": 12045,
+      "点爆需要层数": 1,
+      "失败添加层数": true,
+      "技能伤害类型": "Archery",
+      "技能伤害基数": [
+        35,
+        42,
+        46,
+        50
+      ],
+      "技能伤害系数": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    }
+  }
+}

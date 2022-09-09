@@ -1,0 +1,87 @@
+{
+  "SkillName": "龙裔霸主顺劈斩",
+  "Race": "电脑",
+  "OwnSkillId": 3904,
+  "MaxDistance": 3,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 6000,
+      "角色忙绿时间": 3000
+    },
+    "625": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定目标",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能命中通知": true,
+      "技能范围类型": "Solid5x5",
+      "HitsLimit": 8,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "626": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害基数": [
+        150,
+        250,
+        350,
+        450
+      ],
+      "技能伤害系数": [
+        1.0,
+        1.1,
+        1.2,
+        1.3
+      ],
+      "数量衰减伤害": true,
+      "伤害衰减系数": 0.05,
+      "伤害衰减下限": 0.5,
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    },
+    "630": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "SkillHitFeedback": "后仰"
+    },
+    "640": {
+      "$type": "C_03_CalculateObjectDisplacement, Assembly-CSharp",
+      "ItSelf位移距离": "AAAAAA==",
+      "推动目标位移": true,
+      "推动目标概率": 1.0,
+      "连续推动数量": 30,
+      "目标位移耗时": 2,
+      "目标位移距离": "AgICAg==",
+      "目标硬直时间": 1000
+    },
+    "650": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "触发Id": 20435,
+      "Buff触发概率": 0.618,
+      "所需Buff层数": 1
+    },
+    "2001": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "ForehandAndBackhandRandom",
+      "触发SkillName": "龙裔霸主力劈华山",
+      "反手SkillName": "龙裔霸主寒冰风暴"
+    },
+    "2100": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "3000": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    }
+  }
+}

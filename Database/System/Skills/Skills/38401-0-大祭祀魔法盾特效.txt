@@ -1,0 +1,25 @@
+{
+  "SkillName": "大祭祀魔法盾特效",
+  "Race": "电脑",
+  "OwnSkillId": 38401,
+  "MaxDistance": 2,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 10000,
+      "角色忙绿时间": 1625
+    },
+    "1": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

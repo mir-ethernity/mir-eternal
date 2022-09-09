@@ -1,0 +1,96 @@
+{
+  "SkillName": "穿刺射击-1-赤火印-子类技能",
+  "Race": "弓手",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 2050,
+  "GroupId": 1,
+  "BindingLevelId": 2050,
+  "CalculateTriggerProbability": 1.0,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
+      "MaxDistance": 10,
+      "技能最近距离": 1
+    },
+    "1": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定目标",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能命中通知": true,
+      "计算飞行耗时": true,
+      "单格飞行耗时": 10,
+      "HitsLimit": 10,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "2": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Archery",
+      "技能伤害基数": [
+        6,
+        8,
+        10,
+        12
+      ],
+      "技能伤害系数": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "技能增伤类型": "Normal",
+      "技能增伤基数": 10,
+      "技能增伤系数": 0.1,
+      "GainSkillExp": true,
+      "ExpSkillId": 2050,
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    },
+    "3": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "触发Id": 10363,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1
+    },
+    "4": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "精准打击-0-全铭文-触发判定"
+    },
+    "5": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "强袭之箭-4-空灵印-冷却减少",
+      "CalculateTriggerProbability": true,
+      "技能触发概率": 0.85,
+      "验证铭文技能": true,
+      "所需Id": 20484
+    },
+    "6": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetMissDefinitely",
+      "触发SkillName": "精准打击-2-射戟印-闪避触发",
+      "验证铭文技能": true,
+      "所需Id": 20422
+    },
+    "7": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "战术标记-2-汲灵印-吸血触发",
+      "验证铭文技能": true,
+      "所需Id": 20442
+    }
+  }
+}

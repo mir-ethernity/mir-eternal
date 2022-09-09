@@ -1,0 +1,54 @@
+{
+  "SkillName": "噬血术-0-无铭文-噬血术特效",
+  "Race": "道士",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 30100,
+  "BindingLevelId": 3010,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "1": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能锁定方式": "锁定目标",
+      "SkillEvasion": "CanBeMagicEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能命中通知": true,
+      "计算飞行耗时": true,
+      "单格飞行耗时": 50,
+      "HitsLimit": 1,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "3": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Taoism",
+      "技能伤害基数": [
+        10,
+        12,
+        14,
+        17
+      ],
+      "技能伤害系数": [
+        2.0,
+        3.0,
+        3.5,
+        4.0
+      ],
+      "GainSkillExp": true,
+      "ExpSkillId": 3010,
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    }
+  }
+}

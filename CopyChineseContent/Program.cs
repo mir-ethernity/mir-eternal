@@ -11,9 +11,10 @@ var jsonOptions = new JsonSerializerSettings
     Formatting = Formatting.Indented
 };
 
-var chineseDbSystemPath = @"D:\Descargas\YH191\Database\System";
-// var chineseDbSystemPath = @"D:\emu_8.23\Database\System";
-var mir3dDbSystemPath = @"D:\Descargas\YH191\Database\English\System";
+// var chineseDbSystemPath = @"D:\Descargas\YH191\Database\System";
+var chineseDbSystemPath = @"D:\YH191\YH191\System";
+// var mir3dDbSystemPath = @"D:\Descargas\YH191\Database\English\System";
+var mir3dDbSystemPath = @"D:\Mir3D\Clean\Mir3D\Database\System";
 
 void DumpBuffs()
 {

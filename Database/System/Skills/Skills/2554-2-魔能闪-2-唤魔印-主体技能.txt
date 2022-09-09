@@ -1,0 +1,49 @@
+{
+  "SkillName": "魔能闪-2-唤魔印-主体技能",
+  "Race": "法师",
+  "OwnSkillId": 2554,
+  "Id": 2,
+  "GroupId": 2,
+  "BindingLevelId": 2554,
+  "CalculateTriggerProbability": 1.0,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    100,
+    100,
+    100,
+    100
+  ],
+  "Nodes": {
+    "1": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 10000,
+      "角色忙绿时间": 250
+    },
+    "2": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 25350,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1
+    },
+    "3": {
+      "$type": "C_03_CalculateObjectDisplacement, Assembly-CSharp",
+      "角色ItSelf位移": true,
+      "DisplacementIncreaseExp": true,
+      "能否穿越障碍": true,
+      "ItSelf位移次数": "AQEBAQ==",
+      "ItSelf位移距离": "BAUGBw==",
+      "目标位移距离": "AAAAAA=="
+    },
+    "4": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    },
+    "250": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    }
+  }
+}

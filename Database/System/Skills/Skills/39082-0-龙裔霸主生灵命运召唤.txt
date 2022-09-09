@@ -1,0 +1,94 @@
+{
+  "SkillName": "龙裔霸主生灵命运召唤",
+  "Race": "电脑",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 39082,
+  "MaxDistance": 6,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 5000,
+      "角色忙绿时间": 4000
+    },
+    "950": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定目标",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能命中通知": true,
+      "技能范围类型": "Solid5x5",
+      "HitsLimit": 30,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "951": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害基数": [],
+      "技能伤害系数": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "清除状态列表": []
+    },
+    "1501": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "SkillHitFeedback": "后仰"
+    },
+    "1500": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害基数": [],
+      "技能伤害系数": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "清除状态列表": []
+    },
+    "2000": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "SkillHitFeedback": "后仰"
+    },
+    "2001": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害基数": [],
+      "技能伤害系数": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "清除状态列表": []
+    },
+    "2002": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "SkillHitFeedback": "后仰"
+    },
+    "3000": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "CalculateTriggerProbability": true,
+      "技能触发概率": 0.618,
+      "触发SkillName": ""
+    },
+    "3050": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "3060": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    }
+  }
+}

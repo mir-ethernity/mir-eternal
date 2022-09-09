@@ -1,0 +1,46 @@
+{
+  "SkillName": "电脑-钻地虫的蓄力攻击",
+  "Race": "电脑",
+  "OwnSkillId": 5460,
+  "MaxDistance": 1,
+  "CalculateTriggerProbability": 0.2,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "角色忙绿时间": 3000
+    },
+    "1800": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能命中通知": true,
+      "技能范围类型": "LineType1x2",
+      "HitsLimit": 2,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "1801": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害基数": [
+        280,
+        380,
+        580,
+        680
+      ],
+      "技能伤害系数": [
+        3.0,
+        3.0,
+        3.0,
+        3.0
+      ],
+      "清除状态列表": []
+    }
+  }
+}

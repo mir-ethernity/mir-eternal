@@ -1,0 +1,58 @@
+{
+  "SkillName": "献祭-0-无铭文-命中触发",
+  "Race": "刺客",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 15450,
+  "BindingLevelId": 1545,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "1": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "2": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定目标",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能命中通知": true,
+      "HitsLimit": 1,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "3": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Needle",
+      "技能伤害基数": [
+        13,
+        15,
+        17,
+        19
+      ],
+      "技能伤害系数": [
+        0.8,
+        0.9,
+        1.0,
+        1.1
+      ],
+      "目标硬直时间": 1000,
+      "清除状态列表": []
+    },
+    "4": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 12052,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1
+    }
+  }
+}

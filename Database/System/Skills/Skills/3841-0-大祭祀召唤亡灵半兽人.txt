@@ -1,0 +1,31 @@
+{
+  "SkillName": "大祭祀召唤亡灵半兽人",
+  "Race": "电脑",
+  "OwnSkillId": 3841,
+  "MaxDistance": 5,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "CalculateTriggerProbability": 0.1,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 15000,
+      "角色忙绿时间": 3000
+    },
+    "1": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
+      "MaxDistance": 5,
+      "技能最近距离": 1
+    },
+    "1700": {
+      "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
+      "PetName": "兽人矿工",
+      "Companion": true,
+      "SpawnCount": "BQUFBQ==",
+      "LevelCap": "AAAAAA=="
+    }
+  }
+}

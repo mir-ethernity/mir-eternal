@@ -1,0 +1,26 @@
+{
+  "SkillName": "龙裔霸主寒冰护体",
+  "Race": "电脑",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 39040,
+  "MaxDistance": 3,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "250": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 39040,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1
+    },
+    "350": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

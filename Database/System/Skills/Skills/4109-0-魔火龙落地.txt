@@ -1,0 +1,20 @@
+{
+  "SkillName": "魔火龙落地",
+  "Race": "电脑",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 4109,
+  "MaxDistance": 5,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true
+    },
+    "1": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

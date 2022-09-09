@@ -1,0 +1,67 @@
+{
+  "SkillName": "电脑-神龙喷吐",
+  "Race": "电脑",
+  "OwnSkillId": 4103,
+  "MaxDistance": 8,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 90000,
+      "角色忙绿时间": 5000
+    },
+    "1": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "触发SkillName": "电脑-召唤血兽喷吐特效"
+    },
+    "324": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能范围类型": "LineType3x8",
+      "技能扩展通知": true,
+      "HitsLimit": 20,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "325": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Magic",
+      "技能伤害基数": [
+        250,
+        250,
+        250,
+        250
+      ],
+      "技能伤害系数": [
+        3.5,
+        3.5,
+        3.5,
+        3.5
+      ],
+      "技能增伤类型": "Undead",
+      "技能增伤基数": 1000,
+      "技能增伤系数": 0.2,
+      "清除状态列表": []
+    },
+    "450": {
+      "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
+      "PetName": "火焰龙仆",
+      "Companion": true,
+      "SpawnCount": "AAAAAA==",
+      "LevelCap": "AAAAAA=="
+    }
+  }
+}

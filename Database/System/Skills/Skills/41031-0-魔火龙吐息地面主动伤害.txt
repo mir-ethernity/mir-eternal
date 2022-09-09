@@ -1,0 +1,41 @@
+{
+  "SkillName": "魔火龙吐息地面主动伤害",
+  "Race": "电脑",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 41031,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "SkillEvasion": "CanBeMagicEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能命中通知": true,
+      "HitsLimit": 1,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "1": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Magic",
+      "技能伤害基数": [
+        100,
+        110,
+        120,
+        130
+      ],
+      "技能伤害系数": [
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "SkillName": "魔刃天旋-0-无铭文-主体技能",
+  "OwnSkillId": 1547,
+  "BindingLevelId": 1547,
+  "CalculateTriggerProbability": 1.0,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "CheckSkillMarks": true,
+  "SkillTagId": 10490,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
+      "MaxDistance": 3,
+      "技能最近距离": 1
+    },
+    "1": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "AnchorAbsolutePosition",
+      "触发SkillName": "雷霆剑法-0-无铭文-成功特效"
+    },
+    "2": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "移除技能标记": true,
+      "调整角色朝向": true,
+      "角色忙绿时间": 500
+    },
+    "175": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能能否招架": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能范围类型": "HalfMoon3x3",
+      "技能扩展通知": true,
+      "HitsLimit": 4,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "250": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害基数": [],
+      "技能伤害系数": [
+        2.0,
+        2.2,
+        2.4,
+        2.6
+      ],
+      "回复限定类型": "AllMonsters",
+      "PhysicalRecoveryBase": 10,
+      "等级差减回复": true,
+      "减回复等级差": 5,
+      "零回复等级差": 15,
+      "扣除武器持久": true,
+      "GainSkillExp": true,
+      "ExpSkillId": 1547,
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    },
+    "500": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
+      "计算攻速缩减": true,
+      "角色硬直时间": 1000,
+      "禁止行走时间": 875,
+      "禁止奔跑时间": 500
+    },
+    "1000": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    }
+  }
+}
