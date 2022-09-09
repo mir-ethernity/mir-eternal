@@ -11,7 +11,7 @@ namespace GameServer
             武斗场时间二 = 21;
         }
 
-        public const string Version = "0.1.0";
+        public const string Version = "0.1.1";
 
         public static string 软件注册代码;
         public static string GameDataPath;
