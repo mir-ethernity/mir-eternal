@@ -1,0 +1,17 @@
+﻿{
+  "FromMapId": 115,
+  "FromMapName": "龙栖峰",
+  "FromCoords": "1047, 492",
+  "RegionName": "龙栖峰-怪物区域",
+  "AreaRadius": 942,
+  "Spawns": [
+    {
+      "MonsterName": "龙裔霸主",
+      "SpawnCount": 1,
+      "RevivalInterval": 500
+    }
+  ],
+  "RangeCoords": [
+"899, 410"
+  ]
+}

@@ -1,0 +1,17 @@
+﻿{
+  "FromMapId": 55,
+  "FromMapName": "骨魔洞五层",
+  "FromCoords": "1012, 330",
+  "RegionName": "骨魔洞五层-怪物区域",
+  "AreaRadius": 204,
+  "Spawns": [
+    {
+      "MonsterName": "黄泉教主",
+      "SpawnCount": 1,
+      "RevivalInterval": 10000
+    }
+  ],
+  "RangeCoords": [
+    "927, 288"
+  ]
+}

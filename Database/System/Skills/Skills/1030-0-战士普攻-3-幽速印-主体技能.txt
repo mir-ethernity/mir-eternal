@@ -31,11 +31,27 @@
       "HitsLimit": 1,
       "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
-      "攻速提升类型": "AllMonsters",
-      "攻速提升幅度": 4,
       "触发PassiveSkill": true,
       "触发被动概率": 0.2,
       "清除状态列表": []
+    },
+    "226": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 10312,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1
+    },
+    "225": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 10313,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1,
+      "验证铭文技能": true,
+      "所需Id": 10313,
+      "同组铭文无效": true,
+      "所需目标类型": "AllMonsters"
     },
     "250": {
       "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",

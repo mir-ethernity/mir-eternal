@@ -1,0 +1,17 @@
+﻿{
+  "FromMapId": 110,
+  "FromMapName": "远古禁域",
+  "FromCoords": "1047, 492",
+  "RegionName": "远古禁域-BOSS区域",
+  "AreaRadius": 242,
+  "Spawns": [
+    {
+      "MonsterName": "远古巨灵",
+      "SpawnCount": 1,
+      "RevivalInterval": 500
+    }
+  ],
+  "RangeCoords": [
+"1023, 74"
+  ]
+}
