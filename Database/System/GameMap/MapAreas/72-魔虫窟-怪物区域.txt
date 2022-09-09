@@ -1,79 +1,79 @@
 ﻿{
   "FromMapId": 72,
-  "地图名字": "魔虫窟",
+  "FromMapName": "魔虫窟",
   "FromCoords": "1029, 304",
   "RegionName": "魔虫窟-怪物区域",
   "AreaRadius": 150,
-  "刷新列表": [
+  "Spawns": [
     {
-      "怪物名字": "魔龙邪眼绿",
-      "刷新数量": 65,
-      "复活间隔": 5
+      "MonsterName": "魔龙邪眼绿",
+      "SpawnCount": 65,
+      "RevivalInterval": 5
     },
     {
-      "怪物名字": "魔龙邪眼红",
-      "刷新数量": 65,
-      "复活间隔": 5
+      "MonsterName": "魔龙邪眼红",
+      "SpawnCount": 65,
+      "RevivalInterval": 5
     },
     {
-      "怪物名字": "魔龙刺蛙绿",
-      "刷新数量": 65,
-      "复活间隔": 5
+      "MonsterName": "魔龙刺蛙绿",
+      "SpawnCount": 65,
+      "RevivalInterval": 5
     },
     {
-      "怪物名字": "魔龙刺蛙红",
-      "刷新数量": 65,
-      "复活间隔": 5
+      "MonsterName": "魔龙刺蛙红",
+      "SpawnCount": 65,
+      "RevivalInterval": 5
     },
     {
-      "怪物名字": "魔龙血蛙",
-      "刷新数量": 60,
-      "复活间隔": 5
+      "MonsterName": "魔龙血蛙",
+      "SpawnCount": 60,
+      "RevivalInterval": 5
     },
     {
-      "怪物名字": "魔龙刀兵",
-      "刷新数量": 60,
-      "复活间隔": 5
+      "MonsterName": "魔龙刀兵",
+      "SpawnCount": 60,
+      "RevivalInterval": 5
     },
     {
-      "怪物名字": "魔龙射手",
-      "刷新数量": 60,
-      "复活间隔": 5
+      "MonsterName": "魔龙射手",
+      "SpawnCount": 60,
+      "RevivalInterval": 5
     },
     {
-      "怪物名字": "魔龙破甲兵",
-      "刷新数量": 60,
-      "复活间隔": 5
+      "MonsterName": "魔龙破甲兵",
+      "SpawnCount": 60,
+      "RevivalInterval": 5
     },
     {
-      "怪物名字": "魔龙鬼射",
-      "刷新数量": 60,
-      "复活间隔": 180
+      "MonsterName": "魔龙鬼射",
+      "SpawnCount": 60,
+      "RevivalInterval": 180
     },
     {
-      "怪物名字": "魔龙力士",
-      "刷新数量": 60,
-      "复活间隔": 10
+      "MonsterName": "魔龙力士",
+      "SpawnCount": 60,
+      "RevivalInterval": 10
     },
     {
-      "怪物名字": "魔龙力士 千斤斩",
-      "刷新数量": 60,
-      "复活间隔": 10
+      "MonsterName": "魔龙力士 千斤斩",
+      "SpawnCount": 60,
+      "RevivalInterval": 10
     },
     {
-      "怪物名字": "魔龙巨蛾 诱幻",
-      "刷新数量": 60,
-      "复活间隔": 10
+      "MonsterName": "魔龙巨蛾 诱幻",
+      "SpawnCount": 60,
+      "RevivalInterval": 10
     },
     {
-      "怪物名字": "魔龙战将 阴杀",
-      "刷新数量": 60,
-      "复活间隔": 10
+      "MonsterName": "魔龙战将 阴杀",
+      "SpawnCount": 60,
+      "RevivalInterval": 10
     },
     {
-      "怪物名字": "魔龙教主",
-      "刷新数量": 10,
-      "复活间隔": 60
+      "MonsterName": "魔龙教主",
+      "SpawnCount": 10,
+      "RevivalInterval": 60
     }
   ],
   "RangeCoords": [

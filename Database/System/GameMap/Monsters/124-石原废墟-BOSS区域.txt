@@ -1,0 +1,17 @@
+﻿{
+  "FromMapId": 124,
+  "FromMapName": "石原废墟",
+  "FromCoords": "1047, 492",
+  "RegionName": "石原荒漠-BOSS区域",
+  "AreaRadius": 1000,
+  "Spawns": [
+    {
+      "MonsterName": "沙虫之母—赤火",
+      "SpawnCount": 1,
+      "RevivalInterval": 5000
+    }
+  ],
+  "RangeCoords": [
+"1018, 237"
+  ]
+}

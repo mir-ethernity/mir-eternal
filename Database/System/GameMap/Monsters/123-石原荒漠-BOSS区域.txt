@@ -1,0 +1,17 @@
+﻿{
+  "FromMapId": 123,
+  "FromMapName": "石原荒漠",
+  "FromCoords": "1228, 122",
+  "RegionName": "石原荒漠-BOSS区域",
+  "AreaRadius": 1000,
+  "Spawns": [
+    {
+      "MonsterName": "兽人大祭司",
+      "SpawnCount": 1,
+      "RevivalInterval": 500
+    }
+  ],
+  "RangeCoords": [
+"1079, 122"
+  ]
+}

@@ -1,0 +1,17 @@
+﻿{
+  "FromMapId": 93,
+  "FromMapName": "白日门海岸",
+  "FromCoords": "986, 354",
+  "RegionName": "白日门海岸-BOSS区域",
+  "AreaRadius": 199,
+  "Spawns": [
+    {
+      "MonsterName": "血手",
+      "SpawnCount": 1,
+      "RevivalInterval": 10
+    }
+  ],
+  "RangeCoords": [
+  "1158, 322"
+  ]
+}
