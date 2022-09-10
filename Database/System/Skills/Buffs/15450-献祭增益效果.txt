@@ -1,0 +1,57 @@
+{
+  "Name": "献祭增益效果",
+  "Id": 15450,
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "BindingSkillLevel": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 20000,
+  "ProcessDelay": 20000,
+  "Duration": 6000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "SkillLevelDelay": true,
+  "ExtendedTimePerLevel": 1000,
+  "PlayerStatDelay": true,
+  "BoundPlayerStat": "MaxNC",
+  "StatDelayFactor": 100.0,
+  "StatsIncOrDec": [
+    {
+      "Stat": "MaxNC",
+      "Level0": 5,
+      "Level1": 6,
+      "Level2": 7,
+      "Level3": 8
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

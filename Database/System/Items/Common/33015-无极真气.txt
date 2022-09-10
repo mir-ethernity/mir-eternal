@@ -1,0 +1,15 @@
+{
+  "Name": "无极真气",
+  "Id": 33015,
+  "MaxDura": 10,
+  "Weight": 1,
+  "NeedLevel": 37,
+  "SalePrice": 10000,
+  "AdditionalSkill": 3015,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "技能书籍",
+  "NeedRace": "道士",
+  "PersistType": "堆叠",
+  "StoreType": "书籍"
+}

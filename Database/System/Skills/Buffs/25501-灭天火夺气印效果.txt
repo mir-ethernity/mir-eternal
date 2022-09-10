@@ -1,0 +1,79 @@
+{
+  "Name": "灭天火夺气印效果",
+  "Id": 25501,
+  "Group": 25501,
+  "OverlayType": "SimilarReplacement",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 2000,
+  "ProcessDelay": 2000,
+  "Duration": 2000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "SkillLevelDelay": true,
+  "ExtendedTimePerLevel": 1000,
+  "StatsIncOrDec": [
+    {
+      "Stat": "MinDef",
+      "Level0": -1,
+      "Level1": -2,
+      "Level2": -3,
+      "Level3": -4
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": -2,
+      "Level1": -3,
+      "Level2": -4,
+      "Level3": -5
+    },
+    {
+      "Stat": "MinMCDef",
+      "Level0": -1,
+      "Level1": -2,
+      "Level2": -3,
+      "Level3": -4
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Level0": -2,
+      "Level1": -3,
+      "Level2": -4,
+      "Level3": -5
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

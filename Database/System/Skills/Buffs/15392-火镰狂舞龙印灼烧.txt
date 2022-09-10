@@ -1,0 +1,39 @@
+{
+  "Name": "火镰狂舞龙印灼烧",
+  "Id": 15392,
+  "Group": 15392,
+  "Effect": "CausesSomeDamages",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BindingSkillLevel": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 1000,
+  "Duration": 6000,
+  "RequireBuff": [],
+  "DamageType": "Needle",
+  "DamageBase": [
+    5,
+    7,
+    9,
+    11
+  ],
+  "DamageFactor": [],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

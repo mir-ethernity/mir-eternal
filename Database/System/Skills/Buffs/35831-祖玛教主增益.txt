@@ -1,0 +1,69 @@
+{
+  "Name": "祖玛教主增益",
+  "Id": 35831,
+  "Group": 35831,
+  "Effect": "StatsIncOrDec, DamageIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnChangeWeaponRemove": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 1000,
+  "ProcessDelay": 1000,
+  "Duration": 1000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "WalkSpeed",
+      "Level0": -1,
+      "Level1": -1,
+      "Level2": -1,
+      "Level3": -1
+    },
+    {
+      "Stat": "RunSpeed",
+      "Level0": -3,
+      "Level1": -3,
+      "Level2": -3,
+      "Level3": -3
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5
+    },
+    {
+      "Stat": "MaxDC",
+      "Level0": 10,
+      "Level1": 30,
+      "Level2": 50,
+      "Level3": 100
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecBase": [],
+  "DamageIncOrDecFactor": [
+    2.0,
+    2.0,
+    2.0,
+    2.0
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}
