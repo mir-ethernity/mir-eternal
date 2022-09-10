@@ -16,7 +16,7 @@ namespace GameServer.Networking
 
         public static void Start()
         {
-            网络服务停止 = false;
+            StoppedService = false;
             Connections = new HashSet<SConnection>();
             等待添加表 = new ConcurrentQueue<SConnection>();
             等待移除表 = new ConcurrentQueue<SConnection>();
@@ -31,7 +31,7 @@ namespace GameServer.Networking
 
         public static void Stop()
         {
-            网络服务停止 = true;
+            StoppedService = true;
             TcpListener tcpListener = 网络监听器;
             if (tcpListener != null)
             {
@@ -75,13 +75,13 @@ namespace GameServer.Networking
 
             foreach (var 客户网络 in Connections)
             {
-                if (!客户网络.ConnectionErrored && 客户网络.Account == null && MainProcess.CurrentTime.Subtract(客户网络.接入时间).TotalSeconds > 30.0)
+                if (!客户网络.ConnectionErrored && 客户网络.Account == null && MainProcess.CurrentTime.Subtract(客户网络.ConnectedTime).TotalSeconds > 30.0)
                 {
                     客户网络.CallExceptionEventHandler(new Exception("Login timeout, disconnect!"));
                 }
                 else
                 {
-                    客户网络.处理数据();
+                    客户网络.Process();
                 }
             }
 
@@ -108,7 +108,7 @@ namespace GameServer.Networking
         {
             try
             {
-                if (网络服务停止)
+                if (StoppedService)
                 {
                     return;
                 }
@@ -143,12 +143,12 @@ namespace GameServer.Networking
             }
             Thread.Sleep(1);
         IL_CA:
-            if (!网络服务停止)
+            if (!StoppedService)
             {
                 goto IL_B6;
             }
         IL_D1:
-            if (!网络服务停止)
+            if (!StoppedService)
             {
                 网络监听器.BeginAcceptTcpClient(new AsyncCallback(异步连接), null);
             }
@@ -220,7 +220,7 @@ namespace GameServer.Networking
         }
 
 
-        public static void 移除网络(SConnection 网络)
+        public static void Disconnected(SConnection 网络)
         {
             if (网络 != null)
             {
@@ -238,7 +238,7 @@ namespace GameServer.Networking
         private static TcpListener 网络监听器;
 
 
-        public static bool 网络服务停止;
+        public static bool StoppedService;
 
 
         public static bool 未登录连接数;

@@ -1182,7 +1182,7 @@ namespace GameServer.Maps
                 {
                     ProcessMySkills();
 
-                    foreach (SkillInstance 技能实例 in SkillTasks)
+                    foreach (SkillInstance 技能实例 in SkillTasks.ToArray())
                         技能实例.Process();
 
                     foreach (BuffData buff in Buffs.Values)
@@ -3578,7 +3578,7 @@ namespace GameServer.Maps
         }
 
 
-        public void 玩家角色下线()
+        public void Disconnect()
         {
             PlayerDeals PlayerDeals = this.当前交易;
             if (PlayerDeals != null)
