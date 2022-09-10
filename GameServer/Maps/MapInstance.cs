@@ -128,8 +128,7 @@ namespace GameServer.Maps
             this.路线编号 = 路线编号;
         }
 
-
-        public void 处理数据()
+        private void ProcessDemonSlayingHall()
         {
             if (this.MapId == 80)
             {
@@ -253,6 +252,11 @@ namespace GameServer.Maps
                     this.副本关闭 = true;
                 }
             }
+        }
+
+        public void Process()
+        {
+            ProcessDemonSlayingHall();
         }
 
 

@@ -279,9 +279,8 @@ namespace GameServer.Maps
         public override void Process()
         {
             if (MainProcess.CurrentTime < base.ProcessTime)
-            {
                 return;
-            }
+
             if (this.Died)
             {
                 if (!this.尸体消失 && MainProcess.CurrentTime >= this.DisappearTime)

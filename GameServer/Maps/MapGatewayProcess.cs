@@ -642,7 +642,7 @@ namespace GameServer.Maps
                 if (MapInstance.副本关闭)
                     副本移除表.Enqueue(MapInstance);
                 else
-                    MapInstance.处理数据();
+                    MapInstance.Process();
             }
 
             while (副本移除表.TryDequeue(out var item))
