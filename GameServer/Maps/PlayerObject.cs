@@ -663,7 +663,7 @@ namespace GameServer.Maps
                         ActiveConnection?.SendPacket(new 货币数量变动
                         {
                             CurrencyType = (byte)reward.Id,
-                            货币数量 = reward.Count
+                            货币数量 = CharacterData.Currencies[(GameCurrency)reward.Id]
                         });
                         break;
                     case QuestRewardType.Exp:
