@@ -2,5 +2,5 @@
   "Id": 6,
   "NeedRace": ["龙枪"],
   "ItemId": 99900100,
-  "Backpack": "人物穿戴"
+  "Backpack": "人物背包"
 }
