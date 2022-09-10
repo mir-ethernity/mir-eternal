@@ -1,0 +1,40 @@
+﻿{
+  "Name": "城主玄天",
+  "Id": 99900049,
+  "MaxDura": 25,
+  "Weight": 44,
+  "Level": 50,
+  "NeedLevel": 43,
+  "SalePrice": 200000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "武器",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "武器",
+  "BasicPowerCombat": 512,
+  "MinDC": 8,
+  "MaxDC": 31,
+  "MinSC": 5,
+  "MaxSC": 12,
+  "PhysicallyAccurate": 1,
+  "CanRepair": true,
+  "RepairCost": 120000,
+  "SpecialRepairCost": 600000,
+  "灵魂绑点": 9,
+  "圣伤上限": 60,
+  "铭文传承": true,
+  "铭文职业": "道士",
+  "打孔职业": "通用",
+  "EquipSet": "苍月装备",
+  "物品掉落列表": [
+    {
+      "Name": "玄天",
+      "MonsterName": "牛魔王",
+      "Probability": 1000,
+      "最小数量": 1,
+      "最大数量": 1
+    }
+  ]
+}

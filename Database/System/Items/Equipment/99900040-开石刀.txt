@@ -1,0 +1,18 @@
+{
+  "Name": "开石刀",
+  "Id": 99900040,
+  "MaxDura": 20,
+  "Weight": 6,
+  "Level": 11,
+  "NeedLevel": 11,
+  "ValuableObjects": true,
+  "Type": "武器",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "武器",
+  "BasicPowerCombat": 32,
+  "MinDC": 0,
+  "MaxDC": 7,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+}

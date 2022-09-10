@@ -1,0 +1,18 @@
+{
+  "Name": "点金锄",
+  "Id": 99900042,
+  "MaxDura": 20,
+  "Weight": 15,
+  "Level": 20,
+  "NeedLevel": 20,
+  "ValuableObjects": true,
+  "Type": "武器",
+  "NeedRace": "通用",
+  "PersistType": "装备",
+  "StoreType": "武器",
+  "BasicPowerCombat": 55,
+  "MinDC": 0,
+  "MaxDC": 12,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+}

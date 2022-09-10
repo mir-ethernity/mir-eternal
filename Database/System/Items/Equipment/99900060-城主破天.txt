@@ -1,0 +1,38 @@
+﻿{
+  "Name": "城主破天",
+  "Id": 99900060,
+  "MaxDura": 35,
+  "Weight": 25,
+  "Level": 50,
+  "NeedLevel": 43,
+  "SalePrice": 200000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "武器",
+  "NeedRace": "刺客",
+  "PersistType": "装备",
+  "StoreType": "武器",
+  "BasicPowerCombat": 512,
+  "MinNC": 5,
+  "MaxNC": 38,
+  "PhysicallyAccurate": 2,
+  "CanRepair": true,
+  "RepairCost": 120000,
+  "SpecialRepairCost": 600000,
+  "灵魂绑点": 9,
+  "圣伤上限": 60,
+  "铭文传承": true,
+  "铭文职业": "刺客",
+  "打孔职业": "通用",
+  "EquipSet": "苍月装备",
+  "物品掉落列表": [
+    {
+      "Name": "破天",
+      "MonsterName": "牛魔王",
+      "Probability": 1000,
+      "最小数量": 1,
+      "最大数量": 1
+    }
+  ]
+}

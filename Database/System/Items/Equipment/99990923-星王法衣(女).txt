@@ -1,0 +1,64 @@
+﻿{
+  "Name": "星王法衣(女)",
+  "Id": 99990923,
+  "MaxDura": 40,
+  "Weight": 20,
+  "Level": 50,
+  "NeedLevel": 44,
+  "SalePrice": 80000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "衣服",
+  "NeedRace": "法师",
+  "NeedGender": "女性",
+  "PersistType": "装备",
+  "StoreType": "服装",
+  "BasicPowerCombat": 462,
+  "MinMC": 4,
+  "MaxMC": 9,
+  "MinDef": 9,
+  "MaxDef": 14,
+  "MinMCDef": 9,
+  "MaxMCDef": 10,
+  "CanRepair": true,
+  "RepairCost": 48000,
+  "SpecialRepairCost": 240000,
+  "能否打孔": true,
+  "打孔上限": 2,
+  "一孔花费": 30,
+  "二孔花费": 60,
+  "铭文职业": "通用",
+  "打孔职业": "法师",
+  "EquipSet": "魔龙装备",
+  "物品掉落列表": [
+    {
+      "Name": "烈焰魔衣(男)",
+      "MonsterName": "血手",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "烈焰魔衣(男)",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "烈焰魔衣(男)",
+      "MonsterName": "牛魔王",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "烈焰魔衣(男)",
+      "MonsterName": "魔龙教主",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    }
+  ]
+}

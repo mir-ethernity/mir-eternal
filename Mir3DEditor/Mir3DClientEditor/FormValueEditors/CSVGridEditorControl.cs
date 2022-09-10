@@ -132,7 +132,7 @@ namespace Mir3DClientEditor.FormValueEditors
             public int CheckVarCnt;
         }
 
-        private object ExportQuest(DataGridViewRow row)
+        private Dictionary<string, object> ExportQuest(DataGridViewRow row)
         {
             var obj = new Dictionary<string, object>();
 
@@ -548,29 +548,38 @@ namespace Mir3DClientEditor.FormValueEditors
                 {
                     var row = DataGrid.Rows[i];
 
-                    if (row.IsNewRow || (string)row.Cells[0].Value == "Client" || (string)row.Cells[0].Value == "0")
+                    if (row.IsNewRow || (string)row.Cells[0].Value == "Client" || (string)row.Cells[0].Value == "0" || (string)row.Cells[0].Value == "Both")
                         continue;
 
-                    object obj = null;
+                    Dictionary<string, object> obj = null;
+
+                    var idField = 1;
+                    var nameField = 2;
 
                     switch (_name)
                     {
                         case "quest.txt":
+                            idField = 1;
+                            nameField = 2;
                             obj = ExportQuest(row);
                             break;
                         default:
-                            MessageBox.Show($"Export {_name} not implemented");
-                            return;
+                            obj = new Dictionary<string, object>();
+
+                            for (var c = 0; c < row.Cells.Count; c++)
+                            {
+                                if (row.Cells[c].OwningColumn.Name.Equals("id", StringComparison.InvariantCultureIgnoreCase))
+                                    idField = c;
+                                else if (row.Cells[c].OwningColumn.Name.Equals("name", StringComparison.InvariantCultureIgnoreCase))
+                                    nameField = c;
+                                ExpandValue(obj, row.Cells[c].OwningColumn.Name, (string)row.Cells[c].Value);
+                            }
+                            break;
                     }
-
-                    //var obj = new Dictionary<string, object>();
-
-                    //for (var c = 0; c < row.Cells.Count; c++)
-                    //    ExpandValue(obj, row.Cells[c].OwningColumn.Name, (string)row.Cells[c].Value);
 
                     var content = JsonConvert.SerializeObject(obj, settings);
 
-                    var entry = zip.CreateEntry($"{row.Cells[1].Value}-{row.Cells[2].Value}.txt");
+                    var entry = zip.CreateEntry($"{row.Cells[idField].Value}-{row.Cells[nameField].Value}.txt");
 
                     using var entryStream = entry.Open();
                     using var entryWriter = new StreamWriter(entryStream, _encoding);

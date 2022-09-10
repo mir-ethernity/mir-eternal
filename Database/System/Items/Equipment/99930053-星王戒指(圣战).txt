@@ -1,0 +1,33 @@
+﻿{
+  "Name": "星王戒指(圣战)",
+  "Id": 99930053,
+  "MaxDura": 8,
+  "Weight": 2,
+  "Level": 60,
+  "NeedLevel": 47,
+  "SalePrice": 60000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "戒指",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "BasicPowerCombat": 237,
+  "MaxDC": 10,
+  "MaxMCDef": 1,
+  "CanRepair": true,
+  "RepairCost": 36000,
+  "SpecialRepairCost": 180000,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "苍月装备",
+  "物品掉落列表": [
+    {
+      "Name": "战神戒指",
+      "MonsterName": "牛魔王",
+      "Probability": 1000,
+      "最小数量": 1,
+      "最大数量": 1
+    }
+  ]
+}

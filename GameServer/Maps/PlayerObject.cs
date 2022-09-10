@@ -127,9 +127,12 @@ namespace GameServer.Maps
                 {
                     this.StatsBonus.Add(BuffData, BuffData.Stat加成);
                 }
-                if ((BuffData.Effect & BuffEffectType.Riding) != BuffEffectType.SkillSign)
+                if ((BuffData.Effect & BuffEffectType.Riding) != BuffEffectType.SkillSign && GameMounts.DataSheet.TryGetValue(CharacterData.CurrentMount.V, out GameMounts mount))
                 {
                     this.Riding = true;
+                    this.StatsBonus.Add(BuffData, mount.Stats);
+                    if (mount.SoulAuraID > 0)
+                        this.OnAddBuff(mount.SoulAuraID, this);
                 }
             }
             foreach (var title in AvailableTitles)
@@ -660,7 +663,7 @@ namespace GameServer.Maps
                         ActiveConnection?.SendPacket(new 货币数量变动
                         {
                             CurrencyType = (byte)reward.Id,
-                            货币数量 = reward.Count
+                            货币数量 = CharacterData.Currencies[(GameCurrency)reward.Id]
                         });
                         break;
                     case QuestRewardType.Exp:
@@ -718,9 +721,18 @@ namespace GameServer.Maps
 
         public void SyncSelectedMount(ushort selectedMountId)
         {
-            if (CharacterData.Mounts.Contains(selectedMountId))
+            if (CharacterData.Mounts.Contains(selectedMountId) && GameMounts.DataSheet.TryGetValue(selectedMountId, out var mount))
             {
+                // Remove old aura
+                if (Riding && GameMounts.DataSheet.TryGetValue(CharacterData.CurrentMount.V, out var previousMount))
+                    if (previousMount.SoulAuraID > 0) 移除Buff时处理(previousMount.SoulAuraID);
+
                 CharacterData.CurrentMount.V = selectedMountId;
+
+                // Add new Aura
+                if (Riding && mount.SoulAuraID > 0)
+                    移除Buff时处理(mount.SoulAuraID);
+
                 ActiveConnection.SendPacket(new SyncSelectedMount { SelectedMountId = (byte)selectedMountId });
             }
         }
@@ -11102,6 +11114,9 @@ namespace GameServer.Maps
         public void AdquireMount(ushort mountId)
         {
             if (CharacterData.Mounts.Contains(mountId))
+                return;
+
+            if (!GameMounts.DataSheet.ContainsKey(mountId))
                 return;
 
             CharacterData.Mounts.Add(mountId);

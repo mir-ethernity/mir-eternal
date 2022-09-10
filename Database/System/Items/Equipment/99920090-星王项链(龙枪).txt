@@ -1,0 +1,38 @@
+﻿{
+  "Name": "星王项链(龙枪)",
+  "Id": 99920090,
+  "MaxDura": 8,
+  "Weight": 3,
+  "Level": 53,
+  "NeedLevel": 47,
+  "SalePrice": 60000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "项链",
+  "NeedRace": "龙枪",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "BasicPowerCombat": 248,
+  "MinDC": 2,
+  "MaxDC": 9,
+  "MaxDef": 1,
+  "MaxMCDef": 1,
+  "PhysicallyAccurate": 1,
+  "CanRepair": true,
+  "RepairCost": 36000,
+  "SpecialRepairCost": 180000,
+  "铭文刻印": true,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "苍月装备",
+  "物品掉落列表": [
+    {
+      "Name": "龙王项链",
+      "MonsterName": "牛魔王",
+      "Probability": 1000,
+      "最小数量": 1,
+      "最大数量": 1
+    }
+  ]
+}
