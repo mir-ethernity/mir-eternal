@@ -8,8 +8,8 @@
 ## Help us to continue maintaining the project
 [![Donate with paypal](docs/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SYTUMJ7742MRC)
 
-*If you have problems donating, try this other option*
-[![Donate with paypal](docs/paypal-donate-button.png)](http://paypal.me/armifer)
+### *If you have problems donating, try this other option*:
+http://paypal.me/armifer
 
 ## Info
 
