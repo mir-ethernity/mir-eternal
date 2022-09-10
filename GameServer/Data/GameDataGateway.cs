@@ -182,7 +182,7 @@ namespace GameServer.Data
             if (!Directory.Exists(UserFolder))
                 Directory.CreateDirectory(UserFolder);
 
-            using BinaryWriter binaryWriter = new BinaryWriter(File.Create(UserPath));
+            using var binaryWriter = new BinaryWriter(File.Create(UserPath));
 
             binaryWriter.Write(表头描述);
             foreach (KeyValuePair<Type, DataTableBase> keyValuePair in Data型表)

@@ -1282,7 +1282,7 @@ namespace GameServer.Maps
                     }
                 }
             }
-            if (PlayerObject != null && !this.CurrentMap.自由区内(this.CurrentPosition) && !this.灰名玩家 && !this.红名玩家 && (MapGatewayProcess.沙城节点 < 2 || (this.CurrentMap.MapId != 152 && this.CurrentMap.MapId != 178)))
+            if (PlayerObject != null && !this.CurrentMap.自由区内(this.CurrentPosition) && !this.灰名玩家 && !this.红名玩家 && (MapGatewayProcess.SabakStage < 2 || (this.CurrentMap.MapId != 152 && this.CurrentMap.MapId != 178)))
             {
                 PlayerObject.PK值惩罚 += 50;
                 if (技能击杀)
@@ -3758,7 +3758,7 @@ namespace GameServer.Maps
                 this.CurrentMP = (int)((float)this[GameObjectStats.MaxMP] * 0.3f);
                 this.Died = false;
                 this.Blocking = true;
-                if (this.CurrentMap == MapGatewayProcess.沙城地图 && MapGatewayProcess.沙城节点 >= 2)
+                if (this.CurrentMap == MapGatewayProcess.沙城地图 && MapGatewayProcess.SabakStage >= 2)
                 {
                     if (this.Guild != null && this.Guild == SystemData.Data.OccupyGuild.V)
                     {
@@ -4747,7 +4747,7 @@ namespace GameServer.Maps
                                     return;
                                 }
                             }
-                            else if (MapGatewayProcess.沙城节点 >= 2 && this.Guild != null && this.Guild == MapGatewayProcess.八卦坛激活行会)
+                            else if (MapGatewayProcess.SabakStage >= 2 && this.Guild != null && this.Guild == MapGatewayProcess.八卦坛激活行会)
                             {
                                 this.玩家切换地图(MapGatewayProcess.沙城地图, AreaType.未知区域, MapGatewayProcess.皇宫随机区域.RandomCoords);
                                 return;
@@ -17909,7 +17909,7 @@ namespace GameServer.Maps
                                 this.Guild.解除申请.Remove(GuildData);
                                 return;
                             }
-                            if (MapGatewayProcess.沙城节点 < 2 || ((this.Guild != SystemData.Data.OccupyGuild.V || !MapGatewayProcess.攻城行会.Contains(GuildData)) && (GuildData != SystemData.Data.OccupyGuild.V || !MapGatewayProcess.攻城行会.Contains(this.Guild))))
+                            if (MapGatewayProcess.SabakStage < 2 || ((this.Guild != SystemData.Data.OccupyGuild.V || !MapGatewayProcess.攻城行会.Contains(GuildData)) && (GuildData != SystemData.Data.OccupyGuild.V || !MapGatewayProcess.攻城行会.Contains(this.Guild))))
                             {
                                 this.Guild.解除Hostility(GuildData);
                                 NetworkServiceGateway.SendAnnouncement(string.Format("[{0}] has released the guild from hostilities with [{1}].", this.Guild, GuildData), false);
