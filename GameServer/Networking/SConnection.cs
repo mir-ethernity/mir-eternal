@@ -25,10 +25,7 @@ namespace GameServer.Networking
             this.接入时间 = MainProcess.CurrentTime;
             this.断开时间 = MainProcess.CurrentTime.AddMinutes((double)Config.掉线判定时间);
             this.ErrorEventhandler = (EventHandler<Exception>)Delegate.Combine(this.ErrorEventhandler, new EventHandler<Exception>(NetworkServiceGateway.断网回调));
-            this.NetAddress = this.Connection.Client.RemoteEndPoint.ToString().Split(new char[]
-            {
-                ':'
-            })[0];
+            this.NetAddress = this.Connection.Client.RemoteEndPoint.ToString().Split(':')[0];
             this.开始异步接收();
         }
 
@@ -37,41 +34,34 @@ namespace GameServer.Networking
         {
             try
             {
-                if (!this.ConnectionErrored && !NetworkServiceGateway.网络服务停止)
+                if (!ConnectionErrored && !NetworkServiceGateway.网络服务停止)
                 {
-                    if (MainProcess.CurrentTime > this.断开时间)
+                    if (MainProcess.CurrentTime > 断开时间)
                     {
-                        this.CallExceptionEventHandler(new Exception("No response for a long time, disconnect."));
+                        CallExceptionEventHandler(new Exception("No response for a long time, disconnect."));
                     }
                     else
                     {
-                        this.ProcessReceivedPackets();
-                        this.发送全部封包();
+                        ProcessReceivedPackets();
+                        发送全部封包();
                     }
                 }
-                else if (!this.正在发送 && this.ReceivedPackets.Count == 0 && this.SendPackets.Count == 0)
+                else if (!正在发送 && ReceivedPackets.Count == 0 && SendPackets.Count == 0)
                 {
-                    PlayerObject PlayerObject = this.Player;
-                    if (PlayerObject != null)
-                    {
-                        PlayerObject.玩家角色下线();
-                    }
-                    AccountData AccountData = this.Account;
-                    if (AccountData != null)
-                    {
-                        AccountData.账号下线();
-                    }
+                    Player?.玩家角色下线();
+                    Account?.账号下线();
+
                     NetworkServiceGateway.移除网络(this);
-                    this.Connection.Client.Shutdown(SocketShutdown.Both);
-                    this.Connection.Close();
-                    this.ReceivedPackets = null;
-                    this.SendPackets = null;
-                    this.当前阶段 = GameStage.StartingSessionScene;
+                    Connection.Client.Shutdown(SocketShutdown.Both);
+                    Connection.Close();
+                    ReceivedPackets = null;
+                    SendPackets = null;
+                    当前阶段 = GameStage.StartingSessionScene;
                 }
                 else
                 {
-                    this.ProcessReceivedPackets();
-                    this.发送全部封包();
+                    ProcessReceivedPackets();
+                    发送全部封包();
                 }
             }
             catch (Exception ex)
@@ -202,27 +192,25 @@ namespace GameServer.Networking
 
         private void ProcessReceivedPackets()
         {
-            while (!this.ReceivedPackets.IsEmpty)
+            while (!ReceivedPackets.IsEmpty)
             {
-                if (this.ReceivedPackets.Count > (int)Config.PacketLimit)
+                if (ReceivedPackets.Count > Config.PacketLimit)
                 {
-                    this.ReceivedPackets = new ConcurrentQueue<GamePacket>();
+                    ReceivedPackets.Clear();
                     NetworkServiceGateway.屏蔽网络(this.NetAddress);
-                    this.CallExceptionEventHandler(new Exception("Too many packets, disconnect and restrict login."));
+                    CallExceptionEventHandler(new Exception("Too many packets, disconnect and restrict login."));
                     return;
                 }
-                if (this.ReceivedPackets.TryDequeue(out GamePacket packet))
+
+                if (ReceivedPackets.TryDequeue(out GamePacket packet))
                 {
                     MainForm.AddPacketLog(packet, true);
                     if (!GamePacket.PacketMethods.TryGetValue(packet.PacketType, out MethodInfo methodInfo))
                     {
-                        this.CallExceptionEventHandler(new Exception("No packet handling found, disconnect. Packet type: " + packet.PacketType.FullName));
+                        CallExceptionEventHandler(new Exception("No packet handling found, disconnect. Packet type: " + packet.PacketType.FullName));
                         return;
                     }
-                    methodInfo.Invoke(this, new object[]
-                    {
-                        packet
-                    });
+                    methodInfo.Invoke(this, new object[] { packet });
                 }
             }
         }
@@ -231,14 +219,13 @@ namespace GameServer.Networking
         private void 发送全部封包()
         {
             List<byte> list = new();
-            while (!SendPackets.IsEmpty)
+
+            while (SendPackets.TryDequeue(out GamePacket packet))
             {
-                if (SendPackets.TryDequeue(out GamePacket packet))
-                {
-                    MainForm.AddPacketLog(packet, false);
-                    list.AddRange(packet.取字节());
-                }
+                MainForm.AddPacketLog(packet, false);
+                list.AddRange(packet.取字节());
             }
+
             if (list.Count != 0)
             {
                 开始异步发送(list);
@@ -444,7 +431,7 @@ namespace GameServer.Networking
 
         public void 处理封包(UnknownC5 P)
         {
-    
+
         }
 
         public void 处理封包(ReservedPacketZeroOnePacket P)
@@ -523,7 +510,7 @@ namespace GameServer.Networking
 
 
 
-    
+
         public void 处理封包(ClickNpcDialogPacket P)
         {
             if (this.当前阶段 != GameStage.PlayingScene)

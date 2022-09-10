@@ -55,6 +55,8 @@ namespace GameServer.Maps
         {
             base.Process();
 
+            if (_openers.Count == 0) return;
+
             var newList = _openers.ToArray();
 
             foreach (var opener in newList)

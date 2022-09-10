@@ -128,8 +128,7 @@ namespace GameServer.Maps
             this.路线编号 = 路线编号;
         }
 
-
-        public void 处理数据()
+        private void ProcessDemonSlayingHall()
         {
             if (this.MapId == 80)
             {
@@ -253,6 +252,11 @@ namespace GameServer.Maps
                     this.副本关闭 = true;
                 }
             }
+        }
+
+        public void Process()
+        {
+            ProcessDemonSlayingHall();
         }
 
 
@@ -493,7 +497,7 @@ namespace GameServer.Maps
 
         public bool 掉落装备(Point 坐标, bool 红名)
         {
-            return (MapGatewayProcess.沙城节点 < 2 || (this.MapId != 152 && this.MapId != 178)) && !this.坐标越界(坐标) && ((this.地形数据[坐标] & 4194304U) == 4194304U || ((this.地形数据[坐标] & 8388608U) == 8388608U && 红名));
+            return (MapGatewayProcess.SabakStage < 2 || (this.MapId != 152 && this.MapId != 178)) && !this.坐标越界(坐标) && ((this.地形数据[坐标] & 4194304U) == 4194304U || ((this.地形数据[坐标] & 8388608U) == 8388608U && 红名));
         }
 
 

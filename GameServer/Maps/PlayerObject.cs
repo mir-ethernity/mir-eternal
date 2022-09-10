@@ -91,7 +91,7 @@ namespace GameServer.Maps
             dictionary[this] = (int)(this.CurrentLevel * 10);
             this.CombatBonus = dictionary;
             this.TitleTime = DateTime.MaxValue;
-            this.拾取时间 = MainProcess.CurrentTime.AddSeconds(1.0);
+            this.LastItemPickUpTime = MainProcess.CurrentTime.AddSeconds(1.0);
             base.RecoveryTime = MainProcess.CurrentTime.AddSeconds(5.0);
             this.特权时间 = ((this.CurrentPrivileges > 0) ? this.CurrentIssueDate.AddDays(30.0) : DateTime.MaxValue);
             foreach (EquipmentData EquipmentData in this.Equipment.Values)
@@ -975,213 +975,235 @@ namespace GameServer.Maps
             }
         }
 
+        private void ProcessMySkills()
+        {
+            foreach (var SkillData in this.MainSkills表.Values)
+            {
+                if (SkillData.SkillCount > 0 && SkillData.RemainingTimeLeft.V < SkillData.SkillCount)
+                {
+                    if (SkillData.计数时间 == default(DateTime))
+                    {
+                        SkillData.计数时间 = MainProcess.CurrentTime.AddMilliseconds(SkillData.PeriodCount);
+                    }
+                    else if (MainProcess.CurrentTime > SkillData.计数时间)
+                    {
+                        DataMonitor<byte> RemainingTimeLeft = SkillData.RemainingTimeLeft;
+                        if ((RemainingTimeLeft.V += 1) >= SkillData.SkillCount)
+                        {
+                            SkillData.计数时间 = default(DateTime);
+                        }
+                        else
+                        {
+                            SkillData.计数时间 = MainProcess.CurrentTime.AddMilliseconds(SkillData.PeriodCount);
+                        }
+
+                        ActiveConnection?.SendPacket(new SyncSkillCountPacket
+                        {
+                            SkillId = SkillData.SkillId.V,
+                            SkillCount = SkillData.RemainingTimeLeft.V,
+                            技能冷却 = (int)SkillData.PeriodCount
+                        });
+                    }
+                }
+            }
+        }
+
+        private void ProcessTitles()
+        {
+            if (MainProcess.CurrentTime >= TitleTime)
+            {
+                DateTime t = DateTime.MaxValue;
+                foreach (var title in AvailableTitles)
+                {
+                    if (MainProcess.CurrentTime >= title.Value)
+                    {
+                        ExpireTitle(title.Key);
+                    }
+                    else if (title.Value < t)
+                    {
+                        t = title.Value;
+                    }
+                }
+                TitleTime = t;
+            }
+        }
+
+        private void ProcessPrivileges()
+        {
+            if (MainProcess.CurrentTime >= 特权时间)
+            {
+                玩家特权到期();
+                if (RemainingPrivileges.TryGetValue(this.预定特权, out var num) && num >= 30)
+                {
+                    玩家激活特权(this.预定特权);
+                    MonitorDictionary<byte, int> RemainingPrivileges = this.RemainingPrivileges;
+                    byte 预定特权 = this.预定特权;
+                    if ((RemainingPrivileges[预定特权] -= 30) <= 0)
+                    {
+                        this.预定特权 = 0;
+                    }
+                }
+                if (this.CurrentPrivileges == 0)
+                {
+                    SConnection 网络连接2 = this.ActiveConnection;
+                    if (网络连接2 != null)
+                    {
+                        网络连接2.SendPacket(new GameErrorMessagePacket
+                        {
+                            错误代码 = 65553
+                        });
+                    }
+                }
+                SConnection 网络连接3 = this.ActiveConnection;
+                if (网络连接3 != null)
+                {
+                    网络连接3.SendPacket(new SyncPrivilegedInfoPacket
+                    {
+                        字节数组 = this.玛法特权描述()
+                    });
+                }
+            }
+        }
+
+        private void ProcessTeam()
+        {
+            if (this.Team != null && MainProcess.CurrentTime > this.队伍时间)
+            {
+                Team.发送封包(new 同步队员信息
+                {
+                    队伍编号 = this.Team.队伍编号,
+                    对象编号 = this.ObjectId,
+                    对象等级 = (int)this.CurrentLevel,
+                    MaxHP = this[GameObjectStats.MaxHP],
+                    MaxMP = this[GameObjectStats.MaxMP],
+                    CurrentHP = this.CurrentHP,
+                    CurrentMP = this.CurrentMP,
+                    CurrentMap = this.CurrentMap.MapId,
+                    当前线路 = this.CurrentMap.路线编号,
+                    横向坐标 = this.CurrentPosition.X,
+                    纵向坐标 = this.CurrentPosition.Y,
+                    坐标高度 = (int)this.CurrentAltitude,
+                    AttackMode = (byte)this.AttackMode
+                });
+                this.队伍时间 = MainProcess.CurrentTime.AddSeconds(5.0);
+            }
+        }
+
+        private void ProcessPickUpItem()
+        {
+            if (MainProcess.CurrentTime > LastItemPickUpTime)
+            {
+                LastItemPickUpTime = LastItemPickUpTime.AddMilliseconds(1000);
+
+                foreach (MapObject MapObject in this.CurrentMap[this.CurrentPosition].ToList<MapObject>())
+                {
+                    ItemObject ItemObject = MapObject as ItemObject;
+                    if (ItemObject != null)
+                    {
+                        玩家拾取物品(ItemObject);
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void ProcessRecovery()
+        {
+            if (MainProcess.CurrentTime > base.RecoveryTime)
+            {
+                if (!this.CheckStatus(GameObjectState.Poisoned))
+                {
+                    this.CurrentHP += this[GameObjectStats.体力恢复];
+                    this.CurrentMP += this[GameObjectStats.魔力恢复];
+                }
+                base.RecoveryTime = base.RecoveryTime.AddSeconds(30.0);
+            }
+
+            if (MainProcess.CurrentTime > this.战具计时 && this.Equipment.TryGetValue(15, out var EquipmentData) && EquipmentData.当前持久.V > 0)
+            {
+                if (EquipmentData.Id == 99999100 || EquipmentData.Id == 99999101 || EquipmentData.Id == 99999101)
+                {
+                    int num4 = Math.Min(10, Math.Min(EquipmentData.当前持久.V, this[GameObjectStats.MaxHP] - this.CurrentHP));
+                    if (num4 > 0)
+                    {
+                        this.CurrentHP += num4;
+                        this.战具损失持久(num4);
+                    }
+                    this.战具计时 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
+                }else if (EquipmentData.Id == 99999102)
+                {
+                    int num3 = Math.Min(15, Math.Min(EquipmentData.当前持久.V, this[GameObjectStats.MaxMP] - this.CurrentMP));
+                    if (num3 > 0)
+                    {
+                        this.CurrentMP += num3;
+                        this.战具损失持久(num3);
+                    }
+                    this.战具计时 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
+                }
+
+                    if (EquipmentData.Id != 99999103)
+                    {
+                        if (EquipmentData.Id == 99999110 || EquipmentData.Id == 99999111)
+                        {
+                            int num2 = Math.Min(10, Math.Min(EquipmentData.当前持久.V, this[GameObjectStats.MaxHP] - this.CurrentHP));
+                            if (num2 > 0)
+                            {
+                                this.CurrentHP += num2;
+                                this.CurrentMP += num2;
+                                this.战具损失持久(num2);
+                            }
+                            this.战具计时 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
+                            return;
+                        }
+                        return;
+                    }
+                
+                return;
+
+
+            }
+        }
+
         public override void Process()
         {
             if (this.绑定地图)
             {
-                if (this.CurrentMap.MapId == 183 && MainProcess.CurrentTime.Hour != (int)Config.武斗场时间一 && MainProcess.CurrentTime.Hour != (int)Config.武斗场时间二)
+                if (CurrentMap.MapId == 183 && MainProcess.CurrentTime.Hour != Config.武斗场时间一 && MainProcess.CurrentTime.Hour != Config.武斗场时间二)
                 {
-                    if (this.Died)
+                    if (Died)
                     {
-                        this.玩家请求复活();
+                        玩家请求复活();
                         return;
                     }
-                    this.玩家切换地图(this.复活地图, AreaType.复活区域, default(Point));
+                    玩家切换地图(this.复活地图, AreaType.复活区域, default(Point));
                     return;
                 }
                 else
                 {
-                    foreach (SkillData SkillData in this.MainSkills表.Values.ToList<SkillData>())
-                    {
-                        if (SkillData.SkillCount > 0 && SkillData.RemainingTimeLeft.V < SkillData.SkillCount)
-                        {
-                            if (SkillData.计数时间 == default(DateTime))
-                            {
-                                SkillData.计数时间 = MainProcess.CurrentTime.AddMilliseconds((double)SkillData.PeriodCount);
-                            }
-                            else if (MainProcess.CurrentTime > SkillData.计数时间)
-                            {
-                                DataMonitor<byte> RemainingTimeLeft = SkillData.RemainingTimeLeft;
-                                if ((RemainingTimeLeft.V += 1) >= SkillData.SkillCount)
-                                {
-                                    SkillData.计数时间 = default(DateTime);
-                                }
-                                else
-                                {
-                                    SkillData.计数时间 = MainProcess.CurrentTime.AddMilliseconds((double)SkillData.PeriodCount);
-                                }
-                                SConnection 网络连接 = this.ActiveConnection;
-                                if (网络连接 != null)
-                                {
-                                    网络连接.SendPacket(new SyncSkillCountPacket
-                                    {
-                                        SkillId = SkillData.SkillId.V,
-                                        SkillCount = SkillData.RemainingTimeLeft.V,
-                                        技能冷却 = (int)SkillData.PeriodCount
-                                    });
-                                }
-                            }
-                        }
-                    }
-                    foreach (SkillInstance 技能实例 in this.SkillTasks.ToList<SkillInstance>())
-                    {
+                    ProcessMySkills();
+
+                    foreach (SkillInstance 技能实例 in SkillTasks)
                         技能实例.Process();
-                    }
-                    foreach (KeyValuePair<ushort, BuffData> keyValuePair in this.Buffs.ToList<KeyValuePair<ushort, BuffData>>())
-                    {
-                        base.轮询Buff时处理(keyValuePair.Value);
-                    }
-                    if (MainProcess.CurrentTime >= this.TitleTime)
-                    {
-                        DateTime t = DateTime.MaxValue;
-                        foreach (var title in AvailableTitles)
-                        {
-                            if (MainProcess.CurrentTime >= title.Value)
-                            {
-                                ExpireTitle(title.Key);
-                            }
-                            else if (title.Value < t)
-                            {
-                                t = title.Value;
-                            }
-                        }
-                        this.TitleTime = t;
-                    }
-                    if (MainProcess.CurrentTime >= this.特权时间)
-                    {
-                        this.玩家特权到期();
-                        int num;
-                        if (this.RemainingPrivileges.TryGetValue(this.预定特权, out num) && num >= 30)
-                        {
-                            this.玩家激活特权(this.预定特权);
-                            MonitorDictionary<byte, int> RemainingPrivileges = this.RemainingPrivileges;
-                            byte 预定特权 = this.预定特权;
-                            if ((RemainingPrivileges[预定特权] -= 30) <= 0)
-                            {
-                                this.预定特权 = 0;
-                            }
-                        }
-                        if (this.CurrentPrivileges == 0)
-                        {
-                            SConnection 网络连接2 = this.ActiveConnection;
-                            if (网络连接2 != null)
-                            {
-                                网络连接2.SendPacket(new GameErrorMessagePacket
-                                {
-                                    错误代码 = 65553
-                                });
-                            }
-                        }
-                        SConnection 网络连接3 = this.ActiveConnection;
-                        if (网络连接3 != null)
-                        {
-                            网络连接3.SendPacket(new SyncPrivilegedInfoPacket
-                            {
-                                字节数组 = this.玛法特权描述()
-                            });
-                        }
-                    }
-                    if (this.灰名玩家)
-                    {
-                        this.灰名时间 -= MainProcess.CurrentTime - base.CurrentTime;
-                    }
-                    if (this.PK值惩罚 > 0)
-                    {
-                        this.减PK时间 -= MainProcess.CurrentTime - base.CurrentTime;
-                    }
-                    if (this.Team != null && MainProcess.CurrentTime > this.队伍时间)
-                    {
-                        TeamData 所属队伍 = this.Team;
-                        if (所属队伍 != null)
-                        {
-                            所属队伍.发送封包(new 同步队员信息
-                            {
-                                队伍编号 = this.Team.队伍编号,
-                                对象编号 = this.ObjectId,
-                                对象等级 = (int)this.CurrentLevel,
-                                MaxHP = this[GameObjectStats.MaxHP],
-                                MaxMP = this[GameObjectStats.MaxMP],
-                                CurrentHP = this.CurrentHP,
-                                CurrentMP = this.CurrentMP,
-                                CurrentMap = this.CurrentMap.MapId,
-                                当前线路 = this.CurrentMap.路线编号,
-                                横向坐标 = this.CurrentPosition.X,
-                                纵向坐标 = this.CurrentPosition.Y,
-                                坐标高度 = (int)this.CurrentAltitude,
-                                AttackMode = (byte)this.AttackMode
-                            });
-                        }
-                        this.队伍时间 = MainProcess.CurrentTime.AddSeconds(5.0);
-                    }
+
+                    foreach (BuffData buff in Buffs.Values)
+                        轮询Buff时处理(buff);
+
+                    ProcessTitles();
+
+                    ProcessPrivileges();
+
+                    if (灰名玩家)
+                        灰名时间 -= MainProcess.CurrentTime - base.CurrentTime;
+
+                    if (PK值惩罚 > 0)
+                        减PK时间 -= MainProcess.CurrentTime - base.CurrentTime;
+
+                    ProcessTeam();
+
                     if (!this.Died)
                     {
-                        if (MainProcess.CurrentTime > this.拾取时间)
-                        {
-                            this.拾取时间 = this.拾取时间.AddMilliseconds(1000.0);
-                            foreach (MapObject MapObject in this.CurrentMap[this.CurrentPosition].ToList<MapObject>())
-                            {
-                                ItemObject ItemObject = MapObject as ItemObject;
-                                if (ItemObject != null)
-                                {
-                                    this.玩家拾取物品(ItemObject);
-                                    break;
-                                }
-                            }
-                        }
-                        if (MainProcess.CurrentTime > base.RecoveryTime)
-                        {
-                            if (!this.CheckStatus(GameObjectState.Poisoned))
-                            {
-                                this.CurrentHP += this[GameObjectStats.体力恢复];
-                                this.CurrentMP += this[GameObjectStats.魔力恢复];
-                            }
-                            base.RecoveryTime = base.RecoveryTime.AddSeconds(30.0);
-                        }
-                        EquipmentData EquipmentData;
-                        if (MainProcess.CurrentTime > this.战具计时 && this.Equipment.TryGetValue(15, out EquipmentData) && EquipmentData.当前持久.V > 0)
-                        {
-                            if (EquipmentData.Id != 99999100)
-                            {
-                                if (EquipmentData.Id != 99999101)
-                                {
-                                    if (EquipmentData.Id != 99999102)
-                                    {
-                                        if (EquipmentData.Id != 99999103)
-                                        {
-                                            if (EquipmentData.Id == 99999110 || EquipmentData.Id == 99999111)
-                                            {
-                                                int num2 = Math.Min(10, Math.Min(EquipmentData.当前持久.V, this[GameObjectStats.MaxHP] - this.CurrentHP));
-                                                if (num2 > 0)
-                                                {
-                                                    this.CurrentHP += num2;
-                                                    this.CurrentMP += num2;
-                                                    this.战具损失持久(num2);
-                                                }
-                                                this.战具计时 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
-                                                goto IL_794;
-                                            }
-                                            goto IL_794;
-                                        }
-                                    }
-                                    int num3 = Math.Min(15, Math.Min(EquipmentData.当前持久.V, this[GameObjectStats.MaxMP] - this.CurrentMP));
-                                    if (num3 > 0)
-                                    {
-                                        this.CurrentMP += num3;
-                                        this.战具损失持久(num3);
-                                    }
-                                    this.战具计时 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
-                                    goto IL_794;
-                                }
-                            }
-                            int num4 = Math.Min(10, Math.Min(EquipmentData.当前持久.V, this[GameObjectStats.MaxHP] - this.CurrentHP));
-                            if (num4 > 0)
-                            {
-                                this.CurrentHP += num4;
-                                this.战具损失持久(num4);
-                            }
-                            this.战具计时 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
-                        }
-                    IL_794:
+                        ProcessPickUpItem();
+                        ProcessRecovery();
                         if (base.TreatmentCount > 0 && MainProcess.CurrentTime > base.HealTime)
                         {
                             int 治疗次数 = base.TreatmentCount;
@@ -1211,11 +1233,8 @@ namespace GameServer.Maps
                             }) == null) ? 500 : 2500);
                         }
                     }
-                    GuildData Affiliation = this.Guild;
-                    if (Affiliation != null)
-                    {
-                        Affiliation.清理数据();
-                    }
+
+                    Guild?.清理数据();
                 }
             }
             base.Process();
@@ -1282,7 +1301,7 @@ namespace GameServer.Maps
                     }
                 }
             }
-            if (PlayerObject != null && !this.CurrentMap.自由区内(this.CurrentPosition) && !this.灰名玩家 && !this.红名玩家 && (MapGatewayProcess.沙城节点 < 2 || (this.CurrentMap.MapId != 152 && this.CurrentMap.MapId != 178)))
+            if (PlayerObject != null && !this.CurrentMap.自由区内(this.CurrentPosition) && !this.灰名玩家 && !this.红名玩家 && (MapGatewayProcess.SabakStage < 2 || (this.CurrentMap.MapId != 152 && this.CurrentMap.MapId != 178)))
             {
                 PlayerObject.PK值惩罚 += 50;
                 if (技能击杀)
@@ -1642,7 +1661,7 @@ namespace GameServer.Maps
                 if (base.HardTime < value)
                 {
                     base.HardTime = value;
-                    this.拾取时间 = value.AddMilliseconds(300.0);
+                    this.LastItemPickUpTime = value.AddMilliseconds(300.0);
                 }
             }
         }
@@ -3758,7 +3777,7 @@ namespace GameServer.Maps
                 this.CurrentMP = (int)((float)this[GameObjectStats.MaxMP] * 0.3f);
                 this.Died = false;
                 this.Blocking = true;
-                if (this.CurrentMap == MapGatewayProcess.沙城地图 && MapGatewayProcess.沙城节点 >= 2)
+                if (this.CurrentMap == MapGatewayProcess.沙城地图 && MapGatewayProcess.SabakStage >= 2)
                 {
                     if (this.Guild != null && this.Guild == SystemData.Data.OccupyGuild.V)
                     {
@@ -4747,7 +4766,7 @@ namespace GameServer.Maps
                                     return;
                                 }
                             }
-                            else if (MapGatewayProcess.沙城节点 >= 2 && this.Guild != null && this.Guild == MapGatewayProcess.八卦坛激活行会)
+                            else if (MapGatewayProcess.SabakStage >= 2 && this.Guild != null && this.Guild == MapGatewayProcess.八卦坛激活行会)
                             {
                                 this.玩家切换地图(MapGatewayProcess.沙城地图, AreaType.未知区域, MapGatewayProcess.皇宫随机区域.RandomCoords);
                                 return;
@@ -17909,7 +17928,7 @@ namespace GameServer.Maps
                                 this.Guild.解除申请.Remove(GuildData);
                                 return;
                             }
-                            if (MapGatewayProcess.沙城节点 < 2 || ((this.Guild != SystemData.Data.OccupyGuild.V || !MapGatewayProcess.攻城行会.Contains(GuildData)) && (GuildData != SystemData.Data.OccupyGuild.V || !MapGatewayProcess.攻城行会.Contains(this.Guild))))
+                            if (MapGatewayProcess.SabakStage < 2 || ((this.Guild != SystemData.Data.OccupyGuild.V || !MapGatewayProcess.攻城行会.Contains(GuildData)) && (GuildData != SystemData.Data.OccupyGuild.V || !MapGatewayProcess.攻城行会.Contains(this.Guild))))
                             {
                                 this.Guild.解除Hostility(GuildData);
                                 NetworkServiceGateway.SendAnnouncement(string.Format("[{0}] has released the guild from hostilities with [{1}].", this.Guild, GuildData), false);
@@ -20613,7 +20632,7 @@ namespace GameServer.Maps
         public DateTime 特权时间;
 
 
-        public DateTime 拾取时间;
+        public DateTime LastItemPickUpTime;
 
 
         public DateTime 队伍时间;
