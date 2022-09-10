@@ -4126,9 +4126,19 @@ namespace GameServer.Maps
                 {
                     base.删除Buff时处理(BuffData.Id.V);
                 }
-                else if (Riding && BuffData.Effect == BuffEffectType.Riding)
+                else if (Riding && (BuffData.Effect & BuffEffectType.Riding) != BuffEffectType.SkillSign)
                 {
                     删除Buff时处理(BuffData.Id.V);
+                    ActiveConnection?.SendPacket(new AddedSkillCooldownPacket
+                    {
+                        CoolingId = (skillId | 0x1000000),
+                        Cooldown = 0
+                    });
+                    ActiveConnection?.SendPacket(new 技能释放完成
+                    {
+                        SkillId = skillId,
+                        动作编号 = actionId
+                    });
                     return;
                 }
             }
