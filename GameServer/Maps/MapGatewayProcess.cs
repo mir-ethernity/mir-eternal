@@ -23,7 +23,7 @@ namespace GameServer.Maps
 
             沙城处理计时 = MainProcess.CurrentTime.AddMilliseconds(50.0);
 
-            if (沙城地图 == null || !LoadSabakMonsters())
+            if (沙城地图 == null && !LoadSabakMonsters())
                 return;
 
             foreach (var MapObject in 沙城地图[皇宫下门坐标])
