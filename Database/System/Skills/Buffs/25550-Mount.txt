@@ -1,7 +1,7 @@
 {
   "Name": "Mount",
   "Id": 2555,
-  "Effect": "StatsIncOrDec",
+  "Effect": "StatsIncOrDec, Riding",
   "SyncClient": true,
   "RemoveOnExpire": true,
   "OnReleaseSkillRemove": true,

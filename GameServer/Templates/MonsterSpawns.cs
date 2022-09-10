@@ -23,10 +23,8 @@ namespace GameServer.Templates
 			string text = Config.GameDataPath + "\\System\\GameMap\\Monsters\\";
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in Serializer.Deserialize(text, typeof(MonsterSpawns)))
-				{
-					DataSheet.Add((MonsterSpawns)obj);
-				}
+				foreach (var obj in Serializer.Deserialize<MonsterSpawns>(text))
+					DataSheet.Add(obj);
 			}
 		}
 	}
