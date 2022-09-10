@@ -1,0 +1,40 @@
+{
+  "Name": "灭天火冥火印效果",
+  "Id": 25502,
+  "Group": 25502,
+  "ActionType": "Gain",
+  "OverlayType": "HomogeneousStacking",
+  "Effect": "DamageIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BindingSkillLevel": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 1,
+  "ProcessInterval": 1000,
+  "ProcessDelay": 1000,
+  "Duration": 1000,
+  "RequireBuff": [],
+  "DamageType": "Magic",
+  "DamageBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageFactor": [],
+  "DamageIncOrDecBase": [
+    10,
+    15,
+    20,
+    30
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

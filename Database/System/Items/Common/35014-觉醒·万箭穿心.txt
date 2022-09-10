@@ -1,0 +1,15 @@
+﻿{
+  "Name": "觉醒·万箭穿心",
+  "Id": 35014,
+  "MaxDura": 10,
+  "Weight": 1,
+  "NeedLevel": 45,
+  "SalePrice": 1500,
+  "AdditionalSkill": 2057,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "技能书籍",
+  "NeedRace": "弓手",
+  "PersistType": "堆叠",
+  "StoreType": "书籍"
+}

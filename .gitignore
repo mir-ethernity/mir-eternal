@@ -5,5 +5,3 @@ obj/
 *.pubxml.user
 packages/
 Database/User
-/Database/System/Items/Common
-/Database/System/Skills/Buffs

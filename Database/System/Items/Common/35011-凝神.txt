@@ -1,0 +1,15 @@
+﻿{
+  "Name": "凝神",
+  "Id": 35011,
+  "MaxDura": 10,
+  "Weight": 1,
+  "NeedLevel": 47,
+  "SalePrice": 1500,
+  "AdditionalSkill": 2051,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "技能书籍",
+  "NeedRace": "弓手",
+  "PersistType": "堆叠",
+  "StoreType": "书籍"
+}

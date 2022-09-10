@@ -1,0 +1,55 @@
+{
+  "Name": "连环暗雷普通躲闪",
+  "Id": 20472,
+  "Group": 20470,
+  "OverlayType": "SimilarReplacement",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 1500,
+  "ProcessDelay": 1500,
+  "Duration": 1500,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "怪物闪避",
+      "Level0": 500,
+      "Level1": 1000,
+      "Level2": 1500,
+      "Level3": 2000
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

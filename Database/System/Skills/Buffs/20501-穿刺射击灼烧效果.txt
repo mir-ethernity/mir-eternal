@@ -1,0 +1,41 @@
+{
+  "Name": "穿刺射击灼烧效果",
+  "Id": 20501,
+  "Group": 20501,
+  "ActionType": "Debuff",
+  "Effect": "CausesSomeDamages",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BindingSkillLevel": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 2000,
+  "ProcessDelay": 2000,
+  "Duration": 10000,
+  "RequireBuff": [],
+  "DamageType": "Burn",
+  "DamageBase": [
+    5,
+    6,
+    7,
+    8
+  ],
+  "DamageFactor": [],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}
