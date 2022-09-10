@@ -1,0 +1,47 @@
+{
+  "Name": "预言靴子(天尊)",
+  "Id": 99999019,
+  "MaxDura": 7,
+  "Weight": 1,
+  "Level": 52,
+  "NeedLevel": 45,
+  "SalePrice": 35000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "鞋子",
+  "PersistType": "装备",
+  "StoreType": "服装",
+  "BasicPowerCombat": 109,
+  "MinDC": 2,
+  "MaxDC": 3,
+  "MinDef": 2,
+  "MaxDef": 4,
+  "MinMCDef": 1,
+  "MaxMCDef": 3,
+  "CanRepair": true,
+  "RepairCost": 21000,
+  "SpecialRepairCost": 105000,
+  "能否打孔": true,
+  "打孔上限": 2,
+  "一孔花费": 30,
+  "二孔花费": 60,
+  "铭文职业": "通用",
+  "EquipSet": "神秘装备",
+  "物品掉落列表": [
+    {
+      "Name": "预言靴子(天尊)",
+      "MonsterName": "黄泉教主",
+      "Probability": 10,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "预言靴子(天尊)",
+      "MonsterName": "牛魔王",
+      "Probability": 10,
+      "最小数量": 1,
+      "最大数量": 1
+    }
+  ]
+}

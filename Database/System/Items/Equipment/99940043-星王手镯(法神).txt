@@ -1,0 +1,37 @@
+﻿{
+  "Name": "星王手镯(法神)",
+  "Id": 99940043,
+  "MaxDura": 6,
+  "Weight": 1,
+  "Level": 55,
+  "NeedLevel": 47,
+  "SalePrice": 60000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "手镯",
+  "NeedRace": "法师",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "BasicPowerCombat": 156,
+  "MinMC": 1,
+  "MaxMC": 6,
+  "MinDef": 1,
+  "MaxDef": 1,
+  "CanRepair": 1,
+  "CanRepair": true,
+  "RepairCost": 36000,
+  "SpecialRepairCost": 180000,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "苍月装备",
+  "物品掉落列表": [
+    {
+      "Name": "圣魔手镯",
+      "MonsterName": "牛魔王",
+      "Probability": 1000,
+      "最小数量": 1,
+      "最大数量": 1
+    }
+  ]
+}

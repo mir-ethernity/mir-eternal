@@ -1,0 +1,35 @@
+﻿{
+  "Name": "星王戒指(天尊)",
+  "Id": 99930055,
+  "MaxDura": 7,
+  "Weight": 1,
+  "Level": 60,
+  "NeedLevel": 47,
+  "SalePrice": 60000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "戒指",
+  "NeedRace": "道士",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "BasicPowerCombat": 237,
+  "MinSC": 1,
+  "MaxSC": 10,
+  "MaxMCDef": 1,
+  "CanRepair": true,
+  "RepairCost": 36000,
+  "SpecialRepairCost": 180000,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "苍月装备",
+  "物品掉落列表": [
+    {
+      "Name": "真魂戒指",
+      "MonsterName": "牛魔王",
+      "Probability": 1000,
+      "最小数量": 1,
+      "最大数量": 1
+    }
+  ]
+}

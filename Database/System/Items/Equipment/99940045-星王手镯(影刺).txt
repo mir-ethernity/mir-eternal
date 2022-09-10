@@ -1,0 +1,36 @@
+﻿{
+  "Name": "星王手镯(影刺)",
+  "Id": 99940045,
+  "MaxDura": 8,
+  "Weight": 3,
+  "Level": 55,
+  "NeedLevel": 47,
+  "SalePrice": 60000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "手镯",
+  "NeedRace": "刺客",
+  "PersistType": "装备",
+  "StoreType": "首饰",
+  "BasicPowerCombat": 156,
+  "MinNC": 2,
+  "MaxNC": 6,
+  "MinMCDef": 1,
+  "MaxMCDef": 3,
+  "CanRepair": true,
+  "RepairCost": 36000,
+  "SpecialRepairCost": 180000,
+  "铭文职业": "通用",
+  "打孔职业": "通用",
+  "EquipSet": "苍月装备",
+  "物品掉落列表": [
+    {
+      "Name": "冥王手镯",
+      "MonsterName": "牛魔王",
+      "Probability": 1000,
+      "最小数量": 1,
+      "最大数量": 1
+    }
+  ]
+}

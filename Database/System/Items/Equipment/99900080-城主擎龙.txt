@@ -1,0 +1,61 @@
+﻿{
+  "Name": "城主擎龙",
+  "Id": 99900080,
+  "MaxDura": 33,
+  "Weight": 23,
+  "Level": 43,
+  "NeedLevel": 35,
+  "SalePrice": 70000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "武器",
+  "NeedRace": "弓手",
+  "PersistType": "装备",
+  "StoreType": "武器",
+  "BasicPowerCombat": 402,
+  "MinDC": 7,
+  "MaxDC": 19,
+  "MinBC": 4,
+  "MaxBC": 18,
+  "PhysicallyAccurate": 2,
+  "CanRepair": true,
+  "RepairCost": 42000,
+  "SpecialRepairCost": 210000,
+  "灵魂绑点": 9,
+  "圣伤上限": 60,
+  "铭文传承": true,
+  "铭文职业": "弓手",
+  "打孔职业": "通用",
+  "EquipSet": "魔龙装备",
+  "物品掉落列表": [
+    {
+      "Name": "擎龙",
+      "MonsterName": "血手",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "擎龙",
+      "MonsterName": "黄泉教主",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "擎龙",
+      "MonsterName": "牛魔王",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "擎龙",
+      "MonsterName": "魔龙教主",
+      "Probability": 500,
+      "最小数量": 1,
+      "最大数量": 1
+    }
+  ]
+}

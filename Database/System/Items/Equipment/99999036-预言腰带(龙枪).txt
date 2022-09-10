@@ -1,0 +1,48 @@
+{
+  "Name": "预言腰带(龙枪)",
+  "Id": 99999036,
+  "MaxDura": 7,
+  "Weight": 3,
+  "Level": 52,
+  "NeedLevel": 45,
+  "SalePrice": 45000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "腰带",
+  "NeedRace": "龙枪",
+  "PersistType": "装备",
+  "StoreType": "服装",
+  "BasicPowerCombat": 283,
+  "MaxDC": 2,
+  "MinDef": 5,
+  "MaxDef": 5,
+  "MinMCDef": 3,
+  "MaxMCDef": 4,
+  "CanRepair": true,
+  "RepairCost": 27000,
+  "SpecialRepairCost": 135000,
+  "能否打孔": true,
+  "打孔上限": 2,
+  "一孔花费": 30,
+  "二孔花费": 60,
+  "铭文职业": "通用",
+  "打孔职业": "龙枪",
+  "EquipSet": "神秘装备",
+  "物品掉落列表": [
+    {
+      "Name": "预言腰带(龙枪)",
+      "MonsterName": "黄泉教主",
+      "Probability": 10,
+      "最小数量": 1,
+      "最大数量": 1
+    },
+    {
+      "Name": "预言腰带(龙枪)",
+      "MonsterName": "牛魔王",
+      "Probability": 10,
+      "最小数量": 1,
+      "最大数量": 1
+    }
+  ]
+}
