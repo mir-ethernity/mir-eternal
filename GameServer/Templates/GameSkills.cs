@@ -54,10 +54,8 @@ namespace GameServer.Templates
 			string text = Config.GameDataPath + "\\System\\Skills\\Skills\\";
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in Serializer.Deserialize(text, typeof(GameSkills)))
-				{
-					DataSheet.Add(((GameSkills)obj).SkillName, (GameSkills)obj);
-				}
+				foreach (var obj in Serializer.Deserialize<GameSkills>(text))
+					DataSheet.Add(obj.SkillName, obj);
 			}
 		}
 	}

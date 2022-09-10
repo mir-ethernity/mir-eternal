@@ -77,10 +77,8 @@ namespace GameServer.Templates
 			string text = Config.GameDataPath + "\\System\\Skills\\Buffs\\";
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in Serializer.Deserialize(text, typeof(GameBuffs)))
-				{
-					DataSheet.Add(((GameBuffs)obj).Id, (GameBuffs)obj);
-				}
+				foreach (var obj in Serializer.Deserialize<GameBuffs>(text))
+					DataSheet.Add(obj.Id, obj);
 			}
 		}
 		

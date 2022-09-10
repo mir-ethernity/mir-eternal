@@ -28,10 +28,8 @@ namespace GameServer.Templates
 
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in Serializer.Deserialize(text, typeof(Guards)))
-				{
-					DataSheet.Add(((Guards)obj).GuardNumber, (Guards)obj);
-				}
+				foreach (var obj in Serializer.Deserialize<Guards>(text))
+					DataSheet.Add(obj.GuardNumber, obj);
 			}
 		}
 	}

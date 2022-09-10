@@ -46,10 +46,8 @@ namespace GameServer.Templates
 			string text = Config.GameDataPath + "\\System\\Skills\\Trap\\";
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in Serializer.Deserialize(text, typeof(SkillTraps)))
-				{
-					DataSheet.Add(((SkillTraps)obj).Name, (SkillTraps)obj);
-				}
+				foreach (var obj in Serializer.Deserialize<SkillTraps>(text))
+					DataSheet.Add(obj.Name, obj);
 			}
 		}
 	}

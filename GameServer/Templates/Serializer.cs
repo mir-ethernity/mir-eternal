@@ -38,29 +38,6 @@ namespace GameServer.Templates
             }
         }
 
-        public static object[] Deserialize(string folder, Type type)
-        {
-            ConcurrentQueue<object> concurrentQueue = new ConcurrentQueue<object>();
-            if (Directory.Exists(folder))
-            {
-                FileInfo[] files = new DirectoryInfo(folder).GetFiles();
-                for (int i = 0; i < files.Length; i++)
-                {
-                    string text = File.ReadAllText(files[i].FullName);
-                    foreach (KeyValuePair<string, string> keyValuePair in TypesOfSkill)
-                    {
-                        text = text.Replace(keyValuePair.Key, keyValuePair.Value);
-                    }
-                    object obj = JsonConvert.DeserializeObject(text, type, JsonOptions);
-                    if (obj != null)
-                    {
-                        concurrentQueue.Enqueue(obj);
-                    }
-                }
-            }
-            return concurrentQueue.ToArray();
-        }
-
         public static TItem[] Deserialize<TItem>(string folder) where TItem : class, new()
         {
             var output = new ConcurrentBag<TItem>();
@@ -88,16 +65,18 @@ namespace GameServer.Templates
             return output.ToArray();
         }
 
-        public static byte[] Decompress(byte[] data)
+        public static byte[] Compress(byte[] data)
         {
-            MemoryStream memoryStream = new MemoryStream();
-            DeflaterOutputStream deflaterOutputStream = new DeflaterOutputStream(memoryStream);
+            using var memoryStream = new MemoryStream();
+            using var deflaterOutputStream = new DeflaterOutputStream(memoryStream);
+
             deflaterOutputStream.Write(data, 0, data.Length);
             deflaterOutputStream.Close();
+
             return memoryStream.ToArray();
         }
 
-        public static byte[] Compress(byte[] data)
+        public static byte[] Decompress(byte[] data)
         {
             Stream baseInputStream = new MemoryStream(data);
             MemoryStream memoryStream = new MemoryStream();

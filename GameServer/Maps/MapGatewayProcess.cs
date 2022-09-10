@@ -725,19 +725,18 @@ namespace GameServer.Maps
             watcher.Restart();
             foreach (Terrains 地形数据 in Terrains.DataSheet.Values)
             {
-                foreach (MapInstance MapInstance in MapGatewayProcess.MapInstances.Values)
+                var istanceId = (int)(地形数据.MapId * 16 + 1);
+
+                if (!MapInstances.TryGetValue(istanceId, out var instance))
+                    continue;
+
+                instance.地形数据 = 地形数据;
+                instance.MapObject = new HashSet<MapObject>[instance.MapSize.X, instance.MapSize.Y];
+                for (int i = 0; i < instance.MapSize.X; i++)
                 {
-                    if (MapInstance.MapId == (int)地形数据.MapId)
+                    for (int j = 0; j < instance.MapSize.Y; j++)
                     {
-                        MapInstance.地形数据 = 地形数据;
-                        MapInstance.MapObject = new HashSet<MapObject>[MapInstance.MapSize.X, MapInstance.MapSize.Y];
-                        for (int i = 0; i < MapInstance.MapSize.X; i++)
-                        {
-                            for (int j = 0; j < MapInstance.MapSize.Y; j++)
-                            {
-                                MapInstance.MapObject[i, j] = new HashSet<MapObject>();
-                            }
-                        }
+                        instance.MapObject[i, j] = new HashSet<MapObject>();
                     }
                 }
             }
@@ -840,8 +839,7 @@ namespace GameServer.Maps
                             Point[] 出生范围 = 怪物刷新2.RangeCoords.ToArray<Point>();
                             foreach (MonsterSpawnInfo 刷新信息 in 怪物刷新2.Spawns)
                             {
-                                Monsters 游戏怪物;
-                                if (Monsters.DataSheet.TryGetValue(刷新信息.MonsterName, out 游戏怪物))
+                                if (Monsters.DataSheet.TryGetValue(刷新信息.MonsterName, out var 游戏怪物))
                                 {
                                     MainForm.添加怪物数据(游戏怪物);
                                     int RevivalInterval = 刷新信息.RevivalInterval * 60 * 1000;
@@ -862,21 +860,15 @@ namespace GameServer.Maps
                         }
                     }
 
-                    using (HashSet<MapGuards>.Enumerator enumerator6 = MapInstance6.守卫区域.GetEnumerator())
+                    foreach(var 守卫刷新2 in MapInstance6.守卫区域)
                     {
-                        while (enumerator6.MoveNext())
+                        if (Guards.DataSheet.TryGetValue(守卫刷新2.GuardNumber, out var 对应模板))
                         {
-                            MapGuards 守卫刷新2 = enumerator6.Current;
-                            Guards 对应模板;
-                            if (Guards.DataSheet.TryGetValue(守卫刷新2.GuardNumber, out 对应模板))
-                            {
-                                new GuardObject(对应模板, MapInstance6, 守卫刷新2.Direction, 守卫刷新2.FromCoords);
-                            }
+                            new GuardObject(对应模板, MapInstance6, 守卫刷新2.Direction, 守卫刷新2.FromCoords);
                         }
-                        MainForm.添加地图数据(MapInstance6);
-                        return;
                     }
                 }
+
                 MapInstance6.TotalMobs = (uint)MapInstance6.怪物区域.Sum((MonsterSpawns O) => O.Spawns.Sum((MonsterSpawnInfo X) => X.SpawnCount));
                 MainForm.添加地图数据(MapInstance6);
             });

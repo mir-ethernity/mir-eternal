@@ -8,7 +8,7 @@ namespace GameServer.Templates
     public sealed class Treasures
     {
         public static byte[] Buffer;
-        public static int Effect;
+        public static int Checksum;
         public static int Count;
         public static Dictionary<int, Treasures> DataSheet;
 
@@ -27,10 +27,8 @@ namespace GameServer.Templates
             string text = Config.GameDataPath + "\\System\\Items\\Treasures\\";
             if (Directory.Exists(text))
             {
-                foreach (object obj in Serializer.Deserialize(text, typeof(Treasures)))
-                {
-                    DataSheet.Add(((Treasures)obj).Id, (Treasures)obj);
-                }
+                foreach (var obj in Serializer.Deserialize<Treasures>(text))
+                    DataSheet.Add(obj.Id, obj);
             }
 
             using var memoryStream = new MemoryStream();
@@ -51,12 +49,13 @@ namespace GameServer.Templates
                 binaryWriter.Write(treasure.CurrentPrice);
                 binaryWriter.Write(new byte[48]);
             }
+
             Count = DataSheet.Count;
             Buffer = memoryStream.ToArray();
-            Effect = 0;
+            Checksum = 0;
 
             foreach (byte b in Buffer)
-                Effect += (int)b;
+                Checksum += b;
         }
     }
 }

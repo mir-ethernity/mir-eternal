@@ -27,16 +27,14 @@ namespace GameServer.Templates
             string text = Config.GameDataPath + "\\System\\Items\\GameStore\\";
             if (Directory.Exists(text))
             {
-                foreach (object obj in Serializer.Deserialize(text, typeof(GameStore)))
-                {
-                    DataSheet.Add(((GameStore)obj).StoreId, (GameStore)obj);
-                }
+                foreach (var obj in Serializer.Deserialize<GameStore>(text))
+                    DataSheet.Add(obj.StoreId, obj);
             }
 
             using (MemoryStream memoryStream = new MemoryStream())
             using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
             {
-                var items = (from X in GameStore.DataSheet.Values.ToList()
+                var items = (from X in DataSheet.Values.ToList()
                              orderby X.StoreId
                              select X).ToList();
 
@@ -71,7 +69,7 @@ namespace GameServer.Templates
 
                 var buffer = memoryStream.ToArray();
 
-                StoreBuffer = Serializer.Decompress(buffer);
+                StoreBuffer = Serializer.Compress(buffer);
 
                 StoreVersion = 0;
 

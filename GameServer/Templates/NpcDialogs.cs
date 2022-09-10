@@ -54,10 +54,8 @@ namespace GameServer.Templates
 
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in Serializer.Deserialize(text, typeof(NpcDialogs)))
-				{
-					DataSheet.Add(((NpcDialogs)obj).Id, ((NpcDialogs)obj).Content);
-				}
+				foreach (var obj in Serializer.Deserialize<NpcDialogs>(text))
+					DataSheet.Add(obj.Id, obj.Content);
 			}
 
 			// DataById.Add();
