@@ -81,21 +81,24 @@ namespace GameServer.Templates
 		{
 			DataSheet = new Dictionary<ushort, InscriptionSkill>();
 			string text = Config.GameDataPath + "\\System\\Skills\\Inscriptions\\";
+			
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in Serializer.Deserialize(text, typeof(InscriptionSkill)))
-				{
-					DataSheet.Add(((InscriptionSkill)obj).Index, (InscriptionSkill)obj);
-				}
+				foreach (var obj in Serializer.Deserialize<InscriptionSkill>(text))
+					DataSheet.Add(obj.Index, obj);
 			}
-			var dictionary = new Dictionary<byte, List<InscriptionSkill>>();
-			dictionary[0] = new List<InscriptionSkill>();
-			dictionary[1] = new List<InscriptionSkill>();
-			dictionary[2] = new List<InscriptionSkill>();
-			dictionary[3] = new List<InscriptionSkill>();
-			dictionary[4] = new List<InscriptionSkill>();
-			dictionary[5] = new List<InscriptionSkill>();
-			_probabilityTable = dictionary;
+
+            var dictionary = new Dictionary<byte, List<InscriptionSkill>>
+            {
+                [0] = new List<InscriptionSkill>(),
+                [1] = new List<InscriptionSkill>(),
+                [2] = new List<InscriptionSkill>(),
+                [3] = new List<InscriptionSkill>(),
+                [4] = new List<InscriptionSkill>(),
+                [5] = new List<InscriptionSkill>()
+            };
+
+            _probabilityTable = dictionary;
 			foreach (InscriptionSkill skill in DataSheet.Values)
 			{
 				if (skill.Id != 0)
@@ -106,7 +109,7 @@ namespace GameServer.Templates
 					}
 				}
 			}
-			foreach (List<InscriptionSkill> list in _probabilityTable.Values)
+			foreach (var list in _probabilityTable.Values)
 			{
 				for (int k = 0; k < list.Count; k++)
 				{

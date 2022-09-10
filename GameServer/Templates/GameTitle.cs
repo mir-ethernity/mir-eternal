@@ -20,12 +20,9 @@ namespace GameServer.Templates
 			string text = Config.GameDataPath + "\\System\\Items\\GameTitle\\";
 			if (Directory.Exists(text))
 			{
-				object[] array = Serializer.Deserialize(text, typeof(GameTitle));
+				var array = Serializer.Deserialize<GameTitle>(text);
 				for (int i = 0; i < array.Length; i++)
-				{
-					GameTitle title = array[i] as GameTitle;
-					DataSheet.Add(title.Id, title);
-				}
+					DataSheet.Add(array[i].Id, array[i]);
 			}
 		}
 	}

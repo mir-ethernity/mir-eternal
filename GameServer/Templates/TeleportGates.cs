@@ -26,10 +26,8 @@ namespace GameServer.Templates
 			string text = Config.GameDataPath + "\\System\\GameMap\\TeleportGates\\";
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in Serializer.Deserialize(text, typeof(TeleportGates)))
-				{
-					DataSheet.Add((TeleportGates)obj);
-				}
+				foreach (var obj in Serializer.Deserialize<TeleportGates>(text))
+					DataSheet.Add(obj);
 			}
 		}
 	}

@@ -22,10 +22,8 @@ namespace GameServer.Templates
 			string text = Config.GameDataPath + "\\System\\GameMap\\Guards\\";
 			if (Directory.Exists(text))
 			{
-				foreach (object obj in Serializer.Deserialize(text, typeof(MapGuards)))
-				{
-					DataSheet.Add((MapGuards)obj);
-				}
+				foreach (var obj in Serializer.Deserialize<MapGuards>(text))
+					DataSheet.Add(obj);
 			}
 		}
 	}

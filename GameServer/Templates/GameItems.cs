@@ -64,7 +64,7 @@ namespace GameServer.Templates
             string text = Config.GameDataPath + "\\System\\Items\\Common\\";
             if (Directory.Exists(text))
             {
-                object[] array = Serializer.Deserialize(text, typeof(GameItems));
+                var array = Serializer.Deserialize<GameItems>(text);
                 for (int i = 0; i < array.Length; i++)
                 {
                     GameItems gameItem = array[i] as GameItems;
@@ -76,7 +76,7 @@ namespace GameServer.Templates
             text = Config.GameDataPath + "\\System\\Items\\Equipment\\";
             if (Directory.Exists(text))
             {
-                object[] array = Serializer.Deserialize(text, typeof(EquipmentItem));
+                var array = Serializer.Deserialize<EquipmentItem>(text);
                 for (int i = 0; i < array.Length; i++)
                 {
                     EquipmentItem gameItem = array[i] as EquipmentItem;

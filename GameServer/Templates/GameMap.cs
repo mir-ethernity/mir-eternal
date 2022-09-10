@@ -25,10 +25,8 @@ namespace GameServer.Templates
             string text = Config.GameDataPath + "\\System\\GameMap\\Maps";
             if (Directory.Exists(text))
             {
-                foreach (object obj in Serializer.Deserialize(text, typeof(GameMap)))
-                {
-                    DataSheet.Add(((GameMap)obj).MapId, (GameMap)obj);
-                }
+                foreach (var obj in Serializer.Deserialize<GameMap>(text))
+                    DataSheet.Add(obj.MapId, obj);
             }
         }
 

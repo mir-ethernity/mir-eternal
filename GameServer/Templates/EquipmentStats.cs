@@ -42,8 +42,8 @@ namespace GameServer.Templates
 
             if (Directory.Exists(text))
             {
-                foreach (object obj in Serializer.Deserialize(text, typeof(EquipmentStats)))
-                    DataSheet.Add((byte)((EquipmentStats)obj).ItemType, (EquipmentStats)obj);
+                foreach (var obj in Serializer.Deserialize<EquipmentStats>(text))
+                    DataSheet.Add((byte)obj.ItemType, obj);
             }
 
             概率表 = new Dictionary<byte, RandomStats[]>();

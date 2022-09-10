@@ -8585,7 +8585,7 @@ namespace GameServer.Maps
         {
             if (数据版本 != 0)
             {
-                if (数据版本 == Treasures.Effect)
+                if (数据版本 == Treasures.Checksum)
                 {
                     SConnection 网络连接 = this.ActiveConnection;
                     if (网络连接 == null)
@@ -8594,7 +8594,7 @@ namespace GameServer.Maps
                     }
                     网络连接.SendPacket(new 同步珍宝数据
                     {
-                        版本编号 = Treasures.Effect,
+                        版本编号 = Treasures.Checksum,
                         商品数量 = 0,
                         商店数据 = new byte[0]
                     });
@@ -8608,7 +8608,7 @@ namespace GameServer.Maps
             }
             网络连接2.SendPacket(new 同步珍宝数据
             {
-                版本编号 = Treasures.Effect,
+                版本编号 = Treasures.Checksum,
                 商品数量 = Treasures.Count,
                 商店数据 = Treasures.Buffer
             });
