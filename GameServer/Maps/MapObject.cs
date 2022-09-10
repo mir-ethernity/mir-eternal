@@ -716,7 +716,15 @@ namespace GameServer.Maps
 
             if ((游戏Buff.Effect & BuffEffectType.Riding) != BuffEffectType.SkillSign && this is PlayerObject playerObject)
             {
-                playerObject.Riding = true;
+                if (GameMounts.DataSheet.TryGetValue(playerObject.CharacterData.CurrentMount.V, out GameMounts mount))
+                {
+                    playerObject.Riding = true;
+                    StatsBonus.Add(BuffData2, mount.Stats);
+                    RefreshStats();
+                    if (mount.SoulAuraID > 0)
+                        playerObject.OnAddBuff(mount.SoulAuraID, this);
+                }
+
                 SendPacket(new SyncObjectMountPacket
                 {
                     ObjectId = ObjectId,
@@ -801,7 +809,11 @@ namespace GameServer.Maps
 
                 if ((BuffData.Effect & BuffEffectType.Riding) != BuffEffectType.SkillSign && this is PlayerObject playerObject)
                 {
-                    playerObject.Riding = true;
+                    playerObject.Riding = false;
+                    this.StatsBonus.Remove(BuffData);
+                    this.RefreshStats();
+                    if (GameMounts.DataSheet.TryGetValue(playerObject.CharacterData.CurrentMount.V, out GameMounts mount))
+                        if (mount.SoulAuraID > 0) playerObject.移除Buff时处理(mount.SoulAuraID);
                 }
 
                 if ((BuffData.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign)
@@ -851,6 +863,14 @@ namespace GameServer.Maps
                 {
                     this.StatsBonus.Remove(BuffData);
                     this.RefreshStats();
+                }
+                if ((BuffData.Effect & BuffEffectType.Riding) != BuffEffectType.SkillSign && this is PlayerObject playerObject)
+                {
+                    playerObject.Riding = false;
+                    this.StatsBonus.Remove(BuffData);
+                    this.RefreshStats();
+                    if (GameMounts.DataSheet.TryGetValue(playerObject.CharacterData.CurrentMount.V, out GameMounts mount))
+                        if (mount.SoulAuraID > 0) playerObject.移除Buff时处理(mount.SoulAuraID);
                 }
                 if ((BuffData.Effect & BuffEffectType.StatusFlag) != BuffEffectType.SkillSign)
                 {

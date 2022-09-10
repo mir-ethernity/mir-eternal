@@ -37,6 +37,7 @@ namespace GameServer.Templates
                 typeof(ChestTemplate),
                 typeof(MapChest),
                 typeof(GameQuests),
+                typeof(GameMounts),
             };
 
             Parallel.ForEach(dataTypesToLoad, (type) =>
