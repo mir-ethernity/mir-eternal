@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Eliot.UELib\Eliot.UELib.csproj" />
+    <ProjectReference Include="..\Mir3DCrypto\Mir3DCrypto.csproj" />
     <ProjectReference Include="..\StormLibSharp\StormLibSharp.csproj" />
   </ItemGroup>
 

@@ -1,5 +1,6 @@
 ﻿using Mir3DClientEditor.FormValueEditors;
 using Mir3DClientEditor.Services;
+using Mir3DCrypto;
 using StormLibSharp;
 using System;
 using System.Collections.Generic;
