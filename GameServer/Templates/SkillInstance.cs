@@ -80,6 +80,16 @@ namespace GameServer.Templates
                 {
                     IsSwitchedSkill = true;
                     CasterObject.Coolings[SkillId | 16777216] = ReleaseTime.AddMilliseconds(switchReleaseSkill.ItSelfCooldown);
+                    CasterObject.Coolings[switchSkill.BindingLevelId | 16777216] = ReleaseTime.AddMilliseconds(switchReleaseSkill.ItSelfCooldown);
+                    if (CasterObject is PlayerObject playerObj)
+                    {
+                        playerObj.ActiveConnection.SendPacket(new SyncSkillCountPacket
+                        {
+                            SkillId = switchSkill.BindingLevelId,
+                            SkillCount = SkillData.RemainingTimeLeft.V,
+                            技能冷却 = switchReleaseSkill.ItSelfCooldown
+                        });
+                    }
                 }
             }
 

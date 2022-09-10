@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -37,47 +39,49 @@ namespace GameServer.Templates
                 typeof(GameQuests),
             };
 
-            Task.Run(delegate ()
+            Parallel.ForEach(dataTypesToLoad, (type) =>
             {
-                foreach (Type type in dataTypesToLoad)
+                var watcher = new Stopwatch();
+
+                MethodInfo method = type.GetMethod("LoadData", BindingFlags.Static | BindingFlags.Public);
+
+                if (method != null)
                 {
-                    MethodInfo method = type.GetMethod("LoadData", BindingFlags.Static | BindingFlags.Public);
-
-                    if (method != null)
-                    {
-                        method.Invoke(null, null);
-                    }
-                    else
-                    {
-                        MessageBox.Show(type.Name + " Failed to find 'LoadData' method, Failed to load");
-                        continue;
-                    }
-
-                    FieldInfo field = type.GetField("DataSheet", BindingFlags.Static | BindingFlags.Public);
-                    if (field == null)
-                    {
-                        MessageBox.Show(type.Name + " Failed to find 'DataSheet' property, Failed to load");
-                        continue;
-                    }
-
-                    object obj = field.GetValue(null);
-                    if (obj == null)
-                    {
-                        MessageBox.Show(type.Name + " Failed to load content, Check data directory");
-                        continue;
-                    }
-
-                    PropertyInfo property = obj.GetType().GetProperty("Count", BindingFlags.Instance | BindingFlags.Public);
-                    if (property == null)
-                    {
-                        MessageBox.Show(type.Name + " Failed to find 'Count' property, Failed to load");
-                        continue;
-                    }
-
-                    int num = (int)property.GetValue(obj);
-                    MainForm.AddSystemLog(string.Format("{0} Loaded, Total: {1}", type.Name, num));
+                    watcher.Start();
+                    method.Invoke(null, null);
+                    watcher.Stop();
                 }
-            }).Wait();
+                else
+                {
+                    MainForm.AddSystemLog(type.Name + " Failed to find 'LoadData' method, Failed to load");
+                    return;
+                }
+
+                FieldInfo field = type.GetField("DataSheet", BindingFlags.Static | BindingFlags.Public);
+                if (field == null)
+                {
+                    MainForm.AddSystemLog(type.Name + " Failed to find 'DataSheet' property, Failed to load");
+                    return;
+                }
+
+                object obj = field.GetValue(null);
+                if (obj == null)
+                {
+                    MainForm.AddSystemLog(type.Name + " Failed to load content, Check data directory");
+                    return;
+                }
+
+                PropertyInfo property = obj.GetType().GetProperty("Count", BindingFlags.Instance | BindingFlags.Public);
+                if (property == null)
+                {
+                    MainForm.AddSystemLog(type.Name + " Failed to find 'Count' property, Failed to load");
+                    return;
+                }
+
+                int num = (int)property.GetValue(obj);
+                MainForm.AddSystemLog(string.Format("{0} Loaded, Total: {1}, Elapsed: {2}ms", type.Name, num, watcher.ElapsedMilliseconds));
+            });
+
         }
     }
 }

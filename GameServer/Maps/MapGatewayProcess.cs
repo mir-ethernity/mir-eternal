@@ -6,6 +6,8 @@ using System.Linq;
 using GameServer.Data;
 using GameServer.Templates;
 using GameServer.Networking;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace GameServer.Maps
 {
@@ -700,20 +702,27 @@ namespace GameServer.Maps
             MapGatewayProcess.添加激活表 = new ConcurrentQueue<MapObject>();
             MapGatewayProcess.移除激活表 = new ConcurrentQueue<MapObject>();
             MapGatewayProcess.ActiveObjects = new Dictionary<int, MapObject>();
-            MapGatewayProcess.Objects = new Dictionary<int, MapObject>();
+            MapGatewayProcess.Objects = new ConcurrentDictionary<int, MapObject>();
             MapGatewayProcess.MapInstances = new Dictionary<int, MapInstance>();
             MapGatewayProcess.玩家对象表 = new Dictionary<int, PlayerObject>();
-            MapGatewayProcess.怪物对象表 = new Dictionary<int, MonsterObject>();
+            MapGatewayProcess.怪物对象表 = new ConcurrentDictionary<int, MonsterObject>();
             MapGatewayProcess.宠物对象表 = new Dictionary<int, PetObject>();
-            MapGatewayProcess.守卫对象表 = new Dictionary<int, GuardObject>();
+            MapGatewayProcess.守卫对象表 = new ConcurrentDictionary<int, GuardObject>();
             MapGatewayProcess.物品对象表 = new Dictionary<int, ItemObject>();
-            MapGatewayProcess.陷阱对象表 = new Dictionary<int, TrapObject>();
-            MapGatewayProcess.Chests = new Dictionary<int, ChestObject>();
+            MapGatewayProcess.陷阱对象表 = new ConcurrentDictionary<int, TrapObject>();
+            MapGatewayProcess.Chests = new ConcurrentDictionary<int, ChestObject>();
 
+            var watcher = new Stopwatch();
+
+            watcher.Start();
             foreach (GameMap 游戏地图 in GameMap.DataSheet.Values)
             {
                 MapGatewayProcess.MapInstances.Add((int)(游戏地图.MapId * 16 + 1), new MapInstance(游戏地图, 16777217));
             }
+            watcher.Stop();
+            MainForm.AddSystemLog($"Loaded map instances in {watcher.ElapsedMilliseconds}ms");
+
+            watcher.Restart();
             foreach (Terrains 地形数据 in Terrains.DataSheet.Values)
             {
                 foreach (MapInstance MapInstance in MapGatewayProcess.MapInstances.Values)
@@ -732,6 +741,10 @@ namespace GameServer.Maps
                     }
                 }
             }
+            watcher.Stop();
+            MainForm.AddSystemLog($"Loaded terrains in {watcher.ElapsedMilliseconds}ms");
+
+            watcher.Restart();
             foreach (MapAreas 地图区域 in MapAreas.DataSheet)
             {
                 foreach (MapInstance MapInstance2 in MapGatewayProcess.MapInstances.Values)
@@ -755,6 +768,11 @@ namespace GameServer.Maps
                     }
                 }
             }
+            watcher.Stop();
+            MainForm.AddSystemLog($"Loaded map areas in {watcher.ElapsedMilliseconds}ms");
+
+
+            watcher.Restart();
             foreach (TeleportGates 传送法阵 in TeleportGates.DataSheet)
             {
                 foreach (MapInstance MapInstance3 in MapGatewayProcess.MapInstances.Values)
@@ -765,6 +783,10 @@ namespace GameServer.Maps
                     }
                 }
             }
+            watcher.Stop();
+            MainForm.AddSystemLog($"Loaded teleport gates in {watcher.ElapsedMilliseconds}ms");
+
+            watcher.Restart();
             foreach (MapGuards 守卫刷新 in MapGuards.DataSheet)
             {
                 foreach (MapInstance MapInstance4 in MapGatewayProcess.MapInstances.Values)
@@ -775,6 +797,10 @@ namespace GameServer.Maps
                     }
                 }
             }
+            watcher.Stop();
+            MainForm.AddSystemLog($"Loaded map guards in {watcher.ElapsedMilliseconds}ms");
+
+            watcher.Restart();
             foreach (var chest in MapChest.DataSheet)
             {
                 foreach (MapInstance map in MapGatewayProcess.MapInstances.Values)
@@ -785,6 +811,10 @@ namespace GameServer.Maps
                     }
                 }
             }
+            watcher.Stop();
+            MainForm.AddSystemLog($"Loaded map chests in {watcher.ElapsedMilliseconds}ms");
+
+            watcher.Restart();
             foreach (MonsterSpawns 怪物刷新 in MonsterSpawns.DataSheet)
             {
                 foreach (MapInstance MapInstance5 in MapGatewayProcess.MapInstances.Values)
@@ -795,7 +825,11 @@ namespace GameServer.Maps
                     }
                 }
             }
-            foreach (MapInstance MapInstance6 in MapGatewayProcess.MapInstances.Values)
+            watcher.Stop();
+            MainForm.AddSystemLog($"Loaded monster spawns in {watcher.ElapsedMilliseconds}ms");
+
+            watcher.Restart();
+            Parallel.ForEach(MapInstances.Values, (MapInstance6) =>
             {
                 if (!MapInstance6.CopyMap)
                 {
@@ -839,18 +873,16 @@ namespace GameServer.Maps
                                 new GuardObject(对应模板, MapInstance6, 守卫刷新2.Direction, 守卫刷新2.FromCoords);
                             }
                         }
-                        goto IL_5DE;
+                        MainForm.添加地图数据(MapInstance6);
+                        return;
                     }
-                    goto IL_5AC;
                 }
-                goto IL_5AC;
-            IL_5DE:
-                MainForm.添加地图数据(MapInstance6);
-                continue;
-            IL_5AC:
                 MapInstance6.TotalMobs = (uint)MapInstance6.怪物区域.Sum((MonsterSpawns O) => O.Spawns.Sum((MonsterSpawnInfo X) => X.SpawnCount));
-                goto IL_5DE;
-            }
+                MainForm.添加地图数据(MapInstance6);
+            });
+            watcher.Stop();
+            MainForm.AddSystemLog($"Initialized instances in {watcher.ElapsedMilliseconds}ms");
+
         }
 
 
@@ -876,7 +908,7 @@ namespace GameServer.Maps
 
         public static void 添加MapObject(MapObject 当前对象)
         {
-            MapGatewayProcess.Objects.Add(当前对象.ObjectId, 当前对象);
+            MapGatewayProcess.Objects.TryAdd(当前对象.ObjectId, 当前对象);
             GameObjectType 对象类型 = 当前对象.ObjectType;
             if (对象类型 <= GameObjectType.NPC)
             {
@@ -891,14 +923,14 @@ namespace GameServer.Maps
                     case (GameObjectType)3:
                         break;
                     case GameObjectType.Monster:
-                        MapGatewayProcess.怪物对象表.Add(当前对象.ObjectId, (MonsterObject)当前对象);
+                        MapGatewayProcess.怪物对象表.TryAdd(当前对象.ObjectId, (MonsterObject)当前对象);
                         return;
                     default:
                         if (对象类型 != GameObjectType.NPC)
                         {
                             return;
                         }
-                        MapGatewayProcess.守卫对象表.Add(当前对象.ObjectId, (GuardObject)当前对象);
+                        MapGatewayProcess.守卫对象表.TryAdd(当前对象.ObjectId, (GuardObject)当前对象);
                         return;
                 }
             }
@@ -911,12 +943,12 @@ namespace GameServer.Maps
                 }
                 if (对象类型 == GameObjectType.Trap)
                 {
-                    MapGatewayProcess.陷阱对象表.Add(当前对象.ObjectId, (TrapObject)当前对象);
+                    MapGatewayProcess.陷阱对象表.TryAdd(当前对象.ObjectId, (TrapObject)当前对象);
                     return;
                 }
                 else if (对象类型 == GameObjectType.Chest)
                 {
-                    MapGatewayProcess.Chests.Add(当前对象.ObjectId, (ChestObject)当前对象);
+                    MapGatewayProcess.Chests.TryAdd(当前对象.ObjectId, (ChestObject)当前对象);
                     return;
                 }
             }
@@ -925,7 +957,7 @@ namespace GameServer.Maps
 
         public static void RemoveObject(MapObject 当前对象)
         {
-            MapGatewayProcess.Objects.Remove(当前对象.ObjectId);
+            MapGatewayProcess.Objects.Remove(当前对象.ObjectId, out var removed);
             GameObjectType 对象类型 = 当前对象.ObjectType;
             if (对象类型 <= GameObjectType.NPC)
             {
@@ -940,14 +972,14 @@ namespace GameServer.Maps
                     case (GameObjectType)3:
                         break;
                     case GameObjectType.Monster:
-                        MapGatewayProcess.怪物对象表.Remove(当前对象.ObjectId);
+                        MapGatewayProcess.怪物对象表.Remove(当前对象.ObjectId, out var monsterRemoved);
                         return;
                     default:
                         if (对象类型 != GameObjectType.NPC)
                         {
                             return;
                         }
-                        MapGatewayProcess.守卫对象表.Remove(当前对象.ObjectId);
+                        MapGatewayProcess.守卫对象表.Remove(当前对象.ObjectId, out var guardRemoved);
                         return;
                 }
             }
@@ -962,7 +994,7 @@ namespace GameServer.Maps
                 {
                     return;
                 }
-                MapGatewayProcess.陷阱对象表.Remove(当前对象.ObjectId);
+                MapGatewayProcess.陷阱对象表.Remove(当前对象.ObjectId, out var trapRemoved);
             }
         }
 
@@ -1041,7 +1073,7 @@ namespace GameServer.Maps
         public static Dictionary<int, MapObject> ActiveObjects;
 
 
-        public static Dictionary<int, MapObject> Objects;
+        public static ConcurrentDictionary<int, MapObject> Objects;
 
 
         public static Dictionary<int, PlayerObject> 玩家对象表;
@@ -1050,18 +1082,18 @@ namespace GameServer.Maps
         public static Dictionary<int, PetObject> 宠物对象表;
 
 
-        public static Dictionary<int, MonsterObject> 怪物对象表;
+        public static ConcurrentDictionary<int, MonsterObject> 怪物对象表;
 
 
-        public static Dictionary<int, GuardObject> 守卫对象表;
+        public static ConcurrentDictionary<int, GuardObject> 守卫对象表;
 
 
         public static Dictionary<int, ItemObject> 物品对象表;
 
 
-        public static Dictionary<int, TrapObject> 陷阱对象表;
+        public static ConcurrentDictionary<int, TrapObject> 陷阱对象表;
 
-        public static Dictionary<int, ChestObject> Chests;
+        public static ConcurrentDictionary<int, ChestObject> Chests;
 
 
         public static Dictionary<int, MapInstance> MapInstances;
