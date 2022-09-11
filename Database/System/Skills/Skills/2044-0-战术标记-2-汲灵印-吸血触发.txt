@@ -17,7 +17,7 @@
       "技能锁定方式": "锁定目标",
       "放空结束技能": true,
       "HitsLimit": 1,
-      "LimitedTargetType": "Player",
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
