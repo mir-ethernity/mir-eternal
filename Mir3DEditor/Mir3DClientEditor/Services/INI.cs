@@ -28,16 +28,19 @@ namespace Mir3DClientEditor.Services
 
             foreach (var line in lines)
             {
-                if (line[0] == ';') continue;
+                var line2 = Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(line).SkipWhile(x => x == 239 || x == 187 || x == 191).ToArray());
 
-                var match = Regex.Match(line.Trim(), @"^\[(.+?)\]$");
+                if (line2[0] == ';') continue;
+
+
+                var match = Regex.Match(line2, @"^\[(.+?)\]$");
                 if (match.Success)
                 {
                     category = match.Groups[1].Value;
                     continue;
                 }
 
-                match = Regex.Match(line, @"^(.+?)[=](.*?)$");
+                match = Regex.Match(line, @"^(.+?)(?:[=](.*?))?$");
 
                 if (!match.Success)
                     throw new ApplicationException("Invalid value");
@@ -89,7 +92,7 @@ namespace Mir3DClientEditor.Services
         }
 
         public static byte[] Deflate(byte[] input, int skip)
-        {
+        { 
             // see http://george.chiramattel.com/blog/2007/09/deflatestream-block-length-does-not-match.html
             // and possibly http://connect.microsoft.com/VisualStudio/feedback/details/97064/deflatestream-throws-exception-when-inflating-pdf-streams
             // for more info on why we have to skip two extra bytes because of ZLIB

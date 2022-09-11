@@ -11,5 +11,6 @@
   "ValuableObjects": true,
   "Type": "普通杂物",
   "PersistType": "堆叠",
-  "StoreType": "杂货"
+  "StoreType": "杂货",
+  "NeedRace": "通用"
 }
