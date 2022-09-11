@@ -16,14 +16,79 @@ namespace GameServer.Maps
     {
         private static bool _loadedSabakMonsters = false;
 
+        public static int ObjectsCount;
+        public static List<MapObject> SecondaryObjects;
+        public static List<MapObject> BackupObjects;
+        public static Dictionary<int, MapObject> ActiveObjects;
+        public static Dictionary<int, MapObject> Objects;
+        public static Dictionary<int, PlayerObject> Players;
+        public static Dictionary<int, PetObject> Pets;
+        public static Dictionary<int, MonsterObject> Monsters;
+        public static Dictionary<int, GuardObject> NPCs;
+        public static Dictionary<int, ItemObject> Items;
+        public static Dictionary<int, TrapObject> Traps;
+        public static Dictionary<int, ChestObject> Chests;
+        public static Dictionary<int, MapInstance> MapInstances;
+        public static HashSet<MapInstance> ReplicateInstances;
+        private static ConcurrentQueue<MapInstance> ReplicasToRemove;
+        private static ConcurrentQueue<MapObject> ObjectsToActivate;
+        private static ConcurrentQueue<MapObject> ObjectsToDeactivate;
+
+        public static int ObjectId;
+        public static int TrapId;
+        public static int MapInstanceId;
+        private static DateTime SabakCityProcessTime;
+        public static Point ShachengGateCoords;
+        public static Point 皇宫下门坐标;
+        public static Point 皇宫下门出口;
+        public static Point 皇宫下门入口;
+        public static Point 皇宫左门坐标;
+        public static Point 皇宫左门出口;
+        public static Point 皇宫左门入口;
+        public static Point 皇宫上门坐标;
+        public static Point 皇宫上门出口;
+        public static Point 皇宫上门入口;
+        public static Point 皇宫出口点一;
+        public static Point 皇宫出口点二;
+        public static Point 皇宫正门入口;
+        public static Point 皇宫正门出口;
+        public static Point 皇宫入口点左;
+        public static Point 皇宫入口点中;
+        public static Point 皇宫入口点右;
+        public static Point 八卦坛坐标上;
+        public static Point 八卦坛坐标下;
+        public static Point 八卦坛坐标左;
+        public static Point 八卦坛坐标右;
+        public static Point 八卦坛坐标中;
+        public static MapInstance 沙城地图;
+        public static MonsterObject 沙城城门;
+        public static MonsterObject 下方宫门;
+        public static MonsterObject 上方宫门;
+        public static MonsterObject 左方宫门;
+        public static GuardObject 上方法阵;
+        public static GuardObject 下方法阵;
+        public static GuardObject 左方法阵;
+        public static GuardObject 右方法阵;
+        public static GuardObject 八卦坛激活法阵;
+        public static GuildData 八卦坛激活行会;
+        public static DateTime 八卦坛激活计时;
+        public static MapAreas 皇宫随机区域;
+        public static MapAreas 外城复活区域;
+        public static MapAreas 内城复活区域;
+        public static MapAreas 守方传送区域;
+        public static byte SabakStage;
+        public static DateTime 通知时间;
+        public static HashSet<GuildData> 攻城行会;
+
+
         private static void ProcessSabakCity()
         {
-            if (MainProcess.CurrentTime < 沙城处理计时 || (沙城地图 == null && _loadedSabakMonsters))
+            if (MainProcess.CurrentTime < SabakCityProcessTime || (沙城地图 == null && _loadedSabakMonsters))
                 return;
 
-            沙城处理计时 = MainProcess.CurrentTime.AddMilliseconds(50.0);
+            SabakCityProcessTime = MainProcess.CurrentTime.AddMilliseconds(50.0);
 
-            if (沙城地图 == null || !LoadSabakMonsters())
+            if (沙城地图 == null && !LoadSabakMonsters())
                 return;
 
             foreach (var MapObject in 沙城地图[皇宫下门坐标])
@@ -97,7 +162,7 @@ namespace GameServer.Maps
 
             var loadedOk = false;
 
-            if (MapInstances.TryGetValue(2433, out 沙城地图) && GameBuffs.DataSheet.TryGetValue(22300, out var 游戏Buff) && Monsters.DataSheet.TryGetValue("沙巴克城门", out var 对应模板) && Monsters.DataSheet.TryGetValue("沙巴克宫门", out var 对应模板2))
+            if (MapInstances.TryGetValue(2433, out 沙城地图) && GameBuffs.DataSheet.TryGetValue(22300, out var 游戏Buff) && Templates.Monsters.DataSheet.TryGetValue("沙巴克城门", out var 对应模板) && Templates.Monsters.DataSheet.TryGetValue("沙巴克宫门", out var 对应模板2))
             {
                 if ((皇宫随机区域 = 沙城地图.地图区域.FirstOrDefault((MapAreas O) => O.RegionName == "Shabak-Random areas of the Palace")) != null)
                 {
@@ -107,7 +172,7 @@ namespace GameServer.Maps
                         {
                             if ((守方传送区域 = 沙城地图.地图区域.FirstOrDefault((MapAreas O) => O.RegionName == "Shabak-Safe Teleport")) != null)
                             {
-                                沙城城门 = new MonsterObject(对应模板, 沙城地图, int.MaxValue, new Point[] { 沙城城门坐标 }, true, true)
+                                沙城城门 = new MonsterObject(对应模板, 沙城地图, int.MaxValue, new Point[] { ShachengGateCoords }, true, true)
                                 {
                                     CurrentDirection = GameDirection.右上,
                                     存活时间 = DateTime.MaxValue
@@ -553,7 +618,7 @@ namespace GameServer.Maps
             }
             MapGatewayProcess.沙城城门 = new MonsterObject(MapGatewayProcess.沙城城门.Template, MapGatewayProcess.沙城地图, int.MaxValue, new Point[]
             {
-                    MapGatewayProcess.沙城城门坐标
+                    MapGatewayProcess.ShachengGateCoords
             }, true, true)
             {
                 CurrentDirection = GameDirection.右上,
@@ -604,28 +669,28 @@ namespace GameServer.Maps
             foreach (var activeObject in ActiveObjects.Values)
                 activeObject?.Process();
 
-            if (对象表计数 >= SecondaryObjects.Count)
+            if (ObjectsCount >= SecondaryObjects.Count)
             {
-                对象表计数 = 0;
-                SecondaryObjects = 对象备份表;
-                对象备份表 = new List<MapObject>();
+                ObjectsCount = 0;
+                SecondaryObjects = BackupObjects;
+                BackupObjects = new List<MapObject>();
             }
 
             int num = 0;
-            while (num < 100 && 对象表计数 < SecondaryObjects.Count)
+            while (num < 100 && ObjectsCount < SecondaryObjects.Count)
             {
-                if (SecondaryObjects[对象表计数].SecondaryObject)
+                if (SecondaryObjects[ObjectsCount].SecondaryObject)
                 {
-                    SecondaryObjects[对象表计数].Process();
-                    对象备份表.Add(SecondaryObjects[对象表计数]);
+                    SecondaryObjects[ObjectsCount].Process();
+                    BackupObjects.Add(SecondaryObjects[ObjectsCount]);
                 }
-                对象表计数++;
+                ObjectsCount++;
                 num++;
             }
-            while (移除激活表.TryDequeue(out var MapObject) && !MapObject.ActiveObject)
+            while (ObjectsToDeactivate.TryDequeue(out var MapObject) && !MapObject.ActiveObject)
                 ActiveObjects.Remove(MapObject.ObjectId);
 
-            while (添加激活表.TryDequeue(out var MapObject2) && MapObject2.ActiveObject && !ActiveObjects.ContainsKey(MapObject2.ObjectId))
+            while (ObjectsToActivate.TryDequeue(out var MapObject2) && MapObject2.ActiveObject && !ActiveObjects.ContainsKey(MapObject2.ObjectId))
                 ActiveObjects.Add(MapObject2.ObjectId, MapObject2);
 
             if (MainProcess.CurrentTime.Minute == 55 && MainProcess.CurrentTime.Hour != 通知时间.Hour)
@@ -637,16 +702,16 @@ namespace GameServer.Maps
                 通知时间 = MainProcess.CurrentTime;
             }
 
-            foreach (var MapInstance in 副本实例表)
+            foreach (var MapInstance in ReplicateInstances)
             {
                 if (MapInstance.副本关闭)
-                    副本移除表.Enqueue(MapInstance);
+                    ReplicasToRemove.Enqueue(MapInstance);
                 else
                     MapInstance.Process();
             }
 
-            while (副本移除表.TryDequeue(out var item))
-                副本实例表.Remove(item);
+            while (ReplicasToRemove.TryDequeue(out var item))
+                ReplicateInstances.Remove(item);
 
             ProcessSabakCity();
         }
@@ -654,28 +719,28 @@ namespace GameServer.Maps
         public static void Start()
         {
             MapGatewayProcess.SecondaryObjects = new List<MapObject>();
-            MapGatewayProcess.对象备份表 = new List<MapObject>();
-            MapGatewayProcess.副本实例表 = new HashSet<MapInstance>();
-            MapGatewayProcess.副本移除表 = new ConcurrentQueue<MapInstance>();
-            MapGatewayProcess.添加激活表 = new ConcurrentQueue<MapObject>();
-            MapGatewayProcess.移除激活表 = new ConcurrentQueue<MapObject>();
+            MapGatewayProcess.BackupObjects = new List<MapObject>();
+            MapGatewayProcess.ReplicateInstances = new HashSet<MapInstance>();
+            MapGatewayProcess.ReplicasToRemove = new ConcurrentQueue<MapInstance>();
+            MapGatewayProcess.ObjectsToActivate = new ConcurrentQueue<MapObject>();
+            MapGatewayProcess.ObjectsToDeactivate = new ConcurrentQueue<MapObject>();
             MapGatewayProcess.ActiveObjects = new Dictionary<int, MapObject>();
-            MapGatewayProcess.Objects = new ConcurrentDictionary<int, MapObject>();
+            MapGatewayProcess.Objects = new Dictionary<int, MapObject>();
             MapGatewayProcess.MapInstances = new Dictionary<int, MapInstance>();
-            MapGatewayProcess.玩家对象表 = new Dictionary<int, PlayerObject>();
-            MapGatewayProcess.怪物对象表 = new ConcurrentDictionary<int, MonsterObject>();
-            MapGatewayProcess.宠物对象表 = new Dictionary<int, PetObject>();
-            MapGatewayProcess.守卫对象表 = new ConcurrentDictionary<int, GuardObject>();
-            MapGatewayProcess.物品对象表 = new Dictionary<int, ItemObject>();
-            MapGatewayProcess.陷阱对象表 = new ConcurrentDictionary<int, TrapObject>();
-            MapGatewayProcess.Chests = new ConcurrentDictionary<int, ChestObject>();
+            MapGatewayProcess.Players = new Dictionary<int, PlayerObject>();
+            MapGatewayProcess.Monsters = new Dictionary<int, MonsterObject>();
+            MapGatewayProcess.Pets = new Dictionary<int, PetObject>();
+            MapGatewayProcess.NPCs = new Dictionary<int, GuardObject>();
+            MapGatewayProcess.Items = new Dictionary<int, ItemObject>();
+            MapGatewayProcess.Traps = new Dictionary<int, TrapObject>();
+            MapGatewayProcess.Chests = new Dictionary<int, ChestObject>();
 
             var watcher = new Stopwatch();
 
             watcher.Start();
             foreach (GameMap 游戏地图 in GameMap.DataSheet.Values)
             {
-                MapGatewayProcess.MapInstances.Add((int)(游戏地图.MapId * 16 + 1), new MapInstance(游戏地图, 16777217));
+                MapInstances.Add((int)(游戏地图.MapId * 16 + 1), new MapInstance(游戏地图, 16777217));
             }
             watcher.Stop();
             MainForm.AddSystemLog($"Loaded map instances in {watcher.ElapsedMilliseconds}ms");
@@ -704,7 +769,7 @@ namespace GameServer.Maps
             watcher.Restart();
             foreach (MapAreas 地图区域 in MapAreas.DataSheet)
             {
-                foreach (MapInstance MapInstance2 in MapGatewayProcess.MapInstances.Values)
+                foreach (MapInstance MapInstance2 in MapInstances.Values)
                 {
                     if (MapInstance2.MapId == (int)地图区域.FromMapId)
                     {
@@ -786,7 +851,7 @@ namespace GameServer.Maps
             MainForm.AddSystemLog($"Loaded monster spawns in {watcher.ElapsedMilliseconds}ms");
 
             watcher.Restart();
-            Parallel.ForEach(MapInstances.Values, (MapInstance6) =>
+            foreach (var MapInstance6 in MapInstances.Values)
             {
                 if (!MapInstance6.CopyMap)
                 {
@@ -794,10 +859,10 @@ namespace GameServer.Maps
                     {
                         if (怪物刷新2.Spawns != null)
                         {
-                            Point[] 出生范围 = 怪物刷新2.RangeCoords.ToArray<Point>();
+                            Point[] 出生范围 = 怪物刷新2.RangeCoords.ToArray();
                             foreach (MonsterSpawnInfo 刷新信息 in 怪物刷新2.Spawns)
                             {
-                                if (Monsters.DataSheet.TryGetValue(刷新信息.MonsterName, out var 游戏怪物))
+                                if (Templates.Monsters.DataSheet.TryGetValue(刷新信息.MonsterName, out var 游戏怪物))
                                 {
                                     MainForm.添加怪物数据(游戏怪物);
                                     int RevivalInterval = 刷新信息.RevivalInterval * 60 * 1000;
@@ -829,7 +894,7 @@ namespace GameServer.Maps
 
                 MapInstance6.TotalMobs = (uint)MapInstance6.怪物区域.Sum((MonsterSpawns O) => O.Spawns.Sum((MonsterSpawnInfo X) => X.SpawnCount));
                 MainForm.添加地图数据(MapInstance6);
-            });
+            };
             watcher.Stop();
             MainForm.AddSystemLog($"Initialized instances in {watcher.ElapsedMilliseconds}ms");
         }
@@ -837,7 +902,7 @@ namespace GameServer.Maps
 
         public static void CleanUp()
         {
-            foreach (ItemObject ItemObject in MapGatewayProcess.物品对象表.Values)
+            foreach (ItemObject ItemObject in MapGatewayProcess.Items.Values)
             {
                 ItemData ItemData = ItemObject.ItemData;
                 if (ItemData != null)
@@ -855,343 +920,113 @@ namespace GameServer.Maps
         }
 
 
-        public static void 添加MapObject(MapObject 当前对象)
+        public static void AddObject(MapObject obj)
         {
-            MapGatewayProcess.Objects.TryAdd(当前对象.ObjectId, 当前对象);
-            GameObjectType 对象类型 = 当前对象.ObjectType;
-            if (对象类型 <= GameObjectType.NPC)
+            Objects.Add(obj.ObjectId, obj);
+
+            switch (obj.ObjectType)
             {
-                switch (对象类型)
-                {
-                    case GameObjectType.Player:
-                        MapGatewayProcess.玩家对象表.Add(当前对象.ObjectId, (PlayerObject)当前对象);
-                        return;
-                    case GameObjectType.Pet:
-                        MapGatewayProcess.宠物对象表.Add(当前对象.ObjectId, (PetObject)当前对象);
-                        return;
-                    case (GameObjectType)3:
-                        break;
-                    case GameObjectType.Monster:
-                        MapGatewayProcess.怪物对象表.TryAdd(当前对象.ObjectId, (MonsterObject)当前对象);
-                        return;
-                    default:
-                        if (对象类型 != GameObjectType.NPC)
-                        {
-                            return;
-                        }
-                        MapGatewayProcess.守卫对象表.TryAdd(当前对象.ObjectId, (GuardObject)当前对象);
-                        return;
-                }
-            }
-            else
-            {
-                if (对象类型 == GameObjectType.Item)
-                {
-                    MapGatewayProcess.物品对象表.Add(当前对象.ObjectId, (ItemObject)当前对象);
+                case GameObjectType.Player:
+                    Players.Add(obj.ObjectId, (PlayerObject)obj);
                     return;
-                }
-                if (对象类型 == GameObjectType.Trap)
-                {
-                    MapGatewayProcess.陷阱对象表.TryAdd(当前对象.ObjectId, (TrapObject)当前对象);
+                case GameObjectType.Pet:
+                    Pets.Add(obj.ObjectId, (PetObject)obj);
                     return;
-                }
-                else if (对象类型 == GameObjectType.Chest)
-                {
-                    MapGatewayProcess.Chests.TryAdd(当前对象.ObjectId, (ChestObject)当前对象);
+                case GameObjectType.Monster:
+                    Monsters.TryAdd(obj.ObjectId, (MonsterObject)obj);
                     return;
-                }
+                case GameObjectType.NPC:
+                    NPCs.TryAdd(obj.ObjectId, (GuardObject)obj);
+                    return;
+                case GameObjectType.Item:
+                    Items.Add(obj.ObjectId, (ItemObject)obj);
+                    return;
+                case GameObjectType.Trap:
+                    Traps.TryAdd(obj.ObjectId, (TrapObject)obj);
+                    return;
+                case GameObjectType.Chest:
+                    Chests.TryAdd(obj.ObjectId, (ChestObject)obj);
+                    return;
+                default:
+                    throw new NotImplementedException();
             }
         }
 
 
-        public static void RemoveObject(MapObject 当前对象)
+        public static void RemoveObject(MapObject obj)
         {
-            MapGatewayProcess.Objects.Remove(当前对象.ObjectId, out var removed);
-            GameObjectType 对象类型 = 当前对象.ObjectType;
-            if (对象类型 <= GameObjectType.NPC)
+            Objects.Remove(obj.ObjectId, out var removed);
+
+            switch (obj.ObjectType)
             {
-                switch (对象类型)
-                {
-                    case GameObjectType.Player:
-                        MapGatewayProcess.玩家对象表.Remove(当前对象.ObjectId);
-                        return;
-                    case GameObjectType.Pet:
-                        MapGatewayProcess.宠物对象表.Remove(当前对象.ObjectId);
-                        return;
-                    case (GameObjectType)3:
-                        break;
-                    case GameObjectType.Monster:
-                        MapGatewayProcess.怪物对象表.Remove(当前对象.ObjectId, out var monsterRemoved);
-                        return;
-                    default:
-                        if (对象类型 != GameObjectType.NPC)
-                        {
-                            return;
-                        }
-                        MapGatewayProcess.守卫对象表.Remove(当前对象.ObjectId, out var guardRemoved);
-                        return;
-                }
-            }
-            else
-            {
-                if (对象类型 == GameObjectType.Item)
-                {
-                    MapGatewayProcess.物品对象表.Remove(当前对象.ObjectId);
+                case GameObjectType.Player:
+                    Players.Remove(obj.ObjectId);
                     return;
-                }
-                if (对象类型 != GameObjectType.Trap)
-                {
+                case GameObjectType.Pet:
+                    Pets.Remove(obj.ObjectId);
                     return;
-                }
-                MapGatewayProcess.陷阱对象表.Remove(当前对象.ObjectId, out var trapRemoved);
+                case GameObjectType.Monster:
+                    Monsters.Remove(obj.ObjectId, out var monsterRemoved);
+                    return;
+                case GameObjectType.NPC:
+                    NPCs.Remove(obj.ObjectId, out var guardRemoved);
+                    return;
+                case GameObjectType.Item:
+                    Items.Remove(obj.ObjectId);
+                    return;
+                case GameObjectType.Trap:
+                    Traps.Remove(obj.ObjectId, out var trapRemoved);
+                    return;
+                case GameObjectType.Chest:
+                    Chests.Remove(obj.ObjectId, out var chestRemoved);
+                    return;
+                default:
+                    throw new NotImplementedException();
             }
         }
 
 
-        public static void 添加激活对象(MapObject 当前对象)
-        {
-            MapGatewayProcess.添加激活表.Enqueue(当前对象);
-        }
-
-
-        public static void RemoveActiveObject(MapObject 当前对象)
-        {
-            MapGatewayProcess.移除激活表.Enqueue(当前对象);
-        }
-
-
-        public static void AddSecondaryObject(MapObject 当前对象)
-        {
-            MapGatewayProcess.对象备份表.Add(当前对象);
-        }
-
+        public static void ActivateObject(MapObject 当前对象) => ObjectsToActivate.Enqueue(当前对象);
+        public static void DeactivateObject(MapObject 当前对象) => ObjectsToDeactivate.Enqueue(当前对象);
+        public static void AddSecondaryObject(MapObject 当前对象) => BackupObjects.Add(当前对象);
 
         public static MapInstance GetMapInstance(int MapId)
         {
-            MapInstance result;
-            if (MapGatewayProcess.MapInstances.TryGetValue(MapId * 16 + 1, out result))
-            {
+            if (MapInstances.TryGetValue(MapId * 16 + 1, out var result))
                 return result;
-            }
             return null;
         }
 
 
         static MapGatewayProcess()
         {
-
-            MapGatewayProcess.对象编号 = 268435456;
-            MapGatewayProcess.TrapId = 1073741824;
-            MapGatewayProcess.Id = 1342177280;
-            MapGatewayProcess.沙城城门坐标 = new Point(1020, 506);
-            MapGatewayProcess.皇宫下门坐标 = new Point(1079, 557);
-            MapGatewayProcess.皇宫下门出口 = new Point(1078, 556);
-            MapGatewayProcess.皇宫下门入口 = new Point(1265, 773);
-            MapGatewayProcess.皇宫左门坐标 = new Point(1082, 557);
-            MapGatewayProcess.皇宫左门出口 = new Point(1083, 556);
-            MapGatewayProcess.皇宫左门入口 = new Point(1266, 773);
-            MapGatewayProcess.皇宫上门坐标 = new Point(1071, 565);
-            MapGatewayProcess.皇宫上门出口 = new Point(1070, 564);
-            MapGatewayProcess.皇宫上门入口 = new Point(1254, 784);
-            MapGatewayProcess.皇宫出口点一 = new Point(1257, 777);
-            MapGatewayProcess.皇宫出口点二 = new Point(1258, 776);
-            MapGatewayProcess.皇宫正门入口 = new Point(1258, 777);
-            MapGatewayProcess.皇宫正门出口 = new Point(1074, 560);
-            MapGatewayProcess.皇宫入口点左 = new Point(1076, 560);
-            MapGatewayProcess.皇宫入口点中 = new Point(1075, 561);
-            MapGatewayProcess.皇宫入口点右 = new Point(1074, 562);
-            MapGatewayProcess.八卦坛坐标上 = new Point(1059, 591);
-            MapGatewayProcess.八卦坛坐标下 = new Point(1054, 586);
-            MapGatewayProcess.八卦坛坐标左 = new Point(1059, 586);
-            MapGatewayProcess.八卦坛坐标右 = new Point(1054, 591);
-            MapGatewayProcess.八卦坛坐标中 = new Point(1056, 588);
-            MapGatewayProcess.八卦坛激活计时 = DateTime.MaxValue;
-            MapGatewayProcess.攻城行会 = new HashSet<GuildData>();
+            ObjectId = 268435456;
+            TrapId = 1073741824;
+            MapInstanceId = 1342177280;
+            ShachengGateCoords = new Point(1020, 506);
+            皇宫下门坐标 = new Point(1079, 557);
+            皇宫下门出口 = new Point(1078, 556);
+            皇宫下门入口 = new Point(1265, 773);
+            皇宫左门坐标 = new Point(1082, 557);
+            皇宫左门出口 = new Point(1083, 556);
+            皇宫左门入口 = new Point(1266, 773);
+            皇宫上门坐标 = new Point(1071, 565);
+            皇宫上门出口 = new Point(1070, 564);
+            皇宫上门入口 = new Point(1254, 784);
+            皇宫出口点一 = new Point(1257, 777);
+            皇宫出口点二 = new Point(1258, 776);
+            皇宫正门入口 = new Point(1258, 777);
+            皇宫正门出口 = new Point(1074, 560);
+            皇宫入口点左 = new Point(1076, 560);
+            皇宫入口点中 = new Point(1075, 561);
+            皇宫入口点右 = new Point(1074, 562);
+            八卦坛坐标上 = new Point(1059, 591);
+            八卦坛坐标下 = new Point(1054, 586);
+            八卦坛坐标左 = new Point(1059, 586);
+            八卦坛坐标右 = new Point(1054, 591);
+            八卦坛坐标中 = new Point(1056, 588);
+            八卦坛激活计时 = DateTime.MaxValue;
+            攻城行会 = new HashSet<GuildData>();
         }
-
-
-        public static int 对象表计数;
-
-
-        public static List<MapObject> SecondaryObjects;
-
-
-        public static List<MapObject> 对象备份表;
-
-
-        public static Dictionary<int, MapObject> ActiveObjects;
-
-
-        public static ConcurrentDictionary<int, MapObject> Objects;
-
-
-        public static Dictionary<int, PlayerObject> 玩家对象表;
-
-
-        public static Dictionary<int, PetObject> 宠物对象表;
-
-
-        public static ConcurrentDictionary<int, MonsterObject> 怪物对象表;
-
-
-        public static ConcurrentDictionary<int, GuardObject> 守卫对象表;
-
-
-        public static Dictionary<int, ItemObject> 物品对象表;
-
-
-        public static ConcurrentDictionary<int, TrapObject> 陷阱对象表;
-
-        public static ConcurrentDictionary<int, ChestObject> Chests;
-
-
-        public static Dictionary<int, MapInstance> MapInstances;
-
-
-        public static HashSet<MapInstance> 副本实例表;
-
-
-        private static ConcurrentQueue<MapInstance> 副本移除表;
-
-
-        private static ConcurrentQueue<MapObject> 添加激活表;
-
-
-        private static ConcurrentQueue<MapObject> 移除激活表;
-
-
-        public static int 对象编号;
-
-
-        public static int TrapId;
-
-
-        public static int Id;
-
-
-        private static DateTime 沙城处理计时;
-
-
-        public static Point 沙城城门坐标;
-
-
-        public static Point 皇宫下门坐标;
-
-
-        public static Point 皇宫下门出口;
-
-
-        public static Point 皇宫下门入口;
-
-
-        public static Point 皇宫左门坐标;
-
-
-        public static Point 皇宫左门出口;
-
-
-        public static Point 皇宫左门入口;
-
-
-        public static Point 皇宫上门坐标;
-
-
-        public static Point 皇宫上门出口;
-
-
-        public static Point 皇宫上门入口;
-
-
-        public static Point 皇宫出口点一;
-
-
-        public static Point 皇宫出口点二;
-
-
-        public static Point 皇宫正门入口;
-
-
-        public static Point 皇宫正门出口;
-
-
-        public static Point 皇宫入口点左;
-
-
-        public static Point 皇宫入口点中;
-
-
-        public static Point 皇宫入口点右;
-
-
-        public static Point 八卦坛坐标上;
-
-
-        public static Point 八卦坛坐标下;
-
-
-        public static Point 八卦坛坐标左;
-
-
-        public static Point 八卦坛坐标右;
-
-
-        public static Point 八卦坛坐标中;
-
-
-        public static MapInstance 沙城地图;
-
-
-        public static MonsterObject 沙城城门;
-
-
-        public static MonsterObject 下方宫门;
-
-
-        public static MonsterObject 上方宫门;
-
-
-        public static MonsterObject 左方宫门;
-
-
-        public static GuardObject 上方法阵;
-
-
-        public static GuardObject 下方法阵;
-
-
-        public static GuardObject 左方法阵;
-
-
-        public static GuardObject 右方法阵;
-
-
-        public static GuardObject 八卦坛激活法阵;
-
-
-        public static GuildData 八卦坛激活行会;
-
-
-        public static DateTime 八卦坛激活计时;
-
-
-        public static MapAreas 皇宫随机区域;
-
-
-        public static MapAreas 外城复活区域;
-
-
-        public static MapAreas 内城复活区域;
-
-
-        public static MapAreas 守方传送区域;
-
-
-        public static byte SabakStage;
-
-
-        public static DateTime 通知时间;
-
-
-        public static HashSet<GuildData> 攻城行会;
     }
 }

@@ -360,7 +360,7 @@ namespace GameServer.Maps
 
         public MonsterObject(PetObject 对应宠物)
         {
-            this.ObjectId = ++MapGatewayProcess.对象编号;
+            this.ObjectId = ++MapGatewayProcess.ObjectId;
             this.Template = 对应宠物.Template;
             this.CurrentMap = 对应宠物.CurrentMap;
             this.CurrentPosition = 对应宠物.CurrentPosition;
@@ -417,7 +417,7 @@ namespace GameServer.Maps
             this.Blocking = true;
             base.BindGrid();
             base.更新邻居时处理();
-            MapGatewayProcess.添加MapObject(this);
+            MapGatewayProcess.AddObject(this);
         }
 
 
@@ -429,7 +429,7 @@ namespace GameServer.Maps
             this.RevivalInterval = RevivalInterval;
             this.出生范围 = 出生范围;
             this.ResurrectionDisabled = 禁止复活;
-            this.ObjectId = ++MapGatewayProcess.对象编号;
+            this.ObjectId = ++MapGatewayProcess.ObjectId;
             this.StatsBonus[this] = 对应模板.BasicStats;
             string text = this.Template.NormalAttackSkills;
             if (text != null && text.Length > 0)
@@ -466,7 +466,7 @@ namespace GameServer.Maps
             {
                 GameSkills.DataSheet.TryGetValue(this.Template.BirthReleaseSkill, out this.BirthReleaseSkill);
             }
-            MapGatewayProcess.添加MapObject(this);
+            MapGatewayProcess.AddObject(this);
             if (!禁止复活)
             {
                 this.CurrentMap.TotalMobs += 1U;
@@ -824,7 +824,7 @@ namespace GameServer.Maps
             if (ActiveObject)
             {
                 ActiveObject = false;
-                MapGatewayProcess.RemoveActiveObject(this);
+                MapGatewayProcess.DeactivateObject(this);
             }
         }
 
@@ -1021,7 +1021,7 @@ namespace GameServer.Maps
             this.SecondaryObject = true;
             MapGatewayProcess.AddSecondaryObject(this);
             this.ActiveObject = false;
-            MapGatewayProcess.RemoveActiveObject(this);
+            MapGatewayProcess.DeactivateObject(this);
         }
 
 
@@ -1031,7 +1031,7 @@ namespace GameServer.Maps
             {
                 this.ActiveObject = false;
                 this.SkillTasks.Clear();
-                MapGatewayProcess.RemoveActiveObject(this);
+                MapGatewayProcess.DeactivateObject(this);
             }
             if (this.ResurrectionDisabled && !this.SecondaryObject)
             {
@@ -1048,7 +1048,7 @@ namespace GameServer.Maps
             {
                 this.SecondaryObject = false;
                 this.ActiveObject = true;
-                MapGatewayProcess.添加激活对象(this);
+                MapGatewayProcess.ActivateObject(this);
                 int num = (int)Math.Max(0.0, (MainProcess.CurrentTime - base.RecoveryTime).TotalSeconds / 5.0);
                 base.CurrentHP = Math.Min(this[GameObjectStats.MaxHP], this.CurrentHP + num * this[GameObjectStats.体力恢复]);
                 base.RecoveryTime = base.RecoveryTime.AddSeconds(5.0);

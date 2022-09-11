@@ -282,7 +282,7 @@ namespace GameServer.Data
 				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 			});
 			PlayerObject PlayerObject;
-			if (MapGatewayProcess.玩家对象表.TryGetValue(成员.CharId, out PlayerObject))
+			if (MapGatewayProcess.Players.TryGetValue(成员.CharId, out PlayerObject))
 			{
 				PlayerObject.SendPacket(new 同步对象行会
 				{
@@ -318,7 +318,7 @@ namespace GameServer.Data
 				事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 			});
 			PlayerObject PlayerObject;
-			if (MapGatewayProcess.玩家对象表.TryGetValue(成员.CharId, out PlayerObject))
+			if (MapGatewayProcess.Players.TryGetValue(成员.CharId, out PlayerObject))
 			{
 				PlayerObject.SendPacket(new 同步对象行会
 				{
@@ -355,7 +355,7 @@ namespace GameServer.Data
 					事记时间 = ComputingClass.TimeShift(MainProcess.CurrentTime)
 				});
 				PlayerObject PlayerObject;
-				if (MapGatewayProcess.玩家对象表.TryGetValue(成员.CharId, out PlayerObject))
+				if (MapGatewayProcess.Players.TryGetValue(成员.CharId, out PlayerObject))
 				{
 					PlayerObject.SendPacket(new 同步对象行会
 					{

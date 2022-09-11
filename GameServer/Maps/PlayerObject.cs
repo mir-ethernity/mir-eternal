@@ -195,9 +195,9 @@ namespace GameServer.Maps
             this.RefreshStats();
             this.Died = false;
             this.Blocking = true;
-            MapGatewayProcess.添加MapObject(this);
+            MapGatewayProcess.AddObject(this);
             this.ActiveObject = true;
-            MapGatewayProcess.添加激活对象(this);
+            MapGatewayProcess.ActivateObject(this);
             CharacterData.LoginDate.V = MainProcess.CurrentTime;
             CharacterData.OnCharacterConnect(网络连接);
 
@@ -1182,7 +1182,7 @@ namespace GameServer.Maps
                 {
                     ProcessMySkills();
 
-                    foreach (SkillInstance 技能实例 in SkillTasks)
+                    foreach (SkillInstance 技能实例 in SkillTasks.ToArray())
                         技能实例.Process();
 
                     foreach (BuffData buff in Buffs.Values)
@@ -3578,7 +3578,7 @@ namespace GameServer.Maps
         }
 
 
-        public void 玩家角色下线()
+        public void Disconnect()
         {
             PlayerDeals PlayerDeals = this.当前交易;
             if (PlayerDeals != null)
@@ -4432,7 +4432,7 @@ namespace GameServer.Maps
             {
                 return;
             }
-            if (!MapGatewayProcess.守卫对象表.TryGetValue(对象编号, out this.对话守卫))
+            if (!MapGatewayProcess.NPCs.TryGetValue(对象编号, out this.对话守卫))
             {
                 this.ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Start Npcc conversation. Error: No object found."));
                 return;
@@ -6978,7 +6978,7 @@ namespace GameServer.Maps
                                                          select O).ToList<MonsterSpawns>();
                                     MapInstance2.MapObject = new HashSet<MapObject>[MapInstance.MapSize.X, MapInstance.MapSize.Y];
                                     MapInstance MapInstance3 = MapInstance2;
-                                    MapGatewayProcess.副本实例表.Add(MapInstance3);
+                                    MapGatewayProcess.ReplicateInstances.Add(MapInstance3);
                                     MapInstance3.副本守卫 = new GuardObject(Guards.DataSheet[6724], MapInstance3, GameDirection.左下, new Point(1005, 273));
                                     using (IEnumerator<CharacterData> enumerator = this.Team.Members.GetEnumerator())
                                     {
@@ -14620,40 +14620,25 @@ namespace GameServer.Maps
 
         public void 查看对象装备(int 对象编号)
         {
-            MapObject MapObject;
-            if (MapGatewayProcess.Objects.TryGetValue(对象编号, out MapObject))
+            if (MapGatewayProcess.Objects.TryGetValue(对象编号, out var MapObject))
             {
-                PlayerObject PlayerObject = MapObject as PlayerObject;
-                if (PlayerObject != null)
+                if (MapObject is PlayerObject PlayerObject)
                 {
-                    SConnection 网络连接 = this.ActiveConnection;
-                    if (网络连接 != null)
+                    ActiveConnection?.SendPacket(new SyncPlayerEquipPacket
                     {
-                        网络连接.SendPacket(new 同步角色装备
-                        {
-                            对象编号 = PlayerObject.ObjectId,
-                            装备数量 = (byte)PlayerObject.Equipment.Count,
-                            字节描述 = PlayerObject.装备物品描述()
-                        });
-                    }
-                    SConnection 网络连接2 = this.ActiveConnection;
-                    if (网络连接2 == null)
-                    {
-                        return;
-                    }
-                    网络连接2.SendPacket(new SyncMarfaPrivilegesPacket
+                        ObjectId = PlayerObject.ObjectId,
+                        EquipmentItemCount = (byte)PlayerObject.Equipment.Count,
+                        Info = PlayerObject.装备物品描述()
+                    });
+                    ActiveConnection?.SendPacket(new SyncMarfaPrivilegesPacket
                     {
                         玛法特权 = PlayerObject.CurrentPrivileges
                     });
                     return;
                 }
             }
-            SConnection 网络连接3 = this.ActiveConnection;
-            if (网络连接3 == null)
-            {
-                return;
-            }
-            网络连接3.SendPacket(new GameErrorMessagePacket
+
+            ActiveConnection?.SendPacket(new GameErrorMessagePacket
             {
                 错误代码 = 7171
             });
@@ -18703,7 +18688,7 @@ namespace GameServer.Maps
                     int num = this.所属师门.徒弟出师金币(CharacterData);
                     int num2 = this.所属师门.徒弟出师经验(CharacterData);
                     PlayerObject PlayerObject;
-                    if (MapGatewayProcess.玩家对象表.TryGetValue(CharacterData.CharId, out PlayerObject))
+                    if (MapGatewayProcess.Players.TryGetValue(CharacterData.CharId, out PlayerObject))
                     {
                         PlayerObject.NumberGoldCoins += num;
                         PlayerObject.GainExperience(null, num2);
@@ -18773,7 +18758,7 @@ namespace GameServer.Maps
             int num2 = this.所属师门.徒弟提供声望(this.CharacterData);
             int num3 = this.所属师门.徒弟提供金币(this.CharacterData);
             PlayerObject PlayerObject;
-            if (MapGatewayProcess.玩家对象表.TryGetValue(this.所属师门.师父数据.CharId, out PlayerObject))
+            if (MapGatewayProcess.Players.TryGetValue(this.所属师门.师父数据.CharId, out PlayerObject))
             {
                 PlayerObject.NumberGoldCoins += num;
                 PlayerObject.MasterRep += num2;
@@ -18820,7 +18805,7 @@ namespace GameServer.Maps
             int num2 = this.所属师门.徒弟提供声望(this.CharacterData);
             int num3 = this.所属师门.徒弟提供金币(this.CharacterData);
             PlayerObject PlayerObject;
-            if (MapGatewayProcess.玩家对象表.TryGetValue(this.所属师门.师父数据.CharId, out PlayerObject))
+            if (MapGatewayProcess.Players.TryGetValue(this.所属师门.师父数据.CharId, out PlayerObject))
             {
                 PlayerObject.NumberGoldCoins += num;
                 PlayerObject.MasterRep += num2;
@@ -18909,7 +18894,7 @@ namespace GameServer.Maps
                         return;
                     }
                     PlayerObject PlayerObject;
-                    if (!MapGatewayProcess.玩家对象表.TryGetValue(对象编号, out PlayerObject))
+                    if (!MapGatewayProcess.Players.TryGetValue(对象编号, out PlayerObject))
                     {
                         PlayerDeals PlayerDeals3 = this.当前交易;
                         if (PlayerDeals3 != null)
@@ -19065,7 +19050,7 @@ namespace GameServer.Maps
                             return;
                         }
                         PlayerObject PlayerObject;
-                        if (!MapGatewayProcess.玩家对象表.TryGetValue(对象编号, out PlayerObject))
+                        if (!MapGatewayProcess.Players.TryGetValue(对象编号, out PlayerObject))
                         {
                             PlayerDeals PlayerDeals3 = this.当前交易;
                             if (PlayerDeals3 != null)
@@ -19967,7 +19952,7 @@ namespace GameServer.Maps
         public void 玩家打开摊位(int 对象编号)
         {
             PlayerObject PlayerObject;
-            if (!MapGatewayProcess.玩家对象表.TryGetValue(对象编号, out PlayerObject))
+            if (!MapGatewayProcess.Players.TryGetValue(对象编号, out PlayerObject))
             {
                 SConnection 网络连接 = this.ActiveConnection;
                 if (网络连接 == null)
@@ -20014,7 +19999,7 @@ namespace GameServer.Maps
         {
             PlayerObject PlayerObject;
             ItemData ItemData;
-            if (!MapGatewayProcess.玩家对象表.TryGetValue(对象编号, out PlayerObject))
+            if (!MapGatewayProcess.Players.TryGetValue(对象编号, out PlayerObject))
             {
                 SConnection 网络连接 = this.ActiveConnection;
                 if (网络连接 == null)
@@ -20466,7 +20451,6 @@ namespace GameServer.Maps
             {
                 using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
                 {
-                    binaryWriter.Write((ushort)Equipment.Values.Count);
                     foreach (EquipmentData EquipmentData in this.Equipment.Values.ToList<EquipmentData>())
                     {
                         if (EquipmentData != null)

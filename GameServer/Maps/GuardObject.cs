@@ -261,7 +261,7 @@ namespace GameServer.Maps
             this.CurrentMap = 出生地图;
             this.出生方向 = 出生方向;
             this.出生坐标 = 出生坐标;
-            this.ObjectId = ++MapGatewayProcess.对象编号;
+            this.ObjectId = ++MapGatewayProcess.ObjectId;
             Dictionary<object, Dictionary<GameObjectStats, int>> Stat加成 = this.StatsBonus;
             Dictionary<GameObjectStats, int> dictionary = new Dictionary<GameObjectStats, int>();
             dictionary[GameObjectStats.MaxHP] = 9999;
@@ -271,7 +271,7 @@ namespace GameServer.Maps
             {
                 GameSkills.DataSheet.TryGetValue(this.对象模板.BasicAttackSkills, out this.BasicAttackSkills);
             }
-            MapGatewayProcess.添加MapObject(this);
+            MapGatewayProcess.AddObject(this);
             this.守卫复活处理();
         }
 
@@ -350,7 +350,7 @@ namespace GameServer.Maps
             if (this.ActiveObject)
             {
                 this.ActiveObject = false;
-                MapGatewayProcess.RemoveActiveObject(this);
+                MapGatewayProcess.DeactivateObject(this);
             }
         }
 
@@ -361,7 +361,7 @@ namespace GameServer.Maps
             {
                 this.ActiveObject = false;
                 this.SkillTasks.Clear();
-                MapGatewayProcess.RemoveActiveObject(this);
+                MapGatewayProcess.DeactivateObject(this);
             }
         }
 
@@ -371,7 +371,7 @@ namespace GameServer.Maps
             if (!this.ActiveObject)
             {
                 this.ActiveObject = true;
-                MapGatewayProcess.添加激活对象(this);
+                MapGatewayProcess.ActivateObject(this);
                 int num = (int)Math.Max(0.0, (MainProcess.CurrentTime - base.RecoveryTime).TotalSeconds / 5.0);
                 base.CurrentHP = Math.Min(this[GameObjectStats.MaxHP], this.CurrentHP + num * this[GameObjectStats.体力恢复]);
                 base.RecoveryTime = base.RecoveryTime.AddSeconds(5.0);

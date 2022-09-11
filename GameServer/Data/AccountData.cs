@@ -109,7 +109,7 @@ namespace GameServer.Data
         }
 
 
-        public void 账号下线()
+        public void Disconnect()
         {
             this.网络连接.Account = null;
             this.网络连接 = null;
@@ -130,7 +130,7 @@ namespace GameServer.Data
                 列表描述 = this.角色列表描述()
             });
             当前网络.Account = this;
-            当前网络.当前阶段 = GameStage.SelectingCharacterScene;
+            当前网络.CurrentStage = GameStage.SelectingCharacterScene;
             this.网络连接 = 当前网络;
             this.网络连接.MacAddress = MacAddress;
             NetworkServiceGateway.ActiveConnections += 1U;
@@ -379,7 +379,7 @@ namespace GameServer.Data
                     });
 
                     conn.Player = new PlayerObject(CharacterData, conn);
-                    conn.当前阶段 = GameStage.LoadingScene;
+                    conn.CurrentStage = GameStage.LoadingScene;
                     return;
                 }
             }
@@ -401,7 +401,7 @@ namespace GameServer.Data
             {
                 对象编号 = 当前网络.Player.ObjectId
             });
-            当前网络.Player.玩家角色下线();
+            当前网络.Player.Disconnect();
             当前网络.SendPacket(new BackCharacterListPacket
             {
                 列表描述 = this.角色列表描述()

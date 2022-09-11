@@ -189,12 +189,12 @@ namespace GameServer.Maps
 			}
 			this.ActivelyTriggerSkills = ((this.陷阱模板.ActivelyTriggerSkills == null || !GameSkills.DataSheet.ContainsKey(this.陷阱模板.ActivelyTriggerSkills)) ? null : GameSkills.DataSheet[this.陷阱模板.ActivelyTriggerSkills]);
 			this.PassiveTriggerSkill = ((this.陷阱模板.PassiveTriggerSkill == null || !GameSkills.DataSheet.ContainsKey(this.陷阱模板.PassiveTriggerSkill)) ? null : GameSkills.DataSheet[this.陷阱模板.PassiveTriggerSkill]);
-			this.ObjectId = ++MapGatewayProcess.Id;
+			this.ObjectId = ++MapGatewayProcess.MapInstanceId;
 			base.BindGrid();
 			base.更新邻居时处理();
-			MapGatewayProcess.添加MapObject(this);
+			MapGatewayProcess.AddObject(this);
 			this.ActiveObject = true;
-			MapGatewayProcess.添加激活对象(this);
+			MapGatewayProcess.ActivateObject(this);
 		}
 
 		

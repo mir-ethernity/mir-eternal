@@ -218,7 +218,7 @@ namespace GameServer.Maps
             SecondaryObject = false;
             MapGatewayProcess.RemoveObject(this);
             ActiveObject = false;
-            MapGatewayProcess.RemoveActiveObject(this);
+            MapGatewayProcess.DeactivateObject(this);
         }
 
         public int GetDistance(Point location) => ComputingClass.GridDistance(this.CurrentPosition, location);
