@@ -203,10 +203,10 @@ namespace GameServer.Maps
                         this.CurrentPosition = CurrentPosition;
                         this.消失时间 = MainProcess.CurrentTime.AddMinutes((double)Config.ItemCleaningTime);
                         this.归属时间 = MainProcess.CurrentTime.AddMinutes((double)Config.ItemOwnershipTime);
-                        this.ObjectId = ++MapGatewayProcess.Id;
+                        this.ObjectId = ++MapGatewayProcess.MapInstanceId;
                         base.BindGrid();
                         base.更新邻居时处理();
-                        MapGatewayProcess.添加MapObject(this);
+                        MapGatewayProcess.AddObject(this);
                         this.SecondaryObject = true;
                         MapGatewayProcess.AddSecondaryObject(this);
                         return;

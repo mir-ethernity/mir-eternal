@@ -32,8 +32,8 @@ namespace GameServer.Maps
             this.CurrentMap = map;
             this.CurrentDirection = direction;
             this.CurrentPosition = position;
-            this.ObjectId = ++MapGatewayProcess.对象编号;
-            MapGatewayProcess.添加MapObject(this);
+            this.ObjectId = ++MapGatewayProcess.ObjectId;
+            MapGatewayProcess.AddObject(this);
             RefreshStats();
             SecondaryObject = false;
             Died = false;
@@ -47,7 +47,7 @@ namespace GameServer.Maps
             if (!this.ActiveObject)
             {
                 this.ActiveObject = true;
-                MapGatewayProcess.添加激活对象(this);
+                MapGatewayProcess.ActivateObject(this);
             }
         }
 

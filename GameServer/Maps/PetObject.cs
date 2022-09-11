@@ -455,10 +455,10 @@ namespace GameServer.Maps
 			{
 				GameSkills.DataSheet.TryGetValue(this.Template.BirthReleaseSkill, out this.BirthReleaseSkill);
 			}
-			this.ObjectId = ++MapGatewayProcess.对象编号;
-			MapGatewayProcess.添加MapObject(this);
+			this.ObjectId = ++MapGatewayProcess.ObjectId;
+			MapGatewayProcess.AddObject(this);
 			this.ActiveObject = true;
-			MapGatewayProcess.添加激活对象(this);
+			MapGatewayProcess.ActivateObject(this);
 			this.Blocking = true;
 			this.宠物召回处理();
 		}
@@ -474,7 +474,7 @@ namespace GameServer.Maps
 			this.CurrentPosition = 宠物主人.CurrentPosition;
 			this.CurrentMap = 宠物主人.CurrentMap;
 			this.CurrentDirection = ComputingClass.随机方向();
-			this.ObjectId = ++MapGatewayProcess.对象编号;
+			this.ObjectId = ++MapGatewayProcess.ObjectId;
 			this.StatsBonus[this] = this.基础Stat;
 			this.StatsBonus[宠物主人.CharacterData] = new Dictionary<GameObjectStats, int>();
 			if (this.Template.InheritsStats != null)
@@ -525,9 +525,9 @@ namespace GameServer.Maps
 			{
 				GameSkills.DataSheet.TryGetValue(this.Template.BirthReleaseSkill, out this.BirthReleaseSkill);
 			}
-			MapGatewayProcess.添加MapObject(this);
+			MapGatewayProcess.AddObject(this);
 			this.ActiveObject = true;
-			MapGatewayProcess.添加激活对象(this);
+			MapGatewayProcess.ActivateObject(this);
 			this.Blocking = true;
 			this.宠物召回处理();
 		}
@@ -587,12 +587,12 @@ namespace GameServer.Maps
 				GameSkills.DataSheet.TryGetValue(this.Template.BirthReleaseSkill, out this.BirthReleaseSkill);
 			}
 			诱惑怪物.怪物诱惑处理();
-			this.ObjectId = ++MapGatewayProcess.对象编号;
+			this.ObjectId = ++MapGatewayProcess.ObjectId;
 			this.Blocking = true;
 			base.BindGrid();
-			MapGatewayProcess.添加MapObject(this);
+			MapGatewayProcess.AddObject(this);
 			this.ActiveObject = true;
-			MapGatewayProcess.添加激活对象(this);
+			MapGatewayProcess.ActivateObject(this);
 			base.更新邻居时处理();
 		}
 
@@ -653,10 +653,10 @@ namespace GameServer.Maps
 			诱惑宠物.Dies(null, false);
 			this.Blocking = true;
 			base.BindGrid();
-			this.ObjectId = ++MapGatewayProcess.对象编号;
-			MapGatewayProcess.添加MapObject(this);
+			this.ObjectId = ++MapGatewayProcess.ObjectId;
+			MapGatewayProcess.AddObject(this);
 			this.ActiveObject = true;
-			MapGatewayProcess.添加激活对象(this);
+			MapGatewayProcess.ActivateObject(this);
 			base.更新邻居时处理();
 		}
 
@@ -781,7 +781,7 @@ namespace GameServer.Maps
 			this.SecondaryObject = true;
 			MapGatewayProcess.AddSecondaryObject(this);
 			this.ActiveObject = false;
-			MapGatewayProcess.RemoveActiveObject(this);
+			MapGatewayProcess.DeactivateObject(this);
 		}
 
 		
