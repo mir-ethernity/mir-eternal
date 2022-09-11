@@ -1496,11 +1496,14 @@ string ConvertObjetType(string chinese)
         switch (value)
         {
             case "玩家":
-                return "Player";
+                output.Add("Player");
+                break;
             case "怪物":
-                return "Monster";
+                output.Add("Monster");
+                break;
             case "宠物":
-                return "Pet";
+                output.Add("Pet");
+                break;
             default:
                 throw new ApplicationException();
         }
