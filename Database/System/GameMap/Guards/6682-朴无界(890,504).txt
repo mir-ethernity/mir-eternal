@@ -1,4 +1,4 @@
-﻿{
+{
   "GuardNumber": 6682,
   "FromMapId": 142,  
   "FromMapName": "边界村",  
