@@ -1,0 +1,8 @@
+﻿{
+  "GuardNumber": 6661,
+  "FromMapId": 142,  
+  "FromMapName": "边界村",  
+  "FromCoords": "918, 422",
+  "Direction": "右下",
+  "RegionName": "边界村-玲月(918,422)"  
+}

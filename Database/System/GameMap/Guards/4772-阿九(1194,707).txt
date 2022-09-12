@@ -1,0 +1,8 @@
+﻿{
+  "GuardNumber": 4772,
+  "FromMapId": 143,  
+  "FromMapName": "比奇省",  
+  "FromCoords": "1194, 707",
+  "Direction": "左下",
+  "RegionName": "比奇省-阿九(1194,707)"  
+}

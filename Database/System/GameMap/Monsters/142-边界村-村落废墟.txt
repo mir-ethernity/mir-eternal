@@ -1,0 +1,17 @@
+{
+  "FromMapId": 142,
+  "FromMapName": "边界村",
+  "FromCoords": "1017, 316",
+  "RegionName": "边界村-村落废墟",
+  "AreaRadius": 107,
+  "Spawns": [
+    {
+      "MonsterName": "魔化半兽人",
+      "SpawnCount": 1,
+      "RevivalInterval": 1
+    }
+  ],
+  "RangeCoords": [
+"1255,628"
+  ]
+}

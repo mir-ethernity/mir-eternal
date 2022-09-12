@@ -1,0 +1,6 @@
+{
+  "Name": "цинД",
+  "GuardNumber": 6760,
+  "Level": 99,
+  "RangeHate": 8
+}

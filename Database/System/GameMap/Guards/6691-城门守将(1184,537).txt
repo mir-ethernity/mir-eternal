@@ -1,0 +1,8 @@
+﻿{
+  "GuardNumber": 6691,
+  "FromMapId": 143,  
+  "FromMapName": "比奇省",  
+  "FromCoords": "1184, 537",
+  "Direction": "左下",
+  "RegionName": "比奇省-城门守将(1184,537)"  
+}

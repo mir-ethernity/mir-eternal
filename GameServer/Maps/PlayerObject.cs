@@ -399,7 +399,7 @@ namespace GameServer.Maps
                 AttackMode = (byte)this.AttackMode,
                 CurrentTime = ComputingClass.TimeShift(MainProcess.CurrentTime),
                 MaxLevel = (ushort)Config.MaxLevel,
-                EquipRepairDto = (ushort)(Config.EquipRepairDto * 10000m)
+                EquipRepairDto = (ushort)(Config.EquipRepairDto * 10000m),
             });
 
 
@@ -876,7 +876,6 @@ namespace GameServer.Maps
                     ActiveConnection?.SendPacket(new QuestRewardCompletedPacket
                     {
                         QuestId = questId,
-                        CompletedTime = ComputingClass.DateShift(DateTime.Now.AddDays(-2))
                     });
                     break;
             }
@@ -884,7 +883,6 @@ namespace GameServer.Maps
             ActiveConnection?.SendPacket(new QuestRewardCompletedPacket
             {
                 QuestId = questId,
-                CompletedTime = 19224
             });
         }
 
@@ -1130,7 +1128,8 @@ namespace GameServer.Maps
                         this.战具损失持久(num4);
                     }
                     this.战具计时 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
-                }else if (EquipmentData.Id == 99999102)
+                }
+                else if (EquipmentData.Id == 99999102)
                 {
                     int num3 = Math.Min(15, Math.Min(EquipmentData.当前持久.V, this[GameObjectStats.MaxMP] - this.CurrentMP));
                     if (num3 > 0)
@@ -1141,23 +1140,23 @@ namespace GameServer.Maps
                     this.战具计时 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
                 }
 
-                    if (EquipmentData.Id != 99999103)
+                if (EquipmentData.Id != 99999103)
+                {
+                    if (EquipmentData.Id == 99999110 || EquipmentData.Id == 99999111)
                     {
-                        if (EquipmentData.Id == 99999110 || EquipmentData.Id == 99999111)
+                        int num2 = Math.Min(10, Math.Min(EquipmentData.当前持久.V, this[GameObjectStats.MaxHP] - this.CurrentHP));
+                        if (num2 > 0)
                         {
-                            int num2 = Math.Min(10, Math.Min(EquipmentData.当前持久.V, this[GameObjectStats.MaxHP] - this.CurrentHP));
-                            if (num2 > 0)
-                            {
-                                this.CurrentHP += num2;
-                                this.CurrentMP += num2;
-                                this.战具损失持久(num2);
-                            }
-                            this.战具计时 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
-                            return;
+                            this.CurrentHP += num2;
+                            this.CurrentMP += num2;
+                            this.战具损失持久(num2);
                         }
+                        this.战具计时 = MainProcess.CurrentTime.AddMilliseconds(1000.0);
                         return;
                     }
-                
+                    return;
+                }
+
                 return;
 
 
@@ -4445,25 +4444,6 @@ namespace GameServer.Maps
             if (base.GetDistance(this.对话守卫) > 12)
             {
                 this.ActiveConnection.CallExceptionEventHandler(new Exception("Wrong action: Start Npcc conversation. Error: Long distance conversation."));
-                return;
-            }
-
-
-            // TODO: Progress QUEST
-            if (this.对话守卫.MobId == 6683 || 对话守卫.MobId == 6684)
-            {
-                // u222 (Server)
-                //ActiveConnection?.SendRaw(
-                //    222,
-                //    10,
-                //    new byte[] { 5, 0, 0, 0, 3, 0, 0, 0 }
-                //);
-
-                ActiveConnection?.SendPacket(new 同步交互结果
-                {
-                    对象编号 = this.对话守卫.ObjectId,
-                    交互文本 = new byte[] { 60, 35, 68, 102, 116, 62, 0 }
-                });
                 return;
             }
 

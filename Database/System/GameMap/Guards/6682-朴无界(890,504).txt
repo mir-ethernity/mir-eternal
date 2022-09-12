@@ -1,0 +1,8 @@
+﻿{
+  "GuardNumber": 6682,
+  "FromMapId": 142,  
+  "FromMapName": "边界村",  
+  "FromCoords": "890, 504",
+  "Direction": "左下",
+  "RegionName": "边界村-朴无界(890,504)"  
+}

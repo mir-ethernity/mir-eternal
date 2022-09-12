@@ -1,0 +1,6 @@
+{
+  "Name": "±»∆Ê–≈ π",
+  "GuardNumber": 6687,
+  "Level": 99,
+  "RangeHate": 8
+}

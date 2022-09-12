@@ -1,0 +1,8 @@
+{
+  "Name": "朴无界",
+  "GuardNumber": 6682,
+  "Level": 99,
+  "RangeHate": 8,
+  "StoreId": 5000,
+  "InterfaceCode": "Shop"  
+}
