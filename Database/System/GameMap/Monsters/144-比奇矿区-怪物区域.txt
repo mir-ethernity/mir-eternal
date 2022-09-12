@@ -5,6 +5,66 @@
   "RegionName": "比奇矿区-怪物区域",
   "AreaRadius": 224,
   "Spawns": [
+	{
+      "MonsterName": "堕落僵尸 二狗子",
+      "SpawnCount": 2,
+      "RevivalInterval": 60
+    },
+	{
+      "MonsterName": "堕落僵尸 铁战",
+      "SpawnCount": 2,
+      "RevivalInterval": 60
+    },
+	{
+      "MonsterName": "堕落僵尸 一支梅",
+      "SpawnCount": 2,
+      "RevivalInterval": 60
+    },
+	{
+      "MonsterName": "僵尸护卫 杜杀",
+      "SpawnCount": 2,
+      "RevivalInterval": 60
+    },
+	{
+      "MonsterName": "僵尸护卫 黑鹰",
+      "SpawnCount": 2,
+      "RevivalInterval": 60
+    },
+	{
+      "MonsterName": "僵尸护卫 黑子",
+      "SpawnCount": 2,
+      "RevivalInterval": 60
+    },
+	{
+      "MonsterName": "僵尸强盗 黑山",
+      "SpawnCount": 2,
+      "RevivalInterval": 60
+    },
+	{
+      "MonsterName": "僵尸强盗 金豹",
+      "SpawnCount": 2,
+      "RevivalInterval": 60
+    },
+	{
+      "MonsterName": "僵尸强盗 杜冷",
+      "SpawnCount": 2,
+      "RevivalInterval": 60
+    },
+	{
+      "MonsterName": "和尚僵尸 玄空",
+      "SpawnCount": 2,
+      "RevivalInterval": 60
+    },
+	{
+      "MonsterName": "和尚僵尸 玄绝",
+      "SpawnCount": 2,
+      "RevivalInterval": 60
+    },
+	{
+      "MonsterName": "和尚僵尸 玄相",
+      "SpawnCount": 2,
+      "RevivalInterval": 60
+    },
     {
       "MonsterName": "爬行僵尸",
       "SpawnCount": 100,

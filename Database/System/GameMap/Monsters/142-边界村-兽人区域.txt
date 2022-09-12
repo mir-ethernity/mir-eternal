@@ -6,6 +6,26 @@
   "AreaRadius": 228,
   "Spawns": [
     {
+      "MonsterName": "半兽人 刀疤",
+      "SpawnCount": 5,
+      "RevivalInterval": 30
+    },
+    {
+      "MonsterName": "半兽人 红魔",
+      "SpawnCount": 5,
+      "RevivalInterval": 30
+    },
+    {
+      "MonsterName": "半兽人 掠骨手",
+      "SpawnCount": 5,
+      "RevivalInterval": 30
+    },
+    {
+      "MonsterName": "半兽人 保镖",
+      "SpawnCount": 5,
+      "RevivalInterval": 30
+    },
+    {
       "MonsterName": "半兽人",
       "SpawnCount": 200,
       "RevivalInterval": 1
