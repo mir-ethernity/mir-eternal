@@ -1,0 +1,15 @@
+{
+    "Name": "修罗·无双",
+    "Id": 135,
+    "Combat": 100,
+    "EffectiveTime": 1296000,
+    "Attributes": {
+        "MaxDC": 3,
+        "MaxMC": 3,
+        "MaxSC": 3,
+        "MaxNC": 3,
+        "MaxBC": 3,
+        "MaxDef": 3,
+        "MaxMCDef": 3
+    }
+}

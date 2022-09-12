@@ -1,0 +1,14 @@
+{
+    "Name": "死亡领主",
+    "Id": 100,
+    "Combat": 40,
+    "EffectiveTime": 86400,
+    "Attributes": {
+        "MaxDC": 1,
+        "MaxMC": 1,
+        "MaxSC": 1,
+        "MaxNC": 1,
+        "MaxBC": 1,
+        "MaxDef": 1
+    }
+}

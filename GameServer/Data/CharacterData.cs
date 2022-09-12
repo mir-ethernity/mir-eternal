@@ -339,7 +339,7 @@ namespace GameServer.Data
                 switch (currencyType)
                 {
                     case GameCurrency.Gold:
-                        Currencies[(GameCurrency)i] = 1000;
+                        Currencies[(GameCurrency)i] = 0;
                         break;
                     default:
                         Currencies[(GameCurrency)i] = 0;

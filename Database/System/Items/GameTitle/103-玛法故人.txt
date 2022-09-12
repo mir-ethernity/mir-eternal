@@ -1,0 +1,10 @@
+{
+    "Name": "玛法故人",
+    "Id": 103,
+    "Combat": 30,
+    "EffectiveTime": 0,
+    "Attributes": {
+        "MaxDef": 1,
+        "MaxMCDef": 1
+    }
+}

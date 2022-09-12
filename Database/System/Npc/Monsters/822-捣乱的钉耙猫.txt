@@ -1,7 +1,7 @@
 ﻿{
   "MonsterName": "捣乱的钉耙猫",
   "Id": 822,
-  "Level": 13,
+  "Level": 6,
   "Race": "Undead",
   "Category": "Normal",
   "CanBeDrivenBySkills": true,
@@ -79,150 +79,150 @@
   "Drops": [
     {
       "Name": "布衣(男)",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 85,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "布衣(女)",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 85,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "传统项链",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 75,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金项链",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 100,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "古铜戒指",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 85,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "玻璃戒指",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 85,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "六角戒指",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 85,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "牛角戒指",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 85,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "小手镯",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 150,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "柴刀",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 100,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "木剑",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 100,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "木弓",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 100,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "木枪",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 100,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "匕首",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 150,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "铁柴刀",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 200,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "青铜剑",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 250,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "乌木剑",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 500,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "青铜头盔",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 250,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金币",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 2,
       "MinAmount": 100,
       "MaxAmount": 200
     },
     {
       "Name": "金创药(小量)",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 6,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "魔法药(小量)",
-      "MonsterName": "捣乱的钉耙猫",
+      "MonsterName": "钉耙猫",
       "Probability": 8,
       "MinAmount": 1,
       "MaxAmount": 1
-    }	
+    }
   ]
 }

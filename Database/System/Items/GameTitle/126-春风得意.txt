@@ -1,0 +1,13 @@
+{
+    "Name": "春风得意",
+    "Id": 126,
+    "Combat": 30,
+    "EffectiveTime": 1296000,
+    "Attributes": {
+        "MaxDC": 1,
+        "MaxMC": 1,
+        "MaxSC": 1,
+        "MaxNC": 1,
+        "MaxBC": 1
+    }
+}

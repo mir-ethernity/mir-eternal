@@ -5,3 +5,4 @@ obj/
 *.pubxml.user
 packages/
 Database/User
+Mir3DEditor/Mir3DCrypto/Properties/PublishProfiles/FolderProfile.pubxml
