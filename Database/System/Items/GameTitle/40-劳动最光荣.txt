@@ -1,0 +1,14 @@
+{
+    "Name": "劳动最光荣",
+    "Id": 56,
+    "Combat": 40,
+    "EffectiveTime": 1296000,
+    "Attributes": {
+        "MaxDC": 1,
+        "MaxMC": 1,
+        "MaxSC": 1,
+        "MaxNC": 1,
+        "MaxBC": 1,
+        "MaxHP": 5
+    }
+}

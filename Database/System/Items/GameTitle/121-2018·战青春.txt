@@ -1,0 +1,13 @@
+{
+    "Name": "2018·战青春",
+    "Id": 121,
+    "Combat": 60,
+    "EffectiveTime": 2592000,
+    "Attributes": {
+        "MaxDC": 2,
+        "MaxMC": 2,
+        "MaxSC": 2,
+        "MaxNC": 2,
+        "MaxBC": 2
+    }
+}

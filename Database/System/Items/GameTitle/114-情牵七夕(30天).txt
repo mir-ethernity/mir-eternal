@@ -1,0 +1,15 @@
+{
+    "Name": "情牵七夕(30天)",
+    "Id": 114,
+    "Combat": 70,
+    "EffectiveTime": 2592000,
+    "Attributes": {
+        "MaxDC": 2,
+        "MaxMC": 2,
+        "MaxSC": 2,
+        "MaxNC": 2,
+        "MaxBC": 2,
+        "MaxDef": 2,
+        "MaxMCDef": 2
+    }
+}

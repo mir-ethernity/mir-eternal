@@ -1,0 +1,15 @@
+{
+    "Name": "周年庆",
+    "Id": 112,
+    "Combat": 70,
+    "EffectiveTime": 604800,
+    "Attributes": {
+        "MaxDC": 2,
+        "MaxMC": 2,
+        "MaxSC": 2,
+        "MaxNC": 2,
+        "MaxBC": 2,
+        "MaxDef": 2,
+        "MaxMCDef": 2
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "Name": "祖玛领主",
+    "Id": 102,
+    "Combat": 50,
+    "EffectiveTime": 86400,
+    "Attributes": {
+        "MaxDC": 1,
+        "MaxMC": 1,
+        "MaxSC": 1,
+        "MaxNC": 1,
+        "MaxBC": 1,
+        "MaxDef": 2
+    }
+}

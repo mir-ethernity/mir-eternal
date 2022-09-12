@@ -1,0 +1,16 @@
+{
+    "Name": "龙卫传人",
+    "Id": 136,
+    "Combat": 75,
+    "EffectiveTime": 2592000,
+    "Attributes": {
+        "MaxDC": 2,
+        "MaxMC": 2,
+        "MaxSC": 2,
+        "MaxNC": 2,
+        "MaxBC": 2,
+        "MaxDef": 2,
+        "MaxMCDef": 2,
+        "MaxHP": 10
+    }
+}

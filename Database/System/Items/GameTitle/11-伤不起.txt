@@ -1,0 +1,9 @@
+{
+    "Name": "伤不起",
+    "Id": 11,
+    "Combat": 20,
+    "EffectiveTime": 0,
+    "Attributes": {
+        "PhysicalAgility": 1
+    }
+}
