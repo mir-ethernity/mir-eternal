@@ -1,6 +1,0 @@
-{
-  "GuardNumber": 6684,
-  "FromMapId": 142,
-  "FromCoords": "901, 461",
-  "Direction": "右下",
-}
