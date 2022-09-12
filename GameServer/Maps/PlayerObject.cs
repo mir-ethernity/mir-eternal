@@ -14309,210 +14309,102 @@ namespace GameServer.Maps
 
         public void 请求对象外观(int obectId, int statusId)
         {
-            MapObject MapObject;
-            if (!MapGatewayProcess.Objects.TryGetValue(obectId, out MapObject))
+            if (!MapGatewayProcess.Objects.TryGetValue(obectId, out var obj))
             {
-                SConnection 网络连接 = this.ActiveConnection;
-                if (网络连接 == null)
-                {
-                    return;
-                }
-                网络连接.SendPacket(new 社交错误提示
+                ActiveConnection?.SendPacket(new 社交错误提示
                 {
                     错误编号 = 6732
                 });
-                return;
             }
             else
             {
-                PlayerObject PlayerObject = MapObject as PlayerObject;
-                if (PlayerObject != null)
+                if (obj is PlayerObject playerObj)
                 {
-                    SConnection 网络连接2 = this.ActiveConnection;
-                    if (网络连接2 == null)
+                    ActiveConnection?.SendPacket(new SyncPlayerAppearancePacket
                     {
-                        return;
-                    }
-                    SyncPlayerAppearancePacket SyncPlayerAppearancePacket = new SyncPlayerAppearancePacket();
-                    SyncPlayerAppearancePacket.ObjectId = PlayerObject.ObjectId;
-                    SyncPlayerAppearancePacket.PKLevel = PlayerObject.PK值惩罚;
-                    SyncPlayerAppearancePacket.Race = (byte)PlayerObject.CharRole;
-                    SyncPlayerAppearancePacket.Gender = (byte)PlayerObject.CharGender;
-                    SyncPlayerAppearancePacket.HairType = (byte)PlayerObject.角色发型;
-                    SyncPlayerAppearancePacket.HairColor = (byte)PlayerObject.角色发色;
-                    SyncPlayerAppearancePacket.Face = (byte)PlayerObject.角色脸型;
-                    SyncPlayerAppearancePacket.StallStatus = PlayerObject.ParalysisState;
-                    SyncPlayerAppearancePacket.BoothName = PlayerObject.摊位名字;
-                    EquipmentData EquipmentData;
-                    SyncPlayerAppearancePacket.WeaponType = ((byte)(PlayerObject.Equipment.TryGetValue(0, out EquipmentData) ? ((EquipmentData != null) ? EquipmentData.升级次数.V : 0) : 0));
-                    SyncPlayerAppearancePacket.WeaponBody = ((EquipmentData != null) ? EquipmentData.对应模板.V.Id : 0);
-                    EquipmentData EquipmentData2;
-                    int 身上衣服;
-                    if (!PlayerObject.Equipment.TryGetValue(1, out EquipmentData2))
-                    {
-                        身上衣服 = 0;
-                    }
-                    else
-                    {
-                        int? num;
-                        if (EquipmentData2 == null)
-                        {
-                            num = null;
-                        }
-                        else
-                        {
-                            DataMonitor<GameItems> 对应模板 = EquipmentData2.对应模板;
-                            if (对应模板 == null)
-                            {
-                                num = null;
-                            }
-                            else
-                            {
-                                GameItems v = 对应模板.V;
-                                num = ((v != null) ? new int?(v.Id) : null);
-                            }
-                        }
-                        int? num2 = num;
-                        身上衣服 = num2.GetValueOrDefault();
-                    }
-                    SyncPlayerAppearancePacket.Clothes = 身上衣服;
-                    EquipmentData EquipmentData3;
-                    int 身上披风;
-                    if (!PlayerObject.Equipment.TryGetValue(2, out EquipmentData3))
-                    {
-                        身上披风 = 0;
-                    }
-                    else
-                    {
-                        int? num3;
-                        if (EquipmentData3 == null)
-                        {
-                            num3 = null;
-                        }
-                        else
-                        {
-                            DataMonitor<GameItems> 对应模板2 = EquipmentData3.对应模板;
-                            if (对应模板2 == null)
-                            {
-                                num3 = null;
-                            }
-                            else
-                            {
-                                GameItems v2 = 对应模板2.V;
-                                num3 = ((v2 != null) ? new int?(v2.Id) : null);
-                            }
-                        }
-                        int? num2 = num3;
-                        身上披风 = num2.GetValueOrDefault();
-                    }
-                    SyncPlayerAppearancePacket.Cloak = 身上披风;
-                    SyncPlayerAppearancePacket.CurrentHP = PlayerObject[GameObjectStats.MaxHP];
-                    SyncPlayerAppearancePacket.CurrentMP = PlayerObject[GameObjectStats.MaxMP];
-                    SyncPlayerAppearancePacket.Name = PlayerObject.ObjectName;
-                    GuildData 所属行会 = PlayerObject.Guild;
-                    SyncPlayerAppearancePacket.GuildId = ((所属行会 != null) ? 所属行会.Index.V : 0);
+                        ObjectId = playerObj.ObjectId,
+                        PKLevel = playerObj.PK值惩罚,
+                        Race = (byte)playerObj.CharRole,
+                        Gender = (byte)playerObj.CharGender,
+                        HairType = (byte)playerObj.角色发型,
+                        HairColor = (byte)playerObj.角色发色,
+                        Face = (byte)playerObj.角色脸型,
+                        StallStatus = playerObj.ParalysisState,
+                        BoothName = playerObj.摊位名字,
+                        WeaponType = playerObj.Equipment.TryGetValue(0, out var EquipmentData) ? EquipmentData.升级次数?.V ?? 0 : (byte)0,
+                        WeaponBody = EquipmentData.对应模板?.V.Id ?? 0,
+                        Clothes = playerObj.Equipment.TryGetValue(1, out var EquipmentData2) ? EquipmentData2.对应模板?.V?.Id ?? 0 : 0,
+                        Cloak = playerObj.Equipment.TryGetValue(2, out var EquipmentData3) ? EquipmentData3.对应模板?.V?.Id ?? 0 : 0,
+                        CurrentHP = playerObj[GameObjectStats.MaxHP],
+                        CurrentMP = playerObj[GameObjectStats.MaxMP],
+                        Name = playerObj.ObjectName,
+                        GuildId = playerObj.Guild?.Index.V ?? 0,
 
-                    网络连接2.SendPacket(SyncPlayerAppearancePacket);
-                    return;
-                }
-                else
-                {
-                    MonsterObject MonsterObject = MapObject as MonsterObject;
-                    if (MonsterObject != null)
+                    });
+
+                    if (playerObj.Riding)
                     {
-                        if (MonsterObject.出生地图 == null)
+                        ActiveConnection.SendPacket(new SyncObjectMountPacket
                         {
-                            SConnection 网络连接3 = this.ActiveConnection;
-                            if (网络连接3 == null)
-                            {
-                                return;
-                            }
-                            网络连接3.SendPacket(new SyncExtendedDataPacket
-                            {
-                                对象类型 = 1,
-                                主人编号 = 0,
-                                主人名字 = "",
-                                对象等级 = MonsterObject.CurrentLevel,
-                                对象编号 = MonsterObject.ObjectId,
-                                MobId = MonsterObject.MonsterId,
-                                CurrentRank = MonsterObject.宠物等级,
-                                对象质量 = (byte)MonsterObject.Category,
-                                MaxHP = MonsterObject[GameObjectStats.MaxHP]
-                            });
-                            return;
-                        }
-                        else
+                            ObjectId = ObjectId,
+                            MountId = (byte)playerObj.CharacterData.CurrentMount.V
+                        });
+                    }
+                }
+                else if (obj is MonsterObject monsterObj)
+                {
+                    if (monsterObj.出生地图 == null)
+                    {
+                        ActiveConnection?.SendPacket(new SyncExtendedDataPacket
                         {
-                            SConnection 网络连接4 = this.ActiveConnection;
-                            if (网络连接4 == null)
-                            {
-                                return;
-                            }
-                            SyncNPCData 同步Npcc数据 = new SyncNPCData();
-                            同步Npcc数据.ObjectId = MonsterObject.ObjectId;
-                            同步Npcc数据.ObjectClass = MonsterObject.CurrentLevel;
-                            同步Npcc数据.ObjectMass = (byte)MonsterObject.Category;
-                            Monsters 对象模板 = MonsterObject.Template;
-                            同步Npcc数据.ObjectTemplate = ((ushort)((对象模板 != null) ? 对象模板.Id : 0));
-                            同步Npcc数据.MaxHP = MonsterObject[GameObjectStats.MaxHP];
-                            网络连接4.SendPacket(同步Npcc数据);
-                            return;
-                        }
+                            对象类型 = 1,
+                            主人编号 = 0,
+                            主人名字 = "",
+                            对象等级 = monsterObj.CurrentLevel,
+                            对象编号 = monsterObj.ObjectId,
+                            MobId = monsterObj.MonsterId,
+                            CurrentRank = monsterObj.宠物等级,
+                            对象质量 = (byte)monsterObj.Category,
+                            MaxHP = monsterObj[GameObjectStats.MaxHP]
+                        });
                     }
                     else
                     {
-                        PetObject PetObject = MapObject as PetObject;
-                        if (PetObject == null)
+                        ActiveConnection?.SendPacket(new SyncNPCData
                         {
-                            GuardObject GuardInstance = MapObject as GuardObject;
-                            if (GuardInstance != null)
-                            {
-                                SConnection 网络连接5 = this.ActiveConnection;
-                                if (网络连接5 == null)
-                                {
-                                    return;
-                                }
-                                SyncNPCData 同步Npcc数据2 = new SyncNPCData();
-                                同步Npcc数据2.ObjectMass = 3;
-                                同步Npcc数据2.ObjectId = GuardInstance.ObjectId;
-                                同步Npcc数据2.ObjectClass = GuardInstance.CurrentLevel;
-                                Guards 对象模板2 = GuardInstance.对象模板;
-                                同步Npcc数据2.ObjectTemplate = ((ushort)((对象模板2 != null) ? 对象模板2.GuardNumber : 0));
-                                同步Npcc数据2.MaxHP = GuardInstance[GameObjectStats.MaxHP];
-                                网络连接5.SendPacket(同步Npcc数据2);
-                            }
-                            return;
-                        }
-                        SConnection 网络连接6 = this.ActiveConnection;
-                        if (网络连接6 == null)
-                        {
-                            return;
-                        }
-                        SyncExtendedDataPacket SyncExtendedDataPacket = new SyncExtendedDataPacket();
-                        SyncExtendedDataPacket.对象类型 = 2;
-                        SyncExtendedDataPacket.对象编号 = PetObject.ObjectId;
-                        SyncExtendedDataPacket.MobId = PetObject.MobId;
-                        SyncExtendedDataPacket.CurrentRank = PetObject.宠物等级;
-                        SyncExtendedDataPacket.对象等级 = PetObject.CurrentLevel;
-                        SyncExtendedDataPacket.对象质量 = (byte)PetObject.宠物级别;
-                        SyncExtendedDataPacket.MaxHP = PetObject[GameObjectStats.MaxHP];
-                        PlayerObject 宠物主人 = PetObject.PlayerOwner;
-                        SyncExtendedDataPacket.主人编号 = ((宠物主人 != null) ? 宠物主人.ObjectId : 0);
-                        PlayerObject 宠物主人2 = PetObject.PlayerOwner;
-                        string 主人名字;
-                        if (宠物主人2 != null)
-                        {
-                            if ((主人名字 = 宠物主人2.ObjectName) != null)
-                            {
-                                goto IL_3C8;
-                            }
-                        }
-                        主人名字 = "";
-                    IL_3C8:
-                        SyncExtendedDataPacket.主人名字 = 主人名字;
-                        网络连接6.SendPacket(SyncExtendedDataPacket);
-                        return;
+                            ObjectId = monsterObj.ObjectId,
+                            ObjectClass = monsterObj.CurrentLevel,
+                            ObjectMass = (byte)monsterObj.Category,
+                            ObjectTemplate = monsterObj.Template?.Id ?? 0,
+                            MaxHP = monsterObj[GameObjectStats.MaxHP]
+                        });
                     }
+                }
+                else if (obj is PetObject PetObject)
+                {
+                    ActiveConnection?.SendPacket(new SyncExtendedDataPacket
+                    {
+                        对象类型 = 2,
+                        对象编号 = PetObject.ObjectId,
+                        MobId = PetObject.MobId,
+                        CurrentRank = PetObject.宠物等级,
+                        对象等级 = PetObject.CurrentLevel,
+                        对象质量 = (byte)PetObject.宠物级别,
+                        MaxHP = PetObject[GameObjectStats.MaxHP],
+                        主人编号 = PetObject.PlayerOwner?.ObjectId ?? 0,
+                        主人名字 = PetObject.PlayerOwner?.ObjectName ?? string.Empty
+                    });
+                }
+                else if (obj is GuardObject GuardInstance)
+                {
+                    ActiveConnection?.SendPacket(new SyncNPCData
+                    {
+                        ObjectMass = 3,
+                        ObjectId = GuardInstance.ObjectId,
+                        ObjectClass = GuardInstance.CurrentLevel,
+                        ObjectTemplate = GuardInstance.对象模板?.GuardNumber ?? 0,
+                        MaxHP = GuardInstance[GameObjectStats.MaxHP]
+                    });
                 }
             }
         }
