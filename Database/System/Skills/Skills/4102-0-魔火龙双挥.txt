@@ -22,7 +22,7 @@
       "技能命中通知": true,
       "技能范围类型": "Spiral7x7",
       "HitsLimit": 8,
-      "LimitedTargetType": "Player",
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
