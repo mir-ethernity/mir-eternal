@@ -1,6 +1,0 @@
-{
-  "Name": "∆” Æ∞À",
-  "GuardNumber": 6685,
-  "Level": 99,
-  "RangeHate": 8
-}
