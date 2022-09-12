@@ -1,6 +1,6 @@
 {
   "Id": 8,
   "NeedRace": ["弓手"],
-  "ItemId": 99900071,
+  "ItemId": 99900070,
   "Backpack": "人物背包"
 }
