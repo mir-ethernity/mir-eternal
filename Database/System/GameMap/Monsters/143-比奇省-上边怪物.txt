@@ -6,6 +6,16 @@
   "AreaRadius": 173,
   "Spawns": [
     {
+      "MonsterName": "咒怨毒僵尸",
+      "SpawnCount": 5,
+      "RevivalInterval": 30
+    },
+	{
+      "MonsterName": "钉耙猫王 呼噜大王",
+      "SpawnCount": 5,
+      "RevivalInterval": 30
+    },
+    {
       "MonsterName": "半兽人",
       "SpawnCount": 100,
       "RevivalInterval": 3

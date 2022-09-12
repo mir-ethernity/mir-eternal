@@ -6,6 +6,11 @@
   "AreaRadius": 61,
   "Spawns": [
     {
+      "MonsterName": "钉耙猫 荒郊强盗",
+      "SpawnCount": 1,
+      "RevivalInterval": 60
+    }, 
+    {
       "MonsterName": "山洞蝙蝠",
       "SpawnCount": 40,
       "RevivalInterval": 1

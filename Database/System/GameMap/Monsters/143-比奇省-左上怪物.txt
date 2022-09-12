@@ -6,6 +6,16 @@
   "AreaRadius": 162,
   "Spawns": [
     {
+      "MonsterName": "半兽人首领 钢鬃",
+      "SpawnCount": 1,
+      "RevivalInterval": 60
+    },
+	  {
+      "MonsterName": "稻草人之王",
+      "SpawnCount": 1,
+      "RevivalInterval": 60
+    },
+    {
       "MonsterName": "鹿01",
       "SpawnCount": 120,
       "RevivalInterval": 3
