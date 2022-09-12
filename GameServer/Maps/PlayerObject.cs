@@ -14332,7 +14332,7 @@ namespace GameServer.Maps
                         StallStatus = playerObj.ParalysisState,
                         BoothName = playerObj.摊位名字,
                         WeaponType = playerObj.Equipment.TryGetValue(0, out var EquipmentData) ? EquipmentData.升级次数?.V ?? 0 : (byte)0,
-                        WeaponBody = EquipmentData.对应模板?.V.Id ?? 0,
+                        WeaponBody = EquipmentData?.对应模板?.V.Id ?? 0,
                         Clothes = playerObj.Equipment.TryGetValue(1, out var EquipmentData2) ? EquipmentData2.对应模板?.V?.Id ?? 0 : 0,
                         Cloak = playerObj.Equipment.TryGetValue(2, out var EquipmentData3) ? EquipmentData3.对应模板?.V?.Id ?? 0 : 0,
                         CurrentHP = playerObj[GameObjectStats.MaxHP],
