@@ -7,7 +7,7 @@
   "Spawns": [
     {
       "MonsterName": "练功师",
-      "SpawnCount": 10,
+      "SpawnCount": 1,
       "RevivalInterval": 1
     }
   ],
