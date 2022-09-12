@@ -702,7 +702,7 @@ namespace GameServer.Maps
                                 characterData.ActiveConnection.Player.SendPacket(new SyncSupplementaryVariablesPacket
                                 {
                                     变量类型 = 6, // Quest Progress Update
-                                    变量索引 = idx,
+                                    变量索引 = (ushort)idx,
                                     对象编号 = quest.Info.V.Id,
                                     变量内容 = mission.Count.V
                                 });
