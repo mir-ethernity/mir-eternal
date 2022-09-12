@@ -1,0 +1,8 @@
+﻿{
+  "GuardNumber": 6678,
+  "FromMapId": 142,  
+  "FromMapName": "边界村",  
+  "FromCoords": "1079, 756",
+  "Direction": "左下",
+  "RegionName": "边界村-信使随从(1079,756)"  
+}

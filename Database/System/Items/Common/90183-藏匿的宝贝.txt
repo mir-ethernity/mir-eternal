@@ -1,0 +1,13 @@
+{
+  "Name": "藏匿的宝贝",
+  "Id": 90183,
+  "MaxDura": 1,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "SalePrice": 100,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "普通杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠"
+}

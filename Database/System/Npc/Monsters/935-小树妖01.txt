@@ -1,18 +1,17 @@
 {
-  "MonsterName": "钉耙猫",
-  "Id": 802,
-  "Level": 6,
-  "Race": "Undead",
+  "MonsterName": "小树妖01",
+  "Id": 935,
+  "Level": 15,
   "Category": "Normal",
   "CanBeDrivenBySkills": true,
   "CanBeControlledBySkills": true,
-  "MoveInterval": 600,
-  "RoamInterval": 10000,
+  "MoveInterval": 500,
+  "RoamInterval": 15000,
   "CorpsePreservationDuration": 10000,
   "ActiveAttackTarget": true,
   "RangeHate": 3,
   "HateTime": 20000,
-  "NormalAttackSkills": "电脑-钉耙猫的普通攻击",
+  "NormalAttackSkills": "电脑-树妖普通攻击技能",
   "ProbabilityTriggerSkills": "",
   "EnterCombatSkills": "",
   "ExitCombatSkills": "",
@@ -22,7 +21,7 @@
   "Stats": [
     {
       "Stat": "MaxHP",
-      "Value": 23
+      "Value": 25
     },
     {
       "Stat": "体力恢复",
@@ -30,7 +29,7 @@
     },
     {
       "Stat": "WalkSpeed",
-      "Value": 10
+      "Value": 9
     },
     {
       "Stat": "AttackSpeed",
@@ -38,18 +37,17 @@
     },
     {
       "Stat": "PhysicallyAccurate",
-      "Value": 5
+      "Value": 6
     },
     {
       "Stat": "PhysicalAgility",
-      "Value": 5
+      "Value": 6
     },
     {
       "Stat": "MagicDodge"
     },
     {
-      "Stat": "MinDC",
-      "Value": 2
+      "Stat": "MinDC"
     },
     {
       "Stat": "MaxDC",
@@ -75,161 +73,175 @@
     }
   ],
   "InheritsStats": [],
-  "ProvideExperience": 30,
+  "ProvideExperience": 50,
   "Drops": [
     {
-      "Name": "布衣(男)",
-      "MonsterName": "钉耙猫",
-      "Probability": 85,
+      "Name": "轻型盔甲",
+      "MonsterName": "小树妖01",
+      "Probability": 150,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
-      "Name": "布衣(女)",
-      "MonsterName": "钉耙猫",
-      "Probability": 85,
+      "Name": "轻型盔甲(女)",
+      "MonsterName": "小树妖01",
+      "Probability": 150,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
-      "Name": "传统项链",
-      "MonsterName": "钉耙猫",
-      "Probability": 75,
+      "Name": "黄色水晶项链",
+      "MonsterName": "小树妖01",
+      "Probability": 250,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
-      "Name": "金项链",
-      "MonsterName": "钉耙猫",
-      "Probability": 100,
+      "Name": "黑檀项链",
+      "MonsterName": "小树妖01",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "黑色水晶项链",
+      "MonsterName": "小树妖01",
+      "Probability": 250,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "古铜戒指",
-      "MonsterName": "钉耙猫",
+      "MonsterName": "小树妖01",
       "Probability": 85,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "玻璃戒指",
-      "MonsterName": "钉耙猫",
+      "MonsterName": "小树妖01",
       "Probability": 85,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "六角戒指",
-      "MonsterName": "钉耙猫",
+      "MonsterName": "小树妖01",
       "Probability": 85,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "牛角戒指",
-      "MonsterName": "钉耙猫",
+      "MonsterName": "小树妖01",
       "Probability": 85,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
-      "Name": "小手镯",
-      "MonsterName": "钉耙猫",
-      "Probability": 150,
-      "MinAmount": 1,
-      "MaxAmount": 1
-    },
-    {
-      "Name": "柴刀",
-      "MonsterName": "钉耙猫",
-      "Probability": 100,
-      "MinAmount": 1,
-      "MaxAmount": 1
-    },
-    {
-      "Name": "木剑",
-      "MonsterName": "钉耙猫",
-      "Probability": 100,
-      "MinAmount": 1,
-      "MaxAmount": 1
-    },
-    {
-      "Name": "木弓",
-      "MonsterName": "钉耙猫",
-      "Probability": 100,
-      "MinAmount": 1,
-      "MaxAmount": 1
-    },
-    {
-      "Name": "木枪",
-      "MonsterName": "钉耙猫",
-      "Probability": 100,
-      "MinAmount": 1,
-      "MaxAmount": 1
-    },
-    {
-      "Name": "匕首",
-      "MonsterName": "钉耙猫",
-      "Probability": 150,
-      "MinAmount": 1,
-      "MaxAmount": 1
-    },
-    {
-      "Name": "铁柴刀",
-      "MonsterName": "钉耙猫",
+      "Name": "铁手镯",
+      "MonsterName": "小树妖01",
       "Probability": 200,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
-      "Name": "青铜剑",
-      "MonsterName": "钉耙猫",
-      "Probability": 250,
+      "Name": "银手镯",
+      "MonsterName": "小树妖01",
+      "Probability": 200,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
-      "Name": "乌木剑",
-      "MonsterName": "钉耙猫",
-      "Probability": 500,
+      "Name": "皮制手套",
+      "MonsterName": "小树妖01",
+      "Probability": 600,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
-      "Name": "青铜头盔",
-      "MonsterName": "钉耙猫",
-      "Probability": 250,
+      "Name": "钢手镯",
+      "MonsterName": "小树妖01",
+      "Probability": 600,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "大手镯",
+      "MonsterName": "小树妖01",
+      "Probability": 1500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "短剑",
+      "MonsterName": "小树妖01",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁剑",
+      "MonsterName": "小树妖01",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜斧",
+      "MonsterName": "小树妖01",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "双刀",
+      "MonsterName": "小树妖01",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "神臂弓",
+      "MonsterName": "小树妖01",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜枪",
+      "MonsterName": "小树妖01",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法头盔",
+      "MonsterName": "小树妖01",
+      "Probability": 300,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "金币",
-      "MonsterName": "钉耙猫",
-      "Probability": 2,
-      "MinAmount": 100,
-      "MaxAmount": 200
+      "MonsterName": "小树妖01",
+      "Probability": 4,
+      "MinAmount": 125,
+      "MaxAmount": 225
     },
     {
       "Name": "金创药(小量)",
-      "MonsterName": "钉耙猫",
+      "MonsterName": "小树妖01",
       "Probability": 6,
       "MinAmount": 1,
       "MaxAmount": 1
     },
     {
       "Name": "魔法药(小量)",
-      "MonsterName": "钉耙猫",
-      "Probability": 8,
+      "MonsterName": "小树妖01",
+      "Probability": 7,
       "MinAmount": 1,
       "MaxAmount": 1
-    },
-    {
-      "Name": "藏匿的宝贝",
-      "MonsterName": "钉耙猫",
-      "Probability": 1,
-      "MinAmount": 1,
-      "MaxAmount": 1
-    }	
+    }
   ]
 }

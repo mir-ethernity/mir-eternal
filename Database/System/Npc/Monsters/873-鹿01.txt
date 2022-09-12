@@ -1,0 +1,318 @@
+{
+  "MonsterName": "鹿01",
+  "Id": 873,
+  "Level": 1,
+  "Category": "Normal",
+  "CanBeDrivenBySkills": true,
+  "CanBeControlledBySkills": true,
+  "CanBeSeducedBySkills": true,
+  "BaseTemptationProbability": 0.25,
+  "MoveInterval": 1000,
+  "RoamInterval": 15000,
+  "CorpsePreservationDuration": 15000,
+  "RangeHate": 3,
+  "HateTime": 20000,
+  "NormalAttackSkills": "电脑-小鹿普通攻击技能",
+  "ProbabilityTriggerSkills": "",
+  "EnterCombatSkills": "",
+  "ExitCombatSkills": "",
+  "瞬移释放技能": "",
+  "复活释放技能": "",
+  "DeathReleaseSkill": "",
+  "Stats": [
+    {
+      "Stat": "MaxHP",
+      "Value": 15
+    },
+    {
+      "Stat": "体力恢复",
+      "Value": 1
+    },
+    {
+      "Stat": "WalkSpeed",
+      "Value": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Value": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Value": 4
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Value": 4
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinDC",
+      "Value": 2
+    },
+    {
+      "Stat": "MaxDC",
+      "Value": 4
+    },
+    {
+      "Stat": "MinMC"
+    },
+    {
+      "Stat": "MaxMC"
+    },
+    {
+      "Stat": "MinDef"
+    },
+    {
+      "Stat": "MaxDef"
+    },
+    {
+      "Stat": "MinMCDef"
+    },
+    {
+      "Stat": "MaxMCDef"
+    }
+  ],
+  "Grows": [
+    {
+      "Stat": "MaxHP",
+      "Level0": 15,
+      "Level1": 23,
+      "Level2": 28,
+      "Level3": 38,
+      "Level4": 48,
+      "Level5": 63,
+      "Level6": 78,
+      "Level7": 93
+    },
+    {
+      "Stat": "体力恢复",
+      "Level0": 1,
+      "Level1": 1,
+      "Level2": 1,
+      "Level3": 2,
+      "Level4": 2,
+      "Level5": 3,
+      "Level6": 3,
+      "Level7": 3
+    },
+    {
+      "Stat": "WalkSpeed",
+      "Level0": 10,
+      "Level1": 10,
+      "Level2": 10,
+      "Level3": 10,
+      "Level4": 10,
+      "Level5": 10,
+      "Level6": 10,
+      "Level7": 10
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 5,
+      "Level6": 5,
+      "Level7": 5
+    },
+    {
+      "Stat": "PhysicallyAccurate",
+      "Level0": 4,
+      "Level1": 4,
+      "Level2": 4,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 6,
+      "Level6": 6,
+      "Level7": 6
+    },
+    {
+      "Stat": "PhysicalAgility",
+      "Level0": 4,
+      "Level1": 4,
+      "Level2": 4,
+      "Level3": 5,
+      "Level4": 5,
+      "Level5": 6,
+      "Level6": 6,
+      "Level7": 6
+    },
+    {
+      "Stat": "MagicDodge"
+    },
+    {
+      "Stat": "MinDC",
+      "Level0": 2,
+      "Level1": 2,
+      "Level2": 2,
+      "Level3": 2,
+      "Level4": 2,
+      "Level5": 2,
+      "Level6": 2,
+      "Level7": 2
+    },
+    {
+      "Stat": "MaxDC",
+      "Level0": 4,
+      "Level1": 5,
+      "Level2": 6,
+      "Level3": 7,
+      "Level4": 8,
+      "Level5": 9,
+      "Level6": 10,
+      "Level7": 11
+    },
+    {
+      "Stat": "MinMC"
+    },
+    {
+      "Stat": "MaxMC"
+    },
+    {
+      "Stat": "MinDef"
+    },
+    {
+      "Stat": "MaxDef",
+      "Level1": 1,
+      "Level2": 2,
+      "Level3": 3,
+      "Level4": 4,
+      "Level5": 5,
+      "Level6": 6,
+      "Level7": 7
+    },
+    {
+      "Stat": "MinMCDef"
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Level1": 1,
+      "Level2": 2,
+      "Level3": 3,
+      "Level4": 4,
+      "Level5": 5,
+      "Level6": 6,
+      "Level7": 7
+    }
+  ],
+  "InheritsStats": [],
+  "ProvideExperience": 25,
+  "Drops": [
+    {
+      "Name": "布衣(男)",
+      "MonsterName": "鹿01",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "布衣(女)",
+      "MonsterName": "鹿01",
+      "Probability": 85,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "传统项链",
+      "MonsterName": "鹿01",
+      "Probability": 75,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金项链",
+      "MonsterName": "鹿01",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "小手镯",
+      "MonsterName": "鹿01",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "柴刀",
+      "MonsterName": "鹿01",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "木剑",
+      "MonsterName": "鹿01",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "木弓",
+      "MonsterName": "鹿01",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "木枪",
+      "MonsterName": "鹿01",
+      "Probability": 100,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "匕首",
+      "MonsterName": "鹿01",
+      "Probability": 150,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "铁柴刀",
+      "MonsterName": "鹿01",
+      "Probability": 200,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜剑",
+      "MonsterName": "鹿01",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "乌木剑",
+      "MonsterName": "鹿01",
+      "Probability": 500,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "青铜头盔",
+      "MonsterName": "鹿01",
+      "Probability": 250,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金创药(小量)",
+      "MonsterName": "鹿01",
+      "Probability": 6,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(小量)",
+      "MonsterName": "鹿01",
+      "Probability": 8,
+      "MinAmount": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

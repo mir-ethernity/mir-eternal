@@ -8,12 +8,10 @@ using System.Threading.Tasks;
 
 namespace GamePackets.Server
 {
-    [PacketInfo(Source = PacketSource.Server, Id = 218, Length = 10, Description = "QuestRewardCompletedPacket")]
+    [PacketInfo(Source = PacketSource.Server, Id = 220, Length = 6, Description = "QuestRewardCompletedPacket")]
     public  class QuestRewardCompletedPacket : GamePacket
     {
         [WrappingField(SubScript = 2, Length = 4)]
         public int QuestId;
-        [WrappingField(SubScript = 6, Length = 4)]
-        public int CompletedTime;
     }
 }

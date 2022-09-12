@@ -1,0 +1,8 @@
+﻿{
+  "GuardNumber": 6687,
+  "FromMapId": 142,  
+  "FromMapName": "边界村",  
+  "FromCoords": "1075, 589",
+  "Direction": "左下",
+  "RegionName": "边界村-比奇信使(1075,589)"  
+}

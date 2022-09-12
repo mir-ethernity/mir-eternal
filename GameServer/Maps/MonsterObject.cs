@@ -691,15 +691,18 @@ namespace GameServer.Maps
                         foreach (var quest in quests)
                         {
                             var missions = quest.GetMissionsOfType(QuestMissionType.KillMob);
-
                             foreach (var mission in missions)
                             {
+                                if (mission.CompletedDate.V != DateTime.MinValue) continue;
                                 if (mission.Info.V.Id != Template.Id) continue;
+
+                                var idx = Array.IndexOf(quest.Missions.ToArray(), mission);
                                 mission.Count.V = (byte)(mission.Count.V + 1);
 
                                 characterData.ActiveConnection.Player.SendPacket(new SyncSupplementaryVariablesPacket
                                 {
                                     变量类型 = 6, // Quest Progress Update
+                                    变量索引 = (ushort)idx,
                                     对象编号 = quest.Info.V.Id,
                                     变量内容 = mission.Count.V
                                 });

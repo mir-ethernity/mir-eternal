@@ -1,0 +1,8 @@
+﻿{
+  "GuardNumber": 6760,
+  "FromMapId": 145,  
+  "FromMapName": "沃玛森林",  
+  "FromCoords": "893, 481",
+  "Direction": "下方",
+  "RegionName": "沃玛森林-蒙武(893,481)"  
+}

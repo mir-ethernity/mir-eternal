@@ -1,0 +1,6 @@
+{
+  "Name": "³ÇÃÅÊØ½«",
+  "GuardNumber": 6691,
+  "Level": 99,
+  "RangeHate": 8
+}
