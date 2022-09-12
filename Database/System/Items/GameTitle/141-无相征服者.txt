@@ -1,0 +1,15 @@
+{
+    "Name": "无相征服者",
+    "Id": 141,
+    "Combat": 50,
+    "EffectiveTime": 604800,
+    "Attributes": {
+        "MaxDC": 1,
+        "MaxMC": 1,
+        "MaxSC": 1,
+        "MaxNC": 1,
+        "MaxBC": 1,
+        "MaxDef": 1,
+        "MaxMCDef": 1
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "Name": "修行不辍",
+    "Id": 94,
+    "Combat": 20,
+    "EffectiveTime": 0,
+    "Attributes": {
+        "PhysicalAgility": 1
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "Name": "返璞归真",
+    "Id": 115,
+    "Combat": 30,
+    "EffectiveTime": 1296000,
+    "Attributes": {
+        "MaxDef": 1,
+        "MaxMCDef": 1,
+        "MaxHP": 5
+    }
+}

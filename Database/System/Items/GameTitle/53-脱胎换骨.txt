@@ -1,0 +1,11 @@
+{
+    "Name": "脱胎换骨",
+    "Id": 53,
+    "Combat": 30,
+    "EffectiveTime": 1296000,
+    "Attributes": {
+        "MaxDef": 1,
+        "MaxMCDef": 1,
+        "MaxHP": 5
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "Name": "屠龙者",
+    "Id": 138,
+    "Combat": 30,
+    "EffectiveTime": 604800,
+    "Attributes": {
+        "MaxDC": 1,
+        "MaxMC": 1,
+        "MaxSC": 1,
+        "MaxNC": 1,
+        "MaxBC": 1
+    }
+}

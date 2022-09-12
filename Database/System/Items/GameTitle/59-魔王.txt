@@ -1,0 +1,13 @@
+{
+    "Name": "魔王",
+    "Id": 59,
+    "Combat": 30,
+    "EffectiveTime": 0,
+    "Attributes": {
+        "MaxDC": 1,
+        "MaxMC": 1,
+        "MaxSC": 1,
+        "MaxNC": 1,
+        "MaxBC": 1
+    }
+}

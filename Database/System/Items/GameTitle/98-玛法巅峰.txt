@@ -1,0 +1,13 @@
+{
+    "Name": "玛法巅峰",
+    "Id": 98,
+    "Combat": 30,
+    "EffectiveTime": 0,
+    "Attributes": {
+        "MaxDC": 1,
+        "MaxMC": 1,
+        "MaxSC": 1,
+        "MaxNC": 1,
+        "MaxBC": 1
+    }
+}

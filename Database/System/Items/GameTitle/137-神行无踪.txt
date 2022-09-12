@@ -1,0 +1,13 @@
+{
+    "Name": "神行无踪",
+    "Id": 137,
+    "Combat": 60,
+    "EffectiveTime": 2592000,
+    "Attributes": {
+        "MaxDC": 2,
+        "MaxMC": 2,
+        "MaxSC": 2,
+        "MaxNC": 2,
+        "MaxBC": 2
+    }
+}
