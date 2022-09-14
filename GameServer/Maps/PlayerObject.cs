@@ -886,7 +886,7 @@ namespace GameServer.Maps
             });
         }
 
-        private byte[] GetQuestProgressData()
+        public byte[] GetQuestProgressData()
         {
             using (var ms = new MemoryStream())
             using (var bw = new BinaryWriter(ms))
