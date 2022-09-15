@@ -8055,6 +8055,7 @@ namespace GameServer.Maps
             }
             else
             {
+                cost *= 10000;
                 NumberGoldCoins -= cost;
                 ExtraBackpackSize += addCells;
                 ActiveConnection?.SendPacket(new 背包容量改变
