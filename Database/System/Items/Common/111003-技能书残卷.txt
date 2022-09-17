@@ -1,0 +1,14 @@
+﻿{
+  "Name": "技能书残卷",
+  "Id": 111003,
+  "MaxDura": 999,
+  "NeedLevel": 1,
+  "SalePrice": 10000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "普通杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

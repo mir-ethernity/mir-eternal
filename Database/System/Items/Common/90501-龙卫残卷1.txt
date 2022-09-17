@@ -1,0 +1,14 @@
+﻿{
+  "Name": "龙卫残卷1",
+  "Id": 90501,
+  "MaxDura": 999,
+  "NeedLevel": 1,
+  "SalePrice": 10000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "普通杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}
