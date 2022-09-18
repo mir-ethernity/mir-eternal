@@ -224,6 +224,9 @@ namespace GameServer.Maps
             // unknown
             ActiveConnection.SendRaw(177, 4, new byte[] { 24, 0 });
 
+            // Send Progress (unlock second tab skills)
+            ActiveConnection.SendRaw(359, 70, new byte[] { 6, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 255, 255, 255, 255, 1, 0, 0, 0, 3, 0, 0, 0, 255, 255, 255, 255, 1, 0, 0, 0, 4, 0, 0, 0, 255, 255, 255, 255, 1, 0, 0, 0, 5, 0, 0, 0, 255, 255, 255, 255 });
+
             网络连接.SendPacket(new SyncSupplementaryVariablesPacket
             {
                 变量类型 = 1,
@@ -238,6 +241,14 @@ namespace GameServer.Maps
                 对象编号 = this.ObjectId,
                 变量索引 = 975,
                 变量内容 = ComputingClass.TimeShift(CharacterData.战备日期.V)
+            });
+
+            网络连接.SendPacket(new SyncSupplementaryVariablesPacket
+            {
+                变量类型 = 1,
+                对象编号 = this.ObjectId,
+                变量索引 = 50, // unlock awekening skills tab
+                变量内容 = ComputingClass.TimeShift(CharacterData.补给日期.V)
             });
 
             // unknown
@@ -330,14 +341,25 @@ namespace GameServer.Maps
                 { 975, 0 },
             };
 
-            foreach (var sup in supplementaryIds1)
+            //foreach (var sup in supplementaryIds1)
+            //{
+            //    网络连接.SendPacket(new SyncSupplementaryVariablesPacket
+            //    {
+            //        变量类型 = 1,
+            //        对象编号 = this.ObjectId,
+            //        变量索引 = sup.Key,
+            //        变量内容 = sup.Value
+            //    });
+            //}
+
+            for (ushort i = 1; i <= 1500; i++)
             {
                 网络连接.SendPacket(new SyncSupplementaryVariablesPacket
                 {
                     变量类型 = 1,
                     对象编号 = this.ObjectId,
-                    变量索引 = sup.Key,
-                    变量内容 = sup.Value
+                    变量索引 = i,
+                    变量内容 = 1
                 });
             }
 
@@ -899,11 +921,11 @@ namespace GameServer.Maps
                     .Where(x => x.CompleteDate.V == DateTime.MinValue)
                     .FirstOrDefault();
 
-                var totalQuests = 5695;
+                var totalQuests = 6176;
                 var bitArray = new BitArray(totalQuests);
 
                 for (var i = 0; i < totalQuests; i++)
-                    bitArray.Set(i, characterQuests.ContainsKey(i));
+                    bitArray.Set(i, true);// characterQuests.ContainsKey(i));
 
                 var questsStatus = new byte[(int)Math.Ceiling((decimal)totalQuests / 8)];
                 bitArray.CopyTo(questsStatus, 0);
@@ -917,7 +939,7 @@ namespace GameServer.Maps
                 bw.Write(ComputingClass.TimeShift(MainProcess.CurrentTime)); // the last complete quest date??
 
                 bw.Seek(1305, SeekOrigin.Begin);
-                bw.Write(int.MaxValue);
+                bw.Write(new byte[] { 255, 255, 255, 127 });
 
                 bw.Seek(1380, SeekOrigin.Begin);
                 bw.Write(0); // ???
@@ -929,7 +951,7 @@ namespace GameServer.Maps
                 bw.Write((byte)0); // ???
 
                 bw.Seek(1433, SeekOrigin.Begin);
-                bw.Write(int.MaxValue);
+                bw.Write(new byte[] { 255, 255, 255, 127 });
 
                 bw.Seek(1577, SeekOrigin.Begin);
 

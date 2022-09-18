@@ -110,6 +110,12 @@ namespace ClientPacketSnifferApp
                     var buffer = new byte[fullBuffer.Length - p];
                     Array.Copy(fullBuffer, p, buffer, 0, fullBuffer.Length - p);
 
+                    if (buffer.Length == 1 && buffer[0] == 0)
+                    {
+                        p++;
+                        continue;
+                    }
+
                     var packetId = BitConverter.ToUInt16(buffer, 0);
                     if (packetId == 0) continue;
 

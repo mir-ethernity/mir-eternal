@@ -116,7 +116,7 @@ namespace Mir3DClientEditor.FormValueEditors
                 else
                 {
                     if (isIntegerRegex.IsMatch(value))
-                        obj.Add(key, int.Parse(value));
+                        obj.Add(key, long.Parse(value));
                     else if (isDecimalRegex.IsMatch(value))
                         obj.Add(key, decimal.Parse(value));
                     else

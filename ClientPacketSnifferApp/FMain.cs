@@ -187,6 +187,9 @@ namespace ClientPacketSnifferApp
                     if (transportPacket is not TcpPacket)
                         continue;
 
+
+                    System.Diagnostics.Debug.WriteLine($"Src Port: {transportPacket.SourcePort}, Dst Port: {transportPacket.DestinationPort}, Data: {string.Join(", ", transportPacket.PayloadData.Take(50).Select(x => x.ToString()).ToArray())}");
+
                     var isGame = transportPacket.SourcePort == Settings.Default.ListenPort || transportPacket.DestinationPort == Settings.Default.ListenPort;
                     if (!isGame) continue;
 
