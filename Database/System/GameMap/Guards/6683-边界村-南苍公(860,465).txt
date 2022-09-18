@@ -3,4 +3,5 @@
   "FromMapId": 142,
   "FromCoords": "860, 465",
   "Direction": "右下",
+  "RegionName": "边界村-南苍公(860,465)"  
 }

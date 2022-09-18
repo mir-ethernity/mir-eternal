@@ -1,4 +1,4 @@
-﻿{
+{
   "GuardNumber": 6686,
   "FromMapId": 142,
   "FromCoords": "1094, 451",

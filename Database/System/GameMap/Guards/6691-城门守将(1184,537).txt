@@ -1,4 +1,4 @@
-﻿{
+{
   "GuardNumber": 6691,
   "FromMapId": 143,  
   "FromMapName": "比奇省",  

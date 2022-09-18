@@ -3,7 +3,7 @@
   "SkillId": 1034,
   "Id": 3,
   "Quality": 6,
-  "Probability": 6,
+  "Probability": 60,
   "MinPlayerLevel": "HB8iJQ==",
   "MinSkillExp": [
     800,
