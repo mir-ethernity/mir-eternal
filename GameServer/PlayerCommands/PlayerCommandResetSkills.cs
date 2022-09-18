@@ -17,7 +17,11 @@ namespace GameServer.PlayerCommands
                 if (item.Value.NeedRace != Player.CharRole) continue;
                 if (item.Value.AdditionalSkill <= 0) continue;
 
-                Player.LearnSkill(item.Value.AdditionalSkill);
+                Player.MainSkills表.Clear();
+                Player.CharacterData.ShorcutField.Clear();
+                Player.CharacterData.AddStarterSkills();
+
+                Player.SendMessage($"You need logout to reset skills");
             }
         }
     }

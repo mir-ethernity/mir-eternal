@@ -348,7 +348,7 @@ namespace GameServer.Data
             }
         }
 
-        private void AddStarterSkills()
+        public void AddStarterSkills()
         {
             ushort basicInscriptionSkill;
 
