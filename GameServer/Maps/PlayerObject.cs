@@ -930,7 +930,7 @@ namespace GameServer.Maps
                 var bitArray = new BitArray(totalQuests);
 
                 for (var i = 0; i < totalQuests; i++)
-                    bitArray.Set(i, true);// characterQuests.ContainsKey(i));
+                    bitArray.Set(i, characterQuests.ContainsKey(i));
 
                 var questsStatus = new byte[(int)Math.Ceiling((decimal)totalQuests / 8)];
                 bitArray.CopyTo(questsStatus, 0);
