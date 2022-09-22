@@ -374,6 +374,17 @@ namespace GameServer.Networking
         public void 处理封包(ReservedPacketZeroThreePacket P)
         {
         }
+
+        public void 处理封包(ToggleAwekeningExpPacket P)
+        {
+            if (this.CurrentStage != GameStage.PlayingScene)
+            {
+                this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+                return;
+            }
+            // TODO: Pending implement
+        }
+
         public void 处理封包(PlayerCompleteQuestPacket P)
         {
             if (this.CurrentStage != GameStage.PlayingScene)
