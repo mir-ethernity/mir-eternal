@@ -5,7 +5,7 @@
   "Id": 2,
   "GroupId": 1,
   "BindingLevelId": 3008,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -29,15 +29,24 @@
       "分组Cooldown": 1750,
       "角色忙绿时间": 625
     },
-    "624": {
+    "620": {
       "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
       "PetName": "道士召唤血兽",
-      "SpawnCount": "AQEBAQ==",
+      "SpawnCount": "AgICAg==",
       "LevelCap": "AQMFBw==",
       "GainSkillExp": true,
       "ExpSkillId": 3008,
       "PetBoundWeapons": true,
       "CheckSkillInscriptions": true
+    },
+    "621": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 30082,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1,
+      "GainSkillExp": true,
+      "ExpSkillId": 3008
     },
     "625": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

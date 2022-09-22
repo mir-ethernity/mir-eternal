@@ -6,7 +6,7 @@
   "Id": 3,
   "GroupId": 8,
   "BindingLevelId": 2056,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     0,
     0,
@@ -48,7 +48,7 @@
         1.4,
         1.6,
         1.8,
-        2
+        2.0
       ],
       "数量衰减伤害": true,
       "伤害衰减系数": 0.05,
@@ -82,7 +82,7 @@
     "6": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 38450,
-      "Buff触发概率": 1,
+      "Buff触发概率": 1.0,
       "所需Buff层数": 1,
       "VerifyTargetType": true,
       "所需目标类型": "AllMonsters"

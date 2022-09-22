@@ -3,7 +3,7 @@
   "Race": "电脑",
   "SkillType": "SubSkills",
   "OwnSkillId": 51161,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "Nodes": {
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",

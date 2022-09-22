@@ -2,7 +2,7 @@
   "SkillName": "烈火剑法-0-无铭文-主体技能",
   "OwnSkillId": 1433,
   "BindingLevelId": 1036,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "CheckSkillMarks": true,
@@ -49,7 +49,7 @@
       "点爆需要层数": 1,
       "技能伤害基数": [],
       "技能伤害系数": [
-        2,
+        2.0,
         2.2,
         2.4,
         2.6

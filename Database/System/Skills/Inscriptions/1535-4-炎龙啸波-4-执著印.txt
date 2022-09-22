@@ -5,13 +5,13 @@
   "Id": 4,
   "PassiveSkill": true,
   "Quality": 8,
-  "Probability": 1,
+  "Probability": 2,
   "BroadcastNotification": true,
   "MinPlayerLevel": "HiEkJw==",
   "MinSkillExp": [
+    100,
     200,
     400,
-    600,
     0
   ],
   "SkillCombatBonus": [

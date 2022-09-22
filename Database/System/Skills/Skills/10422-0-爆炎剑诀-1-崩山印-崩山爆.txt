@@ -17,9 +17,9 @@
       "技能能否招架": true,
       "技能锁定方式": "锁定锚点坐标",
       "SkillHitFeedback": "后仰",
-      "技能范围类型": "Zhanyue3x3",
+      "技能范围类型": "Zhanyue1x3",
       "技能扩展通知": true,
-      "HitsLimit": 10,
+      "HitsLimit": 2,
       "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
@@ -32,10 +32,10 @@
       "失败添加层数": true,
       "技能伤害类型": "Burn",
       "技能伤害基数": [
-        35,
-        42,
-        46,
-        50
+        0,
+        0,
+        0,
+        0
       ],
       "技能伤害系数": [
         0.0,

@@ -1,0 +1,25 @@
+{
+  "SkillName": "暗影守卫-0-无铭文",
+  "SkillId": 1546,
+  "MinPlayerLevel": "KCotLQ==",
+  "MinSkillExp": [
+    10,
+    20,
+    20,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "暗影守卫-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": [
+    "暗影守卫-0-无铭文-技能开关"
+  ]
+}

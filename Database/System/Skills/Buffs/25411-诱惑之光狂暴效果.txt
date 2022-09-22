@@ -1,7 +1,7 @@
 {
   "Name": "诱惑之光狂暴效果",
   "Id": 25411,
-  "GroupId": 25411,
+  "Group": 25411,
   "ActionType": "Debuff",
   "Effect": "StatusFlag",
   "SyncClient": true,
@@ -40,10 +40,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

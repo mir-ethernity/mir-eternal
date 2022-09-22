@@ -1,7 +1,7 @@
 {
   "Name": "困魔咒术失神效果",
   "Id": 30110,
-  "GroupId": 3011,
+  "Group": 3011,
   "ActionType": "Debuff",
   "OverlayType": "SimilarReplacement",
   "Effect": "StatusFlag, StatsIncOrDec",
@@ -54,10 +54,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

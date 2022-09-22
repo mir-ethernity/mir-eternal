@@ -24,17 +24,19 @@
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
-      "ItSelfCooldown": 1750,
-      "分组Cooldown": 1750,
+      "ItSelfCooldown": 2000,
+      "分组Cooldown": 2000,
       "角色忙绿时间": 625
     },
-    "624": {
+    "620": {
       "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
       "PetName": "道士召唤月灵",
       "SpawnCount": "AgICAg==",
       "LevelCap": "AQMFBw==",
       "GainSkillExp": true,
-      "ExpSkillId": 3017
+      "ExpSkillId": 3024,
+      "PetBoundWeapons": true,
+      "CheckSkillInscriptions": true
     },
     "625": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

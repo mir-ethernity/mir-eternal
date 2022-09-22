@@ -4,9 +4,9 @@
   "SkillId": 2538,
   "MinPlayerLevel": "ExYZHA==",
   "MinSkillExp": [
-    100,
-    200,
-    400,
+    10,
+    20,
+    20,
     0
   ],
   "SkillCombatBonus": [

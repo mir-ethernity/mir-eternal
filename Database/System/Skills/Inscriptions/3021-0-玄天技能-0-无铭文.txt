@@ -1,0 +1,24 @@
+{
+  "SkillName": "玄天技能-0-无铭文",
+  "Race": "道士",
+  "SkillId": 3021,
+  "MinPlayerLevel": "IyUoKg==",
+  "MinSkillExp": [
+    10,
+    10,
+    10,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "玄天技能-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": []
+}

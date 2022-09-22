@@ -4,7 +4,7 @@
   "OwnSkillId": 2041,
   "Id": 2,
   "BindingLevelId": 2041,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "CheckOccupationalWeapons": true,
@@ -20,12 +20,12 @@
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
-      "ItSelfCooldown": 1200,
+      "ItSelfCooldown": 1000,
       "角色忙绿时间": 500
     },
     "500": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
-      "角色硬直时间": 1150,
+      "角色硬直时间": 1000,
       "禁止行走时间": 875,
       "禁止奔跑时间": 650
     },
@@ -53,9 +53,9 @@
       "技能触发方式": "TargetHitDefinitely",
       "触发SkillName": "二连射击-0-无铭文-主体技能",
       "CalculateTriggerProbability": true,
-      "技能触发概率": 0.2,
+      "技能触发概率": 0.25,
       "增加概率Buff": 20431,
-      "Buff增加系数": 1,
+      "Buff增加系数": 1.0,
       "验证铭文技能": true,
       "所需Id": 20430,
       "同组铭文无效": true
@@ -65,9 +65,9 @@
       "技能触发方式": "TargetHitDefinitely",
       "触发SkillName": "二连射击-1-冰羽印-主体技能",
       "CalculateTriggerProbability": true,
-      "技能触发概率": 0.2,
+      "技能触发概率": 0.25,
       "增加概率Buff": 20431,
-      "Buff增加系数": 1,
+      "Buff增加系数": 1.0,
       "验证铭文技能": true,
       "所需Id": 20431,
       "同组铭文无效": true
@@ -77,9 +77,9 @@
       "技能触发方式": "TargetHitDefinitely",
       "触发SkillName": "二连射击-2-驱魔印-主体技能",
       "CalculateTriggerProbability": true,
-      "技能触发概率": 0.3,
+      "技能触发概率": 0.35,
       "增加概率Buff": 20431,
-      "Buff增加系数": 1,
+      "Buff增加系数": 1.0,
       "验证铭文技能": true,
       "所需Id": 20432,
       "同组铭文无效": true
@@ -89,24 +89,79 @@
       "技能触发方式": "TargetHitDefinitely",
       "触发SkillName": "二连射击-3-双刑印-主体技能",
       "CalculateTriggerProbability": true,
-      "技能触发概率": 0.2,
+      "技能触发概率": 0.85,
       "增加概率Buff": 20431,
-      "Buff增加系数": 1,
+      "Buff增加系数": 1.0,
       "验证铭文技能": true,
       "所需Id": 20433,
       "同组铭文无效": true
     },
-    "1150": {
-      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    "704": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "凝神-0-无铭文-主体技能",
+      "验证铭文技能": true,
+      "所需Id": 20510,
+      "同组铭文无效": true
     },
-    "1200": {
-      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
-      "技能能否穿墙": true,
-      "技能锁定方式": "锁定目标",
-      "HitsLimit": 1,
-      "LimitedTargetType": "Player, Pet, Monster, NPC",
-      "LimitedTargetRelationship": "Hostility",
-      "清除状态列表": []
+    "705": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "凝神-1-狩心印-主体技能",
+      "验证铭文技能": true,
+      "所需Id": 20511,
+      "同组铭文无效": true
+    },
+    "706": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "凝神-2-凝魂印-主体技能",
+      "验证铭文技能": true,
+      "所需Id": 20512,
+      "同组铭文无效": true
+    },
+    "707": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "凝神-3-神启印-主体技能",
+      "验证铭文技能": true,
+      "所需Id": 20513,
+      "同组铭文无效": true
+    },
+    "708": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "验证ItSelfBuff": true,
+      "Id": 20513,
+      "所需Buff层数": 1,
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "凝神-0-无铭文-主动伤害"
+    },
+    "709": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "验证ItSelfBuff": true,
+      "Id": 20517,
+      "所需Buff层数": 1,
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "凝神-0-狩心印-主动伤害"
+    },
+    "710": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "验证ItSelfBuff": true,
+      "Id": 20403,
+      "所需Buff层数": 1,
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "凝神-0-凝魂印-主动伤害"
+    },
+    "711": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "验证ItSelfBuff": true,
+      "Id": 20406,
+      "所需Buff层数": 1,
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "凝神-0-无铭文-主动伤害"
+    },
+    "1400": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }
 }

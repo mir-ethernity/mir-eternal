@@ -2,18 +2,18 @@
   "SkillName": "觉醒·召唤月灵-0-无铭文",
   "Race": "道士",
   "SkillId": 3024,
-  "MinPlayerLevel": "KCosLg==",
+  "MinPlayerLevel": "KCkrLQ==",
   "MinSkillExp": [
     10,
     20,
-    30,
+    20,
     0
   ],
   "SkillCombatBonus": [
-    6,
-    9,
-    12,
-    15
+    18,
+    22,
+    26,
+    30
   ],
   "ComesWithBuff": [],
   "PassiveSkills": [],

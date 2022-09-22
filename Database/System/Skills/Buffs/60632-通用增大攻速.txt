@@ -11,7 +11,7 @@
   "BuffInitialLayer": 1,
   "MaxBuffCount": 1,
   "BuffSynthesisLayer": 5,
-  "ProcessInterval": 12000,
+  "ProcessInterval": 9000,
   "ProcessDelay": 9000,
   "Duration": 9000,
   "ExtendedDuration": true,

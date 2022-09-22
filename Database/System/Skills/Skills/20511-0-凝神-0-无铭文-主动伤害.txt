@@ -1,0 +1,49 @@
+{
+  "SkillName": "凝神-0-无铭文-主动伤害",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 20511,
+  "BindingLevelId": 2051,
+  "CalculateTriggerProbability": 1.0,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [],
+  "ValidateLearnedSkills": 2041,
+  "Nodes": {
+    "0": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能能否招架": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "SkillHitFeedback": "后仰",
+      "技能范围类型": "Solid3x3",
+      "技能扩展通知": true,
+      "HitsLimit": 1,
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "225": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Attack",
+      "技能伤害基数": [
+        5,
+        10,
+        12,
+        15
+      ],
+      "技能伤害系数": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    },
+    "600": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "触发SkillName": "凝神-0-全铭文-触发结束"
+    }
+  }
+}

@@ -2,7 +2,7 @@
   "SkillName": "盘龙枪势-0-无铭文-主体技能",
   "Race": "龙枪",
   "OwnSkillId": 1213,
-  "GroupId": 1,
+  "GroupId": 3,
   "BindingLevelId": 1213,
   "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
@@ -31,7 +31,7 @@
       "技能锁定方式": "锁定锚点坐标",
       "技能范围类型": "Solid5x5",
       "HitsLimit": 20,
-      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetType": "Player, Pet",
       "LimitedTargetRelationship": "ItSelf",
       "清除状态列表": []
     },

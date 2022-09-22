@@ -4,9 +4,9 @@
   "SkillId": 1037,
   "MinPlayerLevel": "JiksLw==",
   "MinSkillExp": [
-    10,
-    20,
-    30,
+    100,
+    200,
+    400,
     0
   ],
   "SkillCombatBonus": [

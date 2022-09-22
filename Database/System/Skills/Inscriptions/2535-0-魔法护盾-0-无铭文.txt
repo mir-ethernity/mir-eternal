@@ -4,9 +4,9 @@
   "SkillId": 2535,
   "MinPlayerLevel": "HyImKQ==",
   "MinSkillExp": [
-    400,
-    800,
-    1200,
+    10,
+    20,
+    20,
     0
   ],
   "SkillCombatBonus": [

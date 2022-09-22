@@ -1,7 +1,7 @@
 {
   "Name": "法师魔法盾霜骨印",
   "Id": 25352,
-  "GroupId": 2535,
+  "Group": 2535,
   "Effect": "DamageIncOrDec",
   "SyncClient": true,
   "RemoveOnExpire": true,
@@ -22,7 +22,7 @@
   "ExtendedTimePerLevel": 5000,
   "PlayerStatDelay": true,
   "BoundPlayerStat": "MaxMC",
-  "StatDelayFactor": 1000,
+  "StatDelayFactor": 1000.0,
   "HasSpecificInscriptionDelay": true,
   "SpecificInscriptionSkills": 25352,
   "InscriptionExtendedTime": 15000,

@@ -1,7 +1,7 @@
 {
   "Name": "法师魔法盾倒计时",
   "Id": 25355,
-  "GroupId": 25355,
+  "Group": 25355,
   "SyncClient": true,
   "RemoveOnExpire": true,
   "OnChangeWeaponRemove": true,
@@ -35,10 +35,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "PhysicalRecoveryBase": "AAAAAA=="
 }

@@ -2,11 +2,11 @@
   "SkillName": "道尊天喻-0-无铭文",
   "Race": "道士",
   "SkillId": 3022,
-  "MinPlayerLevel": "HyImKQ==",
+  "MinPlayerLevel": "IyUoKg==",
   "MinSkillExp": [
     10,
-    20,
-    30,
+    10,
+    10,
     0
   ],
   "SkillCombatBonus": [
@@ -21,6 +21,6 @@
     "道尊天喻-0-无铭文-主体技能"
   ],
   "SwitchSkills": [
-    ""
+    "道尊天喻-0-无铭文-技能开关"
   ]
 }

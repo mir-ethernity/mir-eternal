@@ -3,7 +3,7 @@
   "Race": "弓手",
   "OwnSkillId": 2040,
   "BindingLevelId": 2040,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [],
@@ -42,10 +42,10 @@
         0
       ],
       "技能伤害系数": [
-        1,
-        1,
-        1,
-        1
+        1.0,
+        1.0,
+        1.0,
+        1.0
       ],
       "扣除武器持久": true,
       "ExpSkillId": 1031,
@@ -56,7 +56,7 @@
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "计算攻速缩减": true,
-      "角色硬直时间": 850,
+      "角色硬直时间": 500,
       "禁止行走时间": 850,
       "禁止奔跑时间": 500
     },

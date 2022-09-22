@@ -1,0 +1,25 @@
+{
+  "SkillName": "魔刃天旋-0-无铭文",
+  "SkillId": 1547,
+  "MinPlayerLevel": "IyUoKg==",
+  "MinSkillExp": [
+    10,
+    10,
+    10,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "魔刃天旋-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": [
+    "魔刃天旋-0-无铭文-技能开关"
+  ]
+}

@@ -34,20 +34,30 @@
     },
     "623": {
       "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
-      "技能锁定方式": "放空锁定ItSelf",
-      "HitsLimit": 1,
-      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "技能范围类型": "Solid5x5",
+      "HitsLimit": 20,
+      "LimitedTargetType": "Player, Pet",
       "LimitedTargetRelationship": "ItSelf",
       "清除状态列表": []
     },
-    "224": {
+    "624": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "触发Id": 30152,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1,
+      "GainSkillExp": true,
+      "ExpSkillId": 3015
+    },
+    "625": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "角色硬直时间": 725,
       "禁止行走时间": 650,
       "禁止奔跑时间": 650
     },
-    "225": {
+    "1000": {
       "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }

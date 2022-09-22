@@ -4,7 +4,7 @@
   "OverlayType": "SimilarReplacement",
   "Effect": "StatsIncOrDec",
   "SyncClient": true,
-  "BindingSkillLevel": true,
+  "BindingSkillLevel": 1534,
   "BuffInitialLayer": 1,
   "MaxBuffCount": 1,
   "BuffSynthesisLayer": 5,
@@ -15,7 +15,7 @@
   "StatsIncOrDec": [
     {
       "Stat": "MaxNC",
-      "Level0": 8,
+      "Level0": 6,
       "Level1": 7,
       "Level2": 8,
       "Level3": 9

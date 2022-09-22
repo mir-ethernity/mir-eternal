@@ -3,7 +3,7 @@
   "Race": "弓手",
   "OwnSkillId": 20481,
   "BindingLevelId": 2048,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     0,
     0,
@@ -21,7 +21,7 @@
       "技能锁定方式": "锁定目标坐标",
       "SkillEvasion": "CanBePhsyicallyEvaded",
       "SkillHitFeedback": "后仰",
-      "技能范围类型": "Hollow3x3",
+      "技能范围类型": "Hollow5x5",
       "技能命中通知": true,
       "HitsLimit": 8,
       "LimitedTargetType": "Player, Pet, Monster, NPC",
@@ -42,7 +42,7 @@
         1.4,
         1.6,
         1.8,
-        2
+        2.3
       ],
       "GainSkillExp": true,
       "ExpSkillId": 2048,

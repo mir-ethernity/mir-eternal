@@ -4,7 +4,7 @@
   "SkillId": 3009,
   "Id": 1,
   "Quality": 3,
-  "Probability": 60,
+  "Probability": 0,
   "MinPlayerLevel": "FBcaHQ==",
   "MinSkillExp": [
     300,

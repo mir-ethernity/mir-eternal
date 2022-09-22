@@ -1,7 +1,7 @@
 {
   "Name": "致残毒药致残效果",
   "Id": 15331,
-  "GroupId": 15331,
+  "Group": 15331,
   "OverlayType": "SimilarReplacement",
   "Effect": "StatsIncOrDec",
   "SyncClient": true,
@@ -49,10 +49,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

@@ -2,18 +2,18 @@
   "SkillName": "献祭-0-无铭文",
   "Race": "刺客",
   "SkillId": 1545,
-  "MinPlayerLevel": "HyImKQ==",
+  "MinPlayerLevel": "MzMzMw==",
   "MinSkillExp": [
     10,
     20,
-    30,
+    20,
     0
   ],
   "SkillCombatBonus": [
-    20,
-    30,
-    40,
-    50
+    5,
+    7,
+    10,
+    13
   ],
   "ComesWithBuff": [],
   "PassiveSkills": [],

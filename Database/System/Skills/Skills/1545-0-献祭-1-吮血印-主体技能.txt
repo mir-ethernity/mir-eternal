@@ -25,17 +25,22 @@
       "分组Cooldown": 1500,
       "角色忙绿时间": 625
     },
-    "623": {
+    "3": {
       "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能能否穿墙": true,
       "技能锁定方式": "锁定锚点坐标",
       "技能范围类型": "Solid5x5",
       "HitsLimit": 20,
-      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetType": "Player, Pet",
       "LimitedTargetRelationship": "ItSelf",
       "清除状态列表": []
     },
-    "624": {
+    "4": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "献祭-1-吮血印-命中特效"
+    },
+    "5": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 15451,
       "Buff触发概率": 1.0,
@@ -43,7 +48,7 @@
       "GainSkillExp": true,
       "ExpSkillId": 1545
     },
-    "625": {
+    "500": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "角色硬直时间": 725,

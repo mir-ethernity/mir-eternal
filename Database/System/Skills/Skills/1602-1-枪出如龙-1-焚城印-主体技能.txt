@@ -4,7 +4,7 @@
   "OwnSkillId": 1602,
   "Id": 1,
   "BindingLevelId": 1208,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "CheckOccupationalWeapons": true,
@@ -45,7 +45,7 @@
         2.1,
         2.3,
         2.5,
-        2.7
+        2.8
       ],
       "扣除武器持久": true,
       "GainSkillExp": true,

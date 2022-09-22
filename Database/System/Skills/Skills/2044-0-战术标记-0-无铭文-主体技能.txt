@@ -4,7 +4,7 @@
   "OwnSkillId": 2044,
   "GroupId": 2,
   "BindingLevelId": 2044,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "NeedConsumeMagic": [
     5,
@@ -28,7 +28,7 @@
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 20430,
-      "Buff触发概率": 1,
+      "Buff触发概率": 1.0,
       "所需Buff层数": 1
     },
     "373": {
@@ -44,7 +44,7 @@
     "374": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 20440,
-      "Buff触发概率": 1,
+      "Buff触发概率": 1.0,
       "所需Buff层数": 1,
       "GainSkillExp": true,
       "ExpSkillId": 2044

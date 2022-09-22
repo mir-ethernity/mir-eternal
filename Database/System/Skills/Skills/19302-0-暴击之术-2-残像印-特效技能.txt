@@ -3,7 +3,7 @@
   "Race": "刺客",
   "OwnSkillId": 19302,
   "BindingLevelId": 1531,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     0,
     0,

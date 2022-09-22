@@ -1,7 +1,7 @@
 {
   "Name": "诱惑之光瘫痪效果",
   "Id": 25410,
-  "GroupId": 25410,
+  "Group": 25410,
   "ActionType": "Debuff",
   "OverlayType": "HomogeneousStacking",
   "Effect": "StatusFlag",
@@ -43,10 +43,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

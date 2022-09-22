@@ -5,9 +5,9 @@
   "PassiveSkill": true,
   "MinPlayerLevel": "CQwSGQ==",
   "MinSkillExp": [
-    200,
-    400,
-    600,
+    100,
+    100,
+    100,
     0
   ],
   "SkillCombatBonus": [

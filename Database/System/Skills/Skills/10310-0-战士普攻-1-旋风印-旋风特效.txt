@@ -2,7 +2,7 @@
   "SkillName": "战士普攻-1-旋风印-旋风特效",
   "SkillType": "SubSkills",
   "OwnSkillId": 10310,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [],
   "PlayerBuffLayer": 1,
   "TargetBuffLayers": 1,

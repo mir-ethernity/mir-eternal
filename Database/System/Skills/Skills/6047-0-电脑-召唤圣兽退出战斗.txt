@@ -2,7 +2,7 @@
   "SkillName": "电脑-召唤圣兽退出战斗",
   "Race": "电脑",
   "OwnSkillId": 6047,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     0,
     0,

@@ -1,7 +1,7 @@
 {
   "Name": "毒魔瘟疫中毒效果",
   "Id": 38360,
-  "GroupId": 38360,
+  "Group": 38360,
   "OverlayType": "HomogeneousStacking",
   "Effect": "CausesSomeDamages",
   "SyncClient": true,
@@ -37,10 +37,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "PhysicalRecoveryBase": "AAAAAA=="
 }

@@ -4,7 +4,7 @@
   "SkillType": "SubSkills",
   "OwnSkillId": 1205,
   "BindingLevelId": 1205,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     0,
     0,
@@ -35,7 +35,7 @@
     "2": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 12050,
-      "Buff触发概率": 1,
+      "Buff触发概率": 1.0,
       "验证铭文技能": true,
       "所需Id": 12051,
       "同组铭文无效": true,
@@ -80,7 +80,7 @@
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 12052,
-      "Buff触发概率": 1,
+      "Buff触发概率": 1.0,
       "验证铭文技能": true,
       "所需Id": 12054,
       "同组铭文无效": true,

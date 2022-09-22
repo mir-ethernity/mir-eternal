@@ -1,7 +1,7 @@
 {
   "Name": "鬼灵步脱兔印加速",
   "Id": 15370,
-  "GroupId": 15370,
+  "Group": 15370,
   "Effect": "StatsIncOrDec",
   "SyncClient": true,
   "RemoveOnExpire": true,
@@ -51,10 +51,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

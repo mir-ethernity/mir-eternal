@@ -1,7 +1,7 @@
 {
   "Name": "回避射击减速效果",
   "Id": 20130,
-  "GroupId": 20130,
+  "Group": 20130,
   "ActionType": "Debuff",
   "Effect": "StatsIncOrDec",
   "SyncClient": true,
@@ -50,10 +50,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "PhysicalRecoveryBase": "AAAAAA=="
 }

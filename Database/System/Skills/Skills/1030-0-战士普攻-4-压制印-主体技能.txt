@@ -2,7 +2,7 @@
   "SkillName": "战士普攻-4-压制印-主体技能",
   "OwnSkillId": 1030,
   "BindingLevelId": 1031,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [],
@@ -45,10 +45,10 @@
         5
       ],
       "技能伤害系数": [
-        1,
-        1,
-        1,
-        1
+        1.0,
+        1.0,
+        1.0,
+        1.0
       ],
       "目标死亡回复": true,
       "回复限定类型": "AllMonsters",

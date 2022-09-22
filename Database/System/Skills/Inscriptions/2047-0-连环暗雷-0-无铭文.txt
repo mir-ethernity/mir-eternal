@@ -2,18 +2,18 @@
   "SkillName": "连环暗雷-0-无铭文",
   "Race": "弓手",
   "SkillId": 2047,
-  "MinPlayerLevel": "EhccIQ==",
+  "MinPlayerLevel": "GB0hJQ==",
   "MinSkillExp": [
     10,
     20,
-    30,
+    20,
     0
   ],
   "SkillCombatBonus": [
+    10,
+    15,
     20,
-    30,
-    40,
-    50
+    25
   ],
   "ComesWithBuff": [],
   "PassiveSkills": [],

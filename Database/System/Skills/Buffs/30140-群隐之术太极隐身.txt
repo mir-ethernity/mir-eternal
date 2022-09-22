@@ -1,7 +1,7 @@
 {
   "Name": "群隐之术太极隐身",
   "Id": 30140,
-  "GroupId": 3009,
+  "Group": 3009,
   "OverlayType": "SimilarReplacement",
   "Effect": "StatusFlag",
   "SyncClient": true,
@@ -21,7 +21,7 @@
   "ExtendedTimePerLevel": 5000,
   "PlayerStatDelay": true,
   "BoundPlayerStat": "MaxSC",
-  "StatDelayFactor": 1000,
+  "StatDelayFactor": 1000.0,
   "PlayerState": "Invisibility",
   "DamageBase": [
     0,
@@ -42,10 +42,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "PhysicalRecoveryBase": "AAAAAA=="
 }

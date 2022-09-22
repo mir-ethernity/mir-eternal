@@ -20,7 +20,7 @@
   "ExtendedTimePerLevel": 5000,
   "PlayerStatDelay": true,
   "BoundPlayerStat": "MaxSC",
-  "StatDelayFactor": 1000,
+  "StatDelayFactor": 1000.0,
   "StatsIncOrDec": [
     {
       "Stat": "MaxMCDef",
@@ -50,10 +50,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

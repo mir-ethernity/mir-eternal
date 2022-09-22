@@ -7,9 +7,9 @@
   "Probability": 15,
   "MinPlayerLevel": "HiEkJw==",
   "MinSkillExp": [
-    200,
-    400,
-    800,
+    10,
+    20,
+    20,
     0
   ],
   "SkillCombatBonus": [

@@ -1,7 +1,7 @@
 {
   "Name": "炎龙波灼龙印灼烧",
   "Id": 15353,
-  "GroupId": 15353,
+  "Group": 15353,
   "Effect": "CausesSomeDamages",
   "SyncClient": true,
   "RemoveOnExpire": true,
@@ -29,10 +29,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

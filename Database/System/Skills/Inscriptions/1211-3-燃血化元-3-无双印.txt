@@ -1,0 +1,26 @@
+{
+  "SkillName": "燃血化元-3-无双印",
+  "Race": "龙枪",
+  "SkillId": 1211,
+  "Id": 3,
+  "Quality": 8,
+  "Probability": 0,
+  "PassiveSkill": true,
+  "MinPlayerLevel": "LzI1OA==",
+  "MinSkillExp": [
+    100,
+    200,
+    400,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [],
+  "SwitchSkills": []
+}

@@ -1,7 +1,7 @@
 {
   "Name": "致残毒药血煞标记",
   "Id": 15338,
-  "GroupId": 1533,
+  "Group": 1533,
   "OverlayType": "SimilarReplacement",
   "SyncClient": true,
   "RemoveOnExpire": true,
@@ -36,10 +36,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

@@ -1,7 +1,7 @@
 {
   "Name": "致残毒药易伤效果",
   "Id": 1274,
-  "GroupId": 1274,
+  "Group": 1274,
   "ActionType": "Debuff",
   "OverlayType": "SimilarReplacement",
   "Effect": "DamageIncOrDec",

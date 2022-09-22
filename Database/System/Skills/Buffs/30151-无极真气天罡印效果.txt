@@ -8,7 +8,7 @@
   "RemoveOnExpire": true,
   "OnPlayerDiesRemove": true,
   "OnPlayerDisconnectRemove": true,
-  "BindingSkillLevel": true,
+  "BindingSkillLevel": 3015,
   "BuffInitialLayer": 1,
   "MaxBuffCount": 1,
   "BuffSynthesisLayer": 5,
@@ -23,35 +23,35 @@
       "Level0": 5,
       "Level1": 10,
       "Level2": 15,
-      "Level3": 20
+      "Level3": 18
     },
     {
       "Stat": "MinDef",
       "Level0": 3,
       "Level1": 4,
       "Level2": 5,
-      "Level3": 6
+      "Level3": 10
     },
     {
       "Stat": "MaxDef",
       "Level0": 5,
       "Level1": 6,
       "Level2": 7,
-      "Level3": 8
+      "Level3": 10
     },
     {
       "Stat": "MinMCDef",
       "Level0": 3,
       "Level1": 4,
       "Level2": 5,
-      "Level3": 6
+      "Level3": 10
     },
     {
       "Stat": "MaxMCDef",
       "Level0": 5,
       "Level1": 6,
       "Level2": 7,
-      "Level3": 8
+      "Level3": 10
     }
   ],
   "DamageBase": [

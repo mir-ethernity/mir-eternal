@@ -1,7 +1,7 @@
 {
   "Name": "钩镰枪法生命回复",
   "Id": 12052,
-  "GroupId": 12052,
+  "Group": 12052,
   "Effect": "LifeRecovery",
   "SyncClient": true,
   "RemoveOnExpire": true,
@@ -33,10 +33,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "BQYHCA=="

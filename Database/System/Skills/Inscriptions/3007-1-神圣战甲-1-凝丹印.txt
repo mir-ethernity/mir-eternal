@@ -4,12 +4,12 @@
   "SkillId": 3007,
   "Id": 1,
   "Quality": 4,
-  "Probability": 25,
+  "Probability": 50,
   "MinPlayerLevel": "GRsdHw==",
   "MinSkillExp": [
-    500,
-    1000,
-    1500,
+    10,
+    20,
+    20,
     0
   ],
   "SkillCombatBonus": [

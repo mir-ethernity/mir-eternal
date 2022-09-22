@@ -4,13 +4,13 @@
   "SkillId": 3010,
   "Id": 3,
   "Quality": 8,
-  "Probability": 80,
+  "Probability": 20,
   "BroadcastNotification": true,
-  "MinPlayerLevel": "IyUoKg==",
+  "MinPlayerLevel": "LzI1OA==",
   "MinSkillExp": [
+    100,
     200,
     400,
-    600,
     0
   ],
   "SkillCombatBonus": [

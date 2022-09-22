@@ -1,0 +1,29 @@
+{
+  "SkillName": "守护箭羽-2-震铠印",
+  "Race": "弓手",
+  "SkillId": 2052,
+  "Id": 2,
+  "Quality": 6,
+  "Probability": 20,
+  "MinPlayerLevel": "MzMzMw==",
+  "MinSkillExp": [
+    100,
+    200,
+    400,
+    0
+  ],
+  "SkillCombatBonus": [
+    5,
+    7,
+    10,
+    13
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "守护箭羽-2-震铠印-主体技能"
+  ],
+  "SwitchSkills": [
+    "守护箭羽-2-震铠印-技能开关"
+  ]
+}

@@ -4,13 +4,13 @@
   "SkillId": 1212,
   "Id": 2,
   "Quality": 8,
-  "Probability": 80,
+  "Probability": 40,
   "BroadcastNotification": true,
-  "MinPlayerLevel": "MzU3OQ==",
+  "MinPlayerLevel": "MzMzMw==",
   "MinSkillExp": [
     10,
-    10,
-    10,
+    20,
+    20,
     0
   ],
   "SkillCombatBonus": [
@@ -21,7 +21,9 @@
   ],
   "ComesWithBuff": [],
   "PassiveSkills": [],
-  "MainSkills": [],
+  "MainSkills": [
+    "召唤龙驹-2-救主印-主体技能"
+  ],
   "SwitchSkills": [
     "召唤龙驹-2-救主印-技能开关"
   ]

@@ -4,7 +4,7 @@
   "SkillType": "SubSkills",
   "OwnSkillId": 15336,
   "BindingLevelId": 1533,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     0,
     0,
@@ -38,13 +38,13 @@
         0.7,
         0.8,
         0.9,
-        1
+        1.0
       ],
       "数量衰减伤害": true,
       "伤害衰减系数": 0.05,
       "伤害衰减下限": 0.5,
-      "技能破防概率": 1,
-      "技能破防系数": 1,
+      "技能破防概率": 1.0,
+      "技能破防系数": 1.0,
       "清除状态列表": []
     }
   }

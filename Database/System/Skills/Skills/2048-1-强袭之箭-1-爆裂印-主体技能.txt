@@ -5,7 +5,7 @@
   "Id": 1,
   "GroupId": 4,
   "BindingLevelId": 2048,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "CheckOccupationalWeapons": true,
@@ -24,7 +24,7 @@
   "Nodes": {
     "0": {
       "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
-      "MaxDistance": 8
+      "MaxDistance": 10
     },
     "1": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",

@@ -4,7 +4,7 @@
   "OwnSkillId": 1930,
   "Id": 2,
   "BindingLevelId": 1531,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "CheckSkillMarks": true,
@@ -80,7 +80,7 @@
     "252": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 15311,
-      "Buff触发概率": 1,
+      "Buff触发概率": 1.0,
       "所需Buff层数": 1,
       "VerifyTargetType": true,
       "所需目标类型": "Backstab"
@@ -95,6 +95,13 @@
       "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
       "技能触发方式": "TargetHitDefinitely",
       "触发SkillName": "暴击之术-0-全铭文-致残判定"
+    },
+    "255": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "献祭-0-全铭文-触发判定",
+      "验证铭文技能": true,
+      "所需Id": 15450
     },
     "500": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

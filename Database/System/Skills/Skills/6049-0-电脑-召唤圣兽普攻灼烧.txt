@@ -3,7 +3,7 @@
   "Race": "电脑",
   "OwnSkillId": 6049,
   "MaxDistance": 1,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     0,
     0,
@@ -36,10 +36,10 @@
       "技能伤害类型": "Taoism",
       "技能伤害基数": [],
       "技能伤害系数": [
-        1,
-        1,
-        1,
-        1
+        1.0,
+        1.0,
+        1.0,
+        1.0
       ],
       "清除状态列表": []
     },

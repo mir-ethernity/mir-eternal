@@ -4,7 +4,7 @@
   "OwnSkillId": 1601,
   "Id": 2,
   "BindingLevelId": 1203,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "CheckOccupationalWeapons": true,
@@ -76,7 +76,30 @@
     "303": {
       "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
       "技能触发方式": "TargetHitDefinitely",
-      "触发SkillName": "钩镰枪法-0-全铭文-触发判定"
+      "触发SkillName": "百战军魂-0-无铭文-军魂攻击特效",
+      "验证ItSelfBuff": true,
+      "Id": 12140
+    },
+    "304": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "百战军魂-1-鏖战印-军魂攻击特效",
+      "验证ItSelfBuff": true,
+      "Id": 12141
+    },
+    "305": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "百战军魂-2-血爆印-军魂攻击特效",
+      "验证ItSelfBuff": true,
+      "Id": 12142
+    },
+    "306": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "百战军魂-3-千军印-军魂攻击特效",
+      "验证ItSelfBuff": true,
+      "Id": 12143
     },
     "350": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

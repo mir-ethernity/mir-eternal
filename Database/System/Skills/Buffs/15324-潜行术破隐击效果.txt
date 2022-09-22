@@ -1,7 +1,7 @@
 {
   "Name": "潜行术破隐击效果",
   "Id": 15324,
-  "GroupId": 15324,
+  "Group": 15324,
   "Effect": "DamageIncOrDec",
   "SyncClient": true,
   "RemoveOnExpire": true,

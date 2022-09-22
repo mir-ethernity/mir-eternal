@@ -3,7 +3,7 @@
   "Race": "电脑",
   "OwnSkillId": 3821,
   "MaxDistance": 3,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
@@ -40,11 +40,14 @@
         0
       ],
       "技能伤害系数": [
-        1,
-        1,
-        1,
-        1
+        1.0,
+        1.0,
+        1.0,
+        1.0
       ],
+      "技能增伤类型": "Undead",
+      "技能增伤基数": 750,
+      "技能增伤系数": 0.2,
       "清除状态列表": []
     }
   }

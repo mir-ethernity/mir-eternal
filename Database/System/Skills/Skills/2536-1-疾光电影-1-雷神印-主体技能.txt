@@ -5,7 +5,7 @@
   "Id": 1,
   "GroupId": 1,
   "BindingLevelId": 2536,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -61,13 +61,24 @@
       "目标硬直时间": 500,
       "清除状态列表": []
     },
-    "625": {
+    "626": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "角色硬直时间": 725,
       "禁止行走时间": 650,
       "禁止奔跑时间": 650
     },
-    "626": {
+    "625": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 25581,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1,
+      "验证铭文技能": true,
+      "所需Id": 25580,
+      "GainSkillExp": true,
+      "ExpSkillId": 2558
+    },
+    "627": {
       "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
       "技能触发方式": "AnchorAbsolutePosition",
       "触发SkillName": "疾光电影-1-雷神印-脉冲特效",

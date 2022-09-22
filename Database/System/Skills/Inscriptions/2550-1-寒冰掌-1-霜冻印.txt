@@ -7,9 +7,9 @@
   "Probability": 100,
   "MinPlayerLevel": "JCcpLA==",
   "MinSkillExp": [
-    120,
-    300,
-    500,
+    100,
+    200,
+    400,
     0
   ],
   "SkillCombatBonus": [

@@ -4,13 +4,13 @@
   "SkillId": 2045,
   "Id": 1,
   "Quality": 8,
-  "Probability": 5,
+  "Probability": 1,
   "BroadcastNotification": true,
   "MinPlayerLevel": "GRwfIg==",
   "MinSkillExp": [
+    100,
     200,
     400,
-    600,
     0
   ],
   "SkillCombatBonus": [

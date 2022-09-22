@@ -4,7 +4,7 @@
   "OwnSkillId": 3005,
   "Id": 4,
   "BindingLevelId": 3005,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     0,
     0,
@@ -36,7 +36,7 @@
         17
       ],
       "技能伤害系数": [
-        1,
+        1.0,
         1.1,
         1.15,
         1.2

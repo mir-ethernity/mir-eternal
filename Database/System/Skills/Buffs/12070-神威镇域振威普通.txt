@@ -1,7 +1,7 @@
 {
   "Name": "神威镇域振威普通",
   "Id": 12070,
-  "GroupId": 12070,
+  "Group": 12070,
   "OverlayType": "SimilarReplacement",
   "Effect": "DamageIncOrDec",
   "SyncClient": true,

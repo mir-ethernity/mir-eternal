@@ -1,0 +1,26 @@
+{
+  "SkillName": "万箭穿心-0-无铭文",
+  "Race": "弓手",
+  "SkillId": 2057,
+  "MinPlayerLevel": "LS4wMA==",
+  "MinSkillExp": [
+    100,
+    200,
+    400,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "万箭穿心-0-无铭文-主体技能"
+  ],
+  "SwitchSkills": [
+    "万箭穿心-0-无铭文-技能开关"
+  ]
+}

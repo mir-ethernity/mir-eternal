@@ -1,7 +1,7 @@
 {
   "Name": "野蛮冲撞蛮勇伤害",
   "Id": 10354,
-  "GroupId": 10354,
+  "Group": 10354,
   "ActionType": "Debuff",
   "OverlayType": "SimilarReplacement",
   "Effect": "StatusFlag, CausesSomeDamages",
@@ -38,10 +38,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

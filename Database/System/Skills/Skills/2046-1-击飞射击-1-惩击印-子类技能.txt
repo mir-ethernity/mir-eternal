@@ -5,7 +5,7 @@
   "Id": 1,
   "GroupId": 3,
   "BindingLevelId": 2046,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     0,
     0,
@@ -53,14 +53,14 @@
       "ItSelf位移次数": "AAAAAA==",
       "ItSelf位移距离": "AAAAAA==",
       "推动目标位移": true,
-      "BoostSkillExp": true,
-      "推动目标概率": 1,
+      "DisplacementIncreaseExp": true,
+      "推动目标概率": 1.0,
       "目标位移耗时": 3,
       "目标位移距离": "AQIDBA==",
       "目标硬直时间": 1000,
       "目标附加编号": 20462,
       "限定附加类型": "AllPlayers",
-      "附加Buff概率": 1
+      "附加Buff概率": 1.0
     },
     "4": {
       "$type": "A_00_TriggerSubSkills, Assembly-CSharp",

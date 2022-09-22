@@ -1,7 +1,7 @@
 {
   "Name": "野蛮冲撞目标伤害",
   "Id": 10353,
-  "GroupId": 10353,
+  "Group": 10353,
   "ActionType": "Debuff",
   "OverlayType": "SimilarReplacement",
   "Effect": "StatusFlag, CausesSomeDamages",
@@ -39,10 +39,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "PhysicalRecoveryBase": "AAAAAA=="
 }

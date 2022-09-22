@@ -4,7 +4,7 @@
   "Effect": "StatsIncOrDec",
   "SyncClient": true,
   "RemoveOnExpire": true,
-  "BindingSkillLevel": true,
+  "BindingSkillLevel": 1545,
   "BuffInitialLayer": 1,
   "MaxBuffCount": 1,
   "BuffSynthesisLayer": 5,

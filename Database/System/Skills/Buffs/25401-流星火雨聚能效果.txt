@@ -1,0 +1,42 @@
+{
+  "Name": "流星火雨聚能效果",
+  "Id": 25401,
+  "Group": 25401,
+  "ActionType": "Gain",
+  "OverlayType": "HomogeneousStacking",
+  "Effect": "DamageIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "BindingSkillLevel": 2540,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 5,
+  "AllowsSynthesis": true,
+  "BuffSynthesisLayer": 5,
+  "BuffSynthesisId": 25402,
+  "ProcessInterval": 3000,
+  "ProcessDelay": 3000,
+  "Duration": 3000,
+  "RequireBuff": [],
+  "DamageType": "Magic",
+  "DamageBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageFactor": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

@@ -2,11 +2,11 @@
   "SkillName": "灭天火-0-无铭文",
   "Race": "法师",
   "SkillId": 2539,
-  "MinPlayerLevel": "JiksLw==",
+  "MinPlayerLevel": "ERQXGg==",
   "MinSkillExp": [
-    10,
-    20,
-    30,
+    100,
+    200,
+    400,
     0
   ],
   "SkillCombatBonus": [

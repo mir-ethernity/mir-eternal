@@ -7,9 +7,9 @@
   "Probability": 80,
   "MinPlayerLevel": "FRkdIQ==",
   "MinSkillExp": [
+    100,
     200,
     400,
-    800,
     0
   ],
   "SkillCombatBonus": [

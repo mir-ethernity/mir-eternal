@@ -2,11 +2,11 @@
   "SkillName": "噬血术-0-无铭文",
   "Race": "道士",
   "SkillId": 3010,
-  "MinPlayerLevel": "EhUYGw==",
+  "MinPlayerLevel": "LzI1OA==",
   "MinSkillExp": [
-    10,
-    20,
-    30,
+    100,
+    200,
+    400,
     0
   ],
   "SkillCombatBonus": [

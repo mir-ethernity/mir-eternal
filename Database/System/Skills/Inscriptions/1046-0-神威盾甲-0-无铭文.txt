@@ -1,11 +1,11 @@
 {
   "SkillName": "神威盾甲-0-无铭文",
   "SkillId": 1046,
-  "MinPlayerLevel": "MzU3OQ==",
+  "MinPlayerLevel": "MzMzMw==",
   "MinSkillExp": [
-    10,
-    10,
-    10,
+    100,
+    200,
+    400,
     0
   ],
   "SkillCombatBonus": [
@@ -20,6 +20,6 @@
     "神威盾甲-0-无铭文-主体技能"
   ],
   "SwitchSkills": [
-    "神威盾甲-0-无铭文-主体技能"
+    "神威盾甲-0-无铭文-技能开关"
   ]
 }

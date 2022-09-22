@@ -3,7 +3,7 @@
   "OwnSkillId": 1430,
   "Id": 4,
   "BindingLevelId": 1032,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "CheckPassiveTags": true,
@@ -51,7 +51,7 @@
         1.7,
         1.8,
         1.9,
-        2
+        2.0
       ],
       "回复限定类型": "AllMonsters",
       "PhysicalRecoveryBase": 10,

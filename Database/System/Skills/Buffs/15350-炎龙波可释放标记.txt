@@ -1,7 +1,8 @@
 {
   "Name": "炎龙波可释放标记",
   "Id": 15350,
-  "GroupId": 15350,
+  "Group": 15350,
+  "OverlayType": "SimilarReplacement",
   "SyncClient": true,
   "RemoveOnExpire": true,
   "OnPlayerDiesRemove": true,
@@ -34,10 +35,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

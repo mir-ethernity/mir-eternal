@@ -1,7 +1,7 @@
 {
   "Name": "隐身之术空相隐身",
   "Id": 30091,
-  "GroupId": 3009,
+  "Group": 3009,
   "OverlayType": "SimilarReplacement",
   "Effect": "StatusFlag, StatsIncOrDec",
   "SyncClient": true,
@@ -22,7 +22,7 @@
   "ExtendedTimePerLevel": 5000,
   "PlayerStatDelay": true,
   "BoundPlayerStat": "MaxSC",
-  "StatDelayFactor": 1000,
+  "StatDelayFactor": 1000.0,
   "PlayerState": "Invisibility",
   "StatsIncOrDec": [
     {
@@ -52,10 +52,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "PhysicalRecoveryBase": "AAAAAA=="
 }

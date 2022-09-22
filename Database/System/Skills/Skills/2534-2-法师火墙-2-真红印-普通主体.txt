@@ -5,7 +5,7 @@
   "Id": 2,
   "GroupId": 1,
   "BindingLevelId": 2534,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -23,7 +23,7 @@
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
-      "ItSelfCooldown": 1375,
+      "ItSelfCooldown": 1000,
       "分组Cooldown": 1000,
       "角色忙绿时间": 625
     },
@@ -34,7 +34,7 @@
       "GainSkillExp": true,
       "ExpSkillId": 2534
     },
-    "625": {
+    "627": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "角色硬直时间": 725,

@@ -15,12 +15,16 @@
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
-      "ItSelfCooldown": 10000,
-      "分组Cooldown": 10000
+      "ItSelfCooldown": 14000,
+      "分组Cooldown": 14000
     },
     "1": {
       "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",
       "SkillTagId": 12121
+    },
+    "11000": {
+      "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",
+      "SkillTagId": 12123
     },
     "2": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

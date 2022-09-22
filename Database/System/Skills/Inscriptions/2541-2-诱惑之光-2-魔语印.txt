@@ -4,12 +4,12 @@
   "SkillId": 2541,
   "Id": 2,
   "Quality": 4,
-  "Probability": 25,
+  "Probability": 60,
   "MinPlayerLevel": "DRIYHQ==",
   "MinSkillExp": [
-    100,
-    200,
-    400,
+    10,
+    20,
+    20,
     0
   ],
   "SkillCombatBonus": [
