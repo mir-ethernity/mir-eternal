@@ -705,6 +705,18 @@ namespace GameServer.Data
                 }
                 return MonitorDictionary;
             };
+            dictionary[typeof(MonitorDictionary<CharacterData, int>)] = delegate (BinaryReader r, GameData o, DataField f)
+            {
+                var MonitorDictionary = new MonitorDictionary<CharacterData, int>(o);
+                int num = r.ReadInt32();
+                for (int i = 0; i < num; i++)
+                {
+                    int 键索引 = r.ReadInt32();
+                    int num2 = r.ReadInt32();
+                    DataLinkTable.添加任务(o, f, MonitorDictionary.IDictionary_0, null, num2, typeof(CharacterData), typeof(int), 键索引, 0);
+                }
+                return MonitorDictionary;
+            };
             Type typeFromHandle63 = typeof(MonitorDictionary<DateTime, GuildData>);
             dictionary[typeFromHandle63] = delegate (BinaryReader r, GameData o, DataField f)
             {
@@ -1284,6 +1296,17 @@ namespace GameServer.Data
                 {
                     b.Write(keyValuePair.Key.Index.V);
                     b.Write((int)keyValuePair.Value);
+                }
+            };
+
+            dictionary2[typeof(MonitorDictionary<CharacterData, int>)] = delegate (BinaryWriter b, object o)
+            {
+                MonitorDictionary<CharacterData, int> MonitorDictionary = (MonitorDictionary<CharacterData, int>)o;
+                b.Write((MonitorDictionary != null) ? MonitorDictionary.Count : 0);
+                foreach (var keyValuePair in MonitorDictionary)
+                {
+                    b.Write(keyValuePair.Key.Index.V);
+                    b.Write(keyValuePair.Value);
                 }
             };
             typeFromHandle = typeof(MonitorDictionary<DateTime, GuildData>);
