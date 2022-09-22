@@ -930,12 +930,17 @@ namespace GameServer.Templates
                             Nodes.Add(num19, keyValuePair.Value);
                         }
                     }
-                    else if (!c_03.推动目标位移)
+                    else if (c_03.推动目标位移)
                     {
                         foreach (var item in Hits)
                         {
-                            if ((item.Value.Feedback & SkillHitFeedback.Miss) != SkillHitFeedback.正常 || (item.Value.Feedback & SkillHitFeedback.丢失) != SkillHitFeedback.正常 || (item.Value.Feedback & SkillHitFeedback.死亡) != SkillHitFeedback.正常 || ComputingClass.CheckProbability(c_03.推动目标概率) || item.Value.Object.IsSpecificType(CasterObject, c_03.推动目标类型))
-                                continue;
+                            if (
+                                (item.Value.Feedback & SkillHitFeedback.Miss) != SkillHitFeedback.正常
+                                || (item.Value.Feedback & SkillHitFeedback.丢失) != SkillHitFeedback.正常
+                                || (item.Value.Feedback & SkillHitFeedback.死亡) != SkillHitFeedback.正常
+                                || !ComputingClass.CheckProbability(c_03.推动目标概率)
+                                || !item.Value.Object.IsSpecificType(CasterObject, c_03.推动目标类型)
+                            ) continue;
 
                             byte[] 目标位移距离 = c_03.目标位移距离;
                             int val = ((((目标位移距离 != null) ? 目标位移距离.Length : 0) > SkillLevel) ? c_03.目标位移距离[SkillLevel] : 0);
