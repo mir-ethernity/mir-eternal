@@ -18,6 +18,8 @@ https://www.lomcn.org/forum/threads/legend-of-mir-3d-emu-source-code.108580/
 
 In this repository, we have done a refactoring, translation and correction work from the mentioned source.
 
+#### 中国开发和玩家可以加入QQ群:39388776, 防止上当受骗！！！
+
 ## How to start
 
 ### Client & Launcher Configuration

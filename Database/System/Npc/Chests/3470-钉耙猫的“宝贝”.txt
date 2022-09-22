@@ -1,0 +1,5 @@
+{
+  "Id": 3470,
+  "Name": "钉耙猫的“宝贝”",
+  "Items": [
+  {"ItemName": "ChestScroll"}]}

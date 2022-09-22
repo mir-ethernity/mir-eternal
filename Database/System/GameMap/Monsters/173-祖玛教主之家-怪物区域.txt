@@ -48,7 +48,7 @@
     {
       "MonsterName": "祖玛教主",
       "SpawnCount": 1,
-      "RevivalInterval": 180
+      "RevivalInterval": 120
     }
   ],
   "RangeCoords": [
