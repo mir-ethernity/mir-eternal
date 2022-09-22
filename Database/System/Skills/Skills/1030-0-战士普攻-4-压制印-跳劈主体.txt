@@ -2,13 +2,15 @@
   "SkillName": "战士普攻-4-压制印-跳劈主体",
   "OwnSkillId": 1030,
   "BindingLevelId": 1031,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [],
   "ValidateLearnedSkills": 1031,
   "VerficationSkillInscription": 4,
   "VerifyTargetType": "LowLevelTarget",
+  "目标最近距离": 1,
+  "目标最远距离": 1,
   "Nodes": {
     "0": {
       "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
@@ -51,10 +53,10 @@
         5
       ],
       "技能伤害系数": [
-        1.0,
-        1.0,
-        1.0,
-        1.0
+        1,
+        1,
+        1,
+        1
       ],
       "技能增伤类型": "LowLevelTarget",
       "技能增伤基数": 10,

@@ -1,7 +1,7 @@
 {
   "Name": "法师魔法盾天守印",
   "Id": 25356,
-  "Group": 25356,
+  "GroupId": 25356,
   "Effect": "StatsIncOrDec",
   "SyncClient": true,
   "OnChangeWeaponRemove": true,
@@ -46,10 +46,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

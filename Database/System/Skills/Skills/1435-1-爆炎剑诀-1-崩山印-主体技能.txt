@@ -9,21 +9,21 @@
   "CheckSkillMarks": true,
   "SkillTagId": 10420,
   "NeedConsumeMagic": [
-    0,
-    0,
-    0,
-    0
+    7,
+    7,
+    7,
+    7
   ],
   "Nodes": {
     "0": {
       "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
-      "MaxDistance": 1,
+      "MaxDistance": 3,
       "技能最近距离": 1
     },
     "1": {
       "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
       "技能触发方式": "AnchorAbsolutePosition",
-      "触发SkillName": "爆炎剑诀-1-崩山印-崩山特效"
+      "触发SkillName": "爆炎剑诀-1-崩山印-成功特效"
     },
     "2": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
@@ -39,7 +39,7 @@
       "技能锁定方式": "锁定锚点坐标",
       "SkillEvasion": "CanBePhsyicallyEvaded",
       "SkillHitFeedback": "后仰",
-      "技能范围类型": "Solid5x5",
+      "技能范围类型": "Zhanyue1x3",
       "技能扩展通知": true,
       "HitsLimit": 2,
       "LimitedTargetType": "Player, Pet, Monster, NPC",
@@ -53,8 +53,8 @@
       "技能伤害系数": [
         2.0,
         2.2,
-        2.3,
-        2.4
+        2.4,
+        2.6
       ],
       "回复限定类型": "AllMonsters",
       "PhysicalRecoveryBase": 10,
@@ -66,11 +66,6 @@
       "ExpSkillId": 1042,
       "目标硬直时间": 500,
       "清除状态列表": []
-    },
-    "251": {
-      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
-      "技能触发方式": "AnchorAbsolutePosition",
-      "触发SkillName": "爆炎剑诀-1-崩山印-崩山爆"
     },
     "500": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

@@ -2,11 +2,11 @@
   "SkillName": "觉醒·百战军魂-0-无铭文",
   "Race": "龙枪",
   "SkillId": 1214,
-  "MinPlayerLevel": "LS4wMA==",
+  "MinPlayerLevel": "HyImKQ==",
   "MinSkillExp": [
-    100,
-    200,
-    400,
+    10,
+    20,
+    30,
     0
   ],
   "SkillCombatBonus": [
@@ -16,8 +16,12 @@
     50
   ],
   "ComesWithBuff": [],
-  "PassiveSkills": [],
-  "MainSkills": [],
+  "PassiveSkills": [
+    1607
+  ],
+  "MainSkills": [
+    "觉醒·百战军魂-0-无铭文-主体技能"
+  ],
   "SwitchSkills": [
     "觉醒·百战军魂-0-无铭文-技能开关"
   ]

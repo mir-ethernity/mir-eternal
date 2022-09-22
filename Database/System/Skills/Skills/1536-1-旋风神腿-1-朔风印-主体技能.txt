@@ -4,7 +4,7 @@
   "OwnSkillId": 1536,
   "Id": 1,
   "BindingLevelId": 1536,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -45,8 +45,8 @@
       "ItSelf位移次数": "AAAAAA==",
       "ItSelf位移距离": "AAAAAA==",
       "推动目标位移": true,
-      "DisplacementIncreaseExp": true,
-      "推动目标概率": 1.0,
+      "BoostSkillExp": true,
+      "推动目标概率": 1,
       "目标位移耗时": 3,
       "目标位移距离": "AQIDBA==",
       "目标硬直时间": 1000

@@ -1,7 +1,7 @@
 {
   "Name": "霹雳弹幕怪物增伤",
   "Id": 15424,
-  "Group": 15424,
+  "GroupId": 15424,
   "ActionType": "Debuff",
   "OverlayType": "SimilarReplacement",
   "Effect": "DamageIncOrDec",

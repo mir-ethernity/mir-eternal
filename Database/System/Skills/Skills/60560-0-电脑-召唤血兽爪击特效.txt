@@ -3,7 +3,7 @@
   "Race": "电脑",
   "SkillType": "SubSkills",
   "OwnSkillId": 60560,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,

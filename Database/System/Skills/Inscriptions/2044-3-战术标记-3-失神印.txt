@@ -4,12 +4,12 @@
   "SkillId": 2044,
   "Id": 3,
   "Quality": 1,
-  "Probability": 70,
+  "Probability": 100,
   "MinPlayerLevel": "FRgbHg==",
   "MinSkillExp": [
-    10,
-    20,
-    20,
+    200,
+    400,
+    600,
     0
   ],
   "SkillCombatBonus": [

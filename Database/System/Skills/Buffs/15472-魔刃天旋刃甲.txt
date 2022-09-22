@@ -1,0 +1,45 @@
+{
+  "Name": "魔刃天旋刃甲",
+  "Id": 15472,
+  "ActionType": "Gain",
+  "Effect": "LifeRecovery, CreateTrap",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 10000,
+  "Duration": 10000,
+  "RequireBuff": [],
+  "DamageType": "Tear",
+  "DamageBase": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "TriggerTrapSkills": "魔刃天旋-2-刃甲印",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

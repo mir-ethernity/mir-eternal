@@ -6,7 +6,7 @@
   "Id": 1,
   "GroupId": 8,
   "BindingLevelId": 2056,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,
@@ -18,7 +18,7 @@
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 20560,
-      "Buff触发概率": 1.0,
+      "Buff触发概率": 1,
       "所需Buff层数": 1
     },
     "1": {
@@ -54,7 +54,7 @@
         1.4,
         1.6,
         1.8,
-        2.0
+        2
       ],
       "GainSkillExp": true,
       "ExpSkillId": 2056,

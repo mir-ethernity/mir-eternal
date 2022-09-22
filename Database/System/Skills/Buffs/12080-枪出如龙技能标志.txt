@@ -1,7 +1,7 @@
 {
   "Name": "枪出如龙技能标志",
   "Id": 12080,
-  "Group": 12080,
+  "GroupId": 12080,
   "SyncClient": true,
   "RemoveOnExpire": true,
   "OnPlayerDiesRemove": true,
@@ -33,10 +33,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

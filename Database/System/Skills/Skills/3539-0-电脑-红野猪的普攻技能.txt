@@ -4,7 +4,7 @@
   "OwnSkillId": 3539,
   "BindingLevelId": 3539,
   "MaxDistance": 1,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,
@@ -40,10 +40,10 @@
         0
       ],
       "技能伤害系数": [
-        1.0,
-        1.0,
-        1.0,
-        1.0
+        1,
+        1,
+        1,
+        1
       ],
       "清除状态列表": []
     }

@@ -22,8 +22,8 @@
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
-      "ItSelfCooldown": 2500,
-      "分组Cooldown": 2500,
+      "ItSelfCooldown": 1500,
+      "分组Cooldown": 1000,
       "角色忙绿时间": 625
     },
     "623": {
@@ -50,10 +50,10 @@
         24
       ],
       "技能伤害系数": [
-        1.0,
-        1.0,
-        1.0,
-        1.0
+        1.2,
+        1.3,
+        1.4,
+        1.5
       ],
       "GainSkillExp": true,
       "ExpSkillId": 2539,
@@ -65,35 +65,9 @@
       "技能触发方式": "AnchorAbsolutePosition",
       "触发SkillName": "灭天火-1-夺气印-空放特效"
     },
-    "502": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "触发Id": 25501,
-      "Buff触发概率": 1.0,
-      "VerifyTargetBuff": true,
-      "目标Id": 25501,
-      "所需Buff层数": 1
-    },
     "625": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 25580,
-      "Buff触发概率": 1.0,
-      "所需Buff层数": 1,
-      "验证铭文技能": true,
-      "所需Id": 25580,
-      "GainSkillExp": true,
-      "ExpSkillId": 2558
-    },
-    "626": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "触发Id": 10363,
-      "Buff触发概率": 1.0,
-      "所需Buff层数": 1,
-      "验证ItSelfBuff": true,
-      "Id": 25585
-    },
-    "627": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
       "角色硬直时间": 725,
       "禁止行走时间": 650,
       "禁止奔跑时间": 650

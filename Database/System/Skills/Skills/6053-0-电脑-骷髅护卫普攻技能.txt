@@ -1,0 +1,50 @@
+{
+  "SkillName": "电脑-骷髅护卫普攻技能",
+  "Race": "电脑",
+  "OwnSkillId": 6053,
+  "MaxDistance": 1,
+  "CalculateTriggerProbability": 1,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "角色忙绿时间": 1000
+    },
+    "324": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定目标",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能扩展通知": true,
+      "HitsLimit": 1,
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "325": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害基数": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "技能伤害系数": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "清除状态列表": []
+    }
+  }
+}

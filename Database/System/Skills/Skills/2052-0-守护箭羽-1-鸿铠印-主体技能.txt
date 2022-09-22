@@ -31,7 +31,7 @@
       "技能锁定方式": "锁定锚点坐标",
       "技能范围类型": "Solid5x5",
       "HitsLimit": 20,
-      "LimitedTargetType": "Player, Pet",
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "ItSelf",
       "清除状态列表": []
     },

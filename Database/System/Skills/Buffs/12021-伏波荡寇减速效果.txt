@@ -1,7 +1,7 @@
 {
   "Name": "伏波荡寇减速效果",
   "Id": 12021,
-  "Group": 12021,
+  "GroupId": 12021,
   "ActionType": "Debuff",
   "OverlayType": "SimilarReplacement",
   "Effect": "StatsIncOrDec",
@@ -19,10 +19,10 @@
   "StatsIncOrDec": [
     {
       "Stat": "WalkSpeed",
-      "Level0": 2,
-      "Level1": 2,
-      "Level2": 2,
-      "Level3": 2
+      "Level0": 1,
+      "Level1": 1,
+      "Level2": 1,
+      "Level3": 1
     },
     {
       "Stat": "RunSpeed",
@@ -52,10 +52,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

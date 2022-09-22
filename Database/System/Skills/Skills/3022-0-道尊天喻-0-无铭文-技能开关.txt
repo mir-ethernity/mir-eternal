@@ -1,6 +1,7 @@
 {
   "SkillName": "道尊天喻-0-无铭文-技能开关",
   "OwnSkillId": 3022,
+  "GroupId": 3,
   "BindingLevelId": 3022,
   "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [

@@ -4,7 +4,7 @@
   "SkillId": 3015,
   "Id": 2,
   "Quality": 8,
-  "Probability": 0,
+  "Probability": 80,
   "BroadcastNotification": true,
   "MinPlayerLevel": "FhgaHA==",
   "MinSkillExp": [

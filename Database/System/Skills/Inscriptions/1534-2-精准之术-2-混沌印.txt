@@ -5,7 +5,7 @@
   "Id": 2,
   "PassiveSkill": true,
   "Quality": 6,
-  "Probability": 20,
+  "Probability": 6,
   "MinPlayerLevel": "CQwSGQ==",
   "MinSkillExp": [
     200,

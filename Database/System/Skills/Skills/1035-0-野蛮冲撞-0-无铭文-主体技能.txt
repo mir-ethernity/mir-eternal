@@ -2,7 +2,7 @@
   "SkillName": "野蛮冲撞-0-无铭文-主体技能",
   "OwnSkillId": 1035,
   "BindingLevelId": 1035,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -34,15 +34,15 @@
       "ItSelf位移次数": "AgMEBQ==",
       "ItSelf位移距离": "AQEBAQ==",
       "失败Id": 10351,
-      "失败Buff概率": 1.0,
+      "失败Buff概率": 1,
       "推动目标位移": true,
-      "DisplacementIncreaseExp": true,
-      "推动目标概率": 1.0,
+      "BoostSkillExp": true,
+      "推动目标概率": 1,
       "连续推动数量": 1,
       "目标位移耗时": 5,
       "目标位移距离": "AQEBAQ==",
       "目标位移编号": 10353,
-      "位移Buff概率": 1.0
+      "位移Buff概率": 1
     }
   }
 }

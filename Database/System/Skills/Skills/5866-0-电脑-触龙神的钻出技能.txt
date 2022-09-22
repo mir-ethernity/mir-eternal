@@ -2,7 +2,7 @@
   "SkillName": "电脑-触龙神的钻出技能",
   "Race": "电脑",
   "OwnSkillId": 5866,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {

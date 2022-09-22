@@ -5,7 +5,7 @@
   "Id": 1,
   "GroupId": 1,
   "BindingLevelId": 3009,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -33,7 +33,7 @@
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 30091,
-      "Buff触发概率": 1.0,
+      "Buff触发概率": 1,
       "所需Buff层数": 1,
       "GainSkillExp": true,
       "ExpSkillId": 3009

@@ -1,7 +1,7 @@
 {
   "Name": "精准打击蓄势射戟",
   "Id": 20421,
-  "Group": 20421,
+  "GroupId": 20421,
   "OverlayType": "HomogeneousStacking",
   "SyncClient": true,
   "RemoveOnExpire": true,
@@ -36,10 +36,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "PhysicalRecoveryBase": "AAAAAA=="
 }

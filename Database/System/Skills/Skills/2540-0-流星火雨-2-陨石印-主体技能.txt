@@ -2,8 +2,9 @@
   "SkillName": "流星火雨-2-陨石印-主体技能",
   "Race": "法师",
   "OwnSkillId": 2540,
-  "GroupId": 1,
+  "Id": 0,
   "BindingLevelId": 2540,
+  "GroupId": 2,
   "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
@@ -22,53 +23,45 @@
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
-      "ItSelfCooldown": 2000,
-      "分组Cooldown": 2000,
+      "ItSelfCooldown": 1500,
+      "分组Cooldown": 1000,
       "角色忙绿时间": 625
     },
     "2": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 25401,
-      "Buff触发概率": 1.0,
-      "所需Buff层数": 5
-    },
-    "10000": {
-      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
-      "技能触发方式": "AnchorAbsolutePosition",
-      "触发SkillName": "流星火雨-2-陨石印-主动伤害",
-      "验证ItSelfBuff": true,
-      "Id": 25402
-    },
-    "623": {
       "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能能否穿墙": true,
       "技能能否招架": true,
       "技能锁定方式": "锁定锚点坐标",
-      "SkillEvasion": "CanBeMagicEvaded",
       "SkillHitFeedback": "后仰",
       "技能范围类型": "Solid5x5",
-      "技能扩展通知": true,
-      "HitsLimit": 9,
+      "技能命中通知": true,
+      "HitsLimit": 12,
       "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
-    "624": {
+    "250": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 25401,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1
+    },
+    "350": {
       "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害类型": "Magic",
       "技能伤害基数": [
-        20,
-        22,
-        24,
-        26
+        25,
+        29,
+        33,
+        37
       ],
       "技能伤害系数": [
-        0.7,
-        0.8,
-        0.9,
-        1.0
+        1.5,
+        1.6,
+        1.7,
+        1.8
       ],
       "GainSkillExp": true,
       "ExpSkillId": 2540,
@@ -76,25 +69,6 @@
       "清除状态列表": []
     },
     "625": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 25580,
-      "Buff触发概率": 1.0,
-      "所需Buff层数": 1,
-      "验证铭文技能": true,
-      "所需Id": 25580,
-      "GainSkillExp": true,
-      "ExpSkillId": 2558
-    },
-    "626": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "触发Id": 10363,
-      "Buff触发概率": 1.0,
-      "所需Buff层数": 1,
-      "验证ItSelfBuff": true,
-      "Id": 25585
-    },
-    "627": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "角色硬直时间": 725,

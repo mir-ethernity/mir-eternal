@@ -8,10 +8,10 @@
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
-    1,
-    1,
-    1,
-    1
+    5,
+    8,
+    12,
+    16
   ],
   "NeedConsumeItems": [
     40103,

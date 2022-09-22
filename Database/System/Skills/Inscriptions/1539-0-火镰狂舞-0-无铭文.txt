@@ -2,11 +2,12 @@
   "SkillName": "火镰狂舞-0-无铭文",
   "Race": "刺客",
   "SkillId": 1539,
-  "MinPlayerLevel": "LzI1OA==",
+  "PassiveSkill": true,
+  "MinPlayerLevel": "IyYpLA==",
   "MinSkillExp": [
-    100,
-    200,
-    400,
+    10,
+    20,
+    30,
     0
   ],
   "SkillCombatBonus": [

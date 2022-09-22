@@ -1,11 +1,12 @@
 {
   "SkillName": "阴阳道盾-0-无铭文",
+  "Race": "道士",
   "SkillId": 3025,
-  "MinPlayerLevel": "LS4wMA==",
+  "MinPlayerLevel": "HyImKQ==",
   "MinSkillExp": [
-    100,
-    200,
-    200,
+    10,
+    20,
+    30,
     0
   ],
   "SkillCombatBonus": [

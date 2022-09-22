@@ -2,7 +2,7 @@
   "SkillName": "爆炎剑诀-0-无铭文-主体技能",
   "OwnSkillId": 1435,
   "BindingLevelId": 1042,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "CheckSkillMarks": true,
@@ -16,7 +16,7 @@
   "Nodes": {
     "0": {
       "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
-      "MaxDistance": 3,
+      "MaxDistance": 1,
       "技能最近距离": 1
     },
     "1": {
@@ -38,9 +38,9 @@
       "技能锁定方式": "锁定锚点坐标",
       "SkillEvasion": "CanBePhsyicallyEvaded",
       "SkillHitFeedback": "后仰",
-      "技能范围类型": "Zhanyue3x3",
+      "技能范围类型": "Zhanyue1x3",
       "技能扩展通知": true,
-      "HitsLimit": 9,
+      "HitsLimit": 3,
       "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
@@ -50,10 +50,10 @@
       "点爆需要层数": 1,
       "技能伤害基数": [],
       "技能伤害系数": [
-        2.0,
+        1.8,
+        2,
         2.2,
-        2.3,
-        2.3
+        2.4
       ],
       "回复限定类型": "AllMonsters",
       "PhysicalRecoveryBase": 10,

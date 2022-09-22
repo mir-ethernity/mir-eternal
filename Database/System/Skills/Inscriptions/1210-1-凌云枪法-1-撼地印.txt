@@ -6,11 +6,11 @@
   "Quality": 8,
   "Probability": 80,
   "BroadcastNotification": true,
-  "MinPlayerLevel": "KSotLQ==",
+  "MinPlayerLevel": "IyUoKg==",
   "MinSkillExp": [
-    100,
     200,
     400,
+    600,
     0
   ],
   "SkillCombatBonus": [

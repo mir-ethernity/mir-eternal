@@ -1,24 +1,21 @@
 {
   "SkillName": "神威盾甲-1-厚甲印-主体技能",
   "OwnSkillId": 1046,
-  "GroupId": 1,
+  "GroupId": 5,
   "BindingLevelId": 1046,
   "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
-    7,
-    7,
-    7,
-    7
+    25,
+    30,
+    35,
+    40
   ],
   "Nodes": {
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
-      "ItSelfCooldown": 30000
-    },
-    "1": {
-      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
-      "触发SkillName": "神威盾甲-1-厚甲印-成功特效"
+      "ItSelfCooldown": 30000,
+      "分组Cooldown": 30000
     },
     "250": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",

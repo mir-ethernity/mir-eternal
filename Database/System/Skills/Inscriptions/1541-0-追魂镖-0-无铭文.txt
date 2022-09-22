@@ -1,24 +1,26 @@
 {
   "SkillName": "追魂镖-0-无铭文",
-  "Race": "刺客",
+  "Race": "道士",
   "SkillId": 1541,
-  "MinPlayerLevel": "KCotLQ==",
+  "MinPlayerLevel": "HyImKQ==",
   "MinSkillExp": [
     10,
     20,
-    20,
+    30,
     0
   ],
   "SkillCombatBonus": [
-    5,
-    7,
-    10,
-    13
+    20,
+    30,
+    40,
+    50
   ],
   "ComesWithBuff": [],
   "PassiveSkills": [],
   "MainSkills": [
     "追魂镖-0-无铭文-主体技能"
   ],
-  "SwitchSkills": []
+  "SwitchSkills": [
+    ""
+  ]
 }

@@ -4,7 +4,7 @@
   "SkillType": "SubSkills",
   "OwnSkillId": 1531,
   "BindingLevelId": 1531,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,
@@ -15,48 +15,12 @@
     "0": {
       "$type": "C_03_CalculateObjectDisplacement, Assembly-CSharp",
       "角色ItSelf位移": true,
-      "ItSelf位移耗时": 1,
+      "ItSelf位移耗时": 2,
       "ItSelf位移次数": "AQEBAQ==",
-      "ItSelf位移距离": "AgMDAw==",
-      "成功Id": true,
-      "成功Buff概率": 1.0,
+      "ItSelf位移距离": "AgICAg==",
+      "成功Id": 15386,
+      "成功Buff概率": 1,
       "目标位移距离": "AAAAAA=="
-    },
-    "125": {
-      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
-      "技能能否穿墙": true,
-      "技能能否招架": true,
-      "技能锁定方式": "锁定锚点坐标",
-      "SkillEvasion": "CanBePhsyicallyEvaded",
-      "SkillHitFeedback": "后仰",
-      "技能范围类型": "Single1x1",
-      "技能扩展通知": true,
-      "HitsLimit": 1,
-      "LimitedTargetType": "Player, Pet, Monster, NPC",
-      "LimitedTargetRelationship": "Hostility",
-      "清除状态列表": []
-    },
-    "251": {
-      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
-      "点爆需要层数": 1,
-      "技能伤害类型": "Needle",
-      "技能伤害基数": [
-        1,
-        2,
-        3,
-        4
-      ],
-      "技能伤害系数": [
-        1.9,
-        2.1,
-        2.3,
-        2.5
-      ],
-      "扣除武器持久": true,
-      "GainSkillExp": true,
-      "ExpSkillId": 1531,
-      "目标硬直时间": 500,
-      "清除状态列表": []
     }
   }
 }

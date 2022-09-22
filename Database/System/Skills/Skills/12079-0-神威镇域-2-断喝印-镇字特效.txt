@@ -4,7 +4,7 @@
   "SkillType": "SubSkills",
   "OwnSkillId": 12079,
   "BindingLevelId": 1207,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,

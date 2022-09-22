@@ -1,35 +1,16 @@
 {
   "Name": "雷霆剑法技能效果",
   "Id": 10492,
-  "ActionType": "Debuff",
-  "Effect": "StatsIncOrDec",
   "SyncClient": true,
   "RemoveOnExpire": true,
   "OnPlayerDiesRemove": true,
-  "BindingSkillLevel": 1049,
+  "OnPlayerDisconnectRemove": true,
   "BuffInitialLayer": 1,
   "MaxBuffCount": 1,
   "BuffSynthesisLayer": 5,
-  "ProcessInterval": 6000,
-  "ProcessDelay": 6000,
-  "Duration": 9000,
+  "ProcessInterval": 15000,
+  "Duration": 15000,
   "RequireBuff": [],
-  "StatsIncOrDec": [
-    {
-      "Stat": "WalkSpeed",
-      "Level0": 1,
-      "Level1": 1,
-      "Level2": 1,
-      "Level3": 1
-    },
-    {
-      "Stat": "RunSpeed",
-      "Level0": 2,
-      "Level1": 2,
-      "Level2": 2,
-      "Level3": 2
-    }
-  ],
   "DamageBase": [
     0,
     1,
@@ -55,6 +36,6 @@
     0.0,
     0.0
   ],
-  "TriggerTrapSkills": "雷霆剑法-0-无铭文",
+  "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="
 }

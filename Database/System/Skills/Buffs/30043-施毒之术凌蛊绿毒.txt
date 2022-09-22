@@ -1,7 +1,7 @@
 {
   "Name": "施毒之术凌蛊绿毒",
   "Id": 30043,
-  "Group": 3004,
+  "GroupId": 3004,
   "ActionType": "Debuff",
   "OverlayType": "SimilarReplacement",
   "Effect": "CausesSomeDamages",
@@ -21,7 +21,7 @@
   "ExtendedTimePerLevel": 5000,
   "PlayerStatDelay": true,
   "BoundPlayerStat": "MaxSC",
-  "StatDelayFactor": 1000.0,
+  "StatDelayFactor": 1000,
   "DamageType": "Toxicity",
   "DamageBase": [
     1,
@@ -30,10 +30,10 @@
     4
   ],
   "DamageFactor": [
-    0,
-    0,
-    0,
-    0
+    0.125,
+    0.125,
+    0.125,
+    0.125
   ],
   "SpecificSkillId": [],
   "DamageIncOrDecBase": [
@@ -43,10 +43,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

@@ -4,7 +4,7 @@
   "OwnSkillId": 2536,
   "GroupId": 1,
   "BindingLevelId": 2536,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -61,17 +61,6 @@
       "清除状态列表": []
     },
     "625": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 25581,
-      "Buff触发概率": 1.0,
-      "所需Buff层数": 1,
-      "验证铭文技能": true,
-      "所需Id": 25580,
-      "GainSkillExp": true,
-      "ExpSkillId": 2558
-    },
-    "626": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "角色硬直时间": 725,
       "禁止行走时间": 650,

@@ -1,7 +1,7 @@
 {
   "Name": "召唤灵兽变身效果",
   "Id": 60610,
-  "Group": 6046,
+  "GroupId": 6046,
   "SyncClient": true,
   "RemoveOnExpire": true,
   "OnPlayerDiesRemove": true,
@@ -32,10 +32,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

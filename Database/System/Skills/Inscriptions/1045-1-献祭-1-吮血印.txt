@@ -4,7 +4,7 @@
   "SkillId": 1045,
   "Id": 1,
   "Quality": 6,
-  "Probability": 30,
+  "Probability": 20,
   "BroadcastNotification": true,
   "MinPlayerLevel": "EBUaHw==",
   "MinSkillExp": [
@@ -25,6 +25,6 @@
     "献祭-1-吮血印-主体技能"
   ],
   "SwitchSkills": [
-    "献祭-1-吮血印-技能开关"
+    "献祭-0-无铭文-技能开关"
   ]
 }

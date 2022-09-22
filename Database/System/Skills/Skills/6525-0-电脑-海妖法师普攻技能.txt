@@ -3,7 +3,7 @@
   "Race": "电脑",
   "OwnSkillId": 6525,
   "MaxDistance": 6,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {

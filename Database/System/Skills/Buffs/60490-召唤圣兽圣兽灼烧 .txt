@@ -1,7 +1,7 @@
 {
   "Name": "召唤圣兽圣兽灼烧 ",
   "Id": 60490,
-  "Group": 60490,
+  "GroupId": 60490,
   "OverlayType": "HomogeneousStacking",
   "Effect": "CausesSomeDamages",
   "SyncClient": true,
@@ -29,10 +29,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "PhysicalRecoveryBase": "AAAAAA=="
 }

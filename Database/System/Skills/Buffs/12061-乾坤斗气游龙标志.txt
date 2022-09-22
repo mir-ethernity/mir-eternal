@@ -1,7 +1,7 @@
 {
   "Name": "乾坤斗气游龙标志",
   "Id": 12061,
-  "Group": 12060,
+  "GroupId": 12060,
   "OverlayType": "SimilarReplacement",
   "Effect": "StatsIncOrDec",
   "SyncClient": true,
@@ -63,10 +63,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

@@ -3,7 +3,7 @@
   "Race": "道士",
   "OwnSkillId": 30059,
   "BindingLevelId": 3005,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,

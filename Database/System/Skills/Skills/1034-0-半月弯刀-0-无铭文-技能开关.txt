@@ -2,7 +2,7 @@
   "SkillName": "半月弯刀-0-无铭文-技能开关",
   "OwnSkillId": 1034,
   "BindingLevelId": 1034,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {

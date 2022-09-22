@@ -4,7 +4,7 @@
   "OwnSkillId": 2546,
   "GroupId": 1,
   "BindingLevelId": 2546,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -47,30 +47,19 @@
         13
       ],
       "技能伤害系数": [
-        0.0,
-        0.0,
-        0.0,
-        0.0
+        0,
+        0,
+        0,
+        0
       ],
-      "技能增伤类型": "Undead",
-      "技能增伤系数": 1.0,
+      "技能增伤类型": "Undead, ZumaMonster",
+      "技能增伤系数": 1,
       "GainSkillExp": true,
       "ExpSkillId": 2546,
       "目标硬直时间": 1000,
       "清除状态列表": []
     },
     "625": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 25581,
-      "Buff触发概率": 1.0,
-      "所需Buff层数": 1,
-      "验证铭文技能": true,
-      "所需Id": 25580,
-      "GainSkillExp": true,
-      "ExpSkillId": 2558
-    },
-    "626": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "角色硬直时间": 725,
       "禁止行走时间": 650,

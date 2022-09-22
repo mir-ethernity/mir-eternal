@@ -3,16 +3,16 @@
   "OwnSkillId": 1433,
   "Id": 2,
   "BindingLevelId": 1036,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 0.3,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "CheckSkillMarks": true,
   "SkillTagId": 10360,
   "NeedConsumeMagic": [
-    2,
-    5,
-    6,
-    7
+    0,
+    0,
+    0,
+    0
   ],
   "Nodes": {
     "0": {

@@ -22,8 +22,8 @@
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
-      "ItSelfCooldown": 1375,
-      "分组Cooldown": 1000,
+      "ItSelfCooldown": 2375,
+      "分组Cooldown": 2000,
       "角色忙绿时间": 625
     },
     "225": {

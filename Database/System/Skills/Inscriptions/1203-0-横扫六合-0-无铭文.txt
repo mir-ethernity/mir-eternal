@@ -4,9 +4,9 @@
   "SkillId": 1203,
   "MinPlayerLevel": "ERQXGg==",
   "MinSkillExp": [
-    100,
     200,
     400,
+    600,
     0
   ],
   "SkillCombatBonus": [

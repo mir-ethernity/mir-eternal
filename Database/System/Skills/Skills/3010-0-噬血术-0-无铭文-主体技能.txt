@@ -64,11 +64,6 @@
       "目标硬直时间": 500,
       "清除状态列表": []
     },
-    "624": {
-      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
-      "技能触发方式": "TargetHitDefinitely",
-      "触发SkillName": "噬血术-0-无铭文-命中特效"
-    },
     "625": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "角色硬直时间": 725,

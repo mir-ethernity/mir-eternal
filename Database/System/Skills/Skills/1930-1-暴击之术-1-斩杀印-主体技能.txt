@@ -4,7 +4,7 @@
   "OwnSkillId": 1930,
   "Id": 1,
   "BindingLevelId": 1531,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "CheckSkillMarks": true,
@@ -69,7 +69,7 @@
         2.5
       ],
       "技能斩杀类型": "LowLevelMonster",
-      "技能斩杀概率": 0.05,
+      "技能斩杀概率": 0.25,
       "扣除武器持久": true,
       "GainSkillExp": true,
       "ExpSkillId": 1531,
@@ -91,13 +91,6 @@
       "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
       "技能触发方式": "TargetHitDefinitely",
       "触发SkillName": "暴击之术-1-斩杀印-血爆伤害"
-    },
-    "255": {
-      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
-      "技能触发方式": "TargetHitDefinitely",
-      "触发SkillName": "献祭-0-全铭文-触发判定",
-      "验证铭文技能": true,
-      "所需Id": 15450
     },
     "500": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

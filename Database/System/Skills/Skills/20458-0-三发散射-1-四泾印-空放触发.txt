@@ -3,7 +3,7 @@
   "Race": "弓手",
   "OwnSkillId": 20458,
   "BindingLevelId": 2045,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,

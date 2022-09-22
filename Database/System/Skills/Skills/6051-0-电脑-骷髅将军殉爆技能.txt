@@ -2,7 +2,7 @@
   "SkillName": "电脑-骷髅将军殉爆技能",
   "Race": "电脑",
   "OwnSkillId": 6051,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
@@ -35,10 +35,10 @@
         0
       ],
       "技能伤害系数": [
-        2.0,
-        2.0,
-        2.0,
-        2.0
+        2,
+        2,
+        2,
+        2
       ],
       "清除状态列表": []
     },

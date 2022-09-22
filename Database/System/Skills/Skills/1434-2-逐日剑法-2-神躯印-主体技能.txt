@@ -1,9 +1,10 @@
 {
   "SkillName": "逐日剑法-2-神躯印-主体技能",
+  "Race": "战士",
   "OwnSkillId": 1434,
-  "Id": 2,
+  "Id": 1,
   "BindingLevelId": 1038,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "CheckSkillMarks": true,
@@ -17,72 +18,70 @@
   "Nodes": {
     "0": {
       "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
-      "MaxDistance": 3,
+      "MaxDistance": 1,
       "技能最近距离": 1
     },
-    "1": {
-      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
-      "技能触发方式": "AnchorAbsolutePosition",
-      "触发SkillName": "逐日剑法-2-神躯印-成功特效"
-    },
-    "2": {
+    "100": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "移除技能标记": true,
       "调整角色朝向": true,
       "角色忙绿时间": 500
     },
-    "175": {
+    "102": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "AnchorAbsolutePosition",
+      "触发SkillName": "逐日剑法-2-神躯印-成功特效"
+    },
+    "500": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 10387,
+      "Buff触发概率": 1,
+      "所需Buff层数": 1
+    },
+    "650": {
       "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能能否穿墙": true,
-      "技能能否招架": true,
       "技能锁定方式": "锁定锚点坐标",
       "SkillEvasion": "CanBePhsyicallyEvaded",
       "SkillHitFeedback": "后仰",
-      "技能范围类型": "Zhanyue3x3",
+      "技能范围类型": "Solid3x3",
       "技能扩展通知": true,
       "HitsLimit": 9,
       "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
-    "250": {
+    "700": {
       "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
-      "点爆需要层数": 1,
       "技能伤害基数": [],
       "技能伤害系数": [
-        2.6,
-        2.6,
-        2.6,
+        2,
+        2.2,
+        2.4,
         2.6
       ],
-      "回复限定类型": "AllMonsters",
-      "PhysicalRecoveryBase": 10,
-      "等级差减回复": true,
-      "减回复等级差": 5,
-      "零回复等级差": 15,
+      "命中减少冷却": true,
+      "冷却减少类型": "AllMonsters",
+      "冷却减少技能": 1038,
+      "冷却减少分组": 2,
+      "冷却减少时间": 5000,
       "扣除武器持久": true,
       "GainSkillExp": true,
       "ExpSkillId": 1038,
       "目标硬直时间": 500,
       "清除状态列表": []
     },
-    "251": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 10387,
-      "Buff触发概率": 1.0,
-      "所需Buff层数": 1
-    },
-    "500": {
+    "900": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "计算攻速缩减": true,
       "角色硬直时间": 1000,
       "禁止行走时间": 875,
-      "禁止奔跑时间": 500
+      "禁止奔跑时间": 800
     },
-    "1000": {
+    "1100": {
       "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }

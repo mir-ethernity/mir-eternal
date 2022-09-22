@@ -1,7 +1,7 @@
 {
   "Name": "暴击术突进时特效",
   "Id": 15386,
-  "Group": 15386,
+  "GroupId": 15386,
   "SyncClient": true,
   "RemoveOnExpire": true,
   "OnPlayerDiesRemove": true,
@@ -33,10 +33,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

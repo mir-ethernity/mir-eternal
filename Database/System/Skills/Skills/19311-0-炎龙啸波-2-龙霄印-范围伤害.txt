@@ -4,7 +4,7 @@
   "SkillType": "SubSkills",
   "OwnSkillId": 19311,
   "BindingLevelId": 1535,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,
@@ -37,7 +37,7 @@
         1.4,
         1.6,
         1.8,
-        2.0
+        2
       ],
       "目标硬直时间": 500,
       "清除状态列表": []

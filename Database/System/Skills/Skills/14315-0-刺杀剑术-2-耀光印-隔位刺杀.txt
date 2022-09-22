@@ -3,7 +3,7 @@
   "SkillType": "SubSkills",
   "OwnSkillId": 14315,
   "BindingLevelId": 1033,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
@@ -32,12 +32,12 @@
         0.7,
         0.8,
         0.9,
-        1.0
+        1
       ],
       "技能斩杀类型": "LowLevelMonster",
       "技能斩杀概率": 0.15,
-      "技能破防概率": 1.0,
-      "技能破防系数": 1.0,
+      "技能破防概率": 1,
+      "技能破防系数": 1,
       "扣除武器持久": true,
       "GainSkillExp": true,
       "ExpSkillId": 1033,

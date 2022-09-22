@@ -4,13 +4,13 @@
   "SkillId": 1209,
   "Id": 3,
   "Quality": 8,
-  "Probability": 35,
+  "Probability": 3,
   "BroadcastNotification": true,
   "MinPlayerLevel": "HyImKQ==",
   "MinSkillExp": [
+    200,
     400,
     800,
-    1200,
     0
   ],
   "SkillCombatBonus": [

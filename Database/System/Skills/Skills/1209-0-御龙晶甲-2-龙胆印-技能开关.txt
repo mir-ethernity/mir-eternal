@@ -1,5 +1,6 @@
 {
   "SkillName": "御龙晶甲-2-龙胆印-技能开关",
+  "Race": "龙枪",
   "OwnSkillId": 1209,
   "BindingLevelId": 1209,
   "CalculateTriggerProbability": 1.0,
@@ -13,12 +14,12 @@
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
-      "ItSelfCooldown": 28000,
-      "分组Cooldown": 28000
+      "ItSelfCooldown": 15000
     },
     "1": {
       "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",
-      "SkillTagId": 12092
+      "SkillTagId": 12092,
+      "允许移除标记": true
     },
     "2": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

@@ -3,7 +3,7 @@
   "Race": "电脑",
   "SkillType": "SubSkills",
   "OwnSkillId": 35810,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "Nodes": {
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
@@ -31,10 +31,10 @@
         0
       ],
       "技能伤害系数": [
-        1.0,
-        1.0,
-        1.0,
-        1.0
+        1,
+        1,
+        1,
+        1
       ]
     }
   }

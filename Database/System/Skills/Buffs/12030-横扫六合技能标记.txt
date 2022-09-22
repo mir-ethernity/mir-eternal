@@ -1,7 +1,7 @@
 {
   "Name": "横扫六合技能标记",
   "Id": 12030,
-  "Group": 12030,
+  "GroupId": 12030,
   "SyncClient": true,
   "BuffInitialLayer": 1,
   "MaxBuffCount": 1,
@@ -30,10 +30,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

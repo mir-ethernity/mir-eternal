@@ -5,7 +5,7 @@
   "Id": 3,
   "GroupId": 2,
   "BindingLevelId": 1537,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -19,8 +19,8 @@
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
-      "ItSelfCooldown": 20000,
-      "分组Cooldown": 20000,
+      "ItSelfCooldown": 30000,
+      "分组Cooldown": 30000,
       "角色忙绿时间": 250
     },
     "2": {
@@ -36,7 +36,7 @@
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 15370,
-      "Buff触发概率": 1.0,
+      "Buff触发概率": 1,
       "所需Buff层数": 1
     },
     "4": {

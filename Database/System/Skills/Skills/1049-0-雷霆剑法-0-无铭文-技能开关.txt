@@ -1,7 +1,7 @@
 {
   "SkillName": "雷霆剑法-0-无铭文-技能开关",
   "OwnSkillId": 1049,
-  "GroupId": 4,
+  "GroupId": 7,
   "BindingLevelId": 1049,
   "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
@@ -14,8 +14,8 @@
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
-      "ItSelfCooldown": 12000,
-      "分组Cooldown": 12000
+      "ItSelfCooldown": 10000,
+      "分组Cooldown": 10000
     },
     "1": {
       "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",

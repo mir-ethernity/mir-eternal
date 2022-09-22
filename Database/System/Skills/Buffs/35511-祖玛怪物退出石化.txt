@@ -1,7 +1,7 @@
 {
   "Name": "祖玛怪物退出石化",
   "Id": 35511,
-  "Group": 35511,
+  "GroupId": 35511,
   "Effect": "StatusFlag",
   "SyncClient": true,
   "RemoveOnExpire": true,
@@ -14,7 +14,7 @@
   "ProcessDelay": 2000,
   "Duration": 2000,
   "RequireBuff": [],
-  "PlayerState": "Paralyzed",
+  "PlayerState": "Paralyzed, Invencible",
   "DamageBase": [
     0,
     1,
@@ -34,10 +34,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "PhysicalRecoveryBase": "AAAAAA=="
 }

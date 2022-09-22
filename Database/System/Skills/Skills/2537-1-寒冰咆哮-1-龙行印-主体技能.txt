@@ -5,7 +5,7 @@
   "Id": 1,
   "GroupId": 1,
   "BindingLevelId": 2537,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -24,7 +24,7 @@
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
-      "ItSelfCooldown": 1000,
+      "ItSelfCooldown": 1500,
       "分组Cooldown": 1000,
       "角色忙绿时间": 625
     },
@@ -38,9 +38,9 @@
       "技能能否招架": true,
       "技能锁定方式": "锁定锚点坐标",
       "SkillHitFeedback": "后仰",
-      "技能范围类型": "LineType3x8",
+      "技能范围类型": "LineType3x7",
       "技能命中通知": true,
-      "HitsLimit": 20,
+      "HitsLimit": 10,
       "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
@@ -59,33 +59,14 @@
         0.7,
         0.8,
         0.9,
-        1.0
+        1
       ],
-      "技能破防概率": 1.0,
-      "技能破防系数": 1.0,
+      "技能破防概率": 1,
+      "技能破防系数": 1,
       "GainSkillExp": true,
       "ExpSkillId": 2537,
       "目标硬直时间": 500,
       "清除状态列表": []
-    },
-    "628": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 25582,
-      "Buff触发概率": 1.0,
-      "所需Buff层数": 1,
-      "验证铭文技能": true,
-      "所需Id": 25580,
-      "GainSkillExp": true,
-      "ExpSkillId": 2558
-    },
-    "629": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "触发Id": 12021,
-      "Buff触发概率": 1.0,
-      "所需Buff层数": 1,
-      "验证ItSelfBuff": true,
-      "Id": 25588
     },
     "650": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
