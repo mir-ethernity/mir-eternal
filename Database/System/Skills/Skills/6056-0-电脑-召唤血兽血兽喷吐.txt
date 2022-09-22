@@ -3,7 +3,7 @@
   "Race": "电脑",
   "OwnSkillId": 6056,
   "MaxDistance": 1,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,
@@ -25,7 +25,7 @@
       "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能能否穿墙": true,
       "技能锁定方式": "锁定锚点坐标",
-      "SkillEvasion": "CanBeMagicEvaded",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
       "SkillHitFeedback": "后仰",
       "技能范围类型": "LineType1x2",
       "技能扩展通知": true,
@@ -45,10 +45,10 @@
         0
       ],
       "技能伤害系数": [
-        1.0,
-        1.0,
-        1.0,
-        1.0
+        1,
+        1,
+        1,
+        1
       ],
       "清除状态列表": []
     }

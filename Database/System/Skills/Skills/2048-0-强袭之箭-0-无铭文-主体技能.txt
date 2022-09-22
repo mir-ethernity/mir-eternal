@@ -4,7 +4,7 @@
   "OwnSkillId": 2048,
   "GroupId": 4,
   "BindingLevelId": 2048,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "CheckOccupationalWeapons": true,

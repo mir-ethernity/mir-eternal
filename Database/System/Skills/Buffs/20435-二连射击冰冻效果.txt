@@ -1,7 +1,7 @@
 {
   "Name": "二连射击冰冻效果",
   "Id": 20435,
-  "Group": 20435,
+  "GroupId": 20435,
   "ActionType": "Debuff",
   "Effect": "StatusFlag",
   "SyncClient": true,
@@ -37,10 +37,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

@@ -1,7 +1,7 @@
 {
   "Name": "战术标记失神标记",
   "Id": 20443,
-  "Group": 20440,
+  "GroupId": 20440,
   "OverlayType": "SimilarReplacement",
   "Effect": "StatusFlag, DamageIncOrDec",
   "SyncClient": true,

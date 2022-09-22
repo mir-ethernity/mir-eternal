@@ -8,7 +8,7 @@
   "SyncClient": true,
   "RemoveOnExpire": true,
   "OnPlayerDiesRemove": true,
-  "BindingSkillLevel": 3010,
+  "BindingSkillLevel": true,
   "BuffInitialLayer": 1,
   "MaxBuffCount": 5,
   "BuffSynthesisLayer": 5,

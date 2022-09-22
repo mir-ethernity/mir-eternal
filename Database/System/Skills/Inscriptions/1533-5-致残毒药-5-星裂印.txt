@@ -3,14 +3,14 @@
   "Race": "刺客",
   "SkillId": 1533,
   "Id": 5,
-  "Quality": 8,
-  "Probability": 1,
+  "Quality": 7,
+  "Probability": 2,
   "BroadcastNotification": true,
   "MinPlayerLevel": "FxodIA==",
   "MinSkillExp": [
-    100,
     200,
     400,
+    600,
     0
   ],
   "SkillCombatBonus": [

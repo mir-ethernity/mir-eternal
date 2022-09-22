@@ -2,7 +2,7 @@
   "SkillName": "通用-玩家收起武器",
   "Race": "通用",
   "OwnSkillId": 4000,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {

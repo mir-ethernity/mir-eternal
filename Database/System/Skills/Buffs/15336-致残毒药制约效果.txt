@@ -1,7 +1,7 @@
 {
   "Name": "致残毒药制约效果",
   "Id": 15336,
-  "Group": 15336,
+  "GroupId": 15336,
   "ActionType": "Debuff",
   "OverlayType": "SimilarReplacement",
   "SyncClient": true,
@@ -36,10 +36,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

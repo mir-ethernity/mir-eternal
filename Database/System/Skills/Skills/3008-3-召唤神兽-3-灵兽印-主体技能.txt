@@ -5,7 +5,7 @@
   "Id": 3,
   "GroupId": 1,
   "BindingLevelId": 3008,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [

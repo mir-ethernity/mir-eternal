@@ -1,7 +1,7 @@
 {
   "Name": "沙城门墙无敌保护",
   "Id": 22300,
-  "Group": 22300,
+  "GroupId": 22300,
   "Effect": "StatusFlag",
   "SyncClient": true,
   "BuffInitialLayer": 1,
@@ -31,10 +31,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "PhysicalRecoveryBase": "AAAAAA=="
 }

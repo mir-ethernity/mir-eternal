@@ -38,10 +38,10 @@
       "点爆需要层数": 1,
       "技能伤害类型": "Magic",
       "技能伤害基数": [
-        21,
-        25,
-        29,
-        33
+        321,
+        325,
+        329,
+        433
       ],
       "技能伤害系数": [
         1.0,
@@ -60,7 +60,7 @@
       "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
       "技能触发方式": "ForehandAndBackhandRandom",
       "触发SkillName": "大祭祀疾光电影",
-      "反手SkillName": "大祭祀地雷"
+      "反手SkillName": "大祭祀多重雷电"
     }
   }
 }

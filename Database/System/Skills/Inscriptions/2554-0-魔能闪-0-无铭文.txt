@@ -2,11 +2,11 @@
   "SkillName": "魔能闪-0-无铭文",
   "Race": "法师",
   "SkillId": 2554,
-  "MinPlayerLevel": "MzMzMw==",
+  "MinPlayerLevel": "MzU3OQ==",
   "MinSkillExp": [
-    100,
-    200,
-    400,
+    10,
+    20,
+    30,
     0
   ],
   "SkillCombatBonus": [

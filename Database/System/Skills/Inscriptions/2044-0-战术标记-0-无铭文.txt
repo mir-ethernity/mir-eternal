@@ -4,9 +4,9 @@
   "SkillId": 2044,
   "MinPlayerLevel": "FRgbHg==",
   "MinSkillExp": [
-    10,
-    20,
-    20,
+    200,
+    400,
+    600,
     0
   ],
   "SkillCombatBonus": [

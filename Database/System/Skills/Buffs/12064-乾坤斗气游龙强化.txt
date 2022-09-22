@@ -1,7 +1,7 @@
 {
   "Name": "乾坤斗气游龙强化",
   "Id": 12064,
-  "Group": 12063,
+  "GroupId": 12063,
   "OverlayType": "SimilarReplacement",
   "Effect": "StatsIncOrDec",
   "SyncClient": true,
@@ -64,10 +64,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

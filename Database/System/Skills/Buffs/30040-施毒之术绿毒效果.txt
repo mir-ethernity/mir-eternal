@@ -1,7 +1,7 @@
 {
   "Name": "施毒之术绿毒效果",
   "Id": 30040,
-  "Group": 3004,
+  "GroupId": 3004,
   "ActionType": "Debuff",
   "OverlayType": "SimilarReplacement",
   "Effect": "StatusFlag, CausesSomeDamages",
@@ -21,7 +21,7 @@
   "ExtendedTimePerLevel": 5000,
   "PlayerStatDelay": true,
   "BoundPlayerStat": "MaxSC",
-  "StatDelayFactor": 1000.0,
+  "StatDelayFactor": 1000,
   "PlayerState": "Poisoned",
   "DamageType": "Toxicity",
   "DamageBase": [
@@ -31,10 +31,10 @@
     4
   ],
   "DamageFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0625,
+    0.0625,
+    0.0625,
+    0.0625
   ],
   "SpecificSkillId": [],
   "DamageIncOrDecBase": [
@@ -44,10 +44,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

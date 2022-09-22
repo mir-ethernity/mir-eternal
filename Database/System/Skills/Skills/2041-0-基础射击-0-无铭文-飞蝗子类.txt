@@ -4,7 +4,7 @@
   "SkillType": "SubSkills",
   "OwnSkillId": 2041,
   "BindingLevelId": 2041,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,
@@ -42,10 +42,10 @@
         30
       ],
       "技能伤害系数": [
-        1.0,
-        1.0,
-        1.0,
-        1.0
+        1,
+        1,
+        1,
+        1
       ],
       "GainSkillExp": true,
       "ExpSkillId": 2041,

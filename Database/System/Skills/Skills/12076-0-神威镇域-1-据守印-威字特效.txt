@@ -3,7 +3,7 @@
   "Race": "龙枪",
   "OwnSkillId": 12076,
   "BindingLevelId": 1207,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,

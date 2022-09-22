@@ -4,7 +4,7 @@
   "OwnSkillId": 3004,
   "Id": 3,
   "BindingLevelId": 3004,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,
@@ -51,13 +51,13 @@
     "3": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 30040,
-      "Buff触发概率": 1.0,
+      "Buff触发概率": 1,
       "所需Buff层数": 1
     },
     "4": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 30041,
-      "Buff触发概率": 1.0,
+      "Buff触发概率": 1,
       "所需Buff层数": 1
     }
   }

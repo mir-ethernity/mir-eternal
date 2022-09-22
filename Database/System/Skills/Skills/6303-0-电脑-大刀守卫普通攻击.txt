@@ -3,7 +3,7 @@
   "Race": "电脑",
   "OwnSkillId": 6303,
   "MaxDistance": 8,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,
@@ -39,10 +39,10 @@
         200
       ],
       "技能伤害系数": [
-        1.0,
-        1.0,
-        1.0,
-        1.0
+        1,
+        1,
+        1,
+        1
       ],
       "清除状态列表": []
     },

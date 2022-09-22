@@ -1,7 +1,7 @@
 {
   "Name": "致残毒药鹰目效果",
   "Id": 15333,
-  "Group": 15333,
+  "GroupId": 15333,
   "ActionType": "Debuff",
   "OverlayType": "SimilarReplacement",
   "Effect": "StatsIncOrDec",
@@ -49,10 +49,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

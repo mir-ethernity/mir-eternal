@@ -8,17 +8,17 @@
   "RemoveOnExpire": true,
   "OnPlayerDiesRemove": true,
   "OnPlayerDisconnectRemove": true,
-  "BindingSkillLevel": 1047,
+  "BindingSkillLevel": true,
   "BuffInitialLayer": 1,
   "MaxBuffCount": 1,
   "BuffSynthesisLayer": 5,
-  "ProcessInterval": 30000,
-  "ProcessDelay": 30000,
+  "ProcessInterval": 5000,
+  "ProcessDelay": 5000,
   "Duration": 10000,
   "ExtendedDuration": true,
   "RequireBuff": [],
   "SkillLevelDelay": true,
-  "ExtendedTimePerLevel": 1000,
+  "ExtendedTimePerLevel": 5000,
   "StatsIncOrDec": [],
   "DamageBase": [
     0,
@@ -32,7 +32,6 @@
     0,
     0
   ],
-  "HowJudgeEffect": "PassiveInjuryReduction",
   "SpecificSkillId": [],
   "DamageIncOrDecBase": [
     0,
@@ -41,10 +40,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.1,
-    0.2,
-    0.25,
-    0.3
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

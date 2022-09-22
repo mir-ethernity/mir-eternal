@@ -1,7 +1,7 @@
 {
   "Name": "强袭之箭灼烧效果",
   "Id": 20481,
-  "Group": 20481,
+  "GroupId": 20481,
   "ActionType": "Debuff",
   "Effect": "CausesSomeDamages",
   "SyncClient": true,
@@ -31,10 +31,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

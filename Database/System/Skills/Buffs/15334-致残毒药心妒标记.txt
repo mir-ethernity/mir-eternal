@@ -1,7 +1,7 @@
 {
   "Name": "致残毒药心妒标记",
   "Id": 15334,
-  "Group": 1533,
+  "GroupId": 1533,
   "OverlayType": "SimilarReplacement",
   "Effect": "StatsIncOrDec",
   "SyncClient": true,
@@ -45,10 +45,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

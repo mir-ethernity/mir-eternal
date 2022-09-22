@@ -4,7 +4,7 @@
   "SkillType": "SubSkills",
   "OwnSkillId": 2044,
   "BindingLevelId": 2044,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,
@@ -17,7 +17,7 @@
       "技能锁定方式": "锁定目标",
       "放空结束技能": true,
       "HitsLimit": 1,
-      "LimitedTargetType": "Player",
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
@@ -25,7 +25,7 @@
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 20446,
-      "Buff触发概率": 1.0,
+      "Buff触发概率": 1,
       "VerifyTargetBuff": true,
       "目标Id": 20442,
       "所需Buff层数": 1

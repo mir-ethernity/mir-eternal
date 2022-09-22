@@ -1,7 +1,7 @@
 {
   "Name": "困魔咒术邪咒效果",
   "Id": 30111,
-  "Group": 3011,
+  "GroupId": 3011,
   "ActionType": "Debuff",
   "OverlayType": "SimilarReplacement",
   "Effect": "StatusFlag, StatsIncOrDec",
@@ -55,10 +55,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

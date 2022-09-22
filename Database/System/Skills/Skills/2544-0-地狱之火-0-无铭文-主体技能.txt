@@ -4,7 +4,7 @@
   "OwnSkillId": 2544,
   "GroupId": 1,
   "BindingLevelId": 2544,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -50,10 +50,10 @@
         21
       ],
       "技能伤害系数": [
-        1.0,
-        1.0,
-        1.0,
-        1.0
+        1,
+        1,
+        1,
+        1
       ],
       "GainSkillExp": true,
       "ExpSkillId": 2544,

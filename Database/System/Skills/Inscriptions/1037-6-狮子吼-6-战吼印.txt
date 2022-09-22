@@ -7,9 +7,9 @@
   "Probability": 60,
   "MinPlayerLevel": "JiksLw==",
   "MinSkillExp": [
-    100,
     200,
     400,
+    600,
     0
   ],
   "SkillCombatBonus": [

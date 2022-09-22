@@ -3,13 +3,13 @@
   "SkillId": 1036,
   "Id": 1,
   "Quality": 8,
-  "Probability": 1,
+  "Probability": 15,
   "BroadcastNotification": true,
   "MinPlayerLevel": "IyUoKg==",
   "MinSkillExp": [
-    100,
     200,
     400,
+    600,
     0
   ],
   "SkillCombatBonus": [

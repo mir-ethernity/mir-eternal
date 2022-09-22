@@ -3,7 +3,7 @@
   "Race": "电脑",
   "SkillType": "SubSkills",
   "MaxDistance": 1,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,

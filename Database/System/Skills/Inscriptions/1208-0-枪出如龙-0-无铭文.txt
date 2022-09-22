@@ -4,9 +4,9 @@
   "SkillId": 1208,
   "MinPlayerLevel": "IyYpLA==",
   "MinSkillExp": [
-    100,
-    200,
-    400,
+    600,
+    1200,
+    1800,
     0
   ],
   "SkillCombatBonus": [

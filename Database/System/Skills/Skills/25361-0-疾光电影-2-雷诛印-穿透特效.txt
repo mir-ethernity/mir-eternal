@@ -3,7 +3,7 @@
   "Race": "法师",
   "OwnSkillId": 25361,
   "BindingLevelId": 2536,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,

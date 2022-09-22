@@ -1,7 +1,7 @@
 {
   "SkillName": "羿神庇佑-3-捷风印-捷风印特效",
   "SkillType": "SubSkills",
-  "OwnSkillId": 20493,
+  "OwnSkillId": 2049,
   "BindingLevelId": 2049,
   "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [

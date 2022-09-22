@@ -23,79 +23,29 @@
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
-      "ItSelfCooldown": 2500,
-      "分组Cooldown": 2500,
+      "ItSelfCooldown": 1500,
+      "分组Cooldown": 1000,
       "角色忙绿时间": 625
     },
     "2": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 25400,
-      "Buff触发概率": 1.0,
-      "所需Buff层数": 1
-    },
-    "225": {
-      "$type": "A_02_TriggerTrapSkills, Assembly-CSharp",
-      "TriggerTrapSkills": "流星火雨-1-火雨印",
-      "NumberTrapsTriggered": "Single1x1",
-      "GainSkillExp": true,
-      "ExpSkillId": 2540
-    },
-    "623": {
       "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能能否穿墙": true,
       "技能能否招架": true,
       "技能锁定方式": "锁定锚点坐标",
-      "SkillEvasion": "CanBeMagicEvaded",
       "SkillHitFeedback": "后仰",
       "技能范围类型": "Solid5x5",
-      "技能扩展通知": true,
-      "HitsLimit": 9,
+      "技能命中通知": true,
+      "HitsLimit": 12,
       "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
-    "624": {
-      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
-      "点爆需要层数": 1,
-      "技能伤害类型": "Magic",
-      "技能伤害基数": [
-        17,
-        19,
-        21,
-        24
-      ],
-      "技能伤害系数": [
-        1.0,
-        1.0,
-        1.0,
-        1.0
-      ],
-      "GainSkillExp": true,
-      "ExpSkillId": 2540,
-      "目标硬直时间": 500,
-      "清除状态列表": []
+    "225": {
+      "$type": "A_02_TriggerTrapSkills, Assembly-CSharp",
+      "TriggerTrapSkills": "流星火雨-2-大火雨印",
+      "NumberTrapsTriggered": "Single1x1"
     },
     "625": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 25580,
-      "Buff触发概率": 1.0,
-      "所需Buff层数": 1,
-      "验证铭文技能": true,
-      "所需Id": 25580,
-      "GainSkillExp": true,
-      "ExpSkillId": 2558
-    },
-    "626": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "触发Id": 10363,
-      "Buff触发概率": 1.0,
-      "所需Buff层数": 1,
-      "验证ItSelfBuff": true,
-      "Id": 25585
-    },
-    "627": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "角色硬直时间": 725,
@@ -104,6 +54,61 @@
     },
     "725": {
       "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    },
+    "800": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Magic",
+      "技能伤害基数": [
+        25,
+        29,
+        33,
+        37
+      ],
+      "技能伤害系数": [
+        1.5,
+        1.6,
+        1.7,
+        1.8
+      ],
+      "GainSkillExp": true,
+      "ExpSkillId": 2540
+    },
+    "1350": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Magic",
+      "技能伤害基数": [
+        25,
+        29,
+        33,
+        37
+      ],
+      "技能伤害系数": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "1750": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Magic",
+      "技能伤害基数": [
+        25,
+        29,
+        33,
+        37
+      ],
+      "技能伤害系数": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "目标硬直时间": 500,
+      "清除状态列表": []
     }
   }
 }

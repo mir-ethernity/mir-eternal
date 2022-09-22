@@ -4,7 +4,7 @@
   "OwnSkillId": 2541,
   "GroupId": 1,
   "BindingLevelId": 2541,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -18,7 +18,7 @@
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
-      "ItSelfCooldown": 1000,
+      "ItSelfCooldown": 1375,
       "分组Cooldown": 1000,
       "角色忙绿时间": 625
     },
@@ -42,9 +42,8 @@
       "$type": "C_04_CalculateTargetTemptation, Assembly-CSharp",
       "瘫痪状态编号": 25410,
       "狂暴状态编号": 25411,
-      "基础诱惑数量": "AQMFBw==",
-      "额外诱惑概率": 0.8,
-      "初始宠物等级": "AQMFBw==",
+      "基础诱惑数量": "AQIDBQ==",
+      "初始宠物等级": "AAAAAA==",
       "特定诱惑列表": []
     },
     "128": {

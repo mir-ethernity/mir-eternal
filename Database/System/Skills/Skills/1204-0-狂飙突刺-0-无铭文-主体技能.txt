@@ -4,7 +4,7 @@
   "OwnSkillId": 1204,
   "GroupId": 10,
   "BindingLevelId": 1204,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckOccupationalWeapons": true,
   "CheckSkillCount": true,
@@ -24,7 +24,7 @@
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
-      "ItSelfCooldown": 2000,
+      "ItSelfCooldown": 10000,
       "角色忙绿时间": 500
     },
     "2": {

@@ -4,7 +4,7 @@
   "SkillType": "SubSkills",
   "OwnSkillId": 2041,
   "BindingLevelId": 2041,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,
@@ -23,7 +23,6 @@
       "技能锁定方式": "锁定目标",
       "SkillEvasion": "CanBePhsyicallyEvaded",
       "SkillHitFeedback": "后仰",
-      "技能扩展通知": true,
       "技能命中通知": true,
       "计算飞行耗时": true,
       "单格飞行耗时": 30,
@@ -43,10 +42,10 @@
         12
       ],
       "技能伤害系数": [
-        1.0,
-        1.0,
-        1.0,
-        1.0
+        1,
+        1,
+        1,
+        1
       ],
       "GainSkillExp": true,
       "ExpSkillId": 2041,

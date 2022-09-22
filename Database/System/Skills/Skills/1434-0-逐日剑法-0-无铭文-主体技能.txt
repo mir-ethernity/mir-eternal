@@ -2,7 +2,7 @@
   "SkillName": "逐日剑法-0-无铭文-主体技能",
   "OwnSkillId": 1434,
   "BindingLevelId": 1038,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "CheckSkillMarks": true,
@@ -38,9 +38,9 @@
       "技能锁定方式": "锁定锚点坐标",
       "SkillEvasion": "CanBePhsyicallyEvaded",
       "SkillHitFeedback": "后仰",
-      "技能范围类型": "Zhanyue3x3",
+      "技能范围类型": "HalfMoon3x3",
       "技能扩展通知": true,
-      "HitsLimit": 9,
+      "HitsLimit": 4,
       "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
@@ -50,7 +50,7 @@
       "点爆需要层数": 1,
       "技能伤害基数": [],
       "技能伤害系数": [
-        2.0,
+        2,
         2.2,
         2.4,
         2.6

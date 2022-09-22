@@ -4,7 +4,7 @@
   "OwnSkillId": 1600,
   "Id": 1,
   "BindingLevelId": 1203,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "CheckOccupationalWeapons": true,
@@ -87,7 +87,7 @@
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 12031,
-      "Buff触发概率": 1.0,
+      "Buff触发概率": 1,
       "所需Buff层数": 1
     },
     "1000": {

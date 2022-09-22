@@ -2,7 +2,7 @@
   "SkillName": "电脑-通用附加麻痹状态",
   "Race": "电脑",
   "SkillType": "SubSkills",
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
@@ -16,7 +16,7 @@
     "1": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 49160,
-      "Buff触发概率": 1.0,
+      "Buff触发概率": 1,
       "所需Buff层数": 1
     }
   }

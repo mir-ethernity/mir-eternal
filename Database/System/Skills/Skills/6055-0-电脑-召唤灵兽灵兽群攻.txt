@@ -4,7 +4,7 @@
   "OwnSkillId": 6055,
   "MaxDistance": 1,
   "CalculateLuckyProbability": true,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,
@@ -29,7 +29,7 @@
       "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能能否穿墙": true,
       "技能锁定方式": "锁定ItSelf坐标",
-      "SkillEvasion": "CanBeMagicEvaded",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
       "SkillHitFeedback": "后仰",
       "技能范围类型": "Hollow3x3",
       "技能扩展通知": true,
@@ -44,10 +44,10 @@
       "技能伤害类型": "Taoism",
       "技能伤害基数": [],
       "技能伤害系数": [
-        1.0,
-        1.0,
-        1.0,
-        1.0
+        1,
+        1,
+        1,
+        1
       ],
       "数量衰减伤害": true,
       "伤害衰减系数": 0.05,

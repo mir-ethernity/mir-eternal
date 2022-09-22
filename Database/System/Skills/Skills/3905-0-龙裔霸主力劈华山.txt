@@ -30,10 +30,10 @@
       "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害基数": [
-        0,
-        0,
-        0,
-        0
+        300,
+        400,
+        450,
+        550
       ],
       "技能伤害系数": [
         1.0,
@@ -51,7 +51,7 @@
       "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
       "技能触发方式": "ForehandAndBackhandRandom",
       "触发SkillName": "龙裔霸主生灵",
-      "反手SkillName": "龙裔霸主生灵穿刺伤害"
+      "反手SkillName": "电脑-通用附加麻痹状态"
     }
   }
 }

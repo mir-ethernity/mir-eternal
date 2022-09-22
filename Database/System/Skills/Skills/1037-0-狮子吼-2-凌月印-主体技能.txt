@@ -42,7 +42,7 @@
       "技能锁定方式": "锁定ItSelf坐标",
       "技能范围类型": "Spiral7x7",
       "HitsLimit": 20,
-      "LimitedTargetType": "Player, Pet",
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "ItSelf",
       "清除状态列表": []
     },

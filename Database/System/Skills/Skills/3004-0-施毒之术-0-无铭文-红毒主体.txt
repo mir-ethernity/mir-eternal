@@ -3,7 +3,7 @@
   "Race": "道士",
   "OwnSkillId": 3004,
   "BindingLevelId": 3004,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -29,8 +29,8 @@
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
-      "ItSelfCooldown": 1000,
-      "角色忙绿时间": 500
+      "ItSelfCooldown": 1500,
+      "角色忙绿时间": 625
     },
     "626": {
       "$type": "A_00_TriggerSubSkills, Assembly-CSharp",

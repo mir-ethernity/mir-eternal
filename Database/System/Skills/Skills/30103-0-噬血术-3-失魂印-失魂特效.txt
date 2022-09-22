@@ -40,13 +40,13 @@
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 30101,
-      "Buff触发概率": 1.0,
+      "Buff触发概率": 0.5,
       "所需Buff层数": 1
     },
     "5": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 30102,
-      "Buff触发概率": 1.0,
+      "Buff触发概率": 0.5,
       "所需Buff层数": 1
     }
   }

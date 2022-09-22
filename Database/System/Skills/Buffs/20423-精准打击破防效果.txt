@@ -1,7 +1,7 @@
 {
   "Name": "精准打击破防效果",
   "Id": 20423,
-  "Group": 20423,
+  "GroupId": 20423,
   "ActionType": "Debuff",
   "Effect": "StatsIncOrDec",
   "SyncClient": true,
@@ -45,10 +45,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

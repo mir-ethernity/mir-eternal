@@ -4,13 +4,13 @@
   "SkillId": 3015,
   "Id": 1,
   "Quality": 8,
-  "Probability": 5,
+  "Probability": 80,
   "BroadcastNotification": true,
   "MinPlayerLevel": "FhgaHA==",
   "MinSkillExp": [
+    50,
     100,
-    200,
-    400,
+    150,
     0
   ],
   "SkillCombatBonus": [

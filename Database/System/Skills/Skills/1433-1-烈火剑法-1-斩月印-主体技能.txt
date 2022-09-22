@@ -3,16 +3,16 @@
   "OwnSkillId": 1433,
   "Id": 1,
   "BindingLevelId": 1036,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "CheckSkillMarks": true,
   "SkillTagId": 10360,
   "NeedConsumeMagic": [
-    2,
-    5,
-    6,
-    7
+    0,
+    0,
+    0,
+    0
   ],
   "Nodes": {
     "0": {
@@ -39,19 +39,30 @@
       "技能锁定方式": "锁定锚点坐标",
       "SkillEvasion": "CanBePhsyicallyEvaded",
       "SkillHitFeedback": "后仰",
-      "技能范围类型": "LineType3x7",
+      "技能范围类型": "Zhanyue3x3",
       "技能扩展通知": true,
       "HitsLimit": 9,
       "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
+    "225": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 10313,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1,
+      "验证铭文技能": true,
+      "触发Id": 10313,
+      "同组铭文无效": true,
+      "所需目标类型": "AllMonsters"
+    },
     "250": {
       "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害基数": [],
       "技能伤害系数": [
-        2.0,
+        2,
         2.2,
         2.4,
         2.6
@@ -63,7 +74,7 @@
       "零回复等级差": 15,
       "扣除武器持久": true,
       "GainSkillExp": true,
-      "ExpSkillId": 1042,
+      "ExpSkillId": 1036,
       "目标硬直时间": 500,
       "清除状态列表": []
     },

@@ -1,14 +1,14 @@
 {
   "SkillName": "阴阳道盾-0-无铭文-技能开关",
+  "Race": "道士",
   "OwnSkillId": 3025,
-  "GroupId": 3,
   "BindingLevelId": 3025,
   "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
-    7,
-    7,
-    7,
-    7
+    4,
+    6,
+    8,
+    10
   ],
   "Nodes": {
     "0": {
