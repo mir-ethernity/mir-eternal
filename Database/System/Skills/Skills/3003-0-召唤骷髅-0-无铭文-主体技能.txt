@@ -4,7 +4,7 @@
   "OwnSkillId": 3003,
   "GroupId": 1,
   "BindingLevelId": 3003,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -31,7 +31,7 @@
     "624": {
       "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
       "PetName": "道士骷髅普通",
-      "SpawnCount": "AgICAg==",
+      "SpawnCount": "AQEBAQ==",
       "LevelCap": "AQMFBw==",
       "GainSkillExp": true,
       "ExpSkillId": 3003

@@ -6,9 +6,9 @@
   "Probability": 100,
   "MinPlayerLevel": "HiInKw==",
   "MinSkillExp": [
-    10,
-    20,
-    20,
+    300,
+    600,
+    900,
     0
   ],
   "SkillCombatBonus": [

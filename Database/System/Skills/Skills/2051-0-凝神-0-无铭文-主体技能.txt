@@ -2,71 +2,43 @@
   "SkillName": "凝神-0-无铭文-主体技能",
   "Race": "弓手",
   "OwnSkillId": 2051,
+  "GroupId": 3,
   "BindingLevelId": 2051,
   "CalculateTriggerProbability": 1.0,
-  "CheckBusyGreen": true,
-  "CheckStiff": true,
-  "CheckPassiveTags": true,
-  "NeedConsumeMagic": [],
-  "ValidateLearnedSkills": 2041,
+  "NeedConsumeMagic": [
+    7,
+    7,
+    7,
+    7
+  ],
   "Nodes": {
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
-      "ItSelfCooldown": 60000
+      "ItSelfCooldown": 1000
     },
     "1": {
-      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
-      "技能锁定方式": "锁定目标",
-      "放空结束技能": true,
-      "HitsLimit": 1,
-      "LimitedTargetType": "Player, Pet, Monster, NPC",
-      "LimitedTargetRelationship": "Hostility",
-      "清除状态列表": []
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "触发SkillName": "凝神-0-无铭文-凝神特效"
     },
-    "5": {
+    "250": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 20510,
       "Buff触发概率": 1.0,
       "所需Buff层数": 1,
-      "验证铭文技能": true,
-      "所需Id": 20510,
       "GainSkillExp": true,
       "ExpSkillId": 2051
     },
-    "4": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 20511,
-      "Buff触发概率": 1.0,
-      "验证ItSelfBuff": true,
-      "Id": 20510,
-      "所需Buff层数": 1,
-      "GainSkillExp": true,
-      "ExpSkillId": 2051
+    "625": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
     },
-    "3": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 20512,
-      "Buff触发概率": 1.0,
-      "验证ItSelfBuff": true,
-      "Id": 20511,
-      "所需Buff层数": 1,
-      "GainSkillExp": true,
-      "ExpSkillId": 2051
-    },
-    "2": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 20513,
-      "Buff触发概率": 1.0,
-      "验证ItSelfBuff": true,
-      "Id": 20512,
-      "所需Buff层数": 1,
-      "GainSkillExp": true,
-      "ExpSkillId": 2051
+    "725": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
     }
   }
 }

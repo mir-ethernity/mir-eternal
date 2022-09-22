@@ -3,7 +3,7 @@
   "Race": "法师",
   "OwnSkillId": 2530,
   "BindingLevelId": 2530,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -47,10 +47,10 @@
         0
       ],
       "技能伤害系数": [
-        1.0,
-        1.0,
-        1.0,
-        1.0
+        1,
+        1,
+        1,
+        1
       ],
       "扣除武器持久": true,
       "ExpSkillId": 1031,

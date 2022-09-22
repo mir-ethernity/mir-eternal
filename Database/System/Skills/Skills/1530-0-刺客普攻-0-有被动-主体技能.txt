@@ -3,7 +3,7 @@
   "Race": "刺客",
   "OwnSkillId": 1530,
   "BindingLevelId": 1530,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [],
@@ -47,10 +47,10 @@
       "技能伤害类型": "Needle",
       "技能伤害基数": [],
       "技能伤害系数": [
-        1.0,
-        1.0,
-        1.0,
-        1.0
+        1,
+        1,
+        1,
+        1
       ],
       "扣除武器持久": true,
       "GainSkillExp": true,
@@ -71,13 +71,6 @@
       "触发SkillName": "致残毒药-0-全铭文-触发判定",
       "验证铭文技能": true,
       "所需Id": 15330
-    },
-    "254": {
-      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
-      "技能触发方式": "TargetHitDefinitely",
-      "触发SkillName": "献祭-0-全铭文-触发判定",
-      "验证铭文技能": true,
-      "所需Id": 15450
     },
     "500": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

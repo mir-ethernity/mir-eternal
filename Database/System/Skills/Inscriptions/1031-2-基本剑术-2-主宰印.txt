@@ -9,8 +9,8 @@
   "MinPlayerLevel": "BwsQFA==",
   "MinSkillExp": [
     100,
-    200,
     400,
+    800,
     0
   ],
   "SkillCombatBonus": [
@@ -30,9 +30,9 @@
     {
       "Stat": "怪物伤害",
       "Level0": 9,
-      "Level1": 9,
-      "Level2": 9,
-      "Level3": 10
+      "Level1": 11,
+      "Level2": 13,
+      "Level3": 15
     },
     {
       "Stat": "怪物闪避",

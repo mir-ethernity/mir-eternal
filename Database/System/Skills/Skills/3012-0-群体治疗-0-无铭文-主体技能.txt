@@ -4,7 +4,7 @@
   "OwnSkillId": 3012,
   "GroupId": 1,
   "BindingLevelId": 3012,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -33,7 +33,7 @@
       "技能范围类型": "Solid3x3",
       "HitsLimit": 9,
       "LimitedTargetType": "Player, Pet",
-      "LimitedTargetRelationship": "ItSelf",
+      "LimitedTargetRelationship": "ItSelf, Friendly",
       "清除状态列表": []
     },
     "623": {

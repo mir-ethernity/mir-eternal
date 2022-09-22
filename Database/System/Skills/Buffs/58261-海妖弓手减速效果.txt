@@ -1,7 +1,7 @@
 {
   "Name": "海妖弓手减速效果",
   "Id": 58261,
-  "Group": 58261,
+  "GroupId": 58261,
   "ActionType": "Debuff",
   "OverlayType": "SimilarReplacement",
   "Effect": "StatsIncOrDec",
@@ -44,10 +44,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "PhysicalRecoveryBase": "AAAAAA=="
 }

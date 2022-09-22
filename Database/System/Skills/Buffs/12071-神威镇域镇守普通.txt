@@ -1,7 +1,7 @@
 {
   "Name": "神威镇域镇守普通",
   "Id": 12071,
-  "Group": 12071,
+  "GroupId": 12071,
   "OverlayType": "SimilarReplacement",
   "Effect": "StatsIncOrDec",
   "SyncClient": true,
@@ -69,10 +69,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

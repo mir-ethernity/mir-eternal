@@ -2,7 +2,7 @@
   "SkillName": "烈火剑法-2-夺火印-夺火特效",
   "SkillType": "SubSkills",
   "OwnSkillId": 14334,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,

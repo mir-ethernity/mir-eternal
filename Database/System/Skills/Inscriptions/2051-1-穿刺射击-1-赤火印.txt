@@ -1,0 +1,27 @@
+{
+  "SkillName": "穿刺射击-1-赤火印",
+  "Race": "弓手",
+  "SkillId": 2051,
+  "Id": 1,
+  "Quality": 4,
+  "Probability": 85,
+  "MinPlayerLevel": "Gh0gIw==",
+  "MinSkillExp": [
+    300,
+    600,
+    1200,
+    0
+  ],
+  "SkillCombatBonus": [
+    5,
+    7,
+    10,
+    13
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "穿刺射击-1-赤火印-主体技能"
+  ],
+  "SwitchSkills": []
+}

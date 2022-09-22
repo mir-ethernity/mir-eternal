@@ -5,13 +5,13 @@
   "Id": 2,
   "PassiveSkill": true,
   "Quality": 7,
-  "Probability": 30,
+  "Probability": 2,
   "BroadcastNotification": true,
   "MinPlayerLevel": "BwoNEA==",
   "MinSkillExp": [
-    100,
     200,
     400,
+    600,
     0
   ],
   "SkillCombatBonus": [

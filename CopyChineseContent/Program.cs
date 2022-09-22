@@ -593,7 +593,7 @@ void DumpCommonItems()
 
         var name = chineseConverted["Name"];
         var id = chineseConverted.ContainsKey("Id") ? (int)chineseConverted["Id"] : 0;
-        var fileName = $"{id}-{name}.txt";
+        var fileName = $"{id}--{name}.txt";
 
         var mir3dOutputPath = Path.Combine(mir3DbFolder, fileName);
 

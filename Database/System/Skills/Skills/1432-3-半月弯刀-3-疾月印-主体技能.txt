@@ -3,7 +3,7 @@
   "OwnSkillId": 1432,
   "Id": 3,
   "BindingLevelId": 1034,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -41,6 +41,7 @@
       "HitsLimit": 6,
       "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
+      "触发被动概率": 0.2,
       "清除状态列表": []
     },
     "225": {

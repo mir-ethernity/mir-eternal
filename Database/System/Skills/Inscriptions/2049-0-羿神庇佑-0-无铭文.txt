@@ -1,11 +1,11 @@
 {
   "SkillName": "羿神庇佑-0-无铭文",
   "SkillId": 2049,
-  "MinPlayerLevel": "KCotLQ==",
+  "MinPlayerLevel": "IyUoKg==",
   "MinSkillExp": [
     10,
-    20,
-    20,
+    10,
+    10,
     0
   ],
   "SkillCombatBonus": [

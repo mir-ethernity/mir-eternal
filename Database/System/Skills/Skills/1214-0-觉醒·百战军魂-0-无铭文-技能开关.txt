@@ -1,71 +1,26 @@
 {
   "SkillName": "觉醒·百战军魂-0-无铭文-技能开关",
-  "Race": "龙枪",
   "OwnSkillId": 1214,
   "BindingLevelId": 1214,
   "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
-    30,
-    30,
-    30,
-    30
+    2,
+    5,
+    6,
+    7
   ],
   "Nodes": {
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
-      "ItSelfCooldown": 30000,
-      "分组Cooldown": 30000
+      "ItSelfCooldown": 10000,
+      "分组Cooldown": 10000
     },
     "1": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 12140,
-      "Buff触发概率": 1.0,
-      "验证铭文技能": true,
-      "所需Id": 12140,
-      "同组铭文无效": true,
-      "所需Buff层数": 1,
-      "GainSkillExp": true,
-      "ExpSkillId": 1214
+      "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",
+      "SkillTagId": 12140
     },
     "2": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 12141,
-      "Buff触发概率": 1.0,
-      "验证铭文技能": true,
-      "所需Id": 12141,
-      "同组铭文无效": true,
-      "所需Buff层数": 1,
-      "GainSkillExp": true,
-      "ExpSkillId": 1214
-    },
-    "3": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 12142,
-      "Buff触发概率": 1.0,
-      "验证铭文技能": true,
-      "所需Id": 12142,
-      "同组铭文无效": true,
-      "所需Buff层数": 1,
-      "GainSkillExp": true,
-      "ExpSkillId": 1214
-    },
-    "4": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 12143,
-      "Buff触发概率": 1.0,
-      "验证铭文技能": true,
-      "所需Id": 12143,
-      "同组铭文无效": true,
-      "所需Buff层数": 1,
-      "GainSkillExp": true,
-      "ExpSkillId": 1214
-    },
-    "5": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true
     }

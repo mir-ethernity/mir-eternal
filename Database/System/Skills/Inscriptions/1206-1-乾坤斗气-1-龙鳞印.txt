@@ -4,12 +4,12 @@
   "SkillId": 1206,
   "Id": 1,
   "Quality": 4,
-  "Probability": 1,
+  "Probability": 25,
   "MinPlayerLevel": "HiEkJw==",
   "MinSkillExp": [
-    10,
-    20,
-    20,
+    200,
+    400,
+    800,
     0
   ],
   "SkillCombatBonus": [

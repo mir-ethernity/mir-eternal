@@ -1,7 +1,7 @@
 {
   "Name": "横扫六合二段标记",
   "Id": 12031,
-  "Group": 12031,
+  "GroupId": 12031,
   "SyncClient": true,
   "RemoveOnExpire": true,
   "OnPlayerDiesRemove": true,
@@ -33,10 +33,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

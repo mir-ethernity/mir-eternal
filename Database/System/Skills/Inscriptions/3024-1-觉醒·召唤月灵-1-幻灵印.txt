@@ -3,10 +3,9 @@
   "Race": "道士",
   "SkillId": 3024,
   "Id": 1,
-  "Quality": 8,
-  "Probability": 0,
+  "Quality": 7,
   "BroadcastNotification": true,
-  "MinPlayerLevel": "ExcaHg==",
+  "MinPlayerLevel": "KCosLg==",
   "MinSkillExp": [
     200,
     400,
@@ -15,9 +14,9 @@
   ],
   "SkillCombatBonus": [
     20,
-    24,
-    28,
-    32
+    30,
+    40,
+    50
   ],
   "ComesWithBuff": [],
   "PassiveSkills": [],

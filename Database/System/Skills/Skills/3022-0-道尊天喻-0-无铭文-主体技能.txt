@@ -24,10 +24,6 @@
       "分组Cooldown": 1750,
       "角色忙绿时间": 625
     },
-    "1": {
-      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
-      "触发SkillName": "道尊天喻-0-无铭文-成功特效"
-    },
     "618": {
       "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
       "PetName": "道士骷髅普通",
@@ -35,15 +31,6 @@
       "LevelCap": "AQMFBw==",
       "GainSkillExp": true,
       "ExpSkillId": 3022
-    },
-    "2": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 30250,
-      "Buff触发概率": 1.0,
-      "所需Buff层数": 1,
-      "GainSkillExp": true,
-      "ExpSkillId": 3025
     },
     "619": {
       "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",

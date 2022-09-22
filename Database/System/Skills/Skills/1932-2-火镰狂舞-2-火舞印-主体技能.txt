@@ -69,12 +69,6 @@
       "目标硬直时间": 500,
       "清除状态列表": []
     },
-    "251": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "触发Id": 10154,
-      "Buff触发概率": 1.0,
-      "所需Buff层数": 1
-    },
     "499": {
       "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
       "触发SkillName": "火镰狂舞-0-全铭文-触发结束"

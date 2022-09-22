@@ -1,0 +1,65 @@
+{
+  "Name": "AwakeningFashenProfoundTruth",
+  "Id": 25580,
+  "GroupId": 25580,
+  "OverlayType": "SimilarDelay",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 1046,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 5000,
+  "ProcessDelay": 5000,
+  "Duration": 10000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "技能等级延时": true,
+  "每级延长时间": 5000,
+  "StatsIncOrDec": [
+    {
+      "Stat": "MinMCDef",
+      "Level0": 3,
+      "Level1": 4,
+      "Level2": 5,
+      "Level3": 6
+    },
+    {
+      "Stat": "MaxMCDef",
+      "Level0": 5,
+      "Level1": 6,
+      "Level2": 7,
+      "Level3": 8
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

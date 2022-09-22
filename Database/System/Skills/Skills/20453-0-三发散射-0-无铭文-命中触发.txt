@@ -4,7 +4,7 @@
   "SkillType": "SubSkills",
   "OwnSkillId": 20453,
   "BindingLevelId": 2045,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,
@@ -43,7 +43,7 @@
       "技能伤害系数": [
         0.8,
         0.9,
-        1.0,
+        1,
         1.1
       ],
       "目标硬直时间": 1000,

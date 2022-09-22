@@ -5,7 +5,7 @@
   "Id": 1,
   "GroupId": 2,
   "BindingLevelId": 2044,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "NeedConsumeMagic": [
     5,
@@ -29,7 +29,7 @@
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 20431,
-      "Buff触发概率": 1.0,
+      "Buff触发概率": 1,
       "所需Buff层数": 1
     },
     "373": {
@@ -44,7 +44,7 @@
     "374": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 20441,
-      "Buff触发概率": 1.0,
+      "Buff触发概率": 1,
       "所需Buff层数": 1,
       "GainSkillExp": true,
       "ExpSkillId": 2044
@@ -52,7 +52,7 @@
     "375": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 20444,
-      "Buff触发概率": 1.0,
+      "Buff触发概率": 1,
       "所需Buff层数": 1,
       "所需目标类型": "AllPlayers"
     },

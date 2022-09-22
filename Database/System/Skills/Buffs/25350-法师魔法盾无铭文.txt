@@ -1,7 +1,7 @@
 {
   "Name": "法师魔法盾无铭文",
   "Id": 25350,
-  "Group": 2535,
+  "GroupId": 2535,
   "Effect": "DamageIncOrDec",
   "SyncClient": true,
   "RemoveOnExpire": true,
@@ -27,7 +27,7 @@
   "ExtendedTimePerLevel": 5000,
   "PlayerStatDelay": true,
   "BoundPlayerStat": "MaxMC",
-  "StatDelayFactor": 1000.0,
+  "StatDelayFactor": 1000,
   "HasSpecificInscriptionDelay": true,
   "SpecificInscriptionSkills": 25352,
   "InscriptionExtendedTime": 15000,
@@ -55,7 +55,7 @@
     0.15,
     0.3,
     0.45,
-    0.65
+    0.6
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

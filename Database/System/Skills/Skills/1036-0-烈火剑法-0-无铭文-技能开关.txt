@@ -1,9 +1,9 @@
 {
   "SkillName": "烈火剑法-0-无铭文-技能开关",
   "OwnSkillId": 1036,
-  "GroupId": 2,
+  "GroupId": 4,
   "BindingLevelId": 1036,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     2,
     5,

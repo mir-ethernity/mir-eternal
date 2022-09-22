@@ -3,12 +3,12 @@
   "SkillId": 1046,
   "Id": 1,
   "Quality": 6,
-  "Probability": 20,
-  "MinPlayerLevel": "MzMzMw==",
+  "Probability": 0,
+  "MinPlayerLevel": "MzU3OQ==",
   "MinSkillExp": [
-    100,
-    200,
-    400,
+    10,
+    10,
+    10,
     0
   ],
   "SkillCombatBonus": [
@@ -23,6 +23,6 @@
     "神威盾甲-1-厚甲印-主体技能"
   ],
   "SwitchSkills": [
-    "神威盾甲-1-厚甲印-技能开关"
+    "神威盾甲-1-厚甲印-主体技能"
   ]
 }

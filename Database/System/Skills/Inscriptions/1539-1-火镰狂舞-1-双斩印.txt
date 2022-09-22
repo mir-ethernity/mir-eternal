@@ -3,22 +3,21 @@
   "Race": "刺客",
   "SkillId": 1539,
   "Id": 1,
+  "Quality": 4,
+  "Probability": 20,
   "PassiveSkill": true,
-  "Quality": 8,
-  "Probability": 1,
-  "BroadcastNotification": true,
-  "MinPlayerLevel": "LzI1OA==",
+  "MinPlayerLevel": "IyYpLA==",
   "MinSkillExp": [
-    100,
-    200,
-    400,
+    20,
+    40,
+    60,
     0
   ],
   "SkillCombatBonus": [
+    20,
     30,
     40,
-    50,
-    60
+    50
   ],
   "ComesWithBuff": [],
   "PassiveSkills": [

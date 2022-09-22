@@ -1,7 +1,7 @@
 {
   "Name": "战术标记失神特效",
   "Id": 20433,
-  "Group": 20433,
+  "GroupId": 20433,
   "SyncClient": true,
   "RemoveOnExpire": true,
   "OnPlayerDiesRemove": true,
@@ -34,10 +34,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

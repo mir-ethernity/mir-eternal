@@ -1,7 +1,7 @@
 {
   "Name": "钩镰枪法强化撕裂",
   "Id": 12051,
-  "Group": 1205,
+  "GroupId": 1205,
   "ActionType": "Debuff",
   "OverlayType": "HomogeneousStacking",
   "Effect": "CausesSomeDamages",
@@ -31,10 +31,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "PhysicalRecoveryBase": "AAAAAA=="
 }

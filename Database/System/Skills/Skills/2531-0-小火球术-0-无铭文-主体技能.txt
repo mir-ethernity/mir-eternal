@@ -4,7 +4,7 @@
   "OwnSkillId": 2531,
   "GroupId": 1,
   "BindingLevelId": 2531,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [

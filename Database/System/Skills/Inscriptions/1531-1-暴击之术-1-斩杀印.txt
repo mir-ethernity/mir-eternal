@@ -8,9 +8,9 @@
   "Probability": 80,
   "MinPlayerLevel": "BwoNEA==",
   "MinSkillExp": [
-    100,
     200,
     400,
+    600,
     0
   ],
   "SkillCombatBonus": [

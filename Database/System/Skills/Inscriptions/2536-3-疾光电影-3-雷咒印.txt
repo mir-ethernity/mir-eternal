@@ -8,9 +8,9 @@
   "BroadcastNotification": true,
   "MinPlayerLevel": "Gh0gIw==",
   "MinSkillExp": [
-    100,
-    200,
-    400,
+    300,
+    600,
+    1200,
     0
   ],
   "SkillCombatBonus": [

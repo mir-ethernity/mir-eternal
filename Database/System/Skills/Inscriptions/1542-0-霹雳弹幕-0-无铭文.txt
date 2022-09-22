@@ -4,9 +4,9 @@
   "SkillId": 1542,
   "MinPlayerLevel": "EhccIQ==",
   "MinSkillExp": [
-    10,
-    20,
-    20,
+    400,
+    800,
+    1200,
     0
   ],
   "SkillCombatBonus": [

@@ -1,7 +1,7 @@
 {
   "Name": "暴击术残像印特效",
   "Id": 15311,
-  "Group": 15311,
+  "GroupId": 15311,
   "SyncClient": true,
   "RemoveOnExpire": true,
   "OnPlayerDiesRemove": true,
@@ -34,10 +34,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

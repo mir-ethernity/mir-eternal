@@ -5,7 +5,7 @@
   "Id": 3,
   "GroupId": 5,
   "BindingLevelId": 1532,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -25,7 +25,7 @@
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 15325,
-      "Buff触发概率": 1.0,
+      "Buff触发概率": 1,
       "所需Buff层数": 1,
       "GainSkillExp": true,
       "ExpSkillId": 1532
@@ -33,7 +33,7 @@
     "2": {
       "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "HitsLimit": 1,
-      "LimitedTargetType": "Player",
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "ItSelf",
       "清除状态列表": []
     },

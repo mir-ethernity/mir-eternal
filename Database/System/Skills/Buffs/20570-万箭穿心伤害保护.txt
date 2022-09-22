@@ -1,0 +1,49 @@
+{
+  "Name": "万箭穿心伤害保护",
+  "Id": 20570,
+  "Group": 20570,
+  "Effect": "DamageIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 5000,
+  "ProcessDelay": 5000,
+  "Duration": 5000,
+  "RequireBuff": [],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "HowJudgeEffect": "PassiveInjuryReduction",
+  "EffectJudgeType": "AllSpecificInjuries",
+  "SpecificSkillId": [
+    2057
+  ],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.6,
+    0.6,
+    0.6,
+    0.6
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

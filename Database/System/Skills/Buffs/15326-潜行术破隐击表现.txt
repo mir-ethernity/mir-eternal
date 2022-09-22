@@ -1,7 +1,7 @@
 {
   "Name": "潜行术破隐击表现",
   "Id": 15326,
-  "Group": 15326,
+  "GroupId": 15326,
   "SyncClient": true,
   "RemoveOnExpire": true,
   "OnPlayerDiesRemove": true,
@@ -34,10 +34,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

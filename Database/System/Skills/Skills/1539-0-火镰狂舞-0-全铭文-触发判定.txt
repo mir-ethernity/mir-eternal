@@ -25,7 +25,7 @@
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 15390,
-      "Buff触发概率": 0.4,
+      "Buff触发概率": 0.35,
       "所需Buff层数": 1
     }
   }

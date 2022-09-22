@@ -1,7 +1,7 @@
 {
   "Name": "精准术血影印标记",
   "Id": 15341,
-  "Group": 15341,
+  "GroupId": 15341,
   "OverlayType": "HomogeneousStacking",
   "SyncClient": true,
   "RemoveOnExpire": true,
@@ -9,9 +9,9 @@
   "OnPlayerDisconnectRemove": true,
   "BindingSkillLevel": 1534,
   "BuffInitialLayer": 1,
-  "MaxBuffCount": 1,
+  "MaxBuffCount": 5,
   "AllowsSynthesis": true,
-  "BuffSynthesisLayer": 1,
+  "BuffSynthesisLayer": 5,
   "BuffSynthesisId": 15342,
   "ProcessInterval": 10000,
   "ProcessDelay": 10000,
@@ -37,10 +37,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

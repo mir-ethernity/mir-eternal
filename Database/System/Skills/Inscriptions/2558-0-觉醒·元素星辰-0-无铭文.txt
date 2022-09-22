@@ -1,11 +1,11 @@
 {
   "SkillName": "觉醒·元素星辰-0-无铭文",
   "SkillId": 2558,
-  "MinPlayerLevel": "LS4wMA==",
+  "MinPlayerLevel": "MzU3OQ==",
   "MinSkillExp": [
-    100,
-    200,
-    400,
+    10,
+    10,
+    10,
     0
   ],
   "SkillCombatBonus": [
@@ -19,5 +19,7 @@
   "MainSkills": [
     "觉醒·元素星辰-0-无铭文-主体技能"
   ],
-  "SwitchSkills": []
+  "SwitchSkills": [
+    "觉醒·元素星辰-0-无铭文-技能开关"
+  ]
 }

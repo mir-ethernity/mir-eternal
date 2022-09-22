@@ -2,7 +2,7 @@
   "SkillName": "通用-玩家取出武器",
   "Race": "通用",
   "OwnSkillId": 4001,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {

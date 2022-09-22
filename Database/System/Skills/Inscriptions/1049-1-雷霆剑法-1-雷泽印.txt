@@ -2,13 +2,11 @@
   "SkillName": "雷霆剑法-1-雷泽印",
   "SkillId": 1049,
   "Id": 1,
-  "Quality": 6,
-  "Probability": 4,
-  "MinPlayerLevel": "LS4wMA==",
+  "MinPlayerLevel": "LTAzNg==",
   "MinSkillExp": [
-    100,
     200,
     400,
+    600,
     0
   ],
   "SkillCombatBonus": [
@@ -22,8 +20,7 @@
     1437
   ],
   "MainSkills": [
-    "雷霆剑法-1-雷泽印-主体技能",
-    "雷霆剑法-0-无铭文-主体技能"
+    "雷霆剑法-1-雷泽印-主体技能"
   ],
   "SwitchSkills": [
     "雷霆剑法-0-无铭文-技能开关"

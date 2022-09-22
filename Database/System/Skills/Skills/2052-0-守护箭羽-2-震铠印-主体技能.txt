@@ -28,10 +28,10 @@
     "623": {
       "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能能否穿墙": true,
-      "技能锁定方式": "放空锁定ItSelf",
+      "技能锁定方式": "锁定锚点坐标",
       "技能范围类型": "Solid5x5",
-      "HitsLimit": 1,
-      "LimitedTargetType": "Player, Pet",
+      "HitsLimit": 20,
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "ItSelf",
       "清除状态列表": []
     },

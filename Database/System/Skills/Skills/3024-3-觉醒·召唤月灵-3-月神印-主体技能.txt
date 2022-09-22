@@ -3,16 +3,16 @@
   "Race": "道士",
   "OwnSkillId": 3024,
   "Id": 3,
-  "GroupId": 2,
+  "GroupId": 1,
   "BindingLevelId": 3024,
   "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
-    28,
-    32,
-    36,
-    40
+    50,
+    60,
+    70,
+    80
   ],
   "NeedConsumeItems": [
     40103,
@@ -25,14 +25,18 @@
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
-      "ItSelfCooldown": 2000,
-      "分组Cooldown": 2000,
+      "ItSelfCooldown": 1750,
+      "分组Cooldown": 1750,
       "角色忙绿时间": 625
     },
-    "620": {
+    "1": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "触发SkillName": "召唤月灵-3-月神印-召唤月神"
+    },
+    "624": {
       "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
       "PetName": "道士召唤月神",
-      "SpawnCount": "AgICAg==",
+      "SpawnCount": "AQEBAQ==",
       "LevelCap": "AQMFBw==",
       "GainSkillExp": true,
       "ExpSkillId": 3024,
@@ -42,7 +46,7 @@
     "625": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
-      "角色硬直时间": 600,
+      "角色硬直时间": 725,
       "禁止行走时间": 650,
       "禁止奔跑时间": 650
     },

@@ -3,13 +3,11 @@
   "Race": "战士",
   "SkillId": 1047,
   "Id": 3,
-  "Quality": 6,
-  "Probability": 50,
-  "MinPlayerLevel": "KCotLQ==",
+  "MinPlayerLevel": "KC82PA==",
   "MinSkillExp": [
-    10,
-    20,
-    20,
+    200,
+    400,
+    600,
     0
   ],
   "SkillCombatBonus": [

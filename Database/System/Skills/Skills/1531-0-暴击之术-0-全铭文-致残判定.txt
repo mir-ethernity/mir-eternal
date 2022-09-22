@@ -4,7 +4,7 @@
   "SkillType": "SubSkills",
   "OwnSkillId": 1531,
   "BindingLevelId": 1531,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,
@@ -24,7 +24,7 @@
     "1": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 15331,
-      "Buff触发概率": 1.0,
+      "Buff触发概率": 1,
       "验证铭文技能": true,
       "所需Id": 15382,
       "验证ItSelfBuff": true,

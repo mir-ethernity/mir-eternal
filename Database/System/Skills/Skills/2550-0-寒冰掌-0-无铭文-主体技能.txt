@@ -8,10 +8,10 @@
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
-    1,
-    1,
-    1,
-    1
+    12,
+    15,
+    18,
+    20
   ],
   "Nodes": {
     "0": {
@@ -22,7 +22,7 @@
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
-      "ItSelfCooldown": 1000,
+      "ItSelfCooldown": 1500,
       "分组Cooldown": 1000,
       "角色忙绿时间": 625
     },
@@ -50,20 +50,15 @@
         24
       ],
       "技能伤害系数": [
-        1.0,
-        1.0,
-        1.0,
-        1.0
+        1.2,
+        1.3,
+        1.4,
+        1.5
       ],
       "GainSkillExp": true,
       "ExpSkillId": 2550,
       "目标硬直时间": 500,
       "清除状态列表": []
-    },
-    "501": {
-      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
-      "技能触发方式": "AnchorAbsolutePosition",
-      "触发SkillName": "寒冰掌-0-无铭文-寒冰掌特效"
     },
     "625": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

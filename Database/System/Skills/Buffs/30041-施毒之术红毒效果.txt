@@ -19,7 +19,7 @@
   "ExtendedTimePerLevel": 5000,
   "PlayerStatDelay": true,
   "BoundPlayerStat": "MaxSC",
-  "StatDelayFactor": 1000.0,
+  "StatDelayFactor": 1000,
   "StatsIncOrDec": [
     {
       "Stat": "MaxDef",

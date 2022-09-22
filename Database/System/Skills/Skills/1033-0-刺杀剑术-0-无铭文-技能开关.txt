@@ -2,7 +2,7 @@
   "SkillName": "刺杀剑术-0-无铭文-技能开关",
   "OwnSkillId": 1033,
   "BindingLevelId": 1033,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {

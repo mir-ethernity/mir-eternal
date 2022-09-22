@@ -2,7 +2,7 @@
   "SkillName": "电脑-骷髅战将变身技能",
   "Race": "电脑",
   "OwnSkillId": 6054,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,

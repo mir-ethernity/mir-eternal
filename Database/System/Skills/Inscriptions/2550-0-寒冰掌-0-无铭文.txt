@@ -2,11 +2,11 @@
   "SkillName": "寒冰掌-0-无铭文",
   "Race": "法师",
   "SkillId": 2550,
-  "MinPlayerLevel": "JCUnKA==",
+  "MinPlayerLevel": "JCcpLA==",
   "MinSkillExp": [
-    100,
-    200,
-    400,
+    10,
+    20,
+    30,
     0
   ],
   "SkillCombatBonus": [

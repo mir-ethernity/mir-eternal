@@ -1,7 +1,7 @@
 {
   "Name": "横扫六合易伤状态",
   "Id": 12033,
-  "Group": 12033,
+  "GroupId": 12033,
   "OverlayType": "SimilarReplacement",
   "Effect": "DamageIncOrDec",
   "SyncClient": true,

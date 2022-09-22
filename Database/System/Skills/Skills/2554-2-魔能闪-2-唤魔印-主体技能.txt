@@ -8,7 +8,6 @@
   "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
-  "ValidateLearnedSkills": 2535,
   "NeedConsumeMagic": [
     100,
     100,
@@ -20,10 +19,17 @@
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
-      "ItSelfCooldown": 3000,
+      "ItSelfCooldown": 10000,
       "角色忙绿时间": 250
     },
     "2": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 25350,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1
+    },
+    "3": {
       "$type": "C_03_CalculateObjectDisplacement, Assembly-CSharp",
       "角色ItSelf位移": true,
       "DisplacementIncreaseExp": true,
@@ -32,52 +38,9 @@
       "ItSelf位移距离": "BAUGBw==",
       "目标位移距离": "AAAAAA=="
     },
-    "3": {
+    "4": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true
-    },
-    "245": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 25350,
-      "Buff触发概率": 1.0,
-      "验证铭文技能": true,
-      "所需Id": 25350,
-      "所需Buff层数": 1
-    },
-    "246": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 25354,
-      "Buff触发概率": 1.0,
-      "验证铭文技能": true,
-      "所需Id": 25353,
-      "所需Buff层数": 1
-    },
-    "247": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 25352,
-      "Buff触发概率": 1.0,
-      "验证铭文技能": true,
-      "所需Id": 25352,
-      "所需Buff层数": 1
-    },
-    "248": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 25356,
-      "Buff触发概率": 1.0,
-      "验证铭文技能": true,
-      "所需Id": 25351,
-      "所需Buff层数": 1
-    },
-    "249": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 25540,
-      "Buff触发概率": 1.0,
-      "所需Buff层数": 1
     },
     "250": {
       "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"

@@ -1,11 +1,12 @@
 {
   "SkillName": "御龙晶甲-0-无铭文",
+  "Race": "龙枪",
   "SkillId": 1209,
   "MinPlayerLevel": "IyUoKg==",
   "MinSkillExp": [
-    100,
-    200,
-    400,
+    10,
+    20,
+    30,
     0
   ],
   "SkillCombatBonus": [
@@ -20,6 +21,6 @@
     "御龙晶甲-0-无铭文-主体技能"
   ],
   "SwitchSkills": [
-    "御龙晶甲-0-无铭文-技能开关"
+    "御龙晶甲-0-无铭文-主体技能"
   ]
 }

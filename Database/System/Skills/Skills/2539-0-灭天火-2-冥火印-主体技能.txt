@@ -2,7 +2,7 @@
   "SkillName": "灭天火-2-冥火印-主体技能",
   "Race": "法师",
   "OwnSkillId": 2539,
-  "GroupId": 2,
+  "GroupId": 1,
   "BindingLevelId": 2539,
   "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
@@ -22,7 +22,7 @@
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
-      "ItSelfCooldown": 1000,
+      "ItSelfCooldown": 1500,
       "分组Cooldown": 1000,
       "角色忙绿时间": 625
     },
@@ -33,9 +33,8 @@
       "技能锁定方式": "锁定目标",
       "SkillEvasion": "CanBeMagicEvaded",
       "SkillHitFeedback": "后仰",
-      "技能范围类型": "Solid5x5",
       "技能命中通知": true,
-      "HitsLimit": 10,
+      "HitsLimit": 1,
       "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
@@ -51,49 +50,24 @@
         24
       ],
       "技能伤害系数": [
-        1.0,
-        1.5,
-        2.0,
-        3.0
+        1.2,
+        1.3,
+        1.4,
+        1.5
       ],
       "GainSkillExp": true,
       "ExpSkillId": 2539,
       "目标硬直时间": 500,
       "清除状态列表": []
     },
-    "2": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 25502,
-      "Buff触发概率": 1.0,
-      "所需Buff层数": 1
-    },
-    "625": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
-      "触发Id": 25580,
-      "Buff触发概率": 1.0,
-      "所需Buff层数": 1,
-      "验证铭文技能": true,
-      "所需Id": 25580,
-      "GainSkillExp": true,
-      "ExpSkillId": 2558
-    },
-    "626": {
-      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "触发Id": 10363,
-      "Buff触发概率": 1.0,
-      "所需Buff层数": 1,
-      "验证ItSelfBuff": true,
-      "Id": 25585
-    },
     "501": {
       "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
       "技能触发方式": "AnchorAbsolutePosition",
       "触发SkillName": "灭天火-2-冥火印-空放特效"
     },
-    "627": {
+    "625": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
       "角色硬直时间": 725,
       "禁止行走时间": 650,
       "禁止奔跑时间": 650

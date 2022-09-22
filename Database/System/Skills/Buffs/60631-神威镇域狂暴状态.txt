@@ -1,7 +1,7 @@
 {
   "Name": "神威镇域狂暴状态",
   "Id": 60631,
-  "Group": 60631,
+  "GroupId": 60631,
   "Effect": "StatsIncOrDec, DamageIncOrDec",
   "SyncClient": true,
   "RemoveOnExpire": true,
@@ -19,7 +19,7 @@
   "RequireBuff": [],
   "HasSpecificInscriptionDelay": true,
   "SpecificInscriptionSkills": 12071,
-  "InscriptionExtendedTime": 5000,
+  "InscriptionExtendedTime": 4000,
   "StatsIncOrDec": [
     {
       "Stat": "WalkSpeed",
@@ -38,16 +38,16 @@
     {
       "Stat": "AttackSpeed",
       "Level0": 2,
-      "Level1": 2,
-      "Level2": 3,
-      "Level3": 4
+      "Level1": 3,
+      "Level2": 4,
+      "Level3": 5
     },
     {
       "Stat": "MaxDC",
-      "Level0": 5,
-      "Level1": 8,
-      "Level2": 10,
-      "Level3": 15
+      "Level0": 15,
+      "Level1": 30,
+      "Level2": 25,
+      "Level3": 30
     }
   ],
   "DamageBase": [
@@ -65,10 +65,10 @@
   "HowJudgeEffect": "PassiveInjuryReduction",
   "DamageIncOrDecBase": [],
   "DamageIncOrDecFactor": [
-    0.15,
     0.2,
-    0.25,
-    0.3
+    0.3,
+    0.4,
+    0.5
   ],
   "PhysicalRecoveryBase": "AAAAAA=="
 }

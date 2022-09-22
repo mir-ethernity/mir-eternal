@@ -6,9 +6,9 @@
   "PeriodCount": 9999,
   "MinPlayerLevel": "GBseIQ==",
   "MinSkillExp": [
-    10,
-    20,
-    20,
+    400,
+    800,
+    1200,
     0
   ],
   "SkillCombatBonus": [

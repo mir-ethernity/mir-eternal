@@ -8,7 +8,7 @@
   "RemoveOnExpire": true,
   "OnPlayerDiesRemove": true,
   "OnPlayerDisconnectRemove": true,
-  "BindingSkillLevel": 3009,
+  "BindingSkillLevel": true,
   "RemoveAddCooling": true,
   "SkillCooldown": 250,
   "BuffInitialLayer": 1,

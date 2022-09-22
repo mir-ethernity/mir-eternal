@@ -7,7 +7,7 @@
   "SyncClient": true,
   "RemoveOnExpire": true,
   "OnPlayerDiesRemove": true,
-  "BindingSkillLevel": 2050,
+  "BindingSkillLevel": true,
   "BuffInitialLayer": 1,
   "MaxBuffCount": 1,
   "BuffSynthesisLayer": 5,
@@ -17,10 +17,10 @@
   "RequireBuff": [],
   "DamageType": "Burn",
   "DamageBase": [
-    10,
-    15,
-    16,
-    18
+    5,
+    6,
+    7,
+    8
   ],
   "DamageFactor": [],
   "SpecificSkillId": [],

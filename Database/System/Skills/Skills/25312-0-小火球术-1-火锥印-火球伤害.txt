@@ -4,7 +4,7 @@
   "SkillType": "SubSkills",
   "OwnSkillId": 25312,
   "BindingLevelId": 2531,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,
@@ -40,10 +40,10 @@
         15
       ],
       "技能伤害系数": [
-        1.0,
-        1.0,
-        1.0,
-        1.0
+        1,
+        1,
+        1,
+        1
       ],
       "技能增伤类型": "WomaMonster",
       "技能增伤基数": 20,

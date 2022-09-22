@@ -1,11 +1,11 @@
 {
   "SkillName": "雷霆剑法-0-无铭文",
   "SkillId": 1049,
-  "MinPlayerLevel": "LS4wMA==",
+  "MinPlayerLevel": "LTAzNg==",
   "MinSkillExp": [
-    100,
-    200,
-    400,
+    10,
+    20,
+    30,
     0
   ],
   "SkillCombatBonus": [

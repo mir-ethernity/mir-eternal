@@ -1,7 +1,7 @@
 {
   "Name": "致残毒药星裂标记",
   "Id": 15300,
-  "Group": 1533,
+  "GroupId": 1533,
   "OverlayType": "SimilarReplacement",
   "SyncClient": true,
   "RemoveOnExpire": true,
@@ -35,10 +35,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

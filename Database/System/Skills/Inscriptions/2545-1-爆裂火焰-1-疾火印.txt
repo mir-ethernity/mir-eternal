@@ -7,9 +7,9 @@
   "Probability": 80,
   "MinPlayerLevel": "FhsfPA==",
   "MinSkillExp": [
-    100,
-    200,
-    400,
+    300,
+    600,
+    1800,
     0
   ],
   "SkillCombatBonus": [

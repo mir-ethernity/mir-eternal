@@ -4,7 +4,7 @@
   "SkillType": "SubSkills",
   "OwnSkillId": 20432,
   "BindingLevelId": 2043,
-  "CalculateTriggerProbability": 1.0,
+  "CalculateTriggerProbability": 1,
   "NeedConsumeMagic": [
     0,
     0,
@@ -24,7 +24,7 @@
       "SkillHitFeedback": "后仰",
       "技能命中通知": true,
       "计算飞行耗时": true,
-      "单格飞行耗时": 50,
+      "单格飞行耗时": 60,
       "HitsLimit": 1,
       "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
@@ -41,7 +41,7 @@
         25
       ],
       "技能伤害系数": [
-        1.0,
+        1,
         1.1,
         1.2,
         1.3

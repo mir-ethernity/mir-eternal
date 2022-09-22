@@ -1,7 +1,7 @@
 {
   "Name": "法师瞬移失败提示",
   "Id": 25380,
-  "Group": 25380,
+  "GroupId": 25380,
   "ActionType": "Debuff",
   "SyncClient": true,
   "RemoveOnExpire": true,
@@ -34,10 +34,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    0,
+    0,
+    0,
+    0
   ],
   "PhysicalRecoveryBase": "AAAAAA=="
 }

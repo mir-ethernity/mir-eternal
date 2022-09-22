@@ -4,13 +4,13 @@
   "SkillId": 1212,
   "Id": 1,
   "Quality": 8,
-  "Probability": 40,
+  "Probability": 80,
   "BroadcastNotification": true,
-  "MinPlayerLevel": "MzMzMw==",
+  "MinPlayerLevel": "MzU3OQ==",
   "MinSkillExp": [
     10,
-    20,
-    20,
+    10,
+    10,
     0
   ],
   "SkillCombatBonus": [
@@ -21,9 +21,7 @@
   ],
   "ComesWithBuff": [],
   "PassiveSkills": [],
-  "MainSkills": [
-    "召唤龙驹-1-破军印-主体技能"
-  ],
+  "MainSkills": [],
   "SwitchSkills": [
     "召唤龙驹-1-破军印-技能开关"
   ]
