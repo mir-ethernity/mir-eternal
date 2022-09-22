@@ -4,12 +4,12 @@
   "SkillId": 2047,
   "Id": 1,
   "Quality": 6,
-  "Probability": 25,
+  "Probability": 50,
   "MinPlayerLevel": "GB0hJQ==",
   "MinSkillExp": [
-    200,
-    400,
-    800,
+    10,
+    20,
+    20,
     0
   ],
   "SkillCombatBonus": [

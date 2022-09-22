@@ -1,7 +1,7 @@
 {
   "Name": "狂飙突刺缠杀减速",
   "Id": 12045,
-  "GroupId": 12045,
+  "Group": 12045,
   "ActionType": "Debuff",
   "Effect": "StatsIncOrDec",
   "SyncClient": true,
@@ -51,10 +51,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

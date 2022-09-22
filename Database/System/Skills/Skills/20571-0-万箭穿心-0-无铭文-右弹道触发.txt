@@ -1,0 +1,61 @@
+{
+  "SkillName": "万箭穿心-0-无铭文-右弹道触发",
+  "Race": "弓手",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 20571,
+  "BindingLevelId": 2057,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "1": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "2": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定目标",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能命中通知": true,
+      "计算飞行耗时": true,
+      "单格飞行耗时": 60,
+      "HitsLimit": 1,
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "3": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Archery",
+      "技能伤害基数": [
+        17,
+        19,
+        21,
+        23
+      ],
+      "技能伤害系数": [
+        1.0,
+        1.1,
+        1.2,
+        1.3
+      ],
+      "GainSkillExp": true,
+      "ExpSkillId": 2057,
+      "清除状态列表": []
+    },
+    "5": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "万箭穿心-0-无铭文-右弹道",
+      "验证铭文技能": true,
+      "所需Id": 20571
+    }
+  }
+}

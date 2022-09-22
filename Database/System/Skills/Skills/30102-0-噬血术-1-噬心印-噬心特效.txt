@@ -24,7 +24,7 @@
       "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "放空结束技能": true,
       "技能锁定方式": "锁定锚点坐标",
-      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillEvasion": "CanBeMagicEvaded",
       "SkillHitFeedback": "后仰",
       "技能范围类型": "Solid5x5",
       "技能扩展通知": true,
@@ -39,10 +39,10 @@
       "技能伤害类型": "Taoism",
       "技能伤害基数": [],
       "技能伤害系数": [
-        1.0,
-        1.0,
-        1.0,
-        1.0
+        1.2,
+        1.2,
+        1.2,
+        1.2
       ],
       "数量衰减伤害": true,
       "伤害衰减系数": 0.05,

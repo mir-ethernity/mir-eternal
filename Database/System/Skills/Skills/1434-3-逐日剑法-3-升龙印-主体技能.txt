@@ -39,7 +39,7 @@
       "技能锁定方式": "锁定锚点坐标",
       "SkillEvasion": "CanBePhsyicallyEvaded",
       "SkillHitFeedback": "后仰",
-      "技能范围类型": "LineType3x7",
+      "技能范围类型": "Zhanyue3x3",
       "技能扩展通知": true,
       "HitsLimit": 9,
       "LimitedTargetType": "Player, Pet, Monster, NPC",
@@ -70,7 +70,7 @@
     "251": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
-      "触发Id": 10387,
+      "触发Id": 60632,
       "Buff触发概率": 1.0,
       "所需Buff层数": 1
     },

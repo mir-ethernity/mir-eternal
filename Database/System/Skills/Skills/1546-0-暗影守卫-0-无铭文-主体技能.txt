@@ -1,0 +1,69 @@
+{
+  "SkillName": "暗影守卫-0-无铭文-主体技能",
+  "Race": "刺客",
+  "OwnSkillId": 1546,
+  "BindingLevelId": 1546,
+  "CalculateTriggerProbability": 1.0,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "NeedConsumeMagic": [
+    4,
+    8,
+    11,
+    15
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
+      "MaxDistance": 8
+    },
+    "1": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "触发SkillName": "暗影守卫-0-无铭文-成功特效"
+    },
+    "2": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "ItSelfCooldown": 1500,
+      "分组Cooldown": 1500,
+      "角色忙绿时间": 625
+    },
+    "3": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "技能范围类型": "Solid5x5",
+      "HitsLimit": 20,
+      "LimitedTargetType": "Player",
+      "LimitedTargetRelationship": "ItSelf",
+      "清除状态列表": []
+    },
+    "4": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 15460,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1,
+      "GainSkillExp": true,
+      "ExpSkillId": 1546
+    },
+    "624": {
+      "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
+      "PetName": "刺客暗影守卫",
+      "SpawnCount": "AQIDBQ==",
+      "LevelCap": "AQMFBw==",
+      "GainSkillExp": true,
+      "ExpSkillId": 1546
+    },
+    "625": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true,
+      "角色硬直时间": 725,
+      "禁止行走时间": 650,
+      "禁止奔跑时间": 650
+    },
+    "1000": {
+      "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
+    }
+  }
+}

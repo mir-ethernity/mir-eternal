@@ -1,7 +1,7 @@
 {
   "Name": "回避射击敏捷增加",
   "Id": 20560,
-  "GroupId": 20560,
+  "Group": 20560,
   "Effect": "StatsIncOrDec",
   "SyncClient": true,
   "RemoveOnExpire": true,
@@ -44,10 +44,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

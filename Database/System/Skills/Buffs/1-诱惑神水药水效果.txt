@@ -1,7 +1,7 @@
 {
   "Name": "诱惑神水药水效果",
   "Id": 1,
-  "GroupId": 1,
+  "Group": 1,
   "Effect": "TemptationBoost",
   "SyncClient": true,
   "RemoveOnExpire": true,
@@ -32,10 +32,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

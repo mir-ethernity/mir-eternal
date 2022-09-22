@@ -8,10 +8,10 @@
   "CheckSkillMarks": true,
   "SkillTagId": 10490,
   "NeedConsumeMagic": [
-    9,
-    9,
-    9,
-    9
+    0,
+    0,
+    0,
+    0
   ],
   "Nodes": {
     "0": {
@@ -38,22 +38,28 @@
       "技能锁定方式": "锁定锚点坐标",
       "SkillEvasion": "CanBePhsyicallyEvaded",
       "SkillHitFeedback": "后仰",
-      "技能范围类型": "Zhanyue3x3",
+      "技能范围类型": "LineType3x7",
       "技能扩展通知": true,
-      "HitsLimit": 3,
+      "HitsLimit": 6,
       "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
+    },
+    "225": {
+      "$type": "A_02_TriggerTrapSkills, Assembly-CSharp",
+      "TriggerTrapSkills": "雷霆剑法-0-无铭文",
+      "GainSkillExp": true,
+      "ExpSkillId": 1049
     },
     "250": {
       "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害基数": [],
       "技能伤害系数": [
-        1.6,
-        1.8,
         2.0,
-        2.2
+        2.2,
+        2.4,
+        2.6
       ],
       "回复限定类型": "AllMonsters",
       "PhysicalRecoveryBase": 10,
@@ -65,6 +71,13 @@
       "ExpSkillId": 1049,
       "目标硬直时间": 500,
       "清除状态列表": []
+    },
+    "251": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "LimitedTargetRelationship": "Hostility",
+      "触发Id": 10490,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1
     },
     "500": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

@@ -1,7 +1,7 @@
 {
   "Name": "精准术审判印嗜杀",
   "Id": 15340,
-  "GroupId": 15340,
+  "Group": 15340,
   "ActionType": "Debuff",
   "OverlayType": "SimilarReplacement",
   "Effect": "DamageIncOrDec",

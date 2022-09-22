@@ -5,7 +5,7 @@
   "Id": 3,
   "GroupId": 1,
   "BindingLevelId": 3006,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -40,7 +40,7 @@
       "技能范围类型": "Solid5x5",
       "HitsLimit": 20,
       "LimitedTargetType": "Player, Pet",
-      "LimitedTargetRelationship": "ItSelf, Friendly",
+      "LimitedTargetRelationship": "ItSelf",
       "清除目标状态": true,
       "清除状态列表": [
         30040,
@@ -51,7 +51,7 @@
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 30060,
       "伴生Id": 30070,
-      "Buff触发概率": 1,
+      "Buff触发概率": 1.0,
       "所需Buff层数": 1,
       "GainSkillExp": true,
       "ExpSkillId": 3006

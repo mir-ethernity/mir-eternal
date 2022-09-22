@@ -3,12 +3,12 @@
   "SkillId": 1035,
   "Id": 1,
   "Quality": 3,
-  "Probability": 60,
+  "Probability": 80,
   "MinPlayerLevel": "HiInKw==",
   "MinSkillExp": [
-    300,
-    600,
-    900,
+    10,
+    20,
+    20,
     0
   ],
   "SkillCombatBonus": [

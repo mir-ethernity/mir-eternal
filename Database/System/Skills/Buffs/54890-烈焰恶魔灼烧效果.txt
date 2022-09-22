@@ -1,7 +1,7 @@
 {
   "Name": "烈焰恶魔灼烧效果",
   "Id": 54890,
-  "GroupId": 54890,
+  "Group": 54890,
   "OverlayType": "HomogeneousStacking",
   "Effect": "CausesSomeDamages",
   "SyncClient": true,
@@ -34,10 +34,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "PhysicalRecoveryBase": "AAAAAA=="
 }

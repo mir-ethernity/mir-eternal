@@ -1,0 +1,29 @@
+{
+  "SkillName": "魔刃天旋-3-裂伤印",
+  "Race": "刺客",
+  "SkillId": 1547,
+  "Id": 3,
+  "Quality": 6,
+  "Probability": 0,
+  "MinPlayerLevel": "IyUoKg==",
+  "MinSkillExp": [
+    10,
+    10,
+    10,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "魔刃天旋-3-裂伤印-主体技能"
+  ],
+  "SwitchSkills": [
+    "魔刃天旋-3-裂伤印-技能开关"
+  ]
+}

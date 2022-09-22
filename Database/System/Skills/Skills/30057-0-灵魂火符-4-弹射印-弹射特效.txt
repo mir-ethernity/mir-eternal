@@ -3,7 +3,7 @@
   "Race": "道士",
   "OwnSkillId": 30057,
   "BindingLevelId": 3005,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     0,
     0,
@@ -40,10 +40,10 @@
         17
       ],
       "技能伤害系数": [
-        1,
-        1,
-        1,
-        1
+        1.0,
+        1.0,
+        1.0,
+        1.0
       ],
       "GainSkillExp": true,
       "ExpSkillId": 3005,

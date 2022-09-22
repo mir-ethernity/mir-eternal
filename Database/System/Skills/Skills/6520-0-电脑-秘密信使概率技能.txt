@@ -4,13 +4,12 @@
   "OwnSkillId": 6520,
   "NeedMoveForward": true,
   "MaxDistance": 5,
-  "CalculateTriggerProbability": 0.35,
+  "CalculateTriggerProbability": 0.2,
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
-      "调整角色朝向": true,
       "角色忙绿时间": 1250
     },
     "1": {
@@ -41,10 +40,10 @@
         0
       ],
       "技能伤害系数": [
-        2.5,
-        2.5,
-        2.5,
-        2.5
+        2.0,
+        2.0,
+        2.0,
+        2.0
       ],
       "清除状态列表": []
     }

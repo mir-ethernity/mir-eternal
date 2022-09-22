@@ -2,7 +2,7 @@
   "SkillName": "电脑-僵尸锤兵动作特效",
   "Race": "电脑",
   "OwnSkillId": 51160,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "Nodes": {
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",

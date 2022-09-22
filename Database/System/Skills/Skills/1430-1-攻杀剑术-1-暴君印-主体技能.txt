@@ -3,13 +3,11 @@
   "OwnSkillId": 1430,
   "Id": 1,
   "BindingLevelId": 1032,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "CheckPassiveTags": true,
   "NeedConsumeMagic": [],
-  "目标最近距离": 1,
-  "目标最远距离": 1,
   "Nodes": {
     "0": {
       "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",

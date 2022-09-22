@@ -4,13 +4,13 @@
   "SkillId": 3003,
   "Id": 3,
   "Quality": 7,
-  "Probability": 5,
+  "Probability": 20,
   "BroadcastNotification": true,
   "MinPlayerLevel": "ExcaHg==",
   "MinSkillExp": [
+    100,
     200,
     400,
-    800,
     0
   ],
   "SkillCombatBonus": [

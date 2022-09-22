@@ -1,0 +1,73 @@
+{
+  "Name": "逐日神躯状态",
+  "Id": 10387,
+  "Effect": "StatsIncOrDec, DamageIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnChangeWeaponRemove": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 1038,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 6000,
+  "ProcessDelay": 6000,
+  "Duration": 6000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "HasSpecificInscriptionDelay": true,
+  "SpecificInscriptionSkills": 10380,
+  "InscriptionExtendedTime": 4000,
+  "StatsIncOrDec": [
+    {
+      "Stat": "WalkSpeed",
+      "Level0": -1,
+      "Level1": -1,
+      "Level2": -1,
+      "Level3": -1
+    },
+    {
+      "Stat": "RunSpeed",
+      "Level0": -3,
+      "Level1": -3,
+      "Level2": -3,
+      "Level3": -3
+    },
+    {
+      "Stat": "AttackSpeed",
+      "Level0": 1,
+      "Level1": 2,
+      "Level2": 3,
+      "Level3": 4
+    },
+    {
+      "Stat": "MaxDC",
+      "Level0": 5,
+      "Level1": 10,
+      "Level2": 15,
+      "Level3": 20
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "HowJudgeEffect": "PassiveInjuryReduction",
+  "DamageIncOrDecBase": [],
+  "DamageIncOrDecFactor": [
+    0.1,
+    0.15,
+    0.2,
+    0.3
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

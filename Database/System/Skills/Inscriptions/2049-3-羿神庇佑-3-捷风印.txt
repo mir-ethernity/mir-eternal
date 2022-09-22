@@ -3,14 +3,13 @@
   "Race": "弓手",
   "SkillId": 2049,
   "Id": 3,
-  "Quality": 8,
-  "Probability": 80,
-  "BroadcastNotification": true,
-  "MinPlayerLevel": "IyUoKg==",
+  "Quality": 6,
+  "Probability": 50,
+  "MinPlayerLevel": "KCotLQ==",
   "MinSkillExp": [
     10,
-    10,
-    10,
+    20,
+    20,
     0
   ],
   "SkillCombatBonus": [

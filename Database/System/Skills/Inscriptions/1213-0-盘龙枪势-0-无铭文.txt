@@ -1,7 +1,10 @@
 {
   "SkillName": "盘龙枪势-0-无铭文",
+  "Race": "龙枪",
   "SkillId": 1213,
-  "MinPlayerLevel": "IyUoKg==",
+  "SkillCount": 1,
+  "PeriodCount": 10000,
+  "MinPlayerLevel": "KCotLQ==",
   "MinSkillExp": [
     10,
     10,

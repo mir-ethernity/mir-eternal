@@ -7,9 +7,9 @@
   "Probability": 6,
   "MinPlayerLevel": "DRIYHQ==",
   "MinSkillExp": [
-    100,
-    200,
-    400,
+    10,
+    20,
+    20,
     0
   ],
   "SkillCombatBonus": [

@@ -7,7 +7,7 @@
   "RemoveOnExpire": true,
   "OnPlayerDiesRemove": true,
   "OnPlayerDisconnectRemove": true,
-  "BindingSkillLevel": true,
+  "BindingSkillLevel": 3022,
   "BuffInitialLayer": 1,
   "MaxBuffCount": 1,
   "BuffSynthesisLayer": 5,
@@ -28,10 +28,7 @@
     0
   ],
   "HowJudgeEffect": "PassiveInjuryReduction",
-  "EffectJudgeType": "AllSpecificInjuries",
-  "SpecificSkillId": [
-    3025
-  ],
+  "SpecificSkillId": [],
   "DamageIncOrDecBase": [
     0,
     0,

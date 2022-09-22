@@ -1,0 +1,27 @@
+{
+  "SkillName": "觉醒·百战军魂-2-血爆印",
+  "Race": "龙枪",
+  "SkillId": 1214,
+  "Id": 2,
+  "Quality": 8,
+  "Probability": 10,
+  "MinPlayerLevel": "LS4wMA==",
+  "MinSkillExp": [
+    100,
+    200,
+    400,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [],
+  "SwitchSkills": [
+    "觉醒·百战军魂-0-无铭文-技能开关"
+  ]
+}

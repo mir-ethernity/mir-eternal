@@ -4,7 +4,7 @@
   "OwnSkillId": 3005,
   "Id": 1,
   "BindingLevelId": 3005,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -29,8 +29,8 @@
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
-      "ItSelfCooldown": 1500,
-      "角色忙绿时间": 625
+      "ItSelfCooldown": 1000,
+      "角色忙绿时间": 500
     },
     "425": {
       "$type": "A_00_TriggerSubSkills, Assembly-CSharp",

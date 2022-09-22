@@ -1,7 +1,7 @@
 {
   "Name": "冷酷凝视特效表现",
   "Id": 15383,
-  "GroupId": 15383,
+  "Group": 15383,
   "OverlayType": "SimilarReplacement",
   "SyncClient": true,
   "RemoveOnExpire": true,
@@ -11,13 +11,11 @@
   "BuffInitialLayer": 1,
   "MaxBuffCount": 1,
   "BuffSynthesisLayer": 5,
-  "ProcessInterval": 9000,
-  "ProcessDelay": 9000,
-  "Duration": 9000,
+  "ProcessInterval": 6000,
+  "ProcessDelay": 6000,
+  "Duration": 6000,
   "ExtendedDuration": true,
   "RequireBuff": [],
-  "SkillLevelDelay": true,
-  "ExtendedTimePerLevel": 3000,
   "DamageBase": [
     0,
     1,
@@ -38,10 +36,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

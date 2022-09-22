@@ -3,7 +3,7 @@
   "SkillType": "SubSkills",
   "OwnSkillId": 14322,
   "BindingLevelId": 1034,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {

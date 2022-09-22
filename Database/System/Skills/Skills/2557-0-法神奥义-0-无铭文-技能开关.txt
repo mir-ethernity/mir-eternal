@@ -1,5 +1,6 @@
 {
   "SkillName": "法神奥义-0-无铭文-技能开关",
+  "Race": "法师",
   "OwnSkillId": 2557,
   "BindingLevelId": 2557,
   "CalculateTriggerProbability": 1.0,
@@ -13,16 +14,16 @@
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
-      "ItSelfCooldown": 10000,
-      "分组Cooldown": 10000
+      "ItSelfCooldown": 60000,
+      "分组Cooldown": 60000
     },
     "1": {
       "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",
-      "SkillTagId": 25578
+      "SkillTagId": 25571
     },
     "2": {
       "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",
-      "SkillTagId": 25571
+      "SkillTagId": 25578
     },
     "3": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

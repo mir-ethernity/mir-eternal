@@ -2,11 +2,11 @@
   "SkillName": "金钟罩-0-无铭文",
   "Race": "战士",
   "SkillId": 1047,
-  "MinPlayerLevel": "KC82PA==",
+  "MinPlayerLevel": "KCotLQ==",
   "MinSkillExp": [
     10,
     20,
-    30,
+    20,
     0
   ],
   "SkillCombatBonus": [

@@ -1,0 +1,51 @@
+{
+  "Name": "攻击神水效果",
+  "Id": 45700,
+  "OverlayType": "SimilarReplacement",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 10000,
+  "ProcessDelay": 10000,
+  "Duration": 180000,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "MaxDC",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

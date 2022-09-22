@@ -4,7 +4,7 @@
   "OwnSkillId": 2056,
   "GroupId": 8,
   "BindingLevelId": 2056,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckOccupationalWeapons": true,
   "NeedConsumeMagic": [
@@ -34,8 +34,8 @@
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
       "调整角色朝向": true,
-      "ItSelfCooldown": 16000,
-      "分组Cooldown": 16000,
+      "ItSelfCooldown": 2000,
+      "分组Cooldown": 2000,
       "角色忙绿时间": 625
     },
     "499": {

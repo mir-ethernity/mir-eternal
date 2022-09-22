@@ -1,11 +1,11 @@
 {
   "SkillName": "凌云枪法-0-无铭文",
   "SkillId": 1210,
-  "MinPlayerLevel": "IyUoKg==",
+  "MinPlayerLevel": "KSotLQ==",
   "MinSkillExp": [
-    10,
-    20,
-    30,
+    100,
+    200,
+    400,
     0
   ],
   "SkillCombatBonus": [

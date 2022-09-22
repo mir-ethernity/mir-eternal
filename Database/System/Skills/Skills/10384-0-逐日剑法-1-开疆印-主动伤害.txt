@@ -1,0 +1,47 @@
+{
+  "SkillName": "逐日剑法-1-开疆印-主动伤害",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 10384,
+  "BindingLevelId": 1038,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能能否招架": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "SkillHitFeedback": "后仰",
+      "技能范围类型": "Zhanyue3x3",
+      "技能扩展通知": true,
+      "HitsLimit": 9,
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "1": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Burn",
+      "技能伤害基数": [
+        35,
+        42,
+        46,
+        50
+      ],
+      "技能伤害系数": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    }
+  }
+}

@@ -43,7 +43,7 @@
       "SkillHitFeedback": "后仰",
       "技能范围类型": "Solid5x5",
       "技能命中通知": true,
-      "HitsLimit": 12,
+      "HitsLimit": 9,
       "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
@@ -53,16 +53,16 @@
       "点爆需要层数": 1,
       "技能伤害类型": "Magic",
       "技能伤害基数": [
-        25,
-        29,
-        33,
-        37
+        65,
+        69,
+        73,
+        77
       ],
       "技能伤害系数": [
-        1.5,
-        1.6,
-        1.7,
-        1.8
+        1.0,
+        1.0,
+        1.0,
+        1.0
       ],
       "GainSkillExp": true,
       "ExpSkillId": 2540,

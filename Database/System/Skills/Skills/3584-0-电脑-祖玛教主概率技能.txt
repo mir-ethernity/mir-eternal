@@ -2,65 +2,50 @@
   "SkillName": "电脑-祖玛教主概率技能",
   "Race": "电脑",
   "OwnSkillId": 3584,
-  "MaxDistance": 8,
-  "CalculateTriggerProbability": 1.5,
+  "MaxDistance": 2,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
+      "ItSelfCooldown": 25000,
       "调整角色朝向": true,
-      "ItSelfCooldown": 30000,
-      "分组Cooldown": 30000,
       "角色忙绿时间": 1500
     },
-    "450": {
+    "650": {
       "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
-      "PetName": "祖玛卫士",
+      "PetName": "邪箭弓手",
       "Companion": true,
-      "SpawnCount": "AAAAAA==",
+      "SpawnCount": "BgYGBg==",
       "LevelCap": "AAAAAA=="
     },
-    "451": {
+    "651": {
       "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
-      "PetName": "祖玛雕像",
+      "PetName": "邪箭弓手",
       "Companion": true,
-      "SpawnCount": "AAAAAA==",
+      "SpawnCount": "BgYGBg==",
       "LevelCap": "AAAAAA=="
     },
-    "452": {
+    "652": {
       "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
-      "PetName": "祖玛卫士",
+      "PetName": "邪箭弓手",
       "Companion": true,
-      "SpawnCount": "AAAAAA==",
+      "SpawnCount": "BgYGBg==",
       "LevelCap": "AAAAAA=="
     },
-    "453": {
+    "653": {
       "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
-      "PetName": "楔蛾",
+      "PetName": "邪箭弓手",
       "Companion": true,
-      "SpawnCount": "AAAAAA==",
+      "SpawnCount": "BgYGBg==",
       "LevelCap": "AAAAAA=="
     },
-    "454": {
+    "654": {
       "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
-      "PetName": "祖玛卫士",
+      "PetName": "邪箭弓手",
       "Companion": true,
-      "SpawnCount": "AAAAAA==",
-      "LevelCap": "AAAAAA=="
-    },
-    "455": {
-      "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
-      "PetName": "祖玛雕像",
-      "Companion": true,
-      "SpawnCount": "AAAAAA==",
-      "LevelCap": "AAAAAA=="
-    },
-    "456": {
-      "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
-      "PetName": "祖玛弓箭手",
-      "Companion": true,
-      "SpawnCount": "AAAAAA==",
+      "SpawnCount": "BgYGBg==",
       "LevelCap": "AAAAAA=="
     }
   }

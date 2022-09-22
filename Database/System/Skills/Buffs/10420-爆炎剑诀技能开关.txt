@@ -8,8 +8,8 @@
   "BuffInitialLayer": 1,
   "MaxBuffCount": 1,
   "BuffSynthesisLayer": 5,
-  "ProcessInterval": 20000,
-  "Duration": 20000,
+  "ProcessInterval": 15000,
+  "Duration": 15000,
   "RequireBuff": [],
   "DamageBase": [
     0,
@@ -31,10 +31,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

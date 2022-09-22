@@ -3,20 +3,20 @@
   "SkillId": 1038,
   "Id": 2,
   "Quality": 8,
-  "Probability": 25,
+  "Probability": 5,
   "BroadcastNotification": true,
-  "MinPlayerLevel": "LzI1OA==",
+  "MinPlayerLevel": "IyUoKg==",
   "MinSkillExp": [
-    100,
     200,
     400,
+    600,
     0
   ],
   "SkillCombatBonus": [
-    20,
     30,
     40,
-    50
+    50,
+    60
   ],
   "ComesWithBuff": [],
   "PassiveSkills": [

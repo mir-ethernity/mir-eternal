@@ -5,7 +5,7 @@
   "Id": 1,
   "GroupId": 3,
   "BindingLevelId": 2046,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "CheckOccupationalWeapons": true,

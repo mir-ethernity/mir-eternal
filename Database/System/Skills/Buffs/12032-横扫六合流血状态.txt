@@ -1,7 +1,7 @@
 {
   "Name": "横扫六合流血状态",
   "Id": 12032,
-  "GroupId": 12032,
+  "Group": 12032,
   "ActionType": "Debuff",
   "OverlayType": "SimilarReplacement",
   "Effect": "CausesSomeDamages",
@@ -31,10 +31,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

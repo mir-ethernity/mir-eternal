@@ -1,0 +1,59 @@
+{
+  "Name": "无极真气增益效果",
+  "Id": 30150,
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "BindingSkillLevel": 3015,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 20000,
+  "ProcessDelay": 20000,
+  "Duration": 6000,
+  "ExtendedDuration": true,
+  "RequireBuff": [
+    12029
+  ],
+  "SkillLevelDelay": true,
+  "ExtendedTimePerLevel": 1000,
+  "PlayerStatDelay": true,
+  "BoundPlayerStat": "MaxSC",
+  "StatDelayFactor": 100.0,
+  "StatsIncOrDec": [
+    {
+      "Stat": "MaxSC",
+      "Level0": 10,
+      "Level1": 12,
+      "Level2": 14,
+      "Level3": 16
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

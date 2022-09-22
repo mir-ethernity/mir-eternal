@@ -5,7 +5,7 @@
   "Id": 3,
   "GroupId": 10,
   "BindingLevelId": 1204,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckOccupationalWeapons": true,
   "CheckSkillCount": true,

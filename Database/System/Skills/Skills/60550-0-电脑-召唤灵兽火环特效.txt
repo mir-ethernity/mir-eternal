@@ -2,7 +2,7 @@
   "SkillName": "电脑-召唤灵兽火环特效",
   "Race": "电脑",
   "OwnSkillId": 60550,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     0,
     0,

@@ -4,7 +4,7 @@
   "SkillType": "SubSkills",
   "OwnSkillId": 15312,
   "BindingLevelId": 153,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     0,
     0,
@@ -20,9 +20,9 @@
       "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能锁定方式": "锁定目标坐标",
       "SkillHitFeedback": "后仰",
-      "技能范围类型": "Hollow3x3",
+      "技能范围类型": "Hollow5x5",
       "技能命中通知": true,
-      "HitsLimit": 8,
+      "HitsLimit": 20,
       "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility"
     },
@@ -42,8 +42,8 @@
         1.4,
         1.5
       ],
-      "技能破防概率": 1,
-      "技能破防系数": 1,
+      "技能破防概率": 1.0,
+      "技能破防系数": 1.0,
       "目标硬直时间": 500
     }
   }

@@ -31,6 +31,8 @@
     "2": {
       "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
       "技能触发方式": "TargetHitDefinitely",
+      "CalculateLuckyProbability": true,
+      "CalculateTriggerProbability": true,
       "触发SkillName": "火镰狂舞-1-双斩印-冷却减少"
     },
     "125": {
@@ -63,6 +65,9 @@
         3.0,
         3.2
       ],
+      "命中减少冷却": true,
+      "冷却减少技能": 1538,
+      "冷却减少时间": 1500,
       "扣除武器持久": true,
       "GainSkillExp": true,
       "ExpSkillId": 1539,

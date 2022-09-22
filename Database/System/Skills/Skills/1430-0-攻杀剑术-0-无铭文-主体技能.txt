@@ -2,7 +2,7 @@
   "SkillName": "攻杀剑术-0-无铭文-主体技能",
   "OwnSkillId": 1430,
   "BindingLevelId": 1032,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "CheckPassiveTags": true,

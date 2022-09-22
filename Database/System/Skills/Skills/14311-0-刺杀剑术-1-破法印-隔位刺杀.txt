@@ -3,7 +3,7 @@
   "SkillType": "SubSkills",
   "OwnSkillId": 14311,
   "BindingLevelId": 1033,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
@@ -32,11 +32,11 @@
         0.7,
         0.8,
         0.9,
-        1
+        1.0
       ],
-      "技能增伤类型": "ShieldMage, EliteMonsters",
-      "技能破防概率": 1,
-      "技能破防系数": 1,
+      "技能增伤类型": "ShieldMage",
+      "技能破防概率": 1.0,
+      "技能破防系数": 1.0,
       "扣除武器持久": true,
       "GainSkillExp": true,
       "ExpSkillId": 1033,

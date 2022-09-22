@@ -4,9 +4,9 @@
   "SkillId": 3015,
   "MinPlayerLevel": "FhgaHA==",
   "MinSkillExp": [
-    10,
-    20,
-    30,
+    100,
+    200,
+    400,
     0
   ],
   "SkillCombatBonus": [

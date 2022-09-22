@@ -2,7 +2,7 @@
   "SkillName": "电脑-召唤血兽进入战斗",
   "Race": "电脑",
   "OwnSkillId": 6060,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     0,
     0,

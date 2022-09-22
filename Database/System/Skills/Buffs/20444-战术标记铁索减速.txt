@@ -1,7 +1,7 @@
 {
   "Name": "战术标记铁索减速",
   "Id": 20444,
-  "GroupId": 20444,
+  "Group": 20444,
   "Effect": "StatsIncOrDec",
   "SyncClient": true,
   "RemoveOnExpire": true,
@@ -17,10 +17,10 @@
   "StatsIncOrDec": [
     {
       "Stat": "WalkSpeed",
-      "Level0": 1,
-      "Level1": 1,
-      "Level2": 1,
-      "Level3": 1
+      "Level0": 2,
+      "Level1": 2,
+      "Level2": 2,
+      "Level3": 2
     },
     {
       "Stat": "RunSpeed",
@@ -50,10 +50,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

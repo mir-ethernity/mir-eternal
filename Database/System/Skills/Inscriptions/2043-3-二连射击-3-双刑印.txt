@@ -5,12 +5,12 @@
   "Id": 3,
   "PassiveSkill": true,
   "Quality": 2,
-  "Probability": 80,
+  "Probability": 40,
   "MinPlayerLevel": "EBMWGQ==",
   "MinSkillExp": [
+    100,
     200,
     400,
-    600,
     0
   ],
   "SkillCombatBonus": [

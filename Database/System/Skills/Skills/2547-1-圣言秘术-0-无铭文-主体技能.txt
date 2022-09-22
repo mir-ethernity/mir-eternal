@@ -5,7 +5,7 @@
   "Id": 1,
   "GroupId": 1,
   "BindingLevelId": 2547,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -32,7 +32,7 @@
       "技能能否穿墙": true,
       "技能锁定方式": "锁定目标",
       "HitsLimit": 9,
-      "QualifySpecificType": "Undead, WomaMonster, PigMonster, ZumaMonster, AllPets, DragonMonster",
+      "QualifySpecificType": "Undead",
       "LimitedTargetType": "Pet, Monster",
       "LimitedTargetRelationship": "Hostility",
       "GainSkillExp": true,
@@ -50,12 +50,12 @@
         0
       ],
       "技能伤害系数": [
-        0,
-        0,
-        0,
-        0
+        0.0,
+        0.0,
+        0.0,
+        0.0
       ],
-      "技能斩杀类型": "AllMonsters, AllPets",
+      "技能斩杀类型": "AllMonsters",
       "技能斩杀概率": 0.1
     },
     "353": {

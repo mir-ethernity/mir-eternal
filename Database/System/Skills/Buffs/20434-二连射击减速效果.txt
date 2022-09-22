@@ -1,7 +1,7 @@
 {
   "Name": "二连射击减速效果",
   "Id": 20434,
-  "GroupId": 20434,
+  "Group": 20434,
   "ActionType": "Debuff",
   "Effect": "StatsIncOrDec",
   "SyncClient": true,
@@ -52,10 +52,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

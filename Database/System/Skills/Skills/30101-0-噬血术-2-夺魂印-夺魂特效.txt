@@ -39,7 +39,7 @@
     "4": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 30100,
-      "Buff触发概率": 0.5,
+      "Buff触发概率": 1.0,
       "所需Buff层数": 1
     }
   }

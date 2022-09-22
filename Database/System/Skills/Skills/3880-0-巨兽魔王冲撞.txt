@@ -30,10 +30,10 @@
       "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害基数": [
-        400,
-        400,
-        500,
-        600
+        0,
+        0,
+        0,
+        0
       ],
       "技能伤害系数": [
         1.0,
@@ -47,8 +47,8 @@
     "5000": {
       "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
       "技能触发方式": "ForehandAndBackhandRandom",
-      "触发SkillName": "巨兽魔王重击",
-      "反手SkillName": "电脑-通用附加麻痹状态"
+      "触发SkillName": "巨兽魔王近战普攻",
+      "反手SkillName": "巨兽魔王重击"
     },
     "5001": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

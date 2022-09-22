@@ -1,7 +1,7 @@
 {
   "Name": "战术标记失神效果",
   "Id": 20445,
-  "GroupId": 20445,
+  "Group": 20445,
   "Effect": "StatusFlag",
   "SyncClient": true,
   "RemoveOnExpire": true,
@@ -36,10 +36,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

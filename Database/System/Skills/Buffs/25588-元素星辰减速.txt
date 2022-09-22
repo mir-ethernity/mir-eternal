@@ -1,0 +1,54 @@
+{
+  "Name": "元素星辰减速",
+  "Id": 25588,
+  "Group": 25588,
+  "OverlayType": "HomogeneousStacking",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "OnChangeWeaponRemove": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 2558,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 1,
+  "ProcessInterval": 4000,
+  "ProcessDelay": 4000,
+  "Duration": 4000,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "MaxMC",
+      "Level0": 1,
+      "Level1": 2,
+      "Level2": 3,
+      "Level3": 6
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

@@ -4,7 +4,7 @@
   "OwnSkillId": 2533,
   "GroupId": 1,
   "BindingLevelId": 2533,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -51,10 +51,10 @@
         33
       ],
       "技能伤害系数": [
-        1,
-        1,
-        1,
-        1
+        1.0,
+        1.0,
+        1.0,
+        1.0
       ],
       "技能增伤类型": "Undead",
       "技能增伤基数": 10,
@@ -70,6 +70,17 @@
       "触发SkillName": "雷电之术-0-无铭文-空放特效"
     },
     "625": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 25581,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1,
+      "验证铭文技能": true,
+      "所需Id": 25580,
+      "GainSkillExp": true,
+      "ExpSkillId": 2558
+    },
+    "627": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "角色硬直时间": 725,

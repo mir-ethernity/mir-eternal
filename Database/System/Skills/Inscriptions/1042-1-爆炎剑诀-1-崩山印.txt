@@ -1,0 +1,31 @@
+{
+  "SkillName": "爆炎剑诀-1-崩山印",
+  "SkillId": 1042,
+  "Id": 1,
+  "Quality": 8,
+  "Probability": 40,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "IyUoKg==",
+  "MinSkillExp": [
+    100,
+    200,
+    400,
+    0
+  ],
+  "SkillCombatBonus": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1435
+  ],
+  "MainSkills": [
+    "爆炎剑诀-1-崩山印-主体技能"
+  ],
+  "SwitchSkills": [
+    "爆炎剑诀-0-无铭文-技能开关"
+  ]
+}

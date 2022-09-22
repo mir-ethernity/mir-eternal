@@ -1,7 +1,7 @@
 {
   "Name": "法师瞬息移动加速",
   "Id": 25381,
-  "GroupId": 25381,
+  "Group": 25381,
   "Effect": "StatsIncOrDec",
   "SyncClient": true,
   "RemoveOnExpire": true,
@@ -49,10 +49,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "PhysicalRecoveryBase": "AAAAAA=="
 }

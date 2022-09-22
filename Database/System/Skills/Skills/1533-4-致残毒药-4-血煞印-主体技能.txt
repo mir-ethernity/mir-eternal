@@ -4,7 +4,7 @@
   "OwnSkillId": 1533,
   "Id": 4,
   "BindingLevelId": 1533,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     15,
     15,
@@ -21,7 +21,7 @@
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 15338,
-      "Buff触发概率": 1,
+      "Buff触发概率": 1.0,
       "所需Buff层数": 1,
       "GainSkillExp": true,
       "ExpSkillId": 1532

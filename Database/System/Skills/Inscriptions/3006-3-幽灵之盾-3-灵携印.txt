@@ -7,9 +7,9 @@
   "Probability": 100,
   "MinPlayerLevel": "FhgaHA==",
   "MinSkillExp": [
-    500,
-    1000,
-    1500,
+    10,
+    20,
+    20,
     0
   ],
   "SkillCombatBonus": [

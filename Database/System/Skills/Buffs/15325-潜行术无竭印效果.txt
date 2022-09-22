@@ -1,7 +1,7 @@
 {
   "Name": "潜行术无竭印效果",
   "Id": 15325,
-  "GroupId": 1532,
+  "Group": 1532,
   "Effect": "StatusFlag, StatsIncOrDec",
   "SyncClient": true,
   "RemoveOnExpire": true,
@@ -48,10 +48,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

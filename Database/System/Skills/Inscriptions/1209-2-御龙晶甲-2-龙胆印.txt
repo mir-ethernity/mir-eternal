@@ -3,14 +3,14 @@
   "Race": "龙枪",
   "SkillId": 1209,
   "Id": 2,
-  "Quality": 8,
-  "Probability": 3,
+  "Quality": 6,
+  "Probability": 20,
   "BroadcastNotification": true,
-  "MinPlayerLevel": "HyImKQ==",
+  "MinPlayerLevel": "IyUoKg==",
   "MinSkillExp": [
+    100,
     200,
     400,
-    800,
     0
   ],
   "SkillCombatBonus": [

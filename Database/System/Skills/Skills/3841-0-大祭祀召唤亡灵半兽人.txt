@@ -24,7 +24,7 @@
       "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
       "PetName": "兽人矿工",
       "Companion": true,
-      "SpawnCount": "BQUFBQ==",
+      "SpawnCount": "AAAAAA==",
       "LevelCap": "AAAAAA=="
     }
   }

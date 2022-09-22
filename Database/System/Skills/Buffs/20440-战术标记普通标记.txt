@@ -1,7 +1,7 @@
 {
   "Name": "战术标记普通标记",
   "Id": 20440,
-  "GroupId": 20440,
+  "Group": 20440,
   "ActionType": "Debuff",
   "OverlayType": "SimilarReplacement",
   "Effect": "StatusFlag, DamageIncOrDec",

@@ -4,9 +4,9 @@
   "SkillId": 2545,
   "MinPlayerLevel": "FhsfPA==",
   "MinSkillExp": [
-    300,
-    600,
-    1800,
+    100,
+    200,
+    400,
     0
   ],
   "SkillCombatBonus": [

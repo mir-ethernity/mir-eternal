@@ -1,0 +1,63 @@
+{
+  "Name": "法神奥义",
+  "Id": 25570,
+  "Group": 25570,
+  "OverlayType": "SimilarDelay",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 2557,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 30000,
+  "ProcessDelay": 30000,
+  "Duration": 10000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "MaxMC",
+      "Level0": 0,
+      "Level1": 0,
+      "Level2": 0,
+      "Level3": 0
+    },
+    {
+      "Stat": "MaxHP",
+      "Level0": 0,
+      "Level1": 0,
+      "Level2": 0,
+      "Level3": 0
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

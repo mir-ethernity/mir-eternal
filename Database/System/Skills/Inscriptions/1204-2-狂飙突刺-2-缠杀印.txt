@@ -6,12 +6,12 @@
   "SkillCount": 2,
   "PeriodCount": 9999,
   "Quality": 6,
-  "Probability": 6,
+  "Probability": 20,
   "MinPlayerLevel": "GBseIQ==",
   "MinSkillExp": [
-    400,
-    800,
-    1200,
+    10,
+    20,
+    20,
     0
   ],
   "SkillCombatBonus": [

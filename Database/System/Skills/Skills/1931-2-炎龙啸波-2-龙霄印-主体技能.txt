@@ -4,7 +4,7 @@
   "OwnSkillId": 1931,
   "Id": 2,
   "BindingLevelId": 1535,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "CheckSkillMarks": true,
@@ -53,7 +53,7 @@
         2.1,
         2.4,
         2.7,
-        3
+        3.0
       ],
       "扣除武器持久": true,
       "GainSkillExp": true,
@@ -66,9 +66,16 @@
       "技能触发方式": "TargetHitDefinitely",
       "触发SkillName": "炎龙啸波-2-龙霄印-范围伤害"
     },
+    "254": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "献祭-0-全铭文-触发判定",
+      "验证铭文技能": true,
+      "所需Id": 15450
+    },
     "499": {
       "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
-      "触发SkillName": "炎龙啸波-0-全铭文-触发结束"
+      "触发SkillName": "火镰狂舞-0-全铭文-触发判定"
     },
     "500": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

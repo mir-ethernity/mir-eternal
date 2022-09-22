@@ -2,7 +2,7 @@
   "SkillName": "战士普攻-2-主宰印-主体技能",
   "OwnSkillId": 1030,
   "BindingLevelId": 1031,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [],
@@ -45,12 +45,12 @@
         5
       ],
       "技能伤害系数": [
-        1,
-        1,
-        1,
-        1
+        1.0,
+        1.0,
+        1.0,
+        1.0
       ],
-      "技能增伤类型": "PigMonster, ZumaMonster",
+      "技能增伤类型": "PigMonster",
       "技能增伤基数": 10,
       "技能增伤系数": 0.1,
       "扣除武器持久": true,

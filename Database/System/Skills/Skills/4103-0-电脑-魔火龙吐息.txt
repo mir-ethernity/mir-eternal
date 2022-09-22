@@ -1,0 +1,55 @@
+{
+  "SkillName": "电脑-魔火龙吐息",
+  "Race": "电脑",
+  "OwnSkillId": 4103,
+  "MaxDistance": 5,
+  "CheckBusyGreen": true,
+  "CheckStiff": true,
+  "CalculateTriggerProbability": 0.05,
+  "NeedConsumeMagic": [],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 10000,
+      "角色忙绿时间": 5500
+    },
+    "700": {
+      "$type": "A_02_TriggerTrapSkills, Assembly-CSharp",
+      "TriggerTrapSkills": "魔龙吐息-0-无铭文",
+      "NumberTrapsTriggered": "LineType1x8"
+    },
+    "1600": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "SkillEvasion": "CanBeMagicEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能命中通知": true,
+      "技能范围类型": "Spiral7x7",
+      "HitsLimit": 40,
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "1601": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害类型": "Magic",
+      "技能伤害基数": [
+        100,
+        110,
+        120,
+        130
+      ],
+      "技能伤害系数": [
+        1.2,
+        2.3,
+        3.5,
+        4.5
+      ],
+      "清除状态列表": []
+    }
+  }
+}

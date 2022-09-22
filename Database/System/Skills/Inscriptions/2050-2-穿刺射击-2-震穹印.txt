@@ -1,0 +1,28 @@
+{
+  "SkillName": "穿刺射击-2-震穹印",
+  "Race": "弓手",
+  "Id": 2,
+  "Quality": 6,
+  "Probability": 20,
+  "BroadcastNotification": true,
+  "SkillId": 2050,
+  "MinPlayerLevel": "KSotLQ==",
+  "MinSkillExp": [
+    100,
+    200,
+    400,
+    0
+  ],
+  "SkillCombatBonus": [
+    5,
+    7,
+    10,
+    13
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [],
+  "MainSkills": [
+    "穿刺射击-2-震穹印-主体技能"
+  ],
+  "SwitchSkills": []
+}

@@ -14,7 +14,7 @@
     },
     "650": {
       "$type": "C_06_CalculatePetSummoning, Assembly-CSharp",
-      "PetName": "Spectral Shield Crab",
+      "PetName": "幽冥盾蟹",
       "Companion": true,
       "SpawnCount": "AAAAAA==",
       "LevelCap": "AAAAAA=="

@@ -1,7 +1,7 @@
 {
   "Name": "战术标记汲灵标记",
   "Id": 20442,
-  "GroupId": 20440,
+  "Group": 20440,
   "OverlayType": "SimilarReplacement",
   "Effect": "StatusFlag, DamageIncOrDec",
   "SyncClient": true,

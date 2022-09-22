@@ -4,42 +4,75 @@
   "OwnSkillId": 1541,
   "BindingLevelId": 1541,
   "CalculateTriggerProbability": 1.0,
-  "CheckBusyGreen": true,
-  "CheckStiff": true,
-  "CheckOccupationalWeapons": true,
   "NeedConsumeMagic": [
-    0,
-    0,
-    0,
-    0
+    10,
+    12,
+    16,
+    18
   ],
   "Nodes": {
     "0": {
-      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
-      "发送释放通知": true,
-      "ItSelfCooldown": 3000,
-      "分组Cooldown": 3000,
-      "角色忙绿时间": 625
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
+      "MaxDistance": 8
     },
     "1": {
       "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
       "触发SkillName": "追魂镖-0-无铭文-成功特效"
     },
-    "250": {
+    "2": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true,
+      "调整角色朝向": true,
+      "ItSelfCooldown": 1000,
+      "分组Cooldown": 1000,
+      "角色忙绿时间": 500
+    },
+    "3": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能能否招架": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能范围类型": "Single1x1",
+      "技能扩展通知": true,
+      "HitsLimit": 1,
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "4": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆需要层数": 1,
+      "技能伤害基数": [],
+      "技能伤害系数": [
+        2.0,
+        2.4,
+        2.6,
+        3.0
+      ],
+      "回复限定类型": "AllMonsters",
+      "PhysicalRecoveryBase": 10,
+      "等级差减回复": true,
+      "减回复等级差": 5,
+      "零回复等级差": 15,
+      "扣除武器持久": true,
+      "GainSkillExp": true,
+      "ExpSkillId": 1541,
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    },
+    "5": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
-      "角色ItSelf添加": true,
       "触发Id": 15410,
       "Buff触发概率": 1.0,
       "所需Buff层数": 1,
       "GainSkillExp": true,
       "ExpSkillId": 1541
     },
-    "625": {
+    "500": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
-      "发送结束通知": true,
-      "角色硬直时间": 1000,
-      "禁止行走时间": 875,
-      "禁止奔跑时间": 625
+      "发送结束通知": true
     },
     "1000": {
       "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"

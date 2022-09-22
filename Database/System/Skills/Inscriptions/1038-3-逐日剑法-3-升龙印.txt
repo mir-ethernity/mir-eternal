@@ -1,0 +1,31 @@
+{
+  "SkillName": "逐日剑法-3-升龙印",
+  "SkillId": 1038,
+  "Id": 3,
+  "Quality": 8,
+  "Probability": 20,
+  "BroadcastNotification": true,
+  "MinPlayerLevel": "IyUoKg==",
+  "MinSkillExp": [
+    200,
+    400,
+    600,
+    0
+  ],
+  "SkillCombatBonus": [
+    30,
+    40,
+    50,
+    60
+  ],
+  "ComesWithBuff": [],
+  "PassiveSkills": [
+    1434
+  ],
+  "MainSkills": [
+    "逐日剑法-3-升龙印-主体技能"
+  ],
+  "SwitchSkills": [
+    "逐日剑法-0-无铭文-技能开关"
+  ]
+}

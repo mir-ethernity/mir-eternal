@@ -4,7 +4,7 @@
   "OwnSkillId": 2048,
   "GroupId": 4,
   "BindingLevelId": 2048,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     0,
     0,
@@ -50,7 +50,7 @@
     "3": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 20480,
-      "Buff触发概率": 1,
+      "Buff触发概率": 1.0,
       "所需Buff层数": 1
     },
     "4": {
@@ -66,6 +66,11 @@
       "触发SkillName": "战术标记-2-汲灵印-吸血触发",
       "验证铭文技能": true,
       "所需Id": 20442
+    },
+    "6": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "凝神-0-全铭文-触发结束"
     }
   }
 }

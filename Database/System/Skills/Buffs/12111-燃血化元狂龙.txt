@@ -1,0 +1,52 @@
+{
+  "Name": "燃血化元狂龙",
+  "Id": 12111,
+  "Group": 12111,
+  "OverlayType": "HomogeneousStacking",
+  "Effect": "DamageIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 1211,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 16,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 100,
+  "ProcessDelay": 100,
+  "Duration": 5000,
+  "ExtendedDuration": true,
+  "SkillLevelDelay": true,
+  "ExtendedTimePerLevel": 1000,
+  "HasSpecificInscriptionDelay": true,
+  "SpecificInscriptionSkills": 12111,
+  "InscriptionExtendedTime": 3000,
+  "RequireBuff": [],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

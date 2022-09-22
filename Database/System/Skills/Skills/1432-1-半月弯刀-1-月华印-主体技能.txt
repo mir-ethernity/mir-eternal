@@ -4,7 +4,7 @@
   "Id": 1,
   "BindingLevelId": 1034,
   "CalculateLuckyProbability": true,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -56,7 +56,7 @@
       "技能伤害系数": [
         0.8,
         0.9,
-        1,
+        1.0,
         1.1
       ],
       "数量衰减伤害": true,
@@ -72,6 +72,17 @@
       "ExpSkillId": 1034,
       "目标硬直时间": 500,
       "清除状态列表": []
+    },
+    "225": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 10313,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1,
+      "验证铭文技能": true,
+      "所需Id": 10313,
+      "同组铭文无效": true,
+      "所需目标类型": "AllMonsters"
     },
     "500": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

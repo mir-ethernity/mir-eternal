@@ -5,7 +5,7 @@
   "OwnSkillId": 2041,
   "Id": 2,
   "BindingLevelId": 2041,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     0,
     0,
@@ -43,10 +43,10 @@
         25
       ],
       "技能伤害系数": [
-        1,
-        1,
-        1,
-        1
+        1.0,
+        1.0,
+        1.0,
+        1.0
       ],
       "GainSkillExp": true,
       "ExpSkillId": 2041,

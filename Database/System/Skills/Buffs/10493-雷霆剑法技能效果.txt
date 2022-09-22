@@ -31,11 +31,11 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0.0,
-    0.0,
-    0.0,
-    0.0
+    1.0,
+    1.2,
+    1.5,
+    2.0
   ],
-  "TriggerTrapSkills": "",
+  "TriggerTrapSkills": "雷霆剑法-0-无铭文",
   "PhysicalRecoveryBase": "AAAAAA=="
 }

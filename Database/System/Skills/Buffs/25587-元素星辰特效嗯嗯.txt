@@ -9,7 +9,7 @@
   "RemoveOnExpire": true,
   "OnPlayerDiesRemove": true,
   "OnPlayerDisconnectRemove": true,
-  "BindingSkillLevel": true,
+  "BindingSkillLevel": 2554,
   "BuffInitialLayer": 1,
   "MaxBuffCount": 3,
   "BuffSynthesisLayer": 3,

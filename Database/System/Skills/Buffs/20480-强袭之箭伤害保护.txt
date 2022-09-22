@@ -1,7 +1,7 @@
 {
   "Name": "强袭之箭伤害保护",
   "Id": 20480,
-  "GroupId": 20480,
+  "Group": 20480,
   "Effect": "DamageIncOrDec",
   "SyncClient": true,
   "RemoveOnExpire": true,

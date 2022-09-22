@@ -1,0 +1,48 @@
+{
+  "Name": "凝神效果紫色",
+  "Id": 20400,
+  "Group": 20400,
+  "OverlayType": "HomogeneousStacking",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 2051,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 30000,
+  "ProcessDelay": 30000,
+  "Duration": 5000,
+  "ExtendedDuration": true,
+  "RequireBuff": [],
+  "DamageType": "Archery",
+  "DamageBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

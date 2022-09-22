@@ -2,7 +2,7 @@
   "SkillName": "电脑-赤月恶魔陷阱触发",
   "Race": "电脑",
   "OwnSkillId": 3581,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "Nodes": {
     "0": {
       "$type": "C_01_CalculateHitTarget, Assembly-CSharp",

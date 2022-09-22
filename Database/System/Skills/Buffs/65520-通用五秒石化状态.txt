@@ -1,7 +1,7 @@
 {
   "Name": "通用五秒石化状态",
   "Id": 65520,
-  "GroupId": 65520,
+  "Group": 65520,
   "ActionType": "Debuff",
   "Effect": "StatusFlag",
   "SyncClient": true,
@@ -36,10 +36,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

@@ -9,21 +9,21 @@
   "CheckSkillMarks": true,
   "SkillTagId": 10420,
   "NeedConsumeMagic": [
-    7,
-    7,
-    7,
-    7
+    0,
+    0,
+    0,
+    0
   ],
   "Nodes": {
     "0": {
       "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
-      "MaxDistance": 3,
+      "MaxDistance": 1,
       "技能最近距离": 1
     },
     "1": {
       "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
       "技能触发方式": "AnchorAbsolutePosition",
-      "触发SkillName": "爆炎剑诀-2-炎皇印-成功特效"
+      "触发SkillName": "爆炎剑诀-2-炎皇印-炎皇特效"
     },
     "2": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
@@ -41,7 +41,7 @@
       "SkillHitFeedback": "后仰",
       "技能范围类型": "Zhanyue1x3",
       "技能扩展通知": true,
-      "HitsLimit": 2,
+      "HitsLimit": 1,
       "LimitedTargetType": "Player, Pet, Monster, NPC",
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
@@ -66,6 +66,11 @@
       "ExpSkillId": 1042,
       "目标硬直时间": 500,
       "清除状态列表": []
+    },
+    "251": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "AnchorAbsolutePosition",
+      "触发SkillName": "爆炎剑诀-2-炎皇印-炎皇爆"
     },
     "500": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",

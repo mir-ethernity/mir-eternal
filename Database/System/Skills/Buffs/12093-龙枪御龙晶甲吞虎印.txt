@@ -2,20 +2,20 @@
   "Name": "龙枪御龙晶甲吞虎印",
   "Id": 12093,
   "Group": 1209,
-  "Effect": "StatsIncOrDec",
+  "Effect": "StatsIncOrDec, DamageIncOrDec",
   "SyncClient": true,
   "RemoveOnExpire": true,
   "OnChangeWeaponRemove": true,
   "OnPlayerDiesRemove": true,
   "OnPlayerDisconnectRemove": true,
-  "BindingSkillLevel": true,
+  "BindingSkillLevel": 1209,
   "RemoveAddCooling": true,
   "SkillCooldown": 1000,
   "BuffInitialLayer": 1,
   "MaxBuffCount": 1,
   "BuffSynthesisLayer": 5,
-  "ProcessInterval": 3000,
-  "Duration": 3000,
+  "ProcessInterval": 5000,
+  "Duration": 5000,
   "RequireBuff": [
     12092,
     12094,
@@ -30,7 +30,15 @@
   "HasSpecificInscriptionDelay": true,
   "SpecificInscriptionSkills": 12090,
   "InscriptionExtendedTime": 15000,
-  "StatsIncOrDec": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "MaxHP",
+      "Level0": 20,
+      "Level1": 30,
+      "Level2": 40,
+      "Level3": 50
+    }
+  ],
   "DamageBase": [
     0,
     1,
@@ -46,10 +54,10 @@
   "HowJudgeEffect": "PassiveInjuryReduction",
   "SpecificSkillId": [],
   "DamageIncOrDecBase": [
-    0,
-    0,
-    0,
-    0
+    7,
+    12,
+    17,
+    25
   ],
   "DamageIncOrDecFactor": [
     0.7,

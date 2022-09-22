@@ -4,7 +4,7 @@
   "SkillType": "SubSkills",
   "OwnSkillId": 1542,
   "BindingLevelId": 1542,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     0,
     0,
@@ -17,14 +17,14 @@
       "技能锁定方式": "锁定ItSelf坐标",
       "技能范围类型": "Solid5x5",
       "HitsLimit": 1,
-      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetType": "Player",
       "LimitedTargetRelationship": "ItSelf",
       "清除状态列表": []
     },
     "1": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 15420,
-      "Buff触发概率": 1,
+      "Buff触发概率": 1.0,
       "所需Buff层数": 1
     },
     "2": {
@@ -40,7 +40,7 @@
     "3": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 15422,
-      "Buff触发概率": 1,
+      "Buff触发概率": 1.0,
       "所需Buff层数": 1
     },
     "4": {
@@ -57,7 +57,7 @@
     "5": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 15424,
-      "Buff触发概率": 1,
+      "Buff触发概率": 1.0,
       "所需Buff层数": 1
     }
   }

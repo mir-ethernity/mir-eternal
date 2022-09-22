@@ -2,6 +2,7 @@
   "SkillName": "献祭-0-无铭文-技能开关",
   "Race": "刺客",
   "OwnSkillId": 1545,
+  "GroupId": 5,
   "BindingLevelId": 1545,
   "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [

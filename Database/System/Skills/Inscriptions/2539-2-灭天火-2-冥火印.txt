@@ -4,13 +4,13 @@
   "SkillId": 2539,
   "Id": 2,
   "Quality": 6,
-  "Probability": 20,
+  "Probability": 10,
   "BroadcastNotification": true,
-  "MinPlayerLevel": "JiksLw==",
+  "MinPlayerLevel": "ERQXGg==",
   "MinSkillExp": [
+    100,
+    200,
     400,
-    800,
-    1600,
     0
   ],
   "SkillCombatBonus": [

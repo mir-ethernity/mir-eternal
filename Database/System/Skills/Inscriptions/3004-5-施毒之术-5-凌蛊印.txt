@@ -4,7 +4,7 @@
   "SkillId": 3004,
   "Id": 5,
   "Quality": 6,
-  "Probability": 6,
+  "Probability": 20,
   "MinPlayerLevel": "DhEUFw==",
   "MinSkillExp": [
     100,

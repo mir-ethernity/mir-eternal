@@ -1,7 +1,7 @@
 {
   "Name": "野蛮冲撞聚火效果",
   "Id": 10357,
-  "GroupId": 10357,
+  "Group": 10357,
   "OverlayType": "SimilarReplacement",
   "Effect": "DamageIncOrDec",
   "SyncClient": true,

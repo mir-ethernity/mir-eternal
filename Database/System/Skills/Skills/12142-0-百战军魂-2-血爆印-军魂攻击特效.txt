@@ -1,0 +1,57 @@
+{
+  "SkillName": "百战军魂-2-血爆印-军魂攻击特效",
+  "Race": "龙枪",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 12142,
+  "BindingLevelId": 1214,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "C_00_CalculateSkillAnchor, Assembly-CSharp",
+      "MaxDistance": 1,
+      "技能最近距离": 1
+    },
+    "1": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "125": {
+      "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
+      "技能能否穿墙": true,
+      "技能锁定方式": "锁定锚点坐标",
+      "SkillEvasion": "CanBePhsyicallyEvaded",
+      "SkillHitFeedback": "后仰",
+      "技能范围类型": "Yanlong1x2",
+      "技能命中通知": true,
+      "HitsLimit": 2,
+      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetRelationship": "Hostility",
+      "清除状态列表": []
+    },
+    "250": {
+      "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
+      "点爆标记编号": 12050,
+      "点爆需要层数": 5,
+      "技能伤害基数": [],
+      "技能伤害系数": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "目标硬直时间": 500,
+      "清除状态列表": []
+    },
+    "251": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "钩镰枪法-0-全铭文-触发判定"
+    }
+  }
+}

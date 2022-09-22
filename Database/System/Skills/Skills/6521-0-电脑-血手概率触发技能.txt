@@ -3,7 +3,7 @@
   "Race": "电脑",
   "OwnSkillId": 6521,
   "MaxDistance": 3,
-  "CalculateTriggerProbability": 0.35,
+  "CalculateTriggerProbability": 0.25,
   "NeedConsumeMagic": [],
   "Nodes": {
     "0": {
@@ -17,7 +17,7 @@
       "MaxDistance": 3,
       "技能最近距离": 3
     },
-    "650": {
+    "800": {
       "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能能否穿墙": true,
       "技能锁定方式": "锁定锚点坐标",
@@ -30,7 +30,7 @@
       "LimitedTargetRelationship": "Hostility",
       "清除状态列表": []
     },
-    "651": {
+    "801": {
       "$type": "C_02_CalculateTargetDamage, Assembly-CSharp",
       "点爆需要层数": 1,
       "技能伤害基数": [
@@ -40,12 +40,17 @@
         0
       ],
       "技能伤害系数": [
-        2.5,
-        2.5,
-        2.5,
-        2.5
+        2.2,
+        2.2,
+        2.2,
+        2.2
       ],
       "清除状态列表": []
+    },
+    "1000": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "电脑-秘密信使概率技能"
     }
   }
 }

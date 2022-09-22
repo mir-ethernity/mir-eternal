@@ -4,12 +4,12 @@
   "SkillId": 1203,
   "Id": 2,
   "Quality": 6,
-  "Probability": 6,
+  "Probability": 1,
   "MinPlayerLevel": "ERQXGg==",
   "MinSkillExp": [
+    100,
     200,
     400,
-    600,
     0
   ],
   "SkillCombatBonus": [

@@ -1,7 +1,7 @@
 {
   "Name": "精准打击准确提升",
   "Id": 20422,
-  "GroupId": 20422,
+  "Group": 20422,
   "OverlayType": "SimilarDelay",
   "Effect": "StatsIncOrDec",
   "SyncClient": true,
@@ -45,10 +45,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

@@ -1,0 +1,61 @@
+{
+  "Name": "盘龙枪势效果",
+  "Id": 12130,
+  "OverlayType": "SimilarReplacement",
+  "Effect": "StatsIncOrDec",
+  "SyncClient": true,
+  "RemoveOnExpire": true,
+  "OnPlayerDiesRemove": true,
+  "OnPlayerDisconnectRemove": true,
+  "BindingSkillLevel": 1213,
+  "BuffInitialLayer": 1,
+  "MaxBuffCount": 1,
+  "BuffSynthesisLayer": 5,
+  "ProcessInterval": 7200000,
+  "ProcessDelay": 7200000,
+  "Duration": 7200000,
+  "RequireBuff": [],
+  "StatsIncOrDec": [
+    {
+      "Stat": "MinDef",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5
+    },
+    {
+      "Stat": "MaxDef",
+      "Level0": 5,
+      "Level1": 5,
+      "Level2": 5,
+      "Level3": 5
+    }
+  ],
+  "DamageBase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "DamageFactor": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "SpecificSkillId": [],
+  "DamageIncOrDecBase": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "DamageIncOrDecFactor": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "TriggerTrapSkills": "",
+  "PhysicalRecoveryBase": "AAAAAA=="
+}

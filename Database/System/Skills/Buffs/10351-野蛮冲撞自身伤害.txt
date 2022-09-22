@@ -1,7 +1,7 @@
 {
   "Name": "野蛮冲撞自身伤害",
   "Id": 10351,
-  "GroupId": 10351,
+  "Group": 10351,
   "ActionType": "Debuff",
   "OverlayType": "SimilarReplacement",
   "Effect": "CausesSomeDamages",
@@ -37,10 +37,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

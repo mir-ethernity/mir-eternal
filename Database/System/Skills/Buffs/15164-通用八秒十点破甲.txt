@@ -1,7 +1,7 @@
 {
   "Name": "通用八秒十点破甲",
   "Id": 15164,
-  "GroupId": 15164,
+  "Group": 15164,
   "ActionType": "Debuff",
   "OverlayType": "SimilarReplacement",
   "Effect": "StatsIncOrDec",
@@ -51,10 +51,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

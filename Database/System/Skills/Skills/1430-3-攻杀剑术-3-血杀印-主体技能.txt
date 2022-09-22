@@ -3,7 +3,7 @@
   "OwnSkillId": 1430,
   "Id": 3,
   "BindingLevelId": 1032,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "CheckPassiveTags": true,
@@ -72,7 +72,7 @@
     "252": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 10042,
-      "Buff触发概率": 1,
+      "Buff触发概率": 1.0,
       "所需Buff层数": 1
     },
     "500": {

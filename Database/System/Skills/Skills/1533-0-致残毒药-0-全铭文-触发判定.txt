@@ -4,7 +4,7 @@
   "SkillType": "SubSkills",
   "OwnSkillId": 1533,
   "BindingLevelId": 1533,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     0,
     0,
@@ -66,7 +66,7 @@
     "5": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "触发Id": 15336,
-      "Buff触发概率": 1,
+      "Buff触发概率": 1.0,
       "验证ItSelfBuff": true,
       "Id": 15335,
       "所需Buff层数": 1,

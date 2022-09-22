@@ -4,7 +4,7 @@
   "OwnSkillId": 1538,
   "GroupId": 3,
   "BindingLevelId": 1538,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     15,
     15,
@@ -15,15 +15,14 @@
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
-      "ItSelfCooldown": 20000,
-      "分组Cooldown": 20000
+      "ItSelfCooldown": 10000
     },
     "1": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 15380,
       "伴生Id": 15383,
-      "Buff触发概率": 1,
+      "Buff触发概率": 1.0,
       "所需Buff层数": 1,
       "GainSkillExp": true,
       "ExpSkillId": 1538
@@ -32,7 +31,7 @@
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
       "角色ItSelf添加": true,
       "触发Id": 15310,
-      "Buff触发概率": 1,
+      "Buff触发概率": 1.0,
       "所需Buff层数": 1
     },
     "3": {

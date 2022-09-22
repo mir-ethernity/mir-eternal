@@ -1,0 +1,23 @@
+{
+  "SkillName": "破碎山河-1-无铭文-主体技能",
+  "SkillType": "SubSkills",
+  "OwnSkillId": 10450,
+  "BindingLevelId": 1045,
+  "CalculateTriggerProbability": 1.0,
+  "NeedConsumeMagic": [
+    25,
+    30,
+    35,
+    40
+  ],
+  "Nodes": {
+    "0": {
+      "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
+      "发送释放通知": true
+    },
+    "1": {
+      "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
+      "发送结束通知": true
+    }
+  }
+}

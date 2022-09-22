@@ -1,7 +1,7 @@
 {
   "Name": "致残毒药瘫痪效果",
   "Id": 15337,
-  "GroupId": 15337,
+  "Group": 15337,
   "ActionType": "Debuff",
   "OverlayType": "SimilarReplacement",
   "Effect": "StatsIncOrDec",
@@ -45,10 +45,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

@@ -4,7 +4,7 @@
   "SkillType": "SubSkills",
   "OwnSkillId": 2056,
   "BindingLevelId": 2056,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     0,
     0,
@@ -45,7 +45,7 @@
         1.4,
         1.6,
         1.8,
-        2
+        2.0
       ],
       "GainSkillExp": true,
       "ExpSkillId": 2056,

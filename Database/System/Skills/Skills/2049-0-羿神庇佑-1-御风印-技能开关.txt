@@ -14,8 +14,8 @@
     "0": {
       "$type": "B_01_SkillReleaseNotification, Assembly-CSharp",
       "发送释放通知": true,
-      "ItSelfCooldown": 60000,
-      "分组Cooldown": 60000
+      "ItSelfCooldown": 45000,
+      "分组Cooldown": 45000
     },
     "1": {
       "$type": "B_00_SkillSwitchNotification, Assembly-CSharp",

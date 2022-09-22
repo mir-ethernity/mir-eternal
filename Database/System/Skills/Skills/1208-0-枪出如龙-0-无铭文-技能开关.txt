@@ -2,9 +2,8 @@
   "SkillName": "枪出如龙-0-无铭文-技能开关",
   "Race": "龙枪",
   "OwnSkillId": 1208,
-  "GroupId": 4,
   "BindingLevelId": 1208,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     4,
     6,

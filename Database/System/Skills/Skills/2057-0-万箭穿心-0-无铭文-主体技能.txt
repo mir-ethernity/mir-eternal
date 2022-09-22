@@ -25,18 +25,39 @@
       "分组Cooldown": 1500,
       "角色忙绿时间": 625
     },
+    "2": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "万箭穿心-0-无铭文-命中触发"
+    },
+    "3": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "万箭穿心-0-无铭文-左弹道触发"
+    },
+    "4": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "TargetHitDefinitely",
+      "触发SkillName": "万箭穿心-0-无铭文-右弹道触发"
+    },
+    "501": {
+      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
+      "技能触发方式": "AnchorAbsolutePosition",
+      "触发SkillName": "万箭穿心-0-无铭文-空子弹"
+    },
     "623": {
       "$type": "C_01_CalculateHitTarget, Assembly-CSharp",
       "技能能否穿墙": true,
       "技能锁定方式": "锁定锚点坐标",
       "技能范围类型": "Solid5x5",
       "HitsLimit": 20,
-      "LimitedTargetType": "Player, Pet, Monster, NPC",
+      "LimitedTargetType": "Player, Pet",
       "LimitedTargetRelationship": "ItSelf",
       "清除状态列表": []
     },
     "624": {
       "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
       "触发Id": 20570,
       "Buff触发概率": 1.0,
       "所需Buff层数": 1,
@@ -44,6 +65,24 @@
       "ExpSkillId": 2057
     },
     "625": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 20571,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1,
+      "GainSkillExp": true,
+      "ExpSkillId": 2057
+    },
+    "626": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 20572,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1,
+      "GainSkillExp": true,
+      "ExpSkillId": 2057
+    },
+    "650": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
       "发送结束通知": true,
       "角色硬直时间": 725,

@@ -4,16 +4,16 @@
   "SkillId": 2540,
   "MinPlayerLevel": "LzI1OA==",
   "MinSkillExp": [
-    10,
-    20,
-    30,
+    100,
+    200,
+    400,
     0
   ],
   "SkillCombatBonus": [
     10,
+    15,
     20,
-    30,
-    40
+    25
   ],
   "ComesWithBuff": [],
   "PassiveSkills": [],

@@ -3,7 +3,7 @@
   "OwnSkillId": 1042,
   "GroupId": 5,
   "BindingLevelId": 1042,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "NeedConsumeMagic": [
     7,
     7,

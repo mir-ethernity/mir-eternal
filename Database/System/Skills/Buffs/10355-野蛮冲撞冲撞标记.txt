@@ -1,7 +1,7 @@
 {
   "Name": "野蛮冲撞冲撞标记",
   "Id": 10355,
-  "GroupId": 10355,
+  "Group": 10355,
   "ActionType": "Debuff",
   "Effect": "DamageIncOrDec",
   "SyncClient": true,

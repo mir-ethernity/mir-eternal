@@ -36,10 +36,10 @@
       "点爆需要层数": 1,
       "技能伤害类型": "Magic",
       "技能伤害基数": [
-        220,
-        326,
-        431,
-        538
+        20,
+        26,
+        31,
+        38
       ],
       "技能伤害系数": [
         1.2,
@@ -58,12 +58,6 @@
     },
     "1725": {
       "$type": "B_04_PostShakeEndNotification, Assembly-CSharp"
-    },
-    "2000": {
-      "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
-      "技能触发方式": "ForehandAndBackhandRandom",
-      "触发SkillName": "大祭祀魔法盾",
-      "反手SkillName": "电脑-通用附加麻痹状态"
     }
   }
 }

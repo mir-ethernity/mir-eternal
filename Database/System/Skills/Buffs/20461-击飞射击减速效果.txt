@@ -1,7 +1,7 @@
 {
   "Name": "击飞射击减速效果",
   "Id": 20461,
-  "GroupId": 20461,
+  "Group": 20461,
   "ActionType": "Debuff",
   "Effect": "StatsIncOrDec",
   "SyncClient": true,
@@ -52,10 +52,10 @@
     0
   ],
   "DamageIncOrDecFactor": [
-    0,
-    0,
-    0,
-    0
+    0.0,
+    0.0,
+    0.0,
+    0.0
   ],
   "TriggerTrapSkills": "",
   "PhysicalRecoveryBase": "AAAAAA=="

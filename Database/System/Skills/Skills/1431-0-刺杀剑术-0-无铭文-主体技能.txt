@@ -2,7 +2,7 @@
   "SkillName": "刺杀剑术-0-无铭文-主体技能",
   "OwnSkillId": 1431,
   "BindingLevelId": 1033,
-  "CalculateTriggerProbability": 1,
+  "CalculateTriggerProbability": 1.0,
   "CheckBusyGreen": true,
   "CheckStiff": true,
   "NeedConsumeMagic": [
@@ -46,10 +46,10 @@
         8
       ],
       "技能伤害系数": [
-        1,
-        1,
-        1,
-        1
+        1.0,
+        1.0,
+        1.0,
+        1.0
       ],
       "回复限定类型": "AllMonsters",
       "PhysicalRecoveryBase": 10,
@@ -65,6 +65,17 @@
       "$type": "A_00_TriggerSubSkills, Assembly-CSharp",
       "技能触发方式": "AssassinationAbsolutePosition",
       "触发SkillName": "刺杀剑术-0-无铭文-隔位刺杀"
+    },
+    "225": {
+      "$type": "A_01_TriggerObjectBuff, Assembly-CSharp",
+      "角色ItSelf添加": true,
+      "触发Id": 10313,
+      "Buff触发概率": 1.0,
+      "所需Buff层数": 1,
+      "验证铭文技能": true,
+      "所需Id": 10313,
+      "同组铭文无效": true,
+      "所需目标类型": "AllMonsters"
     },
     "500": {
       "$type": "B_03_FrontShakeEndNotification, Assembly-CSharp",
