@@ -28,7 +28,7 @@
     {
       "MonsterName": "黄泉教主",
       "SpawnCount": 1,
-      "RevivalInterval": 420
+      "RevivalInterval": 60
     }
   ],
   "RangeCoords": [

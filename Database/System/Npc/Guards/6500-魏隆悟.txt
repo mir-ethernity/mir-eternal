@@ -1,0 +1,6 @@
+{
+  "Name": "魏隆悟",
+  "GuardNumber": 6500,
+  "Level": 99,
+  "RangeHate": 8
+}

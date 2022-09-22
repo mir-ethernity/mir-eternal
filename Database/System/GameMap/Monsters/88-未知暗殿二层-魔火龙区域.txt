@@ -8,7 +8,7 @@
      {
       "MonsterName": "魔火龙",
       "SpawnCount": 1,
-      "RevivalInterval": 60
+      "RevivalInterval": 180
     }
   ],
   "RangeCoords": [

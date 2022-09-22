@@ -48,7 +48,7 @@
     {
       "MonsterName": "虹魔教主",
       "SpawnCount": 1,
-      "RevivalInterval": 150
+      "RevivalInterval": 120
     },
     {
       "MonsterName": "红野猪精英",
