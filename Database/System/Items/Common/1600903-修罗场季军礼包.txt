@@ -1,0 +1,14 @@
+{
+  "Name": "修罗场季军礼包",
+  "Id": 1600903,
+  "MaxDura": 100,
+  "Weight": 1,
+  "Level": 1,
+  "NeedLevel": 10,
+  "SalePrice": 1,
+  "IsBound": true,
+  "ValuableObjects": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠"
+}

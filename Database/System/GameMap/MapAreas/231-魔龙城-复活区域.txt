@@ -1,8 +1,8 @@
-{
+﻿{
   "FromMapId": 231,
-  "FromMapName": "MagicDragonCity",
+  "FromMapName": "魔龙城",
   "FromCoords": "1047, 492",
-  "RegionName": "MagicDragonCity-Resurrection",
+  "RegionName": "魔龙城-复活区域",
   "AreaRadius": 6,
   "AreaType": "复活区域",
   "RangeCoords": [
@@ -32,6 +32,6 @@
     "1047, 490",
     "1046, 490",
     "1044, 490",
-    "1043, 490"
+    "1043, 490",
   ]
 }
