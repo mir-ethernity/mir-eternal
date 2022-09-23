@@ -668,8 +668,7 @@ namespace GameServer.Maps
                 return;
             }
 
-            TemporalCode = ComputingClass.RandomString(6);
-            OnVerifyCode = () =>
+            RequestVerificationCode(() =>
             {
                 CharacterData.WarehouseLocked.V = enabled;
 
@@ -677,7 +676,13 @@ namespace GameServer.Maps
                 {
                     Enabled = CharacterData.WarehouseLocked.V
                 });
-            };
+            });
+        }
+
+        public void RequestVerificationCode(Action callback)
+        {
+            TemporalCode = ComputingClass.RandomString(6);
+            OnVerifyCode = callback;
             MainProcess.AddSystemLog($"Secure random lock code for character: {TemporalCode}");
             ActiveConnection?.SendPacket(new GameErrorMessagePacket
             {
