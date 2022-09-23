@@ -20,8 +20,36 @@ namespace GameServer.PlayerCommands
         {
             switch (Step)
             {
-                case 0: // awekening 
-                    SendPacket(359, 70, new byte[] { 8, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 255, 255, 255, 255, 1, 0, 0, 0, 3, 0, 0, 0, 255, 255, 255, 255, 1, 0, 0, 0, 4, 0, 0, 0, 255, 255, 255, 255, 1, 0, 0, 0, 5, 0, 0, 0, 255, 255, 255, 255 });
+                case 0: // talent system 
+                    SendPacket(359, 70, new byte[] { 
+                        8, 0, 0, 0, // player id
+                        5, 0, 0, 0, // Talents count
+
+                        // Stamina (unlock at level 30)
+                        1, 0, 0, 0, // Level
+                        0, 0, 0, 0, // Exp
+                        255, 255, 255, 255, // Max exp??
+
+                        // Physical Defense (unlock at level 35)
+                        1, 0, 0, 0, // Level
+                        0, 0, 0, 0, // Exp
+                        255, 255, 255, 255, // Max exp??
+                        
+                        // Magic Defense (unlock at level 40)
+                        1, 0, 0, 0, // Level
+                        0, 0, 0, 0, // Exp
+                        255, 255, 255, 255, // Max exp??
+
+                        // Defense Breaking (unlock at level 45)
+                        1, 0, 0, 0, // Level
+                        0, 0, 0, 0, // Exp
+                        255, 255, 255, 255, 
+
+                        // Attack (unlock at level 50)
+                        1, 0, 0, 0, // Talent attack 
+                        0, 0, 0, 0, // Talent attack exp
+                        255, 255, 255, 255, // Max exp??
+                    });
                     break;
                 case 1:
                     SendPacket(187, 13, new byte[] { 1, 112, 0, 6, 0, 0, 0, 0, 0, 0, 128 });

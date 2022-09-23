@@ -868,6 +868,7 @@ namespace GameServer.Data
 
         public readonly MonitorDictionary<byte, ItemData> Backpack;
         public readonly MonitorDictionary<byte, ItemData> Warehouse;
+        public readonly DataMonitor<bool> WarehouseLocked;
         public readonly MonitorDictionary<byte, ItemData> ExtraBackPack;
         public readonly MonitorDictionary<byte, EquipmentData> Equipment;
 

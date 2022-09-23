@@ -100,11 +100,18 @@ namespace Mir3DClientEditor.FormValueEditors
         {
             foreach (var mpq in mpqs)
             {
-                _archives.Add(new MpqArchiveManager
+                try
                 {
-                    FilePath = mpq,
-                    Archive = new MpqArchive(mpq, FileAccess.ReadWrite)
-                });
+                    _archives.Add(new MpqArchiveManager
+                    {
+                        FilePath = mpq,
+                        Archive = new MpqArchive(mpq, FileAccess.ReadWrite)
+                    });
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error ocurred opening '{mpq}':\n{ex.Message}");
+                }
             }
 
             LoadTree();

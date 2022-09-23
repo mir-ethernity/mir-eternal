@@ -404,16 +404,6 @@ namespace GameServer.Data
             }
         }
 
-
-        public bool Resource
-        {
-            get
-            {
-                return 对应模板.V.Resource;
-            }
-        }
-
-
         public bool CanSold
         {
             get

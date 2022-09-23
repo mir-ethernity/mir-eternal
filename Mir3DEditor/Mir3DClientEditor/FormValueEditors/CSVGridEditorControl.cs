@@ -532,6 +532,238 @@ namespace Mir3DClientEditor.FormValueEditors
             return obj;
         }
 
+        private string ToPascalCase(string value)
+        {
+            var output = new StringBuilder();
+            var words = value.Split("_");
+            foreach (var word in words)
+            {
+                var v = word[0].ToString().ToUpper() + word.Substring(1).ToLowerInvariant();
+                output.Append(v);
+            }
+            return output.ToString();
+        }
+
+        private Dictionary<string, object> ExportItem(DataGridViewRow row)
+        {
+            var obj = new Dictionary<string, object>();
+
+            var id = int.Parse((string)row.Cells["ID"].Value);
+            obj.Add("Id", id);
+            obj.Add("Name", (string)row.Cells["Name"].Value);
+            obj.Add("NeedLevel", int.Parse((string)row.Cells["RequireLevel"].Value));
+            var needRaceSource = (string)row.Cells["RequireClass"].Value;
+            var needRaceOwn = needRaceSource != "0" ? string.Join(",", needRaceSource.Split(',').Select(x =>
+            {
+                switch (x)
+                {
+                    case "clsWarrior":
+                        return "战士";
+                    case "clsMage":
+                        return "法师";
+                    case "clsRogue":
+                        return "刺客";
+                    case "clsArcher":
+                        return "弓手";
+                    case "clsTaoist":
+                        return "道士";
+                    case "clsSpear":
+                        return "龙枪";
+                    default:
+                        throw new NotImplementedException();
+                }
+            }).ToArray()) : null;
+
+            if (!string.IsNullOrEmpty(needRaceOwn))
+                obj.Add("NeedRace", needRaceOwn);
+
+            var type = ((string)row.Cells["Type"].Value).Replace("ITEMTYPE_", string.Empty);
+            obj.Add("Type", ToPascalCase(type));
+            var subType = ((string)row.Cells["SubType"].Value).Replace("ITEMSUBTYPE_", string.Empty);
+            obj.Add("SubType", ToPascalCase(subType));
+
+            switch ((string)row.Cells["RequireGender"].Value)
+            {
+                case "0": // Not required
+                    break;
+                case "1": // Male
+                    obj.Add("NeedGender", "男性");
+                    break;
+                case "2": // Female
+                    obj.Add("NeedGender", "女性");
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+
+            switch ((string)row.Cells["DurType"].Value)
+            {
+                case "DURTYPE_NONE":
+                    break;
+                case "DURTYPE_STACK":
+                    obj.Add("PersistType", "堆叠");
+                    break;
+                case "DURTYPE_RECOVER":
+                    obj.Add("PersistType", "消耗");
+                    break;
+                case "DURTYPE_DEPOSIT":
+                    obj.Add("PersistType", "容器");
+                    break;
+                case "DURTYPE_USE":
+                    obj.Add("PersistType", "消耗");
+                    break;
+                case "DURTYPE_PURITY":
+                    obj.Add("PersistType", "纯度");
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+            obj.Add("MaxDura", int.Parse((string)row.Cells["Dur"].Value));
+            var weight = (string)row.Cells["Weight"].Value;
+            if (!string.IsNullOrEmpty(weight)) obj.Add("Weight", int.Parse(weight));
+
+            var spellId = (string)row.Cells["SpellID"].Value;
+            if (!string.IsNullOrEmpty(spellId)) obj.Add("AdditionalSkill", int.Parse(spellId));
+
+            var groupCooling = (string)row.Cells["GroupCoolDown"].Value;
+
+            if (!string.IsNullOrEmpty(groupCooling) && groupCooling != "0")
+            {
+                var parts = groupCooling.Split('-');
+                obj.Add("Group", int.Parse(parts[0]));
+                obj.Add("GroupCooling", int.Parse(parts[1].TrimEnd(';')));
+            }
+
+            var price = int.Parse((string)row.Cells["Price"].Value);
+            if (price > 0) obj.Add("SalePrice", price);
+
+            obj.Add("CanDrop", (string)row.Cells["CanDrop"].Value == "1");
+            obj.Add("CanSold", (string)row.Cells["CanSell"].Value == "1");
+
+            var itemLevel = int.Parse((string)row.Cells["ItemLevel"].Value);
+            if (itemLevel > 0) obj.Add("Level", itemLevel);
+
+            var itemPack = (string)row.Cells["ItemPack"].Value;
+            if (!string.IsNullOrEmpty(itemPack))
+                obj.Add("__ItemPack__", int.Parse(itemPack));
+
+            var itemPack2 = (string)row.Cells["ItemPack2"].Value;
+            if (!string.IsNullOrEmpty(itemPack2))
+                obj.Add("__ItemPack2__", int.Parse(itemPack2));
+
+            var shopType = (string)row.Cells["ShopTypeSell"].Value;
+
+            switch (shopType)
+            {
+                case "":
+                    break;
+                case "1":
+                    obj.Add("StoreType", "药品");
+                    break;
+                case "2":
+                    obj.Add("StoreType", "杂货");
+                    break;
+                case "3":
+                    obj.Add("StoreType", "书籍");
+                    break;
+                case "4":
+                    obj.Add("StoreType", "武器");
+                    break;
+                case "5":
+                    obj.Add("StoreType", "服装");
+                    break;
+                case "6":
+                    obj.Add("StoreType", "首饰");
+                    break;
+                default:
+                    throw new NotSupportedException();
+            }
+
+            var description = (string)row.Cells["Description"].Value;
+            var usageProps = new Dictionary<string, int>();
+
+            switch (subType)
+            {
+                case "USABLE_POTION":
+                    var recoveryMatch1Effect = Regex.Match(description, @"^恢复(?<amount>\d+)点(?<effect>(?:.+?))\s?。$");
+                    if (recoveryMatch1Effect.Success)
+                    {
+                        switch (recoveryMatch1Effect.Groups["effect"].Value)
+                        {
+                            case "体力值":
+                                usageProps.Add("UsageType", 1);
+                                usageProps.Add("RecoveryTime", 1);
+                                usageProps.Add("RecoveryBase", int.Parse(recoveryMatch1Effect.Groups["amount"].Value) / 4);
+                                usageProps.Add("RecoverySteps", 4);
+                                break;
+                            case "魔法值":
+                                usageProps.Add("UsageType", 2);
+                                usageProps.Add("RecoveryTime", 1);
+                                usageProps.Add("RecoveryBase", int.Parse(recoveryMatch1Effect.Groups["amount"].Value) / 4);
+                                usageProps.Add("RecoverySteps", 4);
+                                break;
+                            default:
+                                throw new NotImplementedException();
+                        }
+                        break;
+                    }
+
+                    var recoveryMatch2Effects = Regex.Match(description, @"^立刻恢复(?<amount_1>\d+)点(?<effect_1>.+?)，(?<amount_2>\d+)点(?<effect_2>.+?).?。$");
+                    if (recoveryMatch2Effects.Success)
+                    {
+                        var value1Str = recoveryMatch1Effect.Groups["amount_1"].Value;
+                        var value1 = string.IsNullOrEmpty(value1Str) ? 0 : int.Parse(value1Str);
+
+                        var value2Str = recoveryMatch1Effect.Groups["amount_2"].Value;
+                        var value2 = string.IsNullOrEmpty(value2Str) ? 0 : int.Parse(value2Str);
+
+                        if (value1 == 0 && value2 == 0) break;
+
+                        usageProps.Add("UsageType", 3);
+
+                        if (value1 > 0)
+                        {
+                            switch (recoveryMatch2Effects.Groups["effect_1"].Value)
+                            {
+                                case "魔法":
+                                    usageProps.Add("IncreaseMP", value1);
+                                    break;
+                                case "体力":
+                                    usageProps.Add("IncreaseHP", value1);
+                                    break;
+                                default:
+                                    throw new NotImplementedException();
+                            }
+                        }
+                        if (value2 > 0)
+                        {
+                            switch (recoveryMatch2Effects.Groups["effect_2"].Value)
+                            {
+                                case "魔法":
+                                    usageProps.Add("IncreaseMP", value2);
+                                    break;
+                                case "体力":
+                                    usageProps.Add("IncreaseHP", value2);
+                                    break;
+                                default:
+                                    throw new NotImplementedException();
+                            }
+                        }
+                        break;
+                    }
+                    break;
+            }
+            if (usageProps.Count > 0) obj.Add("Props", usageProps);
+
+            var bindType = int.Parse((string)row.Cells["BindType"].Value);
+            if (bindType > 0) obj.Add("IsBound", true);
+
+            var isExpensive = (string)row.Cells["Expensive"].Value == "1";
+            if (isExpensive) obj.Add("ValuableObjects", true);
+
+            return obj;
+        }
+
         private void ButtonExport_ButtonClick(object sender, EventArgs e)
         {
             using var ms = new MemoryStream();
@@ -548,8 +780,12 @@ namespace Mir3DClientEditor.FormValueEditors
                 {
                     var row = DataGrid.Rows[i];
 
-                    if (row.IsNewRow || (string)row.Cells[0].Value == "Client" || (string)row.Cells[0].Value == "0" || (string)row.Cells[0].Value == "Both")
-                        continue;
+                    if (row.IsNewRow
+                        || (string)row.Cells[0].Value == "Client"
+                        || (string)row.Cells[0].Value == "0"
+                        || (string)row.Cells[0].Value == "Both"
+                        || (string)row.Cells[0].Value == "-1"
+                    ) continue;
 
                     Dictionary<string, object> obj = null;
 
@@ -562,6 +798,11 @@ namespace Mir3DClientEditor.FormValueEditors
                             idField = 1;
                             nameField = 2;
                             obj = ExportQuest(row);
+                            break;
+                        case "item.txt":
+                            idField = 0;
+                            nameField = 1;
+                            obj = ExportItem(row);
                             break;
                         default:
                             obj = new Dictionary<string, object>();

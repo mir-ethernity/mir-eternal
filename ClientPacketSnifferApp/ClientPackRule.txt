@@ -8,9 +8,10 @@ u264 264 22
 u266 266 142
 u265 265 11
 u235 235 6
+u610 610 9
 
 CharacterSplitItemsPacket	46	12
-
+LockStoragePacket 98 3
 
 AbandonInscriptionReplacementPacket	78	11
 AddFriendsToFollowPacket	522	38

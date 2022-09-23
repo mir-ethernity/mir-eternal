@@ -22,11 +22,9 @@ namespace GameServer.Templates
         public int SalePrice;
         public ushort AdditionalSkill;
         public bool IsBound;
-        public bool IsStackable;
         public bool CanDrop;
         public bool CanSold;
         public bool ValuableObjects;
-        public bool Resource;
         public int? UnpackItemId;
         public List<GameItemTreasure> TreasureItems = new List<GameItemTreasure>();
 

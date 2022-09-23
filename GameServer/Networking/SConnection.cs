@@ -390,6 +390,26 @@ namespace GameServer.Networking
             // TODO: Pending implement
         }
 
+        public void 处理封包(RequestLockStoragePacket P)
+        {
+            if (this.CurrentStage != GameStage.PlayingScene)
+            {
+                this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+                return;
+            }
+            Player.RequestLockStorage(P.Enabled);
+        }
+
+        public void 处理封包(SendMessageCodeVerificationPacket P)
+        {
+            if (this.CurrentStage != GameStage.PlayingScene)
+            {
+                this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+                return;
+            }
+            Player.VerifyTaskMessageCode(P.Code);
+        }
+
         public void 处理封包(PlayerCompleteQuestPacket P)
         {
             if (this.CurrentStage != GameStage.PlayingScene)
