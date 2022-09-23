@@ -33,6 +33,11 @@ namespace GameServer.Networking
     {
     }
 
+    [PacketInfo(Source = PacketSource.Client, Id = 271, Length = 2, Description = "Received on player connects (ver. 1.0.3.68 / 185578)")]
+    public class PlayerEnterScenePacket : GamePacket
+    {
+    }
+
     [PacketInfo(Source = PacketSource.Server, Id = 691, Length = 16, Description = "UnknownS1")]
     public class UnknownS1 : GamePacket
     {

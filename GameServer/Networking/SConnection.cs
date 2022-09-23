@@ -332,6 +332,11 @@ namespace GameServer.Networking
             this.Player.玩家进入场景();
             this.CurrentStage = GameStage.PlayingScene;
         }
+        public void 处理封包(PlayerEnterScenePacket P)
+        {
+
+        }
+
         public void 处理封包(UnknownC2 P)
         {
 
