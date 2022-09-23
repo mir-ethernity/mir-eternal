@@ -6,6 +6,8 @@ using System.Threading;
 using GameServer.Maps;
 using GameServer.Data;
 using GameServer.Networking;
+using System.Collections;
+using System.Diagnostics;
 
 namespace GameServer
 {
@@ -20,6 +22,9 @@ namespace GameServer
         public static bool Saving;
         public static Thread MainThread;
         public static Random RandomNumber;
+
+        public static ConcurrentQueue<Action> ReloadTasks = new ConcurrentQueue<Action>();
+        public static DateTime NextReloadTaskTime;
 
         static MainProcess()
         {
@@ -67,6 +72,7 @@ namespace GameServer
             MainForm.AddSystemLog("The server has been successfully opened");
             Running = true;
             MainForm.ServerStartedCallback();
+            var sw = new Stopwatch();
 
             while (true)
             {
@@ -79,12 +85,19 @@ namespace GameServer
 
                 try
                 {
+                    sw.Reset();
+
                     CurrentTime = DateTime.Now;
                     ProcessSaveData();
                     ProcessServerStats();
                     ProcessGMCommands();
                     NetworkServiceGateway.Process();
                     MapGatewayProcess.Process();
+                    ProcessReloadTasks();
+                    sw.Stop();
+
+                    if (sw.ElapsedMilliseconds <= 2)
+                        Thread.Sleep(1);
                 }
                 catch (Exception ex)
                 {
@@ -105,6 +118,23 @@ namespace GameServer
             MainForm.Stop();
             MainThread = null;
             MainForm.AddSystemLog("The server has been successfully shut down");
+        }
+
+        private static void ProcessReloadTasks()
+        {
+            if (CurrentTime > NextReloadTaskTime && ReloadTasks.TryDequeue(out var action))
+            {
+                action();
+
+                if (ReloadTasks.Count == 0)
+                {
+                    NetworkServiceGateway.SendAnnouncement("Updated server, enjoy.", true);
+                }
+                else
+                {
+                    NextReloadTaskTime = CurrentTime.AddMilliseconds(500);
+                }
+            }
         }
 
         private static void ClearConnections()

@@ -12,6 +12,7 @@ namespace GameServer.Maps
 
     public sealed class MapInstance
     {
+        public bool Initialized { get; set; }
 
         public byte 地图状态
         {
@@ -259,12 +260,51 @@ namespace GameServer.Maps
             ProcessDemonSlayingHall();
         }
 
+        public void Initialize()
+        {
+            Initialized = true;
+
+            if (CopyMap) return;
+
+            MobsAlive = 0;
+            MobsRespawned = 0;
+            TotalMobs = 0;
+            MobsDrops = 0;
+
+            foreach (var spawn in 怪物区域)
+            {
+                if (spawn.Spawns != null)
+                {
+                    var rangeCoords = spawn.RangeCoords.ToArray();
+                    foreach (var spawnInfo in spawn.Spawns)
+                    {
+                        if (Monsters.DataSheet.TryGetValue(spawnInfo.MonsterName, out var 游戏怪物))
+                        {
+                            MainForm.添加怪物数据(游戏怪物);
+                            int RevivalInterval = spawnInfo.RevivalInterval * 60 * 1000;
+                            for (int l = 0; l < spawnInfo.SpawnCount; l++)
+                            {
+                                new MonsterObject(游戏怪物, this, RevivalInterval, rangeCoords, false, true);
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            TotalMobs = (uint)怪物区域.Sum((MonsterSpawns O) => O.Spawns.Sum((MonsterSpawnInfo X) => X.SpawnCount));
+            MainForm.添加地图数据(this);
+        }
+
 
         public void 添加对象(MapObject 对象)
         {
             GameObjectType 对象类型 = 对象.ObjectType;
             if (对象类型 == GameObjectType.Player)
             {
+                if (!Initialized)
+                    Initialize();
+
                 this.NrPlayers.Add(对象 as PlayerObject);
                 return;
             }
@@ -302,7 +342,6 @@ namespace GameServer.Maps
             }
             this.物品列表.Remove(对象 as ItemObject);
         }
-
 
         public void 地图公告(string 内容)
         {

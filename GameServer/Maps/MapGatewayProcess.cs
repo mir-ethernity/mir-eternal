@@ -716,6 +716,188 @@ namespace GameServer.Maps
             ProcessSabakCity();
         }
 
+        private static void LoadContentTeleports()
+        {
+            var watcher = new Stopwatch();
+            watcher.Start();
+
+            foreach (TeleportGates 传送法阵 in TeleportGates.DataSheet)
+            {
+                var mapInstanceId = 传送法阵.FromMapId * 16 + 1;
+                if (!MapInstances.ContainsKey(mapInstanceId)) continue;
+                var mapInstance = MapInstances[mapInstanceId];
+
+                if (!mapInstance.CopyMap)
+                    mapInstance.法阵列表.Add(传送法阵.TeleportGateNumber, 传送法阵);
+            }
+
+            watcher.Stop();
+            MainForm.AddSystemLog($"Loaded teleport gates in {watcher.ElapsedMilliseconds}ms");
+        }
+
+        private static void LoadContentGuards()
+        {
+            var watcher = new Stopwatch();
+            watcher.Start();
+
+            foreach (MapGuards 守卫刷新 in MapGuards.DataSheet)
+            {
+                var mapInstanceId = 守卫刷新.FromMapId * 16 + 1;
+                if (!MapInstances.ContainsKey(mapInstanceId)) continue;
+                var mapInstance = MapInstances[mapInstanceId];
+
+                mapInstance.守卫区域.Add(守卫刷新);
+
+                if (!mapInstance.CopyMap && Guards.DataSheet.TryGetValue(守卫刷新.GuardNumber, out var 对应模板))
+                    new GuardObject(对应模板, mapInstance, 守卫刷新.Direction, 守卫刷新.FromCoords);
+            }
+            watcher.Stop();
+            MainForm.AddSystemLog($"Loaded map guards in {watcher.ElapsedMilliseconds}ms");
+        }
+
+        private static void LoadContentChests()
+        {
+            var watcher = new Stopwatch();
+            watcher.Start();
+
+            foreach (var chest in MapChest.DataSheet)
+            {
+                var mapInstanceId = chest.MapId * 16 + 1;
+                if (!MapInstances.ContainsKey(mapInstanceId)) continue;
+                var map = MapInstances[mapInstanceId];
+
+                map.Chests.Add(chest);
+
+                if (!map.CopyMap && ChestTemplate.DataSheet.TryGetValue(chest.ChestId, out var chestTemplate))
+                    new ChestObject(chestTemplate, map, chest.Direction, chest.Coords);
+            }
+
+            watcher.Stop();
+            MainForm.AddSystemLog($"Loaded map chests in {watcher.ElapsedMilliseconds}ms");
+        }
+
+        private static void ClearContentTeleports()
+        {
+            var watcher = new Stopwatch();
+            watcher.Start();
+
+            foreach (MapInstance mapInstance in MapInstances.Values)
+                mapInstance.法阵列表.Clear();
+
+            watcher.Stop();
+            MainForm.AddSystemLog($"Clear teleports in {watcher.ElapsedMilliseconds}ms");
+        }
+
+        private static void ClearContentGuards()
+        {
+            var watcher = new Stopwatch();
+            watcher.Start();
+
+            var objs = NPCs.Values.ToArray();
+
+            foreach (var obj in objs)
+                obj.Delete();
+
+            foreach (MapInstance mapInstance in MapInstances.Values)
+                mapInstance.守卫区域.Clear();
+
+            watcher.Stop();
+            MainForm.AddSystemLog($"Clear guards in {watcher.ElapsedMilliseconds}ms");
+        }
+
+        private static void ClearContentChests()
+        {
+            var watcher = new Stopwatch();
+            watcher.Start();
+
+            var objs = Chests.Values.ToArray();
+
+            foreach (var obj in objs)
+                obj.Delete();
+
+            foreach (MapInstance mapInstance in MapInstances.Values)
+                mapInstance.Chests.Clear();
+
+            watcher.Stop();
+            MainForm.AddSystemLog($"Clear chests in {watcher.ElapsedMilliseconds}ms");
+        }
+
+        private static void ClearContentSpawns()
+        {
+            var watcher = new Stopwatch();
+            watcher.Start();
+
+            var objs = Monsters.Values.ToArray();
+
+            foreach (var obj in objs)
+                obj.Delete();
+
+            foreach (MapInstance mapInstance in MapInstances.Values)
+            {
+                mapInstance.怪物区域.Clear();
+                mapInstance.Initialized = false;
+            }
+
+            watcher.Stop();
+            MainForm.AddSystemLog($"Clear monster spawns in {watcher.ElapsedMilliseconds}ms");
+        }
+
+        private static void LoadContentSpawns()
+        {
+            var watcher = new Stopwatch();
+            watcher.Start();
+
+            var instancesToInitialize = new List<MapInstance>();
+            foreach (MonsterSpawns spawn in MonsterSpawns.DataSheet)
+            {
+                var mapInstanceId = spawn.FromMapId * 16 + 1;
+                if (!MapInstances.ContainsKey(mapInstanceId)) continue;
+                var mapInstance = MapInstances[mapInstanceId];
+
+                mapInstance.怪物区域.Add(spawn);
+
+                if (mapInstance.NrPlayers.Count > 0 && !instancesToInitialize.Contains(mapInstance))
+                    instancesToInitialize.Add(mapInstance);
+            }
+
+            foreach (var instance in instancesToInitialize)
+                instance.Initialize();
+
+            watcher.Stop();
+            MainForm.AddSystemLog($"Loaded monster spawns in {watcher.ElapsedMilliseconds}ms");
+        }
+
+        public static void LoadContent()
+        {
+            var watcher = new Stopwatch();
+            watcher.Start();
+
+            LoadContentTeleports();
+            LoadContentGuards();
+            LoadContentChests();
+            LoadContentSpawns();
+
+            watcher.Stop();
+            MainForm.AddSystemLog($"Initialized instances in {watcher.ElapsedMilliseconds}ms");
+        }
+
+        public static void ReloadContent()
+        {
+            NetworkServiceGateway.SendAnnouncement("Updating server with a new content, you may experience latencies.", true);
+
+            MainProcess.ReloadTasks.Enqueue(() => ClearContentTeleports());
+            MainProcess.ReloadTasks.Enqueue(() => LoadContentTeleports());
+
+            MainProcess.ReloadTasks.Enqueue(() => ClearContentGuards());
+            MainProcess.ReloadTasks.Enqueue(() => LoadContentGuards());
+
+            MainProcess.ReloadTasks.Enqueue(() => ClearContentChests());
+            MainProcess.ReloadTasks.Enqueue(() => LoadContentChests());
+
+            MainProcess.ReloadTasks.Enqueue(() => ClearContentSpawns());
+            MainProcess.ReloadTasks.Enqueue(() => LoadContentSpawns());
+        }
+
         public static void Start()
         {
             MapGatewayProcess.SecondaryObjects = new List<MapObject>();
@@ -793,110 +975,7 @@ namespace GameServer.Maps
             watcher.Stop();
             MainForm.AddSystemLog($"Loaded map areas in {watcher.ElapsedMilliseconds}ms");
 
-
-            watcher.Restart();
-            foreach (TeleportGates 传送法阵 in TeleportGates.DataSheet)
-            {
-                foreach (MapInstance MapInstance3 in MapGatewayProcess.MapInstances.Values)
-                {
-                    if (MapInstance3.MapId == (int)传送法阵.FromMapId)
-                    {
-                        MapInstance3.法阵列表.Add(传送法阵.TeleportGateNumber, 传送法阵);
-                    }
-                }
-            }
-            watcher.Stop();
-            MainForm.AddSystemLog($"Loaded teleport gates in {watcher.ElapsedMilliseconds}ms");
-
-            watcher.Restart();
-            foreach (MapGuards 守卫刷新 in MapGuards.DataSheet)
-            {
-                foreach (MapInstance MapInstance4 in MapGatewayProcess.MapInstances.Values)
-                {
-                    if (MapInstance4.MapId == (int)守卫刷新.FromMapId)
-                    {
-                        MapInstance4.守卫区域.Add(守卫刷新);
-                    }
-                }
-            }
-            watcher.Stop();
-            MainForm.AddSystemLog($"Loaded map guards in {watcher.ElapsedMilliseconds}ms");
-
-            watcher.Restart();
-            foreach (var chest in MapChest.DataSheet)
-            {
-                foreach (MapInstance map in MapGatewayProcess.MapInstances.Values)
-                {
-                    if (map.MapId == (int)chest.MapId)
-                    {
-                        map.Chests.Add(chest);
-                    }
-                }
-            }
-            watcher.Stop();
-            MainForm.AddSystemLog($"Loaded map chests in {watcher.ElapsedMilliseconds}ms");
-
-            watcher.Restart();
-            foreach (MonsterSpawns 怪物刷新 in MonsterSpawns.DataSheet)
-            {
-                foreach (MapInstance MapInstance5 in MapGatewayProcess.MapInstances.Values)
-                {
-                    if (MapInstance5.MapId == (int)怪物刷新.FromMapId)
-                    {
-                        MapInstance5.怪物区域.Add(怪物刷新);
-                    }
-                }
-            }
-            watcher.Stop();
-            MainForm.AddSystemLog($"Loaded monster spawns in {watcher.ElapsedMilliseconds}ms");
-
-            watcher.Restart();
-            foreach (var MapInstance6 in MapInstances.Values)
-            {
-                if (!MapInstance6.CopyMap)
-                {
-                    foreach (MonsterSpawns 怪物刷新2 in MapInstance6.怪物区域)
-                    {
-                        if (怪物刷新2.Spawns != null)
-                        {
-                            Point[] 出生范围 = 怪物刷新2.RangeCoords.ToArray();
-                            foreach (MonsterSpawnInfo 刷新信息 in 怪物刷新2.Spawns)
-                            {
-                                if (Templates.Monsters.DataSheet.TryGetValue(刷新信息.MonsterName, out var 游戏怪物))
-                                {
-                                    MainForm.添加怪物数据(游戏怪物);
-                                    int RevivalInterval = 刷新信息.RevivalInterval * 60 * 1000;
-                                    for (int l = 0; l < 刷新信息.SpawnCount; l++)
-                                    {
-                                        new MonsterObject(游戏怪物, MapInstance6, RevivalInterval, 出生范围, false, true);
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    foreach (var chest in MapInstance6.Chests)
-                    {
-                        if (ChestTemplate.DataSheet.TryGetValue(chest.ChestId, out var chestTemplate))
-                        {
-                            new ChestObject(chestTemplate, MapInstance6, chest.Direction, chest.Coords);
-                        }
-                    }
-
-                    foreach (var 守卫刷新2 in MapInstance6.守卫区域)
-                    {
-                        if (Guards.DataSheet.TryGetValue(守卫刷新2.GuardNumber, out var 对应模板))
-                        {
-                            new GuardObject(对应模板, MapInstance6, 守卫刷新2.Direction, 守卫刷新2.FromCoords);
-                        }
-                    }
-                }
-
-                MapInstance6.TotalMobs = (uint)MapInstance6.怪物区域.Sum((MonsterSpawns O) => O.Spawns.Sum((MonsterSpawnInfo X) => X.SpawnCount));
-                MainForm.添加地图数据(MapInstance6);
-            };
-            watcher.Stop();
-            MainForm.AddSystemLog($"Initialized instances in {watcher.ElapsedMilliseconds}ms");
+            LoadContent();
         }
 
 

@@ -972,13 +972,12 @@ namespace GameServer.Maps
             this.CurrentDirection = ComputingClass.随机方向();
             this.CurrentHP = this[GameObjectStats.MaxHP];
             this.CurrentPosition = this.出生范围[MainProcess.RandomNumber.Next(0, this.出生范围.Length)];
-            Point CurrentCoords = this.CurrentPosition;
             for (int i = 0; i < 100; i++)
             {
-                if (!this.CurrentMap.CellBlocked(CurrentCoords = ComputingClass.螺旋坐标(this.CurrentPosition, i)))
+                Point coords;
+                if (!this.CurrentMap.CellBlocked(coords = ComputingClass.螺旋坐标(this.CurrentPosition, i)))
                 {
-                    this.CurrentPosition = CurrentCoords;
-                IL_F1:
+                    this.CurrentPosition = coords;
                     this.Attack时间 = MainProcess.CurrentTime.AddSeconds(1.0);
                     base.RecoveryTime = MainProcess.CurrentTime.AddMilliseconds((double)MainProcess.RandomNumber.Next(5000));
                     this.漫游时间 = MainProcess.CurrentTime.AddMilliseconds((double)(MainProcess.RandomNumber.Next(5000) + this.RoamingInterval));
@@ -1003,7 +1002,6 @@ namespace GameServer.Maps
                     return;
                 }
             }
-            //goto IL_F1;
         }
 
 
