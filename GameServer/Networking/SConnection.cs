@@ -332,6 +332,11 @@ namespace GameServer.Networking
             this.Player.玩家进入场景();
             this.CurrentStage = GameStage.PlayingScene;
         }
+        public void 处理封包(PlayerEnterScenePacket P)
+        {
+
+        }
+
         public void 处理封包(UnknownC2 P)
         {
 
@@ -374,6 +379,17 @@ namespace GameServer.Networking
         public void 处理封包(ReservedPacketZeroThreePacket P)
         {
         }
+
+        public void 处理封包(ToggleAwekeningExpPacket P)
+        {
+            if (this.CurrentStage != GameStage.PlayingScene)
+            {
+                this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+                return;
+            }
+            // TODO: Pending implement
+        }
+
         public void 处理封包(PlayerCompleteQuestPacket P)
         {
             if (this.CurrentStage != GameStage.PlayingScene)

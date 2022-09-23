@@ -224,8 +224,8 @@ namespace GameServer.Maps
             // unknown
             ActiveConnection.SendRaw(177, 4, new byte[] { 24, 0 });
 
-            // Send Progress (unlock second tab skills)
-            var buff = new byte[] { 6, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 255, 255, 255, 255, 1, 0, 0, 0, 3, 0, 0, 0, 255, 255, 255, 255, 1, 0, 0, 0, 4, 0, 0, 0, 255, 255, 255, 255, 1, 0, 0, 0, 5, 0, 0, 0, 255, 255, 255, 255 };
+            // Send Progress (unlock talent system)
+            var buff = new byte[68] { 6, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 255, 255, 255, 255, 1, 0, 0, 0, 3, 0, 0, 0, 255, 255, 255, 255, 1, 0, 0, 0, 4, 0, 0, 0, 255, 255, 255, 255, 1, 0, 0, 0, 5, 0, 0, 0, 255, 255, 255, 255 };
             Array.Copy(BitConverter.GetBytes(ObjectId), 0, buff, 0, 4);
             ActiveConnection.SendRaw(359, 70, buff);
 
@@ -253,7 +253,7 @@ namespace GameServer.Maps
                 变量类型 = 1,
                 对象编号 = this.ObjectId,
                 变量索引 = 50, // unlock awekening skills tab
-                变量内容 = ComputingClass.TimeShift(CharacterData.补给日期.V)
+                变量内容 = BitConverter.ToInt32(new byte[] { 32, 14, 0, 0 }, 0),
             });
 
             // unknown
@@ -356,17 +356,6 @@ namespace GameServer.Maps
             //        变量内容 = sup.Value
             //    });
             //}
-
-            for (ushort i = 1; i <= 1500; i++)
-            {
-                网络连接.SendPacket(new SyncSupplementaryVariablesPacket
-                {
-                    变量类型 = 1,
-                    对象编号 = this.ObjectId,
-                    变量索引 = i,
-                    变量内容 = 1
-                });
-            }
 
             // unknown (stat updater)
             ActiveConnection.SendRaw(221, 10, new byte[] { 47, 0, 0, 0, 0, 0, 0, 0 });

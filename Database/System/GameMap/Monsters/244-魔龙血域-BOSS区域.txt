@@ -1,0 +1,17 @@
+﻿{
+  "FromMapId": 244,
+  "FromMapName": "魔龙血域",
+  "FromCoords": "1047, 492",
+  "RegionName": "魔龙血域-BOSS区域",
+  "AreaRadius": 242,
+  "Spawns": [
+    {
+      "MonsterName": "魔龙教主",
+      "SpawnCount": 1,
+      "RevivalInterval": 180
+    }
+  ],
+  "RangeCoords": [
+    "989, 484"
+  ]
+}
