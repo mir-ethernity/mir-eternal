@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -356,7 +356,7 @@ namespace GameServer.Maps
                             )
                         )
                         || (
-                            playerObject.AttackMode != AttackMode.Hostility && (
+                            playerObject.AttackMode == AttackMode.Hostility && (
                                 playerObject.Guild == null
                                 || neightborPlayerObject == null
                                 || !playerObject.Guild.Hostility行会.ContainsKey(neightborPlayerObject.Guild)
