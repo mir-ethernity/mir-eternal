@@ -11036,6 +11036,9 @@ namespace GameServer.Maps
                         case ItemProperty.DoubleExpRate:
                             DoubleExp += doubleExpAmount;
                             break;
+                        case ItemProperty.ExpRate:
+                            GainExperience(null, ExpAmount);
+                            break;
                         case ItemProperty.GoldRate:
                             NumberGoldCoins += goldAmount;
                             break;
