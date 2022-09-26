@@ -27,10 +27,12 @@ namespace GameServer.Maps
             }
         }
 
+        public string ActiveVerifyId { get; set; }
         public string TemporalCode { get; set; }
 
         public Action OnVerifyCode { get; set; }
-
+        public Dictionary<string, int> VerifyCodeRetries { get; set; } = new Dictionary<string, int>();
+        public Dictionary<string, DateTime> VerifyCodeBlocked { get; set; } = new Dictionary<string, DateTime>();
 
         public byte 交易状态
         {
@@ -684,7 +686,7 @@ namespace GameServer.Maps
                 return;
             }
 
-            RequestVerificationCode(() =>
+            RequestVerificationCode("wareshouse_lock", () =>
             {
                 CharacterData.WarehouseLocked.V = enabled;
 
@@ -695,8 +697,27 @@ namespace GameServer.Maps
             });
         }
 
-        public void RequestVerificationCode(Action callback)
+        public void RequestVerificationCode(string id, Action callback)
         {
+            if (!VerifyCodeRetries.ContainsKey(id))
+            {
+                VerifyCodeRetries.Add(id, 0);
+            }
+            else if (VerifyCodeRetries[id] >= 5)
+            {
+                if (VerifyCodeBlocked[id] >= MainProcess.CurrentTime)
+                {
+                    SendPacket(new 社交错误提示 { 错误编号 = 296 });
+                    return;
+                }
+                else
+                {
+                    VerifyCodeRetries[id] = 0;
+                    VerifyCodeBlocked.Remove(id);
+                }
+            }
+
+            ActiveVerifyId = id;
             TemporalCode = ComputingClass.RandomString(6);
             OnVerifyCode = callback;
             MainProcess.AddSystemLog($"Secure random lock code for character: {TemporalCode}");
@@ -710,9 +731,13 @@ namespace GameServer.Maps
         {
             if (string.IsNullOrEmpty(TemporalCode) || TemporalCode != code)
             {
-                // TODO: we need gameerror packet
+                if (++VerifyCodeRetries[ActiveVerifyId] >= 5)
+                    VerifyCodeBlocked.Add(ActiveVerifyId, MainProcess.CurrentTime.AddMinutes(5));
+                SendPacket(new 社交错误提示 { 错误编号 = 294 });
                 return;
             }
+
+            VerifyCodeRetries[ActiveVerifyId] = 0;
 
             SendPacket(new 社交错误提示
             {
