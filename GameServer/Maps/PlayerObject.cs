@@ -10992,9 +10992,13 @@ namespace GameServer.Maps
             var goldAmount = item.GetProp(ItemProperty.GoldAmount, 0);
             var doubleExpAmount = item.GetProp(ItemProperty.DoubleExpAmount, 0);
             var treasureItems = FilterItemTreasures(item.对应模板.V.TreasureItems);
+            var ExpAmount = item.GetProp(ItemProperty.ExpAmount, 0);
 
             if (item.HasProp(ItemProperty.TreasureItemRate) || treasureItems.Length > 0)
                 rates.Add(ItemProperty.TreasureItemRate, item.GetProp(ItemProperty.TreasureItemRate, 100));
+
+            if (item.HasProp(ItemProperty.ExpAmount) || ExpAmount > 0)
+                rates.Add(ItemProperty.ExpRate, item.GetProp(ItemProperty.ExpRate, 0));
 
             if (item.HasProp(ItemProperty.DoubleExpRate) || doubleExpAmount > 0)
                 rates.Add(ItemProperty.DoubleExpRate, item.GetProp(ItemProperty.DoubleExpRate, 100));
@@ -20675,8 +20679,7 @@ namespace GameServer.Maps
 
 
         public Dictionary<object, int> CombatBonus;
-
-
+        private int ExpRate;
         public readonly Dictionary<ushort, SkillData> PassiveSkill;
     }
 }

@@ -21,6 +21,8 @@ namespace GameServer.Enums
         GoldRate,
         GoldAmount,
         DoubleExpAmount,
-        MountId
+        MountId,
+        ExpRate,
+        ExpAmount
     }
 }
