@@ -7,6 +7,6 @@
         Exp = 2,
         Reputation = 3,
         Activity = 4,
-
+        Title = 5
     }
 }

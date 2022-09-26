@@ -871,6 +871,8 @@ namespace GameServer.Data
         public readonly DataMonitor<bool> WarehouseLocked;
         public readonly MonitorDictionary<byte, ItemData> ExtraBackPack;
         public readonly MonitorDictionary<byte, EquipmentData> Equipment;
+        public readonly MonitorDictionary<ushort, AchievementData> Achievements;
+        public readonly MonitorDictionary<byte, int> AchievementVariables;
 
 
         public readonly MonitorDictionary<byte, SkillData> ShorcutField;

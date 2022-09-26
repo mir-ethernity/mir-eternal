@@ -259,6 +259,18 @@ namespace GameServer.Data
                 DataLinkTable.添加任务(o, f, DataMonitor, r.ReadBoolean() ? typeof(EquipmentData) : typeof(ItemData), r.ReadInt32());
                 return DataMonitor;
             };
+            dictionary[typeof(MonitorDictionary<ushort, AchievementData>)] = delegate (BinaryReader r, GameData o, DataField f)
+            {
+                MonitorDictionary<ushort, AchievementData> MonitorDictionary = new MonitorDictionary<ushort, AchievementData>(o);
+                int num = r.ReadInt32();
+                for (int i = 0; i < num; i++)
+                {
+                    var b = r.ReadUInt16();
+                    int 值索引 = r.ReadInt32();
+                    DataLinkTable.添加任务(o, f, MonitorDictionary.IDictionary_0, b, null, typeof(ushort), typeof(AchievementData), 0, 值索引);
+                }
+                return MonitorDictionary;
+            };
             dictionary[typeof(HashMonitor<CharacterQuest>)] = delegate (BinaryReader r, GameData o, DataField f)
             {
                 HashMonitor<CharacterQuest> HashMonitor = new HashMonitor<CharacterQuest>(o);
@@ -1229,6 +1241,16 @@ namespace GameServer.Data
                 {
                     b.Write(keyValuePair.Key);
                     b.Write(keyValuePair.Value is EquipmentData);
+                    b.Write(keyValuePair.Value.Index.V);
+                }
+            };
+            dictionary2[typeof(MonitorDictionary<ushort, AchievementData>)] = delegate (BinaryWriter b, object o)
+            {
+                MonitorDictionary<ushort, AchievementData> MonitorDictionary = (MonitorDictionary<ushort, AchievementData>)o;
+                b.Write((MonitorDictionary != null) ? MonitorDictionary.Count : 0);
+                foreach (KeyValuePair<ushort, AchievementData> keyValuePair in MonitorDictionary)
+                {
+                    b.Write(keyValuePair.Key);
                     b.Write(keyValuePair.Value.Index.V);
                 }
             };

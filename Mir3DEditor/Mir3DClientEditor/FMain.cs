@@ -1,7 +1,11 @@
 ﻿using CsvHelper.Configuration;
+using Microsoft.VisualBasic;
 using Mir3DClientEditor.FormValueEditors;
 using Mir3DClientEditor.Services;
+using Mir3DCrypto;
 using System.Globalization;
+using System.IO;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using UELib;
 
@@ -170,6 +174,66 @@ namespace Mir3DClientEditor
             var form = new FSyncClientTexts();
             form.ShowDialog();
             form.Dispose();
+        }
+
+        private void locateUPKNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MainEditor == null)
+            {
+                MessageBox.Show("Please, open game folder to search masivally a name");
+                return;
+            }
+
+            var control = MainEditor.Controls.OfType<MPQExplorerControl>().FirstOrDefault();
+            if (control == null)
+            {
+                MessageBox.Show("Please, open game folder to search masivally a name");
+                return;
+            }
+
+            var nameToSearch = Interaction.InputBox("Specify name to search", "Name Search Locator");
+
+            if (string.IsNullOrEmpty(nameToSearch))
+                return;
+
+            var found = new List<string>();
+
+            foreach (var archive in control._archives)
+            {
+                foreach (var file in archive.ListFiles)
+                {
+                    using var stream = archive.Archive.OpenFile(file.Path);
+                    var data = new byte[stream.Length];
+                    stream.Read(data, 0, data.Length);
+                    data = Crypto.Decrypt(data);
+
+                    switch (Path.GetExtension(file.Path))
+                    {
+                        case ".upk":
+                        case ".u":
+                            var package = UnrealLoader.LoadPackage(file.Path, data);
+                            var exists = package.Names?.Any(x => x.Name.Contains(nameToSearch, StringComparison.InvariantCultureIgnoreCase)) ?? false;
+                            if (exists)
+                                found.Add(file.Path);
+                            break;
+                        case ".txt":
+                            var rawContent = data.DecodeString(out Encoding encoding);
+                            if (rawContent.Contains(nameToSearch, StringComparison.InvariantCultureIgnoreCase))
+                                found.Add(file.Path);
+                            break;
+                    }
+
+                }
+            }
+
+            if (found.Count == 0)
+            {
+                MessageBox.Show($"Not found input");
+            }
+            else
+            {
+                MessageBox.Show($"Found in this files:\n{string.Join('\n', found.Select(x => $" - {x}").ToArray())}");
+            }
         }
     }
 }

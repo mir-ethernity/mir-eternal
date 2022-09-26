@@ -90,88 +90,125 @@ namespace Mir3DClientEditor.FormValueEditors
 
             var objectsWithProps = _unrealPackage.Exports
                .Select(x => x.Object)
-               .Where(x => x.Properties != null && x.Properties.Count > 0 && (x.Class?.Name == className))
+               .Where(x => x.Class?.Name == className)
                .ToArray();
 
             LoadObjects(objectsWithProps);
+
         }
 
-        private void LoadObjects(UObject[] objectsWithProps)
+        private void LoadObjects(UObject[] objects)
         {
             DataGrid.Rows.Clear();
             DataGrid.Columns.Clear();
 
-            DataGrid.Columns.Add("ObjectId", "Object Id");
+            if (!objects.Any()) return;
 
-            // Create all columns
-            foreach (var obj in objectsWithProps)
+            var isEnum = objects[0] is UEnum;
+
+            if (isEnum)
             {
-                foreach (var prop in obj.Properties)
-                {
-                    var col = DataGrid.Columns.Cast<DataGridViewColumn>().Where(x => x.Name == prop.Name).FirstOrDefault();
-                    if (col == null)
-                    {
-                        DataGridViewCell cell;
+                DataGrid.Columns.Add("Enum", "Enum");
+                DataGrid.Columns.Add("Id", "Id");
+                DataGrid.Columns.Add("Label", "Label");
+            }
+            else
+            {
+                DataGrid.Columns.Add("ObjectId", "Object Id");
 
-                        switch (prop.TypeName)
+                // Create all columns
+                foreach (var obj in objects)
+                {
+                    if (obj.Properties != null && obj.Properties.Count > 0)
+                    {
+                        foreach (var prop in obj.Properties)
                         {
-                            case "StrProperty":
-                                cell = new DataGridViewTextBoxCell() { };
-                                break;
-                            case "IntProperty":
-                                cell = new DataGridViewTextBoxCell() { };
-                                break;
-                            case "BoolProperty":
-                                cell = new DataGridViewTextBoxCell() { };
-                                // cell = new DataGridViewCheckBoxCell() { ValueType = typeof(bool) };
-                                break;
-                            case "FloatProperty":
-                                cell = new DataGridViewTextBoxCell() { };
-                                break;
-                            case "ArrayProperty":
-                                cell = new DataGridViewButtonCell() { };
-                                cell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                                break;
-                            default:
-                                cell = new DataGridViewTextBoxCell() { };
-                                break;
+                            var col = DataGrid.Columns.Cast<DataGridViewColumn>().Where(x => x.Name == prop.Name).FirstOrDefault();
+                            if (col == null)
+                            {
+                                DataGridViewCell cell;
+
+                                switch (prop.TypeName)
+                                {
+                                    case "StrProperty":
+                                        cell = new DataGridViewTextBoxCell() { };
+                                        break;
+                                    case "IntProperty":
+                                        cell = new DataGridViewTextBoxCell() { };
+                                        break;
+                                    case "BoolProperty":
+                                        cell = new DataGridViewTextBoxCell() { };
+                                        // cell = new DataGridViewCheckBoxCell() { ValueType = typeof(bool) };
+                                        break;
+                                    case "FloatProperty":
+                                        cell = new DataGridViewTextBoxCell() { };
+                                        break;
+                                    case "ArrayProperty":
+                                        cell = new DataGridViewButtonCell() { };
+                                        cell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                                        break;
+                                    default:
+                                        cell = new DataGridViewTextBoxCell() { };
+                                        break;
+                                }
+
+                                var column = new DataGridViewColumn(cell);
+                                column.Name = prop.Name;
+                                column.HeaderText = prop.Name;
+                                DataGrid.Columns.Add(column);
+                            }
                         }
-
-                        var column = new DataGridViewColumn(cell);
-                        column.Name = prop.Name;
-                        column.HeaderText = prop.Name;
-                        DataGrid.Columns.Add(column);
                     }
                 }
             }
 
-            foreach (var obj in objectsWithProps)
+            if (isEnum)
             {
-                var row = new DataGridViewRow();
-                row.CreateCells(DataGrid);
-
-                // Initialize with default values
-                foreach (DataGridViewCell cell in row.Cells)
-                    cell.Value = cell.ValueType.IsValueType ? Activator.CreateInstance(cell.ValueType) : null;
-
-                row.Cells[0].Value = _unrealPackage.Objects.IndexOf(obj);
-
-                foreach (var prop in obj.Properties)
+                foreach (var obj in objects.OfType<UEnum>().ToArray())
                 {
-                    var col = DataGrid.Columns.Cast<DataGridViewColumn>().Where(x => x.Name == prop.Name).First();
-
-                    if (col.CellType == typeof(DataGridViewButtonCell))
+                    for (var i = 0; i < obj.Names.Count; i++)
                     {
-                        row.Cells[col.Index].Value = "View Data";
-                    }
-                    else
-                    {
-                        row.Cells[col.Index].Value = prop.GoodValue?.ToString() ?? "0x" + BitConverter.ToString(prop.ValueData).Replace("-", "");
+                        var row = new DataGridViewRow();
+                        row.CreateCells(DataGrid);
+                        row.Cells[0].Value = obj.Name;
+                        row.Cells[1].Value = i;
+                        row.Cells[2].Value = obj.Names[i];
+                        DataGrid.Rows.Add(row);
                     }
                 }
-
-                DataGrid.Rows.Add(row);
             }
+            else
+            {
+                foreach (var obj in objects)
+                {
+                    var row = new DataGridViewRow();
+                    row.CreateCells(DataGrid);
+
+                    // Initialize with default values
+                    foreach (DataGridViewCell cell in row.Cells)
+                        cell.Value = cell.ValueType.IsValueType ? Activator.CreateInstance(cell.ValueType) : null;
+
+                    row.Cells[0].Value = _unrealPackage.Objects.IndexOf(obj);
+
+                    foreach (var prop in obj.Properties)
+                    {
+                        var col = DataGrid.Columns.Cast<DataGridViewColumn>().Where(x => x.Name == prop.Name).First();
+
+                        if (col.CellType == typeof(DataGridViewButtonCell))
+                        {
+                            row.Cells[col.Index].Value = "View Data";
+                        }
+                        else
+                        {
+                            row.Cells[col.Index].Value = prop.GoodValue?.ToString() ?? "0x" + BitConverter.ToString(prop.ValueData).Replace("-", "");
+                        }
+                    }
+
+                    DataGrid.Rows.Add(row);
+                }
+            }
+
+
 
             DataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
         }

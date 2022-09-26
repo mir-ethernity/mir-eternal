@@ -36,11 +36,12 @@
             this.Menu_File_SaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.decryptFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.syncClientTextsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.donateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LblActiveFile = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.MainEditor = new Mir3DClientEditor.MainEditorControl();
-            this.syncClientTextsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.locateUPKNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -100,7 +101,8 @@
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.decryptFolderToolStripMenuItem,
-            this.syncClientTextsToolStripMenuItem});
+            this.syncClientTextsToolStripMenuItem,
+            this.locateUPKNameToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
@@ -110,6 +112,13 @@
             this.decryptFolderToolStripMenuItem.Name = "decryptFolderToolStripMenuItem";
             this.decryptFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.decryptFolderToolStripMenuItem.Text = "Decrypt Folder";
+            // 
+            // syncClientTextsToolStripMenuItem
+            // 
+            this.syncClientTextsToolStripMenuItem.Name = "syncClientTextsToolStripMenuItem";
+            this.syncClientTextsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.syncClientTextsToolStripMenuItem.Text = "Sync Client Texts";
+            this.syncClientTextsToolStripMenuItem.Click += new System.EventHandler(this.SyncClientTextsToolStripMenuItem_Click);
             // 
             // donateToolStripMenuItem
             // 
@@ -142,12 +151,12 @@
             this.MainEditor.Size = new System.Drawing.Size(1272, 625);
             this.MainEditor.TabIndex = 2;
             // 
-            // syncClientTextsToolStripMenuItem
+            // locateUPKNameToolStripMenuItem
             // 
-            this.syncClientTextsToolStripMenuItem.Name = "syncClientTextsToolStripMenuItem";
-            this.syncClientTextsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.syncClientTextsToolStripMenuItem.Text = "Sync Client Texts";
-            this.syncClientTextsToolStripMenuItem.Click += new System.EventHandler(this.SyncClientTextsToolStripMenuItem_Click);
+            this.locateUPKNameToolStripMenuItem.Name = "locateUPKNameToolStripMenuItem";
+            this.locateUPKNameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.locateUPKNameToolStripMenuItem.Text = "Locate UPK Name";
+            this.locateUPKNameToolStripMenuItem.Click += new System.EventHandler(this.locateUPKNameToolStripMenuItem_Click);
             // 
             // FMain
             // 
@@ -185,5 +194,6 @@
         private MainEditorControl MainEditor;
         private ToolStripMenuItem donateToolStripMenuItem;
         private ToolStripMenuItem syncClientTextsToolStripMenuItem;
+        private ToolStripMenuItem locateUPKNameToolStripMenuItem;
     }
 }

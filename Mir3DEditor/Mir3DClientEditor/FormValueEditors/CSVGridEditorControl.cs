@@ -764,6 +764,170 @@ namespace Mir3DClientEditor.FormValueEditors
             return obj;
         }
 
+        private Dictionary<string, object> ExportAchievement(DataGridViewRow row)
+        {
+            var obj = new Dictionary<string, object>();
+
+            obj.Add("Id", int.Parse((string)row.Cells["ID"].Value));
+            obj.Add("Name", (string)row.Cells["Name"].Value);
+            obj.Add("Desc", (string)row.Cells["Desc"].Value);
+
+            obj.Add("BaseClass", int.Parse((string)row.Cells["BaseClass"].Value));
+            obj.Add("SubClass", int.Parse((string)row.Cells["SubClass"].Value));
+            obj.Add("ResetType", int.Parse((string)row.Cells["ResetType"].Value));
+
+            obj.Add("AchievementPoints", int.Parse((string)row.Cells["AchievementPts"].Value));
+
+            var preAchievements = new List<int>();
+            var preId1 = int.Parse((string)row.Cells[$"PreAchievementID1"].Value);
+            var preId2 = int.Parse((string)row.Cells[$"PreAchievementID2"].Value);
+
+            if (preId1 > 0) preAchievements.Add(preId1);
+            if (preId2 > 0) preAchievements.Add(preId2);
+
+            if (preAchievements.Count > 0)
+                obj.Add("PreAchivements", preAchievements);
+
+            var conditions = new List<object>();
+
+            for (var i = 0; i <= 5; i++)
+            {
+                var desc = (string)row.Cells[$"ConditionDesc{i}"].Value;
+                var type = (string)row.Cells[$"ConditionType{i}"].Value;
+                var val1 = (string)row.Cells[$"ConditionValue{i}1"].Value;
+                var val2 = (string)row.Cells[$"ConditionValue{i}2"].Value;
+                var val3 = (string)row.Cells[$"ConditionValue{i}3"].Value;
+
+                var props = new Dictionary<string, object>();
+
+                switch (type)
+                {
+                    case "adInvalid":
+                        continue;
+                    case "adLevel":
+                        props.Add("Level", int.Parse(val1));
+                        break;
+                    case "adVariable":
+                        props.Add("Name", val1.Replace("avd", string.Empty));
+                        props.Add("Value", int.Parse(val2));
+                        break;
+                    case "adForceReputation":
+                        props.Add("Type", int.Parse(val1));
+                        props.Add("Value", int.Parse(val2));
+                        break;
+                    case "adSpellCount":
+                        props.Add("Count", int.Parse(val1));
+                        break;
+                    case "adSpellLevel":
+                        props.Add("Group", int.Parse(val1));
+                        props.Add("Level", int.Parse(val2));
+                        break;
+                    case "adRuneCarve":
+                        props.Add("Count", int.Parse(val1));
+                        break;
+                    case "adSpellLevelSpecified":
+                        props.Add("SpellId", int.Parse(val1));
+                        props.Add("Level", int.Parse(val2));
+                        break;
+                    case "adItemLuck":
+                        props.Add("Luck", int.Parse(val1));
+                        break;
+                    case "adEquip":
+                        props.Add("EquipmentId", int.Parse(val1));
+                        props.Add("Count", int.Parse(val2));
+                        break;
+                    case "adGetItem":
+                        props.Add("ItemId", int.Parse(val1));
+                        props.Add("Count", val2 == "0" ? 1 : int.Parse(val2));
+                        break;
+                    case "adAchievement":
+                        props.Add("AchievementId", int.Parse(val1));
+                        break;
+                    case "adBagSlotCount":
+                        props.Add("Count", int.Parse(val1));
+                        break;
+                    case "adBankSlotCount":
+                        props.Add("Count", int.Parse(val1));
+                        break;
+                    case "adTotalMoneyType":
+                        props.Add("MoneyTypeId", int.Parse(val1));
+                        props.Add("Total", int.Parse(val2));
+                        break;
+                    case "adFriendCount":
+                        props.Add("Count", int.Parse(val1));
+                        break;
+                    case "adFriendIntimacyCount":
+                        props.Add("CheckFriendsUnknown1", int.Parse(val1));
+                        props.Add("Count", int.Parse(val2));
+                        break;
+                    case "adPkValue":
+                        props.Add("Value", int.Parse(val1));
+                        break;
+                    case "adEnterScene":
+                        props.Add("MapId", int.Parse(val1));
+                        break;
+                    case "adRanklist":
+                        props.Add("Type", val1);
+                        props.Add("Position", int.Parse(val2));
+                        break;
+                    case "adEquipDress":
+                        props.Add("Type", val1);
+                        props.Add("Count", int.Parse(val2));
+                        break;
+                    case "adWrestleRank":
+                        props.Add("Position", int.Parse(val1));
+                        break;
+                    case "adDragonSoulEnable":
+                        props = null;
+                        break;
+                    case "adDragonSoulActiveRune":
+                        props.Add("Rune", int.Parse(val1));
+                        props.Add("Count", int.Parse(val2));
+                        break;
+                    default:
+                        throw new NotImplementedException();
+                }
+
+                conditions.Add(new
+                {
+                    Desc = desc,
+                    type = type.Replace("ad", string.Empty),
+                    Props = props
+                });
+            }
+
+            if (conditions.Count > 0)
+                obj.Add("Conditions", conditions);
+
+            var rewards = new List<object>();
+
+            for (var i = 0; i <= 2; i++)
+            {
+                var type = (string)row.Cells[$"RewardType{i}"].Value;
+                var id = int.Parse((string)row.Cells[$"RewardID{i}"].Value);
+
+                // QuestRewardType
+                switch (type)
+                {
+                    case "adtInvalid":
+                        continue;
+                    case "adtExp":
+                        rewards.Add(new { Type = "Exp", Id = id });
+                        break;
+                    case "adtTitle":
+                        rewards.Add(new { Type = "Title", Id = id });
+                        break;
+                    default:
+                        throw new NotImplementedException();
+                }
+            }
+
+            if (rewards.Count > 0)
+                obj.Add("Rewards", rewards);
+
+            return obj;
+        }
+
         private void ButtonExport_ButtonClick(object sender, EventArgs e)
         {
             using var ms = new MemoryStream();
@@ -804,6 +968,11 @@ namespace Mir3DClientEditor.FormValueEditors
                             nameField = 1;
                             obj = ExportItem(row);
                             break;
+                        case "achievement.txt":
+                            idField = 0;
+                            nameField = 1;
+                            obj = ExportAchievement(row);
+                            break;
                         default:
                             obj = new Dictionary<string, object>();
 
@@ -839,3 +1008,4 @@ namespace Mir3DClientEditor.FormValueEditors
         }
     }
 }
+

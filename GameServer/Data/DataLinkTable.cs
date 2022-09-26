@@ -54,6 +54,11 @@ namespace GameServer.Data
                 LinkCharacterQuestMissions.Enqueue(new 哈希关联参数<CharacterQuestMission>(数据, 字段, characterQuestConstraint, 数据索引));
                 return;
             }
+            if (内部列表 is ISet<AchievementData> achievement)
+            {
+                LinkAchievements.Enqueue(new 哈希关联参数<AchievementData>(数据, 字段, achievement, 数据索引));
+                return;
+            }
             MessageBox.Show("Failed to add hash association task");
         }
 
@@ -280,6 +285,34 @@ namespace GameServer.Data
                     }
                 }
             }
+            while (!LinkAchievements.IsEmpty)
+            {
+                哈希关联参数<AchievementData> achievements;
+                if (LinkAchievements.TryDequeue(out achievements) && achievements.数据索引 != 0)
+                {
+                    AchievementData achievement = GameDataGateway.Data型表[typeof(AchievementData)][achievements.数据索引] as AchievementData;
+                    if (achievement == null)
+                    {
+                        if (!dictionary.ContainsKey(achievements.数据.Data型))
+                        {
+                            dictionary[achievements.数据.Data型] = new Dictionary<string, int>();
+                        }
+                        if (!dictionary[achievements.数据.Data型].ContainsKey(achievements.字段.字段名字))
+                        {
+                            dictionary[achievements.数据.Data型][achievements.字段.字段名字] = 0;
+                        }
+                        Dictionary<string, int> dictionary7 = dictionary[achievements.数据.Data型];
+                        string 字段名字 = achievements.字段.字段名字;
+                        int num2 = dictionary7[字段名字];
+                        dictionary7[字段名字] = num2 + 1;
+                    }
+                    else
+                    {
+                        achievements.内部列表.Add(achievement);
+                        num++;
+                    }
+                }
+            }
             MainForm.AddSystemLog(string.Format("Data linkage tasks completed, total number of tasks: {0}", num));
 
             var totalErrors = dictionary.Sum((x) => x.Value.Sum((o) => o.Value));
@@ -300,6 +333,7 @@ namespace GameServer.Data
             字典任务表 = new ConcurrentQueue<字典关联参数>();
             哈希宠物表 = new ConcurrentQueue<哈希关联参数<PetData>>();
             哈希角色表 = new ConcurrentQueue<哈希关联参数<CharacterData>>();
+            LinkAchievements = new ConcurrentQueue<哈希关联参数<AchievementData>>();
             哈希邮件表 = new ConcurrentQueue<哈希关联参数<MailData>>();
             LinkCharacterQuests = new ConcurrentQueue<哈希关联参数<CharacterQuest>>();
             LinkCharacterQuestMissions = new ConcurrentQueue<哈希关联参数<CharacterQuestMission>>();
@@ -310,6 +344,7 @@ namespace GameServer.Data
         private static readonly ConcurrentQueue<DataLinkTable.字典关联参数> 字典任务表;
         private static readonly ConcurrentQueue<DataLinkTable.哈希关联参数<PetData>> 哈希宠物表;
         private static readonly ConcurrentQueue<DataLinkTable.哈希关联参数<CharacterData>> 哈希角色表;
+        private static readonly ConcurrentQueue<DataLinkTable.哈希关联参数<AchievementData>> LinkAchievements;
         private static readonly ConcurrentQueue<DataLinkTable.哈希关联参数<MailData>> 哈希邮件表;
         private static readonly ConcurrentQueue<DataLinkTable.哈希关联参数<CharacterQuest>> LinkCharacterQuests;
         private static readonly ConcurrentQueue<DataLinkTable.哈希关联参数<CharacterQuestMission>> LinkCharacterQuestMissions;

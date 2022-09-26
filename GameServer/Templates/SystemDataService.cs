@@ -39,6 +39,7 @@ namespace GameServer.Templates
                 typeof(MapChest),
                 typeof(GameQuests),
                 typeof(GameMounts),
+                typeof(GameAchievements)
             };
 
             Parallel.ForEach(types, (type) =>
@@ -72,6 +73,7 @@ namespace GameServer.Templates
                 typeof(MapChest),
                 typeof(GameQuests),
                 typeof(GameMounts),
+                typeof(GameAchievements)
            };
 
             foreach (var type in types)
