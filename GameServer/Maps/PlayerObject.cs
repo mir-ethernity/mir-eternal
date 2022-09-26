@@ -11144,7 +11144,82 @@ namespace GameServer.Maps
 
             return true;
         }
+        private bool ProcessConsumable高级祝福油(ItemData item)
+        {
+            if (!Equipment.TryGetValue(0, out var v5))
+            {
+                ActiveConnection?.SendPacket(new GameErrorMessagePacket
+                {
+                    错误代码 = 1927
+                });
+                return false;
+            }
+            if (v5.Luck.V >= 7)
+            {
+                ActiveConnection?.SendPacket(new GameErrorMessagePacket
+                {
+                    错误代码 = 1843
+                });
+                return false;
+            }
 
+            int num2 = 0;
+            num2 = v5.Luck.V switch
+            {
+                0 => 100,
+                1 => 100,
+                2 => 100,
+                3 => 100,
+                4 => 100,
+                5 => 100,
+                6 => 100,
+                _ => 80,
+            };
+
+            int num3 = MainProcess.RandomNumber.Next(100);
+
+            if (num3 < num2)
+            {
+                v5.Luck.V++;
+                ActiveConnection?.SendPacket(new 玩家物品变动
+                {
+                    物品描述 = v5.字节描述()
+                });
+                ActiveConnection?.SendPacket(new 武器幸运变化
+                {
+                    幸运变化 = 1
+                });
+                StatsBonus[v5] = v5.装备Stat;
+                RefreshStats();
+                if (v5.Luck.V >= 5)
+                {
+                    NetworkServiceGateway.SendAnnouncement($"[{ObjectName}] won on [{v5.Name}] Luck: {v5.Luck.V} .");
+                }
+            }
+            else if (num3 >= 95 && v5.Luck.V > -9)
+            {
+                v5.Luck.V--;
+                ActiveConnection?.SendPacket(new 玩家物品变动
+                {
+                    物品描述 = v5.字节描述()
+                });
+                ActiveConnection?.SendPacket(new 武器幸运变化
+                {
+                    幸运变化 = -1
+                });
+                StatsBonus[v5] = v5.装备Stat;
+                RefreshStats();
+            }
+            else
+            {
+                ActiveConnection?.SendPacket(new 武器幸运变化
+                {
+                    幸运变化 = 0
+                });
+            }
+
+            return true;
+        }
         private bool ProcessConsumableSwitchSkill(ItemData item)
         {
             if (!Equipment.TryGetValue(0, out var v4))
@@ -11268,6 +11343,9 @@ namespace GameServer.Maps
                     break;
                 case UsageType.Blessing:
                     processed = ProcessConsumableBlessing(item);
+                    break;
+                case UsageType.高级祝福油:
+                    processed = ProcessConsumable高级祝福油(item);
                     break;
                 case UsageType.SwitchSkill:
                     processed = ProcessConsumableSwitchSkill(item);
