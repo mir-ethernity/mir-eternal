@@ -509,63 +509,56 @@ namespace GameServer.Maps
 
         public virtual bool CanBeDisplaced(MapObject obj, Point location, int distance, int qty, bool throughtWall, out Point displacedLocation, out MapObject[] targets)
         {
-            displacedLocation = this.CurrentPosition;
+            displacedLocation = CurrentPosition;
             targets = null;
 
             if (!(CurrentPosition == location) && CanBePushed(obj))
             {
-                var list = new List<MapObject>();
+                List<MapObject> list = new List<MapObject>();
                 for (int i = 1; i <= distance; i++)
                 {
                     if (throughtWall)
                     {
                         Point point = ComputingClass.GetFrontPosition(CurrentPosition, location, i);
                         if (CurrentMap.CanPass(point))
-                            displacedLocation = point;
-                    }
-                    else
-                    {
-                        var direction = ComputingClass.GetDirection(CurrentPosition, location);
-                        var point = ComputingClass.GetFrontPosition(this.CurrentPosition, location, i);
-                        if (CurrentMap.IsBlocked(point)) break;
-
-                        if (!CurrentMap.CellBlocked(point))
                         {
-                            targets = list.ToArray();
                             displacedLocation = point;
-                            return displacedLocation != this.CurrentPosition;
                         }
-
-                        bool flag = false;
-
-                        var blockObjects = (from O in this.CurrentMap[point]
-                                            where O.Blocking
-                                            select O).ToList();
-
-                        foreach (var MapObject in blockObjects)
+                        continue;
+                    }
+                    GameDirection 方向 = ComputingClass.GetDirection(CurrentPosition, location);
+                    Point point2 = ComputingClass.GetFrontPosition(CurrentPosition, location, i);
+                    if (CurrentMap.IsBlocked(point2))
+                    {
+                        break;
+                    }
+                    bool flag = false;
+                    if (CurrentMap.CellBlocked(point2))
+                    {
+                        foreach (MapObject item in CurrentMap[point2].Where((MapObject O) => O.Blocking))
                         {
                             if (list.Count >= qty)
                             {
                                 flag = true;
                                 break;
                             }
-                            Point point3;
-                            MapObject[] collection;
-                            if (!MapObject.CanBeDisplaced(obj, ComputingClass.前方坐标(MapObject.CurrentPosition, direction, 1), 1, qty - list.Count - 1, false, out point3, out collection))
+                            if (!item.CanBeDisplaced(obj, ComputingClass.前方坐标(item.CurrentPosition, 方向, 1), 1, qty - list.Count - 1, throughtWall: false, out var _, out var targets2))
                             {
                                 flag = true;
                                 break;
                             }
-                            list.Add(MapObject);
-                            list.AddRange(collection);
+                            list.Add(item);
+                            list.AddRange(targets2);
                         }
-
-                        if (flag) break;
-                        targets = list.ToArray();
-                        displacedLocation = point;
-                        return displacedLocation != this.CurrentPosition;
                     }
+                    if (flag)
+                    {
+                        break;
+                    }
+                    displacedLocation = point2;
                 }
+                targets = list.ToArray();
+                return displacedLocation != CurrentPosition;
             }
             return false;
         }
