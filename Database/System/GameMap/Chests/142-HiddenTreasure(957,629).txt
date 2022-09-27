@@ -1,0 +1,6 @@
+{
+  "ChestId": 3475,
+  "MapId": 142,
+  "Coords": "957, 629",
+  "Direction": "左上"
+}
