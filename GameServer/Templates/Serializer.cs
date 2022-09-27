@@ -48,17 +48,25 @@ namespace GameServer.Templates
 
                 Parallel.ForEach(files, file =>
                 {
-                    string text = File.ReadAllText(file.FullName);
-                    foreach (KeyValuePair<string, string> keyValuePair in TypesOfSkill)
+                    try
                     {
-                        text = text.Replace(keyValuePair.Key, keyValuePair.Value);
-                    }
-                    var obj = JsonConvert.DeserializeObject<TItem>(text, JsonOptions);
+                        string text = File.ReadAllText(file.FullName);
+                        foreach (KeyValuePair<string, string> keyValuePair in TypesOfSkill)
+                        {
+                            text = text.Replace(keyValuePair.Key, keyValuePair.Value);
+                        }
+                        var obj = JsonConvert.DeserializeObject<TItem>(text, JsonOptions);
 
-                    if (obj != null)
-                    {
-                        output.Add(obj);
+                        if (obj != null)
+                        {
+                            output.Add(obj);
+                        }
                     }
+                    catch (Exception ex)
+                    {
+                        MainForm.AddSystemLog("file:" + file.FullName + "wrong,PlaeaseCheck");
+                    }
+
                 });
 
             }
