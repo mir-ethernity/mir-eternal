@@ -61,6 +61,7 @@ u328 328 0
 u337 337 0
 u368 368 2
 u273 273 3
+u371 371 6
 
 # Paquetes existentes modificados
 ObjectDropItemsPacket	150	34

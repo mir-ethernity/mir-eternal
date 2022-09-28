@@ -3,18 +3,14 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(Source = PacketSource.Server, Id = 148, Length = 0, Description = "SyncCurrencyQuantityPacket")]
+	[PacketInfo(Source = PacketSource.Server, Id = 148, Length = 0, Description = "SyncCurrencyQuantityPacket")]
 	public sealed class SyncCurrencyQuantityPacket : GamePacket
 	{
 		
-		public SyncCurrencyQuantityPacket()
-		{
-			
-			
-		}
-
+		[WrappingField(SubScript = 4, Length = 1)]
+		public byte U1 = 1;
 		
-		[WrappingFieldAttribute(SubScript = 5, Length = 0)]
+		[WrappingField(SubScript = 5, Length = 0)]
 		public byte[] 字节描述;
 	}
 }
