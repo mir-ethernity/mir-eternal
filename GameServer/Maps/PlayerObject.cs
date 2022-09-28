@@ -282,7 +282,7 @@ namespace GameServer.Maps
             // 同步节点数据 (Sync Node Data)
             var u2 = new byte[] { 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 2, 0, 0, 2, 0, 0, 0, 2, 1, 0, 0, 2, 2, 0, 0, 3, 0, 0, 0, 3, 1, 0, 0, 3, 2, 0, 0, 4, 0, 0, 0, 4, 1, 0, 0, 4, 2, 0, 0, 5, 0, 0, 0, 5, 1, 0, 0, 5, 2, 0, 0, 6, 0, 0, 0, 6, 1, 0, 0, 6, 2, 0, 0, 7, 0, 0, 0, 7, 1, 0, 0, 7, 2, 0, 0, 8, 0, 0, 0, 8, 1, 0, 0, 8, 2, 0, 0, 9, 0, 0, 0, 9, 1, 0, 0, 9, 2, 0, 0, 10, 0, 0, 0, 10, 1, 0, 0, 10, 2, 0, 0, 11, 0, 0, 0, 11, 1, 0, 0, 11, 2, 0, 0, 12, 0, 0, 0, 12, 1, 0, 0, 12, 2, 0, 0, 13, 0, 0, 0, 13, 1, 0, 0, 13, 2, 0, 0, 14, 0, 0, 0, 14, 1, 0, 0, 14, 2, 0, 0, 15, 0, 0, 0, 15, 1, 0, 0, 15, 2, 0, 0, 16, 0, 0, 0, 16, 1, 0, 0, 16, 2, 0, 0, 17, 0, 0, 0, 17, 1, 0, 0, 17, 2, 0, 0, 18, 0, 0, 0, 18, 1, 0, 0, 18, 2, 0, 0, 19, 0, 0, 0, 19, 1, 0, 0, 19, 2 };
             for (var i = 0; i < u2.Length; i++)
-                u2[i] = 255;
+                u2[i] = 0;
             ActiveConnection.SendRaw(296, 0, u2);
 
             // Sync Quest Progress
@@ -1084,8 +1084,6 @@ namespace GameServer.Maps
             using (var ms = new MemoryStream())
             using (var bw = new BinaryWriter(ms))
             {
-                var now = (ushort)ComputingClass.DateShift(DateTime.Now);
-
                 var buff = new byte[] {
                     8, 0, 0, 0, 8, 0, 0, 0,
                     0, 0, 46, 75, 46, 75, 0, 0, 0, 0, 0, 0, 46, 75, 0, 0, 0, 0, 46, 75, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -1147,7 +1145,7 @@ namespace GameServer.Maps
                 var maxId = GameAchievements.DataSheet.Values.Max(x => x.Id);
 
                 for (ushort i = 0; i < maxId; i++)
-                    bw.Write(CharacterData.Achievements.TryGetValue(i, out var data) ? ComputingClass.DateShift(data.CompletedAt.V) : 0);
+                    bw.Write(CharacterData.Achievements.TryGetValue(i, out var data) ? ComputingClass.DateShift(data.CompletedAt.V) : (ushort)0);
 
                 // Indicamos si el reward se ha aceptado
                 ms.Seek(1032, SeekOrigin.Begin);
@@ -1203,8 +1201,8 @@ namespace GameServer.Maps
                 bw.Write(new byte[] { 255, 255, 255, 225 });
 
                 var u1 = new byte[] { 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 44, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 185, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-                for (var i = 0; i < u1.Length; i++)
-                    u1[i] = 255;
+                //for (var i = 0; i < u1.Length; i++)
+                //    u1[i] = 0;
 
                 bw.Write(u1);
 
@@ -1213,8 +1211,8 @@ namespace GameServer.Maps
                 bw.Seek(1433, SeekOrigin.Begin);
                 bw.Write(new byte[] { 255, 255, 255, 225 });
 
-                for (var i = 0; i < (1577 - 1437); i++)
-                    bw.Write((byte)255);
+                //for (var i = 0; i < (1577 - 1437); i++)
+                //    bw.Write((byte)255);
 
                 bw.Seek(1577, SeekOrigin.Begin);
 
