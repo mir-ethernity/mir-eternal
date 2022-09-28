@@ -3,14 +3,10 @@
 namespace GameServer.Networking
 {
 	
-	[PacketInfoAttribute(Source = PacketSource.Server, Id = 90, Length = 4, Description = "CharacterRemoveSkillPacket")]
+	[PacketInfo(Source = PacketSource.Server, Id = 90, Length = 4, Description = "CharacterRemoveSkillPacket")]
 	public sealed class CharacterRemoveSkillPacket : GamePacket
 	{
-		
-		public CharacterRemoveSkillPacket()
-		{
-			
-			
-		}
-	}
+        [WrappingField(SubScript = 2, Length = 2)]
+        public ushort SkillId;
+    }
 }

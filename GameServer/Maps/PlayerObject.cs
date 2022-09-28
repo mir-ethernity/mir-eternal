@@ -13,6 +13,7 @@ using GamePackets.Server;
 using Models.Enums;
 using System.Collections;
 using System.CodeDom;
+using System.Windows.Forms;
 
 namespace GameServer.Maps
 {
@@ -20799,6 +20800,40 @@ namespace GameServer.Maps
             return result;
         }
 
+        public bool RemoveSkill(ushort skillId)
+        {
+            if (!MainSkills表.ContainsKey(skillId))
+                return false;
+
+            foreach (ushort passiveSkillId in MainSkills表[skillId].PassiveSkill)
+                PassiveSkill.Remove(passiveSkillId);
+
+            foreach (ushort buffId in MainSkills表[skillId].技能Buff)
+                移除Buff时处理(buffId);
+
+            CombatBonus[MainSkills表[skillId]] = MainSkills表[skillId].CombatBonus;
+            更新玩家战力();
+
+            StatsBonus[MainSkills表[skillId]] = MainSkills表[skillId].Stat加成;
+            RefreshStats();
+
+            MainSkills表.Remove(skillId);
+
+            var shorcuts = ShorcutField.ToArray();
+
+            foreach (var data in shorcuts)
+            {
+                if (data.Value.SkillId.V == skillId)
+                    ShorcutField.Remove(data.Key);
+            }
+
+            ActiveConnection?.SendPacket(new CharacterRemoveSkillPacket
+            {
+                SkillId = skillId
+            });
+
+            return true;
+        }
 
         public CharacterData CharacterData;
 
