@@ -64,7 +64,7 @@ namespace GameServer.Templates
                     }
                     catch (Exception ex)
                     {
-                        MainForm.AddSystemLog("file:" + file.FullName + "wrong,PlaeaseCheck");
+                        MainForm.AddSystemLog($"Error loading file '{file.FullName}', Ex: {ex.Message}");
                     }
 
                 });
