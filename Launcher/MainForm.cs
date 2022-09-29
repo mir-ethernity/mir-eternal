@@ -178,7 +178,7 @@ namespace Launcher
                             GameServerList.Items.Add(array3[2]);
                         }
                         MainTab.SelectedIndex = 3;
-                        Settings.Default.SaveAccount = array[2];
+                        Settings.Default.SaveAccount = text2;
                         Settings.Default.Save();
                         break;
                     }
