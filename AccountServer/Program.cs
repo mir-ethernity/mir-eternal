@@ -1,5 +1,7 @@
-﻿using AccountServer.Properties;
+﻿using AccountServer.Extensions;
+using AccountServer.Properties;
 using AccountServer.Repositories;
+using AccountServer.Repositories.JSON;
 using AccountServer.Services;
 using AccountServer.Services.Default;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,6 +40,7 @@ namespace AccountServer
                          .AddSingleton<SEnvir>()
                          .AddSingleton<MainForm>()
                          .AddSingleton<IAppConfiguration, SettingsConfiguration>()
+                         .AddSingleton<IStatsService, StatsService>()
                          .AddSingleton<Network>();
 
                      switch (Settings.Default.DBType)

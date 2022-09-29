@@ -24,7 +24,7 @@ namespace AccountServer.Services.Default
         {
             return _loggers.GetOrAdd(categoryName, name =>
             {
-                return new FormLogger(_services.GetService<MainForm>(), name);
+                return new FormLogger(_services.GetService<Lazy<MainForm>>(), name);
             });
         }
 

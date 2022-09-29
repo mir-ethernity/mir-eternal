@@ -9,10 +9,10 @@ namespace AccountServer.Services.Default
 {
     public class FormLogger : ILogger
     {
-        private readonly MainForm _form;
+        private readonly Lazy<MainForm> _form;
         private string _name;
 
-        public FormLogger(MainForm form, string name)
+        public FormLogger(Lazy<MainForm> form, string name)
         {
             _form = form ?? throw new ArgumentNullException(nameof(form));
             _name = name;
@@ -29,7 +29,8 @@ namespace AccountServer.Services.Default
         {
             if (!IsEnabled(logLevel)) return;
 
-            _form.LogInTextBox.AppendText($"[{logLevel}][{_name}] - {DateTime.Now:HH:mm:ss} - {formatter(state, exception)}{Environment.NewLine}");
+            _form.Value.LogInTextBox.AppendText($"[{logLevel}][{_name}] - {DateTime.Now:HH:mm:ss} - {formatter(state, exception)}{Environment.NewLine}");
+            _form.Value.LogInTextBox.ScrollToCaret();
         }
     }
 }

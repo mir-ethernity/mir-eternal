@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace AccountServer.Repositories
 {
-    internal interface IAccountRepository
+    public interface IAccountRepository
     {
+        Task<bool> ExistsAccount(string account);
+        Task<AccountData> GetByName(string accountName);
+        Task RegisterAccount(AccountData account);
+        Task UpdatePassword(string accountName, string newPassword);
     }
 }

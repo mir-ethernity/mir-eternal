@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AccountServer
+namespace AccountServer.Services
 {
     public class WinFormHostService : IHostedService
     {

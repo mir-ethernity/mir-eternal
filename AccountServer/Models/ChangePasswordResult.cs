@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccountServer.Repositories
+namespace AccountServer.Models
 {
-    public class AccountJsonRepository : IAccountRepository
+    public enum ChangePasswordResult
     {
+        Success = 0,
+        AccountNotExistsOrWrongPassword = 1
     }
 }

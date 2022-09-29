@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace AccountServer
+namespace AccountServer.Models
 {
     public struct PacketData
     {
