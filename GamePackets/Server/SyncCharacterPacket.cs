@@ -78,8 +78,17 @@ namespace GameServer.Networking
         [WrappingField(SubScript = 153, Length = 1)]
         public bool BrownName = false;
 
-        [WrappingField(SubScript = 154, Length = 16)]
-        public byte[] Unknown7 = new byte[16];
+        [WrappingField(SubScript = 154, Length = 4)]
+        public int AwakeningExp;
+
+        [WrappingField(SubScript = 158, Length = 4)]
+        public int Unknown8;
+
+        [WrappingField(SubScript = 162, Length = 4)]
+        public int MaxAwakeningExp;
+
+        [WrappingField(SubScript = 166, Length = 4)]
+        public int Unknown7;
 
         [WrappingField(SubScript = 170, Length = 2)]
         public ushort EquipRepairDto;
