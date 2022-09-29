@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AccountServer.Services;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Concurrent;
 using System.Net;
 using System.Net.Sockets;
@@ -6,19 +8,35 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AccountServer
 {
-    public sealed partial class Network
+    public class Network
     {
-        public static UdpClient LocalServer;
-        public static ConcurrentQueue<PacketData> IncomingQueue;
-        public static bool Start()
+        public UdpClient LocalServer;
+        public ConcurrentQueue<PacketData> IncomingQueue;
+        private readonly IAccountService _accountService;
+        private readonly IAppConfiguration _settings;
+        private readonly Lazy<MainForm> _form;
+
+        public Network(
+            IAccountService accountService,
+            IAppConfiguration settings,
+            Lazy<MainForm> form // TODO: Refactor to remove this dep
+        )
+        {
+            _accountService = accountService ?? throw new ArgumentNullException(nameof(accountService));
+            _settings = settings ?? throw new ArgumentNullException(nameof(settings));
+            _form = form;
+        }
+
+        public bool Start()
         {
             bool result;
             try
             {
-                LocalServer = new UdpClient(new IPEndPoint(IPAddress.Any, (int)((ushort)MainForm.Singleton.txtASPort.Value)));
+                LocalServer = new UdpClient(new IPEndPoint(IPAddress.Any, _settings.AccountServerPort));
                 IncomingQueue = new ConcurrentQueue<PacketData>();
                 Task.Run(delegate ()
                 {
@@ -36,25 +54,25 @@ namespace AccountServer
                             packet.ReceivedData = LocalServer.Receive(ref packet.ClientAddress);
                             if (packet.ReceivedData.Length > 1024)
                             {
-                                MainForm.AddLog(string.Format("Excessively long packet received Address: {0}, Length: {1}", packet.ClientAddress, packet.ReceivedData.Length));
+                                _form.Value.AddLog(string.Format("Excessively long packet received Address: {0}, Length: {1}", packet.ClientAddress, packet.ReceivedData.Length));
                             }
                             else
                             {
                                 IncomingQueue.Enqueue(packet);
-                                MainForm.TotalBytesReceived += (long)packet.ReceivedData.Length;
-                                MainForm.UpdateTotalBytesReceived();
+                                _form.Value.TotalBytesReceived += (long)packet.ReceivedData.Length;
+                                _form.Value.UpdateTotalBytesReceived();
                             }
                         }
                         catch (Exception ex2)
                         {
-                            MainForm.AddLog("An error ocurred receiving data: " + ex2.Message);
+                            _form.Value.AddLog("An error ocurred receiving data: " + ex2.Message);
                         }
                     }
                 });
 
                 Task.Run(delegate ()
                 {
-                    MainForm.AddLog("--- [ Ready to Process Client Requests ] ---");
+                    _form.Value.AddLog("--- [ Ready to Process Client Requests ] ---");
                     while (LocalServer != null)
                     {
                         try
@@ -72,7 +90,7 @@ namespace AccountServer
                             int num;
                             if (array.Length <= 3 || !int.TryParse(array[0], out num))
                             {
-                                MainForm.AddLog(string.Format("Bad Packet Received, Address: {0}, Length: {1}", packet.ClientAddress, packet.ReceivedData.Length));
+                                _form.Value.AddLog(string.Format("Bad Packet Received, Address: {0}, Length: {1}", packet.ClientAddress, packet.ReceivedData.Length));
                             }
                             else
                             {
@@ -85,23 +103,23 @@ namespace AccountServer
                                         {
                                             if (!(a == "3"))
                                             {
-                                                MainForm.AddLog(string.Format("Undefined packet received address: {0}, length: {1}", packet.ClientAddress, packet.ReceivedData.Length));
+                                                _form.Value.AddLog(string.Format("Undefined packet received address: {0}, length: {1}", packet.ClientAddress, packet.ReceivedData.Length));
                                             }
                                             else if (array.Length == 6)
                                             {
                                                 AccountData accountData;
                                                 IPEndPoint address;
-                                                if (!MainForm.AccountData.TryGetValue(array[2], out accountData) || array[3] != accountData.Password)
+                                                if (!_form.Value.AccountData.TryGetValue(array[2], out accountData) || array[3] != accountData.Password)
                                                 {
                                                     SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(array[0] + " 7 wrong user name or password"));
                                                 }
-                                                else if (!MainForm.ServerData.TryGetValue(array[4], out address))
+                                                else if (!_form.Value.ServerData.TryGetValue(array[4], out address))
                                                 {
                                                     SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(array[0] + " 7 server not found"));
                                                 }
                                                 else
                                                 {
-                                                    string text = AccountData.GenerateTickets();
+                                                    string text = _accountService.GenerateTickets();
                                                     SendTicket(address, text, array[2]);
                                                     SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(string.Concat(new string[]
                                                     {
@@ -113,9 +131,9 @@ namespace AccountServer
                                                             " ",
                                                             text
                                                     })));
-                                                    MainForm.AddLog("Successfully Generated Tickets! Account: " + array[2] + " - " + text);
-                                                    MainForm.TotalTickets += 1U;
-                                                    MainForm.UpdateTotalTickets();
+                                                    _form.Value.AddLog("Successfully Generated Tickets! Account: " + array[2] + " - " + text);
+                                                    _form.Value.TotalTickets += 1U;
+                                                    _form.Value.UpdateTotalTickets();
                                                 }
                                             }
                                         }
@@ -126,7 +144,7 @@ namespace AccountServer
                                             {
                                                 SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(array[0] + " 5 wrong password length"));
                                             }
-                                            else if (!MainForm.AccountData.TryGetValue(array[2], out accountData))
+                                            else if (!_form.Value.AccountData.TryGetValue(array[2], out accountData))
                                             {
                                                 SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(array[0] + " 5 Account does not exist"));
                                             }
@@ -141,7 +159,7 @@ namespace AccountServer
                                             else
                                             {
                                                 accountData.Password = array[3];
-                                                MainForm.SaveAccount(accountData);
+                                                _form.Value.SaveAccount(accountData);
                                                 SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(string.Concat(new string[]
                                                 {
                                                         array[0],
@@ -150,7 +168,7 @@ namespace AccountServer
                                                         " ",
                                                         array[2]
                                                 })));
-                                                MainForm.AddLog("Password Changed on Account: " + array[1]);
+                                                _form.Value.AddLog("Password Changed on Account: " + array[1]);
                                             }
                                         }
                                     }
@@ -180,13 +198,13 @@ namespace AccountServer
                                         {
                                             SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(array[0] + " 3 Username format error"));
                                         }
-                                        else if (MainForm.AccountData.ContainsKey(array[2]))
+                                        else if (_form.Value.AccountData.ContainsKey(array[2]))
                                         {
                                             SendData(packet.ClientAddress, Encoding.UTF8.GetBytes("3 Username already exists"));
                                         }
                                         else
                                         {
-                                            MainForm.AddAccount(new AccountData(array[2], array[3], array[4], array[5]));
+                                            _form.Value.AddAccount(new AccountData(array[2], array[3], array[4], array[5]));
                                             SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(string.Concat(new string[]
                                             {
                                                     array[0],
@@ -195,16 +213,16 @@ namespace AccountServer
                                                     " ",
                                                     array[3]
                                             })));
-                                            MainForm.AddLog("New Account Created: " + array[2]);
-                                            MainForm.TotalNewAccounts += 1U;
-                                            MainForm.UpdateRegisteredAccounts();
+                                            _form.Value.AddLog("New Account Created: " + array[2]);
+                                            _form.Value.TotalNewAccounts += 1U;
+                                            _form.Value.UpdateRegisteredAccounts();
                                         }
                                     }
                                 }
                                 else if (array.Length == 4)
                                 {
                                     AccountData AccountData3;
-                                    if (!MainForm.AccountData.TryGetValue(array[2], out AccountData3) || array[3] != AccountData3.Password)
+                                    if (!_form.Value.AccountData.TryGetValue(array[2], out AccountData3) || array[3] != AccountData3.Password)
                                     {
                                         SendData(packet.ClientAddress, Encoding.UTF8.GetBytes(array[0] + " 1 wrong user name or password"));
                                     }
@@ -218,25 +236,25 @@ namespace AccountServer
                                                 " ",
                                                 array[3],
                                                 " ",
-                                                MainForm.GameServerArea
+                                                _form.Value.GameServerArea
                                         })));
-                                        MainForm.AddLog("Account login successful! Account: " + array[2]);
+                                        _form.Value.AddLog("Account login successful! Account: " + array[2]);
                                     }
                                 }
                             }
                         }
                         catch (Exception ex2)
                         {
-                            MainForm.AddLog("Packet processing error: " + ex2.Message);
+                            _form.Value.AddLog("Packet processing error: " + ex2.Message);
                         }
                     }
-                    MainForm.AddLog("Stopped Processing Client Requests.");
+                    _form.Value.AddLog("Stopped Processing Client Requests.");
                 });
                 result = true;
             }
             catch (Exception ex)
             {
-                MainForm.AddLog(ex.Message);
+                _form.Value.AddLog(ex.Message);
                 UdpClient udpClient = LocalServer;
                 if (udpClient != null)
                 {
@@ -247,7 +265,7 @@ namespace AccountServer
             }
             return result;
         }
-        public static void Stop()
+        public void Stop()
         {
             UdpClient udpClient = LocalServer;
             if (udpClient != null)
@@ -256,10 +274,10 @@ namespace AccountServer
             }
             LocalServer = null;
         }
-        public static void SendData(IPEndPoint address, byte[] data)
+        public void SendData(IPEndPoint address, byte[] data)
         {
-            MainForm.TotalBytesSended += (long)data.Length;
-            MainForm.UpdateTotalBytesSended();
+            _form.Value.TotalBytesSended += (long)data.Length;
+            _form.Value.UpdateTotalBytesSended();
 
             if (LocalServer != null)
             {
@@ -269,23 +287,23 @@ namespace AccountServer
                 }
                 catch (Exception ex)
                 {
-                    MainForm.AddLog("Error sending data: " + ex.Message);
+                    _form.Value.AddLog("Error sending data: " + ex.Message);
                 }
             }
         }
-        public static void SendTicket(IPEndPoint address, string packet, string account)
+        public void SendTicket(IPEndPoint address, string packet, string account)
         {
-            MainForm.TotalTickets += 1U;
+            _form.Value.TotalTickets += 1U;
             byte[] bytes = Encoding.UTF8.GetBytes(packet + ";" + account);
             if (LocalServer != null)
             {
                 try
                 {
-                    LocalServer.Send(bytes, bytes.Length, new IPEndPoint(address.Address, (int)((ushort)MainForm.Singleton.txtTSPort.Value)));
+                    LocalServer.Send(bytes, bytes.Length, new IPEndPoint(address.Address, _settings.LoginGatePort));
                 }
                 catch (Exception ex)
                 {
-                    MainForm.AddLog("Error sending packet: " + ex.Message);
+                    _form.Value.AddLog("Error sending packet: " + ex.Message);
                 }
             }
         }

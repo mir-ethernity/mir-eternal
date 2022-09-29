@@ -8,17 +8,25 @@ using System.Net;
 using System.Text;
 using System.Windows.Forms;
 using AccountServer.Properties;
+using AccountServer.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AccountServer
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        public MainForm(
+            Lazy<Network> network, // TODO: Refactor to remove this dep
+            IAppConfiguration config
+        )
         {
+            _config = config ?? throw new ArgumentNullException(nameof(config));
+            _network = network ?? throw new ArgumentNullException(nameof(network));
+
             InitializeComponent();
-            Singleton = this;
-            txtTSPort.Value = Settings.Default.TSPort;
-            txtASPort.Value = Settings.Default.ASPort;
+
+            txtTSPort.Value = _config.LoginGatePort;
+            txtASPort.Value = _config.AccountServerPort;
 
             if (!File.Exists(".\\server"))
             {
@@ -29,82 +37,51 @@ namespace AccountServer
                 LogInTextBox.AppendText("Account configuration folder not found, please note import\r\n");
             }
         }
-        public static void UpdateTotalNewAccounts()
+        public void UpdateTotalAccounts()
         {
-            MainForm MainForm = Singleton;
-            if (MainForm == null)
+            BeginInvoke(new MethodInvoker(delegate ()
             {
-                return;
-            }
-            MainForm.BeginInvoke(new MethodInvoker(delegate ()
-            {
-                Singleton.lblRegisteredAccounts.Text = string.Format("Total Accounts: {0}", AccountData.Count);
+                lblRegisteredAccounts.Text = string.Format("Total Accounts: {0}", AccountData.Count);
             }));
         }
-        public static void UpdateRegisteredAccounts()
+        public void UpdateRegisteredAccounts()
         {
-            MainForm MainForm = Singleton;
-            UpdateTotalNewAccounts();
-
-            if (MainForm == null)
+            UpdateTotalAccounts();
+            BeginInvoke(new MethodInvoker(delegate ()
             {
-                return;
-            }
-            MainForm.BeginInvoke(new MethodInvoker(delegate ()
-            {
-                Singleton.lblNewAccounts.Text = string.Format("New Accounts: {0}", TotalNewAccounts);
+                lblNewAccounts.Text = string.Format("New Accounts: {0}", TotalNewAccounts);
             }));
         }
-        public static void UpdateTotalTickets()
+        public void UpdateTotalTickets()
         {
-            MainForm MainForm = Singleton;
-            if (MainForm == null)
+            BeginInvoke(new MethodInvoker(delegate ()
             {
-                return;
-            }
-            MainForm.BeginInvoke(new MethodInvoker(delegate ()
-            {
-                Singleton.lblTicketsCount.Text = string.Format("Tickets Generated {0}", TotalTickets);
+                lblTicketsCount.Text = string.Format("Tickets Generated {0}", TotalTickets);
             }));
         }
-        public static void UpdateTotalBytesReceived()
+        public void UpdateTotalBytesReceived()
         {
-            MainForm MainForm = Singleton;
-            if (MainForm == null)
+            BeginInvoke(new MethodInvoker(delegate ()
             {
-                return;
-            }
-            MainForm.BeginInvoke(new MethodInvoker(delegate ()
-            {
-                Singleton.lblBytesReceived.Text = string.Format("Bytes Received: {0}", TotalBytesReceived);
+                lblBytesReceived.Text = string.Format("Bytes Received: {0}", TotalBytesReceived);
             }));
         }
-        public static void UpdateTotalBytesSended()
+        public void UpdateTotalBytesSended()
         {
-            MainForm MainForm = Singleton;
-            if (MainForm == null)
+            BeginInvoke(new MethodInvoker(delegate ()
             {
-                return;
-            }
-            MainForm.BeginInvoke(new MethodInvoker(delegate ()
-            {
-                Singleton.lblBytesSend.Text = string.Format("Bytes Sent: {0}", TotalBytesSended);
+                lblBytesSend.Text = string.Format("Bytes Sent: {0}", TotalBytesSended);
             }));
         }
-        public static void AddLog(string contents)
+        public void AddLog(string contents)
         {
-            MainForm MainForm = Singleton;
-            if (MainForm == null)
+            BeginInvoke(new MethodInvoker(delegate ()
             {
-                return;
-            }
-            MainForm.BeginInvoke(new MethodInvoker(delegate ()
-            {
-                Singleton.LogInTextBox.AppendText(contents + "\r\n");
-                Singleton.LogInTextBox.ScrollToCaret();
+                LogInTextBox.AppendText(contents + "\r\n");
+                LogInTextBox.ScrollToCaret();
             }));
         }
-        public static void AddAccount(AccountData account)
+        public void AddAccount(AccountData account)
         {
             if (!AccountData.ContainsKey(account.Account))
             {
@@ -112,7 +89,7 @@ namespace AccountServer
                 SaveAccount(account);
             }
         }
-        public static void SaveAccount(AccountData account)
+        public void SaveAccount(AccountData account)
         {
             File.WriteAllText(DataDirectory + "\\" + account.Account + ".txt", Serializer.Serialize(account));
         }
@@ -131,7 +108,7 @@ namespace AccountServer
             {
                 LoadAccount_Click(sender, e);
             }
-            if (Network.Start())
+            if (_network.Value.Start())
             {
                 btnStop.Enabled = true;
                 btnLoadConfig.Enabled = (btnLoadAccount.Enabled = false);
@@ -145,7 +122,7 @@ namespace AccountServer
         }
         private void Stop_Click(object sender, EventArgs e)
         {
-            Network.Stop();
+            _network.Value.Stop();
             btnStop.Enabled = false;
             btnLoadConfig.Enabled = (btnLoadAccount.Enabled = true);
             btnStart.Enabled = (txtASPort.Enabled = (txtTSPort.Enabled = true));
@@ -191,7 +168,7 @@ namespace AccountServer
         {
             if (MessageBox.Show("Do you want to ShutDown the AccountServer?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                Network.Stop();
+                _network.Value.Stop();
                 MinimizeTray.Visible = false;
                 Environment.Exit(0);
             }
@@ -221,7 +198,7 @@ namespace AccountServer
                     }
                     ServerData.Add(array2[2], new IPEndPoint(IPAddress.Parse(array2[0]), Convert.ToInt32(array2[1])));
                 }
-                AddLog("Network Configuration Loaded: "+ GameServerArea);
+                AddLog("Network Configuration Loaded: " + GameServerArea);
             }
         }
         private void ViewAccount_Click(object sender, EventArgs e)
@@ -255,14 +232,15 @@ namespace AccountServer
             AddLog(string.Format("Accounts Loaded: {0}", AccountData.Count));
             lblRegisteredAccounts.Text = string.Format("Total Accounts: {0}", AccountData.Count);
         }
-        public static uint TotalNewAccounts;
-        public static uint TotalTickets;
-        public static long TotalBytesReceived;
-        public static long TotalBytesSended;
-        public static MainForm Singleton;
-        public static string GameServerArea = "";
-        public static string DataDirectory = ".\\Accounts";
-        public static Dictionary<string, AccountData> AccountData;
-        public static Dictionary<string, IPEndPoint> ServerData;
+        public uint TotalNewAccounts;
+        public uint TotalTickets;
+        public long TotalBytesReceived;
+        public long TotalBytesSended;
+        private readonly IAppConfiguration _config;
+        private readonly Lazy<Network> _network;
+        public string GameServerArea = "";
+        public string DataDirectory = ".\\Accounts";
+        public Dictionary<string, AccountData> AccountData;
+        public Dictionary<string, IPEndPoint> ServerData;
     }
 }
