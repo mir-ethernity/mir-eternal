@@ -2,12 +2,9 @@
 
 namespace AccountServer
 {
-    public sealed partial class Network
+    public struct PacketData
     {
-        public struct PacketData
-        {
-            public IPEndPoint ClientAddress;
-            public byte[] ReceivedData;
-        }
+        public IPEndPoint ClientAddress;
+        public byte[] ReceivedData;
     }
 }
