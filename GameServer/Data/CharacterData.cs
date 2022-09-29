@@ -959,5 +959,9 @@ namespace GameServer.Data
         public readonly DataMonitor<ushort> CurrentMount;
 
         public readonly HashMonitor<CharacterQuest> Quests;
+
+        public readonly DataMonitor<bool> AwakeningExpEnabled;
+
+        public readonly DataMonitor<int> AwakeningExp;
     }
 }

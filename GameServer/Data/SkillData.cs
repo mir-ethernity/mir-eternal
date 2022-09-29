@@ -98,7 +98,7 @@ namespace GameServer.Data
 		}
 
 		
-		public ushort 升级经验
+		public int 升级经验
 		{
 			get
 			{

@@ -380,14 +380,24 @@ namespace GameServer.Networking
         {
         }
 
-        public void 处理封包(ToggleAwekeningExpPacket P)
+        public void 处理封包(ToggleAwakeningExpPacket P)
         {
             if (this.CurrentStage != GameStage.PlayingScene)
             {
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
                 return;
             }
-            // TODO: Pending implement
+            Player.ToggleAwakeningExp(P.Enabled);
+        }
+
+        public void 处理封包(UpgradeAwakeningSkillPacket P)
+        {
+            if (this.CurrentStage != GameStage.PlayingScene)
+            {
+                this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
+                return;
+            }
+            Player.UpgradeAwakeningSkill(P.SkillId);
         }
 
         public void 处理封包(RequestLockStoragePacket P)
