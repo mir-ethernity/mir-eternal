@@ -644,6 +644,13 @@ namespace GameServer.Maps
                 .FirstOrDefault();
 
             if (npc == null)
+            {
+                npc = map.守卫区域
+                   .Where(x => x.GuardNumber == questInfo.StartNPCID)
+                   .FirstOrDefault();
+            }
+
+            if (npc == null)
                 return;
 
             if (questInfo.TeleportCostId > 0)
@@ -940,7 +947,7 @@ namespace GameServer.Maps
             if (questInfo.StartNPCMap > 0 && CurrentMap.MapId != questInfo.StartNPCMap)
                 return false;
 
-            if (questInfo.StartsNPCID > 0 && 对话守卫.MobId != questInfo.StartsNPCID)
+            if (questInfo.StartNPCID > 0 && 对话守卫.MobId != questInfo.StartNPCID)
                 return false;
 
             var completedQuests = CharacterData.Quests

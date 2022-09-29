@@ -25,7 +25,7 @@ namespace GameServer.Templates
         public QuestRelationLimit RelationLimit;
 
         public int StartNPCMap;
-        public int StartsNPCID;
+        public int StartNPCID;
         public int FinishNPCID;
         public int AutoStartNextID;
         public int MaxCompleteCount;
