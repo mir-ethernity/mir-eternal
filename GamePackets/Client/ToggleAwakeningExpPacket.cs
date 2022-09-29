@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 namespace GamePackets.Client
 {
     [PacketInfo(Source = PacketSource.Client, Id = 225, Length = 3, Description = "ToggleAwekeningExpPacket")]
-    public class ToggleAwekeningExpPacket : GamePacket
+    public class ToggleAwakeningExpPacket : GamePacket
     {
 
-        public byte Enabled;
+        public bool Enabled;
     }
 }
