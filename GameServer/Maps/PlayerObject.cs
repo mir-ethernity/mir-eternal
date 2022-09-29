@@ -200,6 +200,7 @@ namespace GameServer.Maps
             {
                 this.CurrentMap = MapGatewayProcess.GetMapInstance(CharacterData.CurrentMap.V);
             }
+
             this.更新玩家战力();
             this.RefreshStats();
             UpdateAchievementProgress();
@@ -264,7 +265,7 @@ namespace GameServer.Maps
                 变量类型 = 1,
                 对象编号 = this.ObjectId,
                 变量索引 = 50, // unlock awekening skills tab
-                变量内容 = 3616,
+                变量内容 = CharacterData.AwakeningExpEnabled.V ? 3680 : 3616,
             });
 
             // unknown
@@ -433,6 +434,8 @@ namespace GameServer.Maps
                 CurrentTime = ComputingClass.TimeShift(MainProcess.CurrentTime),
                 MaxLevel = (ushort)Config.MaxLevel,
                 EquipRepairDto = (ushort)(Config.EquipRepairDto * 10000m),
+                AwakeningExp = CharacterData.AwakeningExp.V,
+                MaxAwakeningExp = Config.MaxAwakeningExp
             });
 
 
@@ -3095,7 +3098,7 @@ namespace GameServer.Maps
         {
             if (experience > 0 && (CurrentLevel < Config.MaxLevel || CurrentExp < MaxExperience))
             {
-                int num = experience;
+                int num = (int)experience;
                 int num2 = 0;
                 if (monsterObject != null)
                 {
@@ -3105,13 +3108,36 @@ namespace GameServer.Maps
                     {
                         num *= 2;
                     }
-                    num2 = Math.Min(this.DoubleExp, num);
+                    num2 = (int)Math.Min(this.DoubleExp, num);
                 }
-                int num3 = num + num2;
+                int increaseExp = num + num2;
                 this.DoubleExp -= num2;
-                if (num3 > 0)
+                if (increaseExp > 0)
                 {
-                    if ((this.CurrentExp += num3) >= this.MaxExperience && this.CurrentLevel < Config.MaxLevel)
+                    var increaseAwakeningExp = 0;
+
+                    if (CharacterData.AwakeningExpEnabled.V)
+                    {
+                        increaseAwakeningExp = (int)(increaseExp * 0.5);
+
+                        if(CharacterData.AwakeningExp.V + increaseAwakeningExp > Config.MaxAwakeningExp)
+                        {
+                            increaseAwakeningExp = Config.MaxAwakeningExp - CharacterData.AwakeningExp.V;
+                            CharacterData.AwakeningExpEnabled.V = false;
+                            ActiveConnection?.SendPacket(new SyncSupplementaryVariablesPacket
+                            {
+                                变量类型 = 1,
+                                变量索引 = 50,
+                                对象编号 = ObjectId,
+                                变量内容 = 3616
+                            });
+                        }
+
+                        increaseExp -= increaseAwakeningExp;
+                        CharacterData.AwakeningExp.V = CharacterData.AwakeningExp.V + increaseAwakeningExp;
+                    }
+
+                    if ((this.CurrentExp += increaseExp) >= this.MaxExperience && this.CurrentLevel < Config.MaxLevel)
                     {
                         while (this.CurrentExp >= this.MaxExperience)
                         {
@@ -3120,22 +3146,49 @@ namespace GameServer.Maps
                         }
                         this.玩家升级处理();
                     }
-                    SConnection 网络连接 = this.ActiveConnection;
-                    if (网络连接 == null)
+
+                    ActiveConnection?.SendPacket(new CharacterExpChangesPacket
                     {
-                        return;
-                    }
-                    网络连接.SendPacket(new CharacterExpChangesPacket
-                    {
-                        经验增加 = num3,
+                        经验增加 = increaseExp,
                         今日增加 = 0,
                         经验上限 = 10000000,
-                        DoubleExp = num2,
-                        CurrentExp = this.CurrentExp,
-                        升级所需 = this.MaxExperience
+                        DoubleExp = (int)num2,
+                        CurrentExp = CurrentExp,
+                        升级所需 = MaxExperience,
+                        GainAwakeningExp = increaseAwakeningExp,
+                        MaxAwakeningExp = Config.MaxAwakeningExp
                     });
                 }
                 return;
+            }
+            else if (CharacterData.AwakeningExpEnabled.V)
+            {
+                if (CharacterData.AwakeningExp.V + experience > Config.MaxAwakeningExp)
+                {
+                    experience = Config.MaxAwakeningExp - CharacterData.AwakeningExp.V;
+                    CharacterData.AwakeningExpEnabled.V = false;
+                    ActiveConnection?.SendPacket(new SyncSupplementaryVariablesPacket
+                    {
+                        变量类型 = 1,
+                        变量索引 = 50,
+                        对象编号 = ObjectId,
+                        变量内容 = 3616
+                    });
+                }
+
+                CharacterData.AwakeningExp.V = CharacterData.AwakeningExp.V + experience;
+
+                ActiveConnection?.SendPacket(new CharacterExpChangesPacket
+                {
+                    经验增加 = 0,
+                    今日增加 = 0,
+                    经验上限 = 10000000,
+                    DoubleExp = DoubleExp,
+                    CurrentExp = this.CurrentExp,
+                    升级所需 = this.MaxExperience,
+                    GainAwakeningExp = experience,
+                    MaxAwakeningExp = Config.MaxAwakeningExp
+                });
             }
         }
 
@@ -3159,8 +3212,7 @@ namespace GameServer.Maps
             DataMonitor<ushort> SkillExp = skill.SkillExp;
             if ((SkillExp.V += (ushort)num) >= skill.升级经验)
             {
-                DataMonitor<ushort> 技能经验2 = skill.SkillExp;
-                技能经验2.V -= skill.升级经验;
+                skill.SkillExp.V -= (ushort)skill.升级经验;
                 DataMonitor<byte> 技能等级 = skill.SkillLevel;
                 技能等级.V += 1;
                 base.SendPacket(new 玩家技能升级
@@ -20862,6 +20914,61 @@ namespace GameServer.Maps
             });
 
             return true;
+        }
+
+        public void ToggleAwakeningExp(bool enabled)
+        {
+            CharacterData.AwakeningExpEnabled.V = !CharacterData.AwakeningExpEnabled.V;
+            ActiveConnection?.SendPacket(new SyncSupplementaryVariablesPacket
+            {
+                变量类型 = 1,
+                变量索引 = 50,
+                对象编号 = ObjectId,
+                变量内容 = CharacterData.AwakeningExpEnabled.V ? 3680 : 3616
+            });
+        }
+
+        public void UpgradeAwakeningSkill(ushort skillId)
+        {
+            if (!MainSkills表.TryGetValue(skillId, out SkillData skill) || this.CurrentLevel < skill.升级等级)
+                return;
+
+            var requiredExp = skill.升级经验;
+
+            if (CharacterData.AwakeningExp.V < requiredExp)
+                return;
+
+            CharacterData.AwakeningExp.V -= requiredExp;
+
+            ActiveConnection?.SendPacket(new CharacterExpChangesPacket
+            {
+                经验增加 = 0,
+                今日增加 = 0,
+                经验上限 = 10000000,
+                DoubleExp = DoubleExp,
+                CurrentExp = CurrentExp,
+                升级所需 = MaxExperience,
+                GainAwakeningExp = -requiredExp,
+                MaxAwakeningExp = Config.MaxAwakeningExp
+            });
+
+            skill.SkillLevel.V += 1;
+            SendPacket(new 玩家技能升级
+            {
+                SkillId = skill.SkillId.V,
+                SkillLevel = skill.SkillLevel.V
+            });
+            CombatBonus[skill] = skill.CombatBonus;
+            更新玩家战力();
+            StatsBonus[skill] = skill.Stat加成;
+            RefreshStats();
+
+            ActiveConnection?.SendPacket(new SyncSkillLevelPacket
+            {
+                SkillId = skill.SkillId.V,
+                CurrentExp = skill.SkillExp.V,
+                CurrentRank = skill.SkillLevel.V
+            });
         }
 
         public CharacterData CharacterData;

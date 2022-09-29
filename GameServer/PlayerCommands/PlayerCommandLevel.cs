@@ -30,7 +30,9 @@ namespace GameServer.PlayerCommands
                 经验上限 = 10000000,
                 DoubleExp = 0,
                 CurrentExp = Player.CurrentExp,
-                升级所需 = Player.MaxExperience
+                升级所需 = Player.MaxExperience,
+                GainAwakeningExp = Player.CharacterData.AwakeningExp.V,
+                MaxAwakeningExp = Config.MaxAwakeningExp
             });
 
         }
