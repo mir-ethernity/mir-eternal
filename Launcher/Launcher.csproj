@@ -9,7 +9,7 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
     <Platforms>AnyCPU;x64;x86</Platforms>
-    <OutputPath>D:\Mir3D\Client\Mir3D\</OutputPath>
+    <OutputPath>..\..\Bin\Launcher\</OutputPath>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Launcher_32512.ico</ApplicationIcon>
