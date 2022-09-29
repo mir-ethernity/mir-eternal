@@ -1763,7 +1763,7 @@ namespace GameServer
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Text = $"GameServer - Mir3D LOMCN - Ver. {Config.Version}";
+            Text = $"GameServer - Mir3D LOMCN - Ver: {Config.Version}";
         }
     }
 }
