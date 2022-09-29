@@ -223,13 +223,6 @@
       "Probability": 8,
       "MinAmount": 1,
       "MaxAmount": 1
-    },
-    {
-      "Name": "藏匿的宝贝",
-      "MonsterName": "钉耙猫",
-      "Probability": 1,
-      "MinAmount": 1,
-      "MaxAmount": 1
-    }	
+    }
   ]
 }

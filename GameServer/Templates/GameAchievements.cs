@@ -32,7 +32,7 @@ namespace GameServer.Templates
         public int BaseClass { get; set; }
         public int SubClass { get; set; }
         public QuestResetType ResetType { get; set; }
-        public int AchievementsPoint { get; set; }
+        public int AchievementPoints { get; set; }
         public List<int> PreAchivements { get; set; } = new List<int>();
         public List<GameAchievementCondition> Conditions { get; set; } = new List<GameAchievementCondition>();
         public List<GameAchievementReward> Rewards { get; set; } = new List<GameAchievementReward>();

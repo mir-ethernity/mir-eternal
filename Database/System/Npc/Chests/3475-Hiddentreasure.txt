@@ -1,0 +1,5 @@
+{
+  "Id": 3475,
+  "Name": "HiddenTreasure",
+  "Items": [
+  {"ItemName": "藏匿的宝贝"}]}

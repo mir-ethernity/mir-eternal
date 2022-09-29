@@ -136,9 +136,9 @@ namespace GameServer
             return (int)(time - ComputingClass.SystemRelativeTime).TotalSeconds;
         }
 
-        public static int DateShift(DateTime date)
+        public static ushort DateShift(DateTime date)
         {
-            return (int)(date - ComputingClass.SystemRelativeTime).TotalDays;
+            return (ushort)(date - ComputingClass.SystemRelativeTime).TotalDays;
         }
 
         public static bool DateIsOnSameWeek(DateTime dateOne, DateTime dateTwo)
