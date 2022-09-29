@@ -8,5 +8,8 @@
     <Setting Name="ASPort" Type="System.UInt16" Scope="User">
       <Value Profile="(Default)">7000</Value>
     </Setting>
+    <Setting Name="DBType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">json</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
