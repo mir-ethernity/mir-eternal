@@ -20834,11 +20834,9 @@ namespace GameServer.Maps
 
             foreach (ushort buffId in MainSkills表[skillId].技能Buff)
                 移除Buff时处理(buffId);
-
-            CombatBonus[MainSkills表[skillId]] = MainSkills表[skillId].CombatBonus;
+            CombatBonus.Remove(MainSkills表[skillId]);
             更新玩家战力();
-
-            StatsBonus[MainSkills表[skillId]] = MainSkills表[skillId].Stat加成;
+            StatsBonus.Remove(MainSkills表[skillId]);
             RefreshStats();
 
             MainSkills表.Remove(skillId);
