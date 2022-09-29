@@ -22,7 +22,7 @@ namespace GameServer.Templates
 		public bool RemoveOnDie;
 		public string Description;
 		public byte[] MinPlayerLevel;
-		public ushort[] MinSkillExp;
+		public int[] MinSkillExp;
 		public int[] SkillCombatBonus;
 		public InscriptionStat[] StatsBonus;
 		public List<ushort> ComesWithBuff;
