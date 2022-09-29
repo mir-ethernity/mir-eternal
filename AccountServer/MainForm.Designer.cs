@@ -27,10 +27,6 @@
             this.RightClickMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.OpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.QuitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnServerConfig = new System.Windows.Forms.Button();
-            this.btnOpenAccount = new System.Windows.Forms.Button();
-            this.btnLoadConfig = new System.Windows.Forms.Button();
-            this.btnLoadAccount = new System.Windows.Forms.Button();
             this.lblASPort = new System.Windows.Forms.Label();
             this.txtASPort = new System.Windows.Forms.NumericUpDown();
             this.LogTab = new System.Windows.Forms.TabPage();
@@ -174,58 +170,6 @@
             this.QuitToolStripMenuItem.Text = "Quit";
             this.QuitToolStripMenuItem.Click += new System.EventHandler(this.EndProcess_Click);
             // 
-            // btnServerConfig
-            // 
-            this.btnServerConfig.BackColor = System.Drawing.Color.Silver;
-            this.btnServerConfig.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnServerConfig.Location = new System.Drawing.Point(638, 124);
-            this.btnServerConfig.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnServerConfig.Name = "btnServerConfig";
-            this.btnServerConfig.Size = new System.Drawing.Size(151, 38);
-            this.btnServerConfig.TabIndex = 12;
-            this.btnServerConfig.Text = "Edit Server Config";
-            this.btnServerConfig.UseVisualStyleBackColor = false;
-            this.btnServerConfig.Click += new System.EventHandler(this.OpenConfig_Click);
-            // 
-            // btnOpenAccount
-            // 
-            this.btnOpenAccount.BackColor = System.Drawing.Color.Silver;
-            this.btnOpenAccount.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnOpenAccount.Location = new System.Drawing.Point(638, 229);
-            this.btnOpenAccount.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnOpenAccount.Name = "btnOpenAccount";
-            this.btnOpenAccount.Size = new System.Drawing.Size(151, 38);
-            this.btnOpenAccount.TabIndex = 13;
-            this.btnOpenAccount.Text = "Accounts Folder";
-            this.btnOpenAccount.UseVisualStyleBackColor = false;
-            this.btnOpenAccount.Click += new System.EventHandler(this.ViewAccount_Click);
-            // 
-            // btnLoadConfig
-            // 
-            this.btnLoadConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnLoadConfig.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnLoadConfig.Location = new System.Drawing.Point(638, 168);
-            this.btnLoadConfig.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnLoadConfig.Name = "btnLoadConfig";
-            this.btnLoadConfig.Size = new System.Drawing.Size(151, 38);
-            this.btnLoadConfig.TabIndex = 14;
-            this.btnLoadConfig.Text = "Load Server Config";
-            this.btnLoadConfig.UseVisualStyleBackColor = false;
-            this.btnLoadConfig.Click += new System.EventHandler(this.LoadConfig_Click);
-            // 
-            // btnLoadAccount
-            // 
-            this.btnLoadAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnLoadAccount.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnLoadAccount.Location = new System.Drawing.Point(638, 273);
-            this.btnLoadAccount.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnLoadAccount.Name = "btnLoadAccount";
-            this.btnLoadAccount.Size = new System.Drawing.Size(151, 38);
-            this.btnLoadAccount.TabIndex = 15;
-            this.btnLoadAccount.Text = "Load Accounts";
-            this.btnLoadAccount.UseVisualStyleBackColor = false;
-            this.btnLoadAccount.Click += new System.EventHandler(this.LoadAccount_Click);
-            // 
             // lblASPort
             // 
             this.lblASPort.AutoSize = true;
@@ -294,10 +238,6 @@
             this.ClientSize = new System.Drawing.Size(797, 544);
             this.Controls.Add(this.lblASPort);
             this.Controls.Add(this.txtASPort);
-            this.Controls.Add(this.btnLoadAccount);
-            this.Controls.Add(this.btnLoadConfig);
-            this.Controls.Add(this.btnOpenAccount);
-            this.Controls.Add(this.btnServerConfig);
             this.Controls.Add(this.lblTSPort);
             this.Controls.Add(this.txtTSPort);
             this.Controls.Add(this.lblBytesReceived);
@@ -339,10 +279,6 @@
 		private global::System.Windows.Forms.ContextMenuStrip RightClickMenu;		
 		private global::System.Windows.Forms.ToolStripMenuItem OpenToolStripMenuItem;		
 		private global::System.Windows.Forms.ToolStripMenuItem QuitToolStripMenuItem;		
-		private global::System.Windows.Forms.Button btnServerConfig;		
-		private global::System.Windows.Forms.Button btnOpenAccount;		
-		private global::System.Windows.Forms.Button btnLoadConfig;		
-		private global::System.Windows.Forms.Button btnLoadAccount;
         private System.Windows.Forms.Label lblASPort;
         public System.Windows.Forms.NumericUpDown txtASPort;
         private System.Windows.Forms.TabPage LogTab;

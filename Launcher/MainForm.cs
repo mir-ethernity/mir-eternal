@@ -96,7 +96,9 @@ namespace Launcher
             {
                 return;
             }
-            string[] array = Encoding.UTF8.GetString(result, 0, result.Length).Split(new char[1] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] array = Encoding.UTF8.GetString(result, 0, result.Length)
+                .Split(' ', 3);
+
             if (array.Length <= 2 || !int.TryParse(array[0], out var result2) || result2 != PacketNumber)
             {
                 return;
@@ -104,11 +106,12 @@ namespace Launcher
             switch (array[1])
             {
                 case "4":
-                    if (array.Length == 4)
-                    {
-                        UIUnlock(null, null);
-                        MessageBox.Show("Password Reset Completed");
-                    }
+                    var data2 = array[2].Split(' ');
+                    AccountTextBox.Text = data2[0];
+                    AccountPasswordTextBox.Text = data2[1];
+                    UIUnlock(null, null);
+                    MainTab.SelectedIndex = 0;
+                    MessageBox.Show("Password Reset Completed");
                     break;
                 case "5":
                     if (array.Length == 3)
@@ -119,34 +122,33 @@ namespace Launcher
                     }
                     break;
                 case "6":
-                    if (array.Length == 5)
+                    var data4 = array[2].Split(' ');
+
+                    IPEndPoint value;
+                    if (IPList.TryGetValue(start_selected_zone.Text, out value))
                     {
-                        IPEndPoint value;                        
-                        if (IPList.TryGetValue(start_selected_zone.Text, out value))
+                        string arguments = "-wegame=" + $"1,1,{value.Address},{value.Port}," + $"1,1,{value.Address},{value.Port}," + start_selected_zone.Text + "  " + $"/ip:1,1,{value.Address} " + $"/port:{value.Port} " + "/ticket:" + data4[2] + " /AreaName:" + start_selected_zone.Text;
+                        Settings.Default.SaveArea = start_selected_zone.Text;
+                        Settings.Default.Save();
+                        GameProgress = new Process();
+
+                        if (Is32Bit && Is64Bit || !Is32Bit && !Is64Bit)
                         {
-                            string arguments = "-wegame=" + $"1,1,{value.Address},{value.Port}," + $"1,1,{value.Address},{value.Port}," + start_selected_zone.Text + "  " + $"/ip:1,1,{value.Address} " + $"/port:{value.Port} " + "/ticket:" + array[4] + " /AreaName:" + start_selected_zone.Text;
-                            Settings.Default.SaveArea = start_selected_zone.Text;
-                            Settings.Default.Save();
-                            GameProgress = new Process();
-
-                            if (Is32Bit && Is64Bit || !Is32Bit && !Is64Bit)
-                            {
-                                MessageBox.Show("Error Getting OS Version");
-                                Environment.Exit(0);
-                            }
-                            else if (Is32Bit)
-                                GameProgress.StartInfo.FileName = ".\\Binaries\\Win32\\MMOGame-Win32-Shipping.exe";
-                            else if (Is64Bit)
-                                GameProgress.StartInfo.FileName = ".\\Binaries\\Win64\\MMOGame-Win64-Shipping.exe";
-
-                            GameProgress.StartInfo.Arguments = arguments;
-                            GameProgress.Start();
-                            GameProcessTimer.Enabled = true;
-                            TrayHideToTaskBar(null, null);
-                            UILock();
-                            InterfaceUpdateTimer.Enabled = false;
-                            minimizeToTray.ShowBalloonTip(1000, "", "Game Loading Please Wait. . .", ToolTipIcon.Info);
+                            MessageBox.Show("Error Getting OS Version");
+                            Environment.Exit(0);
                         }
+                        else if (Is32Bit)
+                            GameProgress.StartInfo.FileName = ".\\Binaries\\Win32\\MMOGame-Win32-Shipping.exe";
+                        else if (Is64Bit)
+                            GameProgress.StartInfo.FileName = ".\\Binaries\\Win64\\MMOGame-Win64-Shipping.exe";
+
+                        GameProgress.StartInfo.Arguments = arguments;
+                        GameProgress.Start();
+                        GameProcessTimer.Enabled = true;
+                        TrayHideToTaskBar(null, null);
+                        UILock();
+                        InterfaceUpdateTimer.Enabled = false;
+                        minimizeToTray.ShowBalloonTip(1000, "", "Game Loading Please Wait. . .", ToolTipIcon.Info);
                     }
                     break;
                 case "7":
@@ -158,15 +160,12 @@ namespace Launcher
                     break;
                 case "0":
                     {
-                        if (array.Length != 5)
-                        {
-                            break;
-                        }
+                        var data3 = array[2].Split(' ');
                         UIUnlock(null, null);
-                        string text2 = (LoginAccount = (activate_account.Text = array[2]));
-                        LoginPassword = array[3];
+                        string text2 = (LoginAccount = (activate_account.Text = data3[0]));
+                        LoginPassword = data3[1];
                         GameServerList.Items.Clear();
-                        string[] array2 = array[4].Split(new char[2] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                        string[] array2 = data3[2].Split(new char[2] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
                         for (int i = 0; i < array2.Length; i++)
                         {
                             string[] array3 = array2[i].Split(new char[2] { ',', '/' }, StringSplitOptions.RemoveEmptyEntries);
@@ -184,19 +183,18 @@ namespace Launcher
                         break;
                     }
                 case "1":
-                    if (array.Length == 3)
-                    {
-                        UIUnlock(null, null);
-                        RegistrationErrorLabel.Text = array[2];
-                        RegistrationErrorLabel.Visible = true;
-                    }
+                    UIUnlock(null, null);
+                    login_error_label.Text = array[2];
+                    login_error_label.ForeColor = Color.Red;
+                    login_error_label.Visible = true;
                     break;
                 case "2":
-                    if (array.Length == 4)
-                    {
-                        UIUnlock(null, null);
-                        MessageBox.Show("Account Created Successfully");
-                    }
+                    var data = array[2].Split(' ');
+                    AccountTextBox.Text = data[0];
+                    AccountPasswordTextBox.Text = data[1];
+                    UIUnlock(null, null);
+                    MainTab.SelectedIndex = 0;
+                    MessageBox.Show("Account Created Successfully");
                     break;
                 case "3":
                     if (array.Length == 3)
@@ -204,6 +202,7 @@ namespace Launcher
                         UIUnlock(null, null);
                         RegistrationErrorLabel.Text = array[2];
                         RegistrationErrorLabel.Visible = true;
+                        RegistrationErrorLabel.ForeColor = Color.Red;
                     }
                     break;
             }
