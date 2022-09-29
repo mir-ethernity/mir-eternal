@@ -1,13 +1,12 @@
-﻿using System;
+﻿using GameServer.Data;
+using GameServer.Maps;
+using GameServer.Networking;
+using System;
 using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.IO;
 using System.Net.Sockets;
 using System.Threading;
-using GameServer.Maps;
-using GameServer.Data;
-using GameServer.Networking;
-using System.Collections;
-using System.Diagnostics;
 
 namespace GameServer
 {
@@ -80,7 +79,6 @@ namespace GameServer
                 {
                     if (NetworkServiceGateway.Connections.Count == 0)
                         break;
-                    continue;
                 }
 
                 try
