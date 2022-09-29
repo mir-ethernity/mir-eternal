@@ -34,6 +34,7 @@ namespace GameServer
         public static byte 武斗场时间一;
         public static byte 武斗场时间二;
         public static bool SendPacketsAsync = true;
+        public static int MaxAwakeningExp = 2100000000;
 
 
         public static byte[] ProtocolKey1 = Convert.FromBase64String("MzU2MjI2MjcwNAAwMQAxZmYyNjA6NjU6ZGY6MDMAVUxTMjEtZDZhMDc1MzIwMDcxNDhmMGJiNzlkZDJmZDg4ODcBgW4GAAAGAAAA");
