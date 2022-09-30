@@ -2,7 +2,7 @@
   "MapId": 223,
   "MapName": "SeaOfGhosts1st",
   "MapFile": "MirAct05_1",
-  "TerrainFile": "0223-SeaOfGhosts1st",
+  "TerrainFile": "0223-幽冥海一层",
   "LimitPlayers": 9999,
   "MinLevel": 30,
   "LimitInstances": 1,

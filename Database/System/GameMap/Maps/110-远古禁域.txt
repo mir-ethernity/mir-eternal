@@ -2,7 +2,7 @@
   "MapId": 110,
   "MapName": "AncientForbiddenRealm",
   "MapFile": "MirDg23",
-  "TerrainFile": "0110-AncientForbiddenRealm",
+  "TerrainFile": "0110-远古禁域",
   "LimitPlayers": 9999,
   "MinLevel": 45,
   "LimitInstances": 1

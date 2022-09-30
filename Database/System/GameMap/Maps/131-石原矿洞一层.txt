@@ -2,7 +2,7 @@
   "MapId": 131,
   "MapName": "IshiharaMineCave",
   "MapFile": "MirDg22_1",
-  "TerrainFile": "0131-IshiharaMineCave",
+  "TerrainFile": "0131-石原矿洞一层",
   "LimitPlayers": 9999,
   "MinLevel": 45,
   "LimitInstances": 1

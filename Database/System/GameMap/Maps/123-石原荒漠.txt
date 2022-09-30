@@ -2,7 +2,7 @@
   "MapId": 123,
   "MapName": "IshiharaDesert",
   "MapFile": "MirDg24_1",
-  "TerrainFile": "0123-IshiharaDesert",
+  "TerrainFile": "0123-石原荒漠",
   "LimitPlayers": 9999,
   "MinLevel": 45,
   "LimitInstances": 1

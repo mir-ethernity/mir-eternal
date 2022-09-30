@@ -2,7 +2,7 @@
   "MapId": 210,
   "MapName": "CaveOfWorms",
   "MapFile": "MirDg01_8",
-  "TerrainFile": "0210-CaveOfWorms",
+  "TerrainFile": "0210-幽虫洞窟",
   "LimitPlayers": 9999,
   "MinLevel": 20,
   "LimitInstances": 1

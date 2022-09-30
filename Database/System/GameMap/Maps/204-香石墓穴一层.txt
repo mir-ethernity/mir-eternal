@@ -1,7 +1,7 @@
 {
   "MapId": 204,
   "MapName": "FragantStoneCrypt1st",
-  "TerrainFile": "0204-FragantStoneCrypt1st",
+  "TerrainFile": "0204-香石墓穴一层",
   "LimitPlayers": 9999,
   "MinLevel": 25,
   "LimitInstances": 1

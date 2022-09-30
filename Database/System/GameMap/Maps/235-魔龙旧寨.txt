@@ -2,7 +2,7 @@
   "MapId": 235,
   "MapName": "TheOldFortressoftheMagicDragon",
   "MapFile": "MirDg12_4",
-  "TerrainFile": "0235-TheOldFortressoftheMagicDragon",
+  "TerrainFile": "0235-魔龙旧寨",
   "LimitPlayers": 9999,
   "LimitInstances": 1
 }

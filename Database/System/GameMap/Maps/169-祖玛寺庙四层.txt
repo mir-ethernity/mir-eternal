@@ -2,7 +2,7 @@
   "MapId": 169,
   "MapName": "ZumaTemple4th",
   "MapFile": "MirDg07_4",
-  "TerrainFile": "0169-ZumaTemple4th",
+  "TerrainFile": "0169-祖玛寺庙四层",
   "LimitPlayers": 9999,
   "MinLevel": 30,
   "LimitInstances": 1

@@ -2,7 +2,7 @@
   "MapId": 214,
   "MapName": "ShadowPassage3rd",
   "MapFile": "Mir_Dg05_6",
-  "TerrainFile": "0214-ShadowPassage3rd",
+  "TerrainFile": "0214-暗影通道三",
   "LimitPlayers": 9999,
   "MinLevel": 25,
   "LimitInstances": 1

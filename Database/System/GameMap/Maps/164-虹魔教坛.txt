@@ -2,7 +2,7 @@
   "MapId": 164,
   "MapName": "RainbowDemonTemple",
   "MapFile": "Mir_Dg02_6",
-  "TerrainFile": "0164-RainbowDemonTemple",
+  "TerrainFile": "0164-虹魔教坛",
   "LimitPlayers": 9999,
   "MinLevel": 25,
   "LimitInstances": 1,

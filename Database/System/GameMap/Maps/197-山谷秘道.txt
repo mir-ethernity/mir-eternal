@@ -2,7 +2,7 @@
   "MapId": 197,
   "MapName": "SecretValleyRoad",
   "MapFile": "MirDg11_9",
-  "TerrainFile": "0197-SecretValleyRoad",
+  "TerrainFile": "0197-山谷秘道",
   "LimitPlayers": 9999,
   "MinLevel": 40,
   "LimitInstances": 1,

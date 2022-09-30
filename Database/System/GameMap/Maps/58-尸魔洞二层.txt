@@ -2,7 +2,7 @@
   "MapId": 58,
   "MapName": "CorpseCave2nd",
   "MapFile": "MirDg14_3",
-  "TerrainFile": "0058-CorpseCave2nd",
+  "TerrainFile": "0058-尸魔洞二层",
   "LimitPlayers": 9999,
   "LimitInstances": 1
 }

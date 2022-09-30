@@ -2,7 +2,7 @@
   "MapId": 198,
   "MapName": "The Devil's Altar",
   "MapFile": "MirDg11_10",
-  "TerrainFile": "0198-The Devil's Altar",
+  "TerrainFile": "0198-恶魔祭坛",
   "LimitPlayers": 9999,
   "MinLevel": 40,
   "LimitInstances": 1,

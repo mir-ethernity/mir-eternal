@@ -2,7 +2,7 @@
   "MapId": 119,
   "MapName": "ElementalThrone",
   "MapFile": "MirDg27_4",
-  "TerrainFile": "0119-ElementalThrone",
+  "TerrainFile": "0119-元素王座",
   "LimitPlayers": 9999,
   "MinLevel": 45,
   "LimitInstances": 1

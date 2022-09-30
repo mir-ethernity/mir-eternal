@@ -2,7 +2,7 @@
   "MapId": 220,
   "MapName": "ClaustrophobicPassage2nd",
   "MapFile": "Mir_Dg05_12",
-  "TerrainFile": "0220-ClaustrophobicPassage2nd",
+  "TerrainFile": "0220-幽闭通道二",
   "LimitPlayers": 9999,
   "MinLevel": 25,
   "LimitInstances": 1

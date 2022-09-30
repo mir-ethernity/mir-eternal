@@ -2,7 +2,7 @@
   "MapId": 88,
   "MapName": "UnknownDarkHall2nd",
   "MapFile": "MirAct25",
-  "TerrainFile": "0088-UnknownDarkHall2nd",
+  "TerrainFile": "0088-未知暗殿二层",
   "LimitPlayers": 9999,
   "LimitInstances": 1
 }

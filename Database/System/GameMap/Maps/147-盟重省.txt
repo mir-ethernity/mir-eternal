@@ -2,7 +2,7 @@
   "MapId": 147,
   "MapName": "AlliedProvince",
   "MapFile": "MirPb01",
-  "TerrainFile": "0147-AlliedProvince",
+  "TerrainFile": "0147-盟重省",
   "LimitPlayers": 9999,
   "LimitInstances": 1
 }

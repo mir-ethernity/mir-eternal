@@ -2,7 +2,7 @@
   "MapId": 189,
   "MapName": "RedMoonCanyonSouthEntrance",
   "MapFile": "MirDg11_1",
-  "TerrainFile": "0189-RedMoonCanyonSouthEntrance",
+  "TerrainFile": "0189-赤月峡谷南入口",
   "LimitPlayers": 9999,
   "MinLevel": 40,
   "LimitInstances": 1

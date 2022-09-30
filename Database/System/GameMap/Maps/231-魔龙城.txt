@@ -2,7 +2,7 @@
   "MapId": 231,
   "MapName": "MagicDragonCity",
   "MapFile": "MirDg12",
-  "TerrainFile": "0231-MagicDragonCity",
+  "TerrainFile": "0231-魔龙城",
   "LimitPlayers": 9999,
   "LimitInstances": 1
 }
