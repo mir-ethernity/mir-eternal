@@ -2,7 +2,7 @@
   "MapId": 62,
   "MapName": "BullDemonTemple3rd",
   "MapFile": "MirDg15_3",
-  "TerrainFile": "0062-BullDemonTemple3rd",
+  "TerrainFile": "0062-牛魔寺庙三层",
   "LimitPlayers": 9999,
   "LimitInstances": 1
 }

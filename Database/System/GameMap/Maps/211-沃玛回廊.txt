@@ -2,7 +2,7 @@
   "MapId": 211,
   "MapName": "WoomaCloister",
   "MapFile": "Mir_Dg05_3",
-  "TerrainFile": "0211-WoomaCloister",
+  "TerrainFile": "0211-沃玛回廊",
   "LimitPlayers": 9999,
   "MinLevel": 25,
   "LimitInstances": 1

@@ -2,7 +2,7 @@
   "MapId": 240,
   "MapName": "WestDevil'sDragonPass",
   "MapFile": "MirDg12_9",
-  "TerrainFile": "0240-WestDevil'sDragonPass",
+  "TerrainFile": "0240-西魔龙关",
   "LimitPlayers": 9999,
   "LimitInstances": 1
 }

@@ -2,7 +2,7 @@
   "MapId": 171,
   "MapName": "Zuma Gallery",
   "MapFile": "MirDg07_6",
-  "TerrainFile": "0171-Zuma Gallery",
+  "TerrainFile": "0171-祖玛阁",
   "LimitPlayers": 9999,
   "MinLevel": 30,
   "LimitInstances": 1,

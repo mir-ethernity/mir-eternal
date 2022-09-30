@@ -2,7 +2,7 @@
   "MapId": 225,
   "MapName": "SeaOfGhosts3rd",
   "MapFile": "MirAct05_3",
-  "TerrainFile": "0225-SeaOfGhosts3rd",
+  "TerrainFile": "0225-幽冥海三层",
   "LimitPlayers": 9999,
   "MinLevel": 36,
   "LimitInstances": 1,

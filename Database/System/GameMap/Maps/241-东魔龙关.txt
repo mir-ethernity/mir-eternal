@@ -2,7 +2,7 @@
   "MapId": 241,
   "MapName": "EastDevil'sDragonPass",
   "MapFile": "MirDg12_10",
-  "TerrainFile": "0241-EastDevil'sDragonPass",
+  "TerrainFile": "0241-东魔龙关",
   "LimitPlayers": 9999,
   "LimitInstances": 1
 }

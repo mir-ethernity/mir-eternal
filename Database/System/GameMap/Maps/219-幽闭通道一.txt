@@ -2,7 +2,7 @@
   "MapId": 219,
   "MapName": "ClaustrophobicPassage1st",
   "MapFile": "Mir_Dg05_11",
-  "TerrainFile": "0219-ClaustrophobicPassage1st",
+  "TerrainFile": "0219-幽闭通道一",
   "LimitPlayers": 9999,
   "MinLevel": 25,
   "LimitInstances": 1

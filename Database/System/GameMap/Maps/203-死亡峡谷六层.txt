@@ -2,7 +2,7 @@
   "MapId": 203,
   "MapName": "DeathCanyon6th",
   "MapFile": "MirDg01_5",
-  "TerrainFile": "0203-DeathCanyon6th",
+  "TerrainFile": "0203-死亡峡谷六层",
   "LimitPlayers": 9999,
   "MinLevel": 20,
   "LimitInstances": 1,

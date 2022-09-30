@@ -2,7 +2,7 @@
   "MapId": 115,
   "MapName": "LongQifeng",
   "MapFile": "MirDg26_2",
-  "TerrainFile": "0115-LongQifeng",
+  "TerrainFile": "0115-龙栖峰",
   "LimitPlayers": 9999,
   "MinLevel": 45,
   "LimitInstances": 1

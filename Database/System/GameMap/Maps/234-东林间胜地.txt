@@ -2,7 +2,7 @@
   "MapId": 234,
   "MapName": "EastWoodlandResort",
   "MapFile": "MirDg12_3",
-  "TerrainFile": "0234-EastWoodlandResort",
+  "TerrainFile": "0234-东林间胜地",
   "LimitPlayers": 9999,
   "MinLevel": 40,
   "LimitInstances": 1

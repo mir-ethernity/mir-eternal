@@ -2,7 +2,7 @@
   "MapId": 118,
   "MapName": "Dragon'sBloodEarthVein",
   "MapFile": "MirDg27_3",
-  "TerrainFile": "0118-Dragon'sBloodEarthVein",
+  "TerrainFile": "0118-龙血地脉",
   "LimitPlayers": 9999,
   "MinLevel": 45,
   "LimitInstances": 1

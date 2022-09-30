@@ -2,7 +2,7 @@
   "MapId": 102,
   "MapName": "White Sun Gate",
   "MapFile": "MirPb05",
-  "TerrainFile": "0102-WhiteSunCity",
+  "TerrainFile": "0102-白日门城",
   "LimitPlayers": 9999,
   "LimitInstances": 1
 }

@@ -2,7 +2,7 @@
   "MapId": 187,
   "MapName": "JungleMaze",
   "MapFile": "MirDg10",
-  "TerrainFile": "0187-JungleMaze",
+  "TerrainFile": "0187-丛林迷宫",
   "LimitPlayers": 9999,
   "MinLevel": 40,
   "LimitInstances": 1

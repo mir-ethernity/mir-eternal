@@ -2,7 +2,7 @@
   "MapId": 51,
   "MapName": "BoneDemonCave1st",
   "MapFile": "MirDg13_1",
-  "TerrainFile": "0051-BoneDemonCave1st",
+  "TerrainFile": "0051-骨魔洞一层",
   "LimitPlayers": 9999,
   "LimitInstances": 1
 }

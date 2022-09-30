@@ -2,7 +2,7 @@
   "MapId": 212,
   "MapName": "ShadowPassage1st",
   "MapFile": "Mir_Dg05_4",
-  "TerrainFile": "0212-ShadowPassage1st",
+  "TerrainFile": "0212-暗影通道一",
   "LimitPlayers": 9999,
   "MinLevel": 25,
   "LimitInstances": 1

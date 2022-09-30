@@ -2,7 +2,7 @@
   "MapId": 199,
   "MapName": "Red Moon Demon Cave",
   "MapFile": "MirDg11_11",
-  "TerrainFile": "0199-Red Moon Demon Cave",
+  "TerrainFile": "0199-赤月魔穴",
   "LimitPlayers": 9999,
   "MinLevel": 40,
   "LimitInstances": 1,

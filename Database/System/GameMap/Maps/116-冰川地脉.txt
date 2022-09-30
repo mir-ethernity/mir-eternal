@@ -2,7 +2,7 @@
   "MapId": 116,
   "MapName": "LongYaoYai",
   "MapFile": "MirDg27_1",
-  "TerrainFile": "0116-Glacial Veins",
+  "TerrainFile": "0116-冰川地脉",
   "LimitPlayers": 9999,
   "MinLevel": 45,
   "LimitInstances": 1

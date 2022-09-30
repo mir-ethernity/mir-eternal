@@ -2,7 +2,7 @@
   "MapId": 50,
   "MapName": "PaleMoonIsland",
   "MapFile": "MirPb04",
-  "TerrainFile": "0050-PaleMoonIsland",
+  "TerrainFile": "0050-苍月岛",
   "LimitPlayers": 9999,
   "LimitInstances": 1
 }

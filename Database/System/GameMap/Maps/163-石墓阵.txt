@@ -2,7 +2,7 @@
   "MapId": 163,
   "MapName": "Stone Tomb Entrance",
   "MapFile": "Mir_Dg02_5",
-  "TerrainFile": "0163-Stone Tomb Entrance",
+  "TerrainFile": "0163-石墓阵",
   "LimitPlayers": 9999,
   "MinLevel": 25,
   "LimitInstances": 1,

@@ -2,7 +2,7 @@
   "MapId": 222,
   "MapName": "ClaustrophobicPassage4th",
   "MapFile": "Mir_Dg05_14",
-  "TerrainFile": "0222-ClaustrophobicPassage4th",
+  "TerrainFile": "0222-幽闭通道四",
   "LimitPlayers": 9999,
   "MinLevel": 25,
   "LimitInstances": 1

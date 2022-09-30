@@ -2,7 +2,7 @@
   "MapId": 172,
   "MapName": "Zuma Lobby",
   "MapFile": "MirDg07_7",
-  "TerrainFile": "0172-Zuma Lobby",
+  "TerrainFile": "0172-祖玛大厅",
   "LimitPlayers": 9999,
   "MinLevel": 30,
   "LimitInstances": 1,

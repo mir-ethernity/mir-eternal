@@ -2,7 +2,7 @@
   "MapId": 56,
   "MapName": "CaveOfDead",
   "MapFile": "MirDg14_1",
-  "TerrainFile": "0056-CaveOfDead",
+  "TerrainFile": "0056-尸魔洞一层",
   "LimitPlayers": 9999,
   "LimitInstances": 1
 }

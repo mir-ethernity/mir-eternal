@@ -2,7 +2,7 @@
   "MapId": 160,
   "MapName": "StoneTomb3rd",
   "MapFile": "Mir_Dg02_2",
-  "TerrainFile": "0160-StoneTomb3rd",
+  "TerrainFile": "0160-石墓三层",
   "LimitPlayers": 9999,
   "MinLevel": 25,
   "LimitInstances": 1

@@ -2,7 +2,7 @@
   "MapId": 146,
   "MapName": "WoomaTemple1st",
   "MapFile": "Mir_Dg05",
-  "TerrainFile": "0146-WoomaTemple1st",
+  "TerrainFile": "0146-沃玛寺庙一层",
   "LimitPlayers": 9999,
   "MinLevel": 25,
   "LimitInstances": 1

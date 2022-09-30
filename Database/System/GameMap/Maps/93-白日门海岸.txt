@@ -2,7 +2,7 @@
   "MapId": 93,
   "MapName": "BaijimonCoast",
   "MapFile": "MirDg19",
-  "TerrainFile": "0093-BaijimonCoast",
+  "TerrainFile": "0093-白日门海岸",
   "LimitPlayers": 9999,
   "LimitInstances": 1
 }

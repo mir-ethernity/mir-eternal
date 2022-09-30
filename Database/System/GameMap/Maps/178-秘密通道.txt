@@ -2,7 +2,7 @@
   "MapId": 178,
   "MapName": "SecretPassage",
   "MapFile": "MirDg08",
-  "TerrainFile": "0178-SecretPassage",
+  "TerrainFile": "0178-秘密通道",
   "LimitPlayers": 9999,
   "MinLevel": 25,
   "LimitInstances": 1,

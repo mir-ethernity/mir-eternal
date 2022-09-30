@@ -2,7 +2,7 @@
   "MapId": 148,
   "MapName": "DeathCanyon1st",
   "MapFile": "MirDg01",
-  "TerrainFile": "0148-DeathCanyon1st",
+  "TerrainFile": "0148-死亡峡谷一层",
   "LimitPlayers": 9999,
   "MinLevel": 20,
   "LimitInstances": 1

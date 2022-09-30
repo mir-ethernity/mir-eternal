@@ -2,7 +2,7 @@
   "MapId": 216,
   "MapName": "RitualCloister",
   "MapFile": "Mir_Dg05_8",
-  "TerrainFile": "0216-RitualCloister",
+  "TerrainFile": "0216-祭祀回廊",
   "LimitPlayers": 9999,
   "MinLevel": 25,
   "LimitInstances": 1

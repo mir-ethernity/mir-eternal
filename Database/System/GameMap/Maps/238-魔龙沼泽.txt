@@ -2,7 +2,7 @@
   "MapId": 238,
   "MapName": "MagicDragonSwamp",
   "MapFile": "MirDg12_7",
-  "TerrainFile": "0238-MagicDragonSwamp",
+  "TerrainFile": "0238-魔龙沼泽",
   "LimitPlayers": 9999,
   "LimitInstances": 1
 }

@@ -2,7 +2,7 @@
   "MapId": 152,
   "MapName": "Shabak",
   "MapFile": "MirCt01",
-  "TerrainFile": "0152-Shabak",
+  "TerrainFile": "0152-沙巴克",
   "LimitPlayers": 9999,
   "MinLevel": 30,
   "LimitInstances": 1,

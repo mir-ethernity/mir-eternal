@@ -2,7 +2,7 @@
   "MapId": 170,
   "MapName": "ZumaTemple5th",
   "MapFile": "MirDg07_5",
-  "TerrainFile": "0170-ZumaTemple5th",
+  "TerrainFile": "0170-祖玛寺庙五层",
   "LimitPlayers": 9999,
   "MinLevel": 30,
   "LimitInstances": 1
