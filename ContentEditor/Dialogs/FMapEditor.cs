@@ -1,7 +1,9 @@
 using ContentEditor.Models;
 using ContentEditor.Services;
 using Microsoft.VisualBasic.Devices;
+using Sunny.UI;
 using System.Threading;
+using WinFormsTranslator;
 
 namespace ContentEditor
 {
@@ -159,8 +161,8 @@ namespace ContentEditor
                 }
             }
 
-            ddbZoom.Text = $"Zoom: {ZoomFactor * 100}%";
-            lblSelectedPoint.Text = $"Selected ({(SelectPosition == Point.Empty ? "N/a" : $"X:{SelectPosition.X},Y:{SelectPosition.Y}")})";
+            ddbZoom.Text = TranslatorContext.GetString("fmapeditor.statusstrip1.ddbzoom.text", new string[] { (ZoomFactor * 100).ToString() }, $"Zoom: %s%");
+            lblSelectedPoint.Text = TranslatorContext.GetString("mapeditor.statusstrip1.lblselectedpoint.text", new string[] { SelectPosition.X.ToString(), SelectPosition.Y.ToString() }, "Selected (X:%s,Y:%s)");
 
             Refresh();
         }
@@ -177,7 +179,7 @@ namespace ContentEditor
         {
             var map = database.Map.DataSource.FirstOrDefault(x => x.MapId == mapId);
             if (map == null) return DialogResult.Abort;
-            var form = new FMapEditor(database, map);
+            var form = TranslatorContext.Attach(new FMapEditor(database, map));
             return form.ShowDialog();
         }
     }

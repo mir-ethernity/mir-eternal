@@ -6,12 +6,14 @@ using Microsoft.VisualBasic.Devices;
 using Sunny.UI;
 using System.Reflection;
 using System.Threading;
+using System.Windows.Forms;
+using WinFormsTransltor;
 
 namespace ContentEditor
 {
     public partial class FMain : Form
     {
-        public IDatabaseManager DatabaseManager { get; private set; }
+        public IDatabaseManager? DatabaseManager { get; private set; } = null;
 
         private Dictionary<string, UBaseEditor> _editors = new Dictionary<string, UBaseEditor>();
         private UBaseEditor? _activeEditor = null;
@@ -32,7 +34,8 @@ namespace ContentEditor
 
             foreach (var editor in editors)
             {
-                var instance = (UBaseEditor)Activator.CreateInstance(editor);
+                var instance = Activator.CreateInstance(editor) as UBaseEditor;
+                if (instance == null) continue;
                 instance.Visible = false;
                 _editors.Add(instance.AttachedTabName, instance);
                 EditorContainer.Controls.Add(instance);
@@ -56,7 +59,7 @@ namespace ContentEditor
 
         private async void loadDatabaseToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            var openFolderDialog = new FolderBrowserDialog();
+            using var openFolderDialog = new FolderBrowserDialog();
 
             if (openFolderDialog.ShowDialog() != DialogResult.OK)
                 return;
@@ -64,7 +67,7 @@ namespace ContentEditor
             DatabaseManager = new JsonDatabaseManager(openFolderDialog.SelectedPath);
 
             await DatabaseManager.Map.Initialize();
-            
+
             foreach (var editor in _editors.Values)
                 editor.ReloadDatabase(DatabaseManager);
         }
