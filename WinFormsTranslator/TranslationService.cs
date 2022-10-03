@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,7 @@ namespace WinFormsTransltor
             _attachedControls = new List<TranslationMonitorControl>();
         }
 
-        public const string TranslationFolder = "translations";
+        public string TranslationFolder = "Translations";
 
         private readonly Dictionary<string, Dictionary<string, string>> _translations;
         private readonly List<TranslationMonitorControl> _attachedControls;
@@ -120,6 +121,19 @@ namespace WinFormsTransltor
 
         public async Task Initialize()
         {
+#if DEBUG
+            string fullPath = Path.GetFullPath(TranslationFolder);
+            do
+            {
+                if (fullPath.EndsWith("ContentEditor"))
+                    break;
+
+                fullPath = Directory.GetParent(fullPath)?.FullName ?? "";
+            } while (!string.IsNullOrEmpty(fullPath));
+
+            TranslationFolder = Path.Combine(fullPath, TranslationFolder);
+#endif
+
             if (!Directory.Exists(TranslationFolder))
                 return;
 
