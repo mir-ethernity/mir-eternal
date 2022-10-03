@@ -1,4 +1,5 @@
 ﻿using AccountServer.Exceptions;
+using AccountServer.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -37,12 +38,22 @@ namespace AccountServer.Repositories.JSON
             return Task.FromResult(Accounts.Count);
         }
 
-        public async Task RegisterAccount(AccountData account)
+        public async Task<AccountData> RegisterAccount(string account, string password, string question, string answer)
         {
-            if (Accounts.ContainsKey(account.Account.ToLowerInvariant()))
-                throw new AccountAlreadyRegisteredException(account.Account);
+            if (Accounts.ContainsKey(account.ToLowerInvariant()))
+                throw new AccountAlreadyRegisteredException(account);
 
-            await SaveAccount(account);
+            var acc = new AccountData
+            {
+                Account = account,
+                Password = password,
+                PasswordEncrypted = true,
+                Question = question,
+                Answer = answer
+            };
+
+            await SaveAccount(acc);
+            return acc;
         }
 
         public async Task UpdatePassword(string accountName, string newPassword)
@@ -51,6 +62,7 @@ namespace AccountServer.Repositories.JSON
                 throw new AccountNotExistsException(accountName);
 
             account.Password = newPassword;
+            account.PasswordEncrypted = true;
 
             await SaveAccount(account);
         }
@@ -74,7 +86,7 @@ namespace AccountServer.Repositories.JSON
 
         private async Task SaveAccount(AccountData account)
         {
-            var json = JsonConvert.SerializeObject(account);
+            var json = JsonConvert.SerializeObject(account, Formatting.Indented);
             var path = Path.Combine(DataDirectory, $"{account.Account}.txt");
 
             await File.WriteAllTextAsync(path, json);

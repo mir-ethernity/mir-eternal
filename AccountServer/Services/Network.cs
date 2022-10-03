@@ -134,7 +134,7 @@ namespace AccountServer.Services
                                 }
                                 else
                                 {
-                                    await _accountService.RegisterAccount(new AccountData(parts[2], parts[3], parts[4], parts[5]));
+                                    await _accountService.RegisterAccount(parts[2], parts[3], parts[4], parts[5]);
                                     _stats.TotalNewAccounts++;
                                     SendData(packet.ClientAddress, $"{parts[0]} 2 {parts[2]} {parts[3]}");
                                 }

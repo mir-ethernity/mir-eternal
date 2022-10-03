@@ -170,7 +170,7 @@ namespace GameServer.Networking
                 if (ReceivedPackets.TryDequeue(out GamePacket packet))
                 {
                     MainForm.AddPacketLog(packet, true);
-                    if (!GamePacket.PacketMethods.TryGetValue(packet.PacketType, out MethodInfo methodInfo))
+                    if (!GamePacket.PacketMe thods.TryGetValue(packet.PacketType, out MethodInfo methodInfo))
                     {
                         CallExceptionEventHandler(new Exception("No packet handling found, disconnect. Packet type: " + packet.PacketType.FullName));
                         return;

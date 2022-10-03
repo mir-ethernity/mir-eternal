@@ -30,7 +30,7 @@ namespace AccountServer.Services.Default
             if (!await CheckLogin(account, oldPassword))
                 return ChangePasswordResult.AccountNotExistsOrWrongPassword;
 
-            await _accountRepository.UpdatePassword(account, newPassword);
+            await _accountRepository.UpdatePassword(account, BCrypt.Net.BCrypt.HashPassword(newPassword));
 
             return ChangePasswordResult.Success;
         }
@@ -42,7 +42,14 @@ namespace AccountServer.Services.Default
             if (data == null)
                 return false;
 
-            if (data.Password != password)
+            if (!data.PasswordEncrypted)
+            {
+                data.Password = BCrypt.Net.BCrypt.HashPassword(data.Password);
+                data.PasswordEncrypted = true;
+                await _accountRepository.UpdatePassword(account, data.Password);
+            }
+
+            if (!BCrypt.Net.BCrypt.Verify(password, data.Password))
                 return false;
 
             return true;
@@ -63,10 +70,18 @@ namespace AccountServer.Services.Default
             return text;
         }
 
-        public async Task RegisterAccount(AccountData account)
+        public async Task<AccountData> RegisterAccount(string account, string password, string question, string answer)
         {
-            await _accountRepository.RegisterAccount(account);
-            _logger?.LogInformation($"New account created: {account.Account}");
+            var result = await _accountRepository.RegisterAccount(
+                account,
+                BCrypt.Net.BCrypt.HashPassword(password),
+                question,
+                answer
+            );
+
+            _logger?.LogInformation($"New account created: {account}");
+
+            return result;
         }
 
         public async Task<ResetPasswordResult> ResetPassword(string accountName, string newPassword, string question, string answer)
@@ -85,7 +100,7 @@ namespace AccountServer.Services.Default
             if (!account.Answer.Equals(answer, StringComparison.InvariantCulture))
                 return ResetPasswordResult.AccountInfoNotValid;
 
-            await _accountRepository.UpdatePassword(accountName, newPassword);
+            await _accountRepository.UpdatePassword(accountName, BCrypt.Net.BCrypt.HashPassword(newPassword));
 
             return ResetPasswordResult.Success;
         }
