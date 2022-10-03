@@ -22,7 +22,49 @@ namespace Mir3DClientEditor.FormValueEditors
             TreeFolders.AfterSelect += TreeFolders_AfterSelect;
             DataGrid.ReadOnly = true;
             DataGrid.CellDoubleClick += DataGrid_CellDoubleClick;
+            DataGrid.CellMouseClick += DataGrid_CellMouseClick;
             Disposed += MPQExplorerControl_Disposed;
+        }
+
+        private void DataGrid_CellMouseClick(object? sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex != -1 && e.RowIndex != -1 && e.Button == MouseButtons.Right)
+            {
+                ContextMenuStrip m = new ContextMenuStrip();
+                var exportAs = new ToolStripMenuItem("Export As");
+                exportAs.Click += ExportAs_Click;
+                m.Items.Add(exportAs);
+                var point = PointToClient(Cursor.Position);
+                Point locationOnForm = DataGrid.FindForm().PointToClient(DataGrid.Parent.PointToScreen(DataGrid.Location));
+                point = new Point(point.X - locationOnForm.X, point.Y - locationOnForm.Y);
+                m.Show(DataGrid, point);
+            }
+        }
+
+        private void ExportAs_Click(object? sender, EventArgs e)
+        {
+            var row = DataGrid.SelectedRows[0];
+            var cell = row.Cells[0];
+
+            var path = (GetSelectedDirectory() + '\\' + (string)cell.Value).TrimStart('\\');
+            var manager = _archives.Where(x => x.ListFiles.Any(x => x.Path == path)).FirstOrDefault();
+            if (manager == null) return;
+
+            var saveDialog = new SaveFileDialog();
+            saveDialog.FileName = Path.GetFileName(path);
+
+            if (saveDialog.ShowDialog() != DialogResult.OK)
+                return;
+
+            using var fileStream = manager.Archive.OpenFile(path);
+
+            var flags = fileStream.GetFlags();
+            var data = new byte[fileStream.Length];
+            fileStream.Read(data, 0, data.Length);
+
+            data = Mir3DCrypto.Crypto.Decrypt(data);
+
+            System.IO.File.WriteAllBytes(saveDialog.FileName, data);
         }
 
         private void MPQExplorerControl_Disposed(object? sender, EventArgs e)
