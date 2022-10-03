@@ -14,9 +14,11 @@ namespace ContentEditor.Views
 {
     public partial class UMapEditor : UBaseEditor
     {
+        public override string AttachedTabName => "TabMaps";
+
         public IDatabaseManager Database { get; private set; }
 
-        public UMapEditor() : base("TabMaps")
+        public UMapEditor()
         {
             InitializeComponent();
 

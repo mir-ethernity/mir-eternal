@@ -12,12 +12,11 @@ namespace ContentEditor.Views
     [TypeDescriptionProvider(typeof(AbstractControlDescriptionProvider<UBaseEditor, UserControl>))]
     public abstract class UBaseEditor : UserControl
     {
-        public readonly string AttachedTabName;
+        public abstract string AttachedTabName { get; }
 
-        public UBaseEditor(string attachedTabName)
+        public UBaseEditor()
         {
             Dock = DockStyle.Fill;
-            AttachedTabName = attachedTabName;
         }
 
         public abstract void ReloadDatabase(IDatabaseManager database);

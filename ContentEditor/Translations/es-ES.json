@@ -45,5 +45,17 @@
   "fmapeditor.statusstrip1.set160toolstripmenuitem.text": "Establecer 160%",
   "fmapeditor.statusstrip1.set180toolstripmenuitem.text": "Establecer 180%",
   "fmapeditor.statusstrip1.ddbzoom.text": "Zoom: 100%",
-  "fmapeditor.statusstrip1.lblselectedpoint.text": "Seleccionado (X:%s, Y:%s)"
+  "fmapeditor.statusstrip1.lblselectedpoint.text": "Seleccionado (X:%s, Y:%s)",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.id.header_text": "Id",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.name.header_text": "Name",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.type.header_text": "Type",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.storetype.header_text": "Store Type",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.persisttype.header_text": "Persist Type",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.needlevel.header_text": "Need Level",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.needrace.header_text": "NeedRace",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.cansold.header_text": "Can Sold",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.saleprice.header_text": "Sale Price",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.maxdura.header_text": "Max Dura",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.weight.header_text": "Weight",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.candrop.header_text": "Can Drop"
 }
