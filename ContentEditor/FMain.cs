@@ -92,7 +92,7 @@ namespace ContentEditor
 
             DatabaseManager = new JsonDatabaseManager(openFolderDialog.SelectedPath);
 
-            await DatabaseManager.Map.Initialize();
+            await DatabaseManager.Initialize();
 
             foreach (var editor in _editors.Values)
                 editor.ReloadDatabase(DatabaseManager);

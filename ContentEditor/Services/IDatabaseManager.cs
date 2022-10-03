@@ -10,6 +10,9 @@ namespace ContentEditor.Services
     public interface IDatabaseManager
     {
         IMapRepository Map { get; }
+        IItemRepository Item { get; }
         ITerrainRepository Terrain { get; }
+
+        Task Initialize();
     }
 }

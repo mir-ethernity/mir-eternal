@@ -22,6 +22,7 @@ namespace ContentEditor.Views
         {
             InitializeComponent();
 
+            DataGridMaps.AutoGenerateColumns = false;
             DataGridMaps.DataError += DataGridMaps_DataError;
             DataGridMaps.CellDoubleClick += DataGridMaps_CellDoubleClick;
         }

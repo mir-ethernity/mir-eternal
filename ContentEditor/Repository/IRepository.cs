@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace ContentEditor.Repository
 {
-    public interface IRepository<TObject> where TObject : class
+    public interface IRepository<TObject> : IRepository where TObject : class
     {
         IEnumerable<TObject> DataSource { get; }
+    }
+
+    public interface IRepository
+    {
+        Task Initialize();
     }
 }

@@ -2,18 +2,6 @@
 {
     partial class UItemEditor
     {
-        private DataGridViewTextBoxColumn Id;
-        private DataGridViewTextBoxColumn ItemName;
-        private DataGridViewComboBoxColumn Type;
-        private DataGridViewComboBoxColumn StoreType;
-        private DataGridViewComboBoxColumn PersistType;
-        private DataGridViewTextBoxColumn NeedLevel;
-        private DataGridViewComboBoxColumn NeedRace;
-        private DataGridViewCheckBoxColumn CanSold;
-        private DataGridViewTextBoxColumn SalePrice;
-        private DataGridViewTextBoxColumn MaxDura;
-        private DataGridViewTextBoxColumn Weight;
-        private DataGridViewCheckBoxColumn CanDrop;
         private Sunny.UI.UIDataGridView DataGridItems;
 
         /// <summary> 
@@ -42,9 +30,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -129,74 +114,102 @@
             // 
             // Id
             // 
+            this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             // 
-            // Name
+            // ItemName
             // 
+            this.ItemName.DataPropertyName = "Name";
             this.ItemName.HeaderText = "Name";
-            this.ItemName.Name = "Name";
+            this.ItemName.Name = "ItemName";
             // 
             // Type
             // 
+            this.Type.DataPropertyName = "Type";
             this.Type.HeaderText = "Type";
             this.Type.Name = "Type";
             // 
             // StoreType
             // 
+            this.StoreType.DataPropertyName = "StoreType";
             this.StoreType.HeaderText = "Store Type";
             this.StoreType.Name = "StoreType";
             // 
             // PersistType
             // 
+            this.PersistType.DataPropertyName = "PersisType";
             this.PersistType.HeaderText = "Persist Type";
             this.PersistType.Name = "PersistType";
             // 
             // NeedLevel
             // 
+            this.NeedLevel.DataPropertyName = "NeedLevel";
             this.NeedLevel.HeaderText = "Need Level";
             this.NeedLevel.Name = "NeedLevel";
             // 
             // NeedRace
             // 
+            this.NeedRace.DataPropertyName = "NeedRace";
             this.NeedRace.HeaderText = "NeedRace";
             this.NeedRace.Name = "NeedRace";
             // 
             // CanSold
             // 
+            this.CanSold.DataPropertyName = "CanSold";
             this.CanSold.HeaderText = "Can Sold";
             this.CanSold.Name = "CanSold";
             // 
             // SalePrice
             // 
+            this.SalePrice.DataPropertyName = "SalePrice";
             this.SalePrice.HeaderText = "Sale Price";
             this.SalePrice.Name = "SalePrice";
             // 
             // MaxDura
             // 
+            this.MaxDura.DataPropertyName = "MaxDura";
             this.MaxDura.HeaderText = "Max Dura";
             this.MaxDura.Name = "MaxDura";
             // 
             // Weight
             // 
+            this.Weight.DataPropertyName = "Weight";
             this.Weight.HeaderText = "Weight";
             this.Weight.Name = "Weight";
             // 
             // CanDrop
             // 
+            this.CanDrop.DataPropertyName = "CanDrop";
             this.CanDrop.HeaderText = "Can Drop";
             this.CanDrop.Name = "CanDrop";
             // 
             // UItemEditor
             // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.DataGridItems);
             this.Name = "UItemEditor";
             this.Size = new System.Drawing.Size(812, 558);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridItems)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn ItemName;
+        private DataGridViewComboBoxColumn Type;
+        private DataGridViewComboBoxColumn StoreType;
+        private DataGridViewComboBoxColumn PersistType;
+        private DataGridViewTextBoxColumn NeedLevel;
+        private DataGridViewComboBoxColumn NeedRace;
+        private DataGridViewCheckBoxColumn CanSold;
+        private DataGridViewTextBoxColumn SalePrice;
+        private DataGridViewTextBoxColumn MaxDura;
+        private DataGridViewTextBoxColumn Weight;
+        private DataGridViewCheckBoxColumn CanDrop;
     }
 }

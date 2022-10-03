@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace ContentEditor.Repository
 {
-    public interface IMapRepository : IRepository<MapInfo>
+    public interface IItemRepository : IRepository<GameItem>
     {
-        
     }
 }
