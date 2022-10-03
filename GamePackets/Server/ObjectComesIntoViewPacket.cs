@@ -38,7 +38,10 @@ namespace GameServer.Networking
 
         [WrappingFieldAttribute(SubScript = 16, Length = 1)]
         public byte 体力比例;
-        
+
+        [WrappingFieldAttribute(SubScript = 17, Length = 1)]
+        public byte ActiveMount;
+
         [WrappingFieldAttribute(SubScript = 18, Length = 1)]
         public byte U1 = 192;
 
