@@ -287,22 +287,25 @@ namespace ContentEditor
                         new Pen(Color.Aqua),
                         area.FromCoords.X - Terrain.StartX - area.AreaRadius,
                         area.FromCoords.Y - Terrain.StartY - area.AreaRadius,
-                        area.AreaRadius,
-                        area.AreaRadius
+                        area.AreaRadius * 2,
+                        area.AreaRadius * 2
                     );
                     gr.FillRectangle(
                         new SolidBrush(Color.FromArgb(50, Color.Aqua)),
                         area.FromCoords.X - Terrain.StartX - area.AreaRadius,
                         area.FromCoords.Y - Terrain.StartY - area.AreaRadius,
-                        area.AreaRadius,
-                        area.AreaRadius
+                        area.AreaRadius * 2,
+                        area.AreaRadius * 2
                     );
+
+                    var textSize = gr.MeasureString(area.RegionName, SystemFonts.MessageBoxFont);
+
                     gr.DrawString(
                         area.RegionName,
                         SystemFonts.MessageBoxFont,
                         Color.White,
-                        area.FromCoords.X - area.AreaRadius - Terrain.StartX + 1,
-                        area.FromCoords.Y - area.AreaRadius - Terrain.StartY + 1
+                        area.FromCoords.X - Terrain.StartX + 1 - textSize.Width / 2,
+                        area.FromCoords.Y - Terrain.StartY + 1 - textSize.Height / 2
                     );
                 }
             }
@@ -330,15 +333,15 @@ namespace ContentEditor
                         new Pen(Color.DarkRed),
                         monster.FromCoords.X - Terrain.StartX - monster.AreaRadius,
                         monster.FromCoords.Y - Terrain.StartY - monster.AreaRadius,
-                        monster.AreaRadius,
-                        monster.AreaRadius
+                        monster.AreaRadius * 2,
+                        monster.AreaRadius * 2
                     );
                     gr.FillRectangle(
                         new SolidBrush(Color.FromArgb(50, Color.DarkRed)),
                         monster.FromCoords.X - Terrain.StartX - monster.AreaRadius,
                         monster.FromCoords.Y - Terrain.StartY - monster.AreaRadius,
-                        monster.AreaRadius,
-                        monster.AreaRadius
+                        monster.AreaRadius * 2,
+                        monster.AreaRadius * 2
                     );
 
                     var spawnInfo = new List<string>();
@@ -350,8 +353,8 @@ namespace ContentEditor
                         string.Join("\n", spawnInfo),
                         SystemFonts.MessageBoxFont,
                         Color.BlueViolet,
-                        monster.FromCoords.X - monster.AreaRadius - Terrain.StartX + 1,
-                        monster.FromCoords.Y - monster.AreaRadius - Terrain.StartY + 1
+                        monster.FromCoords.X - Terrain.StartX + 1,
+                        monster.FromCoords.Y - Terrain.StartY + 1
                     );
                 }
             }
