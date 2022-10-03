@@ -25,6 +25,7 @@ namespace ContentEditor
         public Bitmap MonstersBitmap { get; private set; }
 
         public IDatabaseManager Database { get; }
+        public Point? Moving { get; private set; } = null;
 
         public FMapEditor(IDatabaseManager database, MapInfo map)
         {
@@ -36,8 +37,12 @@ namespace ContentEditor
         private async void FMain_Load(object sender, EventArgs e)
         {
             KeyUp += FMain_KeyUp;
+
             pictureBox1.MouseMove += PictureBox1_MouseMove;
             pictureBox1.MouseClick += PictureBox1_MouseClick;
+            pictureBox1.MouseDown += PictureBox1_MouseDown;
+            pictureBox1.MouseUp += PictureBox1_MouseUp;
+
             LayerAreas.CheckedChanged += RefreshPaint_Event;
             LayerGuards.CheckedChanged += RefreshPaint_Event;
             LayerGates.CheckedChanged += RefreshPaint_Event;
@@ -64,6 +69,18 @@ namespace ContentEditor
             RenderGatesBitmap();
             RenderMonstersBitmap();
             PaintOnPictureBox();
+        }
+
+        private void PictureBox1_MouseUp(object? sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Middle)
+                Moving = null;
+        }
+
+        private void PictureBox1_MouseDown(object? sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Middle)
+                Moving = e.Location;
         }
 
         private void RefreshPaint_Event(object? sender, EventArgs e)
@@ -127,17 +144,34 @@ namespace ContentEditor
         {
             if (Terrain == null) return;
 
-            SelectPosition = new Point(
-                Terrain.StartX + (int)(e.Location.X / ZoomFactor),
-                Terrain.StartY + (int)(e.Location.Y / ZoomFactor)
-            );
-            PaintOnPictureBox();
+            if (e.Button == MouseButtons.Left)
+            {
+                SelectPosition = new Point(
+                    Terrain.StartX + (int)(e.Location.X / ZoomFactor),
+                    Terrain.StartY + (int)(e.Location.Y / ZoomFactor)
+                );
+                PaintOnPictureBox();
+            }
         }
 
         private void PictureBox1_MouseMove(object? sender, MouseEventArgs e)
         {
             if (Terrain == null) return;
             lblMouseCoords.Text = $"X:{Terrain.StartX + e.X}, Y:{Terrain.StartY + e.Y}";
+
+            if (Moving != null)
+            {
+                var diff = new Point((e.Location.X - Moving.Value.X) / 2, (e.Location.Y - Moving.Value.Y) / 2);
+
+                if (uiSplitContainer1.Panel2.HorizontalScroll.Value - diff.X >= 0)
+                    uiSplitContainer1.Panel2.HorizontalScroll.Value -= diff.X;
+
+                if (uiSplitContainer1.Panel2.VerticalScroll.Value - diff.Y >= 0)
+                    uiSplitContainer1.Panel2.VerticalScroll.Value -= diff.Y;
+
+                Moving = e.Location;
+            }
+
         }
 
         private void RenderTerrainBitmap()
