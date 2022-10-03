@@ -100,7 +100,8 @@ namespace WinFormsTransltor
 
             do
             {
-                name = $"{parent.Name}." + name;
+                if (!string.IsNullOrEmpty(parent.Name))
+                    name = $"{parent.Name}." + name;
             } while ((parent = parent.Parent) != null);
 
             name = name.Replace(' ', '_').ToLowerInvariant();

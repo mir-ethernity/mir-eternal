@@ -38,6 +38,11 @@ namespace ContentEditor.Repository.Default
             var hx = br.ReadInt32();
             var hy = br.ReadInt32();
 
+            terrain.StartX = sx;
+            terrain.StartY = sy;
+            terrain.EndX = ex;
+            terrain.EndY = ey;
+
             terrain.Width = ex - sx;
             terrain.Height = ey - sy;
 

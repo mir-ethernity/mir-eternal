@@ -1,8 +1,10 @@
 using ContentEditor.Models;
+using ContentEditor.Properties;
 using ContentEditor.Services;
 using Microsoft.VisualBasic.Devices;
 using Sunny.UI;
 using System.Threading;
+using System.Windows.Forms;
 using WinFormsTranslator;
 
 namespace ContentEditor
@@ -17,6 +19,11 @@ namespace ContentEditor
 
 
         public Bitmap TerrainBitmap { get; private set; }
+        public Bitmap GuardsBitmap { get; private set; }
+        public Bitmap AreasBitmap { get; private set; }
+        public Bitmap GatesBitmap { get; private set; }
+        public Bitmap MonstersBitmap { get; private set; }
+
         public IDatabaseManager Database { get; }
 
         public FMapEditor(IDatabaseManager database, MapInfo map)
@@ -31,6 +38,14 @@ namespace ContentEditor
             KeyUp += FMain_KeyUp;
             pictureBox1.MouseMove += PictureBox1_MouseMove;
             pictureBox1.MouseClick += PictureBox1_MouseClick;
+            LayerAreas.CheckedChanged += RefreshPaint_Event;
+            LayerGuards.CheckedChanged += RefreshPaint_Event;
+            LayerGates.CheckedChanged += RefreshPaint_Event;
+            LayerSpawns.CheckedChanged += RefreshPaint_Event;
+
+            MapAttrFreeZone.CheckedChanged += RedrawTerrain_Event;
+            MapAttrSafeZone.CheckedChanged += RedrawTerrain_Event;
+            MapAttrStallArea.CheckedChanged += RedrawTerrain_Event;
 
             this.set20ToolStripMenuItem.Click += SetZoomMenuItem_Click;
             this.set40ToolStripMenuItem.Click += SetZoomMenuItem_Click;
@@ -43,6 +58,21 @@ namespace ContentEditor
             this.set180ToolStripMenuItem.Click += SetZoomMenuItem_Click;
 
             Terrain = await Database.Terrain.GetTerrain(Map.TerrainFile);
+            RenderTerrainBitmap();
+            RenderAreasBitmap();
+            RenderGuardsBitmap();
+            RenderGatesBitmap();
+            RenderMonstersBitmap();
+            PaintOnPictureBox();
+        }
+
+        private void RefreshPaint_Event(object? sender, EventArgs e)
+        {
+            PaintOnPictureBox();
+        }
+
+        private void RedrawTerrain_Event(object? sender, EventArgs e)
+        {
             RenderTerrainBitmap();
             PaintOnPictureBox();
         }
@@ -95,13 +125,19 @@ namespace ContentEditor
 
         private void PictureBox1_MouseClick(object? sender, MouseEventArgs e)
         {
-            SelectPosition = new Point((int)(e.Location.X / ZoomFactor), (int)(e.Location.Y / ZoomFactor));
+            if (Terrain == null) return;
+
+            SelectPosition = new Point(
+                Terrain.StartX + (int)(e.Location.X / ZoomFactor),
+                Terrain.StartY + (int)(e.Location.Y / ZoomFactor)
+            );
             PaintOnPictureBox();
         }
 
         private void PictureBox1_MouseMove(object? sender, MouseEventArgs e)
         {
-            lblMouseCoords.Text = $"X:{e.X}, Y:{e.Y}";
+            if (Terrain == null) return;
+            lblMouseCoords.Text = $"X:{Terrain.StartX + e.X}, Y:{Terrain.StartY + e.Y}";
         }
 
         private void RenderTerrainBitmap()
@@ -123,15 +159,15 @@ namespace ContentEditor
                     if (cell.IsBlocked)
                         bitmap.SetPixel(x, y, Color.Black);
                     else if (cell.IsSafeZone)
-                        bitmap.SetPixel(x, y, Color.Blue);
+                        bitmap.SetPixel(x, y, MapAttrSafeZone.Checked ? Color.Blue : Color.LightGray);
                     else if (cell.IsFreeZone)
-                        bitmap.SetPixel(x, y, Color.Green);
+                        bitmap.SetPixel(x, y, MapAttrFreeZone.Checked ? Color.Green : Color.LightGray);
                     else if (cell.IsStallArea)
-                        bitmap.SetPixel(x, y, Color.Orange);
+                        bitmap.SetPixel(x, y, MapAttrStallArea.Checked ? Color.Orange : Color.LightGray);
                     else if (cell.IsWalkable1)
-                        bitmap.SetPixel(x, y, Color.White);
+                        bitmap.SetPixel(x, y, Color.LightGray);
                     else if (cell.IsWalkable2)
-                        bitmap.SetPixel(x, y, Color.WhiteSmoke);
+                        bitmap.SetPixel(x, y, Color.LightGray);
                     else
                         bitmap.SetPixel(x, y, Color.Red);
                 }
@@ -140,29 +176,236 @@ namespace ContentEditor
             TerrainBitmap = bitmap;
         }
 
+        private void RenderGatesBitmap()
+        {
+            if (Terrain == null || Map.Areas.Count == 0)
+            {
+                GatesBitmap = new Bitmap(1, 1);
+                return;
+            }
+
+            var bitmap = new Bitmap(Terrain.Width, Terrain.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+
+            using (var gr = Graphics.FromImage(bitmap))
+            {
+                gr.Clear(Color.Transparent);
+
+                foreach (var gate in Map.OutgoingGates)
+                {
+                    var size = 4;
+                    gr.DrawRectangle(
+                        new Pen(Color.Red),
+                        gate.FromCoords.X - Terrain.StartX - size / 2,
+                        gate.FromCoords.Y - Terrain.StartY - size / 2,
+                        size,
+                        size
+                    );
+                    gr.FillRectangle(
+                        new SolidBrush(Color.FromArgb(50, Color.Red)),
+                        gate.FromCoords.X - Terrain.StartX - size / 2,
+                        gate.FromCoords.Y - Terrain.StartY - size / 2,
+                        size,
+                        size
+                    );
+                }
+
+                foreach (var gate in Map.IncomingGates)
+                {
+                    var size = 4;
+                    gr.DrawRectangle(
+                        new Pen(Color.DeepPink),
+                        gate.FromCoords.X - Terrain.StartX - size / 2,
+                        gate.FromCoords.Y - Terrain.StartY - size / 2,
+                        size,
+                        size
+                    );
+                    gr.FillRectangle(
+                        new SolidBrush(Color.FromArgb(50, Color.DeepPink)),
+                        gate.FromCoords.X - Terrain.StartX - size / 2,
+                        gate.FromCoords.Y - Terrain.StartY - size / 2,
+                        size,
+                        size
+                    );
+                }
+            }
+
+            GatesBitmap = bitmap;
+        }
+
+
+        private void RenderAreasBitmap()
+        {
+            if (Terrain == null || Map.Areas.Count == 0)
+            {
+                AreasBitmap = new Bitmap(1, 1);
+                return;
+            }
+
+            var bitmap = new Bitmap(Terrain.Width, Terrain.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+
+            using (var gr = Graphics.FromImage(bitmap))
+            {
+                gr.Clear(Color.Transparent);
+
+                foreach (var area in Map.Areas)
+                {
+                    gr.DrawRectangle(
+                        new Pen(Color.Aqua),
+                        area.FromCoords.X - Terrain.StartX - area.AreaRadius,
+                        area.FromCoords.Y - Terrain.StartY - area.AreaRadius,
+                        area.AreaRadius,
+                        area.AreaRadius
+                    );
+                    gr.FillRectangle(
+                        new SolidBrush(Color.FromArgb(50, Color.Aqua)),
+                        area.FromCoords.X - Terrain.StartX - area.AreaRadius,
+                        area.FromCoords.Y - Terrain.StartY - area.AreaRadius,
+                        area.AreaRadius,
+                        area.AreaRadius
+                    );
+                    gr.DrawString(
+                        area.RegionName,
+                        SystemFonts.MessageBoxFont,
+                        Color.White,
+                        area.FromCoords.X - area.AreaRadius - Terrain.StartX + 1,
+                        area.FromCoords.Y - area.AreaRadius - Terrain.StartY + 1
+                    );
+                }
+            }
+
+            AreasBitmap = bitmap;
+        }
+
+        private void RenderMonstersBitmap()
+        {
+            if (Terrain == null || Map.Monsters.Count == 0)
+            {
+                MonstersBitmap = new Bitmap(1, 1);
+                return;
+            }
+
+            var bitmap = new Bitmap(Terrain.Width, Terrain.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+
+            using (var gr = Graphics.FromImage(bitmap))
+            {
+                gr.Clear(Color.Transparent);
+
+                foreach (var monster in Map.Monsters)
+                {
+                    gr.DrawRectangle(
+                        new Pen(Color.DarkRed),
+                        monster.FromCoords.X - Terrain.StartX - monster.AreaRadius,
+                        monster.FromCoords.Y - Terrain.StartY - monster.AreaRadius,
+                        monster.AreaRadius,
+                        monster.AreaRadius
+                    );
+                    gr.FillRectangle(
+                        new SolidBrush(Color.FromArgb(50, Color.DarkRed)),
+                        monster.FromCoords.X - Terrain.StartX - monster.AreaRadius,
+                        monster.FromCoords.Y - Terrain.StartY - monster.AreaRadius,
+                        monster.AreaRadius,
+                        monster.AreaRadius
+                    );
+
+                    var spawnInfo = new List<string>();
+
+                    foreach (var spawn in monster.Spawns)
+                        spawnInfo.Add($"* {spawn.MonsterName} (Count:{spawn.SpawnCount}, Revival Interval: {spawn.RevivalInterval})");
+
+                    gr.DrawString(
+                        string.Join("\n", spawnInfo),
+                        SystemFonts.MessageBoxFont,
+                        Color.BlueViolet,
+                        monster.FromCoords.X - monster.AreaRadius - Terrain.StartX + 1,
+                        monster.FromCoords.Y - monster.AreaRadius - Terrain.StartY + 1
+                    );
+                }
+            }
+
+            MonstersBitmap = bitmap;
+        }
+
+        private void RenderGuardsBitmap()
+        {
+            if (Terrain == null || Map.Guards.Count == 0)
+            {
+                GuardsBitmap = new Bitmap(1, 1);
+                return;
+            }
+
+            var bitmap = new Bitmap(Terrain.Width, Terrain.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+
+            using (var gr = Graphics.FromImage(bitmap))
+            {
+                gr.Clear(Color.Transparent);
+
+                foreach (var guard in Map.Guards)
+                {
+                    var size = 4;
+                    gr.DrawRectangle(
+                        new Pen(Color.OrangeRed),
+                        guard.FromCoords.X - Terrain.StartX - size / 2,
+                        guard.FromCoords.Y - Terrain.StartY - size / 2,
+                        size,
+                        size
+                    );
+                    gr.FillRectangle(
+                        new SolidBrush(Color.FromArgb(50, Color.OrangeRed)),
+                        guard.FromCoords.X - Terrain.StartX - size / 2,
+                        guard.FromCoords.Y - Terrain.StartY - size / 2,
+                        size,
+                        size
+                    );
+                }
+            }
+
+            GuardsBitmap = bitmap;
+        }
+
         public void PaintOnPictureBox(CancellationToken cancellationToken = default)
         {
+            if (Terrain == null) return;
+
+            var surface = new Bitmap(Terrain.Width, Terrain.Height, System.Drawing.Imaging.PixelFormat.Format16bppRgb555);
+
+            using (var gr = Graphics.FromImage(surface))
+            {
+                gr.Clear(Color.Black);
+                gr.DrawImage(TerrainBitmap, Point.Empty);
+
+                if (LayerAreas.Checked) gr.DrawImage(AreasBitmap, Point.Empty);
+                if (LayerGuards.Checked) gr.DrawImage(GuardsBitmap, Point.Empty);
+                if (LayerGates.Checked) gr.DrawImage(GatesBitmap, Point.Empty);
+                if (LayerSpawns.Checked) gr.DrawImage(MonstersBitmap, Point.Empty);
+
+                if (SelectPosition != Point.Empty)
+                {
+                    var size = 4;
+                    gr.DrawRectangle(
+                        new Pen(Color.Red),
+                        SelectPosition.X - Terrain.StartX - size / 2,
+                        SelectPosition.Y - Terrain.StartY - size / 2,
+                        size,
+                        size
+                    );
+                    gr.FillRectangle(
+                        new SolidBrush(Color.FromArgb(50, Color.Red)),
+                        SelectPosition.X - Terrain.StartX - size / 2,
+                        SelectPosition.Y - Terrain.StartY - size / 2,
+                        size,
+                        size
+                    );
+                }
+            }
+
             pictureBox1.Image = ScaleImage(
-                TerrainBitmap,
+                surface,
                 (int)(TerrainBitmap.Width * ZoomFactor),
                 (int)(TerrainBitmap.Height * ZoomFactor)
             );
 
-            using (var gr = Graphics.FromImage(pictureBox1.Image))
-            {
-                if (SelectPosition != Point.Empty)
-                {
-                    var scaledPositionX = SelectPosition.X * ZoomFactor;
-                    var scaledPositionY = SelectPosition.Y * ZoomFactor;
-                    var size = 4 * ZoomFactor;
-
-                    gr.DrawRectangle(new Pen(Color.Red), scaledPositionX - size / 2, scaledPositionY - size / 2, size, size);
-                    gr.FillRectangle(new SolidBrush(Color.FromArgb(50, Color.Red)), scaledPositionX - size / 2, scaledPositionY - size / 2, size, size);
-                }
-            }
-
             ddbZoom.Text = TranslatorContext.GetString("fmapeditor.statusstrip1.ddbzoom.text", new string[] { (ZoomFactor * 100).ToString() }, $"Zoom: %s%");
-            lblSelectedPoint.Text = TranslatorContext.GetString("mapeditor.statusstrip1.lblselectedpoint.text", new string[] { SelectPosition.X.ToString(), SelectPosition.Y.ToString() }, "Selected (X:%s,Y:%s)");
+            lblSelectedPoint.Text = TranslatorContext.GetString("fmapeditor.statusstrip1.lblselectedpoint.text", new string[] { SelectPosition.X.ToString(), SelectPosition.Y.ToString() }, "Selected (X:%s,Y:%s)");
 
             Refresh();
         }

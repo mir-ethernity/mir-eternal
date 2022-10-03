@@ -163,7 +163,8 @@ namespace WinFormsTransltor
                 switch (value.Type)
                 {
                     case JTokenType.String:
-                        translations.Add(tmpkey, value.Value<string>() ?? string.Empty);
+                        if (!translations.ContainsKey(tmpkey))
+                            translations.Add(tmpkey, value.Value<string>() ?? string.Empty);
                         break;
                     case JTokenType.Object:
                         ExpandTranslations(translations, (JObject)value, tmpkey);

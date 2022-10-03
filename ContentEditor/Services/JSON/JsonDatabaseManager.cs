@@ -20,7 +20,7 @@ namespace ContentEditor.Services.JSON
         {
             SystemFolderPath = systemFolderPath;
 
-            Map = new JsonMapRepository(Path.Combine(systemFolderPath, "GameMap", "Maps"));
+            Map = new JsonMapRepository(Path.Combine(systemFolderPath, "GameMap"));
             Terrain = new DefaultTerrainRepository(Path.Combine(systemFolderPath, "GameMap", "Terrains"));
         }
     }

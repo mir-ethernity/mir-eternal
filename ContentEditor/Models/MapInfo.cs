@@ -19,5 +19,11 @@ namespace ContentEditor.Models
         public bool NoReconnect { get; set; }
         public byte NoReconnectMapId { get; set; }
         public bool CopyMap { get; set; }
+
+        public List<MapGuard> Guards { get; set; } = new List<MapGuard>();
+        public List<MapArea> Areas { get; set; } = new List<MapArea>();
+        public List<MapTeleportGate> OutgoingGates { get; set; } = new List<MapTeleportGate>();
+        public List<MapTeleportGate> IncomingGates { get; set; } = new List<MapTeleportGate>();
+        public List<MapMonster> Monsters { get; set; } = new List<MapMonster>();
     }
 }
