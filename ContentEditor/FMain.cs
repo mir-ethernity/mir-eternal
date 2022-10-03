@@ -7,6 +7,7 @@ using Sunny.UI;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
+using WinFormsTranslator;
 using WinFormsTransltor;
 
 namespace ContentEditor
@@ -22,8 +23,33 @@ namespace ContentEditor
         public FMain()
         {
             InitializeComponent();
+            LoadLanguageSelector();
             PreloadAllEditors();
             NavMenu.AfterSelect += NavMenu_AfterSelect;
+            LanguageMenu.DropDown.ItemClicked += LanguageMenu_ItemClicked;
+            Load += FMain_Load;
+        }
+
+        private void FMain_Load(object? sender, EventArgs e)
+        {
+            LanguageMenu.Text = TranslatorContext.GetString("fmain.menustrip1.languagemenu.text", new string[] { TranslatorContext.Translations?.CurrentCulture.Name ?? "en-US" }, $"Language (%s)");
+        }
+
+        private void LanguageMenu_ItemClicked(object? sender, ToolStripItemClickedEventArgs e)
+        {
+            var code = (string)e.ClickedItem.Tag;
+            TranslatorContext.Translations?.ChangeLanguage(code);
+            LanguageMenu.Text = TranslatorContext.GetString("fmain.menustrip1.languagemenu.text", new string[] { code }, $"Language (%s)");
+        }
+
+        private void LoadLanguageSelector()
+        {
+            if (TranslatorContext.Translations == null) return;
+
+            foreach (var language in TranslatorContext.Translations.GetLanguages())
+            {
+                LanguageMenu.DropDown.Items.Add(new ToolStripMenuItem { Name = $"MenuLanguage{language.Code}", Tag = language.Code, Text = $"({language.Code}) {language.Name}" });
+            }
         }
 
         private void PreloadAllEditors()

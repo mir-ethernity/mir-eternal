@@ -57,5 +57,9 @@
   "fmain.applayout.editorcontainer.uitemeditor.datagriditems.saleprice.header_text": "Sale Price",
   "fmain.applayout.editorcontainer.uitemeditor.datagriditems.maxdura.header_text": "Max Dura",
   "fmain.applayout.editorcontainer.uitemeditor.datagriditems.weight.header_text": "Weight",
-  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.candrop.header_text": "Can Drop"
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.candrop.header_text": "Can Drop",
+  "fmain.menustrip1.languagemenu.text": "Idioma (%s)",
+  "fmain.menustrip1.menulanguageen-us.text": "(en-US) inglés (Estados Unidos)",
+  "fmain.menustrip1.menulanguagees-es.text": "(es-ES) español (España)",
+  "fmain.menustrip1.menulanguagezh-cn.text": "(zh-CN) chino (China)"
 }

@@ -46,5 +46,21 @@
   "fmapeditor.panel1.uisplitcontainer1.grouplayers.layerspawns.text": "产卵",
   "fmapeditor.panel1.uisplitcontainer1.grouplayers.layergates.text": "盖茨",
   "fmapeditor.panel1.uisplitcontainer1.grouplayers.layerguards.text": "警卫",
-  "fmapeditor.panel1.uisplitcontainer1.grouplayers.layerareas.text": "领域"
+  "fmapeditor.panel1.uisplitcontainer1.grouplayers.layerareas.text": "领域",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.id.header_text": "Id",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.name.header_text": "Name",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.type.header_text": "Type",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.storetype.header_text": "Store Type",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.persisttype.header_text": "Persist Type",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.needlevel.header_text": "Need Level",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.needrace.header_text": "NeedRace",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.cansold.header_text": "Can Sold",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.saleprice.header_text": "Sale Price",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.maxdura.header_text": "Max Dura",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.weight.header_text": "Weight",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.candrop.header_text": "Can Drop",
+  "fmain.menustrip1.languagemenu.text": "语 (%s)",
+  "fmain.menustrip1.menulanguageen-us.text": "(en-US) inglés (Estados Unidos)",
+  "fmain.menustrip1.menulanguagees-es.text": "(es-ES) español (España)",
+  "fmain.menustrip1.menulanguagezh-cn.text": "(zh-CN) chino (China)"
 }

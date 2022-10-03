@@ -40,10 +40,11 @@
             System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Achievements");
             this.NavMenu = new Sunny.UI.UINavMenu();
             this.AppLayout = new Sunny.UI.UITableLayoutPanel();
+            this.EditorContainer = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.EditorContainer = new System.Windows.Forms.Panel();
+            this.LanguageMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.AppLayout.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -110,10 +111,19 @@
             this.AppLayout.TabIndex = 5;
             this.AppLayout.TagString = null;
             // 
+            // EditorContainer
+            // 
+            this.EditorContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.EditorContainer.Location = new System.Drawing.Point(169, 3);
+            this.EditorContainer.Name = "EditorContainer";
+            this.EditorContainer.Size = new System.Drawing.Size(829, 648);
+            this.EditorContainer.TabIndex = 5;
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.databaseToolStripMenuItem});
+            this.databaseToolStripMenuItem,
+            this.LanguageMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1001, 24);
@@ -135,13 +145,11 @@
             this.loadDatabaseToolStripMenuItem.Text = "Load Database";
             this.loadDatabaseToolStripMenuItem.Click += new System.EventHandler(this.loadDatabaseToolStripMenuItem_Click_1);
             // 
-            // EditorContainer
+            // LanguageMenu
             // 
-            this.EditorContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EditorContainer.Location = new System.Drawing.Point(169, 3);
-            this.EditorContainer.Name = "EditorContainer";
-            this.EditorContainer.Size = new System.Drawing.Size(829, 648);
-            this.EditorContainer.TabIndex = 5;
+            this.LanguageMenu.Name = "LanguageMenu";
+            this.LanguageMenu.Size = new System.Drawing.Size(97, 20);
+            this.LanguageMenu.Text = "Language (%s)";
             // 
             // FMain
             // 
@@ -170,5 +178,6 @@
         private ToolStripMenuItem databaseToolStripMenuItem;
         private ToolStripMenuItem loadDatabaseToolStripMenuItem;
         private Panel EditorContainer;
+        private ToolStripMenuItem LanguageMenu;
     }
 }
