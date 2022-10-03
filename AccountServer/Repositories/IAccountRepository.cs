@@ -12,5 +12,6 @@ namespace AccountServer.Repositories
         Task<AccountData> GetByName(string accountName);
         Task RegisterAccount(AccountData account);
         Task UpdatePassword(string accountName, string newPassword);
+        Task<int> GetTotalAccounts();
     }
 }

@@ -10,9 +10,10 @@ namespace AccountServer.Services
     {
         event EventHandler StatsChanged;
 
-        uint TotalAccounts { get; set; }
-        uint TotalNewAccounts { get; set; }
-        uint TotalTickets { get; set; }
+        int TotalAccounts { get; set; }
+        int TotalNewAccounts { get; set; }
+        int TotalTickets { get; set; }
+
         long TotalBytesReceived { get; set; }
         long TotalBytesSended { get; set; }
     }

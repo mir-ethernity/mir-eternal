@@ -135,6 +135,7 @@ namespace AccountServer.Services
                                 else
                                 {
                                     await _accountService.RegisterAccount(new AccountData(parts[2], parts[3], parts[4], parts[5]));
+                                    _stats.TotalNewAccounts++;
                                     SendData(packet.ClientAddress, $"{parts[0]} 2 {parts[2]} {parts[3]}");
                                 }
                                 break;
@@ -167,7 +168,7 @@ namespace AccountServer.Services
                                     SendTicket(server.InternalAddress, text, parts[2]);
                                     SendData(packet.ClientAddress, $"{parts[0]} 6 {parts[2]} {parts[3]} {text}");
                                     _logger.LogInformation($"Successfully Generated Ticket! Account: {parts[2]} - {text}");
-                                    _stats.TotalTickets += 1U;
+                                    _stats.TotalTickets += 1;
                                 }
                                 break;
                             default:
@@ -243,7 +244,7 @@ namespace AccountServer.Services
         }
         public void SendTicket(IPEndPoint address, string packet, string account)
         {
-            _stats.TotalTickets += 1U;
+            _stats.TotalTickets += 1;
             byte[] bytes = Encoding.UTF8.GetBytes(packet + ";" + account);
             if (LocalServer != null)
             {

@@ -256,6 +256,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Account Server - LOMCN";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CloseWindow_Click);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtTSPort)).EndInit();
             this.RightClickMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtASPort)).EndInit();

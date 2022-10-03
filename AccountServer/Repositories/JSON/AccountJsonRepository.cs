@@ -32,6 +32,11 @@ namespace AccountServer.Repositories.JSON
             return Task.FromResult<AccountData>(null);
         }
 
+        public Task<int> GetTotalAccounts()
+        {
+            return Task.FromResult(Accounts.Count);
+        }
+
         public async Task RegisterAccount(AccountData account)
         {
             if (Accounts.ContainsKey(account.Account.ToLowerInvariant()))
