@@ -47,7 +47,7 @@
   "fmapeditor.statusstrip1.ddbzoom.text": "Zoom: 100%",
   "fmapeditor.statusstrip1.lblselectedpoint.text": "Seleccionado (X:%s, Y:%s)",
   "fmain.applayout.editorcontainer.uitemeditor.datagriditems.id.header_text": "Id",
-  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.name.header_text": "Name",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.itemname.header_text": "Name",
   "fmain.applayout.editorcontainer.uitemeditor.datagriditems.type.header_text": "Type",
   "fmain.applayout.editorcontainer.uitemeditor.datagriditems.storetype.header_text": "Store Type",
   "fmain.applayout.editorcontainer.uitemeditor.datagriditems.persisttype.header_text": "Persist Type",
