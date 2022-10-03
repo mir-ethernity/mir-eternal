@@ -12,9 +12,9 @@ var jsonOptions = new JsonSerializerSettings
 };
 
 // var chineseDbSystemPath = @"D:\Descargas\YH191\Database\System";
-var chineseDbSystemPath = @"D:\YH-Server-2.13\Decompile Code\Database\System";
+var chineseDbSystemPath = @"D:\YH191\YH191\System";
 // var mir3dDbSystemPath = @"D:\Descargas\YH191\Database\English\System";
-var mir3dDbSystemPath = @"D:\YH-Server-2.13\Decompile Code\DBEnglish\System";
+var mir3dDbSystemPath = @"D:\Mir3D\Clean\Mir3D\Database\System";
 
 void DumpBuffs()
 {
@@ -341,9 +341,6 @@ void DumpSkillsData()
                 case "需要正向走位":
                     chineseConverted["NeedMoveForward"] = chineseProp.Value.Value<bool>();
                     break;
-                case "自动装配":
-                    chineseConverted["AutoAssembly"] = chineseProp.Value.Value<bool>();
-                    break;
                 default:
                     throw new ApplicationException();
             }
@@ -463,24 +460,6 @@ void DumpSkillInscriptions()
                     chineseConverted["RemoveOnDie"] = chineseProp.Value.Value<bool>();
                     break;
                 case "角色所处状态": // field not exists, ignore.
-                    break;
-                case "自身技能编号":
-                    chineseConverted["OwnSkillId"] = chineseProp.Value.Value<int>();
-                    break;
-                case "技能分组编号":
-                    chineseConverted["GroupId"] = chineseProp.Value.Value<int>();
-                    break;
-                case "绑定等级编号":
-                    chineseConverted["BindingLevelId"] = chineseProp.Value.Value<int>();
-                    break;
-                case "计算触发概率":
-                    chineseConverted["CalculateTriggerProbability"] = chineseProp.Value.Value<float>();
-                    break;
-                case "需要消耗魔法":
-                    chineseConverted["NeedConsumeMagic"] = chineseProp.Value.Values<int>().ToList();
-                    break;
-                case "节点列表":
-                    chineseConverted["Nodes"] = chineseProp.Value.Values<JProperty>().ToDictionary(x => x.Name, y => ConvertSkillNode((JObject)y.Value));
                     break;
                 default:
                     throw new ApplicationException();
@@ -1175,18 +1154,6 @@ Dictionary<string, object> ConvertSkillNode(JObject obj)
             case "怪物召唤同伴":
                 output.Add("Companion", prop.Value.Value<bool>());
                 break;
-            case "命中反馈回复":
-                output.Add("HitFeedbackResponse", prop.Value.Value<bool>());
-                break;
-            case "命中反馈限定类型":
-                output.Add("HitFeedBackLimitedType", ConvertHitFeedBackLimitedType(prop.Value.Value<string>()));
-                break;
-            case "陷阱间距":
-                output.Add("TrapSpacing", prop.Value.Value<int>());
-                break;
-            case "召唤怪物数量":
-                output.Add("NumberMobsToSummon", prop.Value.Value<int>());
-                break;
             default:
                 throw new ApplicationException();
         }
@@ -1449,23 +1416,6 @@ string ConvertLimitedTargetRelationship(string chinese)
     return string.Join(", ", output);
 }
 
-string ConvertHitFeedBackLimitedType(string chinese)
-{
-    var values = chinese.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).ToArray();
-    var output = new List<string>();
-    foreach (var value in values)
-    {
-        switch (value)
-        {
-            case "后仰":
-                return "Backwards";
-            default:
-                throw new ApplicationException();
-        }
-    }
-    return string.Join(", ", output);
-}
-
 string ConvertSpecifyTargetType(string chinese)
 {
     var values = chinese.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).ToArray();
@@ -1553,9 +1503,6 @@ string ConvertObjetType(string chinese)
                 break;
             case "宠物":
                 output.Add("Pet");
-                break;
-            case "Npcc":
-                output.Add("NPC");
                 break;
             default:
                 throw new ApplicationException();
@@ -1651,8 +1598,6 @@ string ConvertObjectSize(string chinese)
             return "Single1x1";
         case "螺旋15x15":
             return "Spiral15x15";
-        case "叉型3x3":
-            return "ForkType3x3";
         default:
             throw new ApplicationException();
     }
@@ -1734,8 +1679,6 @@ string ConvertSkillDamageType(string chinese)
             return "Archery";
         case "道术":
             return "Taoism";
-        case "攻击":
-            return "Attack";
         default:
             throw new ApplicationException();
     }
