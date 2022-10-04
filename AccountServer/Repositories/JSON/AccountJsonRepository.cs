@@ -27,7 +27,7 @@ namespace AccountServer.Repositories.JSON
 
         public Task<AccountData> GetByName(string accountName)
         {
-            if (Accounts.TryGetValue(accountName, out var account))
+            if (Accounts.TryGetValue(accountName.ToLowerInvariant(), out var account))
                 return Task.FromResult(account);
 
             return Task.FromResult<AccountData>(null);
@@ -40,7 +40,7 @@ namespace AccountServer.Repositories.JSON
 
         public async Task<AccountData> RegisterAccount(string account, string password, string question, string answer)
         {
-            if (Accounts.ContainsKey(account.ToLowerInvariant()))
+            if (await ExistsAccount(account))
                 throw new AccountAlreadyRegisteredException(account);
 
             var acc = new AccountData
@@ -58,8 +58,8 @@ namespace AccountServer.Repositories.JSON
 
         public async Task UpdatePassword(string accountName, string newPassword)
         {
-            if (!Accounts.TryGetValue(accountName, out var account))
-                throw new AccountNotExistsException(accountName);
+            var account = await GetByName(accountName);
+            if (account == null) throw new AccountNotExistsException(accountName);
 
             account.Password = newPassword;
             account.PasswordEncrypted = true;
@@ -88,6 +88,11 @@ namespace AccountServer.Repositories.JSON
         {
             var json = JsonConvert.SerializeObject(account, Formatting.Indented);
             var path = Path.Combine(DataDirectory, $"{account.Account}.txt");
+
+            if (Accounts.ContainsKey(account.Account.ToLowerInvariant()))
+                Accounts[account.Account] = account;
+            else
+                Accounts.Add(account.Account.ToLowerInvariant(), account);
 
             await File.WriteAllTextAsync(path, json);
         }
