@@ -118,7 +118,7 @@
   "fmain.applayout.editorcontainer.uquesteditor.datagridquests.startnpcid.header_text": "触发NPCID",
   "fmain.applayout.editorcontainer.uquesteditor.datagridquests.finishnpcid.header_text": "完成NPCID",
   "fmain.applayout.editorcontainer.uquesteditor.datagridquests.autostartnextid.header_text": "自动接受下个ID",
-  "fmain.applayout.navmenu.tabachievements.text": "成就"
+  "fmain.applayout.navmenu.tabachievements.text": "成就",
   "fmain.applayout.editorcontainer.uachievementeditor.datagridachievements.id.header_text": "编号",
   "fmain.applayout.editorcontainer.uachievementeditor.datagridachievements.achievementname.header_text": "名称",
   "fmain.applayout.editorcontainer.uachievementeditor.datagridachievements.desc.header_text": "简介",
