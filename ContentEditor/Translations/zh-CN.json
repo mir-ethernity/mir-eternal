@@ -30,7 +30,7 @@
   "fmain.applayout.editorcontainer.uitemeditor.datagriditems.saleprice.header_text": "单价",
   "fmain.applayout.editorcontainer.uitemeditor.datagriditems.maxdura.header_text": "最大堆叠",
   "fmain.applayout.editorcontainer.uitemeditor.datagriditems.weight.header_text": "重量",
-  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.candrop.header_text": "可以掉落",
+  "fmain.applayout.editorcontainer.uitemeditor.datagriditems.candrop.header_text": "可以掉落"
   "fmain.applayout.navmenu.tabmounts.text": "坐骑",
   "fmain.applayout.editorcontainer.umounteditor.datagridmounts.id.header_text": "编号",
   "fmain.applayout.editorcontainer.umounteditor.datagridmounts.mountname.header_text": "名称",
@@ -105,7 +105,7 @@
   "fmain.applayout.editorcontainer.ugrowtheditor.datagridgrowths.最大穿戴.header_text": "最大穿戴",
   "fmain.applayout.editorcontainer.ugrowtheditor.datagridgrowths.最大负重.header_text": "最大负重",
   "fmain.applayout.editorcontainer.ugrowtheditor.datagridgrowths.minhc.header_text": "最小HC",
-  "fmain.applayout.editorcontainer.ugrowtheditor.datagridgrowths.maxhc.header_text": "最大HC",
+  "fmain.applayout.editorcontainer.ugrowtheditor.datagridgrowths.maxhc.header_text": "最大HC"
   "fmain.applayout.navmenu.tabquests.text": "任务",
   "fmain.applayout.editorcontainer.uquesteditor.datagridquests.id.header_text": "编号",
   "fmain.applayout.editorcontainer.uquesteditor.datagridquests.chapter.header_text": "阶段",
@@ -125,7 +125,7 @@
   "fmain.applayout.editorcontainer.uachievementeditor.datagridachievements.baseclass.header_text": "主职",
   "fmain.applayout.editorcontainer.uachievementeditor.datagridachievements.subclass.header_text": "副职",
   "fmain.applayout.editorcontainer.uachievementeditor.datagridachievements.resettype.header_text": "重置类型",
-  "fmain.applayout.editorcontainer.uachievementeditor.datagridachievements.points.header_text": "点数",
+  "fmain.applayout.editorcontainer.uachievementeditor.datagridachievements.points.header_text": "点数"
   "fmapeditor.text": "地图编辑器",
   "fmapeditor.menustrip1.text": "menuStrip1",
   "fmapeditor.statusstrip1.text": "属性",
