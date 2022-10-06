@@ -27,6 +27,27 @@
     <Compile Update="Dialogs\FMapEditor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\UAchievementEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UMonsterEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UChestEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UGuardEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\USkillEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UQuestEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UMountEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
