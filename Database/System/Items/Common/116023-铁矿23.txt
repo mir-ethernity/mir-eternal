@@ -1,0 +1,14 @@
+{
+  "Name": "铁矿23",
+  "Id": 116023,
+  "MaxDura": 23,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 141,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}

@@ -1,0 +1,14 @@
+{
+  "Name": "银矿15",
+  "Id": 117015,
+  "MaxDura": 15,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 187,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}

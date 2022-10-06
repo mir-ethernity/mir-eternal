@@ -1,0 +1,14 @@
+{
+  "Name": "金矿25",
+  "Id": 118025,
+  "MaxDura": 25,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 951,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "武器"
+}

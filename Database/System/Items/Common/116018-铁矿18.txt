@@ -1,0 +1,14 @@
+{
+  "Name": "铁矿18",
+  "Id": 116018,
+  "MaxDura": 18,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 97,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}

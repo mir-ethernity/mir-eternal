@@ -1,0 +1,109 @@
+{
+  "Name": "魔法药(小量)",
+  "Id": 321,
+  "MaxDura": 1,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "Group": 102,
+  "GroupCooling": 1000,
+  "SalePrice": 1,
+  "AdditionalSkill": 4565,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用药剂",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "药品",
+  "Props": {
+    "UsageType": 2,
+    "RecoveryTime": 1,
+    "RecoveryBase": 10,
+    "RecoverySteps": 3
+  },
+  "物品掉落列表": [
+    {
+      "Name": "魔法药(小量)",
+      "MonsterName": "稻草人",
+      "Probability": 8,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(小量)",
+      "MonsterName": "海蟹",
+      "Probability": 3,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(小量)",
+      "MonsterName": "鹿",
+      "Probability": 8,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(小量)",
+      "MonsterName": "钉耙猫",
+      "Probability": 8,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(小量)",
+      "MonsterName": "羊",
+      "Probability": 8,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(小量)",
+      "MonsterName": "半兽人",
+      "Probability": 5,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(小量)",
+      "MonsterName": "野狼",
+      "Probability": 4,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(小量)",
+      "MonsterName": "树妖",
+      "Probability": 7,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(小量)",
+      "MonsterName": "毒蜘蛛",
+      "Probability": 4,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(小量)",
+      "MonsterName": "盔甲虫",
+      "Probability": 4,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(小量)",
+      "MonsterName": "多角虫",
+      "Probability": 4,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "魔法药(小量)",
+      "MonsterName": "腐蚀虫",
+      "Probability": 4,
+      "最小数量": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

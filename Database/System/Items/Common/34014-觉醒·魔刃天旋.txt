@@ -1,0 +1,16 @@
+{
+  "Name": "觉醒·魔刃天旋",
+  "Id": 34014,
+  "MaxDura": 10,
+  "Weight": 1,
+  "NeedLevel": 35,
+  "SalePrice": 10000,
+  "AdditionalSkill": 1547,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "技能书籍",
+  "NeedRace": "刺客",
+  "PersistType": "堆叠",
+  "StoreType": "书籍"
+}

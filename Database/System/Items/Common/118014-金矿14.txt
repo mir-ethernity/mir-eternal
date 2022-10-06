@@ -1,0 +1,14 @@
+{
+  "Name": "金矿14",
+  "Id": 118014,
+  "MaxDura": 14,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 423,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "武器"
+}

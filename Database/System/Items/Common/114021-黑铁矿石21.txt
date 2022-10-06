@@ -1,0 +1,14 @@
+{
+  "Name": "黑铁矿石21",
+  "Id": 114021,
+  "MaxDura": 21,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 112,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "武器锻造",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "武器"
+}

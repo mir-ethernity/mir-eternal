@@ -1,0 +1,24 @@
+{
+  "Name": "沃玛号角",
+  "Id": 80002,
+  "MaxDura": 1,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "SalePrice": 10000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "普通杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货",
+  "物品掉落列表": [
+    {
+      "Name": "沃玛号角",
+      "MonsterName": "沃玛教主",
+      "Probability": 1,
+      "最小数量": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

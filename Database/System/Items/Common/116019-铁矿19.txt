@@ -1,0 +1,14 @@
+{
+  "Name": "铁矿19",
+  "Id": 116019,
+  "MaxDura": 19,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 106,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}

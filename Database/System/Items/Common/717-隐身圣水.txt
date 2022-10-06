@@ -1,0 +1,14 @@
+{
+  "Name": "隐身圣水",
+  "Id": 717,
+  "MaxDura": 1,
+  "Weight": 2,
+  "NeedLevel": 1,
+  "Cooldown": 1000,
+  "SalePrice": 1,
+  "CanDrop": true,
+  "Type": "可用药剂",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "药品"
+}

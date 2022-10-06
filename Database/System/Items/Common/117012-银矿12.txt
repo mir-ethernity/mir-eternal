@@ -1,0 +1,14 @@
+{
+  "Name": "银矿12",
+  "Id": 117012,
+  "MaxDura": 12,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 154,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}

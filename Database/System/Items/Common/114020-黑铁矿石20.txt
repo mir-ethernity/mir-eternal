@@ -1,0 +1,14 @@
+{
+  "Name": "黑铁矿石20",
+  "Id": 114020,
+  "MaxDura": 20,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 104,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "武器锻造",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "武器"
+}

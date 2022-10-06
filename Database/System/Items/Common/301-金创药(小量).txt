@@ -1,0 +1,109 @@
+{
+  "Name": "金创药(小量)",
+  "Id": 301,
+  "MaxDura": 1,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "Group": 101,
+  "GroupCooling": 1000,
+  "SalePrice": 1,
+  "AdditionalSkill": 4562,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用药剂",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "药品",
+  "Props": {
+    "UsageType": 1,
+    "RecoveryTime": 1,
+    "RecoveryBase": 5,
+    "RecoverySteps": 4
+  },
+  "物品掉落列表": [
+    {
+      "Name": "金创药(小量)",
+      "MonsterName": "稻草人",
+      "Probability": 6,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金创药(小量)",
+      "MonsterName": "海蟹",
+      "Probability": 6,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金创药(小量)",
+      "MonsterName": "鹿",
+      "Probability": 6,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金创药(小量)",
+      "MonsterName": "钉耙猫",
+      "Probability": 6,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金创药(小量)",
+      "MonsterName": "羊",
+      "Probability": 6,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金创药(小量)",
+      "MonsterName": "半兽人",
+      "Probability": 5,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金创药(小量)",
+      "MonsterName": "野狼",
+      "Probability": 4,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金创药(小量)",
+      "MonsterName": "树妖",
+      "Probability": 6,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金创药(小量)",
+      "MonsterName": "毒蜘蛛",
+      "Probability": 5,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金创药(小量)",
+      "MonsterName": "盔甲虫",
+      "Probability": 4,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金创药(小量)",
+      "MonsterName": "多角虫",
+      "Probability": 4,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "金创药(小量)",
+      "MonsterName": "腐蚀虫",
+      "Probability": 4,
+      "最小数量": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

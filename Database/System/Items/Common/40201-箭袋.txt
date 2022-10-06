@@ -1,0 +1,14 @@
+{
+  "Name": "箭袋",
+  "Id": 40201,
+  "MaxDura": 300,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "SalePrice": 250,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用箭袋",
+  "NeedRace": "弓手",
+  "PersistType": "消耗",
+  "StoreType": "杂货"
+}

@@ -1,0 +1,14 @@
+{
+  "Name": "超级施毒药粉",
+  "Id": 40004,
+  "MaxDura": 600,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 50000,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用药粉",
+  "NeedRace": "通用",
+  "PersistType": "消耗",
+  "StoreType": "药品"
+}

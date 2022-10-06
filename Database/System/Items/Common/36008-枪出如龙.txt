@@ -1,0 +1,16 @@
+{
+  "Name": "枪出如龙",
+  "Id": 36008,
+  "MaxDura": 10,
+  "Weight": 1,
+  "NeedLevel": 35,
+  "SalePrice": 10000,
+  "AdditionalSkill": 1208,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "技能书籍",
+  "NeedRace": "龙枪",
+  "PersistType": "堆叠",
+  "StoreType": "书籍"
+}

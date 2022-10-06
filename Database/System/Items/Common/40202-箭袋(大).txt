@@ -1,0 +1,14 @@
+{
+  "Name": "箭袋(大)",
+  "Id": 40202,
+  "MaxDura": 1200,
+  "Weight": 3,
+  "NeedLevel": 1,
+  "SalePrice": 2500,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用箭袋",
+  "NeedRace": "弓手",
+  "PersistType": "消耗",
+  "StoreType": "杂货"
+}

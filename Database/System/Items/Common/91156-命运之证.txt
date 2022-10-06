@@ -1,0 +1,12 @@
+{
+  "Name": "命运之证",
+  "Id": 91156,
+  "MaxDura": 1,
+  "Level": 10,
+  "NeedLevel": 10,
+  "IsBound": true,
+  "ValuableObjects": true,
+  "Type": "宝图宝物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠"
+}

@@ -1,0 +1,14 @@
+{
+  "Name": "金矿3",
+  "Id": 118003,
+  "MaxDura": 3,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 132,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "武器"
+}

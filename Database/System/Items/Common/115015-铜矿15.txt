@@ -1,0 +1,14 @@
+{
+  "Name": "铜矿15",
+  "Id": 115015,
+  "MaxDura": 15,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 34,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}

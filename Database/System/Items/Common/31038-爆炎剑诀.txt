@@ -1,0 +1,15 @@
+﻿{
+  "Name": "爆炎剑诀",
+  "Id": 31038,
+  "MaxDura": 10,
+  "Weight": 1,
+  "NeedLevel": 39,
+  "SalePrice": 10000,
+  "AdditionalSkill": 1042,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "技能书籍",
+  "PersistType": "堆叠",
+  "StoreType": "书籍"
+}

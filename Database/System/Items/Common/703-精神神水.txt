@@ -1,0 +1,15 @@
+{
+  "Name": "精神神水",
+  "Id": 703,
+  "MaxDura": 100,
+  "Weight": 2,
+  "NeedLevel": 1,
+  "SalePrice": 500,
+  "AdditionalSkill": 4572,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用药剂",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "药品"
+}

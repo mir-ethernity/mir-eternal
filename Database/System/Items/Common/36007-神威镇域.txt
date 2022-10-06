@@ -1,0 +1,15 @@
+{
+  "Name": "神威镇域",
+  "Id": 36007,
+  "MaxDura": 10,
+  "Weight": 1,
+  "NeedLevel": 33,
+  "SalePrice": 4000,
+  "AdditionalSkill": 1207,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "技能书籍",
+  "NeedRace": "龙枪",
+  "PersistType": "堆叠",
+  "StoreType": "书籍"
+}

@@ -1,0 +1,16 @@
+﻿{
+  "Name": "觉醒·法神奥义",
+  "Id": 32552,
+  "MaxDura": 10,
+  "Weight": 1,
+  "NeedLevel": 40,
+  "SalePrice": 10000,
+  "AdditionalSkill": 2557,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "技能书籍",
+  "NeedRace": "法师",
+  "PersistType": "堆叠",
+  "StoreType": "书籍"
+}

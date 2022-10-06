@@ -1,0 +1,14 @@
+{
+  "Name": "铁矿12",
+  "Id": 116012,
+  "MaxDura": 12,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 62,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}

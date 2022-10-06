@@ -1,0 +1,14 @@
+{
+  "Name": "千里传音",
+  "Id": 2201,
+  "MaxDura": 99,
+  "NeedLevel": 1,
+  "SalePrice": 5000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

@@ -1,0 +1,87 @@
+{
+  "Name": "地狱雷光",
+  "Id": 32546,
+  "MaxDura": 10,
+  "Weight": 1,
+  "NeedLevel": 30,
+  "SalePrice": 4000,
+  "AdditionalSkill": 2546,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "技能书籍",
+  "NeedRace": "法师",
+  "PersistType": "堆叠",
+  "StoreType": "书籍",
+  "物品掉落列表": [
+    {
+      "Name": "地狱雷光",
+      "MonsterName": "邪恶钳虫",
+      "Probability": 100,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "地狱雷光",
+      "MonsterName": "白野猪",
+      "Probability": 100,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "地狱雷光",
+      "MonsterName": "虹魔猪卫",
+      "Probability": 100,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "地狱雷光",
+      "MonsterName": "虹魔蝎卫",
+      "Probability": 100,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "地狱雷光",
+      "MonsterName": "沃玛卫士",
+      "Probability": 100,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "地狱雷光",
+      "MonsterName": "尸王",
+      "Probability": 10,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "地狱雷光",
+      "MonsterName": "沃玛教主",
+      "Probability": 25,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "地狱雷光",
+      "MonsterName": "触龙神",
+      "Probability": 25,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "地狱雷光",
+      "MonsterName": "虹魔教主",
+      "Probability": 25,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "地狱雷光",
+      "MonsterName": "祖玛教主",
+      "Probability": 25,
+      "最小数量": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "Name": "超级魔法药",
+  "Id": 373,
+  "MaxDura": 1,
+  "Weight": 7,
+  "NeedLevel": 1,
+  "SalePrice": 240,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "UnpackItemId": 323,
+  "StoreType": "药品",
+  "Props": {
+    "UsageType": 6
+  }
+}

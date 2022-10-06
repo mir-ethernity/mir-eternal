@@ -1,0 +1,14 @@
+{
+  "Name": "黑铁矿石7",
+  "Id": 114007,
+  "MaxDura": 7,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 36,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "武器锻造",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "武器"
+}

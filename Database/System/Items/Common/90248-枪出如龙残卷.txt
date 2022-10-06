@@ -1,0 +1,14 @@
+﻿{
+  "Name": "枪出如龙残卷",
+  "Id": 90248,
+  "MaxDura": 999,
+  "NeedLevel": 1,
+  "SalePrice": 10000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "普通杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

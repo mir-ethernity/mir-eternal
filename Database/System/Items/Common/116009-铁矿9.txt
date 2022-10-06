@@ -1,0 +1,14 @@
+{
+  "Name": "铁矿9",
+  "Id": 116009,
+  "MaxDura": 9,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 49,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}

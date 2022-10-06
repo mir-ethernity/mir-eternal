@@ -1,0 +1,14 @@
+{
+  "Name": "金矿10",
+  "Id": 118010,
+  "MaxDura": 10,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 317,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "武器"
+}

@@ -1,0 +1,14 @@
+{
+  "Name": "黑铁矿石22",
+  "Id": 114022,
+  "MaxDura": 22,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 120,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "武器锻造",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "武器"
+}

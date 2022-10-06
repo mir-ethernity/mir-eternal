@@ -1,0 +1,16 @@
+﻿{
+  "Name": "献祭",
+  "Id": 34012,
+  "MaxDura": 10,
+  "Weight": 1,
+  "NeedLevel": 51,
+  "SalePrice": 10000,
+  "AdditionalSkill": 1545,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "技能书籍",
+  "NeedRace": "刺客",
+  "PersistType": "堆叠",
+  "StoreType": "书籍"
+}

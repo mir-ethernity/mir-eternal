@@ -1,0 +1,66 @@
+{
+  "Name": "伏波荡寇",
+  "Id": 36002,
+  "MaxDura": 10,
+  "Weight": 1,
+  "NeedLevel": 12,
+  "SalePrice": 100,
+  "AdditionalSkill": 1202,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "技能书籍",
+  "NeedRace": "龙枪",
+  "PersistType": "堆叠",
+  "StoreType": "书籍",
+  "物品掉落列表": [
+    {
+      "Name": "伏波荡寇",
+      "MonsterName": "爬行僵尸",
+      "Probability": 300,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "伏波荡寇",
+      "MonsterName": "佝偻僵尸",
+      "Probability": 300,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "伏波荡寇",
+      "MonsterName": "直立僵尸",
+      "Probability": 300,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "伏波荡寇",
+      "MonsterName": "和尚僵尸",
+      "Probability": 300,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "伏波荡寇",
+      "MonsterName": "腐血僵尸",
+      "Probability": 300,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "伏波荡寇",
+      "MonsterName": "利爪僵尸",
+      "Probability": 300,
+      "最小数量": 1,
+      "MaxAmount": 1
+    },
+    {
+      "Name": "伏波荡寇",
+      "MonsterName": "道士僵尸",
+      "Probability": 300,
+      "最小数量": 1,
+      "MaxAmount": 1
+    }
+  ]
+}

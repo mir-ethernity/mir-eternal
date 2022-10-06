@@ -1,0 +1,17 @@
+{
+  "Name": "铭文位切换神符",
+  "Id": 91208,
+  "MaxDura": 100,
+  "NeedLevel": 1,
+  "Cooldown": 60000,
+  "SalePrice": 100,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货",
+  "Props": {
+    "UsageType": 10
+  }
+}

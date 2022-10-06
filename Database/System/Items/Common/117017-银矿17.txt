@@ -1,0 +1,14 @@
+{
+  "Name": "银矿17",
+  "Id": 117017,
+  "MaxDura": 17,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 220,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}
