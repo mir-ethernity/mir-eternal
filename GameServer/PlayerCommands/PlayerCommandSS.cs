@@ -2,6 +2,7 @@
 using GameServer.Data;
 using GameServer.Networking;
 using GameServer.Templates;
+using Models.Enums;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace GameServer.PlayerCommands
 {
     public class PlayerCommandSS : PlayerCommand
     {
+        public override GameMasterLevel RequiredGMLevel => GameMasterLevel.Administrator;
+
         [Field(Position = 0)]
         public int Step;
 
