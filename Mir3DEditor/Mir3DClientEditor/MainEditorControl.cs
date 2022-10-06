@@ -34,7 +34,9 @@ namespace Mir3DClientEditor
         public void LoadEditor(string path, byte[] buffer)
         {
             EditorControl?.Dispose();
+            EditorControl = null;
             MPQControl?.Dispose();
+            MPQControl = null;
 
             Controls.Clear();
 
@@ -56,14 +58,26 @@ namespace Mir3DClientEditor
                     EditorControl = new UnrealEditorControl();
                     buffer = Crypto.Decrypt(buffer);
                     break;
+                case ".pak":
+                    MPQControl = new MPQExplorerControl();
+                    break;
                 default:
                     throw new NotImplementedException();
             }
 
-            EditorControl.Dock = DockStyle.Fill;
-            EditorControl.SetBuffer(path, buffer);
+            if (EditorControl != null)
+            {
+                EditorControl.Dock = DockStyle.Fill;
+                EditorControl.SetBuffer(path, buffer);
+                Controls.Add(EditorControl);
+            }
+            else if (MPQControl != null)
+            {
+                MPQControl.Dock = DockStyle.Fill;
+                MPQControl.LoadMPQ(new string[] { path });
+                Controls.Add(MPQControl);
+            }
 
-            Controls.Add(EditorControl);
         }
 
         public void LoadGameFolder(string path)

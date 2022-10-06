@@ -25,7 +25,7 @@ namespace Mir3DClientEditor
         private void Menu_OpenFile_Click(object sender, EventArgs e)
         {
             var dialog = new OpenFileDialog();
-            dialog.Filter = "All Mir3D Files|*.txt;*.ini;*.int;*.upk;*.umap;*.udk;*.u|Mir3D txt file|*.txt|Mir3D ini file|*.ini|Mir3D int file|*.int|Mir3D UPK file|*.upk|Mir3D UMAP file|*.umap|Mir3D UDK|*.udk|Mir3D U File|*.u";
+            dialog.Filter = "All Mir3D Files|*.pak;*.txt;*.ini;*.int;*.upk;*.umap;*.udk;*.u|Mir3D txt file|*.txt|Mir3D ini file|*.ini|Mir3D int file|*.int|Mir3D UPK file|*.upk|Mir3D UMAP file|*.umap|Mir3D UDK|*.udk|Mir3D U File|*.u|Mir3D Pak File|*.pak";
 
             if (dialog.ShowDialog() != DialogResult.OK)
                 return;
