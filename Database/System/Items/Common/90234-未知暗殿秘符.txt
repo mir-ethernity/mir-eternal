@@ -1,0 +1,14 @@
+{
+  "Name": "未知暗殿秘符",
+  "Id": 90234,
+  "MaxDura": 100,
+  "Level": 10,
+  "NeedLevel": 1,
+  "SalePrice": 1000,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

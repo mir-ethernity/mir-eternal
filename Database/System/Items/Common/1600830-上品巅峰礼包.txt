@@ -1,0 +1,13 @@
+{
+  "Name": "上品巅峰礼包",
+  "Id": 1600830,
+  "MaxDura": 100,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "IsBound": true,
+  "ValuableObjects": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

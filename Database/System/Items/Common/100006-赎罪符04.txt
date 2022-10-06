@@ -1,0 +1,13 @@
+{
+  "Name": "赎罪符04",
+  "Id": 100006,
+  "MaxDura": 99,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠"
+}

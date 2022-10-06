@@ -1,0 +1,14 @@
+{
+  "Name": "紫色狩猎领取符",
+  "Id": 2310,
+  "MaxDura": 20,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "IsBound": true,
+  "CanDrop": true,
+  "ValuableObjects": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

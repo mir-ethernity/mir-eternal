@@ -1,0 +1,14 @@
+{
+  "Name": "武器升级材料",
+  "Id": 111021,
+  "MaxDura": 1,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "合成卷轴",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

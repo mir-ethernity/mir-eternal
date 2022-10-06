@@ -1,0 +1,15 @@
+{
+  "Name": "七夕捧花",
+  "Id": 1500840,
+  "MaxDura": 10,
+  "Weight": 1,
+  "Level": 10,
+  "NeedLevel": 20,
+  "SalePrice": 500,
+  "IsBound": true,
+  "CanSold": true,
+  "Type": "宝图宝物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

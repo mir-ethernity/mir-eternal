@@ -1,0 +1,12 @@
+{
+  "Name": "浪漫礼盒",
+  "Id": 1501012,
+  "MaxDura": 99,
+  "NeedLevel": 20,
+  "SalePrice": 1,
+  "IsBound": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

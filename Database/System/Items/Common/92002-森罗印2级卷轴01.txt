@@ -1,0 +1,14 @@
+{
+  "Name": "森罗印2级卷轴01",
+  "Id": 92002,
+  "MaxDura": 20,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "IsBound": true,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "合成卷轴",
+  "NeedRace": "刺客",
+  "PersistType": "堆叠"
+}

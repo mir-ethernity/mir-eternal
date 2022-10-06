@@ -1,0 +1,15 @@
+{
+  "Name": "新年红包",
+  "Id": 91133,
+  "MaxDura": 1000,
+  "Level": 10,
+  "NeedLevel": 30,
+  "SalePrice": 100,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "宝图宝物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

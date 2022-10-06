@@ -1,0 +1,14 @@
+{
+  "Name": "玄冰项链宝图二",
+  "Id": 113162,
+  "MaxDura": 10,
+  "NeedLevel": 1,
+  "SalePrice": 500,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "宝图宝物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

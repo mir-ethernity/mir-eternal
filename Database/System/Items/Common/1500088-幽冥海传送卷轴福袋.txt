@@ -1,0 +1,13 @@
+{
+  "Name": "幽冥海传送卷轴福袋",
+  "Id": 1500088,
+  "MaxDura": 100,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "IsBound": true,
+  "CanDrop": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

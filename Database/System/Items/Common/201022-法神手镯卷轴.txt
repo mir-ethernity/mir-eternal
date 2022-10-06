@@ -1,0 +1,15 @@
+{
+  "Name": "法神手镯卷轴",
+  "Id": 201022,
+  "MaxDura": 1,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "SalePrice": 5000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "合成卷轴",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

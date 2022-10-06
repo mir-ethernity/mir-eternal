@@ -1,0 +1,15 @@
+{
+  "Name": "魔法斗篷·华美卷轴",
+  "Id": 200021,
+  "MaxDura": 1,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "SalePrice": 2000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "合成卷轴",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

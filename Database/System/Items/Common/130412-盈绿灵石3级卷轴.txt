@@ -1,0 +1,15 @@
+{
+  "Name": "盈绿灵石3级卷轴",
+  "Id": 130412,
+  "MaxDura": 1,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "SalePrice": 4000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "合成卷轴",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

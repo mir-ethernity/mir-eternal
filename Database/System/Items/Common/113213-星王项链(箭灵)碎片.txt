@@ -1,0 +1,14 @@
+{
+  "Name": "星王项链(箭灵)碎片",
+  "Id": 113213,
+  "MaxDura": 99,
+  "NeedLevel": 1,
+  "SalePrice": 500,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "合成卷轴",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

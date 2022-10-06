@@ -1,0 +1,13 @@
+{
+  "Name": "毒虫迷宫经验包",
+  "Id": 1370006,
+  "MaxDura": 1,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "IsBound": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

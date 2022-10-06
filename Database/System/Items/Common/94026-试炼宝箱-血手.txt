@@ -1,0 +1,16 @@
+{
+  "Name": "试炼宝箱-血手",
+  "Id": 94026,
+  "MaxDura": 10,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "SalePrice": 5000,
+  "IsBound": true,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

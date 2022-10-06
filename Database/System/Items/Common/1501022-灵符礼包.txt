@@ -1,0 +1,13 @@
+{
+  "Name": "灵符礼包",
+  "Id": 1501022,
+  "MaxDura": 10,
+  "Level": 10,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "IsBound": true,
+  "Type": "宝图宝物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

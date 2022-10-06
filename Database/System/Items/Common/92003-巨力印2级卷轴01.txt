@@ -1,0 +1,14 @@
+{
+  "Name": "巨力印2级卷轴01",
+  "Id": 92003,
+  "MaxDura": 20,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "IsBound": true,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "合成卷轴",
+  "NeedRace": "弓手",
+  "PersistType": "堆叠"
+}

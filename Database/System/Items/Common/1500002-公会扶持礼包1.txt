@@ -1,0 +1,12 @@
+{
+  "Name": "公会扶持礼包1",
+  "Id": 1500002,
+  "MaxDura": 300,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

@@ -1,0 +1,14 @@
+{
+  "Name": "初级防具淬炼石",
+  "Id": 111051,
+  "MaxDura": 10,
+  "NeedLevel": 1,
+  "SalePrice": 500,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "普通杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

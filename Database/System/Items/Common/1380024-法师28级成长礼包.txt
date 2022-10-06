@@ -1,0 +1,13 @@
+{
+  "Name": "法师28级成长礼包",
+  "Id": 1380024,
+  "MaxDura": 1,
+  "Weight": 1,
+  "NeedLevel": 28,
+  "SalePrice": 1,
+  "IsBound": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

@@ -1,0 +1,14 @@
+{
+  "Name": "暗殿找回礼盒",
+  "Id": 2327,
+  "MaxDura": 99,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "IsBound": true,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

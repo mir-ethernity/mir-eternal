@@ -1,0 +1,12 @@
+{
+  "Name": "千里传音礼包(绑)",
+  "Id": 1500906,
+  "MaxDura": 1000,
+  "NeedLevel": 18,
+  "SalePrice": 1,
+  "IsBound": true,
+  "Type": "宝图宝物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

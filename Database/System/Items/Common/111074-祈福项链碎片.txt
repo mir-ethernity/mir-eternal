@@ -1,0 +1,13 @@
+{
+  "Name": "祈福项链碎片",
+  "Id": 111074,
+  "MaxDura": 9999,
+  "NeedLevel": 20,
+  "SalePrice": 10,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "合成卷轴",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

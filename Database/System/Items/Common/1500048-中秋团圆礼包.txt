@@ -1,0 +1,14 @@
+{
+  "Name": "中秋团圆礼包",
+  "Id": 1500048,
+  "MaxDura": 1,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "IsBound": true,
+  "ValuableObjects": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

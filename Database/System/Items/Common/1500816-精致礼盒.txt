@@ -1,0 +1,14 @@
+{
+  "Name": "精致礼盒",
+  "Id": 1500816,
+  "MaxDura": 100,
+  "Weight": 1,
+  "NeedLevel": 20,
+  "SalePrice": 1,
+  "IsBound": true,
+  "CanDrop": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

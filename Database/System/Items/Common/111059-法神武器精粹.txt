@@ -1,0 +1,14 @@
+{
+  "Name": "法神武器精粹",
+  "Id": 111059,
+  "MaxDura": 9999,
+  "NeedLevel": 1,
+  "SalePrice": 500,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "普通杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

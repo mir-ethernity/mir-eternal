@@ -1,0 +1,14 @@
+{
+  "Name": "破袭者宝箱2",
+  "Id": 1500710,
+  "MaxDura": 1,
+  "Weight": 1,
+  "NeedLevel": 10,
+  "SalePrice": 1,
+  "CanDrop": true,
+  "ValuableObjects": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}
