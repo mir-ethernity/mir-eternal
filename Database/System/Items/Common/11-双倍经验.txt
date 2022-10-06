@@ -1,0 +1,9 @@
+{
+  "Name": "双倍经验",
+  "Id": 11,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "Type": "普通杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠"
+}

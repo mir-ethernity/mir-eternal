@@ -1,15 +1,15 @@
 {
-  "物品名字": "机关宝箱",
-  "物品编号": 1500876,
-  "物品持久": 99,
-  "需要等级": 30,
-  "出售价格": 100,
-  "是否绑定": true,
-  "能否掉落": true,
-  "能否出售": true,
-  "贵重物品": true,
-  "物品分类": "可用杂物",
-  "需要职业": "通用",
-  "持久类型": "堆叠",
-  "商店类型": "杂货"
+  "Name": "机关宝箱",
+  "Id": 1500876,
+  "MaxDura": 99,
+  "NeedLevel": 30,
+  "SalePrice": 100,
+  "IsBound": true,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
 }

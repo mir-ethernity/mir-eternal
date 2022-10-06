@@ -1,14 +1,14 @@
 {
-  "物品名字": "高级祈福项链",
-  "物品编号": 111066,
-  "物品持久": 9999,
-  "需要等级": 30,
-  "出售价格": 1000,
-  "能否掉落": true,
-  "能否出售": true,
-  "贵重物品": true,
-  "物品分类": "普通杂物",
-  "需要职业": "通用",
-  "持久类型": "堆叠",
-  "商店类型": "杂货"
+  "Name": "高级祈福项链",
+  "Id": 111066,
+  "MaxDura": 9999,
+  "NeedLevel": 30,
+  "SalePrice": 1000,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "普通杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
 }

@@ -1,14 +1,14 @@
 {
-  "物品名字": "暗殿找回礼盒",
-  "物品编号": 2327,
-  "物品持久": 99,
-  "需要等级": 1,
-  "出售价格": 1,
-  "是否绑定": true,
-  "能否掉落": true,
-  "能否出售": true,
-  "物品分类": "可用杂物",
-  "需要职业": "通用",
-  "持久类型": "堆叠",
-  "商店类型": "杂货"
+  "Name": "暗殿找回礼盒",
+  "Id": 2327,
+  "MaxDura": 99,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "IsBound": true,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
 }
