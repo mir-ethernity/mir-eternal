@@ -3120,7 +3120,7 @@ namespace GameServer.Maps
                     {
                         increaseAwakeningExp = (int)(increaseExp * 0.5);
 
-                        if(CharacterData.AwakeningExp.V + increaseAwakeningExp > Config.MaxAwakeningExp)
+                        if(Config.MaxAwakeningExp - CharacterData.AwakeningExp.V < increaseAwakeningExp)
                         {
                             increaseAwakeningExp = Config.MaxAwakeningExp - CharacterData.AwakeningExp.V;
                             CharacterData.AwakeningExpEnabled.V = false;
@@ -3163,7 +3163,7 @@ namespace GameServer.Maps
             }
             else if (CharacterData.AwakeningExpEnabled.V)
             {
-                if (CharacterData.AwakeningExp.V + experience > Config.MaxAwakeningExp)
+                if (Config.MaxAwakeningExp - CharacterData.AwakeningExp.V < experience )
                 {
                     experience = Config.MaxAwakeningExp - CharacterData.AwakeningExp.V;
                     CharacterData.AwakeningExpEnabled.V = false;
