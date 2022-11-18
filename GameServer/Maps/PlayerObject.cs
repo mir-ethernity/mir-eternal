@@ -7894,13 +7894,21 @@ namespace GameServer.Maps
             {
               this.对话页面 = 711902000;
             }
+            else if (选项编号 == 3)
+            {
+              this.对话页面 = 711903000;
+            }
+            else if (选项编号 == 4)
+            {
+              this.对话页面 = 711904000;
+            }
             else
             {
-              if (选项编号 != 3)
+              if (选项编号 != 5)
               {
                 return;
               }
-              this.对话页面 = 711903000;
+              this.对话页面 = 711905000;
             }
             SConnection 网络连接151 = this.ActiveConnection;
             if (网络连接151 == null)
@@ -8011,86 +8019,301 @@ namespace GameServer.Maps
           {
             if (num != 711903000)
             {
-              return;
-            }
-            int num36;
-            int num37;
-            int num38;
-            if (选项编号 == 1)
-            {
-              num36 = 15;
-              num37 = 2500;
-              num38 = 144;
-            }
-            else if (选项编号 == 2)
-            {
-              num36 = 20;
-              num37 = 3500;
-              num38 = 148;
-            }
-            else if (选项编号 == 3)
-            {
-              num36 = 25;
-              num37 = 3500;
-              num38 = 178;
-            }
-            else if (选项编号 == 4)
-            {
-              num36 = 25;
-              num37 = 4500;
-              num38 = 146;
-            }
-            else if (选项编号 == 5)
-            {
-              num36 = 30;
-              num37 = 5500;
-              num38 = 175;
+              if (num != 711904000)
+              {
+                if (num != 711905000)
+                {
+                  return;
+                }
+                else
+                {
+                  int num48;
+                  int num49;
+                  int num50;
+                  if (选项编号 == 1)
+                  {
+                    num48 = 45;
+                    num49 = 100;
+                    num50 = 133;
+                  }
+                  else if (选项编号 == 2)
+                  {
+                    num48 = 45;
+                    num49 = 100;
+                    num50 = 124;
+                  }
+                  else if (选项编号 == 3)
+                  {
+                    num48 = 45;
+                    num49 = 100;
+                    num50 = 110;
+                  }
+                  else if (选项编号 == 4)
+                  {
+                    num48 = 45;
+                    num49 = 100;
+                    num50 = 115;
+                  }
+                  else if (选项编号 == 5)
+                  {
+                    num48 = 45;
+                    num49 = 150;
+                    num50 = 119;
+                  }
+                  else
+                  {
+                    if (选项编号 != 6)
+                    {
+                      return;
+                    }
+                    num48 = 45;
+                    num49 = 200;
+                    num50 = 126;
+                  }
+                  if ((int)this.CurrentLevel < num48)
+                  {
+                    this.对话页面 = 711900001;
+                    SConnection 网络连接167 = this.ActiveConnection;
+                    if (网络连接167 == null)
+                    {
+                      return;
+                    }
+                    网络连接167.SendPacket(new 同步交互结果
+                    {
+                      交互文本 = NpcDialogs.CombineDialog(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num48)),
+                      对象编号 = this.对话守卫.ObjectId
+                    });
+                    return;
+                  }
+                  else
+                  {
+                    if (this.Ingots >= num49)
+                    {
+                      this.Ingots -= num49;
+                      this.玩家切换地图((this.CurrentMap.MapId == num50) ? this.CurrentMap : MapGatewayProcess.GetMapInstance(num50), AreaType.传送区域, default(Point));
+                      return;
+                    }
+                    this.对话页面 = 711900003;
+                    SConnection 网络连接168 = this.ActiveConnection;
+                    if (网络连接168 == null)
+                    {
+                      return;
+                    }
+                    网络连接168.SendPacket(new 同步交互结果
+                    {
+                      交互文本 = NpcDialogs.CombineDialog(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num49)),
+                      对象编号 = this.对话守卫.ObjectId
+                    });
+                    return;
+                  }
+                }
+              }
+              else
+              {
+                int num45;
+                int num46;
+                int num47;
+                if (选项编号 == 1)
+                {
+                  num45 = 15;
+                  num46 = 2500;
+                  num47 = 207;
+                }
+                else if (选项编号 == 2)
+                {
+                  num45 = 25;
+                  num46 = 3500;
+                  num47 = 156;
+                }
+                else if (选项编号 == 3)
+                {
+                  num45 = 20;
+                  num46 = 3500;
+                  num47 = 203;
+                }
+                else if (选项编号 == 4)
+                {
+                  num45 = 25;
+                  num46 = 4500;
+                  num47 = 164;
+                }
+                else if (选项编号 == 5)
+                {
+                  num45 = 30;
+                  num46 = 5500;
+                  num47 = 172;
+                }
+                else if (选项编号 == 6)
+                {
+                  num45 = 40;
+                  num46 = 7500;
+                  num47 = 199;
+                }
+                else if (选项编号 == 7)
+                {
+                  num45 = 45;
+                  num46 = 7500;
+                  num47 = 244;
+                }
+                else if (选项编号 == 8)
+                {
+                  num45 = 45;
+                  num46 = 7500;
+                  num47 = 55;
+                }
+                else
+                {
+                  if (选项编号 != 9)
+                  {
+                    return;
+                  }
+                  num45 = 45;
+                  num46 = 7500;
+                  num47 = 66;
+                }
+                if ((int)this.CurrentLevel < num45)
+                {
+                  this.对话页面 = 711900001;
+                  SConnection 网络连接165 = this.ActiveConnection;
+                  if (网络连接165 == null)
+                  {
+                    return;
+                  }
+                  网络连接165.SendPacket(new 同步交互结果
+                  {
+                    交互文本 = NpcDialogs.CombineDialog(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num45)),
+                    对象编号 = this.对话守卫.ObjectId
+                  });
+                  return;
+                }
+                else
+                {
+                  if (this.NumberGoldCoins >= num46)
+                  {
+                    this.NumberGoldCoins -= num46;
+                    this.玩家切换地图((this.CurrentMap.MapId == num47) ? this.CurrentMap : MapGatewayProcess.GetMapInstance(num47), AreaType.传送区域, default(Point));
+                    return;
+                  }
+                  this.对话页面 = 711900002;
+                  SConnection 网络连接166 = this.ActiveConnection;
+                  if (网络连接166 == null)
+                  {
+                    return;
+                  }
+                  网络连接166.SendPacket(new 同步交互结果
+                  {
+                    交互文本 = NpcDialogs.CombineDialog(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num46)),
+                    对象编号 = this.对话守卫.ObjectId
+                  });
+                  return;
+                }
+              }
             }
             else
             {
-              if (选项编号 != 6)
+              int num36;
+              int num37;
+              int num38;
+              if (选项编号 == 1)
               {
+                num36 = 15;
+                num37 = 2500;
+                num38 = 144;
+              }
+              else if (选项编号 == 2)
+              {
+                num36 = 20;
+                num37 = 3500;
+                num38 = 148;
+              }
+              else if (选项编号 == 3)
+              {
+                num36 = 25;
+                num37 = 3500;
+                num38 = 178;
+              }
+              else if (选项编号 == 4)
+              {
+                num36 = 25;
+                num37 = 4500;
+                num38 = 146;
+              }
+              else if (选项编号 == 5)
+              {
+                num36 = 30;
+                num37 = 5500;
+                num38 = 175;
+              }
+              else if (选项编号 == 6)
+              {
+                num36 = 45;
+                num37 = 7500;
+                num38 = 59;
+              }
+              else if (选项编号 == 7)
+              {
+                num36 = 45;
+                num37 = 7500;
+                num38 = 123;
+              }
+              else if (选项编号 == 8)
+              {
+                num36 = 45;
+                num37 = 7500;
+                num38 = 113;
+              }
+              else if (选项编号 == 9)
+              {
+                num36 = 45;
+                num37 = 7500;
+                num38 = 117;
+              }
+              else
+              {
+                if (选项编号 != 10)
+                {
+                  return;
+                }
+                num36 = 45;
+                num37 = 7500;
+                num38 = 111;
+              }
+              if ((int)this.CurrentLevel < num36)
+              {
+                this.对话页面 = 711900001;
+                SConnection 网络连接158 = this.ActiveConnection;
+                if (网络连接158 == null)
+                {
+                  return;
+                }
+                网络连接158.SendPacket(new 同步交互结果
+                {
+                  交互文本 = NpcDialogs.CombineDialog(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num36)),
+                  对象编号 = this.对话守卫.ObjectId
+                });
                 return;
               }
-              num36 = 45;
-              num37 = 7500;
-              num38 = 59;
-            }
-            if ((int)this.CurrentLevel < num36)
-            {
-              this.对话页面 = 711900001;
-              SConnection 网络连接158 = this.ActiveConnection;
-              if (网络连接158 == null)
+              else
               {
+                if (this.NumberGoldCoins >= num37)
+                {
+                  this.NumberGoldCoins -= num37;
+                  this.玩家切换地图((this.CurrentMap.MapId == num38) ? this.CurrentMap : MapGatewayProcess.GetMapInstance(num38), AreaType.传送区域, default(Point));
+                  return;
+                }
+                this.对话页面 = 711900002;
+                SConnection 网络连接159 = this.ActiveConnection;
+                if (网络连接159 == null)
+                {
+                  return;
+                }
+                网络连接159.SendPacket(new 同步交互结果
+                {
+                  交互文本 = NpcDialogs.CombineDialog(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num37)),
+                  对象编号 = this.对话守卫.ObjectId
+                });
                 return;
               }
-              网络连接158.SendPacket(new 同步交互结果
-              {
-                交互文本 = NpcDialogs.CombineDialog(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num36)),
-                对象编号 = this.对话守卫.ObjectId
-              });
-              return;
-            }
-            else
-            {
-              if (this.NumberGoldCoins >= num37)
-              {
-                this.NumberGoldCoins -= num37;
-                this.玩家切换地图((this.CurrentMap.MapId == num38) ? this.CurrentMap : MapGatewayProcess.GetMapInstance(num38), AreaType.传送区域, default(Point));
-                return;
-              }
-              this.对话页面 = 711900002;
-              SConnection 网络连接159 = this.ActiveConnection;
-              if (网络连接159 == null)
-              {
-                return;
-              }
-              网络连接159.SendPacket(new 同步交互结果
-              {
-                交互文本 = NpcDialogs.CombineDialog(this.对话页面, string.Format("<#P0:{0}><#P1:0>", num37)),
-                对象编号 = this.对话守卫.ObjectId
-              });
-              return;
             }
           }
           else
