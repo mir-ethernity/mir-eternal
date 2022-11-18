@@ -8110,15 +8110,27 @@ namespace GameServer.Maps
               num40 = 6500;
               num41 = 187;
             }
-            else
+            else if (选项编号 == 3)
             {
-              if (选项编号 != 3)
-              {
-                return;
-              }
               num39 = 40;
               num40 = 9500;
               num41 = 191;
+            }
+            else if (选项编号 == 4)
+            {
+              num39 = 0;
+              num40 = 10000;
+              num41 = 10;
+            }
+            else
+            {
+              if (选项编号 != 5)
+              {
+                return;
+              }
+              num39 = 0;
+              num40 = 10000;
+              num41 = 125;
             }
             if ((int)this.CurrentLevel < num39)
             {
