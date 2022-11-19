@@ -189,7 +189,9 @@ namespace GameServer
       if (NextSaveDataTime > CurrentTime) return;
       GameDataGateway.SaveData();
       GameDataGateway.PersistData();
-      NextSaveDataTime = CurrentTime.AddSeconds(60);
+      GameDataGateway.CleanUp();
+      NextSaveDataTime = CurrentTime.AddSeconds(21600);
+      MainForm.AddSystemLog("玩家数据保存成功");
     }
   }
 }
