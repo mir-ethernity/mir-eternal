@@ -80,7 +80,6 @@ namespace GameServer
           if (NetworkServiceGateway.Connections.Count == 0)
             break;
         }
-
         try
         {
           sw.Reset();
@@ -99,6 +98,9 @@ namespace GameServer
         }
         catch (Exception ex)
         {
+          GameDataGateway.SaveData();
+          GameDataGateway.PersistData();
+          GameDataGateway.CleanUp();
           MainForm.AddSystemLog("A fatal error has occurred and the server is about to stop");
           if (!Directory.Exists(".\\Log\\Error"))
             Directory.CreateDirectory(".\\Log\\Error");
@@ -126,7 +128,7 @@ namespace GameServer
 
         if (ReloadTasks.Count == 0)
         {
-          NetworkServiceGateway.SendAnnouncement("更新服务器，享受。", true);
+          NetworkServiceGateway.SendAnnouncement("服务器数据重载成功！！！", true);
         }
         else
         {
@@ -190,8 +192,8 @@ namespace GameServer
       GameDataGateway.SaveData();
       GameDataGateway.PersistData();
       GameDataGateway.CleanUp();
-      NextSaveDataTime = CurrentTime.AddSeconds(21600);
-      MainForm.AddSystemLog("玩家数据保存成功");
+      NextSaveDataTime = CurrentTime.AddSeconds(43200);
+      MainForm.AddSystemLog("玩家数据保存成功!");
     }
   }
 }

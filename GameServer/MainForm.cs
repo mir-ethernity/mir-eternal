@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Sockets;
 using GameServer.Properties;
 using GameServer.Maps;
 using GameServer.Data;
@@ -199,6 +200,7 @@ namespace GameServer
       }
       GameDataGateway.加载数据();
       MainForm.AddSystemLog("Client data has been loaded successful");
+
     }
 
 
@@ -218,9 +220,11 @@ namespace GameServer
         control.Enabled = true;
         Control control2 = MainForm.Singleton.启动按钮;
         Control control3 = MainForm.Singleton.保存按钮;
+        Control control4 = MainForm.Singleton.重载数据;
         MainForm.Singleton.tabConfig.Enabled = false;
-        control3.Enabled = true;
         control2.Enabled = false;
+        control3.Enabled = true;
+        control4.Enabled = true;
       }));
     }
 
@@ -979,11 +983,31 @@ namespace GameServer
       control3.Enabled = false;
       control2.Enabled = false;
       control.Enabled = false;
+      MainProcess.NextSaveDataTime = MainProcess.CurrentTime.AddSeconds(43200);
     }
 
 
     private void 停止服务器_Click(object sender, EventArgs e)
     {
+      foreach (SConnection connection in NetworkServiceGateway.Connections)
+      {
+        try
+        {
+          TcpClient tcpClient = connection.Connection;
+          if (tcpClient != null)
+          {
+            Socket client = tcpClient.Client;
+            if (client != null)
+            {
+              client.Shutdown(SocketShutdown.Both);
+            }
+            tcpClient.Close();
+          }
+        }
+        catch
+        {
+        }
+      }
       if (MessageBox.Show("Sure to stop the server?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
       {
         MainProcess.Stop();
@@ -1033,6 +1057,13 @@ namespace GameServer
       }
     }
 
+    private void 重载数据_Click(object sender, EventArgs e)
+    {
+      MainForm.AddSystemLog("Loading system data...");
+      this.重载数据.Enabled = false;
+      SystemDataService.ReloadData();
+      this.重载数据.Enabled = true;
+    }
 
     private void 清空系统日志_Click(object sender, EventArgs e)
     {
@@ -1069,6 +1100,7 @@ namespace GameServer
         }
         File.WriteAllText(string.Format(".\\Log\\Sys\\{0:yyyy-MM-dd--HH-mm-ss}.txt", DateTime.Now), this.系统日志.Text.Replace("\n", "\r\n"));
         MainForm.AddSystemLog("The system log has been successfully saved");
+        this.清空系统日志_Click(sender, e);
         return;
       }
     }
@@ -1084,6 +1116,7 @@ namespace GameServer
         }
         File.WriteAllText(string.Format(".\\Log\\Chat\\{0:yyyy-MM-dd--HH-mm-ss}.txt", DateTime.Now), this.聊天日志.Text);
         MainForm.AddSystemLog("The system log has been successfully saved");
+        this.清空聊天日志_Click(sender, e);
         return;
       }
     }
