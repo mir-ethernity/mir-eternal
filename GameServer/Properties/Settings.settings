@@ -57,7 +57,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="SystemAnnounceText" Type="System.String" Scope="User">
-      <Value Profile="(Default)">1	1	Welcome to the world of Legends Eternal, Legends Eternal is more exciting with you! </Value>
+      <Value Profile="(Default)">1	1	欢迎来到《永恒传奇》的世界，有了你，《永恒传奇》更精彩!</Value>
     </Setting>
     <Setting Name="SendPacketsAsync" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

@@ -1684,6 +1684,7 @@ string ConvertSkillDamageType(string chinese)
     }
 }
 
+
 string ConvertBuffJudgmentType(string chinese)
 {
     switch (chinese)
