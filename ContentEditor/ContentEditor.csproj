@@ -9,10 +9,44 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="sunnyui" Version="3.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\WinFormsTranslator\WinFormsTranslator.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Dialogs\FMapEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UAchievementEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UMonsterEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UChestEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UGuardEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\USkillEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UQuestEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UMountEditor.cs">
+      <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
 
