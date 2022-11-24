@@ -31,7 +31,7 @@ namespace Mir3DClientEditor
             Controls.Clear();
         }
 
-        public void LoadEditor(string path, byte[] buffer)
+        public void LoadEditor(string path, byte[] buffer, Func<string, byte[]>? callbackToLoadDepFile = null)
         {
             EditorControl?.Dispose();
             EditorControl = null;
@@ -55,7 +55,7 @@ namespace Mir3DClientEditor
                 case ".umap":
                 case ".udk":
                 case ".u":
-                    EditorControl = new UnrealEditorControl();
+                    EditorControl = new UnrealEditorControl(callbackToLoadDepFile);
                     buffer = Crypto.Decrypt(buffer);
                     break;
                 case ".pak":

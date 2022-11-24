@@ -95,43 +95,13 @@ namespace UELib
                                   + " Imports Count:" + ImportsCount + " Imports Offset:" + ImportsOffset
                 );
 
-                if (stream.Version >= VDependsOffset)
-                {
-                    DependsOffset = stream.ReadInt32();
-                }
+                DependsOffset = stream.ReadInt32();
 
-#if TRANSFORMERS
-                if (stream.Package.Build == GameBuild.BuildName.Transformers
-                    && stream.Version < 535)
-                {
-                    return;
-                }
-#endif
-                if (stream.Version >= VImportExportGuidsOffset
-                    // FIXME: Correct the output version of these games instead.
-#if BIOSHOCK
-                    && stream.Package.Build != GameBuild.BuildName.Bioshock_Infinite
-#endif
-#if TRANSFORMERS
-                    && stream.Package.Build != GameBuild.BuildName.Transformers
-#endif
-                   )
-                {
-                    ImportExportGuidsOffset = stream.ReadInt32();
-                    ImportGuidsCount = stream.ReadInt32();
-                    ExportGuidsCount = stream.ReadInt32();
-                }
+                ImportExportGuidsOffset = stream.ReadInt32();
+                ImportGuidsCount = stream.ReadInt32();
+                ExportGuidsCount = stream.ReadInt32();
 
-                if (stream.Version >= VThumbnailTableOffset)
-                {
-#if APB
-                    if (stream.Package.Build == GameBuild.BuildName.DungeonDefenders2) stream.Skip(4);
-#endif
-                    ThumbnailTableOffset = stream.ReadInt32();
-                }
-
-                // Generations
-                // ... etc, see Deserialize() below
+                ThumbnailTableOffset = stream.ReadInt32();
             }
         }
 

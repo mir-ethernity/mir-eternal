@@ -26,10 +26,10 @@ namespace UELib.Core
                 Class = stream.ReadObjectIndex();
 
                 // Deep
-                stream.ReadInt32();
+                var u1 = stream.ReadInt32();
 
                 // ScriptTextCRC
-                stream.ReadUInt32();
+                var u2 = stream.ReadUInt32();
             }
         }
 
@@ -111,45 +111,11 @@ namespace UELib.Core
         // TODO: Clean this mess up...
         protected override void Deserialize()
         {
-#if UNREAL2
-            if (Package.Build == UnrealPackage.GameBuild.BuildName.Unreal2)
-            {
-                _Buffer.ReadArray(out UArray<UObject> u2NetProperties);
-                Record(nameof(u2NetProperties), u2NetProperties);
-            }
-#endif
             base.Deserialize();
-#if VENGEANCE
-            if (Package.Build.Generation == BuildGeneration.Vengeance &&
-                Package.LicenseeVersion >= 36)
-            {
-                var header = (2, 0);
-                VengeanceDeserializeHeader(_Buffer, ref header);
-            }
-#endif
-            if (Package.Version < 62)
-            {
-                int classRecordSize = _Buffer.ReadInt32();
-                Record(nameof(classRecordSize), classRecordSize);
-            }
-#if AA2
-            if (Package.Build == UnrealPackage.GameBuild.BuildName.AA2)
-            {
-                uint unknownUInt32 = _Buffer.ReadUInt32();
-                Record("Unknown:AA2", unknownUInt32);
-            }
-#endif
+
             ClassFlags = _Buffer.ReadUInt32();
             Record(nameof(ClassFlags), (ClassFlags)ClassFlags);
-#if SPELLBORN
-            if (Package.Build == UnrealPackage.GameBuild.BuildName.Spellborn)
-            {
-                _Buffer.ReadArray(out ClassDependencies);
-                Record(nameof(ClassDependencies), ClassDependencies);
-                PackageImports = DeserializeGroup(nameof(PackageImports));
-                goto skipTo61Stuff;
-            }
-#endif
+
             if (Package.Version >= 276)
             {
                 if (Package.Version < 547)

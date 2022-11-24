@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{63287C47-8658-4401-9C51-D06C2A95AF99}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UpkManager.Dds</RootNamespace>
+    <AssemblyName>UpkManager.Dds</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WriteableBitmapEx.Wpf, Version=1.5.0.0, Culture=neutral, PublicKeyToken=50375ca6144f1c69, processorArchitecture=MSIL">
+      <HintPath>..\packages\WriteableBitmapEx.1.5.1.0\lib\net40\WriteableBitmapEx.Wpf.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Compression\ClusterFit.cs" />
+    <Compile Include="Compression\ColourBlock.cs" />
+    <Compile Include="Compression\ColourFit.cs" />
+    <Compile Include="Compression\ColourSet.cs" />
+    <Compile Include="Compression\DdsSquishCompress.cs" />
+    <Compile Include="Compression\DdsSquishDecompress.cs" />
+    <Compile Include="Compression\LookupTables\Lookup_5_3.cs" />
+    <Compile Include="Compression\LookupTables\Lookup_5_4.cs" />
+    <Compile Include="Compression\LookupTables\Lookup_6_3.cs" />
+    <Compile Include="Compression\LookupTables\Lookup_6_4.cs" />
+    <Compile Include="Compression\LookupTables\SingleColourLookup.cs" />
+    <Compile Include="Compression\LookupTables\SourceBlock.cs" />
+    <Compile Include="Compression\Maths.cs" />
+    <Compile Include="Compression\RangeFit.cs" />
+    <Compile Include="Compression\SingleColourFit.cs" />
+    <Compile Include="Compression\SteppedEnumerable.cs" />
+    <Compile Include="Compression\Sym3x3.cs" />
+    <Compile Include="Compression\Vec3.cs" />
+    <Compile Include="Constants\CubeMapFlags.cs" />
+    <Compile Include="Constants\FileFormat.cs" />
+    <Compile Include="Constants\FourCCFormat.cs" />
+    <Compile Include="Constants\HeaderFlags.cs" />
+    <Compile Include="Constants\HeaderValues.cs" />
+    <Compile Include="Constants\PixelFormatFlags.cs" />
+    <Compile Include="Constants\SquishFlags.cs" />
+    <Compile Include="Constants\SurfaceFlags.cs" />
+    <Compile Include="Constants\VolumeFlags.cs" />
+    <Compile Include="DdsFile.cs" />
+    <Compile Include="DdsHeader.cs" />
+    <Compile Include="DdsPixelFormat.cs" />
+    <Compile Include="DdsSaveConfig.cs" />
+    <Compile Include="Extensions\WriteableBitmapExtensions.cs" />
+    <Compile Include="DdsMipMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RgbaBitmapSource.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Compression\License.txt" />
+    <Content Include="License.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

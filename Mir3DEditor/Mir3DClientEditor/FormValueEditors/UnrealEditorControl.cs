@@ -1,6 +1,8 @@
-﻿using System.Data;
+﻿using Mir3DClientEditor.Dialogs;
+using System.Data;
 using UELib;
 using UELib.Core;
+using UELib.Core.Classes;
 
 namespace Mir3DClientEditor.FormValueEditors
 {
@@ -8,14 +10,16 @@ namespace Mir3DClientEditor.FormValueEditors
     {
         private UnrealPackage _unrealPackage;
         private bool _hasPendingChangesToSave = false;
+        private readonly Func<string, byte[]>? _callbackToLoadDepFile;
 
         public IGrouping<UObject, UObject>[] UnrealClasses { get; private set; }
         public override bool HasPendingChangesToSave { get => _hasPendingChangesToSave; }
 
-        public UnrealEditorControl()
+        public UnrealEditorControl(Func<string, byte[]>? callbackToLoadDepFile = null)
         {
             InitializeComponent();
 
+            _callbackToLoadDepFile = callbackToLoadDepFile;
             DataGrid.AllowUserToAddRows = false;
             DataGrid.AllowUserToDeleteRows = false;
             DataGrid.CellClick += DataGrid_CellClick;
@@ -71,17 +75,21 @@ namespace Mir3DClientEditor.FormValueEditors
 
             var row = DataGrid.Rows[e.RowIndex];
             var cell = row.Cells[e.ColumnIndex];
-
-            if (cell.GetType() != typeof(DataGridViewButtonCell))
-                return;
-
             var objId = (int)row.Cells[0].Value;
-
             var obj = _unrealPackage.Objects[objId];
-            var prop = obj.Properties.Where(x => x.Name == cell.OwningColumn.Name).First();
 
-            if (FPropertyEditor.Show(prop))
-                _hasPendingChangesToSave = true;
+            if (cell is DataGridViewImageCell)
+            {
+                FImageViewerDialog.Show((UTexture2D)obj);
+            }
+            else if (cell is DataGridViewButtonCell)
+            {
+     
+                var prop = obj.Properties.Where(x => x.Name == cell.OwningColumn.Name).First();
+
+                if (FPropertyEditor.Show(prop))
+                    _hasPendingChangesToSave = true;
+            }
         }
 
         private void ListClasses_SelectedIndexChanged(object? sender, EventArgs e)
@@ -105,6 +113,7 @@ namespace Mir3DClientEditor.FormValueEditors
             if (!objects.Any()) return;
 
             var isEnum = objects[0] is UEnum;
+            var isTexture2D = objects[0].Class?.Name == "Texture2D";
 
             if (isEnum)
             {
@@ -115,6 +124,21 @@ namespace Mir3DClientEditor.FormValueEditors
             else
             {
                 DataGrid.Columns.Add("ObjectId", "Object Id");
+                DataGrid.Columns.Add("Name", "Name");
+
+                if (isTexture2D)
+                {
+                    var cell = new DataGridViewImageCell() { ImageLayout = DataGridViewImageCellLayout.Stretch };
+                    var column = new DataGridViewColumn(cell)
+                    {
+                        Name = "Preview",
+                        HeaderText = "Preview",
+                        Width = 80,
+                        AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+
+                    };
+                    DataGrid.Columns.Add(column);
+                }
 
                 // Create all columns
                 foreach (var obj in objects)
@@ -189,6 +213,7 @@ namespace Mir3DClientEditor.FormValueEditors
                         cell.Value = cell.ValueType.IsValueType ? Activator.CreateInstance(cell.ValueType) : null;
 
                     row.Cells[0].Value = _unrealPackage.Objects.IndexOf(obj);
+                    row.Cells[1].Value = obj.Name;
 
                     foreach (var prop in obj.Properties)
                     {
@@ -204,28 +229,26 @@ namespace Mir3DClientEditor.FormValueEditors
                         }
                     }
 
+                    if (isTexture2D)
+                    {
+                        var u2d = (UTexture2D)obj;
+                        var imageCell = (DataGridViewImageCell)row.Cells[2];
+                        var bitmap = u2d.MipMaps[0].ImageBitmap;
+                        imageCell.Value = bitmap;
+                        row.Height = 80;
+                    }
+
                     DataGrid.Rows.Add(row);
                 }
             }
-
-
 
             DataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
         }
 
         public override void SetBuffer(string name, byte[] buffer)
         {
-            for (var i = 0; i < buffer.Length - 4; i++)
-            {
-                var value = BitConverter.ToInt32(buffer, i);
-                if (value == 153)
-                {
-                    var offset = i;
-                }
-            }
-
-
             _unrealPackage = UnrealLoader.LoadPackage(name, buffer);
+            _unrealPackage.RegisterCallbackToLoadImportFile(_callbackToLoadDepFile);
             _unrealPackage.InitializePackage();
 
             if (_unrealPackage.Exports == null)

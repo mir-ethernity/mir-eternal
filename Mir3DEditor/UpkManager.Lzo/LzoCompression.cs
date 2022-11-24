@@ -72,6 +72,23 @@ namespace UpkManager.Lzo
             return sizedToFit;
         }
 
+        public byte[] CompressSync(byte[] Source)
+        {
+            byte[] compressed = new byte[Source.Length + Source.Length / 64 + 16 + 3 + 4];
+
+            int compressedSize = 0;
+
+            byte[] workMemory = new byte[WorkMemorySize_1x_1];
+
+            if (is64Bit) Lzo2.lzo1x_1_compress_64(Source, Source.Length, compressed, ref compressedSize, workMemory);
+            else Lzo2.lzo1x_1_compress_32(Source, Source.Length, compressed, ref compressedSize, workMemory);
+            byte[] sizedToFit = new byte[compressedSize];
+
+            Array.ConstrainedCopy(compressed, 0, sizedToFit, 0, compressedSize);
+
+            return sizedToFit;
+        }
+
         public async Task Decompress(byte[] Source, byte[] Destination)
         {
             await Task.Run(() =>

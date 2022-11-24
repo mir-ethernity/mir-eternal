@@ -773,6 +773,13 @@ namespace UELib
             return UR.ReadByte();
         }
 
+        public byte[] ReadBytes(int length)
+        {
+            var buff = new byte[length];
+            UR.Read(buff, 0, length);
+            return buff;
+        }
+
         public ushort ReadUShort()
         {
             return UR.ReadUInt16();

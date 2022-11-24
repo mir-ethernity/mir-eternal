@@ -122,164 +122,32 @@ namespace UELib
 
         public void Deserialize(IUnrealStream stream)
         {
-#if AA2
-            // Not attested in packages of LicenseeVersion 32
-            if (stream.Package.Build == UnrealPackage.GameBuild.BuildName.AA2 &&
-                stream.Package.LicenseeVersion >= 33)
-            {
-                SuperIndex = stream.ReadObjectIndex();
-                int unkInt = stream.ReadInt32();
-                Debug.WriteLine(unkInt, "unkInt");
-                ClassIndex = stream.ReadObjectIndex();
-                OuterIndex = stream.ReadInt32();
-                ObjectFlags = ~stream.ReadUInt32();
-                ObjectName = stream.ReadNameReference();
-                goto streamSerialSize;
-            }
-#endif
             ClassIndex = stream.ReadObjectIndex();
             SuperIndex = stream.ReadObjectIndex();
             OuterIndex = stream.ReadInt32(); // ObjectIndex, though always written as 32bits regardless of build.
-#if BIOSHOCK
-            if (stream.Package.Build == UnrealPackage.GameBuild.BuildName.BioShock &&
-                stream.Version >= 132)
-            {
-                stream.Skip(sizeof(int));
-            }
-#endif
-            ObjectName = stream.ReadNameReference();
-            if (stream.Version >= VArchetype)
-            {
-                ArchetypeIndex = stream.ReadInt32();
-            }
 
-#if BATMAN
-            if (stream.Package.Build == UnrealPackage.GameBuild.BuildName.BatmanUDK)
-            {
-                stream.Skip(sizeof(int));
-            }
-#endif
+            ObjectName = stream.ReadNameReference();
+            ArchetypeIndex = stream.ReadInt32();
 
             _ObjectFlagsOffset = stream.Position;
-#if BIOSHOCK
-            // Like UE3 but without the shifting of flags
-            if (stream.Package.Build == UnrealPackage.GameBuild.BuildName.BioShock &&
-                stream.Package.LicenseeVersion >= 40)
-            {
-                ObjectFlags = stream.ReadUInt64();
-                goto streamSerialSize;
-            }
-#endif
-            
-            if (stream.Version >= VObjectFlagsToULONG)
-            {
-                ObjectFlags = stream.ReadUInt64();
-            }
-            else
-            {
-                ObjectFlags = stream.ReadUInt32();
-            }
 
-        streamSerialSize:
+            ObjectFlags = stream.ReadUInt64();
+
             SerialSize = stream.ReadIndex();
-            if (SerialSize > 0 || stream.Version >= VSerialSizeConditionless)
-            {
-#if ROCKETLEAGUE
-                // FIXME: Can't change SerialOffset to 64bit due UE Explorer.
+            if (SerialSize > 0) SerialOffset = stream.ReadIndex();
 
-                if (stream.Package.Build == UnrealPackage.GameBuild.BuildName.RocketLeague &&
-                    stream.Package.LicenseeVersion >= 22)
-                {
-                    SerialOffset = stream.ReadIndex();
-                    goto streamExportFlags;
-                }
-#endif
-                SerialOffset = stream.ReadIndex();
-            }
-#if BIOSHOCK
-            // Overlaps with Tribes: Vengeance (130)
-            if (stream.Package.Build == UnrealPackage.GameBuild.BuildName.BioShock &&
-                stream.Version >= 130)
-            {
-                stream.Skip(sizeof(int));
-            }
-#endif
-            if (stream.Version < 220)
-                return;
-
-            if (stream.Version < 543
-#if ALPHAPROTOCOL
-                && stream.Package.Build != UnrealPackage.GameBuild.BuildName.AlphaProtcol
-#endif
-#if TRANSFORMERS
-                && (stream.Package.Build != UnrealPackage.GameBuild.BuildName.Transformers ||
-                    stream.Package.LicenseeVersion < 37)
-#endif
-               )
-            {
-                // NameToObject
-                int componentMapCount = stream.ReadInt32();
-                stream.Skip(componentMapCount * 12);
-            }
-
-            if (stream.Version < 247)
-                return;
-
-            streamExportFlags:
             ExportFlags = stream.ReadUInt32();
-            if (stream.Version < VNetObjects)
-                return;
-#if TRANSFORMERS
-            if (stream.Package.Build == UnrealPackage.GameBuild.BuildName.Transformers &&
-                stream.Package.LicenseeVersion >= 116)
-            {
-                byte flag = stream.ReadByte();
-                if (flag == 0)
-                {
-                    return;
-                }
-            }
-#endif
-#if BIOSHOCK
-            if (stream.Package.Build == UnrealPackage.GameBuild.BuildName.Bioshock_Infinite)
-            {
-                uint unk = stream.ReadUInt32();
-                if (unk == 1)
-                {
-                    uint flags = stream.ReadUInt32();
-                    if ((flags & 1) != 0x0)
-                    {
-                        stream.ReadUInt32();
-                    }
 
-                    stream.Skip(16); // guid
-                    stream.ReadUInt32(); // 01000020
-                }
 
-                return;
-            }
-#endif
-#if MKKE
-            if (stream.Package.Build != UnrealPackage.GameBuild.BuildName.MKKE)
-            {
-#endif
-                // Array of objects
-                int netObjectCount = stream.ReadInt32();
-                NetObjectData = new byte[netObjectCount * 4];
-                for (var i = 0; i < NetObjectData.Length; i++)
-                    NetObjectData[i] = stream.ReadByte();
-                // stream.Skip(netObjectCount * 4);
-#if MKKE
-            }
-#endif
+            // Array of objects
+            int netObjectCount = stream.ReadInt32();
+            NetObjectData = new byte[netObjectCount * 4];
+            for (var i = 0; i < NetObjectData.Length; i++)
+                NetObjectData[i] = stream.ReadByte();
+
             PackageGuid = stream.ReadGuid();
-            
-            //stream.Skip(16); // Package guid
-            if (stream.Version > 486) // 475?  486(> Stargate Worlds)
-            {
-                PackageFlags = stream.ReadInt32();
-                // stream.Skip(4); // Package flags
-            }
+
+            PackageFlags = stream.ReadInt32();
         }
 
         #region Writing Methods

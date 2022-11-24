@@ -136,9 +136,6 @@ namespace UELib.Core
 
             try
             {
-#if BINARYMETADATA
-                BinaryMetaData = new BinaryMetaData();
-#endif
                 DeserializationState |= ObjectState.Deserializing;
                 Deserialize();
                 DeserializationState |= ObjectState.Deserialied;
@@ -171,13 +168,11 @@ namespace UELib.Core
                 buff = new byte[ExportTable.SerialSize];
                 Package.Stream.Seek(ExportTable.SerialOffset, SeekOrigin.Begin);
                 Package.Stream.Read(buff, 0, ExportTable.SerialSize);
+                Package.Stream.Seek(sourcePosition, SeekOrigin.Begin);
             }
             else
             {
                 buff = new byte[0];
-                //buff = new byte[ImportTable.SerialSize];
-                //Package.Stream.Seek(ImportTable.SerialOffset, SeekOrigin.Begin);
-                //Package.Stream.Read(buff, 0, ImportTable.SerialSize);
             }
 
             _RawBuff = buff;
@@ -243,20 +238,6 @@ namespace UELib.Core
         /// </summary>
         protected virtual void Deserialize()
         {
-#if VENGEANCE
-            if (Package.Build.Generation == BuildGeneration.Vengeance)
-            {
-                if (Package.LicenseeVersion >= 25)
-                {
-                    var header = (3, 0);
-                    VengeanceDeserializeHeader(_Buffer, ref header);
-                    if (header.Item2 == 2)
-                    {
-                        _Buffer.ReadInt32();
-                    }
-                }
-            }
-#endif
             // This appears to be serialized for templates of classes like AmbientSoundNonLoop
             if (HasObjectFlag(ObjectFlagsLO.HasStack))
             {
@@ -264,44 +245,12 @@ namespace UELib.Core
                 StateFrame.Deserialize(_Buffer);
             }
 
-            if (_Buffer.Version >= UExportTableItem.VNetObjects
-#if MKKE
-                && Package.Build != UnrealPackage.GameBuild.BuildName.MKKE
-#endif
-               )
+            if (_Buffer.Version >= UExportTableItem.VNetObjects)
             {
                 NetIndex = _Buffer.ReadInt32();
                 Record(nameof(NetIndex), NetIndex);
             }
 
-            // TODO: Serialize component data here
-            //if( _Buffer.Version > 400
-            //    && HasObjectFlag( Flags.ObjectFlagsHO.PropertiesObject )
-            //    && HasObjectFlag( Flags.ObjectFlagsHO.ArchetypeObject ) )
-            //{
-            //    var componentClass = _Buffer.ReadObjectIndex();
-            //    var componentName = _Buffer.ReadNameIndex();
-            //}
-#if THIEF_DS || DEUSEX_IW
-            // FIXME: Not present in all objects, even some classes?
-            if (Package.Build.Generation == BuildGeneration.Thief && GetType() != typeof(UnknownObject))
-            {
-                // var native private const int ObjectInternalPropertyHash[1];
-                int thiefLinkDataObjectCount = _Buffer.ReadInt32();
-                Record(nameof(thiefLinkDataObjectCount), thiefLinkDataObjectCount);
-                for (var i = 0; i < thiefLinkDataObjectCount; i++)
-                {
-                    // These probably contain the missing UFields.
-                    var thiefLinkDataObject = _Buffer.ReadObject();
-                    Record(nameof(thiefLinkDataObject), thiefLinkDataObject);
-                }
-
-                if (!(this is UClass))
-                {
-                    _Buffer.Skip(4);
-                }
-            }
-#endif
             if (!IsClassType("Class"))
             {
                 DeserializeProperties();
@@ -325,14 +274,7 @@ namespace UELib.Core
                 StateFrame.Serialize(stream);
             }
 
-            if (stream.Version >= UExportTableItem.VNetObjects
-#if MKKE
-                            && Package.Build != UnrealPackage.GameBuild.BuildName.MKKE
-#endif
-                           )
-            {
-                stream.Write(NetIndex);
-            }
+            stream.Write(NetIndex);
 
             if (!IsClassType("Class"))
             {
@@ -365,7 +307,16 @@ namespace UELib.Core
                 return;
 
             foreach (var property in Properties)
+            {
+                var startOffset = stream.Position;
+                var originalSize = property.Size;
                 property.Serialize(stream);
+                var size = stream.Position - startOffset;
+                if (property.Size != originalSize)
+                {
+
+                }
+            }
             stream.WriteNone();
         }
 
@@ -674,22 +625,6 @@ namespace UELib.Core
         internal void Record(string varName, object varObject = null)
         {
             long size = _Buffer.Position - _Buffer.LastPosition;
-            BinaryMetaData.AddField(varName, varObject, _Buffer.LastPosition, size);
-#if LOG_RECORDS
-            if( varObject == null )
-            {
-                Console.WriteLine( varName );
-                return;
-            }
-
-            var propertyType = varObject.GetType();
-            Console.WriteLine(
-                "0x" + _Buffer.LastPosition.ToString("x8").ToUpper()
-                + " : ".PadLeft( 2, ' ' )
-                + varName.PadRight( 32, ' ' ) + ":" + propertyType.Name.PadRight( 32, ' ' )
-                + " => " + varObject
-            );
-#endif
         }
 
         protected void AssertEOS(int size, string testSubject = "")
@@ -757,6 +692,8 @@ namespace UELib.Core
     /// </summary>
     public sealed class UnknownObject : UObject
     {
+        public byte[] Data { get; set; }
+
         /// <summary>
         /// Creates a new instance of the UELib.Core.UnknownObject class.
         /// </summary>
@@ -767,9 +704,6 @@ namespace UELib.Core
 
         protected override void Deserialize()
         {
-            if (Name.ToLower().Contains("map"))
-                Debug.Assert(true);
-
             if (Package.Version > 400 && _Buffer.Length >= 12)
             {
                 // componentClassIndex
@@ -785,6 +719,14 @@ namespace UELib.Core
             }
 
             base.Deserialize();
+            Data = new byte[_Buffer.Length - _Buffer.Position];
+            _Buffer.Read(Data, 0, Data.Length);
+        }
+
+        public override void Serialize(IUnrealStream stream)
+        {
+            base.Serialize(stream);
+            stream.Write(Data, 0, Data.Length);
         }
 
         protected override bool CanDisposeBuffer()

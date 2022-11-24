@@ -1,9 +1,11 @@
-﻿using StormLibSharp;
+﻿using Mir3DCrypto;
+using StormLibSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,7 +64,7 @@ namespace Mir3DClientEditor.FormValueEditors
             var data = new byte[fileStream.Length];
             fileStream.Read(data, 0, data.Length);
 
-            data = Mir3DCrypto.Crypto.Decrypt(data);
+            data = Crypto.Decrypt(data);
 
             System.IO.File.WriteAllBytes(saveDialog.FileName, data);
         }
@@ -96,9 +98,28 @@ namespace Mir3DClientEditor.FormValueEditors
             {
                 manager.Archive.FileCreateFile(path, flags, e.Buffer);
             };
-            form.LoadFile(path, data);
+            form.LoadFile(path, data, LoadDependantFile);
             form.ShowDialog();
             form.Dispose();
+        }
+
+        private byte[]? LoadDependantFile(string file)
+        {
+            var fileManager = _archives.SelectMany(x => x.ListFiles)
+                .Where(x => Path.GetFileNameWithoutExtension(x.Path) == file)
+                .FirstOrDefault();
+
+            if (fileManager == null)
+                return null;
+
+            using var fileStream = fileManager.Manager.Archive.OpenFile(fileManager.Path);
+
+            var data = new byte[fileStream.Length];
+            fileStream.Read(data, 0, data.Length);
+
+            data = Crypto.Decrypt(data);
+
+            return data;
         }
 
         private string GetSelectedDirectory()
@@ -134,6 +155,7 @@ namespace Mir3DClientEditor.FormValueEditors
                     var time = stream.GetDateTime();
                     row.Cells[3].Value = time == null ? "N/a" : time.ToString();
                     row.Cells[4].Value = stream.GetFlags();
+                    row.Cells[5].Value = file.Manager.FilePath;
                 }
             }
         }

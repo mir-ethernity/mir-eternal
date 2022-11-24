@@ -33,11 +33,14 @@ namespace UELib.Core
 
             var pos = stream.Position;
             var raw = new byte[size];
+
             stream.Read(raw, 0, size);
             stream.Seek(pos, System.IO.SeekOrigin.Begin);
+
             value.OriginalBuffer = raw;
             value.Property = property;
             value.Size = size;
+            
             value.Deserialize(stream);
 
             return value;
