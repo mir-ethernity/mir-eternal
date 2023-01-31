@@ -816,8 +816,8 @@ namespace UELib
 
                         if (package != null)
                         {
-                            var exportObject = package.Exports.Where(x => x.ClassName == imp.ObjectName.Name).FirstOrDefault();
-                            var importObject = package.Imports.Where(x => x.ClassName == imp.ObjectName.Name).FirstOrDefault();
+                            var exportObject = package.Exports?.Where(x => x.ClassName == imp.ObjectName.Name).FirstOrDefault();
+                            var importObject = package.Imports?.Where(x => x.ClassName == imp.ObjectName.Name).FirstOrDefault();
 
                             if (exportObject != null)
                             {

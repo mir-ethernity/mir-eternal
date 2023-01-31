@@ -113,7 +113,7 @@ namespace Mir3DClientEditor.FormValueEditors
             if (!objects.Any()) return;
 
             var isEnum = objects[0] is UEnum;
-            var isTexture2D = objects[0].Class?.Name == "Texture2D";
+            var isTexture2D = objects[0].Class?.Name == "Texture2D" || objects[0].Class?.Name == "Default__Texture2D";
 
             if (isEnum)
             {
