@@ -28,7 +28,6 @@ namespace UELib.Core
 
             int objectIndex = _Buffer.ReadObjectIndex();
             Object = GetIndexObject(objectIndex);
-            Record(nameof(Object), Object);
         }
 
         /// <inheritdoc/>

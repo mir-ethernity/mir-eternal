@@ -71,88 +71,28 @@ namespace UELib.Core
         protected override void Deserialize()
         {
             base.Deserialize();
-#if XIII
-            if (Package.Build == UnrealPackage.GameBuild.BuildName.XIII)
-            {
-                ArrayDim = _Buffer.ReadUShort();
-                Record("ArrayDim", ArrayDim);
-                goto skipInfo;
-            }
-#endif
-#if AA2
-            if (Package.Build == UnrealPackage.GameBuild.BuildName.AA2 && Package.LicenseeVersion > 7)
-            {
-                // Always 26125 (hardcoded in the assembly) 
-                uint unknown = _Buffer.ReadUInt32();
-                Record("Unknown:AA2", unknown);
-            }
-#endif
+
             int info = _Buffer.ReadInt32();
             ArrayDim = (ushort)(info & 0x0000FFFFU);
-            Record("ArrayDim", ArrayDim);
             Debug.Assert(ArrayDim <= 2048, "Bad array dim");
             ElementSize = (ushort)(info >> 16);
-            Record("ElementSize", ElementSize);
-        skipInfo:
 
             PropertyFlags = Package.Version >= 220
                 ? _Buffer.ReadUInt64()
                 : _Buffer.ReadUInt32();
-            Record("PropertyFlags", PropertyFlags);
 
-#if XCOM2
-            if (Package.Build == UnrealPackage.GameBuild.BuildName.XCOM2WotC)
-            {
-                ConfigName = _Buffer.ReadNameReference();
-                Record("ConfigName", ConfigName);
-            }
-#endif
-#if THIEF_DS || DEUSEX_IW
-            if (Package.Build.Generation == BuildGeneration.Thief)
-            {
-                // Property flags like CustomEditor, CustomViewer, ThiefProp, DeusExProp, NoTextExport, NoTravel
-                uint deusFlags = _Buffer.ReadUInt32();
-                Record(nameof(deusFlags), deusFlags);
-            }
-#endif
             if (!Package.IsConsoleCooked())
             {
                 CategoryName = _Buffer.ReadNameReference();
-                Record(nameof(CategoryName), CategoryName);
 
                 if (Package.Version > 400)
-                {
                     ArrayEnum = GetIndexObject(_Buffer.ReadObjectIndex()) as UEnum;
-                    Record("ArrayEnum", ArrayEnum);
-                }
-                else
-                {
-#if THIEF_DS || DEUSEX_IW
-                    if (Package.Build.Generation == BuildGeneration.Thief)
-                    {
-                        short deusInheritedOrRuntimeInstiantiated = _Buffer.ReadInt16();
-                        Record(nameof(deusInheritedOrRuntimeInstiantiated), deusInheritedOrRuntimeInstiantiated);
-                        short deusUnkInt16= _Buffer.ReadInt16();
-                        Record(nameof(deusUnkInt16), deusUnkInt16);
-                    }
-#endif
-                }
             }
 
             if (HasPropertyFlag(PropertyFlagsLO.Net))
             {
                 RepOffset = _Buffer.ReadUShort();
-                Record("RepOffset", RepOffset);
             }
-#if VENGEANCE
-            if (Package.Build.Generation == BuildGeneration.Vengeance)
-            {
-                var vengeanceEditComboType = _Buffer.ReadNameReference();
-                Record(nameof(vengeanceEditComboType), vengeanceEditComboType);
-                var vengeanceEditDisplay = _Buffer.ReadNameReference();
-                Record(nameof(vengeanceEditDisplay), vengeanceEditDisplay);
-            }
-#endif
             // Appears to be a UE2X feature, it is not present in UE2 builds with no custom LicenseeVersion
             // Albeit DeusEx indicates otherwise?
             if ((HasPropertyFlag(PropertyFlagsLO.EditorData) && (Package.Build.Generation == BuildGeneration.UE2_5 || Package.Build.Generation == BuildGeneration.Thief))
@@ -161,33 +101,7 @@ namespace UELib.Core
             {
                 // May represent a tooltip/comment in some games.
                 EditorDataText = _Buffer.ReadText();
-                Record(nameof(EditorDataText), EditorDataText);
             }
-#if SPELLBORN
-            if (Package.Build == UnrealPackage.GameBuild.BuildName.Spellborn)
-            {
-                if (_Buffer.Version < 157)
-                {
-                    throw new NotSupportedException("< 157 Spellborn packages are not supported");
-                    
-                    if (133 < _Buffer.Version)
-                    {
-                        // idk
-                    }
-                    
-                    if (134 < _Buffer.Version)
-                    {
-                        int unk32 = _Buffer.ReadInt32();
-                        Record("Unknown:Spellborn", unk32);
-                    }
-                }
-                else
-                {
-                    uint replicationFlags = _Buffer.ReadUInt32();
-                    Record(nameof(replicationFlags), replicationFlags);
-                }
-            }
-#endif
         }
 
         protected override bool CanDisposeBuffer()

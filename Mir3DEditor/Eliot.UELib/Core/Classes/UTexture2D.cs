@@ -28,6 +28,7 @@ namespace UELib.Core.Classes
     {
         //public int MipMapsCount { get; private set; }
         public UMipMap[] MipMaps { get; set; }
+        public byte[] UnknownEndData { get; set; }
 
         protected override void Deserialize()
         {
@@ -91,6 +92,8 @@ namespace UELib.Core.Classes
                     mipmap.ImageBitmap = BitmapFromSource(ddsFile.BitmapSource);
                 }
             }
+
+            UnknownEndData = _Buffer.ReadBytes((int)_Buffer.Length - (int)_Buffer.Position);
         }
 
         public override void Serialize(IUnrealStream stream)
@@ -110,6 +113,8 @@ namespace UELib.Core.Classes
                 //DdsFile ddsFile = new DdsFile();
                 //ddsFile.MipMaps[i].MipMap
             }
+
+            stream.Write(UnknownEndData);
         }
 
         public static Bitmap BitmapFromSource(BitmapSource bitmapsource)

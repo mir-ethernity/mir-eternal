@@ -216,21 +216,17 @@ namespace UELib.Core
         private bool DeserializeNextTag()
         {
             Name = _Buffer.ReadNameReference();
-            Record(nameof(Name), Name);
             if (Name.IsNone()) return true;
 
             UName typeName = _Buffer.ReadNameReference();
-            Record(nameof(typeName), typeName);
             TypeName = typeName;
             Enum.TryParse<PropertyType>(typeName, out Type);
 
             if (TypeName.IsNone()) return false;
 
             Size = _Buffer.ReadInt32();
-            Record(nameof(Size), Size);
 
             ArrayIndex = _Buffer.ReadInt32();
-            Record(nameof(ArrayIndex), ArrayIndex);
 
             DeserializeTypeDataUE3();
 
@@ -252,7 +248,6 @@ namespace UELib.Core
                     PropData = tmp;
 
                     ItemName = _Buffer.ReadNameReference();
-                    Record(nameof(ItemName), ItemName);
                     break;
 
                 case PropertyType.ByteProperty:
@@ -265,7 +260,6 @@ namespace UELib.Core
                         PropData = tmp;
 
                         EnumName = _Buffer.ReadNameReference();
-                        Record(nameof(EnumName), EnumName);
                     }
                     break;
 
@@ -280,7 +274,6 @@ namespace UELib.Core
                     BoolValue = _Buffer.Version >= VBoolSizeToOne
                         ? _Buffer.ReadByte() > 0
                         : _Buffer.ReadInt32() > 0;
-                    Record(nameof(BoolValue), BoolValue);
                     break;
             }
         }
@@ -334,7 +327,6 @@ namespace UELib.Core
                             if (Size == 1 && _Buffer.Version < V3)
                             {
                                 value = _Buffer.ReadByte() > 0;
-                                Record(nameof(value), value);
                             }
 
                             propertyValue = value ? "true" : "false";
@@ -344,7 +336,6 @@ namespace UELib.Core
                     case PropertyType.StrProperty:
                         {
                             string value = _Buffer.ReadText();
-                            Record(nameof(value), value);
                             propertyValue = PropertyDisplay.FormatLiteral(value);
                             break;
                         }
@@ -352,7 +343,6 @@ namespace UELib.Core
                     case PropertyType.NameProperty:
                         {
                             var value = _Buffer.ReadNameReference();
-                            Record(nameof(value), value);
                             propertyValue = value;
                             break;
                         }
@@ -360,7 +350,6 @@ namespace UELib.Core
                     case PropertyType.IntProperty:
                         {
                             int value = _Buffer.ReadInt32();
-                            Record(nameof(value), value);
                             propertyValue = PropertyDisplay.FormatLiteral(value);
                             break;
                         }
@@ -369,7 +358,6 @@ namespace UELib.Core
                     case PropertyType.QwordProperty:
                         {
                             long value = _Buffer.ReadInt64();
-                            Record(nameof(value), value);
                             propertyValue = PropertyDisplay.FormatLiteral(value);
                             break;
                         }
@@ -383,7 +371,6 @@ namespace UELib.Core
                     case PropertyType.FloatProperty:
                         {
                             float value = _Buffer.ReadFloat();
-                            Record(nameof(value), value);
                             propertyValue = PropertyDisplay.FormatLiteral(value);
                             break;
                         }
@@ -393,14 +380,12 @@ namespace UELib.Core
                             if (_Buffer.Version >= V3 && Size == 8)
                             {
                                 string value = _Buffer.ReadName();
-                                Record(nameof(value), value);
                                 propertyValue = value;
                                 if (_Buffer.Version >= VEnumName) propertyValue = $"{EnumName}.{propertyValue}";
                             }
                             else
                             {
                                 byte value = _Buffer.ReadByte();
-                                Record(nameof(value), value);
                                 propertyValue = PropertyDisplay.FormatLiteral(value);
                             }
 
@@ -413,7 +398,6 @@ namespace UELib.Core
                         {
                             var constantObject = _Buffer.ReadObject();
                             ChildrenObjects.Add(constantObject);
-                            Record(nameof(constantObject), constantObject);
                             if (constantObject != null)
                             {
                                 var inline = false;
@@ -457,7 +441,6 @@ namespace UELib.Core
                     case PropertyType.ClassProperty:
                         {
                             var classObject = _Buffer.ReadObject();
-                            Record(nameof(classObject), classObject);
                             propertyValue = classObject != null
                                 ? $"class'{classObject.Name}'"
                                 : "none";
@@ -469,10 +452,8 @@ namespace UELib.Core
                             _TempFlags |= DoNotAppendName;
 
                             var outerObj = _Buffer.ReadObject(); // Where the assigned delegate property exists.
-                            Record(nameof(outerObj), outerObj);
 
                             string delegateName = _Buffer.ReadName();
-                            Record(nameof(delegateName), delegateName);
 
                             // Strip __%delegateName%__Delegate
                             string normalizedDelegateName = ((string)Name).Substring(2, Name.Length - 12);
@@ -696,8 +677,6 @@ namespace UELib.Core
                     case PropertyType.ArrayProperty:
                         {
                             int arraySize = _Buffer.ReadIndex();
-                            Record(nameof(arraySize), arraySize);
-                            if (arraySize == 0)
                             {
                                 propertyValue = "none";
                                 break;
@@ -870,11 +849,6 @@ namespace UELib.Core
 
         #endregion
 
-        [Conditional("BINARYMETADATA")]
-        private void Record(string varName, object varObject = null)
-        {
-            if (_RecordingEnabled) _Container.Record(varName, varObject);
-        }
     }
 
     [System.Runtime.InteropServices.ComVisible(false)]

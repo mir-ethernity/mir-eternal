@@ -29,58 +29,11 @@ namespace UELib
 
         public void Deserialize(IUnrealStream stream)
         {
-            Name = DeserializeName(stream);
-            Debug.Assert(Name.Length <= 1024, "Maximum name length exceeded! Possible corrupt or unsupported package.");
-#if BIOSHOCK
-            if (stream.Package.Build == UnrealPackage.GameBuild.BuildName.BioShock)
-            {
-                Flags = stream.ReadUInt64();
-                return;
-            }
-#endif
+            Name = stream.ReadText();
             Flags = stream.Version >= UExportTableItem.VObjectFlagsToULONG
                 ? stream.ReadUInt64()
                 : stream.ReadUInt32();
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private string DeserializeName(IUnrealStream stream)
-        {
-#if UE1
-            // Very old packages use a simple Ansi encoding.
-            if (stream.Version < UnrealPackage.VSIZEPREFIXDEPRECATED) return stream.ReadASCIIString();
-#endif
-#if AA2
-            // Names are not encrypted in AAA/AAO 2.6 (LicenseeVersion 32)
-            if (stream.Package.Build == UnrealPackage.GameBuild.BuildName.AA2
-                && stream.Package.LicenseeVersion >= 33
-                && stream.Package.Decoder is CryptoDecoderAA2)
-            {
-                // Thanks to @gildor2, decryption code transpiled from https://github.com/gildor2/UEViewer, 
-                int length = stream.ReadIndex();
-                Debug.Assert(length < 0);
-                int size = -length;
-
-                const byte n = 5;
-                byte shift = n;
-                var buffer = new char[size];
-                for (var i = 0; i < size; i++)
-                {
-                    ushort c = stream.ReadUInt16();
-                    ushort c2 = CryptoCore.RotateRight(c, shift);
-                    Debug.Assert(c2 < byte.MaxValue);
-                    buffer[i] = (char)(byte)c2;
-                    shift = (byte)((c - n) & 0x0F);
-                }
-
-                var str = new string(buffer, 0, buffer.Length - 1);
-                // Part of name ?
-                int number = stream.ReadIndex();
-                //Debug.Assert(number == 0, "Unknown value");
-                return str;
-            }
-#endif
-            return stream.ReadText();
+            DeserializeLogger.Log($"[UNameTableItem] Name: {Name}, Flags: {Flags}");
         }
 
         public void Serialize(IUnrealStream stream)

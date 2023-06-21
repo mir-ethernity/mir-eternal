@@ -21,7 +21,6 @@ namespace UELib.Engine
             }
 
             _Buffer.ReadArray(out Mips);
-            Record(nameof(Mips), Mips);
 
             var bHasCompProperty = Properties.Find("bHasComp");
             if (bHasCompProperty != null)

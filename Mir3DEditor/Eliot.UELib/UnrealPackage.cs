@@ -275,7 +275,9 @@ namespace UELib
         [Obsolete]
         public static UnrealPackage DeserializePackage(string packagePath, FileAccess fileAccess = FileAccess.Read)
         {
+            DeserializeLogger.Log($"Deserializing: {packagePath}");
             var buffer = File.ReadAllBytes(packagePath);
+            DeserializeLogger.Log($"Length: {buffer.Length}");
             var stream = new UPackageStream(packagePath, buffer);
             var pkg = new UnrealPackage(stream);
             pkg.Deserialize(stream);
@@ -307,6 +309,8 @@ namespace UELib
         {
             foreach (var callback in _callbacksToLoadImportFile)
             {
+                if (callback == null) continue;
+
                 var buff = callback(name);
                 if (buff != null)
                     return buff;
@@ -317,22 +321,6 @@ namespace UELib
 
         public void Serialize(IUnrealStream stream)
         {
-            // Serialize tables
-            var namesBuffer = new UObjectStream(stream);
-            foreach (var name in Names) name.Serialize(namesBuffer);
-
-            var importsBuffer = new UObjectStream(stream);
-            foreach (var import in Imports) import.Serialize(importsBuffer);
-
-            var exportsBuffer = new UObjectStream(stream);
-            foreach (var export in Exports) export.Serialize(exportsBuffer);
-
-            var dependsBuffer = new UObjectStream(stream);
-            foreach (var depend in Depends) depend.Serialize(dependsBuffer);
-
-            var thumbnailsBuffer = new UObjectStream(stream);
-            foreach (var thumbnail in Thumbnails) thumbnail.Serialize(thumbnailsBuffer);
-
             stream.Seek(0, SeekOrigin.Begin);
             stream.Write(Signature);
 
@@ -394,25 +382,35 @@ namespace UELib
 
             // Write tables
             // names
+
+            // Serialize tables
             Console.WriteLine("Writing names at position " + stream.Position);
+            var namesBuffer = new UObjectStream(stream);
+            foreach (var name in Names) name.Serialize(namesBuffer);
             _TablesData.NamesOffset = (int)stream.Position;
             byte[] namesBytes = namesBuffer.GetBuffer();
             stream.Write(namesBytes, 0, (int)namesBuffer.Length);
 
             // imports
             Console.WriteLine("Writing imports at position " + stream.Position);
+            var importsBuffer = new UObjectStream(stream);
+            foreach (var import in Imports) import.Serialize(importsBuffer);
             _TablesData.ImportsOffset = (int)stream.Position;
             byte[] importsBytes = importsBuffer.GetBuffer();
             stream.Write(importsBytes, 0, (int)importsBuffer.Length);
 
             // exports
             Console.WriteLine("Writing exports at position " + stream.Position);
+            var exportsBuffer = new UObjectStream(stream);
+            foreach (var export in Exports) export.Serialize(exportsBuffer);
             _TablesData.ExportsOffset = (int)stream.Position;
             byte[] exportsBytes = exportsBuffer.GetBuffer();
             stream.Write(exportsBytes, 0, (int)exportsBuffer.Length);
 
             // depends
             Console.WriteLine("Writing depends at position " + stream.Position);
+            var dependsBuffer = new UObjectStream(stream);
+            foreach (var depend in Depends) depend.Serialize(dependsBuffer);
             _TablesData.DependsOffset = (int)stream.Position;
             byte[] dependsBytes = dependsBuffer.GetBuffer();
             stream.Write(dependsBytes, 0, (int)dependsBuffer.Length);
@@ -426,6 +424,8 @@ namespace UELib
             // thumbnail
             if (Version >= 584)
             {
+                var thumbnailsBuffer = new UObjectStream(stream);
+                foreach (var thumbnail in Thumbnails) thumbnail.Serialize(thumbnailsBuffer);
                 _TablesData.ThumbnailTableOffset = (int)stream.Position;
                 stream.Write(Thumbnails.Count);
                 byte[] thumbnailsBytes = thumbnailsBuffer.GetBuffer();
@@ -447,9 +447,9 @@ namespace UELib
 
             foreach (var exp in Exports)
             {
-                exp.SerialOffset = (int)stream.Position;
+                // exp.SerialOffset = (int)stream.Position;
                 exp.Object.Serialize(stream);
-                exp.SerialSize = (int)stream.Position - (int)exp.SerialOffset;
+                // exp.SerialSize = (int)stream.Position - (int)exp.SerialOffset;
             }
 
             exportsBuffer = new UObjectStream(stream);
@@ -476,39 +476,52 @@ namespace UELib
             // Read as one variable due Big Endian Encoding.
             Version = stream.ReadUInt32();
             LicenseeVersion = (ushort)(Version >> 16);
+            DeserializeLogger.Log($"LicenseeVersion: {LicenseeVersion}");
             Version &= 0xFFFFU;
-
+            DeserializeLogger.Log($"Version: {Version}");
             Build = new GameBuild(this);
 
             stream.BuildDetected(Build);
 
             HeaderSize = stream.ReadInt32();
+            DeserializeLogger.Log($"HeaderSize: {HeaderSize}");
             Group = stream.ReadText();
+            DeserializeLogger.Log($"Group: {Group}");
 
             // Bitflags such as AllowDownload.
             PackageFlags = (PackageFlags)stream.ReadUInt32();
+            DeserializeLogger.Log($"PackageFlags: {PackageFlags}");
 
             // Summary data such as ObjectCount.
             _TablesData = new TablesData();
             _TablesData.Deserialize(stream);
 
             GUID = stream.ReadGuid();
+            DeserializeLogger.Log($"PackageFlags: {PackageFlags}");
 
             int generationCount = stream.ReadInt32();
+            DeserializeLogger.Log($"GUID: {GUID}");
+
             stream.ReadArray(out _Generations, generationCount);
 
             EngineVersion = stream.ReadInt32();
+            DeserializeLogger.Log($"EngineVersion: {EngineVersion}");
 
             CookerVersion = stream.ReadInt32();
+            DeserializeLogger.Log($"CookerVersion: {CookerVersion}");
 
             CompressionFlags = (CompressionFlags)stream.ReadUInt32();
+            DeserializeLogger.Log($"CompressionFlags: {CompressionFlags}");
+
             stream.ReadArray(out _CompressedChunks);
 
             PackageSource = stream.ReadUInt32();
+            DeserializeLogger.Log($"PackageSource: {PackageSource}");
 
             UArray<string> additionalPackagesToCook;
             stream.ReadArray(out additionalPackagesToCook);
             AdditionalPackagesToCook = additionalPackagesToCook;
+            DeserializeLogger.Log($"additionalPackagesToCook: {string.Join(", ", additionalPackagesToCook)}");
 
             stream.ReadArray(out _Textures);
 
@@ -516,6 +529,7 @@ namespace UELib
             {
                 Stream = stream = stream.Decompress(this, _CompressedChunks);
                 stream.Seek(4, SeekOrigin.Begin);
+                DeserializeLogger.Log($"Decompressed and restored stream position...");
             }
 
             if (_TablesData.NamesCount > 0)
@@ -586,13 +600,16 @@ namespace UELib
             {
                 string levelName = stream.ReadText();
                 int guidCount = stream.ReadInt32();
-                stream.Skip(guidCount * 16);
+                for (var c = 0; i < guidCount; c++)
+                    DeserializeLogger.Log($"ImportGuid: {levelName}, Guid: {stream.ReadGuid()}");
             }
 
             for (var i = 0; i < _TablesData.ExportGuidsCount; ++i)
             {
                 var objectGuid = stream.ReadGuid();
                 int exportIndex = stream.ReadInt32();
+
+                DeserializeLogger.Log($"ExportGuid -> guid: {objectGuid}, index: {exportIndex}");
             }
 
             if (_TablesData.ThumbnailTableOffset != 0)
@@ -600,9 +617,11 @@ namespace UELib
                 UnknownDataBeforeThumbnailInfo = new byte[_TablesData.ThumbnailTableOffset - stream.Position];
                 stream.Read(UnknownDataBeforeThumbnailInfo, 0, UnknownDataBeforeThumbnailInfo.Length);
 
+                DeserializeLogger.Log($"UnknownDataBeforeThumbnailInfo -> {BitConverter.ToString(UnknownDataBeforeThumbnailInfo)}");
+
                 int thumbnailCount = stream.ReadInt32();
                 Thumbnails = new List<UThumbnailTableItem>(thumbnailCount);
-
+                DeserializeLogger.Log($"thumbnailCount: {thumbnailCount}");
                 for (var i = 0; i < thumbnailCount; ++i)
                 {
                     var dep = new UThumbnailTableItem { Offset = (int)stream.Position, Index = i, Owner = this };
@@ -615,6 +634,9 @@ namespace UELib
 
             Debug.Assert(stream.Position <= int.MaxValue);
             HeaderSize = (int)stream.Position;
+
+
+            DeserializeLogger.Save();
         }
 
         /// <summary>

@@ -1,4 +1,7 @@
-﻿namespace UELib
+﻿using System;
+using System.Linq;
+
+namespace UELib
 {
     public struct UTextureInfo : IUnrealSerializableClass
     {
@@ -35,6 +38,8 @@
             Data = new int[count2];
             for (var i = 0; i < count2; i++)
                 Data[i] = stream.ReadInt32();
+
+            DeserializeLogger.Log($"[TextureInfo] U1: {U1}, U2: {U2}, U3: {U3}, U4: {U4}, U5: {U5}, Pixel Len: {count2}, RGBA: {string.Join(",", Data.Select(x => BitConverter.ToString(BitConverter.GetBytes(x))).ToArray())}");
         }
     }
 }

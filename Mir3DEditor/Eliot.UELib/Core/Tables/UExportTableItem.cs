@@ -57,7 +57,7 @@ namespace UELib
             }
         }
 
-        public byte[] NetObjectData { get; private set; }
+        public int[] NetObjectData { get; private set; }
         public Guid PackageGuid { get; private set; }
         public int PackageFlags { get; private set; }
 
@@ -70,12 +70,22 @@ namespace UELib
         /// <summary>
         /// Object size in bytes.
         /// </summary>
-        public int SerialSize;
+        private int _serialSize;
+        public int SerialSize
+        {
+            get => _serialSize;
+            set { _serialSize = value; }
+        }
 
         /// <summary>
         /// Object offset in bytes. Starting from the beginning of a file.
         /// </summary>
-        public int SerialOffset;
+        private int _serialOffset;
+        public int SerialOffset
+        {
+            get => _serialOffset;
+            set { _serialOffset = value; }
+        }
 
         public uint ExportFlags;
         //public Dictionary<int, int> Components;
@@ -92,28 +102,22 @@ namespace UELib
 
             stream.Write(ObjectName);
 
-            if (stream.Version >= VArchetype)
-            {
-                stream.Write(ArchetypeIndex);
-            }
-
+            stream.Write(ArchetypeIndex);
 
             stream.Write(stream.Version >= VObjectFlagsToULONG
                 ? ObjectFlags
                 : (uint)ObjectFlags);
 
-            stream.WriteIndex(SerialSize); // Assumes SerialSize has been updated to @Object's buffer size.
+            stream.WriteIndex(SerialSize);
 
-            if (SerialSize > 0 || stream.Version >= VSerialSizeConditionless)
-            {
-                // SerialOffset has to be set and written after this object has been serialized.
-                stream.WriteIndex(SerialOffset); // Assumes the same as @SerialSize comment.
-            }
+            if (SerialSize > 0)
+                stream.WriteIndex(SerialOffset);
 
             stream.Write(ExportFlags);
 
-            stream.Write(NetObjectData.Length / 4);
-            stream.Write(NetObjectData);
+            stream.Write(NetObjectData.Length);
+            for (var i = 0; i < NetObjectData.Length; i++)
+                stream.Write(NetObjectData[i]);
 
             stream.Write(PackageGuid);
 
@@ -129,8 +133,6 @@ namespace UELib
             ObjectName = stream.ReadNameReference();
             ArchetypeIndex = stream.ReadInt32();
 
-            _ObjectFlagsOffset = stream.Position;
-
             ObjectFlags = stream.ReadUInt64();
 
             SerialSize = stream.ReadIndex();
@@ -141,30 +143,16 @@ namespace UELib
 
             // Array of objects
             int netObjectCount = stream.ReadInt32();
-            NetObjectData = new byte[netObjectCount * 4];
+            NetObjectData = new int[netObjectCount];
             for (var i = 0; i < NetObjectData.Length; i++)
-                NetObjectData[i] = stream.ReadByte();
+                NetObjectData[i] = stream.ReadInt32();
 
             PackageGuid = stream.ReadGuid();
 
             PackageFlags = stream.ReadInt32();
+
+            DeserializeLogger.Log($"[UExportTableItem] ClassIndex: {ClassIndex}, SuperIndex: {SuperIndex}, OuterIndex: {OuterIndex}, ObjectName: {ObjectName}, ArchetypeIndex: {ArchetypeIndex}, ObjectFlags: {ObjectFlags}, SerialSize: {SerialSize}, SerialOffset: {SerialOffset}, ExportFlags: {ExportFlags}, netObjectCount: {netObjectCount}, PackageGuid: {PackageGuid}, PackageFlags: {PackageFlags}");
         }
-
-        #region Writing Methods
-
-        private long _ObjectFlagsOffset;
-
-        /// <summary>
-        /// Updates the ObjectFlags inside the Stream to the current set ObjectFlags of this Table
-        /// </summary>
-        [Obsolete]
-        public void WriteObjectFlags()
-        {
-            Owner.Stream.Seek(_ObjectFlagsOffset, SeekOrigin.Begin);
-            Owner.Stream.Write((uint)ObjectFlags);
-        }
-
-        #endregion
 
         #region Methods
 

@@ -16,6 +16,8 @@ namespace UELib
             OwnerName = stream.ReadText();
             RefName = stream.ReadText();
             RefId = stream.ReadInt32();
+
+            DeserializeLogger.Log($"[UThumbnailTableItem] OwnerName: {OwnerName}, RefName: {RefName}, RefId: {RefId}");
         }
 
         public void Serialize(IUnrealStream stream)

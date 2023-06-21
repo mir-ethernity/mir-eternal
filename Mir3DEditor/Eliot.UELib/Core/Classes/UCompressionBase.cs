@@ -8,103 +8,21 @@ using System.Windows.Media.Animation;
 
 namespace UELib.Core.Classes
 {
-    [Flags]
-    public enum BulkDataCompressionTypes : uint
-    {
-
-        StoreInSeparatefile = 0x00000001,
-        ZLIB = 0x00000002,
-        LZO = 0x00000010,
-        Unused = 0x00000020,
-        SeperateData = 0x00000040,
-        LZX = 0x00000080,
-        LZO_ENC = 0x00000100
-    }
-
-    public class DomainCompressedChunk
-    {
-        private const BulkDataCompressionTypes NothingToDo = BulkDataCompressionTypes.Unused | BulkDataCompressionTypes.StoreInSeparatefile;
-
-        public uint Flags;
-        public int UncompressedSize;
-        public int CompressedSize;
-        public int CompressedOffset;
-        public List<CompressedBlock> Blocks = new List<CompressedBlock>();
-
-        public void Deserialize(IUnrealStream stream)
-        {
-            Flags = stream.ReadUInt32();
-            UncompressedSize = stream.ReadInt32();
-            CompressedSize = stream.ReadInt32();
-            CompressedOffset = stream.ReadInt32();
-
-            if (((BulkDataCompressionTypes)Flags & NothingToDo) > 0) return;
-
-            DecompressBlocks(stream);
-        }
-
-        private void DecompressBlocks(IUnrealStream stream)
-        {
-            var signature = stream.ReadUInt32();
-
-            if (signature != UnrealPackage.Signature)
-                throw new ApplicationException();
-
-            var blockSize = stream.ReadInt32();
-
-            var compressedSize = stream.ReadInt32();
-            var uncompressedSize = stream.ReadInt32();
-
-            int blockCount = (uncompressedSize + blockSize - 1) / blockSize;
-
-            for (int i = 0; i < blockCount; ++i)
-            {
-                var block = new CompressedBlock()
-                {
-                    CompressedSize = stream.ReadInt32(),
-                    UncompressedSize = stream.ReadInt32()
-                };
-                Blocks.Add(block);
-            }
-
-            foreach (var block in Blocks)
-            {
-                var data = new byte[block.CompressedSize];
-                stream.Read(data, 0, data.Length);
-                block.Data = data;
-            }
-        }
-
-        public byte[] Decompress()
-        {
-            var deco = new UpkManager.Lzo.LzoCompression();
-
-            byte[] chunkData = new byte[Blocks.Sum(block => block.UncompressedSize)];
-            int uncompressedOffset = 0;
-
-            foreach (var block in Blocks)
-            {
-                var uncompressedData = new byte[block.UncompressedSize];
-                deco.DecompressSync(block.Data, uncompressedData);
-
-                Array.ConstrainedCopy(uncompressedData, 0, chunkData, uncompressedOffset, block.UncompressedSize);
-                uncompressedOffset += block.UncompressedSize;
-            }
-
-            return chunkData;
-        }
-    }
 
     public abstract class UCompressionBase : UObject
     {
+        public const int BLOCK_SIZE = 131072;
+        public const int BLOCK_HEADER_SIZE = 24;
+
         public byte[] Unknown1 { get; private set; }
         public int CompressedChunkOffset { get; private set; }
+        public DomainCompressedChunk TemporalChunk { get; private set; }
 
         public DomainCompressedChunk ProcessCompressedBulkData()
         {
-            var chunk = new DomainCompressedChunk();
-            chunk.Deserialize(_Buffer);
-            return chunk;
+            TemporalChunk = new DomainCompressedChunk();
+            TemporalChunk.Deserialize(_Buffer);
+            return TemporalChunk;
         }
 
         protected override void Deserialize()
@@ -126,24 +44,45 @@ namespace UELib.Core.Classes
         public void WriteUncompressedChunk(IUnrealStream stream, byte[] chunk)
         {
             var deco = new UpkManager.Lzo.LzoCompression();
-            
-            var compressed = deco.CompressSync(chunk);
 
+            int blockCount = (chunk.Length + BLOCK_SIZE - 1) / BLOCK_SIZE;
+
+            // Blocks Header
             stream.Write((int)BulkDataCompressionTypes.LZO);
             stream.Write(chunk.Length);
-            stream.Write(compressed.Length + 24); // 24 corresponds to the sum of all block headers, in this case, only writes one block
+            var pos = stream.Position;
+            stream.Write(0);
             stream.Write(stream.RealPosition + 4);
 
-            // TODO: Atm only writes one block
+            // Blocks data
             stream.Write(UnrealPackage.Signature);
-            stream.Write(chunk.Length); // block size
-            stream.Write(compressed.Length); // compressed size
-            stream.Write(chunk.Length); // uncompressed size
+            stream.Write(BLOCK_SIZE); // block size 
+            var pos2 = stream.Position;
+            stream.Write(0); // compressed size
+            stream.Write(chunk.Length);
 
-            stream.Write(compressed.Length); // compressed size chunk
-            stream.Write(chunk.Length); // uncompressed size chunk
+            var compresedLength = 0;
+            for (var i = 0; i < blockCount; i++)
+            {
+                var blockUncompressed = new byte[(i * BLOCK_SIZE + BLOCK_SIZE) > chunk.Length ? chunk.Length : BLOCK_SIZE];
+                Array.Copy(chunk, i * BLOCK_SIZE, blockUncompressed, 0, blockUncompressed.Length);
+                var compressed = deco.CompressSync(blockUncompressed);
+                compresedLength += compressed.Length;
 
-            stream.Write(compressed); // compressed data
+                stream.Write(compressed.Length); // compressed size chunk
+                stream.Write(blockUncompressed.Length); // uncompressed size chunk
+
+                stream.Write(compressed); // compressed data
+            }
+
+            var curpos = stream.Position;
+            stream.Seek(pos, SeekOrigin.Begin);
+            stream.Write(compresedLength + (BLOCK_HEADER_SIZE * blockCount));
+            
+            stream.Seek(pos2, SeekOrigin.Begin);
+            stream.Write(compresedLength);
+
+            stream.Seek(curpos, SeekOrigin.Begin);
         }
     }
 }

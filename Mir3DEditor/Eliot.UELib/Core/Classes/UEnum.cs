@@ -34,7 +34,6 @@ namespace UELib.Core
                 && 145 < _Buffer.Version)
             {
                 uint unknownEnumFlags = _Buffer.ReadUInt32();
-                Record(nameof(unknownEnumFlags), unknownEnumFlags);
             }
         }
 #endif

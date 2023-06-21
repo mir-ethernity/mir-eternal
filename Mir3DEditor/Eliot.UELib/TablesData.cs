@@ -66,42 +66,28 @@ namespace UELib
 
             public void Deserialize(IUnrealStream stream)
             {
-#if HAWKEN
-                if (stream.Package.Build == GameBuild.BuildName.Hawken &&
-                    stream.Package.LicenseeVersion >= 2)
-                    stream.Skip(4);
-#endif
                 NamesCount = stream.ReadInt32();
                 NamesOffset = stream.ReadInt32();
                 ExportsCount = stream.ReadInt32();
                 ExportsOffset = stream.ReadInt32();
-#if APB
-                if (stream.Package.Build == GameBuild.BuildName.APB &&
-                    stream.Package.LicenseeVersion >= 28)
-                {
-                    if (stream.Package.LicenseeVersion >= 29)
-                    {
-                        stream.Skip(4);
-                    }
-
-                    stream.Skip(20);
-                }
-#endif
                 ImportsCount = stream.ReadInt32();
                 ImportsOffset = stream.ReadInt32();
 
-                Console.WriteLine("Names Count:" + NamesCount + " Names Offset:" + NamesOffset
+                DeserializeLogger.Log("Names Count:" + NamesCount + " Names Offset:" + NamesOffset
                                   + " Exports Count:" + ExportsCount + " Exports Offset:" + ExportsOffset
                                   + " Imports Count:" + ImportsCount + " Imports Offset:" + ImportsOffset
                 );
 
                 DependsOffset = stream.ReadInt32();
-
                 ImportExportGuidsOffset = stream.ReadInt32();
                 ImportGuidsCount = stream.ReadInt32();
                 ExportGuidsCount = stream.ReadInt32();
-
                 ThumbnailTableOffset = stream.ReadInt32();
+
+                DeserializeLogger.Log("DependsOffset:" + DependsOffset + " ImportExportGuidsOffset:" + ImportExportGuidsOffset
+                              + " ImportGuidsCount:" + ImportGuidsCount + " ExportGuidsCount:" + ExportGuidsCount
+                              + " ThumbnailTableOffset:" + ThumbnailTableOffset
+                );
             }
         }
 

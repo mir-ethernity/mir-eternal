@@ -216,19 +216,15 @@ namespace UELib.Core
         protected void VengeanceDeserializeHeader(IUnrealStream stream, ref (int a, int b) header)
         {
             header.a = stream.ReadInt32();
-            Record("A:Vengeance", header.a);
             header.b = stream.ReadInt32();
-            Record("B:Vengeance", header.b);
             switch (header.a)
             {
                 case 2:
                     header.a = stream.ReadInt32();
-                    Record("C:Vengeance", header.a);
                     break;
 
                 case 3:
                     int c = stream.ReadInt32();
-                    Record("C:Vengeance", c);
                     break;
             }
         }
@@ -248,7 +244,6 @@ namespace UELib.Core
             if (_Buffer.Version >= UExportTableItem.VNetObjects)
             {
                 NetIndex = _Buffer.ReadInt32();
-                Record(nameof(NetIndex), NetIndex);
             }
 
             if (!IsClassType("Class"))
@@ -612,30 +607,6 @@ namespace UELib.Core
         }
 
         #endregion
-
-        /// <summary>
-        /// TODO: Move this feature into a stream.
-        /// Outputs the present position and the value of the parsed object.
-        ///
-        /// Only called in the DEBUGBUILD!
-        /// </summary>
-        /// <param name="varName">The struct that was read from the previous buffer position.</param>
-        /// <param name="varObject">The struct's value that was read.</param>
-        [System.Diagnostics.Conditional("BINARYMETADATA")]
-        internal void Record(string varName, object varObject = null)
-        {
-            long size = _Buffer.Position - _Buffer.LastPosition;
-        }
-
-        protected void AssertEOS(int size, string testSubject = "")
-        {
-            if (size > _Buffer.Length - _Buffer.Position)
-            {
-                throw new DeserializationException(Name + ": Allocation past end of stream detected! Size:" + size +
-                                                   " Subject:" + testSubject);
-            }
-            //System.Diagnostics.Debug.Assert( size <= (_Buffer.Length - _Buffer.Position), Name + ": Allocation past end of stream detected! " + size );
-        }
 
         public int CompareTo(object obj)
         {

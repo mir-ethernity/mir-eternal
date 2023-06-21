@@ -30,6 +30,8 @@ namespace UELib.Core
                 : stream.ReadUInt16();
             stream.ReadArray(out StateStack);
             if (Node != null) Offset = stream.ReadIndex();
+
+            DeserializeLogger.Log($"[UStateFrame] Node: {Node}, StateNode: {StateNode}, ProbeMask: {ProbeMask}, LatentAction: {LatentAction}, Offset: {Offset}");
         }
 
         public void Serialize(IUnrealStream stream)

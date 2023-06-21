@@ -74,7 +74,7 @@ namespace UpkManager.Lzo
 
         public byte[] CompressSync(byte[] Source)
         {
-            byte[] compressed = new byte[Source.Length + Source.Length / 64 + 16 + 3 + 4];
+            byte[] compressed = new byte[Source.Length + 50000];
 
             int compressedSize = 0;
 
@@ -82,6 +82,7 @@ namespace UpkManager.Lzo
 
             if (is64Bit) Lzo2.lzo1x_1_compress_64(Source, Source.Length, compressed, ref compressedSize, workMemory);
             else Lzo2.lzo1x_1_compress_32(Source, Source.Length, compressed, ref compressedSize, workMemory);
+
             byte[] sizedToFit = new byte[compressedSize];
 
             Array.ConstrainedCopy(compressed, 0, sizedToFit, 0, compressedSize);

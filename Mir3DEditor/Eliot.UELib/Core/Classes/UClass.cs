@@ -114,38 +114,32 @@ namespace UELib.Core
             base.Deserialize();
 
             ClassFlags = _Buffer.ReadUInt32();
-            Record(nameof(ClassFlags), (ClassFlags)ClassFlags);
 
             if (Package.Version >= 276)
             {
                 if (Package.Version < 547)
                 {
                     byte unknownByte = _Buffer.ReadByte();
-                    Record("ClassGuidReplacement???", unknownByte);
                 }
             }
             else
             {
                 ClassGuid = _Buffer.ReadGuid();
-                Record(nameof(ClassGuid), ClassGuid);
             }
 
             if (Package.Version < 248)
             {
                 _Buffer.ReadArray(out ClassDependencies);
-                Record(nameof(ClassDependencies), ClassDependencies);
                 PackageImports = DeserializeGroup(nameof(PackageImports));
             }
 
-            skipTo61Stuff:
+        skipTo61Stuff:
             if (Package.Version >= 62)
             {
                 // Class Name Extends Super.Name Within _WithinIndex
                 //      Config(_ConfigIndex);
                 Within = _Buffer.ReadObject<UClass>();
-                Record(nameof(Within), Within);
                 ConfigName = _Buffer.ReadNameReference();
-                Record(nameof(ConfigName), ConfigName);
 
                 const int vHideCategoriesOldOrder = 539;
                 bool isHideCategoriesOldOrder = Package.Version <= vHideCategoriesOldOrder
@@ -193,7 +187,6 @@ namespace UELib.Core
                             if (Package.Build == UnrealPackage.GameBuild.BuildName.Spellborn)
                             {
                                 uint replicationFlags = _Buffer.ReadUInt32();
-                                Record(nameof(replicationFlags), replicationFlags);
                             }
 #endif
                         }
@@ -210,197 +203,47 @@ namespace UELib.Core
                             {
                                 AutoCollapseCategories = DeserializeGroup("AutoCollapseCategories");
 
-                                if (Package.Version >= 749
-#if SPECIALFORCE2
-                                    && Package.Build != UnrealPackage.GameBuild.BuildName.SpecialForce2
-#endif
-                                   )
+                                if (Package.Version >= 749)
                                 {
                                     // bForceScriptOrder
                                     ForceScriptOrder = _Buffer.ReadInt32() > 0;
-                                    Record(nameof(ForceScriptOrder), ForceScriptOrder);
-#if DISHONORED
-                                    if (Package.Build == UnrealPackage.GameBuild.BuildName.Dishonored)
-                                    {
-                                        var unknownName = _Buffer.ReadNameReference();
-                                        Record("Unknown:Dishonored", unknownName);
-                                    }
-#endif
+
                                     if (Package.Version >= UnrealPackage.VCLASSGROUP)
                                     {
-#if DISHONORED
-                                        if (Package.Build == UnrealPackage.GameBuild.BuildName.Dishonored)
-                                        {
-                                            NativeClassName = _Buffer.ReadText();
-                                            Record(nameof(NativeClassName), NativeClassName);
-                                            goto skipClassGroups;
-                                        }
-#endif
                                         ClassGroups = DeserializeGroup("ClassGroups");
                                         if (Package.Version >= 813)
                                         {
                                             NativeClassName = _Buffer.ReadText();
-                                            Record(nameof(NativeClassName), NativeClassName);
                                         }
                                     }
-#if DISHONORED
-                                    skipClassGroups: ;
-#endif
                                 }
                             }
 
                             // FIXME: Found first in(V:655), Definitely not in APB and GoW 2
                             // TODO: Corrigate Version
-                            if (Package.Version > 575 && Package.Version < 673
-#if TERA
-                                                      && Package.Build != UnrealPackage.GameBuild.BuildName.Tera
-#endif
-                               )
+                            if (Package.Version > 575 && Package.Version < 673                               )
                             {
                                 int unknownInt32 = _Buffer.ReadInt32();
-                                Record("Unknown", unknownInt32);
-#if SINGULARITY
-                                if (Package.Build == UnrealPackage.GameBuild.BuildName.Singularity) _Buffer.Skip(8);
-#endif
+
                             }
                         }
                     }
-#if BATMAN
-                    if (_Buffer.Package.Build == UnrealPackage.GameBuild.BuildName.BatmanUDK)
-                    {
-                        _Buffer.Skip(sizeof(int));
-                    }
-#endif
+
                     if (Package.Version >= UnrealPackage.VDLLBIND)
                     {
                         if (!Package.Build.Flags.HasFlag(BuildFlags.NoDLLBind))
                         {
                             DLLBindName = _Buffer.ReadNameReference();
-                            Record(nameof(DLLBindName), DLLBindName);
                         }
-#if REMEMBERME
-                        if (Package.Build == UnrealPackage.GameBuild.BuildName.RememberMe)
-                        {
-                            var unknownName = _Buffer.ReadNameReference();
-                            Record("Unknown:RememberMe", unknownName);
-                        }
-#endif
-#if DISHONORED
-                        if (Package.Build == UnrealPackage.GameBuild.BuildName.Dishonored)
-                            ClassGroups = DeserializeGroup("ClassGroups");
-#endif
-#if BORDERLANDS2
-                        if (Package.Build == UnrealPackage.GameBuild.BuildName.Borderlands2)
-                        {
-                            byte unknownByte = _Buffer.ReadByte();
-                            Record("Unknown:Borderlands2", unknownByte);
-                        }
-#endif
                     }
                 }
             }
-#if THIEF_DS || DeusEx_IW
-            if (Package.Build.Generation == BuildGeneration.Thief)
-            {
-                string thiefClassVisibleName = _Buffer.ReadText();
-                Record(nameof(thiefClassVisibleName), thiefClassVisibleName);
 
-                // Restore the human-readable name if possible
-                if (!string.IsNullOrEmpty(thiefClassVisibleName) 
-                    && Package.Build == UnrealPackage.GameBuild.BuildName.Thief_DS)
-                {
-                    var nameEntry = new UNameTableItem()
-                    {
-                        Name = thiefClassVisibleName
-                    };
-                    NameTable.Name = nameEntry;
-                }
-            }
-#endif
-#if VENGEANCE
-            if (Package.Build.Generation == BuildGeneration.Vengeance)
-            {
-                if (Package.LicenseeVersion >= 2)
-                {
-                    ulong unkInt64 = _Buffer.ReadUInt64();
-                    Record("Unknown:Vengeance", unkInt64);
-                }
-
-                if (Package.LicenseeVersion >= 3)
-                {
-                    ulong unkInt64 = _Buffer.ReadUInt64();
-                    Record("Unknown:Vengeance", unkInt64);
-                }
-
-                if (Package.LicenseeVersion >= 2)
-                {
-                    string vengeanceDefaultPropertiesText = _Buffer.ReadText();
-                    Record(nameof(vengeanceDefaultPropertiesText), vengeanceDefaultPropertiesText);
-                }
-
-                if (Package.LicenseeVersion >= 6)
-                {
-                    string vengeanceClassFilePath = _Buffer.ReadText();
-                    Record(nameof(vengeanceClassFilePath), vengeanceClassFilePath);
-                }
-
-                if (Package.LicenseeVersion >= 12)
-                {
-                    UArray<UName> names;
-                    _Buffer.ReadArray(out names);
-                    Record("Unknown:Vengeance", names);
-                }
-
-                if (Package.LicenseeVersion >= 15)
-                {
-                    _Buffer.ReadArray(out Vengeance_Implements);
-                    Record(nameof(Vengeance_Implements), Vengeance_Implements);
-                }
-
-                if (Package.LicenseeVersion >= 20)
-                {
-                    UArray<UObject> unk;
-                    _Buffer.ReadArray(out unk);
-                    Record("Unknown:Vengeance", unk);
-                }
-
-                if (Package.LicenseeVersion >= 32)
-                {
-                    UArray<UObject> unk;
-                    _Buffer.ReadArray(out unk);
-                    Record("Unknown:Vengeance", unk);
-                }
-
-                if (Package.LicenseeVersion >= 28)
-                {
-                    UArray<UName> unk;
-                    _Buffer.ReadArray(out unk);
-                    Record("Unknown:Vengeance", unk);
-                }
-
-                if (Package.LicenseeVersion >= 30)
-                {
-                    int unkInt32A = _Buffer.ReadInt32();
-                    Record("Unknown:Vengeance", unkInt32A);
-                    int unkInt32B = _Buffer.ReadInt32();
-                    Record("Unknown:Vengeance", unkInt32B);
-
-                    // Lazy array?
-                    int skipSize = _Buffer.ReadInt32();
-                    Record("Unknown:Vengeance", skipSize);
-                    // FIXME: Couldn't RE this code
-                    int b = _Buffer.ReadLength();
-                    Debug.Assert(b == 0, "Unknown data was not zero!");
-                    Record("Unknown:Vengeance", b);
-                }
-            }
-#endif
             // In later UE3 builds, defaultproperties are stored in separated objects named DEFAULT_namehere,
             // TODO: Corrigate Version
             if (Package.Version >= 322)
             {
                 Default = _Buffer.ReadObject();
-                Record(nameof(Default), Default);
             }
             else
             {
@@ -412,18 +255,14 @@ namespace UELib.Core
         {
             // See http://udn.epicgames.com/Three/UnrealScriptInterfaces.html
             int interfacesCount = _Buffer.ReadInt32();
-            Record("Implements.Count", interfacesCount);
             if (interfacesCount <= 0)
                 return;
 
-            AssertEOS(interfacesCount * 8, "Implemented");
             ImplementedInterfaces = new List<int>(interfacesCount);
             for (var i = 0; i < interfacesCount; ++i)
             {
                 int interfaceIndex = _Buffer.ReadInt32();
-                Record("Implemented.InterfaceIndex", interfaceIndex);
                 int typeIndex = _Buffer.ReadInt32();
-                Record("Implemented.TypeIndex", typeIndex);
                 ImplementedInterfaces.Add(interfaceIndex);
             }
         }
@@ -436,13 +275,11 @@ namespace UELib.Core
         private void DeserializeComponentsMap()
         {
             int componentsCount = _Buffer.ReadInt32();
-            Record("Components.Count", componentsCount);
             if (componentsCount <= 0)
                 return;
 
             // NameIndex/ObjectIndex
             int numBytes = componentsCount * 12;
-            AssertEOS(numBytes, "Components");
             _Buffer.Skip(numBytes);
         }
 
@@ -463,7 +300,6 @@ namespace UELib.Core
         {
             if (count == -1) count = _Buffer.ReadLength();
 
-            Record($"{groupName}.Count", count);
             if (count <= 0)
                 return null;
 
@@ -472,8 +308,6 @@ namespace UELib.Core
             {
                 int index = _Buffer.ReadNameIndex();
                 groupList.Add(index);
-
-                Record($"{groupName}({Package.GetIndexName(index)})", index);
             }
 
             return groupList;
@@ -491,12 +325,6 @@ namespace UELib.Core
 
         public bool IsClassInterface()
         {
-#if VENGEANCE
-            if (HasClassFlag(Flags.ClassFlags.VG_Interface))
-            {
-                return true;
-            }
-#endif
             return (Super != null && string.Compare(Super.Name, "Interface", StringComparison.OrdinalIgnoreCase) == 0)
                    || string.Compare(Name, "Interface", StringComparison.OrdinalIgnoreCase) == 0;
         }

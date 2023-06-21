@@ -15,6 +15,7 @@ namespace Mir3DClientEditor
 {
     public partial class MainEditorControl : UserControl
     {
+        public bool IsEncrypted { get; private set; } = false;
         public BaseGridEditorControl? EditorControl { get; private set; } = null;
         public MPQExplorerControl? MPQControl { get; private set; } = null;
 
@@ -33,6 +34,7 @@ namespace Mir3DClientEditor
 
         public void LoadEditor(string path, byte[] buffer, Func<string, byte[]>? callbackToLoadDepFile = null)
         {
+            IsEncrypted = false;
             EditorControl?.Dispose();
             EditorControl = null;
             MPQControl?.Dispose();
@@ -44,11 +46,13 @@ namespace Mir3DClientEditor
             {
                 case ".txt":
                     EditorControl = new CSVGridEditorControl();
+                    IsEncrypted = true;
                     buffer = Crypto.Decrypt(buffer);
                     break;
                 case ".ini":
                 case ".int":
                     EditorControl = new INIGridEditorControl();
+                    IsEncrypted = true;
                     buffer = Crypto.Decrypt(buffer);
                     break;
                 case ".upk":
@@ -56,7 +60,9 @@ namespace Mir3DClientEditor
                 case ".udk":
                 case ".u":
                     EditorControl = new UnrealEditorControl(callbackToLoadDepFile);
-                    buffer = Crypto.Decrypt(buffer);
+                    IsEncrypted = buffer[0] != 193 || buffer[1] != 131;
+                    if (IsEncrypted)
+                        buffer = Crypto.Decrypt(buffer);
                     break;
                 case ".pak":
                     MPQControl = new MPQExplorerControl();
@@ -97,7 +103,7 @@ namespace Mir3DClientEditor
         {
             var buffer = EditorControl?.GetBuffer() ?? Array.Empty<byte>();
 
-            return Crypto.Encrypt(buffer);
+            return IsEncrypted ? Crypto.Encrypt(buffer) : buffer;
         }
 
         public bool HasPendingChanges => EditorControl?.HasPendingChangesToSave ?? false;

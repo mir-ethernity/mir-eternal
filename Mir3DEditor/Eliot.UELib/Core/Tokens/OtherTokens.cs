@@ -331,7 +331,6 @@ namespace UELib.Core
                     {
                         OpCodeText = stream.ReadASCIIString();
                         Decompiler.AlignSize(OpCodeText.Length + 1);
-                        Decompiler._Container.Record(nameof(OpCodeText), OpCodeText);
                         if (!Enum.TryParse(OpCodeText, true, out OpCode))
                         {
                             Debug.WriteLine($"Couldn't parse OpCode '{OpCodeText}'");
@@ -343,7 +342,6 @@ namespace UELib.Core
                     // At least since UT2004+
                     OpCode = (DebugInfo)stream.ReadByte();
                     Decompiler.AlignSize(1);
-                    Decompiler._Container.Record(nameof(OpCode), OpCode);
                 }
 #if DEBUG_HIDDENTOKENS
                 public override string Decompile()

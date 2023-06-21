@@ -46,10 +46,8 @@ namespace UELib.Core
                )
             {
                 Super = GetIndexObject(_Buffer.ReadObjectIndex()) as UField;
-                Record("Super", Super);
 
                 NextField = GetIndexObject(_Buffer.ReadObjectIndex()) as UField;
-                Record("NextField", NextField);
             }
             else
             {
@@ -57,13 +55,11 @@ namespace UELib.Core
                     return;
 
                 NextField = GetIndexObject(_Buffer.ReadObjectIndex()) as UField;
-                Record("NextField", NextField);
 
                 // Should actually resist in UStruct
                 if (this is UStruct)
                 {
                     Super = GetIndexObject(_Buffer.ReadObjectIndex()) as UField;
-                    Record("Super", Super);
                 }
             }
         }
