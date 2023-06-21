@@ -18,6 +18,8 @@ namespace UELib
         [Pure]
         public override string ClassName => _ClassName;
 
+        public int ImportIndex => -(Index + 1);
+
         #endregion
 
         public void Serialize(IUnrealStream stream)
@@ -43,7 +45,7 @@ namespace UELib
 
         public override string ToString()
         {
-            return $"{ObjectName}({-(Index + 1)})";
+            return $"{ObjectName}({ImportIndex})";
         }
 
         #endregion

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using UELib.Annotations;
@@ -96,7 +97,7 @@ namespace UELib.Core
         [PublicAPI]
         public string Value { get; set; }
         public byte[] PropData { get; private set; }
-        public UValueProperty GoodValue { get; private set; }
+        public UValueProperty GoodValue { get; set; }
 
 
         #endregion
@@ -854,6 +855,14 @@ namespace UELib.Core
     [System.Runtime.InteropServices.ComVisible(false)]
     public sealed class DefaultPropertiesCollection : List<UDefaultProperty>
     {
+        public UObject Container { get; private set; }
+
+        public DefaultPropertiesCollection(UObject container)
+        {
+            Container = container;
+        }
+
+
         [CanBeNull]
         public UDefaultProperty Find(string name)
         {
@@ -874,6 +883,22 @@ namespace UELib.Core
         public bool Contains(UName name)
         {
             return Find(name) != null;
+        }
+
+        public void Set(string name, object value)
+        {
+            var prop = Find(name);
+
+            if (prop == null)
+                throw new NotSupportedException("ATM not support add new properties");
+
+            if (value is int)
+                prop.GoodValue = new UValueIntProperty() { Number = (int)value };
+            else if(value is string)
+                prop.GoodValue = new UValueStrProperty() { Text = (string)value };
+            else
+                throw new NotSupportedException($"Not support set for value type {value.GetType().Name}");
+
         }
     }
 }

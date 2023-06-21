@@ -58,27 +58,38 @@ namespace UELib.Core.Classes
             stream.Write(UnrealPackage.Signature);
             stream.Write(BLOCK_SIZE); // block size 
             var pos2 = stream.Position;
-            stream.Write(0); // compressed size
+            stream.Write(0); // compressed size + block header size (24 bytes for each block)
             stream.Write(chunk.Length);
 
             var compresedLength = 0;
-            for (var i = 0; i < blockCount; i++)
+            using (var tmpMS = new MemoryStream())
             {
-                var blockUncompressed = new byte[(i * BLOCK_SIZE + BLOCK_SIZE) > chunk.Length ? chunk.Length : BLOCK_SIZE];
-                Array.Copy(chunk, i * BLOCK_SIZE, blockUncompressed, 0, blockUncompressed.Length);
-                var compressed = deco.CompressSync(blockUncompressed);
-                compresedLength += compressed.Length;
+                for (var i = 0; i < blockCount; i++)
+                {
+                    var blockUncompressed = new byte[
+                        (i * BLOCK_SIZE + BLOCK_SIZE) > chunk.Length
+                        ? chunk.Length - (i * BLOCK_SIZE + BLOCK_SIZE)
+                        : BLOCK_SIZE
+                    ];
 
-                stream.Write(compressed.Length); // compressed size chunk
-                stream.Write(blockUncompressed.Length); // uncompressed size chunk
+                    Array.Copy(chunk, i * BLOCK_SIZE, blockUncompressed, 0, blockUncompressed.Length);
+                    var compressed = deco.CompressSync(blockUncompressed);
+                    compresedLength += compressed.Length;
 
-                stream.Write(compressed); // compressed data
+                    stream.Write(compressed.Length); // compressed size chunk
+                    stream.Write(blockUncompressed.Length); // uncompressed size chunk
+
+                    tmpMS.Write(compressed, 0, compressed.Length);
+                }
+
+                tmpMS.Seek(0, SeekOrigin.Begin);
+                tmpMS.CopyTo(stream.UW.BaseStream);
             }
 
             var curpos = stream.Position;
             stream.Seek(pos, SeekOrigin.Begin);
             stream.Write(compresedLength + (BLOCK_HEADER_SIZE * blockCount));
-            
+
             stream.Seek(pos2, SeekOrigin.Begin);
             stream.Write(compresedLength);
 

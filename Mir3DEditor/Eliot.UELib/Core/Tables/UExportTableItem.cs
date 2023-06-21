@@ -96,7 +96,11 @@ namespace UELib
         // @Warning - Only supports Official builds.
         public void Serialize(IUnrealStream stream)
         {
-            stream.Write(ClassTable.Object);
+            if (ClassTable is UImportTableItem)
+                stream.Write(((UImportTableItem)ClassTable).ImportIndex);
+            else
+                stream.Write(ClassTable.Object);
+
             stream.Write(SuperTable?.Object);
             stream.Write((int)OuterTable?.Object);
 

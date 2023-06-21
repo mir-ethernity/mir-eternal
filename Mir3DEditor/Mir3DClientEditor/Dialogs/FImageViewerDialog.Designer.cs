@@ -30,9 +30,11 @@
         {
             this.MainLayout = new System.Windows.Forms.SplitContainer();
             this.ActiveImage = new System.Windows.Forms.PictureBox();
-            this.BtnPrevMipmap = new System.Windows.Forms.Button();
-            this.LblCurrentImage = new System.Windows.Forms.Label();
+            this.ReplaceImageButton = new System.Windows.Forms.Button();
             this.BtnNextMipmap = new System.Windows.Forms.Button();
+            this.LblCurrentImage = new System.Windows.Forms.Label();
+            this.BtnPrevMipmap = new System.Windows.Forms.Button();
+            this.ButtonExportImage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MainLayout)).BeginInit();
             this.MainLayout.Panel1.SuspendLayout();
             this.MainLayout.Panel2.SuspendLayout();
@@ -55,6 +57,8 @@
             // 
             // MainLayout.Panel2
             // 
+            this.MainLayout.Panel2.Controls.Add(this.ButtonExportImage);
+            this.MainLayout.Panel2.Controls.Add(this.ReplaceImageButton);
             this.MainLayout.Panel2.Controls.Add(this.BtnNextMipmap);
             this.MainLayout.Panel2.Controls.Add(this.LblCurrentImage);
             this.MainLayout.Panel2.Controls.Add(this.BtnPrevMipmap);
@@ -70,24 +74,15 @@
             this.ActiveImage.TabIndex = 0;
             this.ActiveImage.TabStop = false;
             // 
-            // BtnPrevMipmap
+            // ReplaceImageButton
             // 
-            this.BtnPrevMipmap.Location = new System.Drawing.Point(12, 7);
-            this.BtnPrevMipmap.Name = "BtnPrevMipmap";
-            this.BtnPrevMipmap.Size = new System.Drawing.Size(32, 23);
-            this.BtnPrevMipmap.TabIndex = 0;
-            this.BtnPrevMipmap.Text = "<";
-            this.BtnPrevMipmap.UseVisualStyleBackColor = true;
-            this.BtnPrevMipmap.Click += new System.EventHandler(this.BtnPrevMipmap_Click);
-            // 
-            // LblCurrentImage
-            // 
-            this.LblCurrentImage.AutoSize = true;
-            this.LblCurrentImage.Location = new System.Drawing.Point(50, 11);
-            this.LblCurrentImage.Name = "LblCurrentImage";
-            this.LblCurrentImage.Size = new System.Drawing.Size(24, 15);
-            this.LblCurrentImage.TabIndex = 1;
-            this.LblCurrentImage.Text = "1/1";
+            this.ReplaceImageButton.Location = new System.Drawing.Point(118, 7);
+            this.ReplaceImageButton.Name = "ReplaceImageButton";
+            this.ReplaceImageButton.Size = new System.Drawing.Size(108, 23);
+            this.ReplaceImageButton.TabIndex = 3;
+            this.ReplaceImageButton.Text = "Replace Image";
+            this.ReplaceImageButton.UseVisualStyleBackColor = true;
+            this.ReplaceImageButton.Click += new System.EventHandler(this.ReplaceImageButton_Click);
             // 
             // BtnNextMipmap
             // 
@@ -98,6 +93,35 @@
             this.BtnNextMipmap.Text = ">";
             this.BtnNextMipmap.UseVisualStyleBackColor = true;
             this.BtnNextMipmap.Click += new System.EventHandler(this.BtnNextMipmap_Click);
+            // 
+            // LblCurrentImage
+            // 
+            this.LblCurrentImage.AutoSize = true;
+            this.LblCurrentImage.Location = new System.Drawing.Point(50, 11);
+            this.LblCurrentImage.Name = "LblCurrentImage";
+            this.LblCurrentImage.Size = new System.Drawing.Size(24, 15);
+            this.LblCurrentImage.TabIndex = 1;
+            this.LblCurrentImage.Text = "1/1";
+            // 
+            // BtnPrevMipmap
+            // 
+            this.BtnPrevMipmap.Location = new System.Drawing.Point(12, 7);
+            this.BtnPrevMipmap.Name = "BtnPrevMipmap";
+            this.BtnPrevMipmap.Size = new System.Drawing.Size(32, 23);
+            this.BtnPrevMipmap.TabIndex = 0;
+            this.BtnPrevMipmap.Text = "<";
+            this.BtnPrevMipmap.UseVisualStyleBackColor = true;
+            this.BtnPrevMipmap.Click += new System.EventHandler(this.BtnPrevMipmap_Click);
+            // 
+            // ButtonExportImage
+            // 
+            this.ButtonExportImage.Location = new System.Drawing.Point(232, 7);
+            this.ButtonExportImage.Name = "ButtonExportImage";
+            this.ButtonExportImage.Size = new System.Drawing.Size(108, 23);
+            this.ButtonExportImage.TabIndex = 4;
+            this.ButtonExportImage.Text = "Export Image";
+            this.ButtonExportImage.UseVisualStyleBackColor = true;
+            this.ButtonExportImage.Click += new System.EventHandler(this.ButtonExportImage_Click);
             // 
             // FImageViewerDialog
             // 
@@ -125,5 +149,7 @@
         private Button BtnPrevMipmap;
         private Button BtnNextMipmap;
         private Label LblCurrentImage;
+        private Button ReplaceImageButton;
+        private Button ButtonExportImage;
     }
 }

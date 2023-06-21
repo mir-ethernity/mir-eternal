@@ -283,7 +283,7 @@ namespace UELib.Core
         public void DeserializeProperties()
         {
             Default = this;
-            Properties = new DefaultPropertiesCollection();
+            Properties = new DefaultPropertiesCollection(this);
             while (true)
             {
                 var tag = new UDefaultProperty(Default);

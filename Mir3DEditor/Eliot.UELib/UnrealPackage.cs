@@ -447,9 +447,9 @@ namespace UELib
 
             foreach (var exp in Exports)
             {
-                // exp.SerialOffset = (int)stream.Position;
+                exp.SerialOffset = (int)stream.Position;
                 exp.Object.Serialize(stream);
-                // exp.SerialSize = (int)stream.Position - (int)exp.SerialOffset;
+                exp.SerialSize = (int)stream.Position - (int)exp.SerialOffset;
             }
 
             exportsBuffer = new UObjectStream(stream);

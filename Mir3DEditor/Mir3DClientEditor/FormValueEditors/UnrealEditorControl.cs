@@ -51,6 +51,9 @@ namespace Mir3DClientEditor.FormValueEditors
             var row = DataGrid.Rows[e.RowIndex];
             var cell = row.Cells[e.ColumnIndex];
 
+            if (cell is DataGridViewImageCell)
+                return;
+
             var objId = (int)row.Cells[0].Value;
 
             var obj = _unrealPackage.Objects[objId];
@@ -81,10 +84,13 @@ namespace Mir3DClientEditor.FormValueEditors
             if (cell is DataGridViewImageCell)
             {
                 FImageViewerDialog.Show((UTexture2D)obj);
+                if (((UTexture2D)obj).MipMaps.Length > 0)
+                    cell.Value = ((UTexture2D)obj).MipMaps[0].ImageBitmap;
+
             }
             else if (cell is DataGridViewButtonCell)
             {
-     
+
                 var prop = obj.Properties.Where(x => x.Name == cell.OwningColumn.Name).First();
 
                 if (FPropertyEditor.Show(prop))
