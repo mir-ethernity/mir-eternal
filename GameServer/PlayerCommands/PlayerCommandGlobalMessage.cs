@@ -10,17 +10,17 @@ using System.Threading.Tasks;
 
 namespace GameServer.PlayerCommands
 {
-    public class PlayerCommandGlobalMessage : PlayerCommand
+  public class PlayerCommandGlobalMessage : PlayerCommand
+  {
+    public override GameMasterLevel RequiredGMLevel => GameMasterLevel.Administrator;
+
+    [Field(Position = 0)]
+    public string GlobalMessageText;
+
+    public override void Execute()
     {
-        public override GameMasterLevel RequiredGMLevel => GameMasterLevel.Administrator;
-
-        [Field(Position = 0)]
-        public string GlobalMessageText;
-
-        public override void Execute()
-        {
-            NetworkServiceGateway.SendAnnouncement($"{Player.ObjectName}: {GlobalMessageText}");
-            Player.SendMessage("Message sent to all players:");
-        }
+      NetworkServiceGateway.SendAnnouncement($"{Player.ObjectName}: {GlobalMessageText}");
+      Player.SendMessage("发送给所有玩家的信息:");
     }
+  }
 }

@@ -250,6 +250,12 @@ namespace Mir3DClientEditor
                     case "title.txt":
                         CopyData(latestData, oldData, "ID", "Tip");
                         break;
+                    case "spell.txt":
+                        CopyData(latestData, oldData, "Index", "SpellCommonAttribute.Description", "ClientCommonAttribute.AbilityName", "ClientCommonAttribute.AbilityDescribe");
+                        break;
+                    case "spell_var.txt":
+                        CopyData(latestData, oldData, "ID", "SpellName", "MainSpeciality", "DetailDescription", "RuneDescription");
+                        break;
                     default:
                         return;
                 }
