@@ -169,8 +169,19 @@ namespace UELib.Core.Classes
             BitmapData bmpData = bitmap.LockBits(new Rectangle(0, 0, width, height),
                 ImageLockMode.WriteOnly, bitmap.PixelFormat);
 
+            var sortedPixels = new byte[rgba.Length];
+
+            for (var i = 0; i < rgba.Length; i += 4)
+            {
+                // from bgra to rgba
+                sortedPixels[i] = rgba[i + 2];
+                sortedPixels[i + 1] = rgba[i + 1];
+                sortedPixels[i + 2] = rgba[i];
+                sortedPixels[i + 3] = rgba[i + 3];
+            }
+
             // Copiar los bytes al Bitmap
-            Marshal.Copy(rgba, 0, bmpData.Scan0, rgba.Length);
+            Marshal.Copy(sortedPixels, 0, bmpData.Scan0, rgba.Length);
 
             // Desbloquear los bits del Bitmap
             bitmap.UnlockBits(bmpData);
@@ -193,11 +204,24 @@ namespace UELib.Core.Classes
             int bytes = Math.Abs(bmpData.Stride) * bitmap.Height;
             byte[] rgbValues = new byte[bytes];
 
+
+
             // Copy the RGB values into the array.
             System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
 
             // Unlock the bits.
             bitmap.UnlockBits(bmpData);
+
+            var sortedPixels = new byte[rgbValues.Length];
+
+            for (var i = 0; i < rgbValues.Length; i += 4)
+            {
+                // from rgba to bgra
+                sortedPixels[i] = rgbValues[i + 2];
+                sortedPixels[i + 1] = rgbValues[i + 1];
+                sortedPixels[i + 2] = rgbValues[i];
+                sortedPixels[i + 3] = rgbValues[i + 3];
+            }
 
             return rgbValues;
         }

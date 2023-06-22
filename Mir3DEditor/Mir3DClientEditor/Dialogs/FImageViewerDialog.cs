@@ -16,6 +16,8 @@ namespace Mir3DClientEditor.Dialogs
 {
     public partial class FImageViewerDialog : Form
     {
+        public bool HasChanges { get; private set; }
+
         public FImageViewerDialog(UTexture2D obj)
         {
             InitializeComponent();
@@ -51,11 +53,11 @@ namespace Mir3DClientEditor.Dialogs
             ActiveImage.Height = mipmap.Height;
         }
 
-        public static void Show(UTexture2D obj)
+        public static bool Show(UTexture2D obj)
         {
-            var dialog = new FImageViewerDialog(obj);
-
+            using var dialog = new FImageViewerDialog(obj);
             dialog.ShowDialog();
+            return dialog.HasChanges;
         }
 
         private void BtnPrevMipmap_Click(object sender, EventArgs e)
@@ -96,6 +98,8 @@ namespace Mir3DClientEditor.Dialogs
                 ActiveMipmap.Texture2D.Properties.Set("OriginalSizeY", bitmap.Height);
 
                 SetImage(ActiveMipmap);
+
+                HasChanges = true;
             }
             UpdateUI();
 

@@ -38,7 +38,7 @@ namespace Mir3DClientEditor
 
         private void LoadFile(string path)
         {
-            var buffer = File.ReadAllBytes(path);
+            var buffer = Path.GetExtension(path) != ".pak" ? File.ReadAllBytes(path) : null;
             MainEditor.LoadEditor(path, buffer);
         }
 

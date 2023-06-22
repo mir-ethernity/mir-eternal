@@ -106,9 +106,11 @@ namespace Mir3DClientEditor.FormValueEditors
 
             if (cell is DataGridViewImageCell)
             {
-                FImageViewerDialog.Show((UTexture2D)obj);
-                if (((UTexture2D)obj).MipMaps.Length > 0)
+                if (FImageViewerDialog.Show((UTexture2D)obj) && ((UTexture2D)obj).MipMaps.Length > 0)
+                {
+                    _hasPendingChangesToSave = true;
                     cell.Value = ((UTexture2D)obj).MipMaps[0].ImageBitmap;
+                }
 
             }
             else if (cell is DataGridViewButtonCell)
