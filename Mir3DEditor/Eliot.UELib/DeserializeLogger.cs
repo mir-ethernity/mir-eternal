@@ -13,13 +13,13 @@ namespace UELib
 
         public static void Log(string message)
         {
-            _logs.Add(message);
+            // _logs.Add(message);
         }
 
         public static void Save()
         {
-            var content = string.Join("\n", _logs);
-            File.WriteAllText("./logs.txt", content);
+            //var content = string.Join("\n", _logs);
+            //File.WriteAllText("./logs.txt", content);
         }
     }
 }

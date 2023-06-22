@@ -1,4 +1,7 @@
 ﻿using Mir3DClientEditor.Dialogs;
+using NAudio.Vorbis;
+using NAudio.Wave;
+using Newtonsoft.Json.Converters;
 using System.Data;
 using UELib;
 using UELib.Core;
@@ -6,11 +9,27 @@ using UELib.Core.Classes;
 
 namespace Mir3DClientEditor.FormValueEditors
 {
+    public class PlaySongActive
+    {
+        public DataGridViewButtonCell Cell { get; set; }
+        public USoundNodeWave Object { get; set; }
+        public VorbisWaveReader Reader { get; set; }
+        public WaveOutEvent WaveOutEvent { get; set; }
+
+        public void Stop()
+        {
+            Cell.Value = "Play";
+            Reader.Dispose();
+            WaveOutEvent.Dispose();
+        }
+    }
+
     public partial class UnrealEditorControl : BaseGridEditorControl
     {
         private UnrealPackage _unrealPackage;
         private bool _hasPendingChangesToSave = false;
         private readonly Func<string, byte[]>? _callbackToLoadDepFile;
+        private PlaySongActive? _songActive = null;
 
         public IGrouping<UObject, UObject>[] UnrealClasses { get; private set; }
         public override bool HasPendingChangesToSave { get => _hasPendingChangesToSave; }
@@ -33,11 +52,13 @@ namespace Mir3DClientEditor.FormValueEditors
         private void UnrealEditorControl_Disposed(object? sender, EventArgs e)
         {
             _unrealPackage.Dispose();
+            _songActive?.Stop();
         }
 
         private void UnrealEditorControl_ControlRemoved(object? sender, ControlEventArgs e)
         {
             _unrealPackage?.Dispose();
+            _songActive?.Stop();
         }
 
 
@@ -45,8 +66,6 @@ namespace Mir3DClientEditor.FormValueEditors
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
-
-            _hasPendingChangesToSave = true;
 
             var row = DataGrid.Rows[e.RowIndex];
             var cell = row.Cells[e.ColumnIndex];
@@ -57,7 +76,11 @@ namespace Mir3DClientEditor.FormValueEditors
             var objId = (int)row.Cells[0].Value;
 
             var obj = _unrealPackage.Objects[objId];
-            var prop = obj.Properties.Where(x => x.Name == cell.OwningColumn.Name).First();
+            var prop = obj.Properties.Where(x => x.Name == cell.OwningColumn.Name).FirstOrDefault();
+
+            if (prop == null) return;
+
+            _hasPendingChangesToSave = true;
 
             var value = cell.Value;
 
@@ -90,6 +113,29 @@ namespace Mir3DClientEditor.FormValueEditors
             }
             else if (cell is DataGridViewButtonCell)
             {
+                if (cell.OwningColumn.Name == "Play")
+                {
+                    if (cell.Value == "Pause")
+                    {
+                        _songActive?.Stop();
+                        return;
+                    }
+
+                    _songActive?.Stop();
+                    cell.Value = "Pause";
+                    var objWave = (USoundNodeWave)obj;
+                    var t = new VorbisWaveReader(new MemoryStream(objWave.BufferSound), true);
+                    var songevent = new WaveOutEvent();
+                    _songActive = new PlaySongActive() { Cell = (DataGridViewButtonCell)cell, Object = objWave, Reader = t, WaveOutEvent = songevent };
+
+                    songevent.Init(t);
+                    songevent.Play();
+                    songevent.PlaybackStopped += (s, e) =>
+                    {
+                        cell.Value = "Play";
+                    };
+                    return;
+                }
 
                 var prop = obj.Properties.Where(x => x.Name == cell.OwningColumn.Name).First();
 
@@ -119,7 +165,9 @@ namespace Mir3DClientEditor.FormValueEditors
             if (!objects.Any()) return;
 
             var isEnum = objects[0] is UEnum;
-            var isTexture2D = objects[0].Class?.Name == "Texture2D" || objects[0].Class?.Name == "Default__Texture2D";
+            var isTexture2D = objects[0] is UTexture2D;
+            var isUnknownObject = objects[0] is UnknownObject;
+            var isSound = objects[0] is USoundNodeWave;
 
             if (isEnum)
             {
@@ -131,6 +179,19 @@ namespace Mir3DClientEditor.FormValueEditors
             {
                 DataGrid.Columns.Add("ObjectId", "Object Id");
                 DataGrid.Columns.Add("Name", "Name");
+
+                if (isSound)
+                {
+                    var cell = new DataGridViewButtonCell() { };
+                    var column = new DataGridViewColumn(cell)
+                    {
+                        Name = "Play",
+                        HeaderText = "Play",
+                        Width = 80,
+                        AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                    };
+                    DataGrid.Columns.Add(column);
+                }
 
                 if (isTexture2D)
                 {
@@ -190,6 +251,45 @@ namespace Mir3DClientEditor.FormValueEditors
                         }
                     }
                 }
+
+                if (isUnknownObject)
+                {
+                    var item = new ToolStripButton("Export data");
+                    item.Click += (s, e) =>
+                    {
+                        if (DataGrid.SelectedRows.Count == 0)
+                        {
+                            MessageBox.Show("Please, select a row for export data");
+                            return;
+                        }
+
+                        var selected = DataGrid.SelectedRows[0];
+                        var obj = objects[selected.Index];
+
+                        if (obj is not UnknownObject)
+                        {
+                            MessageBox.Show("Please, select an unknown row");
+                            return;
+                        }
+
+                        var saveFileDialog = new SaveFileDialog();
+                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            File.WriteAllBytes(saveFileDialog.FileName, (((UnknownObject)obj).Data).Skip(32).ToArray());
+                            MessageBox.Show("Saved OK");
+                        }
+                    };
+                    DataGrid.ContextMenuStrip = new ContextMenuStrip() { Width = 200 };
+                    DataGrid.ContextMenuStrip.Items.Add(item);
+
+                    //var cell = new DataGridViewButtonCell() { };
+                    //cell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                    var column = new DataGridViewColumn(new DataGridViewTextBoxCell());
+                    column.Name = "UnknownData";
+                    column.HeaderText = "Unknown";
+                    DataGrid.Columns.Add(column);
+                }
             }
 
             if (isEnum)
@@ -214,6 +314,9 @@ namespace Mir3DClientEditor.FormValueEditors
                     var row = new DataGridViewRow();
                     row.CreateCells(DataGrid);
 
+                    if (obj.DeserializationState == UObject.ObjectState.Errorlized)
+                        row.DefaultCellStyle.BackColor = Color.Red;
+
                     // Initialize with default values
                     foreach (DataGridViewCell cell in row.Cells)
                         cell.Value = cell.ValueType.IsValueType ? Activator.CreateInstance(cell.ValueType) : null;
@@ -231,17 +334,51 @@ namespace Mir3DClientEditor.FormValueEditors
                         }
                         else
                         {
-                            row.Cells[col.Index].Value = prop.GoodValue?.ToString() ?? "0x" + BitConverter.ToString(prop.ValueData).Replace("-", "");
+                            if (prop.GoodValue != null)
+                                row.Cells[col.Index].Value = prop.GoodValue?.ToString();
+                            else if (prop.ValueData != null && prop.ValueData.Length > 1000)
+                            {
+                                var tmp = new byte[1000];
+                                Array.Copy(prop.ValueData, tmp, 1000);
+                                row.Cells[col.Index].Value = "0x" + BitConverter.ToString(tmp).Replace("-", "") + "...";
+                            }
+                            else if (prop.ValueData != null)
+                            {
+                                row.Cells[col.Index].Value = "0x" + BitConverter.ToString(prop.ValueData).Replace("-", "");
+                            }
                         }
+                    }
+
+                    if (isSound)
+                    {
+                        var u2d = (USoundNodeWave)obj;
+                        var cell = (DataGridViewButtonCell)row.Cells[2];
+                        cell.Value = "Play";
                     }
 
                     if (isTexture2D)
                     {
                         var u2d = (UTexture2D)obj;
                         var imageCell = (DataGridViewImageCell)row.Cells[2];
+                        imageCell.Style.BackColor = Color.Black;
                         var bitmap = u2d.MipMaps[0].ImageBitmap;
                         imageCell.Value = bitmap;
                         row.Height = 80;
+                    }
+
+                    if (isUnknownObject)
+                    {
+                        var dataToShow = ((UnknownObject)obj).Data ?? Array.Empty<byte>();
+                        if (dataToShow.Length > 100)
+                        {
+                            var tmp = new byte[100];
+                            Array.Copy(dataToShow, tmp, 100);
+                            dataToShow = tmp;
+                        }
+                        var cell = DataGrid.Columns.Cast<DataGridViewColumn>().Where(x => x.Name == "UnknownData").First();
+                        row.Cells[cell.Index].Value = ((UnknownObject)obj).Data != null
+                            ? $"Len: {((UnknownObject)obj).Data.Length}, Data: " + BitConverter.ToString(dataToShow).Replace("-", "").ToLowerInvariant() + (dataToShow.Length != ((UnknownObject)obj).Data.Length ? "..." : "")
+                            : "";
                     }
 
                     DataGrid.Rows.Add(row);

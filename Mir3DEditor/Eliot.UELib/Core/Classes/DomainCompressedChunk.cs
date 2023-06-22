@@ -32,6 +32,22 @@ namespace UELib.Core.Classes
 
         private void DecompressBlocks(IUnrealStream stream)
         {
+            if (Flags == 0)
+            {
+                var data = new byte[UncompressedSize];
+                stream.Read(data, 0, UncompressedSize);
+
+                var block = new CompressedBlock()
+                {
+                    CompressedSize = CompressedSize,
+                    UncompressedSize = UncompressedSize,
+                    Data = data
+                };
+                Blocks.Add(block);
+                return;
+            }
+
+
             var signature = stream.ReadUInt32();
 
             if (signature != UnrealPackage.Signature)
@@ -64,6 +80,8 @@ namespace UELib.Core.Classes
 
         public byte[] Decompress()
         {
+            if (Flags == 0) return Blocks[0].Data;
+
             var deco = new UpkManager.Lzo.LzoCompression();
 
             byte[] chunkData = new byte[Blocks.Sum(block => block.UncompressedSize)];

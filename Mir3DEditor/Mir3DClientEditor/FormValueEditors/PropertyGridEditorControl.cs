@@ -145,7 +145,20 @@ namespace Mir3DClientEditor.FormValueEditors
 
             var firstValue = value.Array[0];
 
-            if (firstValue is UValueStructProperty valueStruct)
+            if (firstValue is UValueUnknownProperty)
+            {
+                var sourceFileFullPath = (value.Property.Owner.Properties.Find(x => x.Name == "SourceFile")?.GoodValue as UValueStrProperty)?.Text ?? "content.raw";
+                var sourceFile = Path.GetFileName(sourceFileFullPath);
+                var saveFileDialog = new SaveFileDialog();
+                saveFileDialog.FileName = sourceFile;
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+
+                    File.WriteAllBytes(saveFileDialog.FileName, value.OriginalBuffer.Skip(4).ToArray());
+                }
+                return;
+            }
+            else if (firstValue is UValueStructProperty valueStruct)
             {
                 Values = value.Array;
 

@@ -70,6 +70,9 @@ namespace UELib.Core.Classes
                     case "PF_A8R8G8B8":
                         ImageFormat = FileFormat.A8R8G8B8;
                         break;
+                    case "PF_G8":
+                        ImageFormat = FileFormat.G8;
+                        break;
                 }
             }
 
@@ -84,24 +87,26 @@ namespace UELib.Core.Classes
                 mipmap.Height = _Buffer.ReadInt32();
 
                 if (mipmap.Width >= 4 && mipmap.Height >= 4)
+                {
                     mipmap.TextureData = data.Decompress();
 
-                var config = new DdsSaveConfig(ImageFormat, 0, 0, false, false);
-                var ddsHeader = new DdsHeader(config, mipmap.Width, mipmap.Height);
+                    var config = new DdsSaveConfig(ImageFormat, 0, 0, false, false);
+                    var ddsHeader = new DdsHeader(config, mipmap.Width, mipmap.Height);
 
-                using (var ms = new MemoryStream())
-                using (var bw = new BinaryWriter(ms))
-                {
-                    ddsHeader.Write(bw);
-                    ms.Write(mipmap.TextureData, 0, mipmap.TextureData.Length);
-                    ms.Flush();
+                    using (var ms = new MemoryStream())
+                    using (var bw = new BinaryWriter(ms))
+                    {
+                        ddsHeader.Write(bw);
+                        ms.Write(mipmap.TextureData, 0, mipmap.TextureData.Length);
+                        ms.Flush();
 
-                    ms.Seek(0, SeekOrigin.Begin);
+                        ms.Seek(0, SeekOrigin.Begin);
 
-                    DdsFile ddsFile = new DdsFile();
-                    ddsFile.Load(ms);
+                        DdsFile ddsFile = new DdsFile();
+                        ddsFile.Load(ms);
 
-                    mipmap.ImageBitmap = ConvertBytesToBitmap(ddsFile.largestMipMap, mipmap.Width, mipmap.Height);
+                        mipmap.ImageBitmap = ConvertBytesToBitmap(ddsFile.largestMipMap, mipmap.Width, mipmap.Height);
+                    }
                 }
             }
 
@@ -210,4 +215,10 @@ namespace UELib.Core.Classes
             return bitmap;
         }
     }
+
+    [UnrealRegisterClass]
+    public class ULightMapTexture2D : UTexture2D { }
+
+    [UnrealRegisterClass]
+    public class UShadowMapTexture2D : UTexture2D { }
 }

@@ -99,6 +99,8 @@ namespace UELib.Core
         public byte[] PropData { get; private set; }
         public UValueProperty GoodValue { get; set; }
 
+        public UObject Owner => _Container;
+
 
         #endregion
 
@@ -678,10 +680,10 @@ namespace UELib.Core
                     case PropertyType.ArrayProperty:
                         {
                             int arraySize = _Buffer.ReadIndex();
-                            {
-                                propertyValue = "none";
-                                break;
-                            }
+                            //{
+                            //    propertyValue = "none";
+                            //    break;
+                            //}
 
                             // Find the property within the outer/owner or its inheritances.
                             // If found it has to modify the outer so structs within this array can find their array variables.
@@ -894,7 +896,7 @@ namespace UELib.Core
 
             if (value is int)
                 prop.GoodValue = new UValueIntProperty() { Number = (int)value };
-            else if(value is string)
+            else if (value is string)
                 prop.GoodValue = new UValueStrProperty() { Text = (string)value };
             else
                 throw new NotSupportedException($"Not support set for value type {value.GetType().Name}");

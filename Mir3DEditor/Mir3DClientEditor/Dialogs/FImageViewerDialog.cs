@@ -45,7 +45,7 @@ namespace Mir3DClientEditor.Dialogs
         public void SetImage(UMipMap mipmap)
         {
             ActiveMipmap = mipmap;
-            MainLayout.Panel1.BackColor = Color.White;
+            MainLayout.Panel1.BackColor = Color.Black;
             ActiveImage.Image = mipmap.ImageBitmap;
             ActiveImage.Width = mipmap.Width;
             ActiveImage.Height = mipmap.Height;

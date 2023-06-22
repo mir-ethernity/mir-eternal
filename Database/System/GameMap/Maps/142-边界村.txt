@@ -1,7 +1,7 @@
 {
   "MapId": 142,
   "MapName": "BorderVillage",
-  "MapFile": "Mir_Pb03 ",
+  "MapFile": "Mir_Pb03",
   "TerrainFile": "0142-BorderVillage",
   "LimitPlayers": 9999,
   "LimitInstances": 1
