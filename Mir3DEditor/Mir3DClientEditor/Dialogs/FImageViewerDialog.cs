@@ -21,6 +21,8 @@ namespace Mir3DClientEditor.Dialogs
         public FImageViewerDialog(UTexture2D obj)
         {
             InitializeComponent();
+            if (obj.MipMaps == null || obj.MipMaps.Length == 0) return;
+
             UnrealObject = obj;
             SetImage(obj.MipMaps[0]);
             UpdateViewport();

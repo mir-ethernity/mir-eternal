@@ -3,27 +3,13 @@ using NAudio.Vorbis;
 using NAudio.Wave;
 using Newtonsoft.Json.Converters;
 using System.Data;
+using System.Diagnostics;
 using UELib;
 using UELib.Core;
 using UELib.Core.Classes;
 
 namespace Mir3DClientEditor.FormValueEditors
 {
-    public class PlaySongActive
-    {
-        public DataGridViewButtonCell Cell { get; set; }
-        public USoundNodeWave Object { get; set; }
-        public VorbisWaveReader Reader { get; set; }
-        public WaveOutEvent WaveOutEvent { get; set; }
-
-        public void Stop()
-        {
-            Cell.Value = "Play";
-            Reader.Dispose();
-            WaveOutEvent.Dispose();
-        }
-    }
-
     public partial class UnrealEditorControl : BaseGridEditorControl
     {
         private UnrealPackage _unrealPackage;
@@ -43,10 +29,19 @@ namespace Mir3DClientEditor.FormValueEditors
             DataGrid.AllowUserToDeleteRows = false;
             DataGrid.CellClick += DataGrid_CellClick;
             DataGrid.CellValueChanged += DataGrid_CellValueChanged;
+            DataGrid.DataError += DataGrid_DataError;
             ListClasses.SelectedIndexChanged += ListClasses_SelectedIndexChanged;
 
             ControlRemoved += UnrealEditorControl_ControlRemoved;
             Disposed += UnrealEditorControl_Disposed;
+        }
+
+        private void DataGrid_DataError(object? sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.ThrowException = false;
+            var value = DataGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+            var column = DataGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].OwningColumn;
+            Debug.WriteLine($"Row: {e.RowIndex}, Col: {e.ColumnIndex} ({column.Name}), value type: {value?.GetType().Name ?? "N/a"}, expected type: {column.ValueType?.Name ?? "N/a"}, ex: {e.Exception.Message}");
         }
 
         private void UnrealEditorControl_Disposed(object? sender, EventArgs e)
@@ -155,12 +150,19 @@ namespace Mir3DClientEditor.FormValueEditors
                .Where(x => x.Class?.Name == className)
                .ToArray();
 
-            LoadObjects(objectsWithProps);
+            if (!objectsWithProps.Any()) return;
 
+            var firstObj = objectsWithProps.First();
+
+            LabelInfo.Text = $"Class: {firstObj.Class.Name}, Architype Name: {firstObj.ExportTable.ArchetypeName}, Object: {firstObj.ExportTable.ObjectName}";
+
+            LoadObjects(objectsWithProps);
         }
 
         private void LoadObjects(UObject[] objects)
         {
+            var maxColumnsToShow = 1000;
+
             DataGrid.Rows.Clear();
             DataGrid.Columns.Clear();
 
@@ -203,13 +205,15 @@ namespace Mir3DClientEditor.FormValueEditors
                         Name = "Preview",
                         HeaderText = "Preview",
                         Width = 80,
-                        AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                        AutoSizeMode = DataGridViewAutoSizeColumnMode.None,
+                        ValueType = typeof(Bitmap)
 
                     };
                     DataGrid.Columns.Add(column);
                 }
 
                 // Create all columns
+                var columnsCount = 0;
                 foreach (var obj in objects)
                 {
                     if (obj.Properties != null && obj.Properties.Count > 0)
@@ -249,9 +253,12 @@ namespace Mir3DClientEditor.FormValueEditors
                                 column.Name = prop.Name;
                                 column.HeaderText = prop.Name;
                                 DataGrid.Columns.Add(column);
+                                if (++columnsCount >= maxColumnsToShow) break;
                             }
                         }
                     }
+
+                    if (columnsCount >= maxColumnsToShow) break;
                 }
 
                 if (isUnknownObject)
@@ -328,7 +335,8 @@ namespace Mir3DClientEditor.FormValueEditors
 
                     foreach (var prop in obj.Properties)
                     {
-                        var col = DataGrid.Columns.Cast<DataGridViewColumn>().Where(x => x.Name == prop.Name).First();
+                        var col = DataGrid.Columns.Cast<DataGridViewColumn>().Where(x => x.Name == prop.Name).FirstOrDefault();
+                        if (col == null) continue;
 
                         if (col.CellType == typeof(DataGridViewButtonCell))
                         {
@@ -363,9 +371,11 @@ namespace Mir3DClientEditor.FormValueEditors
                         var u2d = (UTexture2D)obj;
                         var imageCell = (DataGridViewImageCell)row.Cells[2];
                         imageCell.Style.BackColor = Color.Black;
-                        var bitmap = u2d.MipMaps[0].ImageBitmap;
-                        imageCell.Value = bitmap;
                         row.Height = 80;
+                        if (u2d.MipMaps != null && u2d.MipMaps.Length > 0)
+                            imageCell.Value = u2d.MipMaps?[0].ImageBitmap;
+                        else
+                            imageCell.Value = new Bitmap(1, 1);
                     }
 
                     if (isUnknownObject)

@@ -254,6 +254,84 @@ namespace StormLibSharp
             return fs;
         }
 
+        public unsafe uint GetFileSize(string fileName)
+        {
+            VerifyHandle();
+
+            MpqFileSafeHandle fileHandle = null;
+            try
+            {
+                if (!NativeMethods.SFileOpenFileEx(_handle, fileName, 0, out fileHandle))
+                    throw new Win32Exception();
+                var buffer = new byte[4];
+
+                fixed (byte* buffer2 = buffer)
+                {
+                    if (!NativeMethods.SFileGetFileInfo(fileHandle, SFileInfoClass.SFileInfoFileSize, (IntPtr)buffer2, 4, out uint dataSize))
+                        throw new Win32Exception();
+                }
+
+                return BitConverter.ToUInt32(buffer, 0);
+            }
+            finally
+            {
+                fileHandle?.Close();
+            }
+        }
+
+        public unsafe uint GetFileFlags(string fileName)
+        {
+            VerifyHandle();
+
+            MpqFileSafeHandle fileHandle = null;
+            try
+            {
+                if (!NativeMethods.SFileOpenFileEx(_handle, fileName, 0, out fileHandle))
+                    throw new Win32Exception();
+                var buffer = new byte[4];
+
+                fixed (byte* buffer2 = buffer)
+                {
+                    if (!NativeMethods.SFileGetFileInfo(fileHandle, SFileInfoClass.SFileInfoFlags, (IntPtr)buffer2, 4, out uint dataSize))
+                        throw new Win32Exception();
+                }
+
+                return BitConverter.ToUInt32(buffer, 0);
+            }
+            finally
+            {
+                fileHandle?.Close();
+            }
+        }
+
+        public unsafe DateTime? GetFileTime(string fileName)
+        {
+            VerifyHandle();
+            MpqFileSafeHandle fileHandle = null;
+
+            try
+            {
+                if (!NativeMethods.SFileOpenFileEx(_handle, fileName, 0, out fileHandle))
+                    throw new Win32Exception();
+
+                var buffer = new byte[8];
+
+                fixed (byte* buffer2 = buffer)
+                {
+                    if (!NativeMethods.SFileGetFileInfo(fileHandle, SFileInfoClass.SFileInfoFileTime, (IntPtr)buffer2, 8, out uint dataSize))
+                        throw new Win32Exception();
+                }
+
+                var time = BitConverter.ToUInt64(buffer, 0);
+                if (time == 0) return null;
+                return new DateTime((long)time);
+            }
+            finally
+            {
+                fileHandle?.Close();
+            }
+        }
+
         public void ExtractFile(string fileToExtract, string destinationPath)
         {
             VerifyHandle();
@@ -283,8 +361,6 @@ namespace StormLibSharp
 
             if (!NativeMethods.SFileFinishFile(fileHandle))
                 throw new Win32Exception();
-
-            var exists = HasFile(fileName);
         }
 
         public MpqFileVerificationResults VerifyFile(string fileToVerify)

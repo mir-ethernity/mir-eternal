@@ -51,6 +51,9 @@ namespace UELib.Core
         public override void Serialize(IUnrealStream stream)
         {
             base.Serialize(stream);
+            
+            if (DeserializationState == ObjectState.Errorlized) return;
+
             stream.Write(Data, 0, Data.Length);
         }
 

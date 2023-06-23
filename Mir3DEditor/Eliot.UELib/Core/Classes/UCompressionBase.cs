@@ -37,6 +37,8 @@ namespace UELib.Core.Classes
         {
             base.Serialize(stream);
 
+            if (DeserializationState == ObjectState.Errorlized) return;
+
             stream.Write(Unknown1);
             stream.Write(stream.RealPosition + 4);
         }

@@ -260,7 +260,17 @@ namespace UELib.Core
             if (_RawBuff == null)
                 EnsureBuffer();
 
-            // stream.Write(_RawBuff);
+            if (DeserializationState == ObjectState.Errorlized)
+            {
+                var buff = _RawBuff;
+
+                if (Package.Stream.BigEndianCode)
+                    Array.Reverse(buff);
+
+                stream.Write(_RawBuff);
+                return;
+            }
+
 
             // This appears to be serialized for templates of classes like AmbientSoundNonLoop
             if (HasObjectFlag(ObjectFlagsLO.HasStack))
