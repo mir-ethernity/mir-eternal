@@ -149,5 +149,20 @@
   "fmapeditor.panel1.uisplitcontainer1.grouplayers.layerspawns.text": "刷怪",
   "fmapeditor.panel1.uisplitcontainer1.grouplayers.layergates.text": "关卡",
   "fmapeditor.panel1.uisplitcontainer1.grouplayers.layerguards.text": "警卫",
-  "fmapeditor.panel1.uisplitcontainer1.grouplayers.layerareas.text": "区域"
+  "fmapeditor.panel1.uisplitcontainer1.grouplayers.layerareas.text": "区域",
+  "fmain.applayout.navmenu.tabgrowth.text": "Growth",
+  "fmain.applayout.editorcontainer.uachievementeditor.datagridachievements.achievementpoints.header_text": "Achievement Points",
+  "fmain.applayout.editorcontainer.uquesteditor.datagridquests.relationlimit.header_text": "Relation Limit",
+  "fmain.applayout.editorcontainer.uquesteditor.datagridquests.maxcompletecount.header_text": "Max Complete Count",
+  "fmain.applayout.editorcontainer.uquesteditor.datagridquests.resettime.header_text": "Reset Time",
+  "fmain.applayout.editorcontainer.uquesteditor.datagridquests.canabandon.header_text": "Can Abandon",
+  "fmain.applayout.editorcontainer.uquesteditor.datagridquests.canshare.header_text": "Can Share",
+  "fmain.applayout.editorcontainer.uquesteditor.datagridquests.canpublish.header_text": "CanPublish",
+  "fmain.applayout.editorcontainer.uquesteditor.datagridquests.canteleport.header_text": "Can Teleport",
+  "fmain.applayout.editorcontainer.uquesteditor.datagridquests.teleportcostid.header_text": "Teleport Cost Id",
+  "fmain.applayout.editorcontainer.uquesteditor.datagridquests.teleportcostvalue.header_text": "Teleport Cost Value",
+  "fmain.applayout.editorcontainer.uskilleditor.datagridskills.bindinglevelid.header_text": "Binding LevelId",
+  "fmain.applayout.editorcontainer.uskilleditor.datagridskills.calculatetriggerprobability.header_text": "Calculate Trigger Probability",
+  "fmain.applayout.editorcontainer.uskilleditor.datagridskills.checkbusygreen.header_text": "Check Busy Green",
+  "fmain.applayout.editorcontainer.uskilleditor.datagridskills.checkstiff.header_text": "Check Stiff"
 }
