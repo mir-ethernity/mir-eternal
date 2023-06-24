@@ -23,8 +23,10 @@ In this repository, we have done a refactoring, translation and correction work 
 ### Client & Launcher Configuration
 
 First, a compatible client will need to be downloaded, for example:
-https://cq.dorado.sdo.com/downloader/cqyh_10340_downloader.exe
-Latest version still compatible with this files **[1.0.3.68 (185578)]** at 23/09/22!
+* DOWNLOAD LINK UPDATED *
+https://cq.dorado.sdo.com/downloader/cqyh_10409_downloader.exe
+
+Latest version still compatible with this files **[1.0.4.10 (v1.72 - 190803)]** at 24/06/23!
 
 Once downloaded, you will need to copy the compiled binaries of the launcher to the root of the folder.
 

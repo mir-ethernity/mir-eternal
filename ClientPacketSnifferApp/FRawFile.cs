@@ -59,7 +59,7 @@ namespace ClientPacketSnifferApp
 
             foreach (var packet in packets)
             {
-                
+
             }
         }
 
@@ -104,7 +104,7 @@ namespace ClientPacketSnifferApp
                 Array.Copy(extraBuffer, 0, fullBuffer, 0, extraBuffer.Length);
                 Array.Copy(rawPacket.Data, 0, fullBuffer, extraBuffer.Length, rawPacket.Data.Length);
 
-                var p = 0;
+                var p = 0u;
                 do
                 {
                     var buffer = new byte[fullBuffer.Length - p];
@@ -124,17 +124,7 @@ namespace ClientPacketSnifferApp
                     if (!packets.TryGetValue(packetId, out var packetType))
                         throw new ParseGamePacketException(rawPacket.PacketFromClient, packetId, buffer);
 
-                    if (packetType.Length == 0 && buffer.Length < 4)
-                    {
-                        extraBuffers[rawPacket.PacketFromClient ? 0 : 1] = buffer;
-                        break;
-                    }
-
-                    var length = packetType.Length == 0
-                        ? BitConverter.ToUInt16(buffer, 2)
-                        : packetType.Length;
-
-                    if (length > buffer.Length)
+                    if (packetType.Length == 0 && buffer.Length < (packetType.UseIntSize ? 6 : 4))
                     {
                         extraBuffers[rawPacket.PacketFromClient ? 0 : 1] = buffer;
                         break;
@@ -142,9 +132,35 @@ namespace ClientPacketSnifferApp
 
                     var isMasked = packetId != 1002 && packetId != 1001;
 
+                    var headerLength = packetType.Length == 0 ? (packetType.UseIntSize ? 6 : 4) : 2;
+
+                    uint length = 0;
+
+                    if (packetType.Length == 0 && packetType.UseIntSize)
+                    {
+                        var buff = new byte[4];
+                        Array.Copy(buffer, 2, buff, 0, 4);
+                        buff[2] ^= 129;
+                        buff[3] ^= 129;
+                        length = BitConverter.ToUInt32(buff) + 6;
+                    }
+                    else if (packetType.Length == 0 && !packetType.UseIntSize)
+                    {
+                        length = BitConverter.ToUInt16(buffer, 2);
+                    }
+                    else
+                    {
+                        length = packetType.Length;
+                    }
+
+                    if (length > buffer.Length)
+                    {
+                        extraBuffers[rawPacket.PacketFromClient ? 0 : 1] = buffer;
+                        break;
+                    }
+
                     byte[] data = Array.Empty<byte>();
 
-                    var headerLength = packetType.Length == 0 ? 4 : 2;
 
                     if (length > headerLength)
                     {
@@ -174,7 +190,7 @@ namespace ClientPacketSnifferApp
             foreach (var packet in output)
             {
                 sb.AppendLine($"// [{packet.Date.ToString("HH:mm:ss")}] Packet ID: {packet.PacketInfo.Id}, Name: {packet.PacketInfo.Name} ({(packet.PacketInfo.Source == 0 ? "Client" : "Server")})");
-                sb.AppendLine($"网络连接.SendRaw({packet.PacketInfo.Id}, {packet.PacketInfo.Length}, new byte[] {{{ string.Join(", ", packet.Data.Select(x => x.ToString()).ToArray()) }}});");
+                sb.AppendLine($"网络连接.SendRaw({packet.PacketInfo.Id}, {packet.PacketInfo.Length}, new byte[] {{{string.Join(", ", packet.Data.Select(x => x.ToString()).ToArray())}}});");
             }
 
             var raw = sb.ToString();

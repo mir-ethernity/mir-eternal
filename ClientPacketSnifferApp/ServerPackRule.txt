@@ -25,7 +25,7 @@ u352 352 0
 u359 359 70
 u281 281 4
 u168 168 0
-u2 2 237
+u2 2 6
 u177 177 4
 u221 221 10
 u8254 8254 0
@@ -37,7 +37,7 @@ u222 222 10
 u43 43 8
 u346 346 6
 u182 182 10
-u693 693 0
+u693 693 0 1
 u58 58 14
 u8448 8448 0
 u63 63 0
@@ -62,6 +62,7 @@ u337 337 0
 u368 368 2
 u273 273 3
 u371 371 6
+u366 366 4
 
 # Paquetes existentes modificados
 ObjectDropItemsPacket	150	34
@@ -121,7 +122,7 @@ GuildJoinMemberPacket	592	54
 GuildNameAnswerPAcket	582	48
 GuildRemoveMemberPacket	593	6
 GuildSalaryChangesPacket	619	6
-GuildSiegeRegistrationPacket	663	6
+GuildSiegeRegistrationPacket	663	10
 GuildWarInfoPacket	639	14
 GuildWarProclamationPacket	637	7
 InfoPerfomanceObjectsPacket	681	38
@@ -211,7 +212,7 @@ OtherPersonPaysAttentionToHimselfPacket	534	38
 成功取下灵石	254	3
 成功镶嵌灵石	253	3
 成功合成灵石	252	3
-成功提取附件	578	14
+成功提取附件	578	6
 成功发送邮件	573	2
 摆摊状态改变	156	7
 好友上线下线	531	82
@@ -227,7 +228,7 @@ OtherPersonPaysAttentionToHimselfPacket	534	38
 仓库刷新应答	612	0
 仓库移动应答	616	6
 仓库转出应答	615	4
-攻城获胜公告	665	34
+攻城获胜公告	665	36
 触发技能扩展	95	0
 SkillHitNormal	96	0
 触发命中特效	97	28
@@ -326,7 +327,7 @@ SyncCooldownListPacket	108	0
 SyncCurrencyQuantityPacket	148	0
 SyncExtendedDataPacket	66	58
 SyncFriendsIntimacyPacket	539	10
-SyncFriendsListPacket	530	0
+SyncFriendsListPacket	530	39
 SyncGuildMemberPacket	547	0
 SyncMarfaPrivilegesPacket	332	3
 SyncMartialArtsRankingPacket	687	499
@@ -363,5 +364,6 @@ UnblockPlayerPacket	251	6
 UnlockInscriptionSlotPacket	102	3
 YanwuArenaChallengeListPacket	683	558
 UnknownS1	691	16
-UnknownS2	692	6
+UnknownS2	692	16
 UnknownS3	529	39
+u703 703 6

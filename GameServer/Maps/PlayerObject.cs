@@ -382,7 +382,7 @@ namespace GameServer.Maps
       ActiveConnection.SendRaw(221, 10, new byte[] { 47, 0, 0, 0, 0, 0, 0, 0 });
 
       // UnknownS3
-      ActiveConnection.SendPacket(new UnknownS3
+      ActiveConnection.SendPacket(new UnknownS529
       {
         Data = GetPlayerAgreement()
       });
@@ -10853,7 +10853,7 @@ namespace GameServer.Maps
             // TODO: Complete Reward after pickup chest scroll
             if (this.Backpack[b].Id == 90178)
             {
-              ActiveConnection?.SendPacket(new UnknownS4
+              ActiveConnection?.SendPacket(new UnknownS222
               {
                 U1 = 11,
                 U2 = 10

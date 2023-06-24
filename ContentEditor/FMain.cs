@@ -1,4 +1,4 @@
-using Microsoft.VisualBasic.Devices;
+﻿using Microsoft.VisualBasic.Devices;
 using System.Threading;
 
 namespace ContentEditor
@@ -99,7 +99,8 @@ namespace ContentEditor
         {
             Map = new MapInfo();
 
-            var fileContent = File.ReadAllBytes("D:\\Mir3D\\Clean\\Mir3D\\Database\\System\\GameMap\\Terrains\\0142-BorderVillage.terrain");
+            // var fileContent = File.ReadAllBytes("C:\\Mir3D\\Clean\\Mir3D\\Database\\System\\GameMap\\Terrains\\0245-魔龙殿.terrain");
+            var fileContent = File.ReadAllBytes("C:\\Mir3D\\Clean\\Mir3D\\Database\\System\\GameMap\\Terrains\\0175-祖玛寺长廊.terrain");
 
             using var ms = new MemoryStream(fileContent);
             using var br = new BinaryReader(ms);
@@ -123,7 +124,7 @@ namespace ContentEditor
                     var cell = Map.Cells[x, y] = new CellInfo();
 
                     var cellFlag = br.ReadInt32();
-                    var terrainHeight = (ushort)(cellFlag & 65535U) - 30U;
+                    var terrainHeight = (short)(cellFlag & 65535U) - 30U;
 
                     cell.IsBlocked = (cellFlag & 268435456U) != 268435456U;
                     cell.IsFreeZone = (cellFlag & 131072U) == 131072U;
@@ -143,7 +144,7 @@ namespace ContentEditor
                     var cell = Map.Cells[x, y];
 
                     if (cell.IsBlocked)
-                        bitmap.SetPixel(x, y, Color.Black);
+                        bitmap.SetPixel(x, y, Color.Orange);
                     else if (cell.IsSafeZone)
                         bitmap.SetPixel(x, y, Color.Blue);
                     else if (cell.IsFreeZone)
