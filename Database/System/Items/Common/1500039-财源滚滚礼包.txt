@@ -1,0 +1,12 @@
+{
+  "Name": "财源滚滚礼包",
+  "Id": 1500039,
+  "MaxDura": 1,
+  "Weight": 1,
+  "NeedLevel": 7,
+  "SalePrice": 1,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

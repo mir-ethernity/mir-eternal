@@ -1,0 +1,12 @@
+{
+  "Name": "天尊精粹礼包",
+  "Id": 1500140,
+  "MaxDura": 1000,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

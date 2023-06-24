@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AccountServer.Models;
 
 namespace AccountServer.Repositories
 {
@@ -10,7 +11,8 @@ namespace AccountServer.Repositories
     {
         Task<bool> ExistsAccount(string account);
         Task<AccountData> GetByName(string accountName);
-        Task RegisterAccount(AccountData account);
+        Task<AccountData> RegisterAccount(string account, string password, string question, string answer);
         Task UpdatePassword(string accountName, string newPassword);
+        Task<int> GetTotalAccounts();
     }
 }

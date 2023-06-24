@@ -1,0 +1,14 @@
+{
+  "Name": "幸运2记忆项链矿包",
+  "Id": 119991,
+  "MaxDura": 26,
+  "Weight": 4,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "IsBound": true,
+  "CanSold": true,
+  "Type": "矿石",
+  "NeedRace": "通用",
+  "PersistType": "纯度",
+  "StoreType": "杂货"
+}

@@ -1,0 +1,14 @@
+{
+  "Name": "雷霆项链宝图四",
+  "Id": 113052,
+  "MaxDura": 10,
+  "NeedLevel": 1,
+  "SalePrice": 500,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "宝图宝物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

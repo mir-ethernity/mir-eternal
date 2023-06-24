@@ -1,0 +1,9 @@
+{
+  "Name": "声威值",
+  "Id": 16,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "Type": "普通杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠"
+}

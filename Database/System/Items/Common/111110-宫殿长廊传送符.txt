@@ -1,0 +1,15 @@
+{
+  "Name": "宫殿长廊传送符",
+  "Id": 111110,
+  "MaxDura": 10,
+  "Weight": 1,
+  "NeedLevel": 40,
+  "SalePrice": 1000,
+  "IsBound": true,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

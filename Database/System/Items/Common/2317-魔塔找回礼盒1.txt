@@ -1,0 +1,14 @@
+{
+  "Name": "魔塔找回礼盒1",
+  "Id": 2317,
+  "MaxDura": 99,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "IsBound": true,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

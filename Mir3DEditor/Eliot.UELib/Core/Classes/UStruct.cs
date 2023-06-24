@@ -84,17 +84,14 @@ namespace UELib.Core
             if (!Package.IsConsoleCooked())
             {
                 ScriptText = _Buffer.ReadObject<UTextBuffer>();
-                Record(nameof(ScriptText), ScriptText);
             }
 
             Children = _Buffer.ReadObject<UField>();
-            Record(nameof(Children), Children);
 
             // Moved to UFunction in UE3
             if (Package.Version < VFriendlyNameMoved)
             {
                 FriendlyName = _Buffer.ReadNameReference();
-                Record(nameof(FriendlyName), FriendlyName);
             }
 
             // Standard, but UT2004' derived games do not include this despite reporting version 128+
@@ -103,69 +100,30 @@ namespace UELib.Core
                 && Package.Build.Generation != BuildGeneration.UE2_5)
             {
                 CppText = _Buffer.ReadObject<UTextBuffer>();
-                Record(nameof(CppText), CppText);
             }
-#if VENGEANCE
-            // Introduced with BioShock
-            if (Package.Build.Generation == BuildGeneration.Vengeance &&
-                Package.LicenseeVersion >= 29)
-            {
-                int vengeanceUnknownObject = _Buffer.ReadObjectIndex();
-                Record(nameof(vengeanceUnknownObject), vengeanceUnknownObject);
-            }
-#endif
+
             // UE3 or UE2.5 build, it appears that StructFlags may have been merged from an early UE3 build.
             // UT2004 reports version 26, and BioShock version 2
             if ((Package.Build.Generation == BuildGeneration.UE2_5 && Package.LicenseeVersion >= 26) ||
                 (Package.Build.Generation == BuildGeneration.Vengeance && Package.LicenseeVersion >= 2))
             {
                 StructFlags = _Buffer.ReadUInt32();
-                Record(nameof(StructFlags), (StructFlags)StructFlags);
             }
-#if VENGEANCE
-            if (Package.Build.Generation == BuildGeneration.Vengeance &&
-                Package.LicenseeVersion >= 14)
-            {
-                ProcessedText = _Buffer.ReadObject<UTextBuffer>();
-                Record(nameof(ProcessedText), ProcessedText);
-            }
-#endif
+
             if (!Package.IsConsoleCooked())
             {
                 Line = _Buffer.ReadInt32();
-                Record(nameof(Line), Line);
                 TextPos = _Buffer.ReadInt32();
-                Record(nameof(TextPos), TextPos);
                 //var MinAlignment = _Buffer.ReadInt32();
                 //Record(nameof(MinAlignment), MinAlignment);
             }
-#if UNREAL2
-            if (Package.Build == UnrealPackage.GameBuild.BuildName.Unreal2)
-            {
-                // Always zero in all of the Core.u structs
-                int unknownInt32 = _Buffer.ReadInt32();
-                Record("Unknown:Unreal2", unknownInt32);
-            }
-#endif
-#if TRANSFORMERS
-            if (Package.Build == UnrealPackage.GameBuild.BuildName.Transformers)
-            {
-                // The line where the struct's code body ends.
-                _Buffer.Skip(4);
-            }
-#endif
+
             ByteScriptSize = _Buffer.ReadInt32();
-            Record(nameof(ByteScriptSize), ByteScriptSize);
             const int vDataScriptSize = 639;
-            bool hasFixedScriptSize = Package.Version >= vDataScriptSize
-#if TRANSFORMERS
-                                      && Package.Build != UnrealPackage.GameBuild.BuildName.Transformers
-#endif
-                ;
+            bool hasFixedScriptSize = Package.Version >= vDataScriptSize;
             if (hasFixedScriptSize)
             {
                 DataScriptSize = _Buffer.ReadInt32();
-                Record(nameof(DataScriptSize), DataScriptSize);
             }
             else
             {

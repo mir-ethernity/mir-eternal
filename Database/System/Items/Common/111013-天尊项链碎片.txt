@@ -1,0 +1,14 @@
+{
+  "Name": "天尊项链碎片",
+  "Id": 111013,
+  "MaxDura": 20,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "合成卷轴",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

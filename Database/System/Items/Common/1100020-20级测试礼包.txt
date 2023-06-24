@@ -1,0 +1,13 @@
+{
+  "Name": "20级测试礼包",
+  "Id": 1100020,
+  "MaxDura": 1,
+  "Weight": 1,
+  "NeedLevel": 20,
+  "SalePrice": 1,
+  "IsBound": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

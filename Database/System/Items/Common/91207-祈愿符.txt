@@ -1,0 +1,13 @@
+{
+  "Name": "祈愿符",
+  "Id": 91207,
+  "MaxDura": 100,
+  "NeedLevel": 1,
+  "SalePrice": 100,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "宝图宝物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

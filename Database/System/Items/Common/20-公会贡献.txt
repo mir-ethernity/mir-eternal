@@ -1,0 +1,9 @@
+{
+  "Name": "公会贡献",
+  "Id": 20,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "Type": "普通杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠"
+}

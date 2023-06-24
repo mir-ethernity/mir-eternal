@@ -322,7 +322,7 @@ namespace GameServer.Networking
                 return;
             }
         }
-        public void 处理封包(UnknownC1 P)
+        public void 处理封包(UnknownC642 P)
         {
             if (this.CurrentStage != GameStage.LoadingScene && this.CurrentStage != GameStage.PlayingScene)
             {
@@ -336,12 +336,19 @@ namespace GameServer.Networking
         {
 
         }
-
-        public void 处理封包(UnknownC2 P)
+        public void 处理封包(UnknownC272 P)
         {
 
         }
-        public void 处理封包(UnknownC3 P)
+        public void 处理封包(UnknownC252 P)
+        {
+
+        }
+        public void 处理封包(UnknownC644 P)
+        {
+
+        }
+        public void 处理封包(UnknownC155 P)
         {
             //// 货币数量变动 (Server)
             //SendPacket(
@@ -350,7 +357,7 @@ namespace GameServer.Networking
             //new byte[] { 13, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0 }
             //);
 
-            this.Player.ActiveConnection?.SendPacket(new UnknownS5
+            this.Player.ActiveConnection?.SendPacket(new UnknownS218
             {
                 U1 = P.U1,
                 U2 = 19225
@@ -362,11 +369,19 @@ namespace GameServer.Networking
             //new byte[] { 59, 0, 0, 0, 25, 75, 0, 0 }
             //);
         }
-        public void 处理封包(UnknownC4 P)
+        public void 处理封包(UnknownC264 P)
         {
 
         }
-        public void 处理封包(UnknownC5 P)
+        public void 处理封包(UnknownC265 P)
+        {
+
+        }
+        public void 处理封包(UnknownC266 P)
+        {
+
+        }
+        public void 处理封包(UnknownC267 P)
         {
 
         }

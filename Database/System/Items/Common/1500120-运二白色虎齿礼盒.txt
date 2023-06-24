@@ -1,0 +1,13 @@
+{
+  "Name": "运二白色虎齿礼盒",
+  "Id": 1500120,
+  "MaxDura": 1,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "CanDrop": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

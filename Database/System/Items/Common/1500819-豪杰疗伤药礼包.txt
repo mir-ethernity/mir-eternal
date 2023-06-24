@@ -1,0 +1,14 @@
+{
+  "Name": "豪杰疗伤药礼包",
+  "Id": 1500819,
+  "MaxDura": 100,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "IsBound": true,
+  "CanDrop": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

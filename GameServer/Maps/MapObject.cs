@@ -2005,7 +2005,11 @@ namespace GameServer.Maps
                         ObjectComesIntoViewPacket.现身姿态 = ((byte)(对象.Died ? 13 : 1));
                         ObjectComesIntoViewPacket.体力比例 = (byte)(对象.CurrentHP * 100 / 对象[GameObjectStats.MaxHP]);
                         PlayerObject PlayerObject2 = 对象 as PlayerObject;
-                        ObjectComesIntoViewPacket.AdditionalParam = ((byte)((PlayerObject2 == null || !PlayerObject2.灰名玩家) ? 0 : 2));
+                        if (PlayerObject2 != null)
+                        {
+                            ObjectComesIntoViewPacket.AdditionalParam = (byte)(!PlayerObject2.灰名玩家 ? 0 : 2);
+                            ObjectComesIntoViewPacket.ActiveMount = PlayerObject2.Riding ? (byte)PlayerObject2.CharacterData.CurrentMount.V : (byte)0;
+                        }
                         网络连接.SendPacket(ObjectComesIntoViewPacket);
                         PlayerObject.ActiveConnection.SendPacket(new SyncObjectHP
                         {
@@ -2149,17 +2153,24 @@ namespace GameServer.Maps
                             对象高度 = 对象.CurrentAltitude
                         });
                         SConnection 网络连接2 = PlayerObject3.ActiveConnection;
-                        ObjectComesIntoViewPacket ObjectComesIntoViewPacket2 = new ObjectComesIntoViewPacket();
-                        ObjectComesIntoViewPacket2.出现方式 = 1;
-                        ObjectComesIntoViewPacket2.对象编号 = 对象.ObjectId;
-                        ObjectComesIntoViewPacket2.现身坐标 = 对象.CurrentPosition;
-                        ObjectComesIntoViewPacket2.现身高度 = 对象.CurrentAltitude;
-                        ObjectComesIntoViewPacket2.现身方向 = (ushort)对象.CurrentDirection;
-                        ObjectComesIntoViewPacket2.现身姿态 = ((byte)(对象.Died ? 13 : 1));
-                        ObjectComesIntoViewPacket2.体力比例 = (byte)(对象.CurrentHP * 100 / 对象[GameObjectStats.MaxHP]);
+                        ObjectComesIntoViewPacket ObjectComesIntoViewPacket2 = new ObjectComesIntoViewPacket
+                        {
+                            出现方式 = 1,
+                            对象编号 = 对象.ObjectId,
+                            现身坐标 = 对象.CurrentPosition,
+                            现身高度 = 对象.CurrentAltitude,
+                            现身方向 = (ushort)对象.CurrentDirection,
+                            现身姿态 = ((byte)(对象.Died ? 13 : 1)),
+                            体力比例 = (byte)(对象.CurrentHP * 100 / 对象[GameObjectStats.MaxHP])
+                        };
                         PlayerObject PlayerObject4 = 对象 as PlayerObject;
-                        ObjectComesIntoViewPacket2.AdditionalParam = ((byte)((PlayerObject4 == null || !PlayerObject4.灰名玩家) ? 0 : 2));
+                        if (PlayerObject4 != null)
+                        {
+                            ObjectComesIntoViewPacket2.AdditionalParam = (byte)(!PlayerObject4.灰名玩家 ? 0 : 2);
+                            ObjectComesIntoViewPacket2.ActiveMount = (byte)(PlayerObject4.Riding ? PlayerObject4.CharacterData.CurrentMount.V : 0);
+                        }
                         网络连接2.SendPacket(ObjectComesIntoViewPacket2);
+
                         PlayerObject3.ActiveConnection.SendPacket(new SyncObjectHP
                         {
                             ObjectId = 对象.ObjectId,

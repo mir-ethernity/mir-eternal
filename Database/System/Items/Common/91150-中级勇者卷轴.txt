@@ -1,0 +1,15 @@
+{
+  "Name": "中级勇者卷轴",
+  "Id": 91150,
+  "MaxDura": 100,
+  "Level": 10,
+  "NeedLevel": 30,
+  "SalePrice": 500,
+  "IsBound": true,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "宝图宝物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

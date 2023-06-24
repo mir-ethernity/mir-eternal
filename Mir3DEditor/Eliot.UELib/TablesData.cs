@@ -66,72 +66,28 @@ namespace UELib
 
             public void Deserialize(IUnrealStream stream)
             {
-#if HAWKEN
-                if (stream.Package.Build == GameBuild.BuildName.Hawken &&
-                    stream.Package.LicenseeVersion >= 2)
-                    stream.Skip(4);
-#endif
                 NamesCount = stream.ReadInt32();
                 NamesOffset = stream.ReadInt32();
                 ExportsCount = stream.ReadInt32();
                 ExportsOffset = stream.ReadInt32();
-#if APB
-                if (stream.Package.Build == GameBuild.BuildName.APB &&
-                    stream.Package.LicenseeVersion >= 28)
-                {
-                    if (stream.Package.LicenseeVersion >= 29)
-                    {
-                        stream.Skip(4);
-                    }
-
-                    stream.Skip(20);
-                }
-#endif
                 ImportsCount = stream.ReadInt32();
                 ImportsOffset = stream.ReadInt32();
 
-                Console.WriteLine("Names Count:" + NamesCount + " Names Offset:" + NamesOffset
+                DeserializeLogger.Log("Names Count:" + NamesCount + " Names Offset:" + NamesOffset
                                   + " Exports Count:" + ExportsCount + " Exports Offset:" + ExportsOffset
                                   + " Imports Count:" + ImportsCount + " Imports Offset:" + ImportsOffset
                 );
 
-                if (stream.Version >= VDependsOffset)
-                {
-                    DependsOffset = stream.ReadInt32();
-                }
+                DependsOffset = stream.ReadInt32();
+                ImportExportGuidsOffset = stream.ReadInt32();
+                ImportGuidsCount = stream.ReadInt32();
+                ExportGuidsCount = stream.ReadInt32();
+                ThumbnailTableOffset = stream.ReadInt32();
 
-#if TRANSFORMERS
-                if (stream.Package.Build == GameBuild.BuildName.Transformers
-                    && stream.Version < 535)
-                {
-                    return;
-                }
-#endif
-                if (stream.Version >= VImportExportGuidsOffset
-                    // FIXME: Correct the output version of these games instead.
-#if BIOSHOCK
-                    && stream.Package.Build != GameBuild.BuildName.Bioshock_Infinite
-#endif
-#if TRANSFORMERS
-                    && stream.Package.Build != GameBuild.BuildName.Transformers
-#endif
-                   )
-                {
-                    ImportExportGuidsOffset = stream.ReadInt32();
-                    ImportGuidsCount = stream.ReadInt32();
-                    ExportGuidsCount = stream.ReadInt32();
-                }
-
-                if (stream.Version >= VThumbnailTableOffset)
-                {
-#if APB
-                    if (stream.Package.Build == GameBuild.BuildName.DungeonDefenders2) stream.Skip(4);
-#endif
-                    ThumbnailTableOffset = stream.ReadInt32();
-                }
-
-                // Generations
-                // ... etc, see Deserialize() below
+                DeserializeLogger.Log("DependsOffset:" + DependsOffset + " ImportExportGuidsOffset:" + ImportExportGuidsOffset
+                              + " ImportGuidsCount:" + ImportGuidsCount + " ExportGuidsCount:" + ExportGuidsCount
+                              + " ThumbnailTableOffset:" + ThumbnailTableOffset
+                );
             }
         }
 

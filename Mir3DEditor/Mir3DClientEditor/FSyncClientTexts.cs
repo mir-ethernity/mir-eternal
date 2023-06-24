@@ -151,28 +151,28 @@ namespace Mir3DClientEditor
                     case "air.txt":
                         CopyData(latestData, oldData, "ID", "Description");
                         break;
-                    case "Apperance.txt":
+                    case "apperance.txt":
                         CopyData(latestData, oldData, "Index", "MainType", "DisplayName");
                         break;
-                    case "AssistDrop.txt":
+                    case "assistdrop.txt":
                         CopyData(latestData, oldData, "ID", "Items", "Name", "ItemClass", "Valuable", "AutoPick", "AutoDecompose", "Visible", "Group", "DataVisible", "CanDecompose", "Sort");
                         break;
-                    case "AssistItem.txt":
+                    case "assistitem.txt":
                         CopyData(latestData, oldData, "ItemID", "ItemType", "Sort", "ItemGroup", "ItemName");
                         break;
-                    case "Attribute.txt":
+                    case "attribute.txt":
                         CopyData(latestData, oldData, "AttributeID", "Key", "Param1", "Param2", "Pow", "Tip", "IsTextValid");
                         break;
-                    case "AuctionCategory.txt":
+                    case "auctioncategory.txt":
                         CopyData(latestData, oldData, "Index", "MainType", "MainTypeValue");
                         break;
                     case "aura.txt":
                         CopyData(latestData, oldData, "Index", "Eternal", "DotHoldOneHp", "CanCancel", "Category", "Type", "AttackType", "JudgeType", "ElementaryType", "ResistType", "DisplayGroup", "TemplateID", "BuffName", "Group", "Duration", "Delay", "Interval", "InitStackCount", "EffectPct", "EffectValue", "DisplayValue");
                         break;
-                    case "Chaos_rules.txt":
+                    case "chaos_rules.txt":
                         CopyData(latestData, oldData, "ID", "Name", "Des", "Type", "PointIncRate", "PointIncValue", "DropCoordinate");
                         break;
-                    case "ChaosAward.txt":
+                    case "chaosaward.txt":
                         CopyData(latestData, oldData, "ID", "ChaosStone", "Award_1", "Count_1", "Award_2", "Award_ID_2", "Count_2", "Award_3", "Award_ID_3", "Count_3", "Award_4", "Award_ID_4", "Count_4", "Award_5", "Award_ID_5", "Count_5");
                         break;
                     case "doodad.txt":
@@ -181,10 +181,10 @@ namespace Mir3DClientEditor
                     case "dragon_soul.txt":
                         CopyData(latestData, oldData, "Name_1", "Name_2", "Name_3", "Name_Mark_2", "Name_Mark_3");
                         break;
-                    case "EquipGroupEffect.txt":
+                    case "equipgroupeffect.txt":
                         CopyData(latestData, oldData, "Id", "Item1", "ItemName1", "Item2", "ItemName2");
                         break;
-                    case "FreeTips.txt":
+                    case "freetips.txt":
                         CopyData(latestData, oldData, "TipsScript");
                         break;
                     case "gift_detail.txt":
@@ -223,13 +223,13 @@ namespace Mir3DClientEditor
                     case "ore_herb_formula.txt":
                         CopyData(latestData, oldData, "ID", "Name");
                         break;
-                    case "Physique.txt":
+                    case "physique.txt":
                         CopyData(latestData, oldData, "ID", "Name", "Type", "Class", "Quality", "SubType");
                         break;
                     case "quest.txt":
                         CopyData(latestData, oldData, "Index", "QuestTempID", "QuestName", "AcceptQuestDesc", "QuestDescript", "QuestCompletedDescript", "AcceptQuestDialog", "PreSubmitQuestDialog", "CompleteQuestDialog");
                         break;
-                    case "ReputationTemp.txt":
+                    case "reputationtemp.txt":
                         CopyData(latestData, oldData, "Index", "ForceID", "ListLevel", "ForceName", "ForceTips", "ForceInfo");
                         break;
                     case "scene.txt":
@@ -244,11 +244,17 @@ namespace Mir3DClientEditor
                     case "soul_stone_attr.txt":
                         CopyData(latestData, oldData, "Type", "Name", "Description");
                         break;
-                    case "StringMap.txt":
+                    case "stringmap.txt":
                         CopyData(latestData, oldData, "Key", "INT", "CHN");
                         break;
                     case "title.txt":
                         CopyData(latestData, oldData, "ID", "Tip");
+                        break;
+                    case "spell.txt":
+                        CopyData(latestData, oldData, "Index", "SpellCommonAttribute.Description", "ClientCommonAttribute.AbilityName", "ClientCommonAttribute.AbilityDescribe");
+                        break;
+                    case "spell_var.txt":
+                        CopyData(latestData, oldData, "ID", "SpellName", "MainSpeciality", "DetailDescription", "RuneDescription");
                         break;
                     default:
                         return;

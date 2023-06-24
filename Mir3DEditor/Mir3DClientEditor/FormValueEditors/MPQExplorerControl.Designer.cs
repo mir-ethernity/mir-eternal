@@ -32,12 +32,13 @@
             this.TreeFolders = new System.Windows.Forms.TreeView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.DataGrid = new CustomGridControl();
+            this.DataGrid = new Mir3DClientEditor.FormValueEditors.CustomGridControl();
             this.File = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Attributes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PAK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -94,7 +95,6 @@
             // 
             // DataGrid
             // 
-            this.DataGrid.ReadOnly = true;
             this.DataGrid.AllowUserToAddRows = false;
             this.DataGrid.AllowUserToDeleteRows = false;
             this.DataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
@@ -104,10 +104,12 @@
             this.FileSize,
             this.Type,
             this.CreatedAt,
-            this.Attributes});
+            this.Attributes,
+            this.PAK});
             this.DataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataGrid.Location = new System.Drawing.Point(0, 0);
             this.DataGrid.Name = "DataGrid";
+            this.DataGrid.ReadOnly = true;
             this.DataGrid.RowTemplate.Height = 25;
             this.DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGrid.Size = new System.Drawing.Size(495, 415);
@@ -117,31 +119,43 @@
             // 
             this.File.HeaderText = "File";
             this.File.Name = "File";
+            this.File.ReadOnly = true;
             this.File.Width = 50;
             // 
             // FileSize
             // 
             this.FileSize.HeaderText = "Size";
             this.FileSize.Name = "FileSize";
+            this.FileSize.ReadOnly = true;
             this.FileSize.Width = 52;
             // 
             // Type
             // 
             this.Type.HeaderText = "Type";
             this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
             this.Type.Width = 56;
             // 
             // CreatedAt
             // 
             this.CreatedAt.HeaderText = "Date/Time";
             this.CreatedAt.Name = "CreatedAt";
+            this.CreatedAt.ReadOnly = true;
             this.CreatedAt.Width = 87;
             // 
             // Attributes
             // 
             this.Attributes.HeaderText = "Attributes";
             this.Attributes.Name = "Attributes";
+            this.Attributes.ReadOnly = true;
             this.Attributes.Width = 84;
+            // 
+            // PAK
+            // 
+            this.PAK.HeaderText = "PAK";
+            this.PAK.Name = "PAK";
+            this.PAK.ReadOnly = true;
+            this.PAK.Width = 53;
             // 
             // MPQExplorerControl
             // 
@@ -165,13 +179,14 @@
 
         private SplitContainer splitContainer1;
         private TreeView TreeFolders;
-        private DataGridView DataGrid;
+        private GroupBox groupBox1;
+        private TextBox textBox1;
         private DataGridViewTextBoxColumn File;
         private DataGridViewTextBoxColumn FileSize;
         private DataGridViewTextBoxColumn Type;
         private DataGridViewTextBoxColumn CreatedAt;
         private DataGridViewTextBoxColumn Attributes;
-        private GroupBox groupBox1;
-        private TextBox textBox1;
+        private DataGridViewTextBoxColumn PAK;
+        private CustomGridControl DataGrid;
     }
 }

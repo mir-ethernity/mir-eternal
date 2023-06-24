@@ -1,0 +1,13 @@
+{
+  "Name": "洪符齐天礼盒(35级)",
+  "Id": 1500606,
+  "MaxDura": 1,
+  "Weight": 1,
+  "NeedLevel": 35,
+  "SalePrice": 1,
+  "IsBound": true,
+  "Type": "宝图宝物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

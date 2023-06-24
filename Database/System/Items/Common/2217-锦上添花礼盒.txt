@@ -1,0 +1,12 @@
+{
+  "Name": "锦上添花礼盒",
+  "Id": 2217,
+  "MaxDura": 99,
+  "NeedLevel": 40,
+  "SalePrice": 1,
+  "IsBound": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

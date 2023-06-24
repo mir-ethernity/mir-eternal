@@ -24,11 +24,8 @@ namespace UELib.Core
             base.Deserialize();
             
             Top = _Buffer.ReadUInt32();
-            Record(nameof(Top), Top);
             Pos = _Buffer.ReadUInt32();
-            Record(nameof(Pos), Pos);
             ScriptText = _Buffer.ReadText();
-            Record(nameof(ScriptText), "...");
         }
 
         #endregion

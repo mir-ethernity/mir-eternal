@@ -1,0 +1,13 @@
+{
+  "Name": "洪符齐天凭证",
+  "Id": 91148,
+  "MaxDura": 1,
+  "Level": 10,
+  "NeedLevel": 10,
+  "SalePrice": 100,
+  "CanSold": true,
+  "Type": "宝图宝物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

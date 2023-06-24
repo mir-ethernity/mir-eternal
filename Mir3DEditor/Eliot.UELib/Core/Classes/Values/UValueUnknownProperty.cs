@@ -26,6 +26,12 @@ namespace UELib.Core
 
         public override string ToString()
         {
+            if(Raw.Length > 1000)
+            {
+                var buff = new byte[1000];
+                Array.Copy(Raw, buff, 1000);
+                return "0x" + BitConverter.ToString(buff).Replace("-", "").ToLower();
+            }
             return "0x" + BitConverter.ToString(Raw).Replace("-", "").ToLower();
         }
     }

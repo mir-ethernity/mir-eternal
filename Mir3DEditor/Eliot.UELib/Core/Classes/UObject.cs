@@ -136,9 +136,6 @@ namespace UELib.Core
 
             try
             {
-#if BINARYMETADATA
-                BinaryMetaData = new BinaryMetaData();
-#endif
                 DeserializationState |= ObjectState.Deserializing;
                 Deserialize();
                 DeserializationState |= ObjectState.Deserialied;
@@ -171,13 +168,11 @@ namespace UELib.Core
                 buff = new byte[ExportTable.SerialSize];
                 Package.Stream.Seek(ExportTable.SerialOffset, SeekOrigin.Begin);
                 Package.Stream.Read(buff, 0, ExportTable.SerialSize);
+                Package.Stream.Seek(sourcePosition, SeekOrigin.Begin);
             }
             else
             {
                 buff = new byte[0];
-                //buff = new byte[ImportTable.SerialSize];
-                //Package.Stream.Seek(ImportTable.SerialOffset, SeekOrigin.Begin);
-                //Package.Stream.Read(buff, 0, ImportTable.SerialSize);
             }
 
             _RawBuff = buff;
@@ -221,19 +216,15 @@ namespace UELib.Core
         protected void VengeanceDeserializeHeader(IUnrealStream stream, ref (int a, int b) header)
         {
             header.a = stream.ReadInt32();
-            Record("A:Vengeance", header.a);
             header.b = stream.ReadInt32();
-            Record("B:Vengeance", header.b);
             switch (header.a)
             {
                 case 2:
                     header.a = stream.ReadInt32();
-                    Record("C:Vengeance", header.a);
                     break;
 
                 case 3:
                     int c = stream.ReadInt32();
-                    Record("C:Vengeance", c);
                     break;
             }
         }
@@ -243,20 +234,6 @@ namespace UELib.Core
         /// </summary>
         protected virtual void Deserialize()
         {
-#if VENGEANCE
-            if (Package.Build.Generation == BuildGeneration.Vengeance)
-            {
-                if (Package.LicenseeVersion >= 25)
-                {
-                    var header = (3, 0);
-                    VengeanceDeserializeHeader(_Buffer, ref header);
-                    if (header.Item2 == 2)
-                    {
-                        _Buffer.ReadInt32();
-                    }
-                }
-            }
-#endif
             // This appears to be serialized for templates of classes like AmbientSoundNonLoop
             if (HasObjectFlag(ObjectFlagsLO.HasStack))
             {
@@ -264,44 +241,11 @@ namespace UELib.Core
                 StateFrame.Deserialize(_Buffer);
             }
 
-            if (_Buffer.Version >= UExportTableItem.VNetObjects
-#if MKKE
-                && Package.Build != UnrealPackage.GameBuild.BuildName.MKKE
-#endif
-               )
+            if (_Buffer.Version >= UExportTableItem.VNetObjects)
             {
                 NetIndex = _Buffer.ReadInt32();
-                Record(nameof(NetIndex), NetIndex);
             }
 
-            // TODO: Serialize component data here
-            //if( _Buffer.Version > 400
-            //    && HasObjectFlag( Flags.ObjectFlagsHO.PropertiesObject )
-            //    && HasObjectFlag( Flags.ObjectFlagsHO.ArchetypeObject ) )
-            //{
-            //    var componentClass = _Buffer.ReadObjectIndex();
-            //    var componentName = _Buffer.ReadNameIndex();
-            //}
-#if THIEF_DS || DEUSEX_IW
-            // FIXME: Not present in all objects, even some classes?
-            if (Package.Build.Generation == BuildGeneration.Thief && GetType() != typeof(UnknownObject))
-            {
-                // var native private const int ObjectInternalPropertyHash[1];
-                int thiefLinkDataObjectCount = _Buffer.ReadInt32();
-                Record(nameof(thiefLinkDataObjectCount), thiefLinkDataObjectCount);
-                for (var i = 0; i < thiefLinkDataObjectCount; i++)
-                {
-                    // These probably contain the missing UFields.
-                    var thiefLinkDataObject = _Buffer.ReadObject();
-                    Record(nameof(thiefLinkDataObject), thiefLinkDataObject);
-                }
-
-                if (!(this is UClass))
-                {
-                    _Buffer.Skip(4);
-                }
-            }
-#endif
             if (!IsClassType("Class"))
             {
                 DeserializeProperties();
@@ -316,7 +260,17 @@ namespace UELib.Core
             if (_RawBuff == null)
                 EnsureBuffer();
 
-            // stream.Write(_RawBuff);
+            if (DeserializationState == ObjectState.Errorlized)
+            {
+                var buff = _RawBuff;
+
+                if (Package.Stream.BigEndianCode)
+                    Array.Reverse(buff);
+
+                stream.Write(_RawBuff);
+                return;
+            }
+
 
             // This appears to be serialized for templates of classes like AmbientSoundNonLoop
             if (HasObjectFlag(ObjectFlagsLO.HasStack))
@@ -325,14 +279,7 @@ namespace UELib.Core
                 StateFrame.Serialize(stream);
             }
 
-            if (stream.Version >= UExportTableItem.VNetObjects
-#if MKKE
-                            && Package.Build != UnrealPackage.GameBuild.BuildName.MKKE
-#endif
-                           )
-            {
-                stream.Write(NetIndex);
-            }
+            stream.Write(NetIndex);
 
             if (!IsClassType("Class"))
             {
@@ -346,7 +293,7 @@ namespace UELib.Core
         public void DeserializeProperties()
         {
             Default = this;
-            Properties = new DefaultPropertiesCollection();
+            Properties = new DefaultPropertiesCollection(this);
             while (true)
             {
                 var tag = new UDefaultProperty(Default);
@@ -365,7 +312,16 @@ namespace UELib.Core
                 return;
 
             foreach (var property in Properties)
+            {
+                var startOffset = stream.Position;
+                var originalSize = property.Size;
                 property.Serialize(stream);
+                var size = stream.Position - startOffset;
+                if (property.Size != originalSize)
+                {
+
+                }
+            }
             stream.WriteNone();
         }
 
@@ -662,46 +618,6 @@ namespace UELib.Core
 
         #endregion
 
-        /// <summary>
-        /// TODO: Move this feature into a stream.
-        /// Outputs the present position and the value of the parsed object.
-        ///
-        /// Only called in the DEBUGBUILD!
-        /// </summary>
-        /// <param name="varName">The struct that was read from the previous buffer position.</param>
-        /// <param name="varObject">The struct's value that was read.</param>
-        [System.Diagnostics.Conditional("BINARYMETADATA")]
-        internal void Record(string varName, object varObject = null)
-        {
-            long size = _Buffer.Position - _Buffer.LastPosition;
-            BinaryMetaData.AddField(varName, varObject, _Buffer.LastPosition, size);
-#if LOG_RECORDS
-            if( varObject == null )
-            {
-                Console.WriteLine( varName );
-                return;
-            }
-
-            var propertyType = varObject.GetType();
-            Console.WriteLine(
-                "0x" + _Buffer.LastPosition.ToString("x8").ToUpper()
-                + " : ".PadLeft( 2, ' ' )
-                + varName.PadRight( 32, ' ' ) + ":" + propertyType.Name.PadRight( 32, ' ' )
-                + " => " + varObject
-            );
-#endif
-        }
-
-        protected void AssertEOS(int size, string testSubject = "")
-        {
-            if (size > _Buffer.Length - _Buffer.Position)
-            {
-                throw new DeserializationException(Name + ": Allocation past end of stream detected! Size:" + size +
-                                                   " Subject:" + testSubject);
-            }
-            //System.Diagnostics.Debug.Assert( size <= (_Buffer.Length - _Buffer.Position), Name + ": Allocation past end of stream detected! " + size );
-        }
-
         public int CompareTo(object obj)
         {
             return (int)Table.ObjectName - (int)((UObject)obj).Table.ObjectName;
@@ -745,51 +661,6 @@ namespace UELib.Core
         public static explicit operator string(UObject obj)
         {
             return obj?.Name;
-        }
-    }
-
-    /// <summary>
-    /// Unknown Object
-    ///
-    /// Notes:
-    ///     Instances of this class are created because of a class type that was not found within the 'RegisteredClasses' list.
-    ///     Instances of this class will only be deserialized on demand.
-    /// </summary>
-    public sealed class UnknownObject : UObject
-    {
-        /// <summary>
-        /// Creates a new instance of the UELib.Core.UnknownObject class.
-        /// </summary>
-        public UnknownObject()
-        {
-            ShouldDeserializeOnDemand = false;
-        }
-
-        protected override void Deserialize()
-        {
-            if (Name.ToLower().Contains("map"))
-                Debug.Assert(true);
-
-            if (Package.Version > 400 && _Buffer.Length >= 12)
-            {
-                // componentClassIndex
-                _Buffer.Position += sizeof(int);
-                int componentNameIndex = _Buffer.ReadNameIndex();
-                if (componentNameIndex == (int)Table.ObjectName)
-                {
-                    base.Deserialize();
-                    return;
-                }
-
-                _Buffer.Position -= 12;
-            }
-
-            base.Deserialize();
-        }
-
-        protected override bool CanDisposeBuffer()
-        {
-            return false;
         }
     }
 }

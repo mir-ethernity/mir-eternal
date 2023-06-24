@@ -1,4 +1,5 @@
 ﻿using GameServer.Maps;
+using GameServer.Templates;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -93,6 +94,13 @@ namespace GameServer.PlayerCommands
             var commandInfo = PlayerCommandTypes[commandName];
 
             var command = (PlayerCommand)Activator.CreateInstance(commandInfo.CommandType);
+
+            if ((int)command.RequiredGMLevel > (int)GameMasters.GetGMLevel(player.ObjectName))
+            {
+                player.SendMessage($"You do not have sufficient permissions to run the command.");
+                return true;
+            }
+
             command.Player = player;
 
             if (string.IsNullOrEmpty(commandArgs) && commandInfo.RequiredFields > 0)

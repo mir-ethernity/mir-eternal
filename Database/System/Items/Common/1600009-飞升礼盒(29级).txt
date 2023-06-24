@@ -1,0 +1,13 @@
+{
+  "Name": "飞升礼盒(29级)",
+  "Id": 1600009,
+  "MaxDura": 1,
+  "Weight": 1,
+  "NeedLevel": 29,
+  "SalePrice": 1,
+  "IsBound": true,
+  "Type": "宝图宝物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

@@ -1,0 +1,16 @@
+{
+  "Name": "宫殿长廊神符",
+  "Id": 803,
+  "MaxDura": 100,
+  "NeedLevel": 30,
+  "Cooldown": 60000,
+  "SalePrice": 5000,
+  "AdditionalSkill": 4580,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

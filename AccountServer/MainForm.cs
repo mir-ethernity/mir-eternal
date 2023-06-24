@@ -8,6 +8,7 @@ using System.Net;
 using System.Text;
 using System.Windows.Forms;
 using AccountServer.Properties;
+using AccountServer.Repositories;
 using AccountServer.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -19,11 +20,13 @@ namespace AccountServer
         private readonly IAppConfiguration _config;
         private readonly SEnvir _envir;
         private readonly IStatsService _stats;
+        private readonly IAccountRepository _accountRepository;
         private readonly ILogger<MainForm> _logger;
 
         public MainForm(
             SEnvir envir,
             IStatsService stats,
+            IAccountRepository accountRepository,
             IAppConfiguration config,
             ILogger<MainForm> logger
         )
@@ -31,6 +34,7 @@ namespace AccountServer
             _config = config ?? throw new ArgumentNullException(nameof(config));
             _envir = envir ?? throw new ArgumentNullException(nameof(config));
             _stats = stats ?? throw new ArgumentNullException(nameof(stats));
+            _accountRepository = accountRepository ?? throw new ArgumentNullException(nameof(accountRepository));
             _logger = logger;
 
             InitializeComponent();
@@ -149,6 +153,11 @@ namespace AccountServer
                 MinimizeTray.Visible = false;
                 Environment.Exit(0);
             }
+        }
+
+        private async void MainForm_Load(object sender, EventArgs e)
+        {
+            _stats.TotalAccounts = await _accountRepository.GetTotalAccounts();
         }
     }
 }

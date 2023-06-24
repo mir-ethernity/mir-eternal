@@ -1,0 +1,12 @@
+{
+  "Name": "吉祥如意礼盒",
+  "Id": 2216,
+  "MaxDura": 99,
+  "NeedLevel": 35,
+  "SalePrice": 1,
+  "IsBound": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

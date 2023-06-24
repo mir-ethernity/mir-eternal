@@ -1,0 +1,13 @@
+{
+  "Name": "铭文石礼包(刺)",
+  "Id": 1510087,
+  "MaxDura": 100,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

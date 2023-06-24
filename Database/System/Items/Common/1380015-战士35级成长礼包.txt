@@ -1,0 +1,13 @@
+{
+  "Name": "战士35级成长礼包",
+  "Id": 1380015,
+  "MaxDura": 1,
+  "Weight": 1,
+  "NeedLevel": 35,
+  "SalePrice": 1,
+  "IsBound": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

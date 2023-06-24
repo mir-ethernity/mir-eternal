@@ -1,0 +1,16 @@
+{
+  "Name": "试炼宝箱-魔龙教主",
+  "Id": 94029,
+  "MaxDura": 10,
+  "Weight": 1,
+  "NeedLevel": 1,
+  "SalePrice": 10000,
+  "IsBound": true,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

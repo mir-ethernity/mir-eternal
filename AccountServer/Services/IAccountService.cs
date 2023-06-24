@@ -10,7 +10,7 @@ namespace AccountServer.Services
     public interface IAccountService
     {
         string GenerateTicket();
-        Task RegisterAccount(AccountData account);
+        Task<AccountData> RegisterAccount(string account, string password, string question, string answer);
         Task<ChangePasswordResult> ChangePassword(string account, string oldPassword, string newPassword);
         Task<ResetPasswordResult> ResetPassword(string account, string newPassword, string question, string answer);
         Task<bool> CheckLogin(string account, string password);

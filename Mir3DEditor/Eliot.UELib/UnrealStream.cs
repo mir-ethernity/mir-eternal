@@ -511,6 +511,8 @@ namespace UELib
                     throw new FileLoadException(package.PackageName + " isn't an UnrealPackage!");
 
                 Position = 4;
+
+                DeserializeLogger.Log($"Signature OK: {BitConverter.ToString(bytes)}, BigEndianCode: {BigEndianCode}");
             }
 
         }
@@ -719,6 +721,7 @@ namespace UELib
             UW = null;
             UR = null;
             Package = stream.Package;
+            SourcePosition = stream.RealPosition;
             InitBuffer();
         }
 
@@ -727,6 +730,7 @@ namespace UELib
             UW = null;
             UR = null;
             Package = str.Package;
+            SourcePosition = str.RealPosition;
             InitBuffer();
         }
 
@@ -771,6 +775,13 @@ namespace UELib
             LastPosition = Position;
 #endif
             return UR.ReadByte();
+        }
+
+        public byte[] ReadBytes(int length)
+        {
+            var buff = new byte[length];
+            UR.Read(buff, 0, length);
+            return buff;
         }
 
         public ushort ReadUShort()

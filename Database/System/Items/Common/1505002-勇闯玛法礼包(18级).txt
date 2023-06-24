@@ -1,0 +1,14 @@
+{
+  "Name": "勇闯玛法礼包(18级)",
+  "Id": 1505002,
+  "MaxDura": 100,
+  "Weight": 1,
+  "NeedLevel": 18,
+  "SalePrice": 1,
+  "IsBound": true,
+  "CanDrop": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

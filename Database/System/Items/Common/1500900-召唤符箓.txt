@@ -1,0 +1,12 @@
+{
+  "Name": "召唤符箓",
+  "Id": 1500900,
+  "MaxDura": 100,
+  "NeedLevel": 1,
+  "SalePrice": 1,
+  "IsBound": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

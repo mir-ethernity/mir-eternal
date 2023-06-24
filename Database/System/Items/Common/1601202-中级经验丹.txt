@@ -1,0 +1,14 @@
+{
+  "Name": "中级经验丹",
+  "Id": 1601202,
+  "MaxDura": 500,
+  "Level": 10,
+  "NeedLevel": 1,
+  "SalePrice": 100,
+  "IsBound": true,
+  "CanDrop": true,
+  "Type": "宝图宝物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

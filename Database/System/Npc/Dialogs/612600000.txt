@@ -1,4 +1,4 @@
 {
-  "Id": 612600000,
-  "Content": "Reforging equipment can make your equipment more powerful in combat!<#SO:1>Reforge Weapons<#SO/><#SO:2>Reforge Armor<#SO/><#SO:3>Reforge Accessories<#SO/>"
+"Id": 612600000,
+"Content":"<#D>My Jin family's casting craft is famous all over the world, if you want to recast equipment, come to me. <#D/><#UI:EquipRemake>Equip Recast<#UI/><#UI:AdvancedEquipRemake>Advanced Equip Recast<#UI/>"
 }

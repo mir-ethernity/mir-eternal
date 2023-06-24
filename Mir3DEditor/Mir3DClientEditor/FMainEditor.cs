@@ -34,11 +34,11 @@ namespace Mir3DClientEditor
             }
         }
 
-        internal void LoadFile(string path, byte[] data)
+        internal void LoadFile(string path, byte[] data, Func<string, byte[]?>? callbackToLoadDepFile = null)
         {
             CurentPath = path;
             Text = path;
-            MainEditor.LoadEditor(path, data);
+            MainEditor.LoadEditor(path, data, callbackToLoadDepFile);
         }
     }
 }

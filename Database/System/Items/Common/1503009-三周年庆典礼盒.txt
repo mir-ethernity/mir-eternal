@@ -1,0 +1,14 @@
+{
+  "Name": "三周年庆典礼盒",
+  "Id": 1503009,
+  "MaxDura": 99,
+  "NeedLevel": 30,
+  "SalePrice": 100,
+  "IsBound": true,
+  "CanDrop": true,
+  "CanSold": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

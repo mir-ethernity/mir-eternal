@@ -1,0 +1,13 @@
+{
+  "Name": "新年烟花礼盒",
+  "Id": 1500878,
+  "MaxDura": 99,
+  "NeedLevel": 35,
+  "SalePrice": 100,
+  "IsBound": true,
+  "CanDrop": true,
+  "Type": "可用杂物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

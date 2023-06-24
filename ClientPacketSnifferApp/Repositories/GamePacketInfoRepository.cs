@@ -12,17 +12,18 @@ namespace ClientPacketSniffer.Repositories
         public string Name;
         public ushort Id;
         public ushort Length;
+        public bool UseIntSize;
 
         public override string ToString()
         {
-            return $"{(Source == 0 ? "C->S" : "S-C")}: {Id} ({Name}) - Len: {Length}";
+            return $"{(Source == 0 ? "C->S" : "S-C")}: {Id} ({Name}) - Len: {Length} - Use int size: {UseIntSize}";
         }
     }
 
     public class GamePacketInfoRepository
     {
         public static GamePacketInfoRepository Instance { get; } = new GamePacketInfoRepository();
-       
+
         public Dictionary<ushort, GamePacketInfo> ClientPackets { get; private set; }
         public Dictionary<ushort, GamePacketInfo> ServerPackets { get; private set; }
 
@@ -50,7 +51,9 @@ namespace ClientPacketSniffer.Repositories
                     Name = data[0],
                     Source = source,
                     Id = ushort.Parse(data[1]),
-                    Length = ushort.Parse(data[2])
+                    Length = ushort.Parse(data[2]),
+                    UseIntSize = data.Length > 3 && data[3] == "1"
+
                 });
             }
             return output.ToArray();

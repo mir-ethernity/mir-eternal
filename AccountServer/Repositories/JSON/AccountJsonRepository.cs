@@ -1,4 +1,5 @@
 ﻿using AccountServer.Exceptions;
+using AccountServer.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -26,26 +27,42 @@ namespace AccountServer.Repositories.JSON
 
         public Task<AccountData> GetByName(string accountName)
         {
-            if (Accounts.TryGetValue(accountName, out var account))
+            if (Accounts.TryGetValue(accountName.ToLowerInvariant(), out var account))
                 return Task.FromResult(account);
 
             return Task.FromResult<AccountData>(null);
         }
 
-        public async Task RegisterAccount(AccountData account)
+        public Task<int> GetTotalAccounts()
         {
-            if (Accounts.ContainsKey(account.Account.ToLowerInvariant()))
-                throw new AccountAlreadyRegisteredException(account.Account);
+            return Task.FromResult(Accounts.Count);
+        }
 
-            await SaveAccount(account);
+        public async Task<AccountData> RegisterAccount(string account, string password, string question, string answer)
+        {
+            if (await ExistsAccount(account))
+                throw new AccountAlreadyRegisteredException(account);
+
+            var acc = new AccountData
+            {
+                Account = account,
+                Password = password,
+                PasswordEncrypted = true,
+                Question = question,
+                Answer = answer
+            };
+
+            await SaveAccount(acc);
+            return acc;
         }
 
         public async Task UpdatePassword(string accountName, string newPassword)
         {
-            if (!Accounts.TryGetValue(accountName, out var account))
-                throw new AccountNotExistsException(accountName);
+            var account = await GetByName(accountName);
+            if (account == null) throw new AccountNotExistsException(accountName);
 
             account.Password = newPassword;
+            account.PasswordEncrypted = true;
 
             await SaveAccount(account);
         }
@@ -69,8 +86,13 @@ namespace AccountServer.Repositories.JSON
 
         private async Task SaveAccount(AccountData account)
         {
-            var json = JsonConvert.SerializeObject(account);
+            var json = JsonConvert.SerializeObject(account, Formatting.Indented);
             var path = Path.Combine(DataDirectory, $"{account.Account}.txt");
+
+            if (Accounts.ContainsKey(account.Account.ToLowerInvariant()))
+                Accounts[account.Account] = account;
+            else
+                Accounts.Add(account.Account.ToLowerInvariant(), account);
 
             await File.WriteAllTextAsync(path, json);
         }

@@ -19,8 +19,10 @@ namespace UELib.Core.Classes.Values
             if (arraySize == 0)
                 return;
 
+            var buffLength = (int)(stream.Length - position - 4);
 
             var expectedEqualsItemSize = (Size - 4) / arraySize;
+
             var propertyType = "StructProperty";
             var outer = Property._Outer ?? Property._Container.Class as UStruct;
             var foundSpecificType = false;
@@ -48,17 +50,19 @@ namespace UELib.Core.Classes.Values
 
             if (!foundSpecificType)
             {
+                if (expectedEqualsItemSize == 0) expectedEqualsItemSize = 16;
                 if (expectedEqualsItemSize == 4) propertyType = "IntProperty";
                 else if (expectedEqualsItemSize == 16) propertyType = "Guid";
+                else if (expectedEqualsItemSize == 8) propertyType = "Name";
                 else if (expectedEqualsItemSize < 16) propertyType = "Unknown";
             }
 
             for (var i = 0; i < arraySize; i++)
             {
-                var arrayItemPos = stream.Position;
-                var arrayItemSize = (int)(Size - (arrayItemPos - position));
-                if (arrayItemSize <= 0) break;
-                Array[i] = UValuePropertyFactory.Create(Property, stream, propertyType, arrayItemSize);
+                //var arrayItemPos = stream.Position;
+                //var arrayItemSize = (int)(Size - (arrayItemPos - position));
+                //if (arrayItemSize <= 0) break;
+                Array[i] = UValuePropertyFactory.Create(Property, stream, propertyType, expectedEqualsItemSize);
             }
         }
 

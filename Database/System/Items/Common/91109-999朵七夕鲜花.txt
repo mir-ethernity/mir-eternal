@@ -1,0 +1,17 @@
+{
+  "Name": "999朵七夕鲜花",
+  "Id": 91109,
+  "MaxDura": 1,
+  "Weight": 1,
+  "Level": 10,
+  "NeedLevel": 30,
+  "SalePrice": 25000000,
+  "IsBound": true,
+  "CanDrop": true,
+  "CanSold": true,
+  "ValuableObjects": true,
+  "Type": "宝图宝物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

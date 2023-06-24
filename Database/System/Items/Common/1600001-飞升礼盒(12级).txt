@@ -1,0 +1,13 @@
+{
+  "Name": "飞升礼盒(12级)",
+  "Id": 1600001,
+  "MaxDura": 1,
+  "Weight": 1,
+  "NeedLevel": 12,
+  "SalePrice": 1,
+  "IsBound": true,
+  "Type": "宝图宝物",
+  "NeedRace": "通用",
+  "PersistType": "堆叠",
+  "StoreType": "杂货"
+}

@@ -60,59 +60,26 @@ namespace UELib.Core
         {
             base.Deserialize();
 
-#if TRANSFORMERS
-            if (Package.Build == UnrealPackage.GameBuild.BuildName.Transformers)
-            {
-                goto noMasks;
-            }
-#endif
-
             if (Package.Version < VProbeMaskReducedAndIgnoreMaskRemoved)
             {
                 ProbeMask = _Buffer.ReadUInt64();
-                Record(nameof(ProbeMask), ProbeMask);
-
                 IgnoreMask = _Buffer.ReadUInt64();
-                Record(nameof(IgnoreMask), IgnoreMask);
             }
             else
             {
                 ProbeMask = _Buffer.ReadUInt32();
-                Record(nameof(ProbeMask), ProbeMask);
             }
 
             noMasks:
             LabelTableOffset = _Buffer.ReadUInt16();
-            Record(nameof(LabelTableOffset), LabelTableOffset);
 
             if (Package.Version >= VStateFlags)
             {
-#if BORDERLANDS2 || TRANSFORMERS
-                // FIXME:Temp fix
-                if (Package.Build == UnrealPackage.GameBuild.BuildName.Borderlands2 ||
-                    Package.Build == UnrealPackage.GameBuild.BuildName.Transformers)
-                {
-                    _StateFlags = _Buffer.ReadUShort();
-                    goto skipStateFlags;
-                }
-#endif
-
                 _StateFlags = _Buffer.ReadUInt32();
-                skipStateFlags:
-                Record(nameof(_StateFlags), (StateFlags)_StateFlags);
             }
-
-#if TRANSFORMERS
-            if (Package.Build == UnrealPackage.GameBuild.BuildName.Transformers)
-            {
-                _Buffer.Skip(4);
-                return;
-            }
-#endif
 
             if (Package.Version < VFuncMap) return;
             _Buffer.ReadMap(out FuncMap); 
-            Record(nameof(FuncMap), FuncMap);
         }
 
         protected override void FindChildren()

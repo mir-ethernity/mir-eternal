@@ -1,4 +1,4 @@
 {
-  "Id": 619200000,
-  "Content": "I can help engrave your equipment here!<#SO:1>Equipment Punch?<#SO/><#SO:2>Equipment Engraving<#SO/>\r"
+"Id": 619200000,
+"Content": "<#D>It's called a blue-orange, so don't think I can only change the colour of the two inlays! I've taken on a one-stop service for punching and engraving!<#D/><#UI:EquipSocketMake>Equipment Punching<#UI/><#UI:EquipSocketRfin>Equipment Engrave<#UI/><#UI:EquipSocketNhrt>Equip Color Inheritance<#UI/>"
 }

@@ -15,6 +15,7 @@ namespace Mir3DClientEditor
 {
     public partial class MainEditorControl : UserControl
     {
+        public bool IsEncrypted { get; private set; } = false;
         public BaseGridEditorControl? EditorControl { get; private set; } = null;
         public MPQExplorerControl? MPQControl { get; private set; } = null;
 
@@ -31,10 +32,13 @@ namespace Mir3DClientEditor
             Controls.Clear();
         }
 
-        public void LoadEditor(string path, byte[] buffer)
+        public void LoadEditor(string path, byte[] buffer, Func<string, byte[]>? callbackToLoadDepFile = null)
         {
+            IsEncrypted = false;
             EditorControl?.Dispose();
+            EditorControl = null;
             MPQControl?.Dispose();
+            MPQControl = null;
 
             Controls.Clear();
 
@@ -42,28 +46,44 @@ namespace Mir3DClientEditor
             {
                 case ".txt":
                     EditorControl = new CSVGridEditorControl();
+                    IsEncrypted = true;
                     buffer = Crypto.Decrypt(buffer);
                     break;
                 case ".ini":
                 case ".int":
                     EditorControl = new INIGridEditorControl();
+                    IsEncrypted = true;
                     buffer = Crypto.Decrypt(buffer);
                     break;
                 case ".upk":
                 case ".umap":
                 case ".udk":
                 case ".u":
-                    EditorControl = new UnrealEditorControl();
-                    buffer = Crypto.Decrypt(buffer);
+                    EditorControl = new UnrealEditorControl(callbackToLoadDepFile);
+                    IsEncrypted = buffer[0] != 193 || buffer[1] != 131;
+                    if (IsEncrypted)
+                        buffer = Crypto.Decrypt(buffer);
+                    break;
+                case ".pak":
+                    MPQControl = new MPQExplorerControl();
                     break;
                 default:
                     throw new NotImplementedException();
             }
 
-            EditorControl.Dock = DockStyle.Fill;
-            EditorControl.SetBuffer(path, buffer);
+            if (EditorControl != null)
+            {
+                EditorControl.Dock = DockStyle.Fill;
+                EditorControl.SetBuffer(path, buffer);
+                Controls.Add(EditorControl);
+            }
+            else if (MPQControl != null)
+            {
+                MPQControl.Dock = DockStyle.Fill;
+                MPQControl.LoadMPQ(new string[] { path });
+                Controls.Add(MPQControl);
+            }
 
-            Controls.Add(EditorControl);
         }
 
         public void LoadGameFolder(string path)
@@ -83,7 +103,7 @@ namespace Mir3DClientEditor
         {
             var buffer = EditorControl?.GetBuffer() ?? Array.Empty<byte>();
 
-            return Crypto.Encrypt(buffer);
+            return IsEncrypted ? Crypto.Encrypt(buffer) : buffer;
         }
 
         public bool HasPendingChanges => EditorControl?.HasPendingChangesToSave ?? false;
