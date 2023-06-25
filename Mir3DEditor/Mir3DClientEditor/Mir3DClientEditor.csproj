@@ -13,7 +13,7 @@
     <Platforms>AnyCPU;x64</Platforms>
     <StartupObject>Mir3DClientEditor.Program</StartupObject>
     <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
-    <Version>0.2.2</Version>
+    <Version>0.2.3</Version>
   </PropertyGroup>
 
   <ItemGroup>
