@@ -1,4 +1,7 @@
-﻿using System;
+﻿using IniParser.Model;
+using IniParser.Model.Configuration;
+using System;
+using System.Collections.Generic;
 
 namespace GameServer
 {
@@ -43,5 +46,22 @@ namespace GameServer
 
         public static byte[] TestKey = Convert.FromBase64String("pmrsOuevJFSp5yvquMABDW1oRSkQpf8i9sI1B0O1AJ+YAmjjvevaOGqOTQy+YC9hUdiUkWFZS3ocVWBg0YhDJLGRhPy7fLQ/poc0uYmUs+OchVWUuPRTbSzasLbf3yzrCbbo9aiTa13+GzWXeYdxOT/dUikr9EVouXm/5sPyldLrXOAABhKRilayk5s9GGB+JCIVrGYmN7rSkYlIRStZyU1udKRSuWtoV7KTm9rpSERn44RMlBBXh9KRiUjRilOd61zgAC7lOpxdspObRC156a0qNvA71ve63OZYwsppQ1tdYUupsNKRihavQnvbDk1YpCs28liaAF7RmClEAlFVkobRt7mjlUIvVEG3B4Y3ratoIRlyXQMXJdJtBcjZagp2UWE0prQHcRUXX0KrlJe2kakrSfJ7Axcl3xbZxgVRVZJQYTSm4/kM8VVBtweDN62raCEZe2GtFB/SZe2bPjtxrb4GKTrxSix2mMPyzuSLSBikxMPQaUlbCp+TnRFoRlKjybJAhDOKqEU=");
         public static bool DebugPackets { get; set; } = false;
+        public static Dictionary<string, IniData> Translations { get; internal set; }
+        public static string Language { get; internal set; }
+
+        public static string GetTranslation(string sectionName, string key, string def = "")
+        {
+            if (!Translations.TryGetValue(Language, out var translations))
+                return def;
+            if (!translations.Sections.ContainsSection(sectionName))
+                return def;
+
+            var section = translations[sectionName];
+
+            if (!section.ContainsKey(key))
+                return def;
+
+            return section[key];
+        }
     }
 }

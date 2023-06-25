@@ -1,6 +1,7 @@
 ﻿using GameServer.Networking;
 using GameServer.Properties;
 using System;
+using System.IO;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -22,6 +23,17 @@ namespace GameServer
                 Application.SetHighDpiMode(HighDpiMode.SystemAware);
                 Application.SetCompatibleTextRenderingDefault(false);
 
+                Config.Translations = new System.Collections.Generic.Dictionary<string, IniParser.Model.IniData>();
+                var languages = Directory.GetFiles("./Translations", "*.ini");
+                var parser = new IniParser.FileIniDataParser();
+
+                foreach (var language in languages)
+                {
+                    var lang = Path.GetFileNameWithoutExtension(language).ToLower();
+                    var data = parser.ReadFile(language);
+                    Config.Translations.Add(lang, data);
+                }
+                Config.Language = Settings.Default.Language;
                 Config.SendPacketsAsync = Settings.Default.SendPacketsAsync;
                 Config.DebugPackets = Settings.Default.DebugPackets;
                 GamePacket.Config(typeof(SConnection));

@@ -45,7 +45,7 @@
       <Value Profile="(Default)">3</Value>
     </Setting>
     <Setting Name="GameData目录" Type="System.String" Scope="User">
-      <Value Profile="(Default)">.\Database</Value>
+      <Value Profile="(Default)">C:\Mir3D\Clean\Mir3D\Database</Value>
     </Setting>
     <Setting Name="GameDataDirectory" Type="System.String" Scope="User">
       <Value Profile="(Default)">.\Backup</Value>
@@ -64,6 +64,9 @@
     </Setting>
     <Setting Name="DebugPackets" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Language" Type="System.String" Scope="User">
+      <Value Profile="(Default)">en</Value>
     </Setting>
   </Settings>
 </SettingsFile>
