@@ -14,7 +14,7 @@ namespace UELib.Core
     {
         public UDefaultProperty Property { get; set; }
         public int Size { get; set; }
-        public byte[] OriginalBuffer { get; internal set; }
+        public byte[] OriginalBuffer { get; set; }
 
         public abstract void Deserialize(IUnrealStream stream);
         public abstract void Serialize(IUnrealStream stream);

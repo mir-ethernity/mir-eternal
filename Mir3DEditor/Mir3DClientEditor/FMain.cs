@@ -1,7 +1,9 @@
 ﻿using Microsoft.VisualBasic;
+using Mir3DClientEditor.Dialogs;
 using Mir3DClientEditor.FormValueEditors;
 using Mir3DClientEditor.Services;
 using Mir3DCrypto;
+using Sunny.UI;
 using System.Globalization;
 using System.IO;
 using System.Runtime.Intrinsics.X86;

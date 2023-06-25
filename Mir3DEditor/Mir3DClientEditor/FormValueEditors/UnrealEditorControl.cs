@@ -284,7 +284,7 @@ namespace Mir3DClientEditor.FormValueEditors
                         var saveFileDialog = new SaveFileDialog();
                         if (saveFileDialog.ShowDialog() == DialogResult.OK)
                         {
-                            File.WriteAllBytes(saveFileDialog.FileName, (((UnknownObject)obj).Data).Skip(32).ToArray());
+                            File.WriteAllBytes(saveFileDialog.FileName, ((UnknownObject)obj).Data);
                             MessageBox.Show("Saved OK");
                         }
                     };
