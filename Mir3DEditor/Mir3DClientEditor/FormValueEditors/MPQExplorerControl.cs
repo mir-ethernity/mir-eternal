@@ -237,26 +237,34 @@ namespace Mir3DClientEditor.FormValueEditors
 
             foreach (var manager in _archives)
             {
-                using (var stream = manager.Archive.OpenFile("(listfile)"))
+                try
                 {
-                    var buffer = new byte[stream.Length];
-                    stream.Read(buffer, 0, (int)stream.Length);
-                    var content = Encoding.UTF8.GetString(buffer);
-                    var files = content.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-                    var listfiles = new List<MpqArchiveManagerFile>(files.Length);
-                    foreach (var file in files)
+                    using (var stream = manager.Archive.OpenFile("(listfile)"))
                     {
-                        listfiles.Add(new MpqArchiveManagerFile
+                        var buffer = new byte[stream.Length];
+                        stream.Read(buffer, 0, (int)stream.Length);
+                        var content = Encoding.UTF8.GetString(buffer);
+                        var files = content.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                        var listfiles = new List<MpqArchiveManagerFile>(files.Length);
+                        foreach (var file in files)
                         {
-                            Manager = manager,
-                            Path = file,
-                            FileSize = manager.Archive.GetFileSize(file),
-                            Flags = manager.Archive.GetFileFlags(file),
-                            FileTime = manager.Archive.GetFileTime(file)
-                        });
-                    }
+                            listfiles.Add(new MpqArchiveManagerFile
+                            {
+                                Manager = manager,
+                                Path = file,
+                                FileSize = manager.Archive.GetFileSize(file),
+                                Flags = manager.Archive.GetFileFlags(file),
+                                FileTime = manager.Archive.GetFileTime(file)
+                            });
+                        }
 
-                    manager.ListFiles = listfiles.ToArray();
+                        manager.ListFiles = listfiles.ToArray();
+                    }
+                }
+                catch (Exception e)
+                {
+                    manager.ListFiles = new MpqArchiveManagerFile[0];
+                    MessageBox.Show($"Cant open {manager.FilePath} / (listfile): {e.Message}");
                 }
             }
 

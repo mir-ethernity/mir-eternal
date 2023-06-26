@@ -38,6 +38,13 @@ namespace GameServer.Networking
     {
     }
 
+    [PacketInfo(Source = PacketSource.Client, Id = 255, Length = 6, Description = "UnknownC255")]
+    public class UnknownC255 : GamePacket
+    {
+        [WrappingField(SubScript = 2, Length = 4)]
+        public int U1;
+    }
+
     [PacketInfo(Source = PacketSource.Client, Id = 271, Length = 2, Description = "Received on player connects (ver. 1.0.3.68 / 185578)")]
     public class PlayerEnterScenePacket : GamePacket
     {
@@ -75,7 +82,7 @@ namespace GameServer.Networking
     }
 
     [PacketInfo(Source = PacketSource.Server, Id = 222, Length = 10, Description = "UnknownS3")]
-    public class UnknownS222: GamePacket
+    public class UnknownS222 : GamePacket
     {
         [WrappingField(SubScript = 2, Length = 4)]
         public int U1;

@@ -385,6 +385,8 @@ namespace GameServer.Networking
         {
 
         }
+        public void 处理封包(玩家放弃任务 P) { }
+
         public void 处理封包(ReservedPacketZeroOnePacket P)
         {
         }
