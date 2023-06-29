@@ -8,6 +8,10 @@
 ## Help us to continue maintaining the project
 [![Donate with paypal](docs/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SYTUMJ7742MRC)
 
+## Discord group of Mir3D ##
+
+https://discord.gg/sZX2nG5qDb
+
 ### *If you have problems donating, try this other option*:
 http://paypal.me/armifer
 
