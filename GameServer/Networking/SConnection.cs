@@ -592,14 +592,14 @@ namespace GameServer.Networking
             }
             this.CallExceptionEventHandler(new Exception("Wrong enumeration parameter provided when player character is rotated. Disconnection is imminent."));
         }
-        public void 处理封包(客户角色走动 P)
+        public void 处理封包(CharacterWalkPacket P)
         {
             if (this.CurrentStage != GameStage.PlayingScene)
             {
                 this.CallExceptionEventHandler(new Exception(string.Format("Phase exception, disconnected.  Processing packet: {0}, Current phase: {1}", P.GetType(), this.CurrentStage)));
                 return;
             }
-            this.Player.玩家角色走动(P.坐标);
+            this.Player.OnWalk(P.Location);
         }
         public void 处理封包(客户角色跑动 P)
         {

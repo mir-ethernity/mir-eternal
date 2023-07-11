@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace GameServer.Networking
             #region Reader
 
             Dictionary<Type, Func<BinaryReader, WrappingFieldAttribute, object>> ReaderDictionary = new Dictionary<Type, Func<BinaryReader, WrappingFieldAttribute, object>>();
-            
+
             ReaderDictionary[typeof(bool)] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
             {
                 br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
@@ -30,13 +31,13 @@ namespace GameServer.Networking
                 br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
                 return br.ReadByte();
             };
-            
+
             ReaderDictionary[typeof(sbyte)] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
             {
                 br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
                 return br.ReadSByte();
             };
-            
+
             ReaderDictionary[typeof(byte[])] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
             {
                 br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
@@ -47,25 +48,25 @@ namespace GameServer.Networking
                 }
                 return new byte[0];
             };
-            
+
             ReaderDictionary[typeof(short)] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
             {
                 br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
                 return br.ReadInt16();
             };
-            
+
             ReaderDictionary[typeof(ushort)] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
             {
                 br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
                 return br.ReadUInt16();
             };
-            
+
             ReaderDictionary[typeof(int)] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
             {
                 br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
                 return br.ReadInt32();
             };
-            
+
             ReaderDictionary[typeof(uint)] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
             {
                 br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
@@ -90,12 +91,14 @@ namespace GameServer.Networking
                 byte[] bytes = br.ReadBytes((int)wfa.Length);
                 return Encoding.UTF8.GetString(bytes).Split(new char[1], StringSplitOptions.RemoveEmptyEntries)[0];
             };
-            
+
             ReaderDictionary[typeof(Point)] = delegate (BinaryReader br, WrappingFieldAttribute wfa)
             {
                 br.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
                 Point point = new Point((int)br.ReadUInt16(), (int)br.ReadUInt16());
-                return ComputingClass.协议坐标转点阵坐标(wfa.Reverse ? new Point(point.Y, point.X) : point);
+                Point pointNormalized = wfa.Reverse ? new Point(point.Y, point.X) : point;
+                Point result = ComputingClass.协议坐标转点阵坐标(pointNormalized);
+                return result;
             };
             GamePacket.TypeRead = ReaderDictionary;
             #endregion
@@ -103,49 +106,49 @@ namespace GameServer.Networking
             #region Writer
 
             Dictionary<Type, Action<BinaryWriter, WrappingFieldAttribute, object>> WriterDictionary = new Dictionary<Type, Action<BinaryWriter, WrappingFieldAttribute, object>>();
-            
+
             WriterDictionary[typeof(bool)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
                 bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
                 bw.Write((bool)obj);
             };
-            
+
             WriterDictionary[typeof(byte)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
                 bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
                 bw.Write((byte)obj);
             };
-            
+
             WriterDictionary[typeof(sbyte)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
                 bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
                 bw.Write((sbyte)obj);
             };
-            
+
             WriterDictionary[typeof(byte[])] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
                 bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
                 bw.Write(obj as byte[]);
             };
-            
+
             WriterDictionary[typeof(short)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
                 bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
                 bw.Write((short)obj);
             };
-            
+
             WriterDictionary[typeof(ushort)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
                 bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
                 bw.Write((ushort)obj);
             };
-            
+
             WriterDictionary[typeof(int)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
                 bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
                 bw.Write((int)obj);
             };
-            
+
             WriterDictionary[typeof(uint)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
                 bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
@@ -173,7 +176,7 @@ namespace GameServer.Networking
                     bw.Write(Encoding.UTF8.GetBytes(text3));
                 }
             };
-            
+
             WriterDictionary[typeof(Point)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
                 Point point = ComputingClass.点阵坐标转协议坐标((Point)obj);
@@ -187,7 +190,7 @@ namespace GameServer.Networking
                 bw.Write((ushort)point.X);
                 bw.Write((ushort)point.Y);
             };
-            
+
             WriterDictionary[typeof(DateTime)] = delegate (BinaryWriter bw, WrappingFieldAttribute wfa, object obj)
             {
                 bw.BaseStream.Seek((long)((ulong)wfa.SubScript), SeekOrigin.Begin);
@@ -242,8 +245,6 @@ namespace GameServer.Networking
             File.WriteAllText("./ServerPackRule.txt", text);
             File.WriteAllText("./ClientPackRule.txt", text2);
         }
-
-
         public virtual bool Encrypted { get; set; }
 
 
@@ -291,7 +292,10 @@ namespace GameServer.Networking
                     binaryWriter.Write(this.PacketID);
                     if (this.PacketLength == 0)
                     {
-                        binaryWriter.Write((ushort)memoryStream.Length);
+                        if (PacketInfo.UseIntSize)
+                            binaryWriter.Write((uint)memoryStream.Length);
+                        else
+                            binaryWriter.Write((ushort)memoryStream.Length);
                     }
                     byte[] array = memoryStream.ToArray();
                     if (this.Encrypted && !forceNoEncrypt)
@@ -336,40 +340,43 @@ namespace GameServer.Networking
         {
             restOfBytes = inData;
             if (inData.Length < 2)
-            {
                 return null;
-            }
             ushort packetID = BitConverter.ToUInt16(inData, 0);
-            Type type;
 
-            if (!ClientPackets.TryGetValue(packetID, out type))
-            {
+            if (!ClientPackets.TryGetValue(packetID, out var type))
                 throw new Exception(string.Format("封包组包失败! 封包编号:{0:X4}", packetID));
-                return null;
-            }
-            ushort num2;
-            if (!ClientPacketLengthTable.TryGetValue(packetID, out num2))
-            {
+
+            uint packetLength;
+            if (!ClientPacketLengthTable.TryGetValue(packetID, out ushort num2))
                 throw new Exception(string.Format("获取封包长度失败! 封包编号:{0:X4}", packetID));
-                return null;
-            }
-            if (num2 == 0 && inData.Length < 4)
-            {
-                return null;
-            }
-            num2 = ((num2 == 0) ? BitConverter.ToUInt16(inData, 2) : num2);
-            if (inData.Length < (int)num2)
-            {
-                return null;
-            }
+            else
+                packetLength = num2;
+
             GamePacket GamePacket = (GamePacket)Activator.CreateInstance(type);
-            byte[] dataPacket = inData.Take((int)num2).ToArray<byte>();
-            if (GamePacket.Encrypted)
+            var useIntSize = GamePacket.PacketInfo.UseIntSize;
+
+            if (packetLength == 0 && inData.Length < (useIntSize ? 6 : 4))
+                return null;
+
+            if (packetLength == 0)
             {
-                GamePacket.EncodeData(dataPacket);
+                if (useIntSize)
+                {
+                    var buff = inData.Take(6).ToArray();
+                    if (GamePacket.Encrypted) GamePacket.EncodeData(buff);
+                    packetLength = BitConverter.ToUInt32(buff, 2);
+                }
+                else
+                    packetLength = BitConverter.ToUInt16(inData, 2);
             }
+
+            if (inData.Length < (int)packetLength)
+                return null;
+
+            byte[] dataPacket = inData.Take((int)packetLength).ToArray();
+            if (GamePacket.Encrypted) GamePacket.EncodeData(dataPacket);
             GamePacket.填封包(dataPacket);
-            restOfBytes = inData.Skip((int)num2).ToArray<byte>();
+            restOfBytes = inData.Skip((int)packetLength).ToArray<byte>();
             return GamePacket;
         }
 
@@ -377,10 +384,9 @@ namespace GameServer.Networking
         public static byte[] EncodeData(byte[] data)
         {
             for (int i = 4; i < data.Length; i++)
-            {
-                data[i] ^= GamePacket.EncryptionKey;
-            }
-            return (byte[])data;
+                data[i] ^= EncryptionKey;
+
+            return data;
         }
 
 

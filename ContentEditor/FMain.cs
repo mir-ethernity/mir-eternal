@@ -34,8 +34,8 @@ namespace ContentEditor
             LoadData();
             PaintOnPictureBox();
 
-            Width = pictureBox1.Image.Width;
-            Height = pictureBox1.Image.Height;
+            // Width = pictureBox1.Image.Width;
+            // Height = pictureBox1.Image.Height;
         }
 
         private void SetZoomMenuItem_Click(object? sender, EventArgs e)
@@ -100,7 +100,8 @@ namespace ContentEditor
             Map = new MapInfo();
 
             // var fileContent = File.ReadAllBytes("C:\\Mir3D\\Clean\\Mir3D\\Database\\System\\GameMap\\Terrains\\0245-魔龙殿.terrain");
-            var fileContent = File.ReadAllBytes("C:\\Mir3D\\Clean\\Mir3D\\Database\\System\\GameMap\\Terrains\\0175-祖玛寺长廊.terrain");
+            var fileContent = File.ReadAllBytes("C:\\Users\\dito1\\Desktop\\Files\\Edited\\MirDg07.terrain");
+            // var fileContent = File.ReadAllBytes("C:\\Mir3D\\Clean\\Mir3D\\Database\\System\\GameMap\\Terrains\\0175-祖玛寺长廊.terrain");
 
             using var ms = new MemoryStream(fileContent);
             using var br = new BinaryReader(ms);
@@ -115,6 +116,8 @@ namespace ContentEditor
             Map.Width = ex - sx;
             Map.Height = ey - sy;
 
+            MapInfoLabel.Text = $"Start X: {sx}, Start Y: {sy}, End X: {ex}, End Y: {ey}, Height X: {hx}, Height Y: {hy}, 2D Width: {Map.Width}, 2D Height: {Map.Height}";
+
             Map.Cells = new CellInfo[Map.Width, Map.Height];
 
             for (var x = 0; x < Map.Width; x++)
@@ -122,6 +125,9 @@ namespace ContentEditor
                 for (var y = 0; y < Map.Height; y++)
                 {
                     var cell = Map.Cells[x, y] = new CellInfo();
+
+                    var realX = x + sx;
+                    var realY = y + sy;
 
                     var cellFlag = br.ReadInt32();
                     var terrainHeight = (short)(cellFlag & 65535U) - 30U;
@@ -166,8 +172,8 @@ namespace ContentEditor
         public void PaintOnPictureBox(CancellationToken cancellationToken = default)
         {
             pictureBox1.Image = ScaleImage(
-                MapOriginalBitmap, 
-                (int)(MapOriginalBitmap.Width * ZoomFactor), 
+                MapOriginalBitmap,
+                (int)(MapOriginalBitmap.Width * ZoomFactor),
                 (int)(MapOriginalBitmap.Height * ZoomFactor)
             );
 

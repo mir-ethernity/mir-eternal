@@ -69,8 +69,27 @@ namespace GameServer.Networking
         public ushort U7;
     }
 
-    [PacketInfo(Source = PacketSource.Server, Id = 692, Length = 16, Description = "UnknownS2")]
+    [PacketInfo(Source = PacketSource.Server, Id = 692, Length = 16, Description = "UnknownS692")]
     public class UnknownS692 : GamePacket
+    {
+        [WrappingField(SubScript = 2, Length = 2)]
+        public ushort U1;
+        [WrappingField(SubScript = 4, Length = 2)]
+        public ushort U2;
+        [WrappingField(SubScript = 6, Length = 2)]
+        public ushort U3;
+        [WrappingField(SubScript = 8, Length = 2)]
+        public ushort U4;
+        [WrappingField(SubScript = 10, Length = 2)]
+        public ushort U5;
+        [WrappingField(SubScript = 12, Length = 2)]
+        public ushort U6;
+        [WrappingField(SubScript = 14, Length = 2)]
+        public ushort U7;
+    }
+
+    [PacketInfo(Source = PacketSource.Server, Id = 693, Length = 0, UseIntSize = true, Description = "UnknownS693")]
+    public class UnknownS693 : GamePacket
     {
     }
 

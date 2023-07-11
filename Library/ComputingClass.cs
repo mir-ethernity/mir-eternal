@@ -290,7 +290,10 @@ namespace GameServer
 
         public static Point 协议坐标转点阵坐标(Point location)
         {
-            return new Point((int)Math.Round((double)(((float)location.X + 16f) / 32f)), (int)Math.Round((double)(((float)location.Y + 16f) / 32f)));
+            return new Point(
+                (int)Math.Round((double)((location.X + 16f) / 32f)), 
+                (int)Math.Round((double)((location.Y + 16f) / 32f))
+            );
         }
 
 

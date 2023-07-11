@@ -117,21 +117,22 @@ namespace GameServer.Data
         }
 
 
-        public void 账号登录(SConnection 当前网络, string MacAddress)
+        public void 账号登录(SConnection conn, string MacAddress)
         {
-            当前网络.SendPacket(new AccountLoginSuccessPacket
+            conn.SendPacket(new AccountLoginSuccessPacket
             {
                 协议数据 = GenerateLoginAgreementDescription()
             });
-            当前网络.SendPacket(new 同步服务状态());
-            
-            当前网络.SendPacket(new BackCharacterListPacket
+            conn.SendPacket(new 同步服务状态());
+            conn.SendPacket(new UnknownS692() { U1 = 100, U2 = 130, U3 = 160, U4 = 190, U5 = 220, U6 = 250, U7 = 250 });
+            conn.SendPacket(new UnknownS693() { });
+            conn.SendPacket(new BackCharacterListPacket
             {
                 列表描述 = this.角色列表描述()
             });
-            当前网络.Account = this;
-            当前网络.CurrentStage = GameStage.SelectingCharacterScene;
-            this.网络连接 = 当前网络;
+            conn.Account = this;
+            conn.CurrentStage = GameStage.SelectingCharacterScene;
+            this.网络连接 = conn;
             this.网络连接.MacAddress = MacAddress;
             NetworkServiceGateway.ActiveConnections += 1U;
         }

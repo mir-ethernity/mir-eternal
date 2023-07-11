@@ -208,7 +208,7 @@ namespace GameServer.Maps
 				this.发送封包(new TransactionStatusChangePacket
 				{
 					对象编号 = 玩家.ObjectId,
-					交易状态 = 玩家.交易状态,
+					交易状态 = 玩家.ShopState,
 					对象等级 = (int)玩家.CurrentLevel
 				});
 				return;
@@ -219,7 +219,7 @@ namespace GameServer.Maps
 				this.发送封包(new TransactionStatusChangePacket
 				{
 					对象编号 = 玩家.ObjectId,
-					交易状态 = 玩家.交易状态,
+					交易状态 = 玩家.ShopState,
 					对象等级 = (int)玩家.CurrentLevel
 				});
 				return;

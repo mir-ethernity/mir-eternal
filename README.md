@@ -26,7 +26,7 @@ First, a compatible client will need to be downloaded, for example:
 * DOWNLOAD LINK UPDATED *
 https://cq.dorado.sdo.com/downloader/cqyh_10409_downloader.exe
 
-Latest version still compatible with this files **[1.0.4.10 (v1.72 - 190803)]** at 24/06/23!
+Latest version still compatible with this files **[1.0.4.14 (v1.72 - 191186)]** at July 11, 2023!
 
 Once downloaded, you will need to copy the compiled binaries of the launcher to the root of the folder.
 

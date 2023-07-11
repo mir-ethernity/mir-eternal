@@ -172,6 +172,13 @@ namespace ClientPacketSnifferApp
                                 data[b] ^= 129;
                     }
 
+                    // if(packetType.Id == 1004)
+                    // {
+                    //     var buff = data.Skip(778).ToArray();
+                    //     for (var c = 0; c < buff.Length; c++)
+                    //         buff[c] ^= 129;
+                    // }
+
                     output.Add(new PacketParsed
                     {
                         Data = data,
