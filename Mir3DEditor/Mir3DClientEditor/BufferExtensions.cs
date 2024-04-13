@@ -23,6 +23,15 @@ namespace Mir3DClientEditor
             }
         }
 
+        public static string GetStringExcludeBOMPreamble(this Encoding encoding, byte[] bytes)
+        {
+            var preamble = encoding.GetPreamble();
+            if (preamble?.Length > 0 && bytes.Length >= preamble.Length && bytes.Take(preamble.Length).SequenceEqual(preamble))
+                return encoding.GetString(bytes, preamble.Length, bytes.Length - preamble.Length);
+            else
+                return encoding.GetString(bytes);
+        }
+
         public static string DecodeString(this byte[] buffer, out Encoding encoding)
         {
             var posibleEncoding = BitConverter.ToInt16(buffer, 0);
