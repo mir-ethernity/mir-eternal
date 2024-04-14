@@ -33,8 +33,8 @@ namespace Mir3DClientEditor.FormValueEditors
         {
             _encoding = buffer.GetPosibleEncoding();
 
-            var content = _encoding.GetString(buffer);
-            var data = INI.Read(content);
+            var content = _encoding.GetStringExcludeBOMPreamble(buffer);
+            var data = INI.Read(content, _encoding);
 
             foreach (var field in data)
             {
@@ -78,7 +78,9 @@ namespace Mir3DClientEditor.FormValueEditors
                     sb.AppendLine(item);
             }
 
-            return _encoding.GetBytes(sb.ToString());
+            var bom = _encoding.GetPreamble();
+            var buffer = _encoding.GetBytes(sb.ToString());
+            return bom?.Concat(buffer).ToArray();
         }
     }
 }

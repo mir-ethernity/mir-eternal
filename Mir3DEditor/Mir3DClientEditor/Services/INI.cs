@@ -18,7 +18,7 @@ namespace Mir3DClientEditor.Services
 
     public static class INI
     {
-        public static List<INIValue> Read(string content)
+        public static List<INIValue> Read(string content, Encoding encoding)
         {
             var list = new List<INIValue>();
 
@@ -28,7 +28,7 @@ namespace Mir3DClientEditor.Services
 
             foreach (var line in lines)
             {
-                var line2 = Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(line).SkipWhile(x => x == 239 || x == 187 || x == 191).ToArray());
+                var line2 = encoding.GetString(encoding.GetBytes(line).SkipWhile(x => x == 239 || x == 187 || x == 191).ToArray());
 
                 if (line2[0] == ';') continue;
 
