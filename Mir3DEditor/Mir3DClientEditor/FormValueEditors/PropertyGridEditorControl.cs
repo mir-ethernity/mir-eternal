@@ -175,6 +175,8 @@ namespace Mir3DClientEditor.FormValueEditors
 
                 foreach (var item in array)
                 {
+                    if (item.Properties.Count == 0) continue;
+
                     var row = new DataGridViewRow();
                     row.CreateCells(DataGrid);
 
@@ -208,6 +210,7 @@ namespace Mir3DClientEditor.FormValueEditors
                 case "StrProperty":
                     cell = new DataGridViewTextBoxCell() { };
                     break;
+                case "ByteProperty":
                 case "IntProperty":
                     cell = new DataGridViewTextBoxCell() { };
                     break;

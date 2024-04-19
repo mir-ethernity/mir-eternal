@@ -230,6 +230,7 @@ namespace Mir3DClientEditor.FormValueEditors
                                     case "StrProperty":
                                         cell = new DataGridViewTextBoxCell() { };
                                         break;
+                                    case "ByteProperty":
                                     case "IntProperty":
                                         cell = new DataGridViewTextBoxCell() { };
                                         break;
