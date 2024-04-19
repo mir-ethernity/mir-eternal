@@ -72,10 +72,7 @@ namespace Mir3DClientEditor.FormValueEditors
             if (cell.GetType() != typeof(DataGridViewButtonCell))
                 return;
 
-
-            var value = Values[e.RowIndex];
-
-            if (value is UValueStructProperty structValue)
+            if (row.Tag is UValueStructProperty structValue)
             {
                 var property = structValue.Properties[e.ColumnIndex];
                 if (FPropertyEditor.Show(property))
@@ -121,6 +118,7 @@ namespace Mir3DClientEditor.FormValueEditors
             {
                 var row = new DataGridViewRow();
                 row.CreateCells(DataGrid);
+                row.Tag = prop;
 
                 row.Cells[0].Value = prop.Name;
                 row.Cells[1] = CreateCell(prop.TypeName);
@@ -175,8 +173,11 @@ namespace Mir3DClientEditor.FormValueEditors
 
                 foreach (var item in array)
                 {
+                    if (item.Properties.Count == 0) continue;
+
                     var row = new DataGridViewRow();
                     row.CreateCells(DataGrid);
+                    row.Tag = item;
 
                     foreach (var prop in item.Properties)
                     {
@@ -208,6 +209,7 @@ namespace Mir3DClientEditor.FormValueEditors
                 case "StrProperty":
                     cell = new DataGridViewTextBoxCell() { };
                     break;
+                case "ByteProperty":
                 case "IntProperty":
                     cell = new DataGridViewTextBoxCell() { };
                     break;
