@@ -19,8 +19,6 @@ https://www.lomcn.org/forum/threads/legend-of-mir-3d-emu-source-code.108580/
 
 In this repository, we have done a refactoring, translation and correction work from the mentioned source.
 
-## How to start
-
 ## 🚀 Getting Started
 
 ### 🖥️ Client & Launcher Setup
