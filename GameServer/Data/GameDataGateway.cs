@@ -24,7 +24,7 @@ namespace GameServer.Data
                 GameDataGateway.数据修改 = value;
                 if (GameDataGateway.数据修改 && !MainProcess.Running && (MainProcess.MainThread == null || !MainProcess.MainThread.IsAlive))
                 {
-                    MainForm.Singleton.BeginInvoke(new MethodInvoker(delegate ()
+                    MainForm.Singleton.BeginInvoke(new System.Windows.Forms.MethodInvoker(delegate ()
                     {
                         MainForm.Singleton.保存按钮.Enabled = true;
                     }));
@@ -393,7 +393,7 @@ namespace GameServer.Data
             {
                 return;
             }
-            主界面.BeginInvoke(new MethodInvoker(delegate ()
+            主界面.BeginInvoke(new System.Windows.Forms.MethodInvoker(delegate ()
             {
                 TabPage 设置页面 = MainForm.Singleton.tabConfig;
                 MainForm.Singleton.下方控件页.Enabled = false;

@@ -1,5 +1,4 @@
-﻿using NAudio.Wave;
-using NVorbis;
+﻿using NVorbis;
 using System;
 using System.Collections.Generic;
 using System.IO;
