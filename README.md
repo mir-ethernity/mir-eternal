@@ -25,7 +25,7 @@ In this repository, we have done a refactoring, translation and correction work 
 
 1. Download a compatible client:
 
-   - [**Latest Client**](https://cq.dorado.sdo.com/downloader/cqyh_10409_downloader.exe)
+   - [**Latest Client**](https://mirfiles.co.uk/resources/mir2/users/Jev/Mir%203DEMU/Clients/CQYH1.0.4.14.7z)
    > ✅ Latest supported version: **v1.72 - 191186**
 
 2. Copy the compiled launcher binaries into the client root folder.
