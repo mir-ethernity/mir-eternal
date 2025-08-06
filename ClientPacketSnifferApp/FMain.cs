@@ -3,6 +3,7 @@ using PacketDotNet;
 using SharpPcap;
 using SharpPcap.LibPcap;
 using System.ComponentModel;
+using System.Text.Json.Serialization;
 
 namespace ClientPacketSnifferApp
 {
@@ -14,6 +15,7 @@ namespace ClientPacketSnifferApp
         private MemoryStream? _captureBuffer = null;
         private bool _backgroundWorkerRunning = false;
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool Capturing { get; set; }
         public int TotalClientPackets { get; private set; }
         public int TotalServerPackets { get; private set; }

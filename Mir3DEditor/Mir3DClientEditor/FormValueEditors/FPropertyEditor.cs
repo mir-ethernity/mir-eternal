@@ -17,7 +17,9 @@ namespace Mir3DClientEditor.FormValueEditors
 {
     public partial class FPropertyEditor : Form
     {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public UDefaultProperty Property { get; set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public UValueProperty[] Values { get; set; }
 
         public FPropertyEditor()
